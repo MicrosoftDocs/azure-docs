@@ -3,23 +3,32 @@ title: Use Document Intelligence (formerly Form Recognizer) containers in discon
 titleSuffix: Azure AI services
 description: Learn how to run Cognitive Services Docker containers disconnected from the internet.
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 author: laujan
 manager: nitinme
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
 # Containers in disconnected environments
 
-::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](../includes/applies-to-v3-1-v3-0-v2-1.md)]
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [applies to v4.0](../includes/applies-to-v40.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](../includes/applies-to-v31.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+[!INCLUDE [applies to v3.0](../includes/applies-to-v30.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
 ::: moniker-end
 
 ## What are disconnected containers?
@@ -348,4 +357,4 @@ Run the container with an output mount and logging enabled. These settings enabl
 ## Next steps
 
 * [Deploy the Sample Labeling tool to an Azure Container Instance (ACI)](../deploy-label-tool.md#deploy-with-azure-container-instances-aci)
-* [Change or end a commitment plan](../../../ai-services/containers/disconnected-containers.md#purchase-a-commitment-tier-pricing-plan-for-disconnected-containers)
+* [Change or end a commitment plan](../../../ai-services/containers/disconnected-containers.md#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments)

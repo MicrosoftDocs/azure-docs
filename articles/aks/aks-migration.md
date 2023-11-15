@@ -1,6 +1,6 @@
 ---
 title: Migrate to Azure Kubernetes Service (AKS)
-description: This article shows you how to to Azure Kubernetes Service (AKS).
+description: This article shows you how to migrate to Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.date: 05/30/2023
 ms.custom: mvc, devx-track-azurecli

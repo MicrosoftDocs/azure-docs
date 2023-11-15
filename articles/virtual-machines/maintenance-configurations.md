@@ -68,7 +68,8 @@ In rare cases if platform catchup host update window happens to coincide with th
 To learn more about this topic, checkout [Update Manager and scheduled patching](../update-center/scheduled-patching.md)
 
 > [!NOTE]
-> If you move a VM to a different resource group or subscription, the scheduled patching for the VM stops working as this scenario is currently unsupported by the system.
+> 1. If you move a VM to a different resource group or subscription, the scheduled patching for the VM stops working as this scenario is currently unsupported by the system. You can delete the older association of the moved VM and create the new association to include the moved VMs in a maintenance configuration.
+> 2. Schedules triggered on machines deleted and recreated with the same resource ID within 8 hours may fail with ShutdownOrUnresponsive error due to a known limitation. It will be resolved by December, 2023.
 
 ## Shut Down Machines
 

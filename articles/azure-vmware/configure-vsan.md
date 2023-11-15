@@ -53,9 +53,8 @@ You'll run the `Set-AVSVSANClusterUNMAPTRIM` cmdlet to enable or disable TRIM/UN
 
 1. Check **Notifications** to see the progress.
    >[!NOTE]
-   >After vSAN TRIM/UNMAP is Enabled, below lists additional requirements for it to function as intended.
-   >Prerequisites -  VM Level
-   >Once enabled, there are several prerequisites that must be met for TRIM/UNMAP to successfully reclaim no longer used capacity.
+   >After vSAN TRIM/UNMAP is Enabled, below lists additional requirements for it to function as intended. Once enabled, there are several prerequisites that must be met for TRIM/UNMAP to successfully reclaim no longer used capacity.
+   >- Prerequisites -  VM Level
    >- A minimum of virtual machine hardware version 11 for Windows
    >- A minimum of virtual machine hardware version 13 for Linux.
    >- disk.scsiUnmapAllowed flag is not set to false. The default is implied true. This setting can be used as a "stop switch" at the virtual machine level should you wish to disable this behavior on a per VM basis and do not want to use in guest configuration to disable this behavior. VMX file changes require a reboot to take effect.

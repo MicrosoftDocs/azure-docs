@@ -7,6 +7,8 @@ metadata:
   author: aahill
   manager: nitinme
   ms.service: azure-ai-services
+  ms.custom:
+    - ignite-2023
   ms.topic: faq
   ms.date: 09/15/2023
   ms.author: aahi
@@ -28,10 +30,11 @@ sections:
               *	Sentiment Analysis
               *	Key Phrase Extraction
               *	Language Detection
+              * Named Entity Recognition (NER)
           *	Azure AI Vision - Read
           *	Document Intelligence
 
-          For more information about commitment tier pricing, reach out to your Microsoft account team or contact at Microsoft. You can also email csgate@microsoft.com.
+          For more information about commitment tier pricing, reach out to your Microsoft account team or contact at Microsoft. You can also email azureaicontainergating@service.microsoft.com.
       - question: Will containers be available for other Azure AI services offerings, and what's the next set of containers I should expect?
         answer: |
           We'd like to make more Azure AI services offerings available as containers. Contact your local Microsoft account manager to get updates on new container releases and other Azure AI services announcements.
@@ -47,8 +50,8 @@ sections:
             * Application completed as instructed - Please pay close attention to guidance provided throughout the application to ensure you provide all the necessary information required for approval. 
       - question: What if my use case can't satisfy the requirements listed above?
         answer: |
-          If your use case can't satisfy above requirements but you're interested in running containers on premises, you may be able to use [connected containers](../cognitive-services-container-support.md).   
-      - question: What are some reasons my application may be denied?
+          If your use case can't satisfy above requirements but you're interested in running containers on premises, you might be able to use [connected containers](../cognitive-services-container-support.md).   
+      - question: What are some reasons my application might be denied?
         answer: |
           Possible causes for a denied application are as follows: 
           *	Not being an existing Microsoft partner or enterprise agreement customer  
@@ -62,7 +65,7 @@ sections:
 
           Once your application is approved, the Azure AI services gating team will communicate details for purchasing the commitment tier pricing, and instructions to download and run the containers. 
 
-          If you have any questions on the application, gating process or other information needed, email csgate@microsoft.com
+          If you have any questions on the application, gating process or other information needed, email azureaicontainergating@service.microsoft.com
       - question: How do I download the disconnected containers?
         answer: | 
           These containers are hosted on the Microsoft Container Registry and available for download on [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog) and [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/catalog?search=azure%20AI). You won't be able to run the container if your Azure subscription has not been approved after completion of the request form. Once you're approved, you can follow the steps in [Use Docker containers in disconnected environments](disconnected-containers.md)
@@ -118,7 +121,7 @@ sections:
             * [Microsoft Cognitive](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
       - question: How does billing work?
         answer: |
-          Customers are charged based on the [commitment tier](../plan-manage-costs.md#commitment-tier) they purchase. Choose an annual commitment plan based on the needs of your workload. You can customize the "Commitment tier disconnected containers DC0" pricing tier by selecting one of several commitment tier options. 
+          Customers are charged based on the commitment tier they purchase. Choose an annual commitment plan based on the needs of your workload. You can customize the "Commitment tier disconnected containers DC0" pricing tier by selecting one of several commitment tier options. 
           
           Each commitment tier offers a discounted rate as compared to the pay-as-you-go pricing model. Commitment plans are charged annually starting from the day the resource was created. Additional units can be added at any time in the year and are charged pro-rated based on the number of days remaining in the billing year. For more information, see the following pricing pages:
           > [!TIP]
@@ -154,6 +157,7 @@ sections:
             * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#host-computer-requirements-and-recommendations)
             * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#host-computer-requirements-and-recommendations)
             * [Language Detection](../language-service/language-detection/how-to/use-containers.md#host-computer-requirements-and-recommendations)
+            * [Named Entity Recognition](../language-service/named-entity-recognition/how-to/use-containers.md#host-computer-requirements-and-recommendations)
           *	[Azure AI Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md#host-computer-requirements)
           *	[Document Intelligence - Custom/Invoice](../../ai-services/document-intelligence/containers/install-run.md#host-computer-requirements)
       - question: Are these containers currently supported on Windows?

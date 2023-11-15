@@ -10,7 +10,9 @@ ms.subservice: azure-ai-face
 ms.topic: overview
 ms.date: 07/04/2023
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020
+ms.custom:
+  - cog-serv-seo-aug-2020
+  - ignite-2023
 keywords: facial recognition, facial recognition software, facial analysis, face matching, face recognition app, face search by image, facial recognition search
 #Customer intent: As the developer of an app that deals with images of humans, I want to learn what the Face service does so I can determine if I should use its features.
 ---
@@ -23,7 +25,7 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 [!INCLUDE [GDPR-related guidance](./includes/identity-data-notice.md)]
 [!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
 
-The Azure AI Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identity verification, touchless access control, and face blurring for privacy.
+The Azure AI Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identification, touchless access control, and face blurring for privacy.
 
 You can use the Face service through a client library SDK or by calling the REST API directly. Follow the quickstart to get started.
 
@@ -46,7 +48,9 @@ For a more structured approach, follow a Training module for Face.
 
 ## Example use cases
 
-**Identity verification**: Verify someone's identity against a government-issued ID card like a passport or driver's license or other enrollment image. You can use this verification to grant access to digital or physical services or to recover an account. Specific access scenarios include opening a new account, verifying a worker, or administering an online assessment. Identity verification can be done once when a person is onboarded, and repeated when they access a digital or physical service.
+**Verify user identity**: Verify a person against a trusted face image. This verification could be used to grant access to digital or physical properties, such as a bank account, access to a building, and so on. In most cases, the trusted face image could come from a government-issued ID such as a passport or driver’s license, or it could come from an enrollment photo taken in person. During verification, liveness detection can play a critical role in verifying that the image comes from a real person, not a printed photo or mask. For more details on verification with liveness, see the [liveness tutorial](./Tutorials/liveness.md). For identity verification without liveness, follow the [quickstart](./quickstarts-sdk/identity-client-library.md).
+
+**Liveness detection**: Liveness detection is an anti-spoofing feature that checks whether a user is physically present in front of the camera. It's used to prevent spoofing attacks using a printed photo, video, or a 3D mask of the user's face. [Liveness tutorial](./Tutorials/liveness.md)
 
 **Touchless access control**: Compared to today’s methods like cards or tickets, opt-in face identification enables an enhanced access control experience while reducing the hygiene and security risks from card sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, buildings, reception kiosks at offices, hospitals, gyms, clubs, or schools.
 
@@ -68,10 +72,30 @@ You can try out Face detection quickly and easily in your browser using Vision S
 > [!div class="nextstepaction"]
 > [Try Vision Studio for Face](https://portal.vision.cognitive.azure.com/gallery/face)
 
+## Liveness detection
 
-## Identity verification
+[!INCLUDE [liveness-sdk-gate](./includes/liveness-sdk-gate.md)]
 
-Modern enterprises and apps can use the Face identification and Face verification operations to verify that a user is who they claim to be.
+Face Liveness detection can be used to determine if a face in an input video stream is real (live) or fake (spoof). This is a crucial building block in a biometric authentication system to prevent spoofing attacks from imposters trying to gain access to the system using a photograph, video, mask, or other means to impersonate another person.
+
+The goal of liveness detection is to ensure that the system is interacting with a physically present live person at the time of authentication. Such systems have become increasingly important with the rise of digital finance, remote access control, and online identity verification processes.
+
+The liveness detection solution successfully defends against a variety of spoof types ranging from paper printouts, 2d/3d masks, and spoof presentations on phones and laptops. Liveness detection is an active area of research, with continuous improvements being made to counteract increasingly sophisticated spoofing attacks over time. Continuous improvements will be rolled out to the client and the service components over time as the overall solution gets more robust to new types of attacks.
+
+Our liveness detection solution meets iBeta Level 1 and 2 ISO/IEC 30107-3 compliance.
+
+Tutorial
+- [Face liveness Tutorial](Tutorials/liveness.md)
+Concepts
+- [Abuse monitoring](concept-liveness-abuse-monitoring.md)
+
+Face liveness SDK reference docs:
+- [Java (Android)](https://aka.ms/liveness-sdk-java)
+- [Swift (iOS)](https://aka.ms/liveness-sdk-ios)
+
+## Face recognition
+
+Modern enterprises and apps can use the Face recognition technologies, including Face verification ("one-to-one" matching) and Face identification ("one-to-many" matching) to confirm that a user is who they claim to be.
 
 ### Identification
 
@@ -87,9 +111,9 @@ After you create and train a group, you can do identification against the group 
 
 The verification operation answers the question, "Do these two faces belong to the same person?". 
 
-Verification is also a "one-to-one" matching of a face in an image to a single face from a secure repository or photo to verify that they're the same individual. Verification can be used for Identity Verification, such as a banking app that enables users to open a credit account remotely by taking a new picture of themselves and sending it with a picture of their photo ID.
+Verification is also a "one-to-one" matching of a face in an image to a single face from a secure repository or photo to verify that they're the same individual. Verification can be used for access control, such as a banking app that enables users to open a credit account remotely by taking a new picture of themselves and sending it with a picture of their photo ID. It can also be used as a final check on the results of an Identification API call.
 
-For more information about identity verification, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) and [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) API reference documentation.
+For more information about Face recognition, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) and [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) API reference documentation.
 
 
 ## Find similar faces
@@ -114,6 +138,18 @@ The Group operation divides a set of unknown faces into several smaller groups b
 
 All of the faces in a returned group are likely to belong to the same person, but there can be several different groups for a single person. Those groups are differentiated by another factor, such as expression, for example. For more information, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Group API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) reference documentation.
 
+## Input requirements
+
+General image input requirements:
+[!INCLUDE [identity-input-technical](includes/identity-input-technical.md)]
+
+Input requirements for face detection:
+[!INCLUDE [identity-input-detection](includes/identity-input-detection.md)]
+
+Input requirements for face recognition:
+[!INCLUDE [identity-input-composition](includes/identity-input-composition.md)]
+
+
 ## Data privacy and security
 
 As with all of the Azure AI services resources, developers who use the Face service must be aware of Microsoft's policies on customer data. For more information, see the [Azure AI services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center.
@@ -122,4 +158,4 @@ As with all of the Azure AI services resources, developers who use the Face serv
 
 Follow a quickstart to code the basic components of a face recognition app in the language of your choice.
 
-- [Face quickstart](quickstarts-sdk/identity-client-library.md).
+- [Face quickstart](quickstarts-sdk/identity-client-library.md)

@@ -325,7 +325,7 @@ Currently not implemented.
 You get a warning similar to the following:
 
 ```warning
-The deployment stack 'myStack' you're trying to create already already exists in the current subscription/management group/resource group. Do you want to overwrite it? Detaching: resources, resourceGroups (Y/N)
+The deployment stack 'myStack' you're trying to create already exists in the current subscription/management group/resource group. Do you want to overwrite it? Detaching: resources, resourceGroups (Y/N)
 ```
 
 For more information, see [Create deployment stacks](#create-deployment-stacks).

@@ -111,6 +111,8 @@
           href: /security/benchmark/azure/baselines/aks-security-baseline?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Container Security
           href: concepts-security.md
+        - name: Confidential Containers security policy
+          href: ../confidential-computing/confidential-containers-aks-security-policy.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
@@ -180,6 +182,12 @@
           href: operator-best-practices-storage.md
         - name: Business continuity (BC) and disaster recovery (DR)
           href: operator-best-practices-multi-region.md
+    - name: Performance and scaling
+      items:
+        - name: For small to medium workloads
+          href: best-practices-performance-scale.md
+        - name: For large workloads
+          href: best-practices-performance-scale-large.md
     - name: Application development
       items:
         - name: Resource management
@@ -278,6 +286,12 @@
                         href: keda-integrations.md
                       - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
                         href: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+    - name: Containers
+      items:
+        - name: Confidential Containers overview
+          href: confidential-containers-overview.md
+        - name: Deploy Confidential Containers with default policy
+          href: deploy-confidential-containers-default-policy.md
     - name: Nodes
       items:
         - name: Cluster nodes
@@ -507,6 +521,8 @@
               items:
                 - name: Application routing add-on overview
                   href: app-routing.md
+                - name: Application routing add-on advanced configurations
+                  href: app-routing-configuration.md
                 - name: Monitor using Prometheus and Grafana
                   href: app-routing-nginx-prometheus.md
                 - name: Migrate from HTTP application routing to the application routing add-on
@@ -543,24 +559,25 @@
           items:
             - name: CSI storage drivers overview
               href: csi-storage-drivers.md
-            - name: Azure Container Storage 
-              href: ../storage/container-storage/container-storage-introduction.md
+           
             - name: Migrate from in-tree to CSI driver
               href: csi-migrate-in-tree-volumes.md
+        - name: Block storage
+          items:
+              - name: Provision Azure Disks storage
+                href: azure-csi-disk-storage-provision.md
+              - name: Azure Disks CSI driver
+                href: azure-disk-csi.md
+              - name: Use Azure Premium SSD v2 disks
+                href: use-premium-v2-disks.md
+              - name: Use Azure ultra disks
+                href: use-ultra-disks.md
+              - name: Bring your own keys for disks
+                href: azure-disk-customer-managed-keys.md
+              - name: Azure Container Storage 
+                href: ../storage/container-storage/container-storage-introduction.md
         - name: Shared file storage
           items:
-            - name: Block storage
-              items:
-                - name: Provision Azure Disks storage
-                  href: azure-csi-disk-storage-provision.md
-                - name: Azure Disks CSI driver
-                  href: azure-disk-csi.md
-                - name: Use Azure Premium SSD v2 disks
-                  href: use-premium-v2-disks.md
-                - name: Use Azure ultra disks
-                  href: use-ultra-disks.md
-                - name: Bring your own keys for disks
-                  href: azure-disk-customer-managed-keys.md
             - name: Azure Files storage
               items:
                 - name: Azure Files CSI driver
@@ -619,6 +636,10 @@
           href: kubelet-logs.md
         - name: View container data real-time
           href: ../azure-monitor/containers/container-insights-livedata-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Cost analysis
+          items:
+          - name: Enable cost analysis on your cluster
+            href: cost-analysis.md
         - name: Network Observability
           items:
             - name: BYO Prometheus and Grafana
@@ -628,8 +649,11 @@
     - name: Upgrade
       items:
         - name: Upgrade options
-          href: upgrade-cluster.md
           items:
+          - name: Upgrade options
+            href: upgrade-cluster.md
+          - name: Stop cluster upgrades automatically on API breaking changes
+            href: stop-cluster-upgrade-api-breaking-changes.md
           - name: Perform manual upgrades
             items:
             - name: Upgrade an AKS cluster
@@ -646,8 +670,6 @@
                 href: auto-upgrade-cluster.md
               - name: Use Planned Maintenance to schedule and control upgrades
                 href: planned-maintenance.md
-              - name: Stop cluster upgrades automatically on API breaking changes
-                href: stop-cluster-upgrade-api-breaking-changes.md
               - name: Automatically upgrade AKS cluster node operating system images
                 href: auto-upgrade-node-image.md
               - name: Upgrade the node image automatically with GitHub Actions
@@ -725,6 +747,8 @@
           href: open-ai-quickstart.md
         - name: Secure access to Azure OpenAI from Azure Kubernetes Service (AKS)
           href: open-ai-secure-access-quickstart.md
+        - name: Deploy an AI model with the AI toolchain operator
+          href: ai-toolchain-operator.md 
     - name: DevOps
       items:
         - name: Azure DevOps Project

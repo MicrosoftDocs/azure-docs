@@ -1,37 +1,36 @@
 ---
 title: Vector search
-titleSuffix: Azure Cognitive Search
-description: Describes concepts, scenarios, and availability of the vector search feature in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Describes concepts, scenarios, and availability of the vector search feature in Azure AI Search.
 
 author: robertklee
 ms.author: robertlee
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 11/01/2023
 ---
 
-# Vector search in Azure Cognitive Search
-
-> [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, [**2023-10-01-Preview REST APIs**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview), [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview), and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
+# Vector search in Azure AI Search
 
 Vector search is an approach in information retrieval that uses numeric representations of content for search scenarios. Because the content is numeric rather than plain text, the search engine matches on vectors that are the most similar to the query, with no requirement for matching on exact terms.
 
-This article is a high-level introduction to vector support in Azure Cognitive Search. It also explains integration with other Azure services and covers [terminology and concepts](#vector-search-concepts) related to vector search development.
+This article is a high-level introduction to vector support in Azure AI Search. It also explains integration with other Azure services and covers [terminology and concepts](#vector-search-concepts) related to vector search development.
 
 We recommend this article for background, but if you'd rather get started, follow these steps:
 
 > [!div class="checklist"]
-> + [Generate vector embeddings](vector-search-how-to-generate-embeddings.md) before you start.
+> + [Generate vector embeddings](vector-search-how-to-generate-embeddings.md) before you start, or try out [integrated vectorization (preview)](vector-search-integrated-vectorization.md).
 > + [Add vector fields to an index](vector-search-how-to-create-index.md).
 > + [Load vector data](search-what-is-data-import.md) into an index using push or pull methodologies. 
-> + [Query vector data](vector-search-how-to-query.md) using the Azure portal, preview REST APIs, or beta SDK packages.
+> + [Query vector data](vector-search-how-to-query.md) using the Azure portal, REST APIs, or Azure SDK packages.
 
 You could also begin with the [vector quickstart](search-get-started-vector.md) or the [code samples on GitHub](https://github.com/Azure/cognitive-search-vector-pr). 
 
-Vector support is in the Azure SDKs for [.NET](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.4), [Python](https://pypi.org/project/azure-search-documents/11.4.0b8/), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2).
+Vector search is in the Azure portal and the Azure SDKs for [.NET](https://www.nuget.org/packages/Azure.Search.Documents), [Python](https://pypi.org/project/azure-search-documents), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2).
 
-## What's vector search in Cognitive Search?
+## What's vector search in Azure AI Search?
 
 Vector search is a new capability for indexing, storing, and retrieving vector embeddings from a search index. You can use it to power similarity search, multi-modal search, recommendations engines, or applications implementing the [Retrieval Augmented Generation (RAG) architecture](https://aka.ms/what-is-rag).
 
@@ -39,21 +38,15 @@ The following diagram shows the indexing and query workflows for vector search.
 
 :::image type="content" source="media/vector-search-overview/vector-search-architecture-diagram-3.svg" alt-text="Architecture of vector search workflow." border="false" lightbox="media/vector-search-overview/vector-search-architecture-diagram-3-high-res.png":::
 
-On the indexing side, prepare source documents that contain embeddings. Cognitive Search doesn't generate embeddings, so your solution should include calls to Azure OpenAI or other models that can transform image, audio, text, and other content into vector representations. Add a *vector field* to your index definition on Cognitive Search. Load the index with a documents payload that includes the vectors. Your index is now ready to query.
+On the indexing side, prepare source documents that contain embeddings. Although integrated vectorization is in public preview, the generally available version of Azure AI Search doesn't generate embeddings. If you're bound to a no-preview feature policy, your solution should include calls to Azure OpenAI or other models that can transform image, audio, text, and other content into vector representations. Add a *vector field* to your index definition on Azure AI Search. Load the index with a documents payload that includes the vectors. Your index is now ready to query.
 
-On the query side, in your client application, collect the query input. Add a step that converts the input into a vector, and then send the vector query to your index on Cognitive Search for a similarity search. Cognitive Search returns documents with the requested `k` nearest neighbors (kNN) in the results.
+On the query side, in your client application, collect the query input. Add a step that converts the input into a vector, and then send the vector query to your index on Azure AI Search for a similarity search. Azure AI Search returns documents with the requested `k` nearest neighbors (kNN) in the results.
 
 You can index vector data as fields in documents alongside alphanumeric content. Vector queries can be issued singly or in combination with filters and other query types, including term queries (hybrid search) and semantic ranking in the same search request.
 
-## Limitations
-
-Azure Cognitive Search doesn't generate vector embeddings for your content. You need to provide the embeddings yourself by using a solution like Azure OpenAI. See [How to generate embeddings](vector-search-how-to-generate-embeddings.md) to learn more.
-
-Vector search doesn't support customer-managed keys (CMK) at this time. This means you won't be able to add vector fields to an index with CMK enabled.
-
 ## Availability and pricing
 
-Vector search is available as part of all Cognitive Search tiers in all regions at no extra charge.
+Vector search is available as part of all Azure AI Search tiers in all regions at no extra charge.
 
 > [!NOTE]
 > Some older search services created before January 1, 2019 are deployed on infrastructure that doesn't support vector workloads. If you try to add a vector field to a schema and get an error, it's a result of outdated services. In this situation, you must create a new search service to try out the vector feature.
@@ -72,7 +65,7 @@ Scenarios for vector search include:
 
 + **Filtered vector search**. A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to text and numeric fields, and are useful for metadata filters, and including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, you can set up a filterable text or numeric field. The search engine can process the filter before or after the vector query executes.
 
-+ **Vector database**. Use Cognitive Search as a vector store to serve as long-term memory or an external knowledge base for Large Language Models (LLMs), or other applications. For example, you can use Azure Cognitive Search as a [*vector index* in an Azure Machine Learning prompt flow](/azure/machine-learning/concept-vector-stores) for Retrieval Augmented Generation (RAG) applications. 
++ **Vector database**. Use Azure AI Search as a vector store to serve as long-term memory or an external knowledge base for Large Language Models (LLMs), or other applications. For example, you can use Azure AI Search as a [*vector index* in an Azure Machine Learning prompt flow](/azure/machine-learning/concept-vector-stores) for Retrieval Augmented Generation (RAG) applications. 
 
 ## Azure integration and related services
 
@@ -82,9 +75,9 @@ You can use other Azure services to provide embeddings and data storage.
 
 + [Image Retrieval Vectorize Image API(Preview)](/azure/ai-services/computer-vision/how-to/image-retrieval#call-the-vectorize-image-api) supports vectorization of image content. We recommend this API for generating embeddings for images.
 
-+ Azure Cognitive Search can automatically index vector data from two data sources: [Azure blob indexers](search-howto-indexing-azure-blob-storage.md) and [Azure Cosmos DB for NoSQL indexers](search-howto-index-cosmosdb.md). For more information, see [Add vector fields to a search index.](vector-search-how-to-create-index.md)
++ Azure AI Search can automatically index vector data from two data sources: [Azure blob indexers](search-howto-indexing-azure-blob-storage.md) and [Azure Cosmos DB for NoSQL indexers](search-howto-index-cosmosdb.md). For more information, see [Add vector fields to a search index.](vector-search-how-to-create-index.md)
 
-+ [LangChain](https://docs.langchain.com/docs/) is a framework for developing applications powered by language models. Use the [Azure Cognitive Search vector store integration](https://python.langchain.com/docs/modules/data_connection/vectorstores/integrations/azuresearch) to simplify the creation of applications using LLMs with Azure Cognitive Search as your vector datastore.
++ [LangChain](https://docs.langchain.com/docs/) is a framework for developing applications powered by language models. Use the [Azure AI Search vector store integration](https://python.langchain.com/docs/modules/data_connection/vectorstores/integrations/azuresearch) to simplify the creation of applications using LLMs with Azure AI Search as your vector datastore.
 
 + [Semantic kernel](https://github.com/microsoft/semantic-kernel/blob/main/README.md) is a lightweight SDK enabling integration of AI Large Language Models (LLMs) with conventional programming languages. It's useful for chunking large documents in a larger workflow that sends inputs to embedding models.
 
@@ -106,7 +99,7 @@ Additionally, vector search can be applied to different types of content, such a
 
 *Embeddings* are a specific type of vector representation of content or a query, created by machine learning models that capture the semantic meaning of text or representations of other content such as images. Natural language machine learning models are trained on large amounts of data to identify patterns and relationships between words. During training, they learn to represent any input as a vector of real numbers in an intermediary step called the *encoder*. After training is complete, these language models can be modified so the intermediary vector representation becomes the model's output. The resulting embeddings are high-dimensional vectors, where words with similar meanings are closer together in the vector space, as explained in [Understand embeddings (Azure OpenAI)](/azure/ai-services/openai/concepts/understand-embeddings). 
 
-The effectiveness of vector search in retrieving relevant information depends on the effectiveness of the embedding model in distilling the meaning of documents and queries into the resulting vector. The best models are well-trained on the types of data they're representing. You can evaluate existing models such as Azure OpenAI text-embedding-ada-002, bring your own model that's trained directly on the problem space, or fine-tune a general-purpose model. Azure Cognitive Search doesn't impose constraints on which model you choose, so pick the best one for your data. 
+The effectiveness of vector search in retrieving relevant information depends on the effectiveness of the embedding model in distilling the meaning of documents and queries into the resulting vector. The best models are well-trained on the types of data they're representing. You can evaluate existing models such as Azure OpenAI text-embedding-ada-002, bring your own model that's trained directly on the problem space, or fine-tune a general-purpose model. Azure AI Search doesn't impose constraints on which model you choose, so pick the best one for your data. 
 
 In order to create effective embeddings for vector search, it's important to take input size limitations into account. We recommend following the [guidelines for chunking data](vector-search-how-to-chunk-documents.md) before generating embeddings. This best practice ensures that the embeddings accurately capture the relevant information and enable more efficient vector search.
 
@@ -122,7 +115,7 @@ For example, documents that talk about different species of dogs would be cluste
 
 In vector search, the search engine searches through the vectors within the embedding space to identify those that are near to the query vector. This technique is called *nearest neighbor search*. Nearest neighbors help quantify the similarity between items. A high degree of vector similarity indicates that the original data was similar too. To facilitate fast nearest neighbor search, the search engine will perform optimizations or employ data structures or data partitioning to reduce the search space. Each vector search algorithm will have different approaches to this problem, trading off different characteristics such as latency, throughput, recall, and memory. To compute similarity, similarity metrics provide the mechanism for computing this distance.
 
-Azure Cognitive Search currently supports the following algorithms:
+Azure AI Search currently supports the following algorithms:
 
 + Hierarchical Navigable Small World (HNSW): HNSW is a leading ANN algorithm optimized for high-recall, low-latency applications where data distribution is unknown or can change frequently. It organizes high-dimensional data points into a hierarchical graph structure that enables fast and scalable similarity search while allowing a tunable a trade-off between search accuracy and computational cost. Because the algorithm requires all data points to reside in memory for fast random access, this algorithm consumes [vector index size](vector-search-index-size.md) quota.
 
@@ -132,7 +125,7 @@ Within an index definition, you can specify one or more algorithms, and then for
 
 + [Create a vector index](vector-search-how-to-create-index.md) to specify an algorithm in the index and on fields.
 
-+ For exhaustive KNN, use [2023-10-01-Preview](/rest/api/searchservice/2023-10-01-preview/indexes/create-or-update) REST APIs or Azure SDK beta libraries that target the 2023-10-01-Preview version.
++ For exhaustive KNN, use [2023-11-01](/rest/api/searchservice/indexes/create-or-update), [2023-10-01-Preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true), or Azure SDK beta libraries that target either REST API version.
 
 Algorithm parameters that are used to initialize the index during index creation are immutable and can't be changed after the index is built. However, parameters that affect the query-time characteristics (`efSearch`) can be modified. 
 
@@ -144,7 +137,7 @@ Approximate Nearest Neighbor search (ANN) is a class of algorithms for finding m
 
 ANN algorithms sacrifice some accuracy, but offer scalable and faster retrieval of approximate nearest neighbors, which makes them ideal for balancing accuracy against efficiency in modern information retrieval applications. You can adjust the parameters of your algorithm to fine-tune the recall, latency, memory, and disk footprint requirements of your search application.
 
-Azure Cognitive Search uses HNSW for its ANN algorithm. 
+Azure AI Search uses HNSW for its ANN algorithm. 
 
 <!-- > [!NOTE]
 > Finding the true set of [_k_ nearest neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) requires comparing the input vector exhaustively against all vectors in the dataset. While each vector similarity calculation is relatively fast, performing these exhaustive comparisons across large datasets is computationally expensive and slow due to the sheer number of comparisons. For example, if a dataset contains 10 million 1,000-dimensional vectors, computing the distance between the query vector and all vectors in the dataset would require scanning 37 GB of data (assuming single-precision floating point vectors) and a high number of similarity calculations.

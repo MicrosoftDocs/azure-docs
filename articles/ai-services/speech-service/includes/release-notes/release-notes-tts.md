@@ -6,6 +6,12 @@ ms.date: 02/28/2023
 ms.author: eur
 ---
 
+### November 2023 release
+
+#### Custom neural voice
+
+- Added support for the 24 new locales for cross-lingual voice. See the [full language list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
+
 ### October 2023 release
 
 #### Custom neural voice
@@ -15,7 +21,7 @@ ms.author: eur
 ### September 2023 release
 
 #### Prebuilt neural voice
-- Introducing new multilingual voices for public preview:
+- Introducing new voices for public preview:
 
 | Locale (BCP-47) | Language | Text to speech voices |
 | ----- | ----- | ----- |

@@ -19,6 +19,8 @@ Currently only available in the following regions:
 - East US (Three availability zones)
 - East US 2 (Three availability zones)
 - France Central (Three availability zones)
+- Germany West Central (One availability zone)
+- Israel Central (Two availability zones)
 - Japan East (Two availability zones)
 - Korea Central (Two availability zones)
 - North Europe (Three availability zones)

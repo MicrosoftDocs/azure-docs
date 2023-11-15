@@ -21,6 +21,12 @@ This quickstart shows you how to integrate Azure OpenAI with applications deploy
 
 Azure OpenAI enables your applications to take advantage of large-scale, generative AI models with deep understandings of language and code to enable new reasoning and comprehension capabilities.
 
+The following video shows how Azure Spring Apps uses Azure OpenAI to build intelligent applications:  
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/wxgGoLohvsg]
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

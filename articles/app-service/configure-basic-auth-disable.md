@@ -123,13 +123,13 @@ To confirm that the logs are shipped to your selected service(s), try logging in
 
 <pre>
 {
-  "time": "2020-07-16T17:42:32.9322528Z",
-  "ResourceId": "/SUBSCRIPTIONS/EF90E930-9D7F-4A60-8A99-748E0EEA69DE/RESOURCEGROUPS/FREEBERGDEMO/PROVIDERS/MICROSOFT.WEB/SITES/FREEBERG-WINDOWS",
+  "time": "2023-10-16T17:42:32.9322528Z",
+  "ResourceId": "/SUBSCRIPTIONS/EF90E930-9D7F-4A60-8A99-748E0EEA69DE/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.WEB/SITES/MY-DEMO-APP",
   "Category": "AppServiceAuditLogs",
   "OperationName": "Authorization",
   "Properties": {
-    "User": "$freeberg-windows",
-    "UserDisplayName": "$freeberg-windows",
+    "User": "$my-demo-app",
+    "UserDisplayName": "$my-demo-app",
     "UserAddress": "24.19.191.170",
     "Protocol": "FTP"
   }

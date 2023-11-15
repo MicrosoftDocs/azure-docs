@@ -1,5 +1,5 @@
 ---
-title: Sync a GitHub repository with Managed Airflow
+title: Sync a GitHub repository in Managed Airflow
 description: This article provides step-by-step instructions for how to sync a GitHub repository using Managed Airflow in Azure Data Factory.
 author: nabhishek
 ms.author: abnarain
@@ -9,15 +9,13 @@ ms.topic: how-to
 ms.date: 09/19/2023
 ---
 
-# Sync a GitHub repository with Managed Airflow in Azure Data Factory
+# Sync a GitHub repository in Managed Airflow
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-While you can certainly manually create and update Directed Acyclic Graph (DAG) files for Azure Managed Apache Airflow using the Azure Storage or using the [Azure CLI](/azure/storage/blobs/storage-quickstart-blobs-cli), many organizations prefer to streamline their processes using a Continuous Integration and Continuous Delivery (CI/CD) approach. In this scenario, each commit made to the source code repository triggers an automated workflow that synchronizes the code with the designated DAGs folder within Azure Managed Apache Airflow.
-
 In this guide, you will learn how to synchronize your GitHub repository in Managed Airflow in two different ways.
 
-- Using the Git Sync feature in the Managed Airflow UI
+- Using the ``Enable Git Sync`` in the Managed Airflow UI
 - Using the Rest API
 
 ## Prerequisites
