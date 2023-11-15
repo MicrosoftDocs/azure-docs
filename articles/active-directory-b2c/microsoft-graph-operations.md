@@ -58,7 +58,7 @@ Note, the [list](/graph/api/authentication-list-phonemethods) operation returns 
 > [!NOTE]
 > A correctly represented phone number is stored with a space between the country code and the phone number. The Azure AD B2C service doesn't currently add this space by default.
 
-    :::image type="content" source="./media/microsoft-graph-operations/enable-phone-sign-in.png" alt-text="Screenshot of the Authentication methods page for a sample user from the Azure portal. The text box for phone number is highlighted.":::
+:::image type="content" source="./media/microsoft-graph-operations/enable-phone-sign-in.png" alt-text="Screenshot of the Authentication methods page for a sample user from the Azure portal. The text box for phone number is highlighted.":::
 
 ## Self-service password reset email address
 
