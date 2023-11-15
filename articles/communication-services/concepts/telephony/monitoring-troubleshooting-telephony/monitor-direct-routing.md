@@ -1,7 +1,7 @@
 ---
 title: "Monitor Azure Communication Services direct routing"
 ms.author: bobazile
-ms.date: 06/22/2023
+ms.date: 11/15/2023
 author: boris-bazilevskiy
 manager: rcole
 audience: ITPro
@@ -52,7 +52,7 @@ Demotion means that the SBC isn't tried. For example, we have `sbc.contoso.com` 
 
 If `sbc.contoso.com` doesn't send SIP OPTIONS on a regular interval as previously described, it's demoted. Next, `sbc2.contoso.com` tries for the call. If `sbc2.contoso.com` can't deliver the call because of the error codes 408, 503, or 504, the `sbc3.contoso.com` is tried. 
 
-When an SBC stops sending OPTIONS but not yet marked as demoted, Azure will try to establish a call to it from three different datacenters before failover to another voice route. When an SBC is marked as demoted, it is not tried until it starts sending OPTIONS again.
+When an SBC stops sending OPTIONS but not yet marked as demoted, Azure tries to establish a call to it from three different datacenters before failover to another voice route. When an SBC is marked as demoted, it isn't tried until it starts sending OPTIONS again.
 
 If two (or more) SBCs in one route are considered healthy and equal, Fisher-Yates shuffle is applied to distribute the calls between the SBCs.
 

@@ -23,7 +23,7 @@ Microsoft works with each vendor to:
 - Establish a joint support process with the SBC vendors.
 
 
-Media bypass is not yet supported by Azure Communication Services. 
+Media bypass isn't yet supported in Azure Communication Services. 
 The table that follows list devices certified for Azure Communication Services direct routing.
 
 If you have any questions about the SBC certification program for Communication Services direct routing, contact acsdrcertification@microsoft.com.

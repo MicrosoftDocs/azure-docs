@@ -24,7 +24,7 @@ This article provides information about limitations and known issues related to 
 - One SBC FQDN can be connected to a single resource only. Unique SBC FQDNs are required for pairing to different resources.
 - Media bypass/optimization isn't supported.
 - Azure Communication Services direct routing isn't available in Government Clouds.
-- Multi-tenant trunks aren't supported.
+- Multitenant trunks aren't supported.
 - Location-based routing isn't supported.
 - No quality dashboard is available for customers.
 - Enhanced 911 isn't supported.
