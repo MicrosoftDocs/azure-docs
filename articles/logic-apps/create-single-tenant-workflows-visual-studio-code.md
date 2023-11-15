@@ -123,7 +123,7 @@ For more information, review the [documentation for the Azurite extension in Vis
 
       After setup completes, the extension automatically activates and runs the **Validate and install dependency binaries** command. To view the process logs, open the **Output** window.
 
-   1. When the following prompt appears, select **Yes (Recommended)** to confirm that you want opt in to automatically installing the required dependencies:
+   1. When the following prompt appears, select **Yes (Recommended)** to confirm that you want to automatically install the required dependencies:
 
       :::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/dependency-installer-prompt.png" alt-text="Screenshot shows prompt to automatically install dependencies." lightbox="media/create-single-tenant-workflows-visual-studio-code/dependency-installer-prompt.png":::
 
