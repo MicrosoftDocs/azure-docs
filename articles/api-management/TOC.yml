@@ -328,7 +328,7 @@
     - name: Credential manager overview
       displayName: OAuth, authorizations, SaaS, token
       href: credentials-overview.md
-    - name: Token credentials process flows
+    - name: Credential connections - process flows
       href: credentials-process-flow.md
     - name: Configure common credential providers
       href: credentials-configure-common-providers.md
@@ -337,8 +337,7 @@
     - name: Configure credential manager - GitHub
       href: credentials-how-to-github.md
     - name: Configure credential manager - user-delegated permissions
-      href: credentials-how-to-user-delegated
-      .md
+      href: credentials-how-to-user-delegated.md
     - name: Configure multiple credential connections
       href: configure-credential-connection.md
   - name: Set up backend authentication

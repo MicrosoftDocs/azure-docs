@@ -47,7 +47,7 @@ Using OAuth credential connections managed in API Management, customers can easi
 
 Token credentials in credential manager consist of two parts: **management** and **runtime**.
 
-* The **management** part in credential manager takes care of setting up and configuring a *credential provider* for OAuth 2.0 tokens, enabling the consent flow for the identity provider, and setting up one or more *connections* for access to the credentials. For details, see [Management of credential connections](credentials-process-flow.md#management-of-credential-connectionss).
+* The **management** part in credential manager takes care of setting up and configuring a *credential provider* for OAuth 2.0 tokens, enabling the consent flow for the identity provider, and setting up one or more *connections* for access to the credentials. For details, see [Management of credential connections](credentials-process-flow.md#management-of-credential-connections).
 
 
 * The **runtime** part uses the [`get-authorization-context`](get-authorization-context-policy.md) policy to fetch and store the connection's access and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the identity provider. Then the access token is used to authorize access to the backend service. For details, see [Runtime of credential connections](credentials-process-flow.md#runtime-of-credential-connections).  
