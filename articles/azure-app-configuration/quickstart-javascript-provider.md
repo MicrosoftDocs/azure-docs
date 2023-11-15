@@ -132,14 +132,14 @@ Add the following key-values to the App Configuration store. For more informatio
     export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
    ```
 
-1. Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly with the command below.
+1. Print out the value of the environment variable to validate that it is set properly with the command below.
 
     ### [Windows command prompt](#tab/windowscommandprompt)
 
-    Using the Windows command prompt, run the following command:
+    Using the Windows command prompt, restart the command prompt to allow the change to take effect and run the following command:
 
     ```cmd
-    printenv AZURE_APPCONFIG_CONNECTION_STRING
+    echo %AZURE_APPCONFIG_CONNECTION_STRING%
     ```
 
     ### [PowerShell](#tab/powershell)
@@ -164,6 +164,7 @@ Add the following key-values to the App Configuration store. For more informatio
 
     ```console
     echo "$AZURE_APPCONFIG_CONNECTION_STRING"
+    ```
 
 1. After the build successfully completes, run the following command to run the app locally:
 
