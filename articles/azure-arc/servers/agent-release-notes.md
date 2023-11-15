@@ -18,11 +18,10 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.36 - November 2023
 
-Download for [Windows]() or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+Download for [Windows](https://download.microsoft.com/download/5/e/9/5e9081ed-2ee2-4b3a-afca-a8d81425bcce/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
-- [azcmagent show](azcmagent-show.md) now shows you if your Windows Server 2012 server is licensed for extended security updates through Azure Arc.
 - Introduced a new [proxy bypass](manage-agent.md#proxy-bypass-for-private-endpoints) option, `ArcData`, that covers the Azure Arc-enabled SQL Server endpoints. This will enable you to use a private endpoint with Azure Arc-enabled servers with the public endpoints for Azure Arc-enabled SQL Server.
 - The [CPU limit for extension operations](agent-overview.md#agent-resource-governance) on Linux is now 30%. This increase will help improve reliability of extension install, upgrade and uninstall operations.
 - Older extension manager and machine configuration agent logs are automatically zipped to reduce disk space requirements.
