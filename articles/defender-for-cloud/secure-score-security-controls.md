@@ -52,7 +52,7 @@ On the **Recommendations** page > **Secure score recommendations** tab in Defend
 
 Each control is calculated every eight hours for each Azure subscription, or AWS/GCP cloud connector. 
 
-> [Important]
+> [!Important]
 > Recommendations within a control are updated more frequently than the control, and so there might be discrepancies between the resources count on the recommendations versus the one found on the control.
 
 ### Example scores for a control
