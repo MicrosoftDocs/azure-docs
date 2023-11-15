@@ -50,15 +50,15 @@ The integration is in public preview. The integration adds Node.js SDK, which is
 
 A JSON could be used to configure the Node.js agent, this can be provided adding APPLICATIONINSIGHTS_CONFIGURATION_CONTENT environment variable with the actual JSON string as value, also APPLICATIONINSIGHTS_CONFIGURATION_FILE environment variable could be used to specify the location of the file if prefered.
 
-      ```json
-        "samplingPercentage": 80,
-        "enableAutoCollectExternalLoggers": true,
-        "enableAutoCollectExceptions": true,
-        "enableAutoCollectHeartbeat": true,
-        "enableSendLiveMetrics": true,
-        ...
+```json
+"samplingPercentage": 80,
+"enableAutoCollectExternalLoggers": true,
+"enableAutoCollectExceptions": true,
+"enableAutoCollectHeartbeat": true,
+"enableSendLiveMetrics": true,
+...
     
-    ```
+```
 
 The full [set of configurations](https://github.com/microsoft/ApplicationInsights-node.js#configuration) is available, you just need to use a valid json file.
 
