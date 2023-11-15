@@ -228,7 +228,7 @@
       - name: Common questions 
         displayName: questions, common, CSPM, agentless scanning, faq, frequently asked questions
         href: faq-cspm.yml
-    - name: Improve data security posture
+    - name: Improve your data security posture
       items:
         - name: About data-aware security posture
           href: concept-data-security-posture.md
