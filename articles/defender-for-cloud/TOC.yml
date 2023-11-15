@@ -812,6 +812,8 @@
               href: iac-template-mapping.md
             - name: Map container images from code to cloud
               href: container-image-mapping.md
+            - name: Edit your DevOps connector
+              href: edit-devops-connector.md
         - name: Investigate and remediate
           items:
             - name: Discover IaC misconfigurations

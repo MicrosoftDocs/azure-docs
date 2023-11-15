@@ -183,9 +183,9 @@ Review your asset and tag details and make any adjustments you need before you s
 
 :::image type="content" source="media/quickstart-add-assets/review-asset.png" alt-text="Screenshot of Azure IoT Operations create asset review page.":::
 
-## Discover assets by using Akri
+## Discover OPC UA data sources by using Akri
 
-In the previous section, you saw how to add assets manually. You can also use Akri to automatically discover assets that are available on an OPC UA server.
+In the previous section, you saw how to add assets manually. You can also use Azure IoT Akri to automatically discover OPC UA data sources and create Akri instance custom resources that represent the discovered devices. Currently, Akri can't detect and create assets that can be ingested into the Azure Device Registry.
 
 When you deploy Azure IoT Operations, the deployment includes the Akri discovery handler pods. To verify these pods are running, run the following command:
 
@@ -219,13 +219,13 @@ spec:
 Run the following command to apply the configuration:
 
 ```bash
-kubectl apply -f opcua-configuration.yaml
+kubectl apply -f opcua-configuration.yaml -n azure-iot-operations
 ```
 
-To verify the configuration, run the following command:
+To verify the configuration, run the following command to view the Akri instances that represent the OPC UA data sources discovered by Akri:
 
 ```bash
-kubectl get akrii -A
+kubectl get akrii -n azure-iot-operations
 ```
 
 The output from the previous command looks like the following example:
@@ -234,6 +234,8 @@ The output from the previous command looks like the following example:
 NAMESPACE              NAME                      CONFIG             SHARED   NODES            AGE
 azure-iot-operations   akri-opcua-asset-dbdef0   akri-opcua-asset   true     ["dom-aio-vm"]   35m
 ```
+
+Now you can use these resources in the local cluster namespace.
 
 ## How did we solve the problem?
 

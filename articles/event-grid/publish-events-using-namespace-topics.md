@@ -140,7 +140,7 @@ You receive events from Event Grid using an endpoint that refers to an event sub
 2. Submit a request to consume the event:
 
     ```azurecli-interactive
-    curl -X POST -H "Content-Type: application/json" -H "Authorization:SharedAccessKey $key" -d "$event" $receive_operation_uri
+    curl -X POST -H "Content-Type: application/json" -H "Authorization:SharedAccessKey $key" $receive_operation_uri
     ```
 
 ### Acknowledge an event
