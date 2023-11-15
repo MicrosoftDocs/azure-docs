@@ -243,7 +243,7 @@ In the following steps, leave all values at their default unless otherwise speci
     | -------------- | --------------------------------- |
     | Display name   | `output data`             |
     | Broker         | `tls://aio-mq-dmqtt-frontend:8883` |
-    | Authentication | `none`                            |
+    | Authentication | `Service account token (SAT)`      |
     | Topic          | `dp-output`                 |
     | Data format    | `JSON`                              |
     | Path           | `.payload`                        |
@@ -276,7 +276,7 @@ In the following steps, leave all values at their default unless otherwise speci
     | ------------- | ----------------------------------- |
     | Name          | `reference data`                    |
     | Broker        | `tls://aio-mq-dmqtt-frontend:8883` |
-    | Authentication| `none`                  |
+    | Authentication| `Service account token (SAT)`       |
     | Topic         | `reference_data`                    |
     | Data format   | `JSON`                              |
 
