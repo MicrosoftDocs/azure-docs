@@ -157,6 +157,8 @@ items:
           displayName: cnv
         - name: Custom Neural Voice Lite
           href: custom-neural-voice-lite.md
+        - name: Personal voice (preview)
+          href: personal-voice-overview.md
           displayName: cnv
         - name: Create a Custom Neural Voice 
           items:
