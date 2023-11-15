@@ -468,6 +468,8 @@
     - name: Common questions about Defender for APIs
       displayName: common questions, api, apis, faq, frequently asked questions
       href: faq-defender-for-apis.yml
+    - name: Classify APIs with sensitive data exposure
+      href: data-classification.md
     - name: Partners
       items:
       - name: Partner applications
