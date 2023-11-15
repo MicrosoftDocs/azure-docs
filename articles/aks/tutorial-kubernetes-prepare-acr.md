@@ -2,7 +2,7 @@
 title: Kubernetes on Azure tutorial - Create an Azure Container Registry and build images
 description: In this Azure Kubernetes Service (AKS) tutorial, you create an Azure Container Registry instance and upload sample application container images.
 ms.topic: tutorial
-ms.date: 10/23/2023
+ms.date: 11/02/2023
 ms.custom: mvc, devx-track-azurecli, devx-track-azurepowershell
 
 #Customer intent: As a developer, I want to learn how to create and use a container registry so that I can deploy my own applications to Azure Kubernetes Service.
@@ -38,6 +38,9 @@ This tutorial requires Azure PowerShell version 5.9.0 or later. Run `Get-Install
 
 Before creating an ACR instance, you need a resource group. An Azure resource group is a logical container into which you deploy and manage Azure resources.
 
+> [!IMPORTANT]
+> This tutorial uses *myResourceGroup* as a placeholder for the resource group name. If you want to use a different name, replace *myResourceGroup* with your own resource group name.
+
 ### [Azure CLI](#tab/azure-cli)
 
 1. Create a resource group using the [`az group create`][az-group-create] command.
@@ -46,10 +49,10 @@ Before creating an ACR instance, you need a resource group. An Azure resource gr
     az group create --name myResourceGroup --location eastus
     ```
 
-2. Create an ACR instance using the [`az acr create`][az-acr-create] command and provide your own unique registry name. The registry name must be unique within Azure and contain 5-50 alphanumeric characters. The rest of this tutorial uses `<acrName>` as a placeholder for the container registry name. The *Basic* SKU is a cost-optimized entry point for development purposes that provides a balance of storage and throughput.
+2. Create an ACR instance using the [`az acr create`][az-acr-create] command and provide your own unique registry name. The registry name must be unique within Azure and contain 5-50 alphanumeric characters. The rest of this tutorial uses an environment variable, `$ACRNAME`, as a placeholder for the container registry name. You can set this environment variable to your unique ACR name to use in future commands. The *Basic* SKU is a cost-optimized entry point for development purposes that provides a balance of storage and throughput.
 
     ```azurecli-interactive
-    az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
+    az acr create --resource-group myResourceGroup --name $ACRNAME --sku Basic
     ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -60,10 +63,10 @@ Before creating an ACR instance, you need a resource group. An Azure resource gr
     New-AzResourceGroup -Name myResourceGroup -Location eastus
     ```
 
-2. Create an ACR instance using the [`New-AzContainerRegistry`][new-azcontainerregistry] cmdlet and provide your own unique registry name. The registry name must be unique within Azure and contain 5-50 alphanumeric characters. The rest of this tutorial uses `<acrName>` as a placeholder for the container registry name. The *Basic* SKU is a cost-optimized entry point for development purposes that provides a balance of storage and throughput.
+2. Create an ACR instance using the [`New-AzContainerRegistry`][new-azcontainerregistry] cmdlet and provide your own unique registry name. The registry name must be unique within Azure and contain 5-50 alphanumeric characters. The rest of this tutorial uses an environment variable, `$ACRNAME`, as a placeholder for the container registry name. You can set this environment variable to your unique ACR name to use in future commands. The *Basic* SKU is a cost-optimized entry point for development purposes that provides a balance of storage and throughput.
 
     ```azurepowershell-interactive
-    New-AzContainerRegistry -ResourceGroupName myResourceGroup -Name <acrName> -Location eastus -Sku Basic
+    New-AzContainerRegistry -ResourceGroupName myResourceGroup -Name $ACRNAME -Location eastus -Sku Basic
     ```
 
 ---
@@ -76,9 +79,9 @@ Before creating an ACR instance, you need a resource group. An Azure resource gr
     > In the following example, we don't build the `rabbitmq` image. This image is available from the Docker Hub public repository and doesn't need to be built or pushed to your ACR instance.
 
     ```azurecli-interactive
-    az acr build --registry <acrName> --image aks-store-demo/product-service:latest ./src/product-service/
-    az acr build --registry <acrName> --image aks-store-demo/order-service:latest ./src/order-service/
-    az acr build --registry <acrName> --image aks-store-demo/store-front:latest ./src/store-front/
+    az acr build --registry $ACRNAME --image aks-store-demo/product-service:latest ./src/product-service/
+    az acr build --registry $ACRNAME --image aks-store-demo/order-service:latest ./src/order-service/
+    az acr build --registry $ACRNAME --image aks-store-demo/store-front:latest ./src/store-front/
     ```
 
 ## List images in registry
@@ -88,7 +91,7 @@ Before creating an ACR instance, you need a resource group. An Azure resource gr
 * View the images in your ACR instance using the [`az acr repository list`][az-acr-repository-list] command.
 
     ```azurecli-interactive
-    az acr repository list --name <acrName> --output table
+    az acr repository list --name $ACRNAME --output table
     ```
 
     The following example output lists the available images in your registry:
@@ -106,7 +109,7 @@ Before creating an ACR instance, you need a resource group. An Azure resource gr
 * View the images in your ACR instance using the [`Get-AzContainerRegistryRepository`][get-azcontainerregistryrepository] cmdlet.
 
     ```azurepowershell-interactive
-    Get-AzContainerRegistryRepository -RegistryName <acrName>
+    Get-AzContainerRegistryRepository -RegistryName $ACRNAME
     ```
 
     The following example output lists the available images in your registry:

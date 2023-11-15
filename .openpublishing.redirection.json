@@ -556,6 +556,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/index.yml",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Web-Search/language-support.md",
       "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/language-support",
       "redirect_document_id": false
@@ -778,6 +783,76 @@
     {
       "source_path": "articles/cognitive-services/bing-visual-search/quickstarts/ruby.md",
       "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/quickstarts/ruby",
+      "redirect_document_id": false,
+    },
+    {
+      "source_path": "articles/api-management/api-management-api-templates.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-api-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-application-templates.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-application-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-customize-styles.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-customize-styles",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-developer-portal-templates-reference.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-developer-portal-templates-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-developer-portal-templates.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-developer-portal-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-issue-templates.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-issue-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-modify-content-layout.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-modify-content-layout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-page-controls.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-page-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-page-templates.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-page-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-product-templates.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-product-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-template-data-model-reference.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-template-data-model-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-template-resources.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-template-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-user-profile-templates.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-user-profile-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/developer-portal-deprecated-migration.md",
+      "redirect_url": "/previous-versions/azure/api-management/developer-portal-deprecated-migration",
       "redirect_document_id": false
     },
     {
@@ -929,6 +1004,11 @@
           "source_path": "articles/azure-resource-manager/bicep/bicep-import-providers.md",
           "redirect_URL": "bicep-import",
           "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version.md",
+            "redirect_URL": "/azure/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version-scvmm",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/migrate/tutorial-assess-webapps-physical.md",
@@ -25635,6 +25715,10 @@
             "source_path_from_root": "/articles/operator-service-manager/overview.md",
 	        "redirect_url": "azure/operator-service-manager/azure-operator-service-manager-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/kubernetes-fleet/configuration-propagation.md",
+            "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
         }
     ]
 }

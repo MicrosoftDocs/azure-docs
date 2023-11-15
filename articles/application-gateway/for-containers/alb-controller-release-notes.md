@@ -6,7 +6,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
-ms.date: 10/23/2023
+ms.date: 11/07/2023
 ms.author: greglin
 ---
 
@@ -23,10 +23,13 @@ Instructions for new or existing deployments of ALB Controller are found in the 
 - [Upgrade existing ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#for-existing-deployments)
 
 ## Latest Release (Recommended)
-September 25, 2023 - 0.5.024542 - Custom Health Probes, Controller HA, Multi-site support for Ingress, [helm_release via Terraform fix](https://github.com/Azure/AKS/issues/3857), Path rewrite for Gateway API, status for Ingress resources, quality improvements
+November 6, 2023 - 0.6.1 - Gateway / Ingress API - Header rewrite support, Ingress API - URL rewrite support, Ingress multiple-TLS listener bug fix,
+two certificates maximum per host, adopting [semantic versioning (semver)](https://semver.org/), quality improvements
 
 ## Release history
-July 25, 2023 - 0.4.023971 - Ingress + Gateway co-existence improvements
+September 25, 2023 - 0.5.024542 - Custom Health Probes, Controller HA, Multi-site support for Ingress, [helm_release via Terraform fix](https://github.com/Azure/AKS/issues/3857), Path rewrite for Gateway API, status for Ingress resources, quality improvements
+
+July 25, 2023 - 0.4.023971 - Ingress + Gateway coexistence improvements
 
 July 24, 2023 - 0.4.023961 - Improved Ingress support
 

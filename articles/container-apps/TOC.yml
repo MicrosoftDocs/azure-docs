@@ -24,6 +24,10 @@
           href: deploy-visual-studio.md
         - name: Visual Studio Code
           href: deploy-visual-studio-code.md
+      - name: Deploy from artifact
+        items:
+        - name: Command line
+          href: deploy-artifact.md
       - name: Run a job
         items:
         - name: Azure portal
@@ -62,14 +66,18 @@
       items:
         - name: Connect to services
           items:
-            - name: Connect to services
+            - name: Overview
               href: services.md
-            - name: Apache Kafka
-              href: tutorial-dev-services-kafka.md
-            - name: PostgreSQL
-              href: tutorial-dev-services-postgresql.md
-            - name: Redis
-              href: connect-services.md
+            - name: Tutorials
+              items:
+              - name: Apache Kafka
+                href: tutorial-dev-services-kafka.md
+              - name: PostgreSQL
+                href: tutorial-dev-services-postgresql.md
+              - name: Qdrant
+                href: add-ons-qdrant.md
+              - name: Redis
+                href: connect-services.md
         - name: Connect multiple apps
           href: connect-apps.md
         - name: Connect to a cloud service using Service Connector
@@ -177,6 +185,12 @@
           href: managed-identity.md
         - name: Azure Container Registry image pull with managed identity
           href: managed-identity-image-pull.md
+- name: Resiliency (preview)
+  items:
+    - name: Service discovery resiliency
+      href: service-discovery-resiliency.md
+    - name: Dapr component resiliency
+      href: dapr-component-resiliency.md
 - name: Reliability
   items:
   - name: Reliability in Azure Container Apps
@@ -201,6 +215,8 @@
       href: microservices-dapr-bindings.md
     - name: Microservices communication using Dapr Service Invocation
       href: microservices-dapr-service-invoke.md
+    - name: Dapr component resiliency (preview)
+      href: dapr-component-resiliency.md
     - name: Scale Dapr apps with KEDA using Bicep
       href: dapr-keda-scaling.md
     - name: Connect to Azure services via Dapr components

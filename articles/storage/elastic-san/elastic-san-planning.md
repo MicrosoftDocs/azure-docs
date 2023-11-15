@@ -6,7 +6,9 @@ ms.service: azure-elastic-san-storage
 ms.topic: conceptual
 ms.date: 06/09/2023
 ms.author: rogarana
-ms.custom: ignite-2022
+ms.custom:
+  - ignite-2022
+  - ignite-2023-elastic-SAN
 ---
 
 # Plan for deploying an Elastic SAN Preview
@@ -35,7 +37,7 @@ When allocating storage for an Elastic SAN, consider how much storage you requir
 
 You create volumes from the storage that you allocated to your Elastic SAN. When you create a volume, think of it like partitioning a section of the storage of your Elastic SAN. The maximum performance of an individual volume is determined by the amount of storage allocated to it. Individual volumes can have fairly high IOPS and throughput, but the total IOPS and throughput of all your volumes can't exceed the total IOPS and throughput your SAN has.
 
-Using the same example of a 100 TiB SAN that has 250,000 IOPS and 4,000 MB/s. Say this SAN had 100 1 TiB volumes. You could potentially have three of these volumes operating at their maximum performance (64,000 IOPS, 1,024 MB/s) since this would be below the SAN's limits. But if four or five volumes all needed to operate at maximum at the same time, they wouldn't be able to. Instead the performance of the SAN would be split evenly among them.
+Using the same example of a 100 TiB SAN that has 500,000 IOPS and 20,000 MB/s. Say this SAN had 100 1 TiB volumes. You could potentially have six of these volumes operating at their maximum performance (80,000 IOPS, 1,280 MB/s) since this would be below the SAN's limits. But if seven volumes all needed to operate at maximum at the same time, they wouldn't be able to. Instead the performance of the SAN would be split evenly among them.
 
 ## Networking
 

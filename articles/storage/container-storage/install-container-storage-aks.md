@@ -4,7 +4,7 @@ description: Learn how to install Azure Container Storage Preview for use with A
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 11/07/2023
 ms.author: kendownie
 ms.custom: devx-track-azurecli
 ---
@@ -22,7 +22,7 @@ ms.custom: devx-track-azurecli
 
 ## Getting started
 
-- Take note of your Azure subscription ID. We recommend using a subscription on which you have an [Owner](../../role-based-access-control/built-in-roles.md#owner) role. If you don't have access to one, you can still proceed, but you'll need admin assistance to complete the steps in this article.
+- Take note of your Azure subscription ID. We recommend using a subscription on which you have a [Kubernetes contributor](../../role-based-access-control/built-in-roles.md#kubernetes-extension-contributor) role if you want to use Azure Disks or Ephemeral Disk as data storage. If you want to use Azure Elastic SAN Preview as data storage, you'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role on the Azure subscription.
 
 - [Launch Azure Cloud Shell](https://shell.azure.com), or if you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
 

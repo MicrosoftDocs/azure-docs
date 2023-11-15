@@ -20,6 +20,10 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 The **Deploy to Azure** button in the next section launches an Azure portal experience that downloads a JAR package from the [spring-cloud-azure-tools releases](https://github.com/Azure/spring-cloud-azure-tools/releases) page on GitHub. No local preparation steps are needed.
 
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+[!INCLUDE [prepare-spring-project](prepare-spring-project.md)]
+
 ### [Azure CLI](#tab/Azure-CLI)
 
 [!INCLUDE [prepare-spring-project](prepare-spring-project.md)]
@@ -40,7 +44,17 @@ This section describes how to create an Azure Spring Apps service instance and p
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-[!INCLUDE [hello-prepare-cloud-environment-consumption-on-azure-portal](hello-prepare-cloud-environment-enterprise-azure-portal.md)]
+[!INCLUDE [hello-prepare-cloud-environment-enterprise-azure-portal](hello-prepare-cloud-environment-enterprise-azure-portal.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+### 3.1. Sign in to the Azure portal
+
+Go to the [Azure portal](https://portal.azure.com/) and enter your credentials to sign in to the portal. The default view is your service dashboard.
+
+### 3.2. Create an Azure Spring Apps instance
+
+[!INCLUDE [provision-enterprise-azure-spring-apps](provision-enterprise-azure-spring-apps.md)]
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -132,7 +146,7 @@ Use the following steps to create the service instance:
 
 An *App* is an abstraction of one business app. For more information, see [App and deployment in Azure Spring Apps](../../concept-understand-app-and-deployment.md). Apps run in an Azure Spring Apps service instance, as shown in the following diagram.
 
-:::image type="content" source="../../media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram that shows the relationship between apps and an Azure Spring Apps service instance." border="false":::
+:::image type="content" source="../../media/quickstart/app-deployment-diagram.png" alt-text="Diagram that shows the relationship between apps and an Azure Spring Apps service instance." border="false":::
 
 Use the following command to create the app on Azure Spring Apps:
 
@@ -151,7 +165,7 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 ### 3.2. Create an Azure Spring Apps instance
 
-[!INCLUDE [provision-spring-apps](provision-enterprise-azure-spring-apps.md)]
+[!INCLUDE [provision-enterprise-azure-spring-apps](provision-enterprise-azure-spring-apps.md)]
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -163,7 +177,32 @@ To create an Azure Spring Apps instance, follow the steps in the [Create an app 
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-[!INCLUDE [deploy-hello-app-on-azure-portal](deploy-hello-app-azure-portal.md)]
+[!INCLUDE [deploy-hello-app-azure-portal](deploy-hello-app-azure-portal.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+[!INCLUDE [deploy-spring-apps-maven-plugin](hello-spring-apps-maven-plugin.md)]
+
+2. Use the following command to deploy the app:
+
+   ```bash
+   ./mvnw azure-spring-apps:deploy
+   ```
+
+   The following list describes the command interaction:
+
+   - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
+
+   After the command is executed, you can see from the following log messages that the deployment was successful:
+
+   ```output
+   [INFO] Deployment(default) is successfully created
+   [INFO] Starting Spring App after deploying artifacts...
+   [INFO] Deployment Status: Running
+   [INFO]   InstanceName:demo-default-x-xxxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:N/A
+   [INFO] Getting public url of app(demo)...
+   [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io
+   ```
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -196,7 +235,7 @@ Use the following steps to import the project:
 
 Use the following steps to build and deploy your app:
 
-1. If you haven't already installed the Azure Toolkit for IntelliJ, follow the steps in [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
+1. If you didn't already install the Azure Toolkit for IntelliJ, follow the steps in [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
 
    > [!NOTE]
    > Azure Toolkit for IntelliJ provides four ways to log in to Azure, and the deployment can only start after logging in.

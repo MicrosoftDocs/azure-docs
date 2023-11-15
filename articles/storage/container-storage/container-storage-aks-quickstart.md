@@ -4,9 +4,11 @@ description: Create a Linux-based Azure Kubernetes Service (AKS) cluster, instal
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 11/03/2023
+ms.date: 11/06/2023
 ms.author: kendownie
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023-container-storage
 ---
 
 # Quickstart: Use Azure Container Storage Preview with Azure Kubernetes Service
@@ -17,12 +19,9 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
-> [!IMPORTANT]
-> This Quickstart will work for most use cases. An exception is if you plan to use Azure Elastic SAN Preview as backing storage for your storage pool and you don't have owner-level access to the Azure subscription. If both these statements apply to you, use the [manual installation steps](install-container-storage-aks.md) instead. Alternatively, you can complete this Quickstart with the understanding that a storage pool won't be automatically created, and then [create an Elastic SAN storage pool manually](use-container-storage-with-elastic-san.md).
-
 ## Getting started
 
-- Take note of your Azure subscription ID. We recommend using a subscription on which you have an [Owner](../../role-based-access-control/built-in-roles.md#owner) role.
+- Take note of your Azure subscription ID. We recommend using a subscription on which you have a [Kubernetes contributor](../../role-based-access-control/built-in-roles.md#kubernetes-extension-contributor) role if you want to use Azure Disks or Ephemeral Disk as data storage. If you want to use Azure Elastic SAN Preview as data storage, you'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role on the Azure subscription.
 
 - [Launch Azure Cloud Shell](https://shell.azure.com), or if you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
 
@@ -36,7 +35,7 @@ Upgrade to the latest version of the `aks-preview` cli extension by running the 
 az extension add --upgrade --name aks-preview
 ```
 
-Add or upgrade to the latest version of k8s-extension by running the following command.
+Add or upgrade to the latest version of `k8s-extension` by running the following command.
 
 ```azurecli-interactive
 az extension add --upgrade --name k8s-extension
@@ -101,6 +100,9 @@ Before deploying Azure Container Storage, you'll need to decide which back-end s
 
 You'll specify the storage pool type when you install Azure Container Storage.
 
+> [!NOTE]
+> For Azure Elastic SAN Preview and Azure Disks, Azure Container Storage will deploy the backing storage for you as part of the installation. You don't need to create your own Elastic SAN or Azure Disk.  
+
 ## Choose a VM type for your cluster
 
 If you intend to use Azure Elastic SAN Preview or Azure Disks as backing storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes. If you intend to use Ephemeral Disk, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) with NVMe drives such as **standard_l8s_v3**. In order to use Ephemeral Disk, the VMs must have NVMe drives. You'll specify the VM type when you create the cluster in the next section.
@@ -128,6 +130,17 @@ az aks create -n <cluster-name> -g <resource-group-name> --node-vm-size Standard
 ```
 
 The deployment will take 10-15 minutes to complete.
+
+## Display available storage pools
+
+To get the list of available storage pools, run the following command:
+
+```azurecli-interactive
+kubectl get sp –n acstor
+```
+
+> [!IMPORTANT]
+> If you specified Azure Elastic SAN Preview as backing storage for your storage pool and you don't have owner-level access to the Azure subscription, only Azure Container Storage will be installed and a storage pool won't be created. In this case, you'll have to [create an Elastic SAN storage pool manually](use-container-storage-with-elastic-san.md).
 
 ## Install Azure Container Storage on an existing AKS cluster
 
@@ -159,3 +172,11 @@ If you want to install Azure Container Storage on specific node pools, follow th
    ```azurecli-interactive
    az aks update -n <cluster-name> -g <resource-group-name> --enable-azure-container-storage <storage-pool-type> --azure-container-storage-nodepools <comma separated values of nodepool names> 
    ```
+
+## Next steps
+
+To create persistent volumes, select the link for the backing storage type you selected.
+
+- [Create persistent volume claim with Azure managed disks](use-container-storage-with-managed-disks.md#create-a-persistent-volume-claim)
+- [Create persistent volume claim with Ephemeral Disk](use-container-storage-with-local-disk.md#create-a-persistent-volume-claim)
+- [Create persistent volume claim with Azure Elastic SAN Preview](use-container-storage-with-elastic-san.md#create-a-persistent-volume-claim)

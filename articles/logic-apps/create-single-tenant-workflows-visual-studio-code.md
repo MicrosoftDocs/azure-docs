@@ -90,7 +90,7 @@ Install the following tools and versions for your specific operating system: Win
 
   * Azure Functions Core Tools - 4.x version
 
-    * [Windows](https://github.com/Azure/azure-functions-core-tools/releases/tag/4.0.4865): Use the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`.
+    * [Windows](https://github.com/Azure/azure-functions-core-tools/releases): Use the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`.
     * [macOS](../azure-functions/functions-run-local.md?tabs=macos#install-the-azure-functions-core-tools)
     * [Linux](../azure-functions/functions-run-local.md?tabs=linux#install-the-azure-functions-core-tools)
 

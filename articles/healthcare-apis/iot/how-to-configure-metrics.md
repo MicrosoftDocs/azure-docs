@@ -12,9 +12,6 @@ ms.author: jasteppe
 
 # How to configure the MedTech service metrics
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
-
 In this article, learn how to configure the MedTech service metrics in the Azure portal. Also learn how to pin the MedTech service metrics tile to an Azure portal dashboard for later viewing.
 
 The MedTech service metrics can be used to help determine the health and performance of your MedTech service and can be useful with troubleshooting and seeing patterns and/or trends with your MedTech service. 
@@ -29,7 +26,7 @@ Metric category|Metric name|Metric description|
 |Errors|Total Error Count|The total number of errors.|
 |Latency|Average Group Stage Latency|The average latency of the group stage. The [group stage](overview-of-device-data-processing-stages.md#group---optional) performs buffering, aggregating, and grouping on normalized messages.|
 |Latency|Average Normalize Stage Latency|The average latency of the normalized stage. The [normalized stage](overview-of-device-data-processing-stages.md#normalize) performs normalization on raw incoming messages.|
-|Traffic|Number of Fhir resources saved|The total number of FHIR resources [updated or persisted](overview-of-device-data-processing-stages.md#persist) by the MedTech service.|
+|Traffic|Number of Fhir resources saved|The total number of FHIR&reg; resources [updated or persisted](overview-of-device-data-processing-stages.md#persist) by the MedTech service.|
 |Traffic|Number of Incoming Messages|The number of received raw [incoming messages](overview-of-device-data-processing-stages.md#ingest) (for example, the device events) from the configured source event hub.|
 |Traffic|Number of Measurements|The number of normalized value readings received by the FHIR [transformation stage](overview-of-device-data-processing-stages.md#transform) of the MedTech service.|
 |Traffic|Number of Message Groups|The number of groups that have messages aggregated in the designated time window.|
@@ -86,11 +83,6 @@ To learn how to create an Azure portal dashboard and pin tiles, see [Create a da
 
 ## Next steps
 
-In this article, you learned about how to configure the MedTech service metrics.
+[How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)
 
-To learn how to enable the MedTech service diagnostic settings to export logs and metrics to another location (for example: Azure Log Analytics workspace) for audit, backup, or troubleshooting, see
-
-> [!div class="nextstepaction"]
-> [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)
-
-(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
