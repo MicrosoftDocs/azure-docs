@@ -494,7 +494,7 @@ When the application routing add-on is disabled, some Kubernetes resources might
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
-[custom-ingress-configurations]: app-routing-configuration.md
+[custom-ingress-configurations]: app-routing-dns-ssl.md
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [prometheus-in-grafana]: app-routing-nginx-prometheus.md
 
