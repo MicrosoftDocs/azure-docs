@@ -70,7 +70,7 @@ For each customer, you must:
 As part of arranging updates to customer tenants, you must create DNS records containing a verification code (provided by Microsoft 365 when the customer updates their tenant with the domain name) on a DNS server that you control. These records allow Microsoft 365 to verify that the customer tenant is authorized to use the domain name. Azure Communications Gateway provides the DNS server that you must use. You must obtain the verification code from the customer and upload it with Azure Communications Gateway's Provisioning API to generate the DNS TXT records that verify the domain.
 
 > [!TIP]
-> For a walkthrough of setting up a customer tenant and subdomain for your testing, see [Configure a test customer for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-customer-teams-direct-routing.md). When you onboard a real customer, you'll need to follow a similar process, but you'll typically need to ask them to carry out the steps that need access to their tenant.
+> For a walkthrough of setting up a customer tenant and numbers for your testing, see [Configure a test customer for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-customer-teams-direct-routing.md) and [Configure test numbers for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-numbers-teams-direct-routing.md). When you onboard a real customer, you'll need to follow a similar process, but you'll typically need to ask your customer to carry out the steps that need access to their tenant.
 
 ## Support for caller ID screening
 

@@ -17,7 +17,7 @@ Open your terminal or command window and create a new directory for your app, th
 mkdir phone-numbers-quickstart && cd phone-numbers-quickstart
 ```
 
-Use a text editor to create a file called phone_numbers_sample.py in the project root directory and add the the following code. We'll be adding the remaining quickstart code in the following sections.
+Use a text editor to create a file called phone_numbers_sample.py in the project root directory and add the following code. We'll be adding the remaining quickstart code in the following sections.
 
 ```python
 import os

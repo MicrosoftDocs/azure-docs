@@ -576,6 +576,7 @@ The following table explains the properties that you can set on the `options` ob
 |---------|---------|----------------------|
 |**topicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
 |**topicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
+|**connection**<sup>*</sup> | The value of the common prefix for the setting that contains the topic endpoint URI. When setting the `connection` property, the `topicEndpointUri` and `topicKeySetting` properties shouldn't be set. For more information about the naming format of this application setting, see [Identity-based authentication](#identity-based-authentication).  | 
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -588,7 +589,7 @@ The following table explains the binding configuration properties that you set i
 |**name** | The variable name used in function code that represents the event. |
 |**topicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
 |**topicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
-|**connection**<sup>*</sup> | The value of the common prefix for the setting that contains the topic endpoint URI. For more information about the naming format of this application setting, see [Identity-based authentication](#identity-based-authentication).  | 
+|**connection**<sup>*</sup> | The value of the common prefix for the setting that contains the topic endpoint URI. When setting the `connection` property, the `topicEndpointUri` and `topicKeySetting` properties shouldn't be set. For more information about the naming format of this application setting, see [Identity-based authentication](#identity-based-authentication).  | 
 
 ---
 
@@ -722,7 +723,7 @@ Use the following steps to configure a topic key:
 
 When using version 3.3.x or higher of the extension, you can connect to an Event Grid topic using an [Microsoft Entra identity](../active-directory/fundamentals/active-directory-whatis.md) to avoid having to obtain and work with topic keys. 
 
-To do this, create an application setting that returns the topic endpoint URI, where the name of the setting combines a unique _common prefix_, such as `myawesometopic`, with the value `__topicEndpointUri`. You then use the common prefix `myawesometopic` when you define the `Connection` property in the binding.
+You need to create an application setting that returns the topic endpoint URI. The name of the setting should combine a _unique common prefix_ (for example, `myawesometopic`) with the value `__topicEndpointUri`. Then, you must use that common prefix (in this case, `myawesometopic`) when you define the `Connection` property in the binding.
 
 In this mode, the extension requires the following properties:
 
@@ -730,7 +731,7 @@ In this mode, the extension requires the following properties:
 |--------------------|----------------------------------------------|---------------------|---------------|
 | Topic Endpoint URI | `<CONNECTION_NAME_PREFIX>__topicEndpointUri` | The topic endpoint. | `https://<topic-name>.centralus-1.eventgrid.azure.net/api/events`  |
 
-More properties may be set to customize the connection. See [Common properties for identity-based connections](functions-reference.md#common-properties-for-identity-based-connections).
+More properties can be used to customize the connection. See [Common properties for identity-based connections](functions-reference.md#common-properties-for-identity-based-connections).
 
 > [!NOTE]
 > When using [Azure App Configuration](../azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../key-vault/general/overview.md) to provide settings for managed identity-based connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.

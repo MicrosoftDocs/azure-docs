@@ -22,7 +22,7 @@ To complete this procedure, you need:
 
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 
-- A VM, Virtual Machine Scale Set, or Arc-enabled on-premises server that writes logs to a text or JSON file.
+- A Virtual Machine, Virtual Machine Scale Set, Arc-enabled server on-premises or Azure Monitoring Agent on a Windows on-premise client that writes logs to a text or JSON file.
     
     Text and JSON file requirements and best practices:    
     - Do store files on the local drive of the machine on which Azure Monitor Agent is running and in the directory that is being monitored.

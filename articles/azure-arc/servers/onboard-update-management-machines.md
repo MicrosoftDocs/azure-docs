@@ -1,7 +1,7 @@
 ---
 title: Connect machines from Azure Automation Update Management
 description: In this article, you learn how to connect hybrid machines to Azure Arc managed by Automation Update Management.
-ms.date: 11/01/2023
+ms.date: 11/06/2023
 ms.topic: conceptual
 ---
 
@@ -33,24 +33,24 @@ Perform the following steps to configure the hybrid machine with Arc-enabled ser
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to the **Servers - Azure Arc** page, and then select **Add** at the upper left.
+1. Navigate to the **Machines - Azure Arc** page, select **Add/Create**, and then select **Add a machine** from the drop-down menu.
 
-1. On the **Select a method** page, select the **Add managed servers from Update Management (preview)** tile, and then select **Add servers**.
+1. On the **Add servers with Azure Arc** page, select **Add servers** from the **Add managed servers from Update Management** tile.
 
-1. On the **Basics** page, configure the following:
+1. On the **Resource details** page, configure the following:
 
-    1. In the **Resource group** drop-down list, select the resource group the machine will be managed from.
+    1. Select the **Subscription** and **Resource group** where you want the server to be managed within Azure.
     1. In the **Region** drop-down list, select the Azure region to store the servers metadata.
     1. If the machine is communicating through a proxy server to connect to the internet, specify the proxy server IP address or the name and port number that the machine will use to communicate with the proxy server. Enter the value in the format `http://<proxyURL>:<proxyport>`.
-    1. Select **Next: Machines**.
+    1. Select **Next**.
 
-1. On the **Machines** page, select the **Subscription** and **Automation account** from the drop-down list that has the Update Management feature enabled and includes the machines you want to onboard to Azure Arc-enabled servers.
+1. On the **Servers** page, select **Add Servers**, then select the **Subscription** and **Automation account** from the drop-down list that has the Update Management feature enabled and includes the machines you want to onboard to Azure Arc-enabled servers.
 
    After specifying the Automation account, the list below returns non-Azure machines managed by Update Management for that Automation account. Both Windows and Linux machines are listed and for each one, select **add**.
 
    You can review your selection by selecting **Review selection** and if you want to remove a machine select **remove** from under the **Action** column.
 
-   Once you confirm your selection, select **Next: Tags**.
+   Once you confirm your selection, select **Next**.
 
 1. On the **Tags** page, specify one or more **Name**/**Value** pairs to support your standards. Select **Next: Review + add**.
 

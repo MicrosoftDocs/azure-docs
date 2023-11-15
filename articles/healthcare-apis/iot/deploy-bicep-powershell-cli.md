@@ -3,7 +3,7 @@ title: Deploy the MedTech service using a Bicep file and Azure PowerShell or the
 description: Learn how to deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI.
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.custom: devx-track-bicep, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: quickstart
 ms.date: 07/12/2023
@@ -11,9 +11,6 @@ ms.author: jasteppe
 ---
 
 # Quickstart: Deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI
-
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner Bicep provides concise syntax, reliable type safety, and support for code reuse. Bicep offers a first-class authoring experience for your infrastructure-as-code solutions in Azure.
 
@@ -173,7 +170,7 @@ When deployment is completed, the following resources and access roles are creat
 
 * Health Data Services workspace.
 
-* Health Data Services FHIR service.
+* Health Data Services FHIR&reg; service.
 
 * Health Data Services MedTech service with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
 
@@ -219,21 +216,10 @@ For example: `az group delete --resource-group BicepTestDeployment`
 
 ## Next steps
 
-In this quickstart, you learned how to use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
+[Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
-To learn about other methods of deploying the MedTech service, see
+[Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
 
-> [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+[Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
-For an overview of the MedTech service device data processing stages, see
-
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
-
-For frequently asked questions (FAQs) about the MedTech service, see
-
-> [!div class="nextstepaction"]
-> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

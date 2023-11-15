@@ -1,24 +1,28 @@
 ---
-title: How to configure data sources for Azure Managed Grafana
-description: In this how-to guide, discover how you can configure data sources for Azure Managed Grafana using Managed Identity.
+title: How to manage data sources for Azure Managed Grafana
+description: In this how-to guide, discover how you can configure data sources for Azure Managed Grafana
 author: maud-lv 
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: how-to
-ms.date: 10/13/2023
+ms.date: 10/24/2023
 ---
 
-# How to configure data sources for Azure Managed Grafana
+# How to manage data sources in Azure Managed Grafana
+
+In this guide, you learn about data sources supported in each Azure Managed Grana plan and learn how to add, manage and remove these data sources.
 
 ## Prerequisites
 
-[An Azure Managed Grafana instance](./how-to-permissions.md)
+[An Azure Managed Grafana instance](./how-to-permissions.md).
 
 ## Supported Grafana data sources
 
 By design, Grafana can be configured with multiple *data sources*. A data source is an externalized storage backend that holds telemetry information.
 
-Azure Managed Grafana supports many popular data sources. The table below lists the data sources that can be added to Azure Managed Grafana for each service tier.
+### Grafana core data sources
+
+Azure Managed Grafana supports many popular data sources. The table below lists the Grafana core data sources that can be added to Azure Managed Grafana for each service tier.
 
 | Data sources                                                                                                                  | Essential (preview) | Standard |
 |-------------------------------------------------------------------------------------------------------------------------------|-----------|----------|
@@ -40,8 +44,10 @@ Azure Managed Grafana supports many popular data sources. The table below lists 
 | [PostgreSQL](https://grafana.com/docs/grafana/latest/datasources/postgres/)                                                   | -         | ✔       |
 | [Prometheus](https://grafana.com/docs/grafana/latest/datasources/prometheus/)                                                 | ✔        | ✔       |
 | [Tempo](https://grafana.com/docs/grafana/latest/datasources/tempo/)                                                           | -         | ✔       |
-| [TestData](https://grafana.com/docs/grafana/latest/datasources/testdata/)                                                  | ✔        | ✔       |
+| [TestData](https://grafana.com/docs/grafana/latest/datasources/testdata/)                                                     | ✔        | ✔       |
 | [Zipkin](https://grafana.com/docs/grafana/latest/datasources/zipkin/)                                                         | -         | ✔       |
+
+### Data sources for Grafana Enterprise customers
 
 Within the Standard service tier, users who have subscribed to the Grafana Enterprise option can also access the following data sources.
 
@@ -62,29 +68,47 @@ Within the Standard service tier, users who have subscribed to the Grafana Enter
 * [Splunk Infrastructure monitoring (SignalFx)](https://grafana.com/grafana/plugins/grafana-splunk-monitoring-datasource)
 * [Wavefront](https://grafana.com/grafana/plugins/grafana-wavefront-datasource)
 
+### Additional data sources
+
+More data sources can be added from the [Plugin management (preview) feature](how-to-manage-plugins.md).
+
 For more information about data sources, go to [Data sources](https://grafana.com/docs/grafana/latest/datasources/) on the Grafana Labs website.
 
 ## Add a data source
 
-A number of data sources, such as Azure Monitor, are added to your Grafana instance by default. To add more data sources, follow the steps below using the Azure portal or the Azure CLI.
+To add a data source to Azure Managed Grafana, follow the steps below using the Azure portal or the Azure CLI.
 
 ### [Portal](#tab/azure-portal)
 
+### Grafana core data sources
+
+To add a [Grafana core data source](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources) with the Azure portal:
+
 1. Open your Azure Managed Grafana instance in the Azure portal.
 1. Select **Overview** from the left menu, then open the **Endpoint** URL.
-1. In the Grafana portal, deploy the menu on the left and select **Connections**.
-1. Under Connect data, select a data source from the list, and add the data source to your instance.
-1. Fill out the form with the data source settings and select **Save and test** to validate the connection to your data source.
+1. In the Grafana portal, deploy the menu on the left and select **Connections** > **Connect data**.
+1. Select a data source from the list, and add it to your instance by selecting **Create** or **Add** in the top right hand corner.
+1. Fill out the form and select **Save and test** to test and update the data source configuration.
 
    :::image type="content" source="media/data-sources/add-data-source.png" alt-text="Screenshot of the Add data source page.":::
 
+### Other data sources
+
+1. To add a data source that isn't part of the Grafana built-in core data sources, start by [installing the corresponding data source plugin](how-to-manage-plugins.md#add-a-plugin).
+
+1. Then add the datasource from the Grafana portal.
+
+    1. In the Grafana portal, go to **Connections** > **Connect data**.
+    1. Select a data source from the list, and add the data source to your instance by selecting **Create** in the top right hand corner.
+    1. Fill out the form and select **Save and test** to test and update the data source configuration.
+
 ### [Azure CLI](#tab/azure-cli)
 
-Run the [az grafana data-source create](/cli/azure/grafana/data-source#az-grafana-data-source-create) command to add and manage Azure Managed Grafana data sources with the Azure CLI.
+Run the [az grafana data-source create](/cli/azure/grafana/data-source#az-grafana-data-source-create) command to add a [Grafana core data source](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources) with the Azure CLI.
 
 For example, to add an Azure SQL data source, run:
 
-```azurecli-interactive
+```azurecli
 
 az grafana data-source create --name <instance-name> --definition '{
   "access": "proxy",
@@ -103,12 +127,16 @@ az grafana data-source create --name <instance-name> --definition '{
 }'
 ```
 
+Other data sources can be added [from the Azure portal](#other-data-sources).
+
 ---
 
 > [!TIP]
 > If you can't connect to a data source, you may need to [modify access permissions](how-to-permissions.md) to allow access from your Azure Managed Grafana instance.
 
-## Update a data source
+## Configure a data source
+
+The content below, shows how to configure some of the most popular data sources in Azure Managed Grafana: Azure Monitor and Azure Data Explorer. A similar process can be used to configure other types of data sources. For more information about a specific data source, refer to [Grafana's documentation](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources).
 
 ### Azure Monitor configuration
 
@@ -216,10 +244,33 @@ Azure Managed Grafana can also access data sources using a service principal set
 
 ---
 
+## Remove a data source
+
+This section describes the steps for removing a data source.
+
+> [!CAUTION]
+> Removing a data source that is used in a dashboard will make the dashboard unable to collect the corresponding data and will trigger an error or result in no data being shown in the panel.
+
+### [Portal](#tab/azure-portal)
+
+Remove a data source in the Azure portal:
+
+1. Open your Azure Managed Grafana instance in the Azure portal.
+1. Select **Overview** from the left menu, then open the **Endpoint** URL.
+1. In the Grafana portal, go to **Connections** > **Your connections**
+1. Select the data source you want to remove and select **Delete**.
+
+### [Azure CLI](#tab/azure-cli)
+
+Run the [az grafana data-source delete](/cli/azure/grafana/data-source#az-grafana-data-source-delete) command to remove an Azure Managed Grafana data source using the Azure CLI. In the sample below, replace the placeholders `<instance-name>` and `<id>` with the name of the Azure Managed Grafana workspace and the name, ID or UID of the data source.
+
+```azurecli
+az grafana data-source delete --name <instance-name> --data-source <id>
+```
+
+---
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect to a data source privately](./how-to-connect-to-data-source-privately.md)
-
-> [!div class="nextstepaction"]
-> [Share an Azure Managed Grafana instance](./how-to-share-grafana-workspace.md)
+> [Create a dashboard](how-to-create-dashboard.md)

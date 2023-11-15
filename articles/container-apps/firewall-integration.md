@@ -33,16 +33,17 @@ The following tables describe how to configure a collection of NSG allow rules. 
 
 | Protocol | Source | Source ports | Destination | Destination ports | Description |
 |--|--|--|--|--|--|
-| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `443`, `30,000-32,676`<sup>2</sup> | Allow your Client IPs to access Azure Container Apps. |
-| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30,000-32,676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
+| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `80`, `31080` | Allow your Client IPs to access Azure Container Apps when using HTTP. |
+| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `443`, `31443` | Allow your Client IPs to access Azure Container Apps when using HTTPS. |
+| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30000-32676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
 
 # [Consumption only environment](#tab/consumption-only)
 
 | Protocol | Source | Source ports | Destination | Destination ports | Description |
 |--|--|--|--|--|--|
-| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `443` | Allow your Client IPs to access Azure Container Apps.  |
-| TCP | Your client IPs | \* | The `staticIP` of your container app environment | `443` | Allow your Client IPs to access Azure Container Apps.  |
-| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30,000-32,676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
+| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `80`, `443` | Allow your Client IPs to access Azure Container Apps. Use port `80` for HTTP and `443` for HTTPS. |
+| TCP | Your client IPs | \* | The `staticIP` of your container app environment | `80`, `443` | Allow your Client IPs to access Azure Container Apps. Use port `80` for HTTP and `443` for HTTPS. |
+| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30000-32676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
 | TCP | Your container app's subnet | \* | Your container app's subnet | \* | Required to allow the container app envoy sidecar to connect to envoy service. |
 
 ---
