@@ -28,7 +28,7 @@ This article will show you how to complete each step and provide an [example cod
 
 ## How is this CCP different from the previous version?
 
-The initial version of the CCP was [announced](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-codeless-connector-platform/ba-p/3095455) in January of 2022. Since then, we've improved upon the platform and the [previous release](create-codeless-connector-1.md) is now deprecated. Reference this new article for the most recent version of the CCP which has these key improvements:
+The initial version of the CCP was [announced](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-codeless-connector-platform/ba-p/3095455) in January of 2022. Since then, we've improved upon the platform and the [previous release](create-codeless-connector-legacy.md) is now deprecated. Reference this new article for the most recent version of the CCP which has these key improvements:
 
 1. Better support for various authentication and pagination types.
 1. The user interface and connection configuration portions of the codeless connector are separate now. This allows the creation of connectors with multiple connections which wasn't possible previously.
@@ -227,7 +227,7 @@ To create this connector in a test environment, follow the [Data Collection Rule
   "properties": {
     "dataCollectionEndpointId": "/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.Insights/dataCollectionEndpoints/{{dataCollectionEndpointName}}",
     "streamDeclarations": {
-      "Custom-{{ExampleConnectorInput}}": {
+      "Custom-ExampleConnectorInput": {
         "columns": [
           {
             "name": "ts",
@@ -291,7 +291,7 @@ To create this connector in a test environment, follow the [Data Collection Rule
     "dataFlows": [
       {
         "streams": [
-          "Custom-{{ExampleConnectorInput}}"
+          "Custom-ExampleConnectorInput"
         ],
         "destinations": [
           "{{uniqueFriendlyDestinationName}}"
@@ -301,7 +301,7 @@ To create this connector in a test environment, follow the [Data Collection Rule
       },
       {
         "streams": [
-          "Custom-{{ExampleConnectorInput}}"
+          "Custom-ExampleConnectorInput"
         ],
         "destinations": [
           "{{uniqueFriendlyDestinationName}}"

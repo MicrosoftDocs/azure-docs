@@ -376,30 +376,59 @@ Another example for response in CSV format with no header:
 
 ## Paging configuration
 
-The paging section includes the following parameters based on the paging type:
+When the data source can't send the entire response payload all at once, the CCP data connector needs to know how to receive part of the data in response *pages*. These are the paging types to choose from:
 
-PagingType:  LinkHeader / PersistentLinkHeader
-This is the most common paging type – see specification here.
-In LinkHeader pagination, the API response includes links in the HTTP header, typically named "Link," that provide URLs to the next and previous pages of data. Clients can extract the next page URL from the header and make a new request to retrieve the next page of data.
-LinkHeader and PersistentLinkHeader have the same properties, The difference is that in PersistentLinkHeader link header will be persisted at backend storage – so it can be used across different query windows. For example, some API doesn’t support query start time/end time, but it might support server side *cursor*, persistent* page types can be used to remember the server side *cursor*. Also note a side effect of this page type – there can be only one query running for the connector with PersistentLinkHeader to avoid race conditions on service side *cursor* so it can affect latency.
+| Paging type | decision factor |
+|----|----|
+| <ul><li>[LinkHeader](#configure-linkheader-or-persistentlinkheader)</li><li>[PersistentLinkHeader](#configure-linkheader-or-persistentlinkheader)</li></ul> | Does the API response have links to next and previous pages? |
+| <ul><li>[NextPageToken](#configure-nextpagetoken-or-persistenttoken)</li><li>[PersistentToken](#configure-nextpagetoken-or-persistenttoken)</li> | 
 
-These are the paging types:
-- LinkHeader
-- PersistentLinkHeader
+
 - NextPageToken
 - PersistentToken
 - NextPageUrl
 - Offset
 
+#### Configure LinkHeader or PersistentLinkHeader
+This is the most common paging type, where the data source API provides URLs to the next and previous pages of data. For more information on the specification, see [RFC 5988](https://www.rfc-editor.org/rfc/rfc5988#section-5).
+
+`LinkHeader` paging means the API response includes either:
+- the `Link` HTTP response header
+- or a JSON path to retrieve the link from the response body. 
+
+`PersistentLinkHeader` paging has the same properties as `LinkHeader`, except the link header persists in backend storage. This allows use of the paging links across query windows. For example, some API don't support query start times or end times. Instead, they support server side *cursor*. Persistent page types can be used to remember the server side *cursor*. Also note a side effect of this page type – there can be only one query running for the connector with PersistentLinkHeader to avoid race conditions on service side *cursor* so it can affect latency.
+
+| Field | Required | Type | Description |
+|----|----|----|----|
+| **LinkHeaderTokenJsonPath** | False | String | Use this property to indicate where to get the value in the response body.<br><br>For example, the remote server returns the following JSON: { nextPage: "blablabl", value: [{data}]}
+LinkHeaderTokenJsonPath will be "$.nextPage"
+PageSize	False	Integer	How many events per page
+PageSizeParameterName	False	String	Query parameter name for the page size
+
+```json
+Paging: {
+  "pagingType": "LinkHeader",
+  "linkHeaderTokenJsonPath" : "$.metadata.links.next"
+}
+```
+
+```json
+Paging: {
+ "pagingType" = "PersistentLinkHeader", 
+ "pageSizeParameterName" : "limit", 
+ "pageSize" : 500 
+}
+```
+
+#### Configure NextPageToken or PersistentToken
 
 ## DCR configuration
 
-Field	Required	Type	Description
-DataCollectionEndpoint	true	String	DCE (Data Collection Endpoint) for example: `https://example.ingest.monitor.azure.com`.
-Create DCE here
-
-DataCollectionRuleImmutableId	true	String	On DCR creation, the response for the DCR will have its immutable id
-StreamName	true	string	Stream defined in DCR stream declaration for custom streams (prefix with “Custom-"), If stream is a standard stream prefix with “Microsoft-", for more information see docs
+| Field | Required | Type | Description |
+|----|----|----|----|
+| **DataCollectionEndpoint** | True | String | DCE (Data Collection Endpoint) for example: `https://example.ingest.monitor.azure.com`. |
+| **DataCollectionRuleImmutableId** | True | String | Lookup a DCE immutable ID by viewing the DCR creation response or using the [DCE API]() |
+| **StreamName** | True | string | This is the `streamDeclaration` defined in the DCR (prefix must begin with *Custom-*) |
 
 ## Example CCP data connector
 
@@ -407,46 +436,44 @@ Here's an example of all the components of the CCP data connector JSON together.
 
 ```json
 {
-   "id": "/subscriptions/{{subscriptionId}}/resourceGroups/{resourceGroupName}}/providers/Microsoft.OperationalInsights/workspaces/{{workspaceName}}/providers/Microsoft.SecurityInsights/dataConnectors/{{dataconnector name}",
-              "name": "DataConnectorExample",
-              "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
-              "kind": "RestApiPoller",
-              "properties": {
-                "connectorDefinitionName": "ConnectorDefinitionExample",
-                "dcrConfig": {
-                  "streamName": "Custom-MyTable_CL",
-                  "dataCollectionEndpoint": "{DCE collection endpoint (https://...)}",
-                  "dataCollectionRuleImmutableId": "{dcr-immutable id} " 
-                },
-                "dataType": "ExampleLogs",
-                "auth": {
-                  "type": "Basic",
-                  "password": "xxxxx",
-                  "userName": "user1"
-                },
-                "request": {
-                  "apiEndpoint": "{endpoint url (https://...)} ",
-                  "rateLimitQPS": 10,
-                  "queryWindowInMin": 5,
-                  "httpMethod": "GET",
-                  "queryTimeFormat": "UnixTimestamp",
-                  "startTimeAttributeName": "t0",
-                  "endTimeAttributeName": "t1",
-                  "retryCount": 3,
-                  "timeoutInSeconds": 60,
-                  "headers": {
-                    "Accept": "application/json",
-                    "User-Agent": "Scuba"
-                  }
-                  
-                },
-                "paging": {
-                  "pagingType": "LinkHeader"
-                  
-                },
-                "response": {
-                  "eventsJsonPaths": ["$"]
-                }
-              }
-            }
+   "id": "/subscriptions/{{subscriptionId}}/resourceGroups/{resourceGroupName}}/providers/Microsoft.OperationalInsights/workspaces/{{workspaceName}}/providers/Microsoft.SecurityInsights/dataConnectors/{{dataconnectorName}}",
+   "name": "DataConnectorExample",
+   "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
+   "kind": "RestApiPoller",
+   "properties": {
+      "connectorDefinitionName": "ConnectorDefinitionExample",
+      "dcrConfig": {
+           "streamName": "Custom-ExampleConnectorInput",
+           "dataCollectionEndpoint": "https://austinmc-fte-central-dce-sbsr.eastus-1.ingest.monitor.azure.com",
+           "dataCollectionRuleImmutableId": "{dcr-immutable id}" 
+            },
+      "dataType": "ExampleLogs",
+      "auth": {
+         "type": "Basic",
+         "password": "xxxxx",
+         "userName": "user1"
+      },
+      "request": {
+         "apiEndpoint": "{endpoint url (https://...)} ",
+         "rateLimitQPS": 10,
+         "queryWindowInMin": 5,
+         "httpMethod": "GET",
+         "queryTimeFormat": "UnixTimestamp",
+         "startTimeAttributeName": "t0",
+         "endTimeAttributeName": "t1",
+         "retryCount": 3,
+         "timeoutInSeconds": 60,
+         "headers": {
+            "Accept": "application/json",
+            "User-Agent": "Scuba"
+         } 
+      },
+      "paging": {
+         "pagingType": "LinkHeader"
+      },
+      "response": {
+         "eventsJsonPaths": ["$"]
+      }
+   }
+}
 ```
