@@ -5,6 +5,8 @@ description: Choose the best Document Intelligence model to meet your needs.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: overview
 ms.date: 11/15/2023
 ms.author: lajanuar

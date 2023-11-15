@@ -7,6 +7,8 @@ author: PatrickFarley
 manager: nitinme
 
 ms.service: azure-ai-vision
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 07/22/2022
 ms.author: pafarley

@@ -3,7 +3,9 @@ title: 'Quickstart: Deploy using Terraform'
 description: 'In this article, you create an Azure AI Search service using Terraform.'
 ms.topic: quickstart
 ms.date: 4/14/2023
-ms.custom: devx-track-terraform
+ms.custom:
+  - devx-track-terraform
+  - ignite-2023
 author: TomArcherMsft
 ms.author: tarcher
 ms.service: cognitive-search

@@ -6,9 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, event-tier1-build-2022
-ms.reviewer: mopeakande 
-author: santiagxf 
+ms.custom:
+  - cliv2
+  - event-tier1-build-2022
+  - ignite-2023
+ms.reviewer: mopeakande
+author: santiagxf
 ms.author: fasantia
 ms.date: 03/31/2022
 ---

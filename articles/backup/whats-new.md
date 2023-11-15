@@ -4,6 +4,8 @@ description: Learn about the new features in the Azure Backup service.
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.service: backup
+ms.custom:
+  - ignite-2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

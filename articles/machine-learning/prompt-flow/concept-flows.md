@@ -5,6 +5,8 @@ description: Learn about how a flow in prompt flow serves as an executable workf
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19

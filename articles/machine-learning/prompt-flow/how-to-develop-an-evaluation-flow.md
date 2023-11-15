@@ -5,6 +5,8 @@ description: Learn how to customize or create your own evaluation flow tailored 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 author: ZikeiWong
 ms.author: ziqiwang

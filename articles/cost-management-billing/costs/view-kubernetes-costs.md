@@ -7,6 +7,8 @@ ms.date: 11/07/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
+ms.custom:
+  - ignite-2023
 ms.reviewer: sadoulta
 ---
 

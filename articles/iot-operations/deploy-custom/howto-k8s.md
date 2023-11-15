@@ -5,6 +5,8 @@ author: kgremban
 ms.author: kgremban
 # ms.subservice: orchestrator
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 11/01/2023
 
 #CustomerIntent: As an OT professional, I want to deploy custom workloads to a Kubernetes cluster.

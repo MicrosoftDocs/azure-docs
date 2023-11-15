@@ -6,9 +6,10 @@ author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 09/07/2022
-
 ---
 
 # Terms of Use: Partner data sources

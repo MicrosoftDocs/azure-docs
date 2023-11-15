@@ -5,6 +5,8 @@ description: Prompt flow embedding tool uses OpenAI's embedding models to conver
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 author: wangchao1230
 ms.author: CLWAN

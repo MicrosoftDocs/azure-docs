@@ -11,6 +11,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
 ms.custom:
+  - ignite-2023
 ---
 
 # Azure OpenAI Service REST API reference

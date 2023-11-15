@@ -11,7 +11,10 @@ author: ynpandey
 ms.author: yogipandey
 ms.date: 10/27/2023
 ms.reviewer: franksolomon
-ms.custom: sdkv2, ignite2023
+ms.custom:
+  - sdkv2
+  - ignite2023
+  - ignite-2023
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 

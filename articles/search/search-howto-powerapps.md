@@ -5,6 +5,8 @@ description: Step-by-step guidance on how to build a Power App that connects to 
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
 ms.date: 02/07/2023
 ---

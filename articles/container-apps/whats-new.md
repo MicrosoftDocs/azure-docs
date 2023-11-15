@@ -5,9 +5,11 @@ description: Learn more about what's new in Azure Container Apps.
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 08/30/2023
-# Customer Intent: As an Azure Container Apps user, I'd like to know about new and improved features in Azure Container Apps. 
+# Customer Intent: As an Azure Container Apps user, I'd like to know about new and improved features in Azure Container Apps.
 ---
 
 # What's new in Azure Container Apps

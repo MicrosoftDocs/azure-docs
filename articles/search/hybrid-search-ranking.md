@@ -6,6 +6,8 @@ description: Describes the Reciprocal Rank Fusion (RRF) algorithm used to unify 
 author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/01/2023
 ---

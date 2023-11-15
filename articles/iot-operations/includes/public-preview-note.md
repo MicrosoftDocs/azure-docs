@@ -5,7 +5,9 @@
  ms.topic: include
  ms.date: 10/13/2023
  ms.author: dobett
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 
 > [!IMPORTANT]

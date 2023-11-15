@@ -7,9 +7,10 @@ author: careyjmac
 ms.author: chalton
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 12/12/2021
-
 ---
 # Document Extraction cognitive skill
 

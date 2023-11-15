@@ -5,6 +5,8 @@ description: Learn about tips and best practices for maximizing performance on a
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 04/20/2023
 ---

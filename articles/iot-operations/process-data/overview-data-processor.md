@@ -5,6 +5,8 @@ author: dominicbetts
 ms.author: dobett
 # ms.subservice: data-processor
 ms.topic: conceptual #Required.
+ms.custom:
+  - ignite-2023
 ms.date: 09/08/2023
 
 #CustomerIntent: As an OT user, I want process data at the edge so that I can send well-structured, complete, and relevant data to the cloud for storage and analysis.

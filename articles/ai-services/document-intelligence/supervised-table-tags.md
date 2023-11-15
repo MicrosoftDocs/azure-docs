@@ -5,11 +5,13 @@ description: Learn how to effectively use supervised table tag labeling.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
-#Customer intent: As a user of the Document Intelligence custom model service, I want to ensure I'm training my model in the best way.
 monikerRange: 'doc-intel-2.1.0'
+#Customer intent: As a user of the Document Intelligence custom model service, I want to ensure I'm training my model in the best way.
 ---
 
 

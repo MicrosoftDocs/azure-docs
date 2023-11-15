@@ -6,6 +6,8 @@ ms.author: adamwolk
 ms.date: 11/07/2023
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ---
 

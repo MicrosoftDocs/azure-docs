@@ -8,6 +8,8 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.subservice: azure-ai-face
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 07/04/2023
 ms.author: pafarley

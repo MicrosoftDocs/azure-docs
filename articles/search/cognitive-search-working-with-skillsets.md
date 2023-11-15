@@ -5,7 +5,8 @@ description: Skillsets are where you author an AI enrichment pipeline in Azure A
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 08/08/2023
 ---

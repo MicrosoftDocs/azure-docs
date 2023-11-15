@@ -6,7 +6,9 @@
  ms.topic: include
  ms.date: 11/02/2023
  ms.author: rogarana
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 - Premium SSD v2 disks can't be used as an OS disk.
 - Currently, Premium SSD v2 disks can only be attached to zonal VMs.
