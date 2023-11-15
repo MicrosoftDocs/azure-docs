@@ -7,8 +7,12 @@ items:
     href: qumulo-overview.md
   - name: What is ANQ for disaster recovery?
     href: qumulo-disaster-recovery.md
-  # - name: What is ANQ for video editing?
-  #   href: qumulo-video-editing.md
+  - name: What is ANQ for video editing?
+    href: qumulo-video-editing.md
+  - name: What is Azure Native Qumulo for PACS VNA?
+    href: qumulo-vendor-neutral-archive.md
+  - name: What is Azure Native Qumulo for virtual desktops?
+    href: qumulo-virtual-desktop.md
 - name: Quickstart
   expanded: true
   items:

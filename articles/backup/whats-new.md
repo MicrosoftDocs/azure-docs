@@ -19,6 +19,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - November 2023
+  - [Back up Azure Database for PostgreSQL-Flexible server (preview)](#back-up-azure-database-for-postgresql-flexible-server-preview)
   - [Azure Kubernetes Service backup is now generally available](#azure-kubernetes-service-backup-is-now-generally-available)
   - [Manage protection of datasources using Azure Business Continuity center (preview)](#manage-protection-of-datasources-using-azure-business-continuity-center-preview)
   - [Save your MARS backup passphrase securely to Azure Key Vault is now generally available.](#save-your-mars-backup-passphrase-securely-to-azure-key-vault-is-now-generally-available)
@@ -76,6 +77,15 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+
+## Back up Azure Database for PostgreSQL-Flexible server (preview) 
+
+Azure Backup and Azure Database services together help you to build an enterprise-class backup solution for Azure PostgreSQL-Flexible server. You can meet your data protection and compliance needs with an end-user-controlled backup policy that enables retention of backups for up to 10 years. 
+
+With this, you can back up the entire PostgreSQL Flexible server to Azure Backup Vault storage. These backups can be restored to a target storage account, and you can use native PostgreSQL tools to re-create the PostgreSQL Server.
+
+For more information, see [Azure Database for PostgreSQL Flexible server (preview)](backup-azure-database-postgresql-flex-overview.md).
+
 ## Azure Kubernetes Service backup is now generally available
 
 Azure Kubernetes Service (AKS) backup is a simple, cloud-native process to back up and restore the containerized applications and data running in AKS clusters. You can configure scheduled backup for both cluster state and application data (persistent volumes - CSI driver based Azure Disks). 
@@ -93,6 +103,7 @@ For more information, see [Overview of AKS backup](azure-kubernetes-service-back
 You can now also manage Azure Backup protections with Azure Business Continuity (ABC) center. ABC enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your business continuity estate for better discoverability with the ability to do core activities. 
 
 For more information, see the [supported scenarios of ABC center (preview)](../business-continuity-center/business-continuity-center-support-matrix.md).
+
 
 ## Save your MARS backup passphrase securely to Azure Key Vault is now generally available.
 

@@ -871,6 +871,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-version-vmware.md",
+        "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/azuread-dev/active-directory-authentication-libraries.md",
       "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/active-directory-authentication-libraries",
       "redirect_document_id": false
@@ -12340,6 +12345,16 @@
         {
             "source_path_from_root": "/articles/defender-for-iot/organizations/integration-splunk.md",
             "redirect_url": "/azure/defender-for-iot/organizations/tutorial-splunk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/reference/about-iot-operations-cli.md",
+            "redirect_url": "/cli/azure/iot/ops",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-mq-layered-network.md",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/overview-layered-network",
             "redirect_document_id": false
         },
         {
