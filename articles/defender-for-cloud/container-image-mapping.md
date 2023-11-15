@@ -17,6 +17,7 @@ When a vulnerability is identified in a container image stored in a container re
 - For Azure DevOps, [Microsoft Security DevOps (MSDO) Extension](azure-devops-extension.md) installed on the Azure DevOps organization.
 - For GitHub, [Microsoft Security DevOps (MSDO) Action](github-action.md) configured in your GitHub repositories.
 - [Defender CSPM](tutorial-enable-cspm-plan.md) enabled.
+- The container images must be built using [Docker](https://www.docker.com/).
 
 ## Map your container image from Azure DevOps pipelines to the container registry
 
