@@ -121,9 +121,13 @@ For more information, review the [documentation for the Azurite extension in Vis
 
    1. Find and select the downloaded VSIX file.
 
-   1. Reload Visual Studio Code, if necessary.
-
       After setup completes, the extension automatically activates and runs the **Validate and install dependency binaries** command. To view the process logs, open the **Output** window.
+
+   1. When the following prompt appears, select **Yes (Recommended)** to confirm that you want opt in to automatically installing the required dependencies:
+
+      :::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/dependency-installer-prompt.png" alt-text="Screenshot shows prompt to automatically install dependencies." lightbox="media/create-single-tenant-workflows-visual-studio-code/dependency-installer-prompt.png":::
+
+   1. Reload Visual Studio Code, if necessary.
 
    1. Confirm that the dependencies correctly appear in the following folder:
 
@@ -568,7 +572,7 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
 
 #### Set up call forwarding using **ngrok**
 
-1. [Sign up for an **ngrok** account](https://dashboard.ngrok.com/signup) if you don't have one. Otherwise, [sign in to your account](https://dashboard.ngrok.com/login).
+1. [Go to **ngrok**](https://dashboard.ngrok.com). Either sign up for a new account or sign in to your account, if you have one already.
 
 1. Get your personal authentication token, which your **ngrok** client needs to connect and authenticate access to your account.
 
