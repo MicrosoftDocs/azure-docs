@@ -572,11 +572,11 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
 
 #### Set up call forwarding using **ngrok**
 
-1. [Go to **ngrok**](https://dashboard.ngrok.com). Either sign up for a new account or sign in to your account, if you have one already.
+1. [Go to the **ngrok** website](https://dashboard.ngrok.com). Either sign up for a new account or sign in to your account, if you have one already.
 
 1. Get your personal authentication token, which your **ngrok** client needs to connect and authenticate access to your account.
 
-   1. To find your [authentication token page](https://dashboard.ngrok.com/auth/your-authtoken), on your account dashboard menu, expand **Authentication**, and select **Your Authtoken**.
+   1. To find your authentication token page, for example, **https://dashboard.ngrok.com/auth/<your-authtoken>**, on your account dashboard menu, expand **Authentication**, and select **Your Authtoken**.
 
    1. From the **Your Authtoken** box, copy the token to a safe location.
 
