@@ -232,13 +232,13 @@ REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview)
 
 ### [**.NET**](#tab/dotnet-add-config)
 
-+ Use the [**Azure.Search.Documents 11.5.0-beta.4**](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.4) package for vector scenarios. 
++ Use the [**Azure.Search.Documents**](https://www.nuget.org/packages/Azure.Search.Documents) package for vector scenarios. 
 
 + See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) GitHub repository for .NET code samples.
 
 ### [**Python**](#tab/python-add-config)
 
-+ Use the [**Azure.Search.Documents 11.4.0b8**](https://pypi.org/project/azure-search-documents/11.4.0b8/) package for vector scenarios. 
++ Use the [**Azure.Search.Documents**](https://pypi.org/project/azure-search-documents) package for vector scenarios. 
 
 + See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
 
@@ -569,7 +569,7 @@ Although you can add a field to an index, there's no portal (Import data wizard)
 
 ### [**.NET**](#tab/dotnet-add-field)
 
-+ Use the [**Azure.Search.Documents 11.5.0-beta.4**](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.4) package for vector scenarios. 
++ Use the [**Azure.Search.Documents**](https://www.nuget.org/packages/Azure.Search.Documents) package for vector scenarios. 
 
 + See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) GitHub repository for .NET code samples.
 

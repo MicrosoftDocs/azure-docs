@@ -38,7 +38,7 @@ To make the initial data set available, the hotel reviews are first imported int
 
 This step uses Azure AI Search, Azure Blob Storage, and [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Azure AI services is tapped behind the scenes to provide free processing for up to 20 transactions daily. A small workload means that you can skip creating or attaching an Azure AI multi-service resource.
 
-1. [Download HotelReviews_Free.csv](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_data.csv). This CSV contains 19 pieces of customer feedback about a single hotel (originates from Kaggle.com). The file is in a repo with other sample data. If you don't want the whole repo, copy the raw content and paste it into a spreadsheet app on your device.
+1. [Download HotelReviews_Free.csv](https://github.com/Azure-Samples/azure-search-sample-data/blob/main/hotelreviews/HotelReviews_data.csv). This CSV contains 19 pieces of customer feedback about a single hotel (originates from Kaggle.com). The file is in a repo with other sample data. If you don't want the whole repo, copy the raw content and paste it into a spreadsheet app on your device.
 
 1. In Azure portal, on the Azure Storage resource page, use **Storage Browser** to create a blob container named **hotel-reviews**.
 
