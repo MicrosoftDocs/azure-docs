@@ -191,7 +191,7 @@ The fleet scheduler updates details and status on placement decisions onto the `
 
 This example shows a `ClusterResourcePlacement` that deployed the `test` namespace and the `test-1` ConfigMap it contained into two member clusters using `PickN`. The placement was successfully completed and the resources were placed into the `aks-member-1` and `aks-member-2` clusters.
 
-```yaml
+```
 Name:         crp-1
 Namespace:
 Labels:       <none>
