@@ -1346,6 +1346,8 @@
         "articles/iot/**/*yml": "Azure IoT",
         "articles/iot-central/**/*.md": "Azure IoT Central",
         "articles/iot-central/**/*yml": "Azure IoT Central",
+        "articles/iot-operations/**/*.md": "Azure IoT Operations Preview",
+        "articles/iot-operations/**/*.yml": "Azure IoT Operations Preview",
         "articles/integration-environments/*.md": "Azure Integration Environments",
         "articles/integration-environments/*.yml": "Azure Integration Environments",
         "articles/jenkins/**/*.yml": "Jenkins",
