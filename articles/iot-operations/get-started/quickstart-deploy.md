@@ -41,7 +41,7 @@ For Windows devices, use AKS Edge Essentials to create a cluster. For Ubuntu Lin
 
 * At least **Contributor** role permissions in your subscription plus the **Microsoft.Authorization/roleAssignments/write** permission.
 
-* Review the [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements) for other prerequisites, specifically the system and OS requirements.
+<!-- * Review the [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements) for other prerequisites, specifically the system and OS requirements. -->
 
 * Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -50,7 +50,7 @@ For Windows devices, use AKS Edge Essentials to create a cluster. For Ubuntu Lin
 * The Azure IoT Operations extension for Azure CLI.
 
   ```powershell
-  az extension add --source ([System.Net.HttpWebRequest]::Create('https://aka.ms/aziotopscli-latest').GetResponse().ResponseUri.AbsoluteUri) -y
+  az extension add --name az-iot-ops
   ```
 
 # [Linux](#tab/linux)
@@ -66,7 +66,7 @@ For Windows devices, use AKS Edge Essentials to create a cluster. For Ubuntu Lin
 * The Azure IoT Operations extension for Azure CLI.
 
   ```bash
-  az extension add --source $(curl -w "%{url_effective}\n" -I -L -s -S https://aka.ms/aziotopscli-latest -o /dev/null) -y
+  az extension add --name az-iot-ops
   ```
 
 # [Virtual](#tab/codespaces)
@@ -115,7 +115,8 @@ This script automates the following steps:
 
 * Install required host OS features (Install-AksEdgeHostFeatures).
 
-  Your machine might reboot when Hyper-V is enabled. If so, run the script again.
+  >[!TIP]
+  >Your machine might reboot when Hyper-V is enabled. If so, go back and run the setup commands again before running the quickstart script.
 
 * Deploy a single machine cluster with internal switch (Linux node only).
 
@@ -139,7 +140,7 @@ In an elevated PowerShell prompt, run the AksEdgeQuickStartForAio.ps1 script. Th
    | **TENANT_ID** | ID of your Microsoft Entra tenant. |
    | **RESOURCE_GROUP_NAME** | A name for a new resource group. |
    | **LOCATION** | An Azure region close to you. The following regions are supported in public preview: East US2, West US 3, West Europe, East US, West US, West US 2, North Europe. |
-   | **CLUSTER_NAME** | A name for a new managed cluster. |
+   | **CLUSTER_NAME** | A name for the new connected cluster. |
 
    ```powerShell
    .\AksEdgeQuickStartForAio.ps1 -SubscriptionId "<SUBSCRIPTION_ID>" -TenantId "<TENANT_ID>" -ResourceGroupName "<RESOURCE_GROUP_NAME>"  -Location "<LOCATION>"  -ClusterName "<CLUSTER_NAME>"
@@ -299,6 +300,9 @@ You can use an existing key vault for your secrets, but verify that the **Permis
    > * After you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
 
 1. Run the copied `az iot ops init` command on your development machine or in your codespace terminal.
+
+   >[!TIP]
+   >If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.
 
 1. Return to the Azure portal and select **Review + Create**.
 

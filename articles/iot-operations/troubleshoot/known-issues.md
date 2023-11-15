@@ -35,6 +35,23 @@ This article contains known issues for Azure IoT Operations Preview.
 
 - Full persistence support isn't currently available.
 
+- There are known intermittent issues with IoT MQ's MQTT bridge connecting to Azure Event Grid.
+
+- It's possible for an IoT MQ pod to fail to reconnect if it loses connection to other pods in the cluster. You might also see errors such as `invalid sat: [invalid bearer token, service account token has expired]`. If you notice this happening, run the following command, to manually restart the affected pods:
+
+    ```bash
+    kubectl -n azure-iot-operations delete pods <pod-name>
+    ```
+
+- Even though IoT MQ's [diagnostic service](../manage-mqtt-connectivity/howto-configure-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
+
+- You can't currently access these [observability metrics](../reference/observability-metrics-mq.md) for IoT MQ.
+
+    - aio_mq_backend_replicas
+    - aio_mq_backend_replicas_current
+    - aio_mq_frontend_replicas
+    - aio_mq_frontend_replicas_current
+
 ## Azure IoT Data Processor (preview)
 
 If edits you make to a pipeline aren't applied to messages, run the following commands to propagate the changes:
@@ -47,10 +64,10 @@ kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
 kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 ```
 
-It's possible a momentary loss of communication with MQ broker pods can pause the processing of data pipelines. If you notice this happening, run the following commands:
+It's possible a momentary loss of communication with IoT MQ broker pods can pause the processing of data pipelines. You might also see errors such as `service account token expired`. If you notice this happening, run the following commands:
 
 ```bash
-kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations 
+kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
 kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 ```
 
@@ -78,7 +95,7 @@ kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 
 ## OPC PLC simulator
 
-If you create an asset endpoint for the OPC PLC simulator, but the OPC PLC simulator isn't sending data to the MQ broker, try the following command:
+If you create an asset endpoint for the OPC PLC simulator, but the OPC PLC simulator isn't sending data to the IoT MQ broker, try the following command:
 
 - Patch the asset endpoint with `autoAcceptUntrustedServerCertificates=true`:
 
@@ -105,8 +122,16 @@ done
 > [!WARNING]
 > Don't use untrusted certificates in production environments.
 
-If the OPC PLC simulator isn't sending data to the MQ broker after you create a new asset, restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
+If the OPC PLC simulator isn't sending data to the IoT MQ broker after you create a new asset, restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
 
 ```bash
 kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 ```
+
+## Azure IoT Operations (preview) portal
+
+- To sign in to the Azure IoT Operations portal, you need a Microsoft Entra ID. You can't sign in with a Microsoft account (MSA). To create an Entra ID in your Azure tenant:
+
+    1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with the same tenant and user name that you used to deploy Azure IoT Operations.
+    1. Create a new identity using Entra Identity and grant it at least **Contributor** permissions to the resource group that contains your cluster and Azure IoT Operations deployment.
+    1. Return to the [Azure IoT Operations portal](https://iotoperations.azure.com) and use the new account to sign in.

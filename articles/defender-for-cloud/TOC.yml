@@ -146,11 +146,9 @@
           displayName: coverage, machines, windows, linux, multicloud, supported features,
             endpoint protections
           href: support-matrix-defender-for-servers.md
-        - name: Defender for Containers support matrices
+        - name: Support matrices for Containers
           displayName: Containers, features availability, environment information
           href: support-matrix-defender-for-containers.md
-        - name: Defender for Containers CSPM support matrices
-          href: support-agentless-containers-posture.md
     - name: Protect multicloud resources
       items:
         - name: The Defender for Cloud multicloud solution
@@ -205,6 +203,13 @@
         - name: Cloud Security Posture Management (CSPM)
           displayName: CSPM, cloud security, posture, management
           href: concept-cloud-security-posture-management.md
+        - name: Enable Permissions Management (Preview)
+          href: enable-permissions-management.md
+        - name: Integrations
+          items:  
+            - name: ServiceNow integration
+              displayName: CSPM, cloud security, posture, management, ServiceNow
+              href: integration-servicenow.md
         - name: Microsoft cloud security benchmark (MCSB)
           displayName: mcsb, azure, security, benchmark
           href: concept-regulatory-compliance.md
@@ -231,9 +236,11 @@
           href: concept-data-security-posture-prepare.md
         - name: Data security dashboard
           href: data-aware-security-dashboard-overview.md
-    - name: Improve your container security posture
+        - name: Supported sensitive data information types
+          href: sensitive-info-types.md
+    - name: Improve your container security posture with Defender CSPM
       items:
-        - name: Agentless container posture
+        - name: Agentless container posture in Defender CSPM
           href: concept-agentless-containers.md
     - name: Security recommendations
       items:
@@ -432,12 +439,53 @@
       href: how-to-use-the-classic-connector.md
 - name: Protect your workloads
   items:
+  - name: Settings & monitoring
+    items:
+    - name: Overview
+      displayName: auto, provisioning, auto-provisioning, Settings & monitoring
+      href: monitoring-components.md
+    - name: Deploy the Azure Monitor agent
+      displayName: AMA, Azure monitor agent
+      href: auto-deploy-azure-monitoring-agent.md
+    - name: Working with the Log Analytics agent
+      displayName: log analytics, agent
+      href: working-with-log-analytics-agent.md
+  - name: Defender for APIs
+    items: 
+    - name: About Defender for APIs
+      href: defender-for-apis-introduction.md
+    - name: Support and prerequisites
+      href: defender-for-apis-prepare.md
+    - name: Protect your APIs with Defender for APIs (Preview)
+      href: defender-for-apis-deploy.md
+    - name: Validate APIs alerts
+      displayName: validate, api, apis
+      href: defender-for-apis-validation.md
+    - name: Investigate findings, recommendations, alerts
+      href: defender-for-apis-posture.md
+    - name: Manage Defender for APIs
+      href: defender-for-apis-manage.md
+    - name: Common questions about Defender for APIs
+      displayName: common questions, api, apis, faq, frequently asked questions
+      href: faq-defender-for-apis.yml
+    - name: Classify APIs with sensitive data exposure
+      href: data-classification.md
+    - name: Partners
+      items:
+      - name: Partner applications
+        href: defender-partner-applications.md
+      - name: Onboard 42Crunch (preview)
+        href: onboarding-guide-42crunch.md
+  - name: Defender for Servers
+    displayName: hybrid, arc, Defender for Servers
+    items:
+    - name: Plan Defender for Servers deployment
     - name: Settings & monitoring
       items:
         - name: Overview
           displayName: auto, provisioning, auto-provisioning, Settings & monitoring
           href: monitoring-components.md
-        - name: Azure Monitor Agent in Defender for Cloud
+        - name: Deploy the Azure Monitor agent
           displayName: AMA, Azure monitor agent
           href: auto-deploy-azure-monitoring-agent.md
         - name: Working with the Log Analytics agent

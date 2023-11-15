@@ -330,7 +330,7 @@ You can delete the ExpressRoute Direct resource by running the following command
    Remove-azexpressrouteport -Name $Name -Resourcegroupname -$ResourceGroupName
    ```
 
-### Enable ExpressRoute Direct and circuits in different subscriptions
+## Enable ExpressRoute Direct and circuits in different subscriptions
 
 ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Microsoft Entra tenants. You create an authorization for your ExpressRoute Direct resource, and redeem the authorization to create an ExpressRoute circuit in a different subscription or Microsoft Entra tenant.
 
