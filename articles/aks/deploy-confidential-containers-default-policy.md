@@ -226,7 +226,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
       namespace: kafka
     spec:
       containers:
-        - image: "fishersnpregistry.azurecr.io/kafka-producer-bugbash:1.0"
+        - image: "mcr.microsoft.com/acc/samples/kafka/producer:1.0"
           name: kafka-producer
           command:
             - /produce
@@ -261,18 +261,18 @@ For this preview release, we recommend for test and evaluation purposes to eithe
       serviceAccountName: workload-identity-sa
       runtimeClassName: kata-cc-isolation
       containers:
-        - image: "fishersnpregistry.azurecr.io/aasp:v1.0"
+        - image: "mcr.microsoft.com/aci/skr:2.7"
           imagePullPolicy: Always
           name: aasp
           env:
-            - name: AaspSideCarArgs
+            - name: SkrSideCarArgs
               value: ewogICAgImNlcnRjYWNoZSI6IHsKCQkiZW5kcG9pbnRfdHlwZSI6ICJMb2NhbFRISU0iLAoJCSJlbmRwb2ludCI6ICIxNjkuMjU0LjE2OS4yNTQvbWV0YWRhdGEvVEhJTS9hbWQvY2VydGlmaWNhdGlvbiIKCX0gIAp9
           command:
             - /bin/aasp
           volumeMounts:
             - mountPath: /opt/confidential-containers/share/kata-containers/reference-info-base64d
               name: endor-loc
-        - image: "fishersnpregistry.azurecr.io/kafka-consumer-bugbash:1.2"
+        - image: "mcr.microsoft.com/acc/samples/kafka/consumer:1.0"
           imagePullPolicy: Always
           name: kafka-golang-consumer
           env:
