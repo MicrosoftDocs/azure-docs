@@ -26,25 +26,24 @@ In this tutorial, you learn how to:
 
 ## Create a function app
 
-1. [Create a function app](../azure-functions/functions-create-function-app-portal.md#create-a-function-app). For example, if you're using PowerShell 7.2 as the Runtime stack: 
-    - You can use a new storage account or link an existing storage account.
-    - In the **Do you want to deploy to code or container image?**, select the option **Code**.
-1. After you create the function app, In **Resource**, ensure that you load the dependencies by following these steps:
+1. [Create a function app](../azure-functions/functions-create-function-app-portal.md#create-a-function-app). In this example, 
+    1. If you're using PowerShell 7.2 as the Runtime stack, 
+        1. You can use a new storage account or link an existing storage account.
+        2. In the **Do you want to deploy to code or container image?**, select the option **Code**.
+1. After you create the function app, Go to resource, ensure that you load the dependencies by following these steps:
 
     > [!NOTE]
     > You have to load the dependencies only for the first time.
 
     1. On the **Function App**, select **App files**.
-    1. Under the **host.json**, enable **ManagedDependecy** to **True**.
+    1. Under the **host.json**, enable **ManagedDependecy** to **True** and select **requirments.psd1**.
     1. Under the **requirements.psd1**, paste the following code: 
         ```
         #This file enables modules to be automatically managed by the Functions service. 
         # See https://aka.ms/functionsmanageddependency for additional information. 
         # 
-        { 
-		For latest supported version, go to 'https://www.powershellgallery.com/packages/Az'.        
-         Uncomment the next line and replace the MAJOR_VERSION,
-         for example,'Az'='5.*' 
+        @{ 
+		  #For latest supported version, go to 'https://www.powershellgallery.com/packages/Az'. Uncomment the next line and replace the MAJOR_VERSION, e.g., 'Az'='5.*' 
 		 'Az'='5.*' 
 		 'Az.ResourceGraph'='0.13.0' 
 		 'Az.Resources'='6.*' 
