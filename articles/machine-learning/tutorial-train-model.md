@@ -135,12 +135,13 @@ dependencies:
   - python=3.8
   - numpy=1.21.2
   - pip=21.2.4
-  - scikit-learn=0.24.2
+  - scikit-learn=1.0.2
   - scipy=1.7.1
   - pandas>=1.1,<1.2
   - pip:
     - inference-schema[numpy-support]==1.3.0
-    - mlflow== 2.4.1
+    - mlflow==2.8.0
+    - mlflow-skinny==2.8.0
     - azureml-mlflow==1.51.0
     - psutil>=5.8,<5.9
     - tqdm>=4.59,<4.60
@@ -162,9 +163,9 @@ custom_env_name = "aml-scikit-learn"
 custom_job_env = Environment(
     name=custom_env_name,
     description="Custom environment for Credit Card Defaults job",
-    tags={"scikit-learn": "0.24.2"},
+    tags={"scikit-learn": "1.0.2"},
     conda_file=os.path.join(dependencies_dir, "conda.yaml"),
-    image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
+    image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
 )
 custom_job_env = ml_client.environments.create_or_update(custom_job_env)
 
