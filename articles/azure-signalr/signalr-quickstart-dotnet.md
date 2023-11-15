@@ -12,11 +12,11 @@ ms.author: lianwei
 
 # Quickstart: Create a chat room with ASP.NET and SignalR Service
 
-Azure SignalR Service is based on [SignalR for ASP.NET Core 2.1](/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), which is **not** 100% compatible with ASP.NET SignalR. Azure SignalR Service re-implemented ASP.NET SignalR data protocol based on the latest ASP.NET Core technologies. When using Azure SignalR Service for ASP.NET SignalR, some ASP.NET SignalR features are no longer supported, for example, Azure SignalR does not replay messages when the client reconnects. Also, the Forever Frame transport and JSONP are not supported. Some code changes and proper version of dependent libraries are needed to make ASP.NET SignalR application work with SignalR Service.
+Azure SignalR Service is based on [SignalR for ASP.NET Core 2.1](/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), which is **not** 100% compatible with ASP.NET SignalR. Azure SignalR Service reimplemented ASP.NET SignalR data protocol based on the latest ASP.NET Core technologies. When you use Azure SignalR Service for ASP.NET SignalR, some ASP.NET SignalR features are no longer supported, for example, Azure SignalR doesn't replay messages when the client reconnects. Also, the Forever Frame transport and JSONP aren't supported. Some code changes and proper version of dependent libraries are needed to make ASP.NET SignalR application work with SignalR Service.
 
 Refer to the [version differences doc](/aspnet/core/signalr/version-differences?preserve-view=true&view=aspnetcore-3.1) for a complete list of feature comparison between ASP.NET SignalR and ASP.NET Core SignalR.
 
-In this quickstart, you will learn how to get started with the ASP.NET and Azure SignalR Service for a similar [Chat Room application](./signalr-quickstart-dotnet-core.md).
+In this quickstart, you learn how to get started with the ASP.NET and Azure SignalR Service for a similar [Chat Room application](./signalr-quickstart-dotnet-core.md).
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note-dotnet.md)]
@@ -37,7 +37,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-*Serverless* mode is not supported for ASP.NET SignalR applications. Always use *Default* or *Classic* for the Azure SignalR Service instance.
+*Serverless* mode isn't supported for ASP.NET SignalR applications. Always use *Default* or *Classic* for the Azure SignalR Service instance.
 
 You can also create Azure resources used in this quickstart with [Create a SignalR Service script](scripts/signalr-cli-create-service.md).
 
