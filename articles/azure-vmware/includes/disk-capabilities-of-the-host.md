@@ -23,5 +23,5 @@ An Azure VMware Solution cluster requires a minimum number of three hosts. You c
 
 (*) details available via the Azure pricing calculator.
 
-(**) AV64 Prerequisite: An Azure VMware Solution private cloud deployed with AV36, AV36P, or AV52 is required prior to adding AV64. Available in supported [regions only](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware).
+(**) AV64 Prerequisite: An Azure VMware Solution private cloud deployed with AV36, AV36P, or AV52 is required prior to adding AV64. This capability is now available in Switzerland North-AZ01, UK South-AZ0, UK South-AZ02, UK South-AZ03, Switzerland West-AZ01, West Europe-AZ03, East US-AZ03, South Central US-AZ01, South Central US-AZ02, North Europe-AZ02 and East US 2–AZ02.
 
