@@ -501,3 +501,9 @@ chown: changing ownership of 'newfile3': Operation not permitted
 ```
 
 Alternatively, in dual-protocol environments, NTFS ACLs can be used to granularly limit root access.
+
+
+## Next steps 
+
+* [Configure NFS clients](configure-nfs-clients.md)
+* [Configure access control lists on NFSv4.1 volumes](configure-access-control-lists.md)
