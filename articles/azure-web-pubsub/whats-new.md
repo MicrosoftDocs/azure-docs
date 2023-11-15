@@ -27,3 +27,10 @@ Users enjoy the fact that they can offload scaling a Socket.IO app without chang
 > [Quickstart for Socket.IO users](./socketio-quickstart.md)
 >
 > [Migrate a self-hosted Socket.IO app to Azure](./socketio-migrate-from-self-hosted.md)
+
+## Q3 2023
+### Geo-replica is now in public preview
+The 99.9% and 99.95% uptime guarantees for the standand tier and premium tier are usually enough for most applications. Mission critical applications, however, demand even more stringent uptime. Developers had to set up two resources in different Azure regions and manage them with much complexity. With the geo-replication feature, it's now as simple as a few button clicks on Azure portal. 
+
+> [!div class="nextstepaction"]
+> [Learn more about all the benefits](./howto-enable-geo-replication.md)
