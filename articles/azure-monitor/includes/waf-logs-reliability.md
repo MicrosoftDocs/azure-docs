@@ -33,11 +33,11 @@ Some availability features require a dedicated cluster, which currently requires
 
 ### Compare resilience features and capabilities
 
-| Feature                | Service resilience | Data backup | Scope of protection  | Setup                     | Cost    |
-|------------------------|------------------------------|-----------------------|---------------------------------|--------------------------|------------------------------------------------------------------------------|--------------------------------------------------|---------|
-| Availability zones     | :white_check_mark: <br>In supported regions           |  :white_check_mark:           | In-region                                                      |    Automatically enabled on dedicated clusters in supported regions.                                              | No cost |
-| Continuous data export |                              | :white_check_mark:    |  Protection from regional failure <sup>1</sup>                                 | Enable per table.                                           | Cost of data export + Storage blob or Event Hubs |
-| Dual ingestion         | :white_check_mark:           | :white_check_mark:    | Protection from regional failure                                                                       | Enable per monitored resource.         | Up to twice the cost of retention (depending on how much data is dual ingested) + egress charges. |
+| Feature                | Service resilience | Data backup | High availability | Scope of protection  | Setup                     | Cost    |
+|------------------------|------------------------------|------------------|-----|---------------------------------|--------------------------|------------------------------------------------------------------------------|--------------------------------------------------|---------|
+| Availability zones     | :white_check_mark: <br>In supported regions           |  :white_check_mark: |  :white_check_mark:           | In-region                                                      |    Automatically enabled on dedicated clusters in supported regions.                                              | No cost |
+| Continuous data export |                              | :white_check_mark:  |  |  Protection from regional failure <sup>1</sup>                                 | Enable per table.                                           | Cost of data export + Storage blob or Event Hubs |
+| Dual ingestion         | :white_check_mark:           | :white_check_mark:   |  :white_check_mark: | Protection from regional failure                                                                       | Enable per monitored resource.         | Up to twice the cost of retention (depending on how much data is dual ingested) + egress charges. |
 
 
-<sup>1</sup> Data export provides cross-region protection if you export logs to a different region. Previously ingested data is backed up and remains readily available; however, further export may fail, depending on the nature of the incident.
+<sup>1</sup> Data export provides cross-region protection if you export logs to a different region. In the event of an incident, previously exported data is backed up and remains readily available; however, further export may fail, depending on the nature of the incident.
