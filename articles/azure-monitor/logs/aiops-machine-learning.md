@@ -13,7 +13,7 @@ ms.date: 02/28/2023
 # Detect and mitigate potential issues using AIOps and machine learning in Azure Monitor 
 Artificial Intelligence for IT Operations (AIOps) offers powerful ways to improve service quality and reliability by using machine learning to process and automatically act on data you collect from applications, services, and IT resources into Azure Monitor.
 
-Azure Monitor's built-in AIOps capabilities provide insights and automate data-driven tasks, such as predicting capacity usage and autoscaling, identifying and analyzing application performance issues, and detecting anomalous behaviors in virtual machines, containers, and other resources. These features boost your IT monitoring and operations, without requiring machine learning knowledge and further investment.    
+Azure Monitor's built-in AIOps capabilities provide insights and help you troubleshoot issues and automate data-driven tasks, such as predicting capacity usage and autoscaling, identifying and analyzing application performance issues, and detecting anomalous behaviors in virtual machines, containers, and other resources. These features boost your IT monitoring and operations, without requiring machine learning knowledge and further investment.    
 
 Azure Monitor also provides tools that let you create your own machine learning pipeline to introduce new analysis and response capabilities and act on data in Azure Monitor Logs.    
 
@@ -23,8 +23,9 @@ This article describes Azure Monitor's built-in AIOps capabilities and explains 
 
 |Monitoring scenario|Capability|Description| 
 |-|-|-|
-|Log monitoring|[Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview.md) | A curated monitoring experience that provides a unified view of your Log Analytics workspaces and uses machine learning to detect ingestion anomalies. |
-||[Kusto Query Language (KQL) time series analysis and machine learning functions](../logs/kql-machine-learning-azure-monitor.md)| Easy-to-use tools for generating time series data, detecting anomalies, forecasting, and performing root cause analysis directly in Azure Monitor Logs without requiring in-depth knowledge of data science and programming languages. 
+|Log monitoring|[Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview.md) | Provides a unified view of your Log Analytics workspaces and uses machine learning to detect ingestion anomalies. |
+||[Kusto Query Language (KQL) time series analysis and machine learning functions](../logs/kql-machine-learning-azure-monitor.md)| Easy-to-use tools for generating time series data, detecting anomalies, forecasting, and performing root cause analysis directly in Azure Monitor Logs without requiring in-depth knowledge of data science and programming languages. |
+||[Microsoft Copilot for Azure](/azure/copilot/get-monitoring-information)| Helps troubleshoot issues and analyze data in Log Analytics. Generates example KQL queries based on prompts, such as "Are there any errors in container logs?". |
 |Application performance monitoring|[Application Map Intelligent view](../app/app-map.md)| Maps dependencies between services and helps you spot performance bottlenecks or failure hotspots across all components of your distributed application.|
 ||[Smart detection](../alerts/proactive-diagnostics.md)|Analyzes the telemetry your application sends to Application Insights, alerts on performance problems and failure anomalies, and identifies potential root causes of application performance issues.|
 |Metric alerts|[Dynamic thresholds for metric alerting](../alerts/alerts-dynamic-thresholds.md)| Learns metrics patterns, automatically sets alert thresholds based on historical data, and identifies anomalies that might indicate service issues.|
