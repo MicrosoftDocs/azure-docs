@@ -5,7 +5,7 @@ author: boris-bazilevskiy
 manager: rcole
 services: azure-communication-services
 ms.author: bobazile
-ms.date: 06/22/2023
+ms.date: 11/08/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
@@ -17,7 +17,6 @@ This article provides information about limitations and known issues related to 
 
 ## Azure Communication Services direct routing known limitations
 
-- Anonymous calling isn't supported.
 - Maximum number of configured Session Border Controllers (SBC) is 250 per communication resource.
 - When you change direct routing configuration (add SBC, change Voice Route, etc.), wait approximately five minutes for changes to take effect.
 - If you move SBC FQDN to another Communication resource, wait approximately an hour, or restart SBC to force configuration change. 
