@@ -380,14 +380,9 @@ When the data source can't send the entire response payload all at once, the CCP
 
 | Paging type | decision factor |
 |----|----|
-| <ul><li>[LinkHeader](#configure-linkheader-or-persistentlinkheader)</li><li>[PersistentLinkHeader](#configure-linkheader-or-persistentlinkheader)</li></ul> | Does the API response have links to next and previous pages? |
-| <ul><li>[NextPageToken](#configure-nextpagetoken-or-persistenttoken)</li><li>[PersistentToken](#configure-nextpagetoken-or-persistenttoken)</li> | 
-
-
-- NextPageToken
-- PersistentToken
-- NextPageUrl
-- Offset
+| <ul><li>[LinkHeader](#configure-linkheader-or-persistentlinkheader)</li><li>[PersistentLinkHeader](#configure-linkheader-or-persistentlinkheader)</li><li>[NextPageUrl]()</li></ul> | Does the API response have links to next and previous pages? |
+| <ul><li>[NextPageToken](#configure-nextpagetoken-or-persistenttoken)</li><li>[PersistentToken](#configure-nextpagetoken-or-persistenttoken)</li> | Does the API response have a token or cursor for the next and previous pages? |
+| <ul><li>[Offset](#configure-offset)</li></ul> | Does the API response support a parameter for the number of objects to skip when paging? | 
 
 #### Configure LinkHeader or PersistentLinkHeader
 This is the most common paging type, where the data source API provides URLs to the next and previous pages of data. For more information on the specification, see [RFC 5988](https://www.rfc-editor.org/rfc/rfc5988#section-5).
@@ -396,14 +391,20 @@ This is the most common paging type, where the data source API provides URLs to 
 - the `Link` HTTP response header
 - or a JSON path to retrieve the link from the response body. 
 
-`PersistentLinkHeader` paging has the same properties as `LinkHeader`, except the link header persists in backend storage. This allows use of the paging links across query windows. For example, some API don't support query start times or end times. Instead, they support server side *cursor*. Persistent page types can be used to remember the server side *cursor*. Also note a side effect of this page type – there can be only one query running for the connector with PersistentLinkHeader to avoid race conditions on service side *cursor* so it can affect latency.
+`NextPageUrl` paging means the API response includes a complex link from the response body.
+
+`PersistentLinkHeader` paging has the same properties as `LinkHeader`, except the link header persists in backend storage. This allows use of the paging links across query windows. For example, some APIs don't support query start times or end times. Instead, they support a server side *cursor*. Persistent page types can be used to remember the server side *cursor*.
+
+> [!NOTE]
+> There can be only one query running for the connector with PersistentLinkHeader to avoid race conditions on the service side *cursor*. This may affect latency.
 
 | Field | Required | Type | Description |
 |----|----|----|----|
-| **LinkHeaderTokenJsonPath** | False | String | Use this property to indicate where to get the value in the response body.<br><br>For example, the remote server returns the following JSON: { nextPage: "blablabl", value: [{data}]}
-LinkHeaderTokenJsonPath will be "$.nextPage"
-PageSize	False	Integer	How many events per page
-PageSizeParameterName	False	String	Query parameter name for the page size
+| **LinkHeaderTokenJsonPath** | False | String | Use this property to indicate where to get the value in the response body.<br><br>For example, if the data source returns the following JSON: `{ nextPage: "foo", value: [{data}]}` then `LinkHeaderTokenJsonPath` will be `$.nextPage` |
+| **PageSize** | False | Integer | How many events per page |
+| **PageSizeParameterName** | False | String | Query parameter name for the page size |
+
+Here are some examples:
 
 ```json
 Paging: {
@@ -421,6 +422,58 @@ Paging: {
 ```
 
 #### Configure NextPageToken or PersistentToken
+
+NextPageToken pagination involves using a token (e.g., a hash or a cursor) that represents the state of the current page. The token is included in the API response, and the client appends it to the next request to fetch the next page. This method is often used when the server needs to maintain the exact state between requests.
+PersistentToken pagination involves using a token similar to NextPageToken, but the token is persisted on the server-side. The server remembers the last token retrieved by the client and provides the next token in subsequent requests. This method ensures that the client can continue from where it left off even if it makes new requests later.
+
+| Field | Required | Type | Description |
+|----|----|----|----|
+| **PageSize** | False | Integer | How many events per page |
+| **PageSizeParameterName** | False | string | Query parameter name for the page size |
+| **NextPageTokenJsonPath** | False | string | JSON path for next page token in the response object. |
+| **NextPageTokenResponseHeader** | False | string | In case NextPageTokenJsonPath is not set, we assume that the next page token is in the header, this property set this header name |
+| **NextPageParaName** | False | string | Determines the next page name in the request. |
+| **HasNextFlagJsonPath** | False | string | Defines the path to the HasNextPage flag attribute	|
+| **NextPageRequestHeader** | False | string | Determines the next page header name in the request. |
+
+Examples:
+
+```json
+Paging: {
+ "pagingType" : "NextPageToken", 
+ "nextPageRequestHeader" : "ETag", 
+ "nextPageTokenResponseHeader" : "ETag" 
+}
+```
+
+
+```json
+Paging: {
+ "pagingType" : "PersistentToken", 
+    "nextPageParaName" : "gta", 
+    "nextPageTokenJsonPath" : "$.alerts[-1:]._id" 
+}
+```
+
+#### Configure Offset
+
+Offset pagination involves specifying an offset (number of items to skip) and a limit (number of items to retrieve) in the request. This method allows clients to fetch a specific range of items from the data set.
+
+| Field | Required | Type | Description |
+|----|----|----|----|
+| **PageSize** | False | Integer | How many events per page |
+| **PageSizeParameterName** | False | String | Query parameter name for the page size |
+| **OffsetParaName** | False | String | Next requests query parameter name, Sentinel will calculate the offset value each request, (all events ingested + 1) |
+
+Example:
+```json
+Paging: {
+   
+       "pagingType": "Offset", 
+        "offsetParaName": "offset" 
+ }
+```
+
 
 ## DCR configuration
 
