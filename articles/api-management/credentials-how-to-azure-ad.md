@@ -1,15 +1,15 @@
 ---
 title: Create credential to Microsoft Graph API - Azure API Management | Microsoft Docs
-description: Learn how to create and use a managed token credential to the Microsoft Graph API in Azure API Management. The credential manages authorization tokens to an OAuth 2.0 backend service. 
+description: Learn how to create and use a managed token credential to a backend Microsoft Graph API using the Azure API Management credential manager. 
 services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 11/08/2023
+ms.date: 11/14/2023
 ms.author: danlep
 ---
 
-# Create a token credential to the Microsoft Graph API
+# Configure credential manager - Microsoft Graph API
 
 This article guides you through the steps required to create a managed [token credential](credentials-overview.md) to the Microsoft Graph API within Azure API Management. The authorization code grant type is used in this example.
 
@@ -28,6 +28,7 @@ You learn how to:
 
     If you want to create your own developer tenant, you can sign up for the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program).
 - A running API Management instance. If you need to, [create an Azure API Management instance](get-started-create-service-instance.md).
+- Enable a [system-assigned managed identity](api-management-howto-use-managed-service-identity.md) for API Management in the API Management instance.
 
 <a name='step-1-create-an-azure-ad-application'></a>
 
@@ -115,13 +116,13 @@ Create a Microsoft Entra application for the API and give it the appropriate per
     |**URL** for GET    |  /me/joinedTeams |
 
 1. Select **All operations**. In the **Inbound processing** section, select the (**</>**) (code editor) icon.
-1. Make sure the `provider-id` and `authorization-id` values correspond to the names of the credential provider and connection, respectively, that you configured in the preceding steps. Select **Save**. 
+1. Make sure the `provider-id` and `authorization-id` values in the `get-authorization-context` policy correspond to the names of the credential provider and connection, respectively, that you configured in the preceding steps. Select **Save**. 
 
     ```xml
     <policies>
         <inbound>
             <base />
-            <get-credential-context provider-id="MicrosoftEntraID-01" authorization-id="first-connection" context-variable-name="auth-context" identity-type="managed" ignore-error="false" />
+            <get-authorization-context provider-id="MicrosoftEntraID-01" authorization-id="first-connection" context-variable-name="auth-context" identity-type="managed" ignore-error="false" />
            <set-header name="credential" exists-action="override">
                <value>@("Bearer " + ((credential)context.Variables.GetValueOrDefault("auth-context"))?.AccessToken)</value>
            </set-header>

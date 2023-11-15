@@ -55,7 +55,7 @@ The credential manager supports the following scenarios, depending on whether th
 
 ## When to use token credentials?
 
-Use token credentials in the following three scenarios.
+The following are three scenarios for using managed token credentials.
 
 ### Configuration scenario
 
@@ -68,7 +68,7 @@ After configuring the credential provider, its associated credential store, and 
 
 By default when a token credential is created, a connection is pre-configured and access is provided to the managed identity of the API Management instance. To use such a connection, different users may sign in to a client application such as a static web app, which then calls a backend API exposed through API Management. To make this call, credentials are applied using the `get-authorization-context` policy. Because the API call uses a pre-configured credential connection that's not related to the user context, the same data is returned to all users.
 
-:::image type="content" source="media/credentials-overview/configuration-scenario.png" alt-text="Diagram of managed identity scenario for token credential.":::
+:::image type="content" source="media/credentials-overview/managed-identity-scenario.png" alt-text="Diagram of managed identity scenario for token credential.":::
 
 
 ### User-delegated scenario

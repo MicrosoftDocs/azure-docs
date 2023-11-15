@@ -1,15 +1,15 @@
 ---
 title: Create credential to GitHub API - Azure API Management | Microsoft Docs
-description: Learn how to create and use a managed token credential to the GitHub API in Azure API Management. The credential manages authorization tokens to an OAuth 2.0 backend service. 
+description: Learn how to create and use a managed token credential to a backend GitHub API using the Azure API Management credential manager.  
 services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 11/09/2023
+ms.date: 11/14/2023
 ms.author: danlep
 ---
 
-# Create a token credential to the GitHub API
+# Configure credential manager - GitHub API
 
 In this article, you learn how to create a managed [token credential](credentials-overview.md) in API Management and call a GitHub API that requires an OAuth 2.0 token. The authorization code grant type is used in this example.
 
@@ -96,7 +96,7 @@ You learn how to:
     |**URL** for GET     |  /user/followers |
 
 1. Select **All operations**. In the **Inbound processing** section, select the (**</>**) (code editor) icon.
-1. Copy the following, and paste in the policy editor. Make sure the `provider-id` and `authorization-id` values correspond to the names of the credential provider and connection, respectively, that you configured in the preceding steps. Select **Save**. 
+1. Copy the following, and paste in the policy editor. Make sure the `provider-id` and `authorization-id` values in the `get-authorization-context` policy correspond to the names of the credential provider and connection, respectively, that you configured in the preceding steps. Select **Save**. 
 
     ```xml
     <policies>

@@ -332,10 +332,12 @@
       href: credentials-process-flow.md
     - name: Configure common credential providers
       href: credentials-configure-common-providers.md
-    - name: Configure and use credential - Microsoft Entra ID
+    - name: Configure credential manager - Microsoft Entra ID
       href: credentials-how-to-azure-ad.md
-    - name: Configure and use credential - GitHub
+    - name: Configure credential manager - GitHub
       href: credentials-how-to-github.md
+    - name: Configure credential manager - user-delegated permissions
+      href: credentials-how-to-user-delegated.md
     - name: Configure multiple credential connections
       href: configure-credential-connection.md
   - name: Set up backend authentication
