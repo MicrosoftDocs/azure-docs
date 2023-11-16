@@ -42,7 +42,7 @@ We deprecated the old weather APIs from API version 2023-07-01. The old weather 
 We added support for Climate FieldView as a built-in data source. You can now auto sync planting, application and harvest activity files from FieldView accounts directly into Azure Data Manager for Agriculture. Learn more about this [here](concepts-farm-operations-data.md).
 
 ### Common Data Model now with geo-spatial support
-We updated our data model to improve flexibility. The boundary object has been deprecated in favor of a geometry property that is now supported in nearly all data objects. This change brings consistency to how space is handled across hierarchy, activity and observation themes. It allows for more flexible integration when ingesting data from a provider with strict hierarchy requirements. You can now sync data that might not perfectly align with an existing hierarchy definition and resolve the conflicts with spatial overlap queries. Learn more [here](concepts-hierarchy-model.md).
+We updated our data model to improve flexibility. The boundary object is deprecated in favor of a geometry property that is now supported in nearly all data objects. This change brings consistency to how space is handled across hierarchy, activity and observation themes. It allows for more flexible integration when ingesting data from a provider with strict hierarchy requirements. You can now sync data that might not perfectly align with an existing hierarchy definition and resolve the conflicts with spatial overlap queries. Learn more [here](concepts-hierarchy-model.md).
 
 ## June 2023
 
