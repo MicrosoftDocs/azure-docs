@@ -16,9 +16,14 @@ ms.date: 11/07/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-To use Azure IoT Layered Network Management service, you can configure an isolated network environment with physical or logical segmentation.
+To use Azure IoT Layered Network Management service, you need to configure an isolated network environment. For example the [ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](http://www.pera.net/). This page provides few examples for setting up a test environment depends on the how you want to achieve the isloation.
+- *Physical segmentation* - The networks are physically separated. In this case, the Layered Network Management needs to be deployed to a dual NIC (Network Interface Card) host to connect to both the internet-facing network and the isolated network.
+- *Logical segmentation* - The network is logically segmented with configurations such as VLAN, subnet or firewall. The Layered Network Management has a single endpoint and configured to be visiable to its own network layer and the isolated layer.
 
-Each isolated layer that's level 3 and lower, requires you to configure a custom DNS.
+Both approach requires you to configure a custom DNS in the isolated network layer to direct the network traffic to the Layered Network Management instance in upper layer.
+
+> [!IMPORTANT]
+> The network environments outlined in Layered Network Management documentation are examples for testing the Layered Network Management. It's not a recommendation of how you build your network and cluster topology for productional usage.
 
 ## Configure isolated network with physical segmentation
 
@@ -30,14 +35,11 @@ The following example configuration is a simple isolated network with minimum ph
 - **Level 4 cluster** is a single node cluster hosted on a dual network interface card (NIC) physical machine that connects to internet and the local network.
 - **Level 3 cluster** is a single node cluster hosted on a physical machine. This device cluster only connects to the local network.
 
->[!IMPORTANT]
-> When assigning local IP addresses, avoid using the default address `192.168.0.x`. You should change the address if it's the default setting for your access point.
-
 Layered Network Management is deployed to the dual NIC cluster. The cluster in the local network connects to Layered Network Management as a proxy to access Azure and Arc services. In addition, it would need a custom DNS in the local network to provide domain name resolution and point the traffic to Layered Network Management. For more information, see [Configure custom DNS](#configure-custom-dns).
 
 ## Configure Isolated Network with logical segmentation
 
-The following example is an isolated network environment where each level is logically segmented with subnets. In this test environment, there are multiple clusters one at each level. The clusters can be AKS Edge Essentials or K3S. The Kubernetes cluster in the level 4 network has direct internet access. The Kubernetes clusters in level 3 and below don't have internet access.
+The following diagram illustrates an isolated network environment where each level is logically segmented with subnets. In this test environment, there are multiple clusters one at each level. The clusters can be AKS Edge Essentials or K3S. The Kubernetes cluster in the level 4 network has direct internet access. The Kubernetes clusters in level 3 and below don't have internet access.
 
 ![Diagram of a logical segmentation isolated network](./media/howto-configure-layered-network/nested-edge.png)
 
@@ -46,6 +48,14 @@ The multiple levels of networks in this test setup are accomplished using subnet
 - **Level 4 subnet (10.104.0.0/16)** - This subnet has access to the internet. All the requests are sent to the destinations on the internet. This subnet has a single Windows 11 machine with the IP address 10.104.0.10.
 - **Level 3 subnet (10.103.0.0/16)** - This subnet doesn't have access to the internet and is configured to only have access to the IP address 10.104.0.10 in Level 4. This subnet contains a Windows 11 machine with the IP address 10.103.0.33 and a Linux machine that hosts a DNS server. The DNS server is configured using the steps in [Configure custom DNS](#configure-custom-dns). All the domains in the DNS configuration must be mapped to the address 10.104.0.10.
 - **Level 2 subnet (10.102.0.0/16)** - Like Level 3, this subnet doesn't have access to the internet. It's configured to only have access to the IP address 10.103.0.33 in Level 3. This subnet contains a Windows 11 machine with the IP address 10.102.0.28 and a Linux machine that hosts a DNS server. There's one Windows 11 machine (node) in this network with IP address 10.102.0.28. All the domains in the DNS configuration must be mapped to the address 10.103.0.33.
+
+Please refer to the following examples for setup this type of network environment.
+
+### Example of logical isolated network with minimum hardware
+In this example, both machines are connect to an AP (Access Point) which connects to the internet. The level 4 host machine can access internet. The level 3 host is blocked for accessing internet with AP's configuration (e.g. firewall, client control...). As both machines are in the same network, Layered Network Management instance hosted on level 4 cluster is by defauly visible to the level 3 machine and cluster.
+An additional custom DNS needs to be setup in the local network to provide domain name resolution and point the traffic to Layered Network Management. For more information, see [Configure custom DNS](#configure-custom-dns).
+
+### Example of logical isolated network in Azure
 
 ## Configure custom DNS
 
