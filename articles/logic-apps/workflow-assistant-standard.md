@@ -1,6 +1,6 @@
 ---
-title: Get help from workflow assistant in Standard workflows
-description: Get help from the AI-powered workflow assistant for Standard workflows in Azure Logic Apps.
+title: Get AI-assisted help for Standard workflows
+description: Try the workflow assistant for AI-powered help with Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 11/17/2023
 ---
 
-# Get AI-assisted help for Standard workflows in Azure Logic Apps (preview)
+# Get AI-powered help for Standard workflows in Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
