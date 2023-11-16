@@ -1,61 +1,24 @@
 ---
-title: Create an Azure Elastic SAN (preview)
-description: Learn how to deploy an Azure Elastic SAN (preview) with the Azure portal, Azure PowerShell module, or Azure CLI.
+title: Create an Azure Elastic SAN Preview
+description: Learn how to deploy an Azure Elastic SAN Preview with the Azure portal, Azure PowerShell module, or Azure CLI.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 08/21/2023
+ms.date: 11/07/2023
 ms.author: rogarana
-ms.custom: references_regions, ignite-2022, devx-track-azurepowershell, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Deploy an Elastic SAN (preview)
+# Deploy an Elastic SAN Preview
 
-This article explains how to deploy and configure an elastic storage area network (SAN). If you're interested in Azure Elastic SAN, or have any feedback you'd like to provide, fill out [https://aka.ms/ElasticSANPreviewSignUp](https://aka.ms/ElasticSANPreviewSignUp).
+This article explains how to deploy and configure an elastic storage area network (SAN). If you're interested in Azure Elastic SAN, or have any feedback you'd like to provide, fill out this optional survey [https://aka.ms/ElasticSANPreviewSignUp](https://aka.ms/ElasticSANPreviewSignUp). 
 
 ## Prerequisites
 
 - If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - If you're using Azure CLI, install the [latest version](/cli/azure/install-azure-cli).
-    - Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
-
-
-## Preview Registration
-Register your subscription with Microsoft.ElasticSAN resource provider and the preview feature using the following command:
-
-# [Portal](#tab/azure-portal)
-If you are using the portal, follow the steps in either the Azure PowerShell module or the Azure CLI to register your subscription for the preview.
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.ElasticSan
-Register-AzProviderFeature -FeatureName ElasticSanPreviewAccess -ProviderNamespace Microsoft.ElasticSan
-```
-
-It may take a few minutes for registration to complete. To confirm that you've registered, use the following command:
-
-```azurepowershell
-Get-AzResourceProvider -ProviderNamespace Microsoft.ElasticSan
-Get-AzProviderFeature -FeatureName "ElasticSanPreviewAccess" -ProviderNamespace "Microsoft.ElasticSan"
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az provider register --namespace Microsoft.ElasticSan
-az feature register --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
-```
-
-It may take a few minutes for registration to complete. To confirm you've registered, use the following command:
-
-```azurecli
-az provider show --namespace Microsoft.ElasticSan
-az feature show --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
-```
----
-> [!IMPORTANT]
-> If you are using PowerShell or CLI, you don't need to run this command. Skip this step and proceed to deploy an Elastic SAN.
+- Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
+There are no extra registration steps required.
 
 ## Limitations
 
@@ -65,10 +28,11 @@ az feature show --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
 
 # [Portal](#tab/azure-portal)
 
-1. Sign in to the Azure portal and search for **Elastic SAN**.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and search for **Elastic SAN**.
 1. Select **+ Create a new SAN**
 1. On the basics page, fill in the appropriate values.
-    - **Elastic SAN name** must be between 3 and 24 characters long. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.
+    - **Elastic SAN name** must be between 3 and 24 characters long. The name can only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.
+    For best performance, your SAN should be in the same zone as your VM.
 
 1. Specify the amount of base capacity you require, and any additional capacity, then select next.
 
@@ -80,12 +44,12 @@ az feature show --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
 
 # [PowerShell](#tab/azure-powershell)
 
-Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. Replace all placeholder text with your own values and use the same variables in of all the examples in this article:
+Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. Replace all placeholder text with your own values and use the same variables in all of the examples in this article:
 
 | Placeholder                      | Description |
 |----------------------------------|-------------|
 | `<ResourceGroupName>`            | The name of the resource group where the resources will be deployed. |
-| `<ElasticSanName>`               | The name of the Elastic SAN to be created.<br>*The Elastic SAN name must be between 3 and 24 characters long. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.* |
+| `<ElasticSanName>`               | The name of the Elastic SAN to be created.<br>*The Elastic SAN name must be between 3 and 24 characters long. The name can only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.* |
 | `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to be created. |
 | `<VolumeName>`                   | The name of the Elastic SAN Volume to be created. |
 | `<Location>`                     | The region where the new resources will be created. |
@@ -101,6 +65,9 @@ $EsanVgName = "<ElasticSanVolumeGroupName>"
 $VolumeName = "<VolumeName>"
 $Location   = "<Location>"
 $Zone       = <Zone>
+
+# Connect to Azure
+Connect-AzAccount
 
 # Create the SAN.
 New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -AvailabilityZone $Zone -Location $Location -BaseSizeTib 100 -ExtendedCapacitySizeTiB 20 -SkuName Premium_LRS
@@ -122,16 +89,16 @@ New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -Location $Location 
 
 # [Azure CLI](#tab/azure-cli)
 
-Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. Replace all placeholder text with your own values and use the same variables in of all the examples in this article:
+Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. Replace all placeholder text with your own values and use the same variables in all of the examples in this article:
 
 | Placeholder                      | Description |
 |----------------------------------|-------------|
 | `<ResourceGroupName>`            | The name of the resource group where the resources will be deployed. |
-| `<ElasticSanName>`               | The name of the Elastic SAN to be created.<br>*The Elastic SAN name must be between 3 and 24 characters long. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.* |
+| `<ElasticSanName>`               | The name of the Elastic SAN to be created.<br>*The Elastic SAN name must be between 3 and 24 characters long. The name can only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.* |
 | `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to be created. |
 | `<VolumeName>`                   | The name of the Elastic SAN Volume to be created. |
 | `<Location>`                     | The region where the new resources will be created. |
-| `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN will use locally-redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
+| `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN uses locally-redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
 
 The following command creates an Elastic SAN that uses **locally-redundant** storage.
 
@@ -144,6 +111,10 @@ VolumeName="<VolumeName>"
 Location="<Location>"
 Zone=<Zone>
 
+# Connect to Azure
+az login
+
+# Create an Elastic SAN
 az elastic-san create -n $EsanName -g $RgName -l $Location --base-size-tib 100 --extended-capacity-size-tib 20 --sku "{name:Premium_LRS,tier:Premium}" --availability-zones $Zone
 ```
 
@@ -169,7 +140,7 @@ Now that you've configured the basic settings and provisioned your storage, you 
 # [Portal](#tab/azure-portal)
 
 1. Select **+ Create volume group** and name your volume group.
-    - The name must be between 3 and 63 characters long. The name may only contain lowercase letters, numbers and hyphens, and must begin and end with a letter or a number. Each hyphen must be preceded and followed by an alphanumeric character. The volume group name can't be changed once created.
+    - The name must be between 3 and 63 characters long. The name can only contain lowercase letters, numbers and hyphens, and must begin and end with a letter or a number. Each hyphen must be preceded and followed by an alphanumeric character. The volume group name can't be changed once created.
 
 1. Select **Next : Volumes**
 

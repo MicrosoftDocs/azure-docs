@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 01/20/2023
+ms.date: 10/20/2023
 ---
 
 # How does Azure Data Factory Managed Airflow work? 
@@ -37,7 +37,7 @@ The following steps set up and configure your Managed Airflow environment.
    :::image type="content" source="media/how-does-managed-airflow-work/airflow-environment-details.png" alt-text="Screenshot that shows some Managed Airflow environment details.":::
 
    > [!IMPORTANT]
-   > When using **Basic** authentication, remember the username and password specified in this screen. It will be needed to login later in the Managed Airflow UI. The default option is **Azure AD** and it does not require creating username/ password for your Airflow environment, but instead uses the logged in user's credential to Azure Data Factory to login/ monitor DAGs.
+   > When using **Basic** authentication, remember the username and password specified in this screen. It will be needed to login later in the Managed Airflow UI. The default option is **Microsoft Entra ID** and it does not require creating username/ password for your Airflow environment, but instead uses the logged in user's credential to Azure Data Factory to login/ monitor DAGs.
 1. **Environment variables** a simple key value store within Airflow to store and retrieve arbitrary content or settings.
 1. **Requirements** can be used to pre-install python libraries. You can update these later as well.
 
@@ -131,3 +131,4 @@ If you're using Airflow version 1.x, delete DAGs that are deployed on any Airflo
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
 - [Managed Airflow pricing](airflow-pricing.md)
 - [How to change the password for Managed Airflow environments](password-change-airflow.md)
+

@@ -1,15 +1,15 @@
 ---
 title: Indexing tables
 description: Recommendations and examples for indexing tables in dedicated SQL pool.
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 11/02/2021
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: 
-ms.custom: seo-lt-2019, azure-synapse
+ms.date: 11/02/2021
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - seo-lt-2019
+  - azure-synapse
 ---
 
 # Indexes on dedicated SQL pool tables in Azure Synapse Analytics

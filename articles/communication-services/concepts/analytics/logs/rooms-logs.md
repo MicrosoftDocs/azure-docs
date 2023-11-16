@@ -17,7 +17,7 @@ ms.subservice: data
 Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. These capabilities can be configured through the Azure portal.
 
 > [!IMPORTANT]
-> The following refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/faq.yml)). To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
+> The following refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/overview.md#frequently-asked-questions)). To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
 
 ## Pre-requisites
 
@@ -59,6 +59,7 @@ Communication Services offers the following types of logs that you can enable:
 | `UpsertedRoomParticipantsCount` | The count of participants upserted in a Room. |
 | `RemovedRoomParticipantsCount` | The count of participants removed from a Room. |
 | `TimeGenerated` | The timestamp (UTC) of when the log was generated. |
+| `PstnDialOutEnabled` | Indicates whether a room has the ability to make PSTN calls to invite people to a meeting. |
 
 
 #### Example CreateRoom log
@@ -69,13 +70,14 @@ Communication Services offers the following types of logs that you can enable:
       "CorrelationId": "Y4x6ZabFE0+E8ERwMpd68w",
       "Level": "Informational",
       "OperationName": "CreateRoom",
-      "OperationVersion": "2022-03-31-preview",
+      "OperationVersion": "2023-10-30-preview",
       "ResultType": "Succeeded",
       "ResultSignature": 201,
       "RoomId": "99466898241024408",
       "RoomLifespan": 61,
       "AddedRoomParticipantsCount": 4,
       "TimeGenerated": "5/25/2023, 4:32:49.469 AM",
+      "PstnDialOutEnabled": false,
       }
     ]
 ```
@@ -88,7 +90,7 @@ Communication Services offers the following types of logs that you can enable:
       "CorrelationId": "CNiZIX7fvkumtBSpFq7fxg",
       "Level": "Informational",
       "OperationName": "GetRoom",
-      "OperationVersion": "2022-03-31-preview",
+      "OperationVersion": "2023-10-30-preview",
       "ResultType": "Succeeded",
       "ResultSignature": "200",
       "RoomId": "99466387192310000",
@@ -106,12 +108,13 @@ Communication Services offers the following types of logs that you can enable:
       "CorrelationId": "Bwqzh0pdnkGPDwNcMnBkng",
       "Level": "Informational",
       "OperationName": "UpdateRoom",
-      "OperationVersion": "2022-03-31-preview",
+      "OperationVersion": "2023-10-30-preview",
       "ResultType": "Succeeded",
       "ResultSignature": "200",
       "RoomId": "99466387192310000",
       "RoomLifespan": 121,
       "TimeGenerated": "2022-08-19T17:07:30.3543160Z",
+      "PstnDialOutEnabled": false,
       },
     ]
 ```
@@ -124,7 +127,7 @@ Communication Services offers the following types of logs that you can enable:
       "CorrelationId": "x7rMXmihYEe3GFho9T/H2w",
       "Level": "Informational",
       "OperationName": "DeleteRoom",
-      "OperationVersion": "2022-02-01",
+      "OperationVersion": "2023-10-30-preview",
       "ResultType": "Succeeded",
       "ResultSignature": "204",
       "RoomId": "99466387192310000",
@@ -142,7 +145,7 @@ Communication Services offers the following types of logs that you can enable:
 	  "CorrelationId": "KibM39CaXkK+HTInfsiY2w",
 	  "Level": "Informational",
 	  "OperationName": "ListRooms",
-	  "OperationVersion": "2022-03-31-preview",
+	  "OperationVersion": "2023-10-30-preview",
 	  "ResultType": "Succeeded",
 	  "ResultSignature": "200",
 	  "TimeGenerated": "2022-08-19T17:07:30.5393800Z",
@@ -158,7 +161,7 @@ Communication Services offers the following types of logs that you can enable:
       "CorrelationId": "zHT8snnUMkaXCRDFfjQDJw",
       "Level": "Informational",
       "OperationName": "UpdateParticipants",
-      "OperationVersion": "2022-03-31-preview",
+      "OperationVersion": "2023-10-30-preview",
       "ResultType": "Succeeded",
       "ResultSignature": "200",
       "RoomId": "99466387192310000",
@@ -170,4 +173,4 @@ Communication Services offers the following types of logs that you can enable:
     ]
 ```
 
- (See also [FAQ](../../../../azure-monitor/faq.yml)).
+ (See also [FAQ](../../../../azure-monitor/overview.md#frequently-asked-questions)).

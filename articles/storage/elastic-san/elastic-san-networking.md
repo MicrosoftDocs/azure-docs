@@ -1,29 +1,144 @@
 ---
-title: How to configure Azure Elastic SAN Preview networking
-description: How to configure networking for Azure Elastic SAN Preview, a service that enables you to create and use network file shares in the cloud using either SMB or NFS protocols.
+title: Configure networking for Azure Elastic SAN Preview
+description: Learn how to configure access to an Azure Elastic SAN Preview.
 author: roygara
 ms.service: azure-elastic-san-storage
-ms.topic: how-to
-ms.date: 08/25/2023
+ms.topic: conceptual
+ms.date: 11/06/2023
 ms.author: rogarana
-ms.custom: ignite-2022, devx-track-azurepowershell, references_regions, engagement
+ms.custom: references_regions
 ---
 
-# Configure networking for an Elastic SAN Preview
+# Configure network access for Azure Elastic SAN Preview
 
-Azure Elastic storage area network (SAN) Preview allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments require.
+You can control access to your Azure Elastic storage area network (SAN) Preview volumes. Controlling access allows you to secure your data and meet the needs of your applications and enterprise environments.
 
 This article describes how to configure your Elastic SAN to allow access from your Azure virtual network infrastructure.
 
 To configure network access to your Elastic SAN:
 
 > [!div class="checklist"]
+> - [Configure public network access](#configure-public-network-access)
 > - [Configure a virtual network endpoint](#configure-a-virtual-network-endpoint).
 > - [Configure client connections](#configure-client-connections).
 
+## Prerequisites
+
+- If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell).
+- If you're using Azure CLI, install the [latest version](/cli/azure/install-azure-cli).
+- Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
+There are no extra registration steps required.
+
+## Limitations
+
+[!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
+
+## Configure public network access
+
+You enable public Internet access to your Elastic SAN endpoints at the SAN level. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. You must explicitly configure your volume groups to permit access from specific IP address ranges and virtual network subnets.
+
+You can enable public network access when you create an elastic SAN, or enable it for an existing SAN using the Azure portal, PowerShell, or the Azure CLI.
+
+# [Portal](#tab/azure-portal)
+
+To enable public network access when you create a new Elastic SAN, proceed through the deployment. On the **Networking** tab, select **Enable from virtual networks** as shown in this image:
+
+:::image type="content" source="media/elastic-san-networking/elastic-san-public-network-access-create-san.png" alt-text="Screenshot showing how to enable public network access during creation of a new Elastic SAN." lightbox="media/elastic-san-networking/elastic-san-public-network-access-create-san.png":::
+
+To enable it for an existing Elastic SAN, navigate to **Networking** under **Settings** for the Elastic SAN then select **Enable public access from selected virtual networks** as shown in this image:
+
+:::image type="content" source="media/elastic-san-networking/elastic-san-public-network-access-update-san.png" alt-text="Screenshot showing how to enable public network access for an existing Elastic SAN." lightbox="media/elastic-san-networking/elastic-san-public-network-access-update-san.png":::
+
+# [PowerShell](#tab/azure-powershell)
+
+Use this sample code to create an Elastic SAN with public network access enabled using PowerShell. Replace the variable values before running the sample.
+
+```powershell
+# Set the variable values.
+# The name of the resource group where the Elastic San is deployed.
+$RgName       = "<ResourceGroupName>"
+# The name of the Elastic SAN.
+$EsanName     = "<ElasticSanName>"
+# The region where the new Elastic San will be created.
+$Location     = "<Location>"
+# The SKU of the new Elastic SAN - `Premium_LRS` or `Premium_ZRS`.
+$SkuName      = "<SkuName>"
+# The base size of the new Elastic SAN.
+$BaseSize     = "<BaseSize>"
+# The extended size of the new Elastic SAN.
+$ExtendedSize = "<ExtendedSize>"
+# Setup the parameters to create an Elastic San with public network access enabled.
+$NewEsanArguments = @{
+    Name                    = $EsanName
+    ResourceGroupName       = $RgName
+    BaseSizeTiB             = $BaseSize
+    ExtendedCapacitySizeTiB = $ExtendedSize
+    Location                = $Location
+    SkuName                 = $SkuName
+    PublicNetworkAccess     = Enabled
+}
+# Create the Elastic San.
+New-AzElasticSan @NewEsanArguments
+```
+
+Use this sample code to update an Elastic SAN to enable public network access using PowerShell. Replace the values of `RgName` and `EsanName` with your own, then run the sample:
+
+```powershell
+# Set the variable values.
+$RgName       = "<ResourceGroupName>"
+$EsanName     = "<ElasticSanName>"
+# Update the Elastic San.
+Update-AzElasticSan -Name $EsanName -ResourceGroupName $RgName -PublicNetworkAccess Enabled
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+Use this sample code to create an Elastic SAN with public network access enabled using the Azure CLI. Replace the variable values before running the sample.
+
+```azurecli
+# Set the variable values.
+# The name of the resource group where the Elastic San is deployed.
+$RgName="<ResourceGroupName>"
+# The name of the Elastic SAN.
+$EsanName="<ElasticSanName>"
+# The region where the new Elastic San will be created.
+$Location="<Location>"
+# The SKU of the new Elastic SAN - `Premium_LRS` or `Premium_ZRS`.
+$SkuName="<SkuName>"
+# The base size of the new Elastic SAN.
+$BaseSize="<BaseSize>"
+# The extended size of the new Elastic SAN.
+$ExtendedSize="<ExtendedSize>"
+
+# Create the Elastic San.
+az elastic-san create \
+    --elastic-san-name $EsanName \
+    --resource-group $RgName \
+    --location $Location \
+    --base-size-tib $BaseSize \
+    --extended-capacity-size-tib $ExtendedSize \
+    --sku $SkuName \
+    --public-network-access enabled
+```
+
+Use this sample code to update an Elastic SAN to enable public network access using the Azure CLI. Replace the values of `RgName` and `EsanName` with your own values:
+
+```azurecli
+# Set the variable values.
+$RgName="<ResourceGroupName>"
+$EsanName="<ElasticSanName>"
+# Update the Elastic San.
+az elastic-san update \
+    --elastic-san-name $EsanName \
+    --resource-group $RgName \
+    --public-network-access enabled
+```
+
+---
+
 ## Configure a virtual network endpoint
 
-You can configure your Elastic SAN volume groups to allow access only from endpoints on specific virtual network subnets. The allowed subnets may belong to virtual networks in the same subscription, or those in a different subscription, including a subscription belonging to a different Azure Active Directory tenant.
+You can configure your Elastic SAN volume groups to allow access only from endpoints on specific virtual network subnets. The allowed subnets can belong to virtual networks in the same subscription, or those in a different subscription, including a subscription belonging to a different Microsoft Entra tenant.
 
 You can allow access to your Elastic SAN volume group from two types of Azure virtual network endpoints:
 
@@ -34,7 +149,7 @@ A private endpoint uses one or more private IP addresses from your virtual netwo
 
 Virtual network service endpoints are public and accessible via the internet. You can [Configure virtual network rules](#configure-virtual-network-rules) to control access to your volume group when using storage service endpoints. 
 
-Network rules only apply to the public endpoints of a volume group, not private endpoints. The process of approving the creation of a private endpoint grants implicit access to traffic from the subnet that hosts the private endpoint. You can use [Network Policies](../../private-link/disable-private-endpoint-network-policy.md) to control traffic over private endpoints if you want to refine access rules. If you want to use private endpoints exclusively, do not enable service endpoints for the volume group.
+Network rules only apply to the public endpoints of a volume group, not private endpoints. The process of approving the creation of a private endpoint grants implicit access to traffic from the subnet that hosts the private endpoint. You can use [Network Policies](../../private-link/disable-private-endpoint-network-policy.md) to control traffic over private endpoints if you want to refine access rules. If you want to use private endpoints exclusively, don't enable service endpoints for the volume group.
 
 To decide which type of endpoint works best for you, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
 
@@ -48,9 +163,7 @@ The process for enabling each type of endpoint follows:
 ### Configure a private endpoint
 
 > [!IMPORTANT]
-> - For Elastic SANs using [locally-redundant storage (LRS)](elastic-san-planning.md#redundancy) as their redundancy option, private endpoints are supported in all regions that Elastic SAN is available. Private endpoints aren't currently supported for elastic SANs using [zone-redundant storage (ZRS)](elastic-san-planning.md#redundancy) as their redundancy option.
->
-> - Before you can create a private endpoint connection to a volume group, it must contain at least one volume.
+> - For Elastic SANs using [locally-redundant storage (LRS)](elastic-san-planning.md#redundancy) as their redundancy option, private endpoints are supported in all regions where Elastic SAN is available. Private endpoints aren't currently supported for elastic SANs using [zone-redundant storage (ZRS)](elastic-san-planning.md#redundancy) as their redundancy option.
 
 There are two steps involved in configuring a private endpoint connection:
 
@@ -62,9 +175,9 @@ You can also use [Network Policies](../../private-link/disable-private-endpoint-
 
 To create a private endpoint for an Elastic SAN volume group, you must have the [Elastic SAN Volume Group Owner](../../role-based-access-control/built-in-roles.md#elastic-san-volume-group-owner) role. To approve a new private endpoint connection, you must have permission to the [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftelasticsan) `Microsoft.ElasticSan/elasticSans/PrivateEndpointConnectionsApproval/action`. Permission for this operation is included in the [Elastic SAN Network Admin](../../role-based-access-control/built-in-roles.md#elastic-san-owner) role, but it can also be granted via a custom Azure role.
 
-If you create the endpoint from a user account that has all of the necessary roles and permissions required for creation and approval, the process can be completed in one step. If not, it will require two separate steps by two different users.
+If you create the endpoint from a user account that has all of the necessary roles and permissions required for creation and approval, the process can be completed in one step. If not, it requires two separate steps by two different users.
 
-The Elastic SAN and the virtual network may be in different resource groups, regions and subscriptions, including subscriptions that belong to different Azure AD tenants. In these examples, we are creating the private endpoint in the same resource group as the virtual network.
+The Elastic SAN and the virtual network could be in different resource groups, regions and subscriptions, including subscriptions that belong to different Microsoft Entra tenants. In these examples, we're creating the private endpoint in the same resource group as the virtual network.
 
 # [Portal](#tab/azure-portal)
 
@@ -74,38 +187,26 @@ Currently, you can only configure a private endpoint using PowerShell or the Azu
 
 Deploying a private endpoint for an Elastic SAN Volume group using PowerShell involves these steps:
 
-1. Get the subnet from which applications will connect.
+1. Get the subnet from the applications that will connect.
 1. Get the Elastic SAN Volume Group.
 1. Create a private link service connection using the volume group as input.
 1. Create the private endpoint using the subnet and the private link service connection as input.
-1. **(Optional** *if you are using the two-step process (creation, then approval))*: The Elastic SAN Network Admin approves the connection.
+1. **(Optional)** *if you're using the two-step process (creation, then approval))*: The Elastic SAN Network Admin approves the connection.
 
-Use this sample code to create a private endpoint for your Elastic SAN volume group with PowerShell. Replace all placeholder text with your own values:
-
-| Placeholder                      | Description |
-|----------------------------------|-------------|
-| `<ResourceGroupName>`            | The name of the resource group where the resources are deployed. |
-| `<SubnetName>`                   | The name of the subnet from which access to the volume group will be configured. |
-| `<VnetName>`                     | The name of the virtual network that includes the subnet. |
-| `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to which a connection is to be created. |
-| `<ElasticSanName>`               | The name of the Elastic SAN that the volume group belongs to. |
-| `<PrivateLinkSvcConnectionName>` | The name of the new private link service connection to the volume group. |
-| `<PrivateEndpointName>`          | The name of the new private endpoint. |
-| `<Location>`                     | The region where the new private endpoint will be created. |
-| `<ApprovalDesc>`                 | The description provided for the approval of the private endpoint connection. |
+Use this sample code to create a private endpoint for your Elastic SAN volume group with PowerShell. Replace the values of `RgName`, `VnetName`, `SubnetName`, `EsanName`, `EsanVgName`, `PLSvcConnectionName`, `EndpointName`, and `Location` with your own values:
 
 ```powershell
 # Set the resource group name.
 $RgName     = "<ResourceGroupName>"
 
-# Get the virtual network and subnet, which is input to creating the private endpoint.
+# Set the virtual network and subnet, which is used when creating the private endpoint.
 $VnetName   = "<VnetName>"
 $SubnetName = "<SubnetName>"
 
 $Vnet = Get-AzVirtualNetwork -Name $VnetName -ResourceGroupName $RgName
 $Subnet = $Vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq $SubnetName}
 
-# Get the Elastic SAN, which is input to creating the private endpoint service connection.
+# Set the Elastic SAN, which is used when creating the private endpoint service connection.
 $EsanName   = "<ElasticSanName>"
 $EsanVgName = "<ElasticSanVolumeGroupName>"
 
@@ -128,7 +229,7 @@ $PeArguments        = @{
 New-AzPrivateEndpoint @PeArguments # -ByManualRequest # (Uncomment the `-ByManualRequest` parameter if you are using the two-step process).
 ```
 
-Use this sample code to approve the private link service connection if you are using the two-step process. Use the same variables from the previous code sample:
+Use this sample code to approve the private link service connection if you're using the two-step process. Use the same variables from the previous code sample:
 
 ```powershell
 # Get the private endpoint and associated connection.
@@ -161,33 +262,30 @@ Deploying a private endpoint for an Elastic SAN Volume group using the Azure CLI
     1. Volume group name
     1. Resource group name
     1. Subnet name
-    1. Vnet name
-1. **(Optional** *if you are using the two-step process (creation, then approval))*: The Elastic SAN Network Admin approves the connection.
+    1. Virtual network name
+1. **(Optional** *if you're using the two-step process (creation, then approval))*: The Elastic SAN Network Admin approves the connection.
 
-Use this sample code to create a private endpoint for your Elastic SAN volume group with the Azure CLI. Uncomment the `--manual-request` parameter if you are using the two-step process. Replace all placeholder text with your own values:
-
-| Placeholder                      | Description |
-|----------------------------------|-------------|
-| `<ResourceGroupName>`            | The name of the resource group where the resources are deployed. |
-| `<SubnetName>`                   | The name of the subnet from which access to the volume group will be configured. |
-| `<VnetName>`                     | The name of the virtual network that includes the subnet. |
-| `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to which a connection is to be created. |
-| `<ElasticSanName>`               | The name of the Elastic SAN that the volume group belongs to. |
-| `<PrivateLinkSvcConnectionName>` | The name of the new private link service connection to the volume group. |
-| `<PrivateEndpointName>`          | The name of the new private endpoint. |
-| `<Location>`                     | The region where the new private endpoint will be created. |
-| `<ApprovalDesc>`                 | The description provided for the approval of the private endpoint connection. |
+Use this sample code to create a private endpoint for your Elastic SAN volume group with the Azure CLI. Uncomment the `--manual-request` parameter if you're using the two-step process. Replace all example variable values with your own:
 
 ```azurecli
 # Define some variables.
+# The name of the resource group where the resources are deployed.
 RgName="<ResourceGroupName>"
+# The name of the subnet from which access to the volume group will be configured.
 VnetName="<VnetName>"
+# The name of the virtual network that includes the subnet.
 SubnetName="<SubnetName>"
+# The name of the Elastic SAN that the volume group belongs to.
 EsanName="<ElasticSanName>"
+# The name of the Elastic SAN Volume Group to which a connection is to be created.
 EsanVgName="<ElasticSanVolumeGroupName>"
+# The name of the new private endpoint
 EndpointName="<PrivateEndpointName>"
+# The name of the new private link service connection to the volume group.
 PLSvcConnectionName="<PrivateLinkSvcConnectionName>"
+# The region where the new private endpoint will be created.
 Location="<Location>"
+# The description provided for the approval of the private endpoint connection.
 ApprovalDesc="<ApprovalDesc>"
 
 # Get the id of the Elastic SAN.
@@ -222,7 +320,7 @@ az network private-endpoint-connection show  \
     --name $PLConnectionName
 ```
 
-Use this sample code to approve the private link service connection if you are using the two-step process. Use the same variables from the previous code sample:
+Use this sample code to approve the private link service connection if you're using the two-step process. Use the same variables from the previous code sample:
 
 ```azurecli
 az network private-endpoint-connection approve \
@@ -242,7 +340,7 @@ To configure an Azure Storage service endpoint from the virtual network where ac
 Virtual network service endpoints are public and accessible via the internet. You can [Configure virtual network rules](#configure-virtual-network-rules) to control access to your volume group when using storage service endpoints. 
 
 > [!NOTE]
-> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, though they may be viewed in the portal.
+> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Microsoft Entra tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, though they can be viewed in the portal.
 
 # [Portal](#tab/azure-portal)
 
@@ -295,12 +393,12 @@ az network vnet subnet update --resource-group $RgName --vnet-name $VnetName --n
 
 #### Configure virtual network rules
 
-All incoming requests for data over a service endpoint are blocked by default. Only applications that request data from allowed sources that you configure in your network rules will be able to access your data. 
+All incoming requests for data over a service endpoint are blocked by default. Only applications that request data from allowed sources that you configure in your network rules are able to access your data. 
 
 You can manage virtual network rules for volume groups through the Azure portal, PowerShell, or CLI.
 
 > [!IMPORTANT]
-> If you want to enable access to your storage account from a virtual network/subnet in another Azure AD tenant, you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants.
+> If you want to enable access to your storage account from a virtual network/subnet in another Microsoft Entra tenant, you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Microsoft Entra tenants.
 >
 > If you delete a subnet that has been included in a network rule, it will be removed from the network rules for the volume group. If you create a new subnet with the same name, it won't have access to the volume group. To allow access, you must explicitly authorize the new subnet in the network rules for the volume group.
 
@@ -336,7 +434,7 @@ You can manage virtual network rules for volume groups through the Azure portal,
     ```
 
     > [!TIP]
-    > To add a network rule for a subnet in a virtual network belonging to another Azure AD tenant, use a fully qualified **VirtualNetworkResourceId** parameter in the form "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
+    > To add a network rule for a subnet in a virtual network belonging to another Microsoft Entra tenant, use a fully qualified **VirtualNetworkResourceId** parameter in the form "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
 
 - Remove a virtual network rule.
 
@@ -369,9 +467,9 @@ You can manage virtual network rules for volume groups through the Azure portal,
 - Add a network rule for a virtual network and subnet.
 
     > [!TIP]
-    > To add a rule for a subnet in a virtual network belonging to another Azure AD tenant, use a fully-qualified subnet ID in the form `/subscriptions/\<subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<subnet-name\>`.
+    > To add a rule for a subnet in a virtual network belonging to another Microsoft Entra tenant, use a fully-qualified subnet ID in the form `/subscriptions/\<subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<subnet-name\>`.
     >
-    > You can use the **subscription** parameter to retrieve the subnet ID for a virtual network belonging to another Azure AD tenant.
+    > You can use the **subscription** parameter to retrieve the subnet ID for a virtual network belonging to another Microsoft Entra tenant.
 
     ```azurecli
     # First, get the current length of the list of virtual networks. This is needed to ensure you append a new network instead of replacing existing ones.
@@ -390,7 +488,7 @@ You can manage virtual network rules for volume groups through the Azure portal,
 
 ## Configure client connections
 
-After you have enabled the desired endpoints and granted access in your network rules, you are ready to configure your clients to connect to the appropriate Elastic SAN volumes.
+After you have enabled the desired endpoints and granted access in your network rules, you're ready to configure your clients to connect to the appropriate Elastic SAN volumes.
 
 > [!NOTE]
 > If a connection between a virtual machine (VM) and an Elastic SAN volume is lost, the connection will retry for 90 seconds until terminating. Losing a connection to an Elastic SAN volume won't cause the VM to restart.

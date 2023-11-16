@@ -1,12 +1,11 @@
 ---
 title: "Harm categories in Azure AI Content Safety"
 titleSuffix: Azure AI services
-description: Learn about the different content moderation flags and severity levels that the Content Safety service returns.
+description: Learn about the different content moderation flags and severity levels that the Azure AI Content Safety service returns.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 04/06/2023
@@ -17,7 +16,7 @@ keywords:
 
 # Harm categories in Azure AI Content Safety
 
-This guide describes all of the harm categories and ratings that Content Safety uses to flag content. Both text and image content use the same set of flags.
+This guide describes all of the harm categories and ratings that Azure AI Content Safety uses to flag content. Both text and image content use the same set of flags.
 
 ## Harm categories
 
@@ -25,10 +24,10 @@ Content Safety recognizes four distinct categories of objectionable content.
 
 | Category  | Description         |
 | --------- | ------------------- |
-| Hate      | The hate category describes language attacks or uses that include pejorative or discriminatory language with reference to a person or identity group on the basis of certain differentiating attributes of these groups including but not limited to race, ethnicity, nationality, gender identity and expression, sexual orientation, religion, immigration status, ability status, personal appearance, and body size.  |
-| Sexual    | The sexual category describes language related to anatomical organs and genitals, romantic relationships, acts portrayed in erotic or affectionate terms, physical sexual acts, including those portrayed as an assault or a forced sexual violent act against one’s will, prostitution, pornography, and abuse.  |
-| Violence  | The violence category describes language related to physical actions intended to hurt, injure, damage, or kill someone or something; describes weapons, etc. |
-| Self-harm | The self-harm category describes language related to physical actions intended to purposely hurt, injure, or damage one’s body, or kill oneself. |
+| Hate and Fairness      | Hate and fairness-related harms refer to any content that attacks or uses pejorative or discriminatory language with reference to a person or identity group based on certain differentiating attributes of these groups including but not limited to race, ethnicity, nationality, gender identity and expression, sexual orientation, religion, immigration status, ability status, personal appearance, and body size. </br></br> Fairness is concerned with ensuring that AI systems treat all groups of people equitably without contributing to existing societal inequities. Similar to hate speech, fairness-related harms hinge upon disparate treatment of identity groups. |
+| Sexual  | Sexual describes language related to anatomical organs and genitals, romantic relationships, acts portrayed in erotic or affectionate terms, pregnancy, physical sexual acts, including those portrayed as an assault or a forced sexual violent act against one's will, prostitution, pornography, and abuse.   |
+| Violence  | Violence describes language related to physical actions intended to hurt, injure, damage, or kill someone or something; describes weapons, guns and related entities, such as manufactures, associations, legislation, and so on.    |
+| Self-Harm  | Self-harm describes language related to physical actions intended to purposely hurt, injure, damage one's body or kill oneself.  |
 
 Classification can be multi-labeled. For example, when a text sample goes through the text moderation model, it could be classified as both Sexual content and Violence.
 
@@ -36,16 +35,135 @@ Classification can be multi-labeled. For example, when a text sample goes throug
 
 Every harm category the service applies also comes with a severity level rating. The severity level is meant to indicate the severity of the consequences of showing the flagged content.
 
-| Severity Levels          | Label |
-| --------                 | ----------- |
-|Severity Level 0 – Safe   | Content may be related to violence, self-harm, sexual or hate categories but the terms are used in general, journalistic, scientific, medical, and similar professional contexts which are appropriate for most audiences.  |
-|Severity Level 2 – Low    | Content that expresses prejudiced, judgmental, or opinionated views, includes offensive use of language, stereotyping, use cases exploring a fictional world (e.g., gaming, literature) and depictions at low intensity.        |
-|Severity Level 4 – Medium| Content that uses offensive, insulting, mocking, intimidating, or demeaning language towards specific identity groups, includes depictions of seeking and executing harmful instructions, fantasies, glorification, promotion of harm at medium intensity.      |
-|Severity Level 6 – High   | Content that displays explicit and severe harmful instructions, actions, damage, or abuse, includes endorsement, glorification, promotion of severe harmful acts, extreme or illegal forms of harm, radicalization, and non-consensual power exchange or abuse.        |
+**Text**: The current version of the text model supports the full 0-7 severity scale. The classifier detects amongst all severities along this scale. If the user specifies, it can return severities in the trimmed scale of 0, 2, 4, and 6; each two adjacent levels are mapped to a single level.
+- [0,1] -> 0
+- [2,3] -> 2
+- [4,5] -> 4
+- [6,7] -> 6
+
+**Image**: The current version of the image model supports the trimmed version of the full 0-7 severity scale. The classifier only returns severities 0, 2, 4, and 6; each two adjacent levels are mapped to a single level.
+- [0,1] -> 0
+- [2,3] -> 2
+- [4,5] -> 4
+- [6,7] -> 6
+
+## Text content
+
+#### [Warning](#tab/warning)
+
+> [!WARNING]
+> The **Severity definitions** tab in this document contains examples of harmful content that may be disturbing to some readers.  
+
+#### [Severity definitions](#tab/definitions)
+
+### Hate and fairness severity levels
+
+| **Severity Level**   | **Description**   | **Example Text**   |
+| --- | --- | --- |
+| Level 0 | Content that contains hate and fairness related terms used in the general sense and is appropriate for all target audiences, including children. This includes:<ul><li>General, pejorative language expressing dislike against identity groups</li><li>General mentions of identity group attributes, such as race, ethnicity, religion, etc. in historical, geographical, medical, and other similar contexts with no sentiment</li><li>General terms that have no racial undertones of offensive intent outside of context</li></ul> | "I hate the Yankees."  |
+| Level 1  | Content that contains hate and fairness related terms used in the general sense but may acquire a different meaning based on context and does not differentiate between identity groups and others in a biased or negative way. This includes:<ul><li>Official statistics, legislation, or documentation</li><li>News/media coverage</li><li>Educational resources meant to raise awareness of diversity/tackling hate speech</li><li>Skin-whitening products and treatment ads</li><li>Mentions of Indo-Eurasian swastika, the confederate flag, non-KKK groups that have visual resemblance with KKK</li></ul> | `"Hate speech is harmful as it undermines social cohesion, fosters discrimination, creates divisions and can lay the foundation for violence."`  |
+| Level 2  | Content that contains positive characterization or protection of the identity groups that trigger a favorable emotional response. This includes:<ul><li>Slurs spelled out fully in research papers, dictionaries, or media with direct quotes</li><li>Statements by a speaker who belongs to an identity group without intent to target the same identity group</li><li>Curse words, profanity, and verbal insults that do not target an identity group</li><li>General hate speech that targets unidentified individuals/groups without targeting an identity group</li><li>User intent of creating a blocklist of offensive terms</li><li>Representations of Nazi Germany, Hitler, the confederate flag, and Ku Klux Klan symbolism in movies, video games, costumes, toys, reenactments, or online slang</li></ul> | `"Black people should not be killed by police or mistreated just because of their skin color."`  |
+| Level 3  | Content that contains prejudiced, judgmental, stereotypical characterization or negative sentiment. This includes:<ul><li>Opinion based on stereotyping or negative sentiment</li><li>Expresses prejudiced, judgmental, or opinionated views</li><li>Negative or positive comparisons differentiating between identity groups and others.</li><li>Mentions in fictional worlds</li><li>Employment discrimination in job postings</li><li>Historical facts and artifacts related to Nazi Germany, the Confederate flag during the US Civil War, or the Ku Klux Klan</li></ul> | `"I don't like [identity group] because they are all so aggressive. They attacked us over and over again for no reason at all."` |
+| Level 4  | Content that contains direct verbal sentiment-motivated insults, negative comments, and racial slurs used as descriptions targeting identity groups with the intention to hurt individuals based on their attributes. This includes:<ul><li>References used to target one's race, skin color</li><li>Promotion of social avoidance and isolation</li><li>Mocking and imitating attributes of identity groups</li></ul> | `"Stupid [identity group]! They think they own the world. [identity group] are evil!" ` |
+| Level 5  | Content that contains dehumanization or derogation of individuals or groups that furthers negative sentiment through dehumanization, violence, denial of events, bullying, or intimidation behaviors. This includes:<ul><li>Texts that deny historical, well-documented, and violent events such as the Holocaust</li><li>Texts that describe individuals or groups as physically or mentally inferior based on membership in an identity group</li><li>Texts that question, deny, or demean identity group existence</li><li>Enforcement of desired/expected attributes</li><li>Eugenics and 'racial improvement' theories that target identity groups</li><li>Modern merchandise that contains Nazi, the confederate flag, or KKK symbols</li></ul> | `"The [real world event] is a fraud. What we've discovered is that the [identity groups] have been lying about the number of victims. Here is proof."`  |
+| Level 6  | Content based on negative sentiment and hate speech towards identity groups. By referring to group characteristics that differentiate the identity group and others and appealing to take action against identity groups based on their attributes. This can include:<ul><li>Hate speech propaganda that can be perceived as a direct threat to or a call for violence towards an identity group</li><li>Incendiary, offensive, and vulgar hate speech</li><li>Texts that allegedly claim one group's superiority over those with the attributes of the identity groups to justify discrimination, segregation, or exclusion</li><li>Texts describing joy regarding a violent event that targeted an identity group</li></ul> | `"Send [identity group] back to the gas chambers."`  |
+| Level 7  | Content based on negative sentiment, displaying intent of hate crime and stalking, triggering a hostile emotional response and differentiating identity groups and others leading to crime. This includes:<ul><li>Hate crime preparation, praise, and glorification of violence against an identity group</li><li>Texts that contain supremacist groups' recruitment material</li><li>Texts meant to radicalize and encourage hate speech against an identity group</li></ul> | `"Millions of [identity group] were wiped out because they were the inferior race. Murdering them continues to be right and honorable because…"`  |
+
+### Sexual severity levels
+
+| **Severity Level**   | **Description**   | **Example Text**   |
+| --- | --- | --- |
+| Level 0 | Content that contains sexually related terms used in general sense that is harmless for all target audiences, including children.  <ul><li>Mentions of family relations  </li><li>Content that is harmless for all target audiences, including children  </li></ul> | `"The sports bra and yoga pants were too tight for comfort."`    |
+| Level 1  | Content that contains sexually related terms used in general sense but may acquire a different meaning based on context. This includes:   <ul><li>Official statistics and documentation on sex-related topics  </li><li>News/media coverage  </li><li>Anatomical terms, sexual anatomy, and medical treatment  </li><li>Educational resources on sex, sexual wellness, awareness, etc.  </li><li>Mentions of biological sex or descriptions of sexual reproduction   </li><li>Texts that describe romantic relationships in non-graphic terms  </li></ul> | `"Love was in the air as he kissed him while holding him tight in his arms."` |
+| Level 2  | Content that contains sexually related terms in fictional or real world experiences that are not extremely graphic. This includes:   <ul><li>Mentions of literary/artistic texts, movies, sculptures, etc. that contain limited dirty talk or brief non-explicit nudity scenes  </li><li>Personal experiences related to sex in general, sexual problems and traumas, sharing of coping mechanisms and resources to address such issues  </li><li>User intent of creating a blocklist for sexual content  </li><li>Mentions of sexual acts and nudity with light core  </li></ul> | `"We played 7 minutes in heaven and got to second base."`  |
+| Level 3  | Content with sexually related terms in cases that contain some graphic content, opinions expressing biased, prejudiced, judgmental or opinionated views on sex related issues. This includes:   <ul><li>Personal past or present sexual experiences with some graphic content  </li></ul> | `"There is nothing wrong with teenage pregnancy – it is a natural process."`   |
+| Level 4  | Content describing sexual fantasies, professional sex industry and advertisements, and sexualized animal reproduction. This includes:   <ul><li>Fantasies of sex of different types, including imagining real or fictional nudity  </li><li>Professional sex industry without descriptions of sex scenes  </li<li>Advertisements for condoms, lubricants, sex toys, clothing, etc..   </li<li>Descriptions of sexual reproduction between animals or animal-like characters with some graphic content  </li<li>Mentions of sexual acts and nudity with soft core</li></ul> | `"Unclothed man pressing up against another man.`"    |
+| Level 5  | Content describing erotic shows or experiences as personal experience, BDSM with clear consent, and erotic stories and websites. This includes:   <ul><li>Mentions of sexual, erotic or tantric massages, strip clubs, erotic shows as personal experience (not as a professional service)  </li><li>Personal experiences and descriptions related to BDSM attributes and practices in general or situations with clear content to BDSM practice  </li><li>Mentions of non-commercial erotic content related to sexual desire or pleasure</li></ul> | `"I got into BDSM because I had some friends into the lifestyle and it piqued my interest. I like using silk, scarves, collars, and bondage…"`      |
+| Level 6  | Content describing solicitation of sexual commercial services, containing detailed descriptions of sexual activity, violent sexual abuse and rape, and non-consensual power exchanges, abuse, and voyeurism. This includes:   <ul><li>Mentions of stimulation of genitals with hands or other objects, masturbation, etc.  </li><li>Fetish or crude content involving bodily fluids, situations of sex control, or BDSM activities without clear consent  </li><li>Texts that describe sexual violence, sexual assault, rape or abuse in graphic details  </li><li>Texts that attribute positive qualities to sexual assault   </li><li>Texts that seek or provide instructions to perform sexual assault  </li><li>Acts of blackmail and threats to reveal unconsented sexual images or videos previously recorded  </li></ul> | `"It's 250/hr for sex or blow job or 150/hr for erotic massages (sexy dance, some massaging, and a hand job)."`  |
+| Level 7  | Content used to promote, endorse, glorify extreme forms of sexual enslavement. Content that is extreme or illegal. This includes:   <ul><li>Sex with animals, corpses, etc.  </li><li>Paedophilia  </li><li>Seeking or providing instructions on child grooming   </li><li>Explicit or potential references to incest  </li><li>Human sex trafficking recruitment  </li></ul> | `"I was abused as a child by my uncle and I liked it. Nowadays, I make money by producing child pornography with my neighbor’s 6 year old son."`    |
+
+
+### Violence severity levels
+
+| **Severity Level**   | **Description**   | **Example Text**   |
+| --- | --- | --- |
+| Level 0 | Content that contains non-violent actions or violence-related terms used in a general sense that is harmless for all target audiences, including children. This includes:<ul><li>Common objects when not used as weapons</li><li>Toy guns, non-realistic or pretend guns</li><li>Mentions of ropes when not used as a noose</li></ul> | `"According to our child and parent testers, here are the best long-range soakers for soft blasters for toddlers suitable for epic water battles."`  |
+| Level 1  | Content that contains violence-related terms or acts used in a general sense but may acquire a different meaning based on context. This includes:<ul><li>Subsets of texts that contain descriptions of violent acts, where the contextualization of the full text does not possess violent intent</li><li>Official statistics and documentation on guns, weapons, domestic violence, warfare, military, etc.</li><li>Educational resources related to violence</li><li>News/media coverage</li><li>Medical terms and content</li><li>Hunting or shooting sport and guns technical specifications</li><li>Combat practice</li><li>Counter-terrorism and terrorist symbols unrelated to ISIS/al-Qaeda</li></ul> | `"Carnivores such as lions and tigers are prone to killing one another. Death occurs at the paws, claws, jaws, or tusks that might fatally gore one another during fights."`  |
+| Level 2  | Content that contains violence-related terms or acts in fictional or real world experiences that are not extremely graphic and without glorification or endorsement of malintent. This includes:<ul><li>First, second, and third person narration in video games, literary/artistic texts that depict violent or graphic scenes</li><li>Gaming tips and recommendations</li><li>Personal experiences in which an individual describes how they were exposed to some type of violence</li><li>Mentions of ropes when used as a noose without human subjects present or not related to the noose</li><li>User intent is to create a blocklist with violent content</li></ul> | `"When I served in Iraq, there was a constant fear of getting attacked by insurgents, and I have suffered from post-traumatic stress disorder (PTSD) ever since."`  |
+| Level 3  | Content with violence-related terms or acts in cases that contain some graphic content, opinions expressing biased, prejudiced, judgmental or opinionated views on violence. This includes:<ul><li>Allowing cruelty for some animals</li><li>Texts claiming positive impact of some types of violence</li></ul> | `"Physical punishment is a way to correct bad behavior and doesn't cause harm to children."`  |
+| Level 4  | Content describing ungrounded rationale for why victims are being physically abused, unfounded attribution of positive qualities of abusers, threats of violent acts and fantasies relating to how to harm another person, and medium gore.  This includes:<ul><li>Texts that put the victim at fault or depict perpetrators in a positive light</li><li>Graphic descriptions of violence and death with medium gore</li><li>An autopsy report, a forensic investigation, crime or death scene</li><li>Meat and poultry facilities, and religious animal sacrifice</li><li>References to historical or recent genocides and known shooting events with mass casualties without endorsement or glorification</li><li>References to terrorist and violent extremist events without endorsement or glorification</li></ul> | `"She wishes she could have killed her whole family."`  |
+| Level 5  | Content aiming to further violence, providing direct instructions on how to harm specific individuals or groups. This includes:<ul><li>Texts that incite physical violence against targeted individuals/groups</li><li>Instructions on how to cause physical violence to individuals or abuse to animals</li><li>Texts seeking advice on how to perform violent acts on animals, individuals, or groups</li><li>Bullying and intimidation</li></ul> | `"Go to another state or another city and kill any stranger; for example, shoot them with a silencer gun. Since you have not any connection with him, you will not get caught."`  |
+| Level 6  | Content describing extremist groups and terroristic organizations, mass killings and explicit physical damage in high gore, and promotion of terrorism and its propaganda. This includes:<ul><li>Official terrorist or extremist propaganda materials and violent ideology on the internet</li><li>Inciting to take a violent action</li></ul> | `"The Quran says: And you do not will except that Allah wills. Indeed, Allah is ever Knowing and Wise (Q 76:30). We must rise against the infidels who suppress us and pillage our lands. Let's become martyrs and fulfill Allah's will."`  |
+| Level 7  | Content used to describe, praise, support, promote, endorse, glorify extreme forms of violence. Content that supports terroristic organizations and radicalizes, instructs, or trains. This includes:<ul><li>Forced labor including children, domestic servitude, or medical treatment</li><li>Online terrorist and violent extremist propaganda materials that glorify killings as a part of terrorist activity and aid offers to terrorist organizations or causes</li><li>Texts that seek instructions on affiliation with terrorist and violent extremist groups on how to recruit, influence, and train people towards the cause</li><li>Illegal harassing behaviors such as stalking or unwanted surveillance</li><li>Texts that plan and coordinate attacks on individuals or groups of people</li><li>Texts that endorse, glorify, or provide instructions on cannibalism</li></ul> | `"Let's call and threaten to explode the hospital during the weekend. I've got the explosives ready, and will have them installed tonight."`  |
+
+
+### Self-harm severity levels
+
+| **Severity Level**   | **Description**   | **Example Text**   |
+| --- | --- | --- |
+| Level 0 – Safe  | Content that contains self-harm related terms used in a general sense that is harmless for all target audiences, including children. This includes:<ul><li>Mentions of body fat, fat mass index indicators by age and gender in health-related contexts</li></ul> | `"I appreciate your hard work, but you don't need to keep killing yourself over this project."`  |
+| Level 1  | Content that contains self-harm related terms used in a general sense but may acquire a different meaning based on context. This includes:<ul><li>Official statistics and documentation on Non-Suicidal Self Injury (NSSI), suicide, etc.</li><li>Educational resources related to self-harm</li><li>News/media coverage</li><li>Medical terms and content</li><li>Actions that describe accidental self-harm, first aid tips, etc.</li></ul> | `"Binging and purging may be a warning sign for people with a history of extreme weight loss."`  |
+| Level 2  | Content that contains self-harm related terms or acts in fictional or real world experiences that are not extremely graphic. This includes:<ul><li>Literary/artistic texts, movies, etc. depicting characters plotting or committing suicide, engaging in self-harm, or disordered eating with no glorification or endorsement</li><li>Texts where self-harm acts or suicide is depicted with low gore</li><li>User intent is to create blocklists of self-harm terms</li></ul> | `"He hanged himself."`  |
+| Level 3  | Content with self-harm related terms or acts in cases that contain some graphic content, opinions expressing biased, prejudiced, judgmental or opinionated views on self-harm. This includes:<ul><li>Personal experiences related to self-harm, such as asking for help before hurting themselves or committing suicide</li></ul> | `"I'm really struggling with self-loathing and thoughts of self-harm to relieve my distress after my friend took his own life last month. Please can someone give me any useful advice?"`  |
+| Level 4  | Content that mocks victims or survivors of suicide or self-harm, unfounded attribution of positive qualities to self-harm, fantasies or wishes of self-harm, and contains explicitly graphic content involving death, autopsy, crime, or death scene. This includes:<ul><li>Self-injury presented as a solution to a problem, emotional distress, escape from pain/agony</li><li>Texts where self-harm or suicide contains medium gore and descriptions of tools such as a knife, a pistol, etc.</li></ul> | `"When I hit myself in the face, pain releases endorphins naturally in the brain, as a self-defense mechanism, to help me cope with my self-loathing. This release of endorphins can temporarily mitigate the symptoms of depression, causing a small amount of relief."`  |
+| Level 5  | Content aiming to further promotion of self-harm, providing direct instructions on how to perform self-harm or bully a victim. This includes:<ul><li>Texts that seek advice or recommendations on how to perform self-harm acts except for suicide</li><li>Texts that describe personal past and present experiences of self-harm that contains explicit details</li><li>Bullying, intimidation, and pressuring that incites and promotes self-harm acts</li></ul> | `"Go kill yourself, you are worthless."`  |
+| Level 6  | Content describing detailed and explicit instructions on how to commit suicide. This includes:<ul><li>Texts that instruct how to write a goodbye message to your family</li></ul> | `"Here is a quick guide to do-it-yourself suicide. One method is asphyxia suicide by inhaling helium inside a plastic bag."`  |
+| Level 7  | Content used to endorse and glorify suicide or other severe acts of self-harm. This includes:<ul><li>Self-decapitation</li><li>Burning alive</li></ul> | `"Suicide is the best solution if you feel depressed, worthless or miserable. Take your life to end this misery; it will finally feel so good."`  |
+
+---
+
+## Image content
+
+#### [Warning](#tab/warning)
+
+> [!WARNING]
+> The **Severity definitions** tab in this document contains examples of harmful content that may be disturbing to some readers.  
+
+#### [Severity definitions](#tab/definitions)
+
+### Hate and fairness severity levels
+
+| **Severity Level**   | **Description**   | **Image example**   |
+| --- | --- | --- |
+| Level 0 – Safe  | Content is safe but may contain hate and fairness related imagery with no sentiment or neutral sentiments in non-discriminatory non-offensive ways in the following contexts or those similar to:<ul><li>Journalistic</li><li>Historical</li><li>Medical</li><li>Legal</li><li>Educational</li><li>Geographical</li></ul> | Non confederate flags, e.g. Flags of countries or states that feature crosses<ul><li>An image of the Union Jack flag of Great Britain</li></ul>Depiction of emancipation of enslaved people in the US in historical photos  |
+| Level 2 - Low  | Content that contains either positive sentiments, false positive sentiments, or negative, biased sentiments differentiating identity groups from others. This content is intended to trigger an emotional response. This includes:<ul><li>Protection</li><li>Nazi symbolism, the confederate flag, Ku Klux Klan symbolism</li><li>Stereotyping</li><li>Employment discrimination</li></ul> | Representations of 'No Hate Speech' movement</br></br>Representations of deprioritized job candidates such as candidates with disabilities in interview settings |
+| Level 4 - Medium  | Content that contains negative sentiment action towards identity groups and others that leads to the promotion of action against an identity groups and sentiments of superiority. This includes:<ul><li>Insult, isolation, mocking</li><li>Nazi flag, confederate flag, and LGBTQIA+ variations and merchandise</li></ul> | Imagery that promotes social avoidance of [identity groups]</br></br>Imagery that depicts the racial improvement theory and eugenics |
+| Level 6 – High   | Content that contains negative sentiment and hate speech towards identity groups leading to hate speech generation or hate crimes. This includes:<ul><li>Racism</li><li>Attacks on LGBTQIA+</li><li>Disablism</li><li>Sex-based discrimination</li><li>Glorified Nazi symbolism, Confederate flag, Ku Klux Klan symbolism</li><li>Violent confederate flag</li></ul> | Antisemitic imagery</br></br>Imagery depicting the "Southern Cross" that features a blue saltire (diagonal cross) with affiliation of obvious violence (e.g. guns in display/use) |
+
+
+### Sexual severity levels
+
+| **Severity Level**   | **Description**   | **Image example**   |
+| --- | --- | --- |
+| Level 0 - Safe | Content is safe but contains sexually related imagery used in a general sense. This includes:<ul><li>Family and romantic relationships</li><li>Non-sexual nudity</li><li>Clothing</li><li>Common objects</li><li>Non-sexual pose or activity</li><li>Animal mating</li><li>Sexual wellness</li></ul> | Representations of hugging or making non-sexual physical contact</br></br>Representations depicting physical display of affection such as kissing without tongue and without nudity |
+| Level 2 – Low   | Content that contains sexually suggestive behaviors or acts. This includes:<ul><li>Personal experiences</li><li>Fashion modeling</li><li>Nudity in artwork</li><li>Body art</li><li>Racy display</li></ul> | Depictions of people |
+| Level 4 - Medium  | Content that contains commercial and amateur erotic and/or pornographic content without visual photographic penetration and nude or semi-nude participants involved in sexual scenes meant to be sexually arousing. This includes:<ul><li>Sexual modeling</li><li>Soft nudity in artwork</li><li>Sex jobs or shops</li><li>Obscured sexual activity</li><li>Porn production backstage</li><li>Pole dancing</li></ul> | Depictions of intercourse that may be partially occluded but still clearly present in the image |
+| Level 6 - High  | Content that contains explicit detailed depictions of sexual organs and sexual acts, including illegal acts. This includes:<ul><li>Amateur soft-core and hard-core pornography</li><li>Sexual solicitation</li><li>Voyeurism</li><li>Sex in artwork</li><li>BDSM with no consent or Rape</li><li>Child Sexual Exploitation and Abuse</li><li>Child grooming</li><li>Incest</li></ul> | Depictions of engagements in sexual activities with animals or corpses |
+
+
+### Violence severity levels
+
+| **Severity Level**   | **Description**   | **Image example**   |
+| --- | --- | --- |
+| Level 0 - Safe  | Content is safe but contains violence related imagery used in a general sense. This includes:<ul><li>Sleeping or laying pose</li><li>Common objects</li><li>Non-violent activity</li><li>Ropes not as a noose</li><li>Bladed tools in use in kitchen/sewing</li><li>Wounds, scars and surgical treatment</li><li>Hunting and shooting sport</li><li>Toy and pretend guns</li><li>Combat practice</li><li>Object damage and vandalism</li><li>Non-branded terrorist symbolism</li></ul> | Depictions of non-realistic weapons and bladed tools   |
+| Level 2 – Low   | Content that contains violence related imagery and acts in real world or fictional contexts with low gore. This includes:<ul><li>Guns, weapons, and bladed tools in display and in use</li><li>Non-realistic corpse</li><li>Non-realistic violence</li><li>Animated weapons</li><li>Light injury and personal experience</li><li>Ropes as a noose</li><li>Death in historical, educational, or funerary settings</li><li>Non-realistic terrorist symbolism</li><li>Bullfighting</li></ul> | Depictions of ISIS/al-Qaeda flags  |
+| Level 4 - Medium  | Content that contains moderate graphic violence and violent acts aimed at an identified target. This includes:<ul><li>Autopsy</li><li>Crime or death scene</li><li>Animal death (natural or hunted), animal sacrifice, animal abuse</li><li>Enslavement</li><li>Genocide and mass killings in historical, educational settings</li><li>Slaughterhouse</li><li>Domestic violence and physical abuse</li><li>Bullying</li><li>Guns and weapons in use against a target</li></ul> | Depictions of the use of force and coercion to aggressively dominate or intimidate an individual   |
+| Level 6 - High  | Content that contains explicit detailed depictions of violence and violent acts in high gore. This includes:<ul><li>Graphic injuries and death</li><li>Dismemberment, decapitation, burning alive</li><li>Corpse decomposition</li><li>Terrorism, Terrorist groups, and flags</li><li>Forced labor and servitude, forced medical procedure</li><li>Stalking</li><li>Corpse in terrorism and war crime</li><li>Shooting event</li><li>Other extremism</li></ul> | Depictions of death when performed by terrorist groups identifiable by ISIS flags and symbols  |
+
+### Self-harm severity levels
+
+| **Severity Level**   | **Description**   | **Image example**   |
+| --- | --- | --- |
+| Level 0 - Safe  | Content is safe but contains self-harm related imagery used in a general sense. This includes:<ul><li>Low body fat</li><li>Non-self-harm act</li><li>Accidental body injury</li></ul> | Depictions of jumping with a parachute out of a plane   |
+| Level 2  – Low   | Content that contains self-harm related imagery and acts in real world or fictional contexts with low gore. This includes:<ul><li>Scars</li><li>Self-harm injury in recovery</li><li>Non-realistic self-harm</li><li>Emaciated individuals or animals</li></ul> | Representations of self-harm related acts, tools, injury and emotional state   |
+| Level 4 - Medium  | Content that contains moderate graphic imagery related to self-harm and suicide. This includes:<ul><li>Autopsy</li><li>Crime or death scene</li><li>Bullying</li></ul> | Representations of the use of force and coercion to aggressively dominate or intimidate an individual into self-harm  |
+| Level 6 - High  | Content that contains explicit detailed depictions of self-harm and suicide in high gore. This includes:<ul><li>Imminent self-harm act</li><li>Self-harm acts</li><li>Suicide</li></ul> | Depictions of intentional suicide, where a person has committed suicide by jumping off a tall building  |
+
+---
 
 ## Next steps
 
-Follow a quickstart to get started using Content Safety in your application.
+Follow a quickstart to get started using Azure AI Content Safety in your application.
 
 > [!div class="nextstepaction"]
 > [Content Safety quickstart](../quickstart-text.md)

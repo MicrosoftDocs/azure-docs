@@ -6,8 +6,8 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 01/17/2023
-ms.custom: engagement-fy23
+ms.date: 08/24/2023
+ms.custom: engagement-fy24
 
 ---
 
@@ -121,9 +121,12 @@ This section contains the cost estimate by recommended target (Annual cost and a
 - Azure SQL:
     - **Estimated cost by savings options**: This card includes compute cost for Azure SQL MI. It is recommended that all idle SQL instances are migrated via Pay as you go Dev/Test and others (Active and unknown) are migrated using 3 year Reserved Instance to maximize savings.
     - **Distribution by recommended service tier** : This card covers the recommended service tier.
-- Azure App Service:
+- Azure App Service and App Service Container:
    - **Estimated cost by savings options**: This card includes Azure App Service Plans cost. It is recommended that the web apps are migrated using 3 year Reserved Instance or 3 year Savings Plan to maximize savings.
    - **Distribution by recommended plans** : This card covers the recommended App Service plan.
+- Azure Kubernetes Service:
+   - **Estimated cost by savings options**: This card includes the cost of the recommended AKS node pools. It is recommended that the web apps are migrated using 3 year Reserved Instance or 3 year Savings Plan to maximize savings.
+   - **Distribution by recommended Node pool SKU**: This card covers the recommended SKUs for AKS node pools.
 
 **On-premises tab**
 

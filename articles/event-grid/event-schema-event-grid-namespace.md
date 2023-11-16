@@ -230,7 +230,7 @@ The data object contains the following properties:
 | `namespaceName` | string | Name of the Event Grid namespace where the MQTT client was connected or disconnected. |
 | `clientAuthenticationName` | string | Unique identifier for the MQTT client that the client presents to the service for authentication. This case-sensitive string can be up to 128 characters long, and supports UTF-8 characters.|
 | `clientSessionName` | string | Unique identifier for the MQTT client's session. This case-sensitive string can be up to 128 characters long, and supports UTF-8 characters.|
-| `sequenceNumber` | string | A number that helps indicate order of MQTT client session connected or disconnected events. Latest event will have a sequence number that is higher than the previous event. |
+| `sequenceNumber` | long | A number that helps indicate order of MQTT client session connected or disconnected events. Latest event will have a sequence number that is higher than the previous event. |
 | `disconnectionReason` | string | Reason for the disconnection of the MQTT client's session. The value could be one of the values in the disconnection reasons table. |
 | `createdOn` | string | The time the client resource is created based on the provider's UTC time. |
 | `updatedOn` | string | The time the client resource is last updated based on the provider's UTC time. If the client resource was never updated, this value is identical to the value of the 'createdOn' property |

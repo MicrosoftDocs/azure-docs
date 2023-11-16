@@ -6,13 +6,21 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 07/26/2023
-ms.custom: mvc, engagement-fy23
+ms.date: 09/28/2023
+ms.custom: mvc, engagement-fy24
 ---
 
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (November 2023)
+- Public Preview: Assess your ASP.NET web apps for migration to Azure Kubernetes Service (AKS). Using this feature, you get insights such as app readiness, cluster rightsizing and cost of running these web apps on AKS. [Learn more](tutorial-assess-aspnet-aks.md).
+- Public Preview: Assess your ASP.NET web apps for migration to Azure App Service Containers. [Learn more](tutorial-assess-webapps.md).
+- Public Preview: Get the total cost of ownership (TCO) comparison for your ASP.NET web apps running on AKS and App Service Containers in Azure Migrate Business Case. [Learn more](how-to-build-a-business-case.md).
+
+## Update (September 2023)
+- Azure Migrate now supports discovery and assessment of Spring Boot apps using the Azure Migrate: Discovery and assessment tool. [Learn more](how-to-create-azure-spring-apps-assessment.md).
 
 ## Update (August 2023)
 - Azure Migrate now helps you gain deeper insights into the support posture of your IT estate by providing insights into Windows server and SQL Server license support information. You can stay ahead of license support deadlines with *Support ends in* information that helps to understand the time left until the end of support for respective servers and databases.

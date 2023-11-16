@@ -9,7 +9,7 @@ ms.author: cephalin
 
 ## Add Azure CLI extensions
 
-Launch the Bash environment in [Azure Cloud Shell](../articles/cloud-shell/quickstart.md).
+Launch the Bash environment in [Azure Cloud Shell](../articles/cloud-shell/get-started.md).
 
 [![Launch Cloud Shell in a new window](./media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 

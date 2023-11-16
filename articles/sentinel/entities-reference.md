@@ -4,85 +4,120 @@ description: This article displays the Microsoft Sentinel entity types and their
 author: yelevin
 ms.author: yelevin
 ms.topic: reference
-ms.date: 05/29/2023
+ms.date: 10/15/2023
 ms.custom: ignite-fall-2021
 ---
 
 # Microsoft Sentinel entity types reference
 
+This document contains two sets of information regarding entities and entity types in Microsoft Sentinel.
+- The [**Entity types and identifiers**](#entity-types-and-identifiers) table shows the different types of entities that can be used in [entity mapping](map-data-fields-to-entities.md) in both [analytics rules](detect-threats-custom.md) and [hunting](hunting.md). The table also shows, for each entity type, the different identifiers that can be used to identify an entity.
+- The [**Entity schema**](#entity-type-schemas) section shows the data structure and schema for entities in general and for each entity type in particular, including some types that are not represented in the entity mapping feature.
+
 ## Entity types and identifiers
 
-The following table shows the **entity types** currently available for mapping in Microsoft Sentinel, and the **attributes** available as **identifiers** for each entity type. These attributes appear in the **Identifiers** drop-down list in the [entity mapping](map-data-fields-to-entities.md) section of the [analytics rule wizard](detect-threats-custom.md).
+The following table shows the **entity types** currently available for mapping in Microsoft Sentinel, and the **attributes** available as **identifiers** for each entity type. Nearly all of these attributes appear in the **Identifiers** drop-down list in the [entity mapping](map-data-fields-to-entities.md) section of the [analytics rule wizard](detect-threats-custom.md) (see footnotes for exceptions).
 
-Each one of the identifiers in the **required identifiers** column is necessary to identify its entity. However, a required identifier might not, by itself, be sufficient to provide *unique* identification. The more identifiers used, the greater the likelihood of unique identification. You can use up to three identifiers for a single entity mapping.
+You can use up to three identifiers for a single entity mapping. **Strong identifiers** alone are sufficient to uniquely identify an entity, whereas **weak identifiers** can do so only in combination with other identifiers.
 
-For best results&mdash;for guaranteed unique identification&mdash;you should use identifiers from the **strongest identifiers** column whenever possible. The use of multiple strong identifiers enables correlation between strong identifiers from varying data sources and schemas. This correlation in turn allows Microsoft Sentinel to provide more comprehensive insights for a given entity.
+Learn more about [strong and weak identifiers](entities.md#strong-and-weak-identifiers).
 
-| Entity type | Identifiers | Required identifiers | Strongest identifiers |
+| Entity type | Identifiers | Strong identifiers | Weak identifiers |
 | - | - | - | - |
-| [**User account**](#user-account)<br>*(Account)* | Name<br>FullName<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined<br>DisplayName<br>ObjectGuid | FullName<br>Sid<br>Name<br>AadUserId<br>PUID<br>ObjectGuid | Name + NTDomain<br>Name + UPNSuffix<br>AADUserId<br>Sid |
-| [**Host**](#host) | DnsDomain<br>NTDomain<br>HostName<br>FullName<br>NetBiosName<br>AzureID<br>OMSAgentID<br>OSFamily<br>OSVersion<br>IsDomainJoined | FullName<br>HostName<br>NetBiosName<br>AzureID<br>OMSAgentID | HostName + NTDomain<br>HostName + DnsDomain<br>NetBiosName + NTDomain<br>NetBiosName + DnsDomain<br>AzureID<br>OMSAgentID |
-| [**IP address**](#ip-address)<br>*(IP)* | Address | Address | |
-| [**Malware**](#malware) | Name<br>Category | Name | |
-| [**File**](#file) | Directory<br>Name | Name | |
-| [**Process**](#process) | ProcessId<br>CommandLine<br>ElevationToken<br>CreationTimeUtc | CommandLine<br>ProcessId | |
-| [**Cloud application**](#cloud-application)<br>*(CloudApplication)* | AppId<br>Name<br>InstanceName | AppId<br>Name | |
-| [**Domain name**](#domain-name)<br>*(DNS)* | DomainName | DomainName | |
+| [**Account**](#account) | Name<br>*FullName \**<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined<br>*DisplayName \**<br>ObjectGuid | Name+UPNSuffix<br>AADUserId<br>Sid [\*\*](#strong-identifiers-of-an-account-entity)<br>Sid+*Host* [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+*Host*+NTDomain [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+NTDomain [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+DnsDomain<br>PUID<br>ObjectGuid | Name |
+| [**Host**](#host) | DnsDomain<br>NTDomain<br>HostName<br>*FullName \**<br>NetBiosName<br>AzureID<br>OMSAgentID<br>OSFamily<br>OSVersion<br>IsDomainJoined | HostName+NTDomain<br>HostName+DnsDomain<br>NetBiosName+NTDomain<br>NetBiosName+DnsDomain<br>AzureID<br>OMSAgentID | HostName<br>NetBiosName |
+| [**IP**](#ip) | Address<br>AddressScope | Address [\*\*](#strong-identifiers-of-an-ip-entity)<br>Address+AddressScope [\*\*](#strong-identifiers-of-an-ip-entity) | |
+| [**URL**](#url) | Url | Url *(if absolute URL)* [\*\*](#strong-identifiers-of-a-url-entity) | Url *(if relative URL)* [\*\*](#strong-identifiers-of-a-url-entity) |
 | [**Azure resource**](#azure-resource) | ResourceId | ResourceId | |
-| [**File hash**](#file-hash)<br>*(FileHash)* | Algorithm<br>Value | Algorithm + Value | |
-| [**Registry key**](#registry-key) | Hive<br>Key | Hive<br>Key | Hive + Key |
-| [**Registry value**](#registry-value) | Name<br>Value<br>ValueType | Name | |
+| [**Cloud application**](#cloud-application)<br>*(CloudApplication)* | AppId<br>Name<br>InstanceName | AppId<br>Name<br>AppId+InstanceName<br>Name+InstanceName | |
+| [**DNS Resolution**](#dns-resolution) | DomainName | DomainName+*DnsServerIp*+*HostIpAddress* | DomainName+*HostIpAddress* |
+| [**File**](#file) | Directory<br>Name | Directory+Name | |
+| [**File hash**](#file-hash)<br>*(FileHash)* | Algorithm<br>Value | Algorithm+Value | |
+| [**Malware**](#malware) | Name<br>Category | Name+Category | |
+| [**Process**](#process) | ProcessId<br>CommandLine<br>ElevationToken<br>CreationTimeUtc | *Host*+ProcessID+CreationTimeUtc<br>*Host*+*ParentProcessId*+<br>&nbsp;&nbsp;&nbsp;CreationTimeUtc+CommandLine<br>*Host*+ProcessId+<br>&nbsp;&nbsp;&nbsp;CreationTimeUtc+*ImageFile*<br>*Host*+ProcessId+<br>&nbsp;&nbsp;&nbsp;CreationTimeUtc+*ImageFile*+<br>&nbsp;&nbsp;&nbsp;*FileHash* | ProcessId+CreationTimeUtc+<br>&nbsp;&nbsp;&nbsp;CommandLine (no Host)<br>ProcessId+CreationTimeUtc+<br>&nbsp;&nbsp;&nbsp;*ImageFile* (no Host) |
+| [**Registry key**](#registry-key) | Hive<br>Key | Hive+Key | |
+| [**Registry value**](#registry-value) | Name<br>Value<br>ValueType<br> | *Key*+Name | Name (no Key) |
 | [**Security group**](#security-group) | DistinguishedName<br>SID<br>ObjectGuid | DistinguishedName<br>SID<br>ObjectGuid | |
-| [**URL**](#url) | Url | Url | |
-| [**IoT device**](#iot-device) | IoTHub<br>DeviceId<br>DeviceName<br>IoTSecurityAgentId<br>DeviceType<br>Source<br>SourceRef<br>Manufacturer<br>Model<br>OperatingSystem<br>IpAddress<br>MacAddress<br>Protocols<br>SerialNumber | IoTHub<br>DeviceId | IoTHub + DeviceId |
 | [**Mailbox**](#mailbox) | MailboxPrimaryAddress<br>DisplayName<br>Upn<br>ExternalDirectoryObjectId<br>RiskLevel | MailboxPrimaryAddress | |
-| [**Mail cluster**](#mail-cluster) | NetworkMessageIds<br>CountByDeliveryStatus<br>CountByThreatType<br>CountByProtectionStatus<br>Threats<br>Query<br>QueryTime<br>MailCount<br>IsVolumeAnomaly<br>Source<br>ClusterSourceIdentifier<br>ClusterSourceType<br>ClusterQueryStartTime<br>ClusterQueryEndTime<br>ClusterGroup | Query<br>Source | Query + Source |
-| [**Mail message**](#mail-message) | Recipient<br>Urls<br>Threats<br>Sender<br>P1Sender<br>P1SenderDisplayName<br>P1SenderDomain<br>SenderIP<br>P2Sender<br>P2SenderDisplayName<br>P2SenderDomain<br>ReceivedDate<br>NetworkMessageId<br>InternetMessageId<br>Subject<br>BodyFingerprintBin1<br>BodyFingerprintBin2<br>BodyFingerprintBin3<br>BodyFingerprintBin4<br>BodyFingerprintBin5<br>AntispamDirection<br>DeliveryAction<br>DeliveryLocation<br>Language<br>ThreatDetectionMethods | NetworkMessageId<br>Recipient | NetworkMessageId + Recipient |
-| [**Submission mail**](#submission-mail) | SubmissionId<br>SubmissionDate<br>Submitter<br>NetworkMessageId<br>Timestamp<br>Recipient<br>Sender<br>SenderIp<br>Subject<br>ReportType | SubmissionId<br>NetworkMessageId<br>Recipient<br>Submitter |  |
+| [**Mail cluster**](#mail-cluster) | NetworkMessageIds<br>CountByDeliveryStatus<br>CountByThreatType<br>CountByProtectionStatus<br>Threats<br>Query<br>QueryTime<br>MailCount<br>IsVolumeAnomaly<br>Source<br>*ClusterSourceIdentifier \**<br>*ClusterSourceType \**<br>*ClusterQueryStartTime \**<br>*ClusterQueryEndTime \**<br>*ClusterGroup \** | Query+Source | |
+| [**Mail message**](#mail-message) | Recipient<br>Urls<br>Threats<br>Sender<br>*P1Sender \**<br>*P1SenderDisplayName \**<br>*P1SenderDomain \**<br>SenderIP<br>*P2Sender \**<br>*P2SenderDisplayName \**<br>*P2SenderDomain \**<br>ReceivedDate<br>NetworkMessageId<br>InternetMessageId<br>Subject<br>*BodyFingerprintBin1 \**<br>*BodyFingerprintBin2 \**<br>*BodyFingerprintBin3 \**<br>*BodyFingerprintBin4 \**<br>*BodyFingerprintBin5 \**<br>AntispamDirection<br>DeliveryAction<br>DeliveryLocation<br>*Language \**<br>*ThreatDetectionMethods \** | NetworkMessageId+Recipient | |
+| [**Submission mail**](#submission-mail) | NetworkMessageId<br>Timestamp<br>Recipient<br>Sender<br>SenderIp<br>Subject<br>ReportType<br>SubmissionId<br>SubmissionDate<br>Submitter | SubmissionId+NetworkMessageId+<br>&nbsp;&nbsp;&nbsp;Recipient+Submitter |  |
 | [**Sentinel entities**](#sentinel-entities) | Entities | Entities |  |
+
+**Table footnotes:**
+- \* These identifiers appear in the list of identifiers that can be used in entity mapping, but strictly speaking they are not part of the entity schema.
+- \*\* These identifiers are considered strong only under certain conditions. Follow the asterisks' links to see the conditions that apply, under the relevant entity's listing in the [entity schemas section below](#entity-type-schemas).
+- *Italicized identifier names* (without an asterisk) represent internal entities, which means that one entity type can have other entity types as attributes (see the [entity schemas section below](#entity-type-schemas)). Follow the identifier's link to see the internal entity's own schema.
 
 ## Entity type schemas
 
-The following section contains a more in-depth look at the full schemas of each entity type. You'll notice that many of these schemas include links to other entity types&mdash;for example, the User account schema includes a link to the Host entity type, since one attribute of a user account is the host it's defined on. These externally linked entities can't be used as identifiers for the purpose of entity mapping, but they are very useful in giving a complete picture of entities on entity pages and the investigation graph.
+The following section contains a more in-depth look at the full schemas of each entity type. You'll notice that many of these schemas include links to other entity types. For example, the Account schema includes a link to the Host entity type, since one attribute of a user account is the host it's defined on. These entities-as-attributes are known as "internal entities", and they can't be used as identifiers for entity mapping, but they are very useful in giving a complete picture of entities on entity pages and the investigation graph.
 
 > [!NOTE]
 > A question mark following the value in the **Type** column indicates the field is nullable.
 
-## User account
+### List of entity type schemas
 
-*Entity name: Account*
+- [Account](#account)
+- [Host](#host)
+- [IP](#ip)
+- [Malware](#malware)
+- [File](#file)
+- [Process](#process)
+- [Cloud application](#cloud-application)
+- [DNS resolution](#dns-resolution)
+- [Azure resource](#azure-resource)
+- [File hash](#file-hash)
+- [Registry key](#registry-key)
+- [Registry value](#registry-value)
+- [Security group](#security-group)
+- [URL](#url)
+- [IoT device](#iot-device)
+- [Mailbox](#mailbox)
+- [Mail cluster](#mail-cluster)
+- [Mail message](#mail-message)
+- [Submission mail](#submission-mail)
+- [Sentinel entities](#sentinel-entities)
+
+### Account
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | ‘account’ |
-| Name | String | The name of the account. This field should hold only the name without any domain added to it. |
-| *FullName* | *N/A* | *Not part of schema, included for backward compatibility with old version of entity mapping.*
-| NTDomain | String | The NETBIOS domain name as it appears in the alert format – domain\username. Examples: Finance, NT AUTHORITY |
-| DnsDomain | String | The fully qualified domain DNS name. Examples: finance.contoso.com |
-| UPNSuffix | String | The user principal name suffix for the account. In some cases this is also the domain name. Examples: contoso.com |
-| Host | Entity | The host which contains the account, if it's a local account. |
-| Sid | String | The account security identifier, such as S-1-5-18. |
-| AadTenantId | Guid? | The Azure AD tenant ID, if known. |
-| AadUserId | Guid? | The Azure AD account object ID, if known. |
-| PUID | Guid? | The Azure AD Passport User ID, if known. |
-| IsDomainJoined | Bool? | Determines whether this is a domain account. |
-| DisplayName | String | The display name of the account. |
-| ObjectGuid | Guid? | The objectGUID attribute is a single-value attribute that is the unique identifier for the object, assigned by Active Directory. |
+| **Type** | String | 'account' |
+| **Name** | String | The name of the account. This field should hold only the name without any domain added to it. |
+| ***FullName*** | -- | *Not part of schema, included for backward compatibility with old version of entity mapping.* |
+| **NTDomain** | String | The NETBIOS domain name as it appears in the alert format&mdash;domain\username. Examples: Finance, NT AUTHORITY |
+| **DnsDomain** | String | The fully qualified domain DNS name. Examples: finance.contoso.com |
+| **UPNSuffix** | String | The user principal name suffix for the account. In many cases the UPN Suffix is also the domain name. Examples: contoso.com |
+| **Host** | Entity ([Host](#host)) | The host that contains the account, if it's a local account. |
+| **Sid** | String | The account's security identifier. |
+| **AadTenantId** | Guid? | The Microsoft Entra tenant ID, if known. |
+| **AadUserId** | Guid? | The Microsoft Entra account object ID, if known. |
+| **PUID** | Guid? | The Microsoft Entra Passport User ID, if known. |
+| **IsDomainJoined** | Bool? | Indicates whether the account is a domain account. |
+| ***DisplayName*** | -- | *Not part of schema, included for backward compatibility with old version of entity mapping.* |
+| **ObjectGuid** | Guid? | The objectGUID attribute is a single-value attribute that is the unique identifier for the object, assigned by Active Directory. |
+| **CloudAppAccountId** | String | The AccountID in alerts from the CloudApp provider. Refers to account IDs in third-party apps that are not supported in other Microsoft products. |
+| **IsAnonymized** | Bool? | Indicates whether the user name is anonymized. Optional. Default value: `false`. |
+| **Stream** | Stream | The source of discovery logs related to the specific account. Optional. |
 
-Strong identifiers of an account entity:
+#### Strong identifiers of an account entity
 
-- Name + UPNSuffix
-- AadUserId
-- Sid + Host (required for SIDs of builtin accounts)
-- Sid (except for SIDs of builtin accounts)
-- Name + NTDomain (unless NTDomain is a builtin domain, for example "Workgroup")
-- Name + Host (if NTDomain is a builtin domain, for example "Workgroup")
-- Name + DnsDomain
-- PUID
-- ObjectGuid
+- **Name + UPNSuffix**
+- **AadUserId**
+- **Sid**  
+\*\* This identifier is strong as long as the account **is not** one of the built-in accounts listed in the **Note** below.
+- **Sid + [*Host*](#host)**  
+\*\* When the account is one of the built-in accounts listed in the **Note** below, the Host component is required to make this identifier a strong one.
+- **Name + NTDomain**  
+\*\* This combination is a strong identifier when the account is a domain account, since NTDomain is not a built-in domain/workgroup and is different from the host name. In this case, this is a strong identifier even without the Host component.
+- **Name + NTDomain + [*Host*](#host)**  
+\*\* The Host component is necessary to create a strong identifier when the account is a local account, meaning that the NTDomain is a built-in domain/workgroup.  
+- **Name + DnsDomain**
+- **PUID**
+- **ObjectGuid**
 
-Weak identifiers of an account entity:
-
+#### Weak identifiers of an account entity
 - Name
 
 > [!NOTE]
@@ -99,357 +134,435 @@ Weak identifiers of an account entity:
 > - LOCALSYSTEM
 > - NETWORK SERVICE
 
-## Host
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
+
+### Host
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | ‘host’ |
-| DnsDomain | String | The DNS domain that this host belongs to. Should contain the complete DNS suffix for the domain, if known. |
-| NTDomain | String | The NT domain that this host belongs to. |
-| HostName | String | The hostname without the domain suffix. |
-| *FullName* | *N/A* | *Not part of schema, included for backward compatibility with old version of entity mapping.*
-| NetBiosName | String | The host name (pre-Windows 2000). |
-| IoTDevice | Entity | The IoT Device entity (if this host represents an IoT Device). |
-| AzureID | String | The Azure resource ID of the VM, if known. |
-| OMSAgentID | String | The OMS agent ID, if the host has OMS agent installed. |
-| OSFamily | Enum? | One of the following values: <li>Linux<li>Windows<li>Android<li>IOS |
-| OSVersion | String | A free-text representation of the operating system.<br>This field is meant to hold specific versions the are more fine-grained than OSFamily, or future values not supported by OSFamily enumeration. |
-| IsDomainJoined | Bool | Determines whether this host belongs to a domain. |
+| **Type** | String | 'host' |
+| **IpInterfaces** | List<Entity ([Ip](#ip))> | List of all IP interfaces on the host machine. |
+| **DnsDomain** | String | The DNS domain that this host belongs to. Should contain the complete DNS suffix for the domain, if known. |
+| **NTDomain** | String | The NT domain that this host belongs to. |
+| **HostName** | String | The hostname without the domain suffix. |
+| **NetBiosName** | String | The host name (pre-Windows 2000). |
+| **IoTDevice** | Entity ([IoT Device](#iot-device)) | The IoT Device entity (if this host represents an IoT Device). |
+| **AzureID** | String | The Azure resource ID of the VM, if known. |
+| **OMSAgentID** | String | The OMS agent ID, if the host has OMS agent installed. |
+| **OSFamily** | Enum? | One of the following values: <li>Linux<li>Windows<li>Android<li>IOS<li>Mac |
+| **OSVersion** | String | A free-text representation of the operating system.<br>This field is meant to hold specific versions the are more fine-grained than OSFamily, or future values not supported by OSFamily enumeration. |
+| **IsDomainJoined** | Bool | Indicates whether this host belongs to a domain. |
 
-Strong identifiers of a host entity:
-- HostName + NTDomain
-- HostName + DnsDomain
-- NetBiosName + NTDomain
-- NetBiosName + DnsDomain
-- AzureID
-- OMSAgentID
-- IoTDevice (not supported for entity mapping)
+#### Strong identifiers of a host entity
 
-Weak identifiers of a host entity:
+- **HostName + NTDomain**
+- **HostName + DnsDomain**
+- **NetBiosName + NTDomain**
+- **NetBiosName + DnsDomain**
+- **AzureID**
+- **OMSAgentID**
+- ***IoTDevice***
+
+#### Weak identifiers of a host entity
+
 - HostName
 - NetBiosName
 
-## IP address
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
-*Entity name: IP*
-
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| Type | String | ‘ip’ |
-| Address | String | The IP address as string, e.g. 127.0.0.1 (either in IPv4 or IPv6). |
-| Location | GeoLocation | The geo-location context attached to the IP entity. <br><br>For more information, see also [Enrich entities in Microsoft Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md). |
-
-Strong identifiers of an IP entity:
-- Address
-
-## Malware
+### IP
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | ‘malware’ |
-| Name | String | The malware name by the vendor, such as `Win32/Toga!rfn`. |
-| Category | String | The malware category by the vendor, e.g. Trojan. |
-| Files | List\<Entity> | List of linked file entities on which the malware was found. Can contain the File entities inline or as reference.<br>See the [File](#file) entity for more details on structure. |
-| Processes | List\<Entity> | List of linked process entities on which the malware was found. This would often be used when the alert triggered on fileless activity.<br>See the [Process](#process) entity for more details on structure. |
+| **Type** | String | 'ip' |
+| **Address** | String | The IP address as string, for example. 127.0.0.1 (either in IPv4 or IPv6). |
+| **AddressScope** | String | Name of the host, subnet, or private network for private, non-global IP addresses. Null or empty for global IP addresses (default). |
+| **Location** | GeoLocation | The geo-location context attached to the IP entity. <br><br>For more information, see also [Enrich entities in Microsoft Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md). |
+| **Stream** | Stream | The source of discovery logs related to the specific IP. Optional. |
 
-Strong identifiers of a malware entity:
+#### Strong identifiers of an IP entity
 
-- Name + Category
+- **Address**  
+\*\* Address alone is a unique, strong identifier when the IP address is a global address.
+- **Address + AddressScope**  
+\*\* For private/internal, non-global IP addresses, the AddressScope component is required to make this a strong identifer.
 
-## File
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| Type | String | ‘file’ |
-| Directory | String | The full path to the file. |
-| Name | String | The file name without the path (some alerts might not include path). |
-| Host | Entity | The host on which the file was stored. |
-| FileHashes | List&lt;Entity&gt; | The file hashes associated with this file. |
-
-Strong identifiers of a file entity:
-- Name + Directory
-- Name + FileHash
-- Name + Directory + FileHash
-
-## Process
+### Malware
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | ‘process’ |
-| ProcessId | String | The process ID. |
-| CommandLine | String | The command line used to create the process. |
-| ElevationToken | Enum? | The elevation token associated with the process.<br>Possible values:<li>TokenElevationTypeDefault<li>TokenElevationTypeFull<li>TokenElevationTypeLimited |
-| CreationTimeUtc | DateTime? | The time when the process started to run. |
-| ImageFile | Entity (File) | Can contain the File entity inline or as reference.<br>See the [File](#file) entity for more details on structure. |
-| Account | Entity | The account running the processes.<br>Can contain the Account entity inline or as reference.<br>See the [Account](#user-account) entity for more details on structure. |
-| ParentProcess | Entity (Process) | The parent process entity. <br>Can contain partial data, i.e. only the PID. |
-| Host | Entity | The host on which the process was running. |
-| LogonSession | Entity (HostLogonSession) | The session in which the process was running. |
+| **Type** | String | 'malware' |
+| **Name** | String | The malware name assigned by the (detection?) vendor, such as `Win32/Toga!rfn`. |
+| **Category** | String | The malware category assigned by the (detection?) vendor, for example. Trojan. |
+| **Files** | List\<Entity ([File](#file))> | List of linked file entities on which the malware was found. Can contain the File entities inline or as reference.<br>See the [File](#file) entity for more details on structure. |
+| **Processes** | List\<Entity ([Process](#process))> | List of linked process entities on which the malware was found. This would often be used when the alert triggered on fileless activity.<br>See the [Process](#process) entity for more details on structure. |
 
-Strong identifiers of a process entity:
+#### Strong identifiers of a malware entity
 
-- Host + ProcessId + CreationTimeUtc
-- Host + ParentProcessId + CreationTimeUtc + CommandLine
-- Host + ProcessId + CreationTimeUtc + ImageFile
-- Host + ProcessId + CreationTimeUtc + ImageFile.FileHash
+- **Name + Category**
 
-Weak identifiers of a process entity:
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
+
+### File
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| **Type** | String | 'file' |
+| **Directory** | String | The full path to the file. |
+| **Name** | String | The file name without the path (some alerts might not include path). |
+| **AlternateDataStreamName** | String | The file stream name in NTFS filesystem (null for the main stream). |
+| **Host** | Entity ([Host](#host)) | The host on which the file was stored. |
+| **HostUrl** | Entity ([URL](#url)) | URL where the file was downloaded from <br>([Mark of the Web](/deployedge/per-site-configuration-by-policy)). |
+| **WindowsSecurityZoneType** | WindowsSecurityZone | Windows Security Zone to which the URL belongs <br>([Mark of the Web](/deployedge/per-site-configuration-by-policy)). |
+| **ReferrerUrl** | Entity ([URL](#url)) | Referrer URL of the file download HTTP request <br>([Mark of the Web](/deployedge/per-site-configuration-by-policy)). |
+| **SizeInBytes** | Long? | The size of the file in bytes. |
+| **FileHashes** | List\<Entity ([FileHash](#file-hash))> | The file hashes associated with this file. |
+
+#### Strong identifiers of a file entity
+
+- **Name + Directory**
+- **Name + *FileHash***
+- **Name + Directory + *FileHash***
+
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
+
+### Process
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| **Type** | String | 'process' |
+| **ProcessId** | String | The process ID. |
+| **CommandLine** | String | The command line used to create the process. |
+| **ElevationToken** | Enum? | The elevation token associated with the process.<br>Possible values:<li>TokenElevationTypeDefault<li>TokenElevationTypeFull<li>TokenElevationTypeLimited |
+| **CreationTimeUtc** | DateTime? | The time when the process started to run. |
+| **ImageFile** | Entity ([File](#file)) | Can contain the File entity inline or as reference.<br>See the [File](#file) entity for more details on structure. |
+| **Account** | Entity ([Account](#account)) | The account running the processes.<br>Can contain the Account entity inline or as reference.<br>See the [Account](#account) entity for more details on structure. |
+| **ParentProcess** | Entity ([Process](#process)) | The parent process entity. <br>Can contain partial data, for example, only the PID. |
+| **Host** | Entity ([Host](#host)) | The host on which the process was running. |
+| **LogonSession** | Entity (HostLogonSession) | The session in which the process was running. |
+
+#### Strong identifiers of a process entity
+
+- ***Host* + ProcessId + CreationTimeUtc**
+- ***Host* + *ParentProcessId* + CreationTimeUtc + CommandLine**
+- ***Host* + ProcessId + CreationTimeUtc + *ImageFile***
+- ***Host* + ProcessId + CreationTimeUtc + *ImageFile.FileHash***
+
+#### Weak identifiers of a process entity
 
 - ProcessId + CreationTimeUtc + CommandLine (and no Host)
-- ProcessId + CreationTimeUtc + ImageFile (and no Host)
+- ProcessId + CreationTimeUtc + *ImageFile* (and no Host)
 
-## Cloud application
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
+
+### Cloud application
 
 *Entity name: CloudApplication*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | ‘cloud-application’ |
-| AppId | Int | The technical identifier of the application. This should be one of the values defined in the list of [cloud application identifiers](#cloud-application-identifiers). The value for AppId field is optional. |
-| Name | String | The name of the related cloud application. The value of application name is optional. |
-| InstanceName | String | The user-defined instance name of the cloud application. It is often used to distinguish between several applications of the same type that a customer has. |
+| **Type** | String | 'cloud-application' |
+| **AppId** | Int | Deprecated; use SaasId field instead. The technical identifier of the application. Possible values are those defined in the list of [cloud application identifiers](#cloud-application-identifiers). Value optional. Should not contain InstanceId. |
+| **SaasId** | Int | Replaces deprecated AppId field. The technical identifier of the application. Possible values are those defined in the list of [cloud application identifiers](#cloud-application-identifiers). Value optional. Should not contain InstanceId. |
+| **Name** | String | The name of the related cloud application. Value optional. |
+| **InstanceName** | String | The user-defined instance name of the cloud application. It is often used to distinguish between several applications of the same type that a customer has. |
+| **InstanceId** | Int | The identifier of the specific session of the application. This is a zero-based running number. Value optional. |
+| **Risk** | AppRisk? | Lets you filter apps by risk score so that you can focus on, for example, reviewing only highly risky apps. Possible values like Low, Medium, High or Unknown. |
+| **Stream** | Stream | The source of discovery logs related to the specific cloud app. Optional. |
 
-Strong identifiers of a cloud application entity:
- - AppId (without InstanceName)
- - Name (without InstanceName)
- - AppId + InstanceName
- - Name + InstanceName
+#### Strong identifiers of a cloud application entity
 
-## Domain name
+- **AppId (without InstanceName)**
+- **Name (without InstanceName)**
+- **AppId + InstanceName**
+- **Name + InstanceName**
+
+[List of cloud application identifiers](#cloud-application-identifiers)
+
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
+
+### DNS resolution
 
 *Entity name: DNS*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | ‘dns’ |
-| DomainName | String | The name of the DNS record associated with the alert. |
-| IpAddress | List&lt;Entity (IP)&gt; | Entities corresponding to the resolved IP addresses. |
-| DnsServerIp | Entity (IP) | An entity representing the DNS server resolving the request. |
-| HostIpAddress | Entity (IP) | An entity representing the DNS request client. |
+| **Type** | String | 'dns' |
+| **DomainName** | String | The name of the DNS record associated with the alert. |
+| **IpAddress** | List\<Entity ([IP](#ip))> | Entities corresponding to the resolved IP addresses. |
+| **DnsServerIp** | Entity ([IP](#ip)) | An entity representing the DNS server resolving the request. |
+| **HostIpAddress** | Entity ([IP](#ip)) | An entity representing the DNS request client. |
 
-Strong identifiers of a DNS entity:
-- DomainName + DnsServerIp + HostIpAddress
+#### Strong identifiers of a DNS entity
 
-Weak identifiers of a DNS entity:
-- DomainName + HostIpAddress
+- **DomainName + *DnsServerIp* + *HostIpAddress***
 
-## Azure resource
+#### Weak identifiers of a DNS entity
+
+- DomainName + *HostIpAddress*
+
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
+
+### Azure resource
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | 'azure-resource' |
-| ResourceId | String | The Azure resource ID of the resource. |
-| SubscriptionId | String | The subscription ID of the resource. |
-| TryGetResourceGroup | Bool | The resource group value if it exists. |
-| TryGetProvider | Bool | The provider value if it exists. |
-| TryGetName | Bool | The name value if it exists. |
+| **Type** | String | 'azure-resource' |
+| **ResourceId** | String | The Azure resource ID of the resource. Mandatory. |
+| **SubscriptionId** | String | The subscription ID of the resource. |
+| **ActiveContacts** | List\<ActiveContact> | Active contacts associated with the resource. |
+| **ResourceType** | String | The type of the resource. |
+| **ResourceName** | String | The name of the resource. |
 
-Strong identifiers of an Azure resource entity:
-- ResourceId
+#### Strong identifiers of an Azure resource entity
 
-## File hash
+- **ResourceId**
+
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
+
+### File hash
 
 *Entity name: FileHash*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | 'filehash' |
-| Algorithm | Enum | The hash algorithm type. Possible values:<li>Unknown<li>MD5<li>SHA1<li>SHA256<li>SHA256AC |
-| Value | String | The hash value. |
+| **Type** | String | 'filehash' |
+| **Algorithm** | Enum | The hash algorithm type. Mandatory. Possible values:<li>Unknown<li>MD5<li>SHA1<li>SHA256<li>SHA256AC |
+| **Value** | String | The hash value. Mandatory. |
 
-Strong identifiers of a file hash entity:
-- Algorithm + Value
+#### Strong identifiers of a file hash entity
 
-## Registry key
+- **Algorithm + Value**
+
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
+
+### Registry key
 
 *Entity name: RegistryKey*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | ‘registry-key’ |
-| Hive | Enum? | One of the following values:<li>HKEY_LOCAL_MACHINE<li>HKEY_CLASSES_ROOT<li>HKEY_CURRENT_CONFIG<li>HKEY_USERS<li>HKEY_CURRENT_USER_LOCAL_SETTINGS<li>HKEY_PERFORMANCE_DATA<li>HKEY_PERFORMANCE_NLSTEXT<li>HKEY_PERFORMANCE_TEXT<li>HKEY_A<li>HKEY_CURRENT_USER |
-| Key | String | The registry key path. |
+| **Type** | String | 'registry-key' |
+| **Hive** | Enum? | One of the following values:<li>HKEY_LOCAL_MACHINE<li>HKEY_CLASSES_ROOT<li>HKEY_CURRENT_CONFIG<li>HKEY_USERS<li>HKEY_CURRENT_USER_LOCAL_SETTINGS<li>HKEY_PERFORMANCE_DATA<li>HKEY_PERFORMANCE_NLSTEXT<li>HKEY_PERFORMANCE_TEXT<li>HKEY_A<li>HKEY_CURRENT_USER |
+| **Key** | String | The registry key path. |
 
-Strong identifiers of a registry key entity:
-- Hive + Key
+#### Strong identifiers of a registry key entity
 
-## Registry value
+- **Hive + Key**
+
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
+
+### Registry value
 
 *Entity name: RegistryValue*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | ‘registry-value’ |
-| Key | Entity (RegistryKey) | The registry key entity. |
-| Name | String | The registry value name. |
-| Value | String | String-formatted representation of the value data. |
-| ValueType | Enum? | One of the following values:<li>String<li>Binary<li>DWord<li>Qword<li>MultiString<li>ExpandString<li>None<li>Unknown<br>Values should conform to Microsoft.Win32.RegistryValueKind enumeration. |
+| **Type** | String | 'registry-value' |
+| **Host** | Entity ([Host](#host)) | The host that the registry belongs to. |
+| **Key** | Entity ([RegistryKey](#registry-key)) | The registry key entity. |
+| **Name** | String | The registry value name. |
+| **Value** | String | String-formatted representation of the value data. |
+| **ValueType** | Enum? | One of the following values:<li>String<li>Binary<li>DWord<li>Qword<li>MultiString<li>ExpandString<li>None<li>Unknown<br>Values should conform to Microsoft.Win32.RegistryValueKind enumeration. |
 
-Strong identifiers of a registry value entity:
-- Key + Name
+#### Strong identifiers of a registry value entity
 
-Weak identifiers of a registry value entity:
+- ***Key* + Name**
+
+#### Weak identifiers of a registry value entity
+
 - Name (without Key)
 
-## Security group
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
+
+### Security group
 
 *Entity name: SecurityGroup*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | 'security-group' |
-| DistinguishedName | String | The group distinguished name. |
-| SID | String | The SID attribute is a single-value attribute that specifies the security identifier (SID) of the group. |
-| ObjectGuid | Guid? | The objectGUID attribute is a single-value attribute that is the unique identifier for the object, assigned by Active Directory. |
+| **Type** | String | 'security-group' |
+| **DistinguishedName** | String | The group distinguished name. |
+| **SID** | String | A single-value attribute that specifies the security identifier (SID) of the group. |
+| **ObjectGuid** | Guid? | A single-value attribute that is the unique identifier for the object, assigned by Active Directory. |
 
-Strong identifiers of a security group entity:
- - DistinguishedName
- - SID
- - ObjectGuid
+#### Strong identifiers of a security group entity
 
-## URL
+- **DistinguishedName**
+- **SID**
+- **ObjectGuid**
+
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
+
+### URL
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | 'url' |
-| Url | Uri | A full URL the entity points to. |
+| Url | Uri | A full URL the entity points to. Mandatory. |
 
-Strong identifiers of a URL entity:
-- Url (when an absolute URL)
+#### Strong identifiers of a URL entity
 
-Weak identifiers of a URL entity:
-- Url (when a relative URL)
+- **Url** (\*\* This identifier is strong when the URL is an absolute URL.)
 
-## IoT device
+#### Weak identifiers of a URL entity
+
+- Url (\*\* This identifier is weak when the URL is a relative URL.)
+
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
+
+### IoT device
 
 *Entity name: IoTDevice*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | 'iotdevice' |
-| IoTHub | Entity (AzureResource) | The AzureResource entity representing the IoT Hub the device belongs to. |
-| DeviceId | String | The ID of the device in the context of the IoT Hub. |
-| DeviceName | String | The friendly name of the device. |
-| IoTSecurityAgentId | Guid? | The ID of the *Defender for IoT* agent running on the device. |
-| DeviceType | String | The type of the device ('temperature sensor', 'freezer', 'wind turbine' etc.). |
-| Source | String | The source (Microsoft/Vendor) of the device entity. |
-| SourceRef | Entity (Url) | A URL reference to the source item where the device is managed. |
-| Manufacturer | String | The manufacturer of the device. |
-| Model | String | The model of the device. |
-| OperatingSystem | String | The operating system the device is running. |
-| IpAddress | Entity (IP) | The current IP address of the device. |
-| MacAddress | String | The MAC address of the device. |
-| Protocols | List&lt;String&gt; | A list of protocols that the device supports. |
-| SerialNumber | String | The serial number of the device. |
+| **Type** | String | 'iotdevice' |
+| **IoTHub** | Entity ([AzureResource](#azure-resource)) | The AzureResource entity representing the IoT Hub the device belongs to. |
+| **DeviceId** | String | The ID of the device in the context of the IoT Hub. Mandatory. |
+| **DeviceName** | String | The friendly name of the device. |
+| **Owners** | List\<String> | The owners for the device. |
+| **IoTSecurityAgentId** | Guid? | The ID of the *Defender for IoT* agent running on the device. |
+| **DeviceType** | String | The type of the device ('temperature sensor', 'freezer', 'wind turbine' etc.). |
+| **DeviceTypeId** | String | A unique ID to identify each device type according to the device type schema, as the device type itself is a display name and not reliable in comparisons.<br><br>Possible values:<br>Unclassified = 0<br>Miscellaneous = 1<br>Network Device = 2<br>Printer = 3<br>Audio and Video = 4<br>Media and Surveillance = 5<br>Communication = 7<br>Smart Appliance = 9<br>Workstation = 10<br>Server = 11<br>Mobile = 12<br>Smart Facility = 13<br>Industrial = 14<br>Operational Equipment = 15 |
+| **Source** | String | The source (Microsoft/Vendor) of the device entity. |
+| **SourceRef** | Entity ([Url](#url)) | A URL reference to the source item where the device is managed. |
+| **Manufacturer** | String | The manufacturer of the device. |
+| **Model** | String | The model of the device. |
+| **OperatingSystem** | String | The operating system the device is running. |
+| **IpAddress** | Entity ([IP](#ip)) | The current IP address of the device. |
+| **MacAddress** | String | The MAC address of the device. |
+| **Nics** | Entity (Nic) | The current NICs on the device. |
+| **Protocols** | List\<String> | A list of protocols that the device supports. |
+| **SerialNumber** | String | The serial number of the device. |
+| **Site** | String | The site location of the device. |
+| **Zone** | String | The zone location of the device within a site. |
+| **Sensor** | String | The sensor monitoring the device. |
+| **Importance** | Enum? | One of the following values:<li>Low<li>Normal<li>High |
+| **PurdueLayer** | String | The Purdue Layer of the device. |
+| **IsProgramming** | Bool? | Indicates whether the device classified as programming device. |
+| **IsAuthorized** | Bool? | Indicates whether the device classified as authorized device. |
+| **IsScanner** | Bool? | Indicates whether the device classified as a scanner device. |
+| **DevicePageLink** | Entity ([Url](#url)) | A URL to the device page in Defender for IoT portal. |
+| **DeviceSubType** | String | The name of the device subtype. |
 
-Strong identifiers of an IoT device entity:
-- IoTHub + DeviceId
+#### Strong identifiers of an IoT device entity
 
-Weak identifiers of an IoT device entity:
+- **IoTHub + DeviceId**
+
+#### Weak identifiers of an IoT device entity
+
 - DeviceId (without IoTHub)
 
-## Mailbox
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
+
+### Mailbox
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | 'mailbox' |
-| MailboxPrimaryAddress | String | The mailbox's primary address. |
-| DisplayName | String | The mailbox's display name. |
-| Upn | String | The mailbox's UPN. |
-| RiskLevel | Enum? | The risk level of this mailbox. Possible values:<li>None<li>Low<li>Medium<li>High |
-| ExternalDirectoryObjectId | Guid? | The AzureAD identifier of mailbox. Similar to AadUserId in the Account entity, but this property is specific to mailbox object on the Office side. |
+| **Type** | String | 'mailbox' |
+| **MailboxPrimaryAddress** | String | The mailbox's primary address. |
+| **DisplayName** | String | The mailbox's display name. |
+| **Upn** | String | The mailbox's UPN. |
+| **AadId** | String | The mailbox's Azure AD identifier of the user. |
+| **RiskLevel** | RiskLevel?  | The risk level of this mailbox. Possible values:<li>None<li>Low<li>Medium<li>High |
+| **ExternalDirectoryObjectId** | Guid? | The AzureAD identifier of mailbox. Similar to AadUserId in the Account entity, but this property is specific to mailbox object on the Office side. |
 
-Strong identifiers of a mailbox entity:
-- MailboxPrimaryAddress
+#### Strong identifiers of a mailbox entity
 
-## Mail cluster
+- **MailboxPrimaryAddress**
+
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
+
+### Mail cluster
 
 *Entity name: MailCluster*
 
-> [!NOTE]
-> **Microsoft Defender for Office 365** was formerly known as Office 365 Advanced Threat Protection (O365 ATP).
-
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | 'mail-cluster' |
-| NetworkMessageIds | IList&lt;String&gt; | The mail message IDs that are part of the mail cluster. |
-| CountByDeliveryStatus | IDictionary&lt;String,Int&gt; | Count of mail messages by DeliveryStatus string representation. |
-| CountByThreatType | IDictionary&lt;String,Int&gt; | Count of mail messages by ThreatType string representation. |
-| CountByProtectionStatus | IDictionary&lt;String,long&gt; | Count of mail messages by Threat Protection status. |
-| Threats | IList&lt;String&gt; | The threats of mail messages that are part of the mail cluster. |
-| Query | String | The query that was used to identify the messages of the mail cluster. |
-| QueryTime | DateTime? | The query time. |
-| MailCount | Int? | The number of mail messages that are part of the mail cluster. |
-| IsVolumeAnomaly | Bool? | Determines whether this is a volume anomaly mail cluster. |
-| Source | String | The source of the mail cluster (default is 'O365 ATP'). |
-| ClusterSourceIdentifier | String | The network message ID of the mail that is the source of this mail cluster. |
-| ClusterSourceType | String | The source type of the mail cluster. This maps to the MailClusterSourceType setting from Microsoft Defender for Office 365 (see note above). |
-| ClusterQueryStartTime | DateTime? | Cluster start time - used as start time for cluster counts query. Usually dates to the End time minus DaysToLookBack setting from Microsoft Defender for Office 365 (see note above). |
-| ClusterQueryEndTime | DateTime? | Cluster end time - used as end time for cluster counts query. Usually the mail data's received time. |
-| ClusterGroup | String | Corresponds to the Kusto query key used on Microsoft Defender for Office 365 (see note above). |
+| **Type** | String | 'mail-cluster' |
+| **NetworkMessageIds** | IList\<String> | The mail message IDs that are part of the mail cluster. |
+| **CountByDeliveryStatus** | IDictionary\<String,Int> | Count of mail messages by DeliveryStatus string representation. |
+| **CountByThreatType** | IDictionary\<String,Int> | Count of mail messages by ThreatType string representation. |
+| **CountByProtectionStatus** | IDictionary\<String,long> | Count of mail messages by Protection status string representation. |
+| **CountByDeliveryLocation** | IDictionary\<String,long> | Count of mail messages by Delivery location string representation. |
+| **Threats** | IList\<String> | The threats of mail messages that are part of the mail cluster. |
+| **Query** | String | The query that was used to identify the messages of the mail cluster. |
+| **QueryTime** | DateTime? | The query time. |
+| **MailCount** | Int? | The number of mail messages that are part of the mail cluster. |
+| **IsVolumeAnomaly** | Bool? | Indicates whether the mail cluster is a volume anomaly mail cluster. |
+| **Source** | String | The source of the mail cluster (default is `O365 ATP`). |
 
-Strong identifiers of a mail cluster entity:
-- Query + Source
+#### Strong identifiers of a mail cluster entity
 
-## Mail message
+- **Query + Source**
+
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
+
+### Mail message
 
 *Entity name: MailMessage*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | 'mail-message' |
-| Files | IList&lt;File&gt; | The File entities of this mail message's attachments. |
-| Recipient | String | The recipient of this mail message. In the case of multiple recipients, the mail message is copied, and each copy has one recipient. |
-| Urls | IList&lt;String&gt; | The URLs contained in this mail message. |
-| Threats | IList&lt;String&gt; | The threats contained in this mail message. |
-| Sender | String | The sender's email address. |
-| P1Sender | String | Email ID of (delegated) user who sent this mail "on-behalf of P2 (primary) user". If email not sent by delegate, this value is equal to P2Sender. |
-| P1SenderDisplayName | String | Display name of the (delegated) user who sent this mail "on behalf of P2 (primary) user". Represented in email header by "OnbehalfofSenderDisplayName" property. |
-| P1SenderDomain | String | Email domain of the (delegated) user who sent this mail "on behalf of P2 (primary) user". If email not sent by delegate, this value is equal to P2SenderDomain. |
-| P2Sender | String | Email of the (primary) user on behalf of whom this email was sent. |
-| P2SenderDisplayName | String | Display name of the (primary) user on behalf of whom this email was sent. If email not sent by delegate, this represents the display name of the sender. |
-| P2SenderDomain | String | Email domain of the (primary) user on behalf of whom this email was sent. If email not sent by delegate, this represents the domain of the sender. |
-| SenderIP | String | The sender's IP address. |
-| ReceivedDate | DateTime | The received date of this message. |
-| NetworkMessageId | Guid? | The network message ID of this mail message. |
-| InternetMessageId | String | The internet message ID of this mail message. |
-| Subject | String | The subject of this mail message. |
-| BodyFingerprintBin1<br>BodyFingerprintBin2<br>BodyFingerprintBin3<br>BodyFingerprintBin4<br>BodyFingerprintBin5 | UInt? | Used by Microsoft Defender for Office 365 to find matching or similar mail messages. |
-| AntispamDirection | Enum? | The directionality of this mail message. Possible values:<li>Unknown<li>Inbound<li>Outbound<li>Intraorg (internal) |
-| DeliveryAction | Enum? | The delivery action of this mail message. Possible values:<li>Unknown<li>DeliveredAsSpam<li>Delivered<li>Blocked<li>Replaced |
-| DeliveryLocation | Enum? | The delivery location of this mail message. Possible values:<li>Unknown<li>Inbox<li>JunkFolder<li>DeletedFolder<li>Quarantine<li>External<li>Failed<li>Dropped<li>Forwarded |
-| Language | String | The language in which the contents of the mail are written. |
-| ThreatDetectionMethods | IList&lt;String&gt; | The list of Threat Detection Methods applied on this mail. |
+| **Type** | String | 'mail-message' |
+| **Files** | IList\<Entity ([File](#file))> | The File entities of this mail message's attachments. |
+| **Recipient** | String | The recipient of this mail message. In the case of multiple recipients, the mail message is copied, and each copy has one recipient. |
+| **Urls** | IList\<String> | The URLs contained in this mail message. |
+| **Threats** | IList\<String> | The threats contained in this mail message. |
+| **Sender** | String | The sender's email address. |
+| **SenderIP** | String | The sender's IP address. |
+| **ReceivedDate** | DateTime | The received date of this message. |
+| **NetworkMessageId** | Guid? | The network message ID of this mail message. |
+| **InternetMessageId** | String | The internet message ID of this mail message. |
+| **Subject** | String | The subject of this mail message. |
+| **AntispamDirection** | Enum? | The directionality of this mail message. Possible values:<li>Unknown<li>Inbound<li>Outbound<li>Intraorg (internal) |
+| **DeliveryAction** | Enum? | The delivery action of this mail message. Possible values:<li>Unknown<li>DeliveredAsSpam<li>Delivered<li>Blocked<li>Replaced |
+| **DeliveryLocation** | Enum? | The delivery location of this mail message. Possible values:<li>Unknown<li>Inbox<li>JunkFolder<li>DeletedFolder<li>Quarantine<li>External<li>Failed<li>Dropped<li>Forwarded |
+| **CampaignId** | String | The identifier of the campaign in which this mail message is present. |
+| **SuspiciousRecipients** | IList\<String> | The list of recipients who were detected as suspicious. |
+| **ForwardedRecipients** | IList\<String> | The list of all recipients on the forwarded mail. |
+| **ForwardingType** | IList\<String> | The forwarding type of the mail, such as SMTP, ETR, etc. |
 
-Strong identifiers of a mail message entity:
-- NetworkMessageId + Recipient
+#### Strong identifiers of a mail message entity
 
-## Submission mail
+- **NetworkMessageId + Recipient**
+
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
+
+### Submission mail
 
 *Entity name: SubmissionMail*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Type | String | 'SubmissionMail' |
-| SubmissionId | Guid? | The Submission ID. |
-| SubmissionDate | DateTime? | Reported Date time for this submission. |
-| Submitter | String | The submitter email address. |
-| NetworkMessageId | Guid? | The network message ID of email to which submission belongs. |
-| Timestamp | DateTime? | The Time stamp when the message is received (Mail). |
-| Recipient | String | The recipient of the mail. |
-| Sender | String | The sender of the mail. |
-| SenderIp | String | The sender's IP. |
-| Subject | String | The subject of submission mail. |
-| ReportType | String | The submission type for the given instance. This maps to Junk, Phish, Malware or NotJunk. |
+| **Type** | String | 'SubmissionMail' |
+| **SubmissionId** | Guid? | The Submission ID. |
+| **SubmissionDate** | DateTime? | Reported Date time for this submission. |
+| **Submitter** | String | The submitter email address. |
+| **NetworkMessageId** | Guid? | The network message ID of email to which submission belongs. |
+| **Timestamp** | DateTime? | The Time stamp when the message is received (Mail). |
+| **Recipient** | String | The recipient of the mail. |
+| **Sender** | String | The sender of the mail. |
+| **SenderIp** | String | The sender's IP. |
+| **Subject** | String | The subject of submission mail. |
+| **ReportType** | String | The submission type for the given instance. Possible values are Junk, Phish, Malware, or NotJunk. |
 
-Strong identifiers of a SubmissionMail entity:
-- SubmissionId, Submitter, NetworkMessageId, Recipient
+#### Strong identifiers of a SubmissionMail entity
 
-## Sentinel entities
+- **SubmissionId, Submitter, NetworkMessageId, Recipient**
+
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
+
+### Sentinel entities
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| Entities | String | A list of the entities identified in the alert. This list is the **entities** column from the SecurityAlert schema ([see documentation](security-alert-schema.md)). |
+| **Entities** | String | A list of the entities identified in the alert. This list is the **entities** column from the SecurityAlert schema ([see documentation](security-alert-schema.md)). |
+
+[Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ## Cloud application identifiers
 
@@ -508,7 +621,7 @@ The following list defines identifiers for known cloud applications. The App ID 
 | 26069  | Google Drive                      |
 | 26206  | Workiva                           |
 | 26311  | Microsoft Dynamics                |
-| 26318  | Microsoft Azure AD                |
+| 26318  | Microsoft Entra ID                |
 | 26320  | Microsoft Office Sway             |
 | 26321  | Microsoft Delve                   |
 | 26324  | Microsoft Power BI                |

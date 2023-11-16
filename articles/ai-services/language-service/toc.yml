@@ -133,6 +133,8 @@ items:
           href: conversational-language-understanding/concepts/none-intent.md
         - name: Deploy to multiple regions
           href: concepts/custom-features/multi-region-deployment.md
+        - name: Choosing between conversational apps
+          href: conversational-language-understanding/concepts/app-architecture.md
     - name: Tutorials
       items:
         - name: Use Bot Framework
@@ -198,8 +200,8 @@ items:
           href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
         - name: Use containers in disconnected environments
           href: ../containers/disconnected-containers.md
-        - name: Azure AI containers documentation
-          href: ../containers/index.yml
+        - name: Azure AI containers overview
+          href: ../cognitive-services-container-support.md
   - name: Key phrase extraction
     items:
     - name: Key phrase extraction overview
@@ -233,8 +235,8 @@ items:
           href: ../containers/azure-container-instance-recipe.md?context=/azure/ai-services/language-service/context/context
         - name: Use containers in disconnected environments
           href: ../containers/disconnected-containers.md
-        - name: Azure AI containers documentation
-          href: ../containers/index.yml
+        - name: Azure AI containers overview
+          href: ../cognitive-services-container-support.md
     - name: Tutorials
       items:
       - name: Integrate Power BI 
@@ -264,6 +266,18 @@ items:
         items:
         - name: Call NER
           href: named-entity-recognition/how-to-call.md
+        - name: Use containers
+          items:
+          - name: Use Docker containers
+            href: named-entity-recognition/how-to/use-containers.md
+          - name: Configure containers
+            href: concepts/configure-containers.md
+          - name: Use container instances
+            href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+          - name: Use containers in disconnected environments
+            href: ../containers/disconnected-containers.md
+          - name: Azure AI containers overview
+            href: ../cognitive-services-container-support.md
       - name: Concepts
         items:
         - name: Recognized entity categories
@@ -328,8 +342,8 @@ items:
             href: concepts/configure-containers.md
           - name: Use container instances
             href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
-          - name: Azure AI containers documentation
-            href: ../containers/index.yml
+          - name: Azure AI containers overview
+            href: ../cognitive-services-container-support.md
       - name: Concepts
         items:
           - name: Evaluation metrics
@@ -388,6 +402,8 @@ items:
           href: named-entity-recognition/concepts/entity-metadata.md
         - name: Preview API overview
           href: named-entity-recognition/concepts/ga-preview-mapping.md
+        - name: Choosing between conversational apps
+          href: conversational-language-understanding/concepts/app-architecture.md
     - name: Tutorials
       items:
         - name: Connect conversational language understanding and custom question answering
@@ -484,6 +500,8 @@ items:
         href: question-answering/how-to/best-practices.md
       - name: Troubleshooting
         href: question-answering/how-to/troubleshooting.md
+      - name: Connect to Azure OpenAI
+        href: question-answering/how-to/azure-openai-integration.md
     - name: Concepts
       items:
       - name: Development lifecycle
@@ -500,6 +518,8 @@ items:
         href: question-answering/concepts/best-practices.md
       - name: Limits
         href: question-answering/concepts/limits.md
+      - name: Choosing between conversational apps
+        href: conversational-language-understanding/concepts/app-architecture.md
     - name: Tutorials
       items:
       - name: Create a FAQ Bot
@@ -559,8 +579,8 @@ items:
               href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
             - name: Use containers in disconnected environments
               href: ../containers/disconnected-containers.md
-            - name: Azure AI containers documentation
-              href: ../containers/index.yml
+            - name: Azure AI containers overview
+              href: ../cognitive-services-container-support.md
         - name: Tutorials
           items:
           - name: Use Flask to translate text, analyze sentiment, and synthesize speech
@@ -571,8 +591,8 @@ items:
             items:
               - name: Text analysis runtime API (v2023-04-01)
                 href: https://go.microsoft.com/fwlink/?linkid=2239169
-              - name: Text analysis runtime API (v2022-10-01-preview)
-                href: /rest/api/language/2022-10-01-preview/text-analysis-runtime
+              - name: Text analysis runtime API (v2022-04-15-preview)
+                href: /rest/api/language/2023-04-15-preview/text-analysis-runtime
               - name: Previous versions
                 items:
                 - name: v3.2-preview.2
@@ -657,8 +677,8 @@ items:
             href: text-analytics-for-health/how-to/configure-containers.md
           - name: Use container instances
             href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
-          - name: Azure AI containers documentation
-            href: ../containers/index.yml
+          - name: Azure AI containers overview
+            href: ../cognitive-services-container-support.md
       - name: Concepts
         items:
         - name: Recognized entity categories 
@@ -723,6 +743,18 @@ items:
           href: summarization/how-to/document-summarization.md
         - name: Call the conversation summarization API
           href: summarization/how-to/conversation-summarization.md
+        - name: Use containers
+          items:
+          - name: Use Docker Containers
+            href: summarization/how-to/use-containers.md
+          - name: Configure containers
+            href: concepts/configure-containers.md
+          - name: Use container instances
+            href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+          - name: Use containers in disconnected environments
+            href: ../containers/disconnected-containers.md
+          - name: Azure AI containers overview
+            href: ../cognitive-services-container-support.md
       - name: Responsible use of AI
         items: 
         - name: Transparency note for summarization

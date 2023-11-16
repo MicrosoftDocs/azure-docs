@@ -17,7 +17,7 @@ The new plan includes advanced security capabilities to help protect against mal
 
 The new plan also provides a more predictable and flexible pricing structure for better control over coverage and costs.
 
-The new pricing plan charges based on the number of storage accounts you protect, which simplifies cost calculations and allows for easy scaling as your needs change. You can enable it at the subscription or resource level and can also exclude specific storage accounts from protected subscriptions, providing more granular control over your security coverage. Extra charges may apply to storage accounts with high-volume transactions that exceed a high monthly threshold.
+The new pricing plan charges based on the number of storage accounts you protect, which simplifies cost calculations and allows for easy scaling as your needs change. You can enable it at the subscription or resource level and can also exclude specific storage accounts from protected subscriptions, providing more granular control over your security coverage. Extra charges might apply to storage accounts with high-volume transactions that exceed a high monthly threshold.
 
 ## Deprecation of Defender for Storage (classic)
 
@@ -41,7 +41,7 @@ Storage accounts that were previously excluded from protected subscriptions in t
 
 ### Migrating from the classic Defender for Storage plan enabled with per-storage account pricing
 
-If the classic Defender for Storage plan is enabled with per-storage account pricing, you can switch to the new plan at either the subscription or resource level. The new Defender for Storage plan has the same pricing plan with the exception of malware scanning which may incur extra charges and is billed per GB scanned.
+If the classic Defender for Storage plan is enabled with per-storage account pricing, you can switch to the new plan at either the subscription or resource level. The new Defender for Storage plan has the same pricing plan with the exception of malware scanning which might incur extra charges and is billed per GB scanned.
 
 You can learn more about Defender for Storage's pricing model on the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h).
 
@@ -59,17 +59,17 @@ If you're looking to quickly identify which pricing plans are active on your sub
 
 To help you better understand the differences between the classic plan and the new plan, here's a comparison table:
 
-| Category | New Defender for Storage plan | Classic (per-transaction plan) | Classic (per-storage account plan) |
+| Category | New Defender for Storage plan | Classic (per-transaction plan) | Classic (per-storage account plan) |
 | --- | --- | --- | --- |
-| Pricing structure | Cost is based on the number of storage accounts you protect\*. Add-on costs for GB scanned for malware, if enabled (free during preview) | Cost is based on the number of transactions processed | Cost is based on the number of storage accounts you protect* |
-| Enablement options | Subscription and resource level | Subscription and resource level | Subscription only |
-| Exclusion of storage accounts from protected subscriptions | Yes | Yes | No |
-| Activity monitoring (security alerts) | Yes | Yes | Yes |
-| Malware scanning in uploaded Blobs | Yes (add-on) | No (only hash-reputation analysis) | No (only hash-reputation analysis) |
-| Sensitive data threat detection | Yes (add-on) | No | No |
-| Detection of leaked/compromised SAS tokens (entities without identities) | Yes | No | No |
+| Pricing structure | Cost is based on the number of storage accounts you protect\*. Add-on costs for GB scanned for malware, if enabled| Cost is based on the number of transactions processed | Cost is based on the number of storage accounts you protect* |
+| Enablement options | Subscription and resource level | Subscription and resource level | Subscription only |
+| Exclusion of storage accounts from protected subscriptions | Yes | Yes | No |
+| Activity monitoring (security alerts) | Yes | Yes | Yes |
+| Malware scanning in uploaded Blobs | Yes (add-on) | No (only hash-reputation analysis) | No (only hash-reputation analysis) |
+| Sensitive data threat detection | Yes (add-on) | No | No |
+| Detection of leaked/compromised SAS tokens (entities without identities) | Yes | No | No |
 
-\* extra charges may apply to storage accounts with high-volume transactions.
+\* extra charges might apply to storage accounts with high-volume transactions.
 
 The new plan offers a more comprehensive feature set designed to better protect your data. It also provides a more predictable pricing plan compared to the classic plan. We recommend you migrate to the new plan to take full advantage of its benefits.
 
@@ -81,5 +81,6 @@ In this article, you learned about migrating to the new Microsoft Defender for S
 
 > [!div class="nextstepaction"]
 > [Enable Defender for Storage](enable-enhanced-security.md)
+
 
 

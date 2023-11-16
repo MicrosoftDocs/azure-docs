@@ -2,12 +2,14 @@
 title: 'Tutorial: Authenticate users E2E' 
 description: Learn how to use App Service authentication and authorization to secure your App Service apps end-to-end, including access to remote APIs.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
+author: cephalin
+ms.author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 3/08/2023
 ms.custom: seodec18, devx-track-azurecli, engagement-fy23, AppServiceIdentity
 zone_pivot_groups: app-service-platform-windows-linux
-# Requires non-internal subscription - internal subscriptions doesn't provide permission to correctly configure AAD apps
+# Requires non-internal subscription - internal subscriptions doesn't provide permission to correctly configure Microsoft Entra apps
 ---
 
 # Tutorial: Authenticate and authorize users end-to-end in Azure App Service
@@ -29,7 +31,7 @@ In the tutorial, you learn:
 > [!div class="checklist"]
 > * Enable built-in authentication and authorization
 > * Secure apps against unauthenticated requests
-> * Use Azure Active Directory as the identity provider
+> * Use Microsoft Entra ID as the identity provider
 > * Access a remote app on behalf of the signed-in user
 > * Secure service-to-service calls with token authentication
 > * Use access tokens from server code
@@ -150,7 +152,7 @@ Browse to the frontend app and return the _fake_ profile from the backend. This 
 
 ## 5. Configure authentication
 
-In this step, you enable authentication and authorization for the two web apps. This tutorial uses Azure Active Directory as the identity provider. 
+In this step, you enable authentication and authorization for the two web apps. This tutorial uses Microsoft Entra ID as the identity provider. 
 
 You also configure the frontend app to: 
 
@@ -158,7 +160,7 @@ You also configure the frontend app to:
 - Configure App Service to return a usable token
 - Use the token in your code.
 
-For more information, see [Configure Azure Active Directory authentication for your App Services application](configure-authentication-provider-aad.md).
+For more information, see [Configure Microsoft Entra authentication for your App Services application](configure-authentication-provider-aad.md).
 
 ### Enable authentication and authorization for backend app
 
@@ -168,15 +170,15 @@ For more information, see [Configure Azure Active Directory authentication for y
 
 1. In your backend app's left menu, select **Authentication**, and then select **Add identity provider**.
 
-1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Azure AD identities.
+1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Microsoft Entra identities.
 
 1. Accept the default settings and select **Add**.
 
     :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot of the backend app's left menu showing Authentication/Authorization selected and settings selected in the right menu.":::
 
-1. The **Authentication** page opens. Copy the **Client ID** of the Azure AD application to a notepad. You need this value later.
+1. The **Authentication** page opens. Copy the **Client ID** of the Microsoft Entra application to a notepad. You need this value later.
 
-    :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Screenshot of the Azure Active Directory Settings window showing the Azure AD App, and the Azure AD Applications window showing the Client ID to copy.":::
+    :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Screenshot of the Microsoft Entra Settings window showing the Microsoft Entra App, and the Microsoft Entra Applications window showing the Client ID to copy.":::
 
 If you stop here, you have a self-contained app that's already secured by the App Service authentication and authorization. The remaining sections show you how to secure a multi-app solution by "flowing" the authenticated user from the frontend to the backend. 
 
@@ -190,15 +192,15 @@ If you stop here, you have a self-contained app that's already secured by the Ap
 
 1. In your backend app's left menu, select **Authentication**, and then select **Add identity provider**.
 
-1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Azure AD identities.
+1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Microsoft Entra identities.
 
 1. Accept the default settings and select **Add**.
 
     :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot of the backend app's left menu showing Authentication/Authorization selected and settings selected in the right menu.":::
 
-1. The **Authentication** page opens. Copy the **Client ID** of the Azure AD application to a notepad. You need this value later.
+1. The **Authentication** page opens. Copy the **Client ID** of the Microsoft Entra application to a notepad. You need this value later.
 
-    :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Screenshot of the Azure Active Directory Settings window showing the Azure AD App, and the Azure AD Applications window showing the Client ID to copy.":::
+    :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Screenshot of the Microsoft Entra Settings window showing the Microsoft Entra App, and the Microsoft Entra Applications window showing the Client ID to copy.":::
 
 
 ### Grant frontend app access to backend
@@ -396,7 +398,7 @@ What you learned:
 > [!div class="checklist"]
 > * Enable built-in authentication and authorization
 > * Secure apps against unauthenticated requests
-> * Use Azure Active Directory as the identity provider
+> * Use Microsoft Entra ID as the identity provider
 > * Access a remote app on behalf of the signed-in user
 > * Secure service-to-service calls with token authentication
 > * Use access tokens from server code

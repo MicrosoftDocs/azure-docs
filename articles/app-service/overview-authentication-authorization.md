@@ -6,6 +6,8 @@ ms.topic: article
 ms.date: 02/03/2023
 ms.reviewer: mahender
 ms.custom: UpdateFrequency3, seodec18, fasttrack-edit, AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
 
@@ -19,7 +21,7 @@ Implementing a secure solution for authentication (signing-in users) and authori
 
 - Azure App Service allows you to integrate a variety of auth capabilities into your web app or API without implementing them yourself.
 - It’s built directly into the platform and doesn’t require any particular language, SDK, security expertise, or even any code to utilize.
-- You can integrate with multiple login providers. For example, Azure AD, Facebook, Google, Twitter.
+- You can integrate with multiple login providers. For example, Microsoft Entra ID, Facebook, Google, Twitter.
 
 Your app might need to support more complex scenarios such as Visual Studio integration or incremental consent.  There are several different authentication solutions available to support these scenarios. To learn more, read [Identity scenarios](identity-scenarios.md).
 
@@ -29,7 +31,7 @@ App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_id
 
 | Provider | Sign-in endpoint | How-To guidance |
 | - | - | - |
-| [Microsoft identity platform](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [App Service Microsoft Identity Platform login](configure-authentication-provider-aad.md) |
+| [Microsoft identity platform](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [App Service Microsoft identity platform login](configure-authentication-provider-aad.md) |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [App Service Facebook login](configure-authentication-provider-facebook.md) |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [App Service Google login](configure-authentication-provider-google.md) |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [App Service Twitter login](configure-authentication-provider-twitter.md) |
@@ -128,7 +130,7 @@ With this option, you don't need to write any authentication code in your app. F
 > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
 
 > [!NOTE]
-> When using the Microsoft identity provider for users in your organization, the default behavior is that any user in your Azure AD tenant can request a token for your application. You can [configure the application in Azure AD](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users. App Service also offers some [basic built-in authorization checks](.\configure-authentication-provider-aad.md#authorize-requests) which can help with some validations. To learn more about authorization in the Microsoft identity platform, see [Microsoft identity platform authorization basics](../active-directory/develop/authorization-basics.md).
+> When using the Microsoft identity provider for users in your organization, the default behavior is that any user in your Microsoft Entra tenant can request a token for your application. You can [configure the application in Microsoft Entra ID](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users. App Service also offers some [basic built-in authorization checks](.\configure-authentication-provider-aad.md#authorize-requests) which can help with some validations. To learn more about authorization in the Microsoft identity platform, see [Microsoft identity platform authorization basics](../active-directory/develop/authorization-basics.md).
 
 ### Token store
 
@@ -189,7 +191,7 @@ When using Azure App Service with Easy Auth behind Azure Front Door or other rev
     
 ## More resources
 
-- [How-To: Configure your App Service or Azure Functions app to use Azure AD login](configure-authentication-provider-aad.md)
+- [How-To: Configure your App Service or Azure Functions app to use Microsoft Entra login](configure-authentication-provider-aad.md)
 - [Customize sign-ins and sign-outs](configure-authentication-customize-sign-in-out.md)
 <!-- - [Authenticate native client apps](configure-authentication-client-apps.md) -->
 - [Work with OAuth tokens and sessions](configure-authentication-oauth-tokens.md)

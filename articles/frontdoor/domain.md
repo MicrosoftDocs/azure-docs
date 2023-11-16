@@ -6,7 +6,7 @@ author: johndowns
 ms.service: frontdoor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 03/10/2023
+ms.date: 10/31/2023
 ms.author: jodowns
 ---
 
@@ -36,9 +36,9 @@ When you add a domain to your Azure Front Door profile, you configure two record
 
 ## Domain validation
 
-All domains added to Azure Front Door must be validated. Validation helps to protect you from accidental misconfiguration, and also helps to protect other people from domain spoofing. In some situation, domains can be *pre-validated* by another Azure service. Otherwise, you need to follow the Azure Front Door domain validation process to prove your ownership of the domain name.
+All domains added to Azure Front Door must be validated. Validation helps to protect you from accidental misconfiguration, and also helps to protect other people from domain spoofing. In some situation, domains can be *prevalidated* by another Azure service. Otherwise, you need to follow the Azure Front Door domain validation process to prove your ownership of the domain name.
 
-* **Azure pre-validated domains** are domains that have been validated by another supported Azure service. If you onboard and validate a domain to another Azure service, and then configure Azure Front Door later, you might work with a pre-validated domain. You don't need to validate the domain through Azure Front Door when you use this type of domain.
+* **Azure pre-validated domains** are domains that have been validated by another supported Azure service. If you onboard and validate a domain to another Azure service, and then configure Azure Front Door later, you might work with a prevalidated domain. You don't need to validate the domain through Azure Front Door when you use this type of domain.
 
     > [!NOTE]
     > Azure Front Door currently only accepts pre-validated domains that have been configured with [Azure Static Web Apps](https://azure.microsoft.com/products/app-service/static/).
@@ -69,8 +69,8 @@ The following table lists the validation states that a domain might show.
 |--|--|
 | Submitting | The custom domain is being created. <br /><br /> Wait until the domain resource is ready. |
 | Pending | The DNS TXT record value has been generated, and Azure Front Door is ready for you to add the DNS TXT record. <br /><br /> Add the DNS TXT record to your DNS provider and wait for the validation to complete. If the status remains **Pending** even after the TXT record has been updated with the DNS provider, select **Regenerate** to refresh the TXT record then add the TXT record to your DNS provider again. |
-| Pending re-validation | The managed certificate is less than 45 days from expiring. <br /><br /> If you have a CNAME record already pointing to the Azure Front Door endpoint, no action is required for certificate renewal. If the custom domain is pointed to another CNAME record, select the **Pending re-validation** status, and then select **Regenerate** on the *Validate the custom domain* page. Lastly, select **Add** if you're using Azure DNS or manually add the TXT record with your own DNS provider’s DNS management. |
-| Refreshing validation token | A domain goes into a *Refreshing Validation Token* state for a brief period after the **Regenerate** button is selected. Once a new TXT record value is issued, the state will change to **Pending**. <br /> No action is required. |
+| Pending revalidation | The managed certificate is less than 45 days from expiring. <br /><br /> If you have a CNAME record already pointing to the Azure Front Door endpoint, no action is required for certificate renewal. If the custom domain is pointed to another CNAME record, select the **Pending re-validation** status, and then select **Regenerate** on the *Validate the custom domain* page. Lastly, select **Add** if you're using Azure DNS or manually add the TXT record with your own DNS provider’s DNS management. |
+| Refreshing validation token | A domain goes into a *Refreshing Validation Token* state for a brief period after the **Regenerate** button is selected. Once a new TXT record value is issued, the state changes to **Pending**. <br /> No action is required. |
 | Approved | The domain has been successfully validated, and Azure Front Door can accept traffic that uses this domain. <br /><br /> No action is required. |
 | Rejected | The certificate provider/authority has rejected the issuance for the managed certificate. For example, the domain name might be invalid. <br /><br /> Select the **Rejected** link and then select **Regenerate** on the *Validate the custom domain* page, as shown in the screenshots below this table. Then, select **Add** to add the TXT record in the DNS provider. |
 | Timeout | The TXT record wasn't added to your DNS provider within seven days, or an invalid DNS TXT record was added. <br /><br /> Select the **Timeout** link and then select **Regenerate** on the *Validate the custom domain* page. Then select **Add** to add a new TXT record to the DNS provider. Ensure that you use the updated value. |
@@ -94,6 +94,9 @@ For more information on how Azure Front Door works with TLS, see [End-to-end TLS
 Azure Front Door can automatically manage TLS certificates for subdomains and apex domains. When you use managed certificates, you don't need to create keys or certificate signing requests, and you don't need to upload, store, or install the certificates. Additionally, Azure Front Door can automatically rotate (renew) managed certificates without any human intervention. This process avoids downtime caused by a failure to renew your TLS certificates in time.
 
 The process of generating, issuing, and installing a managed TLS certificate can take from several minutes to an hour to complete, and occasionally it can take longer.
+
+> [!NOTE]
+> Azure Front Door (Standard and Premium) managed certificates are automatically rotated if the domain CNAME record points directly to a Front Door endpoint or points indirectly to a Traffic Manager endpoint. Otherwise, you need to re-validate the domain ownership to rotate the certificates.
 
 #### Domain types
 
@@ -122,11 +125,15 @@ Sometimes, you might need to provide your own TLS certificates. Common scenarios
 * You need to use the same TLS certificate on multiple systems.
 * You use [wildcard domains](front-door-wildcard-domain.md). Azure Front Door doesn't provide managed certificates for wildcard domains.
 
+> [!NOTE]
+> * As of September 2023, Azure Front Door supports Bring Your Own Certificates (BYOC) for domain ownership validation. Front Door approves the domain ownership if the Certificate Name (CN) or Subject Alternative Name (SAN) of the certificate matches the custom domain. If you select Azure managed certificate, the domain validation uses the DNS TXT record.
+> * For custom domains created before BYOC based validation, and the domain validation status is not **Approved**, you need to trigger the auto approval of the domain ownership validation by selecting the **Validation State** and clicking on the **Revalidate** button in the portal. If you use the command line tool, you can trigger domain validation by sending an empty PATCH request to the domain API.
+
 #### Certificate requirements
 
 To use your certificate with Azure Front Door, it must meet the following requirements:
 
-- **Complete certificate chain:** When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected.  The root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests that involve that certificate aren't guaranteed to work as expected.
+- **Complete certificate chain:** When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a nonallowed CA, your request is rejected.  The root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests that involve that certificate aren't guaranteed to work as expected.
 - **Common name:** The common name (CN) of the certificate must match the domain configured in Azure Front Door.
 - **Algorithm:** Azure Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms.
 - **File (content) type:** Your certificate must be uploaded to your key vault from a PFX file, which uses the `application/x-pkcs12` content type.
@@ -150,7 +157,7 @@ If your key vault has network access restrictions enabled, you must configure yo
 
 There are two ways you can configure access control on your key vault:
 
-* Azure Front Door can use a managed identity to access your key vault. You can use this approach when your key vault uses Azure Active Directory (Azure AD) authentication. For more information, see [Use managed identities with Azure Front Door Standard/Premium](managed-identity.md).
+* Azure Front Door can use a managed identity to access your key vault. You can use this approach when your key vault uses Microsoft Entra authentication. For more information, see [Use managed identities with Azure Front Door Standard/Premium](managed-identity.md).
 * Alternatively you can grant Azure Front Door's service principal access to your key vault. You can use this approach when you use vault access policies.
 
 #### Add your custom certificate to Azure Front Door
@@ -167,8 +174,8 @@ You can change a domain between using an Azure Front Door-managed certificate an
 
 * It might take up to an hour for the new certificate to be deployed when you switch between certificate types.
 * If your domain state is *Approved*, switching the certificate type between a user-managed and a managed certificate won't cause any downtime.
-* When switching to a managed certificate, Azure Front Door continues to use the previous certificate until the domain ownership is re-validated and the domain state becomes *Approved*.
-* If you switch from BYOC to managed certificate, domain re-validation is required. If you switch from managed certificate to BYOC, you're not required to re-validate the domain.
+* When switching to a managed certificate, Azure Front Door continues to use the previous certificate until the domain ownership is revalidated and the domain state becomes *Approved*.
+* If you switch from BYOC to managed certificate, domain revalidation is required. If you switch from managed certificate to BYOC, you're not required to revalidate the domain.
 
 ### Certificate renewal
 
@@ -183,7 +190,7 @@ However, Azure Front Door won't automatically rotate certificates in the followi
 * The custom domain uses an A record. We recommend you always use a CNAME record to point to Azure Front Door.
 * The custom domain is an [apex domain](apex-domain.md) and uses CNAME flattening.
 
-If one of the scenarios above applies to your custom domain, then 45 days before the managed certificate expires, the domain validation state becomes *Pending Revalidation*. The *Pending Revalidation* state indicates that you need to create a new DNS TXT record to revalidate your domain ownership.
+If one of the scenarios above applies to your custom domain, then 45 days before the managed certificate expire, the domain validation state becomes *Pending Revalidation*. The *Pending Revalidation* state indicates that you need to create a new DNS TXT record to revalidate your domain ownership.
 
 > [!NOTE]
 > DNS TXT records expire after seven days. If you previously added a domain validation TXT record to your DNS server, you need to replace it with a new TXT record. Ensure you use the new value, otherwise the domain validation process will fail.
@@ -192,7 +199,7 @@ If your domain can't be validated, the domain validation state becomes *Rejected
 
 For more information on the domain validation states, see [Domain validation states](#domain-validation-states).
 
-#### Renew Azure-managed certificates for domains pre-validated by other Azure services
+#### Renew Azure-managed certificates for domains prevalidated by other Azure services
 
 Azure-managed certificates are automatically rotated by the Azure service that validates the domain.
 
@@ -214,4 +221,5 @@ To use the WAF with a custom domain, use an Azure Front Door security policy res
 
 ## Next steps
 
-To learn how to add a custom domain to your Azure Front Door profile, see [Configure a custom domain on Azure Front Door using the Azure portal](standard-premium/how-to-add-custom-domain.md).
+* To learn how to add a custom domain to your Azure Front Door profile, see [Configure a custom domain on Azure Front Door using the Azure portal](standard-premium/how-to-add-custom-domain.md).
+* Learn more about how [End-to-end TLS with Azure Front Door](end-to-end-tls.md).

@@ -5,8 +5,7 @@ description: Learn about which regions are supported by document summarization.
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 06/11/2023
@@ -19,12 +18,14 @@ Some summarization features are only available in limited regions. More regions 
 
 ## Regional availability table
 
-|Region|Document abstractive summarization|Conversation issue and resolution summarization|Conversation narrative summarization with chapters|Custom summarization|
-|------------|------------------|------------------|------------------|------------------|-|
-|North Europe|&#9989;|&#9989;|&#9989;|&#10060;|
-|East US|&#9989;|&#9989;|&#9989;|&#9989;|
-|UK South|&#9989;|&#9989;|&#9989;|&#10060;|
-|Southeast Asia|&#9989;|&#9989;|&#9989;|&#10060;|
+|Region            |Document abstractive summarization|Conversation issue and resolution summarization|Conversation narrative summarization with chapters|Custom summarization|
+|------------------|----------------------------------|-----------------------------------------------|--------------------------------------------------|--------------------|
+|Azure Gov Virginia|&#9989;                           |&#9989;                                        |&#9989;                                           |&#10060;            |
+|North Europe      |&#9989;                           |&#9989;                                        |&#9989;                                           |&#10060;            |
+|East US           |&#9989;                           |&#9989;                                        |&#9989;                                           |&#9989;             |
+|UK South          |&#9989;                           |&#9989;                                        |&#9989;                                           |&#10060;            |
+|Southeast Asia    |&#9989;                           |&#9989;                                        |&#9989;                                           |&#10060;            |
+|Central Sweden    |&#9989;                           |&#10060;                                       |&#10060;                                          |&#10060;            |
 
 ## Next steps
 

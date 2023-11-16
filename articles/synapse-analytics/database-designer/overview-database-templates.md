@@ -7,7 +7,7 @@ ms.reviewer: wiassaf
 ms.service: synapse-analytics
 ms.subservice: database-editor
 ms.topic: overview
-ms.date: 05/17/2023
+ms.date: 10/16/2023
 ms.custom: template-overview, ignite-fall-2021
 ---
 
@@ -19,7 +19,7 @@ Database templates are a set of business and technical data definitions that are
 
 These schema blueprints can be used by organizations to plan, architect, and design data solutions for data governance, reporting, business intelligence, and advanced analytics. The data models provide integrated business-wide information architectures that can help you implement, in a timely and predictable way, a proven industry data architecture. 
 
-For example, if you're building a product recommendation solution for your retail customers, you'll need to understand what the customer purchased and the transaction that led to the purchase. You may also need information about the store where the purchase was made, and whether the customer is part of a loyalty program. Just to accomplish this use case, consider the following schemas: 
+For example, if you're building a product recommendation solution for your retail customers, you'll need to understand what the customer purchased and the transaction that led to the purchase. You might also need information about the store where the purchase was made, and whether the customer is part of a loyalty program. Just to accomplish this use case, consider the following schemas: 
 
 * Product 
 * Transaction 
@@ -60,6 +60,7 @@ Currently, you can choose from the following database templates in Azure Synapse
 * **Pharmaceuticals** - For companies engaged in creating, manufacturing, and marketing pharmaceutical and bio-pharmaceutical products and medical devices.
 * **Property & Casualty Insurance** - For companies that provide insurance against risks to property and various forms of liability coverage.
 * **R&D and Clinical Trials** - For companies involved in research and development and clinical trials of pharmaceutical products or devices.
+* **Restaurants** - For companies that prepare and serve food.
 * **Retail** - For sellers of consumer goods or services to customers through multiple channels.
 * **Travel Services** - For companies providing booking services for airlines, hotels, car rentals, cruises, and vacation packages.
 * **Utilities** - For gas, electric, and water utilities; power generators; and water desalinators.

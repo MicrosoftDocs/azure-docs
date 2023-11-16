@@ -6,9 +6,9 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: overview
-ms.date: 07/21/2023
+ms.date: 08/28/2023
 ms.author: aahi
 keywords: on-premises, Docker, container, Kubernetes
 #Customer intent: As a potential customer, I want to know more about how Azure AI services provides and supports Docker containers for each service.
@@ -53,27 +53,26 @@ Azure AI containers provide the following set of Docker containers, each of whic
 | [Language service][ta-containers-language] |  **Text Language Detection** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/language/about)) | For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. | Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Language service][ta-containers-sentiment] | **Sentiment Analysis** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/sentiment/about)) | Analyzes raw text for clues about positive or negative sentiment. This version of sentiment analysis returns sentiment labels (for example *positive* or *negative*) for each document and sentence within it. |  Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Language service][ta-containers-health] |  **Text Analytics for health** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/healthcare/about))| Extract and label medical information from unstructured clinical text. | Generally available |
+| [Language service][ta-containers-ner] | **Named Entity Recognition** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/ner/about))| Extract named entities from text. | Generally available. <br>This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Language service][ta-containers-cner] |  **Custom Named Entity Recognition** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/customner/about))| Extract named entities from text, using a custom model you create using your data. | Preview |
-| [Translator][tr-containers] | **Translator** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/translator/text-translation/about))| Translate text in several languages and dialects. | Generally available. Gated - [request access](https://aka.ms/csgate-translator). <br>This container can also [run in disconnected environments](containers/disconnected-containers.md). | 
+| [Language service][ta-containers-summarization] | **Summarization** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/summarization/about))| Summarize text from various sources. | Public preview. <br>This container can also [run in disconnected environments](containers/disconnected-containers.md). |
+| [Translator][tr-containers] | **Translator** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/translator/text-translation/about))| Translate text in several languages and dialects. | Generally available. Gated - [request access](https://aka.ms/csgate-translator). <br>This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 
 ### Speech containers
-
-> [!NOTE]
-> To use Speech containers, you will need to complete an [online request form](https://aka.ms/csgate).
 
 | Service |  Container | Description | Availability |
 |--|--|--|--|
 | [Speech Service API][sp-containers-stt] |  **Speech to text** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/speech-to-text/about)) | Transcribes continuous real-time speech into text. | Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Speech Service API][sp-containers-cstt] | **Custom Speech to text** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/custom-speech-to-text/about)) | Transcribes continuous real-time speech into text using a custom model. | Generally available <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Speech Service API][sp-containers-ntts] | **Neural Text to speech** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/neural-text-to-speech/about)) | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
-| [Speech Service API][sp-containers-lid] | **Speech language detection** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/language-detection/about)) | Determines the language of spoken audio. | Gated preview |
+| [Speech Service API][sp-containers-lid] | **Speech language detection** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/language-detection/about)) | Determines the language of spoken audio. | Preview |
 
 ### Vision containers
 
 
 | Service |  Container | Description | Availability |
 |--|--|--|--|
-| [Azure AI Vision][cv-containers] | **Read OCR** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/vision/read/about)) | The Read OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](./computer-vision/overview-ocr.md). | Generally Available. Gated - [request access](https://aka.ms/csgate). <br>This container can also [run in disconnected environments](containers/disconnected-containers.md). |
+| [Azure AI Vision][cv-containers] | **Read OCR** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/vision/read/about)) | The Read OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](./computer-vision/overview-ocr.md). | Generally Available. <br>This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Spatial Analysis][spa-containers] | **Spatial analysis** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/vision/spatial-analysis/about)) | Analyzes real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in physical environments. | Preview |
 
 <!--
@@ -125,6 +124,7 @@ Install and explore the functionality provided by containers in Azure AI service
 [ad-containers]: anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: computer-vision/computer-vision-how-to-install-containers.md
 [lu-containers]: luis/luis-container-howto.md
+[su-containers]: language-service/summarization/how-to/use-containers.md
 [sp-containers]: speech-service/speech-container-howto.md
 [spa-containers]: ./computer-vision/spatial-analysis-container.md
 [sp-containers-lid]: speech-service/speech-container-lid.md
@@ -137,5 +137,7 @@ Install and explore the functionality provided by containers in Azure AI service
 [ta-containers-sentiment]: language-service/sentiment-opinion-mining/how-to/use-containers.md
 [ta-containers-health]: language-service/text-analytics-for-health/how-to/use-containers.md
 [ta-containers-cner]: language-service/custom-named-entity-recognition/how-to/use-containers.md
+[ta-containers-summarization]: language-service/summarization/how-to/use-containers.md
+[ta-containers-ner]: language-service/named-entity-recognition/how-to/use-containers.md
 [tr-containers]: translator/containers/translator-how-to-install-container.md
 [request-access]: https://aka.ms/csgate

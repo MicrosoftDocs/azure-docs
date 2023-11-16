@@ -15,9 +15,6 @@ For example, you may discover an IP address performing port scans across your ne
 
 Microsoft Sentinel allows you to flag these types of entities as malicious, right from within your incident investigation, and add it to your threat indicator lists. You'll then be able to view the added indicators both in Logs and in the Threat Intelligence blade, and use them across your Microsoft Sentinel workspace.
 
-> [!IMPORTANT]
-> Adding entities as TI indicators is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Add an entity to your indicators list
 
 The new [incident details page](investigate-incidents.md) gives you another way to add entities to threat intelligence, in addition to the investigation graph. Both ways are shown below.
@@ -32,7 +29,7 @@ The new [incident details page](investigate-incidents.md) gives you another way 
 
 1. Find the entity from the **Entities** widget that you want to add as a threat indicator. (You can filter the list or enter a search string to help you locate it.)
 
-1. Select the three dots to the right of the entity, and select **Add to TI (Preview)** from the pop-up menu.
+1. Select the three dots to the right of the entity, and select **Add to TI** from the pop-up menu.
 
     Only the following types of entities can be added as threat indicators:
     - Domain name

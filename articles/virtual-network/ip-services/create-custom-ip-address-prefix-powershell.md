@@ -44,11 +44,11 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
 ### Requirements and prefix readiness
 
 * The address range must be owned by you and registered under your name with the one of the five major Regional Internet Registries:
-      * [American Registry for Internet Numbers (ARIN)](https://www.arin.net/)
-      * [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/)
-      * [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/)
-      * [Latin America and Caribbean Network Information Centre (LACNIC)](https://www.lacnic.net/)
-      * [African Network Information Centre (AFRINIC)](https://afrinic.net/)
+    * [American Registry for Internet Numbers (ARIN)](https://www.arin.net/)
+    * [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/)
+    * [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/)
+    * [Latin America and Caribbean Network Information Centre (LACNIC)](https://www.lacnic.net/)
+    * [African Network Information Centre (AFRINIC)](https://afrinic.net/)
 
 * The address range must be no smaller than a /24 so it will be accepted by Internet Service Providers.
 
@@ -139,7 +139,7 @@ The following steps display the procedure for provisioning a sample customer ran
 
 Create a resource group in the desired location for provisioning the BYOIP range. 
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 $rg =@{
     Name = 'myResourceGroup'
     Location = 'WestUS2'
@@ -151,7 +151,7 @@ New-AzResourceGroup @rg
 
 The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. For the `-AuthorizationMessage` parameter, substitute your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. Use the variable **$byoipauthsigned** for the `-SignedMessage` parameter created in the certificate readiness section.
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 $prefix =@{
     Name = 'myCustomIPPrefix'
     ResourceGroupName = 'myResourceGroup'
@@ -165,9 +165,10 @@ $myCustomIpPrefix = New-AzCustomIPPrefix @prefix -Zone 1,2,3
 
 The range is pushed to the Azure IP Deployment Pipeline. The deployment process is asynchronous. To determine the status, execute the following command:  
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Get-AzCustomIpPrefix -ResourceId $myCustomIpPrefix.Id
 ```
+
 Sample output is shown below, with some fields removed for clarity:
 
 ```

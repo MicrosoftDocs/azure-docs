@@ -4,7 +4,7 @@ description: Learn how to create HDInsight clusters with your own custom Apache 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 08/16/2022
+ms.date: 09/29/2023
 ---
 # Set up HDInsight clusters with a custom Ambari DB
 
@@ -21,7 +21,7 @@ The custom Ambari DB feature allows you to deploy a new cluster and setup Ambari
 The remainder of this article discusses the following points:
 
 - requirements to use the custom Ambari DB feature
-- the steps necessary to provision HDInsight clusters using your own external database for Apache Ambari
+- the steps necessary to provision HDInsight cluster using your own external database for Apache Ambari
 
 ## Custom Ambari DB requirements
 
@@ -33,12 +33,12 @@ The custom Ambari DB has the following other requirements:
 - You must have an existing Azure SQL DB server and database.
 - The database that you provide for Ambari setup must be empty. There should be no tables in the default dbo schema.
 - The user used to connect to the database should have SELECT, CREATE TABLE, and INSERT permissions on the database.
-- Turn on the option to [Allow access to Azure services](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#azure-portal-steps) on the server where you will host Ambari.
+- Turn on the option to [Allow access to Azure services](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#azure-portal-steps) on the server where you host Ambari.
 - Management IP addresses from HDInsight service need to be allowed in the firewall rule. See [HDInsight management IP addresses](hdinsight-management-ip-addresses.md) for a list of the IP addresses that must be added to the server-level firewall rule.
 
 When you host your Apache Ambari DB in an external database, remember the following points:
 
-- You're responsible for the additional costs of the Azure SQL DB that holds Ambari.
+- You're responsible for the extra costs of the Azure SQL DB that holds Ambari.
 - Back up your custom Ambari DB periodically. Azure SQL Database generates backups automatically, but the backup retention time-frame varies. For more information, see [Learn about automatic SQL Database backups](/azure/azure-sql/database/automated-backups-overview).
 - Don't change the custom Ambari DB password after the HDInsight cluster reaches the **Running** state. It is not supported. 
 
@@ -46,7 +46,7 @@ When you host your Apache Ambari DB in an external database, remember the follow
 
 To create an HDInsight cluster that uses your own external Ambari database, use the [custom Ambari DB Quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-custom-ambari-db).
 
-Edit the parameters in the `azuredeploy.parameters.json` to specify information about your new cluster and the database that will hold Ambari.
+Edit the parameters in the `azuredeploy.parameters.json` to specify information about your new cluster and the database that holds Ambari.
 
 You can begin the deployment using the Azure CLI. Replace `<RESOURCEGROUPNAME>` with the resource group where you want to deploy your cluster.
 

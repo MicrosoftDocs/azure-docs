@@ -5,8 +5,7 @@ description: This document helps users migrate from prebuilt standard voice to p
 services: cognitive-services
 author: sally-baolian
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 11/12/2021
 ms.author: v-baolianzou
@@ -15,7 +14,7 @@ ms.author: v-baolianzou
 # Migrate from prebuilt standard voice to prebuilt neural voice
 
 > [!IMPORTANT]
-> We are retiring the standard voices from September 1, 2021 through August 31, 2024. If you used a standard voice with your Speech resource that was created prior to September 1, 2021 then you can continue to do so until August 31, 2024. All other Speech resources can only use prebuilt neural voices. You can choose from the supported [neural voice names](language-support.md?tabs=tts). After August 31, 2024 the standard voices won't be supported with any Speech resource.
+> We are retiring the standard voices from September 1, 2021 through August 31, 2024. If you used a standard voice with your Speech resource that was created prior to September 1, 2021 then you can continue to do so until August 31, 2024. To use neural voices, choose voice names that include 'Neural' in their name, for example: en-US-JennyMultilingualNeural. All other Speech resources can only use prebuilt neural voices. You can choose from the supported [neural voice names](language-support.md?tabs=tts). After August 31, 2024 the standard voices won't be supported with any Speech resource.
 > 
 > The pricing for prebuilt standard voice is different from prebuilt neural voice. Go to the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) and check the pricing details in the collapsable "Deprecated" section. Prebuilt standard voice (retired) is referred as **Standard**. 
 
@@ -35,7 +34,7 @@ The prebuilt neural voice provides more natural sounding speech output, and thus
 > Even without an Azure account, you can listen to voice samples at the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery) and determine the right voice for your business needs.
 
 1. Review the [price](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) structure.
-2. To make the change, [follow the sample code](speech-synthesis-markup-voice.md#voice-element) to update the voice name in your speech synthesis request to the supported neural voice names in chosen languages. Use neural voices for your speech synthesis request, on cloud or on prem. For on-premises container, use the [neural voice containers](../cognitive-services-container-support.md) and follow the [instructions](speech-container-howto.md).
+2. To make the change, [follow the sample code](speech-synthesis-markup-voice.md#use-voice-elements) to update the voice name in your speech synthesis request to the supported neural voice names in chosen languages. Use neural voices for your speech synthesis request, on cloud or on prem. For on-premises container, use the [neural voice containers](../cognitive-services-container-support.md) and follow the [instructions](speech-container-howto.md).
 
 ## Standard voice details (deprecated)
 

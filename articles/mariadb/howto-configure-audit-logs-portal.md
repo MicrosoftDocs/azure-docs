@@ -10,6 +10,8 @@ ms.date: 06/24/2022
 
 # Configure and access audit logs in the Azure portal
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 You can configure the [Azure Database for MariaDB audit logs](concepts-audit-logs.md) and diagnostic settings from the Azure portal.
 
 ## Prerequisites

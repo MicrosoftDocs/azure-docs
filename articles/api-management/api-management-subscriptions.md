@@ -40,6 +40,9 @@ In addition,
 ## Manage subscription keys
 
 Regularly regenerating keys is a common security precaution. Like most Azure services requiring a subscription key, API Management generates keys in pairs. Each application using the service can switch from *key A* to *key B* and regenerate key A with minimal disruption, and vice versa.
+
+Setting specific keys instead of regenerating ones can be performed by invoking the [Azure API Management Subscription - Create Or Update Azure REST API](/rest/api/apimanagement/current-ga/subscription/create-or-update). Specifically, the `properties.primaryKey` and/or `properties.secondaryKey` need to be set in the HTTP request body.
+
 > [!NOTE]
 > * API Management doesn't provide built-in features to manage the lifecycle of subscription keys, such as setting expiration dates or automatically rotating keys. You can develop workflows to automate these processes using tools such as Azure PowerShell or the Azure SDKs. 
 > * To enforce time-limited access to APIs, API publishers may be able to use policies with subscription keys, or use a mechanism that provides built-in expiration such as token-based authentication.
@@ -74,8 +77,7 @@ Each API Management instance comes with a built in all-access subscription that 
 > [!WARNING]
 > The all-access subscription enables access to every API in the API Management instance and should only be used by authorized users. Never use this subscription for routine API access or embed the all-access subscription key in client apps.
 
-> [!NOTE]
-> If you're using an API-scoped subscription or the all-access subscription, any [policies](api-management-howto-policies.md) configured at the product scope aren't applied to requests from that subscription.
+[!INCLUDE [api-management-product-policy-alert](../../includes/api-management-product-policy-alert.md)]
 
 ### Standalone subscriptions
 

@@ -11,8 +11,9 @@ metadata:
   ms.service: azure-arc
   ms.topic: hub-page
   ms.date: 11/08/2022
-  ms.custom: e2e-hybrid
-
+  ms.custom:
+    - e2e-hybrid
+    - ignite-2023
 # highlightedContent section (optional)
 # Maximum of 8 items
 highlightedContent:
@@ -54,15 +55,12 @@ conceptualContent:
         - url: ./servers/learn/quick-enable-hybrid-vm.md
           itemType: quickstart
           text: Connect hybrid machines
-        - url: ./servers/security-overview.md
+        - url: ./servers/plan-at-scale-deployment.md
+          itemType: how-to-guide
+          text: Plan and deploy
+        - url: ./servers/prepare-extended-security-updates.md
           itemType: concept
-          text: Security overview
-        - url: ./servers/policy-reference.md
-          itemType: learn
-          text: Azure Policy definitions
-        - url: /sql/sql-server/azure-arc/overview
-          itemType: overview
-          text: Connect SQL Server
+          text: ESU for Windows Server 2012
       # footerLink (optional)
       footerLink:
         url: ./servers/index.yml
@@ -74,14 +72,11 @@ conceptualContent:
           itemType: quickstart
           text: Connect a cluster to Azure Arc
         - url: ../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
-          itemType: tutorial
-          text: Use Azure Monitor Container Insights
-        - url: ./kubernetes/tutorial-use-gitops-flux2.md
           itemType: how-to-guide
           text: Apply configurations on clusters using GitOps
         - url: ./kubernetes/tutorial-arc-enabled-open-service-mesh.md
-          itemType: tutorial
-          text: Azure Arc-enabled Open Service Mesh
+          itemType: how-to-guide
+          text: Access connected clusters from anywhere
       # footerLink (optional)
       footerLink:
         url: ./kubernetes/index.yml
@@ -92,9 +87,6 @@ conceptualContent:
         - url: ./data/plan-azure-arc-data-services.md
           itemType: get-started
           text: Plan deployment
-        - url: ./data/install-client-tools.md
-          itemType: deploy
-          text: Install tools
         - url: ./data/create-sql-managed-instance.md
           itemType: how-to-guide
           text: Create SQL Managed Instance
@@ -117,36 +109,63 @@ conceptualContent:
         - url: /sql/sql-server/azure-arc/configure-advanced-data-security
           itemType: how-to-guide
           text: Configure advanced data security
-    # Card
-    - title: Management services supporting Azure Arc
-      links:
-        - url: ../azure-monitor/overview.md
-          itemType: overview
-          text: Azure Monitor overview
-        - url: ../governance/policy/overview.md
-          itemType: overview
-          text: Azure Policy overview
-        - url: ../defender-for-cloud/defender-for-cloud-introduction.md
-          itemType: overview
-          text: Microsoft Defender for Cloud overview
-        - url: ../automation/automation-intro.md
-          itemType: overview
-          text: Azure Automation overview
+      # footerLink (optional)
+      footerLink:
+        url: /sql/sql-server/azure-arc/
+        text: See more
     # Card
     - title: Azure Arc-enabled private clouds
       links:
         - url: ./resource-bridge/overview.md
           itemType: overview
-          text: Azure Arc resource bridge (preview)
+          text: Azure Arc resource bridge
         - url: ./vmware-vsphere/overview.md
           itemType: overview
-          text: Azure Arc-enabled VMware vSphere (preview)
+          text: Azure Arc-enabled VMware vSphere
         - url: ./system-center-virtual-machine-manager/overview.md
           itemType: overview
-          text: Azure Arc-enabled System Center Virtual Machine Manager (preview)
-    # Card
-    - title: Application services
-      links:
-        - url: ../app-service/overview-arc-integration.md
+          text: Azure Arc-enabled System Center Virtual Machine Manager
+        - url: /azure-stack/hci/manage/azure-arc-vm-management-overview
           itemType: overview
-          text: App Service, Functions, and Logic Apps on Azure Arc (preview)
+          text: Azure Arc VM management on Azure Stack HCI (preview)
+      # Card
+    - title: Training modules
+      links:
+        - url: /training/modules/intro-to-azure-arc/
+          itemType: training
+          text: Introduction to Azure Arc
+        - url: /training/modules/intro-to-arc-for-servers/
+          itemType: training
+          text: Introduction to Azure Arc-enabled servers
+        - url: /training/modules/intro-to-arc-enabled-kubernetes/
+          itemType: training
+          text: Introduction to Azure Arc-enabled Kubernetes
+        - url: /training/modules/intro-to-arc-enabled-data-services/
+          itemType: training
+          text: Introduction to Azure Arc-enabled data services
+
+additionalContent:
+  # Supports up to 4 subsections
+  sections:
+    - title: Explore more
+      items:
+        # Card
+        - title: Azure Arc blog
+          summary: Get the latest news from the Azure Arc team.
+          url: https://techcommunity.microsoft.com/t5/azure-arc-blog/bg-p/AzureArcBlog
+        # Card
+        - title: Azure Arc landing zone accelerator for hybrid and multicloud
+          summary: Establish patterns for building hybrid architectures.
+          url: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
+        # Card
+        - title: App Service, Functions, and Logic Apps on Azure Arc (preview)
+          summary: Run App Service, Functions, and Logic Apps on Azure Arc-enabled Kubernetes clusters.
+          url: /azure/app-service/overview-arc-integration
+        # Card
+        - title: AKS hybrid deployment options
+          summary: AKS hybrid simplifies on-premises Kubernetes clusters, natively connecting to Azure Arc.
+          url: https://learn.microsoft.com/en-us/azure/aks/hybrid/aks-hybrid-options-overview
+        # Card
+        - title: Azure IoT Operations Preview – enabled by Azure Arc
+          summary: Azure IoT Operations is a unified data plane for the edge that helps organizations deploy the industrial metaverse.
+          url: /azure/iot-operations/

@@ -23,7 +23,7 @@ The script in this article creates an Azure Cosmos DB for Table account and tabl
 
 - This script requires Azure CLI version 2.12.1 or later.
 
-  - You can run the script in the Bash environment in [Azure Cloud Shell](../../../../cloud-shell/quickstart.md). When Cloud Shell opens, make sure **Bash** appears in the environment field at the upper left of the shell window. Cloud Shell always has the latest version of Azure CLI.
+  - You can run the script in the Bash environment in [Azure Cloud Shell](../../../../cloud-shell/get-started.md). When Cloud Shell opens, make sure **Bash** appears in the environment field at the upper left of the shell window. Cloud Shell always has the latest version of Azure CLI.
 
     [![Launch Cloud Shell in a new window](../../../../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
@@ -31,7 +31,7 @@ The script in this article creates an Azure Cosmos DB for Table account and tabl
 
     ```azurecli
     subscription="<subscriptionId>" # add subscription here
-    
+
     az account set -s $subscription # ...or use 'az login'
     ```
 

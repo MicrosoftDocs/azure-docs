@@ -631,13 +631,6 @@ For Azure Data Factory v2 and Azure Synapse customers:
 - If automatic update is off and you've already upgraded your .NET Framework Runtime to 4.7.2 or later, you can manually download the latest 5.x and install it on your machine.
 - If automatic update is off and you haven't upgraded your .NET Framework Runtime to 4.7.2 or later. When you try to manually install self-hosted integration runtime 5.x and register the key, you will be required to upgrade your .NET Framework Runtime version first.
 
-
-For Azure Data Factory v1 customers:
-- Self-hosted integration runtime 5.X doesn't support Azure Data Factory v1.
-- The self-hosted integration runtime will be automatically upgraded to the latest version of 4.x. And the latest version of 4.x won't expire. 
-- If you try to manually install self-hosted integration runtime 5.x and register the key, you'll be notified that self-hosted integration runtime 5.x doesn't support Azure Data Factory v1.
-    
-    
 ## Self-hosted IR connectivity issues
 
 ### Self-hosted integration runtime can't connect to the cloud service
@@ -676,7 +669,7 @@ For Azure Data Factory v1 customers:
     1. If you don't receive the response you had expected, use one of the following methods, as appropriate:
                 
         * If you receive a "Remote name could not be resolved" message, there's a Domain Name System (DNS) issue. Contact your network team to fix the issue.
-        * If you receive an "ssl/tls cert is not trusted" message, [check the certificate](https://wu2.frontend.clouddatahub.net/) to see whether it's trusted on the machine, and then install the public certificate by using Certificate Manager. This action should mitigate the issue.
+        * If you receive an "ssl/tls cert is not trusted" message, check the certificate (```https://wu2.frontend.clouddatahub.net/```) to see whether it's trusted on the machine, and then install the public certificate by using Certificate Manager. This action should mitigate the issue.
         * Go to **Windows** > **Event viewer (logs)** > **Applications and Services Logs** > **Integration Runtime**, and check for any failure that's caused by DNS, a firewall rule, or company network settings. If you find such a failure, forcibly close the connection. Because every company has its own customized network settings, contact your network team to troubleshoot these issues.
     
     1. If "proxy" has been configured on the self-hosted integration runtime, verify that your proxy server can access the service endpoint. For a sample command, see [PowerShell, web requests, and proxies](https://stackoverflow.com/questions/571429/powershell-web-requests-and-proxies).    
@@ -705,7 +698,7 @@ For Azure Data Factory v1 customers:
     > [!NOTE] 
     > Proxy considerations:
     > * Check to see whether the proxy server needs to be put on the Safe Recipients list. If so, make sure [these domains](./data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network) are on the Safe Recipients list.
-    > * Check to see whether SSL/TLS certificate "wu2.frontend.clouddatahub.net/" is trusted on the proxy server.
+    > * Check to see whether SSL/TLS certificate `wu2.frontend.clouddatahub.net/` is trusted on the proxy server.
     > * If you're using Active Directory authentication on the proxy, change the service account to the user account that can access the proxy as "Integration Runtime Service."
 
 ### Error message: Self-hosted integration runtime node/logical self-hosted IR is in Inactive/ "Running (Limited)" state
@@ -914,7 +907,7 @@ How to determine whether you're affected:
     
     "The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. The remote certificate is invalid according to the validation procedure."
     
-    The simplest way to check the server certificate of the service is to open the service URL in your browser. For example, open the [check server certificate link](https://eu.frontend.clouddatahub.net/) on the machine where the self-hosted IR is installed, and then view the server certificate information.
+    The simplest way to check the server certificate of the service is to open the service URL in your browser. For example, open the check server certificate link (```https://eu.frontend.clouddatahub.net/```) on the machine where the self-hosted IR is installed, and then view the server certificate information.
     
     :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png" alt-text="Screenshot of the check server certificate pane of the Azure Data Factory service.":::
     
@@ -939,7 +932,7 @@ How to determine whether you're affected:
     
     :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png" alt-text="Screenshot showing the DigiCert Global Root G2 folder in the Trusted Root Certification Authorities directory.":::
     
-    If it isn't in the trusted root CA, [download it here](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
+    If it isn't in the trusted root CA, [download it here](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt). 
 
 
 ## Next steps

@@ -1,19 +1,18 @@
 ---
 title: "Content Safety error codes"
 titleSuffix: Azure AI services
-description: See the possible error codes for the Content Safety APIs.
+description: See the possible error codes for the Azure AI Content Safety APIs.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 05/09/2023
 ms.author: pafarley
 ---
 
-# Content Safety Error codes 
+# Azure AI Content Safety error codes 
 
 The content APIs may return the following error codes:
 

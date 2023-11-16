@@ -1,3 +1,4 @@
+items:
 - name: Azure Logic Apps documentation
   href: index.yml
 - name: Overview
@@ -67,8 +68,8 @@
     href: logic-apps-serverless-overview.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
-  - name: Access to Azure virtual networks
-    href: connect-virtual-network-vnet-isolated-environment-overview.md
+  - name: Mainframe modernization
+    href: mainframe-modernization-overview.md
   - name: Business continuity and disaster recovery
     href: business-continuity-disaster-recovery-guidance.md
   - name: Security
@@ -202,6 +203,8 @@
       href: logic-apps-diagnosing-failures.md
   - name: Access Azure virtual networks
     items:
+    - name: Access to Azure virtual networks
+      href: connect-virtual-network-vnet-isolated-environment-overview.md
     - name: Set up access for multiple integration service environments
       href: connect-virtual-network-vnet-set-up-single-ip-address.md
     - name: Add resources to integration service environments
@@ -217,7 +220,7 @@
     - name: Integration account and artifacts
       items:
       - name: Create integration account
-        href: logic-apps-enterprise-integration-create-integration-account.md
+        href: ./enterprise-integration/create-integration-account.md
       - name: Trading partners
         href: logic-apps-enterprise-integration-partners.md
       - name: Agreements
@@ -329,9 +332,15 @@
     - name: HTTP Webhook
       href: ../connectors/connectors-native-webhook.md
     - name: IBM 3270
-      href: ../connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270.md
+      href: ../connectors/integrate-3270-apps-ibm-mainframe.md
+    - name: IBM CICS
+      href: ../connectors/integrate-cics-apps-ibm-mainframe.md
     - name: IBM DB2
       href: ../connectors/connectors-create-api-db2.md
+    - name: IBM Host File
+      href: ../connectors/integrate-host-files-ibm-mainframe.md
+    - name: IBM IMS
+      href: ../connectors/integrate-ims-apps-ibm-mainframe.md
     - name: IBM Informix
       href: ../connectors/connectors-create-api-informix.md
     - name: IBM MQ
@@ -428,6 +437,8 @@
         href: monitor-b2b-messages-log-analytics.md
       - name: Create monitoring and tracking queries
         href: create-monitoring-tracking-queries.md
+      - name: Enable and view enhanced telemetry for Standard workflows
+        href: enable-enhanced-telemetry-standard-workflows.md
       - name: Tracking schemas for monitoring messages
         href: tracking-schemas-as2-x12-custom.md
   - name: Business continuity and disaster recovery
@@ -502,7 +513,7 @@
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
   - name: Microsoft Q&A question page
-    href: /answers/topics/azure-logic-apps.html
+    href: /answers/tags/134/azure-logic-apps
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-logic-apps
   - name: Twitter

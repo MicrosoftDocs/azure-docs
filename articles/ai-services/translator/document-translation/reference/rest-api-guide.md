@@ -5,10 +5,9 @@ description: View a list of with links to the Document Translation REST APIs.
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 09/07/2023
 ms.author: lajanuar
 ---
 
@@ -33,4 +32,4 @@ Document Translation is a cloud-based feature of the Azure AI Translator service
 |[**Cancel translation (DELETE)**](cancel-translation.md)| This method cancels a document translation that is currently processing or queued. |
 
 > [!div class="nextstepaction"]
-> [Explore our client libraries and SDKs for C# and Python.](../quickstarts/document-translation-sdk.md)
+> [Swagger UI](https://mtbatchppefrontendapp.azurewebsites.net/swagger/index.html) [Explore our client libraries and SDKs for C# and Python.](../quickstarts/document-translation-sdk.md) 

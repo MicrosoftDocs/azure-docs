@@ -4,6 +4,8 @@ description: Compare different plains available in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 08/29/2023
 ms.author: cshoe
@@ -24,7 +26,8 @@ Azure Container Apps features two different plan types.
 
 The Dedicated plan consists of a series of workload profiles that range from the default consumption profile to profiles that feature dedicated hardware customized for specialized compute needs.  
 
-You can select from general purpose and memory optimized [workflow profiles](workload-profiles-overview.md) that provide larger amounts of CPU and memory. You pay per instance of the workload profile, versus per app, and workload profiles can scale in and out as demand rises and falls.
+You can select from general purpose or specialized compute
+[workload profiles](workload-profiles-overview.md) that provide larger amounts of CPU and memory or GPU enabled features. You pay per instance of the workload profile, versus per app, and workload profiles can scale in and out as demand rises and falls.
 
 Use the Dedicated plan when you need any of the following in a single environment:
 

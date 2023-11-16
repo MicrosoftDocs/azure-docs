@@ -9,7 +9,7 @@ ms.date: 04/10/2023
 
 # Use GPUs for compute-intensive workloads on Azure Kubernetes Service (AKS)
 
-Graphical processing units (GPUs) are often used for compute-intensive workloads, such as graphics and visualization workloads. AKS supports GPU-enabled Linux node pools to run compute-intensive Kubernetes workloads. For more information on available GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-skus]. For AKS node pools, we recommend a minimum size of *Standard_NC6*. The NVv4 series (based on AMD GPUs) aren't supported with AKS.
+Graphical processing units (GPUs) are often used for compute-intensive workloads, such as graphics and visualization workloads. AKS supports GPU-enabled Linux node pools to run compute-intensive Kubernetes workloads. For more information on available GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-skus]. For AKS node pools, we recommend a minimum size of *Standard_NC6s_v3*. The NVv4 series (based on AMD GPUs) aren't supported with AKS.
 
 This article helps you provision nodes with schedulable GPUs on new and existing AKS clusters.
 
@@ -22,7 +22,7 @@ This article helps you provision nodes with schedulable GPUs on new and existing
 * You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 > [!NOTE]
-> If using an Azure Linux GPU node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [Using node OS auto-upgrade](./auto-upgrade-node-image.md#using-node-os-auto-upgrade).
+> If using an Azure Linux GPU node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [auto-upgrade](./auto-upgrade-node-image.md).
 
 ## Get the credentials for your cluster
 
@@ -45,7 +45,7 @@ There are two ways to add the NVIDIA device plugin:
 ### Update your cluster to use the AKS GPU image (preview)
 
 > [!NOTE]
-> If using an Azure Linux GPU node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [Using node OS auto-upgrade](./auto-upgrade-node-image.md#using-node-os-auto-upgrade).
+> If using an Azure Linux GPU node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [auto-upgrade](./auto-upgrade-node-image.md).
 
 AKS provides a fully configured AKS image containing the [NVIDIA device plugin for Kubernetes][nvidia-github].
 
@@ -95,7 +95,7 @@ Now that you updated your cluster to use the AKS GPU image, you can add a node p
         --cluster-name myAKSCluster \
         --name gpunp \
         --node-count 1 \
-        --node-vm-size Standard_NC6 \
+        --node-vm-size Standard_NC6s_v3 \
         --node-taints sku=gpu:NoSchedule \
         --aks-custom-headers UseGPUDedicatedVHD=true \
         --enable-cluster-autoscaler \
@@ -105,7 +105,7 @@ Now that you updated your cluster to use the AKS GPU image, you can add a node p
 
   The previous example command adds a node pool named *gpunp* to *myAKSCluster* in *myResourceGroup* and uses parameters to configure the following node pool settings:
 
-  * `--node-vm-size`: Sets the VM size for the node in the node pool to *Standard_NC6*.
+  * `--node-vm-size`: Sets the VM size for the node in the node pool to *Standard_NC6s_v3*.
   * `--node-taints`: Specifies a *sku=gpu:NoSchedule* taint on the node pool.
   * `--aks-custom-headers`: Specifies a specialized AKS GPU image, *UseGPUDedicatedVHD=true*. If your GPU sku requires generation 2 VMs, use *--aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true* instead.
   * `--enable-cluster-autoscaler`: Enables the cluster autoscaler.
@@ -127,7 +127,7 @@ You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on eac
         --cluster-name myAKSCluster \
         --name gpunp \
         --node-count 1 \
-        --node-vm-size Standard_NC6 \
+        --node-vm-size Standard_NC6s_v3 \
         --node-taints sku=gpu:NoSchedule \
         --enable-cluster-autoscaler \
         --min-count 1 \
@@ -136,7 +136,7 @@ You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on eac
 
     The previous example command adds a node pool named *gpunp* to *myAKSCluster* in *myResourceGroup* and uses parameters to configure the following node pool settings:
 
-    * `--node-vm-size`: Sets the VM size for the node in the node pool to *Standard_NC6*.
+    * `--node-vm-size`: Sets the VM size for the node in the node pool to *Standard_NC6s_v3*.
     * `--node-taints`: Specifies a *sku=gpu:NoSchedule* taint on the node pool.
     * `--enable-cluster-autoscaler`: Enables the cluster autoscaler.
     * `--min-count`: Configures the cluster autoscaler to maintain a minimum of one node in the node pool.
@@ -188,7 +188,7 @@ You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on eac
             value: "gpu"
             effect: "NoSchedule"
           containers:
-          - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:1.11
+          - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:v0.14.1
             name: nvidia-device-plugin-ctr
             securityContext:
               allowPrivilegeEscalation: false

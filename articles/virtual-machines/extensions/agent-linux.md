@@ -76,7 +76,7 @@ Testing has confirmed that the following systems work with the Azure Linux VM Ag
 | Azure Linux | 2.x | 2.x |
 | openSUSE | 12.3+ | *Not supported* |
 | Oracle Linux | 6.4+, 7.x+, 8.x+ | *Not supported* |
-| Red Hat Enterprise Linux | 6.7+, 7.x+,  8.x+ | 8.6+, 9.0+ |
+| Red Hat Enterprise Linux | 6.7+, 7.x+,  8.x+, 9.x+ | 8.6+, 9.0+ |
 | Rocky Linux | 9.x+ | 9.x+ |
 | SLES | 12.x+, 15.x+ | 15.x SP4+ |
 | Ubuntu | 18.04+, 20.04+, 22.04+ | 20.04+, 22.04+ |

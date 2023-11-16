@@ -40,7 +40,7 @@ Define your application and service architecture, inventory current systems, and
 | Move on-premises dependencies to the cloud | To help ensure a resilient solution, consider moving existing application dependencies to the cloud. |
 | Migrate existing apps to b2clogin.com | The deprecation of login.microsoftonline.com will go into effect for all Azure AD B2C tenants on 04 December 2020. [Learn more](b2clogin.md). |
 | Use Identity Protection and Conditional Access | Use these capabilities for significantly greater control over risky authentications and access policies. Azure AD B2C Premium P2 is required. [Learn more](conditional-access-identity-protection-overview.md). |
-|Tenant size | You need to plan with Azure AD B2C tenant size in mind. By default, Azure AD B2C tenant can accommodate 1 million objects (user accounts and applications). You can increase this limit to 5 million objects by adding a custom domain to your tenant, and verifying it. If you need a bigger tenant size, you need to contact [Support](find-help-open-support-ticket.md).|
+|Tenant size | You need to plan with Azure AD B2C tenant size in mind. By default, Azure AD B2C tenant can accommodate 1.25 million objects (user accounts and applications). You can increase this limit to 5.25 million objects by adding a custom domain to your tenant, and verifying it. If you need a bigger tenant size, you need to contact [Support](find-help-open-support-ticket.md).|
 | Use Identity Protection and Conditional Access | Use these capabilities for greater control over risky authentications and access policies. Azure AD B2C Premium P2 is required. [Learn more](conditional-access-identity-protection-overview.md). |
 
 ## Implementation
@@ -50,7 +50,7 @@ During the implementation phase, consider the following recommendations.
 | Best practice | Description |
 |--|--|
 | Edit custom policies with the Azure AD B2C extension for Visual Studio Code | Download Visual Studio Code and this community-built [extension from the Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c). While not an official Microsoft product, the Azure AD B2C extension for Visual Studio Code includes several features that help make working with custom policies easier. |
-| Learn how to troubleshoot Azure AD B2C | Learn how to [troubleshoot custom policies](./troubleshoot-custom-policies.md?tabs=applications) during development. Learn what a normal authentication flow looks like and use tools for discovering anomalies and errors. For example, use [Application Insights](troubleshoot-with-application-insights.md) to review output logs of user journeys. |
+| Learn how to troubleshoot Azure AD B2C | Learn how to [troubleshoot custom policies](./troubleshoot.md?tabs=applications) during development. Learn what a normal authentication flow looks like and use tools for discovering anomalies and errors. For example, use [Application Insights](troubleshoot-with-application-insights.md) to review output logs of user journeys. |
 | Leverage our library of proven custom policy patterns | Find [samples](https://github.com/azure-ad-b2c/samples) for enhanced Azure AD B2C customer identity and access management (CIAM) user journeys. |
 
 ## Testing
@@ -63,7 +63,7 @@ Test and automate your Azure AD B2C implementation.
 | Functional and UI testing | Test the user flows end-to-end. Add synthetic tests every few minutes using Selenium, VS Web Test, etc. |
 | Pen-testing | Before going live with your solution, perform penetration testing exercises to verify all components are secure, including any third-party dependencies. Verify you've secured your APIs with access tokens and used the right authentication protocol for your application scenario. Learn more about [Penetration testing](../security/fundamentals/pen-testing.md) and the [Microsoft Cloud Unified Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1). |
 | A/B Testing | Flight your new features with a small, random set of users before rolling out to your entire population. With JavaScript enabled in Azure AD B2C, you can integrate with A/B testing tools like Optimizely, Clarity, and others. |
-| Load testing | Azure AD B2C can scale, but your application can scale only if all of its dependencies can scale. Load-test your APIs and CDN. Learn more about [Resilience through developer best practices](../active-directory/fundamentals/resilience-b2c-developer-best-practices.md).|
+| Load testing | Azure AD B2C can scale, but your application can scale only if all of its dependencies can scale. Load-test your APIs and CDN. Learn more about [Resilience through developer best practices](../active-directory/architecture/resilience-b2c-developer-best-practices.md).|
 | Throttling |  Azure AD B2C throttles traffic if too many requests are sent from the same source in a short period of time. Use several traffic sources while load testing, and handle the `AADB2C90229` error code gracefully in your applications. |
 | Automation | Use continuous integration and delivery (CI/CD) pipelines to automate testing and deployments, for example, [Azure DevOps](deploy-custom-policies-devops.md). |
 
@@ -91,4 +91,3 @@ Stay up to date with the state of the service and find support options.
 | [Service updates](https://azure.microsoft.com/updates/?product=active-directory-b2c) |  Stay up to date with Azure AD B2C product updates and announcements. |
 | [Microsoft Support](find-help-open-support-ticket.md) | File a support request for Azure AD B2C technical issues. Billing and subscription management support is provided at no cost. |
 | [Azure status](https://azure.status.microsoft/status) | View the current health status of all Azure services. |
-

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to use Microsoft Azure Maps to create store locator web applications.
 author: sinnypan
 ms.author: sipa
-ms.date: 01/03/2022
+ms.date: 11/01/2023
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -75,7 +75,7 @@ This section lists the Azure Maps features that are demonstrated in the Contoso 
 
 The following screenshot shows the general layout of the Contoso Coffee store locator application. To view and interact with the live sample, see the [Simple Store Locator] sample application on the **Azure Maps Code Samples** site.
 
-:::image type="content" source="./media/tutorial-create-store-locator/store-locator-wireframe.png" alt-text="A screenshot the Contoso Coffee store locator Azure Maps sample application.":::
+:::image type="content" source="./media/tutorial-create-store-locator/store-locator-wireframe.png" lightbox="./media/tutorial-create-store-locator/store-locator-wireframe.png" alt-text="A screenshot showing the Contoso Coffee store locator Azure Maps sample application.":::
 
 To maximize the usefulness of this store locator, we include a responsive layout that adjusts when a user's screen width is smaller than 700 pixels wide. A responsive layout makes it easy to use the store locator on a small screen, like on a mobile device. Here's a screenshot showing a sample of the small-screen layout:  
 
@@ -997,7 +997,7 @@ The first time a user selects the My Location button, the browser displays a sec
 
 When you zoom in close enough in an area that has coffee shop locations, the clusters separate into individual locations. Select one of the icons on the map or select an item in the side panel to see a pop-up window. The pop-up shows information for the selected location.
 
-![Screenshot of the finished store locator](./media/tutorial-create-store-locator/finished-simple-store-locator.png)
+:::image type="content" source="./media/tutorial-create-store-locator/finished-simple-store-locator.png" lightbox="./media/tutorial-create-store-locator/finished-simple-store-locator.png" alt-text="Screenshot of the finished store locator.":::
 
 If you resize the browser window to fewer than 700 pixels wide or open the application on a mobile device, the layout changes to be better suited for smaller screens.
 

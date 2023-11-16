@@ -16,12 +16,7 @@ Get connected to the Synapse SQL capability in Azure Synapse Analytics.
 
 ## Supported tools for serverless SQL pool
 
-[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) is fully supported starting from version 1.18.0. SSMS is partially supported starting from version 18.5, you can use it to connect and query only.
-
-> [!NOTE]
-> If an AAD login has a connection open for more than 1 hour at time of query execution, any query that relies on AAD will fail. This includes querying storage using AAD pass-through and statements that interact with AAD (like CREATE EXTERNAL PROVIDER). This affects every tool that keeps connections open, like in query editor in SSMS and ADS. Tools that open new connections to execute a query, like Synapse Studio, are not affected.
-
-> You can restart SSMS or connect and disconnect in ADS to mitigate this issue. 
+[Azure Data Studio](/azure-data-studio/download-azure-data-studio) is fully supported starting from version 1.18.0. SSMS is partially supported starting from version 18.5, you can use it to connect and query only.
 
 ## Find your server name
 

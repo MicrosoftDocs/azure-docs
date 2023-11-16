@@ -1,7 +1,7 @@
 ---
 title: Overview Socket.IO on Azure
 description: Get an overview of Azure's support for the open-source Socket.IO library.
-keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO
+keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO, socketio, azure socketio
 author: kevinguo-ed
 ms.author: kevinguo
 ms.date: 07/27/2023
@@ -10,9 +10,6 @@ ms.topic: how-to
 ---
 
 # Overview Socket.IO on Azure
-
-> [!NOTE]
-> The support of Socket.IO on Azure is in public preview. We welcome any feedback and suggestions. Please reach out to the service team at awps@microsoft.com.
 
 Socket.IO is a widely popular open-source library for real-time messaging between clients and a server. Managing stateful and persistent connections between clients and a server is often a source of frustration for Socket.IO users. The problem is more acute when multiple Socket.IO instances are spread across servers. 
 

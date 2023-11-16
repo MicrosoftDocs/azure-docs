@@ -4,14 +4,20 @@
   items:
   - name: About Azure Arc-enabled VMware vSphere
     href: overview.md
-  - name: Switch to the new preview version
-    href: switch-to-new-preview-version.md
+  - name: Switch to the new version
+    href: switch-to-new-version.md
+- name: Concepts
+  items:   
+  - name: Azure Arc agent
+    href: azure-arc-agent.md
 - name: Quickstarts
   items:
   - name: Connect vCenter to Azure Arc
     href: quick-start-connect-vcenter-to-arc-using-script.md
+- name: Tutorial
+  items:
   - name: Create a virtual machine on VMware vCenter
-    href: quick-start-create-a-vm.md 
+    href: quick-start-create-a-vm.md
 - name: How-to guides
   items:
   - name: Deploy

@@ -3,24 +3,22 @@ metadata:
   title: "Frequently asked questions - Azure AI Content Safety"
   titleSuffix: Azure AI services
   description: Get answers to frequently asked questions about Azure AI Content Safety.
-  services: cognitive-services
   author: PatrickFarley
   manager: nitinme
 
-  ms.service: cognitive-services
-  ms.subservice: content-safety
+  ms.service: azure-ai-content-safety
   ms.topic: faq
   ms.date: 07/03/2023
   ms.author: pafarley
   ms.custom:
-title: AI Content Safety API Frequently Asked Questions
+title: Azure AI Content Safety API Frequently Asked Questions
 summary: |
   > [!TIP]
   > If you can't find answers to your questions in this FAQ, ask the Cognitive Services API community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) or contact Help and Support on [UserVoice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858)
 
 
 sections:
-  - name: AI Content Safety API frequently asked questions
+  - name: Azure AI Content Safety API frequently asked questions
     questions:
       - question: |
           What is the difference between the Azure Content Moderator and Azure AI Content Safety services?
@@ -28,7 +26,7 @@ sections:
           The main differences between the two services are:
 
           - Azure Content Moderator uses binary classification for each content type (such as `profanity` or `adult`), while Azure AI Content Safety uses multiple classes (such as `sexual`, `violent`, `hate`, and `self-harm`) with different severity levels.
-          - Azure Content Safety supports multilingual content moderation in English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese, while Azure Content Moderator's AI classifiers only support English.
+          - Azure AI Content Safety supports multilingual content moderation in English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese, while Azure Content Moderator's AI classifiers only support English.
           - Azure Content Moderator has a built-in term list and a custom term list feature, while Azure AI Content Safety does not have a built-in term list but relies on advanced language and vision models to detect harmful content. It also provides a custom term list feature for incident response and customization.
           - Azure AI Content Safety has an interactive studio for exploring and testing the service capabilities, while Azure Content Moderator does not.
       - question: |
