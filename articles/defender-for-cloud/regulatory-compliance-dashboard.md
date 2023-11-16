@@ -88,11 +88,11 @@ The regulatory compliance has both automated and manual assessments that might n
 
 1. Select a particular resource to view more details and resolve the recommendation for that resource. <br>For example, in the **Azure CIS 1.1.0** standard, select the recommendation **Disk encryption should be applied on virtual machines**.
 
-    :::image type="content" source="./media/regulatory-compliance-dashboard/sample-recommendation.png" alt-text="Selecting a recommendation from a standard leads directly to the recommendation details page.":::
+    :::image type="content" source="./media/regulatory-compliance-dashboard/sample-recommendation.png" alt-text="Screenshot that shows that selecting a recommendation from a standard leads directly to the recommendation details page.":::
 
 1. In this example, when you select **Take action** from the recommendation details page, you arrive in the Azure Virtual Machine pages of the Azure portal, where you can enable encryption from the **Security** tab:
 
-    :::image type="content" source="./media/regulatory-compliance-dashboard/encrypting-vm-disks.png" alt-text="Take action button on the recommendation details page leads to the remediation options.":::
+    :::image type="content" source="./media/regulatory-compliance-dashboard/encrypting-vm-disks.png" alt-text="Screenshot that shows the take action button on the recommendation details page leads to the remediation options.":::
 
     For more information about how to apply recommendations, see [Implementing security recommendations in Microsoft Defender for Cloud](review-security-recommendations.md).
 
@@ -126,15 +126,15 @@ The regulatory compliance has automated and manual assessments that might need t
 
     The report provides a high-level summary of your compliance status for the selected standard based on Defender for Cloud assessments data. The report's organized according to the controls of that particular standard. The report can be shared with relevant stakeholders, and might provide evidence to internal and external auditors.
 
-    :::image type="content" source="./media/regulatory-compliance-dashboard/download-report.png" alt-text="Using the toolbar in Defender for Cloud's regulatory compliance dashboard to download compliance reports.":::
+    :::image type="content" source="./media/regulatory-compliance-dashboard/download-report.png" alt-text="Screenshot that shows using the toolbar in Defender for Cloud's regulatory compliance dashboard to download compliance reports.":::
 
 1. To download Azure and Dynamics **certification reports** for the standards applied to your subscriptions, use the **Audit reports** option.
 
-    :::image type="content" source="media/release-notes/audit-reports-regulatory-compliance-dashboard.png" alt-text="Using the toolbar in Defender for Cloud's regulatory compliance dashboard to download Azure and Dynamics certification reports.":::
+    :::image type="content" source="media/release-notes/audit-reports-regulatory-compliance-dashboard.png" alt-text="Screenshot that shows using the toolbar in Defender for Cloud's regulatory compliance dashboard to download Azure and Dynamics certification reports.":::
 
 1. Select the tab for the relevant reports types (PCI, SOC, ISO, and others) and use filters to find the specific reports you need:
 
-    :::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard-ga.png" alt-text="Filtering the list of available Azure Audit reports using tabs and filters.":::
+    :::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard-ga.png" alt-text="Screenshot that shows filtering the list of available Azure Audit reports using tabs and filters.":::
 
     For example, from the PCI tab you can download a ZIP file containing a digitally signed certificate demonstrating Microsoft Azure, Dynamics 365, and Other Online Services' compliance with ISO22301 framework, together with the necessary collateral to interpret and present the certificate.
 
@@ -165,11 +165,11 @@ Use continuous export data to an Azure Event Hubs or a Log Analytics workspace:
 
 1. Export all regulatory compliance data in a **continuous stream**:
 
-    :::image type="content" source="media/regulatory-compliance-dashboard/export-compliance-data-stream.png" alt-text="Continuously export a stream of regulatory compliance data." lightbox="media/regulatory-compliance-dashboard/export-compliance-data-stream.png":::
+    :::image type="content" source="media/regulatory-compliance-dashboard/export-compliance-data-stream.png" alt-text="Screenshot that shows how to continuously export a stream of regulatory compliance data." lightbox="media/regulatory-compliance-dashboard/export-compliance-data-stream.png":::
 
 1. Export **weekly snapshots** of your regulatory compliance data:
 
-    :::image type="content" source="media/regulatory-compliance-dashboard/export-compliance-data-snapshot.png" alt-text="Continuously export a weekly snapshot of regulatory compliance data." lightbox="media/regulatory-compliance-dashboard/export-compliance-data-snapshot.png":::
+    :::image type="content" source="media/regulatory-compliance-dashboard/export-compliance-data-snapshot.png" alt-text="Screenshot that shows how to continuously export a weekly snapshot of regulatory compliance data." lightbox="media/regulatory-compliance-dashboard/export-compliance-data-snapshot.png":::
 
 > [!TIP]
 > You can also manually export reports about a single point in time directly from the regulatory compliance dashboard. Generate these **PDF/CSV reports** or **Azure and Dynamics certification reports** using the **Download report** or **Audit reports** toolbar options. 
@@ -180,7 +180,7 @@ Defender for Cloud's workflow automation feature can trigger Logic Apps whenever
 
 For example, you might want Defender for Cloud to email a specific user when a compliance assessment fails. You'll need to first create the logic app (using [Azure Logic Apps](../logic-apps/logic-apps-overview.md))  and then set up the trigger in a new workflow automation as explained in [Automate responses to Defender for Cloud triggers](workflow-automation.md).
 
-:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Using changes to regulatory compliance assessments to trigger a workflow automation." lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
+:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Screenshot that shows how to use changes to regulatory compliance assessments to trigger a workflow automation." lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
 ## Next steps
 
