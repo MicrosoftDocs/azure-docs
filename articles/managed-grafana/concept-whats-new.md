@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
 ms.topic: conceptual
-ms.date: 10/30/2023
+ms.date: 10/01/2023
 
 ---
 
@@ -19,7 +19,7 @@ ms.date: 10/30/2023
 
 * [Microsoft Entra groups](how-to-sync-teams-with-azure-ad-groups.md) is available in preview in Azure Managed Grafana.
 
-* Plugin management is available in preview. This feature lets you manage installed Grafana plugins directly within an Azure Managed Grafana workspace.
+* [Plugin management](how-to-manage-plugins.md) is available in preview. This feature lets you manage installed Grafana plugins directly within an Azure Managed Grafana workspace.
 
 * Azure Monitor workspaces integration is available in preview. This feature allows you to link your Grafana dashboard to Azure Monitor workspaces. This integration simplifies the process of connecting AKS clusters to an Azure Managed Grafana workspace and collecting metrics.
 

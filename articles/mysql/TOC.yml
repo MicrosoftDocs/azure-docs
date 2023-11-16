@@ -88,6 +88,8 @@
         href: flexible-server/concepts-limitations.md
       - name: Storage IOPS
         href: flexible-server/concepts-storage-iops.md
+      - name: Accelerated Logs
+        href: flexible-server/concepts-accelerated-logs.md    
     - name: Networking
       items:
       - name: Networking concepts
@@ -210,6 +212,8 @@
         href: flexible-server/how-to-move-regions.md
       - name: Major version upgrade
         href: flexible-server/how-to-upgrade.md
+      - name: Server Maintenance
+        href: flexible-server/how-to-maintenance-portal.md
     - name: Networking
       items:
       - name: Configure Private access (VNet Integration)
@@ -232,10 +236,6 @@
           href: flexible-server/how-to-networking-private-link-deny-public-access.md
         - name: Azure CLI
           href: flexible-server/how-to-networking-private-link-azure-cli.md
-      - name: Service Maintenance
-        items:
-      - name: Configure Scheduled Maintenance using Azure portal
-        href: flexible-server/how-to-maintenance-portal.md
     - name: High Availability
       items:
       - name: Configure Zone redundant high availability
@@ -707,6 +707,8 @@
     href: migrate/how-to-decide-on-right-migration-tools.md
   - name: Migrate data from MySQL on-premises to Azure Database for MySQL
     href: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
+  - name: Migrate MySQL on-premise or Virtual Machine (VM) workload to Flexible Server using Azure MySQL Import CLI
+    href: migrate/migrate-external-mysql-import-cli.md    
   - name: Migrate MySQL - Single Server to Flexible Server offline using DMS (classic)
     href: ../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
   - name: Migrate MySQL - Single Server to Flexible Server online using DMS (classic)

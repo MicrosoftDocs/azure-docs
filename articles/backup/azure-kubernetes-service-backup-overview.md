@@ -3,12 +3,14 @@ title: Azure Kubernetes Service backup - Overview
 description: This article gives you an understanding about Azure Kubernetes Service (AKS) backup, the cloud-native process to back up and restore the containerized applications and data running in AKS clusters.
 ms.topic: conceptual
 ms.service: backup
-ms.date: 04/05/2023
+ms.custom:
+  - ignite-2023
+ms.date: 11/14/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# About Azure Kubernetes Service backup using Azure Backup (preview)
+# About Azure Kubernetes Service backup using Azure Backup
 
 [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) backup is a simple, cloud-native process to back up and restore the containerized applications and data running in AKS clusters. You can configure scheduled backup for cluster state and application data (persistent volumes - CSI driver-based Azure Disks). The solution provides granular control to choose a specific namespace or an entire cluster to back up or restore by storing backups locally in a blob container and as disk snapshots. With AKS backup, you can unlock end-to-end scenarios - operational recovery, cloning developer/test environments, or cluster upgrade scenarios. 
 
@@ -59,17 +61,124 @@ You can restore data from any point-in-time for which a recovery point exists. A
 
 Azure Backup provides an instant restore experience because the snapshots are stored locally in your subscription. Operational backup gives you the option to restore all the backed-up items or use the granular controls to select specific items from the backup by choosing namespaces and other available filters. Also, you've the ability to perform the restore on the original AKS cluster (that's backed up) or alternate AKS cluster in the same region and subscription.
 
+## Custom Hooks for backup and restore
+
+You  can now use the Custom Hooks capability available in Azure Backup for AKS. This helps to do Application Consistent Snapshots of Volumes that are used for databases deployed as containerized workloads.
+
+### What are Custom Hooks? 
+
+Azure Backup for AKS enables you to execute Custom Hooks as part of the backup and restore operation. Hooks are commands configured to run one or more commands to execute in a pod under a container during the backup operation or after restore. They allow you to define these hooks as a custom resource and deploy in the AKS cluster to be backed up or restored. Once the custom resource is deployed in the AKS cluster in the required Namespace, you need to provide the details as input for the Configure Backup/Restore flow, and the Backup extension runs the hooks as defined in the YAML file.
+
+>[!Note]
+>Hooks aren't executed in a *shell* on the containers.
+
+There are two types of hooks:
+
+### Backup Hooks
+
+In a Backup Hook, you can configure the commands to run it before any custom action processing (pre-hooks), or after all custom actions are complete and any additional items specified by custom actions are backed up (post-hooks).
+
+The YAML template for the Custom Resource to be deployed with Backup Hooks is defined below:
+
+```json
+apiVersion: clusterbackup.dataprotection.microsoft.com/v1alpha1
+kind: BackupHook
+metadata:
+  # BackupHook CR Name and Namespace
+  name: bkphookname0
+  namespace: default
+spec:
+  # BackupHook Name. This is the name of the hook that will be executed during backup.
+  # compulsory
+  name: hook1
+  # Namespaces where this hook will be executed.
+  includedNamespaces: 
+  - hrweb
+  excludedNamespaces:
+  labelSelector:
+  # PreHooks is a list of BackupResourceHooks to execute prior to backing up an item.
+  preHooks:
+    - exec:
+        # Container is the container in the pod where the command should be executed.
+        container: webcontainer
+        # Command is the command and arguments to execute.
+        command:
+          - /bin/uname
+          - -a
+        # OnError specifies how Velero should behave if it encounters an error executing this hook  
+        onError: Continue
+        # Timeout is the amount of time to wait for the hook to complete before considering it failed.
+        timeout: 10s
+    - exec:
+        command:
+        - /bin/bash
+        - -c
+        - echo hello > hello.txt && echo goodbye > goodbye.txt
+        container: webcontainer
+        onError: Continue
+  # PostHooks is a list of BackupResourceHooks to execute after backing up an item.
+  postHooks:
+    - exec:
+        container: webcontainer
+        command:
+          - /bin/uname
+          - -a
+        onError: Continue
+        timeout: 10s
+
+``` 
+
+### Restore Hooks
+
+In the Restore Hook script, custom commands or scripts are written to be executed in containers of a restored Kubernetes pod.
+
+The YAML template for the Custom Resource to be deployed with Restore Hooks is defined below:
+
+```json
+apiVersion: clusterbackup.dataprotection.microsoft.com/v1alpha1
+kind: RestoreHook
+metadata:
+  name: restorehookname0
+  namespace: default
+spec:
+  # Name is the name of this hook.
+  name: myhook-1  
+  # Restored Namespaces where this hook will be executed.
+  includedNamespaces: 
+  excludedNamespaces:
+  labelSelector:
+  # PostHooks is a list of RestoreResourceHooks to execute during and after restoring a resource.
+  postHooks:
+    - exec:
+        # Container is the container in the pod where the command should be executed.
+        container: webcontainer
+        # Command is the command and arguments to execute from within a container after a pod has been restored.
+        command:
+          - /bin/bash
+          - -c
+          - echo hello > hello.txt && echo goodbye > goodbye.txt
+        # OnError specifies how Velero should behave if it encounters an error executing this hook
+        # default value is Continue
+        onError: Continue
+        # Timeout is the amount of time to wait for the hook to complete before considering it failed.
+        execTimeout: 30s
+        # WaitTimeout defines the maximum amount of time Velero should wait for the container to be ready before attempting to run the command.
+        waitTimeout: 5m
+
+
+
+```
+
+Learn [how to use Hooks during AKS backup](azure-kubernetes-service-cluster-backup.md#use-hooks-during-aks-backup).
+
 ## Pricing
 
-You won't incur any management charges or instance fee when using AKS backup for Operational Tier in preview. However, you'll incur the  charges for:
+You'll incur the  charges for:
 
-- Retention of backup data stored in the blob container. 
-- Disk-based persistent volume snapshots are created by AKS backup are stored in the resource group in your Azure subscription and incur Snapshot Storage charges. Because the snapshots aren't copied to the Backup vault, Backup Storage cost doesn't apply. For more information on the snapshot pricing, see [Managed Disk Pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+- **Protected Instance fee**: On configuring backup for an AKS cluster, a Protected Instance gets created. Each Instance has specific number of *Namespaces* that get backed up defined under **Backup Configuration**. Thus, Azure Backup for AKS charges *Protected Instance fee* on per *Namespace* basis per month.
 
-AKS backup uses incremental snapshots of the Disk-based persistent volumes. Incremental snapshots are charged *per GiB of the storage occupied by the delta changes* since the last snapshot. For example, if you're using a disk-based persistent volume with a provisioned size of *128 GiB*, with *100 GiB* used, then the first incremental snapshot is charged only for the used size of *100 GiB*. *20 GiB* of data is added on the disk before you create the second snapshot. Now, the second incremental snapshot is charged for only *20 GiB*.
-
-Incremental snapshots are always stored on standard storage, irrespective of the storage type of parent-managed disks and are charged based on the pricing of standard storage. For example, incremental snapshots of a Premium SSD-Managed Disk are stored on standard storage. By default, they're stored on zonal redundant storage (ZRS) in regions that support ZRS. Otherwise, they're stored  locally redundant storage (LRS). The per GiB pricing of both the options, LRS and ZRS, is the same.
+- **Snapshot fee**: Azure Backup for AKS protects Disk-based Persistent Volume by taking snapshots that are stored in the resource group in your Azure subscription. These snapshots incur Snapshot Storage charges. Because the snapshots aren't copied to the Backup vault, Backup Storage cost doesn't apply. For more information on the snapshot pricing, see [Managed Disk Pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Next steps
 
-- [Prerequisites for Azure Kubernetes Service backup (preview)](azure-kubernetes-service-cluster-backup-concept.md)
+- [Prerequisites for Azure Kubernetes Service backup](azure-kubernetes-service-cluster-backup-concept.md)

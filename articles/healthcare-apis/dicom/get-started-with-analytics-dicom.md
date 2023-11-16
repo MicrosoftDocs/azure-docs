@@ -4,7 +4,7 @@ description: This article demonstrates how to use Azure Data Factory and Microso
 services: healthcare-apis
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: quickstart
 ms.date: 10/13/2023
 ms.author: mmitrik
@@ -16,7 +16,7 @@ This article describes how to get started by using DICOM&reg; data in analytics 
 
 ## Prerequisites
 
-Before you get started, ensure that you've done the following steps:
+Before you get started, complete these steps:
 
 * Deploy an instance of the [DICOM service](deploy-dicom-services-in-azure.md).
 * Create a [storage account with Azure Data Lake Storage Gen2 capabilities](../../storage/blobs/create-data-lake-storage-account.md) by enabling a hierarchical namespace:
@@ -214,7 +214,7 @@ You can monitor trigger runs and their associated pipeline runs on the **Monitor
 
 1. Repeat steps 2 to 9 to add the remaining shortcuts to the other Delta tables in the storage account (for example, `series` and `study`).
 
-After you've created the shortcuts, expand a table to show the names and types of the columns.
+After you create the shortcuts, expand a table to show the names and types of the columns.
 
 :::image type="content" source="media/fabric-shortcut-schema.png" alt-text="Screenshot that shows the table columns listed in the Explorer view." lightbox="media/fabric-shortcut-schema.png":::
 

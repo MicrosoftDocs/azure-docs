@@ -3,7 +3,7 @@ title: Use features of the Remote Desktop Web client - Azure Virtual Desktop
 description: Learn how to use features of the Remote Desktop Web client when connecting to Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 11/07/2023
 ms.author: daknappe
 ---
 
@@ -33,15 +33,15 @@ Native resolution is set to off by default. To turn on native resolution:
 
 ### New user interface
 
-A new user interface is available by default. It is recommended to use the new client, as the original version will be deprecated soon.  
+A new user interface is available by default. It is recommended to use the New Client, as the original version will be deprecated soon.  
 
-To revert to the original user interface, toggle the new client to **Off** on the top navigation bar.
+To revert to the original user interface, toggle the New Client to **Off** on the top navigation bar.
 
 ### Grid view and list view 
 
 You can change the view of remote resources assigned to you between grid view (default) and list view. To change between grid view and list view:
 
-1. Sign in to the Remote Desktop Web client and make sure the new client toggle is set to **On**. Then, select **Settings** on the taskbar. 
+1. Sign in to the Remote Desktop Web client and make sure the New Client toggle is set to **On**. Then, select **Settings** on the taskbar. 
 
 1. In the top-right hand corner, select the **Grid View** icon or the **List View** icon. The change will take effect immediately.
 
@@ -49,7 +49,7 @@ You can change the view of remote resources assigned to you between grid view (d
 
 You can change between light mode (default) and dark mode. To change between light mode and dark mode:
 
-1. Sign in to the Remote Desktop Web client and make sure the new client toggle is set to **On**. Then, select **Settings** on the taskbar. 
+1. Sign in to the Remote Desktop Web client and make sure the New Client toggle is set to **On**. Then, select **Settings** on the taskbar. 
 
 1. Toggle **Dark Mode** to **On** to use dark mode, or **Off** to use light mode. The change will take effect immediately.
 
@@ -164,11 +164,11 @@ If you have another Remote Desktop client installed, you can download an RDP fil
 
 1. Open the downloaded RDP file in your Remote Desktop client to launch a remote session.
 
-## Reset user settings (preview)
+## Reset user settings
 
 If you want to reset your user settings back to the default, you can do this in the web client for the current browser. To reset user settings:
 
-1. Sign in to the Remote Desktop Web client and make sure you have toggled **Try the new client (Preview)** to **On**, then select **Settings** on the taskbar.
+1. Sign in to the Remote Desktop Web client and make sure you have toggled **New Client** to **On**, then select **Settings** on the taskbar.
 
 1. Select **Reset user settings**. You'll need to confirm that you want reset the web client settings to default.
 

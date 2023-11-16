@@ -133,7 +133,7 @@ Use the following tabs to select where your model is located.
 
 # [Local model](#tab/use-local)
 
-:::code language="yaml" source="~/azureml-examples-main/CLI/assets/model/local-file.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/model/local-file.yml":::
 
 ```bash
 az ml model create -f <file-name>.yml
@@ -409,7 +409,7 @@ Create a job specification YAML file (`<file-name>.yml`). Specify in the `inputs
 1. The `type`; whether the model is a `mlflow_model`,`custom_model` or `triton_model`. 
 1. The `path` of where your data is located; can be any of the paths outlined in the [Supported Paths](#supported-paths) section. 
 
-:::code language="yaml" source="~/azureml-examples-main/CLI/jobs/basics/hello-model-as-input.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-model-as-input.yml":::
 
 Next, run in the CLI
 
@@ -473,7 +473,7 @@ In your job you can write model to your cloud-based storage using *outputs*.
 
 Create a job specification YAML file (`<file-name>.yml`), with the `outputs` section populated with the type and path of where you would like to write your data to:
 
-:::code language="yaml" source="~/azureml-examples-main/CLI/jobs/basics/hello-model-as-output.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-model-as-output.yml":::
 
 Next create a job using the CLI:
 

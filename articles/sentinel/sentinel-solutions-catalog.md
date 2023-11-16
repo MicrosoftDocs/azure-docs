@@ -21,7 +21,7 @@ To get the full list of all solutions available in Microsoft Sentinel, see the [
 
 ## Domain solutions
 
-The following table lists the the domain-specific out-of-the-box (built-in) and on-demand solutions available for you to deploy in your workspace.
+The following table lists the domain-specific out-of-the-box (built-in) and on-demand solutions available for you to deploy in your workspace.
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|

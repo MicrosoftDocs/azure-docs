@@ -6,7 +6,9 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.topic: whats-new
 ms.date: 12/27/2022
 ms.author: pafarley
@@ -23,6 +25,12 @@ Learn what's new in the service. These items might be release notes, videos, blo
 The Analyze 4.0 REST API is now in General Availability. Follow the [Analyze Image 4.0 quickstart](./quickstarts-sdk/image-analysis-client-library-40.md) to get started.
 
 The other features of Image Analysis, such as model customization, background removal, and multi-modal embeddings, remain in public preview. 
+
+### Face client-side SDK for liveness detection
+
+The Face Liveness SDK supports liveness detection on your users' mobile or edge devices. It's available in Java/Kotlin for Android and Swift/Objective-C for iOS.
+
+Our liveness detection service meets iBeta Level 1 and 2 ISO/IEC 30107-3 compliance.
 
 ## September 2023
 
@@ -386,7 +394,10 @@ Follow an [Extract text quickstart](https://github.com/Azure-Samples/cognitive-s
 ## January 2019
 
 ### Face Snapshot feature
-* This feature allows the service to support data migration across subscriptions: [Snapshot](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get). More details in [How to Migrate your face data to a different Face subscription](how-to/migrate-face-data.md).
+* This feature allows the service to support data migration across subscriptions: [Snapshot](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get).
+
+> [!IMPORTANT]
+> As of June 30, 2023, the Face Snapshot API is retired.
 
 ## October 2018
 
@@ -403,7 +414,7 @@ Follow an [Extract text quickstart](https://github.com/Azure-Samples/cognitive-s
 ## March 2018
 
 ### New data structure
-* [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) and [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). More details in [How to use the large-scale feature](how-to/use-large-scale.md).
+* [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) and [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). More details in [How to scale to handle more enrolled users](how-to/use-large-scale.md).
 * Increased [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) `maxNumOfCandidatesReturned` parameter from [1, 5] to [1, 100] and default to 10.
 
 ## May 2017

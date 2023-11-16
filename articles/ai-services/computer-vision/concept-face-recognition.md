@@ -8,6 +8,8 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.subservice: azure-ai-face
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 12/27/2022
 ms.author: pafarley
@@ -15,7 +17,7 @@ ms.author: pafarley
 
 # Face recognition
 
-This article explains the concept of Face recognition, its related operations, and the underlying data structures. Broadly, face recognition is the act of verifying or identifying individuals by their faces. Face recognition is important in implementing the identity verification scenario, which enterprises and apps can use to verify that a (remote) user is who they claim to be.
+This article explains the concept of Face recognition, its related operations, and the underlying data structures. Broadly, face recognition is the act of verifying or identifying individuals by their faces. Face recognition is important in implementing the identification scenario, which enterprises and apps can use to verify that a (remote) user is who they claim to be.
 
 You can try out the capabilities of face recognition quickly and easily using Vision Studio.
 > [!div class="nextstepaction"]
@@ -25,8 +27,6 @@ You can try out the capabilities of face recognition quickly and easily using Vi
 ## Face recognition operations
 
 [!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
-
-This section details how the underlying operations use the above data structures to identify and verify a face.
 
 ### PersonGroup creation and training
 
@@ -46,30 +46,15 @@ The [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b619
 
 The recognition operations use mainly the following data structures. These objects are stored in the cloud and can be referenced by their ID strings. ID strings are always unique within a subscription, but name fields may be duplicated.
 
-|Name|Description|
-|:--|:--|
-|DetectedFace| This single face representation is retrieved by the [face detection](./how-to/identity-detect-faces.md) operation. Its ID expires 24 hours after it's created.|
-|PersistedFace| When DetectedFace objects are added to a group, such as FaceList or Person, they become PersistedFace objects. They can be [retrieved](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) at any time and don't expire.|
-|[FaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) or [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)| This data structure is an assorted list of PersistedFace objects. A FaceList has a unique ID, a name string, and optionally a user data string.|
-|[Person](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)| This data structure is a list of PersistedFace objects that belong to the same person. It has a unique ID, a name string, and optionally a user data string.|
-|[PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) or [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)| This data structure is an assorted list of Person objects. It has a unique ID, a name string, and optionally a user data string. A PersonGroup must be [trained](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) before it can be used in recognition operations.|
-|PersonDirectory | This data structure is like **LargePersonGroup** but offers additional storage capacity and other added features. For more information, see [Use the PersonDirectory structure (preview)](./how-to/use-persondirectory.md).|
-
+See the [Face recognition data structures](./concept-face-recognition-data-structures.md) guide.
 
 ## Input data
 
 Use the following tips to ensure that your input images give the most accurate recognition results:
 
-* The supported input image formats are JPEG, PNG, GIF (the first frame), BMP.
-* Image file size should be no larger than 6 MB.
-* When you create Person objects, use photos that feature different kinds of angles and lighting.
-* Some faces might not be recognized because of technical challenges, such as:
-  * Images with extreme lighting, for example, severe backlighting.
-  * Obstructions that block one or both eyes.
-  * Differences in hair type or facial hair.
-  * Changes in facial appearance because of age.
-  * Extreme facial expressions.
-* You can utilize the qualityForRecognition attribute in the [face detection](./how-to/identity-detect-faces.md) operation when using applicable detection models as a general guideline of whether the image is likely of sufficient quality to attempt face recognition on. Only "high" quality images are recommended for person enrollment and quality at or above "medium" is recommended for identification scenarios.
+[!INCLUDE [identity-input-technical](includes/identity-input-technical.md)]
+[!INCLUDE [identity-input-composition](includes/identity-input-composition.md)]
+* You can utilize the `qualityForRecognition` attribute in the [face detection](./how-to/identity-detect-faces.md) operation when using applicable detection models as a general guideline of whether the image is likely of sufficient quality to attempt face recognition on. Only `"high"` quality images are recommended for person enrollment and quality at or above `"medium"` is recommended for identification scenarios.
 
 ## Next steps
 

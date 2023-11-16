@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 09/18/2023
+ms.date: 11/08/2023
 ---
 
 ## Latest client versions
@@ -11,8 +11,18 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.5.1         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
-| Beta    | 10.5.1         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+| Public  | 10.5.2         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
+| Beta    | 10.5.2         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+
+## Updates for version 10.5.2
+
+*Date published: October 24, 2023*
+
+In this release, we've made the following changes:
+
+- Added support for dual monitors when using iPads with Stage Manager.
+- Addressed reported accessibility bugs.
+- Fixed some keyboard mappings that stopped working after the iOS 17 update.
 
 ## Updates for version 10.5.1
 
@@ -69,7 +79,7 @@ In this release, we've removed the global prompt for camera and microphone acces
 We also fixed some bugs and added some small additional features:
 
 - Integrated privacy statement compliance flows for select geographical regions.
-- Added functionality to delete all Azure VIrtual Desktop workspaces and associated keychain items.
+- Added functionality to delete all Azure Virtual Desktop workspaces and associated keychain items.
 - Worked around an iOS 16 change that broke Korean language input.
 - Addressed a bug that stopped the Apple Pencil from working when connected to Windows 8.1 and Windows Server 2012 R2 and earlier.
 
