@@ -2418,3 +2418,13 @@ widgetsnbextension==3.5.2
 - [Azure Synapse Analytics](../overview-what-is.md)
 - [Apache Spark Documentation](https://spark.apache.org/docs/3.2.1/)
 - [Apache Spark Concepts](apache-spark-concepts.md)
+
+## Upgrade Guidelines / FAQ's :
+
+Question: If a customer is seeking advice on how to migrate from 2.4 to 3.X, what steps should be taken?
+Answer: Refer to the following migration guide: https://spark.apache.org/docs/latest/sql-migration-guide.html
+
+Question: I get an error when I try to upgrade Spark pool runtime using PowerShell commandlet when they have attached libraries
+Answer: Do not use PowerShell Commandlet if you have custom libraries installed in your synapse workspace. Instead follow these steps:
+        -Recreate Spark Pool 3.3 from the ground up.
+        -Downgrade the current Spark Pool 3.3 to 3.1, remove any packages attached, and then upgrade again to 3.3

@@ -344,7 +344,7 @@ The following sections present the libraries included in Azure Synapse Runtime f
 | org.xerial.snappy                      | snappy-java                                 | 1.1.8.4                     |
 | oro                                    | oro                                         | 2.0.8                       |
 | pl.edu.icm                             | JLargeArrays                                | 1.5                         |
-| stax                                   | stax-api                                    | 1.0.1                       |
+| stax                                   | stax-api                                    | 1.0.1                       |git
 
 ### Python libraries (Normal VMs)
 | Library                            | Version                           |        Library            | Version                         |        Library                    | Version                         |
@@ -581,3 +581,13 @@ The following sections present the libraries included in Azure Synapse Runtime f
 - [Manage session-scoped packages](apache-spark-manage-session-packages.md)
 - [Apache Spark 3.3.1 Documentation](https://spark.apache.org/docs/3.3.1/)
 - [Apache Spark Concepts](apache-spark-concepts.md)
+
+## Upgrade Guidelines / FAQ's :
+
+Question: If a customer is seeking advice on how to migrate from 2.4 to 3.X, what steps should be taken?
+Answer: Refer to the following migration guide: https://spark.apache.org/docs/latest/sql-migration-guide.html
+
+Question: I get an error when I try to upgrade Spark pool runtime using PowerShell commandlet when they have attached libraries
+Answer: Do not use PowerShell Commandlet if you have custom libraries installed in your synapse workspace. Instead follow these steps:
+        -Recreate Spark Pool 3.3 from the ground up.
+        -Downgrade the current Spark Pool 3.3 to 3.1, remove any packages attached, and then upgrade again to 3.3

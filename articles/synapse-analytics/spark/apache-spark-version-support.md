@@ -72,3 +72,18 @@ The patch policy differs based on the [runtime lifecycle stage](./runtime-for-ap
 2. Preview runtime: No major version upgrades unless strictly necessary. Minor versions (3.x -> 3.y) will be upgraded to add latest features to a runtime.
 3. Long Term Support (LTS) runtime will be patched with security fixes only.
 4. End of life announced (EOLA) runtime will not have bug and feature fixes. Security fixes will be backported based on risk assessment.
+
+## Upgrade Guidelines / FAQ's :
+
+Question: If a customer is seeking advice on how to migrate from 2.4 to 3.X, what steps should be taken?
+Answer: Refer to the following migration guide: https://spark.apache.org/docs/latest/sql-migration-guide.html
+
+Question: I get an error when I try to upgrade Spark pool runtime using PowerShell commandlet when they have attached libraries
+Answer: Do not use PowerShell Commandlet if you have custom libraries installed in your synapse workspace. Instead follow these steps:
+        -Recreate Spark Pool 3.3 from the ground up.
+        -Downgrade the current Spark Pool 3.3 to 3.1, remove any packages attached, and then upgrade again to 3.3
+
+
+
+
+
