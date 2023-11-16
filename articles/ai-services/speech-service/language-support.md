@@ -93,6 +93,13 @@ With the cross-lingual feature, you can transfer your custom neural voice model 
 
 [!INCLUDE [Language support include](includes/language-support/tts-cnv.md)]
 
+
+### Personal voice
+
+[Personal voice](personal-voice-overview.md) is a feature that lets you create a voice that sounds like you or your users. The following table summarizes the locales supported for personal voice. 
+
+[!INCLUDE [Language support include](includes/language-support/personal-voice.md)]
+
 # [Pronunciation assessment](#tab/pronunciation-assessment)
 
 The table in this section summarizes the 24 locales supported for pronunciation assessment, and each language is available on all [Speech to text regions](regions.md#speech-service). Latest update extends support from English to 23 additional languages and quality enhancements to existing features, including accuracy, fluency and miscue assessment. You should specify the language that you're learning or practicing improving pronunciation. The default language is set as `en-US`. If you know your target learning language, [set the locale](how-to-pronunciation-assessment.md#get-pronunciation-assessment-results) accordingly. For example, if you're learning British English, you should specify the language as `en-GB`. If you're teaching a broader language, such as Spanish, and are uncertain about which locale to select, you can run various accent models (`es-ES`, `es-MX`) to determine the one that achieves the highest score to suit your specific scenario. 
