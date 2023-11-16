@@ -302,7 +302,7 @@ You might see more extensions getting installed for the solution or service to c
           
 The following diagram explains the new extensibility architecture.
           
-![Diagram that shows extensions architecture.](./media/azure-monitor-agent/extensibility-arch-new.png)
+:::image type="content" source="./media/azure-monitor-agent/extensibility-arch-new.png" lightbox="./media/azure-monitor-agent/extensibility-arch-new.png" alt-text="Diagram that shows extensions architecture.":::
 
 ### Is Azure Monitor Agent at parity with the Log Analytics agents?
 

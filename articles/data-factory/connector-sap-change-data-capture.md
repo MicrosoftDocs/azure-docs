@@ -28,7 +28,7 @@ This SAP CDC connector is supported for the following capabilities:
 |---------| --------|
 |[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312;, &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 This SAP CDC connector uses the SAP ODP framework to extract data from SAP source systems. For an introduction to the architecture of the solution, read [Introduction and architecture to SAP change data capture (CDC)](sap-change-data-capture-introduction-architecture.md) in our [SAP knowledge center](industry-sap-overview.md).
 

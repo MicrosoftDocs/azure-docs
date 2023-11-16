@@ -28,9 +28,9 @@ If you choose to license based on physical cores, the licensing requires a minim
 
 If you choose to license based on virtual cores, the licensing requires a minimum of eight virtual cores per Virtual Machine. There are two main scenarios where this model is advisable:
 
-1. If the VM is running on a third-party host or hyper scaler like AWS, GCP, or OCI.
+1. If the VM is running on a third-party host or cloud service provider like AWS, GCP, or OCI.
 
-1. The Windows Server was licensed on a virtualization basis. In most cases, customers elect the Standard edition for virtual core-based licenses.
+1. The Windows Server operating system was licensed on a virtualization basis.
 
 An additional scenario (scenario 1, below) is a candidate for VM/Virtual core licensing when the WS2012 VMs are running on a newer Windows Server host (that is, Windows Server 2016 or later).
 

@@ -2,42 +2,21 @@
 title: 'Azure Event Grid namespace MQTT functionality terminology'
 description: 'Describes the key terminology relevant for Event Grid namespace MQTT functionality.'
 ms.topic: conceptual
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.date: 05/23/2023
 author: veyaddan
 ms.author: veyaddan
 ---
 
 # Terminology
+
 Key terms relevant for Event Grid namespace and MQTT resources are explained.
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
 
-## Namespace
 
-An Event Grid namespace is a declarative space that provides a scope to all the nested resources or subresources such as topics, certificates, clients, client groups, topic spaces, permission bindings.  
-
-| Resource   | Protocol supported |
-| :--- | :---: |
-| Namespace topics | HTTP |
-| Topic Spaces | MQTT |
-| Clients | MQTT |
-| Client Groups | MQTT |
-| CA Certificates | MQTT |
-| Permission bindings | MQTT |
-
-Using the namespace, you can organize the subresources into logical groups and manage them as a single unit in your Azure subscription.  Deleting a namespace deletes all the subresources encompassed within the namespace.
-
-It gives you a unique FQDN.  A Namespace exposes two endpoints:
-
-- An HTTP endpoint to support general messaging requirements using Namespace Topics.
-- An MQTT endpoint for IoT messaging or solutions that use MQTT.
-  
-A Namespace also provides DNS-integrated network endpoints and a range of access control and network integration management features such as IP ingress filtering and private links. It's also the container of managed identities used for all contained resources that use them.
-
-Namespace is a tracked resource with 'tags' and a 'location' properties, and once created can be found on resources.azure.com.  
-
-The name of the namespace can be 3-50 characters long.  It can include alphanumeric, and hyphen(-), and no spaces.  The name needs to be unique per region.
+[!INCLUDE [common-namespace-concepts](./includes/common-namespace-concepts.md)]
 
 ## Client
 
@@ -71,12 +50,9 @@ Topic templates are an extension of the topic filter that supports variables. It
 
 A Permission Binding grants access to a specific client group to either publish or subscribe on a specific topic space.  For more information about permission bindings, see [MQTT access control](mqtt-access-control.md).
 
-## Throughput units
-
-Throughput units (TUs) control the capacity of Azure Event Grid namespace and allow user to control capacity of their namespace resource for message ingress and egress. For more information about limits, see [Azure Event Grid quotas and limits](quotas-limits.md).
-
 ## Next steps
+
 - Learn about [creating an Event Grid namespace](create-view-manage-namespaces.md)
-- Learn about [MQTT support in Event Grid](mqtt-overview.md)
+- Learn about [MQTT broker feature in Azure Event Grid](mqtt-overview.md)
 - Learn more about [MQTT clients](mqtt-clients.md)
 - Learn how to [Publish and subscribe MQTT messages using Event Grid namespace](mqtt-publish-and-subscribe-portal.md)

@@ -36,7 +36,7 @@ When you enable ingress, you can choose between two types of ingress:
 - External: Accepts traffic from both the public internet and your container app's internal environment.
 - Internal: Allows only internal access from within your container app's environment.
 
-Each container app within an environment can be configured with different ingress settings. For example, in a scenario with multiple microservice apps, to increase security you may have a single container app that receives public requests and passes the requests to a background service.  In this scenario, you would configure the public-facing container app with external ingress and the internal-facing container app with internal ingress.
+Each container app within an environment can be configured with different ingress settings. For example, in a scenario with multiple microservice apps, to increase security you might have a single container app that receives public requests and passes the requests to a background service.  In this scenario, you would configure the public-facing container app with external ingress and the internal-facing container app with internal ingress.
 
 ## Protocol types
 
@@ -48,8 +48,8 @@ With HTTP ingress enabled, your container app has:
 
 - Support for TLS termination
 - Support for HTTP/1.1 and HTTP/2
-- Support for  WebSocket and gRPC
-- HTTPS endpoints that always use TLS 1.2, terminated at the ingress point
+- Support for WebSocket and gRPC
+- HTTPS endpoints that always use TLS 1.2 or 1.3, terminated at the ingress point
 - Endpoints that expose ports 80 (for HTTP) and 443 (for HTTPS)
   - By default, HTTP requests to port 80 are automatically redirected to HTTPS on 443
 - A fully qualified domain name (FQDN)
@@ -80,15 +80,15 @@ With TCP ingress enabled, your container app:
 
 ## <a name="additional-tcp-ports"></a>Additional TCP ports (preview)
 
-In addition to the main HTTP/TCP port for your container apps, you may expose additional TCP ports to enable applications that accept TCP connections on multiple ports. This feature is in preview.
+In addition to the main HTTP/TCP port for your container apps, you might expose additional TCP ports to enable applications that accept TCP connections on multiple ports. This feature is in preview.
 
 The following apply to additional TCP ports:
 - Additional TCP ports can only be external if the app itself is set as external and the container app is using a custom VNet.
 - Any externally exposed additional TCP ports must be unique across the entire Container Apps environment. This includes all external additional TCP ports, external main TCP ports, and 80/443 ports used by built-in HTTP ingress. If the additional ports are internal, the same port can be shared by multiple apps.
-- If an exposed port is not provided, the exposed port will default to match the target port.
-- Each target port must be unique, and the same target port cannot be exposed on different exposed ports.
-- There is a maximum of 5 additional ports per app. If additional ports are required, please open a support request.
-- Only the main ingress port supports built-in HTTP features such as CORS and session affinity. When running HTTP on top of the additional TCP ports, these built-in features are not supported.
+- If an exposed port isn't provided, the exposed port will default to match the target port.
+- Each target port must be unique, and the same target port can't be exposed on different exposed ports.
+- There's a maximum of 5 additional ports per app. If additional ports are required, please open a support request.
+- Only the main ingress port supports built-in HTTP features such as CORS and session affinity. When running HTTP on top of the additional TCP ports, these built-in features aren't supported.
 
 Visit the [how to article on ingress](ingress-how-to.md#use-additional-tcp-ports) for more information on how to enable additional ports for your container apps.
 
