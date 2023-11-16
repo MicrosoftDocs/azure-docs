@@ -154,7 +154,7 @@ This article described how to enable Artifact Streaming on your AKS node pools t
 <!-- LINKS -->
 [enable-artifact-streaming-acr]: #enable-artifact-streaming-on-acr
 [acr-auth-aks]: ./cluster-container-registry-integration.md
-[aks-upgrade]: ./upgrade-cluster.md#check-for-available-aks-cluster-upgrades
+[aks-upgrade]: ./upgrade-cluster.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-feature-register]: /cli/azure/feature#az-feature-register
