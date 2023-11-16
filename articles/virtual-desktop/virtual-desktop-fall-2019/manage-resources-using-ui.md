@@ -8,7 +8,7 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
 ---
-# Deploy a Azure Virtual Desktop (classic) management tool with an Azure Resource Manager template
+# Deploy an Azure Virtual Desktop (classic) management tool with an Azure Resource Manager template
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects.
