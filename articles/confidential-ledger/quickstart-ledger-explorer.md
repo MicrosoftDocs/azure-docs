@@ -67,14 +67,14 @@ The transaction digest is computed from the `Claims Digest`, `Commit Evidence` a
 
 ![Ledger Explorer Transaction Digest](./media/ledger-explorer-transaction-digest.png)
 
-This step corresponds to [Leaf Node Computation](./write-transaction-receipts.md#leaf-node-computation) in [Verify Azure Confidential Ledger write transaction receipts](./verify-write-transaction-receipts.md).
+This step corresponds to [Leaf Node Computation](./verify-write-transaction-receipts.md#leaf-node-computation) in [Verify Azure Confidential Ledger write transaction receipts](./verify-write-transaction-receipts.md).
 
 ### 2. Root node computation
 The transaction receipt provides a cryptographic proof with the Merkle tree branches that leads to the root of the Merkle tree. 
 
 ![Ledger Explorer Merkle root calculation](./media/ledger-explorer-calculated-root.png)
 
-This step corresponds to [Root node Computation](./write-transaction-receipts.md#root-node-computation) in [Verify Azure Confidential Ledger write transaction receipts](./verify-write-transaction-receipts.md)
+This step corresponds to [Root node Computation](./verify-write-transaction-receipts.md#root-node-computation) in [Verify Azure Confidential Ledger write transaction receipts](./verify-write-transaction-receipts.md)
 
 ### 3. Verify signature  
 When this transaction is committed, the primary node signs the Merkle root. To verify that this transaction was committed by your ledger and has not been tampered with, Ledger explorer uses the public key of the signing node and the digital signature to verify that the calculated Merkle root matches the signed value. 
@@ -83,7 +83,7 @@ Finally, we check that the signing node is endorsed by the ledger. If the transa
 
 ![Ledger Explorer verified signature](./media/ledger-explorer-committed-status.png)
 
-This step corresponds to [Verify signature over root node](./write-transaction-receipts.md#verify-signature-over-root-node) and [Verify signing node certificate endorsement](./write-transaction-receipts.md$verify-signing-node-certificate-endorsement) in [Verify Azure Confidential Ledger write transaction receipts](./verify-write-transaction-receipts.md)
+This step corresponds to [Verify signature over root node](./verify-write-transaction-receipts.md#verify-signature-over-root-node) and [Verify signing node certificate endorsement](./verify-write-transaction-receipts.md#verify-signing-node-certificate-endorsement) in [Verify Azure Confidential Ledger write transaction receipts](./verify-write-transaction-receipts.md)
 
 ## Next steps
 
