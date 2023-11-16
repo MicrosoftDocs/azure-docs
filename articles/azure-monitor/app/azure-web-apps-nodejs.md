@@ -48,7 +48,7 @@ The integration is in public preview. The integration adds Node.js SDK, which is
 
 ## Configuration
 
-A JSON could be used to configure the Node.js agent, this can be provided adding APPLICATIONINSIGHTS_CONFIGURATION_CONTENT environment variable with the actual JSON string as value, also APPLICATIONINSIGHTS_CONFIGURATION_FILE environment variable could be used to specify the location of the file if prefered.
+The Node.js agent can be configured using JSON. Set the `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT` environment variable to the JSON string or set the `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable to the file path containing the JSON.
 
 ```json
 "samplingPercentage": 80,
