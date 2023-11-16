@@ -1,6 +1,6 @@
 ---
 title: Build event-driven apps with Dapr
-# titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ
 description: Learn how to create a Dapr application that aggregates data and publishing on another topic
 author: timlt
 ms.author: timlt
