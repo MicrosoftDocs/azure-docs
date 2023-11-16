@@ -113,6 +113,6 @@ Use the following articles to learn more about the MQTT broker and its main conc
 - [Terminology](mqtt-event-grid-namespace-terminology.md)
 - [Client authentication](mqtt-client-authentication.md) 
 - [Access control](mqtt-access-control.md) 
-- [MQTT support](mqtt-support.md) 
+- [MQTT protocol support](mqtt-support.md) 
 - [Routing MQTT messages](mqtt-routing.md) 
 - [MQTT Client Life Cycle Events](mqtt-client-life-cycle-events.md).
