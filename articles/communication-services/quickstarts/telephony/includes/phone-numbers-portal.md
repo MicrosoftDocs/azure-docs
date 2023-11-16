@@ -8,7 +8,7 @@
 
 To begin provisioning numbers, go to your Communication Services resource on the [Azure portal](https://portal.azure.com).
 
-:::image type="content" source="../media/trial-phone-numbers/trial-overview.png" alt-text="Screenshot showing a Communication Services resource's main page." lightbox="./media/trial-phone-numbers/trial-overview.png":::
+:::image type="content" source="../media/trial-phone-numbers/trial-overview.png" alt-text="Screenshot showing a Communication Services resource's main page." lightbox="../media/trial-phone-numbers/trial-overview.png":::
 
 ### Search for Available Phone Numbers
 
