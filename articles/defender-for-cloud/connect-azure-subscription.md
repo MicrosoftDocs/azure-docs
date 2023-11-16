@@ -33,7 +33,7 @@ Defender for Cloud helps you find and fix security vulnerabilities. Defender for
 
 1. Search for and select **Microsoft Defender for Cloud**.
 
-    :::image type="content" source="media/get-started/defender-for-cloud-search.png" alt-text="Screenshot of the Azure portal with Microsoft Defender for Cloud entered in the search bar and highlighted in the drop down menu." lightbox="media/get-started/defender-for-cloud-search.png":::
+    :::image type="content" source="media/get-started/defender-for-cloud-search.png" alt-text="Screenshot of the Azure portal with Microsoft Defender for Cloud selected." lightbox="media/get-started/defender-for-cloud-search.png":::
 
     The Defender for Cloud's overview page opens.
 
@@ -42,7 +42,7 @@ Defender for Cloud helps you find and fix security vulnerabilities. Defender for
 Defender for Cloud is now enabled on your subscription and you have access to the basic features provided by Defender for Cloud. These features include:
 
 - The [Foundational Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) plan.
-- [Recommendations](security-policy-concept.md#what-is-a-security-recommendation).
+- [Recommendations](security-policy-concept.md).
 - Access to the [Asset inventory](asset-inventory.md).
 - [Workbooks](custom-dashboards-azure-workbooks.md).
 - [Secure score](secure-score-security-controls.md).

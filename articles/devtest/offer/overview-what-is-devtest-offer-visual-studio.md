@@ -4,8 +4,8 @@ description: Use the Azure Dev/Test offer to get Azure credits for Visual Studio
 ms.topic: overview
 ms.prod: visual-studio-family
 ms.technology: vs-subscriptions
-ms.author: jenp
-author: jenp
+author: ntrogh
+ms.author: nicktrog
 ms.date: 10/18/2023
 ms.custom: devtestoffer
 adobe-target: true

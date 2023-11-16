@@ -174,7 +174,7 @@ You need:
 
 - A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - A [data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
-- [Permissions to create DCR objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- [Permissions to create DCR objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
 
 ## Syslog record properties
 
