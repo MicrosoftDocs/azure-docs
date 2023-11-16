@@ -1,7 +1,6 @@
 ---
-title: Build queries with cloud security explorer
-
-description: Learn how to build queries in cloud security explorer to find vulnerabilities that exist on your multicloud environment.
+title: Build queries with cloud security explorer in Microsoft Defender for Cloud
+description: Learn how to build queries with cloud security explorer in Microsoft Defender for Cloud
 ms.topic: how-to
 ms.custom: ignite-2022
 ms.date: 11/01/2023
@@ -100,4 +99,4 @@ Use the query link to share a query with other people. After creating a query, s
 
 View the [reference list of attack paths and cloud security graph components](attack-path-reference.md).
 
-Learn about the [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
+Learn about the [Defender CSPM plan options](concept-cloud-security-posture-management.md).

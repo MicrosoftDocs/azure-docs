@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 11/15/2023
 ms.custom: references_regions
 ---
 

@@ -17,7 +17,7 @@ ms.custom:
 
 # Quickstart: Create confidential VM on AMD in the Azure portal
 
-You can use the Azure portal to create a [confidential VM](confidential-vm-overview.md) based on an Azure Marketplace image quickly.There are multiple [confidential VM options on AMD](virtual-machine-solutions-amd.md) with AMD SEV-SNP technology.
+You can use the Azure portal to create a [confidential VM](confidential-vm-overview.md) based on an Azure Marketplace image quickly.There are multiple [confidential VM options on AMD](virtual-machine-solutions.md) with AMD SEV-SNP technology.
 
 
 ## Prerequisites
@@ -60,7 +60,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     1. Toggle [Generation 2](../virtual-machines/generation-2.md) images. Confidential VMs only run on Generation 2 images. To ensure, under **Image**, select **Configure VM generation**. In the pane **Configure VM generation**, for **VM generation**, select **Generation 2**. Then, select **Apply**.
 
-    1. For **Size**, select a VM size. For more information, see [supported confidential VM families](virtual-machine-solutions-amd.md).
+    1. For **Size**, select a VM size. For more information, see [supported confidential VM families](virtual-machine-solutions.md).
 
 
     1. For **Authentication type**, if you're creating a Linux VM, select **SSH public key** . If you don't already have SSH keys, [create SSH keys for your Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md).

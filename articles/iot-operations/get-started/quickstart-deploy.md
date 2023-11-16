@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.topic: quickstart
 ms.custom:
   - ignite-2023
-ms.date: 11/07/2023
+ms.date: 11/15/2023
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -31,9 +31,17 @@ The services deployed in this quickstart include:
 
 ## Prerequisites
 
-Review the prerequisites based on the environment you use to host the Kubernetes cluster for this quickstart.
+Review the prerequisites based on the environment you use to host the Kubernetes cluster.
 
-For Windows devices, use AKS Edge Essentials to create a cluster. For Ubuntu Linux devices, use K3s. Or, if you don't want to install new tools, you can use GitHub Codespaces as a virtual environment that runs in the browser or in Visual Studio Code desktop.
+For this quickstart, we recommend GitHub Codespaces as a quick way to get started in a virtual environment without installing new tools. Or, use AKS Edge Essentials to create a cluster on Windows devices or K3s on Ubuntu Linux devices.
+
+# [Virtual](#tab/codespaces)
+
+* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* At least **Contributor** role permissions in your subscription plus the **Microsoft.Authorization/roleAssignments/write** permission.
+
+* A [GitHub](https://github.com) account.
 
 # [Windows](#tab/windows)
 
@@ -41,7 +49,7 @@ For Windows devices, use AKS Edge Essentials to create a cluster. For Ubuntu Lin
 
 * At least **Contributor** role permissions in your subscription plus the **Microsoft.Authorization/roleAssignments/write** permission.
 
-* Review the [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements) for other prerequisites, specifically the system and OS requirements.
+<!-- * Review the [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements) for other prerequisites, specifically the system and OS requirements. -->
 
 * Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -50,7 +58,7 @@ For Windows devices, use AKS Edge Essentials to create a cluster. For Ubuntu Lin
 * The Azure IoT Operations extension for Azure CLI.
 
   ```powershell
-  az extension add --source ([System.Net.HttpWebRequest]::Create('https://aka.ms/aziotopscli-latest').GetResponse().ResponseUri.AbsoluteUri) -y
+  az extension add --name azure-iot-ops
   ```
 
 # [Linux](#tab/linux)
@@ -66,16 +74,8 @@ For Windows devices, use AKS Edge Essentials to create a cluster. For Ubuntu Lin
 * The Azure IoT Operations extension for Azure CLI.
 
   ```bash
-  az extension add --source $(curl -w "%{url_effective}\n" -I -L -s -S https://aka.ms/aziotopscli-latest -o /dev/null) -y
+  az extension add --name azure-iot-ops
   ```
-
-# [Virtual](#tab/codespaces)
-
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-* At least **Contributor** role permissions in your subscription plus the **Microsoft.Authorization/roleAssignments/write** permission.
-
-* A [GitHub](https://github.com) account.
 
 ---
   
@@ -90,7 +90,13 @@ Azure IoT Operations is a suite of data services that run on Kubernetes clusters
 
 ## Connect a Kubernetes cluster to Azure Arc
 
-Azure IoT Operations should work on any Kubernetes cluster that conforms to the Cloud Native Computing Foundation (CNCF) standards. For this quickstart, use either AKS Edge Essentials on Windows, K3s on Ubuntu Linux, or GitHub Codespaces.
+Azure IoT Operations should work on any Kubernetes cluster that conforms to the Cloud Native Computing Foundation (CNCF) standards. For this quickstart, use GitHub Codespaces, AKS Edge Essentials on Windows, or K3s on Ubuntu Linux.
+
+# [Virtual](#tab/codespaces)
+
+[!INCLUDE [prepare-codespaces](../includes/prepare-codespaces.md)]
+
+[!INCLUDE [connect-cluster](../includes/connect-cluster.md)]
 
 # [Windows](#tab/windows)
 
@@ -115,7 +121,8 @@ This script automates the following steps:
 
 * Install required host OS features (Install-AksEdgeHostFeatures).
 
-  Your machine might reboot when Hyper-V is enabled. If so, run the script again.
+  >[!TIP]
+  >Your machine might reboot when Hyper-V is enabled. If so, go back and run the setup commands again before running the quickstart script.
 
 * Deploy a single machine cluster with internal switch (Linux node only).
 
@@ -139,13 +146,22 @@ In an elevated PowerShell prompt, run the AksEdgeQuickStartForAio.ps1 script. Th
    | **TENANT_ID** | ID of your Microsoft Entra tenant. |
    | **RESOURCE_GROUP_NAME** | A name for a new resource group. |
    | **LOCATION** | An Azure region close to you. The following regions are supported in public preview: East US2, West US 3, West Europe, East US, West US, West US 2, North Europe. |
-   | **CLUSTER_NAME** | A name for a new managed cluster. |
+   | **CLUSTER_NAME** | A name for the new connected cluster. |
 
    ```powerShell
    .\AksEdgeQuickStartForAio.ps1 -SubscriptionId "<SUBSCRIPTION_ID>" -TenantId "<TENANT_ID>" -ResourceGroupName "<RESOURCE_GROUP_NAME>"  -Location "<LOCATION>"  -ClusterName "<CLUSTER_NAME>"
    ```
 
 When the script is completed, it brings up an Arc-enabled K3s cluster on your machine.
+
+Run the following commands to check that the deployment was successful:
+
+```powershell
+Import-Module AksEdge
+Get-AksEdgeDeploymentInfo
+```
+
+In the output of the `Get-AksEdgeDeploymentInfo` command, you should see that the cluster's Arc status is `Connected`.
 
 # [Linux](#tab/linux)
 
@@ -185,12 +201,6 @@ On Ubuntu Linux, use K3s to create a Kubernetes cluster.
 
    sudo sysctl -p
    ```
-
-[!INCLUDE [connect-cluster](../includes/connect-cluster.md)]
-
-# [Virtual](#tab/codespaces)
-
-[!INCLUDE [prepare-codespaces](../includes/prepare-codespaces.md)]
 
 [!INCLUDE [connect-cluster](../includes/connect-cluster.md)]
 
@@ -299,6 +309,9 @@ You can use an existing key vault for your secrets, but verify that the **Permis
    > * After you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
 
 1. Run the copied `az iot ops init` command on your development machine or in your codespace terminal.
+
+   >[!TIP]
+   >If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.
 
 1. Return to the Azure portal and select **Review + Create**.
 

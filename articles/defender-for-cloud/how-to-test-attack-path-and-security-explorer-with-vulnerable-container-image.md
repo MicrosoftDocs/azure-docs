@@ -1,14 +1,13 @@
 ---
-title: How-to test the attack path and cloud security explorer using a vulnerable container image in Microsoft Defender for Cloud
-description: Learn how to test the attack path and security explorer using a vulnerable container image
+title: Test attack paths and cloud security explorer in Microsoft Defender for Cloud
+description: Learn how to test attack paths and cloud security explorer in Microsoft Defender for Cloud
 ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 07/17/2023
 ---
 
-# Testing the Attack Path and Security Explorer using a vulnerable container image
+# Test attack paths and cloud security explorer
 
-## Observing potential threats in the attack path experience
 
 Attack path analysis is a graph-based algorithm that scans the cloud security graph. The scans expose exploitable paths that attackers might use to breach your environment to reach your high-impact assets. Attack path analysis exposes attack paths and suggests recommendations as to how best remediate issues that will break the attack path and prevent successful breach.
 
@@ -33,7 +32,13 @@ If there are no entries in the list of attack paths, you can still test this fea
         az acr import --name $MYACR --source DCSPMtesting.azurecr.io/mdc-mock-0001 --image mdc-mock-0001
         ```
 
-    1. If your AKS isn't attached to your ACR, use the following Cloud Shell command line to point your AKS instance to pull images from the selected ACR:
+    1.  If you don't have an AKS cluster, use the following command to create a new AKS cluster:
+
+        ```
+        az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr $MYACR
+        ```
+
+    1.  If your AKS isn't attached to your ACR, use the following Cloud Shell command line to point your AKS instance to pull images from the selected ACR:
 
         ```
         az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>

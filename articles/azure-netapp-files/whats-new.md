@@ -21,8 +21,11 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
- 
 ## November 2023
+
+* [Volume user and group quotas](default-individual-user-group-quotas-introduction.md) is now generally available (GA).
+
+    User and group quotas enable you to stay in control and define how much storage capacity can be used by individual users or groups can use within a specific Azure NetApp Files volume. You can set default (same for all users) or individual user quotas on all NFS, SMB, and dual protocol-enabled volumes. On all NFS-enabled volumes, you can define a default (that is, same for all users) or individual group quotas.   
 
 * [SMB Continuous Availability (CA)](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) shares now supports MSIX app attach for Azure Virtual Desktop
 

@@ -97,11 +97,6 @@ In this chat session, you use both speech to text and text to speech. You use th
     :::image type="content" source="../media/quickstarts/hear-speak/chat-session-hear-response-natural.png" alt-text="Screenshot of the chat session with the system prompt edited." lightbox="../media/quickstarts/hear-speak/chat-session-hear-response-natural.png":::
 
 
-
-## Code samples
-
-You can try the speech to text and text to speech features in the playground without writing any code. You can also use code to enable these features in your application. For an example, see the [speech to speech chat code example](../../ai-services/speech-service/openai-speech.md).
-
 ## View sample code
 
 You can select the **View Code** button to view and copy the sample code, which includes configuration for Azure OpenAI and Speech services. You can use the sample code to enable speech to text and text to speech in your application.
@@ -109,7 +104,7 @@ You can select the **View Code** button to view and copy the sample code, which 
 :::image type="content" source="../media/quickstarts/hear-speak/chat-session-view-code.png" alt-text="Screenshot of viewing the code in the playground." lightbox="../media/quickstarts/hear-speak/chat-session-view-code.png":::
 
 > [!TIP]
-> For another example, see the [speech to speech chat code example](../../ai-services/speech-service/openai-speech.md).
+> For another example, see the [speech to speech chat code example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/SpokenChat).
 
 ## Clean up resources
 
@@ -117,5 +112,8 @@ To avoid incurring unnecessary Azure costs, you should delete the resources you 
 
 ## Next steps
 
-- [Learn more about Azure OpenAI](../../ai-services/openai/overview.md)
+- [Create a project in Azure AI Studio](../how-to/create-projects.md)
+- [Deploy a web app for chat on your data](../tutorials/deploy-chat-web-app.md)
 - [Learn more about Azure AI Speech](../../ai-services/speech-service/overview.md)
+
+
