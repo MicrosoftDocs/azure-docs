@@ -56,6 +56,24 @@ In this example, both machines are connect to an AP (Access Point) which connect
 An additional custom DNS needs to be setup in the local network to provide domain name resolution and point the traffic to Layered Network Management. For more information, see [Configure custom DNS](#configure-custom-dns).
 
 ### Example of logical isolated network in Azure
+In this example, a test environment is created with [Virtual Network](/azure/virtual-network/virtual-networks-overview) and [Linux Virtual Machine](/azure/virtual-machines/linux/quick-create-portal) in Azure environment.
+> [!IMPORTANT]
+> Virtual environment is for exploration and evaluation only. Please refer to [validated environments](/azure/iot-operations/get-started/overview-iot-operations#validated-environments) of the Azure IoT Operations.
+
+1. Create a virtual network in your Azure subscription. Create subnets for at least two layers (level 4 and level 3).
+![Screenshot for virtual network in Azure](./media/howto-configure-layered-network/lnm-vnet-subnet.png)
+1. It is optional to create an additional subnet for the "jumpbox" or "developer" machine to remotely access the machine or cluster accross layers. This will be convenient if you plan to create more than two network layers. Otherwise, you can simply connect the jumpbox machine to level 4 network.
+1. Create [network security groups](/azure/virtual-network/network-security-groups-overview) for each level and attach to the subnet accordingly.
+1. You can use the default value for level 4 security group.
+1. You need to config additional inbound and outbound rules for level 3 (and lower level) security group.
+    - Add inbound and outbound security ruls to deny all network traffic.
+    - With a higher priority, add inbound and outbound security rules to allow network traffics from/to the IP range of level 4 subnet.
+    - [Optional] If you create a "jumpbox" subnet, create inbound and outbound rules for allowing traffic from/to this subnet.
+![Screenshot for level 3 security group](./media/howto-configure-layered-network/lnm-vnet-security-rule.png)
+1. Create Linux VMs in level 3 and level 4. 
+    - Refer to [validated environments](/azure/iot-operations/get-started/overview-iot-operations#validated-environments) for specification of the VM.
+    - When creating the VM, connect the machine to the subnet which is created in earlier steps.
+    - Skip the security group creation for VM.
 
 ## Configure custom DNS
 
