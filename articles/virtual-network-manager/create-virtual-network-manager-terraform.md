@@ -15,7 +15,7 @@ content_well_notification:
 
 Get started with Azure Virtual Network Manager by using Terraform to provision connectivity for all your virtual networks.
 
-In this quickstart, you deploy three virtual networks and use Azure Virtual Network Manager to create a mesh network topology. Then, you verify that the connectivity configuration was applied.
+In this quickstart, you deploy three virtual networks and use Azure Virtual Network Manager to create a mesh network topology. Then, you verify that the connectivity configuration was applied. You can choose from a deployment with a Subscription scope or a management group scope
 
 [!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
@@ -38,6 +38,8 @@ In this article, you learn how to:
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 - To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization is not supported
+
+:::zone pivot="subscription-scope"
 
 ## Implement the Terraform code
 
@@ -63,6 +65,38 @@ In this article, you learn how to:
 1. Create a file named `outputs.tf` and insert the following code:
 
     [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-mesh/outputs.tf)]
+
+:::zone-end
+
+:::zone pivot="management-group-scope"
+
+
+## Implement the Terraform code
+
+> [!NOTE]
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-manager-create-mesh). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-manager-create-mesh/TestRecord.md).
+> 
+> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+
+1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
+
+1. Create a file named `providers.tf` and insert the following code:
+
+    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-mesh/providers.tf)]
+
+1. Create a file named `main.tf` and insert the following code:
+
+    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-mesh/main.tf)]
+
+1. Create a file named `variables.tf` and insert the following code:
+
+    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-mesh/variables.tf)]
+
+1. Create a file named `outputs.tf` and insert the following code:
+
+    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-mesh/outputs.tf)]
+
+:::zone-end
 
 ## Initialize Terraform
 
