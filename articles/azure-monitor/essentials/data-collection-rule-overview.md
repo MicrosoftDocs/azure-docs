@@ -27,7 +27,7 @@ Data collection rule associations (DCRAs) associate a DCR with an object being m
 
 The following diagram illustrates data collection for the Azure Monitor agent. When the agent is installed, it connects to Azure Monitor to retrieve any DCRs that are associated with it. It then references the data sources section of each DCR to determine what data to collect from the machine. When the agent delivers this data,  Azure Monitor references other sections of the DCR to determine whether a transformation should be applied to it and then the workspace and table to send it to.
 
-:::image type="content" source="media/data-collection-rule-overview/overview-ama.png" lightbox="media/data-collection-rule-overview/overview-ama.png" alt-text="Diagram that shows basic operation for DCR using Azure Monitor Agent." border="false":::
+:::image type="content" source="media/data-collection-rule-overview/overview-agent.png" lightbox="media/data-collection-rule-overview/overview-agent.png" alt-text="Diagram that shows basic operation for DCR using Azure Monitor Agent." border="false":::
 
 
 

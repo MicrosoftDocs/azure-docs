@@ -73,7 +73,7 @@ To create the data collection rule in the Azure portal:
     :::image type="content" source="media/data-collection-iis/iis-data-collection-rule.png" lightbox="media/data-collection-iis/iis-data-collection-rule.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule.":::
 
 1. Specify a file pattern to identify the directory where the log files are located. 
-1. On the **Destination** tab, add a destinations for the data source.
+1. On the **Destination** tab, add a destination for the data source.
     <!-- convertborder later -->
     :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" alt-text="Screenshot that shows the Azure portal form to add a data source in a data collection rule." border="false":::
 
