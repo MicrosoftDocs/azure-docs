@@ -18,11 +18,11 @@ ms.date: 11/17/2023
 
 If you're new to building Standard workflows in Azure Logic Apps, or you're updating a workflow built by other developers, you might have questions about your workflow, connectors, their operations, and other tasks that you're trying to complete in Azure Logic Apps. For example, Azure Logic Apps provides 1,000+ connectors for you to use. How do you choose which to use?
 
-In the Azure portal, within the Standard workflow designer, the workflow assistant offers a chat box so that you can ask questions about the currently open workflow or about Azure Logic Apps in general. The assistant generates answers and provides access to Azure Logic Apps documentation and best practices. When you use the assitant, you don't have to switch context to search or browse for documentation online.
+In the Azure portal, within the Standard workflow designer, the workflow assistant offers a chat box so that you can ask questions about the currently open workflow or about Azure Logic Apps in general. The assistant generates answers and provides access to Azure Logic Apps documentation and best practices. When you use the assistant, you don't have to switch context to search or browse for documentation online.
 
 :::image type="content" source="media/workflow-assistant-standard/overview.png" alt-text="Screenshot shows Azure portal, Standard logic app with workflow designer opened, and workflow assistant with example question and generated response." lightbox="media/workflow-assistant-standard/overview.png":::
 
-The workflow assistant uses reputable knowledge sources such as the Azure Logic Apps documentation on Microsoft Learn, connector schemas, tech community blogs to deliver curated information using the [Azure Open AI Service](../ai-services/openai/overview.md) and [ChatGPT](https://openai.com/blog/chatgpt). The assistant also builds responses based on your opened workflow in the designer. That way, you can learn how to complete tasks within your workflow's specific context. For example, you can ask how to configure a specific action in the workflow, get recommendations about the action's parameter values or ouptuts, how to test that data, and so on.
+The workflow assistant uses reputable knowledge sources such as the Azure Logic Apps documentation on Microsoft Learn, connector schemas, tech community blogs to deliver curated information using the [Azure Open AI Service](../ai-services/openai/overview.md) and [ChatGPT](https://openai.com/blog/chatgpt). The assistant also builds responses based on your opened workflow in the designer. That way, you can learn how to complete tasks within your workflow's specific context. For example, you can ask how to configure a specific action in the workflow, get recommendations about the action's inputs or outputs, how to test that data, and so on.
 
 > [!IMPORTANT]
 >
@@ -102,7 +102,7 @@ In the chat pane, under the workflow assistant's response, choose an option:
 
      | Item | Description |
      |------|-------------|
-     | Difficulty | Rate the difficultly level for using the assistant. |
+     | Difficulty | Rate the difficulty level for using the assistant. |
      | Value | Rate the value that the assistant provided in helping you with your workflow or Azure Logic Apps. |
      | Comments | Include the following information: <br><br>- The question you asked <br>- Relevant information about your workflow <br>- The assistant's response |
      | **It's OK to contact me about my feedback** | Select whether you want Microsoft or the Azure Logic Apps team to contact you. |
@@ -161,7 +161,7 @@ When you enter your question in the assistant's chat box, the Azure Logic Apps b
 
 **Q**: Does Azure Logic Apps own the workflows suggested by the workflow assistant? 
 
-**A**: The workflow assistant doesn't own the workflow suggestions that the assistant provides to you nor the workflows that you build based on these suggestions. You own and manage the workflows that you create using the workflow assistant's help.
+**A**: The workflow assistant doesn't own the suggestions that the assistant provides to you nor the workflows that you build based on these suggestions.
 
 **Q**: What's the difference between Azure OpenAI Service and ChatGPT?
 
