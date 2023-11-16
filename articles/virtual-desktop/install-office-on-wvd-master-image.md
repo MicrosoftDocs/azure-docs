@@ -22,7 +22,7 @@ This article also assumes you have elevated access on the VM, whether it's provi
 
 Shared computer activation lets you to deploy Microsoft 365 Apps for enterprise to a computer in your organization that is accessed by multiple users. For more information about shared computer activation, see [Overview of shared computer activation for Microsoft 365 Apps](/deployoffice/overview-shared-computer-activation).
 
-Use the [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117) to install Office. Windows 10/11 Enterprise multi-session only supports the following versions of Office:
+Use the [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117) to install Office. Windows 10 Enterprise multi-session and Windows 11 Enterprise-multi-session only support the following versions of Office:
 
    - Microsoft 365 Apps for enterprise
    - Microsoft 365 Apps for business that comes with a Microsoft 365 Business Premium subscription
