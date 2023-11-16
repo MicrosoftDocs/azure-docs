@@ -18,7 +18,7 @@ ms.author: anfdocs
 
 # Understand mode bits in Azure NetApp Files
 
-File access permissions in NFS limit what users and groups can do once a NAS volume is mounted. Mode bits are a key feature of NFS file permissions in Azure NetAPp Files. 
+File access permissions in NFS limit what users and groups can do once a NAS volume is mounted. Mode bits are a key feature of NFS file permissions in Azure NetApp Files. 
 
 ## NFS mode bits 
 
@@ -60,7 +60,7 @@ The `setuid` bit is designated by an "s" in the execute portion of the owner bit
 # ls -la /bin/passwd 
 -rwsr-xr-x 1 root root 68208 Nov 29  2022 /bin/passwd
 ```
-If the `setuid` bit is removed, the passwd change functionality won’t work properly.
+If the `setuid` bit is removed, the password change functionality won’t work properly.
 
 ```bash
 # ls -la /bin/passwd
@@ -221,11 +221,11 @@ Root, however, still can remove the files.
 # rm UNIX-file 
 ```
 
-To change the ability of root to modify files, you must squash root to a different user by way of an Azure NetApp Files export policy rule. For more information, see [“root squashing”](network-attached-storage-permissions.md#root-squashing).
+To change the ability of root to modify files, you must squash root to a different user by way of an Azure NetApp Files export policy rule. For more information, see [root squashing](network-attached-storage-permissions.md#root-squashing).
 
 ### Umask 
 
-In NFS operations, permissions can be controlled through mode bits, which leverage numerical attributes to determine file and folder access. These mode bits determine read, write, execute, and special attributes. Numerically, these are represented as:
+In NFS operations, permissions can be controlled through mode bits, which leverage numerical attributes to determine file and folder access. These mode bits determine read, write, execute, and special attributes. Numerically, permissions are represented as:
 
 * Execute = 1
 * Read = 2
@@ -236,7 +236,7 @@ Total permissions are determined by adding or subtracting a combination of the p
 * 4 + 2 + 1 = 7 (can do everything)
 * 4 + 2 = 6 (read/write)
 
-For more information about UNIX permissions, see [UNIX Permissions Help](http://www.zzee.com/solutions/unix-permissions.shtml).
+For more information, see [UNIX Permissions Help](http://www.zzee.com/solutions/unix-permissions.shtml).
 
 Umask is a functionality that allows an administrator to restrict the level of permissions allowed to a client. By default, the umask for most clients is set to 0022. 0022 means that files created from that client are assigned that umask. The umask is subtracted from the base permissions of the object. If a volume has 0777 permissions and is mounted using NFS to a client with a umask of 0022, objects written from the client to that volume have 0755 access (0777 – 0022).
 
