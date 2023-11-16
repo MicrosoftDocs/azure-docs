@@ -34,32 +34,32 @@ Use the connection details below to connect compute services to Azure Table Stor
 
 ### System-assigned managed identity
 
-| Default environment variable name   | Description            | Example value                                              |
-| ----------------------------------- | ---------------------- | ---------------------------------------------------------- |
-| AZURE_STORAGETABLE_RESOURCEENDPOINT | Table storage endpoint | `https://<storage-account-name>.table.core.windows.net/` |
+| Default environment variable name   | Description            | Example value                                            |
+|-------------------------------------|------------------------|----------------------------------------------------------|
+| AZURE_STORAGETABLE_RESOURCEENDPOINT | Table Storage endpoint | `https://<storage-account-name>.table.core.windows.net/` |
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Blob Storage using a system-assigned managed identity.
+Refer to the steps and code below to connect to Azure Table Storage using a system-assigned managed identity.
 [!INCLUDE [code sample for table](./includes/code-table-me-id.md)]
 
 ### User-assigned managed identity
 
-| Default environment variable name   | Description            | Example value                                              |
-| ----------------------------------- | ---------------------- | ---------------------------------------------------------- |
-| AZURE_STORAGETABLE_RESOURCEENDPOINT | Table storage endpoint | `https://<storage-account-name>.table.core.windows.net/` |
+| Default environment variable name   | Description            | Example value                                            |
+|-------------------------------------|------------------------|----------------------------------------------------------|
+| AZURE_STORAGETABLE_RESOURCEENDPOINT | Table Storage endpoint | `https://<storage-account-name>.table.core.windows.net/` |
 | AZURE_STORAGETABLE_CLIENTID         | Your client ID         | `<client-ID>`                                            |
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Blob Storage using a user-assigned managed identity.
+Refer to the steps and code below to connect to Azure Table Storage using a user-assigned managed identity.
 [!INCLUDE [code sample for table](./includes/code-table-me-id.md)]
 
 ### Connection string
 
 | Default environment variable name   | Description                     | Example value                                                                                                        |
 |-------------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| AZURE_STORAGETABLE_CONNECTIONSTRING | Table storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
+| AZURE_STORAGETABLE_CONNECTIONSTRING | Table Storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
 
 #### Sample code
 
@@ -68,16 +68,16 @@ Refer to the steps and code below to connect to Azure Table Storage using a conn
 
 ### Service principal
 
-| Default environment variable name   | Description            | Example value                                              |
-| ----------------------------------- | ---------------------- | ---------------------------------------------------------- |
-| AZURE_STORAGETABLE_RESOURCEENDPOINT | Table storage endpoint | `https://<storage-account-name>.table.core.windows.net/` |
+| Default environment variable name   | Description            | Example value                                            |
+|-------------------------------------|------------------------|----------------------------------------------------------|
+| AZURE_STORAGETABLE_RESOURCEENDPOINT | Table Storage endpoint | `https://<storage-account-name>.table.core.windows.net/` |
 | AZURE_STORAGETABLE_CLIENTID         | Your client ID         | `<client-ID>`                                            |
 | AZURE_STORAGETABLE_CLIENTSECRET     | Your client secret     | `<client-secret>`                                        |
 | AZURE_STORAGETABLE_TENANTID         | Your tenant ID         | `<tenant-ID>`                                            |
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Blob Storage using a service principal.
+Refer to the steps and code below to connect to Azure Table Storage using a service principal.
 [!INCLUDE [code sample for table](./includes/code-table-me-id.md)]
 
 ## Next steps

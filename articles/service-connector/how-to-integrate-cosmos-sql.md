@@ -10,7 +10,7 @@ ms.custom: event-tier1-build-2022, ignite-2022
 ---
 # Integrate the Azure Cosmos DB for NoSQL with Service Connector
 
-This page shows the supported authentication types and client types for the Azure Cosmos DB for NoSQL using Service Connector. You might still be able to connect to the Azure Cosmos DB for SQL in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows the supported authentication types and client types for the Azure Cosmos DB for NoSQL using Service Connector. You might still be able to connect to Azure Cosmos DB for NoSQL in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
 
 ## Supported compute services
 

@@ -10,7 +10,7 @@ ms.custom: event-tier1-build-2022
 ---
 # Integrate Apache Kafka on Confluent Cloud with Service Connector
 
-This page shows supported authentication methods and clients to connect Apache kafka on Confluent Cloud to other cloud services using Service Connector. You might still be able to connect to Apache kafka on Confluent Cloud in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
+This page shows supported authentication methods and clients to connect Apache Kafka on Confluent Cloud to other cloud services using Service Connector. You might still be able to connect to Apache Kafka on Confluent Cloud in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
 
 ## Supported compute services
 
@@ -34,7 +34,7 @@ Supported authentication and clients for App Service, Azure Functions, Container
 
 ## Default environment variable names or application properties
 
-Use the connection details below to connect compute services to Kafka. For each example below, replace the placeholder texts `<server-name>`, `<Bootstrap-server-key>`, `<Bootstrap-server-secret>`, `<schema-registry-key>`, and `<schema-registry-secret>` with your server name, Bootstrap server key, Bootstrap server secret, schema registry key, and schema registry secret. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article. Refer to [Kafka Client Examples](https://docs.confluent.io/cloud/current/client-apps/examples.html#) to build kafka client applications on Confluent Cloud.
+Use the connection details below to connect compute services to Kafka. For each example below, replace the placeholder texts `<server-name>`, `<Bootstrap-server-key>`, `<Bootstrap-server-secret>`, `<schema-registry-key>`, and `<schema-registry-secret>` with your server name, Bootstrap server key, Bootstrap server secret, schema registry key, and schema registry secret. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article. Refer to [Kafka Client Examples](https://docs.confluent.io/cloud/current/client-apps/examples.html#) to build Kafka client applications on Confluent Cloud.
 
 ### Secret / Connection String
 
