@@ -10,5 +10,5 @@ ms.author: jamesbell
 
 There are Learn Modules available for the following:
 
-* [How to install CycleCloud and creating a cluster](https://learn.microsoft.com/en-us/training/modules/azure-cyclecloud-high-performance-computing/)
-* [How to customize a CycleCloud install](https://learn.microsoft.com/en-us/training/modules/customize-clusters-azure-cyclecloud/)
+* [How to install CycleCloud and creating a cluster](https://learn.microsoft.com/training/modules/azure-cyclecloud-high-performance-computing/)
+* [How to customize a CycleCloud install](https://learn.microsoft.com/training/modules/customize-clusters-azure-cyclecloud/)
