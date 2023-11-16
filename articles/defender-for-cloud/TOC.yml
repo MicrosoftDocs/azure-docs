@@ -114,10 +114,6 @@
       displayName: regulatory, compliance, remediate, assessment, reports,
         certificates, export, workflow, automation
       href: regulatory-compliance-dashboard.md
-    - name: Choose standards for your compliance dashboard
-      displayName: regulatory, regulation, CIS, PCI DSS, ISO, SOC, ASB, Benchmark,
-        Azure Security Benchmark, HIPAA
-      href: update-regulatory-compliance-packages.md
     - name: Manage security policies
       displayName: security, policies, edit, disable
       href: tutorial-security-policy.md
@@ -221,7 +217,7 @@
       - name: Integration with Defender EASM
         displayName: EASM, attack surface management
         href: concept-easm.md
-      - name: Enabling Entra Permissions Management (Preview)
+      - name: Enabling Permissions Management (Preview)
         href: enable-permissions-management.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
@@ -290,21 +286,19 @@
       items: null
     - name: Cloud security posture
       items:
-        - name: Security posture at-a-glance with the Overview dashboard
+        - name: Review cloud security posture
           displayName: overview, compliance, inventory
           href: overview-page.md
-        - name: See all of your workloads in the workload protections dashboard
+        - name: Review workload protection
           displayName: workloads, dashboard, protections
           href: workload-protections-dashboard.md
-        - name: Programmatic ways to track your secure score
-          displayName: secure score, rest api, resource graph,
+        - name: Track secure score
+          displayName: secure score, rest api, resource graph
           href: secure-score-access-and-track.md
-        - name: Create custom recommendations and security standards
-          href: create-custom-recommendations.md
         - name: View recommendations and alerts in Windows Admin Center
           displayName: windows, admin, center
           href: windows-admin-center-integration.md
-        - name: Integrate security solutions and data sources
+        - name: Integrate security solutions
           displayName: security, solutions, integrate, integrated, data sources
           href: partner-integration.md
         - name: Security graph
@@ -330,41 +324,47 @@
       items:
         - name: Onboard agentless containers for CSPM
           href: how-to-enable-agentless-containers.md
-    - name: Security recommendations
+    - name: Manage security standards and recommendations
       items:
-        - name: Create custom Azure security initiatives and policies
-          displayName: initiatives, custom, policies
-          href: custom-security-policies.md
-        - name: Manage AWS assessments and standards
-          displayName: aws, assessments, standards, custom, standard, built-in, query
-          href: how-to-manage-aws-assessments-standards.md
-        - name: Manage GCP assessments and standards
-          displayName: gcp, assessment, standards, built-in, compliance, standard, custom,
+      - name: Choose standards for your compliance dashboard
+        href: update-regulatory-compliance-packages.md
+      - name: Create custom standards/recommendations (Azure)
+        displayName: initiatives, custom, policies
+        href: custom-security-policies.md
+      - name: Create custom standards/recommendations (AWS/GCP)
+        href: create-custom-recommendations.md
+      - name: Manage MCSB recommendations
+        href: manage-mcsb.md
+      - name: Exempt resources from recommendations
+        displayName: disable, resource, exempt, recommendation
+        href: exempt-resource.md
+      - name: Manage AWS assessments and standards
+        displayName: aws, assessments, standards, custom, standard, built-in, query
+        href: how-to-manage-aws-assessments-standards.md
+      - name: Manage GCP assessments and standards
+        displayName: gcp, assessment, standards, built-in, compliance, standard, custom,
             assessment, query
-          href: how-to-manage-gcp-assessments-standards.md
-        - name: Review your security recommendations
-          displayName: security, recommendations, owner, azure, resource, graph, azure
+        href: how-to-manage-gcp-assessments-standards.md
+      - name: Review your security recommendations
+        displayName: security, recommendations, owner, azure, resource, graph, azure
             resource graph, csv report
-          href: review-security-recommendations.md
-        - name: Remediate recommendations
-          displayName: remediation, steps, recommendations, fix, actions, activity log
-          href: implement-security-recommendations.md
-        - name: Improve your security posture with recommendation governance
-          displayName: security, posture, recommendation, governance, automated, rules,
+        href: review-security-recommendations.md
+      - name: Remediate recommendations
+        displayName: remediation, steps, recommendations, fix, actions, activity log
+        href: implement-security-recommendations.md
+      - name: Improve your security posture with recommendation governance
+        displayName: security, posture, recommendation, governance, automated, rules,
             owners, status, progress
-          href: governance-rules.md
-        - name: Prevent misconfigurations with Enforce/Deny
-          displayName: recommendations, enforce, deny
-          href: prevent-misconfigurations.md
-        - name: Automate responses to recommendations
-          displayName: workflow, triggers, logic app, automation, policies, breaking change
-          href: workflow-automation.md
-        - name: Disable a recommendation
-          displayName: recommendation, disable, security, policy,
-          href: tutorial-security-policy.md#disable-a-security-recommendation
-        - name: Exempt recommendations
-          displayName: disable, resource, exempt, recommendation
-          href: exempt-resource.md
+        href: governance-rules.md
+      - name: Prevent misconfigurations with Enforce/Deny
+        displayName: recommendations, enforce, deny
+        href: prevent-misconfigurations.md
+      - name: Automate responses to recommendations
+        displayName: workflow, triggers, logic app, automation, policies, breaking change
+        href: workflow-automation.md
+      - name: Disable a recommendation
+        displayName: recommendation, disable, security, policy,
+        href: tutorial-security-policy.md#disable-a-security-recommendation
     - name: Built-in security protections
       items:
         - name: Leverage Purview to protect sensitive data
@@ -489,6 +489,7 @@
     displayName: hybrid, arc, Defender for Servers
     items:
     - name: Plan Defender for Servers deployment
+    - name: Settings & monitoring
       items:
         - name: Get started
           displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat
@@ -639,55 +640,55 @@
         href: defender-for-container-registries-introduction.md
   - name: Database protection
     items:
-      - name: Protect your databases with Defender for Databases
-        displayName: database, protections
-        href: tutorial-enable-databases-plan.md
-      - name: Defender for Azure SQL Databases
-        items:
-          - name: Get started
-            displayName: database
-            href: defender-for-sql-introduction.md
-          - name: Vulnerability assessment
-            items:
-              - name: Overview
-                href: sql-azure-vulnerability-assessment-overview.md
-              - name: Enable vulnerability assessment
-                href: sql-azure-vulnerability-assessment-enable.md
-              - name: Manage vulnerability assessments
+     - name: Protect your databases with Defender for Databases
+       displayName: database, protections
+       href: tutorial-enable-databases-plan.md
+     - name: Defender for Azure SQL Databases
+       items:
+        - name: Get started
+          displayName: database
+          href: defender-for-sql-introduction.md
+        - name: Vulnerability assessment
+          items:
+           - name: Overview
+             href: sql-azure-vulnerability-assessment-overview.md
+           - name: Enable vulnerability assessment
+             href: sql-azure-vulnerability-assessment-enable.md
+           - name: Manage vulnerability assessments
+             items:
+              - name: Manage findings in your Azure SQL databases
+                href: sql-azure-vulnerability-assessment-manage.md
+              - name: PowerShell examples
                 items:
-                  - name: Manage findings in your Azure SQL databases
-                    href: sql-azure-vulnerability-assessment-manage.md
-                  - name: PowerShell examples
-                    items:
-                      - name: Enable vulnerability assessments on Azure SQL databases with the express
+                 - name: Enable vulnerability assessments on Azure SQL databases with the express
                           configuration
-                        href: powershell-sample-vulnerability-assessment-azure-sql.md
-                      - name: Set up baselines for vulnerability assessments on Azure SQL databases
-                        href: powershell-sample-vulnerability-assessment-baselines.md
-                      - name: Express configuration PowerShell wrapper module
-                        href: express-configuration-sql-commands.md
-                      - name: Example express configuration PowerShell commands reference
-                        href: express-configuration-powershell-commands.md
-                  - name: Azure CLI examples
-                    href: express-configuration-azure-commands.md
+                   href: powershell-sample-vulnerability-assessment-azure-sql.md
+                 - name: Set up baselines for vulnerability assessments on Azure SQL databases
+                   href: powershell-sample-vulnerability-assessment-baselines.md
+                 - name: Express configuration PowerShell wrapper module
+                   href: express-configuration-sql-commands.md
+                 - name: Example express configuration PowerShell commands reference
+                   href: express-configuration-powershell-commands.md
+              - name: Azure CLI examples
+                href: express-configuration-azure-commands.md
               - name: Find and remediate vulnerabilities
                 href: sql-azure-vulnerability-assessment-find.md
-              - name: Vulnerability assessment rules
-                href: sql-azure-vulnerability-assessment-rules.md
-              - name: Vulnerability assessment rules changelog
-                href: sql-azure-vulnerability-assessment-rules-changelog.md
-              - name: Store vulnerability scans in storage
-                href: /azure/azure-sql/database/sql-database-vulnerability-assessment-storage?toc=/azure/defender-for-cloud/toc.json
-              - name: Consume and export scan results
-                href: defender-for-sql-scan-results.md
-          - name: Investigate threats
-            items:
-              - name: Overview
-                href: /azure/azure-sql/database/threat-detection-overview?toc=/azure/defender-for-cloud/toc.json
-              - name: Configure threat detection
-                href: /azure/azure-sql/database/threat-detection-configure?toc=/azure/defender-for-cloud/toc.json
-      - name: Defender for SQL servers on machines
-        items:
+           - name: Vulnerability assessment rules
+             href: sql-azure-vulnerability-assessment-rules.md
+           - name: Vulnerability assessment rules changelog
+             href: sql-azure-vulnerability-assessment-rules-changelog.md
+           - name: Store vulnerability scans in storage
+             href: /azure/azure-sql/database/sql-database-vulnerability-assessment-storage?toc=/azure/defender-for-cloud/toc.json
+           - name: Consume and export scan results
+             href: defender-for-sql-scan-results.md
+        - name: Investigate threats
+          items:
+           - name: Overview
+             href: /azure/azure-sql/database/threat-detection-overview?toc=/azure/defender-for-cloud/toc.json
+           - name: Configure threat detection
+             href: /azure/azure-sql/database/threat-detection-configure?toc=/azure/defender-for-cloud/toc.json
+     - name: Defender for SQL servers on machines
+       items:
           - name: Enable Defender for SQL servers on machines
             href: defender-for-sql-usage.md
             displayName: hybrid, arc, Azure Defender
@@ -699,7 +700,7 @@
           - name: Scan your SQL resources for vulnerabilities
             href: defender-for-sql-on-machines-vulnerability-assessment.md
             displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
-      - name: Defender for open-source relational databases
+     -  name: Defender for open-source relational databases
         items:
           - name: Overview
             displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
@@ -708,18 +709,18 @@
             displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases,
               Azure Defender, OS RDBs, OSRDB
             href: defender-for-databases-usage.md
-      - name: Defender for Azure Cosmos DB
-        items:
-          - name: Overview
-            displayName: Cosmos, DB, Cosmos DB
-            href: concept-defender-for-cosmos.md
-          - name: Enable Microsoft Defender for Azure Cosmos DB
-            displayName: Cosmos, DB, Cosmos db
-            href: defender-for-databases-enable-cosmos-protections.md
-      - name: Common questions about Defender for Databases
-        displayName: database, common questions, databases, sql, express configuration,
+     - name: Defender for Azure Cosmos DB
+       items:
+         - name: Overview
+           displayName: Cosmos, DB, Cosmos DB
+           href: concept-defender-for-cosmos.md
+         - name: Enable Microsoft Defender for Azure Cosmos DB
+           displayName: Cosmos, DB, Cosmos db
+           href: defender-for-databases-enable-cosmos-protections.md
+     - name: Common questions about Defender for Databases
+       displayName: database, common questions, databases, sql, express configuration,
           faq, frequently asked questions
-        href: faq-defender-for-databases.yml
+       href: faq-defender-for-databases.yml
   - name: Defender for App Service
     items:
       - name: Overview
@@ -757,7 +758,7 @@
                 href: defender-for-storage-azure-portal-enablement.md
           - name: Advanced configurations for malware scanning
             href: advanced-configurations-for-malware-scanning.md
-          - name: Setup response to malware scanning
+          - name: Set up responses to malware scanning
             href: defender-for-storage-configure-malware-scan.md
           - name: Test and run a proof of concept
             href: defender-for-storage-test.md
