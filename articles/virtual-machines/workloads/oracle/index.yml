@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Oracle on Azure
+title: Oracle on Azure Documentation
 summary: Oracle applications and solutions on Azure.
 
 metadata:
@@ -18,14 +18,30 @@ metadata:
 
 landingContent:
   #card 1
-  - title: Oracle on Azure
+  - title: Oracle on Azure Documentation
     linkLists:
       - linkListType: overview
         links:
           - text: Oracle on Azure
             url: oracle-overview.md         
-          
-  #card 2  
+
+  #card 2
+  - title: Oracle on Azure Virtual Machines
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Oracle on Azure Virtual Machines
+            url: oracle-overview.md  
+   
+  #card 3
+  - title: Oracle Database@Azure
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Oracle Database@Azure
+            url: database-overview.md        
+  
+  #card 4  
   - title: Get started
     linkLists: 
       - linkListType: how-to-guide
@@ -37,7 +53,7 @@ landingContent:
           - text: WebLogic Server on Azure Kubernetes Service
             url: weblogic-aks.md
 
-  #card 3  
+  #card 5  
   - title: Solution architecture
     linkLists:
       - linkListType: concept
@@ -51,7 +67,7 @@ landingContent:
           - text: Architectures for Oracle Database Enterprise Edition on Azure
             url: oracle-design.md
 
-  #card 4  
+  #card 5 
   - title: Configuration
     linkLists:
       - linkListType: how-to-guide
@@ -65,7 +81,7 @@ landingContent:
           - text: Configure Oracle GoldenGate
             url: configure-oracle-golden-gate.md                  
   
-  #card 5  
+  #card 6  
   - title: Migration
     linkLists:
       - linkListType: how-to-guide
@@ -75,7 +91,7 @@ landingContent:
           - text: Storage options for oracle on Azure VMs
             url: oracle-storage.md 
   
-  #card 6
+  #card 7
   - title: Backup and disaster recovery
     linkLists:
       - linkListType: how-to-guide
@@ -91,7 +107,7 @@ landingContent:
           - text: Oracle RMAN streaming backup to Azure storage
             url: oracle-rman-streaming-backup.md
 
-  #card 7
+  #card 8
   - title: Reference
     linkLists:
       - linkListType: reference
@@ -106,5 +122,6 @@ landingContent:
             url: https://azure.microsoft.com/pricing/calculator/
           - text: Azure DevOps Roadmap
             url: https://learn.microsoft.com/azure/devops/release-notes/features-timeline
-      
-   
+    
+  
+          
