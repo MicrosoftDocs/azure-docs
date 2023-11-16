@@ -119,9 +119,9 @@ The client-side [compression](https://cwiki.apache.org/confluence/display/KAFKA/
 
 Kafka producer application developers can enable message compression by setting the compression.type property. In the public preview, the only compression algorithm supported is gzip. 
      Compression.type = none | gzip
-These changes are exposed in the header which then allows the consumer to properly decompress the data. The feature is currently only supported for Apache Kafka traffic producer and consumer traffic and not AMQP or web service. This means that your consumer needs to use the Kafka protocol if your producer configured Kafka compression.
+These changes are exposed in the header, which then allows the consumer to properly decompress the data. The feature is currently only supported for Apache Kafka traffic producer and consumer traffic and not AMQP or web service traffic. 
 
-The payload of any Event Hubs event is a byte stream and the content can be compressed with an algorithm of your choosing though in public preview, the only option is gzip. The Apache Avro encoding format supports compression natively.	The benefits of using Kafka compression are through smaller message size, increased payload size you can transmit, and lower message broker resource consumption.  
+The payload of any Event Hubs event is a byte stream and the content can be compressed with an algorithm of your choosing though in public preview, the only option is gzip. The benefits of using Kafka compression are through smaller message size, increased payload size you can transmit, and lower message broker resource consumption.  
 
 ### Kafka Streams
 
