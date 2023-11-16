@@ -10,7 +10,7 @@ ms.date: 08/02/2023
 ms.custom: engagement-fy23
 ---
 
-# Provision custom logins with least privileges for SQL Discovery and Assessment
+# Provision custom accounts with least privileges for SQL Discovery and Assessment
 
 This article describes how to create a custom account with minimal permissions for Discovery and assessment.
 
