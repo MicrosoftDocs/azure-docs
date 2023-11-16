@@ -1,8 +1,0 @@
-items:
-- name: Oracle Database on Azure
-  href: index.yml
-- name: Overview 
-  items:
-  - name: Oracle Database on Azure overview
-    href: db-overview.md
- 

@@ -5,11 +5,11 @@ items:
   href: oracle-azure-overview.md
 - name: Oracle on Azure Virtual Machines
   items:
-  - name: Oracle on Azure Virtual Machines
+  - name: Overview - Oracle on Azure Virtual Machines
     href: oracle-overview.md
 - name: Oracle Database@Azure
   items:
-  - name: Oracle Database @Azure
+  - name: Overview - Oracle Database@Azure
     href: /oracle-db/db-overview.md
 - name: Get started
   items:
