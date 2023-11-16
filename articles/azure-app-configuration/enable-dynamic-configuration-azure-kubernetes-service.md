@@ -64,9 +64,8 @@ Add the following key-value to your App Configuration store. For more informatio
     > [!TIP]
     > By default, the Kubernetes provider polls the monitoring key-values every 30 seconds for change detection. However, you can change this behavior by setting the `interval` property of the `refresh`. If you want to reduce the number of requests to your App Configuration store, you can adjust it to a higher value.
 
-1. Modify the *deployment.yaml* file in the *Deployment* directory to include [`DOTNET_USE_POLLING_FILE_WATCHER`](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider.usepollingfilewatcher). It's required to effectively watch for mounted file changes.
+1. Open the *deployment.yaml* file in the *Deployment* directory and add the following content to the `spec.containers` section. Your application will load configuration from a volume-mounted file the App Configuration Kubernetes provider generates. By setting this environment variable, your application can [ use polling to monitor changes in mounted files](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider.usepollingfilewatcher).
 
-    Add `env` section with the following content in `spec.containers` section.
     ```yaml
     env:
     - name: DOTNET_USE_POLLING_FILE_WATCHER
