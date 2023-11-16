@@ -96,13 +96,13 @@ Azure Key Vault offers [two authorization systems][authorization-systems]: **Azu
 Retrieve the Azure Key Vault resource ID.
 
 ```azurecli-interactive
-az keyvault show --name <KeyVaultName> --query "id" --output tsv
+KEYVAULTID=$(az keyvault show --name <KeyVaultName> --query "id" --output tsv)
 ```
 
 Then update the app routing add-on to enable the Azure Key Vault secret store CSI driver and apply the role assignment.
 
 ```azurecli-interactive
-az aks approuting update -g <ResourceGroupName> -n <ClusterName> --enable-kv --attach-kv <KeyVaultId>
+az aks approuting update -g <ResourceGroupName> -n <ClusterName> --enable-kv --attach-kv ${KEYVAULTID}
 ```
 
 ## Enable Azure DNS integration
@@ -136,7 +136,7 @@ To enable support for DNS zones, see the following prerequisites:
 1. Update the add-on to enable the integration with Azure DNS using the [`az aks approuting zone`][az-aks-approuting-zone] command. You can pass a comma-separated list of DNS zone resource IDs.
 
     ```azurecli-interactive
-    az aks approuting zone add -g <ResourceGroupName> -n <ClusterName> --ids=$ZONEID --attach-zones
+    az aks approuting zone add -g <ResourceGroupName> -n <ClusterName> --ids=${ZONEID} --attach-zones
     ```
 
 ## Create the Ingress that uses a host name and a certificate from Azure Key Vault
