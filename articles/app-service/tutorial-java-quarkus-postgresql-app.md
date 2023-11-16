@@ -157,6 +157,11 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 In this step, you'll configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository will kick off the build and deploy action.
 
+Note the following: 
+
+- Your deployed Java package must be an [Uber-Jar](https://quarkus.io/guides/maven-tooling#uber-jar-maven).
+- For simplicity of the tutorial, you'll disable tests during the deployment process. The GitHub Actions runners don't have access to the PostgreSQL database in Azure, so any integration tests that require database access will fail, such as is the case with the Quarkus sample application. 
+
 :::row:::
     :::column span="2":::
         **Step 1:** Back in the App Service page, in the left menu, select **Deployment Center**. 
@@ -175,7 +180,6 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
         1. In **Branch**, select **main**.
         1. In **Authentication type**, select **User-assigned identity (Preview)**.
         1. In the top menu, select **Save**. App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
-        
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-2.png" alt-text="A screenshot showing how to configure CI/CD using GitHub Actions." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-2.png":::
@@ -197,7 +201,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
         **Step 4:** 
         1. Open *.github/workflows/main_msdocs-quarkus-postgres-XYZ.yml* in the explorer. This file was created by the App Service create wizard.
         1. Under the `Build with Maven` step, change the Maven command to `mvn clean install -DskipTests -Dquarkus.package.type=uber-jar`.
-        `-DskipTests` skips the tests in your Quarkus project, and `-Dquarkus.package.type=uber-jar` [creates an Uber-jar](https://quarkus.io/guides/maven-tooling#uber-jar-maven) that App Service needs.
+        `-DskipTests` skips the tests in your Quarkus project, and `-Dquarkus.package.type=uber-jar` creates an Uber-Jar that App Service needs.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-4.png" alt-text="A screenshot showing a GitHub codespace and a GitHub workflow YAML opened." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-4.png":::
