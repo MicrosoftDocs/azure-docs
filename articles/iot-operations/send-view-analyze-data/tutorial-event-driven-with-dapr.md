@@ -139,12 +139,14 @@ To start, create a yaml file that uses the following definitions:
 
 ## Deploy the simulator
 
-The repository contains a deployment for a simulator that generates sensor data to the `sensor/data` topic.
+Simulate test data by deploying a Kubernetes workload. It simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQ broker using an MQTT client on the `sensor/data` topic.
+
+1. [Download the simulator yaml](https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/tutorials/mq-event-driven-dapr/simulate-data.yaml) from the Explore IoT Operations repository
 
 1. Deploy the simulator:
 
     ```bash
-    kubectl apply -f ./yaml/simulate-data.yaml
+    kubectl apply -f simulate-data.yaml
     ```
 
 1. Confirm the simulator is running:
@@ -248,6 +250,12 @@ The above tutorial uses a prebuilt container of the Dapr application. If you wou
 1. A Container registry - for hosting the application container
 
 ### Build the application
+
+1. Check out the Explore IoT Operations repository:
+
+    ```bash
+    git clone https://github.com/Azure-Samples/explore-iot-operations
+    ```
 
 1. Change to the Dapr tutorial directory in the [Explore IoT Operations](https://github.com/Azure-Samples/explore-iot-operations) repository:
 
