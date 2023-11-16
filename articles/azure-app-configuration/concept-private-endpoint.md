@@ -51,9 +51,9 @@ Azure relies upon DNS resolution to route connections from the VNet to the confi
 
 ## DNS changes for private endpoints
 
-When you create a private endpoint, the DNS CNAME resource record for the configuration store is updated to an alias in a subdomain with the prefix `privatelink`. Azure also creates a [private DNS zone](../dns/private-dns-overview.md) corresponding to the `privatelink` subdomain, with the DNS A resource records for the private endpoints.
+When you create a private endpoint, the DNS CNAME resource record for the configuration store is updated to an alias in a subdomain with the prefix `privatelink`. Azure also creates a [private DNS zone](../dns/private-dns-overview.md) corresponding to the `privatelink` subdomain, with the DNS A resource records for the private endpoints. Enabling geo-replication creates separate DNS records for each replica with unique IP addresses in the private DNS zone.
 
-When you resolve the endpoint URL from within the VNet hosting the private endpoint, it resolves to the private endpoint of the store. When resolved from outside the VNet, the endpoint URL resolves to the public endpoint. When you create a private endpoint, the public endpoint is disabled. Enabling geo-replication creates separate DNS records for each replica with unique IP addresses in the private DNS zone. 
+When you resolve the endpoint URL from within the VNet hosting the private endpoint, it resolves to the private endpoint of the store. When resolved from outside the VNet, the endpoint URL resolves to the public endpoint. When you create a private endpoint, the public endpoint is disabled.
 
 If you are using a custom DNS server on your network, you need to configure it to delegate your `privatelink` subdomain to the private DNS zone for the VNet. Alternatively, you can configure the A records for your store's private link URLs, which are either `[Your-store-name].privatelink.azconfig.io` or `[Your-store-name]-[replica-name].privatelink.azconfig.io` if geo-replication is enabled, with unique private IP addresses of the private endpoint.
 
