@@ -1,6 +1,6 @@
 ---
-title: Get help from the workflow assistant in Standard workflows
-description: Try asking the workflow assistant for help with Standard workflows in Azure Logic Apps.
+title: Get help from workflow assistant in Standard workflows
+description: Get help from the AI-powered workflow assistant for Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 11/17/2023
 ---
 
-# Get help for Standard workflows by asking the workflow assistant in Azure Logic Apps (preview)
+# Get AI-assisted help for Standard workflows in Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -16,41 +16,73 @@ ms.date: 11/17/2023
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-If you're new to building Standard workflows in single-tenant Azure Logic Apps, or you're updating a workflow either built by other developers or with other developers, you likely or often have many questions about workflows, connectors and their operations, and tasks that you want to complete in single-tenant Azure Logic Apps. For example, Azure Logic Apps provides 1,000+ connectors for you to use, so how do you choose?
+If you're new to building Standard workflows in Azure Logic Apps, or you're updating a workflow built by other developers, you might have questions about your workflow, connectors, their operations, and other tasks that you're trying to complete in Azure Logic Apps. For example, Azure Logic Apps provides 1,000+ connectors for you to use. How do you choose which to use?
 
-The workflow assistant provides a chat interface where you can ask specific questions about the currently open workflow or request other information about Azure Logic Apps. Available only directly from inside the Standard workflow designer, the workflow assistant provides access to Azure Logic Apps documentation and best practices so that you don't have to separately browse the documentation or search online.
+In the Azure portal, within the Standard workflow designer, the workflow assistant offers a chat box so that you can ask questions about the currently open workflow or about Azure Logic Apps in general. The assistant generates answers and provides access to Azure Logic Apps documentation and best practices. When you use the assitant, you don't have to switch context to search or browse for documentation online.
 
 :::image type="content" source="media/workflow-assistant-standard/overview.png" alt-text="Screenshot shows Azure portal, Standard logic app with workflow designer opened, and workflow assistant with example question and generated response." lightbox="media/workflow-assistant-standard/overview.png":::
 
+The workflow assistant uses reputable knowledge sources such as the Azure Logic Apps documentation on Microsoft Learn, connector schemas, tech community blogs to deliver curated information using the [Azure Open AI Service](../ai-services/openai/overview.md) and [ChatGPT](https://openai.com/blog/chatgpt). The assistant also builds responses based on your opened workflow in the designer. That way, you can learn how to complete tasks within your workflow's specific context. For example, you can ask how to configure a specific action in the workflow, get recommendations about the action's parameter values or ouptuts, how to test that data, and so on.
+
+> [!IMPORTANT]
+>
+> The workflow assistant doesn't collect, save, store, or share any information and personal or customer data 
+> from your Standard logic app workflows or from your chat history. The assistant is available only when you 
+> use the designer for Standard logic app workflows in Azure portal, not in Visual Studio Code. You can use 
+> the assistant in all Azure regions where Standard workflows and single-tenant Azure Logic Apps are available. 
+> However, the assistant currently supports only English for queries, prompts, and responses.
+>
+> The workflow assistant follows responsible practices in accordance with the 
+> [Azure Privacy policy](https://portal.azure.com/explore/trusted-cloud/privacy). 
+> For more information, see [Azure customer data protection](../security/fundamentals/protection-customer-data.md) 
+> and [Microsoft data protection and privacy](https://www.microsoft.com/trust-center/privacy). 
+> The assistant follows responsible and ethical AI practices in accordance with the 
+> [Microsoft responsible AI principles and approach](https://www.microsoft.com/ai/principles-and-approach).
+
+## Prerequisites
+
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- A [new or existing Standard logic app workflow](create-single-tenant-workflows-azure-portal.md).
+
 ## Open the workflow assistant
 
-You can open the workflow assistant only from a new or existing Standard workflow in the designer.
-
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and a workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
 
 1. On the workflow toolbar, select **Assistant**.
 
    :::image type="content" source="media/workflow-assistant-standard/open-workflow-assistant.png" alt-text="Screenshot shows Azure portal, Standard logic app with workflow designer opened, and workflow toolbar with Assistant selected." lightbox="media/workflow-assistant-standard/open-workflow-assistant.png":::
 
-   To the designer's left side, the **Workflow assistant** pane opens:
+   The **Workflow assistant** pane opens on the designer's left side:
 
    :::image type="content" source="media/workflow-assistant-standard/chat-open-first-time.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and open workflow assistant pane." lightbox="media/workflow-assistant-standard/chat-open-first-time.png":::
 
-## Ask a question or make a request
+## Ask your question
 
-1. In the chat box, enter your question or request for more information about Azure Logic Apps capabilities or about the current workflow. When you're done, press Enter, or select **Submit** (paper airplane icon).
+1. In the chat box, enter your question about the current workflow or about Azure Logic Apps.
 
-   The following example asks the question, "What is a trigger?"
+   The following example asks the question, **"What is a trigger?"**
 
    :::image type="content" source="media/workflow-assistant-standard/ask-question.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, open workflow assistant pane, and chat box with a question entered." lightbox="media/workflow-assistant-standard/ask-question.png":::
 
-   The workflow assistant takes some time to research your query and generates an answer, for example:
+   The workflow assistant researches your question and generates an answer, for example:
 
    :::image type="content" source="media/workflow-assistant-standard/question-response.png" alt-text="Screenshot shows open workflow assistant pane, and chat box with a generated answer to the previously entered question." lightbox="media/workflow-assistant-standard/question-response.png":::
 
 1. [Provide optional feedback about your experience with the workflow assistant](#provide-feedback).
 
-1. At any time, you can close the workflow assistant. Your chat history isn't saved or preserved.
+1. At any time, you can close the workflow assistant, which doesn't save or store your chat history.
+
+## Example ways to use the assistant
+
+The following table includes only some example use cases, so please share your feedback with the Azure Logic Apps team about how you use the workflow assistant to improve your productivity.
+
+| Use case | Example question | Description |
+|----------|------------------|-------------|
+| Describe the currently open workflow. | **"What does this workflow do?"** | Useful when you use or update a workflow built by other developers or when collaborating with other developers on shared workflows. |
+| Get help with connectors. | - **"Which connectors can send email?"** <br>- **"What does the Request trigger do?"** | Useful when you're not sure which connector to use, what connectors are available, or need specific information about a connector. <br><br>The workflow assistant can provide recommendations on connectors or operations, provide best practices about how to use a connector, provide comparisons between connectors, and so on. |
+| Suggest guidance based on your specific scenario. | **"How do I create a workflow that checks an RSS feed and sends me the feed items?"** | Recommend step-by-step information about how to build a workflow based on your scenario, including which connectors to use, how to configure them, and how to process the data. |
+| Recommend patterns. | **"What's a best practice for error handling in my workflow?"** | Provide guidance and best practices for error handling, testing, and other optimizations. |
 
 <a name="provide-feedback"></a>
 
@@ -58,63 +90,36 @@ You can open the workflow assistant only from a new or existing Standard workflo
 
 The Azure Logic Apps team values your feedback and encourages you to share your experiences, especially if you encounter unexpected responses or have any concerns about the workflow assistant.
 
-1. In the chat pane, under the workflow assistant's response, choose an option:
+In the chat pane, under the workflow assistant's response, choose an option:
 
-   - To share constructive feedback about the workflow assistant or its responses, select the thumbs-down icon.
+- Share constructive feedback about the workflow assistant or its responses.
 
-     :::image type="content" source="media/workflow-assistant-standard/thumbs-down.png" alt-text="Screenshot shows workflow assistant pane feedback options with thumbs-down icon selected." lightbox="media/workflow-assistant-standard/thumbs-down.png":::
+  1. Select the thumbs-down icon:
 
-     1. On the **Give feedback to Microsoft** pane that opens, rate the difficulty how difficult was the assistant for you to use and how valuable.
+     ![Screenshot shows workflow assistant pane feedback options with down-vote icon selected.](media/workflow-assistant-standard/thumbs-down.png)
 
-     1. In the text box, include the question that you asked, relevant workflow information about your workflow, and the assistant's response that you received.
+  1. Provide the following information:
 
-     1. If you want Microsoft or the Azure Logic Apps team to contact you, select **It's OK to contact me about my feedback".
+     | Item | Description |
+     |------|-------------|
+     | Difficulty | Rate the difficultly level for using the assistant. |
+     | Value | Rate the value that the assistant provided in helping you with your workflow or Azure Logic Apps. |
+     | Comments | Include the following information: <br><br>- The question you asked <br>- Relevant information about your workflow <br>- The assistant's response |
+     | **It's OK to contact me about my feedback** | Select whether you want Microsoft or the Azure Logic Apps team to contact you. |
 
-     1. When you're done, select **Submit**.
+  1. When you're done, select **Submit**.
 
-   - To report problems with the workflow assistant, select **Report a bug**.
+- Report problems with the workflow assistant.
 
-     :::image type="content" source="media/workflow-assistant-standard/report-bug.png" alt-text="Screenshot shows workflow assistant pane feedback options with selected option for Report a bug." lightbox="media/workflow-assistant-standard/report-bug.png":::
+  1. Select **Report a bug**:
 
-     1. After the Azure Logic Apps customer feedback bug report template opens in GitHub, follow the template's prompts to provide the required information and other details about the problem.
+     ![Screenshot shows workflow assistant pane feedback options with selected option for Report a bug.](media/workflow-assistant-standard/report-bug.png)
 
-     1. When you're done, select **Submit new issue**.
+     The link opens a GitHub page for the Azure Logic Apps customer feedback bug report template.
 
-## How does the workflow assistant work?
+  1. Follow the template's prompts to provide the required information and other details about the problem.
 
-When you ask a question or request information in the workflow assistant's chat interface, the assistant queries diverse knowledge sources related to Azure Logic Apps and delivers curated information using the [Azure Open AI Service](../ai-services/openai/overview.md) and [ChatGPT](https://openai.com/blog/chatgpt), which is built by [Open AI](https://openai.com).
-
-These systems use Azure Logic Apps documentation from reputable sources, such as Microsoft Learn, connector schemas, tech community blogs, along with internet data that's used to train GPT 3.5-Turbo. This content is processed into a vectorized format, which is then accessible through a backend system built on Azure App Service. Queries are triggered based on interactions with the workflow designer.
-
-When you enter your query or *prompt* in the chat interface, the Azure Logic Apps backend performs preprocessing and forwards the results to a large language model in Azure Open AI Service. This model generates responses based on the current context in the form of the workflow definition's JSON code and your prompt. 
-
-With the assistant helping you during workflow development, the assistant's goal is to make sure that all the information that you need is readily available, presented in a curated manner, and doesn't require you to switch context.
-
-## Example use cases 
-
-The workflow assistant is useful for various use cases, for example:
-
-- Describe the current workflow.
-
-  This prompt is useful when you're using or updating workflows built by other developers or collaborating with other developers on shared workflows.
-
-- Provide help with connectors.
-
-  Azure Logic Apps has 1,000+ connectors, so this much choice can feel overwhelming. The workflow assistant can provide recommendations on connectors or operations, provide best practices about how to use a connector, provide comparisons between connectors, and so on.
-
-- Recommend patterns.
-
-  Like code, well-built workflows and integration applications can follow standard patterns. The workflow assistant can provide guidance that you can use to apply best practices for error handling, testing, and other optimizations.
-
-- Suggest guidance based on scenarios.
-
-  The workflow assistant can recommend step-by-step information about how to build workflows based on your scenarios, for example, the connectors to use, how to configure them, and how to process the data.
-
-- Provide contextual responses.
-
-  The workflow assistant builds its responses based on your opened workflow in the designer. You can ask very specific questions about how to perform tasks in the context of a workflow operation. For example, you can learn the configuration for specific actions and get more help about how to configure them. You can get recommendations about the data input or output for an operation, how to test that data, and so on.
-
-This list includes only some examples, so please share your feedback with the Azure Logic Apps team about how you use the workflow assistant to improve your productivity.
+  1. When you're done, select **Submit new issue**.
 
 ## Limitations
 
@@ -128,25 +133,15 @@ This list includes only some examples, so please share your feedback with the Az
 
 ## Frequently asked questions (FAQ)
 
-**Q**: Is the workflow assistant available for all developers?
-
-**A**: The workflow assistant is available only for Standard workflows in Azure Logic Apps and is currently available only in the Azure portal, not Visual Studio Code.
-
-**Q**: Is the workflow assistant available in all Azure regions and languages?
-
-**A**: The workflow assistant is available in all Azure regions where Standard workflows and single-tenant Azure Logic Apps are available. However, the assistant currently supports only English for queries, prompts, and responses.
-
 **Q**: Can the workflow assistant answer questions about any topic?
 
 **A**: The workflow assistant is trained to answer only questions about Azure Logic Apps. To make sure that responses are grounded and relevant to Azure Logic Apps, the assistant was evaluated using valid and harmful prompts from various sources. The assistant is trained to not answer any harmful questions. If you ask questions about Azure that are unrelated to Azure Logic Apps, the assistant gracefully hands off processing to Azure Copilot.
 
-**Q**: Where can I learn about responsible and ethical AI practices at Microsoft?
+**Q**: How does the workflow assistant use my query to generate responses?
 
-**A**: The workflow assistant follows responsible and ethical AI practices in accordance with the [Microsoft responsible AI principles and approach](https://www.microsoft.com/ai/principles-and-approach).
+**A**: The workflow is powered by [Azure Open AI Service](../ai-services/openai/overview.md) and [ChatGPT](https://openai.com/blog/chatgpt), which use Azure Logic Apps documentation from reputable sources along with internet data that's used to train GPT 3.5-Turbo. This content is processed into a vectorized format, which is then accessible through a backend system built on Azure App Service. Queries are triggered based on interactions with the workflow designer.
 
-**Q**: Where can I learn about privacy and data protection for Azure?
-
-**A**: The workflow assistant follows responsible practices in accordance with the [Azure Privacy policy](https://portal.azure.com/explore/trusted-cloud/privacy). For more information, see [Azure customer data protection](../security/fundamentals/protection-customer-data.md) and [Microsoft data protection and privacy](https://www.microsoft.com/trust-center/privacy).
+When you enter your question in the assistant's chat box, the Azure Logic Apps backend performs preprocessing and forwards the results to a large language model in Azure Open AI Service. This model generates responses based on the current context in the form of the workflow definition's JSON code and your prompt. 
 
 **Q**: What data does the workflow assistant collect?
 
@@ -154,7 +149,15 @@ This list includes only some examples, so please share your feedback with the Az
 
 **Q**: What happens to any personal or customer data entered in the workflow assistant? 
 
-**A**: The workflow assistant doesn't collect, store, or share any personal or customer data, including any data provided in workflow assistant's questions or responses.
+**A**: The workflow assistant doesn't collect, save, store, or share any personal or customer data, including any information in workflow assistant's chat history.
+
+**Q**: Where can I learn about privacy and data protection for Azure?
+
+**A**: The workflow assistant follows responsible practices in accordance with the [Azure Privacy policy](https://portal.azure.com/explore/trusted-cloud/privacy). For more information, see [Azure customer data protection](../security/fundamentals/protection-customer-data.md) and [Microsoft data protection and privacy](https://www.microsoft.com/trust-center/privacy).
+
+**Q**: Where can I learn about responsible and ethical AI practices at Microsoft?
+
+**A**: The workflow assistant follows responsible and ethical AI practices in accordance with the [Microsoft responsible AI principles and approach](https://www.microsoft.com/ai/principles-and-approach).
 
 **Q**: Does Azure Logic Apps own the workflows suggested by the workflow assistant? 
 
