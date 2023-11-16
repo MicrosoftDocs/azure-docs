@@ -94,6 +94,7 @@ Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB usin
 | AZURE_COSMOS_LISTCONNECTIONSTRINGURL | The URL to get the connection string | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<Azure-Cosmos-DB-API-for-MongoDB-account>/listConnectionStrings?api-version=2021-04-15` |
 | AZURE_COSMOS_SCOPE                   | Your managed identity scope          | `https://management.azure.com/.default`                                                                                                                                                                                                    |
 | AZURE_COSMOS_RESOURCEENDPOINT        | Your resource endpoint               | `https://<Azure-Cosmos-DB-API-for-MongoDB-account>.documents.azure.com:443/`                                                                                                                                                             |
+
 Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a system-assigned managed identity.
 [!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-me-id.md)]
 
@@ -105,6 +106,7 @@ Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB usin
 | AZURE_COSMOS_SCOPE                   | Your managed identity scope          | `https://management.azure.com/.default`                                                                                                                                                                                                    |
 | AZURE_COSMOS_CLIENTID                | Your client ID                       | `<client-ID>`                                                                                                                                                                                                                              |
 | AZURE_COSMOS_RESOURCEENDPOINT        | Your resource endpoint               | `https://<Azure-Cosmos-DB-API-for-MongoDB-account>.documents.azure.com:443/`                                                                                                                                                               |
+
 Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a user-assigned managed identity.
 [!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-me-id.md)]
 
