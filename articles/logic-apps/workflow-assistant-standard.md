@@ -16,21 +16,21 @@ ms.date: 11/17/2023
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-If you're new to building Standard workflows in Azure Logic Apps, or you're updating a workflow built by other developers, you might have questions about your workflow, connectors, their operations, and other tasks that you're trying to complete in Azure Logic Apps. For example, Azure Logic Apps provides 1,000+ connectors for you to use. How do you choose which to use?
+If you're new to Standard workflows in Azure Logic Apps or updating a workflow built by other developers, you might have many questions about workflows, connectors, their operations, and other tasks that you need to complete in Azure Logic Apps. For example, Azure Logic Apps provides 1,000+ connectors for you to use. How do you choose which ones to use?
 
 In the Azure portal, within the Standard workflow designer, the workflow assistant offers a chat box so that you can ask questions about the currently open workflow or about Azure Logic Apps in general. The assistant generates answers and provides access to Azure Logic Apps documentation and best practices. When you use the assistant, you don't have to switch context to search or browse for documentation online.
 
 :::image type="content" source="media/workflow-assistant-standard/overview.png" alt-text="Screenshot shows Azure portal, Standard logic app with workflow designer opened, and workflow assistant with example question and generated response." lightbox="media/workflow-assistant-standard/overview.png":::
 
-The workflow assistant uses reputable knowledge sources such as the Azure Logic Apps documentation on Microsoft Learn, connector schemas, tech community blogs to deliver curated information using the [Azure Open AI Service](../ai-services/openai/overview.md) and [ChatGPT](https://openai.com/blog/chatgpt). The assistant also builds responses based on your opened workflow in the designer. That way, you can learn how to complete tasks within your workflow's specific context. For example, you can ask how to configure a specific action in the workflow, get recommendations about the action's inputs or outputs, how to test that data, and so on.
+The workflow assistant uses reputable knowledge sources, such as the Azure Logic Apps documentation on Microsoft Learn, connector schemas, and tech community blogs, to deliver curated information by using the [Azure Open AI Service](../ai-services/openai/overview.md) and [ChatGPT](https://openai.com/blog/chatgpt). The assistant also builds responses based on your opened workflow in the designer. That way, you can learn how to complete tasks within your workflow's specific context. For example, you can ask how to configure a specific action in the workflow, get recommendations about the action's inputs or outputs, how to test that data, and so on.
 
 > [!IMPORTANT]
 >
 > The workflow assistant doesn't collect, save, store, or share any personal or customer data in your 
-> Standard logic app workflows nor any information in your chat history. The assistant is available only 
-> when you use the designer for Standard logic app workflows in Azure portal, not in Visual Studio Code. 
-> You can use the assistant in all Azure regions where Standard workflows and single-tenant Azure Logic 
-> Apps are available. However, the assistant currently supports only English for questions and responses.
+> Standard workflows nor any information in your chat history. The assistant is available only in the 
+> designer for Standard logic app workflows in Azure portal, not in Visual Studio Code. You can use the 
+> assistant in all Azure regions where Standard workflows and single-tenant Azure Logic Apps are available. 
+> However, the assistant currently supports only English for questions and responses.
 >
 > The workflow assistant follows responsible practices in accordance with the 
 > [Azure Privacy policy](https://portal.azure.com/explore/trusted-cloud/privacy) 
@@ -80,6 +80,11 @@ The following table includes only some example use cases, so please share your f
 
    :::image type="content" source="media/workflow-assistant-standard/question-response.png" alt-text="Screenshot shows open workflow assistant pane, and chat box with a generated answer to the previously entered question." lightbox="media/workflow-assistant-standard/question-response.png":::
 
+   > [!NOTE]
+   >
+   > If you close the workflow assistant pane, your chat history isn't saved or preserved. 
+   > When you reopen the assistant, you start with new chat box.
+
 1. [Provide optional feedback about your experience with the workflow assistant](#provide-feedback).
 
 ## Limitations
@@ -87,6 +92,10 @@ The following table includes only some example use cases, so please share your f
 - Inaccurate responses
 
   The workflow assistant can generate valid responses that might not be semantically correct or capture the intent behind your prompt. As the language model trains with more data over time, the responses will improve. Always make sure to carefully review the assistant's recommendations before you apply them to your workflows.
+
+- No support for conversation threads
+
+  The workflow assistant currently responds only to the immediate question, and not earlier questions in the same chat session.
 
 - Workflow size
 
