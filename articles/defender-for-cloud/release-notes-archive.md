@@ -1383,10 +1383,7 @@ According to the [2021 State of the Cloud report](https://info.flexera.com/CM-RE
 
 **Microsoft Defender for Cloud**  is a Cloud Security Posture Management (CSPM) and cloud workload protection (CWP) solution that discovers weaknesses across your cloud configuration, helps strengthen the overall security posture of your environment, and protects workloads across multicloud and hybrid environments.
 
-<<<<<<< HEAD
 At Ignite 2019, we shared our vision to create the most complete approach for securing your digital estate and integrating XDR technologies under the Microsoft Defender brand. Unifying Azure Security Center and Azure Defender under the new name **Microsoft Defender for Cloud** reflects the integrated capabilities of our security offering and our ability to support any cloud platform.
-=======
->>>>>>> ec3ba8f59ffea64e097dae0e97d54ec4dee1b010
 
 ### Native CSPM for AWS and threat protection for Amazon EKS, and AWS EC2
 
