@@ -81,7 +81,7 @@ Add the following key-value to your App Configuration store. For more informatio
 
 1. Open a browser window, and navigate to the IP address obtained in the [previous step](./quickstart-azure-kubernetes-service.md#deploy-the-application). The web page looks like this:
 
-    ![Screenshot of the web app with old values](./media/quickstarts/kubernetes-provider-app-launch-dynamic-before.png)
+    ![Screenshot of the web app with old values](./media/quickstarts/kubernetes-provider-app-launch-after.png)
 
 
 1. Update the following key-values in your App Configuration store, ensuring to update the sentinel key last.
