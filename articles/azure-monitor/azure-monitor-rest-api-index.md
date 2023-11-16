@@ -94,7 +94,7 @@ Organized by subject area.
 | ***Query log data*** |  |
 | [Data Access](./logs/api/overview.md) | Query Log Analytics data. |
 | ***Send Custom Log Data to Log Analytics*** |  |
-| [Logs Ingestion](./logs/logs-ingestion-api-overview.md) | Lets you send data to a Log Analytics workspace using either a [REST API call](#rest-api-call) or [client libraries](#client-libraries). |
+| [Logs Ingestion](./logs/logs-ingestion-api-overview.md) | Lets you send data to a Log Analytics workspace using either a [REST API call](./logs/logs-ingestion-api-overview.md#rest-api-call) or [client libraries](./logs/logs-ingestion-api-overview.md#client-libraries). |
 | ***Retired or being retired*** |  |
 | [Alerts (classic) rule incidents](/rest/api/monitor/alert-rule-incidents) | [Being retired in 2019](/previous-versions/azure/azure-monitor/alerts/monitoring-classic-retirement) in the public cloud. Older classic alerts functions. Gets an incident associated to a [classic metric alert rule](./alerts/alerts-classic.overview.md). When an alert rule fires because the threshold is crossed in the up or down direction, an incident is created and an entry added to the [Activity Log](./essentials/platform-logs-overview.md). |
 | [Alert (classic) rules](/rest/api/monitor/alert-rules) | [Being retired in 2019](/previous-versions/azure/azure-monitor/alerts/monitoring-classic-retirement) in the public cloud. Provides operations for managing [classic alert](./alerts/alerts-classic.overview.md) rules. |
