@@ -23,7 +23,7 @@ Azure savings plan for compute was launched in October 2022 to provide you with 
 
 You can continue to use instance size flexibility for VM sizes, but Microsoft is ending exchanges for regions and instance series for these Azure compute reservations.
 
-The current cancellation policy for reserved instances isn't changing. The total canceled commitment can't exceed 50,000 USD in a 12-month rolling window for a billing profile or single enrollment.
+The current cancellation policy for reserved instances isn't changing. The total canceled commitment can't exceed $50,000 USD in a 12-month rolling window for a billing profile or single enrollment.
 
 A compute reservation exchange for another compute reservation exchange is similar to, but not the same as a reservation [trade-in](../savings-plan/reservation-trade-in.md) for a savings plan. The difference is that you can always trade in your Azure reserved instances for compute for a savings plan. There's no time limit for trade-ins.
 
