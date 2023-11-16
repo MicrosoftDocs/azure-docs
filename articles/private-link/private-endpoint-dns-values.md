@@ -24,7 +24,7 @@ You can use the following options to configure your DNS settings for private end
 
 - **Use a private DNS zone**. You can use [private DNS zones](../dns/private-dns-privatednszone.md) to override the DNS resolution for a private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains.
 
-- **Use Azure Private Resolver (optional)**. You can use Azure Private Resolver to override the DNS resolution for a private link resource. For more information about Azure Private Resolver, see [Azure Private DNS](../dns/dns-private-resolver-overview.md).
+- **Use Azure Private Resolver (optional)**. You can use Azure Private Resolver to override the DNS resolution for a private link resource. For more information about Azure Private Resolver, see [What is Azure Private Resolver?](../dns/dns-private-resolver-overview.md).
 
 > [!IMPORTANT]
 > It is not recommended to override a zone that's actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service listed later in this article.
@@ -183,18 +183,26 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Static Web Apps (Microsoft.Web/staticSites) | staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
 | Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 
----
+<sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
+
+>[!Note]
+>In the above text, **`{regionCode}`** refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
+>
+> - [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
+> - [Geo Code list in XML](/azure/backup/scripts/geo-code-list)
+>
+> **`{regionName}`** refers to the full region name (for example, **eastus** for East US and **northeurope** for North Europe). To retrieve a current list of Azure regions and their names and display names, use **`az account list-locations -o table`**.
 
 ## Government
 
-# [**AI + Machine Learning**](#tab/ai-machine-learning)
+### AI + Machine Learning
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
 | Azure AI services (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.us | cognitiveservices.azure.us |
 | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.ml.azure.us<br/>privatelink.notebooks.usgovcloudapi.net | api.ml.azure.us<br/>notebooks.usgovcloudapi.net <br/> instances.azureml.us<br/>aznbcontent.net <br/> inference.ml.azure.us |
 
-# [**Analytics**](#tab/analytics)
+### Analytics
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -208,7 +216,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure HDInsight (Microsoft.HDInsight) | N/A | privatelink.azurehdinsight.us | azurehdinsight.us |
 | Azure Databricks (Microsoft.Databricks/workspaces) | databricks_ui_api </br> browser_authentication | privatelink.databricks.azure.us | databricks.azure.us |
 
-# [**Compute**](#tab/compute)
+### Compute
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -217,13 +225,13 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) | global | privatelink-global.wvd.azure.us | wvd.azure.us |
 | Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces </br> Microsoft.DesktopVirtualization/hostpools) | feed <br> connection | privatelink.wvd.azure.us | wvd.azure.us |
 
-# [**Containers**](#tab/containers)
+### Containers
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
 | Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.us </br> {regionName}.privatelink.azurecr.us | azurecr.us </br> {regionName}.azurecr.us |
 
-# [**Databases**](#tab/databases)
+### Databases
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -237,13 +245,12 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) | mariadbServer | privatelink.mariadb.database.usgovcloudapi.net| mariadb.database.usgovcloudapi.net |
 | Azure Cache for Redis (Microsoft.Cache/Redis) | redisCache | privatelink.redis.cache.usgovcloudapi.net | redis.cache.usgovcloudapi.net |
 
-# [**Hybrid + multicloud**](#tab/hybrid-multicloud)
+### Hybrid + multicloud
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
-|
 
-# [**Integration**](#tab/integration)
+### Integration
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -252,19 +259,19 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Event Grid (Microsoft.EventGrid/domains) | domain | privatelink.eventgrid.azure.us | eventgrid.azure.us |
 | Azure Health Data Services (Microsoft.HealthcareApis/workspaces) | healthcareworkspace | privatelink.workspace.azurehealthcareapis.us </br> privatelink.fhir.azurehealthcareapis.us </br> privatelink.dicom.azurehealthcareapis.us | workspace.azurehealthcareapis.us </br> fhir.azurehealthcareapis.us </br> dicom.azurehealthcareapis.us |
 
-# [**Internet of Things (IoT)**](#tab/iot)
+### Internet of Things (IoT)
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
 | Azure IoT Hub (Microsoft.Devices/IotHubs) | iotHub | privatelink.azure-devices.us<br/>privatelink.servicebus.windows.us<sup>1</sup> | azure-devices.us<br/>servicebus.usgovcloudapi.net |
 | Azure IoT Hub Device Provisioning Service (Microsoft.Devices/ProvisioningServices) | iotDps | privatelink.azure-devices-provisioning.us | azure-devices-provisioning.us |
 
-# [**Media**](#tab/media)
+### Media
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
 
-# [**Management and Governance**](#tab/management-governance)
+### Management and Governance
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -275,14 +282,14 @@ For Azure services, use the recommended zone names as described in the following
 | Microsoft Purview (Microsoft.Purview) | account | privatelink.purview.azure.us | purview.azure.us |
 | Microsoft Purview (Microsoft.Purview) | portal | privatelink.purviewstudio.azure.us | purview.azure.com </br> purviewstudio.azure.us |
 
-# [**Security**](#tab/security)
+### Security
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
 | Azure Key Vault (Microsoft.KeyVault/vaults) | vault | privatelink.vaultcore.usgovcloudapi.net | vault.usgovcloudapi.net <br> vaultcore.usgovcloudapi.net |
 | Azure App Configuration (Microsoft.AppConfiguration/configurationStores) | configurationStores | privatelink.azconfig.azure.us | azconfig.azure.us |
 
-# [**Storage**](#tab/storage)
+### Storage
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -293,7 +300,7 @@ For Azure services, use the recommended zone names as described in the following
 | Storage account (Microsoft.Storage/storageAccounts) | web </br> web_secondary | privatelink.web.core.usgovcloudapi.net | web.core.usgovcloudapi.net |
 | Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) | dfs </br> dfs_secondary | privatelink.dfs.core.usgovcloudapi.net | dfs.core.usgovcloudapi.net |
 
-# [**Web**](#tab/web)
+### Web
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -302,17 +309,22 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.us </br> scm.privatelink.azurewebsites.us | azurewebsites.us </br> scm.azurewebsites.us |
 | Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net | 
 
----
+>[!Note]
+>In the above text, `{regionCode}` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
+>- [US Gov](../azure-government/documentation-government-developer-guide.md)
+>- [Geo Code list in XML](/azure/backup/scripts/geo-code-list)
+>
+> **`{regionName}`** refers to the full region name (for example, **eastus** for East US and **northeurope** for North Europe). To retrieve a current list of Azure regions and their names and display names, use **`az account list-locations -o table`**.
 
 ## China
 
-# [**AI + Machine Learning**](#tab/ai-machine-learning)
+### AI + Machine Learning
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
 | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.ml.azure.cn<br/>privatelink.notebooks.chinacloudapi.cn | api.ml.azure.cn<br/>notebooks.chinacloudapi.cn <br/> instances.azureml.cn <br/> aznbcontent.net <br/> inference.ml.azure.cn |
 
-# [**Analytics**](#tab/analytics)
+### Analytics
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -321,7 +333,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure HDInsight (Microsoft.HDInsight) | N/A | privatelink.azurehdinsight.cn | azurehdinsight.cn |
 | Azure Data Explorer (Microsoft.Kusto/Clusters) | cluster | privatelink.{regionName}.kusto.windows.cn | {regionName}.kusto.windows.cn |
 
-# [**Compute**](#tab/compute)
+### Compute
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -330,12 +342,12 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) | global | privatelink-global.wvd.azure.cn | wvd.azure.cn |
 | Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces and Microsoft.DesktopVirtualization/hostpools) | feed </br> connection | privatelink.wvd.azure.cn | wvd.azure.cn |
 
-# [**Containers**](#tab/containers)
+### Containers
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
 
-# [**Databases**](#tab/databases)
+### Databases
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -351,42 +363,42 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) | mariadbServer | privatelink.mariadb.database.chinacloudapi.cn | mariadb.database.chinacloudapi.cn |
 | Azure Cache for Redis (Microsoft.Cache/Redis) | redisCache | privatelink.redis.cache.chinacloudapi.cn | redis.cache.chinacloudapi.cn |
 
-# [**Hybrid + multicloud**](#tab/hybrid-multicloud)
+### Hybrid + multicloud
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
 
-# [**Integration**](#tab/integration)
+### Integration
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
 | Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.chinacloudapi.cn | servicebus.chinacloudapi.cn |
 
-# [**Internet of Things (IoT)**](#tab/iot)
+### Internet of Things (IoT)
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
 | Azure IoT Hub (Microsoft.Devices/IotHubs) | iotHub | privatelink.azure-devices.cn <br/> privatelink.servicebus.chinacloudapi.cn <sup>1</sup> | azure-devices.cn<br/>servicebus.chinacloudapi.cn |
 | Azure IoT Hub Device Provisioning Service (Microsoft.Devices/ProvisioningServices) | iotDps | privatelink.azure-devices-provisioning.cn | azure-devices-provisioning.cn |
 
-# [**Media**](#tab/media)
+### Media
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
 
-# [**Management and Governance**](#tab/management-governance)
+### Management and Governance
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
 | Azure Automation / (Microsoft.Automation/automationAccounts) | Webhook </br> DSCAndHybridWorker | privatelink.azure-automation.cn | azure-automation.cn |
 
-# [**Security**](#tab/security)
+### Security
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
 | Azure Key Vault (Microsoft.KeyVault/vaults) | vault | privatelink.vaultcore.azure.cn | vaultcore.azure.cn |
 
-# [**Storage**](#tab/storage)
+### Storage
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -398,7 +410,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) | dfs </br> dfs_secondary | privatelink.dfs.core.chinacloudapi.cn | dfs.core.chinacloudapi.cn |
 | Azure File Sync (Microsoft.StorageSync/storageSyncServices) | afs | privatelink.afs.azure.cn | afs.azure.cn 
 
-# [**Web**](#tab/web)
+### Web
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -407,7 +419,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.chinacloudsites.cn | chinacloudsites.cn |
 | SignalR (Microsoft.SignalRService/SignalR) | signalR | privatelink.signalr.azure.cn | service.signalr.azure.cn |
 
----
+<sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
 
 ## Next step
 
