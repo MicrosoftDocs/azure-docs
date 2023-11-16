@@ -38,7 +38,8 @@ The utility requires the SQL Server instances list created as a CSV with the fol
 1.	Open a command prompt and navigate to the %ProgramFiles%\Microsoft Azure Appliance Configuration Manager\Tools\SQLMinPrivilege folder.
 1.	Launch the Least Privileged Account Provisioning utility using the command:
     `MinimumPrivilegedUser.exe`
-1.	Provide the path to the CSV list of SQL Server instances. 
+1.	Select the environment type by entering 1 if you're running it from AzureMigrate appliance or 2 otherwise.
+1.  Provide the path to the CSV list of SQL Server instances. 
 1.  Provide a unique identifier(GUID) for creation of a custom security identifier(SID) for the custom account. We recommend that you use the same well known GUID for all executions of the utility. For example, you can use the Azure Subscription ID.
 1.	Provide the credentials of the account with admin-level permissions.
     1. Select the credential type by entering 1 for *SQL Account* or 2 for *Windows/Domain Account*.
