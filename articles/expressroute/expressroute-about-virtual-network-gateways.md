@@ -4,12 +4,12 @@ description: Learn about virtual network gateways for ExpressRoute, their SKUs, 
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 11/16/2023
 ms.author: duau
+ms.custom: ignite-2023
 ---
+
 # About ExpressRoute virtual network gateways
 
 To connect your Azure virtual network and your on-premises network using ExpressRoute, you must first create a virtual network gateway. A virtual network gateway serves two purposes: exchange IP routes between the networks and route network traffic. This article explains different gateway types, gateway SKUs, and estimated performance by SKU. This article also explains ExpressRoute [FastPath](#fastpath), a feature that enables the network traffic from your on-premises network to bypass the virtual network gateway to improve performance.
@@ -69,6 +69,7 @@ Before you create an ExpressRoute gateway, you must create a gateway subnet. The
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
 >
+>- Linking a private DNS resolver to the virtual network where the ExpressRoute virtual network gateway is deployed may cause management connectivity issues and is not recommended.
 
 When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others. 
 
