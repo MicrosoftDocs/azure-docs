@@ -62,7 +62,6 @@ productDirectory:
       summary: Apply advanced coding and language models to a variety of use cases
       imageSrc: ai-services/media/service-icons/azure-openai.svg
       azureCategories:
-        - featured
         - ai-machine-learning
       url: ai-services/openai/index.yml
     # Card
@@ -109,7 +108,7 @@ productDirectory:
       url: ai-services/computer-vision/overview-identity.md
     # Card
     - title: Content Safety
-      summary: An AI service that detects unwanted contents
+      summary: Use AI to monitor text and image content for safety
       imageSrc: ai-services/media/service-icons/content-safety.svg
       azureCategories:
         - ai-machine-learning
@@ -202,8 +201,7 @@ productDirectory:
       summary: Rapidly connect your fixed and mobile networks with Microsoft Teams
       imageSrc: ./media/index/communications-gateway.svg
       azureCategories:
-        - networking
-        - 5g-space
+        - networking        
       url: communications-gateway/index.yml
     # Card
     - title: Data Science Virtual Machines
@@ -1344,7 +1342,6 @@ productDirectory:
       imageSrc: ./media/index/private-5g-core.svg
       azureCategories:
         - networking
-        - 5g-space
       url: private-5g-core/index.yml
       # Card
     - title: Azure Operator Service Manager
@@ -1352,15 +1349,15 @@ productDirectory:
       imageSrc: ./media/index/operator-service-manager.svg
       azureCategories:
         - networking
-        - 5g-space
+        - hybrid
       url: operator-service-manager/index.yml
       # Card
     - title: Azure Operator Insights
       summary: Analyze network data from multiple sources
       imageSrc: ./media/index/operator-insights.svg
       azureCategories:
-        - networking
-        - 5g-space
+        - featured
+        - hybrid
       url: operator-insights/index.yml
     # Card
     - title: Load Balancer
@@ -1547,7 +1544,6 @@ productDirectory:
       imageSrc: /media/logos/logo-azureorbital.svg
       azureCategories:
         - networking
-        - 5g-space
       url: orbital/index.yml
     # Card
     - title: Azure Web PubSub
@@ -1569,7 +1565,7 @@ productDirectory:
       summary: Build your mission-critical mobile networks with a carrier-grade, hybrid cloud platform
       imageSrc: ./media/index/operator-nexus.svg
       azureCategories:
-       - 5g-space
+       - hybrid
       url: operator-nexus/index.yml
     # Card
     - title: Azure Network Function Manager
@@ -1577,7 +1573,6 @@ productDirectory:
       imageSrc: ./media/index/azure-network-function-manager.svg
       azureCategories:
        - networking
-       - 5g-space
       url: network-function-manager/index.yml
     # Card
     - title: Azure Container Storage
@@ -1631,6 +1626,14 @@ productDirectory:
       azureCategories:
        - hybrid
       url: /azure/aks/hybrid/aks-edge-overview  
+    # Card
+    - title: Copilot in Azure
+      summary: Simplify operations and management from cloud to edge with an AI companion
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - ai-machine-learning
+       - management-and-governance
+      url: /azure/copilot
       
 tools:
   title: Languages and tools
