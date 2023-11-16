@@ -498,9 +498,9 @@ For supported general-purpose and GPU instance types, see [Managed online endpoi
 
 When deploying your model to Azure Machine Learning, you need to specify the location of the model you wish to deploy as part of your deployment configuration. In Azure Machine Learning, the path to your model is tracked with the `AZUREML_MODEL_DIR` environment variable. By identifying the model path with respect to `AZUREML_MODEL_DIR`, you can deploy one or more models that are stored locally on your machine or deploy a model that is registered in your Azure Machine Learning workspace.
 
-For illustration, we reference the following local folder structure for the cases where you deploy a single model or deploy multiple models that are stored locally:
+For illustration, we reference the following local folder structure for the first two cases where you deploy a single model or deploy multiple models that are stored locally:
 
-:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-1.png" alt-text="Folder structure containing multiple models." lightbox="media/how-to-deploy-online-endpoints/multi-models-1.png":::
+:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-1.png" alt-text="A screenshot showing a folder structure containing multiple models." lightbox="media/how-to-deploy-online-endpoints/multi-models-1.png":::
 
 #### Use a single local model in a deployment
 
@@ -558,7 +558,7 @@ After you create your deployment, the environment variable `AZUREML_MODEL_DIR` w
 
 For this example, the contents of the `AZUREML_MODEL_DIR` folder will look like this:
 
-:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-2.png" alt-text="Folder structure containing multiple models." lightbox="media/how-to-deploy-online-endpoints/multi-models-2.png":::
+:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-2.png" alt-text="A screenshot of the folder structure of the storage location for multiple models." lightbox="media/how-to-deploy-online-endpoints/multi-models-2.png":::
 
 Within your scoring script (`score.py`), you can load your models in the `init()` function. The following code loads the `sample_m1.pkl` model:
 
@@ -594,12 +594,12 @@ instance_count: 1
 
 For this example, consider that `local-multimodel:3` contains the following model artifacts, which can be viewed from the **Models** tab in the Azure Machine Learning studio:
 
-:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-3.png" alt-text="Folder structure containing multiple models." lightbox="media/how-to-deploy-online-endpoints/multi-models-3.png":::
+:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-3.png" alt-text="A screenshot of the folder structure showing the model artifacts of the registered model." lightbox="media/how-to-deploy-online-endpoints/multi-models-3.png":::
 
 After you create your deployment, the environment variable `AZUREML_MODEL_DIR` will point to the storage location within Azure where your models are stored. For example, `/var/azureml-app/azureml-models/local-multimodel/3` will contain the models and the file structure. `AZUREML_MODEL_DIR` will point to the folder containing the root of the model artifacts. 
 Based on this example, the contents of the `AZUREML_MODEL_DIR` folder will look like this:
 
-:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-4.png" alt-text="Folder structure containing multiple models." lightbox="media/how-to-deploy-online-endpoints/multi-models-4.png":::
+:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-4.png" alt-text="A screenshot of the folder structure showing multiple models." lightbox="media/how-to-deploy-online-endpoints/multi-models-4.png":::
 
 Within your scoring script (`score.py`), you can load your models in the `init()` function. For example, load the `diabetes.sav` model:
 
