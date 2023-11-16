@@ -22,7 +22,7 @@ To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-sku
 ## Limitations
 * AKS does not support Windows GPU-enabled node pools.
 * If you're using an Azure Linux GPU-enabled node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [auto-upgrade](./auto-upgrade-node-image.md).
-* [NVadsA10](https://learn.microsoft.com/en-us/azure/virtual-machines/nva10v5-series) v5-series are not a recommended SKU for GPU VHD.
+* [NVadsA10](https://learn.microsoft.com/azure/virtual-machines/nva10v5-series) v5-series are not a recommended SKU for GPU VHD.
 
 ## Before you begin
 
@@ -419,6 +419,8 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 [nvidia-github]: https://github.com/NVIDIA/k8s-device-plugin
 
 <!-- LINKS - internal -->
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az_aks_nodepool_update
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
@@ -437,3 +439,4 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[NVadsA10]: /azure/virtual-machines/nva10v5-series
