@@ -134,6 +134,6 @@ Just as with Azure Monitoring for SAP, SAP RISE/ECS doesn't support any integrat
 Check out the documentation:
 
 - [Integrating Azure with SAP RISE managed workloads](./rise-integration.md)
+- [Network connectivity options in Azure with SAP RISE managed workloads](./rise-integration-network.md)
+- [Deploy Microsoft Sentinel solution for SAP® applicationsE](../../sentinel/sap/deployment-overview.md)
 - [SAP Data Integration Using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/main/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)
-- []()
-- []()

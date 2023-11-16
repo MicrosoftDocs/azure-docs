@@ -139,5 +139,6 @@ Applications running on-premises, use the established vnet peering, ExpressRoute
 Check out the documentation:
 
 - [Integrating Azure with SAP RISE managed workloads](./rise-integration.md)
+- [Integrating Azure services with SAP RISE managed workloads](./rise-integration-services.md)
 - [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md)
 - [DNS integration with SAP RISE in multi-cloud environment series guide – Azure | SAP Blogs](https://blogs.sap.com/2023/02/27/dns-integration-with-sap-rise-in-multi-cloud-environment-series-guide-azure/)
