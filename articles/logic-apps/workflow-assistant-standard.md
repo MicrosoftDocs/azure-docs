@@ -26,18 +26,18 @@ The workflow assistant uses reputable knowledge sources such as the Azure Logic 
 
 > [!IMPORTANT]
 >
-> The workflow assistant doesn't collect, save, store, or share any information and personal or customer data 
-> from your Standard logic app workflows or from your chat history. The assistant is available only when you 
-> use the designer for Standard logic app workflows in Azure portal, not in Visual Studio Code. You can use 
-> the assistant in all Azure regions where Standard workflows and single-tenant Azure Logic Apps are available. 
-> However, the assistant currently supports only English for queries, prompts, and responses.
+> The workflow assistant doesn't collect, save, store, or share any personal or customer data in your 
+> Standard logic app workflows nor any information in your chat history. The assistant is available only 
+> when you use the designer for Standard logic app workflows in Azure portal, not in Visual Studio Code. 
+> You can use the assistant in all Azure regions where Standard workflows and single-tenant Azure Logic 
+> Apps are available. However, the assistant currently supports only English for questions and responses.
 >
 > The workflow assistant follows responsible practices in accordance with the 
-> [Azure Privacy policy](https://portal.azure.com/explore/trusted-cloud/privacy). 
+> [Azure Privacy policy](https://portal.azure.com/explore/trusted-cloud/privacy) 
+> and follows responsible and ethical AI practices in accordance with the 
+> [Microsoft responsible AI principles and approach](https://www.microsoft.com/ai/principles-and-approach).
 > For more information, see [Azure customer data protection](../security/fundamentals/protection-customer-data.md) 
 > and [Microsoft data protection and privacy](https://www.microsoft.com/trust-center/privacy). 
-> The assistant follows responsible and ethical AI practices in accordance with the 
-> [Microsoft responsible AI principles and approach](https://www.microsoft.com/ai/principles-and-approach).
 
 ## Prerequisites
 
@@ -71,8 +71,6 @@ The workflow assistant uses reputable knowledge sources such as the Azure Logic 
 
 1. [Provide optional feedback about your experience with the workflow assistant](#provide-feedback).
 
-1. At any time, you can close the workflow assistant, which doesn't save or store your chat history.
-
 ## Example ways to use the assistant
 
 The following table includes only some example use cases, so please share your feedback with the Azure Logic Apps team about how you use the workflow assistant to improve your productivity.
@@ -80,7 +78,7 @@ The following table includes only some example use cases, so please share your f
 | Use case | Example question | Description |
 |----------|------------------|-------------|
 | Describe the currently open workflow. | **"What does this workflow do?"** | Useful when you use or update a workflow built by other developers or when collaborating with other developers on shared workflows. |
-| Get help with connectors. | - **"Which connectors can send email?"** <br>- **"What does the Request trigger do?"** | Useful when you're not sure which connector to use, what connectors are available, or need specific information about a connector. <br><br>The workflow assistant can provide recommendations on connectors or operations, provide best practices about how to use a connector, provide comparisons between connectors, and so on. |
+| Get help with connectors. | - **"Which connectors can send email?"** <br><br>- **"What does the Request trigger do?"** | Useful when you're not sure which connector to use, what connectors are available, or need specific information about a connector. <br><br>The workflow assistant can provide recommendations on connectors or operations, provide best practices about how to use a connector, provide comparisons between connectors, and so on. |
 | Suggest guidance based on your specific scenario. | **"How do I create a workflow that checks an RSS feed and sends me the feed items?"** | Recommend step-by-step information about how to build a workflow based on your scenario, including which connectors to use, how to configure them, and how to process the data. |
 | Recommend patterns. | **"What's a best practice for error handling in my workflow?"** | Provide guidance and best practices for error handling, testing, and other optimizations. |
 
