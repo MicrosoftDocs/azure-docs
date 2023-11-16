@@ -122,7 +122,6 @@ Here are some considerations to keep in mind when you use high availability:
 - Zone-redundant high availability can be set only when the flexible server is created.
 - High availability isn't supported in the burstable compute tier.
 - Restarting the primary database server to pick up static parameter changes also restarts the standby replica.
-- Data-in Replication isn't supported for HA servers.
 - GTID mode will be turned on as the HA solution uses GTID. Check whether your workload has [restrictions or limitations on replication with GTIDs](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-restrictions.html).  
 >[!Note] 
 >If you are enabling same-zone HA post the server create, you need to make sure the server parameters enforce_gtid_consistency” and [“gtid_mode”](./concepts-read-replicas.md#global-transaction-identifier-gtid) is set to ON before enabling HA.
@@ -176,12 +175,8 @@ You need to be able to mitigate downtime for your application even when you're n
 Yes, read replicas are supported for HA servers.</br>
 
 - **Can I use Data-in Replication for HA servers?**</br>
-Data-in Replication isn't supported for HA servers. But Data-in Replication for HA servers is on our roadmap and will be available soon. For now, if you want to use Data-in Replication for migration, you can follow these steps:
-    1. Create the server with zone-redundant HA enabled.
-    1. Disable HA.
-    1. Complete the steps to [set up Data-in Replication](./concepts-data-in-replication.md).  (Be sure `gtid_mode` has the same setting on the source and target servers.)
-    1. Post cutovers remove the Data-in Replication configuration.
-    1. Enable HA.
+Support for data-in replication for high availability (HA) enabled server is available only through GTID-based replication.
+The stored procedure for replication using GTID is available on all HA-enabled servers by the name `mysql.az_replication_with_gtid`.
 
 - **To reduce downtime, can I fail over to the standby server during server restarts or while scaling up or down?** </br>
 Currently, Azure MySQL Flexible Server has utlized Planned Failover to optmize the HA operations including scaling up/down, and planned maintenance to help reduce the downtime.
