@@ -64,7 +64,7 @@ Add the following key-value to your App Configuration store. For more informatio
     > [!TIP]
     > By default, the Kubernetes provider polls the monitoring key-values every 30 seconds for change detection. However, you can change this behavior by setting the `interval` property of the `refresh`. If you want to reduce the number of requests to your App Configuration store, you can adjust it to a higher value.
 
-1. Modify the *deployment.yaml* file in the *Deployment* directory to include [`DOTNET_USE_POLLING_FILE_WATCHER`](https://learn.microsoft.com/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider.usepollingfilewatcher). It's required to effectively watch for mounted file changes.
+1. Modify the *deployment.yaml* file in the *Deployment* directory to include [`DOTNET_USE_POLLING_FILE_WATCHER`](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider.usepollingfilewatcher). It's required to effectively watch for mounted file changes.
 
     Add `env` section with the following content in `spec.containers` section.
     ```yaml
@@ -97,7 +97,7 @@ Add the following key-value to your App Configuration store. For more informatio
 
 ## Reload ConfigMap and Secret
 
-App Configuration Kubernetes provider generates ConfigMaps or Secrets that can be used as environment variables or volume-mounted files. This tutorial demonstrates how to load configuration from a JSON file using the [.NET JSON configuration provider](https://learn.microsoft.com/dotnet/core/extensions/configuration-providers#json-configuration-provider) and [Polling File Watcher](https://learn.microsoft.com/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider.usepollingfilewatcher), which automatically reload the configuration whenever a change is detected in the mounted file. As a result, your application gets the updated configuration automatically whenever the App Configuration Kubernetes provider updates the ConfigMap.
+App Configuration Kubernetes provider generates ConfigMaps or Secrets that can be used as environment variables or volume-mounted files. This tutorial demonstrates how to load configuration from a JSON file using the [.NET JSON configuration provider](/dotnet/core/extensions/configuration-providers#json-configuration-provider) and [Polling File Watcher](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider.usepollingfilewatcher), which automatically reload the configuration whenever a change is detected in the mounted file. As a result, your application gets the updated configuration automatically whenever the App Configuration Kubernetes provider updates the ConfigMap.
 
 If your application is dependent on environment variables for configuration, it may require a restart to pick up any updated values. In Kubernetes, the application restart can be orchestrated using rolling updates on the corresponding pods or containers. To automate configuration updates, you may leverage third-party tools like [stakater/Reloader](https://github.com/stakater/Reloader), which can automatically trigger rolling updates upon any changes made to ConfigMaps or Secrets.
 
