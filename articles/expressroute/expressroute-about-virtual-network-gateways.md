@@ -139,7 +139,7 @@ A virtual network with an ExpressRoute gateway can have virtual network peering 
 
 ## ExpressRoute scalable gateway (Preview)
 
-The ErGwScale virtual network gateway SKU enables you to achieve 40-Gbps connectivity to VMs and Private Endpoints in the virtual network. This SKU allows you to set a minimum and maximum scale unit for the virtual network gateway infrastructure, which auto scales based on the active bandwidth. You can also set a fixed scale unit to maintain a constant connectivity at a desired bandwidth value.
+The ErGwScale virtual network gateway SKU enables you to achieve 40-Gbps connectivity to VMs and Private Endpoints in the virtual network. This SKU allows you to set a minimum and maximum scale unit for the virtual network gateway infrastructure, which auto scales based on the active bandwidth or flow count. You can also set a fixed scale unit to maintain a constant connectivity at a desired bandwidth value.
 
 ### Availability zone deployment & regional availability
 
@@ -155,7 +155,7 @@ ErGwScale is available in preview in the following regions:
 
 ### Autoscaling vs. fixed scale unit
 
-The virtual network gateway infrastructure auto scales between the minimum and maximum scale unit that you configure, based on the bandwidth utilization. The scale operations might take up to 30 minutes to complete. If you want to achieve a fixed connectivity at a specific bandwidth value, you can configure a fixed scale unit by setting the minimum scale unit and the maximum scale unit to the same value.
+The virtual network gateway infrastructure auto scales between the minimum and maximum scale unit that you configure, based on the bandwidth or flow count utilization. Scale operations might take up to 30 minutes to complete. If you want to achieve a fixed connectivity at a specific bandwidth value, you can configure a fixed scale unit by setting the minimum scale unit and the maximum scale unit to the same value.
 
 ### Limitations
 
