@@ -5,7 +5,7 @@ ms.service: postgresql
 ms.subservice: single-server
 ms.topic: conceptual
 ms.author: alkuchar
-author: AwdotiaRomanowna
+author: AlicjaKucharczyk
 
 ms.date: 09/14/2022
 ms.custom: fasttrack-edit, ignite-2022
