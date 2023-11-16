@@ -120,14 +120,18 @@ You can now deploy the app to Azure Spring Apps.
 Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
 
 ```azurecli
-export RESOURCE_GROUP=<resource-group-name>
+export RESOURCE_GROUP=myresourcegroup
 export LOCATION=<location>
-export POSTGRESQL_SERVER=<server-name>
-export POSTGRESQL_DB=<database-name>
+export POSTGRESQL_SERVER=my-demo-pgsql
+export POSTGRESQL_DB=Todo
 export POSTGRESQL_ADMIN_USERNAME=<admin-username>
 export POSTGRESQL_ADMIN_PASSWORD=<admin-password>
-export AZURE_SPRING_APPS_NAME=<Azure-Spring-Apps-service-instance-name>
-export APP_NAME=<web-app-name>
+export AZURE_SPRING_APPS_NAME=myasa
+export APP_NAME=simple-todo-api
+export TODO_APP_NAME=Todo
+export TODO_APP_URL=api://simple-todo
+export TODOWEB_APP_NAME=TodoWeb
+export TODOWEB_APP_URL=api://simple-todoweb
 export NEW_MEMBER_USERNAME=<new-member-username>
 export NEW_MEMBER_PASSWORD=<new-member-password>
 export USER_PRINCIPAL_NAME=<user-principal-name>
@@ -236,15 +240,15 @@ After the application instance and the PostgreSQL instance are created, the appl
 1. Use the following command to create a Microsoft Entra ID application:
 
    ```azurecli
-   az ad app create --display-name Todo \
+   az ad app create --display-name ${TODO_APP_NAME} \
        --sign-in-audience AzureADandPersonalMicrosoftAccount \
-       --identifier-uris api://simple-todo
+       --identifier-uris ${TODO_APP_URL} \
    ```
 
 1. Use the following command to create service principal for the application:
 
    ```azurecli
-   az ad sp create --id "api://simple-todo"
+   az ad sp create --id ${TODO_APP_URL}
    ```
 
 1. Use the following command to generate permission ids:
@@ -295,7 +299,7 @@ After the application instance and the PostgreSQL instance are created, the appl
 1. Use the following command to add scopes:
 
    ```azurecli
-   az ad app update --id api://simple-todo \
+   az ad app update --id ${TODO_APP_URL} \
     --set api="$api"
    ```
 
@@ -308,7 +312,7 @@ After the application instance and the PostgreSQL instance are created, the appl
 1. Use the following command to get application-id used next steps:
 
    ```azurecli
-   appid=$(az ad app show --id api://simple-todo \
+   appid=$(az ad app show --id ${TODO_APP_URL} \
     --query appId \
     --output tsv);
    echo $appid

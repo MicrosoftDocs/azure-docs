@@ -185,22 +185,22 @@ Use the following steps to update the OAuth2 configuration for Swagger UI author
 1. Use the following command to create a Microsoft Entra ID application,  which is used to add the permissions for the `ToDo` app:
 
    ```azurecli
-   az ad app create --display-name ToDoWeb \
+   az ad app create --display-name ${TODOWEB_APP_NAME} \
        --sign-in-audience AzureADMyOrg \
-       --identifier-uris api://simple-todoweb \
+       --identifier-uris ${TODOWEB_APP_URL} \
        --required-resource-accesses @manifest.json
    ```
 
 1. Use the following command to grant admin consent for the permissions you added:
 
    ```azurecli
-   az ad app permission admin-consent --id api://simple-todoweb
+   az ad app permission admin-consent --id ${TODOWEB_APP_URL}
    ```
 
 1. Use the following command to get the client ID of the `ToDoWeb` app used in 'Obtain the access token' step :
 
    ```azurecli
-   az ad app show --id api://simple-todoweb \
+   az ad app show --id ${TODOWEB_APP_URL} \
     --query appId \
     --output tsv
    ```
@@ -220,7 +220,7 @@ Use the following steps to update the OAuth2 configuration for Swagger UI author
 1. use the following command to get the object id of the `ToDoWeb` app:
 
    ```azurecli
-   az ad app show --id api://simple-todoweb --query id
+   az ad app show --id ${TODOWEB_APP_URL} --query id
    ```
 
 1. use the following command to get the url of your `simple-todo-api` ASA app:
