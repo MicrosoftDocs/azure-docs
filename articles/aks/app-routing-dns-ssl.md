@@ -133,7 +133,7 @@ To enable support for DNS zones, see the following prerequisites:
     ZONEID=$(az network dns zone show -g <ResourceGroupName> -n <ZoneName> --query "id" --output tsv)
     ```
 
-1. Update the add-on to enable the integration with Azure DNS using the [`az aks approuting zone add`][az-aks-approuting-zone-add] command. You can pass a comma-separated list of DNZ zone resource IDs.
+1. Update the add-on to enable the integration with Azure DNS using the [`az aks approuting zone`][az-aks-approuting-zone] command. You can pass a comma-separated list of DNS zone resource IDs.
 
     ```azurecli-interactive
     az aks approuting zone add -g <ResourceGroupName> -n <ClusterName> --ids=$ZONEID --attach-zones
