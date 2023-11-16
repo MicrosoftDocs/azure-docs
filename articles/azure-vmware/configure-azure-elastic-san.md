@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Elastic SAN Preview
-description: Learn how to use Elastic SAN with Azure VMware Solution
+title: Use Azure VMware Solution with Azure Elastic SAN Preview
+description: Learn how to use Elastic SAN Preview with Azure VMware Solution
 ms.topic: how-to
 ms.service: azure-vmware
 ms.author: v-suzuber
@@ -8,7 +8,7 @@ ms.date: 11/15/2023
 ms.custom: references_regions
 ---
 
-# Configure Azure Elastic SAN Preview
+# Use Azure VMware Solution with Azure Elastic SAN Preview
 
 This article explains how to use Azure Elastic SAN Preview as backing storage for Azure VMware Solution. [Azure VMware Solution](introduction.md) supports attaching iSCSI datastores as a persistent storage option. You can create Virtual Machine File System (VMFS) datastores with Azure Elastic SAN volumes and attach them to clusters of your choice. By using VMFS datastores backed by Azure Elastic SAN, you can expand your storage instead of scaling the clusters.
 
@@ -45,6 +45,7 @@ In this section, you create a virtual network for your Elastic SAN. Then you cre
 
 1. Use one of the following instruction options to set up a dedicated virtual network for your Elastic SAN:
 	- [Azure portal](https://learn.microsoft.com/azure/virtual-network/quick-create-portal)
+	- Azure portal
 	- [PowerShell](https://learn.microsoft.com/azure/virtual-network/quick-create-powershell)
 	- [Azure CLI](https://learn.microsoft.com/azure/virtual-network/quick-create-cli)
 1. Use one of the following instruction options to set up an Elastic SAN, your dedicated volume group, and initial volume in that group:
