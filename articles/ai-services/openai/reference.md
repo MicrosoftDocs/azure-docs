@@ -627,8 +627,8 @@ curl -X POST https://{your-resource-name}.openai.azure.com/openai/{deployment-id
     "prompt": "An avocado chair",
     "size": "1024x1024",
     "n": 3,
-    "quality": "hd", 
-    "style": "vivid"
+    "quality": "hd", 
+    "style": "vivid"
   }'
 ```
 
@@ -638,17 +638,17 @@ The operation returns a `202` status code and an `GenerateImagesResponse` JSON o
 
 ```json
 { 
-    "created": 1698116662, 
-    "data": [ 
+    "created": 1698116662, 
+    "data": [ 
         { 
-            "url": "url to the image", 
-            "revised_prompt": "the actual prompt that was used" 
+            "url": "url to the image", 
+            "revised_prompt": "the actual prompt that was used" 
         }, 
         { 
-            "url": "url to the image" 
-        },
+            "url": "url to the image" 
+        },
         ...
-    ]
+    ]
 } 
 ```
 
