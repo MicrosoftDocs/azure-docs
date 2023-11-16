@@ -22,6 +22,8 @@ Event Hubs captures diagnostic logs for the following categories:
 | Kafka user error logs | Captures information about Kafka APIs called on Event Hubs. |
 | Event Hubs virtual network (VNet) connection event | Captures information about IP addresses and virtual networks sending traffic to Event Hubs. |
 | Customer-managed key user logs | Captures operations related to customer-managed key. |
+| Runtime Audit Logs | Capture aggregated diagnostic information for all data plane access operations (such as send or receive events) in Event Hubs. |
+| Application Metric Logs | Capture the aggregated information on certain metrics related to data plane operations. |
 
 
 All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following sections.
