@@ -118,7 +118,7 @@ Speech to text supports two new locales as shown in the following table. Refer t
 
   <sup>1</sup> The language is in public preview for pronunciation assessment.
 
-### might 2023 release
+### May 2023 release
 
 #### Pronunciation Assessment
 
