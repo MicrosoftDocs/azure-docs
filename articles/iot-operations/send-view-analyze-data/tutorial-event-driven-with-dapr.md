@@ -20,7 +20,7 @@ The Dapr application performs the following steps:
 
 * Subscribes to the `sensor/data` topic for sensor data.
 * When receiving data on this topic, it's pushed to the Azure IoT MQ state store.
-* Every **10 seconds**, it fetches the data from the state store, and performs and calculates the *min*, *max*, *mean*, *median* and *75th percentile* values on sensor data timestamped in the last **30 seconds**.
+* Every **10 seconds**, it fetches the data from the state store, and calculates the *min*, *max*, *mean*, *median* and *75th percentile* values on any sensor data timestamped in the last **30 seconds**.
 * Data older than **30 seconds** is expired from the state store.
 * The result is published to the `sensor/window_data` topic in JSON format.
 
