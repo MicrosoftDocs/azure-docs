@@ -317,9 +317,6 @@
       - name: Exempt resources from recommendations
         displayName: disable, resource, exempt, recommendation
         href: exempt-resource.md
-      - name: Prevent misconfigurations with Enforce/Deny
-        displayName: recommendations, enforce, deny
-        href: prevent-misconfigurations.md
     - name: Investigate and remediate security posture
       items:
       - name: Investigate security recommendations
