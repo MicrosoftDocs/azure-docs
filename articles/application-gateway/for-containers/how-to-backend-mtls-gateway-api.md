@@ -7,7 +7,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 07/24/2023
+ms.date: 09/19/2023
 ms.author: greglin
 ---
 
@@ -17,6 +17,14 @@ This document helps set up an example application that uses the following resour
 - Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
 - Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) resource that references a backend service.
 - Create a [BackendTLSPolicy](api-specification-kubernetes.md#alb.networking.azure.io/v1.BackendTLSPolicy) resource that has a client and CA certificate for the backend service referenced in the HTTPRoute.
+
+## Background
+
+Mutual Transport Layer Security (MTLS) is a process that relies on certificates to encrypt communications and identify clients to a service.  This enables backend workloads to further increase its security posture by only trusting connections from authenticated devices.
+
+See the following figure:
+
+[ ![A diagram showing the Application Gateway for Containers backend MTLS process.](./media/how-to-backend-mtls-gateway-api/backend-mtls.png) ](./media/how-to-backend-mtls-gateway-api/backend-mtls.png#lightbox)
 
 ## Prerequisites
 
@@ -34,10 +42,10 @@ This document helps set up an example application that uses the following resour
   
   This command creates the following on your cluster:
   - a namespace called `test-infra`
-  - 1 service called `mtls-app` in the `test-infra` namespace
-  - 1 deployment called `mtls-app` in the `test-infra` namespace
-  - 1 config map called `mtls-app-nginx-cm` in the `test-infra` namespace
-  - 4 secrets called `backend.com`, `frontend.com`, `gateway-client-cert`, and `ca.bundle` in the `test-infra` namespace
+  - one service called `mtls-app` in the `test-infra` namespace
+  - one deployment called `mtls-app` in the `test-infra` namespace
+  - one config map called `mtls-app-nginx-cm` in the `test-infra` namespace
+  - four secrets called `backend.com`, `frontend.com`, `gateway-client-cert`, and `ca.bundle` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 
@@ -73,6 +81,7 @@ spec:
 EOF
 ```
 
+[!INCLUDE [application-gateway-for-containers-frontend-naming](../../../includes/application-gateway-for-containers-frontend-naming.md)]
 
 # [Bring your own (BYO) deployment](#tab/byo)
 1. Set the following environment variables
@@ -83,6 +92,7 @@ RESOURCE_NAME='alb-test'
 
 RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
 FRONTEND_NAME='frontend'
+az network alb frontend create -g $RESOURCE_GROUP -n $FRONTEND_NAME --alb-name $AGFC_NAME
 ```
 
 2. Create a Gateway
@@ -256,7 +266,7 @@ spec:
 EOF
 ```
 
-Once the BackendTLSPolicy object has been create check the status on the object to ensure that the policy is valid.
+Once the BackendTLSPolicy object has been created check the status on the object to ensure that the policy is valid.
 
 ```bash
 kubectl get backendtlspolicy -n test-infra mtls-app-tls-policy -o yaml

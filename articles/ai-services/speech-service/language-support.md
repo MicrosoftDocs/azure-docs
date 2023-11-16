@@ -5,10 +5,9 @@ description: The Speech service supports numerous languages for speech to text a
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 01/12/2023
+ms.date: 10/6/2023
 ms.author: eur
 ms.custom: references_regions
 ---
@@ -47,7 +46,7 @@ To improve Speech to text recognition accuracy, customization is available for s
 
 The table in this section summarizes the locales and voices supported for Text to speech. See the table footnotes for more details.
 
-Additional remarks for Text to speech locales are included in the [Voice styles and roles](#voice-styles-and-roles), [Prebuilt neural voices](#prebuilt-neural-voices), and [Custom Neural Voice](#custom-neural-voice) sections below. 
+Additional remarks for text to speech locales are included in the [voice styles and roles](#voice-styles-and-roles), [prebuilt neural voices](#prebuilt-neural-voices), [Custom Neural Voice](#custom-neural-voice), and [personal voice](#personal-voice) sections below. 
 
 > [!TIP]
 > Check the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery) and determine the right voice for your business needs. 
@@ -58,7 +57,7 @@ Additional remarks for Text to speech locales are included in the [Voice styles 
 
 In some cases, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm. All prebuilt voices with speaking styles and multi-style custom voices support style degree adjustment. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. With roles, the same voice can act as a different age and gender.
 
-To learn how you can configure and adjust neural voice styles and roles, see [Speech Synthesis Markup Language](speech-synthesis-markup-voice.md#speaking-styles-and-roles). 
+To learn how you can configure and adjust neural voice styles and roles, see [Speech Synthesis Markup Language](speech-synthesis-markup-voice.md#use-speaking-styles-and-roles). 
 
 Use the following table to determine supported styles and roles for each neural voice.
 
@@ -94,9 +93,17 @@ With the cross-lingual feature, you can transfer your custom neural voice model 
 
 [!INCLUDE [Language support include](includes/language-support/tts-cnv.md)]
 
+
+### Personal voice
+
+[Personal voice](personal-voice-overview.md) is a feature that lets you create a voice that sounds like you or your users. The following table summarizes the locales supported for personal voice. 
+
+[!INCLUDE [Language support include](includes/language-support/personal-voice.md)]
+
+
 # [Pronunciation assessment](#tab/pronunciation-assessment)
 
-The table in this section summarizes the 20 locales supported for pronunciation assessment, and each language is available on all [Speech to text regions](regions.md#speech-service). Latest update extends support from English to 19 additional languages and quality enhancements to existing features, including accuracy, fluency and miscue assessment. You should specify the language that you're learning or practicing improving pronunciation. The default language is set as `en-US`. If you know your target learning language, [set the locale](how-to-pronunciation-assessment.md#get-pronunciation-assessment-results) accordingly. For example, if you're learning British English, you should specify the language as `en-GB`. If you're teaching a broader language, such as Spanish, and are uncertain about which locale to select, you can run various accent models (`es-ES`, `es-MX`) to determine the one that achieves the highest score to suit your specific scenario. 
+The table in this section summarizes the 24 locales supported for pronunciation assessment, and each language is available on all [Speech to text regions](regions.md#speech-service). Latest update extends support from English to 23 additional languages and quality enhancements to existing features, including accuracy, fluency and miscue assessment. You should specify the language that you're learning or practicing improving pronunciation. The default language is set as `en-US`. If you know your target learning language, [set the locale](how-to-pronunciation-assessment.md#get-pronunciation-assessment-results) accordingly. For example, if you're learning British English, you should specify the language as `en-GB`. If you're teaching a broader language, such as Spanish, and are uncertain about which locale to select, you can run various accent models (`es-ES`, `es-MX`) to determine the one that achieves the highest score to suit your specific scenario. 
 
 [!INCLUDE [Language support include](includes/language-support/pronunciation-assessment.md)]
 
@@ -106,7 +113,7 @@ The table in this section summarizes the locales supported for Speech translatio
 
 #### Translate from language
 
-To set the input speech recognition language, specify the full locale with a dash (`-`) separator. See the [speech to text language table](?tabs=stt#supported-languages). The default language is `en-US` if you don't specify a language.
+To set the input speech recognition language, specify the full locale with a dash (`-`) separator. See the [speech to text language table](?tabs=stt#supported-languages). All languages are supported except `jv-ID` and `wuu-CN`. The default language is `en-US` if you don't specify a language.
 
 #### Translate to text language
 

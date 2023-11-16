@@ -7,7 +7,7 @@ ms.reviewer: micflan
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 07/07/2023
+ms.date: 11/14/2023
 ms.author: banders
 ---
 
@@ -31,17 +31,15 @@ Whether you know if you have any existing cost anomalies or not, Cost analysis i
 
 ### View anomalies in Cost analysis
 
-Anomaly detection is available in Cost analysis (preview) when you select a subscription scope. You can view your anomaly status as part of **[Insights](https://azure.microsoft.com/blog/azure-cost-management-and-billing-updates-february-2021/#insights)**.
+Anomaly detection is available in Cost analysis smart views when you select a subscription scope. You can view your anomaly status as part of **[Insights](https://azure.microsoft.com/blog/azure-cost-management-and-billing-updates-february-2021/#insights)**.
 
-In the Azure portal, navigate to Cost Management from Azure Home. Select a subscription scope and then in the left menu, select **Cost analysis**. In the view list, select any view under **Preview views**. In the following example, the **Resources** preview view is selected. If you have a cost anomaly, you see an insight.
+In the Azure portal, navigate to Cost Management from Azure Home. Select a subscription scope and then in the left menu, select **Cost analysis**. In the view list, select any view under **Smart views**. In the following example, the **Resources** smart view is selected. If you have a cost anomaly, you see an insight.
 
 :::image type="content" source="./media/analyze-unexpected-charges/insight-recommendation-01.png" alt-text="Example screenshot showing an insight." lightbox="./media/analyze-unexpected-charges/insight-recommendation-01.png" :::
 
 If you don't have any anomalies, you see a **No anomalies detected** insight, confirming the dates that were evaluated.
 
 :::image type="content" source="./media/analyze-unexpected-charges/insight-no-anomalies.png" alt-text="Example screenshot showing No anomalies detected message." lightbox="./media/analyze-unexpected-charges/insight-no-anomalies.png" :::
-
-Anomalies in Cost analysis identify the detection date and continue to display up to 60 days. If the anomaly is still active, it's updated daily. If the anomaly is no longer active, it's removed from the list after 60 days.
 
 ### Drill into anomaly details
 
@@ -53,24 +51,29 @@ Continuing from the previous example of the anomaly labeled **Daily run rate dow
 
 Cost anomalies are evaluated for subscriptions daily and compare the day's total usage to a forecasted total based on the last 60 days to account for common patterns in your recent usage. For example, spikes every Monday. Anomaly detection runs 36 hours after the end of the day (UTC) to ensure a complete data set is available.
 
-The anomaly detection model is a univariate time-series, unsupervised prediction and reconstruction-based model that uses 60 days of historical usage for training, then forecasts expected usage for the day. Anomaly detection forecasting uses a deep learning algorithm called [WaveNet](https://www.deepmind.com/blog/wavenet-a-generative-model-for-raw-audio). It's different than the Cost Management forecast. The total normalized usage is determined to be anomalous if it falls outside the expected range based on a predetermined confidence interval.
+The anomaly detection model is a univariate time-series, unsupervised prediction and reconstruction-based model that uses 60 days of historical usage for training, then forecasts expected usage for the day. Anomaly detection forecasting uses a deep learning algorithm called [WaveNet](https://research.google/pubs/pub45774/). It's different than the Cost Management forecast. The total normalized usage is determined to be anomalous if it falls outside the expected range based on a predetermined confidence interval.
 
-Anomaly detection is available to every subscription monitored using the cost analysis preview. To enable anomaly detection for your subscriptions, open the cost analysis preview and select your subscription from the scope selector at the top of the page. You see a notification informing you that your subscription is onboarded and you start to see your anomaly detection status within 24 hours.
+Anomaly detection is available to every subscription monitored using the cost analysis. To enable anomaly detection for your subscriptions, open a cost analysis smart view and select your subscription from the scope selector at the top of the page. You see a notification informing you that your subscription is onboarded and you start to see your anomaly detection status within 24 hours.
 
 ## Create an anomaly alert
 
 You can create an alert to automatically get notified when an anomaly is detected. Creating an anomaly alert requires the Cost Management Contributor or greater role or the `Microsoft.CostManagement/scheduledActions/write` permission for custom roles. For more information, see [Feature behavior for each role](../costs/understand-work-scopes.md#feature-behavior-for-each-role).
 
+>[!NOTE]
+> Anomaly alerts are sent based on the current access of the rule creator at the time that the email is sent. If your organization has a policy that prohibits permanently assigning higher privileges to users, you can use a service principal and create the alert directly using the [Scheduled Actions API](/rest/api/cost-management/scheduled-actions/create-or-update-by-scope#createorupdateinsightalertscheduledactionbyscope).
+
 An anomaly alert email includes a summary of changes in resource group count and cost. It also includes the top resource group changes for the day compared to the previous 60 days. And, it has a direct link to the Azure portal so that you can review the cost and investigate further.
 
 An anomaly alert email is sent only one time when it's detected.
 
-1. From Azure Home, select **Cost Management** under Tools.
+1. From Azure Home, select **Cost Management** under **Tools**.
 1. Verify you've selected the correct subscription in the scope at the top of the page.
 1. In the left menu, select **Cost alerts**.
-1. On the Cost alerts page, select **+ Add** > **Add anomaly alert**.
-1. On the Subscribe to emails page, enter required information and then select **Save**.  
-    :::image type="content" source="./media/analyze-unexpected-charges/subscribe-emails.png" alt-text="Screenshot showing the Subscribe to emails page where you enter notification information for an alert." lightbox="./media/analyze-unexpected-charges/subscribe-emails.png" :::
+1. On the toolbar, select **+ Add**.
+1. On the Create alert rule page, select **Anomaly** as the **Alert type**.
+1. Enter all the required information, then select **Create**.  
+    :::image type="content" source="./media/analyze-unexpected-charges/subscribe-emails.png" alt-text="Screenshot showing the Create alert rule page where you enter notification information for an alert." lightbox="./media/analyze-unexpected-charges/subscribe-emails.png" :::
+  You can view and manage the anomaly alert rule by navigating to **Alert rules** in the left navigation menu.
 
 Here's an example email generated for an anomaly alert.
 

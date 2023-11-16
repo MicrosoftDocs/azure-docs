@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/26/2022
+ms.date: 08/10/2023
 ---
 
 # Incrementally copy new files based on time partitioned file name by using the Copy Data tool

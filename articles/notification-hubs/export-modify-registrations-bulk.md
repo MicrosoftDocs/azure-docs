@@ -23,6 +23,8 @@ There are scenarios in which it is required to create or modify large numbers of
 
 This article explains how to perform a large number of operations on a notification hub, or to export all registrations, in bulk.
 
+> **_NOTE:_** Bulk import/export is only available for the 'standard' pricing tier
+
 ## High-level flow
 
 Batch support is designed to support long-running jobs involving millions of registrations. To achieve this scale, batch support uses Azure Storage to store job details and output. For bulk update operations, the user is required to create a file in a blob container, whose content is the list of registration update operations. When starting the job, the user provides a URL to the input blob, along with a URL to an output directory (also in a blob container). After the job has started, the user can check the status by querying a URL location provided at starting of the job. A specific job can only perform operations of a specific kind (creates, updates, or deletes). Export operations are performed analogously.

@@ -24,8 +24,8 @@ In this how-to guide, we take a cloud-native approach and use Azure services to 
 
 |Azure service name    | Purpose           | Benefits         | 
 |----------------------|-------------------|------------------|
-|[Azure App Service](https://learn.microsoft.com/azure/app-service/)  | Provides the hosting environment for the backend application, which is built with [Express](https://expressjs.com/) | Fully managed environment for application backends, with no need to worry about infrastructure where the code runs 
-|[Azure Web PubSub](https://learn.microsoft.com/azure/azure-web-pubsub/overview) | Provides low-latency, bi-directional data exchange channel between the backend application and clients | Drastically reduces server load by freeing server from managing persistent WebSocket connections and scales to 100 K concurrent client connections with just one resource
+|[Azure App Service](/azure/app-service/)  | Provides the hosting environment for the backend application, which is built with [Express](https://expressjs.com/) | Fully managed environment for application backends, with no need to worry about infrastructure where the code runs 
+|[Azure Web PubSub](/azure/azure-web-pubsub/overview) | Provides low-latency, bi-directional data exchange channel between the backend application and clients | Drastically reduces server load by freeing server from managing persistent WebSocket connections and scales to 100 K concurrent client connections with just one resource
 
 :::image type="content" source="./media/howto-integrate-app-service/architecture.jpg" alt-text="Architecture diagram of the collaborative whiteboard app.":::
 

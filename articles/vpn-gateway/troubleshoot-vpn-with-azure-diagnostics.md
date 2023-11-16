@@ -88,7 +88,8 @@ Here you have a sample query as reference.
 ```
 AzureDiagnostics
 | where Category == "TunnelDiagnosticLog"
-| project TimeGenerated, OperationName, instance_s, Resource, ResourceGroup
+//| where remoteIP_s == "<REMOTE IP OF TUNNEL>"
+| project TimeGenerated, OperationName, remoteIP_s, instance_s, Resource, ResourceGroup
 | sort by TimeGenerated asc
 ```
 
@@ -99,6 +100,7 @@ This query on **TunnelDiagnosticLog** will show you multiple columns.
 |---		| ---				|
 |**TimeGenerated** | the timestamp of each event, in UTC timezone.|
 |**OperationName** | the event that happened. It can be either *TunnelConnected* or *TunnelDisconnected*.|
+| **remoteIP\_s** | the IP address of the on-premises VPN device. In real world scenarios, it is useful to filter by the IP address of the relevant on-premises device shall there be more than one.|
 | **Instance\_s** | the gateway role instance that triggered the event. It can be either GatewayTenantWorker\_IN\_0 or GatewayTenantWorker\_IN\_1, which are the names of the two instances of the gateway.|
 | **Resource** | indicates the name of the VPN gateway. |
 | **ResourceGroup** | indicates the resource group where the gateway is.|

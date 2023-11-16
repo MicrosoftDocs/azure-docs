@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.author: rosemalcolm
 author: RoseHJM
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template, UpdateFrequency2
-ms.date: 01/03/2022
+ms.date: 09/30/2023
 ---
 
 # Quickstart: Use an ARM template to create a lab in DevTest Labs

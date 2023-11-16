@@ -101,6 +101,8 @@
       href: stream-analytics-define-inputs.md
     - name: Reference data inputs
       href: stream-analytics-use-reference-data.md
+    - name: Kafka input
+      href: stream-analytics-define-kafka-input.md
     - name: Validate input schema
       href: input-validation.md
     - name: Read inputs in any format using custom deserializers
@@ -150,6 +152,8 @@
       href: azure-functions-output.md
     - name: Azure Data Lake Storage Gen 1
       href: azure-data-lake-storage-gen1-output.md
+    - name: Kafka output
+      href: kafka-output.md
   - name: Extend queries with functions
     items:
     - name: Functions overview
@@ -452,6 +456,12 @@
     href: stream-analytics-scale-with-machine-learning-functions.md
   - name: Run job in your virtual network
     href: run-job-in-virtual-network.md
+  - name: Connect to confluent cloud kafka
+    items:
+    - name: Connect to confluent cloud kafka as input
+      href: confluent-kafka-input.md
+    - name: Connect to confluent cloud Kafka as output
+      href: confluent-kafka-output.md
 - name: Stream Analytics Query Language
   items:
     - name: Stream Analytics Query Language overview
@@ -781,6 +791,9 @@
           maintainContext: true
         - name: Parsing JSON and AVRO data
           href: stream-analytics-parsing-json.md
+          maintainContext: true
+        - name: Parsing Protobuf
+          href: stream-analytics-parsing-protobuf.md
           maintainContext: true
     - name: Query Language Elements
       items:

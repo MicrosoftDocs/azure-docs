@@ -11,7 +11,7 @@ ms.reviewer: minewiskan
 ---
 # Monitor server metrics
 
-Analysis Services provides metrics in Azure Metrics Explorer, a free tool in the portal, to help you monitor the performance and health of your servers. For example, monitor memory and CPU usage, number of client connections, and query resource consumption. Analysis Services uses the same monitoring framework as most other Azure services. To learn more, see [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md).
+Analysis Services provides metrics in Azure Metrics Explorer, a free tool in the portal, to help you monitor the performance and health of your servers. For example, monitor memory and CPU usage, number of client connections, and query resource consumption. Analysis Services uses the same monitoring framework as most other Azure services. To learn more, see [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md).
 
 To perform more in-depth diagnostics, track performance, and identify trends across multiple service resources in a resource group or subscription, use [Azure Monitor](../azure-monitor/overview.md). Azure Monitor (service) may result in a billable service.
 
@@ -84,5 +84,5 @@ Use this table to determine which metrics are best for your monitoring scenario.
 
 ## Next steps
 [Azure Monitor overview](../azure-monitor/overview.md)      
-[Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)      
+[Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md)   
 [Metrics in Azure Monitor REST API](/rest/api/monitor/metrics)

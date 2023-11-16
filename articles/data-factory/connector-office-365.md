@@ -7,13 +7,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse, ignite-2022
 ms.topic: conceptual
-ms.date: 11/28/2022
+ms.date: 10/20/2023
 ms.author: jianleishen
 ---
 # Copy and transform data from Microsoft 365 (Office 365) into Azure using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory and Synapse Analytics pipelines integrate with [Microsoft Graph data connect](/graph/data-connect-concept-overview), allowing you to bring the rich organizational data in your Microsoft 365 (Office 365) tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Microsoft 365 (Office 365).  Please refer to [this link](/graph/data-connect-concept-overview) for an overview on Microsoft Graph data connect and refer to [this link](/graph/data-connect-policies#licensing) for licensing information.
+Azure Data Factory and Synapse Analytics pipelines integrate with [Microsoft Graph data connect](/graph/data-connect-concept-overview), allowing you to bring the rich organizational data in your Microsoft 365 (Office 365) tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Microsoft 365 (Office 365).  Please refer to [this link](/graph/data-connect-concept-overview) for an overview of Microsoft Graph data connect.
 
 This article outlines how to use the Copy Activity to copy data and Data Flow to transform data from Microsoft 365 (Office 365). For an introduction to copy data, read the [copy activity overview](copy-activity-overview.md). For an introduction to transforming data, read [mapping data flow overview](concepts-data-flow-overview.md).
 
@@ -29,14 +29,14 @@ This Microsoft 365 (Office 365) connector is supported for the following capabil
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312;|
 |[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 ADF Microsoft 365 (Office 365) connector and Microsoft Graph Data Connect enables at scale ingestion of different types of datasets from Exchange Email enabled mailboxes, including address book contacts, calendar events, email messages, user information, mailbox settings, and so on.  Refer [here](/graph/data-connect-datasets) to see the complete list of datasets available.
 
 For now, within a single copy activity and data flow, you can only **ingest data from Microsoft 365 (Office 365) into [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) in JSON format** (type setOfObjects). When copying to Azure Blob Storage, the output is a blob containing JSON text. If you want to load Microsoft 365 (Office 365) into other types of data stores or in other formats, you can chain the first copy activity or data flow with a subsequent activity to further load data into any of the [supported ADF destination stores](copy-activity-overview.md#supported-data-stores-and-formats) (refer to "supported as a sink" column in the "Supported data stores and formats" table).
 
 >[!IMPORTANT]
->- The Azure subscription containing the data factory or Synapse workspace and the sink data store must be under the same Azure Active Directory (Azure AD) tenant as Microsoft 365 (Office 365) tenant.
+>- The Azure subscription containing the data factory or Synapse workspace and the sink data store must be under the same Microsoft Entra tenant as Microsoft 365 (Office 365) tenant.
 >- Ensure the Azure Integration Runtime region used for copy activity as well as the destination is in the same region where the Microsoft 365 (Office 365) tenant users' mailbox is located. Refer [here](concepts-integration-runtime.md#integration-runtime-location) to understand how the Azure IR location is determined. Refer to [table here](/graph/data-connect-datasets#regions) for the list of supported Office regions and corresponding Azure regions.
 >- Service Principal authentication is the only authentication mechanism supported for Azure Blob Storage, Azure Data Lake Storage Gen1, and Azure Data Lake Storage Gen2 as destination stores.
 
@@ -48,11 +48,11 @@ For now, within a single copy activity and data flow, you can only **ingest data
 To copy and transform data from Microsoft 365 (Office 365) into Azure, you need to complete the following prerequisite steps:
 
 - Your Microsoft 365 (Office 365) tenant admin must complete on-boarding actions as described [here](/events/build-may-2021/microsoft-365-teams/breakouts/od483/).
-- Create and configure an Azure AD web application in Azure Active Directory.  For instructions, see [Create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+- Create and configure a Microsoft Entra web application in Microsoft Entra ID.  For instructions, see [Create a Microsoft Entra application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 - Make note of the following values, which you will use to define the linked service for Microsoft 365 (Office 365):
   - Tenant ID. For instructions, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
   - Application ID and Application key.  For instructions, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
-- Add the user identity who will be making the data access request as the owner of the Azure AD web application (from the Azure AD web application > Settings > Owners > Add owner).
+- Add the user identity who will be making the data access request as the owner of the Microsoft Entra web application (from the Microsoft Entra web application > Settings > Owners > Add owner).
   - The user identity must be in the Microsoft 365 (Office 365) organization you are getting data from and must not be a Guest user.
 
 ## Approving new data access requests
@@ -110,15 +110,15 @@ The following properties are supported for Microsoft 365 (Office 365) linked ser
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Office365** | Yes |
 | office365TenantId | Azure tenant ID to which the Microsoft 365 (Office 365) account belongs. | Yes |
-| servicePrincipalTenantId | Specify the tenant information under which your Azure AD web application resides. | Yes |
+| servicePrincipalTenantId | Specify the tenant information under which your Microsoft Entra web application resides. | Yes |
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalKey | Specify the application's key. Mark this field as a SecureString to store it securely. | Yes |
 | connectVia | The Integration Runtime to be used to connect to the data store.  If not specified, it uses the default Azure Integration Runtime. | No |
 
 >[!NOTE]
 > The difference between **office365TenantId** and **servicePrincipalTenantId** and the corresponding value to provide:
->- If you are an enterprise developer developing an application against Microsoft 365 (Office 365) data for your own organization's usage, then you should supply the same tenant ID for both properties, which is your organization's AAD tenant ID.
->- If you are an ISV developer developing an application for your customers, then office365TenantId will be your customer's (application installer) AAD tenant ID and servicePrincipalTenantId will be your company's AAD tenant ID.
+>- If you are an enterprise developer developing an application against Microsoft 365 (Office 365) data for your own organization's usage, then you should supply the same tenant ID for both properties, which is your organization's Microsoft Entra tenant ID.
+>- If you are an ISV developer developing an application for your customers, then office365TenantId will be your customer's (application installer) Microsoft Entra tenant ID and servicePrincipalTenantId will be your company's Microsoft Entra tenant ID.
 
 **Example:**
 

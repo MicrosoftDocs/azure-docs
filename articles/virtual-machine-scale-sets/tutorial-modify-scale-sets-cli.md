@@ -118,17 +118,18 @@ az vmss update --name MyScaleSet --resource-group MyResourceGroup --license-type
 az vmss update --name MyScaleSet --resource-group MyResourceGroup --instance-id 4 --protect-from-scale-set-actions False --protect-from-scale-in
 ```
 
-Additionally, if you previously deployed the scale set with the `az vmss create` command, you can run the `az vmss create` command again to update the scale set. Make sure that all properties in the `az vmss create` command are the same as before, except for the properties that you wish to modify. For example, below we're updating the upgrade policy and increasing the instance count to five.
+Additionally, if you previously deployed the scale set with the `az vmss create` command, you can run the `az vmss create` command again to update the scale set. Make sure that all properties in the `az vmss create` command are the same as before, except for the properties that you wish to modify. For example, below we're increasing the instance count to five.
+
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
 
 ```azurecli-interactive
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --orchestration-mode flexible \
-  --image RHEL \
+  --image RHELRaw8LVMGen2 \
   --admin-username azureuser \
   --generate-ssh-keys \
-  --upgrade-policy Rolling \
   --instance-count 5
 ```
 
@@ -242,7 +243,7 @@ Running [az vm show](/cli/azure/vm#az-vm-show) again, we now will see that the V
 There are times where you might want to add a new VM to your scale set but want different configuration options than then listed in the scale set model. VMs can be added to a scale set during creation by using the [az vm create](/cli/azure/vmss#az-vmss-create) command and specifying the scale set name you want the instance added to. 
 
 ```azurecli-interactive
-az vm create --name myNewInstance --resource-group myResourceGroup --vmss myScaleSet --image RHEL
+az vm create --name myNewInstance --resource-group myResourceGroup --vmss myScaleSet --image RHELRaw8LVMGen2
 ```
 
 ```output

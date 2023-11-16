@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/18/2022
+ms.date: 10/16/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -59,13 +59,46 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 ## Self-asserted page (selfasserted)
 
+**2.1.26**
+
+- Replaced `Keypress` to `Key Down` event and avoid `Asterisk` for non-required in classic mode.
+
+**2.1.25**
+
+- Fixed content security policy (CSP) violation and remove additional request header X-Aspnetmvc-Version.
+
+- Introduced Captcha mechanism for Self-asserted and Unified SSP Flows (_Beta-version-Internal use only_).
+
+**2.1.24**
+
+- Fixed accessibility bugs.
+
+- Fixed MFA related issue and IE11 compatibility issues.
+
+**2.1.23**
+
+- Fixed accessibility bugs.
+
+- Reduced `min-width` value for UI viewport for default template.
+
+**2.1.22**
+
+- Fixed accessibility bugs.
+
+- Added logic to adopt QR Code Image generated from backend library.
+
+**2.1.21**
+
+- Additional sanitization of script tags to avoid XSS attacks. This revision breaks any script tags in the `<body>`. You should add script tags to the `<head>` tag. For more information, see [Enable JavaScript and page layout versions in Azure Active Directory B2C](javascript-and-page-layout.md?pivots=b2c-user-flow).
+
 **2.1.20**
-- Fixed an XSS issue on input from textbox
+- Fixed Enter event trigger on MFA.
+- CSS changes rendering page text/control in vertical manner for small screens
 
 **2.1.19**
-- Fixed accessibility bugs
-- Handle Undefined Error message for existing user sign up
-- Move Password Mismatch Error to Inline instead of Page Level
+- Fixed accessibility bugs.
+- Handled Undefined Error message for existing user sign up.
+- Moved Password mismatch error to Inline instead of page level.
 - Accessibility changes related to High Contrast button display and anchor focus improvements
 
 **2.1.18**
@@ -81,6 +114,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - Enforce Validation Error Update on control change and enable continue on email verified
 - Added additional field to error code to validation failure response
 	
+
 **2.1.16**
 - Fixed "Claims for verification control have not been verified" bug while verifying code.
 - Hide error message on validation succeeds and send code to verify
@@ -94,7 +128,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 **2.1.10**
 
 - Correcting to the tab index
-- Fixing WCAG 2.1 accessibility and screen reader issues   
+- Fixed WCAG 2.1 accessibility and screen reader issues   
 
 **2.1.9**
 
@@ -187,10 +221,34 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 > [!TIP]
 > If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
 
+**2.1.14**
+
+- Replaced `Keypress` to `Key Down` event.
+
+**2.1.13**
+
+- Fixed content security policy (CSP) violation and remove additional request header X-Aspnetmvc-Version
+
+- Introduced Captcha mechanism for Self-asserted and Unified SSP Flows (_Beta-version-Internal use only_)
+
+**2.1.12**
+
+- Removed `ReplaceAll` function for IE11 compatibility.
+
+**2.1.11**
+
+- Fixed accessibility bugs.
+
+**2.1.10**
+
+- Added additional sanitization of script tags to avoid XSS attacks. This revision breaks any script tags in the `<body>`. You should add script tags to the `<head>` tag. For more information, see [Enable JavaScript and page layout versions in Azure Active Directory B2C](javascript-and-page-layout.md?pivots=b2c-user-flow).
+
 **2.1.9**
-- Fix accessibility bugs
+
+- Fixed accessibility bugs.
+
 - Accessibility changes related to High Contrast button display and anchor focus improvements
-	
+
 **2.1.8**
 - Add descriptive error message and fixed forgotPassword link!
 
@@ -255,6 +313,46 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 ## MFA page (multifactor)
 
+**1.2.12**
+
+- Replaced `KeyPress` to `KeyDown` event.
+
+**1.2.11**
+
+- Removed `ReplaceAll` function for IE11 compatibility.
+
+**1.2.10**
+
+- Fixed accessibility bugs.
+
+**1.2.9**
+
+- Fixed `Enter` event trigger on MFA.
+
+- CSS changes render page text/control in vertical manner for small screens
+
+- Fixed Multifactor tab navigation bug.
+
+**1.2.8**
+
+- Passed the response status for MFA verification with error for backend to further triage.
+
+**1.2.7**
+
+- Fixed accessibility issue on label for retries code.
+
+- Fixed issue caused by incompatibility of default parameter on IE 11.
+
+- Set up `H1` heading and enable by default.
+
+- Updated HandlebarJS version to 4.7.7.
+
+**1.2.6**
+
+- Corrected the `autocomplete` value on verification code field from false to off.
+
+- Fixed a few XSS encoding issues.
+
 **1.2.5**
 - Fixed a language encoding issue that is causing the request to fail.
 
@@ -303,7 +401,24 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 ## Exception Page (globalexception)
 
+**1.2.5**
+
+- Removed `ReplaceAl`l function for IE11 compatibility.
+
+**1.2.4**
+
+- Fixed accessibility bugs.
+
+**1.2.3**
+
+- Updated HandlebarJS version to 4.7.7.
+
+**1.2.2**
+
+- Set up `H1` heading and enable by default.
+
 **1.2.1**
+
 - Updated jQuery version to 3.5.1.
 - Updated HandlebarJS version to 4.7.6.
 
@@ -328,7 +443,20 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 ## Other pages (ProviderSelection, ClaimsConsent, UnifiedSSD)
 
+**1.2.4**
+
+- Remove `ReplaceAll` function for IE11 compatibility.
+
+**1.2.3**
+
+- Fixed accessibility bugs.
+
+**1.2.2**
+
+- Updated HandlebarJS version to 4.7.7
+
 **1.2.1**
+
 - Updated jQuery version to 3.5.1.
 - Updated HandlebarJS version to 4.7.6.
 
@@ -348,3 +476,5 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 ## Next steps
 
 For details on how to customize the user interface of your applications in custom policies, see [Customize the user interface of your application using a custom policy](customize-ui-with-html.md).
+
+

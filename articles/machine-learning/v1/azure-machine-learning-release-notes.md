@@ -9,7 +9,7 @@ ms.custom: UpdateFrequency5, event-tier1-build-2022, devx-track-python
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 06/26/2023
+ms.date: 11/13/2023
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -19,6 +19,36 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+## 2023-11-13
+  + **azureml-automl-core, azureml-automl-runtime, azureml-contrib-automl-dnn-forecasting, azureml-train-automl-client, azureml-train-automl-runtime, azureml-training-tabular**
+    +  statsmodels, pandas and scipy were upgraded to versions 1.13, 1.3.5 and 1.10.1 - fbprophet 0.7.1 was replaced by prophet 1.1.4 When loading a model in a local environment, the versions of these packages should match what the model was trained on.
+  + **azureml-core, azureml-pipeline-core, azureml-pipeline-steps**
+    + AzureML-Pipeline - Add a warning for the `init_scripts` parameter in the Databricks step, alerting you to its upcoming deprecation.
+  + **azureml-interpret**
+    + updated azureml-interpret package to interpret-community 0.30.*
+  + **azureml-mlflow**
+    + feat: Add `AZUREML_BLOB_MAX_SINGLE_PUT_SIZE` to control the size in bytes of upload chunks. Lowering this from the default (`64*1024*1024` i.e 64MB) can remedy issues where write operations fail due to time outs.
+    + Support for uploading and downloading models from AzureML registries is currently experimental
+    + Adding support for users that want to download or upload model from AML registries
+
+## 2023-08-21
+
+### Azure Machine Learning SDK for Python v1.53.0
+  + **azureml-automl-core**
+    + Support of features/regressors known at the time of forecast in AutoML forecasting TCN models.
+  + **azureml-automl-dnn-vision**
+    + Enable flags for log_training_metrics and log_validation_loss for automl object detection and instance segmentation
+  + **azureml-contrib-automl-dnn-forecasting**
+    + Support of features/regressors known at the time of forecast in AutoML forecasting TCN models.
+  + **azureml-core**
+    + Add appinsights location swap for qatarcentral to point to uaenorth
+  + **azureml-mlflow**
+    + Fix for loading models with MLflow load_model APIs when passing an AzureML URI
+  + **azureml-pipeline-core**
+    + Skip child run and log error when load child run failed (e.g. 404) using `PipelineRun.get_pipeline_runs`.
+    + `PipelineEndpoint.list` introduces a new int parameter `max_results`, which indicates the maximum size of the returned list. The default value of `max_results` is 100.
+  + **azureml-training-tabular**
+    + Support of features/regressors known at the time of forecast in AutoML forecasting TCN models.
 
 ## 2023-06-26
 

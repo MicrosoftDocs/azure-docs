@@ -2,13 +2,13 @@
 title: Troubleshoot issues during data copies to your Azure Data Box, Azure Data Box Heavy
 description: Describes how to troubleshoot issues when copying data to Azure Data Box and Azure Data Box Heavy devices.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
 ms.date: 03/22/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Troubleshoot data copy issues on Azure Data Box and Azure Data Box Heavy

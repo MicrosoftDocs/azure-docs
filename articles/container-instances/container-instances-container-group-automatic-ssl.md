@@ -296,7 +296,7 @@ read R BLOCK
 
 #### Chrome browser
 
-Navigate to https://my-app.westeurope.azurecontainer.io and verify the certificate by clicking on the padlock next to the URL. 
+Navigate to ``` https://my-app.westeurope.azurecontainer.io ``` and verify the certificate by clicking on the padlock next to the URL. 
 
 :::image type="content" source="media/container-instances-container-group-automatic-ssl/url-padlock.png" alt-text="Screenshot highlighting the padlock next to the URL that verifies the certificate.":::
 

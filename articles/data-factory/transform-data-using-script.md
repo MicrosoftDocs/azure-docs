@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 10/19/2022
+ms.date: 10/20/2023
 ---
 
 # Transform data by using the Script activity in Azure Data Factory or Synapse Analytics 
@@ -174,8 +174,8 @@ Inline scripts integrate well with Pipeline CI/CD since the script is stored as 
 Logging options:
 
 - _Disable_ - No execution output is logged.
-- _Activity output_ – The script execution output is appended to the activity output. It can be consumed by downstream activities. The output size is limited to 2MB.  
-- _External storage_ – Persists output to storage.  Use this option if the output size is greater than 2MB or you would like to explicitly persist the output on your storage account.
+- _Activity output_ - The script execution output is appended to the activity output. It can be consumed by downstream activities. The output size is limited to 2MB.  
+- _External storage_ - Persists output to storage.  Use this option if the output size is greater than 2MB or you would like to explicitly persist the output on your storage account.
  
 > [!NOTE]
 > **Billing** - The Script activity will be [billed](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) as **Pipeline activities**.

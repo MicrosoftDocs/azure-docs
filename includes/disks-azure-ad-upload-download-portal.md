@@ -1,15 +1,14 @@
 ---
  title: include file
  description: include file
- services: storage
  author: roygara
- ms.service: azure-storage
+ ms.service: azure-disk-storage
  ms.topic: include
- ms.date: 01/03/2023
+ ms.date: 10/17/2023
  ms.author: rogarana
  ms.custom: include file
 ---
-If you're using [Azure Active Directory (Azure AD)](../articles/active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict uploads and downloads of Azure managed disks. This feature is available as a GA offering in all regions. When a user attempts to upload or download a disk, Azure validates the identity of the requesting user in Azure AD, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level, to ensure that all disks and snapshots must use Azure AD for uploads or downloads. If you have any questions on securing uploads or downloads with Azure AD, reach out to this email: azuredisks@microsoft .com
+If you're using [Microsoft Entra ID](../articles/active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict uploads and downloads of Azure managed disks. This feature is available as a GA offering in all regions. When a user attempts to upload or download a disk, Azure validates the identity of the requesting user in Microsoft Entra ID, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level, to ensure that all disks and snapshots must use Microsoft Entra ID for uploads or downloads. If you have any questions on securing uploads or downloads with Microsoft Entra ID, reach out to this email: azuredisks@microsoft .com
 
 ### Restrictions
 [!INCLUDE [disks-azure-ad-upload-download-restrictions](disks-azure-ad-upload-download-restrictions.md)]
@@ -19,7 +18,7 @@ If you're using [Azure Active Directory (Azure AD)](../articles/active-directory
 
 ### Assign RBAC role
 
-To access managed disks secured with Azure AD, the requesting user must have either the [Data Operator for Managed Disks](../articles/role-based-access-control/built-in-roles.md#data-operator-for-managed-disks) role, or a [custom role](../articles/role-based-access-control/custom-roles-portal.md) with the following permissions: 
+To access managed disks secured with Microsoft Entra ID, the requesting user must have either the [Data Operator for Managed Disks](../articles/role-based-access-control/built-in-roles.md#data-operator-for-managed-disks) role, or a [custom role](../articles/role-based-access-control/custom-roles-portal.md) with the following permissions: 
 
 - **Microsoft.Compute/disks/download/action**
 - **Microsoft.Compute/disks/upload/action**

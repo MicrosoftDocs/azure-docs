@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Modify a packet core instance
 
-Each Azure Private 5G Core site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal; this includes modifying the packet core's custom location, connected Azure Stack Edge (ASE) device, and access network configuration. You'll also learn how to add and modify the data networks attached to the packet core instance.
+Each Azure Private 5G Core site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal; this includes modifying the packet core's custom location, connected Azure Stack Edge (ASE) device, and access network configuration. You'll also learn how to add, modify and remove the data networks attached to the packet core instance.
 
 If you want to modify a packet core instance's local access configuration, follow [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
@@ -28,7 +28,7 @@ If you want to modify a packet core instance's local access configuration, follo
 
 - If you want to make changes to the attached data networks, refer to [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to collect the new values and make sure they're in the correct format.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools and you're making a change that requires a packet core reinstall, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
+- If you use Microsoft Entra ID to authenticate access to your local monitoring tools and you're making a change that requires a packet core reinstall, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Core namespace access](set-up-kubectl-access.md#core-namespace-access).
 
 ## Plan a maintenance window
 
@@ -40,6 +40,7 @@ The following changes will trigger components of the packet core software to res
   - Static UE IP pool prefixes
   - Network address and port translation parameters
   - DNS addresses
+- Changing the UE Maximum Transmission Unit (MTU) signaled by the packet core.
 
 The following changes will trigger the packet core to reinstall, during which your service will be unavailable for up to two hours:
 
@@ -58,7 +59,7 @@ If you're making any of these changes to a healthy packet core instance, we reco
 The following list contains the data that will be lost over a packet core reinstall. If you're making a change that requires a reinstall, back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance. If your packet core instance is in **Uninstalled**, **Uninstalling** or **Failed** state, or if you're connecting an ASE device for the first time, you can skip this step and proceed to [Select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
 
 1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
-    - If you use Azure AD, save a copy of the Kubernetes Secret Object YAML file you created in [Create Kubernetes Secret Objects](enable-azure-active-directory.md#create-kubernetes-secret-objects).
+    - If you use Microsoft Entra ID, save a copy of the Kubernetes Secret Object YAML file you created in [Create Kubernetes Secret Objects](enable-azure-active-directory.md#create-kubernetes-secret-objects).
     - If you use local usernames and passwords and want to keep using the same credentials, save a copy of the current passwords to a secure location.
 1. All traces are deleted during upgrade and cannot be retrieved. If you want to retain any traces, [export and save](distributed-tracing-share-traces.md#export-trace-from-the-distributed-tracing-web-gui) them securely before continuing.
 1. Any customizations made to the packet core dashboards won't be carried over the reinstall. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed-up copy of your dashboards.
@@ -98,6 +99,9 @@ To modify the packet core and/or access network configuration:
   
    - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) for the top-level configuration values.
    - Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the configuration values under **Access network**.
+   - If you want to enable UE Metric monitoring, use the information collected in [Collect UE Usage Tracking values](collect-required-information-for-a-site.md#collect-ue-usage-tracking-values) to fill out the **Azure Event Hub Namespace**, **Event Hub name** and **User Assigned Managed Identity** values.
+    > [!NOTE]
+    > You must reinstall the packet core control pane** in order to use UE Metric monitoring if it was not already configured.
 1. Choose the next step:
    - If you've finished modifying the packet core instance, go to [Submit and verify changes](#submit-and-verify-changes).
    - If you want to configure a new or existing data network and attach it to the packet core instance, go to [Attach a data network](#attach-a-data-network).
@@ -143,6 +147,17 @@ To make changes to a data network attached to your packet core instance:
 1. Select **Modify**. You should see your changes under the **Data networks** tab.
 1. Go to [Submit and verify changes](#submit-and-verify-changes).
 
+## Remove an attached data network
+
+To remove a data network attached to the packet core:
+
+1. Select the checkbox for the data network you want to delete.
+1. Select **Delete**.
+
+:::image type="content" source="media/modify-packet-core/modify-packet-core-delete-attached-data-network.png" alt-text="Screenshot of the Azure portal showing a selected data network and delete button.":::
+
+This change will require a manual packet core reinstall to take effect, see [Next steps](#next-steps).
+
 ## Submit and verify changes
 
 1. Select **Modify**.
@@ -155,13 +170,35 @@ To make changes to a data network attached to your packet core instance:
     - If you made changes to the packet core configuration, check that the fields under **Connected ASE device**, **Azure Arc Custom Location** and **Access network** contain the updated information.
     - If you made changes to the attached data networks, check that the fields under **Data networks** contain the updated information.
 
+## Remove data network resource
+
+If you removed an attached data network from the packet core and it is no longer attached to any packet cores or referenced by any SIM policies, you can remove the data network from the resource group:  
+> [!NOTE]
+> The data network that you want to delete must have no SIM policies associated with it. If the data network has one or more associated SIM policies data network removal will be prevented.
+
+1. If you need to delete data network from a SIM policy's configuration:
+    1. Navigate to the **SIM Policy** resource.
+    1. Select **Modify SIM Policy**.
+    1. Either:
+
+        - Select the **Delete** button for the network slice containing the associated data network.
+        - Or
+            1. Select the **Edit** button for the network slice containing the associated data network.
+            1. Select a new **Data network** to be associated with the network slice.
+            1. Select **Modify**.
+    1. Select **Review + Modify**.
+    1. Select **Modify**.
+1. Navigate to the resource group containing your AP5GC resources.
+1. Select the checkbox for the data network resource you want to delete.
+1. Select **Delete**.
+
 ## Restore backed up deployment information
 
 If you made changes that triggered a packet core reinstall, reconfigure your deployment using the information you gathered in [Back up deployment information](#back-up-deployment-information).
 
 1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
     
-    - If you use Azure AD, [reapply the Secret Object for distributed tracing and the packet core dashboards](enable-azure-active-directory.md#apply-kubernetes-secret-objects).
+    - If you use Microsoft Entra ID, [reapply the Secret Object for distributed tracing and the packet core dashboards](enable-azure-active-directory.md#apply-kubernetes-secret-objects).
     - If you use local usernames and passwords, follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to restore access to your local monitoring tools.
 
 1. If you backed up any packet core dashboards, follow [Importing a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#importing-a-dashboard) in the Grafana documentation to restore them.

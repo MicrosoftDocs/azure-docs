@@ -48,7 +48,7 @@ If you don't have a GitHub account, see [Prerequisites](#prerequisites).
 1. Sign in to [GitHub](https://github.com).
 1. Select your account image on the upper right corner, and then select **Your repositories**.
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines create GitHub repository](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-github-repository.png)
+    :::image type="content" source="./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-github-repository.png" alt-text="Screenshot of creating a GitHub repository for Azure Resource Manager Azure DevOps Azure Pipelines.":::
 
 1. Select **New**, a green button.
 1. In **Repository name**, enter a repository name.  For example, **ARMPipeline-repo**. Remember to replace any of **ARMPipeline** with your project name. You can select either **Public** or **private** for going through this tutorial. And then select **Create repository**.
@@ -115,7 +115,7 @@ A DevOps organization is needed before you can proceed to the next procedure. If
 1. Select a DevOps organization from the left, and then select **New project**. If you don't have any projects, the create project page is opened automatically.
 1. Enter the following values:
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines create Azure DevOps project](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-create-devops-project.png)
+    :::image type="content" source="./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-create-devops-project.png" alt-text="Screenshot of creating an Azure DevOps project for Azure Resource Manager Azure DevOps Azure Pipelines.":::
 
     * **Project name**: Enter a project name. You can use the project name you picked at the very beginning of the tutorial.
     * **Visibility**: Select **Private**.
@@ -151,7 +151,7 @@ To create a pipeline with a step to deploy a template:
 1. Select **Create pipeline**.
 1. From the **Connect** tab, select **GitHub**. If asked, enter your GitHub credentials, and then follow the instructions. If you see the following screen, select **Only select repositories**, and verify your repository is in the list before you select **Approve & Install**.
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines only select repositories](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png)
+    :::image type="content" source="./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png" alt-text="Screenshot of selecting repositories for Azure Resource Manager Azure DevOps Azure Pipelines.":::
 
 1. From the **Select** tab, select your repository. The default name is `[YourAccountName]/[YourGitHubRepositoryName]`.
 1. From the **Configure** tab, select **Starter pipeline**. It shows the _azure-pipelines.yml_ pipeline file with two script steps.
@@ -174,7 +174,7 @@ To create a pipeline with a step to deploy a template:
     * **Deployment mode**: Select **Incremental**.
     * **Deployment name**: Enter **DeployPipelineTemplate**. Select **Advanced** before you can see **Deployment name**.
 
-    ![Screenshot shows the ARM template deployment page with required values entered.](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
+    :::image type="content" source="./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png" alt-text="Screenshot of the ARM template deployment page with required values entered for Azure DevOps Azure Pipelines.":::
 
 1. Select **Add**.
 
@@ -182,13 +182,13 @@ To create a pipeline with a step to deploy a template:
 
     The _.yml_ file shall be similar to:
 
-    ![Screenshot shows the Review page with the new pipeline titled Review your pipeline YAML.](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
+    :::image type="content" source="./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png" alt-text="Screenshot of the Review page with the new pipeline titled Review your pipeline YAML for Azure DevOps Azure Pipelines.":::
 
 1. Select **Save and run**.
 1. From the **Save and run** pane, select **Save and run** again. A copy of the YAML file is saved into the connected repository. You can see the YAML file by browse to your repository.
 1. Verify that the pipeline is executed successfully.
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines yaml](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-status.png)
+    :::image type="content" source="./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-status.png" alt-text="Screenshot of Azure Resource Manager Azure DevOps Azure Pipelines YAML file.":::
 
 ## Verify the deployment
 
@@ -204,7 +204,7 @@ When you update the template and push the changes to the remote repository, the 
 1. Open _linkedStorageAccount.json_ from your local repository in Visual Studio Code or any text editor.
 1. Update the **defaultValue** of **storageAccountType** to **Standard_GRS**. See the following screenshot:
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines update yaml](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-update-yml.png)
+    :::image type="content" source="./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-update-yml.png" alt-text="Screenshot of updating the YAML file for Azure Resource Manager Azure DevOps Azure Pipelines.":::
 
 1. Save the changes.
 1. Push the changes to the remote repository by running the following commands from Git Bash/Shell.

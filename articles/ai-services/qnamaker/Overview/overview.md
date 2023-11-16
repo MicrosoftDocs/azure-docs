@@ -1,11 +1,11 @@
 ---
 title: What is QnA Maker service?
 description: QnA Maker is a cloud-based NLP service that easily creates a natural conversational layer over your data. It can be used to find the most appropriate answer for any given natural language input, from your custom knowledge base (KB) of information.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: overview
 ms.date: 11/19/2021
 keywords: "qna maker, low code chat bots, multi-turn conversations"

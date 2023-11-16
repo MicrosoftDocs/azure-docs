@@ -1,27 +1,35 @@
 items:
-- name: FHIR service
+- name: FHIR service documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: About FHIR service
+  - name: What is the FHIR service?
     href: overview.md
+  - name: FHIR service autoscale
+    href: fhir-service-autoscale.md
+  - name: FHIR REST API capabilities
+    href: fhir-rest-api-capabilities.md
+  - name: Versioning policy and history management
+    href: fhir-versioning-policy-and-history-management.md
+  - name: Migration from Azure API for FHIR
+    href: migration-strategies.md
 - name: Quickstarts
-  expanded: true
+  expanded: false
   items:
   - name: Get started with the FHIR service
     href: get-started-with-fhir.md
-  - name: Deploy FHIR service
+  - name: Deploy a FHIR service
     expanded: false
     items:
-    - name: Using Portal
+    - name: Using Azure portal
       href: fhir-portal-quickstart.md
     - name: Using Bicep
       href: fhir-service-bicep.md
     - name: Using ARM template
       href: fhir-service-resource-manager-template.md
 - name: Tutorials
-  expanded: true
+  expanded: false
   items:
   - name: SMART on FHIR
     href: smart-on-fhir.md
@@ -38,10 +46,9 @@ items:
       href: davinci-pdex-tutorial.md
     - name: Da Vinci Plan Net
       href: davinci-plan-net.md
-- name: How-to guides
-  expanded: true
+- name: How-tos
   items:
-  - name: Access FHIR service
+  - name: Access the FHIR service
     expanded: false
     items:
     - name: Access using Postman
@@ -60,14 +67,14 @@ items:
     items:
     - name: Enable diagnostic settings in the FHIR service
       href: fhir-service-diagnostic-logs.md
+    - name: Use Custom HTTP headers to add data to Audit Logs
+      href: use-custom-headers-diagnosticlog.md
   - name: Search
     expanded: false
     items:
-    - name: Overview of FHIR search
+    - name: FHIR search overview
       href: overview-of-search.md
-    - name: selectable search parameters
-      href: selectable-search-parameters.md
-    - name: Defining custom search parameters
+    - name: Define custom search parameters
       href: how-to-do-custom-search.md
     - name: How to run a reindex job
       href: how-to-run-a-reindex.md
@@ -79,13 +86,15 @@ items:
     - name: $convert-data
       expanded: false
       items:
-      - name: Overview of $convert-data
+      - name: $convert-data overview
         href: overview-of-convert-data.md
       - name: Configure settings for $convert-data
         href: configure-settings-convert-data.md
+      - name: Transform HL7v2 data to FHIR R4
+        href: convert-data-with-azure-data-factory.md
       - name: Troubleshoot $convert-data
         href: troubleshoot-convert-data.md
-      - name: FAQs - $convert-data
+      - name: FAQ - $convert-data
         href: frequently-asked-questions-convert-data.md     
     - name: $export
       expanded: false
@@ -109,6 +118,8 @@ items:
       href: patient-everything.md
     - name: $purge-history operation
       href: purge-history.md  
+    - name: $bulk-delete operation
+      href: fhir-bulk-delete.md
     - name: $validate
       expanded: false
       items:
@@ -118,19 +129,12 @@ items:
         href: validation-against-profiles.md  
   - name: Copy data to Synapse
     href: copy-to-synapse.md
-- name: Concepts
-  expanded: true
-  items:
-  - name: FHIR service autoscale
-    href: fhir-service-autoscale.md
-  - name: FHIR REST API capabilities
-    href: fhir-rest-api-capabilities.md
-  - name: Versioning policy and history management
-    href: fhir-versioning-policy-and-history-management.md
 - name: Resources
   expanded: true
   items:
-  - name: FAQs - FHIR service
+  - name: FHIR service FAQ
     href: fhir-faq.md
+  - name: Migration FAQ
+    href: migration-faq.md
   - name: Supported features
     href: fhir-features-supported.md

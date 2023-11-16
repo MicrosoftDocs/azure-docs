@@ -20,7 +20,7 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 Azure Machine Learning requires access to servers and services on the public internet. When implementing network isolation, you need to understand what access is required and how to enable it.
 
 > [!NOTE]
-> The information in this article applies to Azure Machine Learning workspace configured with a private endpoint.
+> The information in this article applies to Azure Machine Learning workspace configured to use an _Azure Virtual Network_. When using a _managed virtual network_, the required inbound and outbound configuration for the workspace is automatically applied. For more information, see [Azure Machine Learning managed virtual network](how-to-managed-network.md).
 
 ## Common terms and information
 
@@ -72,7 +72,7 @@ __Outbound traffic__
 
 | Service tag(s) | Ports | Purpose |
 | ----- |:-----:| ----- |
-| `AzureActiveDirectory` | 80, 443 | Authentication using Azure AD. |
+| `AzureActiveDirectory` | 80, 443 | Authentication using Microsoft Entra ID. |
 | `AzureMachineLearning` | 443, 8787, 18881<br>UDP: 5831 | Using Azure Machine Learning services. |
 | `BatchNodeManagement.<region>` | 443 | Communication Azure Batch. |
 | `AzureResourceManager` | 443 | Creation of Azure resources with Azure Machine Learning. |
@@ -100,16 +100,7 @@ __Outbound traffic__
 
 __To allow installation of Python packages for training and deployment__, allow __outbound__ traffic to the following host names:
 
-> [!NOTE]
-> This is not a complete list of the hosts required for all Python resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
-
-| __Host name__ | __Purpose__ |
-| ---- | ---- |
-| `anaconda.com`<br>`*.anaconda.com` | Used to install default packages. |
-| `*.anaconda.org` | Used to get repo data. |
-| `pypi.org` | Used to list dependencies from the default index, if any, and the index isn't overwritten by user settings. If the index is overwritten, you must also allow `*.pythonhosted.org`. |
-| `*pytorch.org` | Used by some examples based on PyTorch. |
-| `*.tensorflow.org` | Used by some examples based on Tensorflow. |
+[!INCLUDE [recommended outbound](includes/recommended-network-outbound.md)]
 
 ## Scenario: Install RStudio on compute instance
 
@@ -282,7 +273,7 @@ __General Azure hosts__
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ---- | 
-| Azure Active Directory | `login.microsoftonline.com` | TCP | 80, 443 |
+| Microsoft Entra ID | `login.microsoftonline.com` | TCP | 80, 443 |
 | Azure portal | `management.azure.com` | TCP | 443 |
 | Azure Resource Manager | `management.azure.com` | TCP | 443 |
 
@@ -290,7 +281,7 @@ __General Azure hosts__
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ---- |
-| Azure Active Directory | `login.microsoftonline.us` | TCP | 80, 443 |
+| Microsoft Entra ID | `login.microsoftonline.us` | TCP | 80, 443 |
 | Azure portal | `management.azure.us` | TCP | 443 |
 | Azure Resource Manager | `management.usgovcloudapi.net` | TCP | 443 |
 
@@ -298,7 +289,7 @@ __General Azure hosts__
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ----- |
-| Azure Active Directory | `login.chinacloudapi.cn` | TCP | 80, 443 |
+| Microsoft Entra ID | `login.chinacloudapi.cn` | TCP | 80, 443 |
 | Azure portal | `management.azure.cn` | TCP | 443 |
 | Azure Resource Manager | `management.chinacloudapi.cn` | TCP | 443 |
 
@@ -418,7 +409,7 @@ __Azure Machine Learning compute instance and compute cluster hosts__
 
 ---
 
-__Docker images maintained by by Azure Machine Learning__
+__Docker images maintained by Azure Machine Learning__
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ----- |

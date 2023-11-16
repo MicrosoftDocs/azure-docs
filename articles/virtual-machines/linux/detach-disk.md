@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-disk-storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 08/09/2023
 ms.author: rogarana
 ms.custom: devx-track-azurecli, devx-track-linux
 ---
@@ -102,11 +102,11 @@ In select regions, the disk detach latency has been reduced, so you'll see an im
 ## Detach a data disk using the portal
 
 1. In the left menu, select **Virtual Machines**.
-1. In the virtual machine blade, select **Disks** under **Settings**.
-1. In the **Disks** blade, to the far right of the data disk that you would like to detach, select the detach option, and detach the disk.
-1. After the disk has been removed, select **Save**.
+1. In the virtual machine blade, select **Disks**.
+1. In the **Disks** blade, to the far right of the data disk that you would like to detach, select the detach button, to detach the disk.
+1. After the disk has been removed, select **Save** on the top of the blade.
 
-The disk stays in storage but is no longer attached to a virtual machine. The disk isn't deleted.
+The disk stays in storage but is no longer attached to a virtual machine. The disk is not deleted.
 
 ## Next steps
 If you want to reuse the data disk, you can just [attach it to another VM](add-disk.md).

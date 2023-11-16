@@ -1,28 +1,26 @@
 ---
-title: Tune prompts using variants in Prompt flow (preview)
+title: Tune prompts using variants in prompt flow
 titleSuffix: Azure Machine Learning
-description: Learn how to tune prompts using variants in Prompt flow with Azure Machine Learning studio.
+description: Learn how to tune prompts using variants in prompt flow with Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 author: ishinzhang
 ms.author: yijunzhang
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 11/02/2023
 ---
 
-# Tune prompts using variants (preview)
+# Tune prompts using variants
 
 Crafting a good prompt is a challenging task that requires a lot of creativity, clarity, and relevance. A good prompt can elicit the desired output from a pretrained language model, while a bad prompt can lead to inaccurate, irrelevant, or nonsensical outputs. Therefore, it's necessary to tune prompts to optimize their performance and robustness for different tasks and domains.
 
 So, we introduce [the concept of variants](concept-variants.md) which can help you test the model’s behavior under different conditions, such as different wording, formatting, context, temperature, or top-k, compare and find the best prompt and configuration that maximizes the model’s accuracy, diversity, or coherence.
 
 In this article, we'll show you how to use variants to tune prompts and evaluate the performance of different variants.
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -37,9 +35,9 @@ In this article, we'll use **Web Classification** sample flow as example.
 
 1. Open the sample flow and remove the **prepare_examples** node as a start.
 
-    :::image type="content" source="./media/how-to-tune-prompts-using-variants/flow-graph.png" alt-text="Screenshot of the graph view of a Web Classification sample flow. " lightbox = "./media/how-to-tune-prompts-using-variants/flow-graph.png":::
+    :::image type="content" source="./media/how-to-tune-prompts-using-variants/flow-graph.png" alt-text="Screenshot of Web Classification example flow to demonstrate variants. " lightbox = "./media/how-to-tune-prompts-using-variants/flow-graph.png":::
 
-1. Use the following prompt as a baseline prompt in the **classify_with_llm** node.
+2. Use the following prompt as a baseline prompt in the **classify_with_llm** node.
 
 ```
 Your task is to classify a given url into one of the following types:
@@ -64,16 +62,14 @@ To optimize this flow, there can be multiple ways, and following are two directi
 ### Create variants
 
 1. Select **Show variants** button on the top right of the LLM node. The existing LLM node is variant_0 and is the default variant.
-    :::image type="content" source="./media/how-to-tune-prompts-using-variants/show-variants.png" alt-text="Screenshot of Web Classification highlighting the show variants button. " lightbox = "./media/how-to-tune-prompts-using-variants/show-variants.png":::
-1. Select the **Clone** button on variant_0 to generate variant_1, then you can configure parameters to different values, or update the prompt on variant_1.
-    :::image type="content" source="./media/how-to-tune-prompts-using-variants/clone-variant.png" alt-text="Screenshot of Web Classification highlighting the clone button. " lightbox = "./media/how-to-tune-prompts-using-variants/clone-variant.png":::
-1. Repeat the step to create more variants.
-1. Select **Hide variants** to stop adding more variants. And all variants are folded. The default variant is shown for the node.
+2. Select the **Clone** button on variant_0 to generate variant_1, then you can configure parameters to different values or update the prompt on variant_1.
+3. Repeat the step to create more variants.
+4. Select **Hide variants** to stop adding more variants. All variants are folded. The default variant is shown for the node.
 
 For **classify_with_llm** node, based on variant_0:
 
-- create variant_1 where the temperature is changed from 1 to 0.
-- create variant_2 where temperature is 0 and you can use the following prompt including few-shots examples.
+- Create variant_1 where the temperature is changed from 1 to 0.
+- Create variant_2 where temperature is 0 and you can use the following prompt including few-shots examples.
 
 
 ```
@@ -108,7 +104,7 @@ For **summarize_text_content** node, based on variant_0, you can create variant_
 
 Now, the flow looks as following, 2 variants for **summarize_text_content** node and 3 for **classify_with_llm** node.
 
-:::image type="content" source="./media/how-to-tune-prompts-using-variants/3-2-variants.png" alt-text="Screenshot of Web Classification highlighting the variants. " lightbox = "./media/how-to-tune-prompts-using-variants/3-2-variants.png":::
+:::image type="content" source="./media/how-to-tune-prompts-using-variants/variants.png" alt-text="Screenshot of flow authoring page when you have variants in flow. " lightbox = "./media/how-to-tune-prompts-using-variants/3-2-variants.png":::
 
 ### Run all variants with a single row of data and check outputs
 
@@ -121,29 +117,28 @@ In this example, we configure variants for both **summarize_text_content** node 
 
 1. Select the **Run** button on the top right.
 1. Select an LLM node with variants. The other LLM nodes will use the default variant.
-    :::image type="content" source="./media/how-to-tune-prompts-using-variants/run-select-variants.png" alt-text="Screenshot of Submit flow run where you can select an LLM node. " lightbox = "./media/how-to-tune-prompts-using-variants/run-select-variants.png":::
-1. Submit the flow run.
-1. After the flow run is completed, you can check the corresponding result for each variant.
-    :::image type="content" source="./media/how-to-tune-prompts-using-variants/run-variant-output.png" alt-text="Screenshot of Web Classification showing a completed run. " lightbox = "./media/how-to-tune-prompts-using-variants/run-variant-output.png":::
-1. Submit another flow run with the other LLM node with variants, and check the outputs.
-1. You can change another input data (for example, use a Wikipedia page URL) and repeat the steps above to test variants for different data.​​​​​​​
+    :::image type="content" source="./media/how-to-tune-prompts-using-variants/run-select-variants.png" alt-text="Screenshot of submitting a flow run when you have variants in flow. " lightbox = "./media/how-to-tune-prompts-using-variants/run-select-variants.png":::
+2. Submit the flow run.
+3. After the flow run is completed, you can check the corresponding result for each variant.
+4. Submit another flow run with the other LLM node with variants, and check the outputs.
+5. You can change another input data (for example, use a Wikipedia page URL) and repeat the steps above to test variants for different data.​​​​​​​
 
 ### Evaluate variants
 
 When you run the variants with a few single pieces of data and check the results with the naked eye, it cannot reflect the complexity and diversity of real-world data, meanwhile the output isn't measurable, so it's hard to compare the effectiveness of different variants, then choose the best.
 
-You can submit a bulk test, which allows you test the variants with a large amount of data and evaluate them with metrics, to help you find the best fit.
+You can submit a batch run, which allows you test the variants with a large amount of data and evaluate them with metrics, to help you find the best fit.
 
-1. First you need to prepare a dataset, which is representative enough of the real-world problem you want to solve with Prompt flow. In this example, it's a list of URLs and their classification ground truth. We'll use accuracy to evaluate the performance of variants.
-2. Select **Bulk test** on the top right of the page.
-3. A wizard for **Bulk test & Evaluate** occurs. The first step is to select a node to run all its variants.
+1. First you need to prepare a dataset, which is representative enough of the real-world problem you want to solve with prompt flow. In this example, it's a list of URLs and their classification ground truth. We'll use accuracy to evaluate the performance of variants.
+2. Select **Evaluate** on the top right of the page.
+3. A wizard for **Batch run & Evaluate** occurs. The first step is to select a node to run all its variants.
   
-    To test how well different variants work for each node in a flow, you need to run a bulk test for each node with variants one by one. This helps you avoid the influence of other nodes' variants and focus on the results of this node's variants. This follows the rule of the controlled experiment, which means that you only change one thing at a time and keep everything else the same.
+    To test how well different variants work for each node in a flow, you need to run a batch run for each node with variants one by one. This helps you avoid the influence of other nodes' variants and focus on the results of this node's variants. This follows the rule of the controlled experiment, which means that you only change one thing at a time and keep everything else the same.
 
-    For example, you can select **classify_with_llm** node to run all variants, the **summarize_text_content** node will use it default variant for this bulk test.
+    For example, you can select **classify_with_llm** node to run all variants, the **summarize_text_content** node will use it default variant for this batch run.
 
-3. Next in **Bulk test settings**, you can set bulk test name, choose a runtime, upload the prepared data.
-4. Next, in **Evaluation settings**, select an evaluation method.
+4. Next in **Batch run settings**, you can set batch run name, choose a runtime, upload the prepared data.
+5. Next, in **Evaluation settings**, select an evaluation method.
 
     Since this flow is for classification, you can select **Classification Accuracy Evaluation** method to evaluate accuracy.
     
@@ -151,29 +146,20 @@ You can submit a bulk test, which allows you test the variants with a large amou
 
     In the **Evaluation input mapping** section, you need to specify ground truth comes from the category column of input dataset, and prediction comes from one of the flow outputs: category.
 
-5. After reviewing all the settings, you can submit the bulk test.
-6. After the run is submitted, select the link, go to the run detail page.
+6. After reviewing all the settings, you can submit the batch run.
+7. After the run is submitted, select the link, go to the run detail page.
 
 > [!NOTE]
 > The run may take several minutes to complete.
 
-### Compare metrics
+### Visualize outputs
 
-1. After the bulk run and evaluation run complete, in the bulk run detail page, switch to **Metrics** tab, you can see the metrics of 3 variants for the **classify_with_llm** node. It validates the hypothesis that lower temperature and few-shot examples can improve classification accuracy.
+1. After the batch run and evaluation run complete, in the run detail page, multi-select the batch runs for each variant, then select **Visualize outputs**. You will see the metrics of 3 variants for the **classify_with_llm** node and LLM predicted outputs for each record of data.
+   :::image type="content" source="./media/how-to-tune-prompts-using-variants/visualize-outputs.png" alt-text="Screenshot of runs showing visualize outputs. " lightbox = "./media/how-to-tune-prompts-using-variants/3-2-variants.png":::
+2. After you identify which variant is the best, you can go back to the flow authoring page and set that variant as default variant of the node
+3. You can repeat the above steps to evaluate the variants of **summarize_text_content** node as well.
 
-    :::image type="content" source="./media/how-to-tune-prompts-using-variants/bulk-test-metrics.png" alt-text="Screenshot of the bulk detail page on the metrics tab. " lightbox = "./media/how-to-tune-prompts-using-variants/bulk-test-metrics.png":::
-
-    > [!NOTE]
-    > You may fail to reproduce the same results as shown in the screenshots, it is because of the randomness of LLM output and the limited 30 records of data.
-
-1. To further investigate how different variants predict, you can go to **Outputs** tab, select an evaluation run, check prediction results for each row of data.
-
-    :::image type="content" source="./media/how-to-tune-prompts-using-variants/bulk-test-outputs.png" alt-text="Screenshot of the bulk detail page on the outputs tab. " lightbox = "./media/how-to-tune-prompts-using-variants/bulk-test-outputs.png":::
-
-1. After you identify that which variant is the best, you can go back to the flow authoring page and set that variant as default variant of the node
-1. You can repeat the above steps to evaluate the variants of **summarize_text_content** node as well.
-
-Now, you've finished the process of tuning prompts using variants. You can apply this technique to your own Prompt flow to find the best variant for the LLM node.
+Now, you've finished the process of tuning prompts using variants. You can apply this technique to your own prompt flow to find the best variant for the LLM node.
 
 ## Next steps
 

@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "concepts-pull-delivery.md",
+      "redirect_url": "/azure/event-grid/concepts-event-grid-namespaces",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "diagnostic-logs.md",
       "redirect_url": "/azure/event-grid/monitor-push-reference",
       "redirect_document_id": false
@@ -283,6 +288,11 @@
     {
       "source_path": "deliver-events-to-partner-destinations.md",
       "redirect_url": "/azure/event-grid/partner-events-overview-for-partners",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "mqtt-client-authorization-use-rbac.md",
+      "redirect_url": "/azure/event-grid/mqtt-client-azure-ad-token-and-rbac",
       "redirect_document_id": false
     },
     {

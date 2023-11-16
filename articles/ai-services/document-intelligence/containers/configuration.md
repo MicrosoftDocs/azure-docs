@@ -1,22 +1,23 @@
 ---
-title: Configure Document Intelligence containers
+title: Configure Document Intelligence (formerly Form Recognizer) containers
 titleSuffix: Azure AI services
 description: Learn how to configure the Document Intelligence container to parse form and table data.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: 'doc-intel-2.1.0'
+monikerRange: '<=doc-intel-3.0.0'
 ---
 
 # Configure Document Intelligence containers
 
-**This article applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**.
+[!INCLUDE [applies to v3.0 and v2.1](../includes/applies-to-v30-v21.md)]
 
-With Document Intelligence containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, isolated environment that can be easily deployed on-premises and in the cloud. In this article, we show you how to configure the Document Intelligence container run-time environment by using the `docker compose` command arguments. Document Intelligence features are supported by six Document Intelligence feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom**. These containers have both required and optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section.
+With Document Intelligence containers, you can build an application architecture optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, isolated environment that can be easily deployed on-premises and in the cloud. In this article, we show you how to configure the Document Intelligence container run-time environment by using the `docker compose` command arguments. Document Intelligence features are supported by six Document Intelligence feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom**. These containers have both required and optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section.
 
 ## Configuration settings
 
@@ -26,8 +27,8 @@ Each container has the following configuration settings:
 |--|--|--|
 |Yes|[Key](#key-and-billing-configuration-setting)|Tracks billing information.|
 |Yes|[Billing](#key-and-billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure.  For more information, _see_ [Billing](install-run.md#billing). For more information and a complete list of regional endpoints, _see_ [Custom subdomain names for Azure AI services](../../../ai-services/cognitive-services-custom-subdomains.md).|
-|Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
-|No|[ApplicationInsights](#applicationinsights-setting)|Enables adding [Azure Application Insights](/azure/application-insights) customer content support to your container.|
+|Yes|[Eula](#eula-setting)| Indicates that you accepted the license for the container.|
+|No|[ApplicationInsights](#applicationinsights-setting)|Enables adding [Azure Application Insights](/azure/application-insights) customer support for your container.|
 |No|[Fluentd](#fluentd-settings)|Writes log and, optionally, metric data to a Fluentd server.|
 |No|HTTP Proxy|Configures an HTTP proxy for making outbound requests.|
 |No|[Logging](#logging-settings)|Provides ASP.NET Core logging support for your container. |
@@ -37,9 +38,9 @@ Each container has the following configuration settings:
 
 ## Key and Billing configuration setting
 
-The `Key` setting specifies the Azure resource key that's used to track billing information for the container. The value for the Key must be a valid key for the resource that's specified for `Billing` in the "Billing configuration setting" section.
+The `Key` setting specifies the Azure resource key that is used to track billing information for the container. The value for the Key must be a valid key for the resource that is specified for `Billing` in the "Billing configuration setting" section.
 
-The `Billing` setting specifies the endpoint URI of the resource on Azure that's used to meter billing information for the container. The value for this configuration setting must be a valid endpoint URI for a resource on Azure. The container reports usage about every 10 to 15 minutes.
+The `Billing` setting specifies the endpoint URI of the resource on Azure that is used to meter billing information for the container. The value for this configuration setting must be a valid endpoint URI for a resource on Azure. The container reports usage about every 10 to 15 minutes.
 
  You can find these settings in the Azure portal on the **Keys and Endpoint** page.
 
@@ -69,7 +70,7 @@ The `Billing` setting specifies the endpoint URI of the resource on Azure that's
 
 Use [**volumes**](https://docs.docker.com/storage/volumes/) to read and write data to and from the container. Volumes are the preferred for persisting data generated and used by Docker containers. You can specify an input mount or an output mount by including the `volumes` option and specifying `type` (bind), `source` (path to the folder) and `target` (file path parameter).
 
-The Document Intelligence container requires an input volume and an output volume. The input volume can be read-only (`ro`), and it's required for access to the data that's used for training and scoring. The output volume has to be writable, and you use it to store the models and temporary data.
+The Document Intelligence container requires an input volume and an output volume. The input volume can be read-only (`ro`), and is required for access to the data that is used for training and scoring. The output volume has to be writable, and you use it to store the models and temporary data.
 
 The exact syntax of the host volume location varies depending on the host operating system. Additionally, the volume location of the [host computer](install-run.md#host-computer-requirements) might not be accessible because of a conflict between the Docker service account permissions and the host mount location permissions.
 

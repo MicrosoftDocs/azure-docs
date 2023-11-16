@@ -12,14 +12,24 @@ items:
   items:
   - name: Planning
     href: elastic-san-planning.md
+  - name: Networking
+    href: elastic-san-networking-concepts.md
   - name: Scale targets
     href: elastic-san-scale-targets.md
+  - name: Best practices
+    href: elastic-san-best-practices.md
   - name: Performance
     href: elastic-san-performance.md
+  - name: Clustered applications
+    href: elastic-san-shared-volumes.md
+  - name: Encryption
+    href: elastic-san-encryption-overview.md
 - name: How to
   items:
   - name: Deploy an Elastic SAN
     href: elastic-san-create.md
+  - name: Configure networking
+    href: elastic-san-networking.md
   - name: Connect to an Elastic SAN volume - Windows
     href: elastic-san-connect-windows.md
   - name: Connect to an Elastic SAN volume - Linux
@@ -28,10 +38,16 @@ items:
     href: elastic-san-connect-aks.md
   - name: Expand an Elastic SAN
     href: elastic-san-expand.md
-  - name: Configure virtual networks
-    href: elastic-san-networking.md
+  - name: Use volume snapshots
+    href: elastic-san-snapshots.md
   - name: Delete an Elastic SAN
     href: elastic-san-delete.md
+  - name: Manage Encryption
+    items:
+    - name: Configure customer-managed keys with Key Vault
+      href: elastic-san-configure-customer-managed-keys.md
+    - name: Manage customer keys
+      href: elastic-san-encryption-manage-customer-keys.md
 - name: Samples
   items:
   - name: Create elastic SAN volumes in a batch

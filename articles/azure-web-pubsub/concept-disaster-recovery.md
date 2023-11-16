@@ -9,15 +9,18 @@ ms.author: lianwei
 ---
 # Resiliency and disaster recovery in Azure Web PubSub Service
 
-Resiliency and disaster recovery is a common need for online systems. Azure Web PubSub Service already guarantees 99.9% availability, but it's still a regional service.
+Resiliency and disaster recovery is a common need for online systems. Azure Web PubSub Service already guarantees 99.9% availability, but it's still a regional service. When there is a region-wide outage, it is critical for the service to continue processing real-time messages in a different region.
 
-Your service instance is a regional service and the instance is running in one region. When there is a region-wide outage, it is critical for the service to continue processing real-time messages in a different region. This article will explain some of the strategies you can use to deploy the service to allow for disaster recovery.
+For regional disaster recovery, we recommend the following two approaches:
+
+- **Enable Geo-Replication** (Easy way). This feature will handle regional failover for you automatically. When enabled, there remains just one Azure SignalR instance and no code changes are introduced. Check [geo-replication](howto-enable-geo-replication.md) for details.
+- **Utilize Multiple Endpoints**. You learn how to do so **in this document**
 
 ## High available architecture for Web PubSub service
 
 There are two typical patterns using Web PubSub service:
-* One is client-server pattern that [clients send events the the server](./quickstarts-event-notifications-from-clients.md] and [server pushes messages to the clients](./quickstarts-push-messages-from-server.md)
-* Another is client-client pattern that [clients pub/sub messages through the Web PubSub service to other clients](./quickstarts-pubsub-among-clients.md)
+* One is client-server pattern that [clients send events to the server](./quickstarts-event-notifications-from-clients.md) and [server pushes messages to the clients](./quickstarts-push-messages-from-server.md).
+* Another is client-client pattern that [clients pub/sub messages through the Web PubSub service to other clients](./quickstarts-pubsub-among-clients.md).
 
 Below sections describe different ways for these two patterns to do disaster recovery
 
@@ -45,7 +48,7 @@ We haven't integrated the strategy into the SDK yet, so for now the application 
 In summary, what the application side needs to implement is:
 1. Health check. Application can either check if the service is healthy using [service health check API](/rest/api/webpubsub/dataplane/health-api/get-service-status) periodically in the background or on demand for every **negotiate** call.
 1. Negotiate logic. Application returns healthy **primary** endpoint by default. When **primary** endpoint is down, application returns healthy **secondary** endpoint.
-1. Broadcast logic. When sending messages to multiple clients, application needs to make sure it broadcasts messages to all the **healthy** endpoints.
+1. Broadcast logic. When messages are sent to multiple clients, application needs to make sure it broadcasts messages to all the **healthy** endpoints.
 
 Below is a diagram that illustrates such topology:
 
@@ -97,11 +100,7 @@ You'll need to handle such cases at client side to make it transparent to your e
 
 ###  High available architecture for client-client pattern
 
-For client-client pattern, currently it is not yet possible to support a zero-down-time disaster recovery. If you have high availability requirements, please consider using client-server pattern, or sending a copy of messages to the server as well.
-
-Clients connected to one Web PubSub service are not yet able to communicate with clients connected to another Web PubSub service using client-client pattern. So when using client-client pattern, the general principles are:
-1. All the app server instances return the same Web PubSub endpoint to the client **negotiate** calls. One way is to have a source-of-truth storing, checking the health status, and managing these endpoints, and returning one healthy endpoint in your primary regions.
-2. Make sure there is no active client connected to other endpoints. [Close All Connections](/rest/api/webpubsub/dataplane/web-pub-sub/close-all-connections) could be used to close all the connected clients.
+For client-client pattern, currently it is not yet possible to support a zero-down-time disaster recovery using multiple instances. If you have high availability requirements, please consider using [geo-replication](howto-enable-geo-replication.md).
 
 ## How to test a failover
 

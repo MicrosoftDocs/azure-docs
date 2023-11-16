@@ -1,20 +1,22 @@
 ---
 title: Use full Lucene query syntax
-titleSuffix: Azure Cognitive Search
-description: Query examples demonstrating the Lucene query syntax for fuzzy search, proximity search, term boosting, regular expression search, and wildcard searches in an Azure Cognitive Search index.
+titleSuffix: Azure AI Search
+description: Query examples demonstrating the Lucene query syntax for fuzzy search, proximity search, term boosting, regular expression search, and wildcard searches in an Azure AI Search index.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 08/15/2022
 ---
 
-# Use the "full" Lucene search syntax (advanced queries in Azure Cognitive Search)
+# Use the "full" Lucene search syntax (advanced queries in Azure AI Search)
 
-When constructing queries for Azure Cognitive Search, you can replace the default [simple query parser](query-simple-syntax.md) with the more powerful [Lucene query parser](query-lucene-syntax.md) to formulate specialized and advanced query expressions.
+When constructing queries for Azure AI Search, you can replace the default [simple query parser](query-simple-syntax.md) with the more powerful [Lucene query parser](query-lucene-syntax.md) to formulate specialized and advanced query expressions.
 
 The Lucene parser supports complex query formats, such as field-scoped queries, fuzzy search, infix and suffix wildcard search, proximity search, term boosting, and regular expression search. The extra power comes with more processing requirements so you should expect a slightly longer execution time. In this article, you can step through examples demonstrating query operations based on full syntax.
 
@@ -359,7 +361,7 @@ Try specifying queries in code. The following link covers how to set up search q
 More syntax reference, query architecture, and examples can be found in the following links:
 
 + [Lucene syntax query examples for building advanced queries](search-query-lucene-examples.md)
-+ [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
++ [How full text search works in Azure AI Search](search-lucene-query-architecture.md)
 + [Simple query syntax](query-simple-syntax.md)
 + [Full Lucene query syntax](query-lucene-syntax.md)
 + [Filter syntax](search-query-odata-filter.md)

@@ -10,6 +10,9 @@ ms.date: 11/14/2022
 
 To provide [File Integrity Monitoring (FIM)](file-integrity-monitoring-overview.md), the Log Analytics agent uploads data to the Log Analytics workspace. By comparing the current state of these items with the state during the previous scan, FIM notifies you if suspicious modifications have been made.
 
+> [!NOTE]
+> As the Log Analytics agent (also known as MMA) is set to retire in [August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/), all Defender for Servers features that currently depend on it, including those described on this page, will be available through either [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), before the retirement date. For more information about the roadmap for each of the features that are currently rely on Log Analytics Agent, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
+
 In this article, you'll learn how to:
 
 - [Enable File Integrity Monitoring with the Log Analytics agent](#enable-file-integrity-monitoring-with-the-log-analytics-agent)
@@ -18,7 +21,7 @@ In this article, you'll learn how to:
 - [Compare baselines using File Integrity Monitoring](#compare-baselines-using-file-integrity-monitoring)
 
 > [!NOTE]
-> File Integrity Monitoring may create the following account on monitored SQL Servers: `NT Service\HealthService` \
+> File Integrity Monitoring might create the following account on monitored SQL Servers: `NT Service\HealthService` \
 > If you delete the account, it will be automatically recreated.
 
 ## Availability
@@ -40,7 +43,7 @@ FIM is only available from Defender for Cloud's pages in the Azure portal. There
 
     The following information is provided for each workspace:
 
-    - Total number of changes that occurred in the last week (you may see a dash "-“ if FIM isn't enabled on the workspace)
+    - Total number of changes that occurred in the last week (you might see a dash "-“ if FIM isn't enabled on the workspace)
     - Total number of computers and VMs reporting to the workspace
     - Geographic location of the workspace
     - Azure subscription that the workspace is under
@@ -81,7 +84,7 @@ To disable FIM:
 
 ## Monitor workspaces, entities, and files
 
-### Audit monitored workspaces 
+### Audit monitored workspaces
 
 The **File integrity monitoring** dashboard displays for workspaces where FIM is enabled. The FIM dashboard opens after you enable FIM on a workspace or when you select a workspace in the **file integrity monitoring** window that already has FIM enabled.
 
@@ -122,7 +125,7 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 
 ### Edit monitored entities
 
-1. From the **File Integrity Monitoring dashboard** for a workspace, select **Settings** from the toolbar. 
+1. From the **File Integrity Monitoring dashboard** for a workspace, select **Settings** from the toolbar.
 
     :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-dashboard-settings.png" alt-text="Screenshot of accessing the file integrity monitoring settings for a workspace." lightbox="./media/file-integrity-monitoring-overview/file-integrity-monitoring-dashboard-settings.png":::
 
@@ -149,14 +152,14 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 
 ### Add a new entity to monitor
 
-1. From the **File Integrity Monitoring dashboard** for a workspace, select **Settings** from the toolbar. 
+1. From the **File Integrity Monitoring dashboard** for a workspace, select **Settings** from the toolbar.
 
     The **Workspace Configuration** opens.
 
 1. On the **Workspace Configuration**:
 
-    1. Select the tab for the type of entity that you want to add: Windows registry, Windows files, Linux Files, file content, or Windows services. 
-    1. Select **Add**. 
+    1. Select the tab for the type of entity that you want to add: Windows registry, Windows files, Linux Files, file content, or Windows services.
+    1. Select **Add**.
 
         In this example, we selected **Linux Files**.
 
@@ -169,10 +172,11 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 ### Folder and path monitoring using wildcards
 
 Use wildcards to simplify tracking across directories. The following rules apply when you configure folder monitoring using wildcards:
--   Wildcards are required for tracking multiple files.
--   Wildcards can only be used in the last segment of a path, such as C:\folder\file or /etc/*.conf
--   If an environment variable includes a path that isn't valid, validation will succeed but the path will fail when inventory runs.
--   When setting the path, avoid general paths such as c:\*.* which will result in too many folders being traversed.
+
+- Wildcards are required for tracking multiple files.
+- Wildcards can only be used in the last segment of a path, such as `C:\folder\file` or` /etc/*.conf`
+- If an environment variable includes a path that isn't valid, validation succeeds but the path fails when inventory runs.
+- When setting the path, avoid general paths such as `c:\*.*`, which results in too many folders being traversed.
 
 ## Compare baselines using File Integrity Monitoring
 
@@ -180,7 +184,7 @@ Use wildcards to simplify tracking across directories. The following rules apply
 
 ### Enable built-in recursive registry checks
 
-The FIM registry hive defaults provide a convenient way to monitor recursive changes within common security areas.  For example, an adversary may configure a script to execute in LOCAL_SYSTEM context by configuring an execution at startup or shutdown.  To monitor changes of this type, enable the built-in check.  
+The FIM registry hive defaults provide a convenient way to monitor recursive changes within common security areas.  For example, an adversary might configure a script to execute in LOCAL_SYSTEM context by configuring an execution at startup or shutdown.  To monitor changes of this type, enable the built-in check.  
 
 ![Registry.](./media/file-integrity-monitoring-enable-log-analytics/baselines-registry.png)
 
@@ -212,7 +216,7 @@ To configure FIM to monitor registry baselines:
 1. In the **Add Windows Registry for Change Tracking** window, select the **Windows Registry Key** text box.
 1. Enter the following registry key:
 
-    ```
+    ```reg
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
     ```
 
@@ -221,8 +225,8 @@ To configure FIM to monitor registry baselines:
 ### Track changes to Windows files
 
 1. In the **Add Windows File for Change Tracking** window, in the **Enter path** text box, enter the folder that contains the files that you want to track.
-In the example in the following figure, 
-**Contoso Web App** resides in the D:\ drive within the **ContosWebApp** folder structure.  
+In the example in the following figure, **Contoso Web App** resides in the D:\ drive within the **ContosWebApp** folder structure.
+
 1. Create a custom Windows file entry by providing a name of the setting class, enabling recursion, and specifying the top folder with a wildcard (*) suffix.
 
     :::image type="content" source="./media/file-integrity-monitoring-enable-log-analytics/baselines-add-file.png" alt-text="Screenshot of enable FIM on a file.":::
@@ -231,7 +235,7 @@ In the example in the following figure,
 
 File Integrity Monitoring data resides within the Azure Log Analytics/ConfigurationChange table set.  
 
- 1. Set a time range to retrieve a summary of changes by resource.
+1. Set a time range to retrieve a summary of changes by resource.
 
     In the following example, we're retrieving all changes in the last 14 days in the categories of registry and files:
 
@@ -244,7 +248,7 @@ File Integrity Monitoring data resides within the Azure Log Analytics/Configurat
 
 1. To view details of the registry changes:
 
-    1. Remove **Files** from the **where** clause. 
+    1. Remove **Files** from the **where** clause.
     1. Remove the summarization line and replace it with an ordering clause:
 
     ```

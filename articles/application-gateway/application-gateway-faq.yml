@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: application-gateway
   ms.topic: faq
-  ms.date: 07/03/2023
+  ms.date: 11/06/2023
   ms.author: greglin
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
@@ -140,7 +140,7 @@ sections:
         answer: No. Application Gateway V2 doesn't support proxying requests with NTLM or Kerberos authentication.
         
       - question: Why are some header values not present when requests are forwarded to my application?
-        answer: Request header names can contain alphanumeric characters and hyphens. Request header names containing other characters are discarded when a request is sent to the backend target. Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27), except for underscores (\_).
+        answer: Request header names can contain alphanumeric characters and hyphens. Request header names containing other characters are discarded when a request is sent to the backend target. Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27).
 
       - question: Does Application Gateway affinity cookie support SameSite attribute?
         answer: |
@@ -189,7 +189,11 @@ sections:
       - question: Can Application Gateway communicate with instances outside of its virtual network or outside of its subscription?
         answer: |
           As long as you have IP connectivity, Application Gateway can communicate with instances outside of the virtual network that it's in. Application Gateway can also communicate with instances outside of the subscription it's in. If you plan to use internal IPs as backend pool members, use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) or [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-       
+
+      - question: How is the IP address for FQDN-based backend server updated?
+        answer: |
+          Like any DNS resolver, the Application Gateway resource honors the TTL (Time to live) value of the backend server's DNS record. After the TTL expires, the gateway performs a lookup to update that DNS information. During this lookup, if your application gateway encounters a problem getting a response (or no DNS record is found), the gateway continues using the last-known-good DNS value to serve the traffic. [Know more](how-application-gateway-works.md#backend-server-dns-resolution).
+     
       - question: Why am I seeing 502 errors or unhealthy backend servers after I changed the DNS servers for the virtual network?
         answer: The instances of your application gateway use the virtual network's DNS configuration for name resolution. After changing any DNS server configuration, you need to restart (Stop and Start) the application gateway for the new DNS servers to get assigned. Until then, FQDN-based name resolutions for outbound connectivity could fail.
        
@@ -266,10 +270,10 @@ sections:
           
       - question: Can I use the same port for both public-facing and private-facing listeners?
         answer: |
-          Yes, you can use public-facing and private-facing listeners with the same port number to simultaneously support both public and private clients (feature in Preview). Note that if a Network Security Group (NSG) is associated with your application gateway's subnet, a specific Inbound rule may be needed depending on its configuration. [Know more](./configuration-listeners.md#frontend-port).
+          Yes, you can use public-facing and private-facing listeners with the same port number to simultaneously support both public and private clients. Note that if a Network Security Group (NSG) is associated with your application gateway's subnet, a specific Inbound rule may be needed depending on its configuration. [Know more](./configuration-listeners.md#frontend-port).
 
       - question: Does Application Gateway support IPv6?
-        answer: Application Gateway v2 doesn't currently support IPv6. It can operate in a dual stack VNet using only IPv4, but the gateway subnet must be IPv4-only. Application Gateway v1 doesn't support dual stack VNets. 
+        answer: Application Gateway v2 supports IPv4 and IPv6  frontends (Public Preview). Currently, IPv6 support is available for new Application Gateways only. To support IPv6, VNet should be dual stack. Application Gateway v1 doesn't support dual stack VNets. 
 
       - question: Does Application Gateway support FIPS?
         answer: Application Gateway v1 SKUs can run in a FIPS 140-2 approved mode of operation, commonly referred to as "FIPS mode".  FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled.  To ensure FIPS mode is enabled, the FIPSMode setting must be configured via PowerShell, ARM Template, or REST API once the subscription has been enrolled to enable configuration of FIPSmode.

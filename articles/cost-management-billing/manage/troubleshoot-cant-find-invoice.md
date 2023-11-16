@@ -41,9 +41,9 @@ Some customers have two accounts with the same email address - a work or a schoo
 
 1. Try other account, if you still can't view the invoice in the Azure portal.
 
-**Verify that you're signed in to the correct Azure Active directory (AAD) tenant:**
+**Verify that you're signed in to the correct Microsoft Entra tenant:**
 
-Your billing account and subscription is associated with an AAD tenant. If you're signed in to an incorrect tenant, you won't see the invoice for your subscription. Try the following steps to switch tenants in the Azure portal:
+Your billing account and subscription is associated with a Microsoft Entra tenant. If you're signed in to an incorrect tenant, you won't see the invoice for your subscription. Try the following steps to switch tenants in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select your email address from the top-right of the page.

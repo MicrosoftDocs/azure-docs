@@ -3,8 +3,8 @@ title: Gather required parameters
 services: cognitive-services
 author: aahill
 manager: nitinme
-description: The parameters for all Azure AI services containers.
-ms.service: cognitive-services
+description: The parameters for all Azure AI containers.
+ms.service: azure-ai-services
 ms.topic: include 
 ms.date: 04/01/2020
 ms.author: aahi
@@ -12,7 +12,7 @@ ms.author: aahi
 
 ## Gather required parameters
 
-Three primary parameters for all Azure AI services containers are required. The Microsoft Software License Terms must be present with a value of **accept**. An Endpoint URI and API key are also needed.
+Three primary parameters for all Azure AI containers are required. The Microsoft Software License Terms must be present with a value of **accept**. An Endpoint URI and API key are also needed.
 
 ### Endpoint URI
 

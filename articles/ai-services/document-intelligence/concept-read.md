@@ -1,21 +1,33 @@
 ---
-title: OCR for documents - Document Intelligence
+title: Read model OCR data extraction - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Extract print and handwritten text from scanned and digital documents with Document Intelligence's Read OCR model.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '>=doc-intel-3.0.0'
 ---
 
 
 # Document Intelligence read model
 
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [preview-version-notice](includes/preview-notice.md)]
+
+**This content applies to:**![checkmark](media/yes-icon.png) **v4.0 (preview)** | **Previous versions:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.1 (GA)**](?view=doc-intel-3.1.0&preserve-view=tru) ![blue-checkmark](media/blue-yes-icon.png) [**v3.0 (GA)**](?view=doc-intel-3.0.0&preserve-view=tru)
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+**This content applies to:** ![checkmark](media/yes-icon.png) **v3.1 (GA)** | **Latest version:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) | **Previous versions:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.0**](?view=doc-intel-3.0.0&preserve-view=true)
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+**This content applies to:** ![checkmark](media/yes-icon.png) **v3.0 (GA)** | **Latest versions:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) ![purple-checkmark](media/purple-yes-icon.png) [**v3.1 (preview)**](?view=doc-intel-3.1.0&preserve-view=true)
+::: moniker-end
 
 > [!NOTE]
 >
@@ -30,11 +42,32 @@ Optical Character Recognition (OCR) for documents is optimized for large text-he
 
 ## Development options
 
-Document Intelligence v3.0 supports the following resources:
+::: moniker range="doc-intel-4.0.0"
 
-| Model | Resources | Model ID |
-|----------|------------|------------|
-|**Read model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
+Document Intelligence v4.0 (2023-10-31-preview) supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Read OCR model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-read**|
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+
+Document Intelligence v3.1 supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Read OCR model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)|**prebuilt-read**|
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+
+Document Intelligence v3.0 supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Read OCR model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-read**|
+::: moniker-end
 
 ## Input requirements
 
@@ -46,7 +79,7 @@ Try extracting text from forms and documents using the Document Intelligence Stu
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
@@ -59,11 +92,11 @@ Try extracting text from forms and documents using the Document Intelligence Stu
 
 1. On the Document Intelligence Studio home page, select **Read**
 
-1. You can analyze the sample document or select the **+ Add** button to upload your own sample.
+1. You can analyze the sample document or upload your own files.
 
-1. Select the **Analyze** button:
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
 
-    :::image type="content" source="media/studio/form-recognizer-studio-read-analyze-v3p2-updated.png" alt-text="Screenshot of analyze read menu.":::
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
    > [!div class="nextstepaction"]
    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
@@ -72,7 +105,6 @@ Try extracting text from forms and documents using the Document Intelligence Stu
 
 > [!NOTE]
 >
-> * Only API Version 2022-06-30-preview supports Microsoft Word, Excel, PowerPoint, and HTML file formats in addition to all other document types supported by the GA versions.
 > * For the preview of Office and HTML file formats, Read API ignores the pages parameter and extracts all pages by default. Each embedded image counts as 1 page unit and each worksheet, slide, and page (up to 3000 characters) count as 1 page.
 
 | **Model**   | **Images**   | **PDF**  | **TIFF** | **Word**   | **Excel**  | **PowerPoint** | **HTML** |
@@ -81,490 +113,7 @@ Try extracting text from forms and documents using the Document Intelligence Stu
 
 ## Supported extracted languages and locales
 
-The following lists include the currently GA languages in the most recent v3.0 version for Read, Layout, and Custom template (form) models.
-
-> [!NOTE]
-> **Language code optional**
->
-> Document Intelligence's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
-
-### Handwritten text
-
-The following table lists the supported languages for extracting handwritten texts.
-
-|Language| Language code (optional) | Language| Language code (optional) |
-|:-----|:----:|:-----|:----:|
-|English|`en`|Japanese  |`ja`|
-|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
-|French  |`fr`|Portuguese |`pt`|
-|German  |`de`|Spanish  |`es`|
-|Italian  |`it`|
-
-### Print text
-
-The following table lists the supported languages for print text by the most recent GA version.
-
-:::row:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
-  |Abaza|abq|
-  |Abkhazian|ab|
-  |Achinese|ace|
-  |Acoli|ach|
-  |Adangme|ada|
-  |Adyghe|ady|
-  |Afar|aa|
-  |Afrikaans|af|
-  |Akan|ak|
-  |Albanian|sq|
-  |Algonquin|alq|
-  |Angika (Devanagari)|anp|
-  |Arabic|ar|
-  |Asturian|ast|
-  |Asu (Tanzania)|asa|
-  |Avaric|av|
-  |Awadhi-Hindi (Devanagari)|awa|
-  |Aymara|ay|
-  |Azerbaijani (Latin)|az|
-  |Bafia|ksf|
-  |Bagheli|bfy|
-  |Bambara|bm|
-  |Bashkir|ba|
-  |Basque|eu|
-  |Belarusian (Cyrillic)|be, be-cyrl|
-  |Belarusian (Latin)|be, be-latn|
-  |Bemba (Zambia)|bem|
-  |Bena (Tanzania)|bez|
-  |Bhojpuri-Hindi (Devanagari)|bho|
-  |Bikol|bik|
-  |Bini|bin|
-  |Bislama|bi|
-  |Bodo (Devanagari)|brx|
-  |Bosnian (Latin)|bs|
-  |Brajbha|bra|
-  |Breton|br|
-  |Bulgarian|bg|
-  |Bundeli|bns|
-  |Buryat (Cyrillic)|bua|
-  |Catalan|ca|
-  |Cebuano|ceb|
-  |Chamling|rab|
-  |Chamorro|ch|
-  |Chechen|ce|
-  |Chhattisgarhi (Devanagari)|hne|
-  |Chiga|cgg|
-  |Chinese Simplified|zh-Hans|
-  |Chinese Traditional|zh-Hant|
-  |Choctaw|cho|
-  |Chukot|ckt|
-  |Chuvash|cv|
-  |Cornish|kw|
-  |Corsican|co|
-  |Cree|cr|
-  |Creek|mus|
-  |Crimean Tatar (Latin)|crh|
-  |Croatian|hr|
-  |Crow|cro|
-  |Czech|cs|
-  |Danish|da|
-  |Dargwa|dar|
-  |Dari|prs|
-  |Dhimal (Devanagari)|dhi|
-  |Dogri (Devanagari)|doi|
-  |Duala|dua|
-  |Dungan|dng|
-  |Dutch|nl|
-  |Efik|efi|
-  |English|en|
-  |Erzya (Cyrillic)|myv|
-  |Estonian|et|
-  |Faroese|fo|
-  |Fijian|fj|
-  |Filipino|fil|
-  |Finnish|fi|
-   :::column-end:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
-  |Fon|fon|
-  |French|fr|
-  |Friulian|fur|
-  |Ga|gaa|
-  |Gagauz (Latin)|gag|
-  |Galician|gl|
-  |Ganda|lg|
-  |Gayo|gay|
-  |German|de|
-  |Gilbertese|gil|
-  |Gondi (Devanagari)|gon|
-  |Greek|el|
-  |Greenlandic|kl|
-  |Guarani|gn|
-  |Gurung (Devanagari)|gvr|
-  |Gusii|guz|
-  |Haitian Creole|ht|
-  |Halbi (Devanagari)|hlb|
-  |Hani|hni|
-  |Haryanvi|bgc|
-  |Hawaiian|haw|
-  |Hebrew|he|
-  |Herero|hz|
-  |Hiligaynon|hil|
-  |Hindi|hi|
-  |Hmong Daw (Latin)|mww|
-  |Ho(Devanagiri)|hoc|
-  |Hungarian|hu|
-  |Iban|iba|
-  |Icelandic|is|
-  |Igbo|ig|
-  |Iloko|ilo|
-  |Inari Sami|smn|
-  |Indonesian|id|
-  |Ingush|inh|
-  |Interlingua|ia|
-  |Inuktitut (Latin)|iu|
-  |Irish|ga|
-  |Italian|it|
-  |Japanese|ja|
-  |Jaunsari (Devanagari)|Jns|
-  |Javanese|jv|
-  |Jola-Fonyi|dyo|
-  |Kabardian|kbd|
-  |Kabuverdianu|kea|
-  |Kachin (Latin)|kac|
-  |Kalenjin|kln|
-  |Kalmyk|xal|
-  |Kangri (Devanagari)|xnr|
-  |Kanuri|kr|
-  |Karachay-Balkar|krc|
-  |Kara-Kalpak (Cyrillic)|kaa-cyrl|
-  |Kara-Kalpak (Latin)|kaa|
-  |Kashubian|csb|
-  |Kazakh (Cyrillic)|kk-cyrl|
-  |Kazakh (Latin)|kk-latn|
-  |Khakas|kjh|
-  |Khaling|klr|
-  |Khasi|kha|
-  |K'iche'|quc|
-  |Kikuyu|ki|
-  |Kildin Sami|sjd|
-  |Kinyarwanda|rw|
-  |Komi|kv|
-  |Kongo|kg|
-  |Korean|ko|
-  |Korku|kfq|
-  |Koryak|kpy|
-  |Kosraean|kos|
-  |Kpelle|kpe|
-  |Kuanyama|kj|
-  |Kumyk (Cyrillic)|kum|
-  |Kurdish (Arabic)|ku-arab|
-  |Kurdish (Latin)|ku-latn|
-  |Kurukh (Devanagari)|kru|
-  |Kyrgyz (Cyrillic)|ky|
-  |Lak|lbe|
-  |Lakota|lkt|
-   :::column-end:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
-  |Latin|la|
-  |Latvian|lv|
-  |Lezghian|lex|
-  |Lingala|ln|
-  |Lithuanian|lt|
-  |Lower Sorbian|dsb|
-  |Lozi|loz|
-  |Lule Sami|smj|
-  |Luo (Kenya and Tanzania)|luo|
-  |Luxembourgish|lb|
-  |Luyia|luy|
-  |Macedonian|mk|
-  |Machame|jmc|
-  |Madurese|mad|
-  |Mahasu Pahari (Devanagari)|bfz|
-  |Makhuwa-Meetto|mgh|
-  |Makonde|kde|
-  |Malagasy|mg|
-  |Malay (Latin)|ms|
-  |Maltese|mt|
-  |Malto (Devanagari)|kmj|
-  |Mandinka|mnk|
-  |Manx|gv|
-  |Maori|mi|
-  |Mapudungun|arn|
-  |Marathi|mr|
-  |Mari (Russia)|chm|
-  |Masai|mas|
-  |Mende (Sierra Leone)|men|
-  |Meru|mer|
-  |Meta'|mgo|
-  |Minangkabau|min|
-  |Mohawk|moh|
-  |Mongolian (Cyrillic)|mn|
-  |Mongondow|mog|
-  |Montenegrin (Cyrillic)|cnr-cyrl|
-  |Montenegrin (Latin)|cnr-latn|
-  |Morisyen|mfe|
-  |Mundang|mua|
-  |Nahuatl|nah|
-  |Navajo|nv|
-  |Ndonga|ng|
-  |Neapolitan|nap|
-  |Nepali|ne|
-  |Ngomba|jgo|
-  |Niuean|niu|
-  |Nogay|nog|
-  |North Ndebele|nd|
-  |Northern Sami (Latin)|sme|
-  |Norwegian|no|
-  |Nyanja|ny|
-  |Nyankole|nyn|
-  |Nzima|nzi|
-  |Occitan|oc|
-  |Ojibwa|oj|
-  |Oromo|om|
-  |Ossetic|os|
-  |Pampanga|pam|
-  |Pangasinan|pag|
-  |Papiamento|pap|
-  |Pashto|ps|
-  |Pedi|nso|
-  |Persian|fa|
-  |Polish|pl|
-  |Portuguese|pt|
-  |Punjabi (Arabic)|pa|
-  |Quechua|qu|
-  |Ripuarian|ksh|
-  |Romanian|ro|
-  |Romansh|rm|
-  |Rundi|rn|
-  |Russian|ru|
-  |Rwa|rwk|
-  |Sadri (Devanagari)|sck|
-  |Samburu|saq|
-  |Samoan (Latin)|sm|
-  |Sango|sg|
-   :::column-end:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
-  |Sangu (Gabon)|snq|
-  |Sanskrit (Devanagari)|sa|
-  |Santali(Devanagiri)|sat|
-  |Scots|sco|
-  |Scottish Gaelic|gd|
-  |Sena|seh|
-  |Serbian (Cyrillic)|sr-cyrl|
-  |Serbian (Latin)|sr, sr-latn|
-  |Shambala|ksb|
-  |Sherpa (Devanagari)|xsr|
-  |Shona|sn|
-  |Siksika|bla|
-  |Sirmauri (Devanagari)|srx|
-  |Skolt Sami|sms|
-  |Slovak|sk|
-  |Slovenian|sl|
-  |Soga|xog|
-  |Somali (Arabic)|so|
-  |Somali (Latin)|so-latn|
-  |Songhai|son|
-  |South Ndebele|nr|
-  |Southern Altai|alt|
-  |Southern Sami|sma|
-  |Southern Sotho|st|
-  |Spanish|es|
-  |Sundanese|su|
-  |Swahili (Latin)|sw|
-  |Swati|ss|
-  |Swedish|sv|
-  |Tabassaran|tab|
-  |Tachelhit|shi|
-  |Tahitian|ty|
-  |Taita|dav|
-  |Tajik (Cyrillic)|tg|
-  |Tamil|ta|
-  |Tatar (Cyrillic)|tt-cyrl|
-  |Tatar (Latin)|tt|
-  |Teso|teo|
-  |Tetum|tet|
-  |Thai|th|
-  |Thangmi|thf|
-  |Tok Pisin|tpi|
-  |Tongan|to|
-  |Tsonga|ts|
-  |Tswana|tn|
-  |Turkish|tr|
-  |Turkmen (Latin)|tk|
-  |Tuvan|tyv|
-  |Udmurt|udm|
-  |Uighur (Cyrillic)|ug-cyrl|
-  |Ukrainian|uk|
-  |Upper Sorbian|hsb|
-  |Urdu|ur|
-  |Uyghur (Arabic)|ug|
-  |Uzbek (Arabic)|uz-arab|
-  |Uzbek (Cyrillic)|uz-cyrl|
-  |Uzbek (Latin)|uz|
-  |Vietnamese|vi|
-  |Volapük|vo|
-  |Vunjo|vun|
-  |Walser|wae|
-  |Welsh|cy|
-  |Western Frisian|fy|
-  |Wolof|wo|
-  |Xhosa|xh|
-  |Yakut|sah|
-  |Yucatec Maya|yua|
-  |Zapotec|zap|
-  |Zarma|dje|
-  |Zhuang|za|
-  |Zulu|zu|
-   :::column-end:::
-:::row-end:::
-
-## Detected languages: Read API
-
-The [Read API](concept-read.md) supports detecting the following languages in your documents. This list may include languages not currently supported for text extraction.
-
-> [!NOTE]
-> **Language detection**
->
-> * Document Intelligence read model can _detect_ possible presence of languages and returns language codes for detected languages.
-> * To determine if text can also be
-> extracted for a given language, see previous sections.
->
-> **Detected languages vs extracted languages**
->
-> * This section lists the languages we can detect from the documents using the Read model, if present.
-> * Please note that this list differs from list of languages we support extracting text from, which is specified in the above sections for each model.
-
-:::row:::
-   :::column span="":::
-| Language            | Code          |
-|---------------------|---------------|
-| Afrikaans           | `af`          |
-| Albanian            | `sq`          |
-| Amharic             | `am`          |
-| Arabic              | `ar`          |
-| Armenian            | `hy`          |
-| Assamese            | `as`          |
-| Azerbaijani         | `az`          |
-| Basque              | `eu`          |
-| Belarusian          | `be`          |
-| Bengali             | `bn`          |
-| Bosnian             | `bs`          |
-| Bulgarian           | `bg`          |
-| Burmese             | `my`          |
-| Catalan             | `ca`          |
-| Central Khmer       | `km`          |
-| Chinese             | `zh`          |
-| Chinese Simplified  | `zh_chs`      |
-| Chinese Traditional | `zh_cht`      |
-| Corsican            | `co`          |
-| Croatian            | `hr`          |
-| Czech               | `cs`          |
-| Danish              | `da`          |
-| Dari                | `prs`         |
-| Divehi              | `dv`          |
-| Dutch               | `nl`          |
-| English             | `en`          |
-| Esperanto           | `eo`          |
-| Estonian            | `et`          |
-| Fijian              | `fj`          |
-| Finnish             | `fi`          |
-| French              | `fr`          |
-| Galician            | `gl`          |
-| Georgian            | `ka`          |
-| German              | `de`          |
-| Greek               | `el`          |
-| Gujarati            | `gu`          |
-| Haitian             | `ht`          |
-| Hausa               | `ha`          |
-| Hebrew              | `he`          |
-| Hindi               | `hi`          |
-| Hmong Daw           | `mww`         |
-| Hungarian           | `hu`          |
-| Icelandic           | `is`          |
-| Igbo                | `ig`          |
-| Indonesian          | `id`          |
-| Inuktitut           | `iu`          |
-| Irish               | `ga`          |
-| Italian             | `it`          |
-| Japanese            | `ja`          |
-| Javanese            | `jv`          |
-| Kannada             | `kn`          |
-| Kazakh              | `kk`          |
-| Kinyarwanda         | `rw`          |
-| Kirghiz             | `ky`          |
-| Korean              | `ko`          |
-| Kurdish             | `ku`          |
-| Lao                 | `lo`          |
-| Latin               | `la`          |
-   :::column-end:::
-   :::column span="":::
-| Language            | Code          |
-|---------------------|---------------|
-| Latvian             | `lv`          |
-| Lithuanian          | `lt`          |
-| Luxembourgish       | `lb`          |
-| Macedonian          | `mk`          |
-| Malagasy            | `mg`          |
-| Malay               | `ms`          |
-| Malayalam           | `ml`          |
-| Maltese             | `mt`          |
-| Maori               | `mi`          |
-| Marathi             | `mr`          |
-| Mongolian           | `mn`          |
-| Nepali              | `ne`          |
-| Norwegian           | `no`          |
-| Norwegian Nynorsk   | `nn`          |
-| Oriya               | `or`          |
-| Pasht               | `ps`          |
-| Persian             | `fa`          |
-| Polish              | `pl`          |
-| Portuguese          | `pt`          |
-| Punjabi             | `pa`          |
-| Queretaro Otomi     | `otq`         |
-| Romanian            | `ro`          |
-| Russian             | `ru`          |
-| Samoan              | `sm`          |
-| Serbian             | `sr`          |
-| Shona               | `sn`          |
-| Sindhi              | `sd`          |
-| Sinhala             | `si`          |
-| Slovak              | `sk`          |
-| Slovenian           | `sl`          |
-| Somali              | `so`          |
-| Spanish             | `es`          |
-| Sundanese           | `su`          |
-| Swahili             | `sw`          |
-| Swedish             | `sv`          |
-| Tagalog             | `tl`          |
-| Tahitian            | `ty`          |
-| Tajik               | `tg`          |
-| Tamil               | `ta`          |
-| Tatar               | `tt`          |
-| Telugu              | `te`          |
-| Thai                | `th`          |
-| Tibetan             | `bo`          |
-| Tigrinya            | `ti`          |
-| Tongan              | `to`          |
-| Turkish             | `tr`          |
-| Turkmen             | `tk`          |
-| Ukrainian           | `uk`          |
-| Urdu                | `ur`          |
-| Uzbek               | `uz`          |
-| Vietnamese          | `vi`          |
-| Welsh               | `cy`          |
-| Xhosa               | `xh`          |
-| Yiddish             | `yi`          |
-| Yoruba              | `yo`          |
-| Yucatec Maya        | `yua`         |
-| Zulu                | `zu`          |
-   :::column-end:::
-:::row-end:::
+*See* our [Language Support—document analysis models](language-support-ocr.md) page for a complete list of supported languages.
 
 ## Data detection and extraction
 
@@ -715,7 +264,7 @@ For large multi-page PDF documents, use the `pages` query parameter to indicate 
 
 ### Handwritten style for text lines
 
-The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. For more information, *see* [handwritten language support](#handwritten-text). The following example shows an example JSON snippet.
+The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. For more information, *see* [handwritten language support](language-support-ocr.md). The following example shows an example JSON snippet.
 
 ```json
 "styles": [

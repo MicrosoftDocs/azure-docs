@@ -4,6 +4,7 @@ description: This article shows you how to manually deploy the container that ho
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 01/18/2023
 ---
 
@@ -265,7 +266,7 @@ Read about the [deployment process](deploy-data-connector-agent-container.md#dat
    ```bash
    sid=<SID>
    docker pull mcr.microsoft.com/azure-sentinel/solutions/sapcon:latest
-   docker create -d --restart unless-stopped -v /opt/sapcon/$sid/:/sapcon-app/sapcon/config/system --name sapcon-$sid sapcon   
+   docker create --restart unless-stopped --name my-container mcr.microsoft.com/azure-sentinel/solutions/sapcon   
    ```
 
 1. Run the following command to copy the SDK into the container. Replace `<SID>` with the name of the SAP instance and `<sdkfilename>` with full filename of the SAP NetWeaver SDK.

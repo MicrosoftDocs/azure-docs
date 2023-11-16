@@ -6,14 +6,14 @@ ms.service: attestation
 ms.topic: quickstart
 ms.custom: devx-track-terraform
 ms.author: tarcher
-ms.date: 07/26/2023
+ms.date: 09/25/2023
 content_well_notification: 
   - AI-contribution
 ---
 
 # Quickstart: Create an Azure Attestation provider by using Terraform
 
-[Microsoft Azure Attestation](overview.md) is a solution for attesting Trusted Execution Environments (TEEs). This quickstart focuses on the process of deploying a Bicep file to create a Microsoft Azure Attestation policy.
+[Microsoft Azure Attestation](overview.md) is a solution for attesting Trusted Execution Environments (TEEs). This quickstart focuses on the process of creating a Microsoft Azure Attestation policy using Terraform.
 
 In this article, you learn how to:
 

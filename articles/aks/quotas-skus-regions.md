@@ -69,4 +69,4 @@ You can increase certain default limits and quotas. If your resource supports an
 
 <!-- LINKS - Internal -->
 [vm-skus]: ../virtual-machines/sizes.md
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool

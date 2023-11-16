@@ -37,8 +37,8 @@ landingContent:
             url: ./tutorial-discover-hyper-v.md
           - text: Assess physical servers with Server Assessment
             url: ./tutorial-discover-physical.md
-          - text: Assess servers using imported data
-            url: ./tutorial-discover-import.md
+          - text: Assess ASP .NET web apps for migration to Azure App Service
+            url: ./tutorial-assess-webapps.md
           - text: Assess SQL instances for migration to Azure SQL
             url: ./tutorial-assess-sql.md
           - text: Migrate VMware VMs with Migration and modernization
@@ -49,6 +49,8 @@ landingContent:
             url: ./tutorial-migrate-physical-virtual-machines.md
           - text: Modernize ASP.NET web apps to Azure Kubernetes Service (AKS)
             url: ./tutorial-modernize-asp-net-aks.md
+          - text: Create an Azure Spring Apps assessment
+            url: ./how-to-create-azure-spring-apps-assessment.md
 
   - title: Start deployment
     linkLists:

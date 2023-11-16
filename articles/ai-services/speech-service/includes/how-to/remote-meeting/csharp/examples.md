@@ -1,6 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 07/26/2022
 ms.author: eur
@@ -67,7 +67,7 @@ async Task UploadAudio()
     // Create the speech config object
     // Substitute real information for "YourSubscriptionKey" and "Region"
     SpeechConfig speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "Region");
-    speechConfig.SetProperty("MeetingTranscriptionInRoomAndOnline", "true");
+    speechConfig.SetProperty("ConversationTranscriptionInRoomAndOnline", "true");
 
     // Set the property for asynchronous transcription
     speechConfig.SetServiceProperty("transcriptionMode", "async", ServicePropertyChannel.UriQueryParameter);

@@ -4,8 +4,8 @@ description: include file
 services: cognitive-services
 
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.date: 03/07/2022
 ms.topic: include
 ms.custom: include file, devx-track-js, cog-serv-seo-aug-2020
@@ -18,7 +18,7 @@ Use the Language Understanding (LUIS) client libraries for Node.js to:
 * Train and publish app
 * Query prediction runtime
 
-[Reference documentation](/javascript/api/@azure/cognitiveservices-luis-authoring/) |  [Authoring](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) and [Prediction](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime)  Library source code | [Authoring](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring) and [Prediction](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) NPM | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/sdk-3x/index.js)
+[Reference documentation](/javascript/api/@azure/cognitiveservices-luis-authoring/) |  [Authoring](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring) and [Prediction](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) NPM | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/sdk-3x/index.js)
 
 ## Prerequisites
 

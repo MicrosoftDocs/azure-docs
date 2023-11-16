@@ -3,15 +3,17 @@ title: Create, view, and manage Azure Event Grid namespace topics
 description: This article describes how to create, view and manage namespace topics
 author: robece
 ms.topic: how-to
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.author: robece
 ms.date: 05/23/2023
 ---
 
-# Create, view, and manage namespace topics (Preview)
+# Create, view, and manage namespace topics
 This article shows you how to create, view, and manage namespace topics in Azure Event Grid. 
 
-[!INCLUDE [pull-preview-note](./includes/pull-preview-note.md)]
+
 
 ## Create a namespace topic
 

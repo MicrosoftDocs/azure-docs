@@ -1,13 +1,14 @@
 ---
-title: "Build and train a custom classifier"
+title: "Build and train a custom classifier -  Document Intelligence (formerly Form Recognizer)"
 titleSuffix: Azure AI services
 description: Learn how to label, and build a custom document classification model.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.0.0'
 ---
@@ -15,7 +16,7 @@ monikerRange: '>=doc-intel-3.0.0'
 
 # Build and train a custom classification model
 
-[!INCLUDE [applies to v3.1 and v3.0](../includes/applies-to-v3-1-v3-0.md)]
+[!INCLUDE [applies to v4.0 v3.1 v3.0](../includes/applies-to-v40-v31-v30.md)]
 
 > [!IMPORTANT]
 >
@@ -40,7 +41,7 @@ Follow these tips to further optimize your data set for training:
 
 ## Upload your training data
 
-Once you've put together the set of forms or documents for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production. If your dataset is organized as folders, preserve that structure as the Studio can use your folder names for labels to simplify the labeling process.
+Once you put together the set of forms or documents for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production. If your dataset is organized as folders, preserve that structure as the Studio can use your folder names for labels to simplify the labeling process.
 
 ## Create a classification project in the Document Intelligence Studio
 
@@ -111,11 +112,15 @@ Once the model training is complete, you can test your model by selecting the mo
 
 1. Validate your model by evaluating the results for each document identified.
 
-Congratulations you've trained a custom classification model in the Document Intelligence Studio! Your model is ready for use with the REST API or the SDK to analyze documents.
+## Training a custom classifier using the SDK or API
+
+The Studio orchestrates the API calls for you to train a custom classifier. The classifier training dataset requires the output from the layout API that matches the version of the API for your training model. Using layout results from an older API version can result in a model with lower accuracy.
+
+The Studio generates the layout results for your training dataset if the dataset doesn't contain layout results. When using the API or SDK to train a classifier, you need to add the layout results to the folders containing the individual documents. The layout results should be in the format of the API response when calling layout directly. The SDK object model is different, make sure that the `layout results` are the API results and not the `SDK response`.
 
 ## Troubleshoot
 
-The [classification model](../concept-custom-classifier.md) requires results from the [layout model](../concept-layout.md) for each training document. If you haven't provided the layout results, the Studio attempts to run the layout model for each document prior to training the classifier. This process is throttled and can result in a 429 response. 
+The [classification model](../concept-custom-classifier.md) requires results from the [layout model](../concept-layout.md) for each training document. If you don't provide the layout results, the Studio attempts to run the layout model for each document prior to training the classifier. This process is throttled and can result in a 429 response. 
 
 In the Studio, prior to training with the classification model, run the [layout model](https://formrecognizer.appliedai.azure.com/studio/layout) on each document and upload it to the same location as the original document. Once the layout results are added, you can train the classifier model with your documents. 
 

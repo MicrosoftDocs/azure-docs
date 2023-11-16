@@ -19,7 +19,7 @@ ms.author: greglin
 | SSL certificates |100<sup>1</sup> |1 per HTTP listener |
 | Maximum SSL certificate size |V1 SKU - 10 KB<br>V2 SKU - 16 KB| |
 | Maximum trusted client CA certificate size | 25 KB| 25 KB is the maximum aggregated size of root and intermediate certificates contained in an uploaded pem or cer file. |
-| Maximum trusted client CA certificate chains | 100 per SSL Profile | 200 total per Application Gateway |
+| Maximum trusted client CA certificates |200 | 100 per SSL Profile |
 | Authentication certificates |100 | |
 | Trusted root certificates |100 | |
 | Request timeout minimum |1 second | |
@@ -43,7 +43,7 @@ ms.author: greglin
 | WAF body size limit (without files)|V1 or V2 (with CRS 3.1 and older) - 128 KB<br>V2 (with CRS 3.2 or newer) - 2 MB<sup>3</sup>| |
 | Maximum Private Link Configurations| 2 | 1 for public IP, 1 for private IP |
 | Maximum Private Link IP Configurations| 8 | |
-| Maximum WAF custom rules|100||
+| Maximum WAF custom rules per WAF policy|100||
 | WAF IP address ranges per match condition|540<br>600 - with CRS 3.2 or newer|
 | Maximum WAF exclusions per Application Gateway|40<br>200 - with CRS 3.2 or newer|
 | WAF string match values per match condition|10||

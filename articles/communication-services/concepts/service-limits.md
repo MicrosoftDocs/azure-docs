@@ -3,7 +3,7 @@ title: Service limits for Azure Communication Services
 titleSuffix: An Azure Communication Services how-to document
 description: Learn how to
 author: tophpalmer
-manager: shahen
+manager: sundraman
 services: azure-communication-services
 
 ms.author: chpalm
@@ -23,7 +23,14 @@ When you hit service limitations, you will receive an HTTP status code 429 (Too 
 - Reduce the frequency of calls.
 - Avoid immediate retries because all requests accrue against your usage limits.
 
-You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture) documentation for [throttling patterns](/azure/architecture/patterns/throttling). Throttling limits can be increased through [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture) documentation for [throttling patterns](/azure/architecture/patterns/throttling). Throttling limits can be increased through a request to Azure Support.
+
+1.  Go to Azure portal
+1.  Select Help+Support
+1.  Click on Create new support request
+1.  In the Problem description, please choose **Issue type** as **Technical** and add in the details.
+  
+You can follow the documentation for [creating request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## Acquiring phone numbers
 Before acquiring a phone number, make sure your subscription meets the [geographic and subscription](./telephony/plan-solution.md) requirements. Otherwise, you can't purchase a phone number. The below limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
@@ -60,12 +67,15 @@ When sending or receiving a high volume of messages, you might receive a ```429`
 
 Rate Limits for SMS:
 
-|Operation|Scope|Timeframe (seconds)| Limit (number of requests) | Message units per minute|
-|---------|-----|-------------|-------------------|-------------------------|
-|Send Message|Per Number|60|200|200|
+|Operation|Number Type |Scope|Timeframe (s)| Limit (request #) | Message units per minute|
+|---------|---|--|-------------|-------------------|-------------------------|
+|Send Message|Toll-Free|Per Number|60|200|200|
+|Send Message|Short Code |Per Number|60|6000|6000|
+|Send Message|Alphanumeric Sender ID |Per resource|60|600|600|
 
 ### Action to take
-If you require to send a volume of messages that exceed the rate limits, email us at phone@microsoft.com.
+If you have requirements that exceed the rate-limits, submit [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) to enable higher throughput.
+
 
 For more information on the SMS SDK and service, see the [SMS SDK overview](./sms/sdk-features.md) page or the [SMS FAQ](./sms/sms-faq.md) page.
 
@@ -101,31 +111,40 @@ This sandbox setup is designed to help developers begin building the application
 |Batch of participants - CreateThread|200 |
 |Batch of participants - AddParticipant|200 |
 |Page size - ListMessages|200 |
+|Number of Azure Communication Services resources per Azure Bot|1000 |
 
-### Operation Limits
+### Rate Limits
 
-| **Operation** | **Bucketed by** | **Limit per 10 seconds** | **Limit per minute** |
+| **Operation** | **Scope** | **Limit per 10 seconds** | **Limit per minute** |
 |--|--|--|--|
-|Create chat thread|User|10|-|
-|Delete chat thread|User|10|-|
-|Update chat thread|Chat thread|5|-|
-|Add participants / remove participants|Chat thread|10|30|
-|Get chat thread / List chat threads|User|50|-|
-|Get chat message|User and chat thread|50|-|
-|Get chat message|Chat thread|250|-|
-|List chat messages|User and chat thread|50|200|
-|List chat messages|Chat thread|250|400|
-|Get read receipts|User and chat thread|5|-|
-|Get read receipts|Chat thread|250|-|
-|List chat thread participants|User and chat thread|10|-|
-|List chat thread participants|Chat thread|250|-|
-|Send message / update message / delete message|Chat thread|10|30|
-|Send read receipt|User and chat thread|10|30|
-|Send typing indicator|User and chat thread|5|15|
-|Send typing indicator|Chat thread|10|30|
+|Create chat thread|per User|10|-|
+|Delete chat thread|per User|10|-|
+|Update chat thread|per Chat thread|5|-|
+|Add participants / remove participants|per Chat thread|10|30|
+|Get chat thread / List chat threads|per User|50|-|
+|Get chat message|per User per chat thread|50|-|
+|Get chat message|per Chat thread|250|-|
+|List chat messages|per User per chat thread|50|200|
+|List chat messages|per Chat thread|250|400|
+|Get read receipts (20 participant limit**) |per User per chat thread|5|-|
+|Get read receipts (20 participant limit**) |per Chat thread|100|-|
+|List chat thread participants|per User per chat thread|10|-|
+|List chat thread participants|per Chat thread|250|-|
+|Send message / update message / delete message|per Chat thread|10|30|
+|Send read receipt|per User per chat thread|10|30|
+|Send typing indicator|per User per chat thread|5|15|
+|Send typing indicator|per Chat thread|10|30|
+
+> [!NOTE] 
+> ** Read receipts and typing indicators are not supported on chat threads with more than 20 participants. 
 
 ### Chat storage
-Chat messages are stored for 90 days. Submit [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) if you require storage for longer time period. If the time period is less than 90 days for chat messages, use the delete chat thread APIs.
+Azure Communication Services stores chat messages indefinitely till they are deleted by the customer. 
+
+Beginning in CY24 Q1, customers must choose between indefinite message retention or automatic deletion after 90 days. Existing messages remain unaffected, but customers can opt for a 90-day retention period if desired.
+
+> [!NOTE] 
+> Accidentally deleted messages are not recoverable by the system.
 
 ## Voice and video calling
 
@@ -147,7 +166,7 @@ The Communication Services Calling SDK supports the following streaming configur
 | Limit                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
 | **Maximum # of outgoing local streams that you can send simultaneously**     | one video or one screen sharing | one video + one screen sharing |
-| **Maximum # of incoming remote streams that you can render simultaneously** | four videos + one screen sharing | six videos + one screen sharing |
+| **Maximum # of incoming remote streams that you can render simultaneously** | 9 videos + one screen sharing | 9 videos + one screen sharing |
 
 While the Calling SDK will not enforce these limits, your users may experience performance degradation if they're exceeded.
 

@@ -1,31 +1,28 @@
 ---
-title: 'How to customize a model with Azure OpenAI Service'
+title: 'Customize a model with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
-description: Learn how to create your own customized model with Azure OpenAI
+description: Learn how to create your own customized model with Azure OpenAI Service by using Python, the REST APIs, or Azure OpenAI Studio.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.custom: build-2023, build-2023-dataai, devx-track-python
 ms.topic: how-to
-ms.date: 04/05/2023
-author: ChrisHMSFT
-ms.author: chrhoder
+ms.date: 10/12/2023
+author: mrbullwinkle
+ms.author: mbullwin
 zone_pivot_groups: openai-fine-tuning
 keywords: 
 ---
-# Learn how to customize a model for your application
 
-Azure OpenAI Service lets you tailor our models to your personal datasets using a process known as *fine-tuning*. This customization step will let you get more out of the service by providing:
+# Customize a model with fine-tuning (preview)
 
-- Higher quality results than what you can get just from prompt design
-- The ability to train on more examples than can fit into a prompt
-- Lower-latency requests
- 
-A customized model improves on the few-shot learning approach by training the model's weights on your specific prompts and structure. The customized model lets you achieve better results on a wider number of tasks without needing to provide examples in your prompt. The result is less text sent and fewer tokens processed on every API call, saving cost and improving request latency.
+Azure OpenAI Service lets you tailor our models to your personal datasets by using a process known as *fine-tuning*. This customization step lets you get more out of the service by providing:
 
-> [!NOTE]
-> There is a breaking change in the `create` fine tunes command in the latest 12-01-2022 GA API. For the latest command syntax consult the [reference documentation](/rest/api/cognitiveservices/azureopenaistable/fine-tunes/create)
+- Higher quality results than what you can get just from [prompt engineering](../concepts/prompt-engineering.md)
+- The ability to train on more examples than can fit into a model's max request context limit.
+- Lower-latency requests, particularly when using smaller models.
+
+A fine-tuned model improves on the few-shot learning approach by training the model's weights on your own data. A customized model lets you achieve better results on a wider number of tasks without needing to provide examples in your prompt. The result is less text sent and fewer tokens processed on every API call, potentially saving cost and improving request latency.
 
 ::: zone pivot="programming-language-studio"
 

@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 08/30/2022
+ms.date: 11/09/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -55,7 +55,7 @@ Deploy the VMs in Azure by using:
 - Azure PowerShell cmdlets.
 - The Azure CLI.
 
-You also can deploy a complete installed SAP HANA platform on the Azure VM services through the [SAP Cloud platform](https://cal.sap.com/). The installation process is described in [Deploy SAP S/4HANA or BW/4HANA on Azure](./cal-s4h.md) or with the automation released on [GitHub](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
+You also can deploy a complete installed SAP HANA platform on the Azure VM services through the [SAP Cloud platform](https://cal.sap.com/). The installation process is described in [Deploy SAP S/4HANA or BW/4HANA on Azure](./cal-s4h.md).
 
 >[!IMPORTANT]
 > In order to use M208xx_v2 VMs, you need to be careful selecting your Linux image. For more information, see [Memory optimized virtual machine sizes](../../virtual-machines/mv2-series.md).
@@ -76,10 +76,8 @@ When you have site-to-site connectivity into Azure via VPN or ExpressRoute, you 
 > [!IMPORTANT]
 > Another design that is **NOT** supported is the segregation of the SAP application layer and the DBMS layer into different Azure virtual networks that are not [peered](../../virtual-network/virtual-network-peering-overview.md) with each other. It is recommended to segregate the SAP application layer and DBMS layer using subnets within an Azure virtual network instead of using different Azure virtual networks. If you decide not to follow the recommendation, and instead segregate the two layers into different virtual network, the two virtual networks need to be [peered](../../virtual-network/virtual-network-peering-overview.md). Be aware that network traffic between two [peered](../../virtual-network/virtual-network-peering-overview.md) Azure virtual networks are subject of transfer costs. With the huge data volume  in many Terabytes exchanged between the SAP application layer and DBMS layer substantial costs can be accumulated if the SAP application layer and DBMS layer is segregated between two peered Azure virtual networks. 
 
-When you install the VMs to run SAP HANA, the VMs need:
-
-- Two virtual NICs installed: one NIC to connect to the management subnet, and one NIC to connect from the on-premises network or other networks, to the SAP HANA instance in the Azure VM.
-- Static private IP addresses that are deployed for both virtual NICs.
+If you deployed Jumpbox or management VMs in a separate subnet, you can define [multiple virtual network interface cards (vNICs)](./planning-guide.md#multiple-vnics-per-vm) for the HANA VM, with each vNIC assigned to different subnet. With the ability to have multiple vNICs, you can set up network traffic separation, if necessary. For example, client traffic can be routed through the primary vNIC and admin traffic is routed through a second vNIC.  
+You also assign static private IP addresses that are deployed for both virtual NICs.
 
 > [!NOTE]
 > You should assign static IP addresses through Azure means to individual vNICs. You should not assign static IP addresses within the guest OS to a vNIC. Some Azure services like Azure Backup Service rely on the fact that at least the primary vNIC is set to DHCP and not to static IP addresses. See also the document [Troubleshoot Azure virtual machine backup](../../backup/backup-azure-vms-troubleshoot.md#networking). If you need to assign multiple static IP addresses to a VM, you need to assign multiple vNICs to a VM.
@@ -119,15 +117,15 @@ The minimum OS releases for deploying scale-out configurations in Azure VMs, che
 > Azure VM scale-out deployments of SAP HANA with standby node are only possible using the [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) storage. No other SAP HANA certified Azure storage allows the configuration of SAP HANA standby nodes
 >
 
-For /hana/shared, we also recommend the usage of [Azure NetApp Files](https://azure.microsoft.com/services/netapp/). 
+For /hana/shared, we recommend the usage of [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) or [Azure Files](../../storage/files/files-nfs-protocol.md). 
 
-A typical basic design for a single node in a scale-out configuration is going to look like:
+A typical basic design for a single node in a scale-out configuration, with `/hana/shared` deployed on Azure NetApp Files, looks like:
 
 ![Diagram that shows a typical basic design for a single node in a scale-out configuration.](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
 
 The basic configuration of a VM node for SAP HANA scale-out looks like:
 
-- For **/hana/shared**, you use the native NFS service provided through Azure NetApp Files. 
+- For **/hana/shared**, you use the native NFS service provided through Azure NetApp Files or Azure Files. 
 - All other disk volumes aren't shared among the different nodes and aren't based on NFS. Installation configurations and steps for scale-out HANA installations with non-shared **/hana/data** and **/hana/log** is provided further later in this document. For HANA certified storage that can be used, check the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md).
 
 
@@ -329,5 +327,7 @@ Get familiar with the articles as listed
 - [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
 - [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md)
 - [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on Red Hat Enterprise Linux](./sap-hana-scale-out-standby-netapp-files-rhel.md)
+- [Deploy a SAP HANA scale-out system with HSR and Pacemaker on Azure VMs on SUSE Linux Enterprise Server](./sap-hana-high-availability-scale-out-hsr-suse.md)
+- [Deploy a SAP HANA scale-out system with HSR and PAcemaker on Azure VMs on Red Hat Enterprise Linux](./sap-hana-high-availability-scale-out-hsr-rhel.md)
 - [High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server](./sap-hana-high-availability.md)
 - [High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux](./sap-hana-high-availability-rhel.md)

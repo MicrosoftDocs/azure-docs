@@ -4,7 +4,7 @@ description: VM insights solution collects metrics and log data to and this arti
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 06/08/2022
+ms.date: 09/28/2023
 ---
 
 # How to query logs from VM insights
@@ -16,18 +16,18 @@ VM insights collects performance and connection metrics, computer and process in
 > [!IMPORTANT]
 > If your virtual machine is using VM insights with Azure Monitor agent, then you must have [processes and dependencies enabled](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent) for these tables to be created.
 
-One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is added to VM insights. The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap Azure Resource Manager API. The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap Azure Resource Manager API. The ResourceName_s field matches the name field in the corresponding Resource Manager resource. 
+One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is added to VM insights. The fields and values in the VMComputer table map to fields of the Machine resource in the ServiceMap Azure Resource Manager API. The fields and values in the VMProcess table map to the fields of the Process resource in the ServiceMap Azure Resource Manager API. The _ResourceId field matches the name field in the corresponding Resource Manager resource. 
 
 There are internally generated properties you can use to identify unique processes and computers:
 
-- Computer: Use *ResourceId* or *ResourceName_s* to uniquely identify a computer within a Log Analytics workspace.
-- Process: Use *ResourceId* to uniquely identify a process within a Log Analytics workspace. *ResourceName_s* is unique within the context of the machine on which the process is running (MachineResourceName_s) 
+- Computer: Use *_ResourceId* to uniquely identify a computer within a Log Analytics workspace.
+- Process: Use *_ResourceId* to uniquely identify a process within a Log Analytics workspace.
 
 Because multiple records can exist for a specified process and computer in a specified time range, queries can return more than one record for the same computer or process. To include only the most recent record, add `| summarize arg_max(TimeGenerated, *) by ResourceId` to the query.
 
 ### Connections and ports
 
-The Connection Metrics feature introduces two new tables in Azure Monitor logs - VMConnection and VMBoundPort. These tables provide information about the connections for a machine (inbound and outbound), as well as the server ports that are open/active on them. ConnectionMetrics are also exposed via APIs that provide the means to obtain a specific metric during a time window. TCP connections resulting from *accepting* on a listening socket are inbound, while those created by *connecting* to a given IP and port are outbound. The direction of a connection is represented by the Direction property, which can be set to either **inbound** or **outbound**. 
+The Connection Metrics feature introduces two new tables in Azure Monitor logs - VMConnection and VMBoundPort. These tables provide information about the connections for a machine (inbound and outbound) and the server ports that are open/active on them. ConnectionMetrics are also exposed via APIs that provide the means to obtain a specific metric during a time window. TCP connections resulting from *accepting* on a listening socket are inbound, while those created by *connecting* to a given IP and port are outbound. The direction of a connection is represented by the Direction property, which can be set to either **inbound** or **outbound**. 
 
 Records in these tables are generated from data reported by the Dependency Agent. Every record represents an observation over a 1-minute time interval. The TimeGenerated property indicates the start of the time interval. Each record contains information to identify the respective entity, that is, connection or port, as well as metrics associated with that entity. Currently, only network activity that occurs using TCP over IPv4 is reported. 
 
@@ -36,13 +36,13 @@ Records in these tables are generated from data reported by the Dependency Agent
 The following fields and conventions apply to both VMConnection and VMBoundPort: 
 
 - Computer: Fully-qualified domain name of reporting machine 
-- AgentId: The unique identifier for a machine with the Log Analytics agent  
-- Machine: Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It is of the form *m-{GUID}*, where *GUID* is the same GUID as AgentId  
-- Process: Name of the Azure Resource Manager resource for the process exposed by ServiceMap. It is of the form *p-{hex string}*. Process is unique within a machine scope and to generate a unique process ID across machines, combine Machine and Process fields. 
+- AgentId: The unique identifier for a machine running Azure Monitor Agent or the Log Analytics agent  
+- Machine: Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It's of the form *m-{GUID}*, where *GUID* is the same GUID as AgentId  
+- Process: Name of the Azure Resource Manager resource for the process exposed by ServiceMap. It's of the form *p-{hex string}*. Process is unique within a machine scope and to generate a unique process ID across machines, combine Machine and Process fields. 
 - ProcessName: Executable name of the reporting process.
 - All IP addresses are strings in IPv4 canonical format, for example *13.107.3.160* 
 
-To manage cost and complexity, connection records do not represent individual physical network connections. Multiple physical network connections are grouped into a logical connection, which is then reflected in the respective table.  Meaning, records in *VMConnection* table represent a logical grouping and not the individual physical connections that are being observed. Physical network connection sharing the same value for the following attributes during a given one-minute interval, are aggregated into a single logical record in *VMConnection*. 
+To manage cost and complexity, connection records don't represent individual physical network connections. Multiple physical network connections are grouped into a logical connection, which is then reflected in the respective table.  Meaning, records in *VMConnection* table represent a logical grouping and not the individual physical connections that are being observed. Physical network connection sharing the same value for the following attributes during a given one-minute interval, are aggregated into a single logical record in *VMConnection*. 
 
 | Property | Description |
 |:--|:--|
@@ -76,20 +76,20 @@ In addition to connection count metrics, information about the volume of data se
 |ResponseTimeMin |The smallest response time (milliseconds) observed during the reporting time window. If no value, the property is blank.|
 |ResponseTimeSum |The sum of all response times (milliseconds) observed during the reporting time window. If no value, the property is blank.|
 
-The third type of data being reported is response time - how long does a caller spend waiting for a request sent over a connection to be processed and responded to by the remote endpoint. The response time reported is an estimation of the true response time of the underlying application protocol. It is computed using heuristics based on the observation of the flow of data between the source and destination end of a physical network connection. Conceptually, it is the difference between the time the last byte of a request leaves the sender, and the time when the last byte of the response arrives back to it. These two timestamps are used to delineate request and response events on a given physical connection. The difference between them represents the response time of a single request. 
+The third type of data being reported is response time - how long does a caller spend waiting for a request sent over a connection to be processed and responded to by the remote endpoint. The response time reported is an estimation of the true response time of the underlying application protocol. It's computed using heuristics based on the observation of the flow of data between the source and destination end of a physical network connection. Conceptually, it's the difference between the time the last byte of a request leaves the sender, and the time when the last byte of the response arrives back to it. These two timestamps are used to delineate request and response events on a given physical connection. The difference between them represents the response time of a single request. 
 
-In this first release of this feature, our algorithm is an approximation that may work with varying degree of success depending on the actual application protocol used for a given network connection. For example, the current approach works well for request-response based protocols such as HTTP(S), but does not work with one-way or message queue-based protocols.
+In this first release of this feature, our algorithm is an approximation that may work with varying degree of success depending on the actual application protocol used for a given network connection. For example, the current approach works well for request-response based protocols such as HTTP(S), but doesn't work with one-way or message queue-based protocols.
 
 Here are some important points to consider:
 
 1. If a process accepts connections on the same IP address but over multiple network interfaces, a separate record for each interface will be reported. 
-2. Records with wildcard IP will contain no activity. They are included to represent the fact that a port on the machine is open to inbound traffic.
-3. To reduce verbosity and data volume, records with wildcard IP will be omitted when there is a matching record (for the same process, port, and protocol) with a specific IP address. When a wildcard IP record is omitted, the IsWildcardBind record property with the specific IP address, will be set to "True" to indicate that the port is exposed over every interface of the reporting machine.
+2. Records with wildcard IP will contain no activity. They're included to represent the fact that a port on the machine is open to inbound traffic.
+3. To reduce verbosity and data volume, records with wildcard IP will be omitted when there's a matching record (for the same process, port, and protocol) with a specific IP address. When a wildcard IP record is omitted, the IsWildcardBind record property with the specific IP address, will be set to "True" to indicate that the port is exposed over every interface of the reporting machine.
 4. Ports that are bound only on a specific interface have IsWildcardBind set to *False*.
 
 #### Naming and Classification
 
-For convenience, the IP address of the remote end of a connection is included in the RemoteIp property. For inbound connections, RemoteIp is the same as SourceIp, while for outbound connections, it is the same as DestinationIp. The RemoteDnsCanonicalNames property represents the DNS canonical names reported by the machine for RemoteIp. The RemoteDnsQuestions property represents the DNS questions reported by the machine for RemoteIp. The RemoveClassification property is reserved for future use. 
+For convenience, the IP address of the remote end of a connection is included in the RemoteIp property. For inbound connections, RemoteIp is the same as SourceIp, while for outbound connections, it's the same as DestinationIp. The RemoteDnsCanonicalNames property represents the DNS canonical names reported by the machine for RemoteIp. The RemoteDnsQuestions property represents the DNS questions reported by the machine for RemoteIp. The RemoveClassification property is reserved for future use. 
 
 #### Geolocation
 
@@ -103,7 +103,7 @@ For convenience, the IP address of the remote end of a connection is included in
 
 #### Malicious IP
 
-Every RemoteIp property in *VMConnection* table is checked against a set of IPs with known malicious activity. If the RemoteIp is identified as malicious the following properties will be populated (they are empty, when the IP is not considered malicious) in the following properties of the record:
+Every RemoteIp property in *VMConnection* table is checked against a set of IPs with known malicious activity. If the RemoteIp is identified as malicious the following properties will be populated (they're empty, when the IP isn't considered malicious) in the following properties of the record:
 
 | Property | Description |
 |:--|:--|
@@ -112,11 +112,11 @@ Every RemoteIp property in *VMConnection* table is checked against a set of IPs 
 |Description |Description of the observed threat. |
 |TLPLevel |Traffic Light Protocol (TLP) Level is one of the defined values, *White*, *Green*, *Amber*, *Red*. |
 |Confidence |Values are *0 – 100*. |
-|Severity |Values are *0 – 5*, where *5* is the most severe and *0* is not severe at all. Default value is *3*.  |
+|Severity |Values are *0 – 5*, where *5* is the most severe and *0* isn't severe at all. Default value is *3*.  |
 |FirstReportedDateTime |The first time the provider reported the indicator. |
 |LastReportedDateTime |The last time the indicator was seen by Interflow. |
 |IsActive |Indicates indicators are deactivated with *True* or *False* value. |
-|ReportReferenceLink |Links to reports related to a given observable. |
+|ReportReferenceLink |Links to reports related to a given observable. To report a false alert or get more details about the malicious IP, open a Support case and provide this link. |
 |AdditionalInformation |Provides additional information, if applicable, about the observed threat. |
 
 ### Ports 
@@ -131,7 +131,7 @@ Every record in VMBoundPort is identified by the following fields:
 |Ip | Port IP address (can be wildcard IP, *0.0.0.0*) |
 |Port |The Port number |
 |Protocol | The protocol.  Example, *tcp* or *udp* (only *tcp* is currently supported).|
- 
+
 The identity a port is derived from the above five fields and is stored in the PortId  property. This property can be used to quickly find records for a specific port across time. 
 
 #### Metrics 
@@ -145,8 +145,8 @@ Port records include metrics representing the connections associated with them. 
 Here are some important points to consider:
 
 - If a process accepts connections on the same IP address but over multiple network interfaces, a separate record for each interface will be reported.  
-- Records with wildcard IP will contain no activity. They are included to represent the fact that a port on the machine is open to inbound traffic. 
-- To reduce verbosity and data volume, records with wildcard IP will be omitted when there is a matching record (for the same process, port, and protocol) with a specific IP address. When a wildcard IP record is omitted, the *IsWildcardBind* property for the record with the specific IP address, will be set to *True*.  This indicates the port is exposed over every interface of the reporting machine. 
+- Records with wildcard IP will contain no activity. They're included to represent the fact that a port on the machine is open to inbound traffic. 
+- To reduce verbosity and data volume, records with wildcard IP will be omitted when there's a matching record (for the same process, port, and protocol) with a specific IP address. When a wildcard IP record is omitted, the *IsWildcardBind* property for the record with the specific IP address, will be set to *True*.  This indicates the port is exposed over every interface of the reporting machine. 
 - Ports that are bound only on a specific interface have IsWildcardBind set to *False*. 
 
 ### VMComputer records
@@ -159,8 +159,8 @@ Records with a type of *VMComputer* have inventory data for servers with the Dep
 |SourceSystem | *Insights* | 
 |TimeGenerated | Timestamp of the record (UTC) |
 |Computer | The computer FQDN | 
-|AgentId | The unique ID of the Log Analytics agent |
-|Machine | Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It is of the form *m-{GUID}*, where *GUID* is the same GUID as AgentId. | 
+|AgentId | The unique identifier for a machine running Azure Monitor Agent or the Log Analytics agent |
+|Machine | Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It's of the form *m-{GUID}*, where *GUID* is the same GUID as AgentId. | 
 |DisplayName | Display name | 
 |FullDisplayName | Full display name | 
 |HostName | The name of machine without domain name |
@@ -221,9 +221,9 @@ Records with a type of *VMProcess* have inventory data for TCP-connected process
 |SourceSystem | *Insights* | 
 |TimeGenerated | Timestamp of the record (UTC) |
 |Computer | The computer FQDN | 
-|AgentId | The unique ID of the Log Analytics agent |
-|Machine | Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It is of the form *m-{GUID}*, where *GUID* is  the same GUID as AgentId. | 
-|Process | The unique identifier of the Service Map process. It is in the form of *p-{GUID}*. 
+|AgentId | The unique identifier for a machine running Azure Monitor Agent or the Log Analytics agent |
+|Machine | Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It's of the form *m-{GUID}*, where *GUID* is  the same GUID as AgentId. | 
+|Process | The unique identifier of the Service Map process. It's in the form of *p-{GUID}*. 
 |ExecutableName | The name of the process executable | 
 |DisplayName | Process display name |
 |Role | Process role: *webserver*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
@@ -428,7 +428,8 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## Performance records
-Records with a type of *InsightsMetrics* have performance data from the guest operating system of the virtual machine. These records have the properties in the following table:
+Records with a type of *InsightsMetrics* have performance data from the guest operating system of the virtual machine. These records are collected at 60 second intervals and have the properties in the following table:
+
 
 
 | Property | Description |
@@ -468,8 +469,13 @@ The performance counters currently collected into the *InsightsMetrics* table ar
 | LogicalDisk | BytesPerSecond        | Logical Disk Bytes Per Second             | BytesPerSecond | mountId - Mount ID of the device |
 
 
+
+
+
 ## Next steps
 
-* If you are new to writing log queries in Azure Monitor, review [how to use Log Analytics](../logs/log-analytics-tutorial.md) in the Azure portal to write log queries.
+* If you're new to writing log queries in Azure Monitor, review [how to use Log Analytics](../logs/log-analytics-tutorial.md) in the Azure portal to write log queries.
 
 * Learn about [writing search queries](../logs/get-started-queries.md).
+
+

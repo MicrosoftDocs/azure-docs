@@ -5,8 +5,7 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: adi.biran
 ms.topic: conceptual
-ms.date: 10/01/2022
-
+ms.date: 11/02/2023
 ---
 
 # Query Basic Logs in Azure Monitor
@@ -57,16 +56,16 @@ Creating a query using Basic Logs is the same as any other query in Log Analytic
 In the Azure portal, select **Monitor** > **Logs** > **Tables**.
 
 In the list of tables, you can identify Basic Logs tables by their unique icon: 
-
-![Screenshot of the Basic Logs table icon in the table list.](./media/basic-logs-configure/table-icon.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/basic-logs-configure/table-icon.png" lightbox="./media/basic-logs-configure/table-icon.png" alt-text="Screenshot of the Basic Logs table icon in the table list." border="false":::
 
 You can also hover over a table name for the table information view, which will specify that the table is configured as Basic Logs:
-
-![Screenshot of the Basic Logs table indicator in the table details.](./media/basic-logs-configure/table-info.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/basic-logs-configure/table-info.png" lightbox="./media/basic-logs-configure/table-info.png" alt-text="Screenshot of the Basic Logs table indicator in the table details." border="false":::
 
 When you add a table to the query, Log Analytics will identify a Basic Logs table and align the authoring experience accordingly. The following example shows when you attempt to use an operator that isn't supported by Basic Logs.
 
-![Screenshot of Query on Basic Logs limitations.](./media/basic-logs-query/query-validator.png)
+:::image type="content" source="./media/basic-logs-query/query-validator.png" lightbox="./media/basic-logs-query/query-validator.png" alt-text="Screenshot of Query on Basic Logs limitations.":::
 
 # [API](#tab/api-1)
 
@@ -89,16 +88,16 @@ https://api.loganalytics.io/v1/workspaces/testWS/search?timespan=P1D
 }
 ```
 
+
 ---
 ## Pricing model
 The charge for a query on Basic Logs is based on the amount of data the query scans, which is influenced by the size of the table and the query's time range. For example, a query that scans three days of data in a table that ingests 100 GB each day, would be charged for 300 GB. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-> [!NOTE]
-> Billing of queries on Basic Logs is not yet enabled. You can query Basic Logs for free until early 2023.
 
 ## Next steps
 
 - [Learn more about the Basic Logs and Analytics log plans](basic-logs-configure.md).
 - [Use a search job to retrieve data from Basic Logs into Analytics Logs where it can be queries multiple times](search-jobs.md).
+

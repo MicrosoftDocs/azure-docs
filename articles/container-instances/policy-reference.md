@@ -6,7 +6,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.topic: reference
-ms.date: 08/03/2023
+ms.date: 11/15/2023
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Container Instances

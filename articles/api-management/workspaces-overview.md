@@ -84,7 +84,7 @@ Azure RBAC is used to configure workspace collaborators' permissions to read and
 Workspace members must be assigned both a service-scoped role and a workspace-scoped role, or granted equivalent permissions using custom roles. The service-scoped role enables referencing service-level resources from workspace-level resources. For example, publish an API from a workspace with a service-level product, assign a service-level tag to an API, or organize a user into a workspace-level group to control API and product visibility.  
 
 > [!NOTE]
-> For easier management, set up Azure AD groups to assign workspace permissions to multiple users.
+> For easier management, set up Microsoft Entra groups to assign workspace permissions to multiple users.
 > 
 
 ## Workspaces and other API Management features
@@ -134,7 +134,7 @@ Therefore, the following sample scenarios aren't currently supported in workspac
 
 * Validating client certificates 
 
-* Using the authorizations feature 
+* Using the API credentials (formerly called authorizations) feature 
 
 * Specifying API authorization server information (for example, for the developer portal)
    

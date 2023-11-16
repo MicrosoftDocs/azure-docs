@@ -5,9 +5,10 @@ description: Stay up to date on recent releases and updates to Azure AI Vision.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
-ms.custom: build-2023
+ms.service: azure-ai-vision
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.topic: whats-new
 ms.date: 12/27/2022
 ms.author: pafarley
@@ -15,7 +16,24 @@ ms.author: pafarley
 
 # What's new in Azure AI Vision
 
-Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
+Learn what's new in the service. These items might be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
+
+## November 2023
+
+### Face client-side SDK for liveness detection
+
+The Face Liveness SDK supports liveness detection on your users' mobile or edge devices. It's available in Java/Kotlin for Android and Swift/Objective-C for iOS.
+
+Our liveness detection service meets iBeta Level 1 and 2 ISO/IEC 30107-3 compliance.
+
+## September 2023
+
+### Deprecation of outdated Computer Vision API versions
+
+Computer Vision API versions 1.0, 2.0, 3.0, and 3.1 will be retired on September 13, 2026. Developers won’t be able to make API calls to these APIs after that date.
+We recommend that all affected customers migrate their workloads to the generally available Computer Vision 3.2 API by following this [QuickStart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library?tabs=linux%2Cvisual-studio&pivots=programming-language-rest-api) at their earliest convenience. Customers should also consider migrating to [Image Analysis 4.0 API (preview)](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40?tabs=visual-studio%2Clinux&pivots=programming-language-python), which has our latest and greatest Image Analysis capabilities. 
+
+Visit our [Q&A](/answers/tags/127/azure-computer-vision) for any questions.
 
 ## May 2023
 
@@ -51,9 +69,9 @@ Search and interact with video content in the same intuitive way you think and w
 
 You can now create and train your own [custom image classification and object detection models](./concept-model-customization.md), using Vision Studio or the v4.0 REST APIs.
 
-### Image Retrieval APIs (public preview)
+### Multi-modal embeddings APIs (public preview)
 
-The [Image Retrieval APIs](./how-to/image-retrieval.md), part of the Image Analysis 4.0 API, enable the _vectorization_ of images and text queries. They let you convert images and text to coordinates in a multi-dimensional vector space. You can now search with natural language and find relevant images using vector similarity search.
+The [Multi-modal embeddings APIs](./how-to/image-retrieval.md), part of the Image Analysis 4.0 API, enable the _vectorization_ of images and text queries. They let you convert images and text to coordinates in a multi-dimensional vector space. You can now search with natural language and find relevant images using vector similarity search.
 
 ### Background removal APIs (public preview)
 
@@ -370,7 +388,10 @@ Follow an [Extract text quickstart](https://github.com/Azure-Samples/cognitive-s
 ## January 2019
 
 ### Face Snapshot feature
-* This feature allows the service to support data migration across subscriptions: [Snapshot](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get). More details in [How to Migrate your face data to a different Face subscription](how-to/migrate-face-data.md).
+* This feature allows the service to support data migration across subscriptions: [Snapshot](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get).
+
+> [!IMPORTANT]
+> As of June 30, 2023, the Face Snapshot API is retired.
 
 ## October 2018
 
@@ -387,7 +408,7 @@ Follow an [Extract text quickstart](https://github.com/Azure-Samples/cognitive-s
 ## March 2018
 
 ### New data structure
-* [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) and [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). More details in [How to use the large-scale feature](how-to/use-large-scale.md).
+* [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) and [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). More details in [How to scale to handle more enrolled users](how-to/use-large-scale.md).
 * Increased [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) `maxNumOfCandidatesReturned` parameter from [1, 5] to [1, 100] and default to 10.
 
 ## May 2017

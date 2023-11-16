@@ -3,7 +3,7 @@ title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
-ms.date: 06/20/2023
+ms.date: 11/03/2023
 ---
 
 # Bicep CLI commands
@@ -11,9 +11,6 @@ ms.date: 06/20/2023
 This article describes the commands you can use in the Bicep CLI. You have two options for executing these commands: either by utilizing Azure CLI or by directly invoking Bicep CLI commands. Each method requires a distinct installation process. For more information, see [Install Azure CLI](./install.md#azure-cli) and [Install Azure PowerShell](./install.md#azure-powershell).
 
 This article shows how to run the commands in Azure CLI. When running through Azure CLI, you start the commands with `az`. If you're not using Azure CLI, run the commands without `az` at the start of the command. For example, `az bicep build` becomes `bicep build`, and `az bicep version` becomes `bicep --version`.
-
-> [!NOTE]
-> The commands related to the Bicep parameters files are exclusively supported within the Bicep CLI and are not currently available in Azure CLI. These commands include: `build-params`, `decompile-params`, and `generate-params`.
 
 ## build
 
@@ -62,14 +59,14 @@ The module with reference "br:exampleregistry.azurecr.io/bicep/modules/storage:v
 
 When you get this error, either run the `build` command without the `--no-restore` switch or run `bicep restore` first.
 
-To use the `--no-restore` switch, you must have Bicep CLI version **0.4.1008 or later**.
+To use the `--no-restore` switch, you must have [Bicep CLI version 0.4.X or higher](./install.md).
 
 ## build-params
 
 The `build-params` command builds a _.bicepparam_ file into a JSON parameters file.
 
 ```azurecli
-bicep build-params params.bicepparam
+az bicep build-params --file params.bicepparam
 ```
 
 This command converts a _params.bicepparam_ parameters file into a _params.json_ JSON parameters file.
@@ -91,23 +88,23 @@ For more information about using this command, see [Decompiling ARM template JSO
 The `decompile-params` command decompile a JSON parameters file to a _.bicepparam_ parameters file.
 
 ```azurecli
-bicep decompile-params azuredeploy.parameters.json --bicep-file ./dir/main.bicep
+az bicep decompile-params --file azuredeploy.parameters.json --bicep-file ./dir/main.bicep
 ```
 
-This command decompiles a _azuredeploy.parameters.json_ parameters file into a _azuredeploy.parameters.bicepparam_ file. `-bicep-file` specifies the path to the Bicep file (relative to the .bicepparam file) that is referenced in the `using` declaration.
+This command decompiles a _azuredeploy.parameters.json_ parameters file into a _azuredeploy.parameters.bicepparam_ file. `--bicep-file` specifies the path to the Bicep file (relative to the .bicepparam file) that is referenced in the `using` declaration.
 
 ## generate-params
 
 The `generate-params` command builds a parameters file from the given Bicep file, updates if there's an existing parameters file.
 
 ```azurecli
-bicep generate-params main.bicep --output-format bicepparam --include-params all
+az bicep generate-params --file main.bicep --output-format bicepparam --include-params all
 ```
 
 The command creates a Bicep parameters file named _main.bicepparam_. The parameter file contains all parameters in the Bicep file, whether configured with default values or not.
 
 ```azurecli
-bicep generate-params main.bicep --outfile main.parameters.json
+az bicep generate-params --file main.bicep --outfile main.parameters.json
 ```
 
 The command creates a parameter file named _main.parameters.json_. The parameter file only contains the parameters without default values configured in the Bicep file.
@@ -140,6 +137,8 @@ The command returns an array of available versions.
 
 ```azurecli
 [
+  "v0.20.4",
+  "v0.19.5",
   "v0.18.4",
   "v0.17.1",
   "v0.16.2",
@@ -167,9 +166,7 @@ The command returns an array of available versions.
   "v0.4.1124",
   "v0.4.1008",
   "v0.4.613",
-  "v0.4.451",
-  "v0.4.412",
-  "v0.4.63"
+  "v0.4.451"
 ]
 ```
 
@@ -179,7 +176,7 @@ The `publish` command adds a module to a registry. The Azure container registry 
 
 After publishing the file to the registry, you can [reference it in a module](modules.md#file-in-registry).
 
-To use the publish command, you must have Bicep CLI version **0.4.1008 or later**. To use the `--documentationUri`/`-d` parameter, you must have Bicep CLI version **0.14.46 or later**.
+To use the publish command, you must have [Bicep CLI version 0.4.X or higher](./install.md). To use the `--documentationUri`/`-d` parameter, you must have [Bicep CLI version 0.14.X or higher](./install.md).
 
 To publish a module to a registry, use:
 
@@ -204,7 +201,7 @@ When your Bicep file uses modules that are published to a registry, the `restore
 
 To restore external modules to the local cache, the account must have the correct profile and permissions to access the registry. You can configure the profile and credential precedence for authenticating to the registry in the [Bicep config file](./bicep-config-modules.md#configure-profiles-and-credentials).
 
-To use the restore command, you must have Bicep CLI version **0.4.1008 or later**. This command is currently only available when calling the Bicep CLI directly. It's not currently available through the Azure CLI command.
+To use the restore command, you must have [Bicep CLI version 0.4.X or higher](./install.md). This command is currently only available when calling the Bicep CLI directly. It's not currently available through the Azure CLI command.
 
 To manually restore the external modules for a file, use:
 
@@ -264,7 +261,7 @@ az bicep version
 The command shows the version number.
 
 ```azurecli
-Bicep CLI version 0.4.1008 (223b8d227a)
+Bicep CLI version 0.22.6 (d62b94db31)
 ```
 
 To call this command directly through the Bicep CLI, use:

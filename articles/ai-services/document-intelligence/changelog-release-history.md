@@ -4,23 +4,88 @@ titleSuffix: Azure AI services
 description: A version-based description of Document Intelligence feature and capability releases, changes, enhancements,  and updates.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
 ---
 
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD051 -->
+<!-- markdownlint-disable MD024 -->
 
-# Changelog and release history
+# SDK changelog and release history
 
 This reference article provides a version-based description of Document Intelligence feature and capability releases, changes, updates, and enhancements.
 
-#### Document Intelligence SDK April 2023 preview release
+#### August 2023 (GA) release
+
+### [**C#**](#tab/csharp)
+
+* **Version 4.1.0 (2023-08-10)**
+* **Targets API version2023-07-31 by default**
+* **Version 2023-02-28-preview is no longer supported**
+* [**Breaking changes**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#breaking-changes-1)
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
+
+[**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.1.0)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
+
+### [**Java**](#tab/java)
+
+* **4.1.0 (2023-08-10)**
+* **Targets API version 2023-07-31 by default**
+* **Version 2023-02-28-preview is no longer supported**
+* [**Breaking changes**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#breaking-changes)
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+[**Package (MVN)**](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples#readme)
+
+### [**JavaScript**](#tab/javascript)
+
+* **Version 5.0.0 (2023-08-08)**
+* **Targets API version 2023-07-31 by default**
+* **Version 2023-02-28-preview is no longer supported**
+* [**Breaking changes**](https://github.com/witemple-msft/azure-sdk-for-js/blob/ai-form-recognizer/5.0.0-release/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md#breaking-changes)
+
+[**Changelog/Release History**](https://github.com/witemple-msft/azure-sdk-for-js/blob/ai-form-recognizer/5.0.0-release/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
+[**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer)
+
+[**ReadMe**](https://github.com/witemple-msft/azure-sdk-for-js/blob/ai-form-recognizer/5.0.0-release/sdk/formrecognizer/ai-form-recognizer/README.md)
+
+[**Samples**](https://github.com/witemple-msft/azure-sdk-for-js/tree/ai-form-recognizer/5.0.0-release/sdk/formrecognizer/ai-form-recognizer/samples/v5)
+
+### [**Python**](#tab/python)
+
+* **Version 3.3.0 (2023-08-08)**
+* **Targets API version 2023-07-31 by default**
+* **Version 2023-02-28-preview is no longer supported**
+* [**Breaking changes**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.3.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#breaking-changes)
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.3.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+[**Package (PyPi)**](https://pypi.org/project/azure-ai-formrecognizer/3.3.0/)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.3.0/sdk/formrecognizer/azure-ai-formrecognizer/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.3.0/sdk/formrecognizer/azure-ai-formrecognizer/samples)
+
+---
+
+#### April 2023 (preview) release
 
 This release includes the following updates:
 
@@ -30,9 +95,9 @@ This release includes the following updates:
 * **Targets 2023-02-28-preview by default**
 * **No breaking changes**
 
-[**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.1.0-beta.1)
-
 [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#410-beta1-2023-04-13)
+
+[**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.1.0-beta.1)
 
 [**ReadMe**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/README.md)
 
@@ -44,9 +109,10 @@ This release includes the following updates:
 * **Targets 2023-02-28-preview by default**
 * **No breaking changes**
 
-[**Package (MVN)**](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0-beta.1)
 
 [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.1.0-beta.1/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#410-beta1-2023-04-12)
+
+[**Package (MVN)**](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0-beta.1)
 
 [**ReadMe**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.1.0-beta.1/sdk/formrecognizer/azure-ai-formrecognizer/README.md)
 
@@ -58,9 +124,9 @@ This release includes the following updates:
 * **Targets 2023-02-28-preview by default**
 * **No breaking changes**
 
-[**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.1.0-beta.1)
-
 [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/a162daee4be05eadff0be1caa7fb2071960bbf44/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md#410-beta1-2023-04-11)
+
+[**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.1.0-beta.1)
 
 [**ReadMe**](https://github.com/Azure/azure-sdk-for-js/blob/a162daee4be05eadff0be1caa7fb2071960bbf44/sdk/formrecognizer/ai-form-recognizer/README.md)
 
@@ -72,9 +138,9 @@ This release includes the following updates:
 * **Targets 2023-02-28-preview by default**
 * **No breaking changes**
 
-[**Package (PyPi)**](https://pypi.org/project/azure-ai-formrecognizer/3.3.0b1/)
-
 [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.3.0b1/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#330b1-2023-04-13)
+
+[**Package (PyPi)**](https://pypi.org/project/azure-ai-formrecognizer/3.3.0b1/)
 
 [**ReadMe**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.3.0b1/sdk/formrecognizer/azure-ai-formrecognizer/README.md)
 
@@ -82,7 +148,7 @@ This release includes the following updates:
 
 ---
 
-#### Document Intelligence SDK September 2022 (GA) release
+#### September 2022 (GA) release
 
 This release includes the following updates:
 
@@ -94,9 +160,9 @@ This release includes the following updates:
 * **Version 4.0.0 GA (2022-09-08)**
 * **Supports REST API v3.0 and v2.0 clients**
 
-[**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0)
-
 [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
+
+[**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0)
 
 [**Migration guide**](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/MigrationGuide.md)
 
@@ -109,9 +175,9 @@ This release includes the following updates:
 * **Version 4.0.0 GA (2022-09-08)**
 * **Supports REST API v3.0 and v2.0 clients**
 
-[**Package (Maven)**](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer)
-
 [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+[**Package (Maven)**](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer)
 
 [**Migration guide**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)
 
@@ -124,9 +190,9 @@ This release includes the following updates:
 * **Version 4.0.0 GA (2022-09-08)**
 * **Supports REST API v3.0 and v2.0 clients**
 
-[**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer)
-
 [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
+[**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer)
 
 [**Migration guide**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0/sdk/formrecognizer/ai-form-recognizer/MIGRATION-v3_v4.md)
 
@@ -142,9 +208,9 @@ This release includes the following updates:
 * **Version 3.2.0 GA (2022-09-08)**
 * **Supports REST API v3.0 and v2.0 clients**
 
-[**Package (PyPi)**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/)
-
 [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+[**Package (PyPi)**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/)
 
 [**Migration guide**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/MIGRATION_GUIDE.md)
 
@@ -154,11 +220,7 @@ This release includes the following updates:
 
 ---
 
-
-
-
-
-#### Document Intelligence SDK beta August 2022 preview release
+#### August 2022 (preview) release
 
 This release includes the following updates:
 
@@ -211,11 +273,7 @@ This release includes the following updates:
 
 ---
 
-
-
-
-
-### Document Intelligence SDK beta June 2022 preview release
+### June 2022 (preview) release
 
 This release includes the following updates:
 
@@ -260,7 +318,3 @@ This release includes the following updates:
  [**SDK reference documentation**](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true)
 
 ---
-
-
-
-

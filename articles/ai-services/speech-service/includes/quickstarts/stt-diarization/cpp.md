@@ -1,6 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 7/27/2023
 ms.author: eur
@@ -66,12 +66,12 @@ Follow these steps to create a new console application and install the Speech SD
         std::promise<void> recognitionEnd;
 
         // Subscribes to events.
-        conversationTranscriber->Transcribing.Connect([](const SpeechRecognitionEventArgs& e)
+        conversationTranscriber->Transcribing.Connect([](const ConversationTranscriptionEventArgs& e)
             {
                 std::cout << "TRANSCRIBING:" << e.Result->Text << std::endl;
             });
 
-        conversationTranscriber->Transcribed.Connect([](const SpeechRecognitionEventArgs& e)
+        conversationTranscriber->Transcribed.Connect([](const ConversationTranscriptionEventArgs& e)
             {
                 if (e.Result->Reason == ResultReason::RecognizedSpeech)
                 {
@@ -84,7 +84,7 @@ Follow these steps to create a new console application and install the Speech SD
                 }
             });
 
-        conversationTranscriber->Canceled.Connect([&recognitionEnd](const SpeechRecognitionCanceledEventArgs& e)
+        conversationTranscriber->Canceled.Connect([&recognitionEnd](const ConversationTranscriptionCanceledEventArgs& e)
             {
                 auto cancellation = CancellationDetails::FromResult(e.Result);
                 std::cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
@@ -134,7 +134,7 @@ Follow these steps to create a new console application and install the Speech SD
     }
     ```
 
-1. Replace `katiesteve.wav` with the filepath and filename of your `.wav` file. The intent of this quickstart is to recognize speech from multiple participants in the conversation. Your audio file should contain multiple speakers. For example, you can use the [sample audio file](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/katiesteve.wav) provided in the Speech SDK samples repository on GitHub.
+1. Replace `katiesteve.wav` with the filepath and filename of your `.wav` file. The intent of this quickstart is to recognize speech from multiple participants in the conversation. Your audio file should contain multiple speakers. For example, you can use the [sample audio file](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/sampledata/audiofiles/katiesteve.wav) provided in the Speech SDK samples repository on GitHub.
     > [!NOTE]
     > The service performs best with at least 7 seconds of continuous audio from a single speaker. This allows the system to differentiate the speakers properly. Otherwise the Speaker ID is returned as `Unknown`.
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
@@ -143,7 +143,7 @@ Follow these steps to create a new console application and install the Speech SD
 [Build and run](/cpp/build/vscpp-step-2-build) your application to start conversation transcription:
 
 > [!IMPORTANT]
-> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 The transcribed conversation should be output as text: 
 
@@ -159,9 +159,6 @@ CANCELED: Reason=EndOfStream
 ```
 
 Speakers are identified as Guest-1, Guest-2, and so on, depending on the number of speakers in the conversation.
-
-> [!NOTE]
-> The service performs best with at least 7 seconds of continuous audio from a single speaker. This allows the system to differentiate the speakers properly. Otherwise the Speaker ID is returned as `Unknown`.
 
 ## Clean up resources
 

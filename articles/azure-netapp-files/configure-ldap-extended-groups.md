@@ -26,9 +26,9 @@ Azure NetApp Files supports fetching of extended groups from the LDAP name servi
 
 When it’s determined that LDAP will be used for operations such as name lookup and fetching extended groups, the following process occurs:
 
-1. Azure NetApp Files uses an LDAP client configuration to make a connection attempt to the AD DS/Azure AD DS LDAP server that is specified in the [Azure NetApp Files AD configuration](create-active-directory-connections.md).
-1. If the TCP connection over the defined AD DS/Azure AD DS LDAP service port is successful, then the Azure NetApp Files LDAP client attempts to “bind” (sign in) to the AD DS/Azure AD DS LDAP server (domain controller) by using the defined credentials in the LDAP client configuration.
-1. If the bind is successful, then the Azure NetApp Files LDAP client uses the RFC 2307bis LDAP schema to make an LDAP search query to the AD DS/Azure AD DS LDAP server (domain controller).
+1. Azure NetApp Files uses an LDAP client configuration to make a connection attempt to the AD DS or Microsoft Entra Domain Services LDAP server that is specified in the [Azure NetApp Files AD configuration](create-active-directory-connections.md).
+1. If the TCP connection over the defined AD DS or Microsoft Entra Domain Services LDAP service port is successful, then the Azure NetApp Files LDAP client attempts to “bind” (sign in) to the AD DS or Microsoft Entra Domain Services LDAP server (domain controller) by using the defined credentials in the LDAP client configuration.
+1. If the bind is successful, then the Azure NetApp Files LDAP client uses the RFC 2307bis LDAP schema to make an LDAP search query to the AD DS or Microsoft Entra Domain Services LDAP server (domain controller).
 The following information is passed to the server in the query:
    * [Base/user DN](configure-ldap-extended-groups.md#ldap-search-scope) (to narrow search scope)
    * Search scope type (subtree)
@@ -36,15 +36,15 @@ The following information is passed to the server in the query:
    * UID or username 
    * Requested attributes (`uid`, `uidNumber`, `gidNumber` for users, or `gidNumber` for groups) 
 1. If the user or group isn’t found, the request fails, and access is denied.
-1. If the request is successful, then user and group attributes are [cached for future use](configure-ldap-extended-groups.md#considerations). This operation improves the performance of subsequent LDAP queries associated with the cached user or group attributes. It also reduces the load on the AD DS/Azure AD DS LDAP server.
+1. If the request is successful, then user and group attributes are [cached for future use](configure-ldap-extended-groups.md#considerations). This operation improves the performance of subsequent LDAP queries associated with the cached user or group attributes. It also reduces the load on the AD DS or Microsoft Entra Domain Services LDAP server.
 
 ## Considerations
 
 * You can enable the LDAP with extended groups feature only during volume creation. This feature can't be retroactively enabled on existing volumes.  
 
-* LDAP with extended groups is supported only with Active Directory Domain Services (AD DS) or Azure Active Directory Domain services (Azure AD DS). OpenLDAP or other third-party LDAP directory services are not supported. 
+* LDAP with extended groups is supported only with Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services. OpenLDAP or other third-party LDAP directory services are not supported. 
 
-* LDAP over TLS must *not* be enabled if you are using Azure Active Directory Domain Services (Azure AD DS).  
+* LDAP over TLS must *not* be enabled if you are using Microsoft Entra Domain Services.  
 
 * You can't modify the LDAP option setting (enabled or disabled) after you've created the volume.  
 
@@ -130,3 +130,4 @@ The following information is passed to the server in the query:
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
 * [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)
 * [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md)
+* [Understand NFS group memberships and supplemental groups](network-file-system-group-memberships.md)

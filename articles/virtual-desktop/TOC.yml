@@ -1,10 +1,17 @@
 - name: Azure Virtual Desktop
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Virtual Desktop?
     displayName: overview, get started
     href: overview.md
+  - name: Terminology
+    displayName: azure virtul desktop, avd, overview, what is
+    href: terminology.md
+  - name: Service architecture and resilience
+    displayName: architecture
+    href: service-architecture-resilience.md
   - name: Prerequisites
     displayName: overview, get started
     href: prerequisites.md
@@ -23,7 +30,7 @@
       displayName: what's new, profile, profiles
       href: /fslogix/whats-new?context=/azure/virtual-desktop/context/context
     - name: WebRTC Redirector Service
-      displayName: what's new
+      displayName: what's new, teams
       href: whats-new-webrtc.md
     - name: Multimedia redirection
       displayName: what's new, mmr
@@ -57,19 +64,16 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Create and connect to a Windows 11 desktop
+  - name: Deploy a Windows 11 desktop
     displayName: tutorial
-    href: tutorial-create-connect-personal-desktop.md
+    href: tutorial-try-deploy-windows-11-desktop.md
 - name: Concepts
   items:
-  - name: Azure Virtual Desktop terminology
-    displayName: avd
-    href: terminology.md
   - name: Deploy
     items:
     - name: Session hosts
       items:
-      - name: Azure AD-joined session hosts
+      - name: Microsoft Entra joined session hosts
         displayName: virtual machines, vms
         href: azure-ad-joined-session-hosts.md
       - name: Virtual machine sizing guidance
@@ -78,22 +82,22 @@
       - name: Custom image templates
         displayName: virtual machines, vms, images, vhd, vhdx
         href: custom-image-templates.md
-      - name: Windows 10 Enterprise multi-session FAQ
-        href: windows-10-multisession-faq.yml
+      - name: Windows Enterprise multi-session FAQ
+        href: windows-multisession-faq.yml
       - name: Fair Share technologies
         displayName: virtual machines, vms, cpu, processor
-        href: /troubleshoot/windows-server/remote/fair-share-enabled-by-default-in-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        href: /windows-server/remote/remote-desktop-services/fair-share-enabled-by-default-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Network connectivity
       items:
       - name: Understanding network connectivity
         displayName: connections
         href: network-connectivity.md
       - name: RDP Shortpath
-        displayName: network, udp
+        displayName: network connectivity, connections, udp
         href: rdp-shortpath.md
-      - name: Implement Quality of Service
-        displayName: network, qos
-        href: rdp-quality-of-service-qos.md
+      - name: Azure Private Link
+        displayName: network connectivity, connections, private endpoints
+        href: private-link-overview.md
       - name: Required URL list
         displayName: network, urls, firewall, connections, connectivity
         href: safe-url-list.md
@@ -102,9 +106,9 @@
         href: rdp-bandwidth.md
       - name: Proxy support guidelines
         href: proxy-server-support.md
-      - name: Azure Private Link
-        displayName: network, private endpoints
-        href: private-link-overview.md
+      - name: Implement Quality of Service
+        displayName: network, qos
+        href: rdp-quality-of-service-qos.md
     - name: Identity and access management
       items:
       - name: Identities and authentication
@@ -118,8 +122,9 @@
         href: delegated-access-virtual-desktop.md
     - name: Azure Virtual Desktop Agent
       href: agent-overview.md
-    - name: Host pool load-balancing methods
+    - name: Host pool load balancing methods
       href: host-pool-load-balancing.md
+      displayName: load-balancing, lb
     - name: FSLogix Profile Container
       items:
       - name: FSLogix Profile Container and Azure Files
@@ -154,10 +159,10 @@
         href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
       - name: Multiple identity sources
         items:
-        - name: AD DS and Azure AD
+        - name: AD DS and Microsoft Entra ID
           displayName: architecture
           href: /azure/architecture/example-scenario/wvd/multi-forest?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
-        - name: Azure AD, AD DS, and Azure AD DS
+        - name: Microsoft Entra ID, AD DS, and Microsoft Entra Domain Services
           displayName: architecture
           href: /azure/architecture/example-scenario/wvd/multi-forest-azure-managed?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
   - name: Manage
@@ -223,31 +228,52 @@
       items:
       - name: Estimate Azure Monitor costs
         displayName: insights, avd insights, avdi, monitoring, diagnostics
-        href: azure-monitor-costs.md
-      - name: Azure Monitor glossary
-        displayName: insights, avd insights, avdi, monitoring, diagnostics
-        href: azure-monitor-glossary.md
+        href: insights-costs.md
+      - name: Glossary
+        displayName: azure virtual desktop insights, avd insights, avdi, monitoring, diagnostics
+        href: insights-glossary.md
     - name: Analyze user connection quality
       href: connection-latency.md
 - name: How-to guides
   items:
   - name: Deploy
     items:
-      - name: Create a host pool
-        displayName: deploy, get started
-        href: create-host-pool.md
-      - name: Create application group, workspace, and assign users
-        displayName: deploy, get started
-        href: create-application-group-workspace.md
-      - name: Add session hosts to a host pool
-        displayName: deploy, get started
-        href: add-session-hosts-host-pool.md
+      - name: Deploy Azure Virtual Desktop
+        displayName: deploy, create, get started, host pool, application group, workspace, assign users, azure stack hci
+        href: deploy-azure-virtual-desktop.md
       - name: Use the getting started feature
-        displayName: deploy, get started
+        displayName: deploy, create, get started
         href: getting-started-feature.md
-      - name: Enable GPU acceleration
-        displayName: graphics, multimedia, videos, cad
-        href: enable-gpu-acceleration.md
+      - name: Session hosts
+        items:
+        - name: Add session hosts to a host pool
+          displayName: deploy, get started
+          href: add-session-hosts-host-pool.md
+        - name: Enable GPU acceleration
+          displayName: graphics, multimedia, videos, cad, session hosts
+          href: enable-gpu-acceleration.md
+        - name: Customize session host images
+          items:
+          - name: Create custom images with Custom image templates
+            displayName: session hosts, virtual machines, vms, vhd, vhdx
+            href: create-custom-image-templates.md
+          - name: Set up golden image in Azure
+            displayName: session hosts, virtual machines, vms, vhd, vhdx
+            href: set-up-golden-image.md
+          - name: Set up a master VHD image
+            displayName: session hosts, virtual machines, vms, vhd, vhdx
+            href: set-up-customize-master-image.md
+          - name: Install Office on a master VHD image
+            displayName: session hosts, virtual machines, vms, vhd, vhdx
+            href: install-office-on-wvd-master-image.md
+        - name: Add languages
+          items:
+          - name: Windows 10 multi-session images
+            displayName: languages, language packs
+            href: language-packs.md
+          - name: Windows 11 Enterprise images
+            displayName: languages, language packs
+            href: windows-11-language-packs.md
       - name: Applications
         items:
         - name: Publish applications using Azure portal
@@ -282,32 +308,23 @@
           - name: MSIXMGR tool parameters
             displayName: msix app attach, applications, apps
             href: msixmgr-tool-syntax-description.md 
-        - name: Use Microsoft Teams
-          displayName: applications, apps
-          href: teams-on-avd.md
-        - name: Set up Windows Sandbox
-          displayName: applications, apps
-          href: sandbox.md
-      - name: Customize session host images
-        items:
-        - name: Create custom images with Custom image templates
-          displayName: session hosts, virtual machines, vms, vhd, vhdx
-          href: create-custom-image-templates.md
-        - name: Set up golden image in Azure
-          displayName: session hosts, virtual machines, vms, vhd, vhdx
-          href: set-up-golden-image.md
-        - name: Set up a master VHD image
-          displayName: session hosts, virtual machines, vms, vhd, vhdx
-          href: set-up-customize-master-image.md
-        - name: Install Office on a master VHD image
-          displayName: session hosts, virtual machines, vms, vhd, vhdx
-          href: install-office-on-wvd-master-image.md
+        - name: Specific applications
+          items:
+          - name: Use Microsoft Teams
+            displayName: applications, apps, webrtc
+            href: teams-on-avd.md
+          - name: Use OneDrive with RemoteApp
+            displayName: applications, apps
+            href: onedrive-remoteapp.md
+          - name: Set up Windows Sandbox
+            displayName: applications, apps
+            href: sandbox.md
       - name: Identity and access management
         items:
-        - name: Enforce Azure AD MFA
+        - name: Enforce Microsoft Entra multifactor authentication
           displayName: identity, multi-factor authentication, multifactor, multi factor, two-factor authentication, two factor
           href: set-up-mfa.md
-        - name: Configure single sign-on using Azure AD
+        - name: Configure single sign-on using Microsoft Entra ID
           displayName: identity, sso
           href: configure-single-sign-on.md
         - name: Configure single sign-on using AD FS
@@ -347,17 +364,9 @@
         - name: Use Azure Files and Active Directory
           displayName: fslogix, user profiles
           href: fslogix-profile-container-configure-azure-files-active-directory.md
-        - name: Use Azure Files and Azure AD
+        - name: Use Azure Files and Microsoft Entra ID
           displayName: fslogix, user profiles
           href: create-profile-container-azure-ad.md
-      - name: Language packs
-        items:
-        - name: Windows 10 multi-session images
-          displayName: languages, language packs
-          href: language-packs.md
-        - name: Windows 11 Enterprise images
-          displayName: languages, language packs
-          href: windows-11-language-packs.md
       - name: Migrate from classic
         items:
         - name: Migrate automatically 
@@ -366,8 +375,6 @@
         - name: Migrate manually
           displayName: classic
           href: manual-migration.md
-      - name: Deploy on Azure Stack HCI
-        href: azure-stack-hci.md
   - name: Manage
     items:
     - name: Use Azure CLI and Azure PowerShell
@@ -379,8 +386,8 @@
       items:
       - name: Customize RDP properties
         href: customize-rdp-properties.md
-      - name: Configure load-balancing method
-        displayName: load balancing
+      - name: Configure load balancing method
+        displayName: load-balancing, lb
         href: configure-host-pool-load-balancing.md
       - name: Configure personal desktop assignment
         displayName: friendly name, reassign, unassign
@@ -509,8 +516,8 @@
       - name: Configure device redirections
         href: configure-device-redirections.md
       - name: Install the Remote Desktop client for Windows on a per-user basis
-        displayName: apps, clients, remote desktop, rdp, connect, intune, configuration maneger, configmgr, sccm
-        href: install-client-per-user.md
+        displayName: apps, clients, remote desktop, rdp, connect, intune, configuration manager, configmgr, sccm, mem, mdm, per user
+        href: install-windows-client-per-user.md
     - name: Set up email discovery
       displayName: connect
       href: /windows-server/remote/remote-desktop-services/rds-email-discovery?context=/azure/virtual-desktop/context/context
@@ -522,23 +529,27 @@
       href: multimedia-redirection.md
   - name: Monitor
     items:
-      - name: Set up diagnostics to monitor Agent updates
-        href: agent-updates-diagnostics.md
       - name: Use Azure Virtual Desktop Insights
         displayName: avd insights, avdi, monitoring, diagnostics
         href: insights.md
       - name: Use diagnostics with Log Analytics
         displayName: monitoring
         href: diagnostics-log-analytics.md
+      - name: Set up diagnostics to monitor Agent updates
+        displayName: monitoring
+        href: agent-updates-diagnostics.md
       - name: Configure service alerts
         displayName: monitoring
         href: set-up-service-alerts.md
-      - name: Resolve Azure Advisor recommendations
-        displayName: monitoring
-        href: azure-advisor-recommendations.md
+      - name: Use cases for Azure Virtual Desktop Insights
+        displayName: avd insights, avdi, monitoring, diagnostics
+        href: insights-use-cases.md
       - name: Collect and query user connection quality data
         displayName: monitoring, network, graphics
         href: connection-quality-monitoring.md
+      - name: Resolve Azure Advisor recommendations
+        displayName: monitoring
+        href: azure-advisor-recommendations.md
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support
@@ -569,6 +580,9 @@
     href: troubleshoot-service-connection.md
   - name: Remote Desktop clients
     items:
+    - name: Windows Desktop client basic troubleshooting
+      displayName: troubleshooting, apps, clients, remote desktop, rdp
+      href: troubleshoot-client-windows-basic-shared.md
     - name: Windows Desktop client
       displayName: troubleshooting, apps, clients, remote desktop, rdp
       href: troubleshoot-client-windows.md
@@ -593,7 +607,7 @@
   - name: Diagnosing graphics performance issues
     displayName: troubleshooting
     href: remotefx-graphics-performance-counters.md
-  - name: Connections to Azure AD-joined VMs
+  - name: Connections to Microsoft Entra joined VMs
     displayName: troubleshooting, identity
     href: troubleshoot-azure-ad-connections.md
   - name: Device redirections
@@ -611,9 +625,6 @@
   - name: RDP Shortpath
     displayName: troubleshooting, network, udp
     href: troubleshoot-rdp-shortpath.md
-  - name: Sign-in screen is blank
-    displayName: troubleshooting, logon
-    href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
   - name: Multimedia redirection
     displayName: troubleshooting, mmr
     href: troubleshoot-multimedia-redirection.md
@@ -670,6 +681,8 @@
     href: https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates
   - name: Terraform samples
     href: /azure/developer/terraform/configure-azure-virtual-desktop
+  - name: App Assure for Azure Virtual Desktop
+    href: /microsoft-365/fasttrack/windows-and-other-services#app-assure
   - name: Azure compliance offerings
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
   - name: Azure Virtual Desktop (classic) documentation

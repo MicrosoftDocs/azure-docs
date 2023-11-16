@@ -5,6 +5,7 @@ services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
+ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ms.date: 07/24/2023
 ms.author: greglin

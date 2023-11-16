@@ -7,7 +7,7 @@ ms.author: yili7
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 5/25/2023
-ms.custom: event-tier1-build-2022, devx-track-java, devx-track-extended-java
+ms.custom: event-tier1-build-2022, devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Deploy web static files
@@ -228,7 +228,7 @@ For more information, see the [Use a customized server configuration file](#use-
 The [Paketo buildpacks samples](https://github.com/paketo-buildpacks/samples/tree/main/web-servers) demonstrate common use cases for several different application types, including the following use cases:
 
 - Serving static files with a default server configuration file using `BP_WEB_SERVER` to select either [HTTPD](https://github.com/paketo-buildpacks/samples/blob/main/web-servers/no-config-file-sample/HTTPD.md) or [NGINX](https://github.com/paketo-buildpacks/samples/blob/main/web-servers/no-config-file-sample/NGINX.md).
-- Using Node Package Manager to build a [React app](https://github.com/paketo-buildpacks/samples/tree/main/web-servers/javascript-frontend-sample) into static files that a web server can serve. Use the following steps:
+- Using Node Package Manager to build a [React app](https://github.com/paketo-buildpacks/samples/tree/main/web-servers/react-frontend-sample) into static files that a web server can serve. Use the following steps:
   1. Define a script under the `scripts` property of the *package.json* file that builds your production-ready static assets. For React, it's `build`.
   1. Find out where static assets are stored after the build script runs. For React, static assets are stored in `./build` by default.
   1. Set `BP_NODE_RUN_SCRIPTS` to the name of the build script.
@@ -254,7 +254,15 @@ The following environment variables aren't supported.
 
 ## Use a customized server configuration file
 
-You can configure web server by using a customized server configuration file. Your configuration file must conform to the restrictions described in the following table.
+You can configure web server by using a customized server configuration file. The following table shows the configuration file path:
+
+| Web server  | Default configuration file path                        | How to customize server configuration file path                                                                            |
+|-------------|--------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| nginx       | *nginx.conf*  under the root path of your source code. | Use environment variable `BP_NGINX_CONF_LOCATION` to specify the configuration file name. Place the file under the root path of your source code. |
+| httpd       | *httpd.conf* under the root path of your source code.  | Not supported.                                                                                                       |
+
+
+Your configuration file must conform to the restrictions described in the following table.
 
 | Configuration                                | Description                                                                                                                                                                                                                                                 | Nginx Configuration                                        | Httpd Configuration                           |
 |----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|-----------------------------------------------|

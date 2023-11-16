@@ -4,7 +4,7 @@ description: Enable Private Link for your managed disks with Azure portal. This 
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 08/02/2023
+ms.date: 03/31/2023
 ms.author: rogarana
 ---
 
