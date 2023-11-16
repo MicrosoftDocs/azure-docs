@@ -246,6 +246,8 @@
     href: api-management-howto-policies.md
   - name: Set or edit policies
     href: set-edit-policies.md
+  - name: Author policies using Microsoft Copilot for Azure
+    href: ../copilot/author-api-management-policies.md?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
   - name: Debug policies in VS Code
     href: api-management-debug-policies.md
   - name: Policy expressions
@@ -318,7 +320,7 @@
       href: api-management-howto-ca-certificates.md
     - name: Manage protocols and ciphers
       href: api-management-howto-manage-protocols-ciphers.md
-    - name: Protect with Defender for APIs (preview)
+    - name: Protect with Defender for APIs
       href: protect-with-defender-for-apis.md
     - name: Mitigate OWASP API threats
       displayName: OWASP top 10, vulnerability, vulnerabilities

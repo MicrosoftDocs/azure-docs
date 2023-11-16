@@ -57,7 +57,7 @@ Azure Boost delivers industry leading throughput performance at up to 12.5-GBps 
 
 :::image type="content" source="./media/boost-storage-nvme-vs-scsi.png" alt-text="Diagram showing the difference between managed SCSI storage and Azure Boost's managed NVMe storage.":::
 
-By fully applying Azure Boost architecture, we deliver remote, local, and cached disk performance improvements at up to 17-GBps throughput and 3.8M IOPS. Azure Boost SSDd are designed to provide high performance optimized encryption at rest, and minimal jitter to NVMe local disks for Azure VMs with local disks.
+By fully applying Azure Boost architecture, we deliver remote, local, and cached disk performance improvements at up to 17-GBps throughput and 3.8M IOPS. Azure Boost SSDs are designed to provide high performance optimized encryption at rest, and minimal jitter to NVMe local disks for Azure VMs with local disks.
 
 :::image type="content" source="./media/boost-storage-ssd-comparison.png" alt-text="Diagram showing the difference between local SCSI SSDs and Azure Boost's local NVMe SSDs.":::
 

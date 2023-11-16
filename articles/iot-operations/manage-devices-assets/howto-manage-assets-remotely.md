@@ -76,7 +76,7 @@ The following script shows how to create a secret for the username and password 
 
 ```sh
 # NAMESPACE is the namespace containing the MQ broker.
-export NAMESPACE="alice-springs-solution"
+export NAMESPACE="azure-iot-operations"
 
 # Set the desired username and password here.
 export USERNAME="username"

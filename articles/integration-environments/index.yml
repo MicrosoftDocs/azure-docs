@@ -34,3 +34,9 @@ landingContent:
             url: map-business-process-workflow.md
           - text: Deploy business process and tracking
             url: deploy-business-process.md
+          - text: Manage a business process
+            url: manage-business-process.md
+      - linkListType: reference
+        links:
+          - text: REST API
+            url: /rest/api/integration/
