@@ -122,7 +122,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
 }
 '
 ```
-If you don't specify `sentenceCount`, the model determines the summary length. Note that `sentenceCount` is the approximation of the sentence count of the output summary, range 1 to 20. Using sentenceCount is not recommended for absractive summarization.
+If you don't specify `sentenceCount`, the model determines the summary length. Note that `sentenceCount` is the approximation of the sentence count of the output summary, range 1 to 20. Using sentenceCount is not recommended for abstractive summarization.
 
 2. Make the following changes in the command where needed:
     - Replace the value `your-language-resource-key` with your key.
@@ -207,7 +207,7 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 
 The query-based document summarization API is an extension to the existing document summarization API.
 
-The biggest difference is a new `query` field in the request body (under `tasks` > `parameters` > `query`). Additionally, there's a new way to specify the preferred `summaryLength` in "buckets" of short/medium/long, which we recommend using instead of `sentenceCount`, especially when using absractive. Below is an example request:
+The biggest difference is a new `query` field in the request body (under `tasks` > `parameters` > `query`). Additionally, there's a new way to specify the preferred `summaryLength` in "buckets" of short/medium/long, which we recommend using instead of `sentenceCount`, especially when using abstractive. Below is an example request:
 
 ```bash
 curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/jobs?api-version=2023-11-15-preview \
