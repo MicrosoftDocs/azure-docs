@@ -120,7 +120,7 @@ To get started:
 
 1. To link this release pipeline to the Azure artifact from the previous step, select **Add an artifact** > **Build**. 
 
-1. In **Source (build pipeline)**, select the build pipeline you created in the previous section, then click **Add**.
+1. In **Source (build pipeline)**, select the build pipeline you created in the previous section, then select **Add**.
 
 1. Save the release pipeline and create a release to see it in action.
 
@@ -128,7 +128,7 @@ To get started:
 
 ### Example: Deploy a .NET app
 
-To deploy a .zip Web Deploy package (for example, from an ASP.NET web app) to an Azure Web App,
+To deploy a .zip web package (for example, from an ASP.NET web app) to an Azure Web App,
 
 if you're building a [.NET Core app](/azure/devops/pipelines/ecosystems/dotnet-core), use the following snipped to deploy the build to an app. 
 
@@ -179,7 +179,7 @@ By default, your deployment happens to the root application in the Azure Web App
     VirtualApplication: '<name of virtual application>'
 ```
 
-* **VirtualApplication**: the name of the Virtual Application that has been configured in the Azure portal. For more information, see [Configure an App Service app in the Azure portal
+* **VirtualApplication**: the name of the Virtual Application that's configured in the Azure portal. For more information, see [Configure an App Service app in the Azure portal
 ](./configure-common.md).
 
 # [Classic](#tab/classic/)
@@ -431,20 +431,21 @@ The Azure Web App task (`AzureWebApp`) is the simplest way to deploy to an Azure
 
 The [Azure App Service Deploy task (`AzureRmWebAppDeployment`)](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) can handle more custom scenarios, such as:
 
-- [Modify configuration settings](#example-make-variable-substitutions) inside web packages and XML parameters files. It can also deploy with Web Deploy, for those who are used to the IIS deployment process.
-- Deploy to [virtual applications](#example-deploy-to-a-virtual-application).
+- [Modify configuration settings](#example-make-variable-substitutions) inside web packages and XML parameters files. 
+- [Deploy with Web Deploy](#example-deploy-using-web-deploy), if you're used to the IIS deployment process.
+- [Deploy to virtual applications](#example-deploy-to-a-virtual-application).
 - Deploy to other app types, like Container apps, Function apps, WebJobs, or API and Mobile apps.
 
 > [!NOTE]  
 > File transforms and variable substitution are also supported by the separate [File Transform task](/azure/devops/pipelines/tasks/utility/file-transform) for use in Azure Pipelines. You can use the File Transform task to apply file transformations and variable substitutions on any configuration and parameters files.
 
-#### I get the message "Invalid App Service package or folder path provided".
+#### I get the message "Invalid App Service package or folder path provided."
 
-In YAML pipelines, depending on your pipeline, there is probably a mismatch between where your built web package is saved and where the deploy task is looking for it. For example, the `AzureWebApp` task picks up the web package for deployment. For example, the AzureWebApp tasks looks in `$(System.DefaultWorkingDirectory)/**/*.zip`. If the web package is deposited elsewhere, modify the value of `package`.
+In YAML pipelines, depending on your pipeline, there may be a mismatch between where your built web package is saved and where the deploy task is looking for it. For example, the `AzureWebApp` task picks up the web package for deployment. For example, the AzureWebApp task looks in `$(System.DefaultWorkingDirectory)/**/*.zip`. If the web package is deposited elsewhere, modify the value of `package`.
 
-#### I get the message "Publish using webdeploy options are supported only when using Windows agent".
+#### I get the message "Publish using webdeploy options are supported only when using Windows agent."
 
-This error occurs in the **AzureRmWebAppDeployment** task when you configure the task to deploy using WebDeploy, but your agent is not running Windows. Verify that your YAML has something similar to the following code:
+This error occurs in the **AzureRmWebAppDeployment** task when you configure the task to deploy using Web Deploy, but your agent isn't running Windows. Verify that your YAML has something similar to the following code:
 
 ```yml
 pool:
