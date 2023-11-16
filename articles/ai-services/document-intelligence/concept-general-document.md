@@ -59,9 +59,9 @@ The general document API supports most form types and analyzes your documents an
 
 :::moniker-end
 
-## Development options
-
 ::: moniker range="doc-intel-3.1.0"
+
+## Development options
 
 Document Intelligence v3.1 supports the following tools, applications, and libraries:
 
