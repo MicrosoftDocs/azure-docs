@@ -62,13 +62,13 @@ az keyvault create -g <ResourceGroupName> -l <Location> -n <KeyVaultName>
 > 
 1. Create a self-signed SSL certificate to use with the Ingress using the `openssl req` command. Make sure you replace *`<Hostname>`* with the DNS name you're using.
 
-    ```azurecli-interactive
+    ```bash
     openssl req -new -x509 -nodes -out aks-ingress-tls.crt -keyout aks-ingress-tls.key -subj "/CN=<Hostname>" -addext "subjectAltName=DNS:<Hostname>"
     ```
 
 2. Export the SSL certificate and skip the password prompt using the `openssl pkcs12 -export` command.
 
-    ```azurecli-interactive
+    ```bash
     openssl pkcs12 -export -in aks-ingress-tls.crt -inkey aks-ingress-tls.key -out aks-ingress-tls.pfx
     ```
 
@@ -84,7 +84,7 @@ az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertifica
 > To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature][csi-secrets-store-autorotation] of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you define. The default rotation poll interval is two minutes.
 
 
-### Enable the Azure Key Vault integration
+### Enable Azure Key Vault integration
 
 On a cluster with the application routing add-on enabled, use the [`az aks approuting update`][az-aks-approuting-update] command using the `--enable-kv` and  `--attach-kv` arguments to enable the Azure Key Vault provider for Secrets Store CSI Driver and apply the required role assignments.
 
@@ -105,7 +105,7 @@ Then update the app routing add-on to enable the Azure Key Vault secret store CS
 az aks approuting update -g <ResourceGroupName> -n <ClusterName> --enable-kv --attach-kv <KeyVaultId>
 ```
 
-## Enable the Azure DNS integration
+## Enable Azure DNS integration
 
 To enable support for DNS zones, see the following prerequisites:
 

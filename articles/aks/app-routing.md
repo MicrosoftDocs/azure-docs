@@ -105,7 +105,7 @@ az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app
 
 ### Enable on an existing cluster
 
-Enable application routing on an existing cluster,  use the [`az aks approuting enable`][az-aks-approuting-enable] command:
+To enable application routing on an existing cluster,  use the [`az aks approuting enable`][az-aks-approuting-enable] command:
 
 ```azurecli-interactive
 az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
