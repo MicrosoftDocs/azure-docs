@@ -13,7 +13,7 @@ Azure Communication Services is introducing a new user experience for purchasing
 :::image type="content" source="../media/trial-phone-numbers/trial-overview.png" alt-text="Screenshot showing a Communication Services resource's main page." lightbox="../media/trial-phone-numbers/trial-overview.png":::
 
 2. In the Communication Services resource overview, select on the "Phone numbers" option in the left-hand menu. 
-:::image type="content" source="../media/phone-numbers-portal/get-phone-number-start.png" alt-text="Screenshot showing a Communication Services resource's phone numbers page." lightbox="../media/trial-phone-numbers/get-phone-number-start.png":::
+:::image type="content" source="../media/phone-numbers-portal/get-phone-number-start.png" alt-text="Screenshot showing a Communication Services resource's phone numbers page." lightbox="../media/phone-numbers-portal/get-phone-number-start.png":::
 
 3. Select **Get** on the top left of the page to purchase your phone number. Selecting this launches our shopping wizard:
 :::image type="content" source="../media/phone-numbers-portal/get-phone-number-search.png" alt-text="Screenshot showing phone number shopping cart search wizard." lightbox="../media/phone-numbers-portal/get-phone-number-search.png":::
