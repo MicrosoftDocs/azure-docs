@@ -74,19 +74,19 @@ It's recommended to perform a dry run of the in-place major version upgrade in a
 
 2. You'll see an option to select the major version of your choice, you have an option to skip versions to directly upgrade to higher versions. Choose the version and click **Upgrade**. 
 
-  :::image type="content" source="media/concepts-major-version-upgrade/set-postgresql-version.png" alt-text="Diagram of PostgreSQL version to Upgrade.":::
+   :::image type="content" source="media/concepts-major-version-upgrade/set-postgresql-version.png" alt-text="Diagram of PostgreSQL version to Upgrade.":::
 
 3. During upgrade, users have to wait for the process to complete. You can resume accessing the server once the server is back online. 
 
-  :::image type="content" source="media/concepts-major-version-upgrade/deployment-progress.png" alt-text="Diagram of deployment progress for major version upgrade.":::
+   :::image type="content" source="media/concepts-major-version-upgrade/deployment-progress.png" alt-text="Diagram of deployment progress for major version upgrade.":::
 
 4. Once the upgrade is successful,you can expand the **Deployment details** tab and click **Operation details**  to see more information about upgrade process like duration, provisioning state etc. 
 
-  :::image type="content" source="media/concepts-major-version-upgrade/deployment-success.png" alt-text="Diagram of successful deployment of for major version upgrade.":::
+   :::image type="content" source="media/concepts-major-version-upgrade/deployment-success.png" alt-text="Diagram of successful deployment of for major version upgrade.":::
 
 5. You can click on the **Go to resource** tab to validate your upgrade. You notice that server name remained unchanged and PostgreSQL version upgraded to desired higher version with the latest minor version. 
 
-  :::image type="content" source="media/concepts-major-version-upgrade/upgrade-verification.png" alt-text="Diagram of Upgraded version to Flexible Server after major version upgrade.":::
+   :::image type="content" source="media/concepts-major-version-upgrade/upgrade-verification.png" alt-text="Diagram of Upgraded version to Flexible Server after major version upgrade.":::
 
 
 ## Post upgrade
