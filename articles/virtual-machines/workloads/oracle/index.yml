@@ -67,7 +67,7 @@ landingContent:
           - text: Architectures for Oracle Database Enterprise Edition on Azure
             url: oracle-design.md
 
-  #card 5 
+  #card 6 
   - title: Configuration
     linkLists:
       - linkListType: how-to-guide
@@ -81,7 +81,7 @@ landingContent:
           - text: Configure Oracle GoldenGate
             url: configure-oracle-golden-gate.md                  
   
-  #card 6  
+  #card 7  
   - title: Migration
     linkLists:
       - linkListType: how-to-guide
@@ -91,7 +91,7 @@ landingContent:
           - text: Storage options for oracle on Azure VMs
             url: oracle-storage.md 
   
-  #card 7
+  #card 8
   - title: Backup and disaster recovery
     linkLists:
       - linkListType: how-to-guide
@@ -107,7 +107,7 @@ landingContent:
           - text: Oracle RMAN streaming backup to Azure storage
             url: oracle-rman-streaming-backup.md
 
-  #card 8
+  #card 9
   - title: Reference
     linkLists:
       - linkListType: reference
