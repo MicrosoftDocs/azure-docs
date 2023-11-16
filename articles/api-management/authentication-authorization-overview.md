@@ -111,7 +111,7 @@ With managed [connections](credentials-overview.md) (formerly called *authorizat
 
 In the following example, a subscription key is used between the client and the gateway, and GitHub is the credential provider for the backend API.
 
-:::image type="content" source="media/authentication-authorization-overview/oauth-token-authorization.svg" alt-text="Diagraming showing authorization to backend SaaS service using API credential.":::
+:::image type="content" source="media/authentication-authorization-overview/oauth-token-authorization.svg" alt-text="Diagram showing authorization to backend SaaS service using a connection managed in credential manager.":::
 
 With a connection to a credential provider, API Management acquires and refreshes the tokens for API access in the OAuth 2.0 flow. Connections simplify token management in multiple scenarios, such as:
 

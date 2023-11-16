@@ -78,4 +78,4 @@ Required settings for these providers differ from provider to provider but are s
 ## Related content
 
 * Learn more about managing [connections](credentials-overview.md) in API Management.
-* Create a connection for [Microsoft Entra ID](authorizations-how-to-azure-ad.md) or [GitHub](authorizations-how-to-github.md).
+* Create a connection for [Microsoft Entra ID](credentials-how-to-azure-ad.md) or [GitHub](credentials-how-to-github.md).

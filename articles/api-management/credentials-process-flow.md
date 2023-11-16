@@ -13,11 +13,11 @@ ms.custom:
 
 This article provides details about the process flows for managing OAuth 2.0 connections using credential manager in Azure API Management. The process flows are divided into two parts: **management** and **runtime**.
 
-For details about managed OAuth 2.0 connections in API Management, see [About credential manager and API credentials in API Management](credentials-overview.md).
+For background about credential manager in API Management, see [About credential manager and API credentials in API Management](credentials-overview.md).
 
 ## Management of connections
     
-The **management** part of connections in credential manager takes care of setting up and configuring a *credential provider* for OAuth 2.0 tokens, enabling the consent flow for the identity provider, and setting up one or more *connections* to the credential provider for access to the credentials. 
+The **management** part of connections in credential manager takes care of setting up and configuring a *credential provider* for OAuth 2.0 tokens, enabling the consent flow for the provider, and setting up one or more *connections* to the credential provider for access to the credentials. 
 
 The following image summarizes the process flow for creating a connection in API Management that uses the authorization code grant type.
 
@@ -52,19 +52,19 @@ When you configure a credential provider, behind the scenes credential manager c
 
 ### Connection to a credential provider
 
-To access and use tokens for a provider, client apps need a connection to the credential provider. A given connection is permitted by *access policies* based on Microsoft Entra identities. You can configure multiple connections for a provider. 
+To access and use tokens for a provider, client apps need a connection to the credential provider. A given connection is permitted by *access policies* based on Microsoft Entra ID identities. You can configure multiple connections for a provider. 
 
 The process of configuring a connection differs based on the configured grant and is specific to the credential provider configuration. For example, if you want to configure Microsoft Entra ID to use both grant types, two credential provider configurations are needed. The following table summarizes the two grant types.
 
 
 |Grant type  |Description  |
 |---------|---------|
-|Authorization code     | Bound to a user context, meaning a user needs to consent to the connection. As long as the refresh token is valid, API Management can retrieve new access and refresh tokens. If the refresh token becomes invalid, the user needs to reauthorize. All identity providers support authorization code. [Learn more](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.1)         |
+|Authorization code     | Bound to a user context, meaning a user needs to consent to the connection. As long as the refresh token is valid, API Management can retrieve new access and refresh tokens. If the refresh token becomes invalid, the user needs to reauthorize. All credential providers support authorization code. [Learn more](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.1)         |
 |Client credentials     |  Isn't bound to a user and is often used in application-to-application scenarios. No consent is required for client credentials grant type, and the connection doesn't become invalid. [Learn more](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.4)   |
 
 ### Consent
 
-For credentials based on the authorization code grant type, you must authenticate to the provider and *consent* to authorization. After successful login and authorization by the identity provider, the provider returns valid access and refresh tokens, which are encrypted and saved by API Management. 
+For connections based on the authorization code grant type, you must authenticate to the provider and *consent* to authorization. After successful login and authorization by the credential provider, the provider returns valid access and refresh tokens, which are encrypted and saved by API Management. 
 
 ### Access policy
 
@@ -73,17 +73,16 @@ You configure one or more *access policies* for each connection. The access poli
 
 |Identity  |Description  | Benefits | Considerations |
 |---------|---------|-----|----|
-|Service principal     |   Identity whose tokens can be used to authenticate and grant access to specific Azure resources, when an organization is using Microsoft Entra ID. By using a service principal, organizations avoid creating fictitious users to manage authentication when they need to access a resource. A service principal is a Microsoft Entra identity that represents a registered Microsoft Entra application. | Permits more tightly scoped access to credential and user delegation scenarios. Isn't tied to specific API Management instance. Relies on Microsoft Entra ID for permission enforcement. | Getting the [authorization context](get-authorization-context-policy.md) requires a Microsoft Entra token.     |
-| Managed identity `<Your API Management instance name>` | This option corresponds to a managed identity tied to your API Management instance.  |  By default, access is provided to the  system-assigned managed identity for the corresponding API management instance.  | Identity is tied to your API Management instance. Anyone with Contributor access to API Management instance can access any connection granting managed identity permissions.     |
-| Users or groups | Users or groups in your Microsoft Entra tenant. |  Allows you to limit access to specific users or groups of users.  |  Requires that users have a Microsoft Entra account.  |
+|Service principal     |   Identity whose tokens can be used to authenticate and grant access to specific Azure resources, when an organization is using Microsoft Entra ID. By using a service principal, organizations avoid creating fictitious users to manage authentication when they need to access a resource. A service principal is a Microsoft Entra identity that represents a registered Microsoft Entra application. | Permits more tightly scoped access to connection and user delegation scenarios. Isn't tied to specific API Management instance. Relies on Microsoft Entra ID for permission enforcement. | Getting the [authorization context](get-authorization-context-policy.md) requires a Microsoft Entra ID token.     |
+| Managed identity `<Your API Management instance name>` | This option corresponds to a managed identity tied to your API Management instance.  |  By default, access is provided to the system-assigned managed identity for the corresponding API management instance.  | Identity is tied to your API Management instance. Anyone with Contributor access to API Management instance can access any connection granting managed identity permissions.     |
+| Users or groups | Users or groups in your Microsoft Entra ID tenant. |  Allows you to limit access to specific users or groups of users.  |  Requires that users have a Microsoft Entra ID account.  |
 
 
 ## Runtime of connections
 
-The **runtime** part requires a backend OAuth 2.0 API to be configured with the [`get-authorization-context`](get-authorization-context-policy.md) policy. At runtime, the policy fetches and stores access and refresh tokens from the credential store. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the identity provider. Then the access token is used to authorize access to the backend service. 
+The **runtime** part requires a backend OAuth 2.0 API to be configured with the [`get-authorization-context`](get-authorization-context-policy.md) policy. At runtime, the policy fetches and stores access and refresh tokens from the credential store. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the credential provider. Then the access token is used to authorize access to the backend service. 
    
 During the policy execution, access to the tokens is also validated using access policies.
-
 
 The following image shows an example process flow to fetch and store authorization and refresh tokens based on a connection that uses the authorization code grant type. After the tokens have been retrieved, a call is made to the backend API. 
 
@@ -93,8 +92,8 @@ The following image shows an example process flow to fetch and store authorizati
 | --- | --- |
 | 1 |Client sends request to API Management instance|
 |2|The [`get-authorization-context`](get-authorization-context-policy.md) policy checks if the access token is valid for the current connection|
-|3|If the access token has expired but the refresh token is valid, API Management tries to fetch new access and refresh tokens from the configured identity provider|
-|4|The identity provider returns both an access token and a refresh token, which are encrypted and saved to API Management| 
+|3|If the access token has expired but the refresh token is valid, API Management tries to fetch new access and refresh tokens from the configured credential provider|
+|4|The credential provider returns both an access token and a refresh token, which are encrypted and saved to API Management| 
 |5|After the tokens have been retrieved, the access token is attached using the `set-header` policy as an authorization header to the outgoing request to the backend API|
 |6| Response is returned to API Management|
 |7| Response is returned to the client|
@@ -107,3 +106,4 @@ The following image shows an example process flow to fetch and store authorizati
 - Configure [credential providers](credentials-configure-common-providers.md) for credential manager
 - Configure and use a connection for the [Microsoft Graph API](credentials-how-to-azure-ad.md) or the [GitHub API](credentials-how-to-github.md)
 - Configure [multiple authorization connections](configure-credential-connection.md) for a provider
+- Configure a connection for [user-delegated access](credentials-how-to-user-delegated.md)

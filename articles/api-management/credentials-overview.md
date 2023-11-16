@@ -139,7 +139,7 @@ All underlying connections and access policies are also deleted.
 
 ### Are the access tokens cached by API Management?
 
-In the dedicated service tiers, the access token is cached by the API management until 3 minutes before the token expiration time. If the access token is less than 3 minutes away from expiration, the cached time will be until the access token expires.
+In the dedicated service tiers, the access token is cached by the API Management instance until 3 minutes before the token expiration time. If the access token is less than 3 minutes away from expiration, the cached time will be until the access token expires.
 
 Access tokens aren't cached in the Consumption tier.
 
@@ -147,4 +147,5 @@ Access tokens aren't cached in the Consumption tier.
 
 - Configure [credential providers](credentials-configure-common-providers.md) for connections
 - Configure and use a connection for the [Microsoft Graph API](credentials-how-to-azure-ad.md) or the [GitHub API](credentials-how-to-github.md)
+- Configure a connection for [user-delegated access](credentials-how-to-user-delegated.md)
 - Configure [multiple connections](configure-credential-connection.md) for a credential provider
