@@ -146,6 +146,15 @@ The following table highlights key aspects about the online deployment options:
 
 Azure Machine Learning provides various ways to debug online endpoints locally and by using container logs.
 
+#### Local debugging with the Azure Machine Learning inference HTTP server
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+
+You can debug your scoring script locally by using the Azure Machine Learning inference HTTP server. The HTTP server is a Python package that exposes your scoring function as an HTTP endpoint and wraps the Flask server code and dependencies into a singular package. It's included in the [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package alone, you can deploy the model locally for production, and you can also easily validate your scoring (entry) script in a local development environment. If there's a problem with the scoring script, the server will return an error and the location where the error occurred.
+You can also use Visual Studio Code to debug with the Azure Machine Learning inference HTTP server.
+
+To learn more about debugging with the HTTP server, see [Debugging scoring script with Azure Machine Learning inference HTTP server](how-to-inference-server-http.md).
+
 #### Local debugging
 
 For **local debugging**, you need a local deployment; that is, a model that is deployed to a local Docker environment. You can use this local deployment for testing and debugging before deployment to the cloud. To deploy locally, you'll need to have the [Docker Engine](https://docs.docker.com/engine/install/) installed and running. Azure Machine Learning then creates a local Docker image that mimics the Azure Machine Learning image. Azure Machine Learning will build and run deployments for you locally and cache the image for rapid iterations.
@@ -165,15 +174,6 @@ To learn more about local debugging, see [Deploy and debug locally by using loca
 As with local debugging, you first need to have the [Docker Engine](https://docs.docker.com/engine/install/) installed and running and then deploy a model to the local Docker environment. Once you have a local deployment, Azure Machine Learning local endpoints use Docker and Visual Studio Code development containers (dev containers) to build and configure a local debugging environment. With dev containers, you can take advantage of Visual Studio Code features, such as interactive debugging, from inside a Docker container.
 
 To learn more about interactively debugging online endpoints in VS Code, see [Debug online endpoints locally in Visual Studio Code](/azure/machine-learning/how-to-debug-managed-online-endpoints-visual-studio-code).
-
-#### Local debugging with the Azure Machine Learning inference HTTP server (preview)
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
-
-You can debug your scoring script locally by using the Azure Machine Learning inference HTTP server. The HTTP server is a Python package that exposes your scoring function as an HTTP endpoint and wraps the Flask server code and dependencies into a singular package. It's included in the [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package alone, you can deploy the model locally for production, and you can also easily validate your scoring (entry) script in a local development environment. If there's a problem with the scoring script, the server will return an error and the location where the error occurred.
-You can also use Visual Studio Code to debug with the Azure Machine Learning inference HTTP server.
-
-To learn more about debugging with the HTTP server, see [Debugging scoring script with Azure Machine Learning inference HTTP server (preview)](how-to-inference-server-http.md).
 
 #### Debugging with container logs
 
