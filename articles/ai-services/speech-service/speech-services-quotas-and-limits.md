@@ -51,7 +51,7 @@ You can use real-time speech to text with the [Speech SDK](speech-sdk.md) or the
 | Max audio input file size | N/A | 1 GB |
 | Max number of blobs per container | N/A | 10000 |
 | Max number of files per transcription request (when you're using multiple content URLs as input). | N/A | 1000  |
-| Max audio length for transcriptions with diarizaion enabled. | N/A | 240 minutes per file  |
+| Max audio length for transcriptions with diarization enabled. | N/A | 240 minutes per file  |
 
 #### Model customization
 

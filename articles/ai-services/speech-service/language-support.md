@@ -46,7 +46,7 @@ To improve Speech to text recognition accuracy, customization is available for s
 
 The table in this section summarizes the locales and voices supported for Text to speech. See the table footnotes for more details.
 
-Additional remarks for Text to speech locales are included in the [Voice styles and roles](#voice-styles-and-roles), [Prebuilt neural voices](#prebuilt-neural-voices), and [Custom Neural Voice](#custom-neural-voice) sections below. 
+Additional remarks for text to speech locales are included in the [voice styles and roles](#voice-styles-and-roles), [prebuilt neural voices](#prebuilt-neural-voices), [Custom Neural Voice](#custom-neural-voice), and [personal voice](#personal-voice) sections below. 
 
 > [!TIP]
 > Check the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery) and determine the right voice for your business needs. 
@@ -99,6 +99,7 @@ With the cross-lingual feature, you can transfer your custom neural voice model 
 [Personal voice](personal-voice-overview.md) is a feature that lets you create a voice that sounds like you or your users. The following table summarizes the locales supported for personal voice. 
 
 [!INCLUDE [Language support include](includes/language-support/personal-voice.md)]
+
 
 # [Pronunciation assessment](#tab/pronunciation-assessment)
 
