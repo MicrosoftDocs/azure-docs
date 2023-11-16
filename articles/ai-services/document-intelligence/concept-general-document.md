@@ -37,7 +37,7 @@ ms.author: lajanuar
 
 The General document model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, tables, and selection marks from documents. General document is available with the v3.1 and v3.0 APIs.  For more information, _see_ our [migration guide](v3-1-migration-guide.md).
 
-::: moniker range="<=doc-intel-3.1.0"
+::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
 
 ## General document features
 
@@ -56,6 +56,8 @@ The General document model combines powerful Optical Character Recognition (OCR)
 ## Key-value pair extraction
 
 The general document API supports most form types and analyzes your documents and extract keys and associated values. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to training a custom model without labels.
+
+:::moniker-end
 
 ## Development options
 
@@ -76,6 +78,8 @@ Document Intelligence v3.0 supports the following tools, applications, and libra
 |----------|-------------|-----------|
 |**General document model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-document**|
 ::: moniker-end
+
+::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
 
 ## Input requirements
 
