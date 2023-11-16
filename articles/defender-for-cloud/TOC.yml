@@ -110,10 +110,6 @@
     - name: Investigate and respond to security alerts
       displayName: triage, security, alerts, investigate,
       href: tutorial-security-incident.md
-    - name: Improve your regulatory compliance
-      displayName: regulatory, compliance, remediate, assessment, reports,
-        certificates, export, workflow, automation
-      href: regulatory-compliance-dashboard.md
     - name: Manage security policies
       displayName: security, policies, edit, disable
       href: tutorial-security-policy.md
@@ -345,26 +341,30 @@
         displayName: gcp, assessment, standards, built-in, compliance, standard, custom,
             assessment, query
         href: how-to-manage-gcp-assessments-standards.md
-      - name: Review your security recommendations
-        displayName: security, recommendations, owner, azure, resource, graph, azure
-            resource graph, csv report
-        href: review-security-recommendations.md
-      - name: Remediate recommendations
-        displayName: remediation, steps, recommendations, fix, actions, activity log
-        href: implement-security-recommendations.md
-      - name: Improve your security posture with recommendation governance
-        displayName: security, posture, recommendation, governance, automated, rules,
-            owners, status, progress
-        href: governance-rules.md
       - name: Prevent misconfigurations with Enforce/Deny
         displayName: recommendations, enforce, deny
         href: prevent-misconfigurations.md
-      - name: Automate responses to recommendations
-        displayName: workflow, triggers, logic app, automation, policies, breaking change
-        href: workflow-automation.md
       - name: Disable a recommendation
         displayName: recommendation, disable, security, policy,
         href: tutorial-security-policy.md#disable-a-security-recommendation
+    - name: Investigate and remediate security posture
+      items:
+      - name: Review security recommendations
+        displayName: security, recommendations, owner, azure, resource, graph, azure
+            resource graph, csv report
+        href: review-security-recommendations.md
+      - name: Review exempted resources
+        href: review-exemptions.md
+      - name: Remediate recommendations
+        displayName: remediation, steps, recommendations, fix, actions, activity log
+        href: implement-security-recommendations.md
+      - name: Drive remediation with governance rules
+        displayName: security, posture, recommendation, governance, automated, rules,
+            owners, status, progress
+        href: governance-rules.md
+      - name: Automate remediation responses
+        displayName: workflow, triggers, logic app, automation, policies, breaking change
+        href: workflow-automation.md
     - name: Built-in security protections
       items:
         - name: Leverage Purview to protect sensitive data
@@ -667,7 +667,7 @@
                    href: powershell-sample-vulnerability-assessment-baselines.md
                  - name: Express configuration PowerShell wrapper module
                    href: express-configuration-sql-commands.md
-                 - name: Example express configuration PowerShell commands reference
+                 - name: Example - express configuration
                    href: express-configuration-powershell-commands.md
               - name: Azure CLI examples
                 href: express-configuration-azure-commands.md

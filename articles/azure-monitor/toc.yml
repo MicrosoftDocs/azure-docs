@@ -654,12 +654,15 @@ items:
     - name: Best practices
       displayName: data collection, data collection rules
       href: essentials/data-collection-rule-best-practices.md
+    - name: Create and edit
+      displayName: Data collection rules
+      href: essentials/data-collection-rule-create-edit.md
+    - name: Edit tutorial
+      displayName: data collection rules
+      href: essentials/data-collection-rule-edit.md
     - name: Structure
       displayName: Data collection rules
       href: essentials/data-collection-rule-structure.md
-    - name: Edit a data collection rule
-      displayName: data collection rules
-      href: essentials/data-collection-rule-edit.md
   - name: Transformations
     items:
       - name: Overview
@@ -866,6 +869,9 @@ items:
     - name: Overview
       displayName: data ingestion
       href: logs/logs-ingestion-api-overview.md
+    - name: Configure with PowerShell
+      displayName: logs ingestion
+      href: logs/set-up-logs-ingestion-api-prerequisites.md
     - name: Migrate from Data Collector API
       href: logs/custom-logs-migrate.md
     - name: Tutorials
@@ -876,9 +882,6 @@ items:
       - name: Configure with ARM templates
         displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-api.md
-      - name: Configure with PowerShell
-        displayName: logs ingestion
-        href: logs/set-up-logs-ingestion-api-prerequisites.md
       - name: Sample code
         displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-code.md    
@@ -1489,11 +1492,7 @@ items:
   - name: Alerts 
     href: alerts/alerts-payload-samples.md
   - name: Data collection rules
-    items:
-    - name: Agent
-      href: agents/data-collection-rule-sample-agent.md
-    - name: Custom logs
-      href: logs/data-collection-rule-sample-custom-logs.md
+    href: essentials/data-collection-rule-samples.md
   - name: Monitor Logs in Azure CLI
     href: logs\azure-cli-log-analytics-workspace-sample.md
   - name: Configure workspaces using PowerShell
