@@ -3,14 +3,15 @@ title: Create, view, and manage Azure Event Grid event subscriptions in namespac
 description: This article describes how to create, view and manage event subscriptions in namespace topics
 author: robece
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.author: robece
 ms.date: 05/24/2023
 ---
 
-# Create, view, and manage event subscriptions in namespace topics (Preview)
-This article shows you how to create, view, and manage event subscriptions to namespace topics in Azure Event Grid. 
+# Create, view, and manage event subscriptions in namespace topics
 
-[!INCLUDE [pull-preview-note](./includes/pull-preview-note.md)]
+This article shows you how to create, view, and manage event subscriptions to namespace topics in Azure Event Grid.
 
 ## Create an event subscription
 
@@ -26,7 +27,16 @@ This article shows you how to create, view, and manage event subscriptions to na
 
 4. In the **Basics** tab, type the name of the topic you want to create.
 
-    :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscription-create-basics.png" alt-text="Screenshot showing Event Grid event subscription create basics.":::
+> [!IMPORTANT]
+> When you create a subscription you will need to choose between the **pull** or **push** delivery mode. See [pull delivery overview](pull-delivery-overview.md) or [push delivery overview](namespace-push-delivery-overview.md) to learn more about the consumption modes available in Event Grid namespaces.
+
+1. Pull delivery subscription:
+
+    :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscription-create-basics.png" alt-text="Screenshot showing pull event subscription creation.":::
+
+2. Push delivery subscription:
+
+    :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscription-push-create-basics.png" alt-text="Screenshot showing push event subscription creation.":::
 
 5. In the **Filters** tab, add the names of the event types you want to filter in the subscription and add context attribute filters you want to use in the subscription.
 
@@ -80,7 +90,7 @@ This article shows you how to create, view, and manage event subscriptions to na
 
 ### Simplified resource model
 
-The event subscriptions under a [Namespace Topic](concepts-pull-delivery.md#namespace-topics) feature a simplified filtering configuration model when compared to that of event subscriptions to domains and to custom, system, partner, and domain topics. The filtering capabilities are the same except for the scenarios documented in the following sections.
+The event subscriptions under a [Namespace Topic](concepts-event-grid-namespaces.md#namespace-topics) feature a simplified filtering configuration model when compared to that of event subscriptions to domains and to custom, system, partner, and domain topics. The filtering capabilities are the same except for the scenarios documented in the following sections.
 
 #### Filter on event data
 

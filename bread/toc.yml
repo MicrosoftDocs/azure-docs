@@ -257,6 +257,9 @@
       - name: Industrial IoT
         tocHref: /azure/industrial-iot/
         topicHref: /azure/industrial-iot/index
+      - name: IoT Operations
+        tocHref: /azure/iot-operations/
+        topicHref: /azure/iot-operations/index
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
@@ -350,11 +353,14 @@
   - name: Cloud Services
     tocHref: /azure/cloud-services/
     topicHref: /azure/cloud-services/
+  - name: AI Studio
+    tocHref: /azure/ai-studio/
+    topicHref: /azure/ai-studio/
   - name: AI Services
     tocHref: /azure/ai-services/
     topicHref: /azure/ai-services/
     items:
-    - name: Cognitive Search
+    - name: Azure AI Search
       tocHref: /azure/search/
       topicHref: /azure/search/
     - name: Academic Knowledge
@@ -722,6 +728,8 @@
   - name: Lab Services
     tocHref: /azure/lab-services/
     topicHref: /azure/lab-services/
+  - name: Azure Integration Environments
+    tocHref: /azure/integration-environments/
   - name: Azure Logic Apps
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/

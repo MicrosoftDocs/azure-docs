@@ -167,8 +167,8 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Monitor (Microsoft.Insights/privateLinkScopes) | azuremonitor | privatelink.monitor.azure.us <br/> privatelink.adx.monitor.azure.us <br/> privatelink.oms.opinsights.azure.us <br/> privatelink.ods.opinsights.azure.us <br/> privatelink.agentsvc.azure-automation.us <br/> privatelink.blob.core.usgovcloudapi.net | monitor.azure.us <br/> adx.monitor.azure.us <br/> oms.opinsights.azure.us<br/> ods.opinsights.azure.us<br/> agentsvc.azure-automation.us <br/> blob.core.usgovcloudapi.net |
 | Azure AI services (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.us  | cognitiveservices.azure.us  |
 | Azure Cache for Redis (Microsoft.Cache/Redis) | redisCache | privatelink.redis.cache.usgovcloudapi.net | redis.cache.usgovcloudapi.net |
-| Microsoft Purview (Microsoft.Purview) | account | privatelink.purview.azure.com | purview.azure.com |
-| Microsoft Purview (Microsoft.Purview) | portal | privatelink.purviewstudio.azure.com | purview.azure.com </br> purviewstudio.azure.com |
+| Microsoft Purview (Microsoft.Purview) | account | privatelink.purview.azure.us | purview.azure.us |
+| Microsoft Purview (Microsoft.Purview) | portal | privatelink.purviewstudio.azure.us | purview.azure.us </br> purviewstudio.azure.us |
 | Azure HDInsight (Microsoft.HDInsight) | N/A | privatelink.azurehdinsight.us | azurehdinsight.us |
 | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.ml.azure.us<br/>privatelink.notebooks.usgovcloudapi.net | api.ml.azure.us<br/>notebooks.usgovcloudapi.net <br/> instances.azureml.us<br/>aznbcontent.net <br/> inference.ml.azure.us |
 | Azure Health Data Services (Microsoft.HealthcareApis/workspaces) | healthcareworkspace | privatelink.workspace.azurehealthcareapis.us </br> privatelink.fhir.azurehealthcareapis.us </br> privatelink.dicom.azurehealthcareapis.us | workspace.azurehealthcareapis.us </br> fhir.azurehealthcareapis.us </br> dicom.azurehealthcareapis.us |

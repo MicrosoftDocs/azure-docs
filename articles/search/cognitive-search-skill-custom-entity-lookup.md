@@ -1,13 +1,14 @@
 ---
-title: Custom Entity Lookup cognitive search skill
-titleSuffix: Azure Cognitive Search
-description: Extract different custom entities from text in an Azure Cognitive Search cognitive search pipeline.
+title: Custom Entity Lookup skill
+titleSuffix: Azure AI Search
+description: Extract different custom entities from text in an Azure AI Search enrichment pipeline.
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 09/07/2022
-
 ---
 
 # Custom Entity Lookup cognitive skill
@@ -15,7 +16,7 @@ ms.date: 09/07/2022
 The **Custom Entity Lookup** skill is used to detect or recognize entities that you define. During skillset execution, the skill looks for text from a custom, user-defined list of words and phrases. The skill uses this list to label any matching entities found within source documents. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not exact.  
 
 > [!NOTE]
-> This skill isn't bound to an Azure AI services API but requires an Azure AI services key to allow more than 20 transactions. This skill is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
+> This skill isn't bound to an Azure AI services API but requires an Azure AI services key to allow more than 20 transactions. This skill is [metered by Azure AI Search](https://azure.microsoft.com/pricing/details/search/#pricing).
 
 ## @odata.type  
 
@@ -403,7 +404,7 @@ This warning will be emitted if the number of matches detected is greater than t
 
 ## See also
 
-+ [Custom Entity Lookup sample and readme](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/skill-examples/custom-entity-lookup-skill)
++ [Custom Entity Lookup sample and readme](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/skill-examples/custom-entity-lookup-skill)
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Entity Recognition skill (to search for well known entities)](cognitive-search-skill-entity-recognition-v3.md)

@@ -6,8 +6,10 @@ services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-openai
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 10/13/2023
+ms.date: 11/15/2023
 ms.author: mbullwin
 ---
 
@@ -22,9 +24,10 @@ The following sections provide you with a quick guide to the default quotas and 
 | Limit Name | Limit Value |
 |--|--|
 | OpenAI resources per region per Azure subscription | 30 |
-| Default DALL-E quota limits | 2 concurrent requests |
+| Default DALL-E 2 quota limits | 2 concurrent requests |
+| Default DALL-E 3 quota limits| 2 capacity units (12 requests per minute)|
 | Maximum prompt tokens per request | Varies per model. For more information, see [Azure OpenAI Service models](./concepts/models.md)|
-| Max fine-tuned model deployments | 2 |
+| Max fine-tuned model deployments | 5 |
 | Total number of training jobs per resource | 100 |
 | Max simultaneous running training jobs per resource | 1 |
 | Max training jobs queued | 20 | 

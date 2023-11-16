@@ -16,8 +16,6 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Job Router rule engines
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 Job Router can use one or more rule engines to process data and make decisions about your Jobs and Workers. This document covers what the rule engines do and why you may want to apply them in your implementation.
 
 ## Rules engine overview
@@ -46,7 +44,7 @@ In this example a `StaticRouterRule`, which is a subtype of `RouterRule` can be 
 await administrationClient.CreateClassificationPolicyAsync(
     new CreateClassificationPolicyOptions(classificationPolicyId: "my-policy-id")
     {
-        PrioritizationRule = new StaticRouterRule(new LabelValue(5))
+        PrioritizationRule = new StaticRouterRule(new RouterValue(5))
     });
 ```
 
@@ -55,9 +53,12 @@ await administrationClient.CreateClassificationPolicyAsync(
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await administrationClient.createClassificationPolicy("my-policy-id", {
-    prioritizationRule: { kind: "static-rule", value: 5 }
-});
+await administrationClient.path("/routing/classificationPolicies/{classificationPolicyId}", "my-policy-id").patch({
+    body: {
+        prioritizationRule: { kind: "static-rule", value: 5 }
+    },
+    contentType: "application/merge-patch+json"
+  });
 ```
 
 ::: zone-end
@@ -65,9 +66,9 @@ await administrationClient.createClassificationPolicy("my-policy-id", {
 ::: zone pivot="programming-language-python"
 
 ```python
-administration_client.create_classification_policy(
+administration_client.upsert_classification_policy(
     classification_policy_id = "my-policy-id",
-    classification_policy = ClassificationPolicy(prioritization_rule = StaticRouterRule(value = 5)))
+    prioritization_rule = StaticRouterRule(value = 5))
 ```
 
 ::: zone-end
@@ -76,7 +77,7 @@ administration_client.create_classification_policy(
 
 ```java
 administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("my-policy-id")
-    .setPrioritizationRule(new StaticRouterRule(new LabelValue(5))));
+    .setPrioritizationRule(new StaticRouterRule(new RouterValue(5))));
 ```
 
 ::: zone-end
@@ -100,12 +101,15 @@ await administrationClient.CreateClassificationPolicyAsync(
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await administrationClient.createClassificationPolicy("my-policy-id", {
-    prioritizationRule: {
-        kind: "expression-rule",
-        expression: "If(job.Escalated = true, 10, 5)"
-    }
-  });
+await administrationClient.path("/routing/classificationPolicies/{classificationPolicyId}", "my-policy-id").patch({
+    body: {
+        prioritizationRule: {
+            kind: "expression-rule",
+            expression: "If(job.Escalated = true, 10, 5)"
+        }
+    },
+    contentType: "application/merge-patch+json"
+});
 ```
 
 ::: zone-end
@@ -113,10 +117,9 @@ await administrationClient.createClassificationPolicy("my-policy-id", {
 ::: zone pivot="programming-language-python"
 
 ```python
-administration_client.create_classification_policy(
+administration_client.upsert_classification_policy(
     classification_policy_id = "my-policy-id",
-    classification_policy = ClassificationPolicy(
-        prioritization_rule = ExpressionRouterRule(expression = "If(job.Urgent = true, 10, 5)")))
+    prioritization_rule = ExpressionRouterRule(expression = "If(job.Urgent = true, 10, 5)"))
 ```
 
 ::: zone-end
