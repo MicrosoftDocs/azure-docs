@@ -18,10 +18,10 @@ This article describes how to get started by using DICOM&reg; data in analytics 
 
 Before you get started, ensure that you've done the following steps:
 
-* Deploy an instance of the [DICOM service](deploy-dicom-services-in-azure.md).
-   * (_Optional_) Deploy the [DICOM service with Data Lake Storage (Preview)](deploy-dicom-services-in-azure-data-lake.md) to enable direct access to DICOM files.
 * Create a [storage account with Azure Data Lake Storage Gen2 capabilities](../../storage/blobs/create-data-lake-storage-account.md) by enabling a hierarchical namespace:
     * Create a container to store DICOM metadata, for example, named `dicom`.
+* Deploy an instance of the [DICOM service](deploy-dicom-services-in-azure.md).
+   * (_Optional_) Deploy the [DICOM service with Data Lake Storage (Preview)](deploy-dicom-services-in-azure-data-lake.md) to enable direct access to DICOM files.
 * Create a [Data Factory](../../data-factory/quickstart-create-data-factory.md) instance:
     * Enable a [system-assigned managed identity](../../data-factory/data-factory-service-identity.md).
 * Create a [lakehouse](/fabric/data-engineering/tutorial-build-lakehouse) in Fabric.
@@ -271,7 +271,7 @@ After a few seconds, the results of the query appear in a table underneath the c
 
 :::image type="content" source="media/fabric-notebook-results.png" alt-text="Screenshot that shows a notebook with a sample Spark SQL query and results." lightbox="media/fabric-notebook-results.png":::
 
-### Access DICOM file data in notebooks
+#### Access DICOM file data in notebooks
 
 If you've created a shortcut to the DICOM file data, you can use the `filePath` column in the `instance` table to correlate instance metadata to file data.  
 

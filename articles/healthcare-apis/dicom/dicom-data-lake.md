@@ -65,12 +65,11 @@ To learn more about access tiers, including cost tradeoffs and best practices, s
 During public preview, the DICOM service with data lake storage has these limitations:  
 
 - [Bulk Import](import-files.md) isn't supported.
-- [Private link](../healthcare-apis-configure-private-link.md) isn't supported.  
 - UPS-RS work items aren't stored in the data lake storage account.  
 - User data added to the data lake storage account isn't read and indexed by the DICOM service. It's possible that a filename collision could occur, so we recommend that you don't write data to the folder structure used by the DICOM service.
 - If DICOM data written by the DICOM service is modified or removed, errors might result when accessing data with the DICOMweb APIs.
 - Configuration of customer-managed keys isn't supported during the creation of a DICOM service when you opt to use external storage.
-- The archive access tier isn't supported . Moving data to the archive tier will result in errors when accessing data with the DICOMweb APIs.
+- The archive access tier isn't supported. Moving data to the archive tier will result in errors when accessing data with the DICOMweb APIs.
 
 ## Next steps
 
