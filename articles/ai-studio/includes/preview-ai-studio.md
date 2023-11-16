@@ -6,9 +6,7 @@
  ms.service: azure-ai-services
  ms.topic: include
  ms.date: 11/15/2023
-ms.custom:
-  - include
-  - ignite-2023
+ ms.custom: include
 ---
 
 > [!NOTE]

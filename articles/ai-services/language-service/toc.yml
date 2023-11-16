@@ -269,7 +269,7 @@ items:
         - name: Use containers
           items:
           - name: Use Docker containers
-            href: language-detection/how-to/use-containers.md
+            href: named-entity-recognition/how-to/use-containers.md
           - name: Configure containers
             href: concepts/configure-containers.md
           - name: Use container instances

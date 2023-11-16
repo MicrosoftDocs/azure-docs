@@ -315,9 +315,9 @@ POST {your-resource-name}/openai/deployments/{deployment-id}/extensions/chat/com
 
 #### Example request
 
-You can make requests using [Azure Cognitive Search](./concepts/use-your-data.md?tabs=ai-search#ingesting-your-data) and [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db#ingesting-your-data).
+You can make requests using [Azure AI Search](./concepts/use-your-data.md?tabs=ai-search#ingesting-your-data) and [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db#ingesting-your-data).
 
-##### Azure Cognitive Search
+##### Azure AI Search
 
 ```Console
 curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/extensions/chat/completions?api-version=2023-06-01-preview \
@@ -365,7 +365,7 @@ curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/exten
     "messages": [
         {
             "role": "user",
-            "content": "who is Nebula"
+            "content": "What is the company insurance plan?"
         }
     ],
     "dataSources": [
@@ -438,27 +438,27 @@ The following parameters can be used inside of the `parameters` field inside of 
 
 |  Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| `type` | string | Required | null | The data source to be used for the Azure OpenAI on your data feature. For Azure Cognitive search the value is `AzureCognitiveSearch`. For Azure Cosmos DB for MongoDB vCore, the value is `AzureCosmosDB`. |
+| `type` | string | Required | null | The data source to be used for the Azure OpenAI on your data feature. For Azure AI Search the value is `AzureCognitiveSearch`. For Azure Cosmos DB for MongoDB vCore, the value is `AzureCosmosDB`. |
 | `indexName` | string | Required | null | The search index to be used. |
-| `fieldsMapping` | dictionary | Optional for Azure Cognitive Search. Required for Azure Cosmos DB for MongoDB vCore.  | null | Index data column mapping. When using Azure Cosmos DB for MongoDB vCore, the value `vectorFields` is required, which indicates the fields that store vectors.  |
+| `fieldsMapping` | dictionary | Optional for Azure AI Search. Required for Azure Cosmos DB for MongoDB vCore.  | null | Index data column mapping. When using Azure Cosmos DB for MongoDB vCore, the value `vectorFields` is required, which indicates the fields that store vectors.  |
 | `inScope` | boolean | Optional | true | If set, this value will limit responses specific to the grounding data content.  |
 | `topNDocuments` | number | Optional | 5 | Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. This is the *retrieved documents* parameter in Azure OpenAI studio.   |
-| `queryType` | string | Optional | simple |  Indicates which query option will be used for Azure Cognitive Search. Available types: `simple`, `semantic`, `vector`, `vectorSimpleHybrid`, `vectorSemanticHybrid`. |
 | `semanticConfiguration` | string | Optional | null |  The semantic search configuration. Only required when `queryType` is set to `semantic` or  `vectorSemanticHybrid`.  |
 | `roleInformation` | string | Optional | null |  Gives the model instructions about how it should behave and the context it should reference when generating a response. Corresponds to the "System Message" in Azure OpenAI Studio. See [Using your data](./concepts/use-your-data.md#system-message) for more information. There’s a 100 token limit, which counts towards the overall token limit.|
-| `filter` | string | Optional | null | The filter pattern used for [restricting access to sensitive documents](./concepts/use-your-data.md#document-level-access-control-azure-cognitive-search-only)
+| `filter` | string | Optional | null | The filter pattern used for [restricting access to sensitive documents](./concepts/use-your-data.md#document-level-access-control-azure-ai-search-only)
 | `embeddingEndpoint` | string | Optional | null | The endpoint URL for an Ada embedding model deployment, generally of the format `https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2023-05-15`. Use with the `embeddingKey` parameter  for [vector search](./concepts/use-your-data.md#search-options) outside of private networks and private endpoints. | 
 | `embeddingKey` | string | Optional | null | The API key for an Ada embedding model deployment. Use with `embeddingEndpoint` for [vector search](./concepts/use-your-data.md#search-options) outside of private networks and private endpoints. | 
 | `embeddingDeploymentName` | string | Optional | null | The Ada embedding model deployment name within the same Azure OpenAI resource. Used instead of `embeddingEndpoint` and `embeddingKey` for [vector search](./concepts/use-your-data.md#search-options). Should only be used when both the `embeddingEndpoint` and `embeddingKey` parameters are defined. When this parameter is provided, Azure OpenAI on your data will use an internal call to evaluate the Ada embedding model, rather than calling  the Azure OpenAI endpoint. This enables you to use vector search in private networks and private endpoints. Billing remains the same whether this parameter is defined or not. Available in regions where embedding models are [available](./concepts/models.md#embeddings-models) starting in API versions `2023-06-01-preview` and later.|
 | `strictness` | number | Optional | 3 | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. |
 
 
-**The following parameters are used for Azure Cognitive Search only**
+**The following parameters are used for Azure AI Search only**
 
 | Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| `endpoint` | string | Required | null | Azure Cognitive Search only. The data source endpoint. |
-| `key` | string | Required | null | Azure Cognitive Search. One of the Azure Cognitive Search admin keys for your service. |
+| `endpoint` | string | Required | null | Azure AI Search only. The data source endpoint. |
+| `key` | string | Required | null | Azure AI Search only. One of the Azure AI Search admin keys for your service. |
+| `queryType` | string | Optional | simple |  Indicates which query option will be used for Azure AI Search. Available types: `simple`, `semantic`, `vector`, `vectorSimpleHybrid`, `vectorSemanticHybrid`. |
 
 **The following parameters are used for Azure Cosmos DB for MongoDB vCore**
 
@@ -609,7 +609,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/{deployment-id}/images
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | `prompt` | string | Required |  | A text description of the desired image(s). The maximum length is 1000 characters. |
-| `n` | integer | Optional | 1 | The number of images to generate. Must be between 1 and 5. |
+| `n` | integer | Optional | 1 | The number of images to generate. Only `n=1` is supported for DALL-E 3. |
 | `size` | string | Optional | `1024x1024` | The size of the generated images. Must be one of `1792x1024`, `1024x1024`, or `1024x1792`. |
 | `quality` | string | Optional | `standard` | The quality of the generated images. Must be `hd` or `standard`. |
 | `imagesResponseFormat` | string | Optional | `url` | The format in which the generated images are returned Must be `url` (a URL pointing to the image) or `b64_json` (the base 64 byte code in JSON format). |
@@ -627,8 +627,8 @@ curl -X POST https://{your-resource-name}.openai.azure.com/openai/{deployment-id
     "prompt": "An avocado chair",
     "size": "1024x1024",
     "n": 3,
-    "quality": "hd", 
-    "style": "vivid"
+    "quality": "hd", 
+    "style": "vivid"
   }'
 ```
 
@@ -638,17 +638,17 @@ The operation returns a `202` status code and an `GenerateImagesResponse` JSON o
 
 ```json
 { 
-    "created": 1698116662, 
-    "data": [ 
+    "created": 1698116662, 
+    "data": [ 
         { 
-            "url": "url to the image", 
-            "revised_prompt": "the actual prompt that was used" 
+            "url": "url to the image", 
+            "revised_prompt": "the actual prompt that was used" 
         }, 
         { 
-            "url": "url to the image" 
-        },
+            "url": "url to the image" 
+        },
         ...
-    ]
+    ]
 } 
 ```
 

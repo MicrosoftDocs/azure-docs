@@ -39,6 +39,8 @@ To deploy a prompt flow as an online endpoint, you need:
 
 Now that you have built a flow and tested it properly, it's time to create your online endpoint for real-time inference. 
 
+# [Studio](#tab/azure-studio)
+
 Follow the steps below to deploy a prompt flow as an online endpoint in Azure AI Studio.
 
 1. Have a prompt flow ready for deployment. If you don't have one, see [how to build a prompt flow](./flow-develop.md).
@@ -74,6 +76,49 @@ Follow the steps below to deploy a prompt flow as an online endpoint in Azure AI
     :::image type="content" source="../media/prompt-flow/how-to-deploy-for-real-time-inference/deployments-score-url-samples.png" alt-text="Screenshot of the deployment endpoint and code samples." lightbox = "../media/prompt-flow/how-to-deploy-for-real-time-inference/deployments-score-url-samples.png":::
 
 
+# [Python SDK](#tab/python)
+
+You can use the Azure AI Generative SDK to deploy a prompt flow as an online endpoint.
+
+```python
+# Import required dependencies 
+from azure.ai.generative import AIClient 
+from azure.ai.generative.entities.deployment import Deployment 
+from azure.ai.generative.entities.models import PromptflowModel 
+from azure.identity import InteractiveBrowserCredential as Credential 
+
+# Credential info can be found in Azure AI Studio or Azure Portal. 
+credential = Credential() 
+
+client = AIClient(
+    credential=credential, 
+    subscription_id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 
+    resource_group_name="INSERT_YOUR_RESOURCE_GROUP_NAME", 
+    project_name="INSERT_YOUR_PROJECT_NAME", 
+) 
+
+# Name your deployment 
+deployment_name = "my-deployment-name" 
+
+# Define your deployment 
+deployment = Deployment(
+    name=deployment_name, 
+    model=PromptflowModel(
+        # This is the path for a local promptflow you have downloaded or authored locally.
+        path="./sample-pf"  
+    ), 
+    # this is the VM used for deploying the promptflow.
+    instance_type="STANDARD_DS2_V2" 
+) 
+
+# Deploy the promptflow 
+deployment = client.deployments.create_or_update(deployment) 
+
+# Test with a sample json file.
+print(client.deployments.invoke(deployment_name, "./request_file_pf.json"))
+```
+ 
+---
 
 For more information, see the sections below.
 
@@ -161,10 +206,10 @@ Once you configured and reviewed all the steps above, you can select **Review + 
 ## Grant permissions to the endpoint
 
 > [!IMPORTANT]
-> Granting permissions (adding role assignment) is only enabled to the **Owner** of the specific Azure resources. You may need to ask your IT admin for help.
+> Granting permissions (adding role assignment) is only enabled to the **Owner** of the specific Azure resources. You might need to ask your IT admin for help.
 >
 > It's recommended to grant roles to the **user-assigned** identity **before the deployment creation**.
-> It may take more than 15 minutes for the granted permission to take effect.
+> It might take more than 15 minutes for the granted permission to take effect.
 
 You can grant all permissions in Azure portal UI by following steps.
 
@@ -223,7 +268,7 @@ In the endpoint detail page, switch to the **Consume** tab. You can find the RES
 If you aren't going use the endpoint after completing this tutorial, you should delete the endpoint.
 
 > [!NOTE]
-> The complete deletion may take approximately 20 minutes.
+> The complete deletion might take approximately 20 minutes.
 
 ## Next Steps
 

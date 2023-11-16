@@ -1,7 +1,7 @@
 ---
 title: Overview
 description: Centrally organize Azure resources for integration solutions. Model and map business processes to Azure resources. Collect business data from deployed solutions.
-ms.service: azure
+ms.service: integration-environments
 ms.topic: overview
 ms.reviewer: estfan, azla
 ms.date: 11/15/2023

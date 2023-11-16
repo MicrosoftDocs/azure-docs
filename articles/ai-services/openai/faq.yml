@@ -168,7 +168,7 @@ sections:
       - question: |
           Will my web app be overwritten when I deploy the app again from the Azure AI Studio?
         answer:
-          Your app code won't be overwritten when you update your app. The app will be updated to use the Azure OpenAI resource, Azure Cognitive Search index (if you're using Azure OpenAI on your data), and model settings selected in the Azure OpenAI Studio without any change to the appearance or functionality. 
+          Your app code won't be overwritten when you update your app. The app will be updated to use the Azure OpenAI resource, Azure AI Search index (if you're using Azure OpenAI on your data), and model settings selected in the Azure OpenAI Studio without any change to the appearance or functionality. 
   - name: Using your data
     questions:
       - question: |
@@ -182,19 +182,19 @@ sections:
       - question: |
           What data sources does Azure OpenAI on your data support?
         answer:
-          Azure OpenAI on your data supports ingestion from Azure Cognitive Search, Azure Blob Storage, and uploading local files. You can learn more about Azure OpenAI on your data from the [conceptual article](./concepts/use-your-data.md) and [quickstart](./use-your-data-quickstart.md).
+          Azure OpenAI on your data supports ingestion from Azure AI Search, Azure Blob Storage, and uploading local files. You can learn more about Azure OpenAI on your data from the [conceptual article](./concepts/use-your-data.md) and [quickstart](./use-your-data-quickstart.md).
       - question: |
           How much does it cost to use Azure OpenAI on your data?
         answer:
-          When using Azure OpenAI on your data, you incur costs when you use Azure Cognitive Search, Azure Blob Storage, Azure Web App Service, semantic search and OpenAI models. There's no additional cost for using the "your data" feature in the Azure AI Studio.
+          When using Azure OpenAI on your data, you incur costs when you use Azure AI Search, Azure Blob Storage, Azure Web App Service, semantic search and OpenAI models. There's no additional cost for using the "your data" feature in the Azure AI Studio.
       - question: |
           How can I customize or automate the index creation process?
         answer:
-          You can prepare the index yourself using a [script provided on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395). Using this script will create an Azure Cognitive Search index with all the information needed to better leverage your data, with your documents broken down into manageable chunks. Please see the README file with the data preparation code for details on how to run it.
+          You can prepare the index yourself using a [script provided on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395). Using this script will create an Azure AI Search index with all the information needed to better leverage your data, with your documents broken down into manageable chunks. Please see the README file with the data preparation code for details on how to run it.
       - question: | 
           How can I update my index?
         answer:
-          You can [schedule an automatic index refresh](concepts/use-your-data.md#schedule-automatic-index-refreshes-azure-cognitive-search-only), or upload additional data to your Azure Blob Container and use it as your data source when you create a new index. The new index will include all of the data in your container.
+          You can [schedule an automatic index refresh](concepts/use-your-data.md#schedule-automatic-index-refreshes-azure-ai-search-only), or upload additional data to your Azure Blob Container and use it as your data source when you create a new index. The new index will include all of the data in your container.
       - question: | 
           What file types does Azure OpenAI on your data support?
         answer:
@@ -214,16 +214,16 @@ sections:
       - question: |
           Does the query language and the data source language need to be the same?
         answer:
-          You must send queries in the same language of your data. Your data can be in any of the languages supported by [Azure Cognitive Search](/azure/search/search-language-support).
+          You must send queries in the same language of your data. Your data can be in any of the languages supported by [Azure AI Search](/azure/search/search-language-support).
       - question: |
-          If Semantic Search is enabled for my Azure Cognitive Search resource, will it be automatically applied to Azure OpenAI on your data in the Azure OpenAI Studio?
+          If Semantic Search is enabled for my Azure AI Search resource, will it be automatically applied to Azure OpenAI on your data in the Azure OpenAI Studio?
         answer:
-          When you select "Azure Cognitive Search" as the data source, you can choose to apply semantic search. 
-          If you select "Azure Blob Container" or "Upload files" as the data source, you can create the index as usual. Afterwards you would re-ingest the data using the "Azure Cognitive Search" option to select the same index and apply Semantic Search. You will then be ready to chat on your data with semantic search applied.
+          When you select "Azure AI Search" as the data source, you can choose to apply semantic search. 
+          If you select "Azure Blob Container" or "Upload files" as the data source, you can create the index as usual. Afterwards you would re-ingest the data using the "Azure AI Search" option to select the same index and apply Semantic Search. You will then be ready to chat on your data with semantic search applied.
       - question: |
           How can I add vector embeddings when indexing my data?
         answer:
-          When you select "Azure Blob Container", "Azure Cognitive Search", or "Upload files" as the data source, you can also select an Ada embedding model deployment to use when ingesting your data. This will create an Azure Cognitive Search index with vector embeddings.
+          When you select "Azure Blob Container", "Azure AI Search", or "Upload files" as the data source, you can also select an Ada embedding model deployment to use when ingesting your data. This will create an Azure AI Search index with vector embeddings.
       - question: |
           Why is index creation failing after I added an embedding model?
         answer:
