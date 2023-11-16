@@ -51,7 +51,6 @@ The following table summarizes each plan and their cloud availability.
 | [Data aware security posture](concept-data-security-posture.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 | EASM insights in network exposure | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 
-DevOps security features under the Defender CSPM plan will remain free until March 1, 2024. Defender CSPM DevOps security features include code-to-cloud contextualization powering security explorer and attack paths and pull request annotations for Infrastructure-as-Code security findings.
 
 Starting March 1, 2024, Defender CSPM must be enabled to have premium DevOps security capabilities which include code-to-cloud contextualization powering security explorer and attack paths and pull request annotations for Infrastructure-as-Code security findings. See DevOps security [support and prerequisites](devops-support.md) to learn more.
 

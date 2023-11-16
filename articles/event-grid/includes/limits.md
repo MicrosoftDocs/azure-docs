@@ -36,11 +36,11 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | MQTT sessions per namespace               | 10,000 per TU                                                                     |
 | Sessions per namespace                       | 10,000 per TU                                                                     |
 | Session Expiry Interval                      | 8 hours, [configurable on the namespace](../mqtt-support.md#maximum-session-expiry-interval-configuration)|
-| Inbound MQTT publish requests per namespace  | 1,000 messages per second                                                         |
+| Inbound MQTT publish requests per namespace  | 1,000 messages per second per TU                                                         |
 | Inbound MQTT bandwidth per namespace         | 1 MB per second per TU                                                            |
 | Inbound MQTT publish requests per session | 100 messages per second                                                           |
 | Inbound MQTT bandwidth per session        | 1 MB per second                                                                   |
-| Outbound MQTT publish requests per namespace | 1,000 messages per second                                                         |
+| Outbound MQTT publish requests per namespace | 1,000 messages per second per TU                                                         |
 | Outbound MQTT bandwidth per namespace        | 1 MB per second per TU                                                            |
 | Outbound MQTT publish requests per session| 100 messages per second                                                           |
 | Outbound MQTT bandwidth per session       | 1 MB per second                                                                   |

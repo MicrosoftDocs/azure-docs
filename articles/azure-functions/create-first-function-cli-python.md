@@ -39,8 +39,6 @@ Before you begin, you must have the following requirements in place:
 + The [Azurite storage emulator](../storage/common/storage-use-azurite.md?tabs=npm#install-azurite). While you can also use an actual Azure Storage account, the article assumes you're using this emulator.
 ::: zone-end  
 
-[!INCLUDE [functions-x86-emulation-on-arm64-note](../../includes/functions-x86-emulation-on-arm64-note.md)]
-
 [!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
 ## <a name="create-venv"></a>Create and activate a virtual environment

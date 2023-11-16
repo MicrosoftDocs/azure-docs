@@ -85,7 +85,7 @@ ms.author: wchi
         .buildClient();
     ```
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 The authentication type is not supported by Spring Boot client type.
 
 ### [Python](#tab/python)
