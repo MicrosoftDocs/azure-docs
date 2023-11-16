@@ -311,7 +311,7 @@ Some key classes changed names between version 1.x and version 4.x. These change
 
 # [.NET 8 (isolated)](#tab/net8)
 
-| Version 1.x |  .NET 7 | 
+| Version 1.x |  .NET 8 | 
 | --- | --- | 
 | `FunctionName` (attribute) | `Function` (attribute) | 
 | `TraceWriter` | `ILogger<T>`, `ILogger`  |

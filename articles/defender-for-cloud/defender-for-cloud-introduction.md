@@ -1,9 +1,8 @@
 ---
 title: What is Microsoft Defender for Cloud?
-
 description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multicloud resources and workloads.
 ms.topic: overview
-ms.date: 07/24/2023
+ms.date: 11/02/2023
 ---
 
 # What is Microsoft Defender for Cloud?
@@ -14,10 +13,17 @@ Microsoft Defender for Cloud is a cloud-native application protection platform (
 - A cloud security posture management (CSPM) solution that surfaces actions that you can take to prevent breaches
 - A cloud workload protection platform (CWPP) with specific protections for servers, containers, storage, databases, and other workloads
 
-![Diagram that shows the core functionality of Microsoft Defender for Cloud.](media/defender-for-cloud-introduction/defender-for-cloud-pillars.png)
+:::image type="content" source="media/defender-for-cloud-introduction/defender-for-cloud-pillars.png" alt-text="Diagram that shows the core functionality of Microsoft Defender for Cloud.":::
 
 > [!NOTE]
 > For Defender for Cloud pricing information, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+
+When you [enable Defender for Cloud on your](connect-azure-subscription.md), you'll automatically gain access to Microsoft 365 Defender.
+
+The Microsoft 365 Defender portal provides richer context to investigations that span cloud resources, devices, and identities. In addition, security teams are able to get the complete picture of an attack, including suspicious and malicious events that happen in their cloud environment, through the immediate correlation of all alerts and incidents, including cloud alerts and incidents.
+
+You can learn more about the [integration between Microsoft Defender for Cloud and Microsoft 365 Defender](concept-integration-365.md).
+
 
 ## Secure cloud applications
 
@@ -31,7 +37,7 @@ Today’s applications require security awareness at the code, infrastructure, a
 
 ## Improve your security posture
 
-The security of your cloud and on-premises resources depends on proper configuration and deployment. Defender for Cloud recommendations identify the steps that you can take to secure your environment.
+The security of your cloud and on-premises resources depends on proper configuration and deployment. Defender for Cloud recommendations identifies the steps that you can take to secure your environment.
 
 Defender for Cloud includes Foundational CSPM capabilities for free. You can also enable advanced CSPM capabilities by enabling the Defender CSPM plan.
 
@@ -45,7 +51,7 @@ Defender for Cloud includes Foundational CSPM capabilities for free. You can als
 | [Data-aware Security Posture](concept-data-security-posture.md) | Data-aware security posture automatically discovers datastores containing sensitive data, and helps reduce risk of data breaches. | [Enable data-aware security posture](data-security-posture-enable.md) | Defender CSPM or Defender for Storage |
 | [Attack path analysis](concept-attack-path.md#what-is-attack-path-analysis) | Model traffic on your network to identify potential risks before you implement changes to your environment. | [Build queries to analyze paths](how-to-manage-attack-path.md) | Defender CSPM |
 | [Cloud Security Explorer](concept-attack-path.md#what-is-cloud-security-explorer) | A map of your cloud environment that lets you build queries to find security risks. | [Build queries to find security risks](how-to-manage-cloud-security-explorer.md) | Defender CSPM |
-| [Security governance](governance-rules.md#building-an-automated-process-for-improving-security-with-governance-rules) | Drive security improvements through your organization by assigning tasks to resource owners and tracking progress in aligning your security state with your security policy. | [Define governance rules](governance-rules.md#defining-governance-rules-to-automatically-set-the-owner-and-due-date-of-recommendations) | Defender CSPM |
+| [Security governance](governance-rules.md) | Drive security improvements through your organization by assigning tasks to resource owners and tracking progress in aligning your security state with your security policy. | [Define governance rules](governance-rules.md) | Defender CSPM |
 | [Microsoft Entra Permissions Management](../active-directory/cloud-infrastructure-entitlement-management/index.yml) | Provide comprehensive visibility and control over permissions for any identity and any resource in Azure, AWS, and GCP. | [Review your Permission Creep Index (CPI)](other-threat-protections.md#entra-permission-management-formerly-cloudknox) | Defender CSPM |
 
 ## Protect cloud workloads

@@ -25,6 +25,7 @@ Some summarization features are only available in limited regions. More regions 
 |East US           |&#9989;                           |&#9989;                                        |&#9989;                                           |&#9989;             |
 |UK South          |&#9989;                           |&#9989;                                        |&#9989;                                           |&#10060;            |
 |Southeast Asia    |&#9989;                           |&#9989;                                        |&#9989;                                           |&#10060;            |
+|Central Sweden    |&#9989;                           |&#10060;                                       |&#10060;                                          |&#10060;            |
 
 ## Next steps
 
