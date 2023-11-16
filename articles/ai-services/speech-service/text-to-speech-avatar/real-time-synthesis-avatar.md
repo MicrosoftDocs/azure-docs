@@ -21,10 +21,12 @@ In this how-to guide, you learn how to use text to speech avatar (preview) with 
 
 To get started, make sure you have the following prerequisites:
 
-- **Azure Subscription:** [Create one for free](https://azure.microsoft.com/free/cognitive-services).
-- **Speech Resource:** <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Create a Speech resource"  target="_blank">Create a speech resource</a> in the Azure portal.
-- **Communication Resource:** Create a [Communication resource](https://portal.azure.com/#create/Microsoft.Communication) in the Azure portal (for real-time avatar synthesis only).
-- You also need your network relay token for real-time avatar synthesis. After deploying your Communication resource, select **Go to resource** to view the endpoint and connection string under **Settings** -> **Keys** tab, and then follow [Access TURN relays](/azure/ai-services/speech-service/quickstarts/setup-platform#install-the-speech-sdk-for-javascript) to generate the relay token with the endpoint and connection string filled.
+- **Azure subscription:** [Create one for free](https://azure.microsoft.com/free/cognitive-services).
+- **Speech resource:** <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Create a Speech resource"  target="_blank">Create a speech resource</a> in the Azure portal. Select "Standard S0" pricing tier if you want to create speech resource to access avatar. 
+- **Your speech resource key and region:** After your Speech resource is deployed, select **Go to resource** to view and manage keys. For more information about Azure AI services resources, see [Get the keys for your resource](/azure/ai-services/multi-service-resource.md#get-the-keys-for-your-resource).
+- If you build an application of real time avatar: 
+   - **Communication Resource:** Create a [Communication resource](https://portal.azure.com/#create/Microsoft.Communication) in the Azure portal (for real-time avatar synthesis only).
+    - You also need your network relay token for real-time avatar synthesis. After deploying your Communication resource, select **Go to resource** to view the endpoint and connection string under **Settings** -> **Keys** tab, and then follow [Access TURN relays](/azure/ai-services/speech-service/quickstarts/setup-platform#install-the-speech-sdk-for-javascript) to generate the relay token with the endpoint and connection string filled.
 
 ## Set up environment
 
