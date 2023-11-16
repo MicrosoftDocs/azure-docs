@@ -25726,12 +25726,12 @@
             "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
         },
         {
-            "source_path_from_root": "articles/automation/dsc-linux-powershell.md",
+            "source_path_from_root": "/articles/automation/dsc-linux-powershell.md",
             "redirect_url": "/articles/automation/automation-dsc-overview"
         },
         {
-            "source_path_from_root": "articles/virtual-machines/extensions/dsc-linux.md",
-            "redirect_url": "articles/virtual-machines/extensions/dsc-overview"
+            "source_path_from_root": "/articles/virtual-machines/extensions/dsc-linux.md",
+            "redirect_url": "/articles/virtual-machines/extensions/dsc-overview"
         }
     ]
 }
