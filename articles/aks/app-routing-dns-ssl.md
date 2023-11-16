@@ -166,8 +166,8 @@ The application routing add-on creates an Ingress class on the cluster named *we
     spec:
       ingressClassName: webapprouting.kubernetes.azure.com
       rules:
-     - host: <Hostname>
-       http:
+      - host: <Hostname>
+        http:
           paths:
           - backend:
               service:
@@ -177,7 +177,7 @@ The application routing add-on creates an Ingress class on the cluster named *we
             path: /
             pathType: Prefix
       tls:
-     - hosts:
+      - hosts:
         - <Hostname>
         secretName: keyvault-<your ingress name>
     ```
