@@ -2,22 +2,21 @@
 title: Transaction Search and Diagnostics
 description: This article explains Application Insights end-to-end transaction diagnostics and how to search and filter raw telemetry sent by your web app.
 ms.topic: conceptual
-ms.date: 10/13/2023
+ms.date: 11/16/2023
 ms.reviewer: cogoodson
-
 ---
 
 # Transaction Search and Diagnostics
 
 Azure Monitor Application Insights offers Transaction Search for pinpointing specific telemetry items and Transaction Diagnostics for comprehensive end-to-end transaction analysis.
 
-**Transaction Search**: This experience enables users to locate and examine individual telemetry items such as page views, exceptions, and web requests. Additionally, it offers the capability to view log traces and events that have been coded into the application. It's designed for the specific identification of performance issues or errors within the application.
+**Transaction Search**: This experience enables users to locate and examine individual telemetry items such as page views, exceptions, and web requests. Additionally, it offers the capability to view log traces and events coded into the application. It identifies performance issues and errors within the application.
 
 **Transaction Diagnostics**: Quickly identify issues in components through comprehensive insight into end-to-end transaction details, including dependencies and exceptions. Access this feature via the Search interface by choosing an item from the search results.
 
 ## [Transaction Search](#tab/transaction-search)
 
-Transaction search is a feature of [Application Insights](./app-insights-overview.md) that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. You can also view log traces and events that you've coded.
+Transaction search is a feature of [Application Insights](./app-insights-overview.md) that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. You can also view log traces and events that you code.
 
 For more complex queries over your data, use [Log Analytics](../logs/log-analytics-tutorial.md).
 
@@ -31,7 +30,7 @@ You can open transaction search from the Application Insights **Overview** tab o
 
 :::image type="content" source="./media/search-and-transaction-diagnostics/view-custom-events.png" lightbox="./media/search-and-transaction-diagnostics/view-custom-events.png" alt-text="Screenshot that shows the Search tab.":::
 
-Go to the **Event types** dropdown menu to see a list of telemetry items such as server requests, page views, and custom events that you've coded. At the top of the **Results** list is a summary chart showing counts of events over time.
+Go to the **Event types** dropdown menu to see a list of telemetry items such as server requests, page views, and custom events you coded. The top of the **Results** list has a summary chart showing counts of events over time.
 
 Back out of the dropdown menu or select **Refresh** to get new events.
 
@@ -47,7 +46,7 @@ The **Application Insights Search** window has features similar to the web porta
 
 :::image type="content" source="./media/search-and-transaction-diagnostics/34.png" lightbox="./media/search-and-transaction-diagnostics/34.png" alt-text="Screenshot that shows Visual Studio Application Insights Search window.":::
 
-The **Track Operation** tab is available when you open a request or a page view. An "operation" is a sequence of events that's associated with a single request or page view. For example, dependency calls, exceptions, trace logs, and custom events might be part of a single operation. The **Track Operation** tab shows graphically the timing and duration of these events in relation to the request or page view.
+The **Track Operation** tab is available when you open a request or a page view. An "operation" is a sequence of events associated with a single request or page view. For example, dependency calls, exceptions, trace logs, and custom events might be part of a single operation. The **Track Operation** tab shows graphically the timing and duration of these events in relation to the request or page view.
 
 ## Inspect individual items
 
@@ -91,7 +90,7 @@ To find all the items with the same property value, either enter it in the **Sea
 > To write more complex queries, open [Logs (Analytics)](../logs/log-analytics-tutorial.md) at the top of the **Search** pane.
 >
 
-You can search for terms in any of the property values. This capability is useful if you've written [custom events](./api-custom-events-metrics.md) with property values.
+You can search for terms in any of the property values. This capability is useful if you write [custom events](./api-custom-events-metrics.md) with property values.
 
 You might want to set a time range because searches over a shorter range are faster.
 
@@ -108,14 +107,14 @@ You can use the following search expressions:
 
 | Sample query | Effect |
 | --- | --- |
-| `apple` |Find all events in the time range whose fields include the word "apple". |
-| `apple AND banana` <br/>`apple banana` |Find events that contain both words. Use capital "AND", not "and". <br/>Short form. |
-| `apple OR banana` |Find events that contain either word. Use "OR", not "or". |
+| `apple` |Find all events in the time range whose fields include the word `apple`. |
+| `apple AND banana` <br/>`apple banana` |Find events that contain both words. Use capital `AND`, not `and`. <br/>Short form. |
+| `apple OR banana` |Find events that contain either word. Use `OR`, not `or`. |
 | `apple NOT banana` |Find events that contain one word but not the other. |
 
 ## Sampling
 
-If your app generates a large amount of telemetry, and you're using the ASP.NET SDK version 2.0.0-beta3 or later, the adaptive sampling module automatically reduces the volume that's sent to the portal by sending only a representative fraction of events. Events that are related to the same request are selected or deselected as a group so that you can navigate between related events.
+If your app generates significant telemetry and uses ASP.NET SDK version 2.0.0-beta3 or later, it automatically reduces the volume sent to the portal through adaptive sampling. This module sends only a representative fraction of events. It selects or deselects events related to the same request as a group, allowing you to navigate between related events.
 
 Learn about [sampling](./sampling.md).
 
@@ -153,7 +152,7 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 
 ### Why does my Azure Function search return no results?
 
-The URL query strings are not logged by Azure Functions.
+Azure Functions doesn't log URL query strings.
 
 ## [Transaction Diagnostics](#tab/transaction-diagnostics)
 
@@ -172,7 +171,12 @@ Components are independently deployable parts of your distributed or microservic
 
 ## Transaction diagnostics experience
 
-This view has four key parts: a results list, a cross-component transaction chart, a time-sequence list of all telemetry related to this operation, and the details pane for any selected telemetry item on the left.
+This view has four key parts:
+
+- a results list
+- a cross-component transaction chart
+- a time-sequence list of all telemetry related to this operation
+- the details pane for any selected telemetry item
 
 :::image type="content" source="media/search-and-transaction-diagnostics/4partsCrossComponent.png" lightbox="media/search-and-transaction-diagnostics/4partsCrossComponent.png" alt-text="Screenshot that shows the four key parts of the view.":::
 
@@ -183,14 +187,14 @@ This chart provides a timeline with horizontal bars during requests and dependen
 - The top row on this chart represents the entry point. It's the incoming request to the first component called in this transaction. The duration is the total time taken for the transaction to complete.
 - Any calls to external dependencies are simple noncollapsible rows, with icons that represent the dependency type.
 - Calls to other components are collapsible rows. Each row corresponds to a specific operation invoked at the component.
-- By default, the request, dependency, or exception that you selected appears on the right side. Select any row to see its [details](#details-of-the-selected-telemetry).
+- By default, the request, dependency, or exception that you selected appears to the side. Select any row to see its [details](#details-of-the-selected-telemetry).
 
 > [!NOTE]
 > Calls to other components have two rows. One row represents the outbound call (dependency) from the caller component. The other row corresponds to the inbound request at the called component. The leading icon and distinct styling of the duration bars help differentiate between them.
 
 ## All telemetry with this Operation ID
 
-This section shows a flat list view in a time sequence of all the telemetry related to this transaction. It also shows the custom events and traces that aren't displayed in the transaction chart. You can filter this list to telemetry generated by a specific component or call. You can select any telemetry item in this list to see corresponding [details on the right](#details-of-the-selected-telemetry).
+This section shows a flat list view in a time sequence of all the telemetry related to this transaction. It also shows the custom events and traces that aren't displayed in the transaction chart. You can filter this list to telemetry generated by a specific component or call. You can select any telemetry item in this list to see corresponding [details on the side](#details-of-the-selected-telemetry).
 
 :::image type="content" source="media/search-and-transaction-diagnostics/allTelemetryDrawerOpened.png" lightbox="media/search-and-transaction-diagnostics/allTelemetryDrawerOpened.png" alt-text="Screenshot that shows the time sequence of all telemetry.":::
 
@@ -226,7 +230,7 @@ Potential reasons:
 
 * Are the other components instrumented with Application Insights?
 * Are they using the latest stable Application Insights SDK?
-* If these components are separate Application Insights resources, do you have required [access](resources-roles-access-control.md)?
+* If these components are separate Application Insights resources, validate you have [access](resources-roles-access-control.md).
 If you do have access and the components are instrumented with the latest Application Insights SDKs, let us know via the feedback channel in the upper-right corner.
 
 ### I see duplicate rows for the dependencies. Is this behavior expected?
@@ -243,7 +247,7 @@ This behavior is by design. All the related items, across all components, are al
 
 ### Is there a way to see fewer events per transaction when I use the Application Insights JavaScript SDK?
 
-The transaction diagnostics experience shows all telemetry in a [single operation](distributed-tracing-telemetry-correlation.md#data-model-for-telemetry-correlation) that shares an [Operation ID](data-model-complete.md#operation-id). By default, the Application Insights SDK for JavaScript creates a new operation for each unique page view. In a single-page application (SPA), only one page view event will be generated and a single Operation ID will be used for all telemetry generated. As a result, many events might be correlated to the same operation.
+The transaction diagnostics experience shows all telemetry in a [single operation](distributed-tracing-telemetry-correlation.md#data-model-for-telemetry-correlation) that shares an [Operation ID](data-model-complete.md#operation-id). By default, the Application Insights SDK for JavaScript creates a new operation for each unique page view. In a single-page application (SPA), only one page view event is generated and a single Operation ID is used for all telemetry generated. As a result, many events might be correlated to the same operation.
 
 In these scenarios, you can use Automatic Route Tracking to automatically create new operations for navigation in your SPA. You must turn on [enableAutoRouteTracking](javascript.md#single-page-applications) so that a page view is generated every time the URL route is updated (logical page view occurs). If you want to manually refresh the Operation ID, call `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()`. Manually triggering a PageView event also resets the Operation ID.
 
@@ -255,7 +259,7 @@ If all calls were instrumented, in process is the likely root cause for the time
 
 ### What if I see the message ***Error retrieving data*** while navigating Application Insights in the Azure portal? 
 
-This error indicates that the browser was unable to call into a required API or the API returned a failure response. To troubleshoot the behavior, open a browser [InPrivate window](https://support.microsoft.com/microsoft-edge/browse-inprivate-in-microsoft-edge-cd2c9a48-0bc4-b98e-5e46-ac40c84e27e2) and [disable any browser extensions](https://support.microsoft.com/microsoft-edge/add-turn-off-or-remove-extensions-in-microsoft-edge-9c0ec68c-2fbc-2f2c-9ff0-bdc76f46b026) that are running, then identify if you can still reproduce the portal behavior. If the portal error still occurs, try testing with other browsers, or other machines, investigate DNS or other network related issues from the client machine where the API calls are failing. If the portal error persists and requires further investigations, then [collect a browser network trace](../../azure-portal/capture-browser-trace.md#capture-a-browser-trace-for-troubleshooting) while you reproduce the unexpected portal behavior and open a support case from the Azure portal.
+This error indicates that the browser was unable to call into a required API or the API returned a failure response. To troubleshoot the behavior, open a browser [InPrivate window](https://support.microsoft.com/microsoft-edge/browse-inprivate-in-microsoft-edge-cd2c9a48-0bc4-b98e-5e46-ac40c84e27e2) and [disable any browser extensions](https://support.microsoft.com/microsoft-edge/add-turn-off-or-remove-extensions-in-microsoft-edge-9c0ec68c-2fbc-2f2c-9ff0-bdc76f46b026) that are running, then identify if you can still reproduce the portal behavior. If the portal error still occurs, try testing with other browsers, or other machines, investigate DNS or other network related issues from the client machine where the API calls are failing. If the portal error continues and needs more investigation, [collect a browser network trace](../../azure-portal/capture-browser-trace.md#capture-a-browser-trace-for-troubleshooting) while reproducing the unexpected portal behavior, then open a support case from the Azure portal.
 
 ---
 
