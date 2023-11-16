@@ -848,7 +848,7 @@ productDirectory:
         - hybrid
         - identity
         - security
-      url: active-directory/index.yml
+      url: /entra/identity/
     # Card
     - title: Azure Arc
       summary: Bring Azure services and management to any infrastructure
@@ -915,7 +915,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/active-directory-b2c.svg
       azureCategories:
         - identity
-      url: active-directory/external-identities/index.yml
+      url: /entra/external-id/
     # Card
     - title: Microsoft Entra Domain Services
       summary: Join Azure virtual machines to a domain without domain controllers
@@ -923,7 +923,7 @@ productDirectory:
       azureCategories:
         - identity
         - security
-      url: active-directory-domain-services/index.yml
+      url: /entra/identity/domain-services/
     # Card
     - title: Azure Information Protection
       summary: Better protect your sensitive information—anytime, anywhere
@@ -1627,11 +1627,11 @@ productDirectory:
        - hybrid
       url: /azure/aks/hybrid/aks-edge-overview  
     # Card
-    - title: Copilot in Azure
+    - title: Microsoft Copilot for Azure (Preview)
       summary: Simplify operations and management from cloud to edge with an AI companion
       imageSrc: ./media/index/azure-copilot.svg
       azureCategories:
-       - ai-machine-learning
+       - featured 
        - management-and-governance
       url: /azure/copilot
       
