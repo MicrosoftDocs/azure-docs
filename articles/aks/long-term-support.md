@@ -12,7 +12,7 @@ The Kubernetes community releases a new minor version approximately every four m
 
 AKS supports versions of Kubernetes that are within this Community Support window, to push bug fixes and security updates from community releases.
 
-While innovation delivered with this release cadence provides huge benefits for our customers, it's challenging to keep up to date Kubernetes releases. This is further compounded by the amount of AKS clusters you have to maintain.  
+While innovation delivered with this release cadence provides huge benefits for our customers, it's challenging to keep up to date Kubernetes releases. These challenges are more difficult as the amount of AKS clusters you have to maintain increases.  
 
 
 ## AKS support types
@@ -20,7 +20,7 @@ Once a Kubernetes version is out of Community Support (approximately one year), 
 
 AKS provides one year Community Support and one year of Long Term Support (LTS) to back port security fixes from the community upstream in our public repository. Our upstream LTS working group contributes efforts back to the community to provide our customers with a longer support window.
 
-LTS intends to give you an extended period of time to plan and test for upgrades over a two-year period from the General Availability of the Kubernetes version.
+LTS intends to give you an extended period of time to plan for upgrades over a two-year period.
 
 |   | Community Support  |Long Term Support   |
 |---|---|---|
@@ -68,7 +68,7 @@ As the list of managed add-ons is large, we list the addons / features that aren
 | Azure Linux | Support timeframe for Azure Linux 2 ends during this LTS cycle |
 | Key Management Service (KMS) | KMSv2 replaces KMS during this LTS cycle |
 | Dapr | AKS extensions are not supported |
-| Application Gateway Ingress Controller | Migration to App Gateway for Containers will happen during LTS period |
+| Application Gateway Ingress Controller | Migration to App Gateway for Containers happens during LTS period |
 | Open Service Mesh | OSM will be deprecated|
 | AAD Pod Identity  | Deprecated in place of Workload Identity |
 
@@ -80,8 +80,8 @@ You can't move a cluster to Long Term support if any of these add-ons / features
 Whilst these AKS managed add-ons aren't supported by Microsoft, you're able to install the Open Source versions of these on your cluster if you wish to use it past Community Support.
 
 ## How we decide the next LTS version
-Versions of Kubernetes LTS are available for two years from General Availability, we'll mark a later version of Kubernetes as LTS based on the following criteria:
-* Sufficient time for customers to migrate from the prior LTS version to the current has passed
+Versions of Kubernetes LTS are available for two years from General Availability, we mark a later version of Kubernetes as LTS based on the following criteria:
+* Sufficient time for customers to migrate from the prior LTS version to the current have passed
 * The previous version has had a two year support window
 
 Read the AKS release notes to stay informed of when you're able to plan your migration.
