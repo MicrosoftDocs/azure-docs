@@ -16,7 +16,7 @@ ms.author: lajanuar
 
 # Document Intelligence general document model
 
-:::moniker range="<=doc-intel-4.0.0"
+:::moniker range="doc-intel-4.0.0"
 
 > [!IMPORTANT]
 > Starting with Document Intelligence **2023-10-31-preview** and going forward, the general document model (prebuilt-document) is deprecated. To extract key-value pairs, selection marks, text, tables, and structure from documents, use the following models:
@@ -36,6 +36,8 @@ ms.author: lajanuar
 ::: moniker-end
 
 The General document model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, tables, and selection marks from documents. General document is available with the v3.1 and v3.0 APIs.  For more information, _see_ our [migration guide](v3-1-migration-guide.md).
+
+::: moniker range="<=doc-intel-3.1.0"
 
 ## General document features
 
@@ -129,11 +131,13 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 
 * Expect to see key-value pairs with a key, but no value. For example if a user chose to not provide an email address on the form.
 
+::: moniker-end
+
 ## Next steps
 
-* Follow our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+* Follow our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md) to learn how to use the v3.1 version in your applications and workflows.
 
-* Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
-
+* Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument).
+  
 > [!div class="nextstepaction"]
 > [Try the Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
