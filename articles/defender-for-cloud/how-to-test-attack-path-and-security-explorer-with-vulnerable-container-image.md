@@ -1,14 +1,13 @@
 ---
-title: How-to test the attack path and cloud security explorer using a vulnerable container image in Microsoft Defender for Cloud
-description: Learn how to test the attack path and security explorer using a vulnerable container image
+title: Test attack paths and cloud security explorer in Microsoft Defender for Cloud
+description: Learn how to test attack paths and cloud security explorer in Microsoft Defender for Cloud
 ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 11/08/2023
 ---
 
-# Testing the Attack Path and Security Explorer using a vulnerable container image
+# Test attack paths and cloud security explorer
 
-## Observing potential threats in the attack path experience
 
 Attack path analysis is a graph-based algorithm that scans the cloud security graph. The scans expose exploitable paths that attackers might use to breach your environment to reach your high-impact assets. Attack path analysis exposes attack paths and suggests recommendations as to how best remediate issues that break the attack path and prevent successful breach.
 

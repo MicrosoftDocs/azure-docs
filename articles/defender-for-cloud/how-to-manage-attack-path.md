@@ -1,6 +1,6 @@
 ---
-title: Identify and remediate attack paths
-description: Learn how to manage your attack path analysis and build queries to locate vulnerabilities in your multicloud environment.
+title: Identify and remediate attack paths in Microsoft Defender for Cloud
+description: Learn how to identify and remediate attack paths in Microsoft Defender for Cloud
 ms.topic: how-to
 ms.custom: ignite-2023
 ms.date: 11/01/2023
