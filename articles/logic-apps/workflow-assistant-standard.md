@@ -57,6 +57,17 @@ The workflow assistant uses reputable knowledge sources such as the Azure Logic 
 
    :::image type="content" source="media/workflow-assistant-standard/chat-open-first-time.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and open workflow assistant pane." lightbox="media/workflow-assistant-standard/chat-open-first-time.png":::
 
+## Example ways to use the assistant
+
+The following table includes only some example use cases, so please share your feedback with the Azure Logic Apps team about how you use the workflow assistant to improve your productivity.
+
+| Use case | Example question | Description |
+|----------|------------------|-------------|
+| Describe the currently open workflow. | **"What does this workflow do?"** | Useful when you use or update a workflow built by other developers or when collaborating with other developers on shared workflows. |
+| Get help with connectors. | - **"Which connectors can send email?"** <br><br>- **"What does the Request trigger do?"** | Useful when you're not sure which connector to use, what connectors are available, or need specific information about a connector. <br><br>The workflow assistant can provide recommendations on connectors or operations, provide best practices about how to use a connector, provide comparisons between connectors, and so on. |
+| Suggest guidance based on your specific scenario. | **"How do I create a workflow that checks an RSS feed and sends me the feed items?"** | Recommend step-by-step information about how to build a workflow based on your scenario, including which connectors to use, how to configure them, and how to process the data. |
+| Recommend patterns. | **"What's a best practice for error handling in my workflow?"** | Provide guidance and best practices for error handling, testing, and other optimizations. |
+
 ## Ask your question
 
 1. In the chat box, enter your question about the current workflow or about Azure Logic Apps.
@@ -71,16 +82,15 @@ The workflow assistant uses reputable knowledge sources such as the Azure Logic 
 
 1. [Provide optional feedback about your experience with the workflow assistant](#provide-feedback).
 
-## Example ways to use the assistant
+## Limitations
 
-The following table includes only some example use cases, so please share your feedback with the Azure Logic Apps team about how you use the workflow assistant to improve your productivity.
+- Inaccurate responses
 
-| Use case | Example question | Description |
-|----------|------------------|-------------|
-| Describe the currently open workflow. | **"What does this workflow do?"** | Useful when you use or update a workflow built by other developers or when collaborating with other developers on shared workflows. |
-| Get help with connectors. | - **"Which connectors can send email?"** <br><br>- **"What does the Request trigger do?"** | Useful when you're not sure which connector to use, what connectors are available, or need specific information about a connector. <br><br>The workflow assistant can provide recommendations on connectors or operations, provide best practices about how to use a connector, provide comparisons between connectors, and so on. |
-| Suggest guidance based on your specific scenario. | **"How do I create a workflow that checks an RSS feed and sends me the feed items?"** | Recommend step-by-step information about how to build a workflow based on your scenario, including which connectors to use, how to configure them, and how to process the data. |
-| Recommend patterns. | **"What's a best practice for error handling in my workflow?"** | Provide guidance and best practices for error handling, testing, and other optimizations. |
+  The workflow assistant can generate valid responses that might not be semantically correct or capture the intent behind your prompt. As the language model trains with more data over time, the responses will improve. Always make sure to carefully review the assistant's recommendations before you apply them to your workflows.
+
+- Workflow size
+
+  You might experience different performance levels in the workflow assistant, based on factors such as the number of workflow operations or complexity. The assistant is trained on workflows with different complexity levels but still has limited scope and might not be able to handle very large workflows. These limitations are primarily related to token constraints in the queries sent to Azure Open AI Service. The Azure Logic Apps team is committed to continuous improvement and enhancing these limitations through iterative updates.
 
 <a name="provide-feedback"></a>
 
@@ -118,16 +128,6 @@ In the chat pane, under the workflow assistant's response, choose an option:
   1. Follow the template's prompts to provide the required information and other details about the problem.
 
   1. When you're done, select **Submit new issue**.
-
-## Limitations
-
-- Inaccurate responses
-
-  The workflow assistant can generate valid responses that might not be semantically correct or capture the intent behind your prompt. As the language model trains with more data over time, the responses will improve. Always make sure to carefully review the assistant's recommendations before you apply them to your workflows.
-
-- Workflow size
-
-  You might experience different performance levels in the workflow assistant, based on factors such as the number of workflow operations or complexity. The assistant is trained on workflows with different complexity levels but still has limited scope and might not be able to handle very large workflows. These limitations are primarily related to token constraints in the queries sent to Azure Open AI Service. The Azure Logic Apps team is committed to continuous improvement and enhancing these limitations through iterative updates.
 
 ## Frequently asked questions (FAQ)
 
