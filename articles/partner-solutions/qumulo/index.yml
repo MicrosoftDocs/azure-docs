@@ -20,11 +20,14 @@ landingContent:
         links:
           - text: What is Azure Native Qumulo Scalable File Service?
             url: qumulo-overview.md
-
           - text: What is Azure Native Qumulo for disaster recovery?
             url: qumulo-disaster-recovery.md
-          # - text: What is Azure Native Qumulo for video editing?
-          #   url: qumulo-video-editing.md
+          - text: What is Azure Native Qumulo for video editing?
+            url: qumulo-video-editing.md
+          - text: What is Azure Native Qumulo for PACS VNA?
+            url: qumulo-vendor-neutral-archive.md
+          - text: What is Azure Native Qumulo for virtual desktops?
+            url: qumulo-virtual-desktop.md
       - linkListType: quickstart
         links:
           - text: Create an Azure Native Qumulo Scalable File Service deployment

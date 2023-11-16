@@ -14,7 +14,7 @@ ms.custom:
 
 # Integrate Azure SignalR Service with Service Connector
 
-This article supported authentication methods and clients, and shows sample code you can use to connect Azure SignalR Service to other cloud services using Service Connector. This article also shows default environment variable name and value or Spring Boot configuration that you get when you create the service connection. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+This article supported authentication methods and clients, and shows sample code you can use to connect Azure SignalR Service to other cloud services using Service Connector. This article also shows default environment variable name and value (or Spring Boot configuration) that you get when you create the service connection. 
 
 ## Supported compute service
 
@@ -35,7 +35,7 @@ Supported authentication and clients for App Service and Container Apps:
 ## Default environment variable names or application properties
 
 Use environment variable names listed below to connect compute services to Azure SignalR Service. For each example below, replace the placeholder texts
-`<SignalR-name>`, `<access-key>`, `<client-ID>`, `<tenant-ID>`, and `<client-secret>` with your own SignalR name, access key, client ID, tenant ID and client secret.
+`<SignalR-name>`, `<access-key>`, `<client-ID>`, `<tenant-ID>`, and `<client-secret>` with your own SignalR name, access key, client ID, tenant ID and client secret. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ### System-assigned Managed Identity
 

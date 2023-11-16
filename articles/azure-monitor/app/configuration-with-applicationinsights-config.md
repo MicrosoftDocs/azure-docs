@@ -310,7 +310,7 @@ Configure a [snapshot collection for ASP.NET applications](snapshot-debugger-vm.
 
 [api]: ./api-custom-events-metrics.md
 [client]: ./javascript.md
-[diagnostic]: ./search-and-transaction-diagnostics.md?tabs=transaction-search
+[diagnostic]: ./transaction-search-and-diagnostics.md?tabs=transaction-search
 [exceptions]: ./asp-net-exceptions.md
 [netlogs]: ./asp-net-trace-logs.md
 [new]: ./create-workspace-resource.md

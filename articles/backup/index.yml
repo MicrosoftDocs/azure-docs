@@ -11,8 +11,9 @@ metadata:
     - ignite-2023
   ms.topic: landing-page
   author: AbhishekMallick-MS
-  ms.author: v-abhmallick
-  ms.date: 11/14/2023
+  ms.author: v-abhmallick 
+  ms.date: 11/07/2023
+
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -74,6 +75,8 @@ landingContent:
             url: azure-kubernetes-service-backup-overview.md
           - text: Selective Disk backup with Enhanced policy for Azure VM
             url: selective-disk-backup-restore.md
+          - text: Azure Database for PostgreSQL Flexible server backup (preview) 
+            url: backup-azure-database-postgresql-flex-overview.md
           
 
   # Card

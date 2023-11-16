@@ -66,10 +66,10 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure confidential VM options on AMD
+          - text: About confidential VMs
             url: confidential-vm-overview.md
-          - text: Virtual Machines based on AMD processors with SEV-SNP technology
-            url: virtual-machine-solutions-amd.md
+          - text: Confidential VM solutions
+            url: virtual-machine-solutions.md
       - linkListType: concept
         links:
           - text: Guest attestation for confidential VMs

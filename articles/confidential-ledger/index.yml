@@ -60,6 +60,8 @@ landingContent:
             url: authenticate-ledger-nodes.md
           - text: Create a client certificate
             url: create-client-certificate.md
+          - text: Create a managed application to store blob digests
+            url: create-blob-managed-app.md
           - text: Register the Azure confidential ledger resource provider
             url: register-ledger-resource-provider.md
           - text: Verify write transaction receipts

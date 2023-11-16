@@ -43,6 +43,8 @@ items:
       href: ./concepts/fine-tuning-considerations.md
     - name: Red teaming large language models (LLMs)
       href: ./concepts/red-teaming.md
+    - name: Image provenance
+      href: ./concepts/content-credentials.md
     - name: Intro to prompt engineering
       href: ./concepts/prompt-engineering.md
     - name: Model versions
@@ -70,6 +72,8 @@ items:
       href: ./how-to/integrate-synapseml.md
   - name: Content filtering
     href: ./how-to/content-filters.md
+  - name: Use blocklists
+    href: ./how-to/use-blocklists.md
   - name: Embeddings
     items:
     - name: Embeddings basics
