@@ -155,4 +155,4 @@ Azure AI Search is a billable resource. If it's no longer needed, delete it from
 
 ## Next steps
 
-This quickstart introduced you to the **Import and vectorize data** wizard that creates all of the objects necessary for integrated vectorization. If you want to explore each step in detail, try an[integrated vectorization sample](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-python/code/azure-search-integrated-vectorization-sample.ipynb).
+This quickstart introduced you to the **Import and vectorize data** wizard that creates all of the objects necessary for integrated vectorization. If you want to explore each step in detail, try an [integrated vectorization sample](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-python/code/azure-search-integrated-vectorization-sample.ipynb).

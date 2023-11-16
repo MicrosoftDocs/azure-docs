@@ -167,7 +167,7 @@ Add [`orderby`](search-query-odata-orderby.md) to sort results by another field 
    
    **Results**
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-orderby.png" alt-text="ScreEnshot of a sorting example." border="true":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-orderby.png" alt-text="Screenshot of a sorting example." border="true":::
 
 ## Takeaways
 
