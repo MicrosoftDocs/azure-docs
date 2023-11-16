@@ -186,6 +186,10 @@ Azure AI services provides information and guidelines on how to responsibly use 
 * [Code of conduct](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/ai-services/speech-service/context/context)
 * [Data, privacy, and security](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/ai-services/speech-service/context/context)
 
+## Speech - Text to speech
+
+* [Transparency note and use cases](/legal/cognitive-services/speech-service/text-to-speech/transparency-note?context=/azure/ai-services/speech-service/context/context)
+
 ## Speech - Speech to text
 
 * [Transparency note and use cases](/legal/cognitive-services/speech-service/speech-to-text/transparency-note?context=/azure/ai-services/speech-service/context/context)

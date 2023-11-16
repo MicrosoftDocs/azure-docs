@@ -24,6 +24,9 @@ ms.custom:
 - [Single Server](../overview-single-server.md)
 
 This article provides an overview and introduction to the core concepts of flexible server deployment model.
+Whether you're just starting out or looking to refresh your knowledge, this introductory video offers a comprehensive overview of Azure Database for PostgreSQL - Flexible Server, helping you get acquainted with its key features and capabilities.
+
+>[!Video https://www.youtube.com/embed/NSEmJfUgNzE?si=8Ku9Z53PP455dICZ&amp;start=121]
 
 ## Overview
 
@@ -97,7 +100,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | East US 2 | :heavy_check_mark: (v3/v4 only) | :x: $ | :heavy_check_mark: | :heavy_check_mark: |
 | France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | France South | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
-| Germany West Central | :heavy_check_mark:  (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: |
+| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: |
 | Japan East | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Japan West | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Jio India West | :heavy_check_mark: (v3 only) | :x: | :heavy_check_mark: | :x: |

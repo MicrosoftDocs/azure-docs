@@ -25,7 +25,7 @@ Create a Language resource with following details.
 |Pricing tier     | A [supported pricing tiers](../service-limits.md#language-resource-limits) for your Language resource.        |
 
 > [!IMPORTANT]
-> * Make sure to to enable **Managed Identity** when you create a Language resource. 
+> * Make sure to enable **Managed Identity** when you create a Language resource. 
 > * Read and confirm Responsible AI notice
 
 

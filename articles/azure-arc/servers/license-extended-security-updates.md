@@ -34,10 +34,6 @@ If you choose to license based on virtual cores, the licensing requires a minimu
 
 An additional scenario (scenario 1, below) is a candidate for VM/Virtual core licensing when the WS2012 VMs are running on a newer Windows Server host (that is, Windows Server 2016 or later).
 
-> [!IMPORTANT]
-> Customers that choose virtual core licensing will always be charged at the Standard edition rate, even if the actual operating system used is Datacenter edition. Additionally, virtual core licensing is not available for physical servers.
-> 
-
 ### License limits
 
 Each WS2012 ESU license can cover up to and including 10,000 cores. If you need ESUs for more than 10,000 cores, split the total number of cores across multiple licenses.
@@ -55,6 +51,7 @@ As servers no longer require ESUs because they've been migrated to Azure, Azure 
 > [!NOTE]
 > This process is not automatic; billing is tied to the activated licenses and you are responsible for modifying your provisioned licensing to take advantage of cost savings.
 > 
+
 ## Scenario based examples: Compliant and Cost Effective Licensing
 
 ### Scenario 1: Eight modern 32-core hosts (not Windows Server 2012). While each of these hosts are running four 8-core VMs, only one VM on each host is running Windows Server 2012 R2

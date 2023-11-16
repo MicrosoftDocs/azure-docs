@@ -94,13 +94,14 @@ ms.author: wchi
         .buildClient();
     ```
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 
 Refer to [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB for NoSQL data](/azure/cosmos-db/nosql/quickstart-java-spring-data?tabs=passwordless%2Csign-in-azure-cli) to set up your Spring application. The configuration properties are added to Spring Apps by Service Connector. Managed identity support for Cosmos DB is only available for Spring Cloud Azure version 4.0 and above. For more information, refer to [Spring Cloud Azure - Reference Documentation](https://microsoft.github.io/spring-cloud-azure/current/reference/html/index.html#authentication).
  
 ### [Python](#tab/python)
 1. Install dependencies.
    ```bash
+   pip install azure-identity
    pip install azure-cosmos
    ```
 1. Authenticate via `azure-identity` library and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
@@ -165,5 +166,5 @@ Refer to [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB f
 
 
 
-### [Other](#tab/other)
-For other languages, you can use the blob storage account url and other properties that Service Connector set to the environment variables to connect the blob storage. For environment variable details, see [Integrate Azure Blob Storage with Service Connector](../how-to-integrate-storage-blob.md).
+### [Other](#tab/none)
+For other languages, you can use the endpoint URL and other properties that Service Connector sets to the environment variables to connect to Azure Cosmos DB for NoSQL. For environment variable details, see [Integrate Azure Cosmos DB for NoSQL with Service Connector](../how-to-integrate-cosmos-sql.md).

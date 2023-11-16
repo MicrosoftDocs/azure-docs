@@ -5,9 +5,11 @@ description: Learn how to generate images with Azure OpenAI Service by using the
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
+ms.custom:
+  - ignite-2023
 ms.topic: include
-ms.date: 08/08/2023
-keywords: 
+ms.date: 11/06/2023
+keywords:
 ---
 
 Use this guide to get started generating images with the Azure OpenAI SDK for Python.
@@ -62,7 +64,10 @@ Open a command prompt and browse to your project folder. Create a new python fil
 
 ## Install the Python SDK
 
-Install the OpenAI Python SDK by using the following command: 
+> [!IMPORTANT]
+> The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) does not currently support DALL-E when used with Azure OpenAI. To access DALL-E with Azure OpenAI use version `0.28.1`.
+
+Install the OpenAI Python SDK by using the following command:
 
 #### [DALL-E 3](#tab/dalle3)
 
@@ -215,4 +220,3 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 * Learn more in this [Azure OpenAI overview](../overview.md).
 * Try examples in the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).
 * See the [API reference](../reference.md#image-generation)
-

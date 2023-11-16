@@ -162,7 +162,7 @@ landingContent:
             url: gather-diagnostics.md
           - text: Export, upload and share traces for diagnostics
             url: distributed-tracing-share-traces.md
-          - text: Perform data plane packet capture on a packet core instance
+          - text: Perform packet capture on a packet core instance
             url: data-plane-packet-capture.md
           - text: Use ping and traceroute on a packet core instance
             url: ping-traceroute.md
