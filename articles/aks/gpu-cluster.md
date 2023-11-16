@@ -39,7 +39,7 @@ To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-sku
 
 ## Options for using NVIDIA GPUs
 
-There are two ways to add the NVIDIA device plugin:
+There are three ways to add the NVIDIA device plugin:
 
 1. [Using the AKS GPU image](#update-your-cluster-to-use-the-aks-gpu-image-preview)
 2. [Manually installing the NVIDIA device plugin](#manually-install-the-nvidia-device-plugin)
