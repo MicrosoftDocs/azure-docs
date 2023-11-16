@@ -119,7 +119,7 @@ To use NSG with your application gateway, you will need to create or retain some
 |---|---|---|---|---|---|
 |`<as per need>`|Any|`<Subnet IP Prefix>`|`<listener ports>`|TCP|Allow|
 
-Upon configuring **active public and private listeners** (with Rules) **with the same port number** (in Preview), your application gateway changes the "Destination" of all inbound flows to the frontend IPs of your gateway. This is true even for the listeners not sharing any port. You must thus include your gateway's frontend Public and Private IP addresses in the Destination of the inbound rule when using the same port configuration.
+Upon configuring **active public and private listeners** (with Rules) **with the same port number**, your application gateway changes the "Destination" of all inbound flows to the frontend IPs of your gateway. This is true even for the listeners not sharing any port. You must thus include your gateway's frontend Public and Private IP addresses in the Destination of the inbound rule when using the same port configuration.
 
 
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |

@@ -39,7 +39,6 @@ Here's sample input-cnf-nfd.json file:
 
 ```json
 {
-   {
     "publisher_name": "nginx-publisher",
     "publisher_resource_group_name": "nginx-publisher-rg",
     "nf_name": "nginx",
@@ -52,7 +51,7 @@ Here's sample input-cnf-nfd.json file:
     "helm_packages": [
         {
             "name": "nginxdemo",
-            "path_to_chart": "../nginxdemo-0.1.0.tgz",
+            "path_to_chart": "nginxdemo-0.1.0.tgz",
             "path_to_mappings": "",
             "depends_on": []
         }
@@ -89,7 +88,7 @@ Once the build is complete, examine the generated files to gain a better underst
 
 
 
-|File  |Description  |
+|Directory/File  |Description  |
 |---------|---------|
 |configMappings     |    Maps the deployment parameters for the Network Function Definition Version (NFDV) to the values required for the helm chart.    |
 |generatedValuesMappings    |   The yaml output of interactive mode that created configMappings. Edit and rerun the command if necessary.      |

@@ -507,10 +507,8 @@ items:
       displayName: active directory
     - name: Microsoft Access
       href: connector-microsoft-access.md
-    - name: Microsoft Fabric Lakehouse Files
-      href: connector-microsoft-fabric-lakehouse-files.md
-    - name: Microsoft Fabric Lakehouse Table
-      href: connector-microsoft-fabric-lakehouse-table.md
+    - name: Microsoft Fabric Lakehouse
+      href: connector-microsoft-fabric-lakehouse.md
     - name: MongoDB
       href: connector-mongodb.md
       items:
@@ -1318,10 +1316,16 @@ items:
       href: tutorial-run-existing-pipeline-with-airflow.md
   - name: Concepts
     href: concept-managed-airflow.md
+  - name: Get Started with Managed Airflow
+    href: get-started-with-managed-airflow.md
   - name: How-to
     items:
-    - name: How does Managed Airflow work
-      href: how-does-managed-airflow-work.md
+    - name: Create Managed Airflow Environment
+      href: create-managed-airflow-environment.md
+    - name: Import Dags using Azure Blob Storage
+      href: airflow-import-dags-blob-storage.md
+    - name: Delete Dags 
+      href: delete-dags-in-managed-airflow.md
     - name: How to change the Airflow password
       href: password-change-airflow.md
     - name: Create a private requirement Package

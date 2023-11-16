@@ -36,7 +36,7 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 - Attribute description
 - Whether the attribute is available in the Azure portal
 - Whether the attribute can be used in a user flow
-- Whether the attribute can be used in a custom policy [Microsoft Entra technical profile](active-directory-technical-profile.md) and in which section (&lt;InputClaims&gt;, &lt;OutputClaims&gt;, or &lt;PersistedClaims&gt;)
+- Whether the attribute can be used in a custom policy [Microsoft Entra ID technical profile](active-directory-technical-profile.md) and in which section (&lt;InputClaims&gt;, &lt;OutputClaims&gt;, or &lt;PersistedClaims&gt;)
 
 |Name     |Type     |Description|Azure portal|User flows|Custom policy|
 |---------|---------|----------|------------|----------|-------------|
@@ -145,7 +145,7 @@ For federated identities, depending on the identity provider, the **issuerAssign
 
 ## Password profile property
 
-For a local identity, the **passwordProfile** attribute is required, and contains the user's password. The `forceChangePasswordNextSignIn` attribute indicates whether a user must reset the password at the next sign-in. To handle a forced password reset, us the the instructions in [set up forced password reset flow](force-password-reset.md).
+For a local identity, the **passwordProfile** attribute is required, and contains the user's password. The `forceChangePasswordNextSignIn` attribute indicates whether a user must reset the password at the next sign-in. To handle a forced password reset, use the instructions in [set up forced password reset flow](force-password-reset.md).
 
 For a federated (social) identity, the **passwordProfile** attribute is not required.
 

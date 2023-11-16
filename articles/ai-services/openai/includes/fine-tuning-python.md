@@ -130,8 +130,8 @@ After it guides you through the process of implementing suggested changes, the t
 
 The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. After you prepare your training data, you can upload your files to the service. There are two ways to upload training data:
 
-- [From a local file](/rest/api/cognitiveservices/azureopenaistable/files/upload)
-- [Import from an Azure Blob store or other web location](/rest/api/cognitiveservices/azureopenaistable/files/import)
+- [From a local file](/rest/api/azureopenai/files/upload)
+- [Import from an Azure Blob store or other web location](/rest/api/azureopenai/files/import)
 
 For large data files, we recommend that you import from an Azure Blob  store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob storage, see [What is Azure Blob storage?](../../../storage/blobs/storage-blobs-overview.md)
 
@@ -209,7 +209,7 @@ print(response)
 
 ## Deploy a customized model
 
-When the fine-tune job succeeds, the value of the `fine_tuned_model` variable in the response body is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](/rest/api/cognitiveservices/azureopenaistable/models/list). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
+When the fine-tune job succeeds, the value of the `fine_tuned_model` variable in the response body is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](/rest/api/azureopenai/models/list). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
 
 [!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 
@@ -384,7 +384,7 @@ Similarly, you can use various methods to delete your customized model:
 You can optionally delete training and validation files that you uploaded for training, and result files generated during training, from your Azure OpenAI subscription. You can use the following methods to delete your training, validation, and result files:
 
 - [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-training-files)
-- The [REST APIs](/rest/api/cognitiveservices/azureopenaistable/files/delete)
+- The [REST APIs](/rest/api/azureopenai/files/delete)
 - The Python SDK
 
 The following Python example uses the Python SDK to delete the training, validation, and result files for your customized model:
