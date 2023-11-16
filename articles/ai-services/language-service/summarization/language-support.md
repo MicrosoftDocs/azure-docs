@@ -48,11 +48,9 @@ Conversation summarization supports the following languages:
 | English               | `en`          |                     |
 | French                | `fr`          |                     |
 | German                | `de`          |                     |
-| Hebrew                | `he`          |                     |
 | Italian               | `it`          |                     |
 | Japanese              | `ja`          |                     |
 | Korean                | `ko`          |                     |
-| Polish                | `pl`          |                     |
 | Portuguese            | `pt`          |                     |
 | Spanish               | `es`          |                     |
 
