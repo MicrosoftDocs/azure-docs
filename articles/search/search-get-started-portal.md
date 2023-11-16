@@ -75,9 +75,19 @@ The **Import data** wizard supports the creation of a skillset and [AI-enrichmen
 
 ### Configure the index
 
-The wizard infers a schema for the built-in hotels-sample index. 
+The wizard infers a schema for the built-in hotels-sample index. Follow these steps to configure the index:
 
-:::image type="content" source="media/search-get-started-portal/hotels-sample-generated-index.png" alt-text="Screenshot that shows the generated index definition for the hotels-sample data source in the Import data wizard." border="false":::
+1. Accept the system-generated values for the **Index name** (_hotels-sample-index_) and **Key** field (_HotelId_).
+
+1. Accept the system-generated values for all field attributes.
+
+   > [!IMPORTANT]
+   > If you rerun the wizard and use an existing hotels-sample data source, the index isn't configured with default attributes.
+   > You have to manually select attributes on future imports. 
+
+1. Select **Next: Create an indexer** to continue.
+
+:::image type="content" source="media/search-get-started-portal/hotels-sample-generated-index.png" alt-text="Screenshot that shows the generated index definition for the hotels-sample data source in the Import data wizard.":::
 
 At a minimum, the index requires an **Index name** and a collection of **Fields**. One field must be marked as the _document key_ to uniquely identify each document. The value is always a string. The wizard scans for unique string fields and chooses one for the key.
 
@@ -95,18 +105,6 @@ Attributes affect storage. **Filterable** fields consume extra storage, but **Re
 
 If you want autocomplete or suggested queries, specify language **Analyzers** or **Suggesters**.
 
-Follow these steps to configure the index:
-
-1. Accept the system-generated values for the **Index name** (_hotels-sample-index_) and **Key** field (_HotelId_).
-
-1. Accept the system-generated values for all field attributes.
-
-   > [!IMPORTANT]
-   > If you rerun the wizard and use an existing hotels-sample data source, the index isn't configured with default attributes.
-   > You have to manually select attributes on future imports. 
-
-1. Select **Next: Create an indexer** to continue.
-
 ### Configure and run the indexer
 
 The last step configures and runs the indexer. This object defines an executable process. The data source, index, and indexer are created in this step.
@@ -117,7 +115,7 @@ The last step configures and runs the indexer. This object defines an executable
 
 1. Select **Submit** to create and simultaneously run the indexer.
 
-   :::image type="content" source="media/search-get-started-portal/hotels-sample-indexer.png" alt-text="Screenshot that shows how to configure the indexer for the hotels-sample data source in the Import data wizard." border="false":::
+   :::image type="content" source="media/search-get-started-portal/hotels-sample-indexer.png" alt-text="Screenshot that shows how to configure the indexer for the hotels-sample data source in the Import data wizard.":::
 
 ## Monitor indexer progress
 

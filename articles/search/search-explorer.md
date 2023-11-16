@@ -57,7 +57,7 @@ Equivalent syntax for an empty search is `*` or `"search": "*"`.
 
    ```json
    {
-  "search": "*"
+      "search": "*"
    }
    ```
 
@@ -73,7 +73,7 @@ Notice that when you provide search criteria, such as query terms or expressions
 
    ```json
    {
-   "search": "Seattle townhouse `Lake Washington` miele OR thermador appliance"
+       "search": "Seattle townhouse `Lake Washington` miele OR thermador appliance"
    }
    ```
 
@@ -88,8 +88,10 @@ Notice that when you provide search criteria, such as query terms or expressions
 Add `"count": true` to get the number of matches found in an index. On an empty search, count is the total number of documents in the index. On a qualified search, it's the number of documents matching the query input. Recall that the service returns the top 50 matches by default, so the count might indicate more matches in the index than what's returned in the results.
 
    ```json
-    "search": "Seattle townhouse `Lake Washington` miele OR thermador appliance",
-   "count": true
+   {
+       "search": "Seattle townhouse `Lake Washington` miele OR thermador appliance",
+       "count": true
+   }
    ```
 
    **Results**
@@ -98,7 +100,7 @@ Add `"count": true` to get the number of matches found in an index. On an empty 
 
 ## Limit fields in search results
 
-Add ["select": <placeholder-field-list>`](search-query-odata-select.md) to limit results to the explicitly named fields for more readable output in **Search explorer**. Only fields marked as "retrievable" in the search index can show up in results.
+Add ["select"`](search-query-odata-select.md) to limit results to the explicitly named fields for more readable output in **Search explorer**. Only fields marked as "retrievable" in the search index can show up in results.
 
    ```json
    {
@@ -114,7 +116,7 @@ Add ["select": <placeholder-field-list>`](search-query-odata-select.md) to limit
 
 ## Return next batch of results
 
-Azure AI Search returns the top 50 matches based on the search rank. To get the next set of matching documents, append `"top": 100` and `"skip": 50`` to increase the result set to 100 documents (default is 50, maximum is 1000), skipping the first 50 documents. You can check the document key (listingID) to identify a document. 
+Azure AI Search returns the top 50 matches based on the search rank. To get the next set of matching documents, append `"top": 100` and `"skip": 50` to increase the result set to 100 documents (default is 50, maximum is 1000), skipping the first 50 documents. You can check the document key (listingID) to identify a document. 
 
 Recall that you need to provide search criteria, such as a query term or expression, to get ranked results. Notice that search scores decrease the deeper you reach into search results.
 
@@ -138,10 +140,10 @@ Use the [`filter`](search-query-odata-filter.md) parameter to specify inclusion 
 
    ```json
    {
-   "search": "seattle condo",
-   "count": true,
-   "select": "listingId, beds, baths, description",
-   "filter": "beds gt 3"
+       "search": "seattle condo",
+       "count": true,
+       "select": "listingId, beds, baths, description",
+       "filter": "beds gt 3"
    }
    ```
    
@@ -151,15 +153,15 @@ Use the [`filter`](search-query-odata-filter.md) parameter to specify inclusion 
 
 ## Sorting results
 
-Add [`orderby``](search-query-odata-orderby.md) to sort results by another field besides search score. The field must be attributed as "sortable" in the index. In situations where the filtered value is identical (for example, same price), the order is arbitrary, but you can add more criteria for deeper sorting. An example expression you can use to test this out is:
+Add [`orderby`](search-query-odata-orderby.md) to sort results by another field besides search score. The field must be attributed as "sortable" in the index. In situations where the filtered value is identical (for example, same price), the order is arbitrary, but you can add more criteria for deeper sorting. An example expression you can use to test this out is:
 
    ```json
    {
-   "search": "seattle condo",
-   "count": true,
-   "select": "listingId, price, beds, baths, description",
-   "filter": "beds gt 3",
-   "orderby": "price asc"
+       "search": "seattle condo",
+       "count": true,
+       "select": "listingId, price, beds, baths, description",
+       "filter": "beds gt 3",
+       "orderby": "price asc"
    }
    ```
    
