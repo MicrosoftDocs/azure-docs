@@ -34,3 +34,5 @@ landingContent:
             url: map-business-process-workflow.md
           - text: Deploy business process and tracking
             url: deploy-business-process.md
+          - text: Manage business process
+            url: manage-business-process.md
