@@ -97,21 +97,28 @@ az keyvault secret set --vault-name <your-key-vault-name> --name AIOFabricSecret
 
 To add the secret reference to your Kubernetes cluster, edit the **aio-default-spc** `secretproviderclass` resource:
 
-1. Enter the following command on the machine where your cluster is running to launch the `k9s` utility:
+1. Enter the following command on the machine where your cluster is running to edit the **aio-default-spc** `secretproviderclass` resource. The YAML configuration for the resource opens in your default editor:
 
     ```bash
-    k9s
+    kubectl edit secretproviderclass aio-default-spc -n azure-iot-operations
     ```
-
-1. In `k9s` type `:` to open the command bar.
-
-1. In the command bar, type `secretproviderclass` and then press _Enter_. Then select the `aio-default-spc` resource.
-
-1. Type `e` to edit the resource. The editor that opens is `vi`, use `i` to enter insert mode, _ESC_ to exit insert mode, and `:wq` to save and exit.
 
 1. Add a new entry to the array of secrets for your new Azure Key Vault secret. The `spec` section looks like the following example:
 
     ```yaml
+    # Please edit the object below. Lines beginning with a '#' will be ignored,
+    # and an empty file will abort the edit. If an error occurs while saving this file will be
+    # reopened with the relevant failures.
+    #
+    apiVersion: secrets-store.csi.x-k8s.io/v1
+    kind: SecretProviderClass
+    metadata:
+      creationTimestamp: "2023-11-16T11:43:31Z"
+      generation: 2
+      name: aio-default-spc
+      namespace: azure-iot-operations
+      resourceVersion: "89083"
+      uid: cda6add7-3931-47bd-b924-719cc862ca29
     spec:                                      
       parameters:                              
         keyvaultName: <this is the name of your key vault>         
@@ -132,7 +139,12 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
 
 1. Save the changes and exit from the editor.
 
-The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the polling interval is reached. To update the pod immediately, restart the pods for the component. For Data Processor, restart the `aio-dp-reader-worker-0` and `aio-dp-runner-worker-0` pods. In the `k9s` tool, hover over the pod, and press _ctrl-k_ to kill a pod, the pod restarts automatically
+The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the polling interval is reached. To update the pod immediately, restart the pods for the component. For Data Processor, run the following commands:
+
+```bash
+kubectl delete pod aio-dp-reader-worker-0 -n azure-iot-operations
+kubectl delete pod aio-dp-runner-worker-0 -n azure-iot-operations
+```
 
 ## Create a basic pipeline
 
