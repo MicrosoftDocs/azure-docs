@@ -447,9 +447,9 @@ sections:
 
           - You need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/) and subscription with at least a **Reader** role to access Document Intelligence Studio.
 
-          - For **document analysis and prebuilt models**, you need full access—**Contributor** role—to at least one [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to enter the analyze page. Once you access the model analyze page, you can change the endpoint and key to access other resources, if needed.
+          - For **document analysis and prebuilt models**, you need full access—**Cognitive Services User** role—to at least one [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to enter the analyze page. Once you access the model analyze page, you can change the endpoint and key to access other resources, if needed.
 
-          - For **custom models**, you can either use a **Contributor** role, or use the endpoint and key of a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to create a project. You also need to have **Contributor** role to access to at least one blob storage account.
+          - For **custom models**, you can either use a **Cognitive Services User** role, or use the endpoint and key of a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to create a project. You also need to have **Storage Blob Data Contributor** role to access to at least one blob storage account.
 
           - For more information, *see* [Microsoft Entra built-in roles](../../role-based-access-control/built-in-roles.md).
 
@@ -468,10 +468,15 @@ sections:
           - Switching subscriptions or resources can be done under Settings -> Resource tab.
 
       - question: |
-          Why am I receiving an AuthorizationFailure error on Project Sharing, Auto Label, or OCR Upgrade when my Document Intelligence or Storage Account resource is configured with a firewall?
+          Why am I receiving a Storage error on Project Sharing, Auto Label, or OCR Upgrade when my Storage Account resource is configured with a firewall or virtual network?
         answer: |
 
-          Add our website IP address, 20.3.165.95, to the firewall allowlist for both Document Intelligence and Storage Account resources. This is Document Intelligence Studio's dedicated IP address and can be safely allowed.
+          Please refer to [Managed identities for Document Intelligence](managed-identities.md) to setup up your Azure resources.
+      - question: |
+          Why am I receiving 'Access denied due to Virtual Network/Firewall rules' on Auto Label or OCR Upgrading when my Storage Account resource is configured with a firewall or virtual network?
+        answer: |
+
+          Add our website IP address, 20.3.165.95, to the firewall allowlist for Document Intelligence resource. This is Document Intelligence Studio's dedicated IP address and can be safely allowed.
 
       - question: |
           Can I reuse or customize the labeling experience from Studio and build it into my own application?
