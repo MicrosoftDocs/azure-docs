@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Create Azure CycleCloud clusters
 description: Learn how to create a cluster using Azure CycleCloud
-author: jamesbell
+author: jamescarterbellMSFT
 ms.date: 11/16/2023
 ms.author: jamesbell
 ---
