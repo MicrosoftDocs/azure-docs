@@ -4,7 +4,7 @@ description: Learn how to use Elastic SAN Preview with Azure VMware Solution
 ms.topic: how-to
 ms.service: azure-vmware
 ms.author: v-suzuber
-ms.date: 11/15/2023
+ms.date: 11/16/2023
 ms.custom: references_regions
 ---
 
@@ -44,13 +44,12 @@ The following prerequisites are required to continue.
 In this section, you create a virtual network for your Elastic SAN. Then you create the Elastic SAN that includes creating at least one volume group and one volume that becomes your VMFS datastore. Next, you set up a Private Endpoint for your Elastic SAN that allows your SDDC to connect to the Elastic SAN volume. Then you're ready to add an Elastic SAN volume as a datastore in your SDDC.
 
 1. Use one of the following instruction options to set up a dedicated virtual network for your Elastic SAN:
-	- [Azure portal](https://learn.microsoft.com/azure/virtual-network/quick-create-portal)
-	- Azure portal
-	- [PowerShell](https://learn.microsoft.com/azure/virtual-network/quick-create-powershell)
-	- [Azure CLI](https://learn.microsoft.com/azure/virtual-network/quick-create-cli)
+	- [Azure portal](../virtual-network/quick-create-portal.md)
+	- [Azure PowerShell module](../virtual-network/quick-create-powershell.md)
+	- [Azure CLI](../virtual-network/quick-create-cli.md)
 1. Use one of the following instruction options to set up an Elastic SAN, your dedicated volume group, and initial volume in that group:
 	> [!IMPORTANT]
-	> Make sure to create this Elastic SAN in the same region and availability zone as your SDDC for best performance.
+	> Create your Elastic SAN in the same region and availability zone as your SDDC for best performance.
 	- [Azure portal](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal)
 	- [PowerShell](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-create?tabs=azure-powershell)
 	- [Azure CLI](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-create?tabs=azure-cli)
