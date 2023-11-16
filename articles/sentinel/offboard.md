@@ -46,7 +46,7 @@ After the disconnection is identified, the offboarding process begins.
 
 -   AWS
 
--   Microsoft services security alerts: Microsoft Defender for Identity, Microsoft Defender for Cloud Apps (*formerly Microsoft Cloud App Security*) including Cloud Discovery Shadow IT reporting, Azure AD Identity Protection, Microsoft Defender for Endpoint, security alerts from Microsoft Defender for Cloud (*formerly Azure Defender*)
+-   Microsoft services security alerts: Microsoft Defender for Identity, Microsoft Defender for Cloud Apps (*formerly Microsoft Cloud App Security*) including Cloud Discovery Shadow IT reporting, Microsoft Entra ID Protection, Microsoft Defender for Endpoint, security alerts from Microsoft Defender for Cloud (*formerly Azure Defender*)
 
 -   Threat Intelligence
 

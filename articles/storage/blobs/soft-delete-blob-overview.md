@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Soft delete for blobs protects your data so that you can more easily recover your data when it's erroneously modified or deleted by an application or by another storage account user.
 author: normesta
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 02/14/2023
 ms.author: normesta
@@ -143,6 +143,8 @@ The following table describes the expected behavior for delete and write operati
 ## Feature support
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
+
+Soft delete is not supported for blobs that are uploaded by using Data Lake Storage Gen2 APIs on Storage accounts with no hierarchical namespace.
 
 ## Pricing and billing
 

@@ -4,8 +4,8 @@ description: Azure Storage inventory is a tool to help get an overview of all yo
 services: storage
 author: normesta
 
-ms.service: azure-storage
-ms.date: 07/24/2023
+ms.service: azure-blob-storage
+ms.date: 10/23/2023
 ms.topic: conceptual
 ms.author: normesta
 ms.custom: references_regions
@@ -115,6 +115,7 @@ Several filters are available for customizing a blob inventory report:
 | Filter name | Filter type | Notes | Required? |
 |--|--|--|--|
 | blobTypes | Array of predefined enum values | Valid values are `blockBlob` and `appendBlob` for hierarchical namespace enabled accounts, and `blockBlob`, `appendBlob`, and `pageBlob` for other accounts. This field isn't applicable for inventory on a container, (objectType: `container`). | Yes |
+| creationTime | Number |  Specifies the number of days ago within which the blob must have been created. For example, a value of `3` includes in the report only those blobs which were created in the last 3 days. | No |
 | prefixMatch | Array of up to 10 strings for prefixes to be matched. | If you don't define *prefixMatch* or provide an empty prefix, the rule applies to all blobs within the storage account. A prefix must be a container name prefix or a container name. For example, `container`, `container1/foo`. | No |
 | excludePrefix | Array of up to 10 strings for prefixes to be excluded. | Specifies the blob paths to exclude from the inventory report.<br><br>An *excludePrefix* must be a container name prefix or a container name. An empty *excludePrefix* would mean that all blobs with names matching any *prefixMatch* string will be listed.<br><br>If you want to include a certain prefix, but exclude some specific subset from it, then you could use the excludePrefix filter. For example, if you want to include all blobs under `container-a` except those under the folder `container-a/folder`, then *prefixMatch* should be set to `container-a` and *excludePrefix* should be set to `container-a/folder`. | No |
 | includeSnapshots | boolean | Specifies whether the inventory should include snapshots. Default is `false`. This field isn't applicable for inventory on a container, (objectType: `container`). | No |
@@ -176,7 +177,7 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 | Name (Required)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Creation-Time  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Last-Modified  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Last-Access-Time  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| LastAccessTime<sup>1<sup>  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | ETag  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Content-Length  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Content-Type  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
@@ -224,8 +225,7 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 | IncrementalCopy | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
 | x-ms-blob-sequence-number | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | 
 
-> [!NOTE]
-> 
+<sup>1</sup> Disabled by default. [Optionally enable access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking).
 
 ### Custom schema fields supported for container inventory
 
@@ -317,12 +317,12 @@ Each inventory rule generates a set of files in the specified inventory destinat
 
 Each inventory run for a rule generates the following files:
 
-- **Inventory file:** An inventory run for a rule generates one or more CSV or Apache Parquet formatted files. If the matched object count is large, then multiple files are generated instead of a single file. Each such file contains matched objects and their metadata. 
+- **Inventory file:** An inventory run for a rule generates a CSV or Apache Parquet formatted file. Each such file contains matched objects and their metadata. 
 
-  > [!NOTE]
-  > Reports in the Apache Parquet format present dates in the following format: `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`].
-
-  For a CSV formatted file, the first row is always the schema row. The following image shows an inventory CSV file opened in Microsoft Excel.
+  > [!IMPORTANT]
+  > Starting in October 2023, inventory runs will produce multiple files if the object count is large. To learn more, see [Multiple inventory file output FAQ](storage-blob-faq.yml#multiple-inventory-file-output).   
+  
+  Reports in the Apache Parquet format present dates in the following format: `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`]. For a CSV formatted file, the first row is always the schema row. The following image shows an inventory CSV file opened in Microsoft Excel.
 
   :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Screenshot of an inventory CSV file opened in Microsoft Excel":::
 
@@ -376,6 +376,8 @@ Each inventory run for a rule generates the following files:
   }
   ```
 
+  This file is created when the run begins. The `status` field of this file is set to `Pending` until the run completes. After the run completes, this field is set to a completion status (For example: `Succeeded` or `Failed`).
+
 ## Pricing and billing
 
 Pricing for inventory is based on the number of blobs and containers that are scanned during the billing period. The [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page shows the price per one million objects scanned. For example, if the price to scan one million objects is $0.003, your account contains three million objects, and you produce four reports in a month, then your bill would be 4 * 3  * $0.003 = $0.036.
@@ -398,7 +400,7 @@ For more information about pricing for Azure Storage blob inventory, see [Azure 
 
 This section describes limitations and known issues of the Azure Storage blob inventory feature.
 
-#### Inventory jobs take a longer time to complete in certain cases
+### Inventory jobs take a longer time to complete in certain cases
 
 An inventory job can take a longer amount of time in these cases:
 
@@ -408,13 +410,13 @@ An inventory job can take a longer amount of time in these cases:
 
   The inventory run might take longer time to run as compared to the subsequent inventory runs.  
 
-- In inventory run is processing a large amount of data in hierarchical namespace enabled accounts
+- An inventory run is processing a large amount of data in hierarchical namespace enabled accounts
 
   An inventory job might take more than one day to complete for hierarchical namespace enabled accounts that have hundreds of millions of blobs. Sometimes the inventory job fails and doesn't create an inventory file. If a job doesn't complete successfully, check subsequent jobs to see if they're complete before contacting support.
 
 - There is no option to generate a report retrospectively for a particular date.
 
-#### Inventory jobs can't write reports to containers that have an object replication policy
+### Inventory jobs can't write reports to containers that have an object replication policy
 
 An object replication policy can prevent an inventory job from writing inventory reports to the destination container. Some other scenarios can archive the reports or make the reports immutable when they're partially completed which can cause inventory jobs to fail.
 

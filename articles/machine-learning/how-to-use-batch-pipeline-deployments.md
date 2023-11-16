@@ -1,5 +1,5 @@
 ---
-title: "Deploy pipelines with batch endpoints (preview)"
+title: "Deploy pipelines with batch endpoints"
 titleSuffix: Azure Machine Learning
 description: Learn how to create a batch deploy a pipeline component and invoke it.
 services: machine-learning
@@ -8,13 +8,17 @@ ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
-ms.date: 04/21/2023
+ms.date: 11/15/2023
 reviewer: msakande
 ms.reviewer: mopeakande
-ms.custom: how-to, devplatv2, event-tier1-build-2023
+ms.custom:
+  - how-to
+  - devplatv2
+  - event-tier1-build-2023
+  - ignite-2023
 ---
 
-# How to deploy pipelines with batch endpoints (preview)
+# How to deploy pipelines with batch endpoints
 
 [!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
@@ -24,8 +28,6 @@ You can deploy pipeline components under a batch endpoint, providing a convenien
 > * Create and register a pipeline component
 > * Create a batch endpoint and deploy a pipeline component
 > * Test the deployment
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## About this example
 
@@ -183,7 +185,7 @@ Once the deployment is created, it's ready to receive jobs. You can invoke the d
 ---
 
 > [!TIP]
-> In this example, the pipeline doesn't have inputs or outputs. However, they can be indicated at invocation time if any. To learn more about how to indicate inputs and outputs, see [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md).
+> In this example, the pipeline doesn't have inputs or outputs. However, if the pipeline component requires some, they can be indicated at invocation time. To learn about how to indicate inputs and outputs, see [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md) or see the tutorial [How to deploy a pipeline to perform batch scoring with preprocessing (preview)](how-to-use-batch-scoring-pipeline.md).
 
 You can monitor the progress of the show and stream the logs using:
 
@@ -234,8 +236,8 @@ ml_client.compute.begin_delete(name="batch-cluster")
 
 ## Next steps
 
-- [How to deploy a training pipeline with batch endpoints (preview)](how-to-use-batch-training-pipeline.md)
-- [How to deploy a pipeline to perform batch scoring with preprocessing (preview)](how-to-use-batch-scoring-pipeline.md)
-- [Create batch endpoints from pipeline jobs (preview)](how-to-use-batch-pipeline-from-job.md)
-- [Access data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md)
+- [How to deploy a training pipeline with batch endpoints)](how-to-use-batch-training-pipeline.md)
+- [How to deploy a pipeline to perform batch scoring with preprocessing](how-to-use-batch-scoring-pipeline.md)
+- [Create batch endpoints from pipeline jobs](how-to-use-batch-pipeline-from-job.md)
+- [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md)
 - [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)

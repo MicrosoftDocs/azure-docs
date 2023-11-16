@@ -2,7 +2,7 @@
 title: 'Tutorial: Calculate Azure Blob Storage container statistics'
 description: Description goes here  
 author: normesta
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 02/08/2023
 ms.author: normesta

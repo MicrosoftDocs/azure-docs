@@ -226,7 +226,7 @@ Create a VM in the *Public* subnet with [az vm create](/cli/azure/vm). If SSH ke
 az vm create \
   --resource-group myResourceGroup \
   --name myVmPublic \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --vnet-name myVirtualNetwork \
   --subnet Public \
   --generate-ssh-keys
@@ -255,7 +255,7 @@ Take note of the **publicIpAddress** in the returned output. This address is use
 az vm create \
   --resource-group myResourceGroup \
   --name myVmPrivate \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --vnet-name myVirtualNetwork \
   --subnet Private \
   --generate-ssh-keys

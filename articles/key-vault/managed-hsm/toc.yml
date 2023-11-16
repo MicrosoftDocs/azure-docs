@@ -35,7 +35,7 @@ items:
     href: key-rotation.md
   - name: Import HSM-protected keys to Managed HSM
     href: hsm-protected-keys-byok.md
-  - name: Backup and restore
+  - name: Backup and restore and selective key restore
     href: backup-restore.md
   - name: Secure access to your Managed HSM
     href: secure-your-managed-hsm.md
@@ -52,19 +52,19 @@ items:
 
 - name: Concepts 
   items:
-  - name: Control your data
+  - name: Control your data in the cloud
     href: mhsm-control-data.md
   - name: Key sovereignty, availability, performance, and scalability
     href: managed-hsm-technical-details.md
-  - name: Security domain
+  - name: Security domain overview
     href: security-domain.md
-  - name: Best practices
+  - name: Best practices for securing Managed HSM
     href: best-practices.md
-  - name: Access Control
+  - name: Access control
     href: access-control.md
   - name: Local RBAC built-in roles
     href: built-in-roles.md
-  - name: Managed HSM Soft-delete 
+  - name: Managed HSM soft-delete 
     href: soft-delete-overview.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline?toc=/azure/key-vault/managed-hsm/&bc=/azure/key-vault/managed-hsm/breadcrumb/toc.json

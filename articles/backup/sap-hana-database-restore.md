@@ -16,7 +16,7 @@ This article describes how to restore SAP HANA databases that are running on Azu
 Azure Backup now supports backup and restore of SAP HANA System Replication (HSR) instance.
 
 >[!Note]
->- The restore process for HANA databases with HSR is the same as the restore process for HANA databases without HSR. As per SAP advisories, you can restore databases with HSR mode as *standalone* databases. If the target system has the HSR mode enabled, first disable the mode, and then restore the database. Howver, if you're restoring HSR as files, you don't need to disable the HSR mode (break the HSR).
+>- The restore process for HANA databases with HSR is the same as the restore process for HANA databases without HSR. As per SAP advisories, you can restore databases with HSR mode as *standalone* databases. If the target system has the HSR mode enabled, first disable the mode, and then restore the database. However, if you're restoring as files, disabling the HSR mode (breaking the HSR) isn't needed.
 >- Original Location Recovery (OLR) is currently not supported for HSR. Alternatively, select **Alternate location** restore, and then select the source VM as your *Host* from the list.
 >- Restore to HSR instance isn't supported. However, restore only to HANA instance is supported.
 

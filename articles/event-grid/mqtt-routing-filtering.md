@@ -2,7 +2,9 @@
 title: 'Filtering of MQTT Routed Messages'
 description: 'Describes how to filter MQTT Routed Messages.'
 ms.topic: conceptual
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.date: 05/23/2023
 author: george-guirguis
 ms.author: geguirgu
@@ -10,7 +12,7 @@ ms.author: geguirgu
 # Filtering of MQTT Routed Messages
 You can use the Event Grid Subscription’s filtering capability to filter the routed MQTT messages.
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 ## Topic filtering
 
@@ -59,9 +61,9 @@ If you send a non-JSON payload that is still UFT-8, it will be serialized as a J
 You can use the following filter to filter all the messages that include the word “Contoso”:
 ```azurecli-interactive
 "advancedFilters": [{
-    "operatorType": "`StringContains` ",
+    "operatorType": "StringContains",
     "key": "data",
-    "value": “Contoso”
+    "value": "Contoso"
 }]
 ```
 
@@ -82,9 +84,9 @@ You can use the following filter to filter all the messages coming from your cli
 
 ```azurecli-interactive
 "advancedFilters": [{"
-    operatorType": "`StringContains` ",
-    "key": "`clienttype`", 
-    "value": “sensor”
+    operatorType": "StringContains",
+    "key": "clienttype", 
+    "value": "sensor"
 }]
 ```
 

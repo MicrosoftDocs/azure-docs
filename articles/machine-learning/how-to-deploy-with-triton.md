@@ -1,20 +1,20 @@
 ---
-title: High-performance model serving with Triton (preview)
+title: High-performance model serving with Triton
 titleSuffix: Azure Machine Learning
 description: 'Learn to deploy your model with NVIDIA Triton Inference Server in Azure Machine Learning.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
-ms.date: 06/10/2022
+ms.date: 11/09/2023
 ms.topic: how-to
-author: dem108
-ms.author: sehan
+author: tinaem
+ms.author: timanghn
 ms.reviewer: mopeakande
 ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
 ms.devlang: azurecli
 ---
 
-# High-performance serving with Triton Inference Server (Preview)
+# High-performance serving with Triton Inference Server
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
@@ -22,13 +22,10 @@ Learn how to use [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-d
 
 Triton is multi-framework, open-source software that is optimized for inference. It supports popular machine learning frameworks like TensorFlow, ONNX Runtime, PyTorch, NVIDIA TensorRT, and more. It can be used for your CPU or GPU workloads. No-code deployment for Triton models is supported in both [managed online endpoints and Kubernetes online endpoints](concept-endpoints-online.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
 
-In this article, you will learn how to deploy Triton and a model to a [managed online endpoint](concept-endpoints-online.md#managed-online-endpoints). Information is provided on using the CLI (command line), Python SDK v2, and Azure Machine Learning studio. 
+In this article, you will learn how to deploy Triton and a model to a [managed online endpoint](concept-endpoints-online.md#online-endpoints). Information is provided on using the CLI (command line), Python SDK v2, and Azure Machine Learning studio. 
 
 > [!NOTE]
-> * [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) is an open-source third-party software that is integrated in Azure Machine Learning.
-> * While Azure Machine Learning online endpoints are generally available, _using Triton with an online endpoint/deployment is still in preview_. 
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+> Use of the NVIDIA Triton Inference Server container is governed by the [NVIDIA AI Enterprise Software license agreement](https://www.nvidia.com/en-us/data-center/products/nvidia-ai-enterprise/eula/) and can be used for 90 days without an enterprise product subscription. For more information, see [NVIDIA AI Enterprise on Azure Machine Learning](https://www.nvidia.com/en-us/data-center/azure-ml).
 
 ## Prerequisites
 
@@ -422,9 +419,7 @@ Once your deployment completes, use the following command to make a scoring requ
 
 # [Studio](#tab/azure-studio)
 
-Azure Machine Learning studio provides the ability to test endpoints with JSON. However, serialized JSON is not currently included for this example. 
-
-To test an endpoint using Azure Machine Learning studio, click `Test` from the Endpoint page. 
+Triton Inference Server requires using Triton Client for inference, and it supports tensor-typed input. Azure Machine Learning studio doesn't currently support this. Instead, use CLI or SDK to invoke endpoints with Triton.
 
 --- 
 

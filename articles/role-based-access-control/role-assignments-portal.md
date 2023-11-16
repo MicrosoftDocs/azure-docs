@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/28/2022
+ms.date: 11/06/2023
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal,subject-rbac-steps
 ---
@@ -16,7 +16,7 @@ ms.custom: contperf-fy21q3-portal,subject-rbac-steps
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] This article describes how to assign roles using the Azure portal.
 
-If you need to assign administrator roles in Azure Active Directory, see [Assign Azure AD roles to users](../active-directory/roles/manage-roles-portal.md).
+If you need to assign administrator roles in Microsoft Entra ID, see [Assign Microsoft Entra roles to users](../active-directory/roles/manage-roles-portal.md).
 
 ## Prerequisites
 
@@ -68,9 +68,9 @@ If you need to assign administrator roles in Azure Active Directory, see [Assign
 
 1. If you want to assign a privileged administrator role, select the **Privileged administrator roles** tab to select the role.
 
-    Privileged administrator roles are roles that grant privileged administrator access, such as the ability to manage Azure resources or assign roles to other users. You should avoid assigning a privileged administrator role when a job function role can be assigned instead. If you must assign a privileged administrator role, use a narrow scope, such as resource group or resource. For more information, see [Privileged administrator roles](./role-assignments-steps.md#privileged-administrator-roles).
-
-   ![Screenshot of Add role assignment page with Privileged administrator roles tab selected.](./media/shared/privileged-administrator-roles.png)
+    For best practices when using privileged administrator role assignments, see [Best practices for Azure RBAC](best-practices.md#limit-privileged-administrator-role-assignments).
+    
+    ![Screenshot of Add role assignment page with Privileged administrator roles tab selected.](./media/shared/privileged-administrator-roles.png)
 
 1. In the **Details** column, click **View** to get more details about a role.
 
@@ -80,7 +80,7 @@ If you need to assign administrator roles in Azure Active Directory, see [Assign
 
 ## Step 4: Select who needs access
 
-1. On the **Members** tab, select **User, group, or service principal** to assign the selected role to one or more Azure AD users, groups, or service principals (applications).
+1. On the **Members** tab, select **User, group, or service principal** to assign the selected role to one or more Microsoft Entra users, groups, or service principals (applications).
 
    ![Screenshot of Add role assignment page with Members tab.](./media/shared/members.png)
 
@@ -114,12 +114,35 @@ If you need to assign administrator roles in Azure Active Directory, see [Assign
 
 1. Click **Next**.
 
-## Step 5: (Optional) Add condition (preview)
+## Step 5: (Optional) Add condition
 
-If you selected a role that supports conditions, a **Conditions (optional)** tab will appear and you have the option to add a condition to your role assignment. A [condition](conditions-overview.md) is an additional check that you can optionally add to your role assignment to provide more fine-grained access control.
+If you selected a role that supports conditions, a **Conditions** tab will appear and you have the option to add a condition to your role assignment. A [condition](conditions-overview.md) is an additional check that you can optionally add to your role assignment to provide more fine-grained access control.
 
-Currently, conditions can be added to built-in or custom role assignments that have [storage blob data actions](conditions-format.md#actions). These include the following built-in roles:
+The **Conditions** tab will look different depending on the role you selected.
 
+# [Delegate condition](#tab/delegate-condition)
+
+> [!IMPORTANT]
+> Delegating Azure role assignments with conditions is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+If you selected one of the following privileged roles, follow the steps in this section.
+
+- [Owner](built-in-roles.md#owner)
+- [Role Based Access Control Administrator (Preview)](built-in-roles.md#role-based-access-control-administrator-preview)
+- [User Access Administrator](built-in-roles.md#user-access-administrator)
+
+1. On the **Conditions** tab under **Delegation type**, select the **Constrained (recommended)** option.
+
+    :::image type="content" source="./media/shared/condition-constrained.png" alt-text="Screenshot of Add role assignment with the Constrained option selected." lightbox="./media/shared/condition-constrained.png":::
+
+1. Click **Add condition** to add a condition that constrains the roles and principals this user can assign roles to.
+
+1. Follow the steps in [Delegate the Azure role assignment task to others with conditions (preview)](delegate-role-assignments-portal.md#step-3-add-a-condition).
+
+# [Storage condition](#tab/storage-condition)
+
+If you selected one of the following storage roles, follow the steps in this section.
 
 - [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor)
 - [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner)
@@ -129,11 +152,13 @@ Currently, conditions can be added to built-in or custom role assignments that h
 - [Storage Queue Data Message Sender](built-in-roles.md#storage-queue-data-message-sender)
 - [Storage Queue Data Reader](built-in-roles.md#storage-queue-data-reader)
 
-1. Click **Add condition** if you want to further refine the role assignments based on storage blob attributes. For more information, see [Add or edit Azure role assignment conditions](conditions-role-assignments-portal.md).
+1. Click **Add condition** if you want to further refine the role assignments based on storage attributes.
 
    ![Screenshot of Add role assignment page with Add condition tab.](./media/shared/condition.png)
 
-1. Click **Next**.
+1. Follow the steps in [Add or edit Azure role assignment conditions](conditions-role-assignments-portal.md#step-3-review-basics).
+
+---
 
 ## Step 6: Assign role
 

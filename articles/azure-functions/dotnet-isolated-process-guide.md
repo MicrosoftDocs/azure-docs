@@ -1,10 +1,14 @@
 ---
 title: Guide for running C# Azure Functions in an isolated worker process
-description: Learn how to use a .NET isolated worker process to run your C# functions in Azure, which supports non-LTS versions of .NET and .NET Framework apps.  
+description: Learn how to use a .NET isolated worker process to run your C# functions in Azure, which supports non-LTS versions of .NET and .NET Framework apps.
 ms.service: azure-functions
-ms.topic: conceptual 
-ms.date: 07/21/2023
-ms.custom: template-concept, devx-track-dotnet
+ms.topic: conceptual
+ms.date: 11/02/2023
+ms.custom:
+  - template-concept
+  - devx-track-dotnet
+  - devx-track-azurecli
+  - ignite-2023
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated worker process so that I can run my function code on current (not LTS) releases of .NET.
 ---
@@ -23,6 +27,8 @@ If you still need to run your functions in the same process as the host, see [In
 
 For a comprehensive comparison between isolated worker process and in-process .NET Functions, see [Differences between in-process and isolate worker process .NET Azure Functions](dotnet-isolated-in-process-differences.md).
 
+To learn about migration from the in-process model to the isolated worker model, see [Migrate .NET apps from the in-process model to the isolated worker model][migrate].
+
 ## Why .NET Functions isolated worker process?
 
 When it was introduced, Azure Functions only supported a tightly integrated mode for .NET functions. In this _in-process_ mode, your [.NET class library functions](functions-dotnet-class-library.md) run in the same process as the host. This mode provides deep integration between the host process and the functions. For example, when running in the same process .NET class library functions can share binding APIs and types. However, this integration also requires a tight coupling between the host process and the .NET function. For example, .NET functions running in-process are required to run on the same version of .NET as the Functions runtime. This means that your in-process functions can only run on version of .NET with Long Term Support (LTS). To enable you to run on non-LTS version of .NET, you can instead choose to run in an isolated worker process. This process isolation lets you develop functions that use current .NET releases not natively supported by the Functions runtime, including .NET Framework. Both isolated worker process and in-process C# class library functions run on LTS versions. To learn more, see [Supported versions][supported-versions]. 
@@ -39,9 +45,9 @@ When your .NET functions run in an isolated worker process, you can take advanta
 
 [!INCLUDE [functions-dotnet-supported-versions](../../includes/functions-dotnet-supported-versions.md)]
 
-## .NET isolated worker process project
+## .NET isolated worker model project
 
-A .NET isolated function project is basically a .NET console app project that targets a supported .NET runtime. The following are the basic files required in any .NET isolated project:
+A .NET project for Azure Functions using the isolated worker model is basically a .NET console app project that targets a supported .NET runtime. The following are the basic files required in any .NET isolated project:
 
 + [host.json](functions-host-json.md) file.
 + [local.settings.json](functions-develop-local.md#local-settings-file) file.
@@ -49,14 +55,14 @@ A .NET isolated function project is basically a .NET console app project that ta
 + Program.cs file that's the entry point for the app.
 + Any code files [defining your functions](#bindings).
  
-For complete examples, see the [.NET 6 isolated sample project](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/FunctionApp) and the [.NET Framework 4.8 isolated sample project](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/NetFxWorker).
+For complete examples, see the [.NET 8 sample project](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/FunctionApp) and the [.NET Framework 4.8 sample project](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/NetFxWorker).
 
 > [!NOTE]
-> To be able to publish your isolated function project to either a Windows or a Linux function app in Azure, you must set a value of `dotnet-isolated` in the remote [FUNCTIONS_WORKER_RUNTIME](functions-app-settings.md#functions_worker_runtime) application setting. To support [zip deployment](deployment-zip-push.md) and [running from the deployment package](run-functions-from-deployment-package.md) on Linux, you also need to update the `linuxFxVersion` site config setting to `DOTNET-ISOLATED|7.0`. To learn more, see [Manual version updates on Linux](set-runtime-version.md#manual-version-updates-on-linux). 
+> To be able to publish a project using the isolated worker model to either a Windows or a Linux function app in Azure, you must set a value of `dotnet-isolated` in the remote [FUNCTIONS_WORKER_RUNTIME](functions-app-settings.md#functions_worker_runtime) application setting. To support [zip deployment](deployment-zip-push.md) and [running from the deployment package](run-functions-from-deployment-package.md) on Linux, you also need to update the `linuxFxVersion` site config setting to `DOTNET-ISOLATED|7.0`. To learn more, see [Manual version updates on Linux](set-runtime-version.md#manual-version-updates-on-linux). 
 
 ## Package references
 
-A .NET Functions isolated worker process project uses a unique set of packages, for both core functionality and binding extensions. 
+A .NET project for Azure Functions using the isolated worker model uses a unique set of packages, for both core functionality and binding extensions. 
 
 ### Core packages 
 
@@ -120,6 +126,65 @@ The following example injects a singleton service dependency:
 
 This code requires `using Microsoft.Extensions.DependencyInjection;`. To learn more, see [Dependency injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true).
 
+#### Register Azure clients
+
+Dependency injection can be used to interact with other Azure services. You can inject clients from the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet) using the [Microsoft.Extensions.Azure](https://www.nuget.org/packages/Microsoft.Extensions.Azure) package. After installing the package, [register the clients](/dotnet/azure/sdk/dependency-injection#register-clients) by calling `AddAzureClients()` on the service collection in `Program.cs`. The following example configures a [named client](/dotnet/azure/sdk/dependency-injection#configure-multiple-service-clients-with-different-names) for Azure Blobs:
+
+```csharp
+using Microsoft.Extensions.Azure;
+using Microsoft.Extensions.Hosting;
+
+var host = new HostBuilder()
+    .ConfigureFunctionsWorkerDefaults()
+    .ConfigureServices((hostContext, services) =>
+    {
+        services.AddAzureClients(clientBuilder =>
+        {
+            clientBuilder.AddBlobServiceClient(hostContext.Configuration.GetSection("MyStorageConnection"))
+                .WithName("copierOutputBlob");
+        });
+    })
+    .Build();
+
+host.Run();
+```
+
+The following example shows how we can use this registration and [SDK types](#sdk-types) to copy blob contents as a stream from one container to another using an injected client:
+
+```csharp
+using Microsoft.Extensions.Azure;
+using Microsoft.Extensions.Logging;
+
+namespace MyFunctionApp
+{
+    public class BlobCopier
+    {
+        private readonly ILogger<BlobCopier> _logger;
+        private readonly BlobContainerClient _copyContainerClient;
+
+        public BlobCopier(ILogger<BlobCopier> logger, IAzureClientFactory<BlobServiceClient> blobClientFactory)
+        {
+            _logger = logger;
+            _copyContainerClient = blobClientFactory.CreateClient("copierOutputBlob").GetBlobContainerClient("samples-workitems-copy");
+            _copyContainerClient.CreateIfNotExists();
+        }
+
+        [Function("BlobCopier")]
+        public async Task Run([BlobTrigger("samples-workitems/{name}", Connection = "MyStorageConnection")] Stream myBlob, string name)
+        {
+            await _copyContainerClient.UploadBlobAsync(name, myBlob);
+            _logger.LogInformation($"Blob {name} copied!");
+        }
+
+    }
+}
+```
+
+The [`ILogger<T>`][ILogger&lt;T&gt;] in this example was also obtained through dependency injection. It is registered automatically. To learn more about configuration options for logging, see [Logging](#logging).
+
+> [!TIP]
+> The example used a literal string for the name of the client in both `Program.cs` and the function. Consider instead using a shared constant string defined on the function class. For example, you could add `public const string CopyStorageClientName = nameof(_copyContainerClient);` and then reference `BlobCopier.CopyStorageClientName` in both locations. You could similarly define the configuration section name with the function rather than in `Program.cs`.
+
 ### Middleware
 
 .NET isolated also supports middleware registration, again by using a model similar to what exists in ASP.NET. This model gives you the ability to inject logic into the invocation pipeline, and before and after functions execute.
@@ -158,22 +223,95 @@ The following example performs clean-up actions if a cancellation request has be
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Net7Worker/EventHubCancellationToken.cs" id="docsnippet_cancellation_token_cleanup":::
 
-## ReadyToRun
+## Performance optimizations
 
-You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the effect of [cold-start](event-driven-scaling.md#cold-start) when running in a [Consumption plan](consumption-plan.md).
+This section outlines options you can enable that improve performance around [cold start](./event-driven-scaling.md#cold-start).
 
-ReadyToRun is available in .NET 6 and later versions and requires [version 4.0 or later](functions-versions.md) of the Azure Functions runtime.
+In general, your app should use the latest versions of its core dependencies. At a minimum, you should update your project as follows:
 
-To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following is the configuration for publishing to a Windows 32-bit function app.
+- Upgrade [Microsoft.Azure.Functions.Worker] to version 1.19.0 or later.
+- Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.16.2 or later.
+- Add a framework reference to `Microsoft.AspNetCore.App`, unless your app targets .NET Framework.
+
+The following example shows this configuration in the context of a project file:
+
+```xml
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.2" />
+  </ItemGroup>
+```
+
+### Placeholders
+
+Placeholders are a platform capability that improves cold start for apps targeting .NET 6 or later. The feature requires some opt-in configuration. To enable placeholders:
+
+- **Update your project as detailed in the preceding section.**
+- Set the `WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED` application setting to "1".
+- Ensure that the `netFrameworkVersion` property of the function app matches your project's target framework, which must be .NET 6 or later.
+- Ensure that the function app is configured to use a 64-bit process.
+
+> [!IMPORTANT]
+> Setting the `WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED` to "1" requires all other aspects of the configuration to be set correctly. Any deviation can cause startup failures.
+
+The following CLI commands will set the application setting, update the `netFrameworkVersion` property, and make the app run as 64-bit. Replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. Replace `<framework>` with the appropriate version string, such as "v8.0", "v7.0", or "v6.0", according to your target .NET version.
+
+```azurecli
+az functionapp config appsettings set -g <groupName> -n <appName> --settings 'WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED=1'
+az functionapp config set -g <groupName> -n <appName> --net-framework-version <framework>
+az functionapp config set -g <groupName> -n <appName> --use-32bit-worker-process false
+```
+
+### Optimized executor 
+
+The function executor is a component of the platform that causes invocations to run. An optimized version of this component is enabled by default starting with version 1.16.2 of the SDK. No additional configuration is required.
+
+### ReadyToRun
+
+You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the effect of cold starts when running in a [Consumption plan](consumption-plan.md). ReadyToRun is available in .NET 6 and later versions and requires [version 4.0 or later](functions-versions.md) of the Azure Functions runtime.
+
+ReadyToRun requires you to build the project against the runtime architecture of the hosting app. **If these are not aligned, your app will encounter an error at startup.** Select your runtime identifier from the table below:
+
+|Operating System | App is 32-bit<sup>1</sup> | Runtime identifier |
+|-|-|-|
+| Windows | True | `win-x86` |
+| Windows | False | `win-x64` |
+| Linux | True | N/A (not supported) |
+| Linux | False | `linux-x64` | 
+
+<sup>1</sup> Only 64-bit apps are eligible for some other performance optimizations.
+
+To check if your Windows app is 32-bit or 64-bit, you can run the following CLI command, substituting `<group_name>` with the name of your resource group and `<app_name>` with the name of your application. An output of "true" indicates that the app is 32-bit, and "false" indicates 64-bit.
+
+```azurecli
+ az functionapp config show -g <group_name> -n <app_name> --query "use32BitWorkerProcess"
+```
+
+You can change your application to 64-bit with the following command, using the same substitutions:
+
+```azurecli
+az functionapp config set -g <group_name> -n <app_name> --use-32bit-worker-process false`
+```
+
+To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following example shows a configuration for publishing to a Windows 64-bit function app.
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>net6.0</TargetFramework>
+  <TargetFramework>net8.0</TargetFramework>
   <AzureFunctionsVersion>v4</AzureFunctionsVersion>
-  <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+  <RuntimeIdentifier>win-x64</RuntimeIdentifier>
   <PublishReadyToRun>true</PublishReadyToRun>
 </PropertyGroup>
 ```
+
+If you don't want to set the `<RuntimeIdentifier>` as part of the project file, you can also configure this as part of the publish gesture itself. For example, with a Windows 64-bit function app, the .NET CLI command would be:
+
+```dotnetcli
+dotnet publish --runtime win-x64
+```
+
+In Visual Studio, the "Target Runtime" option in the publish profile should be set to the correct runtime identifier. If it is set to the default value "Portable", ReadyToRun will not be used.
 
 ## Execution context
 
@@ -189,9 +327,7 @@ The trigger attribute specifies the trigger type and binds input data to a metho
 
 The `Function` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name.
 
-Bindings can provide data as strings, arrays, and serializable types, such as plain old class objects (POCOs). You can also bind to [types from some service SDKs](#sdk-types).
-
-For HTTP triggers, you must use [HttpRequestData] and [HttpResponseData] to access the request and response data. This is because you don't have access to the original HTTP request and response objects when using .NET Functions isolated worker process.
+Bindings can provide data as strings, arrays, and serializable types, such as plain old class objects (POCOs). You can also bind to [types from some service SDKs](#sdk-types). For HTTP triggers, see the [HTTP trigger](#http-trigger) section below.
 
 For a complete set of reference samples for using triggers and bindings with isolated worker process functions, see the [binding extensions reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions). 
 
@@ -215,12 +351,12 @@ The response from an HTTP trigger is always considered an output, so a return va
 
 ### SDK types
 
-For some service-specific binding types, binding data can be provided using types from service SDKs and frameworks. These provide additional capability beyond what a serialized string or plain-old CLR object (POCO) may offer. To use the newer types, your project needs to be updated to use newer versions of core dependencies.
+For some service-specific binding types, binding data can be provided using types from service SDKs and frameworks. These provide additional capability beyond what a serialized string or plain-old CLR object (POCO) can offer. To use the newer types, your project needs to be updated to use newer versions of core dependencies.
 
 | Dependency | Version requirement |
 |-|-|
-|[Microsoft.Azure.Functions.Worker]| For **Generally Available** extensions in the table below: 1.18.0 or later<br/>For extensions that have **preview support**: 1.15.0-preview1 |
-|[Microsoft.Azure.Functions.Worker.Sdk]|For **Generally Available** extensions in the table below: 1.13.0 or later<br/>For extensions that have **preview support**: 1.11.0-preview1 |
+|[Microsoft.Azure.Functions.Worker]| 1.18.0 or later |
+|[Microsoft.Azure.Functions.Worker.Sdk]| 1.13.0 or later |
 
 When testing SDK types locally on your machine, you will also need to use [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). You can check your current version using the command `func version`.
 
@@ -230,10 +366,10 @@ Each trigger and binding extension also has its own minimum version requirement,
 |-|-|-|-|
 | [Azure Blobs][blob-sdk-types] | **Generally Available** | **Generally Available** | _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Queues][queue-sdk-types] | **Generally Available** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Service Bus][servicebus-sdk-types] | **Preview support<sup>2</sup>** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Service Bus][servicebus-sdk-types] | **Generally Available**  | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Event Hubs][eventhub-sdk-types] | **Generally Available** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Cosmos DB][cosmos-sdk-types] | _SDK types not used<sup>3</sup>_ | **Generally Available**  |  _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Tables][tables-sdk-types] | _Trigger does not exist_ | **Preview support**  |  _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Cosmos DB][cosmos-sdk-types] | _SDK types not used<sup>2</sup>_ | **Generally Available**  |  _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Tables][tables-sdk-types] | _Trigger does not exist_ | **Generally Available** |  _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Event Grid][eventgrid-sdk-types] | **Generally Available** | _Input binding does not exist_ |  _SDK types not recommended.<sup>1</sup>_ | 
 
 [blob-sdk-types]: ./functions-bindings-storage-blob.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
@@ -244,13 +380,9 @@ Each trigger and binding extension also has its own minimum version requirement,
 [eventhub-sdk-types]: ./functions-bindings-event-hubs.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
 [servicebus-sdk-types]: ./functions-bindings-service-bus.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
 
-<sup>1</sup> For output scenarios in which you would use an SDK type, you should create and work with SDK clients directly instead of using an output binding.
+<sup>1</sup> For output scenarios in which you would use an SDK type, you should create and work with SDK clients directly instead of using an output binding. See [Register Azure clients](#register-azure-clients) for an example of how to do this with dependency injection.
 
-<sup>2</sup> The preview for the Service Bus trigger does not yet support message settlement scenarios.
-
-<sup>3</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
-
-The [SDK type binding samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/WorkerBindingSamples) show examples of working with the various supported types.
+<sup>2</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
 
 > [!NOTE]
 > When using [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data, SDK types for the trigger itself cannot be used.
@@ -259,29 +391,19 @@ The [SDK type binding samples](https://github.com/Azure/azure-functions-dotnet-w
 
 [HTTP triggers](./functions-bindings-http-webhook-trigger.md) allow a function to be invoked by an HTTP request. There are two different approaches that can be used:
 
+- An [ASP.NET Core integration model](#aspnet-core-integration) that uses concepts familiar to ASP.NET Core developers
 - A [built-in model](#built-in-http-model) which does not require additional dependencies and uses custom types for HTTP requests and responses
-- An [ASP.NET Core integration model (Preview)](#aspnet-core-integration-preview) that uses concepts familiar to ASP.NET Core developers
 
-#### Built-in HTTP model
+#### ASP.NET Core integration
 
-In the built-in model, the system translates the incoming HTTP request message into an [HttpRequestData] object that is passed to the function. This object provides data from the request, including `Headers`, `Cookies`, `Identities`, `URL`, and optionally a message `Body`. This object is a representation of the HTTP request but is not directly connected to the underlying HTTP listener or the received message. 
-
-Likewise, the function returns an [HttpResponseData] object, which provides data used to create the HTTP response, including message `StatusCode`, `Headers`, and optionally a message `Body`.  
-
-The following example demonstrates the use of `HttpRequestData` and `HttpResponseData`:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
-
-#### ASP.NET Core integration (preview)
-
-This section shows how to work with the underlying HTTP request and response objects using types from ASP.NET Core including [HttpRequest], [HttpResponse], and [IActionResult]. Use of this feature for local testing requires [Core Tools version 4.0.5198 or later](./functions-run-local.md). This model is not available to [apps targeting .NET Framework][supported-versions], which should instead leverage the [built-in model](#built-in-http-model).
+This section shows how to work with the underlying HTTP request and response objects using types from ASP.NET Core including [HttpRequest], [HttpResponse], and [IActionResult]. This model is not available to [apps targeting .NET Framework][supported-versions], which should instead leverage the [built-in model](#built-in-http-model).
 
 > [!NOTE]
 > Not all features of ASP.NET Core are exposed by this model. Specifically, the ASP.NET Core middleware pipeline and routing capabilities are not available.
 
-1. Add a reference to the [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore NuGet package, version 1.0.0-preview2 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/1.0.0-preview2) to your project.
+1. Add a reference to the [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore NuGet package, version 1.0.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/) to your project.
 
-  You must also update your project to use [version 1.11.0 or later of Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.11.0) and [version 1.16.0 or later of Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.16.0).
+    You must also update your project to use [version 1.11.0 or later of Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/) and [version 1.16.0 or later of Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/).
 
 2. In your `Program.cs` file, update the host builder configuration to use `ConfigureFunctionsWebApplication()` instead of `ConfigureFunctionsWorkerDefaults()`. The following example shows a minimal setup without other customizations:
 
@@ -307,7 +429,16 @@ This section shows how to work with the underlying HTTP request and response obj
     }
     ```
 
-4. Enable the feature by setting `AzureWebJobsFeatureFlags` to include "EnableHttpProxying". When hosted in a function app, configure this as an application setting. When running locally, set this value in `local.settings.json`.
+#### Built-in HTTP model
+
+In the built-in model, the system translates the incoming HTTP request message into an [HttpRequestData] object that is passed to the function. This object provides data from the request, including `Headers`, `Cookies`, `Identities`, `URL`, and optionally a message `Body`. This object is a representation of the HTTP request but is not directly connected to the underlying HTTP listener or the received message. 
+
+Likewise, the function returns an [HttpResponseData] object, which provides data used to create the HTTP response, including message `StatusCode`, `Headers`, and optionally a message `Body`.  
+
+The following example demonstrates the use of `HttpRequestData` and `HttpResponseData`:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
+
 
 ## Logging
 
@@ -333,7 +464,7 @@ public class MyFunction {
 
 The logger can also be obtained from a [FunctionContext] object passed to your function. Call the [GetLogger&lt;T&gt;] or [GetLogger] method, passing a string value that is the name for the category in which the logs are written. The category is usually the name of the specific function from which the logs are written. To learn more about categories, see the [monitoring article](functions-monitoring.md#log-levels-and-categories).
 
-Use the methods of [ILogger&lt;T&gt;] and [`ILogger`][ILogger] to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories). You can customize the log levels for components added to your code by registering filters as part of the `HostBuilder` configuration:
+Use the methods of [`ILogger<T>`][ILogger&lt;T&gt;] and [`ILogger`][ILogger] to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories). You can customize the log levels for components added to your code by registering filters as part of the `HostBuilder` configuration:
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -358,29 +489,33 @@ var host = new HostBuilder()
     .Build();
 ```
 
-As part of configuring your app in `Program.cs`, you can also define the behavior for how errors are surfaced to your logs. By default, exceptions thrown by your code may end up wrapped in an `RpcException`. To remove this extra layer, set the `EnableUserCodeExceptions` property to "true" as part of configuring the builder:
+As part of configuring your app in `Program.cs`, you can also define the behavior for how errors are surfaced to your logs. By default, exceptions thrown by your code can end up wrapped in an `RpcException`. To remove this extra layer, set the `EnableUserCodeException` property to "true" as part of configuring the builder:
 
 ```csharp
 var host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults(builder => {}, options =>
     {
-        options.EnableUserCodeExceptions = true;
+        options.EnableUserCodeException = true;
     })
     .Build();
 ```
 
 ### Application Insights
 
-You can configure your isolated process application to emit logs directly [Application Insights](../azure-monitor/app/app-insights-overview.md?tabs=net), giving you control over how those logs are emitted. This replaces the default behavior of [relaying custom logs through the host](./configure-monitoring.md#custom-application-logs). To work with Application Insights directly, you will need to add a reference to [Microsoft.Azure.Functions.Worker.ApplicationInsights, version 1.0.0-preview5 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights/). You will also need to reference [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService). Add these packages to your isolated process project:
+You can configure your isolated process application to emit logs directly [Application Insights](../azure-monitor/app/app-insights-overview.md?tabs=net), giving you control over how those logs are emitted. This replaces the default behavior of [relaying custom logs through the host](./configure-monitoring.md#custom-application-logs). To work with Application Insights directly, you will need to add a reference to [Microsoft.Azure.Functions.Worker.ApplicationInsights, version 1.0.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights/). You will also need to reference [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService). Add these packages to your isolated process project:
 
 ```dotnetcli
 dotnet add package Microsoft.ApplicationInsights.WorkerService
-dotnet add package Microsoft.Azure.Functions.Worker.ApplicationInsights --prerelease
+dotnet add package Microsoft.Azure.Functions.Worker.ApplicationInsights
 ```
 
 You then need to call to `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` during service configuration in your `Program.cs` file:
 
-```csharp    
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+    
 var host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults()
     .ConfigureServices(services => {
@@ -395,7 +530,7 @@ host.Run();
 The call to `ConfigureFunctionsApplicationInsights()` adds an `ITelemetryModule` listening to a Functions-defined `ActivitySource`. This creates dependency telemetry needed to support distributed tracing in Application Insights. To learn more about `AddApplicationInsightsTelemetryWorkerService()` and how to use it, see [Application Insights for Worker Service applications](../azure-monitor/app/worker-service.md).
 
 > [!IMPORTANT]
-> The Functions host and the isolated process worker have separate configuration for log levels, etc. Any [Application Insights configuration in host.json](./functions-host-json.md#applicationinsights) will not affect the logging from the worker, and similarly, configuration made in your worker code will not impact logging from the host. You may need to apply changes in both places if your scenario requires customization at both layers.
+> The Functions host and the isolated process worker have separate configuration for log levels, etc. Any [Application Insights configuration in host.json](./functions-host-json.md#applicationinsights) will not affect the logging from the worker, and similarly, configuration made in your worker code will not impact logging from the host. You need to apply changes in both places if your scenario requires customization at both layers.
 
 The rest of your application continues to work with `ILogger` and `ILogger<T>`. However, by default, the Application Insights SDK adds a logging filter that instructs the logger to capture only warnings and more severe logs. If you want to disable this behavior, remove the filter rule as part of service configuration:
 
@@ -476,11 +611,46 @@ After the debugger is attached, the process execution resumes, and you'll be abl
 
 Because your isolated worker process app runs outside the Functions runtime, you need to attach the remote debugger to a separate process. To learn more about debugging using Visual Studio, see [Remote Debugging](functions-develop-vs.md?tabs=isolated-process#remote-debugging).
 
+## Preview .NET versions
+
+Before a generally available release, a .NET version might be released in a "Preview" or "Go-live" state. See the [.NET Official Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) for details on these states.
+
+While it might be possible to target a given release from a local Functions project, function apps hosted in Azure might not have that release available. Azure Functions can only be used with "Preview" or "Go-live" releases noted in this section.
+
+Azure Functions does not currently work with any "Preview" or "Go-live" .NET releases. See [Supported versions][supported-versions] for a list of generally available releases that you can use.
+
+### Using a preview .NET SDK
+
+To use Azure Functions with a preview version of .NET, you need to update your project by:
+
+1. Installing the relevant .NET SDK version in your development
+1. Changing the `TargetFramework` setting in your `.csproj` file
+
+When deploying to a function app in Azure, you also need to ensure that the framework is made available to the app. To do so on Windows, you can use the following CLI command. Replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. Replace `<framework>` with the appropriate version string, such as "v8.0".
+
+```azurecli
+az functionapp config set -g <groupName> -n <appName> --net-framework-version <framework>
+```
+
+### Considerations for using .NET preview versions
+
+Keep these considerations in mind when using Functions with preview versions of .NET: 
+
+If you author your functions in Visual Studio, you must use [Visual Studio Preview](https://visualstudio.microsoft.com/vs/preview/), which supports building Azure Functions projects with .NET preview SDKs. You should also ensure you have the latest Functions tools and templates. To update these, navigate to `Tools->Options`, select `Azure Functions` under `Projects and Solutions`, and then click the `Check for updates` button, installing updates as prompted.
+
+During the preview period, your development environment might have a more recent version of the .NET preview than the hosted service. This can cause the application to fail when deployed. To address this, you can configure which version of the SDK to use in [`global.json`](/dotnet/core/tools/global-json). First, identify which versions you have installed using `dotnet --list-sdks` and note the version that matches what the service supports. Then you can run `dotnet new globaljson --sdk-version <sdk-version> --force`, substituting `<sdk-version>` for the version you noted in the previous command. For example, `dotnet new globaljson --sdk-version dotnet-sdk-8.0.100-preview.7.23376.3 --force` will cause the system to use the .NET 8 Preview 7 SDK when building your project.
+
+Note that due to just-in-time loading of preview frameworks, function apps running on Windows can experience increased cold start times when compared against earlier GA versions.
+
 ## Next steps
 
-+ [Learn more about triggers and bindings](functions-triggers-bindings.md)
-+ [Learn more about best practices for Azure Functions](functions-best-practices.md)
+> [!div class="nextstepaction"]
+> [Learn more about best practices for Azure Functions](functions-best-practices.md)
 
+> [!div class="nextstepaction"]
+> [Migrate .NET apps to the isolated worker model][migrate]
+
+[migrate]: ./migrate-dotnet-to-isolated-model.md
 
 [supported-versions]: #supported-versions
 
@@ -496,6 +666,7 @@ Because your isolated worker process app runs outside the Functions runtime, you
 [FunctionContext]: /dotnet/api/microsoft.azure.functions.worker.functioncontext?view=azure-dotnet&preserve-view=true
 [ILogger]: /dotnet/api/microsoft.extensions.logging.ilogger
 [ILogger&lt;T&gt;]: /dotnet/api/microsoft.extensions.logging.ilogger-1
+[ILoggerFactory]: /dotnet/api/microsoft.extensions.logging.iloggerfactory
 [GetLogger]: /dotnet/api/microsoft.azure.functions.worker.functioncontextloggerextensions.getlogger
 [GetLogger&lt;T&gt;]: /dotnet/api/microsoft.azure.functions.worker.functioncontextloggerextensions.getlogger#microsoft-azure-functions-worker-functioncontextloggerextensions-getlogger-1
 [HttpRequestData]: /dotnet/api/microsoft.azure.functions.worker.http.httprequestdata?view=azure-dotnet&preserve-view=true

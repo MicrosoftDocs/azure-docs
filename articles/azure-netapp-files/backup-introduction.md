@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/01/2023
+ms.date: 09/29/2023
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -37,19 +37,34 @@ Azure NetApp Files backup expands the data protection capabilities of Azure NetA
 Azure NetApp Files backup is supported for the following regions:   
 
 * Australia Central
+* Australia Central 2
 * Australia East
+* Australia Southeast
 * Brazil South
+* Canada Central
 * Canada East
+* Central US
 * East Asia
 * East US
 * East US 2
 * France Central
+* Germany North
 * Germany West Central
 * Japan East
+* Japan West
+* Korea Central
+* North Central US
 * North Europe
+* Norway East
+* Norway West
+* Qatar Central
 * South Africa North
 * South Central US
+* South India
 * Southeast Asia
+* Sweden Central
+* UAE Central
+* UAE North
 * UK South
 * West Europe
 * West US
@@ -60,10 +75,10 @@ Azure NetApp Files backup is supported for the following regions:
 
 Backup vaults are organizational units to manage backups. You must create a backup vault before you can create a backup. 
 
+Although it's possible to create multiple backup vaults in your Azure NetApp Files account, it's recommended you have only one backup vault.
+
 >[!IMPORTANT]
 >If you have existing backups on Azure NetApp Files, you must migrate the backups to a backup vault before you can perform any operation with the backup. To learn how to migrate, see [Manage backup vaults](backup-vault-manage.md#migrate-backups-to-a-backup-vault).
-
-<!-- You can have multiple backup vaults in an Azure NetApp Files subscription. Most deployments, however, will only require one backup vault. -->
 
 ## Cost model for Azure NetApp Files backup
 

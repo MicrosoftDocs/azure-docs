@@ -1,16 +1,20 @@
 ---
-title: Manage Enterprise IoT plans on Azure subscriptions
-description: Manage Defender for IoT plans for Enterprise IoT monitoring on your Azure subscriptions.
-ms.date: 05/17/2023
+title: Manage EIoT monitoring support | Microsoft Defender for IoT
+description: Learn how to manage your EIoT monitoring support with Microsoft Defender for IoT.
+ms.date: 09/13/2023
 ms.topic: how-to
 ms.custom: enterprise-iot
+#CustomerIntent: As a Defender for IoT customer, I want to understand how to manage my EIoT monitoring support with Microsoft Defender for IoT so that I can best plan my deployment.
 ---
 
-# Manage Defender for IoT plans for Enterprise IoT security monitoring
+# Manage enterprise IoT monitoring support with Microsoft Defender for IoT
 
-Enterprise IoT security monitoring with Defender for IoT is managed by an Enterprise IoT plan on your Azure subscription. While you can view your plan in Microsoft Defender for IoT, onboarding and canceling a plan is done with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) in Microsoft 365 Defender.
+Enterprise IoT security monitoring with Defender for IoT is supported by a Microsoft 365 E5 (ME5) or E5 Security license, or extra standalone, per-device licenses purchased as add-ons to Microsoft Defender for Endpoint.
 
-For each monthly price plan, you'll be asked to define an approximate number of [devices](billing.md#defender-for-iot-devices) that you want to monitor and cover by your plan.
+This article describes how to:
+
+- Calculate the devices detected in your environment so that you can understand if you need extra, standalone licenses.
+- Cancel support for enterprise IoT monitoring with Microsoft Defender for IoT
 
 If you're looking to manage OT plans, see [Manage Defender for IoT plans for OT security monitoring](how-to-manage-subscriptions.md).
 
@@ -18,23 +22,56 @@ If you're looking to manage OT plans, see [Manage Defender for IoT plans for OT 
 
 Before performing the procedures in this article, make sure that you have:
 
-- A Microsoft Defender for Endpoint P2 license
+- One of the following sets of licenses:
 
-- An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/free/).
+    - A Microsoft 365 E5 (ME5) or E5 Security license and a Microsoft Defender for Endpoint P2 license
+    - A Microsoft Defender for Endpoint P2 license alone
 
-- The following user roles:
+    For more information, see [Enterprise IoT security in Microsoft 365 Defender](concept-enterprise.md#enterprise-iot-security-in-microsoft-365-defender).
 
-    - **In Azure Active Directory**: [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) for your Microsoft 365 tenant
+- Access to the Microsoft 365 Defender portal as a [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator)
 
-    - **In Azure RBAC**:  [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) for the Azure subscription that you'll be using for the integration
+## Obtain a standalone, Enterprise IoT trial license
 
-### Calculate monitored devices for Enterprise IoT monitoring
+This procedure describes how to start using a trial, standalone license for enterprise IoT monitoring, for customers who have a Microsoft Defender for Endpoint P2 license only.
 
-If you're working with a monthly commitment, you'll need to periodically update the number of devices covered by your plan as your network grows.
+Customers with ME5/E5 Security plans have support for enterprise IoT monitoring available on by default, and don't need to start a trial. For more information, see [Get started with enterprise IoT monitoring in Microsoft 365 Defender](eiot-defender-for-endpoint.md).
+
+Start your enterprise IoT trial using the [Microsoft Defender for IoT - EIoT Device License - add-on wizard](https://signup.microsoft.com/get-started/signup?products=b2f91841-252f-4765-94c3-75802d7c0ddb&ali=1&bac=1) or via the Microsoft 365 admin center.
+
+
+**To start an Enterprise IoT trial**:
+
+1. Go to the [Microsoft 365 admin center](https://portal.office.com/AdminPortal/Home#/catalog) > **Marketplace**.
+
+1. Search for the **Microsoft Defender for IoT - EIoT Device License - add-on** and filter the results by **Other services**. For example:
+
+    :::image type="content" source="media/enterprise-iot/eiot-standalone.png" alt-text="Screenshot of the Marketplace search results for the EIoT Device License.":::
+
+    > [!IMPORTANT]
+    > The prices shown in this image are for example purposes only and are not intended to reflect actual prices.
+    >
+
+1. Under **Microsoft Defender for IoT - EIoT Device License - add-on**, select **Details**.
+
+1. On the **Microsoft Defender for IoT - EIoT Device License - add-on** page, select **Start free trial**. On the **Check out** page, select **Try now**.
+
+> [!TIP]
+> Make sure to [assign your licenses to specific users]/microsoft-365/admin/manage/assign-licenses-to-users to start using them.
+>
+
+For more information, see [Free trial](billing.md#free-trial).
+
+## Calculate monitored devices for Enterprise IoT monitoring
+
+Use the following procedure to calculate how many devices you need to monitor if:
+
+- You're an ME5/E5 Security customer and thinks you need to monitor more devices than the devices allocated per ME5/E5 Security license
+- You're a Defender for Endpoint P2 customer who's purchasing standalone enterprise IoT licenses
 
 **To calculate the number of devices you're monitoring:**:
 
-1. In the navigation pane of the [https://security.microsoft.com](https://security.microsoft.com/) portal, select **Assets** \> **Devices** to open the **Device inventory** page.
+1. In [Microsoft 365 Defender](https://security.microsoft.com/), select **Assets** \> **Devices** to open the **Device inventory** page.
 
 1. Add the total number of devices listed on both the **Network devices** and **IoT devices** tabs.
 
@@ -42,75 +79,66 @@ If you're working with a monthly commitment, you'll need to periodically update 
 
     :::image type="content" source="media/how-to-manage-subscriptions/eiot-calculate-devices.png" alt-text="Screenshot of network device and IoT devices in the device inventory in Microsoft Defender for Endpoint." lightbox="media/how-to-manage-subscriptions/eiot-calculate-devices.png":::
 
-1. Round up your total to a multiple of 100.
+1. Round up your total to a multiple of 100 and compare it against the number of licenses you have.
 
 For example:
 
 - In the Microsoft 365 Defender **Device inventory**, you have *473* network devices and *1206* IoT devices.
 - Added together, the total is *1679* devices.
-- Rounded up to a multiple of 100 is **1700**.
+- You have 320 ME5 licenses, which cover **1600** devices
 
-Use **1700** as the estimated number of devices in your plan
+You need **79** standalone devices to cover the gap.
 
 For more information, see the [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
 
 > [!NOTE]
 > Devices listed on the **Computers & Mobile** tab, including those managed by Defender for Endpoint or otherwise, are not included in the number of [devices](billing.md#defender-for-iot-devices) monitored by Defender for IoT.
 
-## Onboard an Enterprise IoT plan
+## Purchase standalone licenses
 
-This procedure describes how to add an Enterprise IoT plan to your Azure subscription from Microsoft 365 Defender.
+Purchase standalone, per-device licenses if you're an ME5/E5 Security customer who needs more than the five devices allocated per license, or if you're a Defender for Endpoint customer who wants to add enterprise IoT security to your organization.
 
-**To add an Enterprise IoT plan**:
+**To purchase standalone licenses**:
 
-1. In the navigation pane of the [https://security.microsoft.com](https://security.microsoft.com/) portal, select **Settings** \> **Device discovery** \> **Enterprise IoT**.
+1. Go to the [Microsoft 365 admin center](https://portal.office.com/AdminPortal/Home#/catalog) **Billing > Purchase services**. If you don't have this option, select **Marketplace** instead.
 
-1. Select the following options for your plan:
+1. Search for the **Microsoft Defender for IoT - EIoT Device License - add-on** and filter the results by **Other services**. For example:
 
-    - **Select an Azure subscription**: Select the Azure subscription that you want to use for the integration. You'll need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the subscription.
+    :::image type="content" source="media/enterprise-iot/eiot-standalone.png" alt-text="Screenshot of the Marketplace search results for the EIoT Device License.":::
 
-        > [!TIP]
-        > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner.
+    > [!IMPORTANT]
+    > The prices shown in this image are for example purposes only and are not intended to reflect actual prices.
+    >
 
-    - **Price plan**: Select a trial or monthly commitment.
+1. On the **Microsoft Defender for IoT - EIoT Device License - add-on** page, enter your selected license quantity, select a billing frequency, and then select **Buy**.
 
-        Microsoft Defender for IoT provides a [30-day free trial](billing.md#free-trial) for evaluation purposes, with an unlimited number of devices.
+For more information, see the [Microsoft 365 admin center help](/microsoft-365/admin/).
 
-        Monthly commitments require that you enter the number of [devices](#calculate-monitored-devices-for-enterprise-iot-monitoring) that you'd calculated earlier.
+## Turn off enterprise IoT security
 
-1. Select the **I accept the terms and conditions** option and then select **Save**.
+This procedure describes how to turn off enterprise IoT monitoring in Microsoft 365 Defender, and is supported only for customers who don't have any standalone, per-device licenses added on to Microsoft 365 Defender.
 
-    For example:
+Turn off the **Enterprise IoT security** option if you're no longer using the service. 
 
-    :::image type="content" source="media/enterprise-iot/defender-for-endpoint-onboard.png" alt-text="Screenshot of the Enterprise IoT tab in Defender for Endpoint." lightbox="media/enterprise-iot/defender-for-endpoint-onboard.png":::
+**To turn off enterprise IoT monitoring**:
 
-After you've onboarded your plan, you'll see it listed in [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal. Go to the Defender for IoT **Plans and pricing** page and find your subscription with the new **Enterprise IoT** plan listed. For example:
+1. In [Microsoft 365 Defender](https://security.microsoft.com/), select **Settings** \> **Device discovery** \> **Enterprise IoT**.
 
-:::image type="content" source="media/enterprise-iot/eiot-plan-in-azure.png" alt-text="Screenshot of an Enterprise IoT plan showing in the Defender for IoT Plans and pricing page.":::
+1. Toggle the option to **Off**.
 
-## Edit your Enterprise IoT plan
+You stop getting security value in Microsoft 365 Defender, including purpose-built alerts, vulnerabilities, and recommendations.
 
-To edit your plan, such as to edit your commitment level or the number of devices covered by your plan, first [cancel the plan](#cancel-your-enterprise-iot-plan) and then [onboard a new plan](#onboard-an-enterprise-iot-plan).
+### Cancel a legacy Enterprise IoT plan
 
-## Cancel your Enterprise IoT plan
+If you have a legacy Enterprise IoT plan, are *not* an ME5/E5 Security customer, and no longer to use the service, cancel your plan as follows:
 
-You'll need to cancel your plan if you want to edit the details of your plan, such as the price plan or the number of devices covered by your plan, or if you no longer need the service.
+1. In [Microsoft 365 Defender](https://security.microsoft.com/) portal, select **Settings** \> **Device discovery** \> **Enterprise IoT**.
 
-You'd also need to cancel your plan and onboard again if you need to work with a new payment entity or Azure subscription.
-
-**To cancel your Enterprise IoT plan**:
-
-1. In the navigation pane of the [https://security.microsoft.com](https://security.microsoft.com/) portal, select **Settings** \> **Device discovery** \> **Enterprise IoT**.
-
-1. Select **Cancel plan**. For example:
-
-    :::image type="content" source="media/enterprise-iot/defender-for-endpoint-cancel-plan.png" alt-text="Screenshot of the Cancel plan option on the Microsoft 365 Defender page.":::
+1. Select **Cancel plan**. This page is available only for legacy Enterprise IoT plan customers.
 
 After you cancel your plan, the integration stops and you'll no longer get added security value in Microsoft 365 Defender, or detect new Enterprise IoT devices in Defender for IoT.
 
-The cancellation takes effect one hour after confirming the change.  This change will appear on your next monthly statement, and you will be charged based on the length of time the plan was in effect.
-
-If you're canceling your plan as part of an [editing procedure](#edit-your-enterprise-iot-plan), make sure to [onboard a new plan](#onboard-an-enterprise-iot-plan) back with the new details.
+The cancellation takes effect one hour after confirming the change.  This change appears on your next monthly statement, and you're charged based on the length of time the plan was in effect.
 
 > [!IMPORTANT]
 >
@@ -120,11 +148,8 @@ If you're canceling your plan as part of an [editing procedure](#edit-your-enter
 
 For more information, see:
 
+- [Securing IoT devices in the enterprise](concept-enterprise.md)
 - [Defender for IoT subscription billing](billing.md)
-
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
-
 - [Create an additional Azure subscription](../../cost-management-billing/manage/create-subscription.md)
-
 - [Upgrade your Azure subscription](../../cost-management-billing/manage/upgrade-azure-subscription.md)
-- 

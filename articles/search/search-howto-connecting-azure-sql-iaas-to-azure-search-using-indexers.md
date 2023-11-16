@@ -1,12 +1,14 @@
 ---
 title: Indexer connection to SQL Server on Azure VMs
-titleSuffix: Azure Cognitive Search
-description: Enable encrypted connections and configure the firewall to allow connections to SQL Server on an Azure virtual machine (VM) from an indexer on Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Enable encrypted connections and configure the firewall to allow connections to SQL Server on an Azure virtual machine (VM) from an indexer on Azure AI Search.
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 08/24/2022
 ---
@@ -15,7 +17,7 @@ ms.date: 08/24/2022
 
 When configuring an [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) to extract content from a database on an Azure virtual machine, additional steps are required for secure connections. 
 
-A connection from Azure Cognitive Search to SQL Server instance on a virtual machine is a public internet connection. In order for secure connections to succeed, you'll need to satisfy the following requirements:
+A connection from Azure AI Search to SQL Server instance on a virtual machine is a public internet connection. In order for secure connections to succeed, you'll need to satisfy the following requirements:
 
 + Obtain a certificate from a [Certificate Authority provider](https://en.wikipedia.org/wiki/Certificate_authority#Providers) for the fully qualified domain name of the SQL Server instance on the virtual machine.
 
@@ -24,11 +26,11 @@ A connection from Azure Cognitive Search to SQL Server instance on a virtual mac
 After you've installed the certificate on your VM, you're ready to complete the following steps in this article.
 
 > [!NOTE]
-> [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Cognitive Search indexers.
+> [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Azure AI Search indexers.
 
 ## Enable encrypted connections
 
-Azure Cognitive Search requires an encrypted channel for all indexer requests over a public internet connection. This section lists the steps to make this work.
+Azure AI Search requires an encrypted channel for all indexer requests over a public internet connection. This section lists the steps to make this work.
 
 1. Check the properties of the certificate to verify the subject name is the fully qualified domain name (FQDN) of the Azure VM. 
 
@@ -56,17 +58,17 @@ Azure Cognitive Search requires an encrypted channel for all indexer requests ov
 
 ## Connect to SQL Server
 
-After you set up the encrypted connection required by Azure Cognitive Search, you'll connect to the instance through its public endpoint. The following article explains the connection requirements and syntax:
+After you set up the encrypted connection required by Azure AI Search, you'll connect to the instance through its public endpoint. The following article explains the connection requirements and syntax:
 
 + [Connect to SQL Server over the internet](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-over-the-internet)
 
 ## Configure the network security group
 
-It isn't unusual to configure the [network security group](../virtual-network/network-security-groups-overview.md) and corresponding Azure endpoint or Access Control List (ACL) to make your Azure VM accessible to other parties. Chances are you've done this before to allow your own application logic to connect to your SQL Azure VM. It's no different for an Azure Cognitive Search connection to your SQL Azure VM. 
+It isn't unusual to configure the [network security group](../virtual-network/network-security-groups-overview.md) and corresponding Azure endpoint or Access Control List (ACL) to make your Azure VM accessible to other parties. Chances are you've done this before to allow your own application logic to connect to your SQL Azure VM. It's no different for an Azure AI Search connection to your SQL Azure VM. 
 
-The links below provide instructions on NSG configuration for VM deployments. Use these instructions to ACL an Azure Cognitive Search endpoint based on its IP address.
+The links below provide instructions on NSG configuration for VM deployments. Use these instructions to ACL a search service endpoint based on its IP address.
 
-1. Obtain the IP address of your search service. See the [following section](#restrict-access-to-the-azure-cognitive-search) for instructions.
+1. Obtain the IP address of your search service. See the [following section](#restrict-access-to-the-azure-ai-search) for instructions.
 
 1. Add the search IP address to the IP filter list of the security group. Either one of following articles explains the steps:
 
@@ -76,7 +78,7 @@ The links below provide instructions on NSG configuration for VM deployments. Us
 
 IP addressing can pose a few challenges that are easily overcome if you're aware of the issue and potential workarounds. The remaining sections provide recommendations for handling issues related to IP addresses in the ACL.
 
-### Restrict access to the Azure Cognitive Search
+### Restrict access to the Azure AI Search
 
 We strongly recommend that you restrict the access to the IP address of your search service and the IP address range of `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) in the ACL instead of making your SQL Azure VMs open to all connection requests.
 
@@ -84,7 +86,7 @@ You can find out the IP address by pinging the FQDN (for example, `<your-search-
 
 You can find out the IP address range of `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) by either using [Downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) or via the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api). The IP address range is updated weekly.
 
-### Include the Azure Cognitive Search portal IP addresses
+### Include the Azure AI Search portal IP addresses
 
 If you're using the Azure portal to create an indexer, you must grant the portal inbound access to your SQL Azure virtual machine. An inbound rule in the firewall requires that you provide the IP address of the portal.
 
@@ -94,4 +96,4 @@ Clusters in different regions connect to different traffic managers. Regardless 
 
 ## Next steps
 
-With configuration out of the way, you can now specify a SQL Server on Azure VM as the data source for an Azure Cognitive Search indexer. For more information, see [Index data from Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
+With configuration out of the way, you can now specify a SQL Server on Azure VM as the data source for an Azure AI Search indexer. For more information, see [Index data from Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).

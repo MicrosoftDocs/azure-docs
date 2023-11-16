@@ -11,6 +11,8 @@
       href: https://azure.microsoft.com/pricing/details/web-pubsub/
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
+    - name: What's new
+      href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -84,7 +86,7 @@
           href: howto-secure-shared-private-endpoints-key-vault.md
         - name: Use a managed identity
           href: howto-use-managed-identity.md
-        - name: Configure Azure AD Authorizations
+        - name: Configure Microsoft Entra authorizations
           items:
             - name: Authorize from Azure applications
               href: howto-authorize-from-application.md
@@ -96,10 +98,12 @@
           href: howto-client-certificate.md
         - name: Custom domain
           href: howto-custom-domain.md
-    - name: Scale
+    - name: Scale and geo-replicate
       items:
         - name: Autoscale
           href: howto-scale-autoscale.md
+        - name: Geo-replication
+          href: howto-enable-geo-replication.md
     - name: Integrate
       items: 
         - name: App Service
@@ -126,6 +130,49 @@
           href: howto-troubleshoot-resource-logs.md
         - name: Common issues
           href: howto-troubleshoot-common-issues.md
+    - name: Move across regions
+      href: howto-move-across-regions.md
+- name: Socket.IO
+  expanded: false
+  items: 
+    - name: Overview
+      href: socketio-overview.md
+    - name: Quickstart for Socket.IO users
+      href: socketio-quickstart.md
+    - name: Tutorials
+      expanded: true
+      items:
+        - name: Build real time code streaming app
+          href: socketio-build-realtime-code-streaming-app.md
+    - name: How-to guides
+      items:
+        - name: Easily migrate a self-hosted Socket.IO app 
+          href: socketio-migrate-from-self-hosted.md
+        - name: Integrate with Azure App Service
+          href: socket-io-howto-integrate-web-app.md
+        - name: Authentication
+          href: socketio-authentication.md
+        - name: Troubleshoot
+          items: 
+            - name: Common issues
+              href: socketio-troubleshoot-common-issues.md
+            - name: Collect logs
+              href: socketio-troubleshoot-logging.md
+    - name: Concepts
+      items:
+        - name: How does Web PubSub support Socket.IO library
+          href: socketio-service-internal.md
+        - name: Supported Socket.IO server APIs
+          href: socketio-supported-server-apis.md
+- name: Samples
+  expanded: false
+  items: 
+    - name: Authenticate and connect
+      href: samples-authenticate-and-connect.md
+    - name: App scenarios
+      href: samples-app-scenarios.md
+    - name: Platform and frameworks
+      href: samples-platforms-and-frameworks.md
 - name: Concepts
   expanded: false
   items:
@@ -143,7 +190,7 @@
       href: concept-performance.md
     - name: Billing model
       href: concept-billing-model.md
-    - name: Azure AD Authorization
+    - name: Microsoft Entra Authorization
       href: concept-azure-ad-authorization.md
     - name: Metrics
       href: concept-metrics.md
@@ -151,15 +198,6 @@
       items:
       - name: Security baseline
         href: /security/benchmark/azure/baselines/azure-web-pubsub-security-baseline?toc=/azure/azure-web-pubsub/toc.json
-- name: Samples
-  expanded: false
-  items: 
-    - name: Authenticate and connect
-      href: samples-authenticate-and-connect.md
-    - name: App scenarios
-      href: samples-app-scenarios.md
-    - name: Platform and frameworks
-      href: samples-platforms-and-frameworks.md
 - name: Reference
   items:
     - name: Client-side API

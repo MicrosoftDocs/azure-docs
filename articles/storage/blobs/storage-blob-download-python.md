@@ -6,8 +6,8 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 06/02/2023
-ms.service: azure-storage
+ms.date: 08/02/2023
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
@@ -15,16 +15,15 @@ ms.custom: devx-track-python, devguide-python
 
 # Download a blob with Python
 
+[!INCLUDE [storage-dev-guide-selector-download](../../../includes/storage-dev-guides/storage-dev-guide-selector-download.md)]
+
 This article shows how to download a blob using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can download blob data to various destinations, including a local file path, stream, or text string. You can also open a blob stream and read from it.
 
 ## Prerequisites
 
-To work with the code examples in this article, make sure you have:
-
-- An authorized client object to connect to Blob Storage data resources. To learn more, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
-- Permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operation:
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform a download operation. To learn more, see the authorization guidance for the following REST API operation:
     - [Get Blob](/rest/api/storageservices/get-blob#authorization)
-- The package **azure-storage-blob** installed to your project directory. To learn more about setting up your project, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md#set-up-your-project).
 
 ## Download a blob
 

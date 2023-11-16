@@ -5,7 +5,7 @@ description: Time-based retention policies store blob data in a Write-Once, Read
 services: storage
 author: normesta
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 09/14/2022
 ms.author: normesta

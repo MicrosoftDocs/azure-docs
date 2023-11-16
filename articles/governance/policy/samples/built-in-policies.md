@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 07/25/2023
+ms.date: 11/15/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -12,8 +12,7 @@ This page is an index of Azure Policy built-in policy definitions.
 The name of each built-in links to the policy definition in the Azure portal. Use the link in the
 **Source** column to view the source on the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy). The built-ins are grouped by the
-**category** property in **metadata**. To jump to a specific **category**, use the menu on the right
-side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature.
+**category** property in **metadata**. To go to a specific **category**, use <kbd>Ctrl</kbd>-<kbd>F</kbd> for your browser's search feature.
 
 ## API for FHIR
 
@@ -78,6 +77,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Azure Stack Edge
 
 [!INCLUDE [azure-policy-reference-policies-azure-stack-edge](../../../../includes/policy/reference/bycat/policies-azure-stack-edge.md)]
+
+## Azure Update Manager
+
+[!INCLUDE [azure-policy-reference-policies-azure-update-manager](../../../../includes/policy/reference/bycat/policies-azure-update-manager.md)]
 
 ## Backup
 
@@ -251,6 +254,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-portal](../../../../includes/policy/reference/bycat/policies-portal.md)]
 
+## Resilience
+
+[!INCLUDE [azure-policy-reference-policies-resilience](../../../../includes/policy/reference/bycat/policies-resilience.md)]
+
 ## Search
 
 [!INCLUDE [azure-policy-reference-policies-search](../../../../includes/policy/reference/bycat/policies-search.md)]
@@ -302,10 +309,6 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Tags
 
 [!INCLUDE [azure-policy-reference-policies-tags](../../../../includes/policy/reference/bycat/policies-tags.md)]
-
-## Update Management Center
-
-[!INCLUDE [azure-policy-reference-policies-update-management-center](../../../../includes/policy/reference/bycat/policies-update-management-center.md)]
 
 ## Video Analyzers
 

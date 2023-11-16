@@ -6,15 +6,17 @@ services: cognitive-services
 manager: nitinme
 author: eric-urban
 ms.author: eur
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 11/7/2023
 zone_pivot_groups: speech-cli-rest
 ms.custom: devx-track-csharp
 ---
 
 # Create a batch transcription
+
+> [!IMPORTANT]
+> New pricing is in effect for batch transcription via [Speech to text REST API v3.2](./migrate-v3-1-to-v3-2.md). For more information, see the [pricing guide](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). 
 
 With batch transcriptions, you submit the [audio data](batch-transcription-audio-data.md), and then retrieve transcription results asynchronously. The service transcribes the audio data and stores the results in a storage container. You can then [retrieve the results](batch-transcription-get.md) from the storage container.
 
@@ -30,8 +32,9 @@ To create a transcription, use the [Transcriptions_Create](https://eastus.dev.co
 - You must set either the `contentContainerUrl` or `contentUrls` property. For more information about Azure blob storage for batch transcription, see [Locate audio files for batch transcription](batch-transcription-audio-data.md).
 - Set the required `locale` property. This should match the expected locale of the audio data to transcribe. The locale can't be changed later.
 - Set the required `displayName` property. Choose a transcription name that you can refer to later. The transcription name doesn't have to be unique and can be changed later.
-- Optionally you can set the `wordLevelTimestampsEnabled` property to `true` to enable word-level timestamps in the transcription results. The default value is `false`. 
-- Optionally you can set the `languageIdentification` property.  Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md?tabs=language-identification). If you set the `languageIdentification` property, then you must also set `languageIdentification.candidateLocales` with candidate locales.
+- Optionally to use a model other than the base model, set the `model` property to the model ID. For more information, see [Using custom models](#using-custom-models) and [Using Whisper models](#using-whisper-models).
+- Optionally you can set the `wordLevelTimestampsEnabled` property to `true` to enable word-level timestamps in the transcription results. The default value is `false`. For Whisper models set the `displayFormWordLevelTimestampsEnabled` property instead. Whisper is a display-only model, so the lexical field isn't populated in the transcription.
+- Optionally you can set the `languageIdentification` property. Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md?tabs=language-identification). If you set the `languageIdentification` property, then you must also set `languageIdentification.candidateLocales` with candidate locales.
 
 For more information, see [request configuration options](#request-configuration-options).
 
@@ -168,17 +171,18 @@ Here are some property options that you can use to configure a transcription whe
 |`contentContainerUrl`| You can submit individual audio files, or a whole storage container.<br/><br/>You must specify the audio data location via either the `contentContainerUrl` or `contentUrls` property. For more information about Azure blob storage for batch transcription, see [Locate audio files for batch transcription](batch-transcription-audio-data.md).<br/><br/>This property won't be returned in the response.|
 |`contentUrls`| You can submit individual audio files, or a whole storage container.<br/><br/>You must specify the audio data location via either the `contentContainerUrl` or `contentUrls` property. For more information, see [Locate audio files for batch transcription](batch-transcription-audio-data.md).<br/><br/>This property won't be returned in the response.|
 |`destinationContainerUrl`|The result can be stored in an Azure container. If you don't specify a container, the Speech service stores the results in a container managed by Microsoft. When the transcription job is deleted, the transcription result data is also deleted. For more information such as the supported security scenarios, see [Destination container URL](#destination-container-url).|
-|`diarization`|Indicates that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains multiple voices. Specify the minimum and maximum number of people who might be speaking. You must also set the `diarizationEnabled` property to `true`. The [transcription file](batch-transcription-get.md#transcription-result-file) will contain a `speaker` entry for each transcribed phrase.<br/><br/>You need to use this property when you expect three or more speakers. For two speakers setting `diarizationEnabled` property to `true` is enough. See an example of the property usage in [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) operation description.<br/><br/>Diarization is the process of separating speakers in audio data. The batch pipeline can recognize and separate multiple speakers on mono channel recordings. The maximum number of speakers for diarization must be less than 36 and more or equal to the `minSpeakers` property (see [example](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create)). The feature isn't available with stereo recordings.<br/><br/>When this property is selected, source audio length can't exceed 240 minutes per file.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1.|
-|`diarizationEnabled`|Specifies that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains two voices. The default value is `false`.<br/><br/>For three or more voices you also need to use property `diarization` (only with Speech to text REST API version 3.1).<br/><br/>When this property is selected, source audio length can't exceed 240 minutes per file.|
+|`diarization`|Indicates that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains multiple voices. Specify the minimum and maximum number of people who might be speaking. You must also set the `diarizationEnabled` property to `true`. The [transcription file](batch-transcription-get.md#transcription-result-file) will contain a `speaker` entry for each transcribed phrase.<br/><br/>You need to use this property when you expect three or more speakers. For two speakers setting `diarizationEnabled` property to `true` is enough. See an example of the property usage in [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) operation description.<br/><br/>Diarization is the process of separating speakers in audio data. The batch pipeline can recognize and separate multiple speakers on mono channel recordings. The maximum number of speakers for diarization must be less than 36 and more or equal to the `minSpeakers` property (see [example](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create)). The feature isn't available with stereo recordings.<br/><br/>When this property is selected, source audio length can't exceed 240 minutes per file.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1 and later. If you set this property with any previous version (such as version 3.0) then it will be ignored and only 2 speakers will be identified.|
+|`diarizationEnabled`|Specifies that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains two voices. The default value is `false`.<br/><br/>For three or more voices you also need to use property `diarization` (only with Speech to text REST API version 3.1 and later).<br/><br/>When this property is selected, source audio length can't exceed 240 minutes per file.|
 |`displayName`|The name of the batch transcription. Choose a name that you can refer to later. The display name doesn't have to be unique.<br/><br/>This property is required.|
+|`displayFormWordLevelTimestampsEnabled`|Specifies whether to include word-level timestamps on the display form of the transcription results. The results are returned in the displayWords property of the transcription file. The default value is `false`.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1 and later.|
 |`languageIdentification`|Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md?tabs=language-identification).<br/><br/>If you set the `languageIdentification` property, then you must also set its enclosed `candidateLocales` property.|
 |`languageIdentification.candidateLocales`|The candidate locales for language identification such as `"properties": { "languageIdentification": { "candidateLocales": ["en-US", "de-DE", "es-ES"]}}`. A minimum of 2 and a maximum of 10 candidate locales, including the main locale for the transcription, is supported.|
 |`locale`|The locale of the batch transcription. This should match the expected locale of the audio data to transcribe. The locale can't be changed later.<br/><br/>This property is required.|
-|`model`|You can set the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. If you don't specify the `model`, the default base model for the locale is used. For more information, see [Using custom models](#using-custom-models).|
+|`model`|You can set the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. If you don't specify the `model`, the default base model for the locale is used. For more information, see [Using custom models](#using-custom-models) and [Using Whisper models](#using-whisper-models).|
 |`profanityFilterMode`|Specifies how to handle profanity in recognition results. Accepted values are `None` to disable profanity filtering, `Masked` to replace profanity with asterisks, `Removed` to remove all profanity from the result, or `Tags` to add profanity tags. The default value is `Masked`. |
-|`punctuationMode`|Specifies how to handle punctuation in recognition results. Accepted values are `None` to disable punctuation, `Dictated` to imply explicit (spoken) punctuation, `Automatic` to let the decoder deal with punctuation, or `DictatedAndAutomatic` to use dictated and automatic punctuation. The default value is  `DictatedAndAutomatic`.|
-|`timeToLive`|A duration after the transcription job is created, when the transcription results will be automatically deleted. The value is an ISO 8601 encoded duration. For example, specify `PT12H` for 12 hours. As an alternative, you can call [DeleteTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regularly after you retrieve the transcription results.|
-|`wordLevelTimestampsEnabled`|Specifies if word level timestamps should be included in the output. The default value is `false`.|
+|`punctuationMode`|Specifies how to handle punctuation in recognition results. Accepted values are `None` to disable punctuation, `Dictated` to imply explicit (spoken) punctuation, `Automatic` to let the decoder deal with punctuation, or `DictatedAndAutomatic` to use dictated and automatic punctuation. The default value is  `DictatedAndAutomatic`.<br/><br/>This property isn't applicable for Whisper models.|
+|`timeToLive`|A duration after the transcription job is created, when the transcription results will be automatically deleted. The value is an ISO 8601 encoded duration. For example, specify `PT12H` for 12 hours. As an alternative, you can call [Transcriptions_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete) regularly after you retrieve the transcription results.|
+|`wordLevelTimestampsEnabled`|Specifies if word level timestamps should be included in the output. The default value is `false`.<br/><br/>This property isn't applicable for Whisper models. Whisper is a display-only model, so the lexical field isn't populated in the transcription.|
 
 
 ::: zone-end
@@ -235,14 +239,117 @@ To use a Custom Speech model for batch transcription, you need the model's URI. 
 
 Batch transcription requests for expired models will fail with a 4xx error. You'll want to set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model. For more information, see [Choose a model](how-to-custom-speech-create-project.md#choose-your-model) and [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
+## Using Whisper models 
+
+Azure AI Speech supports OpenAI's Whisper model via the batch transcription API. 
+
+> [!NOTE]
+> Azure OpenAI Service also supports OpenAI's Whisper model for speech to text with a synchronous REST API. To learn more, check out the [quickstart](../openai/whisper-quickstart.md). Check out [What is the Whisper model?](./whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
+
+To use a Whisper model for batch transcription, you also need to set the `model` property. Whisper is a display-only model, so the lexical field isn't populated in the response.
+
+> [!IMPORTANT]
+> Whisper models are currently in preview. And you should always use [version 3.2](./migrate-v3-1-to-v3-2.md) of the speech to text API (that's available in a seperate preview) for Whisper models.
+
+Whisper models via batch transcription are supported in the East US, Southeast Asia, and West Europe regions. 
+
+::: zone pivot="rest-api"
+You can make a [Models_ListBaseModels](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview1/operations/Models_ListBaseModels) request to get available base models for all locales. 
+
+Make an HTTP GET request as shown in the following example for the `eastus` region. Replace `YourSubscriptionKey` with your Speech resource key. Replace `eastus` if you're using a different region.
+
+```azurecli-interactive
+curl -v -X GET "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+```
+
+By default only the 100 oldest base models are returned, so you can use the `skip` and `top` query parameters to page through the results. For example, the following request returns the next 100 base models after the first 100.
+
+```azurecli-interactive
+curl -v -X GET "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base?skip=100&top=100" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+``````
+
+::: zone-end
+
+::: zone pivot="speech-cli"
+Make sure that you set the [configuration variables](spx-basics.md#create-a-resource-configuration) for a Speech resource in one of the supported regions. You can run the `spx csr list --base` command to get available base models for all locales. 
+
+```azurecli-interactive
+spx csr list --base --api-version v3.2-preview.1
+```
+::: zone-end
+
+The `displayName` property of a Whisper model will contain "Whisper Preview" as shown in this example. Whisper is a display-only model, so the lexical field isn't populated in the transcription.
+
+```json
+{
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base/d9cbeee6-582b-47ad-b5c1-6226583c92b6",
+  "links": {
+    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base/d9cbeee6-582b-47ad-b5c1-6226583c92b6/manifest"
+  },
+  "properties": {
+    "deprecationDates": {
+      "adaptationDateTime": "2024-10-15T00:00:00Z",
+      "transcriptionDateTime": "2025-10-15T00:00:00Z"
+    },
+    "features": {
+      "supportsTranscriptions": true,
+      "supportsEndpoints": false,
+      "supportsTranscriptionsOnSpeechContainers": false,
+      "supportsAdaptationsWith": [],
+      "supportedOutputFormats": [
+        "Display"
+      ]
+    },
+    "chargeForAdaptation": false
+  },
+  "lastActionDateTime": "2023-07-19T12:46:27Z",
+  "status": "Succeeded",
+  "createdDateTime": "2023-07-19T12:39:52Z",
+  "locale": "en-US",
+  "displayName": "20230707 Whisper Preview",
+  "description": "en-US base model"
+},
+```
+
+You set the full model URI as shown in this example for the `eastus` region. Replace `YourSubscriptionKey` with your Speech resource key. Replace `eastus` if you're using a different region.
+
+::: zone pivot="rest-api"
+
+```azurecli-interactive
+curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
+  "contentUrls": [
+    "https://crbn.us/hello.wav",
+    "https://crbn.us/whatstheweatherlike.wav"
+  ],
+  "locale": "en-US",
+  "displayName": "My Transcription",
+  "model": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base/d9cbeee6-582b-47ad-b5c1-6226583c92b6"
+  },
+  "properties": {
+    "wordLevelTimestampsEnabled": true,
+  },
+}'  "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/transcriptions"
+```
+
+::: zone-end
+
+::: zone pivot="speech-cli"
+
+```azurecli-interactive
+spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base/d9cbeee6-582b-47ad-b5c1-6226583c92b6" --api-version v3.2-preview.1
+```
+
+::: zone-end
+
 
 ## Destination container URL
 
 The transcription result can be stored in an Azure container. If you don't specify a container, the Speech service stores the results in a container managed by Microsoft. In that case, when the transcription job is deleted, the transcription result data is also deleted.
 
-You can store the results of a batch transcription to a writable Azure Blob storage container using option `destinationContainerUrl` in the [batch transcription creation request](#create-a-transcription-job). Note however that this option is only using [ad hoc SAS](batch-transcription-audio-data.md#sas-url-for-batch-transcription) URI and doesn't support [Trusted Azure services security mechanism](batch-transcription-audio-data.md#trusted-azure-services-security-mechanism). The Storage account resource of the destination container must allow all external traffic.
+You can store the results of a batch transcription to a writable Azure Blob storage container using option `destinationContainerUrl` in the [batch transcription creation request](#create-a-transcription-job). Note however that this option is only using [ad hoc SAS](batch-transcription-audio-data.md#sas-url-for-batch-transcription) URI and doesn't support [Trusted Azure services security mechanism](batch-transcription-audio-data.md#trusted-azure-services-security-mechanism). This option also doesn't support Access policy based SAS. The Storage account resource of the destination container must allow all external traffic.
 
-The [Trusted Azure services security mechanism](batch-transcription-audio-data.md#trusted-azure-services-security-mechanism) is not supported for storing transcription results from a Speech resource. If you would like to store the transcription results in an Azure Blob storage container via the [Trusted Azure services security mechanism](batch-transcription-audio-data.md#trusted-azure-services-security-mechanism), then you should consider using [Bring-your-own-storage (BYOS)](speech-encryption-of-data-at-rest.md#bring-your-own-storage-byos). You can secure access to BYOS-associated Storage account exactly as described in the [Trusted Azure services security mechanism](batch-transcription-audio-data.md#trusted-azure-services-security-mechanism) guide, except that the BYOS Speech resource would need **Storage Blob Data Contributor** role assignment. The results of batch transcription performed by the BYOS Speech resource will be automatically stored in the **TranscriptionData** folder of the **customspeech-artifacts** blob container.
+If you would like to store the transcription results in an Azure Blob storage container via the [Trusted Azure services security mechanism](batch-transcription-audio-data.md#trusted-azure-services-security-mechanism), then you should consider using [Bring-your-own-storage (BYOS)](bring-your-own-storage-speech-resource.md). See details on how to use BYOS-enabled Speech resource for Batch transcription in [this article](bring-your-own-storage-speech-resource-speech-to-text.md).
 
 ## Next steps
 

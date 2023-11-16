@@ -6,8 +6,7 @@ ms.author: edburns
 ms.service: azure-kubernetes-service
 ms.topic: how-to
 ms.date: 07/26/2023
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus-aks, devx-track-extended-java
-#CustomerIntent: As a developer, I want deploy a simple CRUD Quarkus app on AKS so that can start iterating it into a proper LOB app.
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus-aks, devx-track-extended-java, devx-track-azurecli
 # external contributor: danieloh30
 ---
 

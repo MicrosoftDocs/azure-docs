@@ -5,7 +5,7 @@ description: This article answers common questions about virtual hub settings an
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/12/2022
+ms.date: 08/24/2023
 ms.author: cherylmc
 ---
 
@@ -25,7 +25,7 @@ By default, the virtual hub router is automatically configured to deploy with a 
 
 When you deploy a new virtual hub, you can specify additional routing infrastructure units to increase the default virtual hub capacity in increments of 1 Gbps and 1000 VMs. This feature gives you the ability to secure upfront capacity without having to wait for the virtual hub to scale out when more throughput is needed. The scale unit on which the virtual hub is created becomes the minimum capacity. Creating a virtual hub without a gateway takes about 5 - 7 minutes while creating a virtual hub and a gateway can take about 30 minutes to complete. You can view routing infrastructure units, router Gbps, and number of VMs supported, in the Azure portal **Virtual hub** pages for **Create virtual hub** and **Edit virtual hub**.
 
-When increasing the virtual hub capacity, the virtual hub router will continue to support traffic at its current capacity until the scale out is complete. Scaling out the virtual hub router may take up to 25 minutes. 
+When increasing the virtual hub capacity, the virtual hub router will continue to support traffic at its current capacity until the scale out is complete. It may take up to 25 minutes for the virtual hub router to scale out to additional routing infrastructure units. It's also important to note the following: currently, regardless of the number of routing infrastructure units deployed, traffic may experience performance degradation if more than 1.5 Gbps is sent in a single TCP flow. 
 
 ### Configure virtual hub capacity
 

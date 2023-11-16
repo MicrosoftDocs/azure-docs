@@ -3,7 +3,7 @@ author: karlerickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
-ms.date: 07/19/2023
+ms.date: 08/31/2023
 ---
 
 <!-- 
@@ -15,25 +15,47 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 ## 6. Clean up resources
 
-::: zone pivot="sc-consumption-plan,sc-enterprise"
+Be sure to delete the resources you created in this article when you no longer need them. You can delete the Azure resource group, which includes all the resources in the resource group.
 
-Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternatively, to delete the resource group by using Azure CLI, use the following command:
+::: zone pivot="sc-enterprise"
+
+### [Azure portal](#tab/Azure-portal-ent)
+
+Use the following steps to delete the entire resource group, including the newly created service:
+
+[!INCLUDE [clean-up-resources-via-resource-group](clean-up-resources-via-resource-group.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+Use the following steps to delete the entire resource group, including the newly created service:
+
+[!INCLUDE [clean-up-resources-via-resource-group](clean-up-resources-via-resource-group.md)]
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to delete the entire resource group, including the newly created service:
 
 ```azurecli
 az group delete --name ${RESOURCE_GROUP}
 ```
 
+---
+
 ::: zone-end
 
-::: zone pivot="sc-standard"
-
-You can delete the Azure resource group, which includes all the resources in the resource group. Use the following steps to delete the entire resource group, including the newly created service:
+::: zone pivot="sc-consumption-plan,sc-standard"
 
 ### [Azure portal](#tab/Azure-portal)
 
-1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups**. Then, select the name of your resource group - for example, **myresourcegroup**.
+Use the following steps to delete the entire resource group, including the newly created service:
 
-1. On your resource group page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion - for example, **myresourcegroup** - then, select **Delete**.
+[!INCLUDE [clean-up-resources-via-resource-group](clean-up-resources-via-resource-group.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
+Use the following steps to delete the entire resource group, including the newly created service:
+
+[!INCLUDE [clean-up-resources-via-resource-group](clean-up-resources-via-resource-group.md)]
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 

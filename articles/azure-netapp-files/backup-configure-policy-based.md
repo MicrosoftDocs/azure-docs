@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 06/14/2023
+ms.date: 10/25/2023
 ms.author: anfdocs
 ---
 # Configure policy-based backups for Azure NetApp Files 
@@ -48,7 +48,7 @@ To enable a policy-based (scheduled) backup:
 
 4. Select **Backup Policies**.
 5. Select **Add**. 
-6. In the **Backup Policy** page, specify the backup policy name.  Enter the number of backups that you want to keep for daily, weekly, and monthly backups. Click **Save**.      
+6. In the **Backup Policy** page, specify the backup policy name.  Enter the number of backups that you want to keep for daily, weekly, and monthly backups. Select **Save**.      
 
     The minimum value for **Daily Backups to Keep** is 2. 
 
@@ -78,6 +78,9 @@ Every Azure NetApp Files volume must have the backup functionality enabled befor
 
 After you enable the backup functionality, you need to assign a backup policy to a volume for policy-based backups to take effects. (For manual backups, a backup policy is optional.)
 
+>[!NOTE]
+>The active and most current snapshot is required for transferring the backup. As a result, you may see 1 extra snapshot beyond the number of snapshots to keep per the backup policy configuration. If your number of daily backups to keep is set to 2, you may see 3 snapshots related to the backup in the volumes the policy is applied to.
+
 To enable the backup functionality for a volume:  
 
 1. Go to **Volumes** and select the volume for which you want to enable backup.
@@ -87,7 +90,7 @@ To enable the backup functionality for a volume:
 
     The Vault information is prepopulated.  
 
-  :::image type="content" source="../media/azure-netapp-files/backup-configure-window.png" alt-text="Screenshot showing Configure Backups window." lightbox="../media/azure-netapp-files/backup-configure-window.png":::
+  :::image type="content" source="../media/azure-netapp-files/backup-configure-enabled.png" alt-text="Screenshot showing Configure Backups window." lightbox="../media/azure-netapp-files/backup-configure-enabled.png":::
 
 ## Next steps  
 

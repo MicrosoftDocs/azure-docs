@@ -14,7 +14,7 @@ zone_pivot_groups: functions-nodejs-model
 This guide is an introduction to developing Azure Functions using JavaScript or TypeScript. The article assumes that you have already read the [Azure Functions developer guide](functions-reference.md).
 
 > [!IMPORTANT]
-> The content of this article changes based on your choice of the Node.js programming model in the selector at the top of this page. The version you choose should match the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package you are using in your app. If you do not have that package listed in your `package.json`, the default is v3. Learn more about the differences between v3 and v4 in the [upgrade guide](./functions-node-upgrade-v4.md).
+> The content of this article changes based on your choice of the Node.js programming model in the selector at the top of this page. The version you choose should match the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package you are using in your app. If you do not have that package listed in your `package.json`, the default is v3. Learn more about the differences between v3 and v4 in the [migration guide](./functions-node-upgrade-v4.md).
 
 As a Node.js developer, you might also be interested in one of the following articles:
 
@@ -30,8 +30,8 @@ The following table shows each version of the Node.js programming model along wi
 
 | [Programming Model Version](https://www.npmjs.com/package/@azure/functions?activeTab=versions) | Support Level | [Functions Runtime Version](./functions-versions.md) | [Node.js Version](https://github.com/nodejs/release#release-schedule) | Description |
 | ---- | ---- | --- | --- | --- |
-| 4.x | Preview | 4.16+ | 18.x | Supports a flexible file structure and code-centric approach to triggers and bindings. |
-| 3.x | GA | 4.x | 18.x, 16.x, 14.x | Requires a specific file structure with your triggers and bindings declared in a "function.json" file |
+| 4.x | GA | 4.25+ | 20.x (Preview), 18.x | Supports a flexible file structure and code-centric approach to triggers and bindings. |
+| 3.x | GA | 4.x | 20.x (Preview), 18.x, 16.x, 14.x | Requires a specific file structure with your triggers and bindings declared in a "function.json" file |
 | 2.x | GA (EOL) | 3.x | 14.x, 12.x, 10.x | Reached end of life (EOL) on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
 | 1.x | GA (EOL) | 2.x | 10.x, 8.x | Reached end of life (EOL) on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
 
@@ -1167,7 +1167,7 @@ The `HttpRequest` object has the following properties:
 | **`params`**     | `Record<string, string>` | Route parameter keys and values. |
 | **`user`**       | `HttpRequestUser | null` | Object representing logged-in user, either through Functions authentication, SWA Authentication, or null when no such user is logged in. |
 | **`body`**       | `Buffer | string | any` | If the media type is "application/octet-stream" or "multipart/*", `body` is a Buffer. If the value is a JSON parse-able string, `body` is the parsed object. Otherwise, `body` is a string. |
-| **`rawBody`**    | `Buffer | string` | If the media type is "application/octet-stream" or "multipart/*", `rawBody` is a Buffer. Otherwise, `rawBody` is a string. The only difference between `body` and `rawBody` is that `rawBody` doesn't JSON parse a string body. |
+| **`rawBody`**    | `string` | The body as a string. Despite the name, this property doesn't return a Buffer. |
 | **`bufferBody`** | `Buffer` | The body as a buffer. |
 
 ::: zone-end
@@ -1426,7 +1426,7 @@ When running on Windows, the Node.js version is set by the [`WEBSITE_NODE_DEFAUL
 
 # [Linux](#tab/linux)
 
-When running on Windows, the Node.js version is set by the [linuxfxversion](./functions-app-settings.md#linuxfxversion) site setting. This setting can be updated using the Azure CLI.
+When running on Linux, the Node.js version is set by the [linuxfxversion](./functions-app-settings.md#linuxfxversion) site setting. This setting can be updated using the Azure CLI.
 
 ---
 
@@ -1742,13 +1742,29 @@ When you develop Azure Functions in the serverless hosting model, cold starts ar
 
 When you use a service-specific client in an Azure Functions application, don't create a new client with every function invocation because you can hit connection limits. Instead, create a single, static client in the global scope. For more information, see [managing connections in Azure Functions](manage-connections.md).
 
-::: zone pivot="nodejs-model-v3"
 
 ### Use `async` and `await`
 
 When writing Azure Functions in Node.js, you should write code using the `async` and `await` keywords. Writing code using `async` and `await` instead of callbacks or `.then` and `.catch` with Promises helps avoid two common problems:
  - Throwing uncaught exceptions that [crash the Node.js process](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), potentially affecting the execution of other functions.
  - Unexpected behavior, such as missing logs from `context.log`, caused by asynchronous calls that aren't properly awaited.
+
+::: zone pivot="nodejs-model-v4"
+
+In the following example, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues previously mentioned. An exception that isn't explicitly caught in the correct scope can crash the entire process (issue #1). Returning without ensuring the callback finishes means the http response will sometimes have an empty body (issue #2).
+
+# [JavaScript](#tab/javascript)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerBadAsync.js" :::
+
+# [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerBadAsync.ts" :::
+
+---
+
+::: zone-end
+::: zone pivot="nodejs-model-v3"
 
 In the following example, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues previously mentioned. An exception that isn't explicitly caught in the correct scope can crash the entire process (issue #1). Calling the deprecated `context.done()` method outside of the scope of the callback can signal the function is finished before the file is read (issue #2). In this example, calling `context.done()` too early results in missing log entries starting with `Data from file:`.
 
@@ -1799,9 +1815,28 @@ export default trigger1;
 
 ---
 
+::: zone-end
+
 Use the `async` and `await` keywords to help avoid both of these issues. Most APIs in the Node.js ecosystem have been converted to support promises in some form. For example, starting in v14, Node.js provides an `fs/promises` API to replace the `fs` callback API.
 
-In the following example, any unhandled exceptions thrown during the function execution only fail the individual invocation that raised the exception. The `await` keyword means that steps following `readFile` only execute after it's complete. With `async` and `await`, you also don't need to call the `context.done()` callback.
+In the following example, any unhandled exceptions thrown during the function execution only fail the individual invocation that raised the exception. The `await` keyword means that steps following `readFile` only execute after it's complete.
+
+::: zone pivot="nodejs-model-v4"
+
+# [JavaScript](#tab/javascript)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerGoodAsync.js" :::
+
+# [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerGoodAsync.ts" :::
+
+---
+
+::: zone-end
+::: zone pivot="nodejs-model-v3"
+
+With `async` and `await`, you also don't need to call the `context.done()` callback.
 
 # [JavaScript](#tab/javascript)
 
@@ -1847,6 +1882,10 @@ export default trigger1;
 ---
 
 ::: zone-end
+
+## Troubleshoot
+
+See the [Node.js Troubleshoot guide](./functions-node-troubleshoot.md).
 
 ## Next steps
 

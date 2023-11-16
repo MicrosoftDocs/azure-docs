@@ -1,6 +1,6 @@
 ---
-title: Provide administrative access to Microsoft Dev Box projects
-description: Learn how to manage multiple Dev Box projects by assigning admin permissions and delegating project administration.
+title: Grant admin access to dev box projects
+description: Learn how to manage multiple Microsoft Dev Box projects by granting admin permissions and delegating project administration.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -9,7 +9,9 @@ ms.date: 04/25/2023
 ms.topic: how-to
 ---
 
-# Provide administrative access to Dev Box projects for project admins
+# Grant administrative access to Microsoft Dev Box projects
+
+In this article, you learn how to grant project administrators access to perform administrative tasks on Microsoft Dev Box projects. Microsoft Dev Box uses Azure role-based access control (Azure RBAC) to grant access to functionality in the service.
 
 You can create multiple Microsoft Dev Box projects in the dev center to align with each team's specific requirements. By using the built-in DevCenter Project Admin role, you can delegate project administration to a member of a team. Project admins can use the network connections and dev box definitions configured at the dev center level to create and manage dev box pools within their project.
 
@@ -20,6 +22,8 @@ A DevCenter Project Admin can manage a project by:
 - Creating, viewing, updating, and deleting dev box pools in the project.
 
 ## Assign permissions to project admins
+
+To grant a user project admin permission in Microsoft Dev Box, you assign the DevCenter Project Admin role at the project level.
 
 Use the following steps to assign the DevCenter Project Admin role:
 
@@ -51,6 +55,6 @@ The users can now manage the project and create dev box pools within it.
 
 [!INCLUDE [permissions note](./includes/note-permission-to-create-dev-box.md)]
 
-## Next steps
+## Related content
 
 - [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md)

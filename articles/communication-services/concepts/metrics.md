@@ -79,7 +79,7 @@ The following operations are available on Authentication API request metrics:
 | DeleteIdentity                | Deletes an identity. |
 | CreateToken                   | Creates an access token. |
 | RevokeToken                   | Revokes all access tokens created for an identity before a time given. |
-| ExchangeTeamsUserAccessToken  | Exchange an Azure Active Directory (Azure AD) access token of a Teams user for a new Communication Identity access token with a matching expiration time.|
+| ExchangeTeamsUserAccessToken  | Exchange a Microsoft Entra access token of a Teams user for a new Communication Identity access token with a matching expiration time.|
 
 :::image type="content" source="./media/acs-auth-metrics.png" alt-text="Screenshot of authentication Request Metric."  lightbox="./media/acs-auth-metrics.png":::
 
@@ -165,7 +165,7 @@ The following operations are available on Rooms API request metrics:
 | DeleteRoom                    | Deletes a Room. |
 | GetRoom                       | Gets a Room by Room ID. |
 | PatchRoom                     | Updates a Room by Room ID. |
-| ListRooms                     | Lists all the Rooms for an ACS Resource. |
+| ListRooms                     | Lists all the Rooms for an Azure Communication Services Resource. |
 | AddParticipants               | Adds participants to a Room.|
 | RemoveParticipants            | Removes participants from a Room. |
 | GetParticipants               | Gets list of participants for a Room. |

@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/09/2023
+ms.date: 11/06/2023
 ---
 
 # Source control in Azure Data Factory
@@ -24,7 +24,7 @@ To provide a better authoring experience, Azure Data Factory allows you to confi
 You can also reference [Continuous integration and delivery (CI/CD) in Azure Data Factory](continuous-integration-delivery.md) to learn more about the larger CI/CD pattern, of which source control is a critical aspect.
 
 > [!NOTE]
-> We have added GitHub public support on Azure Gov, Azure China. Refer to the [announcement blog](https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918).
+> We have added GitHub public support on Azure Gov and Microsoft Azure operated by 21Vianet. Refer to the [announcement blog](https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918).
 
 To learn more about how Azure Data Factory integrates with Git, view the 15-minute tutorial video below:
 
@@ -38,7 +38,7 @@ Below is a list of some of the advantages git integration provides to the author
     -   Ability to track/audit changes.
     -   Ability to revert changes that introduced bugs.
 -   **Partial saves:** When authoring against the data factory service, you can't save changes as a draft and all publishes must pass data factory validation. Whether your pipelines are not finished or you simply don't want to lose changes if your computer crashes, git integration allows for incremental changes of data factory resources regardless of what state they are in. Configuring a git repository allows you to save changes, letting you only publish when you have tested your changes to your satisfaction.
--   **Collaboration and control:** If you have multiple team members contributing to the same factory, you may want to let your teammates collaborate with each other via a code review process. You can also set up your factory such that not every contributor has equal permissions. Some team members may only be allowed to make changes via Git and only certain people in the team are allowed to publish the changes to the factory.
+-   **Collaboration and control:** If you have multiple team members contributing to the same factory, you might want to let your teammates collaborate with each other via a code review process. You can also set up your factory such that not every contributor has equal permissions. Some team members might only be allowed to make changes via Git and only certain people in the team are allowed to publish the changes to the factory.
 -   **Better CI/CD:**  If you are deploying to multiple environments with a [continuous delivery process](continuous-integration-delivery.md), git integration makes certain actions easier. Some of these actions include:
     -   Configure your release pipeline to trigger automatically as soon as there are any changes made to your 'dev' factory.
     -   Customize the properties in your factory that are available as parameters in the Resource Manager template. It can be useful to keep only the required set of properties as parameters, and have everything else hard coded.
@@ -96,7 +96,7 @@ The configuration pane shows the following Azure Repos code repository settings:
 | Setting | Description | Value |
 |:--- |:--- |:--- |
 | **Repository Type** | The type of the Azure Repos code repository.<br/> | Azure DevOps Git or GitHub |
-| **Azure Active Directory** | Your Azure AD tenant name. | `<your tenant name>` |
+| **Microsoft Entra ID** | Your Microsoft Entra tenant name. | `<your tenant name>` |
 | **Azure Repos Organization** | Your Azure Repos organization name. You can locate your Azure Repos organization name at `https://{organization name}.visualstudio.com`. You can [sign in to your Azure Repos organization](https://www.visualstudio.com/team-services/git/) to access your Visual Studio profile and see your repositories and projects. | `<your organization name>` |
 | **ProjectName** | Your Azure Repos project name. You can locate your Azure Repos project name at `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
 | **RepositoryName** | Your Azure Repos code repository name. Azure Repos projects contain Git repositories to manage your source code as your project grows. You can create a new repository or use an existing repository that's already in your project. | `<your Azure Repos code repository name>` |
@@ -113,25 +113,27 @@ The configuration pane shows the following Azure Repos code repository settings:
 
 If any adjustments need to be made to the settings of your configured Azure Repos Git repository, you can choose to **Edit**.
 
-:::image type="content" source="media/author-visually/repo-settings-2.png" alt-text="Screenshot showing the edit button for editing a Azure Repos Git repository.":::
+:::image type="content" source="media/author-visually/repo-settings-2.png" alt-text="Screenshot showing the edit button for editing an Azure Repos Git repository.":::
 
 You can update your publish branch and decide whether or not to disable the publish button from the ADF studio. If you choose to disable the publish button from the studio, the publish button will be grayed out in the studio. This will help to avoid overwriting the last automated publish deployment. 
 
 :::image type="content" source="media/author-visually/repo-settings-3.png" alt-text="Screenshot showing a checkbox for disabling the publish button for Data Factory studio.":::
 
 
-### Use a different Azure Active Directory tenant
+<a name='use-a-different-azure-active-directory-tenant'></a>
 
-The Azure Repos Git repo can be in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using. For more info, see [change subscription administrator](../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator)
+### Use a different Microsoft Entra tenant
+
+The Azure Repos Git repo can be in a different Microsoft Entra tenant. To specify a different Microsoft Entra tenant, you have to have administrator permissions for the Azure subscription that you're using. For more info, see [change subscription administrator](../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator)
 
 > [!IMPORTANT]
-> To connect to another Azure Active Directory, the user logged in must be a part of that active directory. 
+> To connect to another Microsoft Entra ID, the user logged in must be a part of that active directory. 
 
 ### Use your personal Microsoft account
 
 To use a personal Microsoft account for Git integration, you can link your personal Azure Repo to your organization's Active Directory.
 
-1. Add your personal Microsoft account to your organization's Active Directory as a guest. For more info, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
+1. Add your personal Microsoft account to your organization's Active Directory as a guest. For more info, see [Add Microsoft Entra B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
 
 2. Log in to the Azure portal with your personal Microsoft account. Then switch to your organization's Active Directory.
 
@@ -139,7 +141,7 @@ To use a personal Microsoft account for Git integration, you can link your perso
 
 After these configuration steps, your personal repo is available when you set up Git integration in the Data Factory UI.
 
-For more info about connecting Azure Repos to your organization's Active Directory, see [Connect your Azure DevOps organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
+For more info about connecting Azure Repos to your organization's Active Directory, see [Connect your Azure DevOps organization to Microsoft Entra ID](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
 ## Author with GitHub integration
 
@@ -236,6 +238,18 @@ If you connect to GitHub Enterprise Server, you need to use personal access toke
 - GitHub Enterprise with a version older than 2.14.0 doesn't work in the Microsoft Edge browser.
 
 - GitHub integration with the Data Factory visual authoring tools only works in the generally available version of Data Factory.
+
+#### Connecting to Azure DevOps Server 2022
+
+If you connect to Azure DevOps Server 2022, you need to use a personal access token for authentication. [Learn how to create a personal access token here](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+ 
+Connect to on-premises Azure DevOps by providing the ``Azure DevOps Server URL`` and ``Azure DevOps Project Collection``
+
+:::image type="content" source="media/data-flow/devops-001.png" alt-text="Screenshot shows ADO configure a repository using server.":::
+
+Provide the token with access scope as read/write for code.
+
+:::image type="content" source="media/data-flow/devops-002.png" alt-text="Screenshot shows ADO configure access token.":::
 
 ## Version control
 
@@ -340,7 +354,7 @@ Choose either method appropriately as needed.
 
 ### All resources showing as new on publish
 
-While publishing, all resources may show as new even if they were previously published. This can happen if the *lastCommitId* property is reset on the factory’s *repoConfiguration* property either by re-deploying a factory ARM template or updating the factory *repoConfiguration* property  through PowerShell or the REST API. Continuing to publish the resources will resolve the issue, but to prevent to it from occurring again, avoid updating the factory *repoConfiguration* property. 
+While publishing, all resources might show as new even if they were previously published. This can happen if the *lastCommitId* property is reset on the factory’s *repoConfiguration* property either by re-deploying a factory ARM template or updating the factory *repoConfiguration* property  through PowerShell or the REST API. Continuing to publish the resources will resolve the issue, but to prevent to it from occurring again, avoid updating the factory *repoConfiguration* property. 
 
 
 

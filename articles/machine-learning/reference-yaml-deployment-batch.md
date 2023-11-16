@@ -6,11 +6,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, event-tier1-build-2022
-ms.reviewer: mopeakande 
-author: santiagxf 
+ms.custom:
+  - cliv2
+  - event-tier1-build-2022
+  - ignite-2023
+ms.reviewer: mopeakande
+author: santiagxf
 ms.author: fasantia
-ms.date: 03/31/2022
+ms.date: 11/15/2023
 ---
 
 # CLI (v2) batch deployment YAML schema
@@ -30,7 +33,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `description` | string | Description of the deployment. | | |
 | `tags` | object | Dictionary of tags for the deployment. | | |
 | `endpoint_name` | string | **Required.** Name of the endpoint to create the deployment under. | | |
-| `type` | string | **Required.** Type of the bath deployment. Use `model` for [model deployments](concept-endpoints-batch.md#model-deployments) and `pipeline` for [pipeline component deployments](concept-endpoints-batch.md#pipeline-component-deployment-preview). <br><br>**New in version 1.7**. | `model`, `pipeline` | `model` |
+| `type` | string | **Required.** Type of the bath deployment. Use `model` for [model deployments](concept-endpoints-batch.md#model-deployments) and `pipeline` for [pipeline component deployments](concept-endpoints-batch.md#pipeline-component-deployment). <br><br>**New in version 1.7**. | `model`, `pipeline` | `model` |
 | `settings` | object | Configuration of the deployment. See specific YAML reference for model and pipeline component for allowed values. <br><br>**New in version 1.7**. | | |
 
 > [!TIP]
@@ -59,7 +62,7 @@ When `type: model`, the following syntax is enforced:
 | `settings.retry_settings.timeout` | integer | The timeout in seconds for scoring a single mini batch. Use larger values when the mini-batch size is bigger or the model is more expensive to run. | | `30` |
 | `settings.output_action` | string | Indicates how the output should be organized in the output file. Use `summary_only` if you are generating the output files as indicated at [Customize outputs in model deployments](how-to-deploy-model-custom-output.md). Use `append_row` if you are returning predictions as part of the `run()` function `return` statement. | `append_row`, `summary_only` | `append_row` |
 | `settings.output_file_name` | string | Name of the batch scoring output file. | | `predictions.csv` |
-| `environment_variables` | object | Dictionary of environment variable key-value pairs to set for each batch scoring job. | | |
+| `settings.environment_variables` | object | Dictionary of environment variable key-value pairs to set for each batch scoring job. | | |
 
 ### YAML syntax for pipeline component deployments
 

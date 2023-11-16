@@ -1,18 +1,20 @@
 ---
 title: 'Quickstart: Publish and subscribe on an MQTT topic using CLI'
-description: 'Quickstart guide to use Azure Event Grid MQTT and Azure CLI to publish and subscribe MQTT messages on a topic'
+description: 'Quickstart guide to use Azure Event Grid’s MQTT broker feature and Azure CLI to publish and subscribe MQTT messages on a topic'
 ms.topic: quickstart
-ms.custom: build-2023, devx-track-azurecli
+ms.custom:
+  - build-2023
+  - devx-track-azurecli
+  - ignite-2023
 ms.date: 05/23/2023
 author: veyaddan
 ms.author: veyaddan
 ---
 
-# Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure CLI (Preview)
+# Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure CLI
 
-Azure Event Grid supports messaging using the MQTT protocol.  Clients (both devices and cloud applications) can publish and subscribe MQTT messages over flexible hierarchical topics for scenarios such as high scale broadcast, and command & control.
+Azure Event Grid’s MQTT broker feature supports messaging using the MQTT protocol.  Clients (both devices and cloud applications) can publish and subscribe MQTT messages over flexible hierarchical topics for scenarios such as high scale broadcast, and command & control.
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
 
 In this article, you use the Azure CLI to do the following tasks:
 1. Create an Event Grid namespace and enable MQTT
@@ -24,14 +26,15 @@ In this article, you use the Azure CLI to do the following tasks:
 - If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - If you're new to Azure Event Grid, read through [Event Grid overview](/azure/event-grid/overview) before starting this tutorial.
 - Register the Event Grid resource provider as per [Register the Event Grid resource provider](/azure/event-grid/custom-event-quickstart-portal#register-the-event-grid-resource-provider).
-- Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments.
+- Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments.
 - Use the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart).
 - If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 - If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
-- This article requires version 2.17.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- This article requires version 2.53.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 - You need an X.509 client certificate to generate the thumbprint and authenticate the client connection.
+- Review the Event Grid namespace [CLI documentation](/cli/azure/eventgrid/namespace)
 
 ## Generate sample client certificate and thumbprint
 If you don't already have a certificate, you can create a sample certificate using the [step CLI](https://smallstep.com/docs/step-cli/installation/). Consider installing manually for Windows. 
@@ -56,30 +59,12 @@ step certificate create client1-authnID client1-authnID.pem client1-authnID.key 
 step certificate fingerprint client1-authnID.pem
 ```
 
-> [!IMPORTANT]
-> The Azure [CLI Event Grid extension](/cli/azure/eventgrid) does not yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](/cli/azure/resource) to create Event Grid resources.
-
 ## Create a Namespace
 
-Save the Namespace object in namespace.json file in resources folder.
-
-```json
-{
-    "properties": {
-        "inputSchema": "CloudEventSchemaV1_0",
-        "topicSpacesConfiguration": {
-            "state": "Enabled"
-        },
-        "isZoneRedundant": true
-    },
-    "location": "{Add region name}"
-}
-```
-
-Use the az resource command to create a namespace.  Update the command with your subscription ID, Resource group ID, and a Namespace name.
+Use the command to create a namespace.  Update the command with your Resource group, and a Namespace name.
 
 ```azurecli-interactive
-az resource create --resource-type Microsoft.EventGrid/namespaces --id /subscriptions/{Subscription ID}/resourceGroups/{Resource Group}/providers/Microsoft.EventGrid/namespaces/{Namespace Name} --is-full-object --api-version 2023-06-01-preview --properties @./resources/namespace.json
+az eventgrid namespace create -g {Resource Group} -n {Namespace Name} --topic-spaces-configuration "{state:Enabled}"
 ```
 
 > [!NOTE]
@@ -87,25 +72,10 @@ az resource create --resource-type Microsoft.EventGrid/namespaces --id /subscrip
 
 ## Create clients
 
-Store the client object in client1.json file.  Update the allowedThumbprints field with valid value(s).
-
-```json
-{
-    "state": "Enabled",
-    "authenticationName": "client1-authnID", 
-    "clientCertificateAuthentication": {
-        "validationScheme": "ThumbprintMatch",
-        "allowedThumbprints": [
-            "{Your client 1 certificate thumbprint}"
-        ]
-    }
-}
-```
-
-Use the az resource command to create the first client.  Update the command with your subscription ID, Resource group ID, and a Namespace name.
+Use the command to create the client.  Update the command with your Resource group, and a Namespace name.
 
 ```azurecli-interactive
-az resource create --resource-type Microsoft.EventGrid/namespaces/clients --id /subscriptions/{Subscription ID}/resourceGroups/{Resource Group}/providers/Microsoft.EventGrid/namespaces/{Namespace Name}/clients/{Client Name} --api-version 2023-06-01-preview --properties @./resources/client1.json
+az eventgrid namespace client create -g {Resource Group} --namespace-name {Namespace Name} -n {Client Name} --authentication-name client1-authnID --client-certificate-authentication "{validationScheme:ThumbprintMatch,allowed-thumbprints:[Client Thumbprint]}"
 ```
 
 > [!NOTE]
@@ -114,54 +84,24 @@ az resource create --resource-type Microsoft.EventGrid/namespaces/clients --id /
 
 ## Create topic spaces
 
-Store the below object in topicspace.json file.
-
-```json
-{ 
-    "topicTemplates": [
-        "contosotopics/topic1"
-    ]
-}
-```
-
-Use the az resource command to create the topic space.  Update the command with your subscription ID, Resource group ID, namespace name, and a topic space name.
+Use the command to create the topic space.  Update the command with your Resource group, namespace name, and a topic space name.
 
 ```azurecli-interactive
-az resource create --resource-type Microsoft.EventGrid/namespaces/topicSpaces --id /subscriptions/{Subscription ID}/resourceGroups/{Resource Group}/providers/Microsoft.EventGrid/namespaces/{Namespace Name}/topicSpaces/{Topic Space Name} --api-version 2023-06-01-preview --properties @./resources/topicspace.json
+az eventgrid namespace topic-space create -g {Resource Group} --namespace-name {Namespace Name} -n {Topicspace Name} --topic-templates ['contosotopics/topic1']
 ```
 
 ## Create PermissionBindings
 
-Store the first permission binding object in permissionbinding1.json file.  Replace the topic space name with your topic space name.  This permission binding is for publisher.
-
-```json
-{
-    "clientGroupName": "$all",
-    "permission": "Publisher",
-    "topicSpaceName": "{Your topicspace name}"
-}
-```
-
-Use the az resource command to create the first permission binding.  Update the command with your subscription ID, Resource group ID, namespace name, and a permission binding name.
+Use the az resource command to create the first permission binding for publisher permission.  Update the command with your Resource group, namespace name, and a permission binding name.
 
 ```azurecli-interactive
-az resource create --resource-type Microsoft.EventGrid/namespaces/permissionBindings --id /subscriptions/{Subscription ID}/resourceGroups/{Resource Group}/providers/Microsoft.EventGrid/namespaces/{Namespace Name}/permissionBindings/{Permission Binding Name} --api-version 2023-06-01-preview --properties @./resources/permissionbinding1.json
+az eventgrid namespace permission-binding create -g {Resource Group} --namespace-name {Namespace Name} -n {Permission Binding Name} --client-group-name '$all' --permission publisher --topic-space-name {Topicspace Name}
 ```
 
-Store the second permission binding object in permissionbinding2.json file.  Replace the topic space name with your topic space name.  This permission binding is for subscriber.
-
-```json
-{
-    "clientGroupName": "$all",
-    "permission": "Subscriber",
-    "topicSpaceName": "{Your topicspace name}"
-}
-```
-
-Use the az resource command to create the second permission binding.  Update the command with your subscription ID, Resource group ID, namespace name and a permission binding name.
+Use the command to create the second permission binding.  Update the command with your Resource group, namespace name and a permission binding name.  This permission binding is for subscriber.
 
 ```azurecli-interactive
-az resource create --resource-type Microsoft.EventGrid/namespaces/permissionBindings --id /subscriptions/{Subscription ID}/resourceGroups/{Resource Group}/providers/Microsoft.EventGrid/namespaces/{Namespace Name}/permissionBindings/{Permission Binding Name} --api-version 2023-06-01-preview --properties @./resources/permissionbinding2.json
+az eventgrid namespace permission-binding create -g {Resource Group} --namespace-name {Namespace Name} -n {Name of second Permission Binding} --client-group-name '$all' --permission publisher --topic-space-name {Topicspace Name}
 ```
 
 ## Publish and subscribe MQTT messages

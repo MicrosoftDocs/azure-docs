@@ -45,6 +45,8 @@ items:
         href: ../app-service/tutorial-dotnetcore-sqldb-app.md?bc=%2fazure%2fservice-connector%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fservice-connector%2fTOC.json
       - name: Java Tomcat app to PostgreSQL
         href: ../app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database.md?bc=%2fazure%2fservice-connector%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fservice-connector%2fTOC.json
+      - name: Java JBoss EAP to MySQL
+        href: tutorial-java-jboss-connect-managed-identity-mysql-database.md
       - name: Python app to PostgreSQL
         href: tutorial-django-webapp-postgres-cli.md
     - name: Azure Container Apps
@@ -72,6 +74,8 @@ items:
       href: concept-availability.md
     - name: Region support
       href: concept-region-support.md
+    - name: Permission requirements
+      href: concept-permission.md
 - name: How-to guides
   expanded: true
   items: 
@@ -81,6 +85,14 @@ items:
       href: tutorial-portal-key-vault.md
     - name: Connect a container app to Blob Storage
       href: ../container-apps/service-connector.md?bc=%2fazure%2fservice-connector%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fservice-connector%2fTOC.json
+    - name: Create passwordless connection to database
+      href: tutorial-passwordless.md
+    - name: Get connection configurations
+      href: how-to-get-configurations.md
+    - name: Build connections with IaC tools
+      href: how-to-build-connections-with-iac-tools.md
+    - name: Provide correct parameters
+      href: how-to-provide-correct-parameters.md
     - name: Troubleshoot
       href: how-to-troubleshoot-front-end-error.md
     - name: Integrate

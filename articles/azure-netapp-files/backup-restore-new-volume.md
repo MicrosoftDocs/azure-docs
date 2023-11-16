@@ -35,6 +35,8 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 
 * Restoring a backup to a new volume is not dependent on the networking type used by the source volume. You can restore the backup of a volume configured with Basic networking to a volume configured with Standard networking and vice versa.
 
+* In the Volume overview page, refer to the **Originated from** field to see the name of the snapshot used to create the volume. 
+
 * See [Restoring volume backups from vaulted snapshots](snapshots-introduction.md#restoring-volume-backups-from-vaulted-snapshots) for more information. 
 
 
@@ -55,7 +57,7 @@ See [Requirements and considerations for Azure NetApp Files backup](backup-requi
 
 2. From the backup list, select the backup to restore. Select the three dots (`…`) to the right of the backup, then select **Restore to new volume** from the Action menu.   
 
-    <!-- ![Screenshot that shows the option to restore backup to a new volume.](../media/azure-netapp-files/backup-restore-new-volume.png) -->
+    :::image type="content" source="../media/azure-netapp-files/backup-restore-new-volume.png" alt-text="Screenshot of selecting restore backup to new volume." lightbox="../media/azure-netapp-files/backup-restore-new-volume.png":::
 
 3. In the Create a Volume page that appears, provide information for the fields in the page as applicable, and select **Review + Create** to begin restoring the backup to a new volume.   
 
@@ -68,6 +70,8 @@ See [Requirements and considerations for Azure NetApp Files backup](backup-requi
     * The **Capacity pool** that the backup is restored into must have sufficient unused capacity to host the new restored volume. Otherwise, the restore operation fails.   
 
     ![Screenshot that shows the Create a Volume page.](../media/azure-netapp-files/backup-restore-create-volume.png)
+
+4. The Volumes page displays the new volume. In the Volumes page, the **Originated from** field identifies the name of the snapshot used to create the volume.
 
 ## Next steps  
 

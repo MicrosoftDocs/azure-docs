@@ -7,7 +7,7 @@ metadata:
   manager: raynew
   ms.topic: faq
   ms.custom: ignite-2022
-  ms.date: 06/20/2023
+  ms.date: 09/14/2023
 title: 'Common questions about cloud security posture management (CSPM)'
 summary: |
   One of Microsoft Defender for Cloud's main pillars for cloud security is Cloud Security Posture Management (CSPM). CSPM provides you with hardening guidance that helps you efficiently and effectively improve your security. CSPM also gives you visibility into your current security situation.
@@ -43,12 +43,18 @@ sections:
           |---------|---------|
           | Azure    | - Adds a “VM Scanner Operator” role assignment<br>- Adds a “vmScanners” resource with the relevant configurations used to manage the scanning process        |
           | AWS     | - Adds role assignment<br>- Adds authorized audience to OpenIDConnect provider<br>- Snapshots are created next to the scanned volumes, in the same account, during the scan (typically for a few minutes)        |
-
+          | GCP     | - Adds a role assignment |
 
       - question: |
           What is the Virtual Machine (VM) scan freshness?
         answer: |
           Each VM is scanned every 24 hours.
+
+      - question: |
+          Can I calculate the secure score at the resource group level?
+        answer: |
+          Secure score is calculated per Azure subscription, AWS account or GCP project. You can also view the secure score within the management scope such as Azure management group, AWS management account or GCP organization. There's no secure score per resource group. 
+
 
 
 additionalContent: |

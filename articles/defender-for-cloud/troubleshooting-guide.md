@@ -37,8 +37,11 @@ Common connector issues:
 - Standards should be assigned on the security connector. To check, go to the **Environment settings** in the Defender for Cloud left menu, select the connector, and select **Settings**. There should be standards assigned. You can select the three dots to check if you have permissions to assign standards.
 - Connector resource should be present in Azure Resource Graph (ARG). Use the following ARG query to check: `resources | where ['type'] =~ "microsoft.security/securityconnectors"`
 - Make sure that sending Kubernetes audit logs is enabled on the AWS or GCP connector so that you can get [threat detection alerts for the control plane](alerts-reference.md#alerts-k8scluster).
-- Make sure that Azure Arc and the Azure Policy Arc extension were installed successfully.
-- Make sure that the agent is installed to your Elastic Kubernetes Service (EKS) clusters. You can install the agent with the **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters** recommendation, or **Azure policy extension for Kubernetes should be installed and enabled on your clusters** recommendations. Download the given script provided in the recommendation and run it on your cluster. The recommendation should disappear within an hour of when the script is run.
+- Make sure that The Defender agent and the Azure Policy for Kubernetes Arc extensions were installed successfully to your Elastic Kubernetes Service (EKS) and Google Kubernetes Engine (GKE) clusters. You can verify and install the agent with the following Defender for Cloud recommendations:
+  - **EKS clusters should have Microsoft Defender's extension for Azure Arc installed**
+  - **GKE clusters should have Microsoft Defender's extension for Azure Arc installed**
+  - **Azure Arc-enabled Kubernetes clusters should have the Azure Policy extension installed**
+  - **GKE clusters should have the Azure Policy extension installed**
 - If you’re experiencing issues with deleting the AWS or GCP connector, check if you have a lock (in this case there might be an error in the Azure Activity log, hinting at the presence of a lock).  
 - Check that workloads exist in the AWS account or GCP project.
 
@@ -49,12 +52,12 @@ AWS connector issues:
 - Make sure that EKS clusters are successfully connected to Arc-enabled Kubernetes.
 - If you don't see AWS data in Defender for Cloud, make sure that the AWS resources required to send data to Defender for Cloud exist in the AWS account.
 
-GCP connector issues: 
+GCP connector issues:
 
 - Make sure that the GCP Cloud Shell script completed successfully.
 - Make sure that GKE clusters are successfully connected to Arc-enabled Kubernetes.
 - Make sure that Azure Arc endpoints are in the firewall allowlist. The GCP connector makes API calls to these endpoints to fetch the necessary onboarding files.
-- If the onboarding of GCP projects failed, make sure you have “compute.regions.list” permission and Azure AD permission to create the service principle used as part of the onboarding process. Make sure that the GCP resources `WorkloadIdentityPoolId`, `WorkloadIdentityProviderId`, and `ServiceAccountEmail` are created in the GCP project.
+- If the onboarding of GCP projects failed, make sure you have “compute.regions.list” permission and Microsoft Entra permission to create the service principle used as part of the onboarding process. Make sure that the GCP resources `WorkloadIdentityPoolId`, `WorkloadIdentityProviderId`, and `ServiceAccountEmail` are created in the GCP project.
 
 ## Troubleshooting the Log Analytics agent
 
@@ -79,11 +82,11 @@ Customers can share feedback for the alert description and relevance. Navigate t
 
 Just like the Azure Monitor, Defender for Cloud uses the Log Analytics agent to collect security data from your Azure virtual machines. After data collection is enabled and the agent is correctly installed in the target machine, the `HealthService.exe` process should be running.
 
-Open the services management console (services.msc), to make sure that the Log Analytics agent service running as shown below:
+Open the services management console (services.msc), to make sure that the Log Analytics agent service running as shown:
 
 :::image type="content" source="./media/troubleshooting-guide/troubleshooting-guide-fig5.png" alt-text="Screenshot of the Log Analytics agent service in Task Manager.":::
 
-To see which version of the agent you have, open **Task Manager**, in the **Processes** tab locate the **Log Analytics agent Service**, right-click on it and select **Properties**. In the **Details** tab, look the file version as shown below:
+To see which version of the agent you have, open **Task Manager**, in the **Processes** tab locate the **Log Analytics agent Service**, right-click on it and select **Properties**. In the **Details** tab, look the file version as shown:
 
 :::image type="content" source="./media/troubleshooting-guide/troubleshooting-guide-fig6.png" alt-text="Screenshot of the Log Analytics agent service details.":::
 
@@ -120,14 +123,14 @@ If you're having trouble onboarding the Log Analytics agent, make sure to read [
 
 ## Antimalware protection isn't working properly
 
-The guest agent is the parent process of everything the [Microsoft Antimalware](../security/fundamentals/antimalware.md) extension does. When the guest agent process fails, the Microsoft Antimalware protection that runs as a child process of the guest agent may also fail.
+The guest agent is the parent process of everything the [Microsoft Antimalware](../security/fundamentals/antimalware.md) extension does. When the guest agent process fails, the Microsoft Antimalware protection that runs as a child process of the guest agent might also fail.
 
 Here are some other troubleshooting tips:
 
 - If the target VM was created from a custom image, make sure that the creator of the VM installed guest agent.
 - If the target is a Linux VM, then installing the Windows version of the antimalware extension will fail. The Linux guest agent has specific OS and package requirements.
-- If the VM was created with an old version of guest agent, the old agents might not have the ability to auto-update to the newer version. Always use the latest version of guest agent when you create your own images.
-- Some third-party administration software may disable the guest agent, or block access to certain file locations. If third-party administration software is installed on your VM, make sure that the antimalware agent is on the exclusion list.
+- If the VM was created with an old version of guest agent, the old agents might not have the ability to autoupdate to the newer version. Always use the latest version of guest agent when you create your own images.
+- Some third-party administration software might disable the guest agent, or block access to certain file locations. If third-party administration software is installed on your VM, make sure that the antimalware agent is on the exclusion list.
 - Make sure that firewall settings and Network Security Group (NSG) aren't blocking network traffic to and from guest agent.
 - Make sure that there are no Access Control Lists (ACLs) that prevent disk access.
 - The guest agent requires sufficient disk space in order to function properly.
@@ -140,39 +143,23 @@ If you experience issues loading the workload protection dashboard, make sure th
 
 ## Troubleshoot Azure DevOps Organization connector issues
 
-The `Unable to find Azure DevOps Organization` error occurs when you create an Azure DevOps Organization (ADO) connector and the incorrect account was signed in and granted access to the Microsoft Security DevOps App. This can also result in the `Failed to create Azure DevOps connectorFailed to create Azure DevOps connector. Error: 'Unable to find Azure DevOps organization : OrganizationX in available organizations: Organization1, Organization2, Organization3.'` error.
+If you are not able to onboard your Azure DevOps organization, follow the following troubleshooting tips:
 
-It is important to know which account you are logged in to when you authorize the access, as that will be the account that is used. Your account can be associated with the same email address but also associated with different tenants.
+- It is important to know which account you are logged in to when you authorize the access, as that will be the account that is used. Your account can be associated with the same email address but also associated with different tenants. You should [check which account](https://app.vssps.visualstudio.com/profile/view) you are currently logged in on and ensure that the right account and tenant combination is selected.
 
-You should [check which account](https://app.vssps.visualstudio.com/profile/view) you are currently logged in on and ensure that the right account and tenant combination is selected.
+    1. On your profile page, select the drop-down menu to select another account.
+    
+        :::image type="content" source="./media/troubleshooting-guide/authorize-select-tenant.png" alt-text="Screenshot of the Azure DevOps profile page that is used to select an account.":::
+    
+    1. After selecting the correct account/tenant combination, navigate to **Environment settings** in Defender for Cloud and edit your Azure DevOps connector. You will have the option to Re-authorize the connector, which will update the connector with the correct account/tenant combination. You should then see the correct list of organizations from the drop-down selection menu.
 
-:::image type="content" source="./media/troubleshooting-guide/authorize-popup.png" alt-text="Screenshot of the Azure DevOps organization Consent Page for the Microsoft Security application.":::
+- Ensure you have **Project Collection Administrator** role on the Azure DevOps organization you wish to onboard.
 
-**To change your current account**:
-
-1. Select **profile page**.
-
-    :::image type="content" source="./media/troubleshooting-guide/authorize-profile-page.png" alt-text="Screenshot showing how to switch to the ADO Profile Page.":::
-
-1. On your profile page, select the drop down menu to select another account.
-
-    :::image type="content" source="./media/troubleshooting-guide/authorize-select-tenant.png" alt-text="Screenshot of the Azure DevOps profile page that is used to select an account.":::
-
-The first time you authorize the Microsoft Security application, you are given the ability to select an account. However, each time you login after that, the page defaults to the logged in account without giving you the chance to select an account.
-
-**To change the default account**:
-
-1. [Sign in](https://app.vssps.visualstudio.com/profile/view) and select the same tenant you use in Azure from the dropdown menu.
-
-1. Create a new connector, and authorize it. When the pop-up page appears, ensure it shows the correct tenant.
-
-If this process does not fix your issue, you should revoke Microsoft Security DevOps's permission from all tenants in Azure DevOps and repeat the above steps. You should then be able to see the authorization pop up again when authorizing the connector.
-
-:::image type="content" source="./media/troubleshooting-guide/authorization-revoke.png" alt-text="Screenshot of the authorization page used to revoke the permission of the Microsoft Security application." lightbox="media/troubleshooting-guide/authorization-revoke.png":::
+- Ensure **Third-party application access via OAuth** is toggled **On** for the Azure DevOps organization. [Learn more about enabling OAuth access](/azure/devops/organizations/accounts/change-application-access-policies)
 
 ## Contacting Microsoft Support
 
-You can also find troubleshooting information for Defender for Cloud at the [Defender for Cloud Q&A page](/answers/topics/azure-security-center.html). If you need further troubleshooting, you can open a new support request using **Azure portal** as shown below:
+You can also find troubleshooting information for Defender for Cloud at the [Defender for Cloud Q&A page](/answers/topics/azure-security-center.html). If you need further troubleshooting, you can open a new support request using **Azure portal** as shown:
 
 :::image type="content" source="media/troubleshooting-guide/troubleshooting-guide-fig2.png" alt-text="Screenshot of creating a support request in the Help + support area.":::
 

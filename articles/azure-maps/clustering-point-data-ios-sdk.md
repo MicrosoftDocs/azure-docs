@@ -2,8 +2,8 @@
 title: Clustering point data in the iOS SDK
 titleSuffix: Microsoft Azure Maps
 description: Learn how to cluster point data on maps. See how to use the Azure Maps iOS SDK to cluster data, react to cluster mouse events, and display cluster aggregates.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -14,11 +14,11 @@ services: azure-maps
 
 When displaying many data points on the map, data points may overlap over each other. The overlap may cause the map may become unreadable and difficult to use. Clustering point data is the process of combining point data that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points. When you work with large number of data points, use the clustering processes to improve your user experience.
 
-[Internet of Things Show - Clustering point data in Azure Maps](/shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny)
+[Internet of Things Show - Clustering point data in Azure Maps]
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an iOS app](quick-ios-app.md) document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
+Be sure to complete the steps in the [Quickstart: Create an iOS app] document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
 
 ## Enabling clustering on a data source
 
@@ -685,7 +685,7 @@ func azureMap(_ map: AzureMap, didTapOn features: [Feature]) {
 }
 ```
 
-The popup follows the steps outlined in the [display a popup](Display-feature-information-ios-sdk.md) document.
+The popup follows the steps outlined in the [display a popup] document.
 
 The following image shows the above code displaying a popup with aggregated counts of each entity value type for all points in the tapped clustered point.
 
@@ -695,6 +695,13 @@ The following image shows the above code displaying a popup with aggregated coun
 
 To add more data to your map:
 
-- [Create a data source](create-data-source-ios-sdk.md)
-- [Add a symbol layer](add-symbol-layer-ios.md)
-- [Add a bubble layer](add-bubble-layer-map-ios.md)
+- [Create a data source]
+- [Add a symbol layer]
+- [Add a bubble layer]
+
+[Add a bubble layer]: add-bubble-layer-map-ios.md
+[Add a symbol layer]: add-symbol-layer-ios.md
+[Create a data source]: create-data-source-ios-sdk.md
+[display a popup]: Display-feature-information-ios-sdk.md
+[Internet of Things Show - Clustering point data in Azure Maps]: /shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny
+[Quickstart: Create an iOS app]: quick-ios-app.md

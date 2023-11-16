@@ -34,7 +34,7 @@ If a volume is deleted but the backup policy wasn’t disabled before the volume
 3. Select **Configure**.
 4. In the Configure Backups page, toggle the **Enabled** setting to **Off**. Enter the volume name to confirm, and click **OK**.
 
-    <!-- ![Screenshot that shows the Restore to with Configure Backups window with backup disabled.](../media/azure-netapp-files/backup-configure-backups-disable.png) -->
+    ![Screenshot that shows the Restore to with Configure Backups window with backup disabled.](../media/azure-netapp-files/backup-configure-backups-disable.png)
 
 ## Next steps  
 
@@ -49,4 +49,3 @@ If a volume is deleted but the backup policy wasn’t disabled before the volume
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)
-

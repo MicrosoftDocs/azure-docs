@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
-ms.date: 02/22/2023
+ms.date: 08/02/2023
 ---
 
 # Azure Data Factory managed virtual network
@@ -84,11 +84,12 @@ Interactive authoring capabilities are used for functionalities like test connec
 :::image type="content" source="./media/managed-vnet/interactive-authoring.png" alt-text="Screenshot that shows interactive authoring.":::
 
 
-## Time to live (preview)
+## Time to live
 
 ### Copy activity
 
 By default, every copy activity spins up a new compute based upon the configuration in copy activity. With managed virtual network enabled, cold computes start-up time takes a few minutes and data movement can't start until it's complete. If your pipelines contain multiple sequential copy activities or you have many copy activities in foreach loop and can’t run them all in parallel, you can enable a time to live (TTL) value in the Azure integration runtime configuration. Specifying a time to live value and DIU numbers required for the copy activity keeps the corresponding computes alive for a certain period of time after its execution completes. If a new copy activity starts during the TTL time, it will reuse the existing computes, and start-up time will be greatly reduced. After the second copy activity completes, the computes will again stay alive for the TTL time.
+You have the flexibility to select from the pre-defined compute sizes, ranging from small to medium to large. Alternatively, you also have the option to customize the compute size based on your specific requirements and real-time needs.
 
 > [!NOTE]
 > Reconfiguring the DIU number will not affect the current copy activity execution. 
@@ -104,25 +105,36 @@ The DIU you select in TTL will be used to run all copy activities, the size of t
 
 ### Pipeline and external activity
 
-Unlike copy activity, pipeline and external activity have a default time to live (TTL) of 60 minutes. You can change the default TTL on Azure integration runtime configuration according to your actual needs, but it’s not supported to disable the TTL. 
+Similar to the copy, you have the ability to tailor the compute size and TTL duration according to your specific requirements. However, unlike the copy, please note that pipeline and external TTL cannot be disabled.
 
 > [!NOTE]
 > Time to live (TTL) is only applicable to managed virtual network.
 
 :::image type="content" source="./media/managed-vnet/time-to-live-configuration.png" alt-text="Screenshot that shows the TTL configuration.":::
 
+You can utilize the table below as a reference to determine the optimal number of nodes for executing both Pipelines and external activities.
+
+| Activity Type | Capacity |
+| --------------------------- | --------------------------------------------- |
+| Pipeline activity | Approximately 50 per node <br> Script activity and Lookup activity with SQL alwaysEncrypted tend to consume more resources compared to other pipeline activities, with the suggested number being around 10 per node |
+| External activity | Approximately 800 per node |
+
 
 ### Comparison of different TTL
+
 The following table lists the differences between different types of TTL：
 
 | Feature | Interactive authoring | Copy compute scale | Pipeline & External compute scale |
 | ----------------- | ---------- | -------- | --------------- |
 | When to take effect |	Immediately after enablement | First activity execution | First activity execution |
 | Can be disabled | Y | Y | N |
-| Reserved compute is configurable | N | Y | N |
+| Reserved compute is configurable | N | Y | Y |
 
 > [!NOTE]
 > You can't enable TTL in default auto-resolve Azure integration runtime. You can create a new Azure integration runtime for it.
+
+> [!NOTE]
+> When Copy/Pipeline/External compute scale TTL is activated, the billing is determined by the reserved compute resources. As a result, the output of the activity does not include the **billingReference**, as this is exclusively relevant in non-TTL scenarios.
 
 ## Create a managed virtual network via Azure PowerShell
 
@@ -169,7 +181,7 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 
 ```
 
-> [!Note]
+> [!NOTE]
 > You can get the **groupId** of other data sources from a [private link resource](../private-link/private-endpoint-overview.md#private-link-resource).
 
 
@@ -187,9 +199,6 @@ The following services have native private endpoint support. They can be connect
 - Microsoft Purview
 
 For the support of data sources, you can refer to [connector overview](connector-overview.md). You can access all data sources that are supported by Data Factory through a public network.
-
-> [!NOTE]
-> Because SQL Managed Instance native private endpoint is in preview, you can access it from a managed virtual network by using Private Link and Azure Load Balancer. For more information, see [Access SQL Managed Instance from a Data Factory managed virtual network using a private endpoint](tutorial-managed-virtual-network-sql-managed-instance.md).
 
 
 ### On-premises data sources
@@ -218,7 +227,7 @@ The column **Using private endpoint** is always shown as blank even if you creat
 
 :::image type="content" source="./media/managed-vnet/akv-pe.png" alt-text="Screenshot that shows a private endpoint for Key Vault.":::
 
-### Fully Qualified Domain Name ( FQDN ) of Azure HDInsight
+### Fully Qualified Domain Name (FQDN) of Azure HDInsight
 
 If you created a custom private link service, FQDN should end with **azurehdinsight.net**  without leading *privatelink* in domain name when you create a private end point. If you use privatelink in domain name, make sure it is valid and you are able to resolve it.  
 

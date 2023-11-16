@@ -4,7 +4,9 @@ description: In this quickstart, get started with the Azure management client li
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 06/04/2021
 ms.author: pafarley
@@ -116,6 +118,3 @@ To view all of the resources under your Azure account (across all resource group
 The following method deletes the specified resource from the given resource group.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_delete)]
-
-If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](../../manage-resources.md).
-

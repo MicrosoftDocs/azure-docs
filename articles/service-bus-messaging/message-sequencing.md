@@ -47,6 +47,15 @@ The **SequenceNumber** for a scheduled message is only valid while the message i
 
 Because the feature is anchored on individual messages and messages can only be enqueued once, Service Bus doesn't support recurring schedules for messages.
 
+> [!NOTE]
+> Message enqueuing time doesn't mean that the message will be sent at the same time. It will get enqueued, but the actual sending time depends on the queue's workload and its state.
+
+### Using scheduled messages with workflows
+
+It is common to see longer-running business workflows that have an explicit time component to them, like 5-minute timeouts for 2-factor authentication, hour-long timeouts for users confirming their email address, and multi-day, week, or month long time components in domains like banking and insurance.
+
+These workflows are often kicked off by the processing of some message, which then stores some state, and then schedules a message to continue the process at a later time. Frameworks like [NServiceBus](https://docs.particular.net/tutorials/nservicebus-sagas/2-timeouts/) and [MassTransit](https://masstransit.io/documentation/configuration/sagas/overview) make it easier to integrate all of these elements together.
+
 ## Next steps
 
 To learn more about Service Bus messaging, see the following topics:
@@ -54,3 +63,7 @@ To learn more about Service Bus messaging, see the following topics:
 * [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+
+## Additional resource
+
+* [A blog post that describes techniques for reordering messages that arrive out of order](https://particular.net/blog/you-dont-need-ordered-delivery)

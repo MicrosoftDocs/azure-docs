@@ -36,13 +36,46 @@ mvn archetype:generate -DgroupId=com.communication.jobrouter.quickstart -Dartifa
 
 ### Include the package
 
-You'll need to use the Azure Communication Job Router client library for Java [version 1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-communication-jobrouter/1.0.0-beta.1/jar) or above.
+You'll need to use the Azure Communication Job Router client library for Java [version 1.0.0](https://search.maven.org/artifact/com.azure/azure-communication-jobrouter/1.0.0/jar) or above.
+
+#### Include the BOM file
+
+Include the `azure-sdk-bom` to your project to take dependency on the General Availability (GA) version of the library. In the following snippet, replace the {bom_version_to_target} placeholder with the version number.
+To learn more about the BOM, see the [Azure SDK BOM readme](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/boms/azure-sdk-bom/README.md).
+
+```xml
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-sdk-bom</artifactId>
+            <version>{bom_version_to_target}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
+
+and then include the direct dependency in the dependencies section without the version tag.
+
+```xml
+<dependencies>
+  <dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-communication-jobrouter</artifactId>
+  </dependency>
+</dependencies>
+```
+
+#### Include direct dependency
+If you want to take dependency on a particular version of the library that isn't present in the BOM, add the direct dependency to your project as follows.
 
 ```xml
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-jobrouter</artifactId>
-  <version>1.0.0-beta.1</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
@@ -80,9 +113,8 @@ Job Router clients can be authenticated using your connection string acquired fr
 
 ```java
 // Get a connection string to our Azure Communication Services resource.
-String connectionString = "your_connection_string";
-JobRouterAdministrationClient routerAdminClient = new JobRouterAdministrationClientBuilder().connectionString(connectionString).buildClient();
-JobRouterClient routerClient = new JobRouterClientBuilder().connectionString(connectionString).buildClient();
+JobRouterAdministrationClient routerAdminClient = new JobRouterAdministrationClientBuilder().connectionString("your_connection_string").buildClient();
+JobRouterClient routerClient = new JobRouterClientBuilder().connectionString("your_connection_string").buildClient();
 ```
 
 ## Create a distribution policy
@@ -113,7 +145,7 @@ Now, we can submit a job directly to that queue, with a worker selector that req
 RouterJob job = routerClient.createJob(new CreateJobOptions("job-1", "voice", queue.getId())
     .setPriority(1)
     .setRequestedWorkerSelectors(List.of(
-        new RouterWorkerSelector("Some-Skill", LabelOperator.GREATER_THAN, new LabelValue(10)))));
+        new RouterWorkerSelector("Some-Skill", LabelOperator.GREATER_THAN, new RouterValue(10)))));
 ```
 
 ## Create a worker
@@ -123,9 +155,9 @@ Now, we create a worker to receive work from that queue, with a label of `Some-S
 ```java
 RouterWorker worker = routerClient.createWorker(
     new CreateWorkerOptions("worker-1", 1)
-        .setQueueAssignments(Map.of(queue.getId(), new RouterQueueAssignment()))
-        .setLabels(Map.of("Some-Skill", new LabelValue(11)))
-        .setChannelConfigurations(Map.of("voice", new ChannelConfiguration(1))));
+        .setQueues(List.of(queue.getId()))
+        .setLabels(Map.of("Some-Skill", new RouterValue(11)))
+        .setChannels(List.of(new RouterChannel("voice", 1))));
 ```
 
 ## Receive an offer
@@ -155,7 +187,7 @@ System.out.printf("Worker %s is assigned job %s\n", worker.getId(), accept.getJo
 Once the worker has completed the work associated with the job (for example, completed the call), we complete the job.
 
 ```java
-routerClient.completeJob(new CompleteJobOptions(accept.getJobId(), accept.getAssignmentId()));
+routerClient.completeJob(accept.getJobId(), accept.getAssignmentId());
 System.out.printf("Worker %s has completed job %s\n", worker.getId(), accept.getJobId());
 ```
 
@@ -164,8 +196,7 @@ System.out.printf("Worker %s has completed job %s\n", worker.getId(), accept.get
 Once the worker is ready to take on new jobs, the worker should close the job.  Optionally, the worker can provide a disposition code to indicate the outcome of the job.
 
 ```java
-routerClient.closeJob(new CloseJobOptions(accept.getJobId(), accept.getAssignmentId())
-    .setDispositionCode("Resolved"));
+routerClient.closeJob(accept.getJobId(), accept.getAssignmentId(), new CloseJobOptions().setDispositionCode("Resolved"));
 System.out.printf("Worker %s has closed job %s\n", worker.getId(), accept.getJobId());
 ```
 
@@ -214,7 +245,7 @@ Deleting job job-1
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [Java SDK reference](/java/api/overview/azure/communication.jobrouter-readme) or [REST API reference](/rest/api/communication/jobrouter/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [Java SDK reference](/azure/developer/java/sdk/) or [REST API reference](/rest/api/communication/jobrouter/job-router).
 
 <!-- LINKS -->
 

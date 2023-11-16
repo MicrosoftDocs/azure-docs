@@ -28,7 +28,7 @@ This SAP CDC connector is supported for the following capabilities:
 |---------| --------|
 |[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312;, &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 This SAP CDC connector uses the SAP ODP framework to extract data from SAP source systems. For an introduction to the architecture of the solution, read [Introduction and architecture to SAP change data capture (CDC)](sap-change-data-capture-introduction-architecture.md) in our [SAP knowledge center](industry-sap-overview.md).
 
@@ -117,3 +117,9 @@ If **Run mode** is set to **Full on every run** or **Full on the first run, then
 :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-optimize-partition.png" alt-text="Screenshot of the partitioning options in optimize of mapping data flow source.":::
 
 If partitions are equally sized, source partitioning can linearly increase the throughput of data extraction. To achieve such performance improvements, sufficient resources are required in the SAP source system, the virtual machine hosting the self-hosted integration runtime, and the Azure integration runtime.
+
+## Next steps
+
+- [Overview and architecture of the SAP CDC capabilities](sap-change-data-capture-introduction-architecture.md)
+- [Replicate multiple objects from SAP via SAP CDC](solution-template-replicate-multiple-objects-sap-cdc.md)
+- [SAP CDC advanced topics](sap-change-data-capture-advanced-topics.md)

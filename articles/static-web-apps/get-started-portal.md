@@ -36,7 +36,7 @@ Azure Static Web Apps publishes a website to a production environment by buildin
 
 ## Create a repository
 
-This article uses a Azure DevOps repository to make it easy for you to get started. The repository features a starter app used to deploy using Azure Static Web Apps.
+This article uses an Azure DevOps repository to make it easy for you to get started. The repository features a starter app used to deploy using Azure Static Web Apps.
 
 1. Sign in to Azure DevOps.
 2. Select **New repository**.
@@ -120,7 +120,7 @@ After you sign in with GitHub, enter the repository information.
 
 > [!NOTE]
 > If you don't see any repositories:
-> - You may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**.
+> - You may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub profile and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**.
 > - You may need to authorize Azure Static Web Apps in your Azure DevOps organization. You must be an owner of the organization to grant the permissions. Request third-party application access via OAuth. For more information, see [Authorize access to REST APIs with OAuth 2.0](/azure/devops/integrate/get-started/authentication/oauth).
 
 ::: zone-end

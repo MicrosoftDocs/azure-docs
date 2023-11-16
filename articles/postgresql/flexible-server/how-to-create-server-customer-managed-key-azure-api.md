@@ -25,7 +25,7 @@ Prerequisites:
 > [!NOTE]  
 > API examples below are based on 2022-12-01 API version 
 
-You can create a PostgreSQL Flexible Server encrypted with Customer Managed Key  by using the [create API](https://learn.microsoft.com/rest/api/postgresql/flexibleserver/servers/create?tabs=HTTP):
+You can create a PostgreSQL Flexible Server encrypted with Customer Managed Key  by using the [create API](/rest/api/postgresql/flexibleserver/servers/create?tabs=HTTP):
 ```rest
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{serverName}?api-version=2022-12-01
 
@@ -54,9 +54,9 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ```
 Key Vault Uri can be copied from key properties **Key Identifier** field  in Azure Key Vault Portal UI, as shown in image below:
 :::image type="content" source="./media/how-to-create-server-customer-managed-key-azure-api/key-uri-portal.png" alt-text =" Screenshot of  key properties and URI on Azure Key Vault Portal page." :::
-You can also programmatically fetch Key Vault Uri using [Azure REST API](https://learn.microsoft.com/rest/api/keyvault/keyvault/vaults/get?tabs=HTTP)
+You can also programmatically fetch Key Vault Uri using [Azure REST API](/rest/api/keyvault/keyvault/vaults/get?tabs=HTTP)
 
 ## Next steps
 
 - [Flexible Server encryption with Customer Managed Key (CMK)](../flexible-server/concepts-data-encryption.md)
-- [Azure Active Directory](../../active-directory-domain-services/overview.md)
+- [Microsoft Entra ID](../../active-directory-domain-services/overview.md)

@@ -3,12 +3,12 @@ title: Create a new VM image version from an existing image version by using Azu
 description: In this article, you'll learn how to create a new VM image version from an existing image version by using VM Image Builder in Linux.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 03/02/2020
+ms.reviewer: erd
+ms.date: 11/10/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-
+ms.custom: devx-track-azurecli
 ---
 # Create a new VM image from an existing image by using Azure VM Image Builder in Linux
 
@@ -18,9 +18,9 @@ In this article, you learn how to update an existing image version in an [Azure 
 
 To configure the image, you use a sample JSON template, [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json). 
 
-## Register the features
+## Register the providers
 
-To use VM Image Builder, you need to register the features.
+To use VM Image Builder, you need to register the providers.
 
 1. Check your provider registrations. Make sure that each one returns *Registered*.
 
@@ -30,6 +30,7 @@ To use VM Image Builder, you need to register the features.
     az provider show -n Microsoft.Compute | grep registrationState
     az provider show -n Microsoft.Storage | grep registrationState
     az provider show -n Microsoft.Network | grep registrationState
+    az provider show -n Microsoft.ContainerInstance | grep registrationState
     ```
 
 1. If they don't return *Registered*, register the providers by running the following commands:
@@ -40,6 +41,7 @@ To use VM Image Builder, you need to register the features.
     az provider register -n Microsoft.KeyVault
     az provider register -n Microsoft.Storage
     az provider register -n Microsoft.Network
+    az provider register -n Microsoft.ContainerInstance
     ```
 
 ## Set variables and permissions

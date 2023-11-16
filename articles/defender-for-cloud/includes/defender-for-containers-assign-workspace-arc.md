@@ -8,9 +8,9 @@ author: dcurwin
 
 ## Default Log Analytics workspace for Arc
 
-The Log Analytics workspace is used by the Defender extension as a data pipeline to send data from the cluster to Defender for Cloud without retaining any data in the Log Analytics workspace itself. As a result, users won't be billed in this use case.
+The Log Analytics workspace is used by the Defender agent as a data pipeline to send data from the cluster to Defender for Cloud without retaining any data in the Log Analytics workspace itself. As a result, users won't be billed in this use case.
 
-The Defender extension uses a default Log Analytics workspace. If you don't already have a default Log Analytics workspace, Defender for Cloud will create a new resource group and default workspace when the Defender extension is installed. The default workspace is created based on your [region](../faq-data-collection-agents.yml).
+The Defender agent uses a default Log Analytics workspace. If you don't already have a default Log Analytics workspace, Defender for Cloud will create a new resource group and default workspace when the Defender agent is installed. The default workspace is created based on your [region](../faq-data-collection-agents.yml).
 
 The naming convention for the default Log Analytics workspace and resource group is:
 - **Workspace**: DefaultWorkspace-\[subscription-ID]-\[geo]
@@ -67,7 +67,7 @@ If the policy hasn't been assigned, you'll see `Assignments (0)`.
 If the policy has already been assigned to a workspace, you'll see `Assignments (1)`. 
 
 > [!NOTE]
-> If you have more than one subscription the number may be higher. If you have a number 1 or higher, the assignment may still not be on the relevant scope. If this is the case, you will want to follow the [Create a new assignment with custom workspace](#create-a-new-assignment-with-custom-workspace) steps.
+> If you have more than one subscription the number might be higher. If you have a number 1 or higher, the assignment might still not be on the relevant scope. If this is the case, you will want to follow the [Create a new assignment with custom workspace](#create-a-new-assignment-with-custom-workspace) steps.
 
 :::image type="content" source="../media/defender-for-containers/already-assigned-arc.png" alt-text="Screenshot that shows Assignment (1), meaning a workspace has already been assigned for Arc." lightbox="../media/defender-for-containers/already-assigned-arc.png":::
 

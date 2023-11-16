@@ -1,6 +1,12 @@
 - name: NoSQL query documentation
   displayName: sql query, query basics
   href: index.yml
+- name: Microsoft Copilot for Azure in Cosmos DB (preview)
+  items:
+    - name: Use Copilot (preview)
+      href: how-to-enable-use-copilot.md
+    - name: Copilot transparency FAQ
+      href: ../../copilot-faq.yml
 - name: Clauses
   items:
     - name: SELECT
@@ -59,11 +65,6 @@
     - name: Bitwise operators
       displayName: bitwise, binary, operators
       href: bitwise-operators.md
-- name: Functions
-  items:
-    - name: User-defined functions
-      displayName: functions, udf
-      href: udfs.md
 - name: Aggregate functions
   items:
     - name: AVG
@@ -409,16 +410,8 @@
           displayName: IS_STRING, IsString, is string, built-in functions
           href: is-string.md
 - name: Geospatial data
-  items:
-    - name: Geospatial overview
-      displayName: geospatial, spatial
-      href: geospatial-intro.md
-    - name: Query geospatial data
-      displayName: geospatial, spatial, query
-      href: geospatial-query.md
-    - name: Index geospatial data
-      displayName: geospatial, spatial, index
-      href: geospatial-index.md
+  displayName: geospatial, spatial
+  href: geospatial.md
 - name: DateTime
   displayName: datetime, date, time
   href: working-with-dates.md
@@ -428,6 +421,6 @@
 - name: Pagination
   displayName: continuation tokens, paging, pagination
   href: pagination.md
-- name: LINQ to SQL
+- name: LINQ to NoSQL
   displayName: linq, .NET
   href: linq-to-sql.md

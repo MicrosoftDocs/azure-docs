@@ -115,6 +115,11 @@ sections:
              **Custom rules**
                * application/x-www-form-urlencoded
 
+      - question: |
+          Can I apply a Front door WAF policy to front-end hosts in different Front Door premium (AFDX) profiles that belong to different subscriptions?
+        answer: |
+          No, you can't. The AFD profile and the WAF policy need to be in the same subscription.
+
 additionalContent: |
 
   ## Next steps

@@ -25,7 +25,9 @@ Most of the attributes that can be used with Azure AD B2C user profiles are also
 
 You can also integrate with external systems. For example, you can use Azure AD B2C for authentication, but delegate to an external customer relationship management (CRM) or customer loyalty database as the authoritative source of customer data. For more information, see the [remote profile](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) solution.
 
-## Azure AD user resource type
+<a name='azure-ad-user-resource-type'></a>
+
+## Microsoft Entra user resource type
 
 The table below lists the [user resource type](/graph/api/resources/user) attributes that are supported by the Azure AD B2C directory user profile. It gives the following information about each attribute:
 
@@ -34,7 +36,7 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 - Attribute description
 - Whether the attribute is available in the Azure portal
 - Whether the attribute can be used in a user flow
-- Whether the attribute can be used in a custom policy [Azure AD technical profile](active-directory-technical-profile.md) and in which section (&lt;InputClaims&gt;, &lt;OutputClaims&gt;, or &lt;PersistedClaims&gt;)
+- Whether the attribute can be used in a custom policy [Microsoft Entra ID technical profile](active-directory-technical-profile.md) and in which section (&lt;InputClaims&gt;, &lt;OutputClaims&gt;, or &lt;PersistedClaims&gt;)
 
 |Name     |Type     |Description|Azure portal|User flows|Custom policy|
 |---------|---------|----------|------------|----------|-------------|
@@ -81,7 +83,7 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 |userPrincipalName    |String|The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. The domain must be present in the tenant's collection of verified domains. This property is required when an account is created. Immutable.|No|No|Input, Persisted, Output|
 |usageLocation   |String|Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries/regions. Not nullable. A two letter country/region code (ISO standard 3166). Examples: "US", "JP", and "GB".|Yes|No|Persisted, Output|
 |userType        |String|A string value that can be used to classify user types in your directory. Value must be Member. Read-only.|Read only|No|Persisted, Output|
-|userState (externalUserState)<sup>3</sup>|String|For Azure AD B2B account only, and it indicates whether the invitation is PendingAcceptance or Accepted.|No|No|Persisted, Output|
+|userState (externalUserState)<sup>3</sup>|String|For Microsoft Entra B2B account only, and it indicates whether the invitation is PendingAcceptance or Accepted.|No|No|Persisted, Output|
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Shows the timestamp for the latest change to the UserState property.|No|No|Persisted, Output|
 
 <sup>1 </sup>Not supported by Microsoft Graph<br><sup>2 </sup>For more information, see [MFA phone number attribute](#mfa-phone-number-attribute)<br><sup>3 </sup>Shouldn't be used with Azure AD B2C
@@ -143,7 +145,7 @@ For federated identities, depending on the identity provider, the **issuerAssign
 
 ## Password profile property
 
-For a local identity, the **passwordProfile** attribute is required, and contains the user's password. The `forceChangePasswordNextSignIn` attribute indicates whether a user must reset the password at the next sign-in. To handle a forced password reset, us the the instructions in [set up forced password reset flow](force-password-reset.md).
+For a local identity, the **passwordProfile** attribute is required, and contains the user's password. The `forceChangePasswordNextSignIn` attribute indicates whether a user must reset the password at the next sign-in. To handle a forced password reset, use the instructions in [set up forced password reset flow](force-password-reset.md).
 
 For a federated (social) identity, the **passwordProfile** attribute is not required.
 
@@ -156,7 +158,7 @@ For a federated (social) identity, the **passwordProfile** attribute is not requ
 
 ## Password policy attribute
 
-The Azure AD B2C password policy (for local accounts) is based on the Azure Active Directory [strong password strength](../active-directory/authentication/concept-sspr-policy.md) policy. The Azure AD B2C sign-up or sign-in and password reset policies require this strong password strength, and don't expire passwords.
+The Azure AD B2C password policy (for local accounts) is based on the Microsoft Entra ID [strong password strength](../active-directory/authentication/concept-sspr-policy.md) policy. The Azure AD B2C sign-up or sign-in and password reset policies require this strong password strength, and don't expire passwords.
 
 In user migration scenarios, if the accounts you want to migrate have weaker password strength than the [strong password strength](../active-directory/authentication/concept-sspr-policy.md) enforced by Azure AD B2C, you can disable the strong password requirement. To change the default password policy, set the `passwordPolicies` attribute to `DisableStrongPassword`. For example, you can modify the create user request as follows:
 
@@ -174,7 +176,7 @@ In Azure AD B2C [custom policies](custom-policy-overview.md), the phone number i
 
 Every customer-facing application has unique requirements for the information to be collected. Your Azure AD B2C tenant comes with a built-in set of information stored in properties, such as Given Name, Surname, and Postal Code. With Azure AD B2C, you can extend the set of properties stored in each customer account. For more information, see [Add user attributes and customize user input in Azure Active Directory B2C](configure-user-input.md)
 
-Extension attributes [extend the schema](/graph/extensibility-overview#schema-extensions) of the user objects in the directory. The extension attributes can only be registered on an application object, even though they might contain data for a user. The extension attribute is attached to the application called `b2c-extensions-app`. Do not modify this application, as it's used by Azure AD B2C for storing user data. You can find this application under Azure Active Directory App registrations. [Learn more about Azure AD B2C](extensions-app.md) `b2c-extensions-app`.
+Extension attributes [extend the schema](/graph/extensibility-overview#schema-extensions) of the user objects in the directory. The extension attributes can only be registered on an application object, even though they might contain data for a user. The extension attribute is attached to the application called `b2c-extensions-app`. Do not modify this application, as it's used by Azure AD B2C for storing user data. You can find this application under Microsoft Entra App registrations. [Learn more about Azure AD B2C](extensions-app.md) `b2c-extensions-app`.
 
 > [!NOTE]
 > - You can write up to 100 extension attributes to any user account.

@@ -8,12 +8,16 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 3/27/2022
 ms.author: RunCai
-ms.custom: mode-ui, devx-track-linux
+ms.custom:
+  - mode-ui
+  - devx-track-linux
+  - has-azure-ad-ps-ref
+  - ignite-2023
 ---
 
 # Quickstart: Create confidential VM on AMD in the Azure portal
 
-You can use the Azure portal to create a [confidential VM](confidential-vm-overview.md) based on an Azure Marketplace image quickly.There are multiple [confidential VM options on AMD](virtual-machine-solutions-amd.md) with AMD SEV-SNP technology.
+You can use the Azure portal to create a [confidential VM](confidential-vm-overview.md) based on an Azure Marketplace image quickly.There are multiple [confidential VM options on AMD](virtual-machine-solutions.md) with AMD SEV-SNP technology.
 
 
 ## Prerequisites
@@ -56,7 +60,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     1. Toggle [Generation 2](../virtual-machines/generation-2.md) images. Confidential VMs only run on Generation 2 images. To ensure, under **Image**, select **Configure VM generation**. In the pane **Configure VM generation**, for **VM generation**, select **Generation 2**. Then, select **Apply**.
 
-    1. For **Size**, select a VM size. For more information, see [supported confidential VM families](virtual-machine-solutions-amd.md).
+    1. For **Size**, select a VM size. For more information, see [supported confidential VM families](virtual-machine-solutions.md).
 
 
     1. For **Authentication type**, if you're creating a Linux VM, select **SSH public key** . If you don't already have SSH keys, [create SSH keys for your Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md).
@@ -80,7 +84,8 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     1. For **Confidential compute encryption type**, select the type of encryption to use. 
     
-    1. If **Confidential disk encryption with a customer-managed key** is selected, create a **Confidential disk encryption set** before creating your confidential VM. 
+    1. If **Confidential disk encryption with a customer-managed key** is selected, create a **Confidential disk encryption set** before creating your confidential VM.
+    1. If you want to encrypt your VM's temp disk, please refer to the [following documentation](https://aka.ms/CVM-tdisk-encrypt).
 
 1. (Optional) If necessary, you need to create a **Confidential disk encryption set** as follows.
 

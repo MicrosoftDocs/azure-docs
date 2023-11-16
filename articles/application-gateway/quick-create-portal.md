@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use the Azure portal to create
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 06/08/2023
+ms.date: 11/06/2023
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: mvc, mode-ui
@@ -53,6 +53,10 @@ You'll create the application gateway using the tabs on the **Create application
     - **Name**: Enter *myVNet* for the name of the virtual network.
 
     - **Subnet name** (Application Gateway subnet): The **Subnets** grid will show a subnet named *default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed. The default IP address range provided is 10.0.0.0/24.
+  
+    - **Subnet name** (backend server subnet): In the second row of the **Subnets** grid, enter *myBackendSubnet* in the **Subnet name** column.
+
+    - **Address range** (backend server subnet): In the second row of the **Subnets** Grid, enter an address range that doesn't overlap with the address range of *myAGSubnet*. For example, if the address range of *myAGSubnet* is 10.0.0.0/24, enter *10.0.1.0/24* for the address range of *myBackendSubnet*.
 
     Select **OK** to close the **Create virtual network** window and save the virtual network settings.
 
@@ -70,11 +74,15 @@ You'll create the application gateway using the tabs on the **Create application
 
      ![Create new application gateway: frontends](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
+  > [!NOTE]
+  > Application Gateway frontend now supports dual-stack IP addresses (Public Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
+
+
 3. Select **Next: Backends**.
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, Virtual Machine Scale Sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, Virtual Machine Scale Sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multitenant backends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
 
 1. On the **Backends** tab, select **Add a backend pool**.
 
@@ -123,7 +131,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 ### Review + create tab
 
-Review the settings on the **Review + create** tab, and then select **Create** to create the virtual network, the public IP address, and the application gateway. It may take several minutes for Azure to create the application gateway. Wait until the deployment finishes successfully before moving on to the next section.
+Review the settings on the **Review + create** tab, and then select **Create** to create the virtual network, the public IP address, and the application gateway. It can take several minutes for Azure to create the application gateway. Wait until the deployment finishes successfully before moving on to the next section.
 
 ## Add backend targets
 
@@ -150,7 +158,7 @@ To do this, you'll:
 4. Accept the other defaults and then select **Next: Disks**.  
 5. Accept the **Disks** tab defaults and then select **Next: Networking**.
 6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it is in, but you need to ensure there's IP connectivity.
-7. On the **Management** tab, set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
+7. Select **Next: Monitoring** tab, set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
 8. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
 9. Wait for the virtual machine creation to complete before continuing.
 

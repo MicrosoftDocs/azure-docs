@@ -3,12 +3,13 @@ title: Deploy a private mobile network and site - ARM template
 titleSuffix: Azure Private 5G Core
 description: Learn how to deploy a private mobile network and site using an Azure Resource Manager template (ARM template).
 services: azure-resource-manager
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 tags: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-arm-template
+zone_pivot_groups: ase-pro-version
 ms.date: 03/23/2022
 ---
 
@@ -60,9 +61,9 @@ The following Azure resources are defined in the template.
 
     [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-full-5gc-deployment%2Fazuredeploy.json)
 
+:::zone pivot="ase-pro-gpu"
 
-1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
-
+2. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
 
     |Field  |Value  |
     |---------|---------|
@@ -80,24 +81,59 @@ The following Azure resources are defined in the template.
     |**Sim Group Name**     | If you want to provision SIMs, enter the name of the SIM group to which the SIMs will be added. Otherwise, leave this field blank.        |
     |**Sim Resources**     | If you want to provision SIMs, paste in the contents of the JSON file containing your SIM information. Otherwise, leave this field unchanged.       |
     | **Azure Stack Edge Device** | Enter the resource ID of the Azure Stack Edge resource in the site. |
-    |**Control Plane Access Interface Name**     | Enter the virtual network name on port 5 on your Azure Stack Edge Pro device corresponding to the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface.        |
+    |**Control Plane Access Interface Name**     | Enter the virtual network name on port 5 on your Azure Stack Edge Pro device corresponding to the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface; for combined 4G and 5G, it's the N2/S1-MME interface.        |
     |**Control Plane Access Ip Address**    | Enter the IP address for the control plane interface on the access network.</br> Note: Please ensure that the N2 IP address specified here matches the N2 address configured on the ASE Portal.       |
-    |**User Plane Access Interface Name**     | Enter the virtual network name on port 5 on your Azure Stack Edge Pro device corresponding to the user plane interface on the access network. For 5G, this interface is the N3 interface; for 4G, it's the S1-U interface.        |
-    |**User Plane Data Interface Name**  | Enter the virtual network name on port 6 on your Azure Stack Edge Pro device corresponding to the user plane interface on the data network. For 5G, this interface is the N6 interface; for 4G, it's the SGi interface. |
+    |**User Plane Access Interface Name**     | Enter the virtual network name on port 5 on your Azure Stack Edge Pro device corresponding to the user plane interface on the access network. For 5G, this interface is the N3 interface; for 4G, it's the S1-U interface; for combined 4G and 5G, it's the N3/S1-U interface.        |
+    |**User Plane Data Interface Name**  | Enter the virtual network name on port 6 on your Azure Stack Edge Pro device corresponding to the user plane interface on the data network. For 5G, this interface is the N6 interface; for 4G, it's the SGi interface; for combined 4G and 5G, it's the N6/SGi interface. |
     |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
     |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
     |**Data Network Name**  | Enter the name of the data network. |
-    |**Core Network Technology**  | Enter *5GC* for 5G, or *EPC* for 4G. |
+    |**Core Network Technology**  | Enter *5GC* for 5G, *EPC* for 4G, or *EPC + 5GC* for combined 4G and 5G. |
     |**Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network.|
     | **Dns Addresses** | Enter the DNS server addresses. You should only omit this if you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers. |
     |**Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.|
 
-2. Select **Review + create**.
-3. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
+:::zone-end
+:::zone pivot="ase-pro-2"
+
+2. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
+
+    |Field  |Value  |
+    |---------|---------|
+    |**Subscription**     | Select the Azure subscription you want to use to create your private mobile network.        |
+    |**Resource group**     | Create a new resource group.        |
+    |**Region**     | Select the region in which you're deploying the private mobile network.        |
+    |**Location**     | Leave this field unchanged.        |
+    |**Mobile Network Name**     | Enter a name for the private mobile network.        |
+    |**Mobile Country Code**     | Enter the mobile country code for the private mobile network.        |
+    |**Mobile Network Code**     | Enter the mobile network code for the private mobile network.        |
+    |**Site Name**     | Enter a name for your site.        |
+    |**Service Name**     | Leave this field unchanged.        |
+    |**Sim Policy Name**     | Leave this field unchanged.        |
+    |**Slice Name**     | Leave this field unchanged.        |
+    |**Sim Group Name**     | If you want to provision SIMs, enter the name of the SIM group to which the SIMs will be added. Otherwise, leave this field blank.        |
+    |**Sim Resources**     | If you want to provision SIMs, paste in the contents of the JSON file containing your SIM information. Otherwise, leave this field unchanged.       |
+    | **Azure Stack Edge Device** | Enter the resource ID of the Azure Stack Edge resource in the site. |
+    |**Control Plane Access Interface Name**     | Enter the virtual network name on port 3 on your Azure Stack Edge Pro device corresponding to the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface; for combined 4G and 5G, it's the N2/S1-MME interface.        |
+    |**Control Plane Access Ip Address**    | Enter the IP address for the control plane interface on the access network.</br> Note: Please ensure that the N2 IP address specified here matches the N2 address configured on the ASE Portal.       |
+    |**User Plane Access Interface Name**     | Enter the virtual network name on port 3 on your Azure Stack Edge Pro device corresponding to the user plane interface on the access network. For 5G, this interface is the N3 interface; for 4G, it's the S1-U interface; for combined 4G and 5G, it's the N3/S1-U interface.        |
+    |**User Plane Data Interface Name**  | Enter the virtual network name on port 4 on your Azure Stack Edge Pro device corresponding to the user plane interface on the data network. For 5G, this interface is the N6 interface; for 4G, it's the SGi interface; for combined 4G and 5G, it's the N6/SGi interface. |
+    |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
+    |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
+    |**Data Network Name**  | Enter the name of the data network. |
+    |**Core Network Technology**  | Enter *5GC* for 5G, *EPC* for 4G, or *EPC + 5GC* for combined 4G and 5G. |
+    |**Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network.|
+    | **Dns Addresses** | Enter the DNS server addresses. You should only omit this if you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers. |
+    |**Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.|
+
+:::zone-end
+
+3. Select **Review + create**.
+4. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
      If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-4. Once your configuration has been validated, you can select **Create** to deploy the resources. The Azure portal will display a confirmation screen when the deployment is complete.
+5. Once your configuration has been validated, you can select **Create** to deploy the resources. The Azure portal will display a confirmation screen when the deployment is complete.
 
 ## Review deployed resources
 

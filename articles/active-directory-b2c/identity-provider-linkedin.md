@@ -32,9 +32,9 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a LinkedIn application
 
-To enable sign-in for users with a LinkedIn account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [LinkedIn Developers website](https://www.developer.linkedin.com/). For more information, see [Authorization Code Flow](/linkedin/shared/authentication/authorization-code-flow). If you don't already have a LinkedIn account, you can sign up at [https://www.linkedin.com/](https://www.linkedin.com/).
+To enable sign-in for users with a LinkedIn account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [LinkedIn Developers website](https://developer.linkedin.com/). For more information, see [Authorization Code Flow](/linkedin/shared/authentication/authorization-code-flow). If you don't already have a LinkedIn account, you can sign up at [https://www.linkedin.com/](https://www.linkedin.com/).
 
-1. Sign in to the [LinkedIn Developers website](https://www.developer.linkedin.com/) with your LinkedIn account credentials.
+1. Sign in to the [LinkedIn Developers website](https://developer.linkedin.com/) with your LinkedIn account credentials.
 1. Select **My Apps**, and then click **Create app**.
 1. Enter **App name**, **LinkedIn Page**, **Privacy policy URL**, and **App logo**.
 1. Agree to the LinkedIn **API Terms of Use** and click **Create app**.
@@ -49,8 +49,7 @@ To enable sign-in for users with a LinkedIn account in Azure Active Directory B2
 ## Configure LinkedIn as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Identity providers**, then select **LinkedIn**.
 1. Enter a **Name**. For example, *LinkedIn*.
@@ -82,8 +81,7 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 You need to store the client secret that you previously recorded in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. On the Overview page, select **Identity Experience Framework**.
 1. Select **Policy keys** and then select **Add**.

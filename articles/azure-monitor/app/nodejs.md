@@ -2,7 +2,7 @@
 title: Monitor Node.js services with Application Insights | Microsoft Docs
 description: Monitor performance and diagnose problems in Node.js services with Application Insights.
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 10/11/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -14,12 +14,14 @@ ms.reviewer: mmcc
 
 To receive, store, and explore your monitoring data, include the SDK in your code. Then set up a corresponding Application Insights resource in Azure. The SDK sends data to that resource for further analysis and exploration.
 
-The Node.js client library can automatically monitor incoming and outgoing HTTP requests, exceptions, and some system metrics. Beginning in version 0.20, the client library also can monitor some common [third-party packages](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules), like MongoDB, MySQL, and Redis. All events related to an incoming HTTP request are correlated for faster troubleshooting.
+The Node.js client library can automatically monitor incoming and outgoing HTTP requests, exceptions, and some system metrics. Beginning in version 0.20, the client library also can monitor some common [third-party packages](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules), like MongoDB, MySQL, and Redis.
+
+All events related to an incoming HTTP request are correlated for faster troubleshooting.
 
 You can use the TelemetryClient API to manually instrument and monitor more aspects of your app and system. We describe the TelemetryClient API in more detail later in this article.
 
 > [!NOTE]
-> A preview [OpenTelemetry-based Node.js offering](opentelemetry-enable.md?tabs=nodejs) is available. [Learn more](opentelemetry-overview.md).
+> An [OpenTelemetry-based Node.js offering](opentelemetry-enable.md?tabs=nodejs) is available. [Learn more](opentelemetry-overview.md).
 
 ## Get started
 
@@ -35,7 +37,7 @@ Before you begin, make sure that you have an Azure subscription, or [get a new o
 ### <a name="resource"></a> Set up an Application Insights resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Create an [Application Insights resource](create-new-resource.md).
+1. Create an [Application Insights resource](create-workspace-resource.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -87,7 +89,7 @@ Because the SDK batches data for submission, there might be a delay before items
 * Continue to use the application. Take more actions to generate more telemetry.
 * Select **Refresh** in the portal resource view. Charts periodically refresh on their own, but manually refreshing forces them to refresh immediately.
 * Verify that [required outgoing ports](./ip-addresses.md) are open.
-* Use [Search](./diagnostic-search.md) to look for specific events.
+* Use [Search](./transaction-search-and-diagnostics.md?tabs=transaction-search) to look for specific events.
 * Check the [FAQ][FAQ].
 
 ## Basic usage
@@ -174,9 +176,14 @@ appInsights.defaultClient.context.tags[appInsights.defaultClient.context.keys.cl
 appInsights.start();
 ```
 
-### Automatic web Instrumentation[Preview]
+### Browser SDK Loader
+
+> [!NOTE]
+> Available as a public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
  Automatic web Instrumentation can be enabled for node server via JavaScript (Web) SDK Loader Script injection by configuration.
+
+<!-- This feature enables web instrumentation for node server. It automatically injects the [Browser SDK Loader Script](javascript-sdk.md?tabs=javascriptwebsdkloaderscript#add-the-javascript-code) into your application's HTML pages, including configuring the appropriate Connection String. -->
 
 ```javascript
 let appInsights = require("applicationinsights");
@@ -369,7 +376,7 @@ server.on("listening", () => {
 
 By default, telemetry is buffered for 15 seconds before it's sent to the ingestion server. If your application has a short lifespan, such as a CLI tool, it might be necessary to manually flush your buffered telemetry when the application terminates by using `appInsights.defaultClient.flush()`.
 
-If the SDK detects that your application is crashing, it calls flush for you by using `appInsights.defaultClient.flush({ isAppCrashing: true })`. With the flush option `isAppCrashing`, your application is assumed to be in an abnormal state and isn't suitable to send telemetry. Instead, the SDK saves all buffered telemetry to [persistent storage](./data-retention-privacy.md#nodejs) and lets your application terminate. When your application starts again, it tries to send any telemetry that was saved to persistent storage.
+If the SDK detects that your application is crashing, it calls flush for you by using `appInsights.defaultClient.flush({ isAppCrashing: true })`. With the flush option `isAppCrashing`, your application is assumed to be in an abnormal state and isn't suitable to send telemetry. Instead, the SDK saves all buffered telemetry to [persistent storage](/previous-versions/azure/azure-monitor/app/data-retention-privacy#nodejs) and lets your application terminate. When your application starts again, it tries to send any telemetry that was saved to persistent storage.
 
 ### Preprocess data with telemetry processors
 
@@ -452,32 +459,9 @@ These properties are client specific, so you can configure `appInsights.defaultC
 | correlationIdRetryIntervalMs    | The time to wait before retrying to retrieve the ID for cross-component correlation. (Default is `30000`.)     |
 | correlationHeaderExcludedDomains| A list of domains to exclude from cross-component correlation header injection. (Default. See [Config.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Config.ts).)|
 
-## How do I customize logs collection?
-
-By default, Application Insights Node.js SDK logs at warning level to console.
-
-To spot and diagnose issues with Application Insights, "Self-diagnostics" can be enabled. This means collection of internal logging from the Application Insights Node.js SDK.
-
-The following code demonstrates how to enable debug logging as well as generate telemetry for internal logs.
-
-```
-let appInsights = require("applicationinsights");
-appInsights.setup("<YOUR_CONNECTION_STRING>")
-    .setInternalLogging(true, true) // Enable both debug and warning logging
-    .setAutoCollectConsole(true, true) // Generate Trace telemetry for winston/bunyan and console logs
-    .start();
-    
-Logs could be put into local file using APPLICATIONINSIGHTS_LOG_DESTINATION environment variable, supported values are file and file+console, a file named applicationinsights.log will be generated on tmp folder by default, including all logs, /tmp for *nix and USERDIR\\AppData\\Local\\Temp for Windows. Log directory could be configured using APPLICATIONINSIGHTS_LOGDIR environment variable.
-
-process.env.APPLICATIONINSIGHTS_LOG_DESTINATION = "file+console";
-process.env.APPLICATIONINSIGHTS_LOGDIR = "C:\\applicationinsights\\logs";
-
-// Application Insights SDK setup....
-```
-
 ## Troubleshooting
 
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+For troubleshooting information, including "no data" scenarios and customizing logs, see [Troubleshoot Application Insights monitoring of Node.js apps and services](/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-app-insights-nodejs).
 
 ## Next steps
 
@@ -486,4 +470,4 @@ process.env.APPLICATIONINSIGHTS_LOGDIR = "C:\\applicationinsights\\logs";
 
 <!--references-->
 
-[FAQ]: ../faq.yml
+[FAQ]: ./app-insights-overview.md#frequently-asked-questions

@@ -20,7 +20,7 @@ This page explains how to configure and manage adaptive network hardening in Def
 |Release state:|General availability (GA)|
 |Pricing:|Requires [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features)|
 |Required roles and permissions:|Write permissions on the machine’s NSGs|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts|
 
 ## What is adaptive network hardening?
 
@@ -73,7 +73,7 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
 
 ## Modify a rule  <a name ="modify-rule"> </a>
 
-You may want to modify the parameters of a rule that has been recommended. For example, you may want to change the recommended IP ranges.
+You might want to modify the parameters of a rule that has been recommended. For example, you might want to change the recommended IP ranges.
 
 Some important guidelines for modifying an adaptive network hardening rule:
 
@@ -126,7 +126,7 @@ To add an adaptive network hardening rule:
 
 ## Delete a rule <a name ="delete-rule"> </a>
 
-When necessary, you can delete a recommended rule for the current session. For example, you may determine that applying a suggested rule could block legitimate traffic.
+When necessary, you can delete a recommended rule for the current session. For example, you might determine that applying a suggested rule could block legitimate traffic.
 
 To delete an adaptive network hardening rule for your current session:
 

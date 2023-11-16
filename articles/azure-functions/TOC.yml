@@ -330,8 +330,6 @@
       items:
         - name: About triggers and bindings
           href: functions-triggers-bindings.md
-        - name: Binding example
-          href: functions-bindings-example.md
         - name: Register binding extensions
           href: functions-bindings-register.md
           displayName: bundles, extension bundles
@@ -356,13 +354,11 @@
           href: /security/benchmark/azure/baselines/functions-security-baseline?toc=/azure/azure-functions/TOC.json
     - name: Reliability
       items:
-        - name: Reliability overview 
+        - name: Availability zones and disaster recovery 
           href: ../reliability/reliability-functions.md?toc=/azure/azure-functions/TOC.json
-          displayName: availability zones, high-availability, zone redundancy
+          displayName: availability zones, high-availability, zone redundancy, disaster recovery
         - name: Migrate to a zone-redundant plan
-          href: ../reliability/migrate-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json
-        - name: Geo-disaster recovery
-          href: functions-geo-disaster-recovery.md  
+          href: ../reliability/migrate-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json 
     - name: Monitor function executions
       href: functions-monitoring.md
       displayName: App Insights, Application Insights, logs, logging
@@ -385,23 +381,19 @@
       href: supported-languages.md
     - name: C#
       items: 
-        - name: In-process
-          href: functions-dotnet-class-library.md
-        - name: Isolated worker process 
-          displayName: .NET isolated, .NET 5
+        - name: Isolated worker model 
+          displayName: .NET isolated
           href: dotnet-isolated-process-guide.md
+        - name: In-process model
+          href: functions-dotnet-class-library.md
         - name: Script (.csx)
           href: functions-reference-csharp.md
         - name: Execution mode comparison
           href: dotnet-isolated-in-process-differences.md
-    - name: Node.js
-      items:
-        - name: JavaScript
-          href: functions-reference-node.md?tabs=javascript
-        - name: TypeScript
-          href: functions-reference-node.md?tabs=typescript
-        - name: Upgrade to model v4.x
-          href: functions-node-upgrade-v4.md
+    - name: JavaScript
+      href: functions-reference-node.md?tabs=javascript
+    - name: TypeScript
+      href: functions-reference-node.md?tabs=typescript
     - name: Java
       href: functions-reference-java.md
     - name: PowerShell
@@ -460,7 +452,7 @@
         - name: Connect to services
           items:
             - name: How to connect to services
-              displayName: bindings,integrate
+              displayName: bindings,integrate,add bindings
               href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
@@ -520,6 +512,7 @@
           href: run-functions-from-deployment-package.md
         - name: Automate resource deployment
           href: functions-infrastructure-as-code.md
+          displayName: bicep, ARM template
         - name: Deploy using the Jenkins plugin
           href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json
     - name: Configure
@@ -541,10 +534,18 @@
           href: legacy-proxies.md  
     - name: Migrate
       items:
+        - name: Migrate .NET apps to the isolated model
+          href: migrate-dotnet-to-isolated-model.md
         - name: Migrate v3.x to v4.x
           href: migrate-version-3-version-4.md
         - name: Migrate v1.x to v4.x
           href: migrate-version-1-version-4.md
+        - name: Node.js
+          items:
+            - name: Migrate to model v4.x
+              href: functions-node-upgrade-v4.md
+        - name: Update Java versions
+          href: update-java-versions.md  
     - name: Monitor
       items:
         - name: Monitor function apps with Azure Monitor
@@ -566,7 +567,7 @@
       items:
         - name: Configure auth providers
           items:
-            - name: Authenticate with Azure AD
+            - name: Authenticate with Microsoft Entra ID
               href: ../app-service/configure-authentication-provider-aad.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with Facebook
               href: ../app-service/configure-authentication-provider-facebook.md?toc=/azure/azure-functions/toc.json
@@ -608,6 +609,12 @@
           items:
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
+            - name: Azure Cache for Redis
+              items:
+                - name: Get started with VS Code 
+                  href: ../azure-cache-for-redis/cache-tutorial-functions-getting-started.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                - name: Create a write-behind cache 
+                  href: ../azure-cache-for-redis/cache-tutorial-write-behind.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Storage
               items:
                 - name: Azure portal
@@ -627,7 +634,9 @@
                 - name: JavaScript
                   href: ../azure-signalr/signalr-quickstart-azure-functions-javascript.md?toc=/azure/azure-functions/toc.json
                 - name: Python
-                  href: ../azure-signalr/signalr-quickstart-azure-functions-python.md?toc=/azure/azure-functions/toc.json                  
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-python.md?toc=/azure/azure-functions/toc.json
+            - name: Web PubSub
+              href: ../azure-web-pubsub/tutorial-serverless-notification.md?toc=/azure/azure-functions/toc.json
             - name: Work with Event Grid
               href: event-grid-how-tos.md  
         - name: Start/Stop VMs
@@ -669,8 +678,10 @@
           displayName: troubleshoot
         - name: Azure Cosmos DB bindings
           href: ../cosmos-db/troubleshoot-changefeed-functions.md?toc=/azure/azure-functions/toc.json
-          displayName: troubleshoot 
-        - name: Python functions
+          displayName: troubleshoot
+        - name: Node.js
+          href: functions-node-troubleshoot.md
+        - name: Python
           items:
             - name: General troubleshooting
               href: recover-python-functions.md
@@ -712,6 +723,22 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
+        - name: Azure Cache for Redis
+          items: 
+            - name: Overview
+              href: functions-bindings-cache.md
+              displayName: Azure Cache for Redis
+            - name: Trigger
+              items: 
+              - name: Pub Sub Trigger
+                href: functions-bindings-cache-trigger-redispubsub.md
+                displayName: Azure Cache for Redis
+              - name: List Trigger
+                href: functions-bindings-cache-trigger-redislist.md
+                displayName: Azure Cache for Redis
+              - name: Stream Trigger
+                href: functions-bindings-cache-trigger-redisstream.md
+                displayName: Azure Cache for Redis
         - name: Azure Cosmos DB
           items:
             - name: Functions 1.x
@@ -732,6 +759,9 @@
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
+            - name: Migrate version 3.x to 4.x
+              href: migrate-cosmos-db-version-3-version-4.md
+              displayName: Azure Cosmos DB
         - name: Azure Data Explorer
           items:
             - name: Overview
@@ -758,7 +788,43 @@
               href: functions-bindings-azure-sql-output.md
               displayName: Azure SQL
         - name: Dapr
-          href: https://github.com/dapr/azure-functions-extension
+          items: 
+            - name: Overview
+              href: functions-bindings-dapr.md
+              displayName: Dapr
+            - name: Trigger
+              items: 
+              - name: Binding
+                href: functions-bindings-dapr-trigger.md
+                displayName: Dapr
+              - name: Service Invocation
+                href: functions-bindings-dapr-trigger-svc-invoke.md
+                displayName: Dapr
+              - name: Topic
+                href: functions-bindings-dapr-trigger-topic.md
+                displayName: Dapr
+            - name: Input
+              items: 
+              - name: State
+                href: functions-bindings-dapr-input-state.md
+                displayName: Dapr
+              - name: Secret
+                href: functions-bindings-dapr-input-secret.md
+                displayName: Dapr
+            - name: Output
+              items: 
+              - name: State
+                href: functions-bindings-dapr-output-state.md
+                displayName: Dapr
+              - name: Invoke
+                href: functions-bindings-dapr-output-invoke.md 
+                displayName: Dapr
+              - name: Publish
+                href: functions-bindings-dapr-output-publish.md 
+                displayName: Dapr
+              - name: Binding
+                href: functions-bindings-dapr-output.md 
+                displayName: Dapr
         - name: Event Grid
           items:
             - name: Overview
@@ -881,6 +947,8 @@
           href: functions-bindings-twilio.md
         - name: Warmup
           href: functions-bindings-warmup.md
+        - name: Web PubSub
+          href: ../azure-web-pubsub/reference-functions-bindings.md?toc=/azure/azure-functions/toc.json
     - name: Errors and diagnostics
       items:
         - name: .NET worker rules
@@ -904,7 +972,9 @@
           - name: AZFD0004
             href: errors-diagnostics/diagnostic-events/azfd0004.md
           - name: AZFD0005
-            href: errors-diagnostics/diagnostic-events/azfd0005.md            
+            href: errors-diagnostics/diagnostic-events/azfd0005.md
+          - name: AZFD0006
+            href: errors-diagnostics/diagnostic-events/azfd0006.md            
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference

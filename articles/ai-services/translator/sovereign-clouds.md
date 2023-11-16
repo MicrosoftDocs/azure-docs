@@ -5,8 +5,7 @@ description: Using Translator in sovereign clouds
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: reference
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -19,7 +18,7 @@ ms.author: lajanuar
 |Cloud | Region identifier |
 |---|--|
 | [Azure US Government](../../azure-government/documentation-government-welcome.md)|<ul><li>`usgovarizona` (US Gov Arizona)</li><li>`usgovvirginia` (US Gov Virginia)</li></ul>|
-| [Azure China 21 Vianet](/azure/china/overview-operations) |<ul><li>`chinaeast2` (East China 2)</li><li>`chinanorth` (China North)</li></ul>|
+| [Microsoft Azure operated by 21Vianet](/azure/china/overview-operations) |<ul><li>`chinaeast2` (East China 2)</li><li>`chinanorth` (China North)</li></ul>|
 
 ## Azure portal endpoints
 
@@ -65,7 +64,7 @@ Replace the `<region-identifier>` parameter with the sovereign cloud identifier:
 |Cloud | Region identifier |
 |---|--|
 | Azure US Government|<ul><li>`usgovarizona` (US Gov Arizona)</li><li>`usgovvirginia` (US Gov Virginia)</li></ul>|
-| Azure China 21 Vianet|<ul><li>`chinaeast2` (East China 2)</li><li>`chinanorth` (China North)</li></ul>|
+| Azure operated by 21Vianet|<ul><li>`chinaeast2` (East China 2)</li><li>`chinanorth` (China North)</li></ul>|
 
 ```http
 https://<region-identifier>.api.cognitive.microsoft.us/sts/v1.0/issueToken
@@ -114,13 +113,13 @@ curl -X POST "https://api.cognitive.microsofttranslator.us/translate?api-version
 > [!div class="nextstepaction"]
 > [Azure Government: Translator text reference](../../azure-government/documentation-government-cognitiveservices.md#translator)
 
-### [Azure China 21 Vianet](#tab/china)
+### [Azure operated by 21Vianet](#tab/china)
 
-The Azure China cloud is a physical and logical network-isolated instance of cloud services located in China. In order to apply for an Azure China account, you need a Chinese legal entity, Internet Content provider (ICP) license, and physical presence within China.
+The Azure operated by 21Vianet cloud is a physical and logical network-isolated instance of cloud services located in China. In order to apply for an Azure operated by 21Vianet account, you need a Chinese legal entity, Internet Content provider (ICP) license, and physical presence within China.
 
-|Azure China 21 Vianet | Availability and support |
+|Azure operated by 21Vianet | Availability and support |
 |---|---|
-|Azure portal |<ul><li>[Azure China 21 Vianet Portal](https://portal.azure.cn/)</li></ul>|
+|Azure portal |<ul><li>[Azure operated by 21Vianet Portal](https://portal.azure.cn/)</li></ul>|
 |Regions <br></br>The region-identifier is a required header when using a multi-service resource. | <ul><li>`chinanorth` </li><li> `chinaeast2`</li></ul>|
 |Supported Feature|<ul><li>[Text Translation](https://docs.azure.cn/cognitive-services/translator/reference/v3-0-reference)</li><li>[Document Translation](document-translation/overview.md)</li></ul>|
 |Supported Languages|<ul><li>[Translator language support.](https://docs.azure.cn/cognitive-services/translator/language-support)</li></ul>|

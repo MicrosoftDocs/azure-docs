@@ -1,7 +1,7 @@
 ---
 title: Durable Functions Troubleshooting Guide - Azure Functions
 description: Guide to troubleshoot common issues with durable functions.
-author: ttorble
+author: nytian
 ms.topic: conceptual
 ms.date: 03/10/2023
 ms.author: azfuncdf
@@ -35,7 +35,7 @@ Use the following steps to troubleshoot orchestration instances that remain stuc
 
 *  Check the Azure Storage control queues assigned to the stuck orchestrator to see if its "start message" is still there For more information on control queues, see the [Azure Storage provider control queue documentation](durable-functions-azure-storage-provider.md#control-queues).
 
-*  Change your app's [platform configuration](../../app-service/configure-common.md#configure-general-settings) version to “64 Bit”. 
+*  Change your app's [platform configuration](../../app-service/configure-common.md#configure-general-settings) version to "64 Bit". 
    Sometimes orchestrations don't start because the app is running out of memory. Switching to 64-bit process allows the app to allocate more total memory. This only applies to App Service Basic, Standard, Premium, and Elastic Premium plans. Free or Consumption plans **do not** support 64-bit processes. 
 
 ## Orchestration starts after a long delay

@@ -7,8 +7,6 @@ ms.author: franlanglois
 ms.topic: conceptual
 ms.date: 01/18/2023
 
-ms.custom: event-tier1-build-2022
-
 ---
 
 # Troubleshooting NGINXaaS integration with Azure

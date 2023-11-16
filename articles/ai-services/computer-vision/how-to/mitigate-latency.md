@@ -1,100 +1,113 @@
 ---
-title: How to mitigate latency when using the Face service
+title: How to mitigate latency and improve performance when using the Face service
 titleSuffix: Azure AI services
-description: Learn how to mitigate latency when using the Face service.
+description: Learn how to mitigate network latency and improve service performance when using the Face service.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 11/07/2021
+ms.date: 11/06/2023
 ms.author: pafarley
 ms.devlang: csharp
-ms.custom: cogserv-non-critical-vision
+ms.custom:
+  - cogserv-non-critical-vision
+  - ignite-2023
 ---
 
-# How to: mitigate latency when using the Face service
+# Mitigate latency and improve performance
 
-You may encounter latency when using the Face service. Latency refers to any kind of delay that occurs when communicating over a network. In general, possible causes of latency include:
+This guide describes how to mitigate network latency and improve service performance when using the Face service. The speed and performance of your application will affect the experience of your end-users, such as people who enroll in and use a face identification system.
+
+## Mitigate latency
+
+You may encounter latency when using the Face service. Latency refers to any kind of delay that occurs when systems communicate over a network. In general, possible causes of latency include:
 - The physical distance each packet must travel from source to destination.
 - Problems with the transmission medium.
 - Errors in routers or switches along the transmission path.
 - The time required by antivirus applications, firewalls, and other security mechanisms to inspect packets.
 - Malfunctions in client or server applications.
 
-This article talks about possible causes of latency specific to using the Azure AI services, and how you can mitigate these causes.
+This section describes how you can mitigate various causes of latency specific to the Azure AI Face service.
 
 > [!NOTE]
-> Azure AI services does not provide any Service Level Agreement (SLA) regarding latency.
+> Azure AI services do not provide any Service Level Agreement (SLA) regarding latency.
 
-## Possible causes of latency
+### Choose the appropriate region for your Face resource
 
-### Slow connection between Azure AI services and a remote URL
+The network latency, the time it takes for information to travel from source (your application) to destination (your Azure resource), is strongly affected by the geographical distance between the application making requests and the Azure server responding to those requests. For example, if your Face resource is located in `EastUS`, it has a faster response time for users in New York, and users in Asia experience a longer delay. 
 
-Some Azure AI services provide methods that obtain data from a remote URL that you provide. For example, when you call the [DetectWithUrlAsync method](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithUrlAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) of the Face service, you can specify the URL of an image in which the service tries to detect faces.
+We recommend that you select a region that is closest to your users to minimize latency. If your users are distributed across the world, consider creating multiple resources in different regions and routing requests to the region nearest to your customers. Alternatively, you may choose a region that is near the geographic center of all your customers.
 
-```csharp
-var faces = await client.Face.DetectWithUrlAsync("https://www.biography.com/.image/t_share/MTQ1MzAyNzYzOTgxNTE0NTEz/john-f-kennedy---mini-biography.jpg");
-```
+### Use Azure blob storage for remote URLs
 
-The Face service must then download the image from the remote server. If the connection from the Face service to the remote server is slow, that will affect the response time of the Detect method.
-
-To mitigate this situation, consider [storing the image in Azure Premium Blob Storage](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet). For example:
+The Face service provides two ways to upload images for processing: uploading the raw byte data of the image directly in the request, or providing a URL to a remote image. Regardless of the method, the Face service needs to download the image from its source location. If the connection from the Face service to the client or the remote server is slow or poor, it affects the response time of requests. If you have an issue with latency, consider storing the image in Azure Blob Storage and passing the image URL in the request. For more implementation details, see [storing the image in Azure Premium Blob Storage](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet). An example API call:
 
 ``` csharp
-var faces = await client.Face.DetectWithUrlAsync("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/Family1-Daughter1.jpg");
+var faces = await client.Face.DetectWithUrlAsync("https://<storage_account_name>.blob.core.windows.net/<container_name>/<file_name>");
 ```
 
-Be sure to use a storage account in the same region as the Face resource. This will reduce the latency of the connection between the Face service and the storage account.
+Be sure to use a storage account in the same region as the Face resource. This reduces the latency of the connection between the Face service and the storage account.
 
-### Large upload size
+### Use optimal file sizes
 
-Some Azure services provide methods that obtain data from a file that you upload. For example, when you call the [DetectWithStreamAsync method](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithStreamAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_IO_Stream_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) of the Face service, you can upload an image in which the service tries to detect faces.
+If the image files you use are large, it affects the response time of the Face service in two ways:
+- It takes more time to upload the file.
+- It takes the service more time to process the file, in proportion to the file size.
 
-```csharp
-using FileStream fs = File.OpenRead(@"C:\images\face.jpg");
-System.Collections.Generic.IList<DetectedFace> faces = await client.Face.DetectWithStreamAsync(fs, detectionModel: DetectionModel.Detection02);
-```
 
-If the file to upload is large, that will impact the response time of the `DetectWithStreamAsync` method, for the following reasons:
-- It takes longer to upload the file.
-- It takes the service longer to process the file, in proportion to the file size.
+#### The tradeoff between accuracy and network speed
 
-Mitigations:
-- Consider [storing the image in Azure Premium Blob Storage](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet). For example:
-``` csharp
-var faces = await client.Face.DetectWithUrlAsync("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/Family1-Daughter1.jpg");
-```
-- Consider uploading a smaller file.
-    - See the guidelines regarding [input data for face detection](../concept-face-detection.md#input-data) and [input data for face recognition](../concept-face-recognition.md#input-data).
-    - For face detection, when using detection model `DetectionModel.Detection01`, reducing the image file size will increase processing speed. When you use detection model `DetectionModel.Detection02`, reducing the image file size will only increase processing speed if the image file is smaller than 1920x1080.
-    - For face recognition, reducing the face size to 200x200 pixels doesn't affect the accuracy of the recognition model.
-    - The performance of the `DetectWithUrlAsync` and `DetectWithStreamAsync` methods also depends on how many faces are in an image. The Face service can return up to 100 faces for an image. Faces are ranked by face rectangle size from large to small.
-    - If you need to call multiple service methods, consider calling them in parallel if your application design allows for it. For example, if you need to detect faces in two images to perform a face comparison:
+The quality of the input images affects both the accuracy and the latency of the Face service. Images with lower quality may result in erroneous results. Images of higher quality may enable more precise interpretations. However, images of higher quality also increase the network latency due to their larger file sizes. The service requires more time to receive the entire file from the client and to process it, in proportion to the file size. Above a certain level, further quality enhancements won't significantly improve the accuracy.
+
+To achieve the optimal balance between accuracy and speed, follow these tips to optimize your input data. 
+- For face detection and recognition operations, see [input data for face detection](../concept-face-detection.md#input-data) and [input data for face recognition](../concept-face-recognition.md#input-data).
+- For liveness detection, see the [tutorial](../Tutorials/liveness.md#select-a-good-reference-image). 
+
+#### Other file size tips
+
+Note the following additional tips:
+- For face detection, when using detection model `DetectionModel.Detection01`, reducing the image file size increases processing speed. When you use detection model `DetectionModel.Detection02`, reducing the image file size will only increase processing speed if the image file is smaller than 1920x1080 pixels.
+- For face recognition, reducing the face size will only increase the speed if the image is smaller than 200x200 pixels.
+- The performance of the face detection methods also depends on how many faces are in an image. The Face service can return up to 100 faces for an image. Faces are ranked by face rectangle size from large to small.
+
+
+## Call APIs in parallel when possible
+
+If you need to call multiple APIs, consider calling them in parallel if your application design allows for it. For example, if you need to detect faces in two images to perform a face comparison, you can call them in an asynchronous task:
+
 ```csharp
 var faces_1 = client.Face.DetectWithUrlAsync("https://www.biography.com/.image/t_share/MTQ1MzAyNzYzOTgxNTE0NTEz/john-f-kennedy---mini-biography.jpg");
 var faces_2 = client.Face.DetectWithUrlAsync("https://www.biography.com/.image/t_share/MTQ1NDY3OTIxMzExNzM3NjE3/john-f-kennedy---debating-richard-nixon.jpg");
+
 Task.WaitAll (new Task<IList<DetectedFace>>[] { faces_1, faces_2 });
 IEnumerable<DetectedFace> results = faces_1.Result.Concat (faces_2.Result);
 ```
 
-### Slow connection between your compute resource and the Face service
+## Smooth over spiky traffic 
 
-If your computer has a slow connection to the Face service, this will affect the response time of service methods.
+The Face service's performance may be affected by traffic spikes, which can cause throttling, lower throughput, and higher latency. We recommend you increase the frequency of API calls gradually and avoid immediate retries. For example, if you have 3000 photos to perform facial detection on, do not send 3000 requests simultaneously. Instead, send 3000 requests sequentially over 5 minutes (that is, about 10 requests per second) to make the network traffic more consistent. If you want to decrease the time to completion, increase the number of calls per second gradually to smooth the traffic. If you encounter any error, refer to [Handle errors effectively](#handle-errors-effectively) to handle the response. 
 
-Mitigations:
-- When you create your Face subscription, make sure to choose the region closest to where your application is hosted.
-- If you need to call multiple service methods, consider calling them in parallel if your application design allows for it. See the previous section for an example.
-- If longer latencies affect the user experience, choose a timeout threshold (for example, maximum 5 seconds) before retrying the API call.
+## Handle errors effectively 
+
+The errors `429` and `503` may occur on your Face API calls for various reasons. Your application must always be ready to handle these errors. Here are some recommendations:
+ 
+|HTTP error code  | Description |Recommendation  |
+|---------|---------|---------|
+|  `429`   |   Throttling    |    You may encounter a rate limit with concurrent calls. You should decrease the frequency of calls and retry with exponential backoff. Avoid immediate retries and avoid re-sending numerous requests simultaneously. </br></br>If you want to increase the limit, see the [Request an increase](../identity-quotas-limits.md#how-to-request-an-increase-to-the-default-limits) section of the quotas guide.  |
+| `503` |   Service unavailable    |   The service may be busy and unable to respond to your request immediately. You should adopt a back-off strategy similar to the one for error `429`.   |
+
+## Ensure reliability and support 
+
+The following are other tips to ensure the reliability and high support of your application: 
+
+- Generate a unique GUID as the `client-request-id` HTTP request header and send it with each request. This helps Microsoft investigate any errors more easily if you need to report an issue with Microsoft. 
+    - Always record the `client-request-id` and the response you received when you encounter an unexpected response. If you need any assistance, provide this information to Microsoft Support, along with the Azure resource ID and the time period when the problem occurred.
+- Conduct a pilot test before you release your application into production. Ensure that your application can handle errors properly and effectively. 
 
 ## Next steps
 
-In this guide, you learned how to mitigate latency when using the Face service. Next, learn how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects, respectively.
+In this guide, you learned how to improve performance when using the Face service. Next, Follow the tutorial to set up a working software solution that combines server-side and client-side logic to do face liveness detection on users.
 
 > [!div class="nextstepaction"]
-> [Example: Use the large-scale feature](use-large-scale.md)
-
-## Related topics
-
-- [Reference documentation (REST)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
-- [Reference documentation (.NET SDK)](/dotnet/api/overview/azure/cognitiveservices/face-readme)
+> [Tutorial: Detect face liveness](../Tutorials/liveness.md)

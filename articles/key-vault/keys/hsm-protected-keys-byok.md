@@ -5,12 +5,12 @@ services: key-vault
 author: mbaldwin
 manager: devtiw
 tags: azure-resource-manager
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 03/07/2023
+ms.date: 10/23/2023
 ms.author: mbaldwin
 ---
 
@@ -21,7 +21,7 @@ For added assurance when you use Azure Key Vault, you can import or generate a k
 Use the information in this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Azure Key Vault.
 
 > [!NOTE]
-> This functionality is not available for Azure China 21Vianet.
+> This functionality is not available for Microsoft Azure operated by 21Vianet.
 >
 > This import method is available only for [supported HSMs](#supported-hsms).
 
@@ -59,7 +59,7 @@ The following table lists prerequisites for using BYOK in Azure Key Vault:
 |Entrust|Manufacturer,<br/>HSM as a service|<ul><li>nShield family of HSMs</li><li>nShield as a service</ul>|[nCipher new BYOK tool and documentation](https://www.entrust.com/digital-security/hsm/solutions/use-case/cloud-security/bring-your-own-key-hold-your-own-key)|
 |Fortanix|Manufacturer,<br/>HSM as a service|<ul><li>Self-Defending Key Management Service (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Exporting SDKMS keys to Cloud Providers for BYOK - Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
 |IBM|Manufacturer|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
-|Marvell|Manufacturer|All LiquidSecurity HSMs with<ul><li>Firmware version 2.0.4 or later</li><li>Firmware version 3.2 or newer</li></ul>|[Marvell BYOK tool and documentation](https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
+|Marvell|Manufacturer|All LiquidSecurity HSMs with<ul><li>Firmware version 2.0.4 or later</li><li>Firmware version 3.2 or newer</li></ul>|[Marvell BYOK tool and documentation](https://www.marvell.com/products/security-solutions/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
 |nCipher|Manufacturer,<br/>HSM as a service|<ul><li>nShield family of HSMs</li><li>nShield as a service</ul>|[nCipher new BYOK tool and documentation](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|
 |Securosys SA|Manufacturer,<br/>HSM as a service|Primus HSM family, Securosys Clouds HSM|[Primus BYOK tool and documentation](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>See [StorMagic site for details](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[SvKMS and Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
@@ -165,7 +165,7 @@ Refer to your HSM vendor's documentation to download and install the BYOK tool. 
 Transfer the BYOK file to your connected computer.
 
 > [!NOTE]
-> Importing RSA 1,024-bit keys is not supported. Importing Elliptic Curve key with curve P-256K is not supported.
+> Importing RSA 1,024-bit keys is not supported. Importing Elliptic Curve key with curve P-256K is supported.
 >
 > **Known issue**: Importing an RSA 4K target key from Luna HSMs is only supported with firmware 7.4.0 or newer.
 

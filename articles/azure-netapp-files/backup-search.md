@@ -24,7 +24,16 @@ If a volume is deleted, its backups are still retained. The backups are listed i
 >[!IMPORTANT]
 >All existing backups must be migrated to backup vaults. You can search for backups, but you will not be able to perform any operations on a backup until the backup has been migrated to a backup vault. For more information about this procedure, see [Manage a backup vault](backup-vault-manage.md).
 
-## Search backups at volume level    <!-- will this still work -->
+## Search backups from backup vault 
+
+1. Select **Backups**.
+1. In the **Search Backups** field, enter the backup name that you want to search for.  
+
+    A partial search is supported; you don’t have to specify the entire backup name. The search filters the backups based on the search string.
+
+    :::image type="content" source="../media/azure-netapp-files/backup-search-vault.png" alt-text="Screenshot that shows a list of backups in a vault." lightbox="../media/azure-netapp-files/backup-search-vault.png":::
+
+## Search backups at volume level 
 
 You can display and search backups at the volume level:
 
@@ -38,8 +47,8 @@ You can display and search backups at the volume level:
 
     A partial search is supported; you don’t have to specify the entire backup name. The search filters the backups based on the search string.
 
-    ![Screenshot that shows a list of backup for a volume.](../media/azure-netapp-files/backup-search-volume-level.png)
-
+    :::image type="content" source="../media/azure-netapp-files/backup-search-volume-level.png" alt-text="Screenshot that shows a list of backup for a volume." lightbox="../media/azure-netapp-files/backup-search-volume-level.png":::
+    
 ## Next steps  
 
 * [Understand Azure NetApp Files backup](backup-introduction.md)

@@ -1,17 +1,17 @@
 ---
-title: Register a client application in Azure AD using CLI and REST API - Azure Health Data Services
-description: This article describes how to register a client application Azure AD using CLI and REST API.
+title: Register a client application in Microsoft Entra ID using CLI and REST API - Azure Health Data Services
+description: This article describes how to register a client application Microsoft Entra ID using CLI and REST API.
 services: healthcare-apis
-author: mikaelweave
+author: chachachachami
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.date: 05/03/2022
-ms.author: mikaelw
+ms.author: chrupa
 ---
 
 # Register a client application using CLI and REST API
 
-In this article, you'll learn how to register a client application in the Azure Active Directory (Azure AD) using Azure Command-Line Interface (CLI) and REST API to access Azure Health Data Services. While you can register a client application using the Azure portal, the scripting approach enables you to test and deploy resources directly. For more information, see [Register a client application with the Azure portal](register-application.md).
+In this article, you'll learn how to register a client application in the Microsoft Entra ID using Azure Command-Line Interface (CLI) and REST API to access Azure Health Data Services. While you can register a client application using the Azure portal, the scripting approach enables you to test and deploy resources directly. For more information, see [Register a client application with the Azure portal](register-application.md).
 
 You can create a confidential or public client application by following the steps, including some optional steps, one by one or in a combined form. Also, you can define the variables upfront instead of placing them in the middle of the scripts. For more information, see [Azure Health Data Services Samples](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/scripts/appregistrationcli.http).
 
@@ -146,7 +146,7 @@ Now that you've completed the application registration using CLI and REST API, y
 
 ## Next steps
 
-In this article, you learned how to register a client application in Azure AD using CLI and REST API. For information on how to grant permissions for Azure Health Data Services, see 
+In this article, you learned how to register a client application in Microsoft Entra ID using CLI and REST API. For information on how to grant permissions for Azure Health Data Services, see 
 
 >[!div class="nextstepaction"]
 >[Configure RBAC for Azure Health Data Services](configure-azure-rbac.md)

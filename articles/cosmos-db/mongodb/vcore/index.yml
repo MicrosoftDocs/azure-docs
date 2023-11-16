@@ -9,12 +9,14 @@ metadata:
   services: service
   ms.service: cosmos-db
   ms.subservice: mongodb-vcore
+  ms.custom:
+    - ignite-2023
   ms.topic: landing-page
   ms.collection: collection
   author: gahl-levy
   ms.author: gahllevy
-  ms.reviewer: nayakshweta
-  ms.date: 03/07/2023
+  ms.reviewer: sidandrews
+  ms.date: 08/28/2023
 landingContent:  
   - title: Get started with Azure Cosmos DB for MongoDB vCore
     linkLists:
@@ -28,11 +30,27 @@ landingContent:
             url: quickstart-portal.md
           - text: Create resources - Bicep template
             url: quickstart-bicep.md
+  - title: Vector search and AI
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Vector search
+            url: vector-search.md
+          - text: Build AI apps with vector search
+            url: vector-search-ai.md
+  - title: Develop applications
+    linkLists:
       - linkListType: tutorial
         links:
           - text: Build a Node.js web application
             url: tutorial-nodejs-web-app.md
-  - title: Use a MongoDB vCore cluster
+      - linkListType: how-to-guide
+        links:
+          - text: Create transactions
+            url: how-to-transactions.md
+          - text: Create text search index
+            url: how-to-create-text-index.md
+  - title: Manage a MongoDB vCore cluster
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -40,11 +58,31 @@ landingContent:
             url: how-to-scale-cluster.md
           - text: Restore cluster
             url: how-to-restore-cluster.md
+          - text: Monitor diagnostics logs
+            url: how-to-monitor-diagnostics-logs.md
       - linkListType: concept
         links:
           - text: MongoDB feature support
             url: compatibility.md
           - text: High availability
             url: high-availability.md
+          - text: Failover and disaster recovery
+            url: failover-disaster-recovery.md
           - text: Migration options
             url: migration-options.md
+  - title: Migrate to MongoDB vCore
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Migration options
+            url: migration-options.md
+      - linkListType: how-to-guide
+        links:
+          - text: Migrate using native tools
+            url: how-to-migrate-native-tools.md
+          - text: Migrate using Azure Data Studio
+            url: /azure-data-studio/extensions/database-migration-for-mongo-extension
+          - text: Migrate using Azure Database Migration Service
+            url: ../../../dms/tutorial-mongodb-cosmos-db-online.md
+          - text: Migrate using Azure Database Migration Service (offline)
+            url: ../../../dms/tutorial-mongodb-cosmos-db.md

@@ -2,12 +2,12 @@
 title: Introduction to Azure Storage - Cloud storage on Azure
 description: The Azure Storage platform is Microsoft's cloud storage solution. Azure Storage provides highly available, secure, durable, massively scalable, and redundant storage for data objects in the cloud. Learn about the services available in Azure Storage and how you can use them in your applications, services, or enterprise solutions.
 services: storage
-author: tamram
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 01/10/2023
-ms.author: tamram
+ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: ignite-2022
 ---
@@ -143,8 +143,8 @@ Azure Storage offers several types of storage accounts. Each type supports diffe
 
 Every request to Azure Storage must be authorized. Azure Storage supports the following authorization methods:
 
-- **Azure Active Directory (Azure AD) integration for blob, queue, and table data.** Azure Storage supports authentication and authorization with Azure AD for the Blob and Queue services via Azure role-based access control (Azure RBAC). Authorization with Azure AD is also supported for the Table service in preview. Authorizing requests with Azure AD is recommended for superior security and ease of use. For more information, see [Authorize access to data in Azure Storage](authorize-data-access.md).
-- **Azure AD authorization over SMB for Azure Files.** Azure Files supports identity-based authorization over SMB (Server Message Block) through either Azure Active Directory Domain Services (Azure AD DS) or on-premises Active Directory Domain Services (preview). Your domain-joined Windows VMs can access Azure file shares using Azure AD credentials. For more information, see [Overview of Azure Files identity-based authentication support for SMB access](../files/storage-files-active-directory-overview.md) and [Planning for an Azure Files deployment](../files/storage-files-planning.md#identity).
+- **Microsoft Entra integration for blob, queue, and table data.** Azure Storage supports authentication and authorization with Microsoft Entra ID for the Blob, Table, and Queue services via Azure role-based access control (Azure RBAC). Authorizing requests with Microsoft Entra ID is recommended for superior security and ease of use. For more information, see [Authorize access to data in Azure Storage](authorize-data-access.md).
+- **Microsoft Entra authorization over SMB for Azure Files.** Azure Files supports identity-based authorization over SMB (Server Message Block) through either Microsoft Entra Domain Services or on-premises Active Directory Domain Services (preview). Your domain-joined Windows VMs can access Azure file shares using Microsoft Entra credentials. For more information, see [Overview of Azure Files identity-based authentication support for SMB access](../files/storage-files-active-directory-overview.md) and [Planning for an Azure Files deployment](../files/storage-files-planning.md#identity).
 - **Authorization with Shared Key.** The Azure Storage Blob, Files, Queue, and Table services support authorization with Shared Key. A client using Shared Key authorization passes a header with every request that is signed using the storage account access key. For more information, see [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key).
 - **Authorization using shared access signatures (SAS).** A shared access signature (SAS) is a string containing a security token that can be appended to the URI for a storage resource. The security token encapsulates constraints such as permissions and the interval of access. For more information, see [Using Shared Access Signatures (SAS)](storage-sas-overview.md).
 - **Active Directory Domain Services with Azure NetApp Files.** Azure NetApp Files features such as SMB volumes, dual-protocol volumes, and NFSv4.1 Kerberos volumes are designed to be used with AD DS. For more information, see [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](../../azure-netapp-files/understand-guidelines-active-directory-domain-service-site.md) or learn how to [Configure ADDS LDAP over TLS for Azure NetApp Files](../../azure-netapp-files/configure-ldap-over-tls.md).

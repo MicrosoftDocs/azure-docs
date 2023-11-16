@@ -116,5 +116,5 @@ For AKS clusters that use Windows Server nodes, see [Upgrade a node pool in AKS]
 [DaemonSet]: concepts-clusters-workloads.md#statefulsets-and-daemonsets
 [aks-ssh]: ssh.md
 [aks-upgrade]: upgrade-cluster.md
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [node-image-upgrade]: node-image-upgrade.md

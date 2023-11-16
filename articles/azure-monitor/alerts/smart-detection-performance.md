@@ -36,7 +36,7 @@ No, a notification doesn't mean that your app definitely has a problem. It's sim
 The notifications include diagnostic information. Here's an example:
 
 
-![Here is an example of Server Response Time Degradation detection](media/smart-detection-performance/server_response_time_degradation.png)
+:::image type="content" source="media/smart-detection-performance/server_response_time_degradation.png" lightbox="media/smart-detection-performance/server_response_time_degradation.png" alt-text="Here is an example of Server Response Time Degradation detection":::
 
 1. **Triage**. The notification shows you how many users or how many operations are affected. This information can help you assign a priority to the problem.
 2. **Scope**. Is the problem affecting all traffic, or just some pages? Is it restricted to particular browsers or locations? This information can be obtained from the notification.
@@ -47,8 +47,8 @@ The notifications include diagnostic information. Here's an example:
 ## Configure Email Notifications
 
 Smart detection notifications are enabled by default. They are sent to users that have [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) and [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) access to the subscription in which the Application Insights resource resides. To change the default notification, either click **Configure** in the email notification, or open **Smart detection settings** in Application Insights. 
-  
-  ![Smart Detection Settings](media/smart-detection-performance/smart_detection_configuration.png)
+  <!-- convertborder later -->
+  :::image type="content" source="media/smart-detection-performance/smart_detection_configuration.png" lightbox="media/smart-detection-performance/smart_detection_configuration.png" alt-text="Smart Detection Settings" border="false":::
   
   * You can disable the default notification, and replace it with a specified list of emails.
 
@@ -57,7 +57,7 @@ Emails about smart detection performance anomalies are limited to one email per 
 ## Frequently asked questions
 
 * *So, Microsoft staff look at my data?*
-  * No. The service is entirely automatic. Only you get the notifications. Your data is [private](../app/data-retention-privacy.md).
+  * No. The service is entirely automatic. Only you get the notifications. Your data is [private](/previous-versions/azure/azure-monitor/app/data-retention-privacy).
 * *Do you analyze all the data collected by Application Insights?*
   * Currently, we analyze request response time, dependency response time, and page load time. Analysis of other metrics is on our backlog looking forward.
 
@@ -126,11 +126,11 @@ The response time degradation notification tells you:
 
 ## Dependency Duration Degradation
 
-Modern applications often adopt a micro services design approach, which in many cases rely heavily on external services. For example, if your application relies on some data platform, or on a critical services provider such as cognitive services.   
+Modern applications often adopt a micro services design approach, which in many cases rely heavily on external services. For example, if your application relies on some data platform, or on a critical services provider such as Azure AI services.   
 
 Example of dependency degradation notification:
 
-![Here is an example of Dependency Duration Degradation detection](media/smart-detection-performance/dependency_duration_degradation.png)
+:::image type="content" source="media/smart-detection-performance/dependency_duration_degradation.png" lightbox="media/smart-detection-performance/dependency_duration_degradation.png" alt-text="Here is an example of Dependency Duration Degradation detection":::
 
 Notice that it tells you:
 
@@ -153,8 +153,8 @@ Anomalies like these are hard to detect just by inspecting the data, but are mor
 Currently, our algorithms look at page load times, request response times at the server, and dependency response times.  
 
 You don't have to set any thresholds or configure rules. Machine learning and data mining algorithms are used to detect abnormal patterns.
-
-![From the email alert, click the link to open the diagnostic report in Azure](./media/smart-detection-performance/03.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/smart-detection-performance/03.png" lightbox="./media/smart-detection-performance/03.png" alt-text="From the email alert, click the link to open the diagnostic report in Azure" border="false":::
 
 * **When** shows the time the issue was detected.
 * **What** describes the problem that was detected, and th characteristics of the set of events that we found, which displayed the problem behavior.

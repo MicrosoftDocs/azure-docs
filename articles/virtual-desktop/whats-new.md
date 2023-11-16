@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -11,7 +11,7 @@ ms.custom: references_regions
 ---
 # What's new in Azure Virtual Desktop?
 
-Azure Virtual Desktop updates regularly. This article is where you'll find out about:
+Azure Virtual Desktop updates regularly. This article is where you find out about:
 
 - The latest updates
 - New features
@@ -23,9 +23,99 @@ Make sure to check back here often to keep up with new updates.
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
 
+## November 2023
+
+Here's what changed in November 2023:
+
+- Autoscale for personal host pools is now generally available. Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs. It also now supports hibernate (preview), that pauses virtual machines that aren't being used. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
+
+- We've updated the preview of Azure Virtual Desktop on Azure Stack HCI. You can now deploy Azure Virtual Desktop with your session hosts on Azure Stack HCI as an integrated experience with Azure Virtual Desktop in the Azure portal. For more information, see [Azure Virtual Desktop on Azure Stack HCI](azure-stack-hci-overview.md) and [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md).
+
+- Single sign-on using Microsoft Entra authentication is now generally available. Single sign-on enables users to automatically sign the user into Windows, without prompting them for their credentials for every connection. For more information, see [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication](configure-single-sign-on.md).
+
+- In-session passwordless authentication is now generally available. Azure Virtual Desktop supports in-session passwordless authentication using Windows Hello for Business or security devices like FIDO keys. For more information, see [In-session passwordless authentication](authentication.md#in-session-authentication).
+
+- Windows App is available in preview for Windows, macOS, iOS and iPadOS, and in a web browser. You can use it to connect to Azure Virtual Desktop, Windows 365, Microsoft Dev Box, Remote Desktop Services, and remote PCs, securely connecting you to Windows devices and apps. For more information, see [Windows App](/windows-app/overview).
+
+## October 2023
+
+Here's what changed in October 2023:
+
+### New article about Azure Virtual Desktop service architecture and resilience
+
+We've published a new article about the service architecture for Azure Virtual Desktop and how it provides a resilient, reliable, and secure service for organizations and users. Most components are Microsoft-managed, but some are customer-managed.
+
+You can learn more at [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
+
+### OneDrive with RemoteApp in preview
+
+You can now use Microsoft OneDrive alongside a RemoteApp in preview. You can use this feature to access and synchronize your files while using a RemoteApp. When you connect to a RemoteApp, OneDrive can automatically launch as a companion to the RemoteApp.
+
+For more information about prerequisites and configuration, see [Use Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop (preview)](onedrive-remoteapp.md). 
+
+### Administrative template for FSLogix now available in Intune settings catalog
+
+The [administrative template for FSLogix](/fslogix/how-to-use-group-policy-templates) is now available in the [Intune settings catalog](/mem/intune/configuration/administrative-templates-windows). This template enables you to configure FSLogix settings centrally for [session hosts that are enrolled in Intune](management.md#microsoft-intune).
+
+## September 2023
+
+Here's what changed in September 2023:
+
+### Azure Virtual Desktop (classic) deprecation 
+
+Azure Virtual Desktop (classic) now blocks users from creating new tenants. Customers should be deploying the current version of Azure Virtual Desktop for any new workloads. However, while Azure Virtual Desktop (classic) blocks new tenants, you can still access all other ongoing operation and management processes. We will no longer support Azure Virtual Desktop (classic) in September 2026, so we highly recommend you migrate from classic to Azure Virtual Desktop before then.
+
+For more information about the Azure Virtual Desktop (classic) retirement, see [Azure Virtual Desktop (classic) retirement](./virtual-desktop-fall-2019/classic-retirement.md).
+
+### Updates to Azure Virtual Desktop overview page in the Azure portal 
+
+We've updated the overview page in the Azure Virtual Desktop administrator portal to include new visuals and tile links. These updates make it easier to navigate to documentation, find the forums for collaboration and discussion, submit feedback, and locate release notes for Azure Virtual Desktop.
+
+### The latest version of FSLogix is now included in Windows Enterprise multi-session images
+
+We added the latest version of FSLogix to Windows 10 and 11 Enterprise multi-session images in the Azure Marketplace. As of September 12, 2023, all images come preinstalled with the latest version of FSLogix.
+
+For more information about what's new in FSLogix, see the [FSLogix Release Notes](/fslogix/overview-release-notes?context=%2Fazure%2Fvirtual-desktop%2Fcontext%2Fcontext).
+
+### Azure Virtual Desktop Insights support for the Azure Monitor Agent is now generally available 
+
+Azure Virtual Desktop Insights is a dashboard built on Azure Monitor workbooks that helps you understand your Azure Virtual Desktop environments. Azure Virtual Desktop Insights support for the Azure Monitor agent is now generally available. For more information, see [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md?tabs=monitor).
+
+The Log Analytics agent for Azure Monitor is deprecating on August 31, 2024. We recommend you migrate monitoring your virtual machines (VMs) and servers to Azure Monitor Agent before that date. For more information about how to migrate, see [Migrate to Azure Monitor Agent from Log Analytics agent](../azure-monitor/agents/azure-monitor-agent-migration.md).
+
+### Custom Image Template feature is now generally available
+
+Azure Virtual Desktop just made it easier for you to create your golden image with the new Custom Image Template feature. You can use this new management option in the Azure portal to include built-in or custom scripts in your template that you can reuse. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-azure-virtual-desktop-custom/ba-p/3909907).
+
+## August 2023
+
+Here's what changed in August 2023:
+
+### Updated Group Policy templates for FSLogix 
+
+The [FSLogix 2210 hotfix 2](/fslogix/overview-release-notes#fslogix-2210-hotfix-2-29861260056) release includes updates to the Group Policy templates. Before this release, the Group Policy template files had some unique behaviors that made it difficult to find the correct policy name based on the list of configuration settings for Profiles, Office Data File Containers (ODFC), and Cloud Cache. 
+
+For more information about FSLogix Group Policy Template Files, see [How to Use FSLogix Group Policy Template Files for FSLogix](/fslogix/how-to-use-group-policy-templates). 
+
+### Improvements in custom image templates
+
+We've updated the text, tooltips, and links for custom image templates in the Azure portal to make them easier to use. You can also now go to the built-in customization settings and remove Clipchamp in the Remove AppX package list.
+
+We built the custom image templates feature using [Azure Image Builder](../virtual-machines/image-builder-overview.md) for you to use with Azure Virtual Desktop. For more information, see [Custom image templates](custom-image-templates.md).
+
 ## July 2023
 
 Here's what changed in July 2023:
+
+### Watermarking is now generally available
+
+[Watermarking](watermarking.md), when used with [screen capture protection](#screen-capture-protection), helps protect your sensitive information from capture on client endpoints. When you enable watermarking, QR code watermarks appear as part of remote desktops. The QR code contains the connection ID of a remote session that admins can use to trace the session. You can configure watermarking on session hosts and enforce it with the Remote Desktop client.
+
+### Audio call redirection for Azure Virtual Desktop in preview
+
+Call redirection, which optimizes audio calls for WebRTC-based calling apps, is now in preview. Multimedia redirection redirects media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature when using the Windows Desktop client.
+
+For more information about which sites are compatible with this feature, see [Call redirection](multimedia-redirection-intro.md#call-redirection).
 
 ### Autoscale for personal host pools is currently in preview
 
@@ -47,19 +137,23 @@ For more information about this announcement, see [Announcing General Availabili
 
 Private Link with Azure Virtual Desktop allows users to establish secure connections to remote resources using private endpoints. With Private Link, traffic between your virtual network and the Azure Virtual Desktop service is routed through the Microsoft *backbone* network. This routing eliminates the need to expose your service to the public internet, enhancing the overall security of your infrastructure. By keeping traffic within this protected network, Private Link adds an extra layer of security for your Azure Virtual Desktop environment. For more information about Private Link, see [Azure Private Link with Azure Virtual Desktop](private-link-overview.md) or read [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-general-availability-of-private-link-for-azure/ba-p/3874429). 
 
+### Tamper protection support for Azure Virtual Desktop
+
+Microsoft Intune now supports the use of endpoint security [antivirus policy](/mem/intune/protect/endpoint-security-antivirus-policy#prerequisites-for-tamper-protection) to manage [tamper protection](/microsoft-365/security/defender-endpoint/prevent-changes-to-security-settings-with-tamper-protection) for Azure Virtual Desktop session hosts running Windows 11 Enterprise or Windows 11 Enterprise multi-session. Support for tamper protection requires you to onboard session hosts to Microsoft Defender for Endpoint before you apply the policy that enables tamper protection.
+
 ## June 2023
 
 Here's what changed in June 2023:
 
 ### Azure Virtual Desktop Insights support for the Azure Monitor Agent now in preview
 
-Azure Virtual Desktop Insights is a dashboard built on Azure Monitor workbooks that helps IT professionals understand their Azure Virtual Desktop environments. Azure Virtual Desktops Insights support for the Azure Monitor agent is now in preview. For more information see [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md?tabs=monitor).
+Azure Virtual Desktop Insights is a dashboard built on Azure Monitor workbooks that helps IT professionals understand their Azure Virtual Desktop environments. Azure Virtual Desktops Insights support for the Azure Monitor agent is now in preview. For more information, see [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md?tabs=monitor).
 
 ### Administrative template for Azure Virtual Desktop now available in Intune
 
-We've created an administrative template for Azure Virtual Desktop to help you configure certain features in Azure Virtual Desktop. This administrative template is now available in Intune, which enables you to centrally configure session hosts that are enrolled in Intune and joined to Azure Active Directory (Azure AD) or hybrid Azure AD joined.
+We've created an administrative template for Azure Virtual Desktop to help you configure certain features in Azure Virtual Desktop. This administrative template is now available in Intune, which enables you to centrally configure session hosts that are enrolled in Intune and Azure Active Directory (Azure AD) joined or hybrid Azure AD joined.
 
-For more information see [Administrative template for Azure Virtual Desktop](administrative-template.md?tabs=intune).
+For more information, see [Administrative template for Azure Virtual Desktop](administrative-template.md?tabs=intune).
 
 ## May 2023
 
@@ -67,7 +161,7 @@ Here's what changed in May 2023:
 
 ### Custom image templates is now in preview 
 
-Custom image templates is now in  preview. Custom image templates help you easily create a custom image that you can use when deploying session host VMs. With custom images, you can standardize the configuration of your session host VMs for your organization. Custom image templates is built on [Azure Image Builder](../virtual-machines/image-builder-overview.md) and tailored for Azure Virtual Desktop. For more information about the preview, check out [Custom image templates](custom-image-templates.md) or read [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-azure-virtual-desktop-custom/ba-p/3784361).
+Custom image templates is now in preview. Custom image templates help you easily create a custom image that you can use when deploying session host VMs. With custom images, you can standardize the configuration of your session host VMs for your organization. Custom image templates is built on [Azure Image Builder](../virtual-machines/image-builder-overview.md) and tailored for Azure Virtual Desktop. For more information about the preview, check out [Custom image templates](custom-image-templates.md) or read [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-azure-virtual-desktop-custom/ba-p/3784361).
 
 ## April 2023
 
@@ -81,7 +175,7 @@ For more information about the public preview release version, check out [Use fe
 
 ### Intune user-scope configuration for Windows 10 Enterprise multi-session VMs now generally available
 
-Microsoft Intune user-scope configuration for Azure Virtual Desktop multi-session Virtual Machines (VMs) on Windows 10 and 11 are now generally available. With this feature, you are able to:
+Microsoft Intune user-scope configuration for Azure Virtual Desktop multi-session Virtual Machines (VMs) on Windows 10 and 11 are now generally available. With this feature, you're able to:
 
 - Configure user-scope policies using the Settings catalog and assign those policies to groups of users.
 - Configure user certificates and assign them to users.
@@ -179,7 +273,7 @@ The ability to review performance and diagnostic information across multiple hos
 	
 ### Intune user configuration for Windows 11 Enterprise multi-session VMs now generally available
 
-Microsoft Intune user scope configuration for Azure Virtual Desktop multi-session VMs on Windows 11 is now generally available. With this feature, you’ll be able to:
+Microsoft Intune user scope configuration for Azure Virtual Desktop multi-session VMs on Windows 11 is now generally available. With this feature, you're able to:
 
 - Configure user scope policies using the Settings catalog and assign them to groups of users. 
 - Configure user certificates and assign them to users.
@@ -209,7 +303,7 @@ We've improved the host pool deployment process. You can now deploy host pools i
 
 ### FSLogix version 2210 now in public preview
 
-FSLogix version 2210 is now public preview. This new version includes new features, bug fixes, and other improvements. One of the new features is Disk Compaction, which lets you remove white space in a disk to shrink the disk size. Disk Compaction will save you significant amounts of storage capacity in the storage spaces where you keep your FSLogix disks. For more information, see [What’s new in FSLogix](/fslogix/whats-new#fslogix-2210-29830844092---public-preview) or [the FSLogix Disk Compaction blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-fslogix-disk-compaction/ba-p/3644807).
+FSLogix version 2210 is now public preview. This new version includes new features, bug fixes, and other improvements. One of the new features is Disk Compaction, which lets you remove white space in a disk to shrink the disk size. Disk Compaction saves you significant amounts of storage capacity in the storage spaces where you keep your FSLogix disks. For more information, see [What’s new in FSLogix](/fslogix/whats-new#fslogix-2210-29830844092---public-preview) or [the FSLogix Disk Compaction blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-fslogix-disk-compaction/ba-p/3644807).
 
 ### Universal Print for Azure Virtual Desktop now generally available
 
@@ -267,7 +361,7 @@ In the Windows Insider build of Windows 11 22H2, you can now enable a preview ve
 
 ### Universal Print for Azure Virtual Desktop now in Windows Insider preview
 
-The Windows Insider build of Windows 11 22H2 also includes a preview version of the Universal Print for Azure Virtual Desktop feature. We hope this feature will provide an improved printing experience that combines the benefits of Azure Virtual Desktop and Universal Print for Windows 11 multi-session users. Learn more at [Printing on Azure Virtual Desktop using Universal Print](/universal-print/fundamentals/universal-print-avd) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/a-better-printing-experience-for-azure-virtual-desktop-with/m-p/3598592). 
+The latest Windows Insider build of Windows 11 22H2 also includes a preview version of the Universal Print for Azure Virtual Desktop feature. This feature provides an improved printing experience that combines the benefits of Azure Virtual Desktop and Universal Print for Windows 11 multi-session users. Learn more at [Printing on Azure Virtual Desktop using Universal Print](/universal-print/fundamentals/universal-print-avd) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/a-better-printing-experience-for-azure-virtual-desktop-with/m-p/3598592). 
 
 ### Autoscale for pooled host pools now generally available
 
@@ -321,7 +415,7 @@ For more information, see [our blog post](https://techcommunity.microsoft.com/t5
 
 ### Teams media optimizations for macOS now generally available
 
-Teams media optimizations for redirecting audio and video during calls and meetings to a local macOS machine is now generally available. To use this feature, you'll need to update or install, at a minimum, version 10.7.7 of the Azure Virtual Desktop macOS client. Learn more at [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-media-optimizations-is-now-generally-available/ba-p/3563125).
+Teams media optimizations for redirecting audio and video during calls and meetings to a local macOS machine is now generally available. To use this feature, you need to update or install, at a minimum, version 10.7.7 of the Azure Virtual Desktop macOS client. Learn more at [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-media-optimizations-is-now-generally-available/ba-p/3563125).
 
 ## May 2022
 
@@ -472,15 +566,15 @@ Remote Desktop Protocol (RDP) Shortpath for managed networks is now generally av
 
 ### Screen capture protection updates
 
-Screen capture protection is now supported on the macOS client and the Azure Government and Azure China clouds. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/screen-capture-protection-for-macos-client-and-support-for/m-p/2840089#M7940).
+Screen capture protection is now supported on the macOS client and the Azure Government and Azure operated by 21Vianet clouds. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/screen-capture-protection-for-macos-client-and-support-for/m-p/2840089#M7940).
 
 ### Azure Active Directory domain join 
 
-Azure Active Directory domain join for Azure Virtual Desktop VMs is now available in the Azure Government and Azure China clouds. Microsoft Intune is currently only supported in the Azure Public cloud. Learn more at [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
+Azure Active Directory domain join for Azure Virtual Desktop VMs is now available in the Azure Government and Azure operated by 21Vianet clouds. Microsoft Intune is currently only supported in the Azure Public cloud. Learn more at [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
 
 ### Breaking change in Azure Virtual Desktop Azure Resource Manager template
 
-A breaking change has been introduced into the Azure Resource Manager template for Azure Virtual Desktop. If you're using any code that depends on the change, then you'll need to follow the directions in [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/azure-virtual-desktop-arm-template-change-removal-of-script/m-p/2851538#M7971) to address the issue.
+A breaking change has been introduced into the Azure Resource Manager template for Azure Virtual Desktop. If you're using any code that depends on the change, then you need to follow the directions in [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/azure-virtual-desktop-arm-template-change-removal-of-script/m-p/2851538#M7971) to address the issue.
 
 ### Autoscale (preview) public preview
 
@@ -498,11 +592,11 @@ You can also now set host pool, application group, and workspace diagnostic sett
 
 ### Azure Active Directory domain join
 
-Azure Active Directory domain join is now generally available. This service lets you join your session hosts to Azure Active Directory (Azure AD). Domain join also lets you autoenroll into Microsoft Intune. You can access this feature in the Azure public cloud, but not the Government cloud or Azure China. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-azure-ad-joined-vms-support/ba-p/2751083).
+Azure Active Directory domain join is now generally available. This service lets you join your session hosts to Azure Active Directory (Azure AD). Domain join also lets you autoenroll into Microsoft Intune. You can access this feature in the Azure public cloud, but not the Government cloud or Azure operated by 21Vianet. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-azure-ad-joined-vms-support/ba-p/2751083).
 
-### Azure China
+### Azure operated by 21Vianet
 
-Azure Virtual Desktop is now generally available in the Azure China cloud. For more information, see [our blog post](https://azure.microsoft.com/updates/general-availability-azure-virtual-desktop-is-now-available-in-the-azure-china-cloud/).
+Azure Virtual Desktop is now generally available in the Azure operated by 21Vianet cloud. For more information, see [our blog post](https://azure.microsoft.com/updates/general-availability-azure-virtual-desktop-is-now-available-in-the-azure-china-cloud/).
 
 ### Automatic migration module tool
 
@@ -542,7 +636,7 @@ All available images in the Azure Virtual Desktop image gallery that include Mic
 
 ### Azure Active Directory Domain Join for Session hosts is in public preview
 
-You can now join your Azure Virtual Desktop VMs directly to Azure Active Directory (Azure AD). This feature lets you connect to your VMs from any device with basic credentials. You can also automatically enroll your VMs with Microsoft Intune. For certain scenarios, this will help eliminate the need for a domain controller, reduce costs, and streamline your deployment. Learn more at [Deploy Azure AD joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
+You can now join your Azure Virtual Desktop VMs directly to Azure Active Directory (Azure AD). This feature lets you connect to your VMs from any device with basic credentials. You can also automatically enroll your VMs with Microsoft Intune. For certain scenarios, this helps eliminate the need for a domain controller, reduce costs, and streamline your deployment. Learn more at [Deploy Azure AD joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
 
 ### FSLogix version 2105 is now available
 
@@ -569,7 +663,7 @@ We recently announced a new pricing option for RemoteApp streaming for using Azu
 
 We recently released four new handbooks to help you design and deploy Azure Virtual Desktop in different scenarios: 
 
-- [Application Management](https://azure.microsoft.com/resources/azure-virtual-desktop-handbook-application-management/) will show you how to modernize application delivery and simplify IT management.  
+- [Application Management](https://azure.microsoft.com/resources/azure-virtual-desktop-handbook-application-management/) shows you how to modernize application delivery and simplify IT management.  
 - In [Disaster Recovery](https://azure.microsoft.com/resources/azure-virtual-desktop-handbook-disaster-recovery/), learn how to strengthen business resilience by developing a disaster recovery strategy.  
 - Get more value from Citrix investments with the [Citrix Cloud with Azure Virtual Desktop](https://azure.microsoft.com/resources/migration-guide-citrix-cloud-with-azure-virtual-desktop/) migration guide.
 - Get more value from existing VMware investments with the [VMware Horizon with Azure Virtual Desktop](https://azure.microsoft.com/resources/migration-guide-vmware-horizon-cloud-and-azure-virtual-desktop/) migration guide.
@@ -588,7 +682,7 @@ Metadata service for the European Union, UK, and Canada is now in general availa
 
 ### The Getting Started tool is now in public preview
 
-We created the Azure Virtual Desktop Getting Started tool to make the deployment process easier for first-time users. By simplifying and automating the deployment process, we hope this tool will help make adopting Azure Virtual Desktop faster and more accessible to a wider variety of users. Learn more at our [blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/getting-started-wizard-in-azure-virtual-desktop/m-p/2451385).
+We created the Azure Virtual Desktop Getting Started tool to make the deployment process easier for first-time users. By simplifying and automating the deployment process, we hope this tool helps make adopting Azure Virtual Desktop faster and more accessible to a wider variety of users. Learn more at our [blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/getting-started-wizard-in-azure-virtual-desktop/m-p/2451385).
 
 ### Azure Virtual Desktop pricing calculator updates
 
@@ -631,11 +725,11 @@ On September 30, 2021, the Azure Virtual Desktop web client will no longer suppo
 
 ### Microsoft Intune public preview
 
-We've started the public preview for Microsoft Intune support in Windows 10 Enterprise multi-session. This new feature will let you manage your Windows 10 VMs with the same tools as your local devices. Learn more at our [Microsoft Endpoint Manger documentation](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
+We've started the public preview for Microsoft Intune support in Windows 10 Enterprise multi-session. Intune support lets you manage your Windows 10 VMs with the same tools as your local devices. Learn more at our [Microsoft Endpoint Manger documentation](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
 
 ### FSLogix version 2105 public preview
 
-We have released a public preview of the latest version of the FSLogix agent. Check out our [blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/public-preview-fslogix-release-2105-is-now-available-in-public/m-p/2380996/thread-id/7105) for more information and to submit the form you'll need to access the preview.
+We have released a public preview of the latest version of the FSLogix agent. Check out our [blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/public-preview-fslogix-release-2105-is-now-available-in-public/m-p/2380996/thread-id/7105) for more information and to submit the form you need to access the preview.
 
 ### May 2021 updates for Teams for Azure Virtual Desktop
 
@@ -674,7 +768,7 @@ You can now configure Start VM on Connect (preview) in the Azure portal. With th
 
 ### Required URL Check tool 
 
-The Azure Virtual Desktop agent, version 1.0.2944.400 includes a tool that validates URLs and displays whether the virtual machine can access the URLs it needs to function. If any required URLs are accessible, the tool will list them so you can unblock them, if needed. Learn more at [Required URL Check tool](required-url-check-tool.md).
+The Azure Virtual Desktop agent, version 1.0.2944.400 includes a tool that validates URLs and displays whether the virtual machine can access the URLs it needs to function. If any required URLs are accessible, the tool lists them so you can unblock them, if needed. Learn more at [Required URL Check tool](required-url-check-tool.md).
 
 ### Updates to the Azure portal UI for Azure Virtual Desktop
 
@@ -690,7 +784,7 @@ Here's what changed in the latest update of the Azure portal UI for Azure Virtua
 Here's what's new for Teams on Azure Virtual Desktop:
 
 - Added hardware acceleration for video processing of outgoing video streams for Windows 10-based clients.
-- When joining a meeting with both a front facing camera and a rear facing or external camera, the front facing camera will be selected by default.
+- When joining a meeting with both a front facing camera and a rear facing or external camera, the front facing camera is selected by default.
 - Resolved an issue that made Teams crash on x86-based machines.
 - Resolved an issue that caused striations during screen sharing.
 - Resolved an issue that prevented meeting members from seeing incoming video or screen sharing.
@@ -712,7 +806,7 @@ Here's what changed in March 2021.
 We've made the following updates to Azure Virtual Desktop for the Azure portal:
 
 - We've enabled new availability options (availability set and zones) for the workflows to create host pools and add VMs.
-- We've fixed an issue where a host with the "Needs assistance" status appeared as unavailable. Now the host will have a warning icon next to it.
+- We've fixed an issue where a host with the "Needs assistance" status appeared as unavailable. Now the host has a warning icon next to it.
 - We've enabled sorting for active sessions.
 - You can now send messages to or sign out specific users on the host details tab.
 - We've changed the maximum session limit field.
@@ -721,7 +815,7 @@ We've made the following updates to Azure Virtual Desktop for the Azure portal:
 
 ### Generation 2 images and Trusted Launch
 
-The Azure Marketplace now has Generation 2 images for Windows 10 Enterprise and Windows 10 Enterprise multi-session. These images will let you use Trusted Launch VMs. Learn more about Generation 2 VMs at [Should I create a generation 1 or 2 virtual machine](../virtual-machines/generation-2.md). To learn how to provision Azure Virtual Desktop Trusted Launch VMs, see [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-support-for-trusted-launch/m-p/2206170).
+The Azure Marketplace now has Generation 2 images for Windows 10 Enterprise and Windows 10 Enterprise multi-session. These images enable you to use Trusted Launch VMs. Learn more about Generation 2 VMs at [Should I create a generation 1 or 2 virtual machine](../virtual-machines/generation-2.md). To learn how to provision Azure Virtual Desktop Trusted Launch VMs, see [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-support-for-trusted-launch/m-p/2206170).
 
 ### FSLogix is now preinstalled on Windows 10 Enterprise multi-session images
 
@@ -744,7 +838,7 @@ We've made the following updates for Teams on Azure Virtual Desktop:
 
 ### Start VM on Connect public preview
 
-The new host pool setting, Start VM on Connect, is now available in public preview. This setting lets you turn on your VMs whenever you need them. If you want to save costs, you'll need to deallocate your VMs by configuring your Azure Compute settings. For more information, check out [our blog post](https://aka.ms/wvdstartvmonconnect) and [our documentation](start-virtual-machine-connect.md).
+The new host pool setting, Start VM on Connect, is now available in public preview. This setting lets you turn on your VMs whenever you need them. If you want to save costs, you need to deallocate your VMs by configuring your Azure Compute settings. For more information, check out [our blog post](https://aka.ms/wvdstartvmonconnect) and [our documentation](start-virtual-machine-connect.md).
 
 ### Azure Virtual Desktop Specialty certification
 
@@ -780,7 +874,7 @@ New customers save 30 percent on Azure Virtual Desktop computing costs for D-ser
 
 ### networkSecurityGroupRules value change 
 
-In the Azure Resource Manager nested template, we changed the default value for networkSecurityGroupRules from an object to an array. This will prevent any errors if you use managedDisks-customimagevm.json without specifying a value for networkSecurityGroupRules. This wasn't a breaking change and is backward compatible.
+In the Azure Resource Manager nested template, we changed the default value for `networkSecurityGroupRules` from an object to an array. This prevents errors if you use `managedDisks-customimagevm.json` without specifying a value for `networkSecurityGroupRules`. This wasn't a breaking change and is backward compatible.
 
 ### FSLogix hotfix update
 
@@ -805,7 +899,7 @@ We recently set up the [Azure Virtual Desktop Agent troubleshooting guide](troub
 
 ### Microsoft Defender for Endpoint integration
 
-Microsoft Defender for Endpoint integration is now generally available. This feature gives your Azure Virtual Desktop VMs the same investigation experience as a local Windows 10 machine. If you're using Windows 10 Enterprise multi-session, Microsoft Defender for Endpoint will support up to 50 concurrent user connections, giving you the cost savings of Windows 10 Enterprise multi-session and the confidence of Microsoft Defender for Endpoint. For more information, check out our [blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/windows-virtual-desktop-support-is-now-generally-available/ba-p/2103712).
+Microsoft Defender for Endpoint integration is now generally available. This feature gives your Azure Virtual Desktop VMs the same investigation experience as a local Windows 10 machine. If you're using Windows 10 Enterprise multi-session, Microsoft Defender for Endpoint supports up to 50 concurrent user connections, giving you the cost savings of Windows 10 Enterprise multi-session and the confidence of Microsoft Defender for Endpoint. For more information, check out our [blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/windows-virtual-desktop-support-is-now-generally-available/ba-p/2103712).
 
 ### Azure Security baseline for Azure Virtual Desktop
 
@@ -821,7 +915,7 @@ The public preview for Azure Virtual Desktop Insights is now available. This new
 
 ### Azure Resource Manager template change 
 
-In the latest update, we've removed all public IP address parameter from the Azure Resource Manager template for creating and provisioning host pools. We highly recommend you avoid using public IPs for Azure Virtual Desktop to keep your deployment secure. If your deployment relied on public IPs, you'll need to reconfigure it to use private IPs instead, otherwise your deployment won't work properly.
+In the latest update, we've removed all public IP address parameter from the Azure Resource Manager template for creating and provisioning host pools. We highly recommend you avoid using public IPs for Azure Virtual Desktop to keep your deployment secure. If your deployment relied on public IPs, you need to reconfigure it to use private IPs instead, otherwise your deployment won't work properly.
 
 ### MSIX app attach public preview 
 
@@ -858,7 +952,7 @@ RDP Shortpath introduces direct connectivity to your Azure Virtual Desktop sessi
 
 ### Az.DesktopVirtualization, version 2.0.1
 
-We've released version 2.0.1 of the Azure Virtual Desktop cmdlets. This update includes cmdlets that will let you manage MSIX App Attach. You can download the new version at [the PowerShell gallery](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.0.1).
+We've released version 2.0.1 of the Azure Virtual Desktop cmdlets. This update includes cmdlets that let you manage MSIX App Attach. You can download the new version at [the PowerShell gallery](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.0.1).
 
 ### Azure Advisor updates
 
@@ -915,7 +1009,7 @@ You can now use the [Experience Estimator](https://azure.microsoft.com/services/
     - Added a "Need help with settings?" link to the desktop settings page.
     - Fixed an issue with the "Subscribe" button that happened when using high-contrast dark themes.
     
-- Thanks to the tremendous help from our users, we've fixed two critical issues for the Microsoft Store Remote Desktop client. We'll continue to review feedback and fix issues as we broaden our phased release of the client to more users worldwide.
+- Thanks to the tremendous help from our users, we've fixed two critical issues for the Microsoft Store Remote Desktop client. We continue to review feedback and fix issues as we broaden our phased release of the client to more users worldwide.
     
 - We've added a new feature that lets you change VM location, image, resource group, prefix name, network config as part of the workflow for adding a VM to your deployment in the Azure portal.
 
@@ -932,7 +1026,7 @@ Here's what changed in August 2020:
     - Norway
     - South Korea
 
-   You can use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to get a general idea of how these changes will affect your users.
+   You can use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to get a general idea of how these changes affect your users.
 
 - The Microsoft Store Remote Desktop Client (v10.2.1522+) is now generally available! This version of the Microsoft Store Remote Desktop Client is compatible with Azure Virtual Desktop. We've also introduced refreshed UI flows for improved user experiences. This update includes fluent design, light and dark modes, and many other exciting changes. We've also rewritten the client to use the same underlying remote desktop protocol (RDP) engine as the iOS, macOS, and Android clients. This lets us deliver new features at a faster rate across all platforms. [Download the client](https://www.microsoft.com/p/microsoft-remote-desktop/9wzdncrfj3ps?rtc=1&activetab=pivot:overviewtab) and give it a try!
 

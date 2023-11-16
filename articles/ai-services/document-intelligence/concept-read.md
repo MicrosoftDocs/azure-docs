@@ -1,101 +1,133 @@
 ---
-title: OCR for documents - Document Intelligence
+title: Read model OCR data extraction - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Extract print and handwritten text from scanned and digital documents with Document Intelligence's Read OCR model.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: 'doc-intel-3.0.0'
 ---
 
 
 # Document Intelligence read model
 
-**This article applies to:** ![Document Intelligence v3.0 checkmark](media/yes-icon.png) **Document Intelligence v3.0**.
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [preview-version-notice](includes/preview-notice.md)]
+
+**This content applies to:**![checkmark](media/yes-icon.png) **v4.0 (preview)** | **Previous versions:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.1 (GA)**](?view=doc-intel-3.1.0&preserve-view=tru) ![blue-checkmark](media/blue-yes-icon.png) [**v3.0 (GA)**](?view=doc-intel-3.0.0&preserve-view=tru)
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+**This content applies to:** ![checkmark](media/yes-icon.png) **v3.1 (GA)** | **Latest version:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) | **Previous versions:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.0**](?view=doc-intel-3.0.0&preserve-view=true)
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+**This content applies to:** ![checkmark](media/yes-icon.png) **v3.0 (GA)** | **Latest versions:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) ![purple-checkmark](media/purple-yes-icon.png) [**v3.1 (preview)**](?view=doc-intel-3.1.0&preserve-view=true)
+::: moniker-end
 
 > [!NOTE]
 >
 > For extracting text from external images like labels, street signs, and posters, use the [Azure AI Vision v4.0 preview Read](../../ai-services/Computer-vision/concept-ocr.md) feature optimized for general, non-document images with a performance-enhanced synchronous API that makes it easier to embed OCR in your user experience scenarios.
 >
 
-Document Intelligence v3.0's Read Optical Character Recognition (OCR) model runs at a higher resolution than Azure AI Vision Read and extracts print and handwritten text from PDF documents and scanned images. It also includes preview support for extracting text from Microsoft Word, Excel, PowerPoint, and HTML documents. It detects paragraphs, text lines, words, locations, and languages. The Read model is the underlying OCR engine for other Document Intelligence prebuilt models like Layout, General Document, Invoice, Receipt, Identity (ID) document, in addition to custom models.
+Document Intelligence Read Optical Character Recognition (OCR) model runs at a higher resolution than Azure AI Vision Read and extracts print and handwritten text from PDF documents and scanned images. It also includes support for extracting text from Microsoft Word, Excel, PowerPoint, and HTML documents. It detects paragraphs, text lines, words, locations, and languages. The Read model is the underlying OCR engine for other Document Intelligence prebuilt models like Layout, General Document, Invoice, Receipt, Identity (ID) document, Health insurance card, W2 in addition to custom models.
 
 ## What is OCR for documents?
 
 Optical Character Recognition (OCR) for documents is optimized for large text-heavy documents in multiple file formats and global languages. It includes features like higher-resolution scanning of document images for better handling of smaller and dense text; paragraph detection; and fillable form management. OCR capabilities also include advanced scenarios like single character boxes and accurate extraction of key fields commonly found in invoices, receipts, and other prebuilt scenarios.
 
-## Read OCR supported document types
-
-> [!NOTE]
->
-> * Only API Version 2022-06-30-preview supports Microsoft Word, Excel, PowerPoint, and HTML file formats in addition to all other document types supported by the GA versions.
-> * For the preview of Office and HTML file formats, Read API ignores the pages parameter and extracts all pages by default. Each embedded image counts as 1 page unit and each worksheet, slide, and page (up to 3000 characters) count as 1 page.
-
-| **Model**   | **Images**   | **PDF**  | **TIFF** | **Word**   | **Excel**  | **PowerPoint** | **HTML** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| **prebuilt-read**  | GA</br> (2022-08-31)| GA</br> (2022-08-31)  | GA</br> (2022-08-31)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview) | Preview</br>(2022-06-30-preview) |
-
-### Data extraction
-
-| **Model**   | **Text**   | **[Language detection](language-support.md#detected-languages-read-api)** |
-| --- | --- | --- |
-**prebuilt-read**  | ✓  |✓  |
-
 ## Development options
 
-Document Intelligence v3.0 supports the following resources:
+::: moniker range="doc-intel-4.0.0"
 
-| Model | Resources | Model ID |
-|----------|------------|------------|
-|**Read model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
+Document Intelligence v4.0 (2023-10-31-preview) supports the following tools, applications, and libraries:
 
-## Try OCR in Document Intelligence
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Read OCR model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-read**|
+::: moniker-end
 
-Try extracting text from forms and documents using the Document Intelligence Studio. You need the following assets:
+::: moniker range="doc-intel-3.1.0"
 
-* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+Document Intelligence v3.1 supports the following tools, applications, and libraries:
 
-* An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Read OCR model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)|**prebuilt-read**|
+::: moniker-end
 
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+::: moniker range="doc-intel-3.0.0"
 
-### Document Intelligence Studio
+Document Intelligence v3.0 supports the following tools, applications, and libraries:
 
-> [!NOTE]
-> Currently, Document Intelligence Studio doesn't support Microsoft Word, Excel, PowerPoint, and HTML file formats in the Read version v3.0.
-
-***Sample form processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/read)***
-
-:::image type="content" source="media/studio/form-recognizer-studio-read-v3p2-updated.png" alt-text="Screenshot: Read processing in Document Intelligence Studio.":::
-
-1. On the Document Intelligence Studio home page, select **Read**
-
-1. You can analyze the sample document or select the **+ Add** button to upload your own sample.
-
-1. Select the **Analyze** button:
-
-    :::image type="content" source="media/studio/form-recognizer-studio-read-analyze-v3p2-updated.png" alt-text="Screenshot: analyze read menu.":::
-
-   > [!div class="nextstepaction"]
-   > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Read OCR model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-read**|
+::: moniker-end
 
 ## Input requirements
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-## Supported languages and locales
+## Read model data extraction
 
-Document Intelligence v3.0 version supports several languages for the read OCR model. *See* our [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
+Try extracting text from forms and documents using the Document Intelligence Studio. You need the following assets:
+
+* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
+
+> [!NOTE]
+> Currently, Document Intelligence Studio doesn't support Microsoft Word, Excel, PowerPoint, and HTML file formats.
+
+***Sample document processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/read)***
+
+:::image type="content" source="media/studio/form-recognizer-studio-read-v3p2-updated.png" alt-text="Screenshot of Read processing in Document Intelligence Studio.":::
+
+1. On the Document Intelligence Studio home page, select **Read**
+
+1. You can analyze the sample document or upload your own files.
+
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
+
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
+
+   > [!div class="nextstepaction"]
+   > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
+
+## Supported document types
+
+> [!NOTE]
+>
+> * For the preview of Office and HTML file formats, Read API ignores the pages parameter and extracts all pages by default. Each embedded image counts as 1 page unit and each worksheet, slide, and page (up to 3000 characters) count as 1 page.
+
+| **Model**   | **Images**   | **PDF**  | **TIFF** | **Word**   | **Excel**  | **PowerPoint** | **HTML** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **prebuilt-read**  | GA</br> (2023-07-31 and 2022-08-31)| GA</br> (2023-07-31 and 2022-08-31)  | GA</br> (2023-07-31 and 2022-08-31)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview) | Preview</br>(2022-06-30-preview) |
+
+## Supported extracted languages and locales
+
+*See* our [Language Support—document analysis models](language-support-ocr.md) page for a complete list of supported languages.
 
 ## Data detection and extraction
 
+ | **Model**   | **Text**   | *[**Language extraction**](#supported-extracted-languages-and-locales) </br>* [**Language detection**](#language-detection) |
+| --- | --- | --- |
+**prebuilt-read**  | ✓  |✓  |
+
 ### Microsoft Office and HTML text extraction
 
-Use the parameter `api-version=2022-06-30-preview` when using the REST API or the corresponding SDKs of that API version to preview text extraction from Microsoft Word, Excel, PowerPoint, and HTML files. The following illustration shows extraction of the digital text and text from the images embedded in the Word document by running OCR on the images.
+Use the parameter `api-version=2023-07-31` when using the REST API or the corresponding SDKs of that API version to extract text from Microsoft Word, Excel, PowerPoint, and HTML files. The following illustration shows extraction of the digital text and text in the Word document by running OCR on the images. Text from embedded images isn't included in the extraction.
+
+> [!NOTE]
+>
+> * [Add-on capabilities](concept-add-on-capabilities.md) are not supported for Microsoft Word, Excel, PowerPoint, and HTML file formats.
 
 :::image type="content" source="media/office-to-ocr.png" alt-text="Screenshot of a Microsoft Word document extracted by Document Intelligence Read OCR.":::
 
@@ -103,12 +135,12 @@ The page units in the model output are computed as shown:
 
  **File format**   | **Computed page unit**   | **Total pages**  |
 | --- | --- | --- |
-|Word  | Up to 3,000 characters = 1 page unit, Each embedded image = 1 page unit | Total pages of up to 3,000 characters each + Total embedded images |
-|Excel  | Each worksheet = 1 page unit, Each embedded image = 1 page unit | Total worksheets + Total images
-|PowerPoint |  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
+|Word  | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
+|Excel  | Each worksheet = 1 page unit, embedded or linked images not supported | Total worksheets
+|PowerPoint |  Each slide = 1 page unit, embedded or linked images not supported | Total slides
 |HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 
- ### Barcode extraction
+### Barcode extraction
 
 The Read OCR model extracts all identified barcodes in the `barcodes` collection as a top level object under `content`. Inside the `content`, detected barcodes are represented as `:barcode:`. Each entry in this collection represents a barcode and includes the barcode type as `kind` and the embedded barcode content as `value` along with its `polygon` coordinates. Initially, barcodes appear at the end of each page. Here, the `confidence` is hard-coded for the public preview (`2023-02-28`) release.
 
@@ -156,7 +188,7 @@ The Read OCR model in Document Intelligence extracts all identified blocks of te
 
 ### Language detection
 
-The Read OCR model in Document Intelligence adds [language detection](language-support.md#detected-languages-read-api) as a new feature for text lines. Read predicts the detected primary language for each text line along with the `confidence` in the `languages` collection under `analyzeResult`.
+The Read OCR model in Document Intelligence adds [language detection](#language-detection) as a new feature for text lines. Read predicts the detected primary language for each text line along with the `confidence` in the `languages` collection under `analyzeResult`.
 
 ```json
 "languages": [
@@ -223,16 +255,16 @@ For the preview of Microsoft Word, Excel, PowerPoint, and HTML file support, Rea
 ]
 ```
 
-### Select page (s) for text extraction
+### Select page(s) for text extraction
 
 For large multi-page PDF documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
 
 > [!NOTE]
-> For the preview of Microsoft Word, Excel, PowerPoint, and HTML file support, the Read API ignores the pages parameter and extracts all pages by default.
+> For the Microsoft Word, Excel, PowerPoint, and HTML file support, the Read API ignores the pages parameter and extracts all pages by default.
 
-### Handwritten style for text lines (Latin languages only)
+### Handwritten style for text lines
 
-The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows an example JSON snippet.
+The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. For more information, *see* [handwritten language support](language-support-ocr.md). The following example shows an example JSON snippet.
 
 ```json
 "styles": [
@@ -254,13 +286,13 @@ Complete a Document Intelligence quickstart:
 
 > [!div class="checklist"]
 >
-> * [**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)
-> * [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-csharp)
-> * [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-python)
-> * [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-java)
-> * [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>
+> * [**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)
+> * [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.1.0&preserve-view=true?pivots=programming-language-csharp)
+> * [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.1.0&preserve-view=true?pivots=programming-language-python)
+> * [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.1.0&preserve-view=true?pivots=programming-language-java)
+> * [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.1.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>
 
 Explore our REST API:
 
 > [!div class="nextstepaction"]
-> [Document Intelligence API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+> [Document Intelligence API v3.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)

@@ -5,11 +5,10 @@ description: Install and run neural text to speech containers with Docker to per
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 08/28/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-sdk-cli
 keywords: on-premises, Docker, container
@@ -18,9 +17,6 @@ keywords: on-premises, Docker, container
 # Text to speech containers with Docker
 
 The neural text to speech container converts text to natural-sounding speech by using deep neural network technology, which allows for more natural synthesized speech.. In this article, you'll learn how to download, install, and run a Text to speech container.
-
-> [!NOTE]
-> You must [request and get approval](speech-container-overview.md#request-approval-to-run-the-container) to use a Speech container. 
 
 For more information about prerequisites, validating that a container is running, running multiple containers on the same host, and running disconnected containers, see [Install and run Speech containers with Docker](speech-container-howto.md).
 
@@ -197,4 +193,4 @@ For example, a model that was downloaded via the `latest` tag (defaults to "en-U
 
 * See the [Speech containers overview](speech-container-overview.md)
 * Review [configure containers](speech-container-configuration.md) for configuration settings
-* Use more [Azure AI services containers](../cognitive-services-container-support.md)
+* Use more [Azure AI containers](../cognitive-services-container-support.md)

@@ -36,6 +36,14 @@ In this article, you will learn how to:
 
 * A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
+## Module authentication
+
+You can use symmetric keys or X.509 certificates to authenticate module identities. For X.509 certificate authentication, the module's certificate *must* have its common name (CN) formatted like `CN=<deviceid>/<moduleid>`. For example:
+
+```bash
+openssl req -new -key d1m1.key.pem -out d1m1.csr -subj "/CN=device01\/module01"
+```
+
 ## Create a module identity in the portal
 
 Within one device identity, you can create up to 20 module identities. To add an identity, follow these steps:
