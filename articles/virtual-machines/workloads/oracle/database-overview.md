@@ -23,7 +23,7 @@ Use Oracle Database@Azure (OracleDB@Azure) to subscribe to the Oracle Database S
 
 These products run on Oracle hardware, and Oracle provides hardware management. For example, patching through a connection to Oracle Cloud (OCI). While the OracleDB@Azure service requires that customers have an OCI tenancy, most service activities take place in the Azure environment.
 
-## Oracle Database on Azure interfaces 
+## Oracle Database@Azure interfaces 
 
 You can provision Oracle Database@Azure using the Azure portal and Azure APIs, SDKs and Terraform. All nomenclature, creation flows, and wizard paths are Azure. Management of Oracle database system infrastructure and VM cluster resources takes place in the Azure portal as well.
 
@@ -69,7 +69,7 @@ If you're contacting Oracle Support, be sure to tell your Oracle Support agent t
 4.  Enter "#" each time you're asked for your CSI number. At the third attempt, your call is directed to an Oracle Support agent.
 5.  Let the agent know that you have an issue with your multicloud system, and the name of the product (for example,  or ). An internal Service Request is opened on your behalf and a  support engineer contacts you directly.
 
-## Purchasing Oracle Database on Azure 
+## Purchasing Oracle Database@Azure 
 
 For small deployments (for example, an Oracle Base Database system), simply buy Oracle Database@Azure in the Azure Marketplace.
 
