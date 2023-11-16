@@ -440,13 +440,13 @@ items:
         href: insights/scom-assessment.md
     - name: Tutorials
       items:
-      - name: Enable recommended alerts
+      - name: Enable recommended alerts for VMs
         href: vm/tutorial-monitor-vm-alert-recommended.md
-      - name: Create availability alert
+      - name: Create an availability alert for VMs
         href: vm/tutorial-monitor-vm-alert-availability.md
       - name: Enable VM insights
         href: vm/tutorial-monitor-vm-enable-insights.md
-      - name: Collect guest logs and metrics
+      - name: Collect VM guest logs and metrics
         href: vm/tutorial-monitor-vm-guest.md
   - name: Monitor containers
     items:
@@ -1609,3 +1609,11 @@ items:
       href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor
+- name: Learn
+  items: 
+    - name: Azure Monitor fundamentals 
+      href: /training/paths/monitor-usage-performance-availability-resources-azure-monitor/
+    - name: Analyze monitoring data with Kusto Query Language
+      href: /training/paths/analyze-monitoring-data-with-kql/
+    - name: Monitor hybrid virtual machines, containers, and network resources
+      href: /training/paths/monitor-hybrid-virtual-machines-containers-network/
