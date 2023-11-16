@@ -250,10 +250,10 @@ Depending on the selected actions, the attribute might be found in different pla
 > [!div class="mx-tableFixed"]
 > | Attribute source | Description | Code |
 > | --- | --- | --- |
-> | [Environment](#environment-attributes) | Indicates that the attribute is associated with the environment of the request, such as the network origin of the request or the current date and time.</br>***(Environment attributes are currently in preview.)*** | `@Environment` |
-> | [Principal](#principal-attributes) | Indicates that the attribute is a Microsoft Entra custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity. | `@Principal` |
-> | [Request](#request-attributes) | Indicates that the attribute is part of the action request, such as setting the blob index tag. | `@Request` |
-> | [Resource](#resource-attributes) | Indicates that the attribute is a property of the resource, such as a container name. | `@Resource` |
+> | [Environment](#environment-attributes) | Attribute is associated with the environment of the request, such as the network origin of the request or the current date and time.</br>***(Environment attributes are currently in preview.)*** | `@Environment` |
+> | [Principal](#principal-attributes) | Attribute is a custom security attribute assigned to the principal, such as a user or enterprise application (service principal). | `@Principal` |
+> | [Request](#request-attributes) | Attribute is part of the action request, such as setting the blob index tag. | `@Request` |
+> | [Resource](#resource-attributes) | Attribute is a property of the resource, such as a container name. | `@Resource` |
 
 For a complete list of the storage attributes you can use in conditions, see:
 
@@ -283,7 +283,7 @@ The following table lists the supported environment attributes for conditions.
 
 #### Principal attributes
 
-Principal attributes are custom security attributes assigned to a security principal that is requesting access to a resource. The security principal can be a user or an enterprise application (service principal).
+Principal attributes are custom security attributes assigned to the security principal requesting access to a resource. The security principal can be a user or an enterprise application (service principal).
 
 To use principal attributes, you must have the following:
 
