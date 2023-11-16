@@ -1,5 +1,6 @@
 ---
 title: Manage assets overview
+titleSuffix: Azure IoT Operations
 description: Understand the options to manage the assets that are part of your Azure IoT Operations Preview solution.
 author: timlt
 ms.author: timlt
