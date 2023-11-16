@@ -297,7 +297,7 @@ The following sample creates an alert when a specific Windows event is created. 
    This example shows an event in the Application log. Specify a threshold of 0 and consecutive breaches greater than 0.
 
     
-```kusto
+    ```kusto
     Event 
     | where EventLog == "Application"
     | where EventID == 123 
@@ -308,7 +308,7 @@ The following sample creates an alert when a specific Windows event is created. 
    The following example shows error authorization events. Specify a threshold of 0 and consecutive breaches greater than 0.
 
     
-```kusto
+    ```kusto
     Syslog
     | where Facility == "auth"
     | where SeverityLevel == "err"
