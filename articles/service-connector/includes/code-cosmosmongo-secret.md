@@ -55,7 +55,7 @@ ms.author: wchi
     }
     ```
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 Refer to [Use Spring Data with Azure Cosmos DB for MongoDB API](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db) to set up your Spring application. The configuration properties `spring.data.mongodb.database` and `spring.data.mongodb.uri` are set to Spring Apps by Service Connector.
 
 
@@ -108,5 +108,5 @@ Refer to [Use Spring Data with Azure Cosmos DB for MongoDB API](/azure/developer
     ```
 
 
-### [Other](#tab/other)
+### [None](#tab/none)
 For other languages, you can use the MongoDB resource endpoint and other properties that Service Connector sets to the environment variables to connect the Azure Cosmos DB for MongoDB. For environment variable details, see [Integrate Azure Cosmos DB for MongoDB with Service Connector](../how-to-integrate-cosmos-db.md).

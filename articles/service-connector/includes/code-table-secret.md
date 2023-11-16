@@ -71,5 +71,5 @@ ms.author: wchi
     const serviceClient = TableServiceClient.fromConnectionString(connection_str);
     ```
 
-### [Other](#tab/other)
+### [None](#tab/none)
 For other languages, you can use the Azure Table Storage account URL and other properties that Service Connector sets to the environment variables to connect to Azure Table Storage. For environment variable details, see [Integrate Azure Table Storage with Service Connector](../how-to-integrate-storage-table.md).

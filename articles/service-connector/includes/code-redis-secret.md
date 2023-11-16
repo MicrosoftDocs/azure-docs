@@ -47,7 +47,7 @@ ms.author: wchi
     Jedis jedis = new Jedis(shardInfo);
     ```
 
-#### [SpringBoot](#tab/spring)
+#### [SpringBoot](#tab/springBoot)
 
 Refer to [Use Azure Redis Cache in Spring](/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache) to set up your Spring application. The configuration properties are added to Spring Apps by Service Connector.
 

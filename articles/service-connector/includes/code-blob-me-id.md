@@ -238,5 +238,5 @@ var blobServiceClient = new BlobServiceClient(
    const blobServiceClient = new BlobServiceClient(account_url, credential);
    ```
 
-### [Other](#tab/other)
+### [None](#tab/none)
 For other languages, you can use the Azure Blob Storage account url and other properties that Service Connector set to the environment variables to connect to Azure Blob storage. For environment variable details, see [Integrate Azure Blob Storage with Service Connector](../how-to-integrate-storage-blob.md).

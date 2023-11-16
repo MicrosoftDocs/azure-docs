@@ -73,7 +73,7 @@ await connection.OpenAsync();
 
 For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/connect-java.md?tabs=passwordless).
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 
 For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector will set the properties `spring.datasource.azure.passwordless-enabled`, `spring.datasource.url`, and `spring.datasource.username` to Azure Spring Apps. 
 

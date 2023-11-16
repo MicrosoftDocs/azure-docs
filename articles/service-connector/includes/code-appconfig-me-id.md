@@ -153,5 +153,5 @@ ms.author: wchi
     );
     ```
 
-### [Other](#tab/other)
+### [None](#tab/none)
 For other languages, you can use the connection information that Service Connector set to the environment variables to connect Azure App Configuration. For environment variable details, see [Integrate Azure App Configuration with Service Connector](../how-to-integrate-app-configuration.md).

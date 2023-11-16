@@ -39,7 +39,7 @@ ms.author: yungez
     }
     ```
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 
 1. Install dependencies. Add following dependencies to your `pom.xml` file.
     ```xml

@@ -146,5 +146,5 @@ $db = new Connection([
 ```
 
 
-### [Other](#tab/other)
+### [None](#tab/none)
 For other languages, you can use the Apache Gremlin endpoint and other properties that Service Connector sets to the environment variables to connect the Azure Cosmos DB for Apache Gremlin resource. For environment variable details, see [Integrate Azure Cosmos DB for Apache Gremlin with Service Connector](../how-to-integrate-cosmos-gremlin.md).

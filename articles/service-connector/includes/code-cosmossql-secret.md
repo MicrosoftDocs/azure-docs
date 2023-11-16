@@ -50,7 +50,7 @@ ms.author: wchi
         .buildClient();
     ```
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 
 Refer to [Spring Data Azure Cosmos DB v3 examples](/azure/cosmos-db/nosql/samples-java-spring-data) and [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB for NoSQL data](/azure/cosmos-db/nosql/quickstart-java-spring-data?tabs=password%2Csign-in-azure-cli) to set up your Spring application. The configuration properties are added to Spring Apps by Service Connector. Two sets of configuration properties are provided according to the version of Spring Cloud Azure (below 4.0 and above 4.0). For more information about library changes of Spring Cloud Azure, refer to [Spring Cloud Azure Migration Guide](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#configuration-spring-cloud-azure-starter-data-cosmos). It is recommended to use Spring Cloud Azure version 4.0 and above. The configurations in the format of "azure.cosmos.*" from Spring Cloud Azure 3.x will no longer be supported after 1st July, 2024. 
 
@@ -84,5 +84,5 @@ Refer to [Spring Data Azure Cosmos DB v3 examples](/azure/cosmos-db/nosql/sample
 
 
 
-### [Other](#tab/other)
+### [None](#tab/none)
 For other languages, you can use the endpoint URL and other properties that Service Connector sets to the environment variables to connect to Azure Cosmos DB for NoSQL. For environment variable details, see [Integrate Azure Cosmos DB for NoSQL with Service Connector](../how-to-integrate-cosmos-sql.md).

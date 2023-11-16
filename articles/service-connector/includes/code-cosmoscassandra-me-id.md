@@ -182,7 +182,7 @@ ms.author: wchi
         .withAuthCredentials(cassandraUsername, cassandraPassword).build();
     ```
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 Authentication type is not supported for Spring Boot.
 
 ### [Python](#tab/python)
@@ -387,5 +387,5 @@ Authentication type is not supported for Spring Boot.
     ```
 
 
-### [Other](#tab/other)
+### [None](#tab/none)
 For other languages, you can use the Cassandra contact point and other properties that Service Connector sets to the environment variables to connect the Azure Cosmos DB for Cassandra resource. For environment variable details, see [Integrate Azure Cosmos DB for Cassandra with Service Connector](../how-to-integrate-cosmos-cassandra.md).

@@ -137,7 +137,7 @@ ms.author: wchi
     MongoClient mongoClient = new MongoClient(uri);
     ```
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 The authentication type is not supported for Spring Boot.
 
 
@@ -259,5 +259,5 @@ The authentication type is not supported for Spring Boot.
     ```
 
 
-### [Other](#tab/other)
+### [None](#tab/none)
 For other languages, you can use the MongoDB resource endpoint and other properties that Service Connector sets to the environment variables to connect the Azure Cosmos DB for MongoDB. For environment variable details, see [Integrate Azure Cosmos DB for MongoDB with Service Connector](../how-to-integrate-cosmos-db.md).
