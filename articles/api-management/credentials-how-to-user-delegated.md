@@ -66,7 +66,7 @@ You need to provision the Azure API Management Data Plane service principal to g
     New-AzureADServicePrincipal -AppId c8623e40-e6ab-4d2b-b123-2ca193542c65 -DisplayName "Azure API Management Data Plane"
     ```
 
-## Step 2: Create a Microsoft Entra ID app registration
+## Step 2: Create a Microsoft Entra app registration
 
 Create a Microsoft Entra ID application for user delegation and give it the appropriate permissions to read the connection in API Management.
 

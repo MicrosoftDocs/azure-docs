@@ -42,7 +42,7 @@ API credential manager supports the Microsoft Entra identity provider, which is 
 >  Currently, the Microsoft Entra credential provider supports only the Azure AD v1.0 endpoints.
  
 
-### Microsoft Entra provider settings
+### Microsoft Entra ID provider settings
     
 [!INCLUDE [api-management-authorization-azure-ad-provider](../../includes/api-management-authorization-azure-ad-provider.md)]
 
