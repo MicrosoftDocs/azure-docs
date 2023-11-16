@@ -28,7 +28,7 @@ This Oracle Cloud Storage connector is supported for the following capabilities:
 |[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
 |[Delete activity](delete-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 Specifically, this Oracle Cloud Storage connector supports copying files as is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md). It takes advantage of Oracle Cloud Storage's S3-compatible interoperability.
 
