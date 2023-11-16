@@ -1539,7 +1539,7 @@ productDirectory:
         - web
       url: azure-signalr/index.yml
     # Card
-    - title: Azure Orbital (Preview)
+    - title: Azure Orbital Ground Station
       summary: Satellite ground station and scheduling services for fast downlinking of data
       imageSrc: /media/logos/logo-azureorbital.svg
       azureCategories:
