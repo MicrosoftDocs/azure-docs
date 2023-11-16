@@ -74,6 +74,13 @@ To view the list of Dynamic scopes associated to a given maintenance configurati
 ## Provide consent to apply updates
 
 Obtaining consent to apply updates is an important step in the workflow of dynamic scoping and listed are the various ways to provide consent.
+> [!NOTE]
+> The schedules associated to dynamic scopes aren’t displayed in the following two areas by design:
+>
+>  - **Update manager** > **Machines** > **Associated schedules** column
+>  - In your virtual machine home page > **Updates** > **Scheduling** tab.
+>
+> To view the VMs that are associated to the schedule, go to the existing schedule and view under **Dynamic scopes** tab.
 
 #### [From Virtual Machine](#tab/vm)
 
