@@ -25,11 +25,10 @@ try {
      const details: SDK.TeamsMeetingAudioConferencingDetails = audioConferencingFeature.getTeamsMeetingAudioConferencingDetails();
      console.log(`Meeting Conference Id: ${details.phoneConferenceId}`);
      details.phoneNumbers.forEach(dialInPhoneNumber => {
-         if (dialInPhoneNumber.tollPhoneNumber) { 
+        if (dialInPhoneNumber.tollPhoneNumber) { 
              console.log(`Dial-In Toll PhoneNumber: ${dialInPhoneNumber.tollPhoneNumber.phoneNumber}`);
         }
-
-        if (dialInPhoneNumber.tollFreePhoneNumber) { 
+        else if (dialInPhoneNumber.tollFreePhoneNumber) { 
             console.log(`Dial-In TollFree PhoneNumber: ${dialInPhoneNumber.tollFreePhoneNumber.phoneNumber}`);
         } 
     })
