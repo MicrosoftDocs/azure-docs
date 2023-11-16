@@ -7,7 +7,7 @@ ms.author: timlt
 ms.topic: how-to 
 ms.date: 11/14/2023
 
-# CustomerIntent: As an industrial edge IT or operations user, I want to autodetect and create OPC UA data sources in my  
+# CustomerIntent: As an industrial edge IT or operations user, I want to discover and create OPC UA data sources in my  
 # industrial edge environment so that I can reduce manual configuration overhead. 
 ---
 
@@ -15,7 +15,7 @@ ms.date: 11/14/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this article, you learn how to discover OPC UA data sources. After you deploy Azure IoT Operations, you configure Azure IoT Akri to discover OPC UA data sources at the edge. Azure IoT Akri creates custom resources into the Azure IoT Operations namespace on your cluster to represent the discovered devices. The capability to discover OPC UA data sources simplifies the process of manually configuring them from the cloud and onboarding them to your cluster. Currently, Azure IoT Akri can't detect and create assets that can be ingested into the Azure Device Registry. For more information on supported features, see [Azure IoT Akri overview](overview-akri.md#features).
+In this article, you learn how to discover OPC UA data sources. After you deploy Azure IoT Operations, you configure Azure IoT Akri to detect OPC UA data sources at the edge. Azure IoT Akri creates custom resources into the Azure IoT Operations namespace on your cluster to represent the discovered devices. The capability to discover OPC UA data sources simplifies the process of manually configuring them from the cloud and onboarding them to your cluster. Currently, Azure IoT Akri can't detect and create assets that can be ingested into the Azure Device Registry. For more information on supported features, see [Azure IoT Akri overview](overview-akri.md#features).
 
 Azure IoT Akri enables you to detect and create `Assets` in the address space of an OPC UA Server. The OPC UA asset detection generates `AssetType` and `Asset` Kubernetes custom resources (CRs) for [OPC UA Device Integration (DI) specification](https://reference.opcfoundation.org/DI/v104/docs/) compliant `Assets`.  
 
