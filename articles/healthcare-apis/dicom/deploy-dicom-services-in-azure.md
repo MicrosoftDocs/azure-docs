@@ -16,7 +16,7 @@ In this quickstart, you learn how to deploy the DICOM&reg; service by using the 
 After deployment is finished, you can use the Azure portal to go to the newly created DICOM service to see the details, including your service URL. The service URL to access your DICOM service is ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the version as part of the URL when you make requests. For more information, see [API versioning for the DICOM service](api-versioning-dicom-service.md).
 
 > [!NOTE]
-> A public preview of the DICOM service with Data Lake Storage is now available.  This capability provides greater flexibility and control over your imaging data.  Learn more: [Deploy the DICOM service with Data Lake Storage (Preview)](deploy-dicom-services-in-azure-data-lake.md)
+> A public preview of the DICOM service with Data Lake Storage is now available. This capability provides greater flexibility and control over your imaging data. Learn more: [Deploy the DICOM service with Data Lake Storage (Preview)](deploy-dicom-services-in-azure-data-lake.md)
 
 ## Prerequisites
 

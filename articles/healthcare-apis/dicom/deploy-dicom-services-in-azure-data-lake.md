@@ -20,10 +20,10 @@ After deployment is finished, you can use the Azure portal to go to the newly cr
 
 - **Deploy an Azure Health Data Services workspace**.  For more information, see [Deploy a workspace in the Azure portal](../healthcare-apis-quickstart.md).
 - **Create a storage account with a hierarchical namespace**.  For more information, see [Create a storage account to use with Azure Data Lake Storage Gen2](https://learn.microsoft.com/azure/storage/blobs/create-data-lake-storage-account).
-- **Create a new blob container in the storage account**.  This container will be used by the DICOM service to store DICOM files.  For more information, see [Manage blob containers using the Azure portal](https://learn.microsoft.com/azure/storage/blobs/blob-containers-portal)
+- **Create a blob container in the storage account**.  The container is used by the DICOM service to store DICOM files.  For more information, see [Manage blob containers using the Azure portal](https://learn.microsoft.com/azure/storage/blobs/blob-containers-portal)
 
 > [!NOTE]
-> The data lake storage option is currently only available for newly created instances of the DICOM service.  After GA, there will be options for existing DICOM service instances to migrate.
+> The Azure Data Lake Storage option is currently only available for newly created instances of the DICOM service.  After the option becomes generally available, we plan to offer a migration path for existing DICOM service instances.
 
 ## Deploy the DICOM service with Data Lake Storage using the Azure portal
 
@@ -54,15 +54,15 @@ After deployment is finished, you can use the Azure portal to go to the newly cr
 1. Select **Review + create** to deploy the DICOM service.  
 
     > [!NOTE]
-    > Configuration of customer-managed keys is not supported during the creation of a DICOM service when opting to use external storage.  Customer-managed keys can be configured after the DICOM service has been created.  
+    > Configuration of customer-managed keys isn't supported during the creation of a DICOM service when you opt to use external storage.  Customer-managed keys can be configured after the DICOM service has been created.  
 
-1. When you notice the green validation check mark, select **Create** to deploy the DICOM service.
+1. When the system displays a green validation check mark, select **Create** to deploy the DICOM service.
 
-1. After the deployment process is finished, select **Go to resource**.
+1. After the deployment process completes, select **Go to resource**.
 
    :::image type="content" source="media/deploy-data-lake/dicom-deploy-complete.png" alt-text="Screenshot that shows the completed deployment of the DICOM service." lightbox="media/deploy-data-lake/dicom-deploy-complete.png":::
 
-   The DICOM service overview shows the newly created service.
+   The DICOM service overview screen shows the new service.
 
    :::image type="content" source="media/deploy-data-lake/dicom-service-overview.png" alt-text="Screenshot that shows the DICOM service overview." lightbox="media/deploy-data-lake/dicom-service-overview.png":::
 
