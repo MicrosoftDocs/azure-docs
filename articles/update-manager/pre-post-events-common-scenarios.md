@@ -6,15 +6,16 @@ ms.topic: conceptual
 ms.date: 11/06/2023
 author: SnehaSudhir 
 ms.author: sudhirsneha
+#Customer intent: As an implementer, I want answers to various questions.
 ---
 
-# Pre and Post events (preview) common scenarios
+# Pre and Post events (preview) frequently asked questions
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-This article presents common scenarios in the lifecycle of pre and post events (preview).
+This article presents the frequently asked questions in the lifecycle of pre and post events (preview).
 
-## Scenario 1: Check the configuration of pre and post event on your schedule and its count
+## How to check the configuration of pre and post event on your schedule and its count?
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Manage**, select **Machines**, **Maintenance Configurations**.
@@ -25,7 +26,7 @@ This article presents common scenarios in the lifecycle of pre and post events (
     
        :::image type="content" source="./media/pre-post-events-common-scenarios/configure-new-event.png" alt-text="Screenshot that shows how to configure new event." lightbox="./media/pre-post-events-common-scenarios/configure-new-event.png":::
 
-## Scenario 2: View the list of pre and post events set up on a maintenance configuration
+## How to view the list of pre and post events set up on a maintenance configuration?
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Manage**, select **Machines**, **Maintenance Configurations**.
@@ -37,7 +38,7 @@ This article presents common scenarios in the lifecycle of pre and post events (
    :::image type="content" source="./media/pre-post-events-common-scenarios/view-pre-post-events.png" alt-text="Screenshot that shows how to view the list of pre and post events." lightbox="./media/pre-post-events-common-scenarios/view-pre-post-events.png":::
 
 
-## Scenario 3: View the list of different endpoints setup for pre and post events on a maintenance configuration
+## How to view the list of different endpoints setup for pre and post events on a maintenance configuration?
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Manage**, select **Machines**, **Maintenance Configurations**.
@@ -48,7 +49,7 @@ This article presents common scenarios in the lifecycle of pre and post events (
 
    :::image type="content" source="./media/pre-post-events-common-scenarios/view-endpoint.png" alt-text="Screenshot that shows how to view endpoints." lightbox="./media/pre-post-events-common-scenarios/view-endpoint.png":::
 
-## Scenario 4: Check the successful delivery of a pre or post event to an endpoint from Event Grid
+## How to check the successful delivery of a pre or post event to an endpoint from Event Grid?
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Manage**, select **Machines**, **Maintenance Configurations**.
@@ -59,7 +60,7 @@ This article presents common scenarios in the lifecycle of pre and post events (
 1. To view the time at which the event was triggered, hover over the line graph. [Learn more](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/microsoft-eventgrid-systemtopics-metrics).
 
 
-## Scenario 5: Check an unsuccessful delivery of a pre and post events to an endpoint from Event Grid
+## How to check an unsuccessful delivery of a pre and post events to an endpoint from Event Grid?
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Manage**, select **Machines**, **Maintenance Configurations**.
@@ -72,12 +73,9 @@ This article presents common scenarios in the lifecycle of pre and post events (
    > [!NOTE]
    > You can anytime set up logs and alerts for a successful deliveries. 
 
-## Scenario 6: Check if the endpoint has been triggered in the pre or post task
+## How to check if the endpoint has been triggered in the pre or post task?
 
-> [!NOTE]
-> This covers Webhooks using Runbooks and Azure Functions
-
-### Webhooks using Runbooks
+#### [With webhooks using Automation Runbooks](#tab/events-runbooks)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Automation account**.
 1. In your Automation account, under **Process Automation**, select **Runbooks**.
@@ -86,14 +84,18 @@ This article presents common scenarios in the lifecycle of pre and post events (
 
    :::image type="content" source="./media/pre-post-events-common-scenarios/trigger-endpoint.png" alt-text="Screenshot that shows how to view the status of the Runbook job." lightbox="./media/pre-post-events-common-scenarios/trigger-endpoint.png":::
 
-   Upon completion, you can confirm whether the prepatch installation process has been completed as planned. For instance, ensure that the VM has been either powered on or off. For more information on how to retrieve details from Automation account's activity log, see [Manage runbooks in Azure Automation](../automation/manage-runbooks.md).
+   Upon completion, you can confirm whether the prepatch installation process has been completed as planned. For instance, ensure that the VM has been either powered on or off. 
 
+For more information on how to retrieve details from Automation account's activity log:
+- Learn more on how to [Manage runbooks in Azure Automation](../automation/manage-runbooks.md).
 
-### Azure Functions
+#### [With Azure Functions](#tab/events-functions)
 
-- You can set up logs for Azure Functions to track their execution. [Learn more](../azure-functions/streaming-logs.md).
+- See the [set up logs for Azure Functions to track their execution](../azure-functions/streaming-logs.md).
 
-## Scenario 7: Check if the script in Webhooks using Runbooks is triggered from Event Grid
+---
+
+### How to check if the script in Webhooks using Runbooks is triggered from Event Grid?
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Automation account**.
 1. In your Automation account, under **Process Automation**, select **Runbooks**.
@@ -102,7 +104,7 @@ This article presents common scenarios in the lifecycle of pre and post events (
    
     :::image type="content" source="./media/pre-post-events-common-scenarios/view-input-parameter.png" alt-text="Screenshot that shows how to view the latest run of the job." lightbox="./media/pre-post-events-common-scenarios/view-input-parameter.png":::
 
-## Scenario 8: Check the cancelation of a schedule
+## How to check the cancelation of a schedule?
 
 #### [Azure portal](#tab/cancel-portal)
 
@@ -119,7 +121,7 @@ This article presents common scenarios in the lifecycle of pre and post events (
 
 #### [REST API](#tab/cancel-rest)
 
-1. The cancellation flow is honored from T-40 when the premaintenance event is triggered until T-10. [Learn more](manage-pre-post-events.md#timeline-example). 
+1. The cancellation flow is honored from T-40 when the premaintenance event is triggered until T-10. [Learn more](manage-pre-post-events.md#timeline-of-schedules-for-pre-and-post-events). 
 
    To invoke the cancelation API:
    
@@ -133,13 +135,13 @@ This article presents common scenarios in the lifecycle of pre and post events (
 ---
 
  
-### Cancelation by user or system
+### How to confirm if the cancelation is by user or system?
 
 You can view the status of the maintenance job from the ARG query mentioned above to understand if you've canceled the job or the system. The error message confirms the status of the job.
 
 :::image type="content" source="./media/pre-post-events-common-scenarios/cancelation-query.png" alt-text="Screenshot that shows the status of job that has been canceled by system or user." lightbox="./media/pre-post-events-common-scenarios/cancelation-query.png":::
 
-## Scenario 9: Check the status of the maintenance configuration
+## How to check the status of the maintenance configuration?
 
 #### [Azure portal](#tab/status-portal)
 
@@ -154,7 +156,7 @@ You can view the status of the maintenance job from the ARG query mentioned abov
 1. Use the following Azure Resource Graph (ARG) query to view the status of the job in ARG.
 
    ```kusto
-   maintenanceresources  
+    maintenanceresources  
     | where type =~ "microsoft.maintenance/maintenanceconfigurations/applyupdates"  
     | where properties.correlationId has "/subscriptions/<your-s-id> /resourcegroups/<your-rg-id> /providers/microsoft.maintenance/maintenanceconfigurations/<mc-name> /providers/microsoft.maintenance/applyupdates/"  
     | order by name desc	 
