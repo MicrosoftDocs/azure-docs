@@ -2,7 +2,7 @@
 title: Enable Container insights for Azure Kubernetes Service (AKS) cluster
 description: Learn how to enable Container insights on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
-ms.date: 10/18/2023
+ms.date: 11/14/2023
 ms.custom: ignite-2022, devx-track-azurecli
 ms.reviewer: aul
 ---
@@ -30,7 +30,7 @@ When you create a new AKS cluster in the Azure portal, you can enable Prometheus
 
 :::image type="content" source="media/prometheus-metrics-enable/aks-integrations.png" lightbox="media/prometheus-metrics-enable/aks-integrations.png" alt-text="Screenshot of integrations tab for new AKS cluster.":::
 
-### From existing cluster
+### Existing cluster
 
 This options enables Container insights on a cluster and gives you the option of also enabling [Managed Prometheus and Managed Grafana](./prometheus-metrics-enable.md) for the cluster.
 
@@ -65,7 +65,26 @@ From the Container insights menu, you can view all of your clusters, quickly ide
 
 ## [CLI](#tab/azure-cli)
 
-Use the following command to enable Container insights on your cluster. If you don't include the `workspace-resource-id` parameter, a default Log Analytics workspace for the resource group will be used. If a default workspace doesn't already exist in the cluster's region, one will be created with a name in the format *DefaultWorkspace-\<GUID>-\<Region>*.
+> [!NOTE]
+> Managed identity authentication will be default in CLI version 2.49.0 or higher. If you need to use legacy/non-managed identity authentication, use CLI version < 2.49.0. For CLI version 2.54.0 or higher the logging schema will be configured to [ContainerLogV2](container-insights-logging-v2.md) via the ConfigMap
+
+### Use a default Log Analytics workspace
+
+Use the following command to enable monitoring of your AKS cluster by using a default Log Analytics workspace for the resource group. If a default workspace doesn't already exist in the cluster's region, one will be created with a name in the format *DefaultWorkspace-\<GUID>-\<Region>*.
+
+```azurecli
+az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name>
+```
+
+The output will resemble the following example:
+
+```output
+provisioningState       : Succeeded
+```
+
+### Specify a Log Analytics workspace
+
+Use the following command to enable monitoring of your AKS cluster on a specific Log Analytics workspace. The resource ID of the workspace will be in the form `"/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>"`.
 
 ```azurecli
 az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name> --workspace-resource-id <workspace-resource-id>

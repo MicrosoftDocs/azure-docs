@@ -3,11 +3,11 @@ title: Deploy a trusted launch VM
 description: Deploy a VM that uses trusted launch.
 author: lakmeedee
 ms.author: howieasmerom
-ms.reviewer: mattmcinnes
+ms.reviewer: erd
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 11/06/2023
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -95,6 +95,8 @@ az vm update \
    --enable-secure-boot true \
    --enable-vtpm true 
 ```  
+
+For more information about installing boot integrity monitoring through the Guest Attestation extension, see [Boot integrity](./boot-integrity-monitoring-overview.md).
 
 ### [PowerShell](#tab/powershell)
 

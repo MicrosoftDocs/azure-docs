@@ -11,13 +11,23 @@ ms.reviewer: viviandiec
 
 This article provides an overview of the requirements and options that are available for enabling [Container insights](../containers/container-insights-overview.md) on your Kubernetes clusters. You can enable Container insights for a new deployment or for one or more existing deployments of Kubernetes by using several supported methods.
 
-See the following articles for onboarding details for different cluster configurations. This article includes concepts that are common to all configurations.
+## Supported configurations
 
-- [AKS cluster](container-insights-enable-aks.md)
-- [AKS cluster with Azure Policy](container-insights-enable-aks-policy.md)
-- [Azure Arc-enabled cluster](container-insights-enable-arc-enabled-clusters.md)
-- [Hybrid Kubernetes clusters](container-insights-hybrid-setup.md)
+Container insights supports the following environments:
+- [Azure Kubernetes Service (AKS)](../../aks/index.yml)
+- Following [Azure Arc-enabled Kubernetes cluster distributions](../../azure-arc/kubernetes/validation-program.md):
+   - AKS on Azure Stack HCI
+   - AKS Edge Essentials
+   - Canonical
+   - Cluster API Provider on Azure
+   - K8s on Azure Stack Edge
+   - Red Hat OpenShift version 4.x
+   - SUSE Rancher (Rancher Kubernetes engine)
+   - SUSE Rancher K3s
+   - VMware (ie. TKG)
 
+> [!NOTE]
+> Container insights supports ARM64 nodes on AKS. See [Cluster requirements](../../azure-arc/kubernetes/system-requirements.md#cluster-requirements) for the details of Azure Arc-enabled clusters that support ARM64 nodes.
 
 
 ## Prerequisites
@@ -138,8 +148,8 @@ If you registered your cluster and/or configured HCI Insights before November 2
 
 ## Next steps
 
-See the following articles for specific steps to enable Container insights on different cluster configurations.
-- [AKS cluster](container-insights-enable-aks.md)
-- [AKS cluster with Azure Policy](container-insights-enable-aks-policy.md)
-- [Azure Arc-enabled cluster](container-insights-enable-arc-enabled-clusters.md)
-- [Hybrid Kubernetes clusters](container-insights-hybrid-setup.md)
+After you've enabled monitoring, you can begin analyzing the performance of your Kubernetes clusters that are hosted on AKS, Azure Stack, or another environment.
+
+To learn how to use Container insights, see [View Kubernetes cluster performance](container-insights-analyze.md).
+
+

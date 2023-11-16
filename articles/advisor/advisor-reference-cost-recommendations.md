@@ -342,7 +342,7 @@ Learn more about [Subscription - SQLDWReservedCapacity (Consider Azure Synapse A
 
 We analyzed your Azure Blob and Data Lake storage usage over last 30 days and calculated a Reserved Instance purchase that would maximize your savings. With reserved instances, you can prepurchase hourly usage and save over your current on-demand costs. Blob storage reserved instances applies only to data stored on Azure Blob (GPv2) and Azure Data Lake Storage (Gen 2). Reserved Instance is a billing benefit and automatically applies to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - BlobReservedCapacity ((Preview) Consider Blob storage reserved instances to save on Blob v2 and and Data Lake storage Gen2 costs)](https://aka.ms/rirecommendations).
+Learn more about [Subscription - BlobReservedCapacity ((Preview) Consider Blob storage reserved instances to save on Blob v2 and Data Lake storage Gen2 costs)](https://aka.ms/rirecommendations).
 
 ### Consider Azure Dedicated Host reserved instances to save over your on-demand costs
 

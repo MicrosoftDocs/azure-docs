@@ -1,13 +1,13 @@
 ---
-title: Upgrade Arc resource bridge (preview)
-description: Learn how to upgrade Arc resource bridge (preview) using either cloud-managed upgrade or manual upgrade.  
-ms.date: 10/20/2023
+title: Upgrade Arc resource bridge
+description: Learn how to upgrade Arc resource bridge using either cloud-managed upgrade or manual upgrade.  
+ms.date: 11/15/2023
 ms.topic: how-to
 ---
 
-# Upgrade Arc resource bridge (preview)
+# Upgrade Arc resource bridge
 
-This article describes how Arc resource bridge (preview) is upgraded, and the two ways upgrade can be performed: cloud-managed upgrade or manual upgrade. Currently, some private cloud providers differ in how they handle Arc resource bridge upgrades. For more information, see the [Private cloud providers](#private-cloud-providers) section.
+This article describes how Arc resource bridge is upgraded, and the two ways upgrade can be performed: cloud-managed upgrade or manual upgrade. Currently, some private cloud providers differ in how they handle Arc resource bridge upgrades. For more information, see the [Private cloud providers](#private-cloud-providers) section.
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ There must be sufficient space on the management machine and appliance VM to dow
 
 Currently, in order to upgrade Arc resource bridge, you must enable outbound connection from the Appliance VM IPs (`k8snodeippoolstart/end`, VM IP 1/2) to `msk8s.sb.tlu.dl.delivery.mp.microsoft.com`, port 443. Be sure the full list of [required endpoints for Arc resource bridge](network-requirements.md) are also enabled.
 
-Arc resource bridges configured with DHCP can't be upgraded and won't be supported in production. A new Arc resource bridge should be deployed using [static IP configuration](system-requirements.md#static-ip-configuration).  
+Arc resource bridges configured with DHCP can't be upgraded and aren't supported in a production environment. Instead, a new Arc resource bridge should be deployed using [static IP configuration](system-requirements.md#static-ip-configuration).  
 
 ## Overview
 
@@ -67,15 +67,15 @@ Or to upgrade a resource bridge on Azure Stack HCI, run: `az arcappliance upgrad
 
 Currently, private cloud providers differ in how they perform Arc resource bridge upgrades. Review the following information to see how to upgrade your Arc resource bridge for a specific provider.
 
-For Arc-enabled VMware vSphere (preview), manual upgrade is available, and cloud-managed upgrade is supported for appliances on version 1.0.15 and higher. When Arc-enabled VMware vSphere announces General Availability, appliances on version 1.0.15 and higher will receive cloud-managed upgrade as the default experience. Appliances that are below version 1.0.15 must be manually upgraded. A manual upgrade only upgrades the appliance to the next version, not the latest version. If you have multiple versions to upgrade, then another option is to review the steps for [performing a recovery](/azure/azure-arc/vmware-vsphere/recover-from-resource-bridge-deletion), then delete the appliance VM and perform the recovery steps. This will deploy a new Arc resource bridge using the latest version and reconnect pre-existing Azure resources. 
+For Arc-enabled VMware vSphere, manual upgrade is available, but appliances on version 1.0.15 and higher will receive cloud-managed upgrade as the default experience. Appliances that are below version 1.0.15 must be manually upgraded. A manual upgrade only upgrades the appliance to the next version, not the latest version. If you have multiple versions to upgrade, then another option is to review the steps for [performing a recovery](/azure/azure-arc/vmware-vsphere/recover-from-resource-bridge-deletion), then delete the appliance VM and perform the recovery steps. This will deploy a new Arc resource bridge using the latest version and reconnect pre-existing Azure resources.
 
-[Azure Arc VM management (preview) on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview) supports upgrade of an Arc resource bridge on Azure Stack HCI, version 22H2 up until appliance version 1.0.14 and `az arcappliance` CLI extension version 0.2.33. These upgrades can be done through manual upgrade or a support request for cloud-managed upgrade. For subsequent upgrades, you must transition to Azure Stack HCI, version 23H2 (preview). In version 23H2 (preview), the LCM tool manages upgrades across all components as a "validated recipe" package. For more information, visit the [Arc VM management FAQ page](/azure-stack/hci/manage/azure-arc-vms-faq).
+Azure Arc VM management (preview) on Azure Stack HCI supports upgrade of an Arc resource bridge on Azure Stack HCI, version 22H2 up until appliance version 1.0.14 and `az arcappliance` CLI extension version 0.2.33. These upgrades can be done through manual upgrade. For subsequent upgrades, you must transition to Azure Stack HCI, version 23H2 (preview). In version 23H2 (preview), the LCM tool manages upgrades across all components as a "validated recipe" package. For more information, visit the [Arc VM management FAQ page](/azure-stack/hci/manage/azure-arc-vms-faq).
 
-For Arc-enabled System Center Virtual Machine Manager (SCVMM) (preview), the upgrade feature isn't currently available yet. Review the steps for [performing the recovery operation](/azure/azure-arc/system-center-virtual-machine-manager/disaster-recovery), then delete the appliance VM from SCVMM and perform the recovery steps. This deploys a new resource bridge and reconnects pre-existing Azure resources.
+For Arc-enabled System Center Virtual Machine Manager (SCVMM), the upgrade feature isn't currently available yet. Review the steps for [performing the recovery operation](/azure/azure-arc/system-center-virtual-machine-manager/disaster-recovery), then delete the appliance VM from SCVMM and perform the recovery steps. This deploys a new resource bridge and reconnects pre-existing Azure resources.
 
 ## Version releases
 
-The Arc resource bridge version is tied to the versions of underlying components used in the appliance image, such as the Kubernetes version. When there is a change in the appliance image, the Arc resource bridge version gets incremented. This generally happens when a new `az arcappliance` CLI extension version is released. A new extension is typically released on a monthly cadence at the end of the month. For detailed release info, see the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub.
+The Arc resource bridge version is tied to the versions of underlying components used in the appliance image, such as the Kubernetes version. When there's a change in the appliance image, the Arc resource bridge version gets incremented. This generally happens when a new `az arcappliance` CLI extension version is released. A new extension is typically released on a monthly cadence at the end of the month. For detailed release info, see the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub.
 
 ## Supported versions
 
@@ -88,7 +88,7 @@ For example, if the current version is 1.0.18, then the typical n-3 supported ve
 - n-2 version: 1.0.16
 - n-3 version: 1.0.15
 
-There might be instances where supported versions are not sequential. For example, version 1.0.18 is released and later found to contain a bug. A hot fix is released in version 1.0.19 and version 1.0.18 is removed. In this scenario, n-3 supported versions become 1.0.19, 1.0.17, 1.0.16, 1.0.15.
+There might be instances where supported versions aren't sequential. For example, version 1.0.18 is released and later found to contain a bug. A hot fix is released in version 1.0.19 and version 1.0.18 is removed. In this scenario, n-3 supported versions become 1.0.19, 1.0.17, 1.0.16, 1.0.15.
 
 Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month, although it's possible that delays could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions, then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub.
 

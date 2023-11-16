@@ -29,10 +29,6 @@ There is also an option to manage your subscription with your own keys. Customer
 
 You must use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Azure AI services resource and the key vault must be in the same region and in the same Microsoft Entra tenant, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../../key-vault/general/overview.md).
 
-### Customer-managed keys for Language service
-
-To request the ability to use customer-managed keys, fill out and submit the [Language service Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk). It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using CMK with the Language service, you'll need to create a new Language resource from the Azure portal.
-
 
 ### Enable customer-managed keys
 
@@ -68,5 +64,4 @@ To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more
 
 ## Next steps
 
-* [Language service Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
 * [Learn more about Azure Key Vault](../../../key-vault/general/overview.md)

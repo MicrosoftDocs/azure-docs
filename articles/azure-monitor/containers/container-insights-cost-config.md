@@ -267,9 +267,9 @@ When you specify the tables to collect using CLI or ARM, you specify a stream na
 
 ## Impact on visualizations and alerts
 
-If you're currently using the above tables for other custom alerts or charts, then modifying your data collection settings may degrade those experiences. If you're excluding namespaces or reducing data collection frequency, review your existing alerts, dashboards, and workbooks using this data.
+If you're currently using the above tables for other custom alerts or charts, then modifying your data collection settings might degrade those experiences. If you're excluding namespaces or reducing data collection frequency, review your existing alerts, dashboards, and workbooks using this data.
 
-To scan for alerts that may be referencing these tables, run the following Azure Resource Graph query:
+To scan for alerts that reference these tables, run the following Azure Resource Graph query:
 
 ```Kusto
 resources
@@ -278,7 +278,7 @@ resources
 | extend enabled = tobool(properties["enabled"])
 | where enabled in~ ('true')
 | where tolower(properties["targetResourceTypes"]) matches regex 'microsoft.operationalinsights/workspaces($|/.*)?' or tolower(properties["targetResourceType"]) matches regex 'microsoft.operationalinsights/workspaces($|/.*)?' or tolower(properties["scopes"]) matches regex 'providers/microsoft.operationalinsights/workspaces($|/.*)?'
-| where properties contains "Perf" or properties  contains "InsightsMetrics" or properties  contains "ContainerInventory" or properties  contains "ContainerNodeInventory" or properties  contains "KubeNodeInventory" or properties  contains"KubePodInventory" or properties  contains "KubePVInventory" or properties  contains "KubeServices" or properties  contains "KubeEvents" 
+| where properties contains "Perf" or properties  contains "InsightsMetrics" or properties  contains "ContainerInventory" or properties  contains "ContainerNodeInventory" or properties  contains "KubeNodeInventory" or properties  contains"KubePodInventory" or properties  contains "KubePVInventory" or properties  contains "KubeServices" or properties  contains "KubeEvents" 
 | project id,name,type,properties,enabled,severity,subscriptionId
 | order by tolower(name) asc
 ```
@@ -289,5 +289,4 @@ Reference the [Limitations](./container-insights-cost-config.md#limitations) sec
 ## Limitations
 
 - Recommended alerts don't work as intended if the Data collection interval is configured more than 1-minute interval. To continue using Recommended alerts, migrate to the [Prometheus metrics addon](../essentials/prometheus-metrics-overview.md)
-- There may be gaps in Trend Line Charts of Deployments workbook if configured Data collection interval more than time granularity of the selected Time Range.
-
+- There might be gaps in Trend Line Charts of Deployments workbook if configured Data collection interval more than time granularity of the selected Time Range.

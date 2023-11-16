@@ -1,21 +1,22 @@
 ---
 title: AI enrichment concepts
-titleSuffix: Azure Cognitive Search
-description: Content extraction, natural language processing (NLP), and image processing can create searchable content in Azure Cognitive Search indexes.
+titleSuffix: Azure AI Search
+description: Content extraction, natural language processing (NLP), and image processing can create searchable content in Azure AI Search indexes.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 07/19/2023
-
+ms.date: 10/27/2023
 ---
-# AI enrichment in Azure Cognitive Search
+# AI enrichment in Azure AI Search
 
-In Cognitive Search, *AI enrichment* is the application of machine learning models over content that isn't full text searchable in its raw form. Through enrichment, analysis and inference are used to create searchable content and structure where none previously existed. 
+In Azure AI Search, *AI enrichment* calls the APIs of [Azure AI services](/azure/ai-services/what-are-ai-services) to process content that isn't full text searchable in its raw form. Through enrichment, analysis and inference are used to create searchable content and structure where none previously existed. 
 
-Because Azure Cognitive Search is a full text search solution, the purpose of AI enrichment is to improve the utility of your content in search-related scenarios:
+Because Azure AI Search is a full text search solution, the purpose of AI enrichment is to improve the utility of your content in search-related scenarios:
 
 + Apply translation and language detection for multi-lingual search
 + Apply entity recognition to extract people names, places, and other entities from large chunks of text
@@ -33,7 +34,7 @@ The following diagram shows the progression of AI enrichment:
 
 **Enrich & Index** covers most of the AI enrichment pipeline:
 
-+ Enrichment starts when the indexer ["cracks documents"](search-indexer-overview.md#document-cracking) and extracts images and text. The kind of processing that occurs next will depend on your data and which skills you've added to a skillset. If you have images, they can be forwarded to skills that perform image processing. Text content is queued for text and natural language processing. Internally, skills create an ["enriched document"](cognitive-search-working-with-skillsets.md#enrichment-tree) that collects the transformations as they occur.
++ Enrichment starts when the indexer ["cracks documents"](search-indexer-overview.md#document-cracking) and extracts images and text. The kind of processing that occurs next depends on your data and which skills you've added to a skillset. If you have images, they can be forwarded to skills that perform image processing. Text content is queued for text and natural language processing. Internally, skills create an ["enriched document"](cognitive-search-working-with-skillsets.md#enrichment-tree) that collects the transformations as they occur.
 
 + Enriched content is generated during skillset execution, and is temporary unless you save it. You can enable an [enrichment cache](cognitive-search-incremental-indexing-conceptual.md) to persist cracked documents and skill outputs for subsequent reuse during future skillset executions.
 
@@ -52,11 +53,11 @@ Open-source, third-party, or first-party code can be integrated into the pipelin
 
 ### Use-cases for built-in skills
 
-Built-in skills are based on the Azure AI services APIs: [Azure AIComputer Vision](../ai-services/computer-vision/index.yml) and [Language Service](../ai-services/language-service/overview.md). Unless your content input is small, expect to [attach a billable Azure AI services resource](cognitive-search-attach-cognitive-services.md) to run larger workloads.
+Built-in skills are based on the Azure AI services APIs: [Azure AI Computer Vision](../ai-services/computer-vision/index.yml) and [Language Service](../ai-services/language-service/overview.md). Unless your content input is small, expect to [attach a billable Azure AI services resource](cognitive-search-attach-cognitive-services.md) to run larger workloads.
 
 A [skillset](cognitive-search-defining-skillset.md) that's assembled using built-in skills is well suited for the following application scenarios:
 
-+ **Image processing** skills include [Optical Character Recognition (OCR)](cognitive-search-skill-ocr.md) and identification of [visual features](cognitive-search-skill-image-analysis.md), such as facial detection, image interpretation, image recognition (famous people and landmarks), or attributes like image orientation. These skills create text representations of image content for full text search in Azure Cognitive Search.
++ **Image processing** skills include [Optical Character Recognition (OCR)](cognitive-search-skill-ocr.md) and identification of [visual features](cognitive-search-skill-image-analysis.md), such as facial detection, image interpretation, image recognition (famous people and landmarks), or attributes like image orientation. These skills create text representations of image content for full text search in Azure AI Search.
 
 + **Machine translation** is provided by the [Text Translation](cognitive-search-skill-text-translation.md) skill, often paired with [language detection](cognitive-search-skill-language-detection.md) for multi-language solutions.
 
@@ -70,15 +71,15 @@ Custom skills aren’t always complex. For example, if you have an existing pack
 
 ## Storing output
 
-In Azure Cognitive Search, an indexer saves the output it creates. A single indexer run can create up to three data structures that contain enriched and indexed output.
+In Azure AI Search, an indexer saves the output it creates. A single indexer run can create up to three data structures that contain enriched and indexed output.
 
 | Data store | Required | Location | Description |
 |------------|----------|----------|-------------|
 | [**searchable index**](search-what-is-an-index.md) | Required | Search service | Used for full text search and other query forms. Specifying an index is an indexer requirement. Index content is populated from skill outputs, plus any source fields that are mapped directly to fields in the index. |
 | [**knowledge store**](knowledge-store-concept-intro.md) | Optional | Azure Storage | Used for downstream apps like knowledge mining or data science. A knowledge store is defined within a skillset. Its definition determines whether your enriched documents are projected as tables or objects (files or blobs) in Azure Storage. |
-| [**enrichment cache**](cognitive-search-incremental-indexing-conceptual.md) | Optional | Azure Storage | Used for caching enrichments for reuse in subsequent skillset executions. The cache stores imported, unprocessed content (cracked documents). It also stores the enriched documents created during skillset execution. Caching is particularly helpful if you're using image analysis or OCR, and you want to avoid the time and expense of reprocessing image files. |
+| [**enrichment cache**](cognitive-search-incremental-indexing-conceptual.md) | Optional | Azure Storage | Used for caching enrichments for reuse in subsequent skillset executions. The cache stores imported, unprocessed content (cracked documents). It also stores the enriched documents created during skillset execution. Caching is helpful if you're using image analysis or OCR, and you want to avoid the time and expense of reprocessing image files. |
 
-Indexes and knowledge stores are fully independent of each other. While you must attach an index to satisfy indexer requirements, if your sole objective is a knowledge store, you can ignore the index after it's populated. Avoid deleting it though. If you want to rerun the indexer and skillset, you'll need the index in order for the indexer to run.
+Indexes and knowledge stores are fully independent of each other. While you must attach an index to satisfy indexer requirements, if your sole objective is a knowledge store, you can ignore the index after it's populated.
 
 ## Exploring content
 
@@ -86,7 +87,7 @@ After you've defined and loaded a [search index](search-what-is-an-index.md) or 
 
 ### Query a search index
 
-[Run queries](search-query-overview.md) to access the enriched content generated by the pipeline. The index is like any other you might create for Azure Cognitive Search: you can supplement text analysis with custom analyzers, invoke fuzzy search queries, add filters, or experiment with scoring profiles to tune search relevance.
+[Run queries](search-query-overview.md) to access the enriched content generated by the pipeline. The index is like any other you might create for Azure AI Search: you can supplement text analysis with custom analyzers, invoke fuzzy search queries, add filters, or experiment with scoring profiles to tune search relevance.
 
 ### Use data exploration tools on a knowledge store
 
@@ -100,7 +101,7 @@ In Azure Storage, a [knowledge store](knowledge-store-concept-intro.md) can assu
 
 Enrichment is available in regions that have Azure AI services. You can check the availability of enrichment on the [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page. 
 
-Billing follows a pay-as-you-go pricing model. The costs of using built-in skills are passed on when a multi-region Azure AI services key is specified in the skillset. There are also costs associated with image extraction, as metered by Cognitive Search. Text extraction and utility skills, however, aren't billable. For more information, see [How you're charged for Azure Cognitive Search](search-sku-manage-costs.md#how-youre-charged-for-azure-cognitive-search).
+Billing follows a pay-as-you-go pricing model. The costs of using built-in skills are passed on when a multi-region Azure AI services key is specified in the skillset. There are also costs associated with image extraction, as metered by Azure AI Search. Text extraction and utility skills, however, aren't billable. For more information, see [How you're charged for Azure AI Search](search-sku-manage-costs.md#how-youre-charged-for-azure-ai-search).
 
 ## Checklist: A typical workflow
 
@@ -110,7 +111,7 @@ Start with a subset of data in a [supported data source](search-indexer-overview
 
 1. Create a [data source](/rest/api/searchservice/create-data-source) that specifies a connection to your data.
 
-1. [Create a skillset](cognitive-search-defining-skillset.md). Unless your project is small, you'll want to [attach an Azure AI multi-service resource](cognitive-search-attach-cognitive-services.md). If you're [creating a knowledge store](knowledge-store-create-rest.md), define it within the skillset.
+1. [Create a skillset](cognitive-search-defining-skillset.md). Unless your project is small, you should [attach an Azure AI multi-service resource](cognitive-search-attach-cognitive-services.md). If you're [creating a knowledge store](knowledge-store-create-rest.md), define it within the skillset.
 
 1. [Create an index schema](search-how-to-create-search-index.md) that defines a search index.
 
@@ -122,7 +123,7 @@ Start with a subset of data in a [supported data source](search-indexer-overview
 
 1. [Run queries](search-query-create.md) to evaluate results or [start a debug session](cognitive-search-how-to-debug-skillset.md) to work through any skillset issues.
 
-To repeat any of the above steps, [reset the indexer](search-howto-reindex.md) before you run it. Or, delete and recreate the objects on each run (recommended if you’re using the free tier). If you enabled caching the indexer will pull from the cache if data is unchanged at the source, and if your edits to the pipeline don't invalidate the cache.
+To repeat any of the above steps, [reset the indexer](search-howto-reindex.md) before you run it. Or, delete and recreate the objects on each run (recommended if you’re using the free tier). If you enabled caching the indexer pulls from the cache if data is unchanged at the source, and if your edits to the pipeline don't invalidate the cache.
 
 ## Next steps
 
