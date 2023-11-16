@@ -78,6 +78,9 @@ Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB usin
 |-----------------------------------|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AZURE_COSMOS_CONNECTIONSTRING     | MongoDB API connection string | `mongodb://<mongo-db-admin-user>:<password>@<mongo-db-server>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@<mongo-db-server>@` |
 
+#### Sample code
+Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a connection string.
+[!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-secret.md)]
 
 ### Service principal
 
