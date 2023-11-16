@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/21/2023
+ms.date: 11/07/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -15,11 +15,10 @@ ms.reviewer: sapnakeshari
 This article explains the common tasks that an Enterprise Agreement (EA) administrator accomplishes in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). A direct enterprise agreement is signed between Microsoft and an enterprise agreement customer. Conversely, an indirect EA is one where a customer signs an agreement with a Microsoft partner. This article is applicable for both direct and indirect EA customers.
 
 > [!NOTE]
-> We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
->
-> As of February 20, 2023 indirect EA customers no longer manage their billing account in the EA portal. Instead, they use the Azure portal.
+> On November 15, 2023, the Azure Enterprise portal is retiring for EA enrollments in the Commercial cloud and is becoming read-only for EA enrollments in the Azure Government cloud.
+> Customers and Partners should use Cost Management + Billing in the Azure portal to manage their enrollments. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
 > 
-> Until August 14, 2023, this change doesn’t affect customers with Azure Government EA enrollments. They continue using the EA portal to manage their enrollment until then. However, after August 14, 2023, EA customers won't be able to manage their Azure Government EA enrollments from the [Azure portal](https://portal.azure.com). Instead, they can manage it from the Azure Government portal at [https://portal.azure.us](https://portal.azure.us). The functionality mentioned in this article the same as the Azure Government portal.
+> Since August 14, 2023, EA customers is not be able to manage their Azure Government EA enrollments from the [Azure portal](https://portal.azure.com). Instead, they can manage it from the Azure Government portal at [https://portal.azure.us](https://portal.azure.us). The functionality mentioned in this article is same as the Azure Government portal.
 
 ## Manage your enrollment
 
@@ -242,7 +241,7 @@ Before starting the ownership transfer, get familiar with the following Azure ro
     - Coadministrator roles
 - Cross-tenant subscription or account ownership transfers result in losing your Azure RBAC policies and role assignments.
 - Policies and administrator roles don't transfer across different directories. Service administrators are updated to the owner of destination account.
-- To avoid losing Azure RBAC policies and role assignments when transferring subscription between tenants, ensure that the **Move the subscriptions to the recipient's Azure AD tenant** selection remains cleared. This selection keeps the services, Azure roles, and policies on the current Azure AD tenant and only transfers the billing ownership for the account.
+- To avoid losing Azure RBAC policies and role assignments when transferring subscription between tenants, ensure that the **Move the subscriptions to the recipient's Microsoft Entra tenant** selection remains cleared. This selection keeps the services, Azure roles, and policies on the current Microsoft Entra tenant and only transfers the billing ownership for the account.
 
 Before changing an account owner:
 
@@ -259,7 +258,7 @@ To transfer account ownership for all subscriptions:
 1. Select **Transfer subscriptions**.  
     :::image type="content" source="./media/direct-ea-administration/transfer-subscriptions-01.png" alt-text="Screenshot showing where to transfer subscriptions." lightbox="./media/direct-ea-administration/transfer-subscriptions-01.png" :::
 1. On the Transfer subscriptions page, select the destination account to transfer to and then select **Next**.
-1. If you want to transfer the account ownership across Azure AD tenants, select the **Yes, I would also like to move the subscriptions to the new account's Azure AD tenant** confirmation.
+1. If you want to transfer the account ownership across Microsoft Entra tenants, select the **Yes, I would also like to move the subscriptions to the new account's Microsoft Entra tenant** confirmation.
 1. Confirm the transfer and select **Submit**.  
     :::image type="content" source="./media/direct-ea-administration/transfer-account-confirmation.png" alt-text="Screenshot showing the transfer subscription confirmation." lightbox="./media/direct-ea-administration/transfer-account-confirmation.png" :::
 
@@ -272,7 +271,7 @@ To transfer account ownership for a single subscription:
 1. On the Azure Subscriptions page, to the right of a subscription, select the ellipsis (**…**) symbol.
 1. Select **Transfer subscription**.
 1. On the Transfer subscription page, select the destination account to transfer the subscription and then select  **Next**.
-1. If you want to transfer the subscription ownership across Azure AD tenants, select the **Yes, I would like to also move the subscriptions to the to the new account's Azure AD tenant** option.
+1. If you want to transfer the subscription ownership across Microsoft Entra tenants, select the **Yes, I would like to also move the subscriptions to the to the new account's Microsoft Entra tenant** option.
 1. Confirm the transfer and then select **Submit**.
 
 ## Associate an account to a department
@@ -516,12 +515,12 @@ If you need assistance, create a [support request](https://portal.azure.com/#b
 
 ## Convert to work or school account authentication
 
-Azure Enterprise users can convert from a Microsoft Account (MSA or Live ID) to a Work or School Account. A Work or School Account uses the Azure Active Directory authentication type.
+Azure Enterprise users can convert from a Microsoft Account (MSA or Live ID) to a Work or School Account. A Work or School Account uses the Microsoft Entra authentication type.
 
 ### To begin
 
 1. Add the work or school account to the Azure portal in the role(s) needed.
-1. If you get errors, the account may not be valid in Azure Active Directory. Azure uses User Principal Name (UPN), which isn't always identical to the email address.
+1. If you get errors, the account may not be valid in Microsoft Entra ID. Azure uses User Principal Name (UPN), which isn't always identical to the email address.
 1. Authenticate to the Azure portal using the work or school account.
 
 ### To convert subscriptions from Microsoft accounts to work or school accounts
@@ -576,7 +575,7 @@ The person who accesses and manages subscriptions and development projects.
 Represents an Azure EA subscription and is a container of Azure services managed by the same service administrator.
 
 **Work or school account**<br>
-For organizations that have set up Azure Active Directory with federation to the cloud and all accounts are on a single tenant.
+For organizations that have set up Microsoft Entra ID with federation to the cloud and all accounts are on a single tenant.
 
 ## Enrollment status
 

@@ -2,7 +2,7 @@
 title: Enable Container insights for Azure Kubernetes Service (AKS) cluster
 description: Learn how to enable Container insights on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 11/14/2023
 ms.custom: ignite-2022, devx-track-azurecli
 ms.reviewer: aul
 ---
@@ -14,6 +14,9 @@ This article describes how to set up Container insights to monitor a managed Kub
 ## Prerequisites
 
 If you're connecting an existing AKS cluster to a Log Analytics workspace in another subscription, the *Microsoft.ContainerService* resource provider must be registered in the subscription with the Log Analytics workspace. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+
+> [!NOTE]
+> When you enable Container Insights on legacy auth clusters, a managed identity is automatically created. This identity will not be available in case the cluster migrates to MSI Auth or if the Container Insights is disabled and hence this managed identity should not be used for anything else.
 
 ## New AKS cluster
 
@@ -30,7 +33,7 @@ Use any of the following methods to enable monitoring for an existing AKS cluste
 ## [CLI](#tab/azure-cli)
 
 > [!NOTE]
-> Managed identity authentication will be default in CLI version 2.49.0 or higher. If you need to use legacy/non-managed identity authentication, use CLI version < 2.49.0.
+> Managed identity authentication will be default in CLI version 2.49.0 or higher. If you need to use legacy/non-managed identity authentication, use CLI version < 2.49.0. For CLI version 2.54.0 or higher the logging schema will be configured to [ContainerLogV2](./container-insights-logging-v2.md) via the ConfigMap
 
 ### Use a default Log Analytics workspace
 
@@ -135,7 +138,7 @@ To enable [managed identity authentication](container-insights-onboard.md#authen
    - `aksResourceId`: Use the values on the **AKS Overview** page for the AKS cluster.
    - `aksResourceLocation`: Use the values on the **AKS Overview** page for the AKS cluster.
    - `workspaceResourceId`: Use the resource ID of your Log Analytics workspace.
-   - `resourceTagValues`: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be *MSCI-\<clusterName\>-\<clusterRegion\>* and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
+   - `resourceTagValues`: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be *MSCI-\<clusterRegion\>-\<clusterName\>* and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
 
 To enable [managed identity authentication](container-insights-onboard.md#authentication):
 

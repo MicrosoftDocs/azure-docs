@@ -1,6 +1,6 @@
 ---
-title: Azure Disk Encryption with Azure AD app prerequisites (previous release)
-description: This article provides supplements to Azure Disk Encryption for Linux VMs with additional requirements and prerequisites for Azure Disk Encryption with Azure AD.
+title: Azure Disk Encryption with Microsoft Entra app prerequisites (previous release)
+description: This article provides supplements to Azure Disk Encryption for Linux VMs with additional requirements and prerequisites for Azure Disk Encryption with Microsoft Entra ID.
 author: msmbaldwin
 ms.service: virtual-machines
 ms.subservice: disks
@@ -11,13 +11,13 @@ ms.date: 01/04/2023
 ms.custom: seodec18
 
 ---
-# Azure Disk Encryption with Azure Active Directory (AD) (previous release)
+# Azure Disk Encryption with Microsoft Entra ID (previous release)
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
-The new release of Azure Disk Encryption eliminates the requirement for providing an Azure Active Directory (Azure AD) application parameter to enable VM disk encryption. With the new release, you're no longer required to provide Azure AD credentials during the enable encryption step. All new VMs must be encrypted without the Azure AD application parameters by using the new release. For instructions on how to enable VM disk encryption by using the new release, see [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md). VMs that were already encrypted with Azure AD application parameters are still supported and should continue to be maintained with the AAD syntax.
+The new release of Azure Disk Encryption eliminates the requirement for providing a Microsoft Entra application parameter to enable VM disk encryption. With the new release, you're no longer required to provide Microsoft Entra credentials during the enable encryption step. All new VMs must be encrypted without the Microsoft Entra application parameters by using the new release. For instructions on how to enable VM disk encryption by using the new release, see [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md). VMs that were already encrypted with Microsoft Entra application parameters are still supported and should continue to be maintained with the Microsoft Entra syntax.
 
-This article provides supplements to [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md) with additional requirements and prerequisites for Azure Disk Encryption with Azure AD (previous release).
+This article provides supplements to [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md) with additional requirements and prerequisites for Azure Disk Encryption with Microsoft Entra ID (previous release).
 
 The information in these sections remains the same:
 
@@ -27,8 +27,8 @@ The information in these sections remains the same:
 
 ## Networking and Group Policy
 
-To enable the Azure Disk Encryption feature by using the older AAD parameter syntax, the infrastructure as a service (IaaS) VMs must meet the following network endpoint configuration requirements: 
-  - To get a token to connect to your key vault, the IaaS VM must be able to connect to an Azure AD endpoint, \[login.microsoftonline.com\].
+To enable the Azure Disk Encryption feature by using the older Microsoft Entra parameter syntax, the infrastructure as a service (IaaS) VMs must meet the following network endpoint configuration requirements: 
+  - To get a token to connect to your key vault, the IaaS VM must be able to connect to a Microsoft Entra endpoint, \[login.microsoftonline.com\].
   - To write the encryption keys to your key vault, the IaaS VM must be able to connect to the key vault endpoint.
   - The IaaS VM must be able to connect to an Azure storage endpoint that hosts the Azure extension repository and an Azure storage account that hosts the VHD files.
   -  If your security policy limits access from Azure VMs to the internet, you can resolve the preceding URI and configure a specific rule to allow outbound connectivity to the IPs. For more information, see [Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md).
@@ -53,11 +53,11 @@ To enable the Azure Disk Encryption feature by using the older AAD parameter syn
 
 Azure Disk Encryption requires Azure Key Vault to control and manage disk encryption keys and secrets. Your key vault and VMs must reside in the same Azure region and subscription.
 
-For more information, see [Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release)](disk-encryption-key-vault-aad.md).
+For more information, see [Creating and configuring a key vault for Azure Disk Encryption with Microsoft Entra ID (previous release)](disk-encryption-key-vault-aad.md).
  
 ## Next steps
 
-- [Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release)](disk-encryption-key-vault-aad.md)
-- [Enable Azure Disk Encryption with Azure AD on Linux VMs (previous release)](disk-encryption-linux-aad.md)
+- [Creating and configuring a key vault for Azure Disk Encryption with Microsoft Entra ID (previous release)](disk-encryption-key-vault-aad.md)
+- [Enable Azure Disk Encryption with Microsoft Entra ID on Linux VMs (previous release)](disk-encryption-linux-aad.md)
 - [Azure Disk Encryption prerequisites CLI script](https://github.com/ejarvi/ade-cli-getting-started)
 - [Azure Disk Encryption prerequisites PowerShell script](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)

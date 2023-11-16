@@ -75,7 +75,7 @@ When you add more features to a User Flow, such as multifactor authentication, m
 
 |Feature |Additional requests consumed    |
 |---------|---------|
-|Azure Active Directory Multi-Factor Authentication          |2   |
+|Microsoft Entra multifactor authentication          |2   |
 |Email one-time password      |2   |
 |Age gating     |2   |
 |Federated identity provider  |2   |
@@ -171,7 +171,7 @@ The following table lists the administrative configuration limits in the Azure A
 |Maximum policy file size      |1024 KB          |
 |Number of API connectors per tenant     |20         |
 
-<sup>1</sup> See also [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
+<sup>1</sup> See also [Microsoft Entra service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
 
 ## Next steps
 

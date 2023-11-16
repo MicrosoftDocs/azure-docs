@@ -5,8 +5,7 @@ description: Learn how to use Sovereign Clouds
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.custom: references_regions
 ms.date: 05/10/2022
@@ -35,8 +34,10 @@ Available to US government entities and their partners only. See more informatio
     - Neural voice
   - Speech translation
 - **Unsupported features:**
-  - Custom Voice
-  - Custom Commands
+  - Custom commands
+  - Custom neural voice
+  - Personal voice
+  - Text to speech avatar
 - **Supported languages:**
   - See the list of supported languages [here](language-support.md)
 

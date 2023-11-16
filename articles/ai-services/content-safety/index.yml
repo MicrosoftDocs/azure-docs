@@ -1,14 +1,13 @@
 ### YamlMime:Landing
 
-title: Content Safety documentation # < 60 chars
-summary: The cloud-based Content Safety API provides developers with access to advanced algorithms for processing images and text and flagging content that is potentially offensive, risky, or otherwise undesirable. # < 160 chars
+title: Azure AI Content Safety documentation # < 60 chars
+summary: The cloud-based Azure AI Content Safety API provides developers with access to advanced algorithms for processing images and text and flagging content that is potentially offensive, risky, or otherwise undesirable. # < 160 chars
 
 metadata:
-  title: Content Safety documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: The cloud-based Content Safety API provides developers with access to advanced algorithms for processing images and text and flagging content that is potentially offensive, risky, or otherwise undesirable. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure AI Content Safety documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: The cloud-based Azure AI Content Safety API provides developers with access to advanced algorithms for processing images and text and flagging content that is potentially offensive, risky, or otherwise undesirable. # Required; article description that is displayed in search results. < 160 chars.
   services: cognitive-services
-  ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: content-safety
+  ms.service: azure-ai-content-safety #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.custom: build-2023
   ms.topic: landing-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
@@ -21,11 +20,11 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Content Safety
+  - title: About Azure AI Content Safety
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Content Safety?
+          - text: What is Azure AI Content Safety?
             url: overview.md
       - linkListType: get-started
         links:
@@ -33,7 +32,7 @@ landingContent:
             url: studio-quickstart.md
       - linkListType: whats-new
         links:
-          - text: What's new in Content Safety
+          - text: What's new in Azure AI Content Safety
             url: whats-new.md
 
   - title: Image moderation
@@ -70,11 +69,11 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Content Safety API
+          - text: Azure AI Content Safety API
             url: https://aka.ms/content-safety-api
-          - text: Content Safety Python SDK
+          - text: Azure AI Content Safety Python SDK
             url: https://aka.ms/content-safety-python-sdk
-          - text: Content Safety C# SDK
+          - text: Azure AI Content Safety C# SDK
             url: https://aka.ms/content-safety-csharp-sdk
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/#cognitive_services

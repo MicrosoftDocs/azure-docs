@@ -32,7 +32,7 @@ To open the Cloud Shell, select **Try it** from the upper right corner of a code
 
 If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.52.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-## Prerequisites
+## Setup
 
 You must sign in to your account using the [az sign-in](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to your Azure account's **Subscription ID**.
 
@@ -46,14 +46,17 @@ Select the specific subscription in which the source Azure Database for MySQL - 
 az account set --subscription <subscription id>
 ```
 
-## Limitations
+## Limitations and pre-requisites
 
+- If your source Azure Database for MySQL Single Server has engine version v8.x, ensure to upgrade your source server's .NET client driver version to 8.0.32 to avoid any encoding incompatibilities post migration to Flexible Server.
 - The source Azure Database for MySQL - Single Server and the target Azure Database for MySQL - Flexible Server must be in the same subscription, resource group, region, and on the same MySQL version. MySQL Import across subscriptions, resource groups, regions, and versions isn't possible.
 - MySQL versions supported by Azure MySQL Import are 5.7 and 8.0. If you are on a different major MySQL version on Single Server, make sure to upgrade your version on your Single Server instance before triggering the import command.
+- If the Azure Database for MySQL - Single Server instance has server parameter 'lower_case_table_names' set to 2 and your application used partition tables, MySQL Import will result in corrupted partition tables. The recommendation is to set 'lower_case_table_names' to 1 for your Azure Database for MySQL - Single Server instance in order to proceed with corruption-free MySQL Import operation.
 - MySQL Import for Single Servers with Legacy Storage architecture (General Purpose storage V1) isn't supported. You must upgrade your storage to the latest storage architecture (General Purpose storage V2) to trigger a MySQL Import operation. Find your storage type and upgrade steps by following directions [here](../single-server/concepts-pricing-tiers.md#how-can-i-determine-which-storage-type-my-server-is-running-on).
 - MySQL Import to an existing Azure MySQL Flexible Server isn't supported. The CLI command initiates the import of a new Azure MySQL Flexible Server.
 - If the flexible target server is provisioned as non-HA (High Availability disabled) when updating the CLI command parameters, it can later be switched to Same-Zone HA but not Zone-Redundant HA.
-- MySQL Import doesn't currently support Azure Database for MySQL Single Servers with Infrastructure Double Encryption.
+- For CMK enabled Single Server instances, MySQL Import command requires you to provide mandatory input parameters for enabling CMK on target Flexible Server.
+- If the Single Server instance has ' Infrastructure Double Encryption' enabled, enabling Customer Managed Key (CMK) on target Flexible Server instance is recommended to support similar functionality. You can choose to enable CMK on target server with MySQL Import CLI input parameters or post migration as well.
 - Only instance-level import is supported. No option to import selected databases within an instance is provided.
 - Below items should be copied from source to target by the user post MySQL Import operation:
   - Firewall rules
@@ -122,7 +125,7 @@ az network private-dns zone create -g testGroup -n myserver.private.contoso.com
 az mysql flexible-server import create --data-source-type "mysql_single" --data-source "test-single-server" --resource-group "test-rg"  --name "test-flexible-server" --high-availability ZoneRedundant --zone 1 --standby-zone 3  --vnet "myVnet" --subnet "mySubnet" --private-dns-zone "myserver.private.contoso.com"
 ```
 
-The following example takes in the data source information for Single Server named 'test-single-server' with CUstomer Managed Key (CMK) enabled and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` and performs an import from source to target. For CMK enabled Single Server instances, MySQL Import command requires you to provide mandatory input parameters for enabling CMK : --key keyIdentifierOfTestKey --identity testIdentity.
+The following example takes in the data source information for Single Server named 'test-single-server' with Customer Managed Key (CMK) enabled and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` and performs an import from source to target. For CMK enabled Single Server instances, MySQL Import command requires you to provide mandatory input parameters for enabling CMK : --key keyIdentifierOfTestKey --identity testIdentity.
 
 ```azurecli-interactive
 # create keyvault
@@ -196,6 +199,7 @@ iops | 500 | Number of IOPS to be allocated for the target Azure Database for My
 
 - The MySQL version, region, subscription and resource for the target flexible server must be equal to that of the source single server.
 - The storage size for target flexible server should be equal to or greater than on the source single server.
+- If the Single Server instance has ' Infrastructure Double Encryption' enabled, enabling Customer Managed Key (CMK) on target Flexible Server instance is recommended to support similar functionality. You can choose to enable CMK on target server with MySQL Import CLI input parameters or post migration as well.
 
 ## How long does MySQL Import take to migrate my Single Server instance?
 

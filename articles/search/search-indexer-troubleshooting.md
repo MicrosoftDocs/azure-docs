@@ -1,18 +1,19 @@
 ---
 title: Indexer troubleshooting guidance
-titleSuffix: Azure Cognitive Search
-description: This article provides indexer problem and resolution guidance for cases when no error messages are returned from the service search. 
+titleSuffix: Azure AI Search
+description: This article provides indexer problem and resolution guidance for cases when no error messages are returned from the service search.
 
 manager: liamca
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 04/04/2023
 ---
 
-# Indexer troubleshooting guidance for Azure Cognitive Search
+# Indexer troubleshooting guidance for Azure AI Search
 
 Occasionally, indexers run into problems and there is no error to help with diagnosis. This article covers problems and potential resolutions when indexer results are unexpected and there is limited information to go on. If you have an error to investigate, see [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md) instead.
 
@@ -82,13 +83,15 @@ If your SQL database is on a [serverless compute tier](/azure/azure-sql/database
 
 If the database is paused, the first login from your search service is expected to auto-resume the database, but returning an error stating that the database is unavailable with error code 40613. After the database is running, retry the login to establish connectivity.
 
-## Azure Active Directory Conditional Access policies
+<a name='azure-active-directory-conditional-access-policies'></a>
 
-When creating a SharePoint indexer, you will go through a step that requires you to sign in to your Azure AD app after providing a device code. If you receive a message that says `"Your sign-in was successful but your admin requires the device requesting access to be managed"` the indexer is likely being blocked from accessing the SharePoint document library due to a [Conditional Access](../active-directory/conditional-access/overview.md) policy.
+## Microsoft Entra Conditional Access policies
+
+When creating a SharePoint indexer, you will go through a step that requires you to sign in to your Microsoft Entra app after providing a device code. If you receive a message that says `"Your sign-in was successful but your admin requires the device requesting access to be managed"` the indexer is likely being blocked from accessing the SharePoint document library due to a [Conditional Access](../active-directory/conditional-access/overview.md) policy.
 
 To update the policy to allow the indexer access to the document library, follow the below steps:
 
-1. Open the Azure portal and search **Azure AD Conditional Access**, then select **Policies** on the left menu. If you don't have access to view this page, you need to either find someone who has access or get access.
+1. Open the Azure portal and search **Microsoft Entra Conditional Access**, then select **Policies** on the left menu. If you don't have access to view this page, you need to either find someone who has access or get access.
 
 1. Determine which policy is blocking the SharePoint indexer from accessing the document library. The policy that might be blocking the indexer includes the user account that you used to authenticate during the indexer creation step in the **Users and groups** section. The policy also might have **Conditions** that:
     * Restrict **Windows** platforms.
@@ -213,7 +216,7 @@ api-key: [admin key]
 
 ## Missing content from Azure Cosmos DB
 
-Azure Cognitive Search has an implicit dependency on Azure Cosmos DB indexing. If you turn off automatic indexing in Azure Cosmos DB, Azure Cognitive Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
+Azure AI Search has an implicit dependency on Azure Cosmos DB indexing. If you turn off automatic indexing in Azure Cosmos DB, Azure AI Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
 
 
 ## Indexer reflects a different document count than data source or index

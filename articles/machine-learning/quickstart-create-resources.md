@@ -11,8 +11,6 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 08/17/2023
 adobe-target: true
-content_well_notification: 
-  - AI-contribution
 ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4, mode-other, ignite-2022
 #Customer intent: As a data scientist, I want to create a workspace so that I can start to use Azure Machine Learning.
 ---

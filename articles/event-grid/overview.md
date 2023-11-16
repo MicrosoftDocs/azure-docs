@@ -5,7 +5,9 @@ ms.author: jafernan
 title: Overview
 description: Learn about Event Grid's http and MQTT messaging capabilities.
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - ignite-2023
 ---
 
 # What is Azure Event Grid?
@@ -15,42 +17,34 @@ Azure Event Grid is a highly scalable, fully managed Pub Sub message distributio
 
 Azure Event Grid is a generally available service deployed across availability zones in all regions that support them. For a list of regions supported by Event Grid, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
->[!NOTE] 
->The following features have been released with our 2023-06-01-preview API:
->
->- MQTT v3.1.1 and v5.0 support (preview)
->- Pull-style event consumption using HTTP (preview)
->
->The initial regions where these features are available are: East US, Central US, South Central US, West US 2, East Asia, Southeast Asia, North Europe, West Europe, UAE North
-
-[!INCLUDE [mqtt-pull-preview-note](./includes/mqtt-pull-preview-note.md)]
 
 ## Overview
 
 Azure Event Grid is used at different stages of data pipelines to achieve a diverse set of integration goals. 
 
-**MQTT messaging (preview)**. IoT devices and applications can communicate with each other over MQTT. Event Grid can also be used to route MQTT messages to Azure services or custom endpoints for further data analysis, visualization, or storage. This integration with Azure services enables you to build data pipelines that start with data ingestion from your IoT devices.
+**MQTT messaging**. IoT devices and applications can communicate with each other over MQTT. Event Grid can also be used to route MQTT messages to Azure services or custom endpoints for further data analysis, visualization, or storage. This integration with Azure services enables you to build data pipelines that start with data ingestion from your IoT devices.
 
-**Data distribution using push and pull delivery (preview) modes**. At any point in a data pipeline, HTTP applications can consume messages using push or pull APIs. The source of the data may include MQTT clients’ data, but also includes the following data sources that send their events over HTTP:
+**Data distribution using push and pull delivery modes**. At any point in a data pipeline, HTTP applications can consume messages using push or pull APIs. The source of the data may include MQTT clients’ data, but also includes the following data sources that send their events over HTTP:
 
 - Azure services
 - Your custom applications
 - External partner (SaaS) systems
 
-When configuring Event Grid for push delivery, Event Grid can send data to [destinations](event-handlers.md) that include your own application webhooks and Azure services.
+When using push delivery, Event Grid can send data to [destinations](event-handlers.md) that include your own application webhooks and Azure services.
 
 ## Capabilities
 
 Event Grid offers a rich mixture of features. These features include:
 
-### MQTT messaging (preview)
+### MQTT messaging 
 
 - **[MQTT v3.1.1 and MQTT v5.0](mqtt-publish-and-subscribe-portal.md)** support – use any open source MQTT client library to communicate with the service.
 - **Custom topics with wildcards support** - leverage your own topic structure.
 - **Publish-subscribe messaging model** - communicate efficiently using one-to-many, many-to-one, and one-to-one messaging patterns.
 - **[Built-in cloud integration](mqtt-routing.md)** - route your MQTT messages to Azure services or custom webhooks for further processing.
 - **Flexible and fine-grained [access control model](mqtt-access-control.md)** - group clients and topic to simplify access control management, and use the variable support in topic templates for a fine-grained access control.
-- **X.509 certificate [authentication](mqtt-client-authentication.md)** - authenticate your devices the standard mechanism for device authentication in the IoT industry.
+- **X.509 certificate [authentication](mqtt-client-authentication.md)** - authenticate your devices using the IoT industry's standard mechanism for authentication.
+- **[Microsoft Entra ID (formerly Azure Active Directory) authentication](mqtt-client-azure-ad-token-and-rbac.md)** - authenticate your applications using the Azure's standard mechanism for authentication.
 - **TLS 1.2 and TLS 1.3 support** - secure your client communication using robust encryption protocols.
 - **Multi-session support** - connect your applications with multiple active sessions to ensure reliability and scalability.
 - **MQTT over WebSockets** - enable connectivity for clients in firewall-restricted environments.
@@ -58,7 +52,7 @@ Event Grid offers a rich mixture of features. These features include:
 
 ### Event messaging (HTTP)
 
-- **Flexible event consumption model** – when using HTTP, consume events using pull (preview) or push delivery mode.
+- **Flexible event consumption model** – when using HTTP, consume events using pull or push delivery mode.
 - **System events** – Get up and running quickly with built-in Azure service events.
 - **Your own application events** - Use Event Grid to route, filter, and reliably deliver custom events from your app.
 - **Partner events** – Subscribe to your partner SaaS provider events and process them on Azure.
@@ -66,13 +60,15 @@ Event Grid offers a rich mixture of features. These features include:
 - **Reliability** – Push delivery features a 24-hour retry mechanism with exponential backoff to make sure events are delivered. Using pull delivery, your application has full control over event consumption.
 - **High throughput** - Build high-volume integrated solutions with Event Grid.
 
-## Use cases:
+## Use cases
 
 Event Grid supports the following use cases:
 
 ### MQTT messaging
 
 Event Grid enables your clients to communicate on [custom MQTT topic names](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901107) using a publish-subscribe messaging model. Event Grid supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets. Event Grid allows you to send MQTT messages to the cloud for data analysis, storage, and visualizations, among other use cases.
+
+Event Grid integrates with [Azure IoT MQ](https://aka.ms/iot-mq) to bridge its MQTT broker capability on the edge with Event Grid’s MQTT broker capability in the cloud. Azure IoT MQ is a new distributed MQTT broker for edge computing, running on Arc enabled Kubernetes clusters. It's now available in [public preview](https://aka.ms/iot-mq-preview) as part of Azure IoT Operations.
 
 The MQTT support in Event Grid is ideal for the implementation of automotive and mobility scenarios, among others. See [the reference architecture](mqtt-automotive-connectivity-and-data-solution.md) to learn how to build secure and scalable solutions for connecting millions of vehicles to the cloud, using Azure’s messaging and data analytics services.
 
@@ -98,13 +94,16 @@ Broadcast alerts to a fleet of clients using the **one-to-many** messaging patte
 #### Integrate MQTT data
 :::image type="content" source="media/overview/integrate-data.png" alt-text="Diagram that shows several IoT devices sending health data over MQTT to Event Grid, then to Event Hubs, and from this service to Azure Stream Analytics." lightbox="media/overview/integrate-data-high-res.png" border="false":::
 
-Integrate data from your MQTT clients by routing MQTT messages to Azure services and Webhooks through the [HTTP Push delivery](push-delivery-overview.md#push-delivery-1) functionality. For example, use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry.
+Integrate data from your MQTT clients by routing MQTT messages to Azure services and custom endpoints through [push delivery](#push-delivery-of-discrete-events) or [pull delivery](#pull-delivery-of-discrete-events). For example, use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry.
 
 ### Push delivery of discrete events
 
-Event Grid can be configured to send events to a diverse set of Azure services or webhooks using push event delivery. Event sources include your custom applications, Azure services, and partner (SaaS) services that publish events announcing system state changes (also known as "discrete" events). In turn, Event Grid delivers those events to configured subscribers’ destinations. 
+Event Grid can be configured to send events to a diverse set of Azure services or webhooks using push event delivery. Event sources include your custom applications, Azure services, and partner (SaaS) services that publish events announcing system state changes (also known as "discrete" events). In turn, Event Grid delivers those events to configured subscribers’ destinations.
 
 Event Grid’s push delivery allows you to realize the following use cases.
+
+> [!NOTE]
+> Push delivery of discrete events is available in Event Grid basic tier and Event Grid standard tier, to learn more about the differences see [choose the right Event Grid tier for your solution](choose-right-tier.md).
 
 #### Build event-driven serverless solutions
 :::image type="content" source="media/overview/build-event-serverless.png" alt-text="Diagram that shows Azure Functions publishing events to Event Grid using HTTP. Event Grid then sends those events to Azure Logic Apps." lightbox="media/overview/build-event-serverless-high-res.png" border="false":::
@@ -124,7 +123,7 @@ Your own service or application publishes events to Event Grid that subscriber a
 #### Receive events from partner (SaaS providers)
 :::image type="content" source="media/overview/receive-saas-providers.png" alt-text="Diagram that shows an external partner application publishing event to Event Grid using HTTP. Event Grid sends those events to webhooks or Azure services." lightbox="media/overview/receive-saas-providers-high-res.png" border="false":::
 
-A multi-tenant SaaS provider or platform can publish their events to Event Grid through a feature called [Partner Events](partner-events-overview.md). You can [subscribe to those events](subscribe-to-partner-events.md) and automate tasks, for example. Events from the following partners are currently available:
+A multitenant SaaS provider or platform can publish their events to Event Grid through a feature called [Partner Events](partner-events-overview.md). You can [subscribe to those events](subscribe-to-partner-events.md) and automate tasks, for example. Events from the following partners are currently available:
 
 - [Auth0](auth0-overview.md)
 - [Microsoft Graph API](subscribe-to-graph-api-events.md). Through Microsoft Graph API you can get events from [Azure AD](azure-active-directory-events.md), [Microsoft Outlook](outlook-events.md), [Teams](teams-events.md), Conversations, security alerts, and Universal Print.
@@ -157,11 +156,52 @@ One or more clients can connect to Azure Event Grid to read messages at their ow
 You can configure **private links** to connect to Azure Event Grid to **publish and read** CloudEvents through a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. Traffic between your virtual network and Event Grid travels the Microsoft backbone network.
 
 >[!Important]
-> [Private links](../private-link/private-link-overview.md) are available with pull delivery, not with push delivery. You can use private links when your application connects to Event Grid to publish events or receive events, not when Event Grid connects to your webhook or Azure service to deliver events. 
+> [Private links](../private-link/private-link-overview.md) are available with pull delivery, not with push delivery. You can use private links when your application connects to Event Grid to publish events or receive events, not when Event Grid connects to your webhook or Azure service to deliver events.
+
+## Regions where Event Grid namespace is available
+
+Here's the list of regions where the new MQTT broker and namespace topics features are available:
+- Australia East
+- Australia South East
+- Brazil South
+- Brazil Southeast
+- Canada Central
+- Canada East
+- Central India
+- Central US
+- East Asia
+- East US
+- East US 2
+- France Central
+- Germany West Central
+- Israel Central
+- Italy North
+- Japan East
+- Japan West
+- Korea Central
+- Korea South
+- North Central US  
+- North Europe
+- Norway East
+- Poland Central
+- South Africa West
+- South Central US
+- South India
+- Southeast Asia
+- Sweden Central
+- Switzerland North
+- UAE North
+- UK South
+- UK West
+- West Europe
+- West US 2
+- West US 3
 
 ## How much does Event Grid cost?
 
-Azure Event Grid offers two tiers and uses a pay-per-use pricing model. For details on pricing, see [Azure Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/). To learn more about the capabilities for each tier, see [Choose the right Event Grid tier](choose-right-tier.md).
+Azure Event Grid uses a pay-per-event pricing model. You only pay for what you use. For the push-style delivery that is generally available, the first 100,000 operations per month are free. Examples of operations include event publication, event delivery, delivery attempts, event filter evaluations that refer to event data properties (sometimes referred to as Advanced Filters), and events sent to a dead letter location. For details, see the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
+
+Event Grid operations involving Namespaces and its resources, including MQTT and pull HTTP delivery operations, are in public preview and are available at no charge today.
 
 ## Next steps
 
@@ -173,7 +213,7 @@ Azure Event Grid offers two tiers and uses a pay-per-use pricing model. For deta
 
 ### Data distribution using pull or push  delivery
 
-- [Pull delivery overview](pull-delivery-overview.md)
-- [Push delivery overview](push-delivery-overview.md)
+- [Pull delivery overview](pull-delivery-overview.md).
+- [Push delivery overview](push-delivery-overview.md).
 - [Concepts](concepts.md)
-- Quickstart: [Publish and subscribe to app events using namespace topics](publish-events-using-namespace-topics.md)
+- Quickstart: [Publish and subscribe to app events using namespace topics](publish-events-using-namespace-topics.md).

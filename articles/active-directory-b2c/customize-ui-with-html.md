@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 11/06/2023
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -53,7 +53,7 @@ Your custom page content can contain any HTML elements, including CSS and JavaSc
 
 Instead of creating your custom page content from scratch, you can customize Azure AD B2C's default page content.
 
-The following table lists the default page content provided by Azure AD B2C. Download the files and use them as a starting point for creating your own custom pages.
+The following table lists the default page content provided by Azure AD B2C. Download the files and use them as a starting point for creating your own custom pages. See [Sample templates](#sample-templates) to learn how you can download and use the sample templates.
 
 | Page | Description | Templates |
 |:-----------------------|:--------|-------------|
@@ -207,14 +207,12 @@ Create a custom page content with your product's brand name in the title.
 In this article, we use Azure Blob storage to host our content. You can choose to host your content on a web server, but you must [enable CORS on your web server](https://enable-cors.org/server.html).
 
 > [!NOTE]
-> In an Azure AD B2C tenant, you can't provision Blob storage. You must create this resource in your Azure AD tenant.
+> In an Azure AD B2C tenant, you can't provision Blob storage. You must create this resource in your Microsoft Entra tenant.
 
 To host your HTML content in Blob storage, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant, and which has a subscription: 
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the Directory name list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Storage accounts**
 1. Select **+ Create**.
 1. Select a **Subscription** for your storage account.
@@ -223,7 +221,7 @@ To host your HTML content in Blob storage, use the following steps:
 1. Select the geographical **Region** for your storage account.
 1. **Performance** can remain **Standard**.
 1. **Redundancy** can remain **Geo-redundant storage (GRS)**
-1. Select **Review + create** and wait a few seconds for Azure AD to run a validation. 
+1. Select **Review + create** and wait a few seconds for Microsoft Entra ID to run a validation. 
 1. Select **Create** to create the storage account. After the deployment is completed, the storage account page opens automatically or you need to select **Go to resource**.
 
 #### 2.1 Create a container
@@ -278,9 +276,7 @@ Learn more about [how to create and manage Azure storage accounts](../storage/co
 
 ### 4. Update the user flow
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant: 
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the directory name list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. In the left-hand menu, select **User flows**, and then select the *B2C_1_signupsignin1* user flow.
 1. Select **Page layouts**, and then under **Unified sign-up or sign-in page**, select **Yes** for **Use custom page content**.
@@ -335,9 +331,7 @@ To configure UI customization, copy the **ContentDefinition** and its child elem
 
 #### 5.1 Upload the custom policy
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant:
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Upload custom policy**.

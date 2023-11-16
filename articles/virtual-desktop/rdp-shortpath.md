@@ -103,7 +103,7 @@ Each RDP session uses a dynamically assigned UDP port from an ephemeral port ran
 > [!TIP]
 > RDP Shortpath for public networks will work automatically without any additional configuration, providing networks and firewalls allow the traffic through and RDP transport settings in the Windows operating system for session hosts and clients are using their default values.
 
-The following diagram gives a high-level overview of the network connections when using RDP Shortpath for public networks where session hosts joined to Azure Active Directory (Azure AD).
+The following diagram gives a high-level overview of the network connections when using RDP Shortpath for public networks where session hosts joined to Microsoft Entra ID.
 
 :::image type="content" source="media/rdp-shortpath/rdp-shortpath-public-networks.png" alt-text="Diagram of network connections when using RDP Shortpath for public networks." lightbox="media/rdp-shortpath/rdp-shortpath-public-networks.png":::
 

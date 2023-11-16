@@ -7,7 +7,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 09/06/2023
 ms.author: kendownie
-ms.custom: monitoring
+ms.custom: monitoring, devx-track-azurepowershell
 ---
 
 # Analyze Azure Files metrics using Azure Monitor
@@ -27,7 +27,7 @@ For a list of all Azure Monitor support metrics, which includes Azure Files, see
 
 ### [Azure portal](#tab/azure-portal)
 
-You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md). 
+You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md). 
 
 For metrics that support dimensions, you can filter the metric with the desired dimension value.  For a complete list of the dimensions that Azure Storage supports, see [Metrics dimensions](storage-files-monitoring-reference.md#metrics-dimensions). Metrics for Azure Files are in these namespaces: 
 
@@ -104,7 +104,7 @@ Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.A
  
 In these examples, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the Azure Files service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
-Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). 
+Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). 
 
 ### List the account-level metric definition
 
@@ -395,3 +395,4 @@ For more information on how to write queries, see [Log Analytics tutorial](../..
 - [Azure Files monitoring data reference](storage-files-monitoring-reference.md)
 - [Monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md)
 - [Understand Azure Files performance](understand-performance.md)
+- [Troubleshoot ClientOtherErrors](/troubleshoot/azure/azure-storage/files-client-other-errors?toc=/azure/storage/files/toc.json)

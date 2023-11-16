@@ -76,10 +76,13 @@ You can use one of the following libraries to include an Avro serializer, which 
 
 
 ## Limits
-For limits (for example: number of schema groups in a namespace) of Event Hubs, see [Event Hubs quotas and limits](event-hubs-quotas.md)
+For limits (for example: number of schema groups in a namespace) of Event Hubs, see [Event Hubs quotas and limits](event-hubs-quotas.md).
 
 ## Azure role-based access control
-When accessing the schema registry programmatically, you need to register an application in Azure Active Directory (Azure AD) and add the security principal of the application to one of the following Azure role-based access control (Azure RBAC) roles:
+To access a schema registry programmatically, follow these steps:
+
+1. [Register your application in Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md)
+1. Add the security principal of the application to one of the following Azure role-based access control (Azure RBAC) roles at the **namespace** level. 
 
 | Role | Description | 
 | ---- | ----------- | 
@@ -88,7 +91,7 @@ When accessing the schema registry programmatically, you need to register an app
 | [Schema Registry Reader](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read and list Schema Registry groups and schemas. |
 | [Schema Registry Contributor](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read, write, and delete Schema Registry groups and schemas. |
 
-For instructions on creating registering an application using the Azure portal, see [Register an app with Azure AD](../active-directory/develop/quickstart-register-app.md). Note down the client ID (application ID), tenant ID, and the secret to use in the code. 
+For instructions on creating registering an application using the Azure portal, see [Register an app with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md). Note down the client ID (application ID), tenant ID, and the secret to use in the code. 
 
 ## Next steps
 

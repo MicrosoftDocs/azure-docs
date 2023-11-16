@@ -92,7 +92,7 @@ To change the access policy of the managed identity that your registry uses, run
 az keyvault delete-policy \
   --resource-group <resource-group-name> \
   --name <key-vault-name> \
-  --key_id <key-vault-key-id>
+  --object-id <key-vault-key-id>
 ```
 
 To delete the individual versions of a key, run the [az-keyvault-key-delete](/cli/azure/keyvault/key#az-keyvault-key-delete) command. This operation requires the *keys/delete* permission.

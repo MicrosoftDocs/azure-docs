@@ -30,17 +30,18 @@ Here are a few key factors to help you decide which is the right option for you.
 
 [**Get started with Azure Cosmos DB for MongoDB RU**](./quickstart-python.md)
 
+> [!TIP]
+> Want to try the Azure Cosmos DB for MongoDB RU with no commitment? Create an Azure Cosmos DB account using [Try Azure Cosmos DB](../try-free.md) for free.
+
 ### Choose vCore-based if
 
 - You're migrating (lift & shift) an existing MongoDB workload or building a new MongoDB application.
-- Your workload has more point reads (fetching a single item by its ID and shard key value) and few long-running queries and complex aggregation pipeline operations.
+- Your workload has more long-running queries, complex aggregation pipelines, distributed transactions, joins, etc.
 - You prefer high-capacity vertical and horizontal scaling with familiar vCore-based cluster tiers such as M30, M40, M50 and more.
 - You're running applications requiring 99.995% availability.
+- You need native support for storing and searching vector embeddings.
 
 [**Get started with Azure Cosmos DB for MongoDB vCore**](./vcore/quickstart-portal.md)
-
-> [!TIP]
-> Want to try the Azure Cosmos DB for MongoDB with no commitment? Create an Azure Cosmos DB account using [Try Azure Cosmos DB](../try-free.md) for free.
 
 ## Resource and billing differences between the options
 

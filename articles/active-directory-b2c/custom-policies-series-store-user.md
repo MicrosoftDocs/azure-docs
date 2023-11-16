@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/30/2023
+ms.date: 11/06/2023
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
@@ -18,13 +18,13 @@ ms.subservice: B2C
 
 # Create and read a user account by using Azure Active Directory B2C custom policy
 
-Azure Active Directory B2C (Azure AD B2C) is built on Azure Active Directory (Azure AD), and so it uses Azure AD storage to store user accounts. Azure AD B2C directory user profile comes with a built-in set of attributes, such as given name, surname, city, postal code, and phone number, but you can [extend the user profile with your own custom attributes](user-flow-custom-attributes.md) without requiring an external data store. 
+Azure Active Directory B2C (Azure AD B2C) is built on Microsoft Entra ID, and so it uses Microsoft Entra ID storage to store user accounts. Azure AD B2C directory user profile comes with a built-in set of attributes, such as given name, surname, city, postal code, and phone number, but you can [extend the user profile with your own custom attributes](user-flow-custom-attributes.md) without requiring an external data store. 
 
-Your custom policy can connect to Azure AD storage by using [Azure AD technical profile](active-directory-technical-profile.md) to store, update or delete user information. In this article, you'll learn how to configure a set of Azure AD technical profiles to store and read a user account before a JWT token is returned. 
+Your custom policy can connect to Microsoft Entra ID storage by using [Microsoft Entra ID technical profile](active-directory-technical-profile.md) to store, update or delete user information. In this article, you learn how to configure a set of Microsoft Entra ID technical profiles to store and read a user account before a JWT token is returned. 
 
 ## Scenario overview
 
-In [Call a REST API by using Azure Active Directory B2C custom policy](custom-policies-series-call-rest-api.md) article, we collected information from the user, validated the data, called a REST API, and finally returned a JWT without storing a user account. We must store the user information so that we don't lose the information once the policy finishes execution. This time, once we collect the user information and validate it, we need to store the user information in Azure AD B2C storage, and then read before we return the JWT token. The complete process is shown in the following diagram.
+In [Call a REST API by using Azure Active Directory B2C custom policy](custom-policies-series-call-rest-api.md) article, we collect information from the user, validated the data, called a REST API, and finally returned a JWT without storing a user account. We must store the user information so that we don't lose the information once the policy finishes execution. This time, once we collect the user information and validate it, we need to store the user information in Azure AD B2C storage, and then read before we return the JWT token. The complete process is shown in the following diagram.
 
 
 :::image type="content" source="media/custom-policies-series-store-user/screenshot-create-user-record.png" alt-text="A flowchart of creating a user account in Azure AD.":::   
@@ -63,11 +63,13 @@ You need to declare two more claims, `userPrincipalName`, and `passwordPolicies`
     
     Learn more about the uses of the `userPrincipalName` and `passwordPolicies` claims in [User profile attributes](user-profile-attributes.md) article.
 
-## Step 2 - Create Azure AD technical profiles
+<a name='step-2---create-azure-ad-technical-profiles'></a>
 
-You need to configure two [Azure AD Technical Profile](active-directory-technical-profile.md). One technical profile writes user details into Azure AD storage, and the other reads a user account from Azure AD storage.  
+## Step 2 - Create Microsoft Entra ID technical profiles
 
-1. In the `ContosoCustomPolicy.XML` file, locate the  *ClaimsProviders* element, and add a new claims provider by using the code below. This claims provider holds the Azure AD technical profiles:
+You need to configure two [Microsoft Entra ID technical profile](active-directory-technical-profile.md). One technical profile writes user details into Microsoft Entra ID storage, and the other reads a user account from Microsoft Entra ID storage.  
+
+1. In the `ContosoCustomPolicy.XML` file, locate the  *ClaimsProviders* element, and add a new claims provider by using the code below. This claims provider holds the Microsoft Entra ID technical profiles:
 
     ```xml
         <ClaimsProvider>
@@ -77,7 +79,7 @@ You need to configure two [Azure AD Technical Profile](active-directory-technica
             </TechnicalProfiles>
         </ClaimsProvider>
     ``` 
-1. In the claims provider you just created, add an Azure AD technical profile by using the following code:
+1. In the claims provider you just created, add a Microsoft Entra ID technical profile by using the following code:
 
     ```xml
         <TechnicalProfile Id="AAD-UserWrite">
@@ -107,13 +109,13 @@ You need to configure two [Azure AD Technical Profile](active-directory-technica
         </TechnicalProfile>
     ```
 
-    We've added a new Azure AD technical profile, *AAD-UserWrite*. You need to take note of the following important parts of the technical profile: 
-    
-    -  *Operation*: The operation specifies the action to be performed, in this case, *Write*. Learn more about other [operations in an Azure AD technical provider](active-directory-technical-profile.md#azure-ad-technical-profile-operations). 
-    
-    - *Persisted claims*: The *PersistedClaims* element contains all of the values that should be stored into Azure AD storage.
-    
-    - *InputClaims*: The *InputClaims* element contains a claim, which is used to look up an account in the directory, or create a new one. There must be exactly one input claim element in the input claims collection for all Azure AD technical profiles. This technical profile uses the *email* claim, as the key identifier for the user account. Learn more about [other key identifiers you can use uniquely identify a user account](active-directory-technical-profile.md#inputclaims).
+    We've added a new Microsoft Entra ID technical profile, `AAD-UserWrite`. You need to take note of the following important parts of the technical profile: 
+
+    -  *Operation*: The operation specifies the action to be performed, in this case, *Write*. Learn more about other [operations in a Microsoft Entra ID technical provider](active-directory-technical-profile.md#azure-ad-technical-profile-operations). 
+
+    - *Persisted claims*: The *PersistedClaims* element contains all of the values that should be stored into Microsoft Entra ID storage.
+
+    - *InputClaims*: The *InputClaims* element contains a claim, which is used to look up an account in the directory, or create a new one. There must be exactly one input claim element in the input claims collection for all Microsoft Entra ID technical profiles. This technical profile uses the *email* claim, as the key identifier for the user account. Learn more about [other key identifiers you can use uniquely identify a user account](active-directory-technical-profile.md#inputclaims).
     
 
 1. In the `ContosoCustomPolicy.XML` file, locate the `AAD-UserWrite` technical profile, and then add a new technical profile after it by using the following code:
@@ -140,11 +142,13 @@ You need to configure two [Azure AD Technical Profile](active-directory-technica
         </TechnicalProfile>
     ```
 
-    We've added a new Azure AD technical profile, `AAD-UserRead`. We've configured this technical profile to perform a read operation, and to return `objectId`, `userPrincipalName`, `givenName`, `surname` and `displayName` claims if a user account with the `email` in the `InputClaim` section is found.
+    We've added a new Microsoft Entra ID technical profile, `AAD-UserRead`. We've configured this technical profile to perform a read operation, and to return `objectId`, `userPrincipalName`, `givenName`, `surname` and `displayName` claims if a user account with the `email` in the `InputClaim` section is found.
 
-## Step 3 - Use the Azure AD technical profile
+<a name='step-3---use-the-azure-ad-technical-profile'></a>
 
-After we collect user details by using the `UserInformationCollector` self-asserted technical profile, we need to write a user  account into Azure AD storage by using the `AAD-UserWrite` technical profile. To do so, use the `AAD-UserWrite` technical profile as a validation technical profile in the `UserInformationCollector` self-asserted technical profile. 
+## Step 3 - Use the Microsoft Entra ID technical profile
+
+After we collect user details by using the `UserInformationCollector` self-asserted technical profile, we need to write a user  account into Microsoft Entra ID storage by using the `AAD-UserWrite` technical profile. To do so, use the `AAD-UserWrite` technical profile as a validation technical profile in the `UserInformationCollector` self-asserted technical profile. 
 
 In the `ContosoCustomPolicy.XML` file, locate the `UserInformationCollector` technical profile, and then add `AAD-UserWrite` technical profile as a validation technical profile in the `ValidationTechnicalProfiles` collection. You need to add this after the `CheckCompanyDomain` validation technical profile. 
 
@@ -181,7 +185,7 @@ We use the `ClaimGenerator` technical profile to execute three claims transforma
             </OutputClaimsTransformations>
         </TechnicalProfile>
     ```
-    We've broken the technical profile into two separate technical profiles. The *UserInputMessageClaimGenerator* technical profile generates the message sent as claim in the JWT token. The *UserInputDisplayNameGenerator* technical profile generates the `displayName` claim. The `displayName` claim value must be available before the `AAD-UserWrite` technical profile writes the user record into Azure AD storage. In the new code, we remove the *GenerateRandomObjectIdTransformation* as the `objectId` is created and returned by Azure AD after an account is created, so we don't need to generate it ourselves within the policy.
+    We've broken the technical profile into two separate technical profiles. The *UserInputMessageClaimGenerator* technical profile generates the message sent as claim in the JWT token. The *UserInputDisplayNameGenerator* technical profile generates the `displayName` claim. The `displayName` claim value must be available before the `AAD-UserWrite` technical profile writes the user record into Microsoft Entra ID storage. In the new code, we remove the *GenerateRandomObjectIdTransformation* as the `objectId` is created and returned by Microsoft Entra ID after an account is created, so we don't need to generate it ourselves within the policy.
 
 1. In the `ContosoCustomPolicy.XML` file, locate the `UserInformationCollector` self-asserted technical profile, and then add the `UserInputDisplayNameGenerator` technical profile as a validation technical profile. After you do so, the `UserInformationCollector` technical profile's `ValidationTechnicalProfiles` collection should look similar to the following code:
 
@@ -204,7 +208,7 @@ We use the `ClaimGenerator` technical profile to execute three claims transforma
         <!--</TechnicalProfile>-->
     ```   
 
-    You must add the validation technical profile before `AAD-UserWrite` as the `displayName` claim value must be available before the `AAD-UserWrite` technical profile writes the user record into Azure AD storage.
+    You must add the validation technical profile before `AAD-UserWrite` as the `displayName` claim value must be available before the `AAD-UserWrite` technical profile writes the user record into Microsoft Entra ID storage.
 
 ## Step 5 - Update the user journey orchestration steps 
 
@@ -257,11 +261,7 @@ After the policy finishes execution, and you receive your ID token, check that t
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with Global Administrator or Privileged Role Administrator permissions.
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant:
-    
-    1.  Select the **Directories + subscriptions** icon in the portal toolbar.
-
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the Directory name list, and then select Switch.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 
@@ -272,7 +272,7 @@ After the policy finishes execution, and you receive your ID token, check that t
     :::image type="content" source="media/custom-policies-series-store-user/screenshot-of-create-users-custom-policy.png" alt-text="A screenshot of creating a user account in Azure AD.":::   
 
 
-In our *AAD-UserWrite* Azure AD Technical Profile, we specify that if the user already exists, we raise an error message.
+In our `AAD-UserWrite` Microsoft Entra ID technical profile, we specify that if the user already exists, we raise an error message.
 
 Test your custom policy again by using the same **Email Address**. Instead of the policy executing to completion to issue an ID token, you should see an error message similar to the screenshot below. 
 
@@ -311,7 +311,7 @@ To declare the claim, in the `ContosoCustomPolicy.XML` file, locate the `ClaimsS
 
 ### Configure a send and verify code technical profile
 
-Azure AD B2C uses [Azure AD SSPR technical profile](aad-sspr-technical-profile.md) to verify an email address. This technical profile can generate and send a code to an email address or verifies the code depending on how you configure it.
+Azure AD B2C uses [Microsoft Entra ID SSPR technical profile](aad-sspr-technical-profile.md) to verify an email address. This technical profile can generate and send a code to an email address or verifies the code depending on how you configure it.
 
 In the `ContosoCustomPolicy.XML` file, locate the `ClaimsProviders` element and add the claims provider by using the following code: 
 
@@ -403,9 +403,11 @@ To configure a display control, use the following steps:
 
 1. Use the procedure in [step 6](#step-6---upload-policy) and [step 7](#step-7---test-policy) to upload your policy file, and test it. This time, you must verify your email address before a user account is created.  
 
-## Update user account by using Azure AD technical profile
+<a name='update-user-account-by-using-azure-ad-technical-profile'></a>
 
-You can configure an Azure AD technical profile to update a user account instead of attempting to create a new one. To do so, set the Azure AD technical profile to throw an error if the specified user account doesn't already exist in the `Metadata` collection by using the following code. The *Operation* needs to be set to *Write*:
+## Update user account by using Microsoft Entra ID technical profile
+
+You can configure a Microsoft Entra ID technical profile to update a user account instead of attempting to create a new one. To do so, set the Microsoft Entra ID technical profile to throw an error if the specified user account doesn't already exist in the `Metadata` collection by using the following code. The *Operation* needs to be set to *Write*:
 
 ```xml
     <!--<Item Key="Operation">Write</Item>-->
@@ -424,4 +426,4 @@ In this article, you've learned how to store user details using [built-in user p
  
 - Learn how to [add password expiration to custom policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-after-90-days).
 
-- Learn more about [Azure AD Technical Profile](active-directory-technical-profile.md). 
+- Learn more about [Microsoft Entra ID technical profile](active-directory-technical-profile.md). 

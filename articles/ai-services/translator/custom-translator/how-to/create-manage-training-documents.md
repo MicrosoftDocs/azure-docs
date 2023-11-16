@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: How to build and upload parallel documents (two documents where one is the origin and the other is the translation) using Custom Translator.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.date: 07/18/2023
 ms.author: lajanuar
 ms.topic: how-to

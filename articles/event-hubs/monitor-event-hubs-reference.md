@@ -98,6 +98,7 @@ Runtime audit logs capture aggregated diagnostic information for all data plane 
 
 Runtime audit logs include the elements listed in the following table:
 
+
 Name | Description | Supported in Azure Diagnostics | Supported in Resource Specific table
 ------- | -------| -----| -----|
 `ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. | Yes | Yes 
@@ -116,6 +117,7 @@ Name | Description | Supported in Azure Diagnostics | Supported in Resource Spec
 `Category` | Log category | Yes | NO
  `Provider`|Name of Service emitting the logs e.g., Eventhub | No | Yes 
  `Type`  | Type of logs emitted | No | Yes
+
 
 
 Here's an example of a runtime audit log entry:

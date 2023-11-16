@@ -180,7 +180,7 @@ The following diagram shows what happens when you take a snapshot of a versioned
 
 You can authorize access to blob versions using one of the following approaches:
 
-- By using Azure role-based access control (Azure RBAC) to grant permissions to an Azure Active Directory (Azure AD) security principal. Microsoft recommends using Azure AD for superior security and ease of use. For more information about using Azure AD with blob operations, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
+- By using Azure role-based access control (Azure RBAC) to grant permissions to a Microsoft Entra security principal. Microsoft recommends using Microsoft Entra ID for superior security and ease of use. For more information about using Microsoft Entra ID with blob operations, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
 - By using a shared access signature (SAS) to delegate access to blob versions. Specify the version ID for the signed resource type `bv`, representing a blob version, to create a SAS token for operations on a specific version. For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).
 - By using the account access keys to authorize operations against blob versions with Shared Key. For more information, see [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key).
 
@@ -290,7 +290,9 @@ When blob soft delete is enabled, all soft-deleted entities are billed at full c
 
 ## Feature support
 
-[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)] 
+
+Versioning is not supported for blobs that are uploaded by using [Data Lake Storage Gen2](/rest/api/storageservices/data-lake-storage-gen2) APIs.
 
 ## See also
 
@@ -298,3 +300,4 @@ When blob soft delete is enabled, all soft-deleted entities are billed at full c
 - [Creating a snapshot of a blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 - [Soft delete for blobs](./soft-delete-blob-overview.md)
 - [Soft delete for containers](soft-delete-container-overview.md)
+

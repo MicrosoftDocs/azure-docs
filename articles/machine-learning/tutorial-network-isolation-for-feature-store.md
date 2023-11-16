@@ -9,7 +9,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: ynpandey
 ms.author: yogipandey
-ms.date: 08/30/2023
+ms.date: 09/13/2023
 ms.reviewer: franksolomon
 ms.custom: sdkv2
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
@@ -19,7 +19,7 @@ ms.custom: sdkv2
 
 [!INCLUDE [preview disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-An Azure Machine Learning managed feature store lets you discover, create and operationalize features. Features serve as the connective tissue in the machine learning lifecycle, starting from the prototyping phase, where you experiment with various features. That lifecycle continues to the operationalization phase, where you deploy your models, and use inference to look up feature data. For more information about feature stores, see [feature store concepts](./concept-what-is-managed-feature-store.md).
+An Azure Machine Learning managed feature store lets you discover, create, and operationalize features. Features serve as the connective tissue in the machine learning lifecycle, starting from the prototyping phase, where you experiment with various features. That lifecycle continues to the operationalization phase, where you deploy your models, and inference steps look up the feature data. For more information about feature stores, see the [feature store concepts](./concept-what-is-managed-feature-store.md) document.
 
 This tutorial describes how to configure secure ingress through a private endpoint, and secure egress through a managed virtual network.
 
@@ -55,10 +55,10 @@ Part 1 of this tutorial series showed how to create a feature set specification 
 
    For more information, see [Configure for serverless spark job](./how-to-managed-network.md#configure-for-serverless-spark-jobs).
      
-* Your user account must have the `Owner` or `Contributor` role assigned to the resource group where the feature store will be created. Your user account also needs the `User Access Administrator` role.
+* Your user account must have the `Owner` or `Contributor` role assigned to the resource group where you create the feature store. Your user account also needs the `User Access Administrator` role.
 
 > [!IMPORTANT]
-> For your Azure Machine Learning workspace, set the `isolation_mode` to `allow_internet_outbound`. This is the only `isolation_mode` option available at this time. However, we are actively working to add `allow_only_approved_outbound` isolation_mode functionality. As a workaround, this notebook will show how to connect to sources, materialization store and observation data securely through private endpoints.
+> For your Azure Machine Learning workspace, set the `isolation_mode` to `allow_internet_outbound`. This is the only `isolation_mode` option available at this time. However, we are actively working to add `allow_only_approved_outbound` isolation_mode functionality. As a workaround, this tutorial will show how to connect to sources, materialization store and observation data securely through private endpoints.
 
 ## Set up
 
@@ -121,15 +121,15 @@ To prepare the notebook environment for development:
 
 ## Provision the necessary resources
 
-You can create a new Azure Data Lake Storage (ADLS) Gen2 storage account and containers, or reuse existing storage account and container resources for the feature store. In a real-world situation, different storage accounts can host the ADLS Gen2 containers. Both options will work, depending on your specific requirements.
+You can create a new Azure Data Lake Storage (ADLS) Gen2 storage account and containers, or reuse existing storage account and container resources for the feature store. In a real-world situation, different storage accounts can host the ADLS Gen2 containers. Both options work, depending on your specific requirements.
 
-For this tutorial, we'll create three separate storage containers in the same ADLS Gen2 storage account:
+For this tutorial, you create three separate storage containers in the same ADLS Gen2 storage account:
 
    * Source data
    * Offline store
    * Observation data
 
-1. Create an ADLS Gen2 storage account for source data, offline store and observation data.
+1. Create an ADLS Gen2 storage account for source data, offline store, and observation data.
 
    1. Provide the name of an Azure Data Lake Storage Gen2 storage account in the following code sample. You can execute the following code cell with the provided default settings. Optionally, you can override the default settings.  
 
@@ -210,7 +210,7 @@ For this tutorial, we'll create three separate storage containers in the same AD
    |Storage account of feature store offline store	|Storage Blob Data Contributor role|
    |Storage accounts of source data	|Storage Blob Data Contributor role|
 
-   The next CLI commands will assign the **Storage Blob Data Contributor** role to the UAI. In this example, "Storage accounts of source data" doesn't apply because we read the sample data from a public access blob storage. To use your own data sources, you must assign the required roles to the UAI. To learn more about access control, see role-based access control for [Azure storage accounts](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control-azure-rbac) and [Azure Machine Learning workspace](./how-to-assign-roles.md).
+   The next CLI commands will assign the **Storage Blob Data Contributor** role to the UAI. In this example, "Storage accounts of source data" doesn't apply because you read the sample data from a public access blob storage. To use your own data sources, you must assign the required roles to the UAI. To learn more about access control, see role-based access control for [Azure storage accounts](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control-azure-rbac) and [Azure Machine Learning workspace](./how-to-assign-roles.md).
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=uai-offline-role-cli)]
 
@@ -248,7 +248,7 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=uai-fs-role-cli)]
 
-   Follow these instructions to [get the Azure Active Directory Object ID for your user identity](/partner-center/find-ids-and-domain-names#find-the-user-object-id). Then, use your Azure Active Directory Object ID in the following command to assign **AzureML Data Scientist** role to your user identity on the created feature store.
+   Follow these instructions to [get the Microsoft Entra Object ID for your user identity](/partner-center/find-ids-and-domain-names#find-the-user-object-id). Then, use your Microsoft Entra Object ID in the following command to assign **AzureML Data Scientist** role to your user identity on the created feature store.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=aad-fs-role-cli)]
 
@@ -290,7 +290,7 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
    ### Create private endpoints for the defined outbound rules
 
-   A `provision-network` command creates private endpoints from the managed virtual network where the materialization job executes to the source, offline store, observation data, default storage account and the default key vault for the feature store. This command may need about 20 minutes to complete.
+   A `provision-network` command creates private endpoints from the managed virtual network where the materialization job executes to the source, offline store, observation data, default storage account, and the default key vault for the feature store. This command may need about 20 minutes to complete.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=fs-vnet-provision-cli)]
 
@@ -300,7 +300,7 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
 ## Update the managed virtual network for the project workspace
 
-   Next, we update the managed virtual network for the project workspace. First, we get the subscription ID, resource group, and workspace name for the project workspace.
+   Next, update the managed virtual network for the project workspace. First, get the subscription ID, resource group, and workspace name for the project workspace.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=lookup-subid-rg-wsname)]
 
@@ -343,7 +343,7 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
    A feature set specification is a self-contained feature set definition that can be developed and tested locally.
 
-   Here, we want to create the following rolling window aggregate features:
+   Create the following rolling window aggregate features:
 
    * transactions three-day count
    * transactions amount three-day sum
@@ -378,7 +378,7 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
 ## Register a feature-store entity
 
-   Entities help enforce use of the same join key definitions across feature sets that use the same logical entities. Entity examples could include account entities, customer entities, etc. Entities are typically created once and then reused across feature sets. See [top level feature store entities document](./concept-top-level-entities-in-managed-feature-store.md) for more information.
+   Entities help enforce use of the same join key definitions across feature sets that use the same logical entities. Entity examples could include account entities, customer entities, etc. Entities are typically created once and then reused across feature sets. For more information, see the [top level feature store entities document](./concept-top-level-entities-in-managed-feature-store.md).
 
    This code cell creates an account entity for the feature store.
 
@@ -418,13 +418,13 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
    ### Load observation data
 
-   We start by exploring the observation data. The core data used for training and inference typically involves observation data. This is then joined with feature data, to create a full training data resource. Observation data is the data captured during the time of the event. In this case, it has core transaction data including transaction ID, account ID, and transaction amount values. Here, since the observation data is used for training, it also has the target variable appended (`is_fraud`).
+   Start by exploring the observation data. The core data used for training and inference typically involves observation data. The core data is then joined with feature data, to create a full training data resource. Observation data is the data captured during the time of the event. In this case, it has core transaction data including transaction ID, account ID, and transaction amount values. Here, since the observation data is used for training, it also has the target variable appended (`is_fraud`).
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=load-obs-data)]
 
    ### Get the registered feature set, and list its features
 
-   Next, we get a feature set by providing its name and version, and then we list features in this feature set. Also, we print some sample feature values.  
+   Next, get a feature set by providing its name and version, and then list features in this feature set. Also, print some sample feature values.  
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=get-txn-fset)]
 
@@ -432,17 +432,17 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
    ### Select features, and generate training data
 
-   Here, we select features for the training data, and we use the feature store SDK to generate the training data.
+   Select features for the training data, and use the feature store SDK to generate the training data.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=select-features-and-gen-training-data)]
 
-   We can see that a point-in-time join appended the features to the training data.
+   You can see that a point-in-time join appended the features to the training data.
 
 ## Optional next steps
 
    Now that you successfully created a secure feature store and submitted a successful materialization run, you can go through the tutorial series to build an understanding of the feature store.
 
-   This tutorial contains a mixture of steps from tutorials 1 and 2 of this series. Remember to replace the necessary public storage containers used in the other notebooks with the ones created in this notebook, for the network isolation.
+   This tutorial contains a mixture of steps from tutorials 1 and 2 of this series. Remember to replace the necessary public storage containers used in the other tutorial notebooks with the ones created in this tutorial notebook, for the network isolation.
 
 We have reached the end of the tutorial. Your training data uses features from a feature store. You can either save it to storage for later use, or directly run model training on it.
 

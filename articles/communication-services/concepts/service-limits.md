@@ -3,7 +3,7 @@ title: Service limits for Azure Communication Services
 titleSuffix: An Azure Communication Services how-to document
 description: Learn how to
 author: tophpalmer
-manager: shahen
+manager: sundraman
 services: azure-communication-services
 
 ms.author: chpalm
@@ -67,12 +67,15 @@ When sending or receiving a high volume of messages, you might receive a ```429`
 
 Rate Limits for SMS:
 
-|Operation|Scope|Timeframe (seconds)| Limit (number of requests) | Message units per minute|
-|---------|-----|-------------|-------------------|-------------------------|
-|Send Message|Per Number|60|200|200|
+|Operation|Number Type |Scope|Timeframe (s)| Limit (request #) | Message units per minute|
+|---------|---|--|-------------|-------------------|-------------------------|
+|Send Message|Toll-Free|Per Number|60|200|200|
+|Send Message|Short Code |Per Number|60|6000|6000|
+|Send Message|Alphanumeric Sender ID |Per resource|60|600|600|
 
 ### Action to take
-If you require to send a volume of messages that exceed the rate limits, email us at phone@microsoft.com.
+If you have requirements that exceed the rate-limits, submit [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) to enable higher throughput.
+
 
 For more information on the SMS SDK and service, see the [SMS SDK overview](./sms/sdk-features.md) page or the [SMS FAQ](./sms/sms-faq.md) page.
 
@@ -108,28 +111,32 @@ This sandbox setup is designed to help developers begin building the application
 |Batch of participants - CreateThread|200 |
 |Batch of participants - AddParticipant|200 |
 |Page size - ListMessages|200 |
+|Number of Azure Communication Services resources per Azure Bot|1000 |
 
-### Operation Limits
+### Rate Limits
 
-| **Operation** | **Bucketed by** | **Limit per 10 seconds** | **Limit per minute** |
+| **Operation** | **Scope** | **Limit per 10 seconds** | **Limit per minute** |
 |--|--|--|--|
-|Create chat thread|User|10|-|
-|Delete chat thread|User|10|-|
-|Update chat thread|Chat thread|5|-|
-|Add participants / remove participants|Chat thread|10|30|
-|Get chat thread / List chat threads|User|50|-|
-|Get chat message|User and chat thread|50|-|
-|Get chat message|Chat thread|250|-|
-|List chat messages|User and chat thread|50|200|
-|List chat messages|Chat thread|250|400|
-|Get read receipts|User and chat thread|5|-|
-|Get read receipts|Chat thread|250|-|
-|List chat thread participants|User and chat thread|10|-|
-|List chat thread participants|Chat thread|250|-|
-|Send message / update message / delete message|Chat thread|10|30|
-|Send read receipt|User and chat thread|10|30|
-|Send typing indicator|User and chat thread|5|15|
-|Send typing indicator|Chat thread|10|30|
+|Create chat thread|per User|10|-|
+|Delete chat thread|per User|10|-|
+|Update chat thread|per Chat thread|5|-|
+|Add participants / remove participants|per Chat thread|10|30|
+|Get chat thread / List chat threads|per User|50|-|
+|Get chat message|per User per chat thread|50|-|
+|Get chat message|per Chat thread|250|-|
+|List chat messages|per User per chat thread|50|200|
+|List chat messages|per Chat thread|250|400|
+|Get read receipts (20 participant limit**) |per User per chat thread|5|-|
+|Get read receipts (20 participant limit**) |per Chat thread|100|-|
+|List chat thread participants|per User per chat thread|10|-|
+|List chat thread participants|per Chat thread|250|-|
+|Send message / update message / delete message|per Chat thread|10|30|
+|Send read receipt|per User per chat thread|10|30|
+|Send typing indicator|per User per chat thread|5|15|
+|Send typing indicator|per Chat thread|10|30|
+
+> [!NOTE] 
+> ** Read receipts and typing indicators are not supported on chat threads with more than 20 participants. 
 
 ### Chat storage
 Azure Communication Services stores chat messages indefinitely till they are deleted by the customer. 

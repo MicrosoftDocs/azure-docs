@@ -1,7 +1,7 @@
 ---
 title: Configure network connections
 titleSuffix: Microsoft Dev Box
-description: Learn how to create, delete, attach, and remove Microsoft Dev Box network connections.
+description: Learn how to manage network connections for a dev center in Microsoft Dev Box. Use network connections to connect to virtual network or enable connecting to on-premises resources from a dev box.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -11,16 +11,18 @@ ms.topic: how-to
 #Customer intent: As a platform engineer, I want to be able to manage network connections so that I can enable dev boxes to connect to my existing networks and deploy them in the desired region.
 ---
 
-# Connect dev boxes to resources by configuring network connections 
+# Connect dev boxes to resources by configuring network connections
 
-Network connections allow dev boxes to connect to existing virtual networks. They also determine the region into which dev boxes are deployed.
+In this article, you learn how to manage network connections for a dev center in Microsoft Dev Box. Network connections enable dev boxes to connect to existing virtual networks. In addition, you can configure the network settings to enable connecting to on-premises resources from your dev box. The location, or Azure region, of the network connection determines where associated dev boxes are hosted.
+
+You need to add at least one network connection to a dev center in Microsoft Dev Box.
 
 When you're planning network connectivity for your dev boxes, you must:
 
 - Ensure that you have sufficient permissions to create and configure network connections.
 - Ensure that you have at least one virtual network and subnet available for your dev boxes.
 - Identify the region or location that's closest to your dev box users. Deploying dev boxes into a region that's close to users gives them a better experience.
-- Determine whether dev boxes should connect to your existing networks by using Azure Active Directory (Azure AD) join or hybrid Azure AD join.
+- Determine whether dev boxes should connect to your existing networks by using Microsoft Entra join or Microsoft Entra hybrid join.
 
 ## Permissions
 
@@ -48,7 +50,7 @@ To create a network connection, you need an existing virtual network and subnet.
     | ------- | ----- |
     | **Subscription** | Select your subscription. |
     | **Resource group** | Select an existing resource group. Or create a new one by selecting **Create new**, entering **rg-name**, and then selecting **OK**. |
-    | **Name** | Enter **VNet-name**. |
+    | **Name** | Enter *VNet-name*. |
     | **Region** | Select the region for the virtual network and dev boxes. |
 
     :::image type="content" source="./media/how-to-manage-network-connection/example-basics-tab.png" alt-text="Screenshot of the Basics tab on the pane for creating a virtual network in the Azure portal." border="true":::
@@ -64,7 +66,7 @@ To create a network connection, you need an existing virtual network and subnet.
 
 1. Select **Create**.
 
-## Allow access to Dev Box endpoints from your network
+## Allow access to Microsoft Dev Box endpoints from your network
 
 An organization can control network ingress and egress by using a firewall, network security groups, and even Microsoft Defender.
 
@@ -72,26 +74,28 @@ If your organization routes egress traffic through a firewall, you need to open 
 
 ## Plan a network connection
 
-The following sections show you how to create and configure a network connection in Microsoft Dev Box .
-  
+The following sections show you how to create and configure a network connection in Microsoft Dev Box.
+
 ### Types of Active Directory join
 
-The Dev Box service requires a configured and working Active Directory join, which defines how dev boxes join your domain and access resources. There are two choices:
+Microsoft Dev Box requires a configured and working Active Directory join, which defines how dev boxes join your domain and access resources. There are two choices:
 
-- **Azure AD join**: If your organization uses Azure AD, you can use an Azure AD join (sometimes called a native Azure AD join). Dev box users sign in to Azure AD-joined dev boxes by using their Azure AD account and access resources based on the permissions assigned to that account. Azure AD join enables access to cloud-based and on-premises apps and resources. 
+- **Microsoft Entra join**: If your organization uses Microsoft Entra ID, you can use a Microsoft Entra join (sometimes called a native Microsoft Entra join). Dev box users sign in to Microsoft Entra joined dev boxes by using their Microsoft Entra account and access resources based on the permissions assigned to that account. Microsoft Entra join enables access to cloud-based and on-premises apps and resources.
 
-  For more information, see [Plan your Azure Active Directory join deployment](../active-directory/devices/azureadjoin-plan.md).
-- **Hybrid Azure AD join**: If your organization has an on-premises Active Directory implementation, you can still benefit from some of the functionality in Azure AD by using hybrid Azure AD-joined dev boxes. These dev boxes are joined to your on-premises Active Directory instance and registered with Azure AD.
+  For more information, see [Plan your Microsoft Entra join deployment](../active-directory/devices/device-join-plan.md).
+- **Microsoft Entra hybrid join**: If your organization has an on-premises Active Directory implementation, you can still benefit from some of the functionality in Microsoft Entra ID by using Microsoft Entra hybrid joined dev boxes. These dev boxes are joined to your on-premises Active Directory instance and registered with Microsoft Entra ID.
 
-  Hybrid Azure AD-joined dev boxes require network line of sight to your on-premises domain controllers periodically. Without this connection, devices become unusable.
+  Microsoft Entra hybrid joined dev boxes require network line of sight to your on-premises domain controllers periodically. Without this connection, devices become unusable.
 
-  For more information, see [Plan your hybrid Azure Active Directory join deployment](../active-directory/devices/hybrid-join-plan.md).
+  For more information, see [Plan your Microsoft Entra hybrid join deployment](../active-directory/devices/hybrid-join-plan.md).
 
 ### Create a network connection
 
 Follow the steps on the relevant tab to create your network connection.
 
-#### [**Azure AD join**](#tab/AzureADJoin/)
+<a name='azure-ad-join'></a>
+
+#### [**Microsoft Entra join**](#tab/AzureADJoin/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -105,14 +109,14 @@ Follow the steps on the relevant tab to create your network connection.
 
    |Name|Value|
    |----|----|
-   |**Domain join type**|Select **Azure active directory join**.|
+   |**Domain join type**|Select **Microsoft Entra join**.|
    |**Subscription**|Select the subscription in which you want to create the network connection.|
    |**ResourceGroup**|Select an existing resource group, or select **Create new** and then enter a name for the new resource group.|
    |**Name**|Enter a descriptive name for the network connection.|
    |**Virtual network**|Select the virtual network that you want the network connection to use.|
    |**Subnet**|Select the subnet that you want the network connection to use.|
 
-   :::image type="content" source="./media/how-to-manage-network-connection/create-native-network-connection-full-blank.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, with the option for Azure Active Directory join selected.":::
+   :::image type="content" source="./media/how-to-manage-network-connection/create-native-network-connection-full-blank.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, with the option for Microsoft Entra join selected.":::
 
 1. Select **Review + Create**.
 
@@ -120,7 +124,9 @@ Follow the steps on the relevant tab to create your network connection.
 
 1. When the deployment is complete, select **Go to resource**. Confirm that the connection appears on the **Network connections** page.
 
-#### [**Hybrid Azure AD join**](#tab/HybridAzureADJoin/)
+<a name='hybrid-azure-ad-join'></a>
+
+#### [**Microsoft Entra hybrid join**](#tab/HybridAzureADJoin/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -134,7 +140,7 @@ Follow the steps on the relevant tab to create your network connection.
 
    |Name|Value|
    |----|----|
-   |**Domain join type**|Select **Hybrid Azure active directory join**.|
+   |**Domain join type**|Select **Microsoft Entra hybrid join**.|
    |**Subscription**|Select the subscription in which you want to create the network connection.|
    |**ResourceGroup**|Select an existing resource group, or select **Create new** and then enter a name for the new resource group.|
    |**Name**|Enter a descriptive name for the network connection.|
@@ -145,7 +151,7 @@ Follow the steps on the relevant tab to create your network connection.
    |**AD username UPN**| Enter the username, in user principal name (UPN) format, that you want to use for connecting Cloud PCs to your Active Directory domain. For example: `svcDomainJoin@corp.contoso.com`. This service account must have permission to join computers to the domain and the target OU (if one is set). |
    |**AD domain password**| Enter the password for the user. |
 
-   :::image type="content" source="./media/how-to-manage-network-connection/create-hybrid-network-connection-full-blank.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, with the option for hybrid Azure Active Directory join selected.":::
+   :::image type="content" source="./media/how-to-manage-network-connection/create-hybrid-network-connection-full-blank.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, with the option for Microsoft Entra hybrid join selected.":::
 
 1. Select **Review + Create**.
 
@@ -197,7 +203,7 @@ You can remove a network connection from a dev center if you no longer want to u
 
 The network connection is no longer available for use in the dev center.
 
-## Next steps
+## Related content
 
 - [Manage a dev box definition](how-to-manage-dev-box-definitions.md)
 - [Manage a dev box pool](how-to-manage-dev-box-pools.md)

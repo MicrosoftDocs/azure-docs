@@ -26,7 +26,7 @@ highlightedContent:
     - title: What is Azure AD B2C?
       itemType: overview # controls the icon image and super-title text
       url: overview.md
-    - title: Azure AD features supported in Azure AD B2C
+    - title: Microsoft Entra ID features supported in Azure AD B2C
       url: supported-azure-ad-features.md
       itemType: overview
     - title: Get started with Azure AD B2C
@@ -45,42 +45,6 @@ highlightedContent:
 
 
 ## BAND 2 ####################################################################################################################################################
-productDirectory:
-  sections:
-    - title: Authenticate and authorize for any app type
-      summary: Select the app type that you want to build to access documentation focusing on it.
-      items:
-        ## ROW 1 ######################
-        - title: Single-page app (SPA)
-          url: index-spa.yml
-          imageSrc: ../active-directory/develop/media/hub/app-type-spa.svg
-          summary: A web application whose code is downloaded and run in the browser itself such as vanilla JavaScript, React and Angular.
-        - title: Web app
-          url: index-web-app.yml
-          #url: web-app-quickstart.md
-          imageSrc: ../active-directory/develop/media/hub/app-type-web.svg
-          summary: A web app whose code runs on a server, returning page data for the browser to render such as Node.js, ASP.NET or Java.
-        - title: Web API
-          url: index-web-api.yml
-          #url: web-api-quickstart.md
-          imageSrc: ../active-directory/develop/media/hub/app-type-api.svg
-          summary: A RESTful web service that is accessed by any app type or other web APIs, and is protected by Azure AD B2C.
-        ## ROW 2 ######################
-        - title: Desktop app
-          url: index-desktop.yml
-          #url: desktop-app-quickstart.md
-          imageSrc: ../active-directory/develop/media/hub/app-type-desktop.svg
-          summary: Applications with a user interface (UI) whose code runs on a user's desktop, laptop, or notebook computer such as Windows OS.
-        - title: Mobile app
-          url: index-mobile.yml
-          #url: mobile-app-quickstart.md
-          imageSrc: ../active-directory/develop/media/hub/app-type-mobile.svg
-          summary: Applications with a UI whose code runs on a user's phone, tablet, or other mobile device such as Android and iOS.
-        - title: Back-end service or daemon
-          url: index-service.yml
-          #url: mobile-app-quickstart.md
-          imageSrc: ../active-directory/develop/media/hub/app-type-daemon-console.svg
-          summary: An application or script without a UI that performs non-interactive tasks like server-to-server communication or scheduled jobs.
 ## BAND 2 - PRODUCT DIRECTORY END ##########################################################################################################################
 
 
@@ -96,7 +60,7 @@ conceptualContent:
         ##- text: What is Azure AD B2C?
          ## url: overview.md
           ##itemType: overview
-        ##- text: Compare Azure AD and Azure AD B2C
+        ##- text: Compare Microsoft Entra ID and Azure AD B2C
           ##url: supported-azure-ad-features.md
          ## itemType: overview
        ## - text: Get started with Azure AD B2C
@@ -152,12 +116,6 @@ conceptualContent:
             url: session-behavior.md
             itemType: how-to-guide
 
-          - text: Authenticate users in a Node.js web app(Quick course)
-            url: /training/modules/authenticate-users-node-web-app-use-azure-active-directory-b2c/
-            itemType: learn
-          # - text: 'Quickstart: Single-page app'
-            # url: configure-authentication-sample-spa-app.md
-            # itemType: quickstart
       ## CARD 4 ######################
     - title: 'Authorize: Call and secure your APIs'
       links:
@@ -217,10 +175,10 @@ conceptualContent:
             url: custom-domain.md
             itemType: how-to-guide  
           - text: Customize user experiences using custom policies
-            url: add-sign-up-and-sign-in-policy.md?pivots=b2c-custom-policy            
+            url: add-sign-up-and-sign-in-policy.md?pivots=b2c-custom-policy
             itemType: how-to-guide 
           - text: Custom policy how-to guide series
-            url: custom-policies-series-overview.md            
+            url: custom-policies-series-overview.md
             itemType: how-to-guide
           # - text: Use API connectors 
             # url: add-api-connector.md?pivots=b2c-user-flow
@@ -341,12 +299,6 @@ tools:
   - title: MSAL.NET
     url: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
     imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
-  - title: MSAL Android
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-android
-    imageSrc: ../active-directory/develop/media/hub/android.svg
-  - title: MSAL Angular
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular
-    imageSrc: ../active-directory/develop/media/hub/angular.svg
   ## ROW 2 ######################
   - title: MSAL iOS
     url: https://github.com/AzureAD/microsoft-authentication-library-for-objc
@@ -358,13 +310,7 @@ tools:
     url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser
     imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
   ## ROW 3 ######################
-  - title: MSAL Node
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node
-    imageSrc: ../active-directory/develop/media/hub/node.svg
   - title: MSAL Python
     url: https://github.com/AzureAD/microsoft-authentication-library-for-python
     imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
-  - title: MSAL React
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react
-    imageSrc: ../active-directory/develop/media/hub/react.svg
 ## BAND 4 - TOOLS END #######################################################################################################################################

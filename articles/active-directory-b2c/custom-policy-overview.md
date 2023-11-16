@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/10/2023
+ms.date: 11/06/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -31,7 +31,7 @@ Azure AD B2C custom policy [starter pack](tutorial-create-user-flows.md?pivots=b
 - **SocialAndLocalAccounts** - Enables the use of both local and social accounts. Most of our samples refer to this policy.
 - **SocialAndLocalAccountsWithMFA** - Enables social, local, and multi-factor authentication options.
 
-In the [Azure AD B2C samples GitHub repository](https://github.com/azure-ad-b2c/samples), you'll find samples for several enhanced Azure AD B2C custom CIAM user journeys and scenarios. For example, local account policy enhancements, social account policy enhancements, MFA enhancements, user interface enhancements, generic enhancements, app migration, user migration, conditional access, web test, and CI/CD.
+In the [Azure AD B2C samples GitHub repository](https://github.com/azure-ad-b2c/samples), you find samples for several enhanced Azure AD B2C custom CIAM user journeys and scenarios. For example, local account policy enhancements, social account policy enhancements, MFA enhancements, user interface enhancements, generic enhancements, app migration, user migration, conditional access, web test, and CI/CD.
  
 ## Understanding the basics 
 
@@ -133,7 +133,7 @@ Within an Azure AD B2C custom policy, you can integrate your own business logic 
 - Within the **base policy**, we highly recommend avoiding making any changes. When necessary, make comments where the changes are made.
 - When you're overriding an element, such as technical profile metadata, avoid copying the entire technical profile from the base policy. Instead, copy only the required section of the element. See [Disable email verification](./disable-email-verification.md) for an example of how to make the change.
 - To reduce duplication of technical profiles, where core functionality is shared, use [technical profile inclusion](technicalprofiles.md#include-technical-profile).
-- Avoid writing to the Azure AD directory during sign-in, which may lead to throttling issues.
+- Avoid writing to the Microsoft Entra directory during sign-in, which may lead to throttling issues.
 - If your policy has external dependencies, such as REST APIs, makes sure they're highly available.
 - For a better user experience, make sure your custom HTML templates, are globally deployed using [online content delivery](../cdn/index.yml). Azure Content Delivery Network (CDN) lets you reduce load times, save bandwidth, and improve response speed.
 - If you want to make a change to user journey, copy the entire user journey from the base policy to the extension policy. Provide a unique user journey ID to the user journey you've copied. Then in the [relying party policy](relyingparty.md), change the [default user journey](relyingparty.md#defaultuserjourney) element to point to the new user journey.

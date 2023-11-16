@@ -2,12 +2,11 @@
 titleSuffix: Azure OpenAI
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 author: aahill
 ms.author: aahi
-ms.date: 08/25/2023
+ms.date: 11/14/2023
 recommendations: false
 ---
 
@@ -27,13 +26,14 @@ Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with crede
 
     > [!TIP]
     > * See the following resource for more information:
-    >    * [Data source options](../concepts/use-your-data.md#data-source-options)
+    >    * [Data source options](../concepts/use-your-data.md#ingesting-your-data)
+    >        * You can connect an existing Azure AI search index or Azure Cosmos DB for MongoDB vCore as a data source.
     >    * [supported file types and formats](../concepts/use-your-data.md#data-formats-and-file-types)
-    > *  For documents and datasets with long text, we recommend using the available [data preparation script](../concepts/use-your-data.md#ingesting-your-data-into-azure-cognitive-search). 
+    > *  For documents and datasets with long text, we recommend using the available [data preparation script](https://go.microsoft.com/fwlink/?linkid=2244395). 
 
     1. For Azure OpenAI to access your storage account, you will need to turn on [Cross-origin resource sharing (CORS)](https://go.microsoft.com/fwlink/?linkid=2237228). If CORS isn't already turned on for the Azure Blob storage resource, select **Turn on CORS**. 
 
-    1. Select your Azure Cognitive Search resource, and select the acknowledgment that connecting it will incur usage on your account. Then select **Next**.
+    1. Select your Azure AI Search resource, and select the acknowledgment that connecting it will incur usage on your account. Then select **Next**.
 
     :::image type="content" source="../media/quickstarts/add-your-data-source.png" alt-text="A screenshot showing options for selecting a data source in Azure OpenAI Studio." lightbox="../media/quickstarts/add-your-data-source.png":::
 
@@ -44,7 +44,7 @@ Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with crede
     
     > [!IMPORTANT]
     > * Semantic search and vector search are subject to [additional pricing](../concepts/use-your-data.md#search-options).
-    >    * You can use *Simple* search as the search type for no additional cost.
+    >    * You can use *keyword* search as the search type for no additional cost.
     > * To enable vector search, you will need a `text-embedding-ada-002` deployment in your Azure OpenAI resource.
     > * Currently Azure OpenAI on your data supports semantic search for English data only. Only enable semantic search if both your documents and use case are in English.
     
