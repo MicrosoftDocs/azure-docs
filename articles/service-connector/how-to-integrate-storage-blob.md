@@ -10,9 +10,9 @@ ms.date: 10/25/2023
 ---
 # Integrate Azure Blob Storage with Service Connector
 
-This page shows the supported authentication types, client types and sample code of Azure Blob Storage using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection, as well as sample code. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows the supported authentication types, client types and sample code of Azure Blob Storage using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection.
 
-## Supported compute service
+## Supported compute services
 
 - Azure App Service
 - Azure Functions
@@ -37,7 +37,7 @@ Supported authentication and clients for App Service, Azure Functions, Container
 
 ## Default environment variable names or application properties and sample code
 
-Reference the connection details and sample code in the following tables, according to your connection's authentication type and client type, to connect compute services to Azure Blob Storage.
+Reference the connection details and sample code in the following tables, according to your connection's authentication type and client type, to connect compute services to Azure Blob Storage. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
 
 ### System-assigned managed identity
 
@@ -78,8 +78,10 @@ For default environment variables and sample code of other authentication type, 
 | azure.storage.account-key   | Your Blob Storage account key  | `<account-key>`                                         |
 | azure.storage.blob-endpoint | Your Blob Storage endpoint     | `https://<storage-account-name>.blob.core.windows.net/` |
 
-#### other client types
-
+#### Other client types
+| Default environment variable name  | Description                    | Example value                                                                                                       |
+|------------------------------------|--------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| AZURE_STORAGEBLOB_CONNECTIONSTRING | Blob Storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
 | Default environment variable name  | Description                    | Example value                                                                                                          |
 | ---------------------------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
 | AZURE_STORAGEBLOB_CONNECTIONSTRING | Blob Storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |

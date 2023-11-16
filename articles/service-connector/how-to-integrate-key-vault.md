@@ -13,9 +13,9 @@ ms.custom: event-tier1-build-2022
 > [!NOTE]
 > When you use Service Connector to connect your Key Vault or manage Key Vault connections, Service Connector uses your token to perform the corresponding operations.
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Key Vault to other cloud services using Service Connector. You might still be able to connect to Azure Key Vault in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection, as well as sample code. 
+This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Key Vault to other cloud services using Service Connector. You might still be able to connect to Azure Key Vault in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
 
-## Supported compute service
+## Supported compute services
 
 - Azure App Service
 - Azure Functions

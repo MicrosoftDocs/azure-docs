@@ -9,7 +9,7 @@ ms.date: 10/26/2023
 ---
 # Integrate Azure App Configuration with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure App Configuration to other cloud services using Service Connector. You might still be able to connect to App Configuration using other methods. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure App Configuration to other cloud services using Service Connector. You might still be able to connect to App Configuration using other methods. This page also shows default environment variable names and values you get when you create the service connection. 
 
 ## Supported compute services
 
@@ -35,7 +35,7 @@ Supported authentication and clients for App Service, Azure Functions, Container
 
 ## Default environment variable names or application properties and sample code
 
-Use the connection details below to connect compute services to Azure App Configuration stores. This page also shows default environment variable names and values you get when you create the service connection, as well as sample code. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Use the connection details below to connect compute services to Azure App Configuration stores. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ### System-assigned managed identity
 

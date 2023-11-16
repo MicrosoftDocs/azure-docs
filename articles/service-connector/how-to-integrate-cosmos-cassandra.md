@@ -10,7 +10,7 @@ ms.custom: event-tier1-build-2022, ignite-2022
 ---
 # Integrate Azure Cosmos DB for Cassandra with Service Connector
 
-This page shows the supported authentication types and client types for the Azure Cosmos DB for Apache Cassandra using Service Connector. You might still be able to connect to the Azure Cosmos DB for Cassandra in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection and sample code showing how to use them. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Cosmos DB for Apache Cassandra to other cloud services using Service Connector. You might still be able to connect to the Azure Cosmos DB for Cassandra in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
 
 ## Supported compute services
 
@@ -36,9 +36,9 @@ Supported authentication and clients for App Service, Azure Functions, Container
 
 ## Default environment variable names or application properties and Sample code
 
-Reference the connection details and sample code in the following tables, according to your connection's authentication type and client type, to connect your compute services to Azure Cosmos DB for Apache Cassandra.
+Reference the connection details and sample code in the following tables, according to your connection's authentication type and client type, to connect your compute services to Azure Cosmos DB for Apache Cassandra. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
-### Connect with System-assigned Managed Identity
+### System-assigned Managed Identity
 
 | Default environment variable name | Description                                        | Example value                                                                                                                                                                                                   |
 | --------------------------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -55,7 +55,7 @@ Reference the connection details and sample code in the following tables, accord
 Refer to the steps and code below to connect to Azure Cosmos DB for Cassandra using a system-assigned managed identity.
 [!INCLUDE [code sample for cassandra](./includes/code-cosmoscassandra-me-id.md)]
 
-### Connect with User-assigned Managed Identity
+### User-assigned Managed Identity
 
 | Default environment variable name | Description                                        | Example value                                                                                                                                                                                                   |
 | --------------------------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -73,7 +73,7 @@ Refer to the steps and code below to connect to Azure Cosmos DB for Cassandra us
 Refer to the steps and code below to connect to Azure Cosmos DB for Cassandra using a user-assigned managed identity.
 [!INCLUDE [code sample for cassandra](./includes/code-cosmoscassandra-me-id.md)]
 
-### Connect with Connection String
+### Connection String
 
 #### SpringBoot client type
 
