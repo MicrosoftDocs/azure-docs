@@ -4,6 +4,7 @@ title: Build event-driven apps with Dapr
 description: Learn how to create a Dapr application that aggregates data and publishing on another topic
 author: timlt
 ms.author: timlt
+ms.subservice: mq
 ms.topic: tutorial
 ms.date: 11/13/2023
 

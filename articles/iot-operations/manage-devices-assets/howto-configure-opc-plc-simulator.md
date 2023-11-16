@@ -3,7 +3,7 @@ title: Configure an OPC PLC simulator
 description: How to configure an OPC PLC simulator
 author: timlt
 ms.author: timlt
-# ms.subservice: opcua-broker
+ms.subservice: opcua-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
