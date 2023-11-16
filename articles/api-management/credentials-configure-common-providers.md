@@ -34,7 +34,7 @@ To configure any of the supported providers in API Management, first configure a
 
 ## Microsoft Entra provider
 
-API credentials support the Microsoft Entra identity provider, which is the identity service in Microsoft Azure that provides identity management and access control capabilities. It allows users to securely sign in using industry-standard protocols.
+API credential manager supports the Microsoft Entra identity provider, which is the identity service in Microsoft Azure that provides identity management and access control capabilities. It allows users to securely sign in using industry-standard protocols.
 
 * **Supported grant types**: authorization code, client credentials
 
