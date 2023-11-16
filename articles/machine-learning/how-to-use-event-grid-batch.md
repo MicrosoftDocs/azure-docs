@@ -9,8 +9,10 @@ ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
-ms.reviewer: mopeakande 
-ms.custom: devplatv2
+ms.reviewer: mopeakande
+ms.custom:
+  - devplatv2
+  - ignite-2023
 ---
 
 # Run batch endpoints from Event Grid events in storage
@@ -39,7 +41,7 @@ The workflow looks as follows:
 
 ## Prerequisites
 
-* This example assumes that you have a model correctly deployed as a batch endpoint. This architecture can perfectly be extended to work with [Pipeline component deployments](concept-endpoints-batch.md?#pipeline-component-deployment-preview) if needed.
+* This example assumes that you have a model correctly deployed as a batch endpoint. This architecture can perfectly be extended to work with [Pipeline component deployments](concept-endpoints-batch.md?#pipeline-component-deployment) if needed.
 * This example assumes that your batch deployment runs in a compute cluster called `batch-cluster`.
 * The Logic App we are creating will communicate with Azure Machine Learning batch endpoints using REST. To know more about how to use the REST API of batch endpoints read [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md?tabs=rest).
 

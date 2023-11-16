@@ -24,6 +24,10 @@
     href: quick-backup-vm-bicep-template.md
   - name: Back up Azure Database for PostgreSQL server - Azure portal
     href: quick-backup-postgresql-database-portal.md
+  - name: Configure AKS cluster backup
+    href: quick-backup-aks.md
+  - name: Install Backup extension in AKS cluster
+    href: quick-install-backup-extension.md    
   - name: Enable Multi-user authorization (MUA)
     href: enable-multi-user-authorization-quickstart.md
   - name: Backup SAP HANA System Replication database
@@ -52,6 +56,8 @@
     href: tutorial-backup-sap-hana-db.md
   - name: Back up PostgreSQL databases
     href: tutorial-postgresql-backup.md
+  - name: Configure item level backup of an AKS cluster
+    href: tutorial-configure-backup-aks.md  
   - name: Back up Windows Server
     href: tutorial-backup-windows-server-to-azure.md
   - name: Restore files to Windows Server
@@ -106,6 +112,8 @@
       href: backup-azure-policy-supported-skus.md
     - name: Azure Database for PostgreSQL backup support matrix
       href: backup-azure-database-postgresql-support-matrix.md
+    - name: Azure Database for PostgreSQL -Flexible server backup support matrix
+      href: backup-azure-database-postgresql-flex-support-matrix.md      
     - name: Azure Kubernetes Service backup support matrix
       href: azure-kubernetes-service-cluster-backup-support-matrix.md
     - name: Automation in Azure Backup
@@ -152,6 +160,8 @@
       href: sap-hana-database-about.md
     - name: Architecture
       href: azure-backup-architecture-for-sap-hana-backup.md
+  - name: Azure Database for PostgreSQL -Flexible server backup
+    href: backup-azure-database-postgresql-flex-overview.md
   - name: Azure Kubernetes Service backup
     items:
     - name: Overview
@@ -324,6 +334,12 @@
         href: backup-azure-data-protection-use-rest-api-backup-postgresql.md
       - name: Restore
         href: restore-postgresql-database-use-rest-api.md
+  - name: Azure Database for PostgreSQL -Flexible server backup
+    items:
+    - name: Backup
+      href: backup-azure-database-postgresql-flex.md
+    - name: Restore
+      href: restore-azure-database-postgresql-flex.md
   - name: Azure Kubernetes Service backup
     items:
     - name: From the Azure portal

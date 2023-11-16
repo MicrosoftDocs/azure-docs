@@ -103,7 +103,7 @@
           href: howto-kubernetes-service-load-balancer.md
         - name: Disable cgroupsv2 in Nexus Kubernetes 1.27+
           href: howto-disable-cgroupsv2.md
-        - name: Restart Azure Operator Nexus Kubernetes cluster node
+        - name: Restart cluster node
           href: howto-kubernetes-cluster-action-restart.md
         - name: Customize cluster DNS
           href: how-to-customize-kubernetes-cluster-dns.md
