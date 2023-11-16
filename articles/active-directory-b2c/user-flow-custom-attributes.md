@@ -94,7 +94,7 @@ Extension attributes can only be registered on an application object, even thoug
 
 ## Modify your custom policy
 
-To enable custom attributes in your policy, provide **Application ID** and Application **Object ID** in the **AAD-Common** technical profile metadata. The **AAD-Common*** technical profile is found in the base [Microsoft Entra ID](active-directory-technical-profile.md) technical profile, and provides support for Microsoft Entra user management. Other Microsoft Entra technical profiles include **AAD-Common** to use its configuration. Override the **AAD-Common** technical profile in the extension file.
+To enable custom attributes in your policy, provide **Application ID** and Application **Object ID** in the **AAD-Common** technical profile metadata. The **AAD-Common*** technical profile is found in the base [Microsoft Entra ID](active-directory-technical-profile.md) technical profile, and provides support for Microsoft Entra user management. Other Microsoft Entra ID technical profiles include **AAD-Common** to use its configuration. Override the **AAD-Common** technical profile in the extension file.
 
 1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Find the ClaimsProviders element. Add a new ClaimsProvider to the ClaimsProviders element.
@@ -130,7 +130,7 @@ To enable custom attributes in your policy, provide **Application ID** and Appli
 1. Select **Upload Custom Policy**, and then upload the TrustFrameworkExtensions.xml policy files that you changed.
 
 > [!NOTE]
-> The first time the Microsoft Entra technical profile persists the claim to the directory, it checks whether the custom attribute exists. If it doesn't, it creates the custom attribute.  
+> The first time the Microsoft Entra ID technical profile persists the claim to the directory, it checks whether the custom attribute exists. If it doesn't, it creates the custom attribute.  
 
 ## Create a custom attribute through Azure portal
 

@@ -6,7 +6,9 @@ ms.service: azure-container-storage
 ms.topic: overview
 ms.date: 11/06/2023
 ms.author: kendownie
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - ignite-2023-container-storage
 ---
 
 # What is Azure Container Storage? Preview

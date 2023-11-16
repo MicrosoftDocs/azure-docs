@@ -28,7 +28,7 @@ There are no extra registration steps required.
 
 # [Portal](#tab/azure-portal)
 
-1. Sign in to the Azure portal and search for **Elastic SAN**.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and search for **Elastic SAN**.
 1. Select **+ Create a new SAN**
 1. On the basics page, fill in the appropriate values.
     - **Elastic SAN name** must be between 3 and 24 characters long. The name can only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.

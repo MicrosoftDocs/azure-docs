@@ -14,7 +14,7 @@ ms.author: wchi
     dotnet add package CassandraCSharpDriver --version 3.19.3
     ```
 
-2. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra.
+2. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra.
     ```csharp
     using System;
     using System.Security.Authentication;
@@ -86,7 +86,7 @@ For more information, see [Build an Apache Cassandra app with .NET SDK and Azure
     </dependency>
     ```
 
-1. Get the connection string from the environment variable, and add the plugin name to connect to Cosmos DB for Cassandra:
+1. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra.
 
     ```java
     import com.datastax.oss.driver.api.core.CqlSession;
@@ -119,7 +119,7 @@ Set up your Spring App application according to [How to use Spring Data with Azu
     pip install pyopenssl
     ```
 
-1. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra.
+1. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra.
     ```python
     from cassandra.cluster import Cluster
     from ssl import PROTOCOL_TLSv1_2, SSLContext, CERT_NONE
@@ -145,7 +145,7 @@ For more information, see [Build a Cassandra app with Python SDK and Azure Cosmo
    ```bash
    go get github.com/gocql/gocql
    ```
-2. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra.
+2. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra.
     ```go
     import (
         "fmt"
@@ -195,14 +195,14 @@ For more information, refer to [Build a Go app with the gocql client to manage A
    ```bash
    npm install cassandra-driver
    ```
-2. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra.
+2. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra.
    ```javascript
    const cassandra = require("cassandra-driver");
 
    let username = process.env.AZURE_COSMOS_USERNAME;
    let password = process.env.AZURE_COSMOS_PASSWORD;
    let contactPoint = process.env.AZURE_COSMOS_CONTACTPOINT;
-   let port = process.env.AZURE_COSMOS_PASSWORD;
+   let port = process.env.AZURE_COSMOS_PORT;
    let keyspace = process.env.AZURE_COSMOS_KEYSPACE;
 
    let authProvider = new cassandra.auth.PlainTextAuthProvider(

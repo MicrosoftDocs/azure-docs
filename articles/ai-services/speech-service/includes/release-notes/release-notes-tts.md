@@ -21,7 +21,7 @@ ms.author: eur
 ### September 2023 release
 
 #### Prebuilt neural voice
-- Introducing new multilingual voices for public preview:
+- Introducing new voices for public preview:
 
 | Locale (BCP-47) | Language | Text to speech voices |
 | ----- | ----- | ----- |

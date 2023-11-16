@@ -28,7 +28,7 @@ This Asana connector is supported for the following capabilities:
 |---------| --------|
 |[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312; |
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
