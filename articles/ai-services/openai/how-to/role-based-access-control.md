@@ -71,7 +71,7 @@ This role has all the permissions of Cognitive Services OpenAI User and is also 
 
 ✅ Create custom fine-tuned models <br>
 ✅ Upload datasets for fine-tuning <br>
-✅ Create new model deployments or edit existing model deployments
+✅ Create new model deployments or edit existing model deployments **[Added Fall 2023]**
 
 A user with only this role assigned would be unable to:
 
@@ -94,9 +94,9 @@ This role is typically granted access at the resource group level for a user in 
 ✅ Create customized content filters <br>
 ✅ Add a data source for the use your data feature <br>
 ✅ Create new model deployments or edit existing model deployments (via API) <br>
-✅ Create custom fine-tuned models <br>
-✅ Upload datasets for fine-tuning <br>
-✅ Create new model deployments or edit existing model deployments (via Azure OpenAI Studio) 
+✅ Create custom fine-tuned models **[Added Fall 2023]**<br>
+✅ Upload datasets for fine-tuning **[Added Fall 2023]**<br>
+✅ Create new model deployments or edit existing model deployments (via Azure OpenAI Studio) **[Added Fall 2023]**
 
 A user with only this role assigned would be unable to:
 
