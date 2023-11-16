@@ -65,9 +65,6 @@ public String run(
 
 ::: zone pivot="programming-language-javascript"
 
-> [!NOTE]  
-> The [Node.js v4 model for Azure Functions](functions-reference-node.md?pivots=nodejs-model-v4) isn't currently available for use with the Dapr extension during the preview.  
-
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
 Here's the _function.json_ file for `daprServiceInvocationTrigger`:
