@@ -44,7 +44,7 @@ The Kata confidential container resides within the Azure Linux AKS Container Hos
 
 By default, AKS all workloads share the same kernel and the same cluster admin. With the preview of Pod Sandboxing on AKS, the isolation grew a notch higher with the ability to provide kernel isolation for workloads on the same AKS node. You can read more about the feature [here](../aks/use-pod-sandboxing.md). Confidential Containers are the next step of this isolation and it uses the memory encryption capabilities of the underlying AMD SEV-SNP virtual machine sizes. These virtual machines are the [DCa_cc](../virtual-machines/dcasccv5-dcadsccv5-series.md) and [ECa_cc](../virtual-machines/ecasccv5-ecadsccv5-series.md) sizes with the capability of surfacing the hardware’s root of trust to the pods deployed on it.
 
-:::image type="content" source="media/confidential-containers/architechture-aks-conf-pods.png" alt-text="Diagram of various layers of the architechture forming Confidential Containers":::
+:::image type="content" source="media/confidential-containers/architechture-aks-conf-pods.png" alt-text="Diagram of various layers of the architecture forming Confidential Containers.":::
 
 ## Get started
 
