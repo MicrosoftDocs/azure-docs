@@ -33,6 +33,10 @@ At the bottom of the Assessment result, two overall scores are displayed: Pronun
 - **Prosody score**: Assesses the use of appropriate intonation, rhythm, and stress. Several additional error types related to prosody assessment are introduced, such as Unexpected break, Missing break, and Monotone. These error types provide more detailed information about pronunciation errors compared to the previous engine.
 
 **Content Score**: This score provides an aggregated assessment of the content of the speech and includes three sub-aspects. This score is only available in the speaking tab for an unscripted assessment.
+
+> [!NOTE]
+> Content score is currently available on the following regions: `westcentralus`, `eastasia`, `eastus`, `northeurope`, `westeurope`, and `westus2`. All other regions will have Content score available starting from Nov 30, 2023.  
+
 - **Vocabulary score**: Evaluates the speaker's effective usage of words and their appropriateness within the given context to express ideas accurately, as well as the level of lexical complexity.
 - **Grammar score**: Evaluates the correctness of grammar usage and variety of sentence patterns. It considers lexical accuracy, grammatical accuracy, and diversity of sentence structures, providing a more comprehensive evaluation of language proficiency.
 - **Topic score**: Assesses the level of understanding and engagement with the topic discussed in the speech. It evaluates the speaker's ability to effectively express thoughts and ideas related to the given topic.

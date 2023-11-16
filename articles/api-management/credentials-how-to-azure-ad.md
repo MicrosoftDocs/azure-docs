@@ -133,7 +133,7 @@ On the **Connection** tab, complete the steps for your connection to the provide
             <base />
             <get-authorization-context provider-id="MicrosoftEntraID-01" authorization-id="first-connection" context-variable-name="auth-context" identity-type="managed" ignore-error="false" />
            <set-header name="Authorization" exists-action="override">
-               <value>@("Bearer " + (Authorization)context.Variables.GetValueOrDefault("auth-context"))?.AccessToken)</value>
+               <value>@("Bearer " + ((Authorization)context.Variables.GetValueOrDefault("auth-context"))?.AccessToken)</value>
            </set-header>
         </inbound>
         <backend>
@@ -150,7 +150,7 @@ On the **Connection** tab, complete the steps for your connection to the provide
 The preceding policy definition consists of two parts:
 
 * The [get-authorization-context](get-authorization-context-policy.md) policy fetches an authorization token by referencing the credential provider and connection that were created earlier. 
-* The [set-header](set-header-policy.md) policy creates an HTTP header with the fetched access token.
+* The [set-header](set-header-policy.md) policy creates an HTTP header with the fetched authorization token.
 
 ## Step 5: Test the API 
 
