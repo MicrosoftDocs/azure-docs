@@ -4,7 +4,7 @@ description: Describes how you can set custom headers (or delivery properties) f
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 10/10/2023
+ms.date: 11/15/2023
 ---
 
 # Delivery properties for namespace topics' subscriptions

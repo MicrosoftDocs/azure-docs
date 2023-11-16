@@ -266,7 +266,7 @@ items:
       - name: Release and work item insights
         href: app/release-and-work-item-insights.md
       - name: Transaction Search and Diagnostics
-        href: app/search-and-transaction-diagnostics.md
+        href: app/transaction-search-and-diagnostics.md
     - name: Code analysis
       items:
       - name: Profiler

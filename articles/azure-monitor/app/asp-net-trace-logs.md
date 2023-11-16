@@ -247,12 +247,12 @@ Perhaps your application sends voluminous amounts of data and you're using the A
 ## <a name="add"></a>Next steps
 
 * [Diagnose failures and exceptions in ASP.NET](asp-net-exceptions.md)
-* [Learn more about Transaction Search](search-and-transaction-diagnostics.md?tabs=transaction-search)
+* [Learn more about Transaction Search](transaction-search-and-diagnostics.md?tabs=transaction-search)
 * [Set up availability and responsiveness tests](availability-overview.md)
 
 <!--Link references-->
 
 [availability]: ./availability-overview.md
-[diagnostic]: ./search-and-transaction-diagnostics.md?tabs=transaction-search
+[diagnostic]: ./transaction-search-and-diagnostics.md?tabs=transaction-search
 [exceptions]: asp-net-exceptions.md
 [start]: ./app-insights-overview.md
