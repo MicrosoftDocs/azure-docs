@@ -9,20 +9,25 @@ ms.date: 04/10/2023
 
 # Use GPUs for compute-intensive workloads on Azure Kubernetes Service (AKS)
 
-Graphical processing units (GPUs) are often used for compute-intensive workloads, such as graphics and visualization workloads. AKS supports GPU-enabled Linux node pools to run compute-intensive Kubernetes workloads. For more information on available GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-skus]. For AKS node pools, we recommend a minimum size of *Standard_NC6s_v3*. The NVv4 series (based on AMD GPUs) aren't supported with AKS.
+Graphical processing units (GPUs) are often used for compute-intensive workloads, such as graphics and visualization workloads. AKS supports GPU-enabled Linux node pools to run compute-intensive Kubernetes workloads. 
 
 This article helps you provision nodes with schedulable GPUs on new and existing AKS clusters.
 
+## Supported GPU-enabled VMs
+To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-skus]. For AKS node pools, we recommend a minimum size of *Standard_NC6*. The NVv4 series (based on AMD GPUs) aren't supported on AKS.
+
 > [!NOTE]
 > GPU-enabled VMs contain specialized hardware subject to higher pricing and region availability. For more information, see the [pricing][azure-pricing] tool and [region availability][azure-availability].
+
+## Limitations
+* AKS does not support Windows GPU-enabled node pools.
+* If you're using an Azure Linux GPU-enabled node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [auto-upgrade](./auto-upgrade-node-image.md).
+* [NVadsA10](https://learn.microsoft.com/en-us/azure/virtual-machines/nva10v5-series) v5-series are not a recommended for GPU VHD.
 
 ## Before you begin
 
 * This article assumes you have an existing AKS cluster. If you don't have a cluster, create one using the [Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or the [Azure portal][aks-quickstart-portal].
 * You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
-> [!NOTE]
-> If using an Azure Linux GPU node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [auto-upgrade](./auto-upgrade-node-image.md).
 
 ## Get the credentials for your cluster
 
@@ -32,20 +37,22 @@ This article helps you provision nodes with schedulable GPUs on new and existing
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
-## Add the NVIDIA device plugin
+## Options for using NVIDIA GPUs
 
 There are two ways to add the NVIDIA device plugin:
 
 1. [Using the AKS GPU image](#update-your-cluster-to-use-the-aks-gpu-image-preview)
 2. [Manually installing the NVIDIA device plugin](#manually-install-the-nvidia-device-plugin)
 
+### Use NVIDIA GPU Operator with AKS
+You can use the NVIDIA GPU Operator by skipping the gpu driver installation on AKS. For more information about using the NVIDIA GPU Operator with AKS, see [NVIDIA Documentation](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/microsoft-aks.html).
+
+You can specify the `--nodepool-tags` argument to the Azure CLI command to customize the nodes. If you specify `--nodepool-tags SkipGPUDriverInstall=true`
+
 > [!WARNING]
 > We don't recommend manually installing the NVIDIA device plugin daemon set with clusters using the AKS GPU image.
 
 ### Update your cluster to use the AKS GPU image (preview)
-
-> [!NOTE]
-> If using an Azure Linux GPU node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [auto-upgrade](./auto-upgrade-node-image.md).
 
 AKS provides a fully configured AKS image containing the [NVIDIA device plugin for Kubernetes][nvidia-github].
 
