@@ -4,7 +4,7 @@ description: This article describes how to configure private endpoints for Azure
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/04/2023
+ms.date: 11/15/2023
 ---
 
 # Configure private endpoints for Azure Event Grid namespaces

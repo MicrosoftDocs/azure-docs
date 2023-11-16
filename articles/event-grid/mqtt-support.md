@@ -4,7 +4,7 @@ description: 'Describes the MQTT features supported by Azure Event Grid’s MQTT
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 05/23/2023
+ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
 ---

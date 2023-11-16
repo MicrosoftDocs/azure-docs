@@ -1,7 +1,7 @@
 ---
 title: Deploy business process and tracking profile to Azure
 description: Deploy your business process and tracking profile for an application group in an integration environment to Standard logic apps in Azure.
-ms.service: azure
+ms.service: integration-environments
 ms.topic: how-to
 ms.reviewer: estfan, azla
 ms.date: 11/15/2023

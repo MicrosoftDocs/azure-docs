@@ -77,7 +77,7 @@ Boost systems embrace multiple layers of defense-in-depth, including ubiquitous 
 Azure Boost uses Security Enhanced Linux (SELinux) to enforce principle of least privileges for all software running on its system on chip. All control plane and data plane software running on top of the Boost OS is restricted to running only with the minimum set of privileges required to operate – the operating system restricts any attempt by Boost software to act in an unexpected manner. Boost OS properties make it difficult to compromise code, data, or the availability of Boost and Azure hosting Infrastructure.
 
 - **Rust memory safety:**
-RUST serves as the primary language for all new code written on the Boost system, to provide memory safety without impacting performance. Control and data plane operations are isolated with memory safety improvements that enhance Azure’s ability to keep tenants safe. 
+Rust serves as the primary language for all new code written on the Boost system, to provide memory safety without impacting performance. Control and data plane operations are isolated with memory safety improvements that enhance Azure’s ability to keep tenants safe. 
 
 - **FIPS certification:**
 Boost employs a FIPS 140 certified system kernel, providing reliable and robust security validation of cryptographic modules.
