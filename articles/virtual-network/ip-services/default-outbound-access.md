@@ -66,11 +66,19 @@ There are multiple ways to turn off default outbound access:
 
 * Utilize the Private Subnet parameter
     * Creating a subnet to be Private prevents any virtual machines on the subnet from utilizing default outbound access to connect to public endpoints.
-    * The parameter to create a Private Subnet can only be modified during the creation of a subnet.
-    * VMs on a Private Subnet can still access the Internet using explicit outbound connectivity.
+    * The parameter to create a Private subnet can only be set during the creation of a subnet.
+    * VMs on a Private subnet can still access the Internet using explicit outbound connectivity.
 
     > [!NOTE]
     > Certain services will not function on a virtual machine in a Private Subnet without an explicit method of egress (examples are Windows Activation and Windows Updates).
+
+To use the Private subnet feature
+    - From the Azure Portal, ensure the option to enable Private subnet is selected when creating a subnet as part of the Virtual Network create experience as shown below:
+
+:::image type="content" source="./media/default-outbound-access/private-subnet-portal.png"  alt-text="Image of Azure portal showing Private subnet option.":::
+
+    - Using CLI, when creating a subnet with [az network vnet subnet create](https://learn.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create, use the **`--default-outbound**` option and choose "false"
+    - Using an Azure Resource Manager template, set the value of **`defaultOutboundAccess**` parameter to be "false"
 
 *  Add an explicit outbound connectivity method.
 
