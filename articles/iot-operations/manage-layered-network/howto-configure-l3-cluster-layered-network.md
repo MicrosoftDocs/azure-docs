@@ -50,7 +50,7 @@ If you're using VM to create your Windows 11 machines, use the [VM image](https:
 1. Install the following optional software if you plan to try IoT Operations quickstarts or MQTT related scenarios.
     - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
     - [Mosquitto](https://mosquitto.org/)
-1. Install Azure CLI. You can install the Azure CLI directly onto the level 3 machine or on another *developer* or *jumpbox* machine if you plan to access the level 3 cluster remotely. If you choose to access the Kubernetes cluster remotely to keep the cluster host clean, you run the *kubectl* and *az8 related commands from the developer machine for the rest of the steps in this article.
+1. Install Azure CLI. You can install the Azure CLI directly onto the level 3 machine or on another *developer* or *jumpbox* machine if you plan to access the level 3 cluster remotely. If you choose to access the Kubernetes cluster remotely to keep the cluster host clean, you run the *kubectl* and *az* related commands from the developer machine for the rest of the steps in this article.
     > The *AKS Edge Essentials - Single machine deployment* does not support accessing kubenetes remotely. If you want to enable remote kubectl access, you will need to create the [Full Kubernetes Deployments](/azure/aks/hybrid/aks-edge-howto-multi-node-deployment) instead. Additional configurations are needed when creating this type of kubernetes cluster.
     - Install Azure CLI. Follow the steps in [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows).
     - Install *connectedk8s* and other extensions.

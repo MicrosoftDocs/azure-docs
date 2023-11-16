@@ -18,7 +18,7 @@ ms.date: 11/07/2023
 
 To use Azure IoT Layered Network Management service, you need to configure an isolated network environment. For example the [ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](http://www.pera.net/). This page provides few examples for setting up a test environment depends on the how you want to achieve the isloation.
 - *Physical segmentation* - The networks are physically separated. In this case, the Layered Network Management needs to be deployed to a dual NIC (Network Interface Card) host to connect to both the internet-facing network and the isolated network.
-- *Logical segmentation* - The network is logically segmented with configurations such as VLAN, subnet or firewall. The Layered Network Management has a single endpoint and configured to be visiable to its own network layer and the isolated layer.
+- *Logical segmentation* - The network is logically segmented with configurations such as VLAN, subnet or firewall. The Layered Network Management has a single endpoint and configured to be visible to its own network layer and the isolated layer.
 
 Both approach requires you to configure a custom DNS in the isolated network layer to direct the network traffic to the Layered Network Management instance in upper layer.
 
@@ -62,11 +62,11 @@ In this example, a test environment is created with [Virtual Network](/azure/vir
 
 1. Create a virtual network in your Azure subscription. Create subnets for at least two layers (level 4 and level 3).
 ![Screenshot for virtual network in Azure](./media/howto-configure-layered-network/lnm-vnet-subnet.png)
-1. It is optional to create an additional subnet for the "jumpbox" or "developer" machine to remotely access the machine or cluster accross layers. This will be convenient if you plan to create more than two network layers. Otherwise, you can simply connect the jumpbox machine to level 4 network.
+1. It is optional to create an additional subnet for the "jumpbox" or "developer" machine to remotely access the machine or cluster across layers. This will be convenient if you plan to create more than two network layers. Otherwise, you can simply connect the jumpbox machine to level 4 network.
 1. Create [network security groups](/azure/virtual-network/network-security-groups-overview) for each level and attach to the subnet accordingly.
 1. You can use the default value for level 4 security group.
 1. You need to config additional inbound and outbound rules for level 3 (and lower level) security group.
-    - Add inbound and outbound security ruls to deny all network traffic.
+    - Add inbound and outbound security rules to deny all network traffic.
     - With a higher priority, add inbound and outbound security rules to allow network traffics from/to the IP range of level 4 subnet.
     - [Optional] If you create a "jumpbox" subnet, create inbound and outbound rules for allowing traffic from/to this subnet.
 ![Screenshot for level 3 security group](./media/howto-configure-layered-network/lnm-vnet-security-rule.png)
