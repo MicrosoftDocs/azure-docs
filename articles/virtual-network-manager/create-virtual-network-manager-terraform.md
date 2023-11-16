@@ -9,7 +9,7 @@ ms.author: mbender
 ms.date: 6/7/2023
 content_well_notification: 
   - AI-contribution
-zone_pivot_groups: azure-virtual-network-manager-create-quickstart
+zone_pivot_groups: azure-virtual-network-manager-quickstart-options
 
 ---
 
@@ -41,7 +41,7 @@ In this article, you learn how to:
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 - To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization is not supported
 
-:::zone pivot="subscription-scope"
+:::zone pivot="sub"
 
 ## Implement the Terraform code
 
@@ -70,7 +70,7 @@ In this article, you learn how to:
 
 :::zone-end
 
-:::zone pivot="management-group-scope"
+:::zone pivot="mgmt-grp"
 
 
 ## Implement the Terraform code
@@ -135,7 +135,28 @@ In this article, you learn how to:
       --resource-group $resource_group_name \
       --vnet-name <virtual_network_name>
     ```
-    
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+1. Get the Azure resource group name.
+
+    ```console
+    $resource_group_name=$(terraform output -raw resource_group_name)
+    ```
+
+1. Run [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup) to display the resource group.
+
+    ```azurepowershell
+    Get-AzResourceGroup -Name $resource_group_name
+    ```
+
+1. For each virtual network name printed in the previous step, run [Get-AzNetworkManagerEffectiveConnectivityConfiguration](/powershell/module/az.network/get-aznetworkmanagereffectiveconnectivityconfiguration) to print the effective (applied) configurations. Replace the `<virtual_network_name>` placeholder with the vnet name.
+
+```azurepowershell
+    Get-AzNetworkManagerEffectiveConnectivityConfiguration 
+   -VirtualNetworkName <String>
+   -VirtualNetworkResourceGroupName $resource_group_name
+```
 ---
 
 ## Clean up resources

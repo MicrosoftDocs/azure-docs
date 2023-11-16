@@ -2856,3 +2856,12 @@ groups:
     title: Azure Developer CLI
   - id: local
     title: Local
+
+- id: azure-virtual-network-manager-quickstart-options
+  title: Azure Virtual Network Manager Quickstart Scope Options
+  prompt: Choose a scope option
+  pivots:
+  - id: mgmt-grp
+    title: Management group
+  - id: sub
+    title: Subscription
