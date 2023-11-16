@@ -2,7 +2,7 @@
 title: Enable Container insights for Azure Kubernetes Service (AKS) cluster
 description: Learn how to enable Container insights on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 11/14/2023
 ms.custom: ignite-2022, devx-track-azurecli
 ms.reviewer: aul
 ---
@@ -33,7 +33,7 @@ Use any of the following methods to enable monitoring for an existing AKS cluste
 ## [CLI](#tab/azure-cli)
 
 > [!NOTE]
-> Managed identity authentication will be default in CLI version 2.49.0 or higher. If you need to use legacy/non-managed identity authentication, use CLI version < 2.49.0.
+> Managed identity authentication will be default in CLI version 2.49.0 or higher. If you need to use legacy/non-managed identity authentication, use CLI version < 2.49.0. For CLI version 2.54.0 or higher the logging schema will be configured to [ContainerLogV2](./container-insights-logging-v2.md) via the ConfigMap
 
 ### Use a default Log Analytics workspace
 

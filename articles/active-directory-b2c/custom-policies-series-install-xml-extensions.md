@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/30/2023
+ms.date: 11/06/2023
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
@@ -22,10 +22,9 @@ You can improve your productivity when editing or writing custom policy files by
 
 It's essential to use a good XML editor such as [Visual Studio Code (VS Code)](https://code.visualstudio.com/). We recommend using VS Code as it allows you to install XML extension, such as [XML Language Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml). A good XML editor together with extra XML extension allows you to color-codes content, pre-fills common terms, keeps XML elements indexed, and can validate against an XML schema. 
 
-
 To validate custom policy files, we provide a custom policy XML schema. You can download the schema by using the link `https://raw.githubusercontent.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/master/TrustFrameworkPolicy_0.3.0.0.xsd` or refer to it from your editor by using the same link. You can also use Azure AD B2C extension for VS Code to quickly navigate through Azure AD B2C policy files, and many other functions. Lean more about [Azure AD B2C extension for VS Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c).
 
-In this article, you'll learn how to: 
+In this article, you learn how to: 
 
 - Use custom policy XML schema to validate policy files. 
 - Use Azure AD B2C extension for VS Code to quickly navigate through your policy files.
