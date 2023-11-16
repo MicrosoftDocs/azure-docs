@@ -27,7 +27,7 @@ These products run on Oracle hardware, and Oracle provides hardware management. 
 
 You can provision Oracle Database@Azure using the Azure portal and Azure APIs, SDKs and Terraform. All nomenclature, creation flows, and wizard paths are Azure. Management of Oracle database system infrastructure and VM cluster resources takes place in the Azure portal as well.
 
-You can provision OracleDB@Azure using standard Azure interfaces, including the Azure portal, the Azure API and SDK, and Terraform. Management of Exadata infrastructure and VM cluster resources takes place in the Azure portal as well.
+You can provision Oracle Database@Azure using standard Azure interfaces, including the Azure portal, the Azure API and SDK, and Terraform. Management of Exadata infrastructure and VM cluster resources takes place in the Azure portal as well.
 
 For Oracle Container Databases (CDB) and Oracle Pluggable Databases (PDB), some management tasks are completed using the OCI console.
 
@@ -77,7 +77,7 @@ For larger commitments (for example, systems using dedicated Exadata infrastruct
 
 To purchase Oracle Database@Azure, contact the [Oracle sales team](https://www.oracle.com/corporate/contact/) or your Oracle sales representative for a sale offer. Oracle Sales team creates an Azure Private Offer in the Azure Marketplace to set terms and offer custom pricing.
 
-Existing Azure customers can use a Microsoft Azure Consumption Commitment (MACC) to pay for Oracle Database@Azure. Existing Oracle Database Software customers can use the Bring Your Own License (BYOL) option or Unlimited License Agreements (ULAs). Billing and payment for the service is done through Azure. On your regular Microsoft Azure bills, you see charges for your Oracle Database@Azure service alongside charges for your other Azure services.
+Existing Azure customers can use a Microsoft Azure Consumption Commitment (MACC) to pay for Oracle Database@Azure. Existing Oracle Database software customers can use the Bring Your Own License (BYOL) option or Unlimited License Agreements (ULAs). Billing and payment for the service is done through Azure. On your regular Microsoft Azure bills, you see charges for your Oracle Database@Azure service alongside charges for your other Azure services.
 
 After an offer is created for your organization, you can accept the offer and complete the purchase in the Azure portal's Marketplace service. Billing and payment for the service is done through Azure.
 
