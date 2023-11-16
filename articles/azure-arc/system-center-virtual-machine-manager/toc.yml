@@ -36,6 +36,8 @@
       href: install-arc-agents-using-script.md
   - name: Administer
     items:
+    - name: Administer Arc-enabled System Center Virtual Machine Manager
+      href: administer-arc-scvmm.md
     - name: Perform recovery operations
       href: disaster-recovery.md
 
