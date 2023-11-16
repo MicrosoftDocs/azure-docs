@@ -113,11 +113,12 @@ Log query alerts use the [Heartbeat table](/azure/azure-monitor/reference/tables
 
 Use a rule with the following query:
 
+
 ```kusto
 Heartbeat
 | summarize TimeGenerated=max(TimeGenerated) by Computer, _ResourceId
 | extend Duration = datetime_diff('minute',now(),TimeGenerated)
-| summarize AggregatedValue = min(Duration) by Computer, bin(TimeGenerated,5m), _ResourceId
+| summarize MinutesSinceLastHeartbeat = min(Duration) by Computer, bin(TimeGenerated,5m), _ResourceId
 ```
 
 ### CPU alerts
@@ -136,11 +137,12 @@ This section describes CPU alerts.
 
 **CPU utilization**
 
+
 ```kusto
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Processor" and Name == "UtilizationPercentage"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
+| summarize CPUPercentageAverage = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
 ```
 
 ### Memory alerts
@@ -159,22 +161,24 @@ This section describes memory alerts.
 
 **Available memory in MB**
 
+
 ```kusto
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Memory" and Name == "AvailableMB"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
+| summarize AvailableMemoryInMBAverage = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
 ```
 
 **Available memory in percentage**
+
 
 ```kusto
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Memory" and Name == "AvailableMB"
 | extend TotalMemory = toreal(todynamic(Tags)["vm.azm.ms/memorySizeMB"]) | extend AvailableMemoryPercentage = (toreal(Val) / TotalMemory) * 100.0
-| summarize AggregatedValue = avg(AvailableMemoryPercentage) by bin(TimeGenerated, 15m), Computer, _ResourceId  
-``` 
+| summarize AvailableMemoryInPercentageAverage = avg(AvailableMemoryPercentage) by bin(TimeGenerated, 15m), Computer, _ResourceId  
+```
 
 ### Disk alerts
 
@@ -191,41 +195,45 @@ This section describes disk alerts.
 
 **Logical disk used - all disks on each computer**
 
+
 ```kusto
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "LogicalDisk" and Name == "FreeSpacePercentage"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId 
+| summarize LogicalDiskSpacePercentageFreeAverage = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId 
 ```
 
 **Logical disk used - individual disks** 
+
 
 ```kusto
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "LogicalDisk" and Name == "FreeSpacePercentage"
 | extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk 
+| summarize LogicalDiskSpacePercentageFreeAverage = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk 
 ```
 
 **Logical disk IOPS**
+
 
 ```kusto
 InsightsMetrics
 | where Origin == "vm.azm.ms" 
 | where Namespace == "LogicalDisk" and Name == "TransfersPerSecond"
 | extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk 
+| summarize DiskIOPSAverage = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk 
 ```
 
 **Logical disk data rate**
+
 
 ```kusto
 InsightsMetrics
 | where Origin == "vm.azm.ms" 
 | where Namespace == "LogicalDisk" and Name == "BytesPerSecond"
 | extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk 
+| summarize DiskBytesPerSecondAverage = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk 
 ```
 
 ### Network alerts
@@ -242,65 +250,69 @@ InsightsMetrics
 
 **Network interfaces bytes received - all interfaces**
 
+
 ```kusto
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Network" and Name == "ReadBytesPerSecond"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId  
+| summarize BytesReceivedAverage = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId  
 ```
 
 **Network interfaces bytes received - individual interfaces**
 
+
 ```kusto
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Network" and Name == "ReadBytesPerSecond"
 | extend NetworkInterface=tostring(todynamic(Tags)["vm.azm.ms/networkDeviceId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface 
+| summarize BytesReceievedAverage = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface 
 ```
 
 **Network interfaces bytes sent - all interfaces**
+
 
 ```kusto
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Network" and Name == "WriteBytesPerSecond"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId 
+| summarize BytesSentAverage = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId 
 ```
 
 **Network interfaces bytes sent - individual interfaces**
+
 
 ```kusto
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Network" and Name == "WriteBytesPerSecond"
 | extend NetworkInterface=tostring(todynamic(Tags)["vm.azm.ms/networkDeviceId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface 
+| summarize BytesSentAverage = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface 
 ```
 
 ### Windows and Linux events
 The following sample creates an alert when a specific Windows event is created. It uses a metric measurement alert rule to create a separate alert for each computer.
 
 - **Create an alert rule on a specific Windows event.**
-
    This example shows an event in the Application log. Specify a threshold of 0 and consecutive breaches greater than 0.
 
-    ```kusto
+    
+```kusto
     Event 
     | where EventLog == "Application"
     | where EventID == 123 
-    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
+    | summarize NumberOfEvents = count() by Computer, bin(TimeGenerated, 15m)
     ```
 
 - **Create an alert rule on Syslog events with a particular severity.**
-
    The following example shows error authorization events. Specify a threshold of 0 and consecutive breaches greater than 0.
 
-    ```kusto
+    
+```kusto
     Syslog
     | where Facility == "auth"
     | where SeverityLevel == "err"
-    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
+    | summarize NumberOfEvents = count() by Computer, bin(TimeGenerated, 15m)
     ```
 
 ### Custom performance counters
