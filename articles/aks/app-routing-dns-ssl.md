@@ -34,7 +34,7 @@ To connect to the Kubernetes cluster from your local computer, you use `kubectl`
 
 Configure kubectl to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
-```bash
+```azurecli-interactive
 az aks get-credentials -g <ResourceGroupName> -n <ClusterName>
 ```
 
@@ -62,13 +62,13 @@ az keyvault create -g <ResourceGroupName> -l <Location> -n <KeyVaultName>
 > 
 1. Create a self-signed SSL certificate to use with the Ingress using the `openssl req` command. Make sure you replace *`<Hostname>`* with the DNS name you're using.
 
-    ```bash
+    ```azurecli-interactive
     openssl req -new -x509 -nodes -out aks-ingress-tls.crt -keyout aks-ingress-tls.key -subj "/CN=<Hostname>" -addext "subjectAltName=DNS:<Hostname>"
     ```
 
 2. Export the SSL certificate and skip the password prompt using the `openssl pkcs12 -export` command.
 
-    ```bash
+    ```azurecli-interactive
     openssl pkcs12 -export -in aks-ingress-tls.crt -inkey aks-ingress-tls.key -out aks-ingress-tls.pfx
     ```
 
@@ -80,8 +80,8 @@ Import the SSL certificate into Azure Key Vault using the [`az keyvault certific
 az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertificateName> -f aks-ingress-tls.pfx [--password <certificate password if specified>]
 ```
 
-    > [!IMPORTANT]
-    > To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature][csi-secrets-store-autorotation] of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you define. The default rotation poll interval is two minutes.
+> [!IMPORTANT]
+> To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature][csi-secrets-store-autorotation] of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you define. The default rotation poll interval is two minutes.
 
 
 ### Enable the Azure Key Vault integration
@@ -90,12 +90,12 @@ On a cluster with the application routing add-on enabled, use the [`az aks appro
 
 Azure Key Vault offers [two authorization systems][authorization-systems]: **Azure role-based access control (Azure RBAC)**, which operates on the management plane, and the **access policy model**, which operates on both the management plane and the data plane. The `--attach-kv` operation will choose the appropriate access model to use.
 
- > [!NOTE]
-    > The `az aks approuting update --attach-kv` command uses the permissions of the user running the command to create the Azure Key Vault role assignment. This role is assigned to the add-on's managed identity. For more information on AKS managed identities, see [Summary of managed identities][summary-msi].
+> [!NOTE]
+> The `az aks approuting update --attach-kv` command uses the permissions of the user running the command to create the Azure Key Vault role assignment. This role is assigned to the add-on's managed identity. For more information on AKS managed identities, see [Summary of managed identities][summary-msi].
 
 Retrieve the Azure Key Vault resource ID.
 
-```
+```azurecli-interactive
 az keyvault show --name <KeyVaultName> --query "id" --output tsv
 ```
 
@@ -124,9 +124,9 @@ To enable support for DNS zones, see the following prerequisites:
 
 ### Attach Azure DNS zone to the application routing add-on
 
- > [!NOTE]
-    > The `az aks approuting zone add` command uses the permissions of the user running the command to create the Azure DNS Zone role assignment. This role is assigned to the add-on's managed identity. For more   information on AKS managed identities, see [Summary of managed identities][summary-msi].
-> 
+> [!NOTE]
+> The `az aks approuting zone add` command uses the permissions of the user running the command to create the Azure DNS Zone role assignment. This role is assigned to the add-on's managed identity. For more   information on AKS managed identities, see [Summary of managed identities][summary-msi].
+
 1. Retrieve the resource ID for the DNS zone using the [`az network dns zone show`][az-network-dns-zone-show] command and set the output to a variable named *ZONEID*.
 
     ```azurecli-interactive
