@@ -45,11 +45,11 @@ After deployment is finished, you can use the Azure portal to go to the newly cr
 
     :::image type="content" source="media/deploy-data-lake/dicom-deploy-options.png" alt-text="Screenshot that shows the options in the Create DICOM service view." lightbox="media/deploy-data-lake/dicom-deploy-options.png":::
 
-1. Select the subscription that contains the storage account.
+1. Select the **subscription** and **resource group** that contains the storage account.
 
-1. Select the storage account created in the prerequisites for the Data Lake Storage field.
+1. Select the **storage account** created in the prerequisites.
 
-1. Select the storage container created in the prerequisites for the File system name.  
+1. Select the **storage container** created in the prerequisites.  
 
 1. Select **Review + create** to deploy the DICOM service.  
 
