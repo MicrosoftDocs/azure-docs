@@ -56,8 +56,30 @@ You can assign a value to the image input through the following ways:
 - Reference from other node's output of Image type.
 - Upload, drag, paste an image, or specify an image URL or the relative image path.
 
-## Image as chat input in chat flow
+## Build a chatbot to process images
+
+In this section, you'll learn how to build a chatbot that can process image and text inputs. 
+
+Assume you want to build a chatbot that can answer any questions about the image and text together. You can achieve this by following the steps below:
+1. Create a **chat flow**.
+1. Add a **chat input**, select the data type as **"list"**. In the chat box, user can input a mixed sequence of texts and images, and prompt flow service will transform that into a list.
+   :::image type="content" source="./media/how-to-use-image-in-promptflow/chat-input-definition.png" alt-text="GPT-4V tool in chat flow." lightbox = "./media/how-to-use-image-in-promptflow/chat-input-definition.png":::  
+1. Add **GPT-4V** tool to the flow.
+    :::image type="content" source="./media/how-to-use-image-in-promptflow/gpt-4v-tool-in-chatflow.png" alt-text="GPT-4V tool in chat flow." lightbox = "./media/how-to-use-image-in-promptflow/gpt-4v-tool-in-chatflow.png":::  
+
+    In this example,  `{{question}}` refers to the chat input, which is a list of texts and images. 
+1. (Optional) You can add any custom logic to the flow to process the GPT-4V output. For example, you can add content safety tool to detect if the answer contains any inappropriate content, and return a final answer to the user. 
+    :::image type="content" source="./media/how-to-use-image-in-promptflow/chat-flow-postprocess.png" alt-text="Content safety tool." lightbox = "./media/how-to-use-image-in-promptflow/chat-flow-postprocess.png":::
+1. Now you can **test the chatbot**.  Open the chat window, and input any questions with images. The chatbot will answer the questions based on the image and text inputs. 
+    :::image type="content" source="./media/how-to-use-image-in-promptflow/chatbot-test.png" alt-text="Chatbot test with images." lightbox = "./media/how-to-use-image-in-promptflow/chatbot-test.png":::
+   The chat input value is automatically backfilled from the input in the chat window. You can find the texts with images in the chatbox is translated into a list of texts and images. 
+    :::image type="content" source="./media/how-to-use-image-in-promptflow/chat-input-value.png" alt-text="Chat input value is automatically backfilled from the input in chat window." lightbox = "./media/how-to-use-image-in-promptflow/chat-input-value.png":::
 
 ## Create a batch run using image data
+By creating a batch run, you can test the flow with more data. The image data can be represented in the following ways:
+- **Image file**. To use image files, you should prepare a **data folder** with an batch run entry file in `jsonl` format in the root folder, and all the images in the same folder or subfolders.
+   :::image type="content" source="./media/how-to-use-image-in-promptflow/batch-run-sample-data.png" alt-text="Batch run sample data with images." lightbox = "./media/how-to-use-image-in-promptflow/batch-run-sample-data.png":::
+   In the entry file, use this format `{"data:image/[image extension];path":"[image file]"}` to refer to the image file. For example, `{"data:image/png;path":"./images/1.png"}`.
+- **Public image URL**. In this case, you can directly use the image URL in the entry file. For example, `{"data:image/png;url":"[image url]"}`.
+  
 
- 
