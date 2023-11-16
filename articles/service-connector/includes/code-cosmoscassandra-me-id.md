@@ -15,7 +15,7 @@ ms.author: wchi
     dotnet add package Azure.Identity
     ```
 
-2. Get an access token for the managed identity or service principal using client library [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+2. Get an access token for the managed identity or service principal using client library [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```csharp
     using System;
@@ -58,7 +58,7 @@ ms.author: wchi
             // var tokenProvider = new ClientSecretCredential(tenantId, clientId, clientSecret);
             
             // Acquire the access token. 
-            AccessToken accessToken = await sqlServerTokenProvider.GetTokenAsync(
+            AccessToken accessToken = await tokenProvider.GetTokenAsync(
                 new TokenRequestContext(scopes: new string[]{ scope }));
     
             // Get the password.
@@ -125,7 +125,7 @@ ms.author: wchi
     </dependency>
     ```
 
-1. Get an access token for the managed identity or service principal using `azure-identity`. Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get an access token for the managed identity or service principal using `azure-identity`. Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```java
     import com.datastax.oss.driver.api.core.CqlSession;
@@ -160,7 +160,7 @@ ms.author: wchi
     //   .build();
     
     // Get the access token.
-    AccessToken accessToken = defaultAzureCredential.getToken(new TokenRequestContext().addScopes(new String[]{ scope })).block();
+    AccessToken accessToken = defaultCredential.getToken(new TokenRequestContext().addScopes(new String[]{ scope })).block();
     String token = accessToken.getToken();
 
     // Get the password.
@@ -193,7 +193,7 @@ Authentication type is not supported for Spring Boot.
     pip install azure-identity
     ```
 
-1. Use `azure-identity` to authenticate with the managed identity or service principal and send request to `AZURE_COSMOS_LISTKEYURL` to get the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Use `azure-identity` to authenticate with the managed identity or service principal and send request to `AZURE_COSMOS_LISTKEYURL` to get the password. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     ```python
     from cassandra.cluster import Cluster
     from ssl import PROTOCOL_TLSv1_2, SSLContext, CERT_NONE
@@ -225,7 +225,7 @@ Authentication type is not supported for Spring Boot.
     
     # Get the password 
     session = requests.Session()
-    session = BearerTokenCredentialPolicy(credential, scope).on_request(session)
+    session = BearerTokenCredentialPolicy(cred, scope).on_request(session)
     response = session.post(listKeyUrl)
     keys_dict = response.json()
     password = keys_dict['primaryMasterKey']
@@ -245,7 +245,7 @@ Authentication type is not supported for Spring Boot.
    go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
    go get "github.com/Azure/azure-sdk-for-go/sdk/azcore"
    ```
-2. In code, get access token via `azidentity`, then use it to acquire the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+2. In code, get an access token via `azidentity`, then use it to acquire the password. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```go
     import (
@@ -325,7 +325,7 @@ Authentication type is not supported for Spring Boot.
    npm install cassandra-driver
    npm install --save @azure/identity
    ```
-2. In code, get the access token via `@azure/identity`, then use it to acquire the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+2. In code, get the access token via `@azure/identity`, then use it to acquire the password. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```javascript
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
@@ -334,7 +334,7 @@ Authentication type is not supported for Spring Boot.
     
     let username = process.env.AZURE_COSMOS_USERNAME;
     let contactPoint = process.env.AZURE_COSMOS_CONTACTPOINT;
-    let port = process.env.AZURE_COSMOS_PASSWORD;
+    let port = process.env.AZURE_COSMOS_PORT;
     let keyspace = process.env.AZURE_COSMOS_KEYSPACE;
     let listKeyUrl = process.env.AZURE_COSMOS_LISTKEYURL;
     let scope = process.env.AZURE_COSMOS_SCOPE;
