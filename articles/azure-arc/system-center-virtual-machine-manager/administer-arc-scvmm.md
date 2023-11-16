@@ -14,13 +14,13 @@ manager: jsuri
 
 In this article, you learn how to perform various administrative operations related to Azure Arc-enabled System Center Virtual Machine Manager:
 
-- Upgrading the Azure Arc resource bridge
-- Updating the credentials
-- Collecting logs from the Arc resource bridge
+- Upgrade the Azure Arc resource bridge
+- Update the credentials
+- Collect logs from the Arc resource bridge
 
 Each of these operations requires either SSH key to the resource bridge VM or the kubeconfig that provides access to the Kubernetes cluster on the resource bridge VM.
 
-## Upgrading the Arc resource bridge
+## Upgrade the Arc resource bridge
 
 Azure Arc-enabled System Center Virtual Machine Manager requires the Arc resource bridge to connect your System Center Virtual Machine Manager environment with Azure. Periodically, new images of Arc resource bridge will be released to include security and feature updates.
 
@@ -51,13 +51,13 @@ To upgrade to the latest version of the resource bridge, perform the following s
     $vCenterName = <vcenter-name-in-azure>
     ```
 
-4. [Run the onboarding script](quick-start-connect-vcenter-to-arc-using-script.md#run-the-script) again with the `--force` parameter
+4. [Run the onboarding script](quickstart-connect-system-center-virtual-machine-manager-to-arc.md) again with the `--force` parameter
 
     ``` powershell-interactive
     ./resource-bridge-onboarding-script.ps1 --force
     ```
 
-5. [Provide the inputs](quick-start-connect-vcenter-to-arc-using-script.md#inputs-for-the-script) as prompted.
+5. [Provide the inputs](quickstart-connect-system-center-virtual-machine-manager-to-arc.md) as prompted.
 
 6. Once the onboarding is successfully completed, the resource bridge is upgraded to the latest version.
 
@@ -65,7 +65,7 @@ To upgrade to the latest version of the resource bridge, perform the following s
 
 Azure Arc-enabled System Center Virtual Machine Manager uses the vSphere account credentials you provided during the onboarding to communicate with your vCenter server. These credentials are only persisted locally on the Arc resource bridge VM.
 
-As part of your security practices, you might need to rotate credentials for your vCenter accounts. As credentials are rotated, you must also update the credentials provided to Azure Arc to ensure the functioning of Azure Arc-enabled System Center Virtual Machine Manager. You can also use the same steps in case you need to use a different vSphere account after onboarding. You must ensure the new account also has all the [required vSphere permissions](support-matrix-for-arc-enabled-vmware-vsphere.md#required-vsphere-account-privileges).
+As part of your security practices, you might need to rotate credentials for your vCenter accounts. As credentials are rotated, you must also update the credentials provided to Azure Arc to ensure the functioning of Azure Arc-enabled System Center Virtual Machine Manager. You can also use the same steps in case you need to use a different vSphere account after onboarding. You must ensure the new account also has all the [required vSphere permissions]().
 
 There are two different sets of credentials stored on the Arc resource bridge. You can use the same account credentials for both.
 
@@ -79,7 +79,7 @@ az account set -s <subscription id>
 az arcappliance get-credentials -n <name of the appliance> -g <resource group name> 
 az arcappliance update-infracredentials vmware --kubeconfig kubeconfig
 ```
-For more details on the commands, see [`az arcappliance get-credentials`](/cli/azure/arcappliance#az-arcappliance-get-credentials) and [`az arcappliance update-infracredentials vmware`](/cli/azure/arcappliance/update-infracredentials#az-arcappliance-update-infracredentials-vmware).
+For more details on the commands, see [`az arcappliance get-credentials`](/cli/azure/arcappliance#az-arcappliance-get-credentials) and [`az arcappliance update-infracredentials vmware`](/cli/azure/arcappliance/update-infracredentials#az-arcappliance-update-infracredentials-scvmm).
 
 
 To update the credentials used by the VMware cluster extension on the resource bridge. This command can be run from anywhere with `connectedvmware` CLI extension installed.
@@ -90,7 +90,7 @@ az connectedvmware vcenter connect --custom-location <name of the custom locatio
 
 ## Collect logs from the Arc resource bridge
 
-For any issues encountered with the Azure Arc resource bridge, you can collect logs for further investigation. To collect the logs, use the Azure CLI [`Az arcappliance log`](/cli/azure/arcappliance/logs#az-arcappliance-logs-vmware) command.
+For any issues encountered with the Azure Arc resource bridge, you can collect logs for further investigation. To collect the logs, use the Azure CLI [`Az arcappliance log`](/cli/azure/arcappliance/logs#az-arcappliance-logs-scvmm) command.
 
 To save the logs to a destination folder, run the following commands. These commands need connectivity to cluster configuration IP address.
 
@@ -110,5 +110,4 @@ az arcappliance logs vmware --out-dir <path to specified output directory> --ip 
 
 ## Next steps
 
-- [Troubleshoot common issues related to resource bridge](../resource-bridge/troubleshoot-resource-bridge.md).
-- [Understand disaster recovery operations for resource bridge](recover-from-resource-bridge-deletion.md).
+[Troubleshoot common issues related to resource bridge](../resource-bridge/troubleshoot-resource-bridge.md).
