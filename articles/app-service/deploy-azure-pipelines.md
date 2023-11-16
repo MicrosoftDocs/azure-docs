@@ -128,9 +128,10 @@ To get started:
 
 ### Example: Deploy a .NET app
 
-To deploy a .zip web package (for example, from an ASP.NET web app) to an Azure Web App,
+# [YAML](#tab/yaml/)
 
-if you're building a [.NET Core app](/azure/devops/pipelines/ecosystems/dotnet-core), use the following snipped to deploy the build to an app. 
+To deploy a .zip web package (for example, from an ASP.NET web app) to an Azure Web App, use the following snippet to deploy the build to an app. 
+
 
 ```yaml
 variables:
@@ -454,7 +455,7 @@ pool:
 
 #### Web Deploy doesn't work when I disable basic authentication
 
-For troubleshooting information on getting Entra ID authentication to work with the `AzureRmWebAppDeployment` task, see [I can't Web Deploy to my Azure App Service using Microsoft Entra ID authentication from my Windows agent](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4?view=azure-pipelines)
+For troubleshooting information on getting Entra ID authentication to work with the `AzureRmWebAppDeployment` task, see [I can't Web Deploy to my Azure App Service using Microsoft Entra ID authentication from my Windows agent](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4#i-cant-web-deploy-to-my-azure-app-service-using-microsoft-entra-id-authentication-from-my-windows-agent)
 
 ## Next steps
 
