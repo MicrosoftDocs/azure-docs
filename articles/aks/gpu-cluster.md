@@ -22,7 +22,7 @@ To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-sku
 ## Limitations
 * AKS does not support Windows GPU-enabled node pools.
 * If you're using an Azure Linux GPU-enabled node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [auto-upgrade](./auto-upgrade-node-image.md).
-* [NVadsA10](https://learn.microsoft.com/en-us/azure/virtual-machines/nva10v5-series) v5-series are not a recommended for GPU VHD.
+* [NVadsA10](https://learn.microsoft.com/en-us/azure/virtual-machines/nva10v5-series) v5-series are not a recommended SKU for GPU VHD.
 
 ## Before you begin
 
