@@ -18,7 +18,7 @@ ms.custom: references_regions, build-2023, build-2023-dataai
 
 [!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 
-Azure AI Content Safety detects harmful user-generated and AI-generated content in applications and services. Content Safety includes text and image APIs that allow you to detect material that is harmful. We also have an interactive Content Safety Studio that allows you to view, explore and try out sample code for detecting harmful content across different modalities.  
+Azure AI Content Safety detects harmful user-generated and AI-generated content in applications and services. Azure AI Content Safety includes text and image APIs that allow you to detect material that is harmful. We also have an interactive Content Safety Studio that allows you to view, explore and try out sample code for detecting harmful content across different modalities.  
 
 Content filtering software can help your app comply with regulations or maintain the intended environment for your users.
 
@@ -41,7 +41,7 @@ The following are a few scenarios in which a software developer or team would re
 - K-12 education solution providers filtering out content that is inappropriate for students and educators.
 
 > [!IMPORTANT]
-> You cannot use Content Safety to detect illegal child exploitation images.
+> You cannot use Azure AI Content Safety to detect illegal child exploitation images.
 
 ## Product types
 
@@ -49,8 +49,10 @@ There are different types of analysis available from this service. The following
 
 | Type                        | Functionality           |
 | :-------------------------- | :---------------------- |
-| Text Detection API          | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. |
-| Image Detection API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. |
+| Analyze text API          | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. |
+| Analyze image API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. |
+| Jailbreak risk detection (new) | Scans text for the risk of a [jailbreak attack](./concepts/jailbreak-detection.md) on a Large Language Model. [Quickstart](./quickstart-jailbreak.md) |
+| Protected material text detection (new) | Scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)|
 
 ## Content Safety Studio
 
@@ -68,7 +70,7 @@ All of these capabilities are handled by the Studio and its backend; customers d
 
 ### Content Safety Studio features
 
-In Content Safety Studio, the following Content Safety service features are available:
+In Content Safety Studio, the following Azure AI Content Safety service features are available:
 
 * [Moderate Text Content](https://contentsafety.cognitive.azure.com/text): With the text moderation tool, you can easily run tests on text content. Whether you want to test a single sentence or an entire dataset, our tool offers a user-friendly interface that lets you assess the test results directly in the portal. You can experiment with different sensitivity levels to configure your content filters and blocklist management, ensuring that your content is always moderated to your exact specifications. Plus, with the ability to export the code, you can implement the tool directly in your application, streamlining your workflow and saving time.
 
@@ -78,7 +80,7 @@ In Content Safety Studio, the following Content Safety service features are avai
 
 ## Input requirements
 
-The default maximum length for text submissions is 1000 characters. If you need to analyze longer blocks of text, you can split the input text (for example, by punctuation or spacing) across multiple related submissions.
+The default maximum length for text submissions is 10K characters. If you need to analyze longer blocks of text, you can split the input text (for example, by punctuation or spacing) across multiple related submissions.
 
 The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels. Images can be in JPEG, PNG, GIF, BMP, TIFF, or WEBP formats.
 
@@ -94,11 +96,11 @@ For enhanced security, you can use Microsoft Entra ID or Managed Identity (MI) t
 
 ### Encryption of data at rest
 
-Learn how Content Safety handles the [encryption and decryption of your data](./how-to/encrypt-data-at-rest.md). Customer-managed keys (CMK), also known as Bring Your Own Key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
+Learn how Azure AI Content Safety handles the [encryption and decryption of your data](./how-to/encrypt-data-at-rest.md). Customer-managed keys (CMK), also known as Bring Your Own Key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
 
 ## Pricing
 
-Currently, Content Safety has an **F0 and S0** pricing tier.
+Currently, Azure AI Content Safety has an **F0 and S0** pricing tier.
 
 ## Service limits
 
@@ -110,7 +112,7 @@ For more information, see [Language support](/azure/ai-services/content-safety/l
 
 ### Region/location
 
-To use the Content Safety APIs, you must create your Azure AI Content Safety resource in the supported regions. Currently, it is available in the following Azure regions: 
+To use the Azure AI Content Safety APIs, you must create your Content Safety resource in the supported regions. Currently, it is available in the following Azure regions: 
 
 - Australia East
 - Canada East
@@ -125,6 +127,7 @@ To use the Content Safety APIs, you must create your Azure AI Content Safety res
 - UK South
 - West Europe
 - West US 2
+- Sweden Central
 
 Feel free to [contact us](mailto:acm-team@microsoft.com) if you need other regions for your business.
 
@@ -144,7 +147,7 @@ If you get stuck, [email us](mailto:acm-team@microsoft.com) or use the feedback 
 
 ## Next steps
 
-Follow a quickstart to get started using Content Safety in your application.
+Follow a quickstart to get started using Azure AI Content Safety in your application.
 
 > [!div class="nextstepaction"]
 > [Content Safety quickstart](./quickstart-text.md)

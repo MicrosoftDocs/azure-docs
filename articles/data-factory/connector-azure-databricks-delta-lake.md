@@ -27,7 +27,7 @@ This Azure Databricks Delta Lake connector is supported for the following capabi
 |[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 In general, the service supports Delta Lake with the following capabilities to meet your various needs.
 

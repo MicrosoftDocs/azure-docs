@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Analyze image content with JavaScript"
-description: In this quickstart, get started using the Content Safety JavaScript SDK to analyze image content for objectionable material.
+description: In this quickstart, get started using the Azure AI Content Safety JavaScript SDK to analyze image content for objectionable material.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -56,6 +56,11 @@ Your app's `package.json` file will be updated with the dependencies.
 ## Analyze text content
 
 Create a new file in your directory, *index.js*. Open it in your preferred editor or IDE and paste in the following code. Replace `<your text sample>` with the text content you'd like to use.
+
+> [!TIP]
+> Text size and granularity
+>
+> The default maximum length for text submissions is **10K** characters.
 
 ```JavaScript
 const ContentSafetyClient = require("@azure-rest/ai-content-safety").default,
