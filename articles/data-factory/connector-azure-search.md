@@ -25,7 +25,7 @@ This Azure Cognitive Search connector is supported for the following capabilitie
 |---------| --------| --------|
 |[Copy activity](copy-activity-overview.md) (-/sink)|&#9312; &#9313;|✓ |
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 You can copy data from any supported source data store into search index. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 

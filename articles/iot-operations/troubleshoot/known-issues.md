@@ -130,8 +130,13 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 
 ## Azure IoT Operations (preview) portal
 
-- To sign in to the Azure IoT Operations portal, you need a Microsoft Entra ID. You can't sign in with a Microsoft account (MSA). To create an Entra ID in your Azure tenant:
+To sign in to the Azure IoT Operations portal, you need a Microsoft Entra ID with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. You can't sign in with a Microsoft account (MSA). To create an Entra ID in your Azure tenant:
 
-    1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with the same tenant and user name that you used to deploy Azure IoT Operations.
-    1. Create a new identity using Entra Identity and grant it at least **Contributor** permissions to the resource group that contains your cluster and Azure IoT Operations deployment.
-    1. Return to the [Azure IoT Operations portal](https://iotoperations.azure.com) and use the new account to sign in.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with the same tenant and user name that you used to deploy Azure IoT Operations.
+1. In the Azure portal, navigate to the **Microsoft Entra ID** section, select **Users > +New user > Create new user**. Create a new user and make a note of the password, you need it to sign in later.
+1. In the Azure portal, navigate to the resource group that contains your **Kubernetes - Azure Arc** instance. On the **Access control (IAM)** page, select **+Add > Add role assignment**.
+1. On the **Add role assignment page**, select **Privileged administrator roles**. Then select **Contributor** and then select **Next**.
+1. On the **Members** page, add your new user to the role.
+1. Select **Review and assign** to complete setting up the new user.
+
+You can now use the new user account to sign in to the [Azure IoT Operations portal](https://iotoperations.azure.com).
