@@ -190,12 +190,12 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 
 ## Custom models
 
-Custom models are trained using your labeled datasets to extract distinct data from forms and documents, specific to your use cases. Standalone custom models can be combined to create composed models.
+Custom models are trained using your labeled datasets to extract distinct data from forms and documents, specific to your use cases. </br>Standalone custom models can be combined to create composed models.
 
 :::row:::
     :::column:::
-        **✔️ Extraction models**</br>
-        *Custom extraction models are trained to extract labeled fields from documents.
+        * **Extraction models**</br>
+        ✔️ Custom extraction models are trained to extract labeled fields from documents.
     :::column-end:::
 :::row-end:::
 
@@ -216,8 +216,8 @@ Custom models are trained using your labeled datasets to extract distinct data f
 
 :::row:::
     :::column:::
-        **✔️ Classification model**</br>
-         * Custom classifiers analyze input documents to identify document types prior to invoking an extraction model.
+        * **Classification model**</br>
+         ✔️ Custom classifiers analyze input documents to identify </br>document types prior to invoking an extraction model.
     :::column-end:::
 :::row-end:::
 
