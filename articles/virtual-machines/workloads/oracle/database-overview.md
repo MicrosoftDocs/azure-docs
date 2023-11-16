@@ -1,6 +1,6 @@
 ---
-title: Oracle Database on Azure - Overview
-description: Learn about solutions that integrate Oracle Database on Azure as an Oracle managed service.
+title: Overview - Oracle Database@Azure 
+description: Learn about Oracle Database@Azure.
 author: jjaygbay1
 ms.service: virtual-machines
 ms.subservice: oracle
@@ -11,7 +11,7 @@ ms.author: jacobjaygbay
 ---
 
 
-# Oracle Database@Azure 
+# Overview - Oracle Database@Azure 
 
 Oracle Database@Azure is an Oracle managed service available in your Azure environment. All systems running Oracle Database on Azure use hardware physically located in Azure's data centers. Placing the hardware in the datacenter ensures that the Oracle Database on Azure service has the fastest possible access to Azure resources and applications.
 
