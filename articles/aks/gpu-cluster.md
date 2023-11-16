@@ -14,7 +14,7 @@ Graphical processing units (GPUs) are often used for compute-intensive workloads
 This article helps you provision nodes with schedulable GPUs on new and existing AKS clusters.
 
 ## Supported GPU-enabled VMs
-To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-skus]. For AKS node pools, we recommend a minimum size of *Standard_NC6*. The NVv4 series (based on AMD GPUs) aren't supported on AKS.
+To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-skus]. For AKS node pools, we recommend a minimum size of *Standard_NC6s_v3*. The NVv4 series (based on AMD GPUs) aren't supported on AKS.
 
 > [!NOTE]
 > GPU-enabled VMs contain specialized hardware subject to higher pricing and region availability. For more information, see the [pricing][azure-pricing] tool and [region availability][azure-availability].
@@ -43,12 +43,12 @@ There are three ways to add the NVIDIA device plugin:
 
 1. [Using the AKS GPU image](#update-your-cluster-to-use-the-aks-gpu-image-preview)
 2. [Manually installing the NVIDIA device plugin](#manually-install-the-nvidia-device-plugin)
-3. Using the NVIDIA GPU Operator
+3. Using the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/microsoft-aks.html)
 
 ### Use NVIDIA GPU Operator with AKS
 You can use the NVIDIA GPU Operator by skipping the gpu driver installation on AKS. For more information about using the NVIDIA GPU Operator with AKS, see [NVIDIA Documentation](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/microsoft-aks.html).
 
-You can specify the `--nodepool-tags` argument to the Azure CLI command to customize the nodes. If you specify `--nodepool-tags SkipGPUDriverInstall=true`
+Adding the node pool tag `SkipGPUDriverInstall=true` will skip installing the GPU driver automatically on newly created nodes in the node pool. Any existing nodes will not be changed - the pool can be scaled to 0 and back up to make the change take effect. You can specify the tag using the `--nodepool-tags` argument to [`az aks create`][az-aks-create] command (for a new cluster) or `--tags` with [`az aks nodepool add`][az-aks-nodepool-add] or [`az aks nodepool update`][az-aks-nodepool-update].
 
 > [!WARNING]
 > We don't recommend manually installing the NVIDIA device plugin daemon set with clusters using the AKS GPU image.
