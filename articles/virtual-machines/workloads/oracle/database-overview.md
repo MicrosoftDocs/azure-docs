@@ -75,7 +75,7 @@ For small deployments (for example, an Oracle Base Database system), simply buy 
 
 For larger commitments (for example, systems using dedicated Exadata infrastructure),
 
-To purchase Oracle Database@Azure, contact [Oracle's sales team](https://www.oracle.com/corporate/contact/) or your Oracle sales representative for a sale offer. Oracle Sales team creates an Azure Private Offer in the Azure Marketplace to set terms and offer custom pricing.
+To purchase Oracle Database@Azure, contact the [Oracle sales team](https://www.oracle.com/corporate/contact/) or your Oracle sales representative for a sale offer. Oracle Sales team creates an Azure Private Offer in the Azure Marketplace to set terms and offer custom pricing.
 
 Existing Azure customers can use a Microsoft Azure Consumption Commitment (MACC) to pay for Oracle Database@Azure. Existing Oracle Database Software customers can use the Bring Your Own License (BYOL) option or Unlimited License Agreements (ULAs). Billing and payment for the service is done through Azure. On your regular Microsoft Azure bills, you see charges for your Oracle Database@Azure service alongside charges for your other Azure services.
 
