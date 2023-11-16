@@ -18,24 +18,19 @@ In this walkthrough, you deploy a Dapr application to the cluster. The Dapr appl
 
 The Dapr application performs the following steps:
 
-1. Subscribes to the `sensor/data` topic for sensor data.
-1. When receiving data on this topic, it's pushed to the Azure IoT MQ state store.
-1. Every **10 seconds**, it fetches the data from the state store, and performs and calculates the *min*, *max*, *mean*, *median* and *75th percentile* values on sensor data timestamped in the last **30 seconds**.
-1. Data older than **30 seconds** is expired from the state store.
-1. The result is published to the `sensor/window_data` topic in JSON format.
+* Subscribes to the `sensor/data` topic for sensor data.
+* When receiving data on this topic, it's pushed to the Azure IoT MQ state store.
+* Every **10 seconds**, it fetches the data from the state store, and performs and calculates the *min*, *max*, *mean*, *median* and *75th percentile* values on sensor data timestamped in the last **30 seconds**.
+* Data older than **30 seconds** is expired from the state store.
+* The result is published to the `sensor/window_data` topic in JSON format.
 
 > [!NOTE]
 > This tutorial [disables Dapr CloudEvents](https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-raw/) which enables it to publish and subscribe using raw MQTT.
 
 ## Prerequisites
 
-* [Deploy Azure IoT Operations](../get-started/quickstart-deploy.md)
-
-## Deploy Daqr and the pluggable components
-
-Dapr and the IoT MQ pluggable components need to be installed on the cluster.
-
-1. Follow the **Install Dapr runtime** and **Register MQ's pluggable components** sections from [Use Dapr to develop distributed application workloads](../develop/howto-develop-dapr-apps.md).
+* A cluster with Azure IoT Operations installed - [Deploy Azure IoT Operations](../get-started/quickstart-deploy.md)
+* Dapr runtime and MQ's pluggable components - [Use Dapr to develop distributed application workloads](../develop/howto-develop-dapr-apps.md)
 
 ## Deploy the Dapr application
 
