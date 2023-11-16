@@ -48,7 +48,7 @@ For Azure services, use the recommended zone names as described in the following
 
 ## Commercial
 
-# [**AI + Machine Learning**](#tab/ai-machine-learning)
+### AI + Machine Learning
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -57,7 +57,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Bot Service (Microsoft.BotService/botServices) | Bot | privatelink.directline.botframework.com | directline.botframework.com </br> europe.directline.botframework.com |
 | Azure Bot Service (Microsoft.BotService/botServices) | Token | privatelink.token.botframework.com | token.botframework.com </br> europe.token.botframework.com |
 
-# [**Analytics**](#tab/analytics)
+### Analytics
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -73,7 +73,7 @@ For Azure services, use the recommended zone names as described in the following
 | Microsoft Power BI (Microsoft.PowerBI/privateLinkServicesForPowerBI) | tenant | privatelink.analysis.windows.net </br> privatelink.pbidedicated.windows.net </br> privatelink.tip1.powerquery.microsoft.com | analysis.windows.net </br> pbidedicated.windows.net </br> tip1.powerquery.microsoft.com |
 | Azure Databricks (Microsoft.Databricks/workspaces) | databricks_ui_api </br> browser_authentication | privatelink.azuredatabricks.net | azuredatabricks.net |
 
-# [**Compute**](#tab/compute)
+### Compute
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -82,14 +82,14 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) | global | privatelink-global.wvd.microsoft.com | wvd.microsoft.com |
 | Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces </br> Microsoft.DesktopVirtualization/hostpools) | feed <br> connection | privatelink.wvd.microsoft.com | wvd.microsoft.com |
 
-# [**Containers**](#tab/containers)
+### Containers
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
 | Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters) | management | privatelink.{regionName}.azmk8s.io </br> {subzone}.privatelink.{regionName}.azmk8s.io | {regionName}.azmk8s.io |
 | Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.io </br> {regionName}.privatelink.azurecr.io | azurecr.io </br> {regionName}.azurecr.io |
 
-# [**Databases**](#tab/databases)
+### Databases
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -108,13 +108,13 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Cache for Redis (Microsoft.Cache/Redis) | redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
 | Azure Cache for Redis Enterprise (Microsoft.Cache/RedisEnterprise) | redisEnterprise | privatelink.redisenterprise.cache.azure.net | redisenterprise.cache.azure.net |
 
-# [**Hybrid + multicloud**](#tab/hybrid-multicloud)
+### Hybrid + multicloud
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
 | Azure Arc (Microsoft.HybridCompute/privateLinkScopes) | hybridcompute | privatelink.his.arc.azure.com <br/> privatelink.guestconfiguration.azure.com </br> privatelink.dp.kubernetesconfiguration.azure.com | his.arc.azure.com <br/> guestconfiguration.azure.com </br> dp.kubernetesconfiguration.azure.com |
 
-# [**Integration**](#tab/integration)
+### Integration
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -124,7 +124,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure API Management (Microsoft.ApiManagement/service) | gateway | privatelink.azure-api.net | azure-api.net |
 | Azure Health Data Services (Microsoft.HealthcareApis/workspaces) | healthcareworkspace | privatelink.workspace.azurehealthcareapis.com </br> privatelink.fhir.azurehealthcareapis.com </br> privatelink.dicom.azurehealthcareapis.com | workspace.azurehealthcareapis.com </br> fhir.azurehealthcareapis.com </br> dicom.azurehealthcareapis.com |
 
-# [**Internet of Things (IoT)**](#tab/iot)
+### Internet of Things (IoT)
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -132,13 +132,13 @@ For Azure services, use the recommended zone names as described in the following
 | Azure IoT Hub Device Provisioning Service (Microsoft.Devices/ProvisioningServices) | iotDps | privatelink.azure-devices-provisioning.net | azure-devices-provisioning.net |
 | Azure Digital Twins (Microsoft.DigitalTwins/digitalTwinsInstances) | digitalTwinsInstances | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
 
-# [**Media**](#tab/media)
+### Media
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
 | Azure Media Services (Microsoft.Media/mediaservices) | keydelivery </br> liveevent </br> streamingendpoint | privatelink.media.azure.net | media.azure.net |
 
-# [**Management and Governance**](#tab/management-governance)
+### Management and Governance
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -152,7 +152,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Migrate (Microsoft.Migrate/assessmentProjects) | Default | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
 | Azure Resource Manager (Microsoft.Authorization/resourceManagementPrivateLinks) | ResourceManagement | privatelink.azure.com | azure.com |
 
-# [**Security**](#tab/security)
+### Security
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -160,7 +160,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Key Vault (Microsoft.KeyVault/managedHSMs) | managedhsm | privatelink.managedhsm.azure.net | managedhsm.azure.net 
 | Azure App Configuration (Microsoft.AppConfiguration/configurationStores) | configurationStores | privatelink.azconfig.io | azconfig.io |
 
-# [**Storage**](#tab/storage)
+### Storage
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
@@ -172,7 +172,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) | dfs </br> dfs_secondary | privatelink.dfs.core.windows.net | dfs.core.windows.net |
 | Azure File Sync (Microsoft.StorageSync/storageSyncServices) | afs | privatelink.afs.azure.net | afs.azure.net |
 
-# [**Web**](#tab/web)
+### Web
 
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
