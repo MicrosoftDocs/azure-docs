@@ -40,7 +40,7 @@ The following diagram shows the architecture of the system:
 
 ::: zone pivot="sc-enterprise"
 
-### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
@@ -100,7 +100,7 @@ You can now access the RESTful API to see if it works.
 
 The RESTful APIs act as a resource server, which is protected by Microsoft Entra ID. Before acquiring an access token, you're required to register another application in Microsoft Entra ID and grant permissions to the client application, which is named `ToDoWeb`.
 
-### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
 #### Register the client application
 
@@ -231,7 +231,7 @@ Use the following steps to update the OAuth2 configuration for Swagger UI author
        --query properties.url
    ```
 
-1. Use the following command to update the OAuth2 configuration for Swagger UI authorization, replace <object-id> and <url> with the parameters you got. Then, you can authorize users to acquire access tokens through the ToDoWeb app.
+1. Use the following command to update the OAuth2 configuration for Swagger UI authorization, replace **\<object-id>** and **\<url>** with the parameters you got. Then, you can authorize users to acquire access tokens through the ToDoWeb app.
 
    ```azurecli
    az rest --method PATCH \

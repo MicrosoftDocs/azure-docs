@@ -36,7 +36,7 @@ Use the following steps to clone and run the app locally:
 
 The main resources required to run this sample app are an Azure Spring Apps instance and an Azure Database for PostgreSQL instance. The following sections describe how to create these resources.
 
-### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
 ### 3.1. Sign in to the Azure portal
 
@@ -196,14 +196,14 @@ The Spring web app uses H2 for the database in localhost, and Azure Database for
 
 Use the following command to create a PostgreSQL instance:
 
-    ```azurecli
-    az postgres flexible-server create \
-        --name ${POSTGRESQL_SERVER} \
-        --database-name ${POSTGRESQL_DB} \
-        --admin-user ${POSTGRESQL_ADMIN_USERNAME} \
-        --admin-password ${POSTGRESQL_ADMIN_PASSWORD} \
-        --public-access 0.0.0.0
-    ```
+   ```azurecli
+   az postgres flexible-server create \
+       --name ${POSTGRESQL_SERVER} \
+       --database-name ${POSTGRESQL_DB} \
+       --admin-user ${POSTGRESQL_ADMIN_USERNAME} \
+       --admin-password ${POSTGRESQL_ADMIN_PASSWORD} \
+       --public-access 0.0.0.0
+   ```
 
 Specifying `0.0.0.0` enables public access from any resources deployed within Azure to access your server.
 
