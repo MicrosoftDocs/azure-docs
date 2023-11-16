@@ -1627,6 +1627,24 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: acs-azcli-azp-azpnew-java-net-python-csharp-js
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-azcli
+    title: Azure CLI
+  - id: platform-azp
+    title: Azure portal
+  - id: platform-azp-new
+    title: Azure portal (new)
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: acs-azp-java-python-csharp-js
   title: Platform
   prompt: Choose a platform

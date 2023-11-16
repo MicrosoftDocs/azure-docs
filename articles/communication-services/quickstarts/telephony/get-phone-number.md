@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
 ms.custom: references_regions, mode-other, devx-track-extended-java, devx-track-js, devx-track-python
-zone_pivot_groups: acs-azcli-azp-java-net-python-csharp-js
+zone_pivot_groups: acs-azcli-azp-azpnew-java-net-python-csharp-js
 ---
 
 # Quickstart: Get and manage phone numbers
@@ -25,6 +25,10 @@ zone_pivot_groups: acs-azcli-azp-java-net-python-csharp-js
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/phone-numbers-portal.md)]
+::: zone-end
+
+::: zone pivot="platform-azp-new"
+[!INCLUDE [Azure portal (new)](./includes/phone-numbers-portal-new.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
