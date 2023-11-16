@@ -57,8 +57,12 @@
     href: private-endpoint-overview.md
   - name: Private Link service
     href: private-link-service-overview.md    
-  - name: Private endpoint DNS integration
-    href: private-endpoint-dns.md   
+  - name: DNS
+    items:  
+    - name: Private DNS zone values
+      href: private-endpoint-dns-values.md
+    - name: Private endpoint DNS integration
+      href: private-endpoint-dns.md   
   - name: RBAC permissions
     href: rbac-permissions.md 
   - name: Private Link and DNS in Azure Virtual WAN
