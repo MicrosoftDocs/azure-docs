@@ -22,7 +22,7 @@ The NFSv4.x protocol can provide access control in the form of [access control l
 
 :::image type="content" source="../media/azure-netapp-files/access-control-entity-to-client-diagram.png" alt-text="Diagram of access control entity to Azure NetApp Files." lightbox="../media/azure-netapp-files/access-control-entity-to-client-diagram.png":::
 
-Each NFSv4.x ACL is created in the with the format of `type:flags:principal:permissions`.
+Each NFSv4.x ACL is created with the format of `type:flags:principal:permissions`.
 
 * **Type** – the type of ACL being defined. Valid choices include Access (A), Deny (D), Audit (U), Alarm (L). Azure NetApp Files supports Access, Deny and Audit ACL types, but Audit ACLs, while being able to be set, don't currently produce audit logs.
 * **Flags** – adds extra context for an ACL. There are three kinds of ACE flags: group, inheritance, and administrative. For more information on flags, see [NFSv4.x ACE flags](#nfsv4x-ace-flags).

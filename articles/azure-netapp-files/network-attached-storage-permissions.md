@@ -160,7 +160,7 @@ Even though the volume in the listing cannot be seen, it remains accessible if t
 
 :::image type="content" source="../media/azure-netapp-files/smb-volume-file-path.png" alt-text="Screenshot of Windows Explorer with file path highlighted." lightbox="../media/azure-netapp-files/smb-volume-file-path.png":::
 
-#### SMB3 Encryption
+#### SMB3 encryption
 
 SMB3 encryption is an Azure NetApp Files SMB volume feature that enforces encryption over the wire for SMB clients for greater security in NAS environments. The following image shows a screen capture of network traffic when SMB encryption is disabled. Sensitive information—such as file names and file handles—is visible.
 
@@ -180,13 +180,11 @@ Conversely, if the share permission is set to “Read” for a specific user, bu
 
 In dual-protocol NAS environments, SMB share ACLs only apply to SMB users. NFS clients leverage export policies and rules for share access rules. As such, controlling permissions at the file and folder level is preferred over share-level ACLs, especially for dual=protocol NAS volumes.
 
-To learn how to configure ACLs, see [Manage SMB share ACLs in Azure NetApp Files](manage-smb-share-acls.md).
-
-
+To learn how to configure ACLs, see [Manage SMB share ACLs in Azure NetApp Files](manage-smb-share-access-control-lists.md).
 
 ## Next steps
 
 * [Configure export policy for NFS or dual-protocol volumes](azure-netapp-files-configure-export-policy.md)
 * [Understand NAS](network-attached-storage-concept.md)
 * [Understand NAS permissions](network-attached-storage-permissions.md)
-* [Manage SMB share ACLs in Azure NetApp Files](manage-smb-share-acls.md)
+* [Manage SMB share ACLs in Azure NetApp Files](manage-smb-share-access-control-lists.md)

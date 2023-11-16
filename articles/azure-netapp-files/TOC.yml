@@ -282,7 +282,7 @@
       - name: Configure access control lists for NFSv4.1
         href: configure-access-control-lists.md
       - name: Manage SMB share ACLs in Azure NetApp Files
-        href: manage-smb-share-acls.md
+        href: manage-smb-share-access-control-lists.md
       - name: Configure network features for a volume
         href: configure-network-features.md
       - name: Configure customer-managed keys 
