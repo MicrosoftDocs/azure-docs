@@ -52,7 +52,7 @@ To enable support for HTTPS traffic, see the following prerequisites:
 Create an Azure Key Vault using the [`az keyvault create`][az-keyvault-create] command.
 
 ```azurecli-interactive
-az keyvault create -g <ResourceGroupName> -l <Location> -n <KeyVaultName>
+az keyvault create -g <ResourceGroupName> -l <Location> -n <KeyVaultName> --enable-rbac-authorization true
 ```
 
 ### Create and export a self-signed SSL certificate
