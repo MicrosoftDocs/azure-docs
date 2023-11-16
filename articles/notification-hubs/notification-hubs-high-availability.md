@@ -101,6 +101,7 @@ New availability zones are being added regularly. The following regions currentl
 |               | Sweden Central       |                      | Korea Central      |
 |               | Norway East          |                      |                    |
 |               | Germany West Central |                      |                    |
+|               | Switzerland North    |                      |                    |
 
 ### Enable availability zones
 
