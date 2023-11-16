@@ -1,8 +1,8 @@
 ---
 title: Microsoft Azure Data Manager for Energy entitlement concepts
 description:  This article describes the various concepts regarding the entitlement services in Azure Data Manager for Energy
-author: Lakshmisha-KS
-ms.author: lakshmishaks
+author: shikhagarg1
+ms.author: shikhagarg
 ms.service: energy-data-services
 ms.topic: conceptual
 ms.date: 02/10/2023

@@ -626,7 +626,7 @@ The NIST 800-53 standards (both R4 and R5) have recently been updated with contr
 
 These controls were previously calculated as passed controls, so you might see a significant dip in your compliance score for NIST standards between April 2023 and May 2023.
 
-For more information on compliance controls, see [Tutorial: Regulatory compliance checks - Microsoft Defender for Cloud](regulatory-compliance-dashboard.md#investigate-regulatory-compliance-issues).
+For more information on compliance controls, see [Tutorial: Regulatory compliance checks - Microsoft Defender for Cloud](regulatory-compliance-dashboard.md).
 
 ### Planning of cloud migration with an Azure Migrate business case now includes Defender for Cloud
 

@@ -202,10 +202,10 @@ To start, you create a yaml file that uses the following definitions:
 
 > | Component | Description |
 > |-|-|
-> | `volumes.dapr-unit-domain-socket` | The socket file used to communicate with the Dapr sidecar |
-> | `volumes.mqtt-client-token` | The System Authentication Token used for authenticating the Dapr pluggable components with the MQ broker and State Store |
-> | `volumes.aio-mq-ca-cert-chain` | The chain of trust to validate the MQTT broker TLS cert |
-> | `containers.mq-event-driven` | The pre-built dapr application container. **Replace this with your own container if desired**. | 
+> | `volumes.dapr-unix-domain-socket` | A shared directory to host unix domain sockets used to communicate between the Dapr sidecar and the pluggable components |
+> | `volumes.mqtt-client-token` | The System Authentication Token used for authenticating the Dapr pluggable components with the IoT MQ broker |
+> | `volumes.aio-ca-trust-bundle` | The chain of trust to validate the MQTT broker TLS cert. This defaults to the test certificate deployed with Azure IoT Operations |
+> | `containers.mq-dapr-app` | The Dapr application container you want to deploy |
 
 1. Save the following yaml to a file named `dapr-app.yaml`:
 
@@ -213,21 +213,21 @@ To start, you create a yaml file that uses the following definitions:
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: mq-event-driven-dapr
+      name: mq-dapr-app
       namespace: azure-iot-operations
     spec:
       replicas: 1
       selector:
         matchLabels:
-          app: mq-event-driven-dapr
+          app: mq-dapr-app
       template:
         metadata:
           labels:
-            app: mq-event-driven-dapr
+            app: mq-dapr-app
           annotations:
             dapr.io/enabled: "true"
             dapr.io/unix-domain-socket-path: "/tmp/dapr-components-sockets"
-            dapr.io/app-id: "mq-event-driven-dapr"
+            dapr.io/app-id: "mq-dapr-app"
             dapr.io/app-port: "6001"
             dapr.io/app-protocol: "grpc"
         spec:
@@ -251,8 +251,8 @@ To start, you create a yaml file that uses the following definitions:
 
           containers:
           # Container for the dapr quickstart application 
-          - name: mq-event-driven-dapr
-            image: ghcr.io/azure-samples/explore-iot-operations/mq-event-driven-dapr:latest
+          - name: mq-dapr-app
+            image: <YOUR DAPR APPLICATION>
 
           # Container for the Pub/sub component
           - name: aio-mq-pubsub-pluggable
