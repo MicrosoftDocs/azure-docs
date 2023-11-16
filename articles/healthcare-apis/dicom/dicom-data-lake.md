@@ -21,7 +21,7 @@ By using Azure Data Lake Storage with the DICOM service, organizations are able 
 - **Unlock new analytics and AI/ML scenarios** by using services that natively integrate with Azure Data Lake Storage, including Azure Synapse, Azure Databricks, Azure Machine Learning, and Microsoft Fabric. 
 - **Grant controls to manage storage permissions, access controls, tiers, and rules**. 
 
-Another benefit of Azure Data Lake Storage is that it connects to [Microsoft Fabric](https://learn.microsoft.com/fabric/get-started/microsoft-fabric-overview). Microsoft Fabric is an end-to-end, unified analytics platform that brings together all the data and analytics tools that organizations need to unlock the potential of their data and lay the foundation for AI scenarios. By using Microsoft Fabric, you can use the rich ecosystem of Azure services to perform advanced analytics and AI/ML with medical imaging data, such as building and deploying machine learning models, creating cohorts for clinical trials, and generating insights for patient care and outcomes.
+Another benefit of Azure Data Lake Storage is that it connects to [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview). Microsoft Fabric is an end-to-end, unified analytics platform that brings together all the data and analytics tools that organizations need to unlock the potential of their data and lay the foundation for AI scenarios. By using Microsoft Fabric, you can use the rich ecosystem of Azure services to perform advanced analytics and AI/ML with medical imaging data, such as building and deploying machine learning models, creating cohorts for clinical trials, and generating insights for patient care and outcomes.
 
 To learn more about using Microsoft Fabric with imaging data, see [Get started using DICOM data in analytics workloads](get-started-with-analytics-dicom.md).
 
@@ -31,7 +31,7 @@ To learn more about using Microsoft Fabric with imaging data, see [Get started u
 
 The DICOM service exposes the [DICOMweb APIs](dicomweb-standard-apis-with-dicom-services.md) to store, query for, and retrieve DICOM data. The architecture enables you to specify an Azure Data Lake Storage account and container at the time the DICOM service is deployed. The storage container is used by the DICOM service to store DICOM files received by the DICOMweb APIs. The DICOM service retrieves data from the storage account to fulfill search and retrieve queries, allowing full DICOMweb interoperability with DICOM data.  
 
-With this architecture, the storage container remains in your control and is directly accessible using familiar [Azure storage APIs](https://learn.microsoft.com/rest/api/storageservices/data-lake-storage-gen2) and tools. 
+With this architecture, the storage container remains in your control and is directly accessible using familiar [Azure storage APIs](/rest/api/storageservices/data-lake-storage-gen2) and tools. 
 
 ## Data contracts
 
@@ -52,13 +52,13 @@ AHDS/{workspace-name}/dicom/{dicom-service-name}/{partition-name}
 
 ## Permissions
 
-The DICOM service is granted access to the data like any other service or application accessing data in a storage account. Access can be revoked at any time without affecting your organization's ability to access the data. The DICOM service needs to be granted the [Storage Blob Data Contributor](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role by using a system-assigned or user-assigned managed identity.  
+The DICOM service is granted access to the data like any other service or application accessing data in a storage account. Access can be revoked at any time without affecting your organization's ability to access the data. The DICOM service needs to be granted the [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role by using a system-assigned or user-assigned managed identity.  
 
 ## Access tiers
 
 You can manage costs for imaging data stored by the DICOM service by using Azure Storage access tiers for the data lake storage account. The DICOM service only supports online access tiers (either hot, cool, or cold), and can retrieve imaging data in those tiers immediately. The hot tier is the best choice for data that is in active use. The cool or cold tier is ideal for data that is accessed less frequently but still must be available for reading and writing.
 
-To learn more about access tiers, including cost tradeoffs and best practices, see [Azure Storage access tiers](https://learn.microsoft.com/azure/storage/blobs/access-tiers-overview)
+To learn more about access tiers, including cost tradeoffs and best practices, see [Azure Storage access tiers](/azure/storage/blobs/access-tiers-overview)
 
 ## Limitations
 
