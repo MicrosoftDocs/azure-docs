@@ -29,7 +29,9 @@ You'll need the following things before you can use watermarking:
 
   - [Windows Desktop client](users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json), version 1.2.3317 or later, on Windows 10 and later.
   - [Web client](users/connect-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
-  - [MacOS client](users/connect-macos.md)
+  - [macOS client](users/connect-macos.md).
+
+  Note: iOS and Android clients don't support watermarking. 
 
 - [Azure Virtual Desktop Insights](azure-monitor.md) configured for your environment.
 
