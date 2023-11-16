@@ -83,7 +83,7 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 
 ## Resource logs
 
-Azure Event Hubs now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](~/articles/azure-monitor/essentials/resource-logs.md) in Log Analytics.You could use the toggle available on Azure Portal to choose destination tables. 
+Azure Event Hubs now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](~/articles/azure-monitor/essentials/resource-logs.md) in Log Analytics. You could use the toggle available on Azure portal to choose destination tables. 
 
 :::image type="content" source="media/monitor-event-hubs-reference/destination-table-toggle.png" alt-text="Screenshot of dialog box to set destination table." lightbox="media/monitor-event-hubs-reference/destination-table-toggle.png":::
 
