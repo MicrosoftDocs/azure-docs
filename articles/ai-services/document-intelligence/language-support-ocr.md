@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/15/2023
 ---
 
-# Document analysis language support
+# Language support: document analysis
 
 ::: moniker range="doc-intel-4.0.0"
 [!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]
