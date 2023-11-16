@@ -7,31 +7,30 @@ items:
   items:
   - name: Overview - Oracle on Azure Virtual Machines
     href: oracle-overview.md
+  - name: Get started
     items:
-    - name: Get started
-      items:
       - name: Create an Oracle DB in an Azure VM 
         href: oracle-database-quick-create.md
       - name: WebLogic Server on Azure VMs
         href: oracle-weblogic.md
       - name: WebLogic Server on Azure Kubernetes Service
         href: weblogic-aks.md
-    - name: Configuration
-      items:
+  - name: Configuration
+    items:
       - name: Set up Oracle ASM on an Azure Linux VM
         href: configure-oracle-asm.md
       - name: Implement Oracle Data Guard on an Azure Linux VM
         href: configure-oracle-dataguard.md
       - name: Implement Oracle Golden Gate on an Azure Linux VM
         href: configure-oracle-golden-gate.md  
-    - name: Migration
-      items:
+  - name: Migration
+    items:
       - name: Migrate Oracle workload to Azure VMs
         href: oracle-migration.md
       - name: Storage options for oracle on Azure VMs
         href: oracle-storage.md
-    - name: Backup and disaster recovery
-      items:  
+  - name: Backup and disaster recovery
+    items:  
       - name: Oracle Database in Azure Linux VM backup strategies
         href: oracle-database-backup-strategies.md
       - name: Oracle Database on an Azure Linux VM using Azure files
@@ -42,8 +41,8 @@ items:
         href: oracle-rman-streaming-backup.md
       - name: Disaster Recovery 12c of Oracle on Azure
         href: oracle-disaster-recovery.md
-    - name: Solution architecture
-      items:
+  - name: Solution architecture
+    items:
       - name: Architectures for Oracle applications with database on Azure Virtual Machines
         href: deploy-application-oracle-database-azure.md
       - name: Architectures for Oracle applications with Azure Virtual Machines and database on OCI
@@ -52,8 +51,8 @@ items:
         href: oracle-reference-architecture.md
       - name: Architectures for Oracle Database Enterprise Edition on Azure
         href: oracle-design.md
-    - name: Reference
-      items:
+  - name: Reference
+    items:
       - name: Oracle on Azure Virtual Machines landing zone accelerator
         href: /azure/cloud-adoption-framework/scenarios/oracle-iaas/introduction-oracle-landing-zone
       - name: Cloud Adoption Framework for Azure
@@ -64,8 +63,8 @@ items:
         href: https://azure.microsoft.com/pricing/calculator/
       - name: Azure DevOps Roadmap
         href: /azure/devops/release-notes/features-timeline
-    - name: FAQs
-      href: oracle-azure-vms-faq.md
+  - name: FAQs
+    href: oracle-azure-vms-faq.md
 - name: Oracle Database@Azure
   items:
   - name: Overview - Oracle Database@Azure
