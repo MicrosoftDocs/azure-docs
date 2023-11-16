@@ -2,7 +2,7 @@
 title: Review security recommendations in Microsoft Defender for Cloud
 description: Learn how to review security recommendations in Microsoft Defender for Cloud
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 11/08/2023
 ---
 
 # Review security recommendations
@@ -119,9 +119,9 @@ You can use [Azure Resource Graph](../governance/resource-graph/index.yml) to qu
 
 In this example,  this recommendation details page shows 15 affected resources:
 
-:::image type="content" source="./media/review-security-recommendations/open-query.png" alt-text="The **Open Query** button on the recommendation details page.":::
+:::image type="content" source="./media/review-security-recommendations/open-query.png" alt-text="Screenshot of the Open Query button on the recommendation details page." lightbox="media/review-security-recommendations/open-query.png":::
 
-When you open the underlying query, and run it, Azure Resource Graph Explorer returns the same 15 resources and their health status for this recommendation:
+When you open the underlying query, and run it, Azure Resource Graph Explorer returns the same affected resources for this recommendation:
 
 :::image type="content" source="./media/review-security-recommendations/run-query.png" alt-text="Screenshot of Azure Resource Graph Explorer showing the results for the recommendation shown in the previous screenshot.":::
 
