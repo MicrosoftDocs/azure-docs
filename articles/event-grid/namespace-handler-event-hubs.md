@@ -4,7 +4,7 @@ description: Describes how you can use an Azure event hub as an event handler fo
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 10/10/2023
+ms.date: 11/15/2023
 ---
 
 # Azure Event hubs as a handler destination in subscriptions to Azure Event Grid namespace topics

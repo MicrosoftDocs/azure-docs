@@ -4,7 +4,7 @@ description: Describes the dead lettering feature for event subscriptions to nam
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 09/29/2023
+ms.date: 11/15/2023
 ---
 
 # Dead lettering for event subscriptions to namespaces topics in Azure Event Grid

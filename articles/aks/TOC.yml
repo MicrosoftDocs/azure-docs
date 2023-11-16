@@ -313,6 +313,8 @@
               href: create-node-pools.md
             - name: Manage node pools
               href: manage-node-pools.md
+            - name: Reduce image pull time with Artifact Streaming on AKS
+              href: artifact-streaming.md
             - name: Add an Azure Spot node pool
               href: spot-node-pool.md
             - name: Multi-instance GPU node pool
