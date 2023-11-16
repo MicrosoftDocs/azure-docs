@@ -53,6 +53,6 @@ A Permission Binding grants access to a specific client group to either publish 
 ## Next steps
 
 - Learn about [creating an Event Grid namespace](create-view-manage-namespaces.md)
-- Learn about [MQTT support in Event Grid](mqtt-overview.md)
+- Learn about [MQTT broker feature in Azure Event Grid](mqtt-overview.md)
 - Learn more about [MQTT clients](mqtt-clients.md)
 - Learn how to [Publish and subscribe MQTT messages using Event Grid namespace](mqtt-publish-and-subscribe-portal.md)

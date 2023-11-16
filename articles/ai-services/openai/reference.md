@@ -609,7 +609,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/{deployment-id}/images
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | `prompt` | string | Required |  | A text description of the desired image(s). The maximum length is 1000 characters. |
-| `n` | integer | Optional | 1 | The number of images to generate. Must be between 1 and 5. |
+| `n` | integer | Optional | 1 | The number of images to generate. Only `n=1` is supported for DALL-E 3. |
 | `size` | string | Optional | `1024x1024` | The size of the generated images. Must be one of `1792x1024`, `1024x1024`, or `1024x1792`. |
 | `quality` | string | Optional | `standard` | The quality of the generated images. Must be `hd` or `standard`. |
 | `imagesResponseFormat` | string | Optional | `url` | The format in which the generated images are returned Must be `url` (a URL pointing to the image) or `b64_json` (the base 64 byte code in JSON format). |
@@ -627,8 +627,8 @@ curl -X POST https://{your-resource-name}.openai.azure.com/openai/{deployment-id
     "prompt": "An avocado chair",
     "size": "1024x1024",
     "n": 3,
-    "quality": "hd", 
-    "style": "vivid"
+    "quality": "hd", 
+    "style": "vivid"
   }'
 ```
 
@@ -638,17 +638,17 @@ The operation returns a `202` status code and an `GenerateImagesResponse` JSON o
 
 ```json
 { 
-    "created": 1698116662, 
-    "data": [ 
+    "created": 1698116662, 
+    "data": [ 
         { 
-            "url": "url to the image", 
-            "revised_prompt": "the actual prompt that was used" 
+            "url": "url to the image", 
+            "revised_prompt": "the actual prompt that was used" 
         }, 
         { 
-            "url": "url to the image" 
-        },
+            "url": "url to the image" 
+        },
         ...
-    ]
+    ]
 } 
 ```
 

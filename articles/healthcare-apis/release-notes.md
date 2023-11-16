@@ -29,6 +29,13 @@ This article provides details about the features and enhancements made to Azure 
 
 Bulk delete operation is currently in public preview. Review disclaimer for details. [!INCLUDE public preview disclaimer]
 
+## October 2023
+
+### DICOM Service
+**Bulk import is available for public preview**
+
+Bulk import simplifies the process of adding data to the DICOM service. When enabled, the capability creates a storage container and .dcm files that are copied to the container are automatically added to the DICOM service. For more information, see [Import DICOM files (preview)](./../healthcare-apis/dicom/import-files.md).  
+
 ## September 2023
 
 ### FHIR service

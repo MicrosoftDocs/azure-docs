@@ -139,4 +139,5 @@ If you're a government, commercial, or enterprise customer, please contact the e
 
 ## Next steps
 * Learn how you can build generative AI applications in the [Azure AI Studio](../what-is-ai-studio.md).
-* Get answers to frequently asked questions in the [Azure AI FAQ article](../what-is-ai-studio.md).
+* Get answers to frequently asked questions in the [Azure AI FAQ article](../faq.yml).
+

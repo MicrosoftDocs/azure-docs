@@ -130,7 +130,7 @@ Source map support helps you debug minified JavaScript code with the ability to 
 
 Application Insights supports the uploading of source maps to your Azure Storage account blob container. You can use source maps to unminify call stacks found on the **End-to-end transaction details** page. You can also use source maps to unminify any exception sent by the [JavaScript SDK][ApplicationInsights-JS] or the [Node.js SDK][ApplicationInsights-Node.js].
 
-![Screenshot that shows selecting the option to unminify a call stack by linking with a storage account.](./media/javascript-sdk-configuration/details-unminify.gif)
+:::image type="content" source="./media/javascript-sdk-configuration/details-unminify.gif" lightbox="./media/javascript-sdk-configuration/details-unminify.gif" alt-text="Screenshot that shows selecting the option to unminify a call stack by linking with a storage account.":::
 
 #### Create a new storage account and blob container
 
@@ -139,8 +139,7 @@ If you already have an existing storage account or blob container, you can skip 
 1. [Create a new storage account][create storage account].
 1. [Create a blob container][create blob container] inside your storage account. Set **Public access level** to **Private** to ensure that your source maps aren't publicly accessible.
 
-    > [!div class="mx-imgBorder"]
-    >![Screenshot that shows setting the container access level to Private.](./media/javascript-sdk-configuration/container-access-level.png)
+    :::image type="content" source="./media/javascript-sdk-configuration/container-access-level.png" lightbox="./media/javascript-sdk-configuration/container-access-level.png" alt-text="Screenshot that shows setting the container access level to Private.":::
 
 #### Push your source maps to your blob container
 
@@ -152,8 +151,7 @@ You can upload source maps to your Azure Blob Storage container with the same fo
 
 If you're using Azure Pipelines to continuously build and deploy your application, add an [Azure file copy][azure file copy] task to your pipeline to automatically upload your source maps.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows adding an Azure file copy task to your pipeline to upload your source maps to Azure Blob Storage.](./media/javascript-sdk-configuration/azure-file-copy.png)
+:::image type="content" source="./media/javascript-sdk-configuration/azure-file-copy.png" lightbox="./media/javascript-sdk-configuration/azure-file-copy.png" alt-text="Screenshot that shows adding an Azure file copy task to your pipeline to upload your source maps to Azure Blob Storage.":::
 
 #### Configure your Application Insights resource with a source map storage account
 
@@ -176,8 +174,7 @@ To configure or change the storage account or blob container that's linked to yo
 1. Select a different blob container as your source map container.
 1. Select **Apply**.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows reconfiguring your selected Azure blob container on the Properties pane.](./media/javascript-sdk-configuration/reconfigure.png)
+   :::image type="content" source="./media/javascript-sdk-configuration/reconfigure.png" lightbox="./media/javascript-sdk-configuration/reconfigure.png" alt-text="Screenshot that shows reconfiguring your selected Azure blob container on the Properties pane.":::
 
 ### View the unminified callstack
  
@@ -185,7 +182,7 @@ To view the unminified callstack, select an Exception Telemetry item in the Azur
 
 If you experience issues that involve source map support for JavaScript applications, see [Troubleshoot source map support for JavaScript applications](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting#troubleshoot-source-map-support-for-javascript-applications).
 
-:::image type="content" source="media/javascript-sdk-configuration/javascript-sdk-advanced-unminify.gif" alt-text="Animation demonstrating unminify feature.":::
+:::image type="content" source="media/javascript-sdk-configuration/javascript-sdk-advanced-unminify.gif" lightbox="media/javascript-sdk-configuration/javascript-sdk-advanced-unminify.gif" alt-text="Animation demonstrating unminify feature.":::
 
 ## Tree shaking
 
