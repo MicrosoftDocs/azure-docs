@@ -43,6 +43,7 @@ There are three ways to add the NVIDIA device plugin:
 
 1. [Using the AKS GPU image](#update-your-cluster-to-use-the-aks-gpu-image-preview)
 2. [Manually installing the NVIDIA device plugin](#manually-install-the-nvidia-device-plugin)
+3. Using the NVIDIA GPU Operator
 
 ### Use NVIDIA GPU Operator with AKS
 You can use the NVIDIA GPU Operator by skipping the gpu driver installation on AKS. For more information about using the NVIDIA GPU Operator with AKS, see [NVIDIA Documentation](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/microsoft-aks.html).
