@@ -589,7 +589,7 @@ curl -i -X GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-
 Generate and retrieve a batch of images from a text caption.
 
 ```http
-POST https://{your-resource-name}.openai.azure.com/openai/{deployment-id}/images/generations?api-version={api-version} 
+POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment-id}/images/generations?api-version={api-version} 
 ```
 
 **Path parameters**
@@ -620,7 +620,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/{deployment-id}/images
 
 
 ```console
-curl -X POST https://{your-resource-name}.openai.azure.com/openai/{deployment-id}/images/generations?api-version=2023-12-01-preview \
+curl -X POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment-id}/images/generations?api-version=2023-12-01-preview \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d '{
