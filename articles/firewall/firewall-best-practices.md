@@ -17,7 +17,7 @@ To maximize the [performance](firewall-performance.md) of your Azure Firewall an
 
 - **Exceeding rule limitations**
 
-   If you exceed limitations, such as using over 20,000 unique source/destination combinations in rules, can affect firewall traffic processing and cause latency. Even though this is a soft limit, if you surpass this value it can affect overall firewall performance. For more information, see the [documented limits](../nat-gateway/tutorial-hub-spoke-nat-firewall.md) .
+   If you exceed limitations, such as using over 20,000 unique source/destination combinations in rules, can affect firewall traffic processing and cause latency. Even though this is a soft limit, if you surpass this value it can affect overall firewall performance. For more information, see the [documented limits](../nat-gateway/tutorial-hub-spoke-nat-firewall.md).
 
 - **High traffic throughput**
 
