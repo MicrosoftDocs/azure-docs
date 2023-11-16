@@ -108,5 +108,5 @@ Refer to [Use Spring Data with Azure Cosmos DB for MongoDB API](/azure/developer
     ```
 
 
-### [None](#tab/none)
-For other languages, you can use the MongoDB resource endpoint and other properties that Service Connector sets to the environment variables to connect the Azure Cosmos DB for MongoDB. For environment variable details, see [Integrate Azure Cosmos DB for MongoDB with Service Connector](../how-to-integrate-cosmos-db.md).
+### [Other](#tab/none)
+For other languages, you can use the MongoDB resource endpoint and other properties that Service Connector sets to the environment variables to connect to Azure Cosmos DB for MongoDB. For environment variable details, see [Integrate Azure Cosmos DB for MongoDB with Service Connector](../how-to-integrate-cosmos-db.md).

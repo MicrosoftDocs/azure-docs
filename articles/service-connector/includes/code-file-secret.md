@@ -76,5 +76,5 @@ ms.author: wchi
     const shareServiceClient = ShareServiceClient.fromConnectionString(connection_string);
     ```
 
-### [None](#tab/none)
-For other languages, you can use the connection information that Service Connector sets to the environment variables to connect Azure File Storage. For environment variable details, see [Integrate Azure Files with Service Connector](../how-to-integrate-storage-file.md).
+### [Other](#tab/none)
+For other languages, you can use the connection information that Service Connector sets to the environment variables to connect to Azure File Storage. For environment variable details, see [Integrate Azure Files with Service Connector](../how-to-integrate-storage-file.md).

@@ -156,5 +156,5 @@ ms.author: wchi
     ```
 
 
-### [None](#tab/none)
-For other languages, you can use the connection configuration properties that Service Connector set to the environment variables to connect Azure Web PubSub. For environment variable details, see [Integrate Azure Web PubSub with Service Connector](../how-to-integrate-web-pubsub.md).
+### [Other](#tab/none)
+For other languages, you can use the connection configuration properties that Service Connector sets to the environment variables to connect to Azure Web PubSub. For environment variable details, see [Integrate Azure Web PubSub with Service Connector](../how-to-integrate-web-pubsub.md).

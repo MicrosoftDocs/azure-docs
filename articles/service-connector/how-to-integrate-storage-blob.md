@@ -13,7 +13,7 @@ ms.date: 10/20/2023
 
 This page shows the supported authentication types, client types and sample code of Azure Blob Storage using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection.
 
-## Supported compute service
+## Supported compute services
 
 - Azure App Service
 - Azure Container Apps

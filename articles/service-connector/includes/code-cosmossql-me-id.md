@@ -166,5 +166,5 @@ Refer to [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB f
 
 
 
-### [None](#tab/none)
+### [Other](#tab/none)
 For other languages, you can use the endpoint URL and other properties that Service Connector sets to the environment variables to connect to Azure Cosmos DB for NoSQL. For environment variable details, see [Integrate Azure Cosmos DB for NoSQL with Service Connector](../how-to-integrate-cosmos-sql.md).

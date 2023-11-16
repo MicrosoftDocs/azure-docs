@@ -23,5 +23,5 @@ ms.author: wchi
     var app = builder.Build();
     ```
 
-### [None](#tab/none)
+### [Other](#tab/none)
 For other languages, you can use the connection string that Service Connector sets to the environment variables to connect Azure SignalR Service. For environment variable details, see [Integrate Azure SignalR Service with Service Connector](../how-to-integrate-signalr.md).

@@ -387,5 +387,5 @@ Authentication type is not supported for Spring Boot.
     ```
 
 
-### [None](#tab/none)
-For other languages, you can use the Cassandra contact point and other properties that Service Connector sets to the environment variables to connect the Azure Cosmos DB for Cassandra resource. For environment variable details, see [Integrate Azure Cosmos DB for Cassandra with Service Connector](../how-to-integrate-cosmos-cassandra.md).
+### [Other](#tab/none)
+For other languages, you can use the Cassandra contact point and other properties that Service Connector sets to the environment variables to connect to Azure Cosmos DB for Cassandra resource. For environment variable details, see [Integrate Azure Cosmos DB for Cassandra with Service Connector](../how-to-integrate-cosmos-cassandra.md).

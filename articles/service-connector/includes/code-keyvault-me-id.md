@@ -159,5 +159,5 @@ Refer to [Tutorial: Connect Azure Spring Apps to Key Vault using managed identit
     const client = new SecretClient(url, credential);
     ```
 
-### [None](#tab/none)
-For other languages, you can use the connection information that Service Connector sets to the environment variables to connect Azure Key Vault. For environment variable details, see [Integrate Azure Key Vault with Service Connector](../how-to-integrate-key-vault.md).
+### [Other](#tab/none)
+For other languages, you can use the connection information that Service Connector sets to the environment variables to connect to Azure Key Vault. For environment variable details, see [Integrate Azure Key Vault with Service Connector](../how-to-integrate-key-vault.md).

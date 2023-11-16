@@ -213,5 +213,5 @@ Refer to [Use Spring Kafka with Azure Event Hubs for Kafka API](/azure/developer
 
 
 
-### [None](#tab/none)
+### [Other](#tab/none)
 For other languages, you can use the connection configuration properties that Service Connector sets to the environment variables to connect to Azure Event Hubs. For environment variable details, see [Integrate Azure Event Hubs with Service Connector](../how-to-integrate-event-hubs.md).

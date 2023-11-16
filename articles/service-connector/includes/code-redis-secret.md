@@ -108,3 +108,6 @@ Refer to [Use Azure Redis Cache in Spring](/azure/developer/java/spring-framewor
     });
     await cacheConnection.connect();
     ```
+
+### [Other](#tab/none)
+For other languages, you can use the connection information that Service Connector sets to the environment variables to connect to Azure Cache for Redis. For environment variable details, see [Integrate Azure App Configuration with Service Connector](../how-to-integrate-app-configuration.md).

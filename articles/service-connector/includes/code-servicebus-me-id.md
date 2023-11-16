@@ -226,5 +226,5 @@ ms.author: wchi
     const client = new ServiceBusClient(fullyQualifiedNamespace, credential);
     ```
 
-### [None](#tab/none)
+### [Other](#tab/none)
 For other languages, you can use the connection information that Service Connector sets to the environment variables to connect compute services to the Service Bus. For environment variable details, see [Integrate Service Bus with Service Connector](../how-to-integrate-service-bus.md).

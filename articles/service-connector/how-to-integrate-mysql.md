@@ -15,7 +15,7 @@ This page shows supported authentication methods and clients, and shows sample c
 
 [!INCLUDE [Azure-database-for-mysql-single-server-deprecation](../mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-## Supported compute service
+## Supported compute services
 
 - Azure App Service. You can get the configurations from Azure App Service configurations.
 - Azure Container Apps. You can get the configurations from Azure Container Apps environment variables.

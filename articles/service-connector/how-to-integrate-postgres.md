@@ -13,7 +13,7 @@ ms.custom: event-tier1-build-2022, engagement-fy23
 
 This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Database for PostgreSQL to other cloud services using Service Connector. You might still be able to connect to Azure Database for PostgreSQL in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection.
 
-## Supported compute service
+## Supported compute services
 
 - Azure App Service
 - Azure App Configuration

@@ -225,5 +225,5 @@ For more information, refer to [Build a Go app with the gocql client to manage A
 For more details, refer to [Build a Cassandra app with Node.js SDK and Azure Cosmos DB](/azure/cosmos-db/cassandra/manage-data-nodejs)
 
 
-### [None](#tab/none)
-For other languages, you can use the Cassandra contact point and other properties that Service Connector sets to the environment variables to connect the Azure Cosmos DB for Cassandra resource. For environment variable details, see [Integrate Azure Cosmos DB for Cassandra with Service Connector](../how-to-integrate-cosmos-cassandra.md).
+### [Other](#tab/none)
+For other languages, you can use the Cassandra contact point and other properties that Service Connector sets to the environment variables to connect to Azure Cosmos DB for Cassandra resource. For environment variable details, see [Integrate Azure Cosmos DB for Cassandra with Service Connector](../how-to-integrate-cosmos-cassandra.md).
