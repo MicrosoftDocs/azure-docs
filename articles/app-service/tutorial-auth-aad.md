@@ -76,7 +76,7 @@ Create the resource group, web app plan, the web app and deploy in a single step
 1. Change into the frontend web app directory.
 
     ```azurecli-interactive
-    cd frontend
+    cd js-e2e-web-app-easy-auth-app-to-app/frontend
     ```
 
 1. Create and deploy the frontend web app with [az webapp up](/cli/azure/webapp#az-webapp-up). Because web app name has to be globally unique, replace `<front-end-app-name>` with a unique name. 
