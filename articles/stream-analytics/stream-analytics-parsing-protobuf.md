@@ -28,7 +28,7 @@ To configure your Stream Analytics job to deserialize events in Protobuf:
    |------------------------------|-------------------------------------------------------------------------------------------------------------------------|
    | **Protobuf definition file**            | A file that specifies the structure and data types of your Protobuf events         |
    | **Message type**   | The message type that you want to deserialize    |
-   | **Prefix style**                 | Setting that determines how long a message is to deserialize Protobuf events correctly |
+   | **Prefix style**                 | The setting that determines how long a message is to deserialize Protobuf events correctly |
 
    :::image type="content" source="./media/protobuf/protobuf.png" alt-text=" Screenshot that shows the input boxes on the configuration pane for an Azure Stream Analytics job, after you select Protobuf as the event serialization format." lightbox="./media/protobuf/protobuf.png" :::
 
