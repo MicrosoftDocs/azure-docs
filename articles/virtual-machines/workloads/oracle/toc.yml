@@ -10,7 +10,7 @@ items:
 - name: Oracle Database@Azure
   items:
   - name: Overview - Oracle Database@Azure
-    href: ./oracle-db/db-overview.md
+    href: db-overview.md
 - name: Get started
   items:
   - name: Create an Oracle DB in an Azure VM 
