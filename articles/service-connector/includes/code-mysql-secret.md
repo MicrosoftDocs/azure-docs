@@ -24,7 +24,7 @@ ms.author: yungez
 
 ### [Java](#tab/java)
 
-1. Install dependencies. Follow the guidance to [install Connector/J](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-installing.html).
+1. Install dependencies. Follow the guidance to [install Connector/J](https://dev.mysql.com/doc/connector-j/en/connector-j-installing.html).
 1. In code, get MySQL connection string from environment variables added by Service Connector service. To establish encrypted connection to MySQL server over SSL, refer to [these steps](/azure/mysql/flexible-server/how-to-connect-tls-ssl#connect-using-mysql-command-line-client-with-tlsssl).
     ```java
     import java.sql.Connection;
