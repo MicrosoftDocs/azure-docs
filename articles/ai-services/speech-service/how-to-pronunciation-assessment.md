@@ -114,9 +114,9 @@ pronunciationConfig->EnableContentAssessmentWithTopic("greeting");
 
 ```Java
 PronunciationAssessmentConfig pronunciationConfig = new PronunciationAssessmentConfig("", 
-PronunciationAssessmentGradingSystem.HundredMark, PronunciationAssessmentGranularity.Phoneme, false); 
+    PronunciationAssessmentGradingSystem.HundredMark, PronunciationAssessmentGranularity.Phoneme, false); 
 pronunciationConfig.enableProsodyAssessment(); 
-pronunciationConfig.enableContentAssessmentWithTopic("greeting"); 
+pronunciationConfig.enableContentAssessmentWithTopic("greeting");
 ```
 
 ::: zone-end
@@ -125,12 +125,12 @@ pronunciationConfig.enableContentAssessmentWithTopic("greeting");
 
 ```Python
 pronunciation_config = speechsdk.PronunciationAssessmentConfig( 
-reference_text="", 
-grading_system=speechsdk.PronunciationAssessmentGradingSystem.HundredMark, 
-granularity=speechsdk.PronunciationAssessmentGranularity.Phoneme, 
-enable_miscue=False) 
+    reference_text="", 
+    grading_system=speechsdk.PronunciationAssessmentGradingSystem.HundredMark, 
+    granularity=speechsdk.PronunciationAssessmentGranularity.Phoneme, 
+    enable_miscue=False) 
 pronunciation_config.enable_prosody_assessment() 
-pronunciation_config.enable_content_assessment_with_topic("greeting") 
+pronunciation_config.enable_content_assessment_with_topic("greeting")
 ```
 
 ::: zone-end
@@ -139,12 +139,12 @@ pronunciation_config.enable_content_assessment_with_topic("greeting")
 
 ```JavaScript
 var pronunciationAssessmentConfig = new sdk.PronunciationAssessmentConfig( 
-referenceText: "", 
-gradingSystem: sdk.PronunciationAssessmentGradingSystem.HundredMark,  
-granularity: sdk.PronunciationAssessmentGranularity.Phoneme,  
-enableMiscue: false); 
+    referenceText: "", 
+    gradingSystem: sdk.PronunciationAssessmentGradingSystem.HundredMark,  
+    granularity: sdk.PronunciationAssessmentGranularity.Phoneme,  
+    enableMiscue: false); 
 pronunciationAssessmentConfig.EnableProsodyAssessment(); 
-pronunciationAssessmentConfig.EnableContentAssessmentWithTopic("greeting");   
+pronunciationAssessmentConfig.EnableContentAssessmentWithTopic("greeting");  
 ```
 
 ::: zone-end
@@ -153,10 +153,7 @@ pronunciationAssessmentConfig.EnableContentAssessmentWithTopic("greeting");
 
 ```ObjectiveC
 SPXPronunciationAssessmentConfiguration *pronunicationConfig = 
-[[SPXPronunciationAssessmentConfiguration alloc] init:@"" 
-                            gradingSystem:SPXPronunciationAssessmentGradingSystem_HundredMark 
-                            granularity:SPXPronunciationAssessmentGranularity_Phoneme 
-                            enableMiscue:false]; 
+[[SPXPronunciationAssessmentConfiguration alloc] init:@"" gradingSystem:SPXPronunciationAssessmentGradingSystem_HundredMark granularity:SPXPronunciationAssessmentGranularity_Phoneme enableMiscue:false]; 
 [pronunicationConfig enableProsodyAssessment]; 
 [pronunicationConfig enableContentAssessmentWithTopic:@"greeting"]; 
 ```
@@ -168,11 +165,11 @@ SPXPronunciationAssessmentConfiguration *pronunicationConfig =
 
 ```swift
 let pronAssessmentConfig = try! SPXPronunciationAssessmentConfiguration("", 
-gradingSystem: .hundredMark, 
-granularity: .phoneme, 
-enableMiscue: false) 
+    gradingSystem: .hundredMark, 
+    granularity: .phoneme, 
+    enableMiscue: false) 
 pronAssessmentConfig.enableProsodyAssessment() 
-pronAssessmentConfig.enableContentAssessment(withTopic: "greeting") 
+pronAssessmentConfig.enableContentAssessment(withTopic: "greeting")
 ```
 
 ::: zone-end
@@ -944,6 +941,6 @@ pronunciationAssessmentConfig?.nbestPhonemeCount = 5
 
 ## Next steps
 
-- Learn our quality [benchmark](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/speech-service-update-hierarchical-transformer-for-pronunciation/ba-p/3740866)
+- Learn our quality [benchmark](https://aka.ms/pronunciationassessment/techblog)
 - Try out [pronunciation assessment in Speech Studio](pronunciation-assessment-tool.md)
-- Check out easy-to-deploy Pronunciation Assessment [demo](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment/BrowserJS) and watch the [video tutorial](https://www.youtube.com/watch?v=zFlwm7N4Awc) of pronunciation assessment.
+- Check out easy-to-deploy Pronunciation Assessment [demo](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment/BrowserJS) and watch the [video demo](https://www.youtube.com/watch?v=NQi4mBiNNTE)  of pronunciation assessment.
