@@ -29,8 +29,8 @@ The Dapr application performs the following steps:
 
 ## Prerequisites
 
-* A cluster with Azure IoT Operations installed - [Deploy Azure IoT Operations](../get-started/quickstart-deploy.md)
-* Dapr runtime and MQ's pluggable components - [Use Dapr to develop distributed application workloads](../develop/howto-develop-dapr-apps.md)
+* Azure IoT Operations installed - [Deploy Azure IoT Operations](../get-started/quickstart-deploy.md)
+* Dapr runtime and MQ's pluggable components installed - [Use Dapr to develop distributed application workloads](../develop/howto-develop-dapr-apps.md)
 
 ## Deploy the Dapr application
 
