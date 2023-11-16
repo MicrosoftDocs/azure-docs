@@ -6,7 +6,7 @@ ms.author: schaffererin
 ms.service: azure-kubernetes-service
 ms.custom: devx-track-azurecli
 ms.topic: article
-ms.date: 11/15/2023
+ms.date: 11/16/2023
 ---
 
 # Reduce image pull time with Artifact Streaming on Azure Kubernetes Service (AKS) (Preview)
