@@ -13,13 +13,13 @@ ms.date: 11/02/2023
 
 [!INCLUDE[NoSQL, MongoDB vCore, PostgreSQL](includes/appliesto-nosql-mongodbvcore-postgresql.md)]
 
-You likely considered augmenting your applications with Large Language Models (LLMs) that can access your own data store through Retrieval Augmented Generation (RAG). This approach allows you to
+You likely considered augmenting your applications with large language models (LLMs) that can access your own data stored in a vector database through retrieval-augmented generation (RAG). This approach allows you to
 
 - Generate contextually relevant and accurate responses to user prompts from AI models
 - Overcome ChatGPT, GPT-3.5, or GPT-4’s token limits
 - Reduce the costs from frequent fine-tuning on updated data
 
-Some RAG implementation tutorials demonstrate integrating vector databases. Instead of adding a separate vector database to your existing tech stack, you can achieve the same outcome using Azure Cosmos DB with Azure OpenAI Service and optionally Azure Cognitive Search when working with multi-modal data.
+Some RAG implementation tutorials demonstrate integrating vector databases that are distinct from traditional relational and non-relational databases. Instead of adding a separate vector database to your existing tech stack, you can achieve the same outcome using Azure Cosmos DB with Azure OpenAI Service and optionally Azure Cognitive Search when working with multi-modal data.
 
 Here are some solutions:
 
