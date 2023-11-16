@@ -55,7 +55,7 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 
 * Loss of IP address
 
-    * Customers don't own the default outbound access IP. This IP might change, and any dependency on it could cause issues in the future.
+    * Customers don't own the default outbound access IP. This IP might changit ge, and any dependency on it could cause issues in the future.
 
 ## How can I transition to an explicit method of public connectivity (and disable default outbound access)?
 
@@ -73,12 +73,12 @@ There are multiple ways to turn off default outbound access:
     > Certain services will not function on a virtual machine in a Private Subnet without an explicit method of egress (examples are Windows Activation and Windows Updates).
 
 To use the Private subnet feature
-    - From the Azure Portal, ensure the option to enable Private subnet is selected when creating a subnet as part of the Virtual Network create experience as shown below:
+    * From the Azure Portal, ensure the option to enable Private subnet is selected when creating a subnet as part of the Virtual Network create experience as shown below:
 
 :::image type="content" source="./media/default-outbound-access/private-subnet-portal.png"  alt-text="Image of Azure portal showing Private subnet option.":::
 
-    - Using CLI, when creating a subnet with [az network vnet subnet create](https://learn.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create, use the **`--default-outbound**` option and choose "false"
-    - Using an Azure Resource Manager template, set the value of **`defaultOutboundAccess**` parameter to be "false"
+    * Using CLI, when creating a subnet with [az network vnet subnet create](https://learn.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create, use the **`--default-outbound**` option and choose "false"
+    * Using an Azure Resource Manager template, set the value of **`defaultOutboundAccess**` parameter to be "false"
 
 *  Add an explicit outbound connectivity method.
 
