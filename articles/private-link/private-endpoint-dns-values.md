@@ -50,6 +50,7 @@ For Azure services, use the recommended zone names as described in the following
 
 ### AI + Machine Learning
 
+[!div class="mx-tdBreakAll"]
 | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 |---|---|---|---|
 | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>instances.azureml.ms<br/>aznbcontent.net<br/>inference.ml.azure.com |
