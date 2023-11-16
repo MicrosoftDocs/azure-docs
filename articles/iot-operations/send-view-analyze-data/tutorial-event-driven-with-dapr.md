@@ -69,6 +69,8 @@ To start, create a yaml file that uses the following definitions:
             dapr.io/app-port: "6001"
             dapr.io/app-protocol: "grpc"
         spec:
+          serviceAccountName: mqtt-client
+
           volumes:
           - name: dapr-unix-domain-socket
             emptyDir: {}
