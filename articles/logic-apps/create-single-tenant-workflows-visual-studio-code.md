@@ -52,7 +52,7 @@ As you progress, you'll complete these high-level tasks:
 
 ### Access and connectivity
 
-* If you plan to locally build Standard logic app projects and run workflows using only the [built-in connectors](../connectors/built-in.md) that run natively on the Azure Logic Apps runtime, you don't need the following requirements. However, to publish or deploy your from Visual Studio Code to Azure, use the [managed connectors](../connectors/managed.md) that run in global Azure, or access Standard logic app resources and workflows already deployed in Azure, make sure that you have connectivity and Azure account credentials:
+* If you plan to locally build Standard logic app projects and run workflows using only the [built-in connectors](../connectors/built-in.md) that run natively on the Azure Logic Apps runtime, you don't need the following requirements. However, make sure that you have the following connectivity and Azure account credentials to publish or deploy your project from Visual Studio Code to Azure, use the [managed connectors](../connectors/managed.md) that run in global Azure, or access Standard logic app resources and workflows already deployed in Azure:
 
   * Access to the internet so that you can download the requirements, connect from Visual Studio Code to your Azure account, and publish from Visual Studio Code to Azure.
 
@@ -218,9 +218,9 @@ As you progress, you'll complete these high-level tasks:
       >
       > If the extension doesn't appear in the installed list, try restarting Visual Studio Code.
 
-   Currently, you can have both Consumption (multi-tenant) and Standard (single-tenant) extensions installed at the same time. The development experiences differ from each other in some ways, but your Azure subscription can include both Standard and Consumption logic app types. In Visual Studio Code, the Azure window shows all the Azure-deployed and hosted logic apps in your Azure subscription, but organizes your apps in the following ways:
+   Currently, you can have both Consumption (multitenant) and Standard (single-tenant) extensions installed at the same time. The development experiences differ from each other in some ways, but your Azure subscription can include both Standard and Consumption logic app types. In Visual Studio Code, the Azure window shows all the Azure-deployed and hosted logic apps in your Azure subscription, but organizes your apps in the following ways:
 
-   * **Logic Apps (Consumption)** section: All the Consumption logic apps in your subscription
+   * **Logic Apps (Consumption)** section: All the Consumption logic apps in your subscription.
 
    * **Resources** section: All the Standard logic apps in your subscription. Previously, these logic apps appeared in the **Logic Apps (Standard)** section, which has now moved into the **Resources** section.
 
