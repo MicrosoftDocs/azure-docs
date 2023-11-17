@@ -463,7 +463,7 @@ For Azure services, use the recommended zone names as described in the following
 
 ## Next step
 
-To learn more about the different DNS configurations and scenarios for Azure Private Link, continue to the following article:
+To learn more about DNS integration and scenarios for Azure Private Link, continue to the following article:
 
 > [!div class="nextstepaction"]
-> [Azure Private Endpoint DNS configuration](private-endpoint-dns.md)
+> [Azure Private Endpoint DNS ](private-endpoint-dns-integration.md)
