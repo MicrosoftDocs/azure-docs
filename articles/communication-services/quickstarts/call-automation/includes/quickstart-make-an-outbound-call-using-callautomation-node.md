@@ -16,9 +16,11 @@ ms.custom: mode-other
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - A [phone number](../../telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. If you have a free subscription, you can [get a trial phone number](../../telephony/get-trial-phone-number.md).
-- Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started)
+- Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started).
+- - Create and connect [a Multi-service Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
+- Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
 - [Node.js](https://nodejs.org/en/) LTS installation.
-- [Visual Studio Code](https://code.visualstudio.com/download) installed
+- [Visual Studio Code](https://code.visualstudio.com/download) installed.
 
 ## Sample code
 Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/CallAutomation_OutboundCalling).
@@ -54,10 +56,11 @@ Then update your `.env` file with following values:
 
 
 ```dosini
-CONNECTION_STRING="<YOUR_CONNECTION_STRING>"
-ACS_RESOURCE_PHONE_NUMBER ="<YOUR_ACS_NUMBER>"
-TARGET_PHONE_NUMBER="<+1XXXXXXXXXX>"
-CALLBACK_URI="<VS_TUNNEL_URL>"
+CONNECTION_STRING="<YOUR_CONNECTION_STRING>" 
+ACS_RESOURCE_PHONE_NUMBER ="<YOUR_ACS_NUMBER>" 
+TARGET_PHONE_NUMBER="<+1XXXXXXXXXX>" 
+CALLBACK_URI="<VS_TUNNEL_URL>" 
+COGNITIVE_SERVICES_ENDPOINT="<COGNITIVE_SERVICEs_ENDPOINT>" 
 ```
 
 
@@ -69,14 +72,18 @@ The code makes an outbound call using the target_phone_number you've provided an
 
 ```typescript
 const callInvite: CallInvite = {
-    targetParticipant: callee,
-    sourceCallIdNumber: {
-      phoneNumber: process.env.ACS_RESOURCE_PHONE_NUMBER || "",
-    },
-  };
+	targetParticipant: callee,
+	sourceCallIdNumber: {
+		phoneNumber: process.env.ACS_RESOURCE_PHONE_NUMBER || "",
+	},
+};
 
-  console.log("Placing outbound call...");
-  acsClient.createCall(callInvite, process.env.CALLBACK_URI + "/api/callbacks");
+const options: CreateCallOptions = {
+	cognitiveServicesEndpoint: process.env.COGNITIVE_SERVICES_ENDPOINT
+};
+
+console.log("Placing outbound call...");
+acsClient.createCall(callInvite, process.env.CALLBACK_URI + "/api/callbacks", options);
 ```
 
 ## Start recording a call
@@ -101,58 +108,63 @@ recordingId = response.recordingId;
 
 ## Respond to calling events
 
-Earlier in our application, we registered the `CALLBACK_URI` to the Call Automation Service. The URI indicates the endpoint the service uses to notify us of calling events that happen. We can then iterate through the events and detect specific events our application wants to understand. We respond to the `CallConnected` event to get notified and initiate downstream operations.
+Earlier in our application, we registered the `CALLBACK_URI` to the Call Automation Service. The URI indicates the endpoint the service uses to notify us of calling events that happen. We can then iterate through the events and detect specific events our application wants to understand. We respond to the `CallConnected` event to get notified and initiate downstream operations. Using the `TextSource`, you can provide the service with the text you want synthesized and used for your welcome message. The Azure Communication Services Call Automation service plays this message upon the `CallConnected` event. 
 
+Next, we pass the text into the `CallMediaRecognizeChoiceOptions` and then call `StartRecognizingAsync`. This allows your application to recognize the option the caller chooses.
 
 ```typescript
+callConnectionId = eventData.callConnectionId;
+serverCallId = eventData.serverCallId;
+console.log("Call back event received, callConnectionId=%s, serverCallId=%s, eventType=%s", callConnectionId, serverCallId, event.type);
+callConnection = acsClient.getCallConnection(callConnectionId);
+const callMedia = callConnection.getCallMedia();
+
 if (event.type === "Microsoft.Communication.CallConnected") {
-		console.log("Received CallConnected event");
+ 	console.log("Received CallConnected event");
+ 	await startRecording();
+	await startRecognizing(callMedia, mainMenu, "");
+}
 
-		callConnectionId = eventData.callConnectionId;
-		serverCallId = eventData.serverCallId;
-		callConnection = acsClient.getCallConnection(callConnectionId);
+async function startRecognizing(callMedia: CallMedia, textToPlay: string, context: string) {
+	const playSource: TextSource = {
+ 		text: textToPlay,
+ 		voiceName: "en-US-NancyNeural",
+ 		kind: "textSource"
+ 	};
 
-		await startRecording();
-		await startToneRecognition();
-	} 
+ 	const recognizeOptions: CallMediaRecognizeChoiceOptions = {
+ 		choices: await getChoices(),
+ 		interruptPrompt: false,
+ 		initialSilenceTimeoutInSeconds: 10,
+ 		playPrompt: playSource,
+ 		operationContext: context,
+ 		kind: "callMediaRecognizeChoiceOptions"
+ 	};
+
+ 	await callMedia.startRecognizing(callee, recognizeOptions)
+ }
 ```
-
-## Play welcome message and recognize 
-
-Using the `FileSource` API, you can provide the service the audio file you want to use for your welcome message. The Azure Communication Services Call Automation service plays this message upon the `CallConnected` event. 
-
-In this code snippet, we pass the audio file into the `CallMediaRecognizeDtmfOptions` and then call `startRecognizing`. The API enables the telephony client to send DTMF tones that we can recognize.
-
-```typescript
-const audioPrompt: FileSource = {
-    url: process.env.MEDIA_CALLBACK_URI + "MainMenu.wav",
-    kind: "fileSource",
-};
-
-const recognizeOptions: CallMediaRecognizeDtmfOptions = {
-    playPrompt: audioPrompt,
-    kind: "callMediaRecognizeDtmfOptions",
-};
-
-await callConnection.getCallMedia().startRecognizing(callee, 1, recognizeOptions);
-```
-
 
 ## Recognize DTMF Events
 
 When the telephony endpoint selects a DTMF tone, Azure Communication Services Call Automation triggers the webhook we have set up and notify us with the `Microsoft.Communication.RecognizeCompleted` event. This event gives us the ability to respond to a specific DTMF tone and trigger an action. 
 
 ```typescript
-else if (event.type === "Microsoft.Communication.RecognizeCompleted") {
-  const tone = event.data.dtmfResult.tones[0];
-  console.log("Received RecognizeCompleted event, with following tone: " + tone);
-
-  if (tone === "one")
-    await playAudio("Confirmed.wav");
-  else if (tone === "two")
-    await playAudio("Goodbye.wav");
-  else
-    await playAudio("Invalid.wav");
+else if (event.type === "Microsoft.Communication.RecognizeCompleted") { 
+	if(eventData.recognitionType === "choices"){ 
+        	console.log("Recognition completed, event=%s, resultInformation=%s",eventData, eventData.resultInformation); 
+        	var context = eventData.operationContext; 
+            	const labelDetected = eventData.choiceResult.label;  
+            	const phraseDetected = eventData.choiceResult.recognizedPhrase; 
+            	console.log("Recognition completed, labelDetected=%s, phraseDetected=%s, context=%s", labelDetected, phraseDetected, eventData.operationContext); 
+            	const textToPlay = labelDetected === confirmLabel ? confirmText : cancelText;            
+            	await handlePlay(callMedia, textToPlay); 
+        } 
+}  
+ 
+async function handlePlay(callConnectionMedia:CallMedia, textContent:string){ 
+	const play : TextSource = { text:textContent , voiceName: "en-US-NancyNeural", kind: "textSource"} 
+	await callConnectionMedia.playToAll([play]); 
 } 
 ```
 
