@@ -102,7 +102,7 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 | Model Availability | gpt-4 (0314) | gpt-4 (0613) | gpt-4 (1106-preview) |
 |---|:---|:---|:---|
-| Available to all subscriptions with Azure OpenAI access | | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Sweden Central <br> UK South |
+| Available to all subscriptions with Azure OpenAI access | | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US |
 | Available to subscriptions with current access to the model version in the region | East US <br> France Central <br> South Central US <br> UK South | East US <br> East US 2 <br> Japan East <br> UK South |
 
 ### GPT-3.5 models
@@ -124,7 +124,7 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 | `gpt-35-turbo` (0613) | Australia East <br> Canada East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> North Central US <br> Sweden Central <br> Switzerland North <br> UK South | 4096 | Sep 2021 |
 | `gpt-35-turbo-16k` (0613) | Australia East <br> Canada East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> North Central US <br> Sweden Central <br> Switzerland North<br> UK South | 16,384 | Sep 2021 |
 | `gpt-35-turbo-instruct` (0914) | East US <br> Sweden Central | 4097 |Sep 2021 |
-| `gpt-35-turbo` (1106) | Australia East <br> Canada East <br> France Central <br> Sweden Central<br> UK South | Input: 16,385<br> Output: 4,096 |  Sep 2021|
+| `gpt-35-turbo` (1106) | Australia East <br> Canada East <br> France Central <br> South India <br> Sweden Central<br> UK South <br> West US | Input: 16,385<br> Output: 4,096 |  Sep 2021|
 
 **<sup>1</sup>** This model will accept requests > 4096 tokens. It is not recommended to exceed the 4096 input token limit as the newer version of the model are capped at 4096 tokens. If you encounter issues when exceeding 4096 input tokens with this model this configuration is not officially supported.
 
