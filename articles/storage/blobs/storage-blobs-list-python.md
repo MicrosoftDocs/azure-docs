@@ -19,9 +19,12 @@ ms.custom: devx-track-python, devguide-python
 
 This article shows how to list blobs using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 
+To learn about listing blobs using asynchronous APIs, see [List blobs asynchronously](#list-blobs-asynchronously).
+
 ## Prerequisites
 
 - This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
+- To use asynchronous APIs in your code, see the requirements in the [Asynchronous programming](storage-blob-python-get-started.md#asynchronous-programming) section.
 - The [authorization mechanism](../common/authorize-data-access.md) must have permissions to list blobs. To learn more, see the authorization guidance for the following REST API operation:
     - [List Blobs](/rest/api/storageservices/list-blobs#authorization)
 
@@ -111,6 +114,31 @@ file4.txt
 > [!NOTE]
 > Blob snapshots cannot be listed in a hierarchical listing operation.
 
+## List blobs asynchronously
+
+The Azure Blob Storage client library for Python supports listing blobs asynchronously. To learn more about project setup requirements, see [Asynchronous programming](storage-blob-python-get-started.md#asynchronous-programming).
+
+Follow these steps to list blobs using asynchronous APIs:
+
+1. Add the following import statements:
+
+    ```python
+    import asyncio
+
+    from azure.identity.aio import DefaultAzureCredential
+    from azure.storage.blob.aio import BlobServiceClient, ContainerClient, BlobPrefix
+    ```
+
+1. Add code to run the program using `asyncio.run`. This function runs the passed coroutine, `main()` in our example, and manages the `asyncio` event loop. Coroutines are declared with the async/await syntax. In this example, the `main()` coroutine first creates the top level `BlobServiceClient` using `async with`, then calls the method that lists the blobs. Note that only the top level client needs to use `async with`, as other clients created from it share the same connection pool.
+
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs-async.py" id="Snippet_create_client_async":::
+
+1. Add code to list the blobs. The following code example lists blobs using a flat listing. The code is the same as the synchronous example, except that the method is declared with the `async` keyword and the `await` keyword is used when calling the `list_blobs` method.
+
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs-async.py" id="Snippet_list_blobs_flat":::
+
+With this basic setup in place, you can implement other examples in this article as coroutines using async/await syntax.
+
 ## Resources
 
 To learn more about how to list blobs using the Azure Blob Storage client library for Python, see the following resources.
@@ -123,7 +151,7 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs.py)
+- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs-async.py) code samples from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 
