@@ -40,34 +40,9 @@ Customer-managed keys enable you to:
 
    - To prevent losing the encryption key for the FHIR service, the key vault or managed HSM must have **soft delete** and **purge protection** enabled. These features allow you to recover deleted keys for a certain time (default 90 days) and block permanent deletion until that time is over.
 
-## Assign the Key Vault Crypto Service Encryption User role
-
-The system-assigned managed identity needs the [Key Vault Crypto Service Encryption User](../../key-vault/general/rbac-guide.md) role to access keys and use them to encrypt and decrypt data.  
-
-1. In the Azure portal, go to the key vault and then select **Access control (IAM)** from the left pane.
-
-2. On the **Access control (IAM)** page, select **Add role assignment**.
-
-:::image type="content" source="media/configure-customer-managed-keys/key-vault-access-control.png" alt-text="Screenshot of the Access control (IAM) view for the key vault." lightbox="media/configure-customer-managed-keys/key-vault-access-control.png":::
-
-3. On the Add role assignment page, select the **Key Vault Crypto Service Encryption User** role. 
-   
-4. Select **Next**.
-
-:::image type="content" source="media/configure-customer-managed-keys/key-vault-crypto-encryption-user-role.png" alt-text="Screenshot showing the Key Vault Crypto Officer role selected on the role assignments tab." lightbox="media/configure-customer-managed-keys/key-vault-crypto-encryption-user-role.png":::
-
-5. On the Members tab, select **Managed Identity** and then select **+Select members**.
-
-6. On the **Select managed identities** pane, select **FHIR service** from the **Managed identity** drop-down list. Select your FHIR service.
-   
-7. On the **Select managed identities** pane, choose **Select**. 
-
-:::image type="content" source="media/configure-customer-managed-keys/key-vault-add-role-assignment.png" alt-text="Screenshot of selecting the system assigned managed identity in the Add role assignment page." lightbox="media/configure-customer-managed-keys/key-vault-add-role-assignment.png":::
-
-8. Review the role assignment and then select **Review + assign**. 
-
-:::image type="content" source="media/configure-customer-managed-keys/key-vault-add-role-review.png" alt-text="Screenshot of the role assignment with the review + assign action." lightbox="media/configure-customer-managed-keys/key-vault-add-role-review.png":::
-
+> [!NOTE]
+>FHIR service supports attaching a single identity type (System-assigned or user-assigned identity). Changing identity type can have impact on background jobs such as export and import, if they have a specific identity type already mapped.
+     
 ## Update the FHIR service with the encryption key
 
 After you add the key, you need to update the FHIR service with the key URL.  
@@ -83,6 +58,8 @@ After you add the key, you need to update the FHIR service with the key URL.
 4. Copy the **Key Identifier**.  You need the key URL when you update the key by using an ARM template.
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-url.png" alt-text="Screenshot showing the key version details and the copy action for the Key Identifier." lightbox="media/configure-customer-managed-keys/key-vault-url.png":::
+
+You can update the key in FHIR service using Portal or ARM template. During Update workflow, you can choose to use system-assigned or user-assigned managed identity. For system-assigned managed identity ensure it and has Key Vault Crypto Service Encryption User role enabled. For more information on assigning Azure RBAC roles with the Azure portal, see [Assign Azure roles using the Azure portal](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition).
 
 ### Update the key by using the Azure portal
 
