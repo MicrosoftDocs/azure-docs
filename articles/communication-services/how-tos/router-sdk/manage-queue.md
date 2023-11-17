@@ -56,7 +56,7 @@ const distributionPolicy = await client.path("/routing/distributionPolicies/{dis
     body: {
         offerExpiresAfterSeconds: 45,
         mode: {
-            kind: "longest-idle",
+            kind: "longestIdle",
             minConcurrentOffers: 1,
             maxConcurrentOffers: 10
         },
@@ -156,7 +156,7 @@ administration_client.upsert_queue(queue.id, queue)
 ```java
 queue.setName("XBOX Updated Queue");
 queue.setLabels(Map.of("Additional-Queue-Label", new RouterValue("ChatQueue")));
-administrationClient.updateQueue(queue);
+administrationClient.updateQueue(queue.getId(), BinaryData.fromObject(queue));
 ```
 
 ::: zone-end
