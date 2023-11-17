@@ -1,6 +1,6 @@
 ---
-title: Parsing Protobuf
-description: This article describes how to use Azure Stream Analytics with protobuf as a data input
+title: Parse Protobuf
+description: This article describes how to use Azure Stream Analytics with Protobuf as data input.
 ms.service: stream-analytics
 author: enkrumah
 ms.author: ebnkruma
@@ -10,68 +10,69 @@ ms.custom:
 ---
 # Parse Protobuf in Azure Stream Analytics
 
-Azure Stream Analytics supports processing events in protocol buffer data formats. You can use the built-in protobuf deserializer when configuring your inputs. To use the built-in deserializer, specify the protobuf definition file, message type, and prefix style.
+Azure Stream Analytics supports processing events in Protocol Buffer (Protobuf) data formats. You can use the built-in Protobuf deserializer when configuring your inputs. To use the built-in deserializer, specify the Protobuf definition file, message type, and prefix style.
 
-To configure your stream analytics job to deserialize events in protobuf, use the following guidance:
+## Steps to configure a Stream Analytics job
 
-1. After creating your stream analytics job, click on **Inputs** 
-1. Click on **Add input**  and select what input you want to configure to open the input configuration blade
-1. Select **Event serialization format** to show a dropdown and select **Protobuf**
+To configure your Stream Analytics job to deserialize events in Protobuf:
 
-:::image type="content" source="./media/protobuf/protobuf-input-config.png" alt-text=" Screenshot showing how to configure protobuf for an ASA job." lightbox="./media/protobuf/protobuf-input-config.png" :::
+1. After you create your Stream Analytics job, select **Inputs**.
+1. Select **Add input**, and then select what input you want to configure to open the pane for input configuration.
+1. Select **Event serialization format** to show a dropdown list, and then select **Protobuf (preview)**.
 
-Complete the configuration using the following guidance:
+   :::image type="content" source="./media/protobuf/protobuf-input-config.png" alt-text=" Screenshot that shows selections for configuring Protobuf for an Azure Stream Analytics job." lightbox="./media/protobuf/protobuf-input-config.png" :::
 
-| Property name                | Description                                                                                                             |
-|------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| Protobuf definition file            | A file that specifies the structure and datatypes of your protobuf events         |
-| Message type   | The message type that you want to deserialize    |
-| Prefix style                 | It is used to determine how long a message is to deserialize protobuf events correctly |
+1. Complete the configuration by using the following guidance:
 
-:::image type="content" source="./media/protobuf/protobuf.png" alt-text=" Screenshot showing how protobuf dropdown in the input configuration blade of an ASA job." lightbox="./media/protobuf/protobuf.png" :::
+   | Property name                | Description                                                                                                             |
+   |------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+   | **Protobuf definition file**            | A file that specifies the structure and data types of your Protobuf events         |
+   | **Message type**   | The message type that you want to deserialize    |
+   | **Prefix style**                 | The setting that determines how long a message is to deserialize Protobuf events correctly |
+
+   :::image type="content" source="./media/protobuf/protobuf.png" alt-text=" Screenshot that shows the input boxes on the configuration pane for an Azure Stream Analytics job, after you select Protobuf as the event serialization format." lightbox="./media/protobuf/protobuf.png" :::
+
+To learn more about Protobuf data types, see the [official Protocol Buffers documentation](https://protobuf.dev/reference/protobuf/google.protobuf/).
+
+## Limitations
+
+- The Protobuf deserializer takes only one Protobuf definition file at a time. Imports to custom-made Protobuf definition files aren't supported. For example:
+
+    :::image type="content" source="./media/protobuf/one-proto-example.png" alt-text=" Screenshot that shows an example of a custom-made Protobuf definition file." lightbox="./media/protobuf/one-proto-example.png" :::
+
+    This Protobuf definition file refers to another Protobuf definition file in its imports. Because the Protobuf deserializer would have only the current Protobuf definition file and not know what *carseat.proto* is, it would be unable to deserialize correctly.
+
+- Enumerations aren't supported. If the Protobuf definition file contains enumerations, the `enum` field is empty when the Protobuf events deserialize. This condition leads to data loss.
+
+- Maps in Protobuf aren't supported. Maps in Protobuf result in an error about missing a string key.
+
+- When a Protobuf definition file contains a namespace or package, the message type must include it. For example:
+
+    :::image type="content" source="./media/protobuf/proto-namespace-example.png" alt-text=" Screenshot that shows an example of a Protobuf definition file with a namespace." lightbox="./media/protobuf/proto-namespace-example.png" :::
+
+    In the Protobuf deserializer in the portal, the message type must be `namespacetest.Volunteer` instead of the usual `Volunteer`.
+
+- When you're sending messages that were serialized via `google.protobuf`, the prefix type should be set to `base128` because that's the most cross-compatible type.
+
+- Service messages aren't supported in the Protobuf deserializers. Your job throws an exception if you try to use a service message. For example:
+
+    :::image type="content" source="./media/protobuf/service-message-proto.png" alt-text=" Screenshot that shows an example of a service message." lightbox="./media/protobuf/service-message-proto.png" :::
+
+- These data types aren't supported:
+
+  - `Any`
+  - `One of` (related to enumerations)
+  - `Durations`
+  - `Struct`
+  - `Field Mask` (not supported by protobuf-net)
+  - `List Value`
+  - `Value`
+  - `Null Value`
+  - `Empty`
 
 > [!NOTE]
-> To learn more about Protobuf datatypes, visit the [Official Protocol Buffers Documentation](https://protobuf.dev/reference/protobuf/google.protobuf/) .
->
+> For direct help with using the Protobuf deserializer, send email to [askasa@microsoft.com](mailto:askasa@microsoft.com).
 
-### Limitations
+## See also
 
-1. Protobuf Deserializer takes only one (1) protobuf definition file at a time. Imports to custom-made protobuf definition files aren't supported.
-    For example:
-    :::image type="content" source="./media/protobuf/one-proto-example.png" alt-text=" Screenshot showing how an example of a custom-made protobuf definition file." lightbox="./media/protobuf/one-proto-example.png" :::
-
-    This protobuf definition file refers to another protobuf definition file in its imports. Because the protobuf deserializer would have only the current protobuf definition file and not know what carseat.proto is, it would be unable to deserialize correctly.
-
-2. Enums aren't supported. If the protobuf definition file contains enums, then protobuf events deserialize, but the enum field is empty, leading to data loss.
-
-3. Maps in protobuf are currently not supported. Maps in protobuf result in an error about missing a string key.
-
-4. When a protobuf definition file contains a namespace or package, the message type must include it.
-    For example:
-    :::image type="content" source="./media/protobuf/proto-namespace-example.png" alt-text=" Screenshot showing an example of a protobuf definition file with a namespace." lightbox="./media/protobuf/proto-namespace-example.png" :::
-
-    In the Protobuf Deserializer in portal, the message type must be **namespacetest.Volunteer** instead of the usual **Volunteer**.
-
-5.	When sending messages that were serialized using Google.Protobuf, the prefix type should be set to base128 since that is the most cross-compatible type.
-
-6. Service Messages aren't supported in the protobuf deserializers. Your job throws an exception if you attempt to use a service message.
-    For example:
-    :::image type="content" source="./media/protobuf/service-message-proto.png" alt-text=" Screenshot showing an example of a service message." lightbox="./media/protobuf/service-message-proto.png" :::
-   
-8. Current datatypes not supported: 
-    * Any
-    * One of (related to enums)
-    * Durations
-    * Struct
-    * Field Mask (Not supported by protobuf-net)
-    * List Value
-    * Value
-    * Null Value
-    * Empty
-
-> [!NOTE]
-> For direct help with using the protobuf deserializer, please reach out to [askasa@microsoft.com](mailto:askasa@microsoft.com).
->
-
-## See Also
-[Data Types in Azure Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics)
+[Data types in Azure Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics)
