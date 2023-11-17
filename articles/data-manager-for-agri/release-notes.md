@@ -35,7 +35,7 @@ We improved our satellite ingestion service. The improvements include:
 - Improved the reprojection method to more accurately reflect on the ground dimensions across the globe.
 - Adapted nomenclature to better converge with standards. 
 
-These improvements might require changes in how you consume services to ensure continuity. More details on the satellite service and these changes found [here](/articles/data-manager-for-agri/concepts-ingest-satellite-imagery.md).
+These improvements might require changes in how you consume services to ensure continuity. More details on the satellite service and these changes found [here](concepts-ingest-satellite-imagery.md).
 
 ## October 2023
 
