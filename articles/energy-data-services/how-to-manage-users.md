@@ -10,7 +10,7 @@ ms.custom: template-how-to
 ---
 
 # How to manage users
-In this article, you'll know how to manage users in Azure Data Manager for Energy. It uses the [entitlements API](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/tree/master/) and acts as a group-based authorization system for data partitions within Azure Data Manager for Energy instance. For more information about Azure Data Manager for Energy entitlements, see [entitlement services](concepts-entitlements.md).
+In this article, you'll learn how to manage users in Azure Data Manager for Energy. It uses the [entitlements API](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/tree/master/) and acts as a group-based authorization system for data partitions within Azure Data Manager for Energy instance. For more information about Azure Data Manager for Energy entitlements, see [entitlement services](concepts-entitlements.md).
 
 
 ## Prerequisites
