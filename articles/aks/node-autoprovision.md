@@ -67,91 +67,54 @@ az aks create --name karpuktest --resource-group karpuk --node-provisioning-mode
 
 ```
 
-## Provisioners
+## Node Pools
 Node autoprovision will use a list of VM SKUs as a starting point to decide which of those will be the best suited for the workloads that are in a pending state (ready to be provisioned on nodes).  Having control over what SKU you want in the initial pool allows you to specify specific SKU families, or VM types as well as the maximum amount of resources a provisioner will ever deploy.
 
 If you have specific VM SKUs that are reserved instances for example, you may wish to only use those as the starting pool of VM types to choose from.
 
-You can have multiple provisioners in a cluster, but AKS will deploy a default provisioner for you which you can modify.
+You can have multiple  in a cluster, but AKS will deploy a default provisioner for you which you can modify:
+
 
 ```yaml
-apiVersion: karpenter.sh/v1alpha5
-kind: Provisioner
+apiVersion: karpenter.sh/v1beta1
+kind: NodePool
 metadata:
-  name: default
+  name: general-purpose
 spec:
-  # References cloud provider-specific custom resource, see your cloud provider specific documentation
-  providerRef:
-    name: default
+  disruption:
+    consolidationPolicy: WhenUnderutilized
+    expireAfter: Never
+  template:
+    spec:
+      nodeClassRef:
+        name: default
 
-  # Provisioned nodes will have these taints
-  # Taints may prevent pods from scheduling if they are not tolerated by the pod.
-  taints:
-    - key: example.com/special-taint
-      effect: NoSchedule
-
-  # Provisioned nodes will have these taints, but pods do not need to tolerate these taints to be provisioned by this
-  # provisioner. These taints are expected to be temporary and some other entity (e.g. a DaemonSet) is responsible for
-  # removing the taint after it has finished initializing the node.
-  startupTaints:
-    - key: example.com/another-taint
-      effect: NoSchedule
-
-  # Labels are arbitrary key-values that are applied to all nodes
-  labels:
-    billing-team: my-team
-
-  # Annotations are arbitrary key-values that are applied to all nodes
-  annotations:
-    example.com/owner: "my-team"
-
-  # Requirements that constrain the parameters of provisioned nodes.
-  # These requirements are combined with pod.spec.affinity.nodeAffinity rules.
-  # Operators { In, NotIn, Exists, DoesNotExist, Gt, and Lt } are supported.
-  # https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#operators
-  requirements:
-    - key: "kubernetes.azure.com/instance-family"
-      operator: In
-      values: ["c", "m", "r"]
-    - key: "kubernetes.azure.com/instance-cpu"
-      operator: In
-      values: ["4", "8", "16", "32"]
-    - key: "topology.kubernetes.io/zone"
-      operator: In
-      values: ["1", "2"]
-    - key: "karpenter.sh/capacity-type" # If not included, default to on-demand
-      operator: In
-      values: ["spot", "on-demand"]
-
-  # Resource limits constrain the total size of the cluster.
-  # Limits prevent Karpenter from creating new instances once the limit is exceeded.
-  limits:
-    resources:
-      cpu: "1000"
-      memory: 1000Gi
-
-  # Enables consolidation which attempts to reduce cluster cost by both removing un-needed nodes and down-sizing those
-  # that can't be removed.  Mutually exclusive with the ttlSecondsAfterEmpty parameter.
-  consolidation:
-    enabled: true
-
-  # If omitted, the feature is disabled and nodes will never expire.  If set to less time than it requires for a node
-  # to become ready, the node may expire before any pods successfully start.
-  ttlSecondsUntilExpired: 2592000 # 30 Days = 60 * 60 * 24 * 30 Seconds;
-
-  # If omitted, the feature is disabled, nodes will never scale down due to low utilization
-  ttlSecondsAfterEmpty: 30
-
-  # Priority given to the provisioner when the scheduler considers which provisioner
-  # to select. Higher weights indicate higher priority when comparing provisioners.
-  # Specifying no weight is equivalent to specifying a weight of 0.
-  weight: 10
+      # Requirements that constrain the parameters of provisioned nodes.
+      # These requirements are combined with pod.spec.affinity.nodeAffinity rules.
+      # Operators { In, NotIn, Exists, DoesNotExist, Gt, and Lt } are supported.
+      # https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#operators
+      requirements:
+      - key: kubernetes.io/arch
+        operator: In
+        values:
+        - amd64
+      - key: kubernetes.io/os
+        operator: In
+        values:
+        - linux
+      - key: karpenter.sh/capacity-type
+        operator: In
+        values:
+        - on-demand
+      - key: karpenter.azure.com/sku-family
+        operator: In
+        values:
+        - D
 ```
-
 
 ### Supported node provisioner requirements 
 
-#### SKU selections 
+#### SKU selectors with well known labels 
 
 |  Selector | Description | Example |
 ---|---|---|
@@ -162,14 +125,11 @@ spec:
 | karpenter.k8s.azure/sku-memory | Minimum memory in VM in Mb | 131072 |
 | karpenter.k8s.azure/sku-gpu-count | Minimum GPU count per VM | 2 |
 | karpenter.k8s.azure/sku-gpu-memory | Minimum GPU memory per VM | 64 |
+| topology.kubernetes.io/zone | The Availability Zone(s)         | [1,2,3]  | 
+| kubernetes.io/os    | Operating System (Linux only during preview)                                           | linux       |                    
+| kubernetes.io/arch    | CPU architecture (AMD64 during preview)                                         | amd64       |
+                     
 
-
-
-Constraints
-
-B series not on by default, must be explicit
-
-Default to Ephemeral
 
 
 [add-ons]: integrations.md#add-ons
