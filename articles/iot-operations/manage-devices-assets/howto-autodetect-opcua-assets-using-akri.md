@@ -7,7 +7,7 @@ ms.subservice: akri
 ms.topic: how-to 
 ms.date: 11/14/2023
 
-# CustomerIntent: As an industrial edge IT or operations user, I want to autodetect and create OPC UA data sources in my  
+# CustomerIntent: As an industrial edge IT or operations user, I want to discover and create OPC UA data sources in my  
 # industrial edge environment so that I can reduce manual configuration overhead. 
 ---
 

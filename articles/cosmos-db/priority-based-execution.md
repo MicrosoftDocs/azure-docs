@@ -22,6 +22,15 @@ This feature enables users to execute critical tasks while delaying less importa
 > [!NOTE]
 > Priority-based execution feature doesn't guarantee always throttling low priority requests in favor of high priority ones. This operates on best-effort basis and there are no SLA's linked to the performance of the feature.
 
+## Use-cases
+
+You can use priority-based execution when your application has different priorities for workloads running on the same container. For example, 
+
+- Prioritizing read, write, or query operations.  
+- Prioritizing user actions vs background operations like  
+    - Stored procedures 
+    - Data ingestion/migration 
+
 ## Getting started
 
 To get started using priority-based execution, navigate to the **Features** page in you're in Azure Cosmos DB account. Select and enable the **Priority-based execution (preview)** feature.
