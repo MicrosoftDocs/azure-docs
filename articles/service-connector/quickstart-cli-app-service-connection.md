@@ -5,13 +5,13 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 04/13/2023
+ms.date: 11/17/2023
 ms.devlang: azurecli
 ms.custom: event-tier1-build-2022, devx-track-azurecli
 ---
 # Quickstart: Create a service connection in App Service with the Azure CLI
 
-The [Azure CLI](/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. This quickstart shows you the options to create a service connection with the Azure CLI.
+This quickstart describes the steps for creating a service connection in Azure App Service with the Azure CLI.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -52,36 +52,36 @@ Use the Azure CLI [az webapp connection create](/cli/azure/webapp/connection/cre
 az webapp connection create storage-blob --secret
 ```
 
-> [!NOTE]
-> If you don't have a Blob Storage, you can run `az webapp connection create storage-blob --new --secret` to provision a new one and directly get connected to your app service.
+> [!TIP]
+> If you don't have a Blob Storage, run `az webapp connection create storage-blob --new --secret` to provision a new one and directly get connected to your App Service resource.
 
 #### [Using a managed identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
-> Using Managed Identity requires you have the permission to [Microsoft Entra role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have the permission, your connection creation would fail. You can ask your subscription owner for the permission or using access key to create the connection.
+> Using Managed Identity requires you have the permission to [Microsoft Entra role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Without this permission, creating a connection will fail. You can ask your subscription owner to grant you this permission or use an access key to create the connection.
 
-Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command to create a service connection to a Blob Storage with a System-assigned Managed Identity, providing the following information:
+Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command to create a service connection to a Blob Storage with a system-assigned Managed Identity, providing the following information:
 
-- **Source compute service resource group name:** the resource group name of the App Service.
-- **App Service name:** the name of your App Service that connects to the target service.
-- **Target service resource group name:** the resource group name of the Blob Storage.
-- **Storage account name:** the account name of your Blob Storage.
+- The name of the resource group that contains the App Service
+- The name of the App Service
+- The nam of the resource group that contains the storage account
+- The name of the storage account
 
 ```azurecli
-az webapp connection create storage-blob --system-identity
+az webapp connection create storage-blob
 ```
 
 > [!NOTE]
-> If you don't have a Blob Storage, you can run `az webapp connection create storage-blob --new --system-identity` to provision a new one and directly get connected to your app service.
+> If you don't have a Blob Storage, you can run `az webapp connection create storage-blob --new --system-identity` to provision a new Blob Storag resource and directly connected it to your App Service instance.
 
 ---
 
 ## View connections
 
-Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command to list connections to your App Service, providing the following information:
+Run the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command to list connections to your App Service, providing the following information:
 
-- **Source compute service resource group name:** the resource group name of the App Service.
-- **App Service name:** the name of your App Service that connects to the target service.
+- The name of the resource group that contains the App Service
+- The name of the App Service
 
 ```azurecli
 az webapp connection list -g "<your-app-service-resource-group>" -n "<your-app-service-name>" --output table
@@ -89,7 +89,7 @@ az webapp connection list -g "<your-app-service-resource-group>" -n "<your-app-s
 
 ## Next steps
 
-Follow the tutorials listed below to start building your own application with Service Connector.
+Follow the tutorials below to start building your own application with Service Connector.
 
 > [!div class="nextstepaction"]
 > [Tutorial: WebApp + Storage with Azure CLI](./tutorial-csharp-webapp-storage-cli.md)
