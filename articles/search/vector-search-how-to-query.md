@@ -301,7 +301,7 @@ Here's a modified example so that you can see the basic structure of a response 
 
 **Key points:**
 
-+ `k` determines how many matches are returned. You can assume a `k` of three for this response. Vector queries always match `k` results, assuming at least `k` documents exist. Both count and facet aggregations (facet counts) operate on this `k` recall set.
++ `k` determines how many nearest neighbor results are returned. In the example above, a `k` value of three was used. Vector queries always return `k` results, assuming at least `k` documents exist, even if there are documents with poor similarity, because the algorithm is only identifying the `k` nearest neighbors to the query vector. As a result, note that both count and facet aggregations (facet counts) operate on this `k` recall set. 
 
 + The **`@search.score`** is determined by the [vector search algorithm](vector-search-ranking.md) (HNSW algorithm and a `cosine` similarity metric in this example). 
 
