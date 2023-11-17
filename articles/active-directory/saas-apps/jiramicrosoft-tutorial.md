@@ -56,7 +56,7 @@ To get started, you need the following items:
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md).
 
 > [!NOTE]
-> Please note that our JIRA Plugin also works on Ubuntu Version 16.04 and Linux.
+> Please note that our JIRA Plugin also works on Ubuntu Version 16.04 and Linux
 
 ## Microsoft SSO Plugins Market Place Data center and Server Side Application Link
 
