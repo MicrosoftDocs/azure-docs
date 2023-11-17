@@ -103,7 +103,7 @@ az extension update --name containerapp
 Create resiliency policies by targeting an individual policy. For example, to create the `Outbound Timeout` policy, run the following command.
 
 ```azurecli
-az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --out-timeout 20
+az containerapp env dapr-component resiliency create --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --out-timeout 20
 ```
 
 [For a full list of parameters, see the CLI reference guide.](/cli/azure/containerapp/resiliency#az-containerapp-resiliency-create-optional-parameters)
@@ -113,7 +113,7 @@ az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyDap
 To apply the resiliency policies from a YAML file, run the following command:
 
 ```azurecli
-az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --yaml <MY_YAML_FILE>
+az containerapp env dapr-component resiliency create --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --yaml <MY_YAML_FILE>
 ```
 
 This command passes the resiliency policy YAML file, which might look similar to the following example:
@@ -140,7 +140,7 @@ inboundPolicy:
 Update your resiliency policies by targeting an individual policy. For example, to update the response timeout of the `Outbound Timeout` policy, run the following command.
 
 ```azurecli
-az containerapp env dapr-component resiliency update -g MyResourceGroup -n MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --out-timeout 20
+az containerapp env dapr-component resiliency update --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --out-timeout 20
 ```
 
 ### Update policies with resiliency YAML

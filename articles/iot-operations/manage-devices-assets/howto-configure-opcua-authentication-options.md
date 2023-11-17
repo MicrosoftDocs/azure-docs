@@ -1,5 +1,6 @@
 ---
 title: Configure OPC UA authentication options
+titleSuffix: Azure IoT OPC UA Broker
 description: How to configure OPC UA authentication options to use with Azure IoT OPC UA Broker
 author: timlt
 ms.author: timlt

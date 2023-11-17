@@ -1,6 +1,6 @@
 ---
 title: Build event-driven apps with Dapr
-# titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ
 description: Learn how to create a Dapr application that aggregates data and publishing on another topic
 author: timlt
 ms.author: timlt
@@ -240,7 +240,34 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
 1. Verify the application is outputting a sliding windows calculation for the various sensors:
 
     ```json
-    {"timestamp": "2023-11-14T05:21:49.807684+00:00", "window_size": 30, "temperature": {"min": 551.805, "max": 599.746, "mean": 579.929, "median": 581.917, "75_per": 591.678, "count": 29}, "pressure": {"min": 290.361, "max": 299.949, "mean": 295.98575862068964, "median": 296.383, "75_per": 298.336, "count": 29}, "vibration": {"min": 0.00114438, "max": 0.00497965, "mean": 0.0033943155172413792, "median": 0.00355337, "75_per": 0.00433423, "count": 29}}
+    {
+        "timestamp": "2023-11-16T21:59:53.939690+00:00",
+        "window_size": 30,
+        "temperature": {
+            "min": 553.024,
+            "max": 598.907,
+            "mean": 576.4647857142858,
+            "median": 577.4905,
+            "75_per": 585.96125,
+            "count": 28
+        },
+        "pressure": {
+            "min": 290.605,
+            "max": 299.781,
+            "mean": 295.521,
+            "median": 295.648,
+            "75_per": 297.64050000000003,
+            "count": 28
+        },
+        "vibration": {
+            "min": 0.00124192,
+            "max": 0.00491257,
+            "mean": 0.0031171810714285715,
+            "median": 0.003199235,
+            "75_per": 0.0038769150000000003,
+            "count": 28
+        }
+    }
     ```
 
 ## Optional - Create the Dapr application

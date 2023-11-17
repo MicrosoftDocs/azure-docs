@@ -51,13 +51,7 @@
         - name: Native tools
           href: how-to-migrate-native-tools.md
         - name: Azure Data Studio
-          href: /azure-data-studio/extensions/database-migration-for-mongo-extension
-        - name: Azure Database Migration Service
-          items:
-            - name: Offline
-              href: ../../../dms/tutorial-mongodb-cosmos-db.md
-            - name: Online
-              href: ../../../dms/tutorial-mongodb-cosmos-db-online.md
+          href: /azure-data-studio/extensions/database-migration-for-mongo-extension        
     - name: Develop applications
       items:
         - name: Create transactions
