@@ -2,7 +2,7 @@
 title: Speech service quotas and limits
 titleSuffix: Azure AI services
 description: Quick reference, detailed description, and best practices on the quotas and limits for the Speech service in Azure AI services.
-services: cognitive-services
+#services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: azure-ai-speech
