@@ -56,7 +56,7 @@ const distributionPolicy = await client.path("/routing/distributionPolicies/{dis
     body: {
         offerExpiresAfterSeconds: 45,
         mode: {
-            kind: "longest-idle",
+            kind: "longestIdle",
             minConcurrentOffers: 1,
             maxConcurrentOffers: 10
         },
