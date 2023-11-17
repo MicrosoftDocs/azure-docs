@@ -121,9 +121,7 @@ Kafka producer application developers can enable message compression by setting 
 
 `Compression.type = none | gzip` 
 
-These changes are exposed in the header, which then allows the consumer to properly decompress the data. The feature is currently only supported for Apache Kafka traffic producer and consumer traffic and not AMQP or web service traffic. 
-
-The payload of any Event Hubs event is a byte stream and the content can be compressed with an algorithm of your choosing though in public preview, the only option is gzip. The benefits of using Kafka compression are through smaller message size, increased payload size you can transmit, and lower message broker resource consumption.  
+The feature is currently only supported for Apache Kafka traffic producer and consumer traffic and not AMQP or web service traffic. The payload of any Event Hubs event is a byte stream and the content can be compressed with an algorithm of your choosing though in public preview, the only option is gzip. The benefits of using Kafka compression are through smaller message size, increased payload size you can transmit, and lower message broker resource consumption.  
 
 ### Kafka Streams
 
