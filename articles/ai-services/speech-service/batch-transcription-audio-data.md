@@ -39,7 +39,6 @@ The batch transcription API supports a number of different formats and codecs, s
 - MULAW in WAV container
 - AMR
 - WebM
-- MP4
 - M4A
 - SPEEX
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 05/10/2022
+ms.date: 11/17/2023
 ms.author: alexeyo
 ---
 
@@ -130,8 +130,10 @@ Available to organizations with a business presence in China. See more informati
     - Neural voice
   - Speech translator
 - **Unsupported features:**
-  - Custom Voice
-  - Custom Commands
+  - Custom commands
+  - Custom neural voice
+  - Personal voice
+  - Text to speech avatar
 - **Supported languages:**
   - See the list of supported languages [here](language-support.md)
 
