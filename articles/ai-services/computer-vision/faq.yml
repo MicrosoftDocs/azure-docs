@@ -3,7 +3,7 @@ metadata:
   title: "Frequently asked questions - Azure AI Vision"
   titleSuffix: Azure AI services
   description: Get answers to frequently asked questions about the Azure AI Vision Service in Azure AI services.
-  services: cognitive-services
+  #services: cognitive-services
   author: PatrickFarley
   manager: nitinme
 

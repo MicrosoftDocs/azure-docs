@@ -2,7 +2,7 @@
 title: Install and run Docker containers for Sentiment Analysis
 titleSuffix: Azure AI services
 description: Use the Docker containers for the Sentiment Analysis API to perform natural language processing such as sentiment analysis, on-premises.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
