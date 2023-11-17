@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 08/30/2023
+ms.date: 11/17/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -87,7 +87,7 @@ Configuration for SAP **/hana/data** volume:
 | M128s, M128(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 2464 GB | 800 MBps | 12,000| 
 | M192i(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000| 2464 GB | 800 MBps | 12,000| 
 | M176(d)s_3_v3 | 2,794 GiB | 4,000 MBps | 130,000 | 3424 GB | 1,000 MBps| 15,000 | 
-| M176(d)s_4_v3 | 3,892 GiB | 4,000 MBps | 130,000 | 4672 GB | 800 MBps | 12,000 | 
+| M176(d)s_4_v3 | 3,750 GiB | 4,000 MBps | 130,000 | 4672 GB | 800 MBps | 12,000 | 
 | M128ms, M128(d)ms_v2 | 3,892 GiB | 2,000 MBps | 80,000 | 4672 GB | 800 MBps | 12,000 | 
 | M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 80,000 | 4912 GB | 800 MBps | 12,000 | 
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 40,000 | 3424 GB | 1,000 MBps| 15,000 | 
@@ -127,7 +127,7 @@ For the **/hana/log** volume. the configuration would look like:
 | M128s, M128(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
 | M192i(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
 | M176(d)s_3_v3 | 2,794 GiB | 4,000 MBps | 130,000  | 512 GB | 300 MBps | 4,000 | 1,024 GB |
-| M176(d)s_4_v3 | 3,892 GiB | 4,000 MBps | 130,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
+| M176(d)s_4_v3 | 3,750 GiB | 4,000 MBps | 130,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
 | M128ms, M128(d)ms_v2 | 3,892 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
 | M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 40,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
