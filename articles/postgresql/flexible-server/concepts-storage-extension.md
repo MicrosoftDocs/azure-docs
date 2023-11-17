@@ -47,7 +47,7 @@ Azure Blob Storage can provide following benefits:
 To load data from Azure Blob Storage, you need [allowlist](../../postgresql/flexible-server/concepts-extensions.md#how-to-use-postgresql-extensions) **azure_storage** extension and install the **azure_storage** PostgreSQL extension in this database using create extension command:
 
 ```sql
-SELECT * FROM create_extension('azure_storage');
+ CREATE EXTENSION azure_storage;
 ```
 
 When you create a storage account, Azure generates two 512-bit storage **account access keys** for that account. These keys can be used to authorize access to data in your storage account via Shared Key authorization, or via SAS tokens that are signed with the shared key.Therefore, before you can import the data, you need to map  storage account using **account_add** method, providing **account access key** defined when account was created. Code snippet shows mapping storage account *'mystorageaccount'* where access key parameter is shown as string *'SECRET_ACCESS_KEY'*.
@@ -115,7 +115,7 @@ The **COPY** command and **blob_get** function  support following file extension
 To export data from PostgreSQL Flexible Server to Azure Blob Storage, you need to [allowlist](../../postgresql/flexible-server/concepts-extensions.md#how-to-use-postgresql-extensions) **azure_storage** extension and install the **azure_storage** PostgreSQL extension in  database using create extension command:
 
 ```sql
-SELECT * FROM create_extension('azure_storage');
+CREATE EXTENSION azure_storage;
 ```
 
 When you create a storage account, Azure generates two 512-bit storage **account access keys** for that account. These keys can be used to authorize access to data in your storage account via Shared Key authorization, or via SAS tokens that are signed with the shared key.Therefore, before you can import the data, you need to map  storage account using account_add method, providing **account access key** defined when account was created. Code snippet  shows mapping storage account *'mystorageaccount'* where access key parameter is shown as string *'SECRET_ACCESS_KEY'*
@@ -152,7 +152,7 @@ The **COPY** command and **blob_put** function  support following file extension
 To list objects in  Azure Blob Storage, you need to [allowlist](../../postgresql/flexible-server/concepts-extensions.md#how-to-use-postgresql-extensions) **azure_storage** extension and install the **azure_storage** PostgreSQL extension in  database using create extension command:
 
 ```sql
-SELECT * FROM create_extension('azure_storage');
+CREATE EXTENSION azure_storage;
 ```
 
 When you create a storage account, Azure generates two 512-bit storage **account access keys** for that account. These keys can be used to authorize access to data in your storage account via Shared Key authorization, or via SAS tokens that are signed with the shared key.Therefore, before you can import the data, you need to map  storage account using account_add method, providing **account access key** defined when account was created. Code snippet  shows mapping storage account *'mystorageaccount'* where access key parameter is shown as string *'SECRET_ACCESS_KEY'*
