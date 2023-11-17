@@ -33,18 +33,18 @@ The output from the pervious command looks like the following example:
 
 ```text
 NAMESPACE                NAME                           AGE
-alice-springs-solution   passthrough-data-pipeline      2d20h
-alice-springs-solution   reference-data-pipeline        2d20h
-alice-springs-solution   contextualized-data-pipeline   2d20h
+azure-iot-operations     passthrough-data-pipeline      2d20h
+azure-iot-operations     reference-data-pipeline        2d20h
+azure-iot-operations     contextualized-data-pipeline   2d20h
 ```
 
 To view detailed information for a pipeline, run the following command:
 
 ```bash
-kubectl describe pipelines passthrough-data-pipeline -n alice-springs-solution
+kubectl describe pipelines passthrough-data-pipeline -n azure-iot-operations
 ```
 
-The output from the pervious command looks like the following example:
+The output from the previous command looks like the following example:
 
 ```text
 ...

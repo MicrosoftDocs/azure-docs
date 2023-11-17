@@ -28,7 +28,7 @@ This Snowflake connector is supported for the following capabilities:
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 |[Script activity](transform-data-using-script.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For the Copy activity, this Snowflake connector supports the following functions:
 

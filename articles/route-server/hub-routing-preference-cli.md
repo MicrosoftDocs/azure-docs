@@ -14,7 +14,7 @@ ms.custom:
 #CustomerIntent: As an Azure administrator, I want learn how to use routing preference setting so that I can influence route selection in Azure Route Server by using the Azure CLI.
 ---
 
-# Configure routing preference to influence route selection using the Azure CLI
+# Configure routing preference to influence route selection using the Azure CLI (Preview)
 
 Learn how to use routing preference setting in Azure Route Server to influence its route learning and selection. For more information, see [Routing preference](hub-routing-preference.md).
 

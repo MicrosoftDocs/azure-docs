@@ -57,6 +57,10 @@ SELECT datname as "Database name", usename as "User name", ssl, client_addr, app
    ON pg_stat_ssl.pid = pg_stat_activity.pid
    ORDER BY ssl;
 ```
+
+> [!NOTE]  
+> To enforce **latest, most secure TLS version** for connectivity protection from client to Azure Database for PostgreSQL - Flexible Server set **ssl_min_protocol_version** to **1.3**. That would **require** clients connecting to your Azure Postgres server to use **this version of the protocol only** to securely communicate. However, older clients, not supporting this version may not be able to communicate with the server.
+
 ## Cipher Suites
 
 A **cipher suite** is a set of cryptographic algorithms. TLS/SSL protocols use algorithms from a cipher suite to create keys and encrypt information. 

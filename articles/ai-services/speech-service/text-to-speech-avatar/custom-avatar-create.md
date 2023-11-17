@@ -23,7 +23,7 @@ An avatar talent is an individual or target actor whose video of speaking is rec
 
 You must provide a video file with a recorded statement from your avatar talent, acknowledging the use of their image and voice. Microsoft verifies that the content in the recording matches the predefined script provided by Microsoft. Microsoft compares the face of the avatar talent in the recorded video statement file with randomized videos from the training datasets to ensure that the avatar talent in video recordings and the avatar talent in the statement video file are from the same person.
 
-You can find the verbal consent statement in multiple languages on GitHub. The language of the verbal statement must be the same as your recording. See also the disclosure for voice talent.
+You can find the verbal consent statement in multiple languages on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/sampledata/customavatar/verbal-statement-all-locales.txt). The language of the verbal statement must be the same as your recording. See also the disclosure for voice talent.
 
 ## Prepare training data for custom text to speech avatar
 

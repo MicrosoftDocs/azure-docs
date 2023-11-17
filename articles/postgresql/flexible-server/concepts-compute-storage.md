@@ -308,6 +308,9 @@ Near Zero Downtime Feature is enabled across all public regions and **no custome
 > [!NOTE]
 >  Near Zero Downtime Scaling process is the default operation. However, in cases where the following limitations are encountered, the system switches to regular scaling, which involves more downtime compared to the near zero downtime scaling.
 
+#### Pre-requisites
+- You should allow all inbound/outbound connections between the IPs in the delegated subnet. If this is not enabled near downtime scaling process will not work and scaling will occur through the standard scaling process which results in more downtime.
+  
 #### Limitations 
 
 - Near Zero Downtime Scaling will not work if there are regional capacity constraints or quota limits on customer subscriptions.

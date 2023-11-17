@@ -29,7 +29,7 @@ Deploy Azure IoT Operations preview - enabled by Azure Arc to a Kubernetes clust
 * The Azure IoT Operations extension for Azure CLI.
 
   ```bash
-  az extension add --name az-iot-ops
+  az extension add --name azure-iot-ops
   ```
 
 * An [Azure Key Vault](../../key-vault/general/overview.md) that has the **Permission model** set to **Vault access policy**. You can check this setting in the **Access configuration** section of an existing key vault.

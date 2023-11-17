@@ -1,19 +1,19 @@
 ---
-title: 'Overview of MQTT Support in Azure Event Grid'
-description: 'Describes the main concepts for the MQTT Support in Azure Event Grid.'
+title: 'Overview of MQTT broker feature in Azure Event Grid'
+description: 'Describes the main concepts for the MQTT broker feature in Azure Event Grid.'
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 05/23/2023
+ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
 ---
 
-# Overview of the MQTT Support in Azure Event Grid
+# Overview of the MQTT broker feature in Azure Event Grid
 
 Azure Event Grid enables your MQTT clients to communicate with each other and with Azure services, to support your Internet of Things (IoT) solutions.
 
-Event Grid’s MQTT support enables you to accomplish the following scenarios:
+Azure Event Grid’s MQTT broker feature enables you to accomplish the following scenarios:
 
 - Ingest telemetry using a many-to-one messaging pattern. This pattern enables the application to offload the burden of managing the high number of connections with devices to Event Grid.
 - Control your MQTT clients using the request-response (one-to-one) messaging pattern. This pattern enables any client to communicate with any other client without restrictions, regardless of the clients' roles.
@@ -57,7 +57,7 @@ MQTT is a publish-subscribe messaging transport protocol that was designed for c
 
 The publish-subscribe messaging model provides a scalable and asynchronous communication to clients. It enables clients to offload the burden of handling a high number of connections and messages to the service. Through the Publish-Subscribe messaging model, your clients can communicate efficiently using one-to-many, many-to-one, and one-to-one messaging patterns. 
 - The one-to-many messaging pattern enables clients to publish only one message that the service replicates for every interested client. 
-- The many-to-one messaging pattern enables clients to offload the burden of managing the high number of connections to MQTT broker. 
+- The many-to-one messaging pattern enables clients to offload the burden of managing the high number of connections to MQTT broker.
 - The one-to-one messaging pattern enables any client to communicate with any other client without restrictions, regardless of the clients' roles.
 
 ### Namespace
@@ -74,7 +74,7 @@ IoT applications are software designed to interact with and process data from Io
 
 ### Client authentication
 
-Event Grid has a client registry that stores information about the clients permitted to connect to it. Before a client can connect, there must be an entry for that client in the client registry. As a client connects to MQTT broker, it needs to authenticate with MQTT broker based on credentials stored in the identity registry. MQTT broker supports X.509 certificate authentication that is the industry authentication standard in IoT devices and [Microsoft Entra ID (formerly Azure Active Directory)](mqtt-client-azure-ad-token-and-rbac.md) that is Azure's authentication standard for applications.[Learn more about MQTT client authentication.](mqtt-client-authentication.md)
+Event Grid has a client registry that stores information about the clients permitted to connect to it. Before a client can connect, there must be an entry for that client in the client registry. As a client connects to MQTT broker, it needs to authenticate with MQTT broker based on credentials stored in the identity registry.  MQTT broker supports X.509 certificate authentication that is the industry authentication standard in IoT devices and [Microsoft Entra ID (formerly Azure Active Directory)](mqtt-client-azure-ad-token-and-rbac.md) that is Azure's authentication standard for applications.[Learn more about MQTT client authentication.](mqtt-client-authentication.md)
 
 ### Access control
 
@@ -93,9 +93,9 @@ Event Grid allows you to route your MQTT messages to Azure services or webhooks 
 :::image type="content" source="media/mqtt-overview/routing-high-res.png" alt-text="Diagram of the MQTT message routing." border="false":::
 
 ### Edge MQTT broker integration
-Event Grid integrates with [Azure IoT MQ](https://aka.ms/iot-mq) to bridge its MQTT broker capability on the edge with Event Grid’s MQTT broker capability in the cloud. Azure IoT MQ is a new distributed MQTT broker for edge computing, running on Arc enabled Kubernetes clusters. It can connect to Event Grid MQTT broker with Microsoft Entra ID (formerly Azure Active Directory) authentication using system-assigned managed identity, which simplifies credential management. Azure IoT MQ provides high availability, scalability, and security for your IoT devices and applications. It's now available in [public preview](https://aka.ms/iot-mq-preview) as part of Azure IoT Operations. [Learn more about connecting Azure IoT MQ to Azure Event Grid's MQTT broker](https://aka.ms/iot-mq-eg-bridge)
+Event Grid integrates with [Azure IoT MQ](https://aka.ms/iot-mq) to bridge its MQTT broker capability on the edge with Azure Event Grid’s MQTT broker feature in the cloud.  Azure IoT MQ is a new distributed MQTT broker for edge computing, running on Arc enabled Kubernetes clusters. It can connect to Event Grid MQTT broker with Microsoft Entra ID (formerly Azure Active Directory) authentication using system-assigned managed identity, which simplifies credential management. Azure IoT MQ provides high availability, scalability, and security for your IoT devices and applications. It's now available in [public preview](https://aka.ms/iot-mq-preview) as part of Azure IoT Operations. [Learn more about connecting Azure IoT MQ to Azure Event Grid's MQTT broker](https://aka.ms/iot-mq-eg-bridge)
 
-### MQTT Clients Life Cycle Events 
+### MQTT Clients Life Cycle Events
 
 Client Life Cycle events allow applications to react to events about the client connection status or the client resource operations. It allows you to keep track of your client's connection status, react with a mitigation action for client disconnections, and track the namespace that your clients are attached to during automated failovers.Learn more about [MQTT Client Life Cycle Events](mqtt-client-life-cycle-events.md).
 
@@ -113,6 +113,6 @@ Use the following articles to learn more about the MQTT broker and its main conc
 - [Terminology](mqtt-event-grid-namespace-terminology.md)
 - [Client authentication](mqtt-client-authentication.md) 
 - [Access control](mqtt-access-control.md) 
-- [MQTT support](mqtt-support.md) 
+- [MQTT protocol support](mqtt-support.md) 
 - [Routing MQTT messages](mqtt-routing.md) 
 - [MQTT Client Life Cycle Events](mqtt-client-life-cycle-events.md).

@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: notification-hubs
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 10/02/2023
+ms.date: 11/16/2023
 
 ---
 
@@ -101,6 +101,7 @@ New availability zones are being added regularly. The following regions currentl
 |               | Sweden Central       |                      | Korea Central      |
 |               | Norway East          |                      |                    |
 |               | Germany West Central |                      |                    |
+|               | Switzerland North    |                      |                    |
 
 ### Enable availability zones
 

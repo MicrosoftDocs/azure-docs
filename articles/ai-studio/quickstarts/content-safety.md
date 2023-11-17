@@ -19,7 +19,7 @@ ms.author: eur
 In this quickstart, get started with the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service in Azure AI Studio. Content Safety detects harmful user-generated and AI-generated content in applications and services. 
 
 > [!CAUTION]
-> Some of the sample content provided by Azure AI Studio may be offensive. Sample images are blurred by default. User discretion is advised.
+> Some of the sample content provided by Azure AI Studio might be offensive. Sample images are blurred by default. User discretion is advised.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Select one of the following tabs to get started with content safety in Azure AI 
 
 Azure AI Studio provides a capability for you to quickly try out text moderation. The *moderate text content* tool takes into account various factors such as the type of content, the platform's policies, and the potential effect on users. Run moderation tests on sample content. Use Configure filters to rerun and further fine tune the test results. Add specific terms to the blocklist that you want detect and act on.
 
-1. Sign in to [Azure AI Studio](https://aka.ms/aistudio) and select **Explore** from the top menu.
+1. Sign in to [Azure AI Studio](https://ai.azure.com) and select **Explore** from the top menu.
 1. Select **Content safety** panel under **Responsible AI**.
 1. Select **Try it out** in the **Moderate text content** panel.
 
@@ -55,7 +55,7 @@ The **Use blocklist** tab lets you create, edit, and add a blocklist to the mode
 
 Azure AI Studio provides a capability for you to quickly try out image moderation. The *moderate image content* tool takes into account various factors such as the type of content, the platform's policies, and the potential effect on users. Run moderation tests on sample content. Use Configure filters to rerun and further fine tune the test results. Add specific terms to the blocklist that you want detect and act on.
 
-1. Sign in to [Azure AI Studio](https://aka.ms/aistudio) and select **Explore** from the top menu.
+1. Sign in to [Azure AI Studio](https://ai.azure.com) and select **Explore** from the top menu.
 1. Select **Content safety** panel under **Responsible AI**.
 1. Select **Try it out** in the **Moderate image content** panel.
 
@@ -84,5 +84,5 @@ To avoid incurring unnecessary Azure costs, you should delete the resources you 
 
 ## Next steps
 
-* Learn more about what you can do in the [Azure AI Studio](../what-is-ai-studio.md).
-* Get answers to frequently asked questions in the [Azure AI FAQ article](../faq.yml).
+- [Create a project in Azure AI Studio](../how-to/create-projects.md)
+- [Learn more about content filtering in Azure AI Studio](../concepts/content-filtering.md)
