@@ -29,10 +29,10 @@ The following image summarizes the process flow for creating a connection in API
 | 2 | Credential provider is created, and a response is sent back |
 | 3| Client sends a request to create a connection |
 | 4| Connection is created, and a response is sent back with the information that the connection isn't "connected"| 
-|5| Client sends a request to retrieve a login URL to start the OAuth 2.0 consent at the identity provider. The request includes a post-redirect URL to be used in the last step|  
+|5| Client sends a request to retrieve a login URL to start the OAuth 2.0 consent at the credential provider. The request includes a post-redirect URL to be used in the last step|  
 |6|Response is returned with a login URL that should be used to start the consent flow. |
-|7|Client opens a browser with the login URL that was provided in the previous step. The browser is redirected to the identity provider OAuth 2.0 consent flow | 
-|8|After the consent is approved, the browser is redirected with a credential code to the redirect URL configured at the identity provider| 
+|7|Client opens a browser with the login URL that was provided in the previous step. The browser is redirected to the credential provider's OAuth 2.0 consent flow | 
+|8|After the consent is approved, the browser is redirected with an authorization code to the redirect URL configured at the credential provider| 
 |9|API Management uses the authorization code to fetch access and refresh tokens| 
 |10|API Management receives the tokens and encrypts them|
 |11 |API Management redirects to the provided URL from step 5|
@@ -80,7 +80,7 @@ You configure one or more *access policies* for each connection. The access poli
 
 ## Runtime of connections
 
-The **runtime** part requires a backend OAuth 2.0 API to be configured with the [`get-authorization-context`](get-authorization-context-policy.md) policy. At runtime, the policy fetches and stores access and refresh tokens from the credential store. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the credential provider. Then the access token is used to authorize access to the backend service. 
+The **runtime** part requires a backend OAuth 2.0 API to be configured with the [`get-authorization-context`](get-authorization-context-policy.md) policy. At runtime, the policy fetches and stores access and refresh tokens from the credential store that APIManagement set up for the provider. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the credential provider. Then the access token is used to authorize access to the backend service. 
    
 During the policy execution, access to the tokens is also validated using access policies.
 

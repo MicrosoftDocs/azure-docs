@@ -150,7 +150,7 @@ On the **Connection** tab, complete the steps for your connection to the provide
 The preceding policy definition consists of two parts:
 
 * The [get-authorization-context](get-authorization-context-policy.md) policy fetches an authorization token by referencing the credential provider and connection that were created earlier. 
-* The [set-header](set-header-policy.md) policy creates an HTTP header with the fetched authorization token.
+* The [set-header](set-header-policy.md) policy creates an HTTP header with the fetched access token.
 
 ## Step 5: Test the API 
 
