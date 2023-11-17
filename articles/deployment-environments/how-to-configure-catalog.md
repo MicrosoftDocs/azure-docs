@@ -18,7 +18,7 @@ You can use a catalog to provide your development teams with a curated set of in
 
 Deployment Environments supports catalogs hosted in Azure Repos (the repository service in Azure, commonly referred to as Azure DevOps) and catalogs hosted in GitHub. Azure DevOps supports authentication by assigning permissions to a managed identity. Azure DevOps and GitHub both support the use of PATs for authentication. To further secure your templates, the catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which Microsoft for Azure Services manages.
 
-A catalog is a repository that's hosted in [GitHub](https://github.com) or [Azure DevOps](https://dev.azure.com/).
+A catalog is a repository hosted in [GitHub](https://github.com) or [Azure DevOps](https://dev.azure.com/).
 
 - To learn how to host a repository in GitHub, see [Get started with GitHub](https://docs.github.com/get-started).
 - To learn how to host a Git repository in an Azure DevOps project, see [Azure Repos](https://azure.microsoft.com/services/devops/repos/).
@@ -183,7 +183,7 @@ Get the path to the secret you created in the key vault.
 ### Add your repository as a catalog
 
 1. In the [Azure portal](https://portal.azure.com/), go to your dev center.
-1. Ensure that the [identity](./how-to-configure-managed-identity.md) that's attached to the dev center has [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
+1. Ensure that the [identity](./how-to-configure-managed-identity.md) attached to the dev center has [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
 1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
 1. In **Add catalog**, enter the following information, and then select **Add**:
 
@@ -220,6 +220,8 @@ To add a catalog, you complete these tasks:
 
 ### Create a personal access token in GitHub
 
+Azure Deployment Environments supports authenticating to GitHub repositories by using either classic tokens or fine-grained tokens. In this example, you create a fine-grained token. 
+
 1. Go to the home page of the GitHub repository that contains the template definitions.
 1. In the upper-right corner of GitHub, select the profile image, and then select **Settings**.
 1. On the left sidebar, select **Developer settings** > **Personal access tokens** > **Fine-grained tokens**.
@@ -236,6 +238,13 @@ To add a catalog, you complete these tasks:
     Leave the other options at their defaults.
 1. Select **Generate token**.
 1. Save the generated token. You use the token later.
+
+> [!IMPORTANT]
+> When working with GitHub organizations, you must ensure that the GitHub PAT is configured to give access to the correct organization and the repositories within it. 
+> - Classic tokens within an organization must be SSO authorized to the specific organization after they are created.
+> - Fine grained tokens must have the owner of the token set as the organization itself to be authorized.
+>
+> Incorrectly configured PATs can result in a *Repository not found* error.   
 
 
 ### Create a Key Vault
@@ -285,7 +294,7 @@ Get the path to the secret you created in the key vault.
 ### Add your repository as a catalog
 
 1. In the [Azure portal](https://portal.azure.com/), go to your dev center.
-1. Ensure that the [identity](./how-to-configure-managed-identity.md) that's attached to the dev center has [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
+1. Ensure that the [identity](./how-to-configure-managed-identity.md) attached to the dev center has [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
 1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
 1. In **Add catalog**, enter the following information, and then select **Add**:
 
