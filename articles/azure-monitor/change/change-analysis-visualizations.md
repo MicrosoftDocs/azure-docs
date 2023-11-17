@@ -70,7 +70,7 @@ Use the [View change history](../essentials/activity-log.md#view-change-history)
 1. Once registered, you can view changes from **Azure Resource Graph** immediately from the past 14 days.
    - Changes from other sources will be available after ~4 hours after subscription is onboard.
 
-   :::image type="content" source="./media/change-analysis/activity-log-change-history.png" alt-text="Activity Log change history integration":::   
+   :::image type="content" source="./media/change-analysis/activity-log-change-history.png" alt-text="Screenshot showing Activity Log change history integration.":::   
 
 ### View changes using the Diagnose and Solve Problems tool
 
@@ -213,7 +213,9 @@ You can create a new dashboard for this pin.
 
 Once the dashboard and pin are created, navigate to the Azure dashboard to view them.
 
-1. From the Azure portal home menu, select **Dashboard**. Use the **Manage Sharing** button in the top menu to handle access or "unshare". Click on the pin to navigate to the curated view of changes.
+1. From the Azure portal home menu, select **Dashboard**. 
+1. Use the **Manage Sharing** button in the top menu to handle access or "unshare". 
+1. Click on the pin to navigate to the curated view of changes.
 
    :::image type="content" source="./media/change-analysis/azure-dashboard.png" alt-text="Screenshot of selecting the Dashboard in the Azure portal home menu.":::
 

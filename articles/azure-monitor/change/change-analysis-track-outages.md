@@ -30,22 +30,22 @@ To track an outage, we will:
 
 1. In your preferred terminal, log in to your Azure subscription.
 
-```bash
-az login
-az account set -s {azure-subscription-id}
-```
+   ```bash
+   az login
+   az account set -s {azure-subscription-id}
+   ```
 
 1. Clone the [sample web application with storage to test Change Analysis](https://github.com/Azure-Samples/changeanalysis-webapp-storage-sample).
 
-```bash
-git clone https://github.com/Azure-Samples/changeanalysis-webapp-storage-sample.git
-```
+   ```bash
+   git clone https://github.com/Azure-Samples/changeanalysis-webapp-storage-sample.git
+   ```
 
 1. Change the working directory to the project folder.
 
-```bash
-cd changeanalysis-webapp-storage-sample
-``` 
+   ```bash
+   cd changeanalysis-webapp-storage-sample
+   ``` 
 
 ### Run the PowerShell script
 
