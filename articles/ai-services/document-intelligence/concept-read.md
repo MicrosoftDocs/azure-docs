@@ -101,16 +101,6 @@ Try extracting text from forms and documents using the Document Intelligence Stu
    > [!div class="nextstepaction"]
    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
 
-## Supported document types
-
-> [!NOTE]
->
-> * For the preview of Office and HTML file formats, Read API ignores the pages parameter and extracts all pages by default. Each embedded image counts as 1 page unit and each worksheet, slide, and page (up to 3000 characters) count as 1 page.
-
-| **Model**   | **Images**   | **PDF**  | **TIFF** | **Word**   | **Excel**  | **PowerPoint** | **HTML** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| **prebuilt-read**  | GA</br> (2023-07-31 and 2022-08-31)| GA</br> (2023-07-31 and 2022-08-31)  | GA</br> (2023-07-31 and 2022-08-31)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview) | Preview</br>(2022-06-30-preview) |
-
 ## Supported extracted languages and locales
 
 *See* our [Language Support—document analysis models](language-support-ocr.md) page for a complete list of supported languages.
