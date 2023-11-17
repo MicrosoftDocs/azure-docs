@@ -187,7 +187,7 @@ System.out.printf("Worker %s is assigned job %s\n", worker.getId(), accept.getJo
 Once the worker has completed the work associated with the job (for example, completed the call), we complete the job.
 
 ```java
-routerClient.completeJobWithResponse(accept.getJobId(), accept.getAssignmentId());
+routerClient.completeJobWithResponse(accept.getJobId(), accept.getAssignmentId(), null);
 System.out.printf("Worker %s has completed job %s\n", worker.getId(), accept.getJobId());
 ```
 
@@ -196,7 +196,7 @@ System.out.printf("Worker %s has completed job %s\n", worker.getId(), accept.get
 Once the worker is ready to take on new jobs, the worker should close the job.
 
 ```java
-routerClient.closeJobWithResponse(accept.getJobId(), accept.getAssignmentId());
+routerClient.closeJobWithResponse(accept.getJobId(), accept.getAssignmentId(), null);
 System.out.printf("Worker %s has closed job %s\n", worker.getId(), accept.getJobId());
 ```
 
