@@ -1,7 +1,7 @@
 ---
-title: Content Safety (Text) tool in Azure Machine Learning prompt flow
+title: Content Safety (text) tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
-description: Azure Content Safety is a content moderation service developed by Microsoft that help users detect harmful content from different modalities and languages. This tool is a wrapper for the Azure Content Safety Text API, which allows you to detect text content and get moderation results.
+description: This Azure AI Content Safety tool is a wrapper for the Azure AI Content Safety Text API, which you can use to detect text content and get moderation results.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
@@ -14,14 +14,14 @@ ms.reviewer: lagayhar
 ms.date: 11/02/2023
 ---
 
-# Content safety (text) tool
+# Content Safety (text) tool
 
-Azure Content Safety is a content moderation service developed by Microsoft that help users detect harmful content from different modalities and languages. This tool is a wrapper for the Azure Content Safety Text API, which allows you to detect text content and get moderation results. For more information, see [Azure Content Safety](https://aka.ms/acs-doc).
+Azure AI Content Safety is a content moderation service developed by Microsoft that helps you detect harmful content from different modalities and languages. The Content Safety tool is a wrapper for the Azure AI Content Safety Text API, which allows you to detect text content and get moderation results. For more information, see [Azure AI Content Safety](https://aka.ms/acs-doc).
 
 ## Prerequisites
 
-- Create an [Azure Content Safety](https://aka.ms/acs-create) resource.
-- Add "Azure Content Safety" connection in prompt flow. Fill "API key" field with "Primary key" from "Keys and Endpoint" section of created resource.
+- Create an [Azure AI Content Safety](https://aka.ms/acs-create) resource.
+- Add an `Azure Content Safety` connection in prompt flow. Fill the `API key` field with `Primary key` from the `Keys and Endpoint` section of the created resource.
 
 ## Inputs
 
@@ -29,18 +29,17 @@ You can use the following parameters as inputs for this tool:
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| text | string | The text that needs to be moderated. | Yes |
-| hate_category | string | The moderation sensitivity for Hate category. You can choose from four options: *disable*, *low_sensitivity*, *medium_sensitivity*, or *high_sensitivity*. The *disable* option means no moderation for hate category. The other three options mean different degrees of strictness in filtering out hate content. The default option is *medium_sensitivity*. | Yes |
-| sexual_category | string | The moderation sensitivity for Sexual category. You can choose from four options: *disable*, *low_sensitivity*, *medium_sensitivity*, or *high_sensitivity*. The *disable* option means no moderation for sexual category. The other three options mean different degrees of strictness in filtering out sexual content. The default option is *medium_sensitivity*. | Yes |
-| self_harm_category | string | The moderation sensitivity for Self-harm category. You can choose from four options: *disable*, *low_sensitivity*, *medium_sensitivity*, or *high_sensitivity*. The *disable* option means no moderation for self-harm category. The other three options mean different degrees of strictness in filtering out self_harm content. The default option is *medium_sensitivity*. | Yes |
-| violence_category | string | The moderation sensitivity for Violence category. You can choose from four options: *disable*, *low_sensitivity*, *medium_sensitivity*, or *high_sensitivity*. The *disable* option means no moderation for violence category. The other three options mean different degrees of strictness in filtering out violence content. The default option is *medium_sensitivity*. | Yes |
+| text | string | Text that needs to be moderated. | Yes |
+| hate_category | string | Moderation sensitivity for the `Hate` category. Choose from four options: `disable`, `low_sensitivity`, `medium_sensitivity`, or `high_sensitivity`. The `disable` option means no moderation for the `Hate` category. The other three options mean different degrees of strictness in filtering out hate content. The default is `medium_sensitivity`. | Yes |
+| sexual_category | string | Moderation sensitivity for the `Sexual` category. Choose from four options: `disable`, `low_sensitivity`, `medium_sensitivity`, or `high_sensitivity`. The `disable` option means no moderation for the `Sexual` category. The other three options mean different degrees of strictness in filtering out sexual content. The default is `medium_sensitivity`. | Yes |
+| self_harm_category | string | Moderation sensitivity for the `SelfHarm` category. Choose from four options: `disable`, `low_sensitivity`, `medium_sensitivity`, or `high_sensitivity`. The `disable` option means no moderation for the `SelfHarm` category. The other three options mean different degrees of strictness in filtering out self-harm content. The default is `medium_sensitivity`. | Yes |
+| violence_category | string | Moderation sensitivity for the `Violence` category. Choose from four options: `disable`, `low_sensitivity`, `medium_sensitivity`, or `high_sensitivity`. The `disable` option means no moderation for the `Violence` category. The other three options mean different degrees of strictness in filtering out violence content. The default is `medium_sensitivity`. | Yes |
 
-For more information, please refer to [Azure Content Safety](https://aka.ms/acs-doc)
+For more information, see [Azure AI Content Safety](https://aka.ms/acs-doc)
 
 ## Outputs
 
-The following is an example JSON format response returned by the tool:
-
+The following sample is an example JSON format response returned by the tool:
   
 ```json
 {
@@ -54,6 +53,6 @@ The following is an example JSON format response returned by the tool:
   }
 ```
 
-The `action_by_category` field gives you a binary value for each category: *Accept* or *Reject*. This value shows if the text meets the sensitivity level that you set in the request parameters for that category.
+The `action_by_category` field gives you a binary value for each category: `Accept` or `Reject`. This value shows if the text meets the sensitivity level that you set in the request parameters for that category.
 
-The `suggested_action` field gives you an overall recommendation based on the four categories. If any category has a *Reject* value, the `suggested_action` is *Reject* as well.
+The `suggested_action` field gives you an overall recommendation based on the four categories. If any category has a `Reject` value, `suggested_action` is also `Reject`.
