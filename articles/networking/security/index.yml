@@ -12,7 +12,7 @@ metadata:
   author: vhorne
   ms.author: victorh
   manager: kumudD
-  ms.date: 05/17/2023
+  ms.date: 11/17/2023
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -41,6 +41,12 @@ highlightedContent:
     - title: Azure network security webinars
       itemType: video
       url: https://techcommunity.microsoft.com/t5/security-compliance-and-identity/recordings-security-community-webinars/ba-p/2865990
+    - title: Choose a secure network topology
+      itemType: concept
+      url: secure-network-topology.md
+    - title: Choose a secure application delivery service
+      itemType: concept
+      url: secure-application-delivery.md
 
 
 # additionalContent section (optional)
