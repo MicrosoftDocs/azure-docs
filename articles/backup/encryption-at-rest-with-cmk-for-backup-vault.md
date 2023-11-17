@@ -26,7 +26,7 @@ CMK for Backup vault is currently available in: West Central US, Australia East,
 
 ### Key Vault and managed HSM key requirements
 
-- Encryption settings use Azure Key Vault or Managed HSM Key and Backup vault's managed identity details.
+- **Encryption settings** use Azure Key Vault or Managed HSM Key and Backup vault's managed identity details.
 
 - The Backup vault's managed identity needs to have: 
 
@@ -34,7 +34,7 @@ CMK for Backup vault is currently available in: West Central US, Australia East,
   - **Get**, **Wrap**, and **Unwrap** permissions if your Key Vault is using *Access Policies based configuration*.
   - **Get**, **Wrap**, and **Unwrap** permissions granted via its Local RBAC on the key if you're using managed MSM.
 
-- Ensure that you've a valid (non-expired), enabled Key Vault Key. Don't use disabled or expired key as it can't be used for encryption at rest and will lead to backup and restore operation failures. Key Vault term is also indicating Managed HSM unless noted specifically.
+- Ensure that you've a valid (non-expired), enabled Key Vault Key. Don't use disabled or expired key as it can't be used for encryption at rest and will lead to backup and restore operation failures. Key Vault term also indicates Managed HSM if you haven't noted earlier.
 
 - Key Vault must have Soft Delete and Purge Protection enabled.
 
@@ -54,7 +54,7 @@ CMK for Backup vault is currently available in: West Central US, Australia East,
 - Moving CMK encrypted Backup vault across Resource Groups and Subscriptions isn't currently supported.
 
 - User-assigned Manged Identity for Backup vault feature is in preview.
-- Ensure that you check the Key Vault Key requirements provided in [this section](#key-vault-managed-hsm-key-requirements).
+- Ensure that you check the Key Vault Key requirements provided in [this section](#key-vault-and-managed-hsm-key-requirements).
 - Once you the enable encryption settings on the Backup vault, don't disable/detach the managed identity, or remove Key Vault permissions  used for encryption settings. If you do these actions, it'll lead to failure of backup, restore, tiering, restore points expiry jobs, and will incur cost for the data stored in the Backup vault until: 
 
 
