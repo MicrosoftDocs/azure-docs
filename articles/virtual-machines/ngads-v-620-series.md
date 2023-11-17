@@ -10,14 +10,8 @@ ms.date: 06/11/2023
 
 ---
 
-# NGads V620-series (preview)
+# NGads V620-series
 
-**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
-
-> [!IMPORTANT]
-> The NGads V620 Series is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
->
-> Customers can [sign up for NGads V620 Series preview today](https://aka.ms/NGadsV620-Series-Public-Preview). NGads V620 Series VMs are initially available in the East US2, Europe West and Sweden Central Azure regions.
 
 The NGads V620 series are GPU-enabled virtual machines with CPU, memory resources and storage resources balanced to generate and stream high quality graphics for a high performance, interactive gaming experience hosted in Azure.  They're powered by [AMD Radeon(tm) PRO V620 GPU](https://www.amd.com/en/products/server-accelerators/amd-radeon-pro-v620) and [AMD EPYC 7763 (Milan) CPUs](https://www.amd.com/en/products/cpu/amd-epyc-7763).  The AMD Radeon PRO V620 GPUs have a maximum frame buffer of 32 GB, which can be divided up to four ways through hardware partitioning. The AMD EPYC CPUs have a base clock speed of 2.45 GHz and a boost<sup>1</sup> speed of 3.5Ghz. VMs are assigned full cores instead of threads, enabling full access to AMD’s powerful “Zen 3” cores.<br>
 (<sup>1</sup> EPYC-018: Max boost for AMD EPYC processors is the maximum frequency achievable by any single core on the processor under normal operating conditions for server systems.)

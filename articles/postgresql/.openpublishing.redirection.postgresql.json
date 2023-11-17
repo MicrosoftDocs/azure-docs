@@ -1479,6 +1479,11 @@
         "source_path_from_root": "/articles/postgresql/flexible-server/index.yml",
         "redirect_url": "/azure/postgresql/index",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/flexible-server/concepts-networking.md",
+        "redirect_url": "/azure/postgresql/flexible-server/concepts-networking-private",
+        "redirect_document_id": true
     }
     ]
 }

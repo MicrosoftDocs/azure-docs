@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 10/04/2023
+ms.date: 11/17/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -19,13 +19,13 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 
 | Models | Description |
 |--|--|
-| [GPT-4](#gpt-4) | A set of models that improve on GPT-3.5 and can understand and generate natural language and code. |
+| [GPT-4](#gpt-4-and-gpt-4-turbo-preview) | A set of models that improve on GPT-3.5 and can understand and generate natural language and code. |
 | [GPT-3.5](#gpt-35) | A set of models that improve on GPT-3 and can understand and generate natural language and code. |
 | [Embeddings](#embeddings-models) | A set of models that can convert text into numerical vector form to facilitate text similarity. |
 | [DALL-E](#dall-e-models-preview) (Preview) | A series of models in preview that can generate original images from natural language. |
 | [Whisper](#whisper-models-preview) (Preview) | A series of models in preview that can transcribe and translate speech to text. |
 
-## GPT-4
+## GPT-4 and GPT-4 Turbo Preview
 
  GPT-4 can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like GPT-3.5 Turbo, GPT-4 is optimized for chat and works well for traditional completions tasks. Use the Chat Completions API to use GPT-4. To learn more about how to interact with GPT-4 and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
 
@@ -73,7 +73,7 @@ You can also use the Whisper model via Azure AI Speech [batch transcription](../
 >
 > - South Central US is temporarily unavailable for creating new resources and deployments.
 
-### GPT-4 models
+### GPT-4 and GPT-4 Turbo Preview models
 
 
 GPT-4, GPT-4-32k, and GPT-4 with Vision are now available to all Azure OpenAI Service customers.  Availability varies by region.  If you don't see GPT-4 in your region, please check back later.
@@ -82,6 +82,8 @@ These models can only be used with the Chat Completion API.
 
 GPT-4 version 0314 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support. Version `gpt-4-vision-preview` is the third version and adds support for visual recognition.
 
+See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-4 deployments.
+
 
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- |  --- | --- | --- | --- |
@@ -89,22 +91,22 @@ GPT-4 version 0314 is the first version of the model released.  Version 0613 is 
 | `gpt-4-32k` (0314)  |  East US, France Central |  N/A                | 32,768               | September 2021         |
 | `gpt-4` (0613)     |  Australia East, Canada East, East US, East US 2, France Central, Japan East, Sweden Central, Switzerland North, UK South |  N/A                | 8,192                | September 2021         |
 | `gpt-4-32k` (0613)  |  Australia East, Canada East, East US, East US 2, France Central, Japan East, Sweden Central, Switzerland North, UK South |  N/A                | 32,768               | September 2021         |
+| `gpt-4` (1106-preview)**<sup>1</sup>** | tbd | Input: 128,000  <br> Output: 4096           | Apr 2023         |
 | `gpt-4-v` (gpt-4-vision-preview)  | Switzerland North |  N/A                | 16384               | September 2021         |
 
-See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-4 deployments.
 
 > [!NOTE]
 > Version `0314` of `gpt-4` and `gpt-4-32k` will be retired no earlier than July 5, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
 > [!NOTE]
-> Regions where GPT-4 is listed as available have access to both the 8K and 32K versions of the model
+> Regions where GPT-4 (0314) & (0613) are listed as available have access to both the 8K and 32K versions of the model
 
-### GPT-4 model availability
+### GPT-4 and GPT-4 Turbo Preview model availability
 
-| Model Availability | gpt-4 (0314) | gpt-4 (0613) |
-|---|:---|:---|
-| Available to all subscriptions with Azure OpenAI access | | Canada East <br> France Central <br> Sweden Central <br> Switzerland North |
-| Available to subscriptions with current access to the model version in the region | East US <br> France Central <br> South Central US <br> UK South | Australia East <br> East US <br> East US 2 <br> Japan East <br> UK South |
+| Model Availability | gpt-4 (0314) | gpt-4 (0613) | gpt-4 (1106-preview) |
+|---|:---|:---|:---|
+| Available to all subscriptions with Azure OpenAI access | | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US |
+| Available to subscriptions with current access to the model version in the region | East US <br> France Central <br> South Central US <br> UK South | East US <br> East US 2 <br> Japan East <br> UK South |
 
 ### GPT-3.5 models
 
@@ -121,12 +123,13 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 |  Model ID  |   Model Availability  | Max Request (tokens) | Training Data (up to) |
 |  --------- |  -------------------- |:------:|:----:|
-| `gpt-35-turbo`<sup>1</sup> (0301) | East US <br> France Central <br> South Central US <br> UK South <br> West Europe | 4096 | Sep 2021 |
+| `gpt-35-turbo`**<sup>1</sup>** (0301) | East US <br> France Central <br> South Central US <br> UK South <br> West Europe | 4096 | Sep 2021 |
 | `gpt-35-turbo` (0613) | Australia East <br> Canada East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> North Central US <br> Sweden Central <br> Switzerland North <br> UK South | 4096 | Sep 2021 |
 | `gpt-35-turbo-16k` (0613) | Australia East <br> Canada East <br> East US <br> East US 2 <br> France Central <br> Japan East <br> North Central US <br> Sweden Central <br> Switzerland North<br> UK South | 16,384 | Sep 2021 |
 | `gpt-35-turbo-instruct` (0914) | East US <br> Sweden Central | 4097 |Sep 2021 |
+| `gpt-35-turbo` (1106) | Australia East <br> Canada East <br> France Central <br> South India <br> Sweden Central<br> UK South <br> West US | Input: 16,385<br> Output: 4,096 |  Sep 2021|
 
-<sup>1</sup> This model will accept requests > 4096 tokens. It is not recommended to exceed the 4096 input token limit as the newer version of the model are capped at 4096 tokens. If you encounter issues when exceeding 4096 input tokens with this model this configuration is not officially supported.
+**<sup>1</sup>** This model will accept requests > 4096 tokens. It is not recommended to exceed the 4096 input token limit as the newer version of the model are capped at 4096 tokens. If you encounter issues when exceeding 4096 input tokens with this model this configuration is not officially supported.
 
 ### Embeddings models
 
@@ -137,7 +140,7 @@ These models can only be used with Embedding API requests.
 
 |  Model ID  |  Model Availability  | Max Request (tokens) | Training Data (up to)  | Output Dimensions |
 |---|---| :---:|:---:|:---:|
-| `text-embedding-ada-002` (version 2) | Australia East <br> Canada East <br> East US <br> East US2 <br> France Central <br> Japan East <br> North Central US <br> South Central US <br> Switzerland North <br> UK South <br> West Europe |8,191 | Sep 2021 | 1536 |
+| `text-embedding-ada-002` (version 2) | Australia East <br> Canada East <br> East US <br> East US2 <br> France Central <br> Japan East <br> North Central US <br> South Central US <br> Sweden Central <br> Switzerland North <br> UK South <br> West Europe |8,191 | Sep 2021 | 1536 |
 | `text-embedding-ada-002` (version 1) | East US <br> South Central US <br> West Europe |2,046 | Sep 2021 | 1536 |
 
 ### DALL-E models (Preview)
@@ -145,6 +148,7 @@ These models can only be used with Embedding API requests.
 |  Model ID  | Feature Availability | Max Request (characters) |
 |  --- |  --- | :---: |
 | dalle2 | East US | 1000 |
+| dalle3 | Sweden Central | 4000 |
 
 ### Fine-tuning models (Preview)
 

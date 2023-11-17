@@ -2,7 +2,7 @@
 title: Language support - Speech service
 titleSuffix: Azure AI services
 description: The Speech service supports numerous languages for speech to text and text to speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -46,7 +46,7 @@ To improve Speech to text recognition accuracy, customization is available for s
 
 The table in this section summarizes the locales and voices supported for Text to speech. See the table footnotes for more details.
 
-Additional remarks for Text to speech locales are included in the [Voice styles and roles](#voice-styles-and-roles), [Prebuilt neural voices](#prebuilt-neural-voices), and [Custom Neural Voice](#custom-neural-voice) sections below. 
+Additional remarks for text to speech locales are included in the [voice styles and roles](#voice-styles-and-roles), [prebuilt neural voices](#prebuilt-neural-voices), [Custom Neural Voice](#custom-neural-voice), and [personal voice](#personal-voice) sections below. 
 
 > [!TIP]
 > Check the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery) and determine the right voice for your business needs. 
@@ -92,6 +92,14 @@ Select the right locale that matches your training data to train a custom neural
 With the cross-lingual feature, you can transfer your custom neural voice model to speak a second language. For example, with the `zh-CN` data, you can create a voice that speaks `en-AU` or any of the languages with Cross-lingual support.
 
 [!INCLUDE [Language support include](includes/language-support/tts-cnv.md)]
+
+
+### Personal voice
+
+[Personal voice](personal-voice-overview.md) is a feature that lets you create a voice that sounds like you or your users. The following table summarizes the locales supported for personal voice. 
+
+[!INCLUDE [Language support include](includes/language-support/personal-voice.md)]
+
 
 # [Pronunciation assessment](#tab/pronunciation-assessment)
 

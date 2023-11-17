@@ -90,8 +90,6 @@
       items:
         - name: Develop and register a feature set with managed feature store
           href: tutorial-get-started-with-feature-store.md
-        - name: Enable materialization and backfill feature data
-          href: tutorial-enable-materialization-backfill-data.md
         - name: Experiment and train models using features
           href: tutorial-experiment-train-models-using-features.md
         - name: Enable recurrent materialization and run batch inference
@@ -255,6 +253,10 @@
             href: how-to-r-train-model.md
           - name: Deploy R model
             href: how-to-r-deploy-r-model.md
+      - name: Work with Microsoft Fabric
+        items:
+          - name: Access and use batch deployments from Fabric
+            href: how-to-use-batch-fabric.md
 - name: Work with data
   items:
   - name: Data concepts in Azure Machine Learning
@@ -379,8 +381,6 @@
       href: how-to-setup-access-control-feature-store.md
     - name: Develop and register a feature set
       href: tutorial-get-started-with-feature-store.md
-    - name: Enable materialization and backfill feature data
-      href: tutorial-enable-materialization-backfill-data.md
     - name: Experiment and train models using features
       href: tutorial-experiment-train-models-using-features.md
     - name: Enable recurrent materialization
@@ -630,10 +630,8 @@
               href: ./prompt-flow/how-to-secure-prompt-flow.md
         - name: Develop flows
           items:
-            - name: Develop a standard flow
-              href: ./prompt-flow/how-to-develop-a-standard-flow.md
-            - name: Develop a chat flow
-              href: ./prompt-flow/how-to-develop-a-chat-flow.md
+            - name: Develop a flow
+              href: ./prompt-flow/how-to-develop-flow.md
             - name: Integrate Langchain in prompt flow
               href: ./prompt-flow/how-to-integrate-with-langchain.md
             - name: Tune prompts using variants
@@ -658,6 +656,8 @@
               href: ./prompt-flow/how-to-enable-streaming-mode.md
             - name: Set up end-to-end LLMOps with prompt flow and GitHub 
               href: ./prompt-flow/how-to-end-to-end-llmops-with-prompt-flow.md
+            - name: Set up end-to-end LLMOps with prompt flow and Azure DevOps
+              href: ./prompt-flow/how-to-end-to-end-azure-devops-with-prompt-flow.md
             - name: Custom tool package creation and usage
               href: ./prompt-flow/how-to-custom-tool-package-creation-and-usage.md
         - name: Monitor generative AI applications in production
@@ -918,7 +918,9 @@
               href: how-to-image-processing-batch.md
             - name: Deploy language models with batch model deployments
               href: how-to-nlp-processing-batch.md
-        - name: Deploy pipeline components (Preview)
+            - name: Run OpenAI models in batch endpoints to compute embeddings
+              href: how-to-use-batch-model-openai-embeddings.md
+        - name: Deploy pipeline components
           items:
             - name: Deploy pipelines with batch endpoints
               href: how-to-use-batch-pipeline-deployments.md
@@ -948,6 +950,8 @@
               href: how-to-use-batch-azure-data-factory.md
             - name: Run batch endpoints from Event Grid events in storage
               href: how-to-use-event-grid-batch.md
+            - name: Run batch endpoints from Microsoft Fabric
+              href: how-to-use-batch-fabric.md
     - name: Deploy models outside Azure Machine Learning
       href: how-to-package-models-app-service.md
     - name: Model optimization
