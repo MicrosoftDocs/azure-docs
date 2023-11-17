@@ -37,6 +37,9 @@ We improved our satellite ingestion service. The improvements include:
 
 These improvements might require changes in how you consume services to ensure continuity. More details on the satellite service and these changes found [here](concepts-ingest-satellite-imagery.md).
 
+### Farm activity records
+Listing of activities by party ID and by activity ID is consolidated into a more powerful common search endpoint. Read more about [here](how-to-ingest-and-egress-farm-operations-data.md).
+
 ## October 2023
 
 ### Azure portal experience enhancement

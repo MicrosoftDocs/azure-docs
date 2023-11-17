@@ -31,17 +31,17 @@ As all ingest data is under a BYOL model, transparency into the cost of a given 
 Our data manager supports the industry standard [STAC](https://stacspec.org/en) search interface to find metadata on imagery in the sentinel collection prior to committing to downloading pixels. To do so, the search endpoint accepts a location in the form of a point, polygon or multipolygon plus a start and end date time. Alternatively, if you already have the unique "Item ID," it can be provided as an array, of up 5, to retrieve those specific items directly
 
 > [!TIP]
-> “Feature ID” is renamed to “Item ID” from the 2023-11-01-preview API version.
-> If an "Item ID" is provided, any location and time parameters in the request will be ignored.
+> To be consistent with STAC syntax “Feature ID” is renamed to “Item ID” from the 2023-11-01-preview API version.
+> If an "Item ID" is provided, any location and time parameters in the request will be ignored. 
 
 ## Single tile source control
 Published tiles overlap space on the earth to ensure full spatial coverage. If the queried geometry lies in a space where more than one tile matches for a reasonable time frame, the provider automatically mosaics the returned image with selected pixels from the range of candidate tiles. The provider produces the “best” resulting image.
 
+In some cases, it isn't desirable and traceability to a single tile source is preferred. To support this strict source control, our data manager supports specifying a single item ID in the ingest-job. 
+
 > [!TIP]
 > This functionality is only available from the 2023-11-01-preview API version.
 > If an "Item ID" is provided for which the geometry only has partial coverage (eg the geometry spans more than one tile), the returned images will only reflect the pixels that are present in the specified item’s tile and will result in a partial image.
-
-In some cases, it isn't desirable and traceability to a single tile source is preferred. To support this strict source control, our data manager supports specifying a single item ID in the ingest-job. 
 
 ## Reprojection
 > [!NOTE] 
@@ -52,9 +52,9 @@ Data Manager for Agriculture uses the WSG84 (EPSG: 4326), a flat coordinate syst
 Translating between a flat image and a round earth involves an approximation translation. The accuracy of this translation is set to equal at the equator (10 m^2) and increases in error margin as the point in question moves away from the equator to the poles. 
 For consistency, our data manager uses the following formula at 10-m base for all Sentinel-2 calls: 
 
-- Latitude = 10 m / 111226.26
-- Longitude = 10 m / 111320 / cos(lat) 
-- Lat = The centroid latitude of the provided geometry
+$$\ Latitude = \frac{10m}{111320}$$
+$$\ Longitude = \frac{10m}{\frac {111320}{cos(lat)}}$$
+$$\ Where\: lat = The\: centroid's\: latitude\: from\: the\: provided\: geometry$$
 
 ## Caching
 > [!NOTE]
