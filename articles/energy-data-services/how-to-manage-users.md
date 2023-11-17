@@ -15,9 +15,9 @@ In this article, you'll learn how to manage users in Azure Data Manager for Ener
 
 ## Prerequisites
 
-Create an Azure Data Manager for Energy instance using the tutorial at [How to create Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
-
-You will need to pass parameters for generating the access token, which you'll need to make valid calls to the Entitlements API of your Azure Data Manager for Energy instance. You will also need these parameters for different user management requests to the Entitlements API. Hence Keep the following values handy for these actions.
+1. Create an Azure Data Manager for Energy instance using the tutorial at [How to create Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
+2. You will need to pass parameters for generating the access token, which you'll need to make valid calls to the Entitlements API of your Azure Data Manager for Energy instance.
+3. You will also need these parameters for different user management requests to the Entitlements API. Hence Keep the following values handy for these actions.
 
 #### Find `tenant-id`
 Navigate to the Microsoft Entra account for your organization. One way to do so is by searching for "Microsoft Entra ID" in the Azure portal's search bar. Once there, locate `tenant-id` under the basic information section in the *Overview* tab. Copy the `tenant-id` and paste in an editor to be used later.  
