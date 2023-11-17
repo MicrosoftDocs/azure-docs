@@ -15,7 +15,7 @@ Zip deployment is also an easy way to run your functions from the deployment pac
 
 Azure Functions has the full range of continuous deployment and integration options that are provided by Azure App Service. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
 
-To speed up development, you may find it easier to deploy your function app project files directly from a .zip file. The .zip deployment API takes the contents of a .zip file and extracts the contents into the `wwwroot` folder of your function app. This .zip file deployment uses the same Kudu service that powers continuous integration-based deployments, including:
+To speed up development, you might find it easier to deploy your function app project files directly from a .zip file. The .zip deployment API takes the contents of a .zip file and extracts the contents into the `wwwroot` folder of your function app. This .zip file deployment uses the same Kudu service that powers continuous integration-based deployments, including:
 
 + Deletion of files that were left over from earlier deployments.
 + Deployment customization, including running deployment scripts.
@@ -53,6 +53,61 @@ This command deploys project files from the downloaded .zip file to your functio
 When you're using Azure CLI on your local computer, `<zip_file_path>` is the path to the .zip file on your computer. You can also run Azure CLI in [Azure Cloud Shell](../cloud-shell/overview.md). When you use Cloud Shell, you must first upload your deployment .zip file to the Azure Files account that's associated with your Cloud Shell. In that case, `<zip_file_path>` is the storage location that your Cloud Shell account uses. For more information, see [Persist files in Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]
+
+## <a name="arm"></a>Deploy by using ARM Template
+
+You can use [ZipDeploy ARM template extension](https://github.com/projectkudu/kudu/wiki/MSDeploy-VS.-ZipDeploy#zipdeploy) to push your .zip file to your function app.
+
+### Example ZipDeploy ARM Template
+
+This template includes both a production and staging slot and deploys to one or the other. Typically, you would use this template to deploy to the staging slot and then swap to get your new zip package running on the production slot.  
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appServiceName": {
+      "type": "string"
+    },
+    "deployToProduction": {
+      "type": "bool",
+      "defaultValue": false
+    },
+    "slot": {
+      "type": "string",
+      "defaultValue": "staging"
+    },
+    "packageUri": {
+      "type": "secureString"
+    }
+  },
+  "resources": [
+    {
+      "condition": "[parameters('deployToProduction')]",
+      "type": "Microsoft.Web/sites/extensions",
+      "apiVersion": "2021-02-01",
+      "name": "[format('{0}/ZipDeploy', parameters('appServiceName'))]",
+      "properties": {
+        "packageUri": "[parameters('packageUri')]",
+        "appOffline": true
+      }
+    },
+    {
+      "condition": "[not(parameters('deployToProduction'))]",
+      "type": "Microsoft.Web/sites/slots/extensions",
+      "apiVersion": "2021-02-01",
+      "name": "[format('{0}/{1}/ZipDeploy', parameters('appServiceName'), parameters('slot'))]",
+      "properties": {
+        "packageUri": "[parameters('packageUri')]",
+        "appOffline": true
+      }
+    }
+  ]
+}
+```
+
+For the initial deployment, you would deploy directly to the production slot. For more information, see [Slot deployments](functions-infrastructure-as-code.md#slot-deployments).
 
 ## Run functions from the deployment package
 

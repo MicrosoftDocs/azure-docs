@@ -48,7 +48,7 @@ The IotJsonPathContent templates allow matching on and extracting values from a 
 |typeMatchExpression|The expression that the MedTech service evaluates against the device message payload. If the service finds a matching token value, it considers the template a match.|`$..[?(@heartRate)]`|
 |patientIdExpression|The expression to extract the patient identifier. *Required* when the MedTech services's **Resolution type** is set to **Create**, and *optional* when the MedTech service's **Resolution type** is set to **Lookup**.|`$.SystemProperties.iothub-connection-device-id`|
 |encounterIdExpression|*Optional*: The expression to extract the encounter identifier.|`$.Body.encounterId`|
-|correlationIdExpression|*Optional*: The expression to extract the correlation identifier. You can use this output to group values into a single observation in the FHIR destination mapping.|`$.Body.correlationId`|
+|correlationIdExpression|*Optional*: The expression to extract the correlation identifier. You can use this output to group values into a single observation in the FHIR&reg; destination mapping.|`$.Body.correlationId`|
 |values[].valueExpression|The expression to extract the wanted value.|`$.Body.heartRate`|
 
 > [!IMPORTANT]

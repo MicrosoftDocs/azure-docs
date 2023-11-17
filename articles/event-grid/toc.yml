@@ -347,6 +347,8 @@ items:
               href: event-schema-resource-notifications.md
             - name: Health Resources
               href: event-schema-health-resources.md
+            - name: Azure Resource Management
+              href: event-schema-resources.md
           - name: Azure Service Bus
             href: event-schema-service-bus.md
           - name: Azure SignalR
@@ -500,6 +502,8 @@ items:
         href: custom-disaster-recovery-client-side.md
       - name: Subscribe to Azure Resource Notifications - Health Resources events
         href: subscribe-to-resource-notifications-health-resources-events.md
+      - name: Subscribe to Azure Resource Notifications - Resources events
+        href: subscribe-to-resource-notifications-resources-events.md
       - name: Track asynchronous REST operations
         href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
       - name: Move

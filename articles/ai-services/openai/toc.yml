@@ -82,6 +82,8 @@ items:
     items:
       - name: Fine-tuning your model
         href: ./how-to/fine-tuning.md
+  - name: Migrate to OpenAI Python v1.x
+    href: ./how-to/migration.md
   - name: Models
     items:
       - name: Manage models
@@ -102,8 +104,6 @@ items:
         href: ./how-to/switching-endpoints.md
       - name: Manage quota
         href: ./how-to/quota.md
-      - name: Migrate to OpenAI Python v1.x
-        href: ./how-to/migration.md
       - name: Monitor Azure OpenAI
         href: ./how-to/monitoring.md
       - name: Plan and manage costs
@@ -150,7 +150,7 @@ items:
     - name: REST API (completions & embeddings)
       href: reference.md
     - name: REST API (fine-tuning)
-      href: /rest/api/azureopenai/fine-tuning
+      href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview&preserve-view=true 
     - name: REST API (resource creation & deployment)
       href: /rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP
 - name: Resources

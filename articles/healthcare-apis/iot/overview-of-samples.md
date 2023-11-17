@@ -12,7 +12,7 @@ ms.author: jasteppe
 
 # Overview of the MedTech service scenario-based mappings samples
 
-The [MedTech service](overview.md) scenario-based [samples](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/medtech-service-mappings) provide conforming and valid [device](overview-of-device-mapping.md) and [FHIR destination](overview-of-fhir-destination-mapping.md) mappings and test device messages. Theses samples can be used to help with the authoring and troubleshooting of your own MedTech service mappings.
+The [MedTech service](overview.md) scenario-based [samples](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/medtech-service-mappings) provide conforming and valid [device](overview-of-device-mapping.md) and [FHIR&reg; destination](overview-of-fhir-destination-mapping.md) mappings and test device messages. Theses samples can be used to help with the authoring and troubleshooting of your own MedTech service mappings.
 
 ## Sample resources
 

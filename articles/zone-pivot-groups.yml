@@ -484,6 +484,20 @@ groups:
     title: PowerShell
   - id: java
     title: Java
+- id: functions-hosting-plan
+  title: Function app hosting options
+  prompt: Choose a hosting option for your function app
+  pivots:
+  - id: consumption-plan
+    title: Consumption plan
+  - id: premium-plan
+    title: Premium plan
+  - id: dedicated-plan
+    title: Dedicated plan
+  - id: container-apps
+    title: Container Apps
+  - id: azure-arc
+    title: Azure Arc
 ### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
