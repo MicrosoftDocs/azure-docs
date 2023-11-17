@@ -6,7 +6,7 @@ ms.custom:
   - ignite-2023
 ms.author: jafernan
 author: jfggdl
-ms.date: 05/24/2023
+ms.date: 11/15/2023
 ---
 
 # Publish to namespace topics and consume events in Azure Event Grid

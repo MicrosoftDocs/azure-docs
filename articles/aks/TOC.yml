@@ -313,6 +313,8 @@
               href: create-node-pools.md
             - name: Manage node pools
               href: manage-node-pools.md
+            - name: Reduce image pull time with Artifact Streaming on AKS
+              href: artifact-streaming.md
             - name: Add an Azure Spot node pool
               href: spot-node-pool.md
             - name: Multi-instance GPU node pool
@@ -521,8 +523,8 @@
               items:
                 - name: Application routing add-on overview
                   href: app-routing.md
-                - name: Application routing add-on advanced configurations
-                  href: app-routing-configuration.md
+                - name: Custom hostname and secure ingress configuration
+                  href: app-routing-dns-ssl.md
                 - name: Monitor using Prometheus and Grafana
                   href: app-routing-nginx-prometheus.md
                 - name: Migrate from HTTP application routing to the application routing add-on
