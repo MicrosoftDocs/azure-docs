@@ -2,8 +2,8 @@
 title: Options to migrate data from MongoDB
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Review various options to migrate your data from other MongoDB sources to Azure Cosmos DB for MongoDB vCore.
-author: gahl-levy
-ms.author: gahllevy
+author: sandeep-nair
+ms.author: sandnair
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
@@ -15,14 +15,18 @@ ms.date: 09/12/2023
 
 This document describes the various options to lift and shift your MongoDB workloads to Azure Cosmos DB for MongoDB vCore offering.
 
-## Premigration assessment
 
-Assessment involves finding out whether you're using the [features and syntax that are supported](./compatibility.md). The aim of this stage is to create a list of incompatibilities and warnings, if any. After you have the assessment results, you can try to address the findings during rest of the migration planning.
+## Azure Data Studio (Offline)
 
-The [Azure Cosmos DB Migration for MongoDB extension](/azure-data-studio/extensions/database-migration-for-mongo-extension) in Azure Data Studio helps you assess a MongoDB workload for migrating to Azure Cosmos DB for MongoDB. You can use this extension to run an end-to-end assessment on your workload and find out the actions that you may need to take to seamlessly migrate your workloads on Azure Cosmos DB. During  the assessment of a MongoDB endpoint, the extension reports all the discovered resources.
+The [Azure Cosmos DB Migration for MongoDB extension](azure-data-studio/extensions/database-migration-for-mongo-extension)  helps you in migrating your MongoDB workloads to Azure Cosmos DB. The migration process has 2 phases:
+### Premigration assessment
 
+Assessment involves finding out whether you're using the [features and syntax that are supported](./compatibility.md). The purpose of this stage is to identify any incompatibilities or warnings that may exist. You should resolve the issues found in the assessment results before moving on with the migration process.
 > [!TIP]
 > We recommend you to go through [the supported features and syntax](./compatibility.md) in detail, as well as perform a proof-of-concept prior to the actual migration.
+### Migrate to Azure Cosmos DB
+
+Use the graphical user interface to manage the entire migration process from start to finish. The migration is launched in Azure Data Studio but runs in the cloud on Azure-managed resources.
 
 ## Native MongoDB tools (Offline)
 
