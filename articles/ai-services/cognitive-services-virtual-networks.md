@@ -2,7 +2,7 @@
 title: Configure Virtual Networks for Azure AI services
 titleSuffix: Azure AI services
 description: Configure layered network security for your Azure AI services resources.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-services

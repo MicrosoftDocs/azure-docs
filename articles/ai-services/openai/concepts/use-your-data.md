@@ -2,7 +2,7 @@
 title: 'Using your data with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Use this article to learn about using your data for better text generation in Azure OpenAI.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: quickstart

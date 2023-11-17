@@ -1,5 +1,5 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 ms.service: azure-ai-language
 ms.topic: include
