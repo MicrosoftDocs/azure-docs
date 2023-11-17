@@ -74,18 +74,16 @@ The previous example was a fairly simple: mounting a single, pre-formatted snaps
 The above example shows there are three volumes that should be attached to the node named `scheduler`, and that their mountpoint is named `giant`. The configuration for the mountpoint says that these three volumes should be RAIDed together using `raid_level = 0` for RAID0, formatted using the `xfs` filesystem, and the resulting device should be mounted at `/mnt/giant`. The device should also have block level encryption using 256-bit AES with an encryption key as defined in the template.
 
 ## Server-Side Encryption with Azure Disk Encryption Sets
-CycleCloud supports server-side encryption for OS and data disk Volumes using [Azure Disk Encryption Sets](/azure/virtual-machines/disk-encryption).   Server-side encryption supports both Platform Managed Keys (the default) and Customer Managed Keys (CMK).
-
-To enable SSE with CMK, you must first set up an Azure Disk Encryption Set and a Key Vault with your key.
+CycleCloud supports server-side encryption (SSE) for OS and data disk Volumes using [Azure Disk Encryption Sets](/azure/virtual-machines/disk-encryption).
+Azure uses _Platform Managed Keys_ (PMK) by default. However, to use _Customer Managed Keys_ (CMK), you must first set up an Azure Disk Encryption Set and a Key Vault with your key.
 Follow the documention here to [set up your Disk Encryption Set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal).  
 
-Record the ``ResourceID`` of the Disk Encryption Set when you create it.  If you are using an existing set, then you can find the ``ResourceID`` in the Azure Portal in the ``Disk Encryption Sets`` blade.
+Record the ``Resource ID`` of the Disk Encryption Set when you create it.  You can find this in the Azure Portal under **Properties** in the **Disk Encryption Sets** blade.
 
-To apply SSE with CMK to your CycleCloud node's Volumes add the following to your ``[[[volume]]]`` definition:
+To apply SSE with CMK to your CycleCloud node's volumes add the following to your ``[[[volume]]]`` definition:
 
 ``` ini
-Azure.Encryption.Type = EncryptionAtRestWithCustomerKey
-Azure.Encryption.DiskEncryptionSetId = /subscriptions/$SUBSCRIPTION-ID/resourceGroups/$RESOURCEGROUPNAME/providers/Microsoft.Compute/diskEncryptionSets/$DISK-ENCRYPTION-SET-NAME
+DiskEncryptionSetId = /subscriptions/$SUBSCRIPTION-ID/resourceGroups/$RESOURCEGROUPNAME/providers/Microsoft.Compute/diskEncryptionSets/$DISK-ENCRYPTION-SET-NAME
 ```
 
 For example:
@@ -98,8 +96,7 @@ For example:
   Mount = encrypted
 
   # Insert your RESOURCE ID here:
-  Azure.Encryption.DiskEncryptionSetId = /subscriptions/a1234567-1234-1ab2-34c5-a1aab0123456/resourceGroups/myResouceGroup/providers/Microsoft.Compute/diskEncryptionSets/myCMKDiskEncryptionSet
-  Azure.Encryption.Type = EncryptionAtRestWithCustomerKey
+  DiskEncryptionSetId = /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResouceGroup/providers/Microsoft.Compute/diskEncryptionSets/myCMKDiskEncryptionSet
 
   [[[configuration cyclecloud.mounts.encrypted]]]
   mountpoint = /mnt/encrypted
@@ -107,6 +104,12 @@ For example:
   raid_level = 0
 
 ```
+
+> [!NOTE]
+> The simplified syntax above was introduced in CycleCloud 8.5. For prior versions, you must use `Azure.Encryption.DiskEncryptionSetId` instead:
+>
+> `Azure.Encryption.DiskEncryptionSetId = /subscriptions/$SUBSCRIPTION-ID/resourceGroups/$RESOURCEGROUPNAME/providers/Microsoft.Compute/diskEncryptionSets/$DISK-ENCRYPTION-SET-NAME`.
+> However, you do not need to set `Azure.Encryption.Type`.
 
 See the [Volume Configuration Reference](../cluster-references/volume-reference.md) for details.
 
