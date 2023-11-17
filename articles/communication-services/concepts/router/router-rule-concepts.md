@@ -34,6 +34,10 @@ The following rule engine types exist in Job Router to provide flexibility in ho
 
 **Azure Function rule -** Allows the Job Router to pass the input labels as a payload to an Azure Function and respond back with an output value.
 
+**Webhook rule -** Allows the Job Router to pass the input labels as a payload to a Webhook and respond back with an output value.
+
+**Direct map rule -** Takes the input labels on a job and outputs a set of worker or queue selectors with the same key and values. This should only be used in the `ConditionalQueueSelectorAttachment` or `ConditionalWorkerSelectorAttachment`.
+
 ### Example: Use a static rule to set the priority of a job
 
 In this example a `StaticRouterRule`, which is a subtype of `RouterRule` can be used to set the priority of all Jobs, which use this classification policy.
