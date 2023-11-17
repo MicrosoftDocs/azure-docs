@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/21/2022
+ms.date: 11/21/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -39,7 +39,7 @@ With Azure AD B2C [custom domain](./custom-domain.md) the corresponding updated 
 
 Some customers use the shared capabilities of Microsoft Entra enterprise tenants. For example, acquiring an access token to call the [MS Graph API](microsoft-graph-operations.md#code-discussion) of the Azure AD B2C tenant.
 
-All endpoints, which don't contain a policy parameter aren't affected by the change. They're accessed only with the Microsoft Entra ID's login.microsoftonline.com endpoints, and can't be used with the *b2clogin.com*, or custom domains. The following example shows a valid token endpoint of the Microsoft identity platform:
+All endpoints, which don't contain a policy parameter in the URL aren't affected by this change. They're accessed only with the Microsoft Entra ID's login.microsoftonline.com endpoints, and can't be used with the *b2clogin.com*, or custom domains. The following example shows a valid token endpoint of the Microsoft identity platform:
 
 ```http
 https://login.microsoftonline.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/token

@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 11/22/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -38,7 +38,9 @@ In this request, the client indicates the permissions that it needs to acquire f
 - `{policy}` with the policy name that you have in your tenant, for example `b2c_1_sign_in`.
 
 ```http
-GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
+GET /{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
+Host: {tenant}.b2clogin.com
+
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Fjwt.ms%2F
@@ -58,7 +60,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | scope | Yes | A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. The `offline_access` scope is optional for web applications. It indicates that your application will need a *refresh token* for extended access to resources. The `https://{tenant-name}/{app-id-uri}/{scope}` indicates a permission to protected resources, such as a web API. For more information, see [Request an access token](access-tokens.md#scopes). |
 | prompt | No | The type of user interaction that's required. The only valid value at this time is `login`, which forces the user to enter their credentials on that request. |
 | redirect_uri | Yes | The `redirect_uri` parameter of your application, where authentication responses can be sent and received by your application. It must exactly match one of the `redirect_uri` parameters that you registered in the Azure portal, except that it must be URL-encoded. |
-| response_mode | No | The method that is used to send the resulting authorization code back to your application. It can be either `query`, `form_post`, or `fragment`.  The `form_post` response mode is recommended for best security. |
+| response_mode | No | The method that is used to send the resulting authorization code back to your application. It can be either `query`, `form_post`, or `fragment`.  We recommended you use the `form_post` response mode for best security. |
 | state | No | A value included in the request that's also returned in the token response. It can be a string of any content that you want. A randomly generated unique value is typically used for preventing cross-site request forgery attacks. The state is also used to encode information about the user's state in the application before the authentication request occurred, such as the page they were on. If you don't want to register multiple redirect URLs in your Azure portal, you can use the `state` parameter to differentiate responses in your application from Azure AD B2C service due to different requests.|
 | login_hint | No| Can be used to pre-fill the sign-in name field of the sign-in page. For more information, see [Prepopulate the sign-in name](direct-signin.md#prepopulate-the-sign-in-name).  |
 | domain_hint | No| Provides a hint to Azure AD B2C about the social identity provider that should be used for sign-in. If a valid value is included, the user goes directly to the identity provider sign-in page.  For more information, see [Redirect sign-in to a social provider](direct-signin.md#redirect-sign-in-to-a-social-provider). |
@@ -223,7 +225,11 @@ POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0
 Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
+grant_type=refresh_token
+&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
+&scope=openid offline_access
+&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
+&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
 | Parameter | Required | Description |

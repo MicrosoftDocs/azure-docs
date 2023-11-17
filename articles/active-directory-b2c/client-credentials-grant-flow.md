@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/21/2022
+ms.date: 11/21/2023
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -153,13 +153,19 @@ There are no specific actions to enable the client credentials for user flows or
 
 The actual POST request looks like the following example:
 
+**Request**:
 ```https
 POST /<tenant-name>.onmicrosoft.com/B2C_1A_SUSI/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=client_credentials&client_id=33333333-0000-0000-0000-000000000000&client_secret=FyX7Q~DuPJ...&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2F.default
+grant_type=client_credentials
+&client_id=33333333-0000-0000-0000-000000000000
+&client_secret=FyX7Q~DuPJ...
+&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2F.default
 ```
+
+**Response**:
 
 ```json
 {

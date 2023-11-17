@@ -1,7 +1,7 @@
 ---
-title: Secure APIs used as API connectors in Azure AD B2C
+title: Secure APIs used for API connectors in Azure AD B2C
 titleSuffix: Azure AD B2C
-description: Secure your custom RESTful APIs used as API connectors in Azure AD B2C.
+description: Secure your custom RESTful APIs used for API connectors in Azure AD B2C.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -9,20 +9,20 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 11/20/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Secure your API used an API connector in Azure AD B2C 
+# Secure APIs used for API connectors in Azure AD B2C 
 
 When integrating a REST API within an Azure AD B2C user flow, you must protect your REST API endpoint with authentication. The REST API authentication ensures that only services that have proper credentials, such as Azure AD B2C, can make calls to your endpoint. This article will explore how to secure REST API. 
 
 
 ## Prerequisites
 
-Complete the steps in the [Walkthrough: Add an API connector to a sign-up user flow](add-api-connector.md) guide.
+Complete the steps in the [Add an API connector to a sign-up user flow](add-api-connector.md) guide.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -32,7 +32,13 @@ You can protect your API endpoint by using either HTTP basic authentication or H
 
 ## HTTP basic authentication
 
-HTTP basic authentication is defined in [RFC 2617](https://tools.ietf.org/html/rfc2617). Basic authentication works as follows: Azure AD B2C sends an HTTP request with the client credentials (`username` and `password`) in the `Authorization` header. The credentials are formatted as the base64-encoded string `username:password`. Your API then is responsible for checking these values to perform other authorization decisions.
+HTTP basic authentication is defined in [RFC 2617](https://tools.ietf.org/html/rfc2617). Basic authentication works as follows: 
+
+- Azure AD B2C sends an HTTP request with the client credentials (`username` and `password`) in the `Authorization` header. 
+
+- The credentials are formatted as the base64-encoded string `username:password`. 
+
+- Your API then is responsible for checking these values to perform other authorization decisions.
 
 ::: zone pivot="b2c-user-flow"
 

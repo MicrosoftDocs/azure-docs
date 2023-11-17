@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/06/2022
+ms.date: 11/20/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -35,7 +35,7 @@ Custom email verification requires the use of a third-party email provider like 
 
 If you don't already have one, start by setting up a SendGrid account. For setup instructions, see the [Create a SendGrid Account](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-sendgrid-account) section of [How to send email using SendGrid with Azure](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account).
 
-Be sure to complete the section in which you [create a SendGrid API key](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#to-find-your-sendgrid-api-key). Record the API key for use in a later step.
+Make sure you complete the section in which you [create a SendGrid API key](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#to-find-your-sendgrid-api-key). Record the API key for use in a later step.
 
 > [!IMPORTANT]
 > SendGrid offers customers the ability to send emails from shared IP and [dedicated IP addresses](https://docs.sendgrid.com/ui/account-and-settings/dedicated-ip-addresses). When using dedicated IP addresses, you need to build your own reputation properly with an IP address warm-up. For more information, see [Warming Up An Ip Address](https://docs.sendgrid.com/ui/sending-email/warming-up-an-ip-address).
@@ -46,7 +46,7 @@ Next, store the SendGrid API key in an Azure AD B2C policy key for your policies
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. In the top-left corner of the Azure portal, choose **All services**, and then search for and select **Azure AD B2C**.
 1. On the Overview page, select **Identity Experience Framework**.
 1. Select **Policy Keys** and then select **Add**.
 1. For **Options**, choose **Manual**.
@@ -556,7 +556,7 @@ The Localization element allows you to support multiple locales or languages in 
 
 ## Next steps
 
-- You can find an example of [Custom email verification - DisplayControls custom policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol/policy/SendGrid) on GitHub.
-- For information about using a custom REST API or any HTTP-based SMTP email provider, see [Define a RESTful technical profile in an Azure AD B2C custom policy](restful-technical-profile.md).
+- Find an example of [Custom email verification - DisplayControls custom policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol/policy/SendGrid) on GitHub.
+- LEarn how to use a custom REST API or any HTTP-based SMTP email provider, see [Define a RESTful technical profile in an Azure AD B2C custom policy](restful-technical-profile.md).
 
 ::: zone-end
