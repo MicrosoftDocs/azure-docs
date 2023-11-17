@@ -59,7 +59,7 @@ To see the regions that currently support Azure Arc-enabled data services, go to
 > **Just want to try things out?**  
 > Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 >
->In addition, deploy [Jumpstart ArcBox for DataOps](https://aka.ms/ArcBoxDataOps), an easy to deploy sandbox for all things Azure Arc-enabled SQL Managed Instance. ArcBox is designed to be completely self-contained within a single Azure subscription and resource group, which will make it easy for you to get hands-on with all available Azure Arc-enabled technology with nothing more than an available Azure subscription.
+>In addition, deploy [Jumpstart ArcBox for DataOps](https://azurearcjumpstart.com/azure_jumpstart_arcbox/DataOps), an easy to deploy sandbox for all things Azure Arc-enabled SQL Managed Instance. ArcBox is designed to be completely self-contained within a single Azure subscription and resource group, which will make it easy for you to get hands-on with all available Azure Arc-enabled technology with nothing more than an available Azure subscription.
 
 [Install the client tools](install-client-tools.md)
 
