@@ -80,7 +80,7 @@ You configure one or more *access policies* for each connection. The access poli
 
 ## Runtime of connections
 
-The **runtime** part requires a backend OAuth 2.0 API to be configured with the [`get-authorization-context`](get-authorization-context-policy.md) policy. At runtime, the policy fetches and stores access and refresh tokens from the credential store that APIManagement set up for the provider. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the credential provider. Then the access token is used to authorize access to the backend service. 
+The **runtime** part requires a backend OAuth 2.0 API to be configured with the [`get-authorization-context`](get-authorization-context-policy.md) policy. At runtime, the policy fetches and stores access and refresh tokens from the credential store that API Management set up for the provider. When a call comes into API Management, and the `get-authorization-context` policy is executed, it first validates if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the credential provider. Then the access token is used to authorize access to the backend service. 
    
 During the policy execution, access to the tokens is also validated using access policies.
 
