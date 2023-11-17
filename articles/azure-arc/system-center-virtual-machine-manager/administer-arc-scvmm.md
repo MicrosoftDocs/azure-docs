@@ -51,13 +51,13 @@ To upgrade to the latest version of the resource bridge, perform the following s
     $vCenterName = <vcenter-name-in-azure>
     ```
 
-4. [Run the onboarding script](quick-start-connect-vcenter-to-arc-using-script.md#run-the-script) again with the `--force` parameter
+4. [Run the onboarding script](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md#run-the-script) again with the `--force` parameter
 
     ``` powershell-interactive
     ./resource-bridge-onboarding-script.ps1 --force
     ```
 
-5. [Provide the inputs](quick-start-connect-vcenter-to-arc-using-script.md#inputs-for-the-script) as prompted.
+5. [Provide the inputs](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md#inputs-for-the-script) as prompted.
 
 6. Once the onboarding is successfully completed, the resource bridge is upgraded to the latest version.
 
