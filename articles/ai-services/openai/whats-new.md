@@ -18,6 +18,16 @@ keywords:
 
 ## November 2023
 
+### GPT-4-1106-preview & GPT-3.5-Turbo-1106 released
+
+Both models are the latest release from OpenAI with improved instruction following, JSON mode, reproducible outputs, and parallel function calling.
+
+- **GPT-4-1106-preview (also known as GPT-4 Turbo)** has a max context window of 128,000 tokens and can generate 4,096 output tokens. It has the latest training data with knowledge up to April 2023. This model is in preview and is not recommended for production use. All deployments of this preview model will be automatically updated in place once the stable release becomes available.
+
+- **GPT-3.5-Turbo-1106** has a max context window of 16,385 tokens and can generate 4,096 output tokens.
+
+For information on model regional availability consult the [models page](./concepts/models.md)
+
 ### DALL-E 3 public preview
 
 DALL-E 3 is the latest image generation model from OpenAI. It features enhanced image quality, more complex scenes, and improved performance when rendering text in images. It also comes with more aspect ratio options. DALL-E 3 is available through OpenAI Studio and through the REST API. Your OpenAI resource must be in the `SwedenCentral` Azure region.
