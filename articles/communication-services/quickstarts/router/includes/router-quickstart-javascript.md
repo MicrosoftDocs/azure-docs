@@ -56,7 +56,7 @@ npm install @azure-rest/communication-job-router --save
 In the `index.js` file, add the following code. We'll add the code for the quickstart in the `main` function.
 
 ``` javascript
-const createClient = require('@azure-rest/communication-job-router');
+const JobRouterClient = require('@azure-rest/communication-job-router').default;
 
 const main = async () => {
   console.log("Azure Communication Services - Job Router Quickstart")
@@ -71,22 +71,21 @@ main().catch((error) => {
 })
 ```
 
-## Initialize the Job Router client and administration client
+## Initialize the Job Router client
 
-Job Router clients can be authenticated using your connection string acquired from an Azure Communication Services resource in the Azure portal.  We generate both a client and an administration client to interact with the Job Router service.  The admin client is used to provision queues and policies, while the client is used to submit jobs and register workers. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
+Job Router clients can be authenticated using your connection string acquired from an Azure Communication Services resource in the Azure portal.  We generate a client to interact with the Job Router service.  For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 Add the following code in `index.js` inside the `main` function.
 
 ```javascript
-// create JobRouterAdministrationClient and JobRouterClient
 const connectionString = process.env["COMMUNICATION_CONNECTION_STRING"] ||
     "endpoint=https://<resource-name>.communication.azure.com/;<access-key>";
-const client = createClient(connectionString);
+const client = JobRouterClient(connectionString);
 ```
 
 ## Create a distribution policy
 
-Job Router uses a distribution policy to decide how workers are notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **ID**, a **name**, an **offerExpiresAfter**, and a distribution **mode**.
+Job Router uses a distribution policy to decide how workers are notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **Id**, a **name**, an **offerExpiresAfterSeconds**, and a distribution **mode**.
 
 ```javascript
 const distributionPolicy = await client.path("/routing/distributionPolicies/{distributionPolicyId}", "distribution-policy-1").patch({
@@ -173,9 +172,7 @@ console.log(`Worker ${worker.body.id} is assigned job ${accept.body.jobId}`);
 Once the worker has completed the work associated with the job (for example, completed the call), we complete the job.
 
 ```javascript
-await client.path("/routing/jobs/{jobId}:complete", accept.body.jobId).post({
-    body: { assignmentId: accept.body.assignmentId }
-});
+await client.path("/routing/jobs/{jobId}/assignments/{assignmentId}:complete", accept.body.jobId, assignmentId: accept.body.assignmentId).post();
 console.log(`Worker ${worker.body.id} has completed job ${accept.body.jobId}`);
 ```
 
@@ -184,8 +181,8 @@ console.log(`Worker ${worker.body.id} has completed job ${accept.body.jobId}`);
 Once the worker is ready to take on new jobs, the worker should close the job.  Optionally, the worker can provide a disposition code to indicate the outcome of the job.
 
 ```javascript
-await client.path("/routing/jobs/{jobId}:complete", accept.body.jobId).post({
-    body: { assignmentId: accept.assignmentId, dispositionCode: "Resolved" }
+await client.path("/routing/jobs/{jobId}/assignments/{assignmentId}:complete", accept.body.jobId, assignmentId: accept.assignmentId).post({
+    body: { dispositionCode: "Resolved" }
 });
 console.log(`Worker ${worker.body.id} has closed job ${accept.body.jobId}`);
 ```
