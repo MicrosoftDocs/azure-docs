@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 11/20/2023
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -60,7 +60,7 @@ Consider the following scenario:
 
 ### Application session
 
-A web, mobile, or single page application can be protected by an OAuth2 access token, ID token, or SAML token. When a user tries to access a protected resource on the app, the app checks whether there is an active session on the application side. If there is no app session or the session has expired, the app will take the user to the Azure AD B2C sign-in page.
+A web, mobile, or single page application can be protected by an OAuth2 access token, ID token, or SAML token. When a user tries to access a protected resource on the app, the app checks whether there is an active session on the application side. If there is no app session or the session has expired, the app takes the user to the Azure AD B2C sign-in page.
 
 The application session can be a cookie-based session stored under the application domain name, such as `https://contoso.com`. Mobile applications might store the session in a different way but using a similar approach.
 
@@ -389,10 +389,6 @@ To require an ID Token in logout requests:
 1. Open the user flow that you previously created.
 1. Select **Properties**.
 1. Enable the **Require ID Token in logout requests**.
-1. Go back to  **Azure AD B2C**.
-1. Select **App registrations**, and then select your application.
-1. Select **Authentication**.
-1. In the **Logout URL** text box, type your post logout redirect URI, and then select **Save**.
 
 ::: zone-end
 
@@ -410,9 +406,6 @@ To require an ID Token in logout requests, add a **UserJourneyBehaviors** elemen
 
 To configure your application Logout URL:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select your application.
 1. Select **Authentication**.
 1. In the **Logout URL** text box, type your post logout redirect URI, and then select **Save**.

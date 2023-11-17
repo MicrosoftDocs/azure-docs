@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/06/2023
+ms.date: 11/20/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -171,3 +171,4 @@ After you set up and test your Azure AD B2C policy, you can start customizing yo
 - During your policy development and testing, you can [disable email verification](./disable-email-verification.md). Learn how to overwrite a technical profile metadata.
 - [Set up sign-in with a Google account](./identity-provider-google.md) using custom policies. Learn how to create a new claims provider with OAuth2 technical profile. Then customize the user journey to include the Google sign-in option.
 - To diagnose problems with your custom policies, you can [Collect Azure Active Directory B2C logs with Application Insights](troubleshoot-with-application-insights.md). Learn how to add new technical profiles, and configure your relying party policy.
+- If you want to understand how custom policy is built from scratch, learn how to [Create and run your own custom policies in Azure Active Directory B2C how-to guide series](custom-policies-series-overview.md).

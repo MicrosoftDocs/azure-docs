@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/10/2023
+ms.date: 11/20/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
@@ -38,7 +38,7 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 - Whether the attribute can be used in a user flow
 - Whether the attribute can be used in a custom policy [Microsoft Entra ID technical profile](active-directory-technical-profile.md) and in which section (&lt;InputClaims&gt;, &lt;OutputClaims&gt;, or &lt;PersistedClaims&gt;)
 
-|Name     |Type     |Description|Azure portal|User flows|Custom policy|
+|Name     |Date type     |Description|Available in Azure portal|Used in user flows|Used in custom policy|
 |---------|---------|----------|------------|----------|-------------|
 |accountEnabled  |Boolean|Whether the user account is enabled or disabled: **true** if the account is enabled, otherwise **false**.|Yes|No|Persisted, Output|
 |ageGroup        |String|The user's age group. Possible values: null, Undefined, Minor, Adult, NotAdult.|Yes|No|Persisted, Output|
