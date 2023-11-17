@@ -202,6 +202,12 @@ Install-AzAksKubectl -Version latest
 
 ---
 
+## Long Term Support (LTS)
+
+AKS provides one year Community Support and one year of Long Term Support (LTS) to back port security fixes from the community upstream in our public repository. Our upstream LTS working group contributes efforts back to the community to provide our customers with a longer support window.
+
+For more details on LTS, see [Long term support for Azure Kubernetes Service (AKS)](./long-term-support.md).
+
 ## Release and deprecation process
 
 You can reference upcoming version releases and deprecations on the [AKS Kubernetes release calendar](#aks-kubernetes-release-calendar).
