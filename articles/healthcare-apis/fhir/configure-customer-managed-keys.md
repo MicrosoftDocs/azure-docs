@@ -287,4 +287,7 @@ In any scenario where the FHIR service can't access the key, API requests return
 
 If key access is lost, ensure you updated the key and required resources so they're accessible by the FHIR service. 
 
+## Common errors 
+Common error causing databases to become inaccessible are mainly related to configuration issues, to learn more about common issues and error messages, visit [Common errors with customer-managed keys](https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current#common-errors-causing-databases-to-become-inaccessible). 
+
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
