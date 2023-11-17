@@ -3,7 +3,7 @@ title: Azure Automation data security
 description: This article helps you learn how Azure Automation protects your privacy and secures your data.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 08/01/2023
+ms.date: 11/17/2023
 ms.topic: conceptual 
 ms.custom:
 ---
@@ -28,7 +28,7 @@ For information about TLS 1.2 support with the Log Analytics agent for Windows a
 
 ### Upgrade TLS protocol for Hybrid Workers and Webhook calls
 
-From **30 October 2023**, all agent-based and extension-based User Hybrid Runbook Workers using Transport Layer Security (TLS) 1.0 and 1.1 protocols would no longer be able to connect to Azure Automation and all jobs running or scheduled on these machines would fail. 
+From **1 October 2024**, all agent-based and extension-based User Hybrid Runbook Workers using Transport Layer Security (TLS) 1.0 and 1.1 protocols would no longer be able to connect to Azure Automation and all jobs running or scheduled on these machines would fail. 
 
 Ensure that the Webhook calls that trigger runbooks navigate on TLS 1.2 or higher. Ensure to make registry changes so that Agent and Extension based workers negotiate only on TLS 1.2 and higher protocols. Learn how to [disable TLS 1.0/1.1 protocols on Windows Hybrid Worker and enable TLS 1.2 or above](/system-center/scom/plan-security-tls12-config#configure-windows-operating-system-to-only-use-tls-12-protocol) on Windows machine. 
 
