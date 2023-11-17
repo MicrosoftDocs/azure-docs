@@ -42,25 +42,6 @@ CMK for Backup vault is currently available in: West Central US, Australia East,
 
 - Managed HSM uses Local RBAC to manage keys permissions. [Learn more](/azure/key-vault/managed-hsm/overview).
 
-## Enable encryption using customer-managed keys at vault creation
-
-When you create a Backup vault, you can enable encryption on the backups using customer-managed keys. Learn how to [create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
-
-To enable the encryption, follow these steps:
-
-1. Next to the **Basics** tab, on the **Vault Properties** tab, specify the *encryption key* and the *identity* to be used for encryption.
-
-2. Select **Use customer-managed key** as the **Encryption type**.
-3. To specify the key to be used for encryption, select the appropriate option.
-4. Provide the *URI for the encryption key*.
-
-   You can also browse and select the key.
-
-5. To enable auto-rotation of the encryption key used for the Backup vault, click **Select from Key Vault** or run the *Version component* from the **Key URI** when you choose **Enter key URI**. [Learn more](encryption-at-rest-with-cmk.md?tabs=portal#enable-auto-rotation-of-encryption-keys) on auto-rotation.
-
-6. Specify the *user-assigned managed identity* to manage encryption with *customer-managed keys*.
-7. Add **Tags** (optional) and continue creating the vault.
-
 ### Known limitations
 
 - If you remove key Vault access permissions given to the managed identity, PostgresSQL backup or restore operation will fail with generic error.
@@ -90,6 +71,25 @@ To enable the encryption, follow these steps:
 - Ensure that you've check the [known limitations]() before you start using the encryption feature. 
 
 - You can configure this feature via the Azure portal and REST APIs. 
+
+## Enable encryption using customer-managed keys at vault creation
+
+When you create a Backup vault, you can enable encryption on the backups using customer-managed keys. Learn how to [create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
+
+To enable the encryption, follow these steps:
+
+1. Next to the **Basics** tab, on the **Vault Properties** tab, specify the *encryption key* and the *identity* to be used for encryption.
+
+2. Select **Use customer-managed key** as the **Encryption type**.
+3. To specify the key to be used for encryption, select the appropriate option.
+4. Provide the *URI for the encryption key*.
+
+   You can also browse and select the key.
+
+5. To enable auto-rotation of the encryption key used for the Backup vault, click **Select from Key Vault** or run the *Version component* from the **Key URI** when you choose **Enter key URI**. [Learn more](encryption-at-rest-with-cmk.md?tabs=portal#enable-auto-rotation-of-encryption-keys) on auto-rotation.
+
+6. Specify the *user-assigned managed identity* to manage encryption with *customer-managed keys*.
+7. Add **Tags** (optional) and continue creating the vault.
 
 ## Update the Backup vault properties to encrypt using customer-managed keys
 
