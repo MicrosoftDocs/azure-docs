@@ -11,7 +11,7 @@ ms.custom: ignite-2022
 
 # View and use Change Analysis in Azure Monitor
 
-Change Analysis provides data for various management and troubleshooting scenarios to help you understand what changes to your application might have caused the issues. 
+Change Analysis provides data for various management and troubleshooting scenarios to help you understand what changes to your application caused breaking issues. 
 
 ## View Change Analysis data
 
@@ -66,7 +66,7 @@ Use the [View change history](../essentials/activity-log.md#view-change-history)
 1. From within your resource, select **Activity Log** from the side menu.
 1. Select a change from the list.
 1. Select the **Change history** tab. 
-1. For the Azure Monitor Change Analysis service to scan for changes in users' subscriptions, a resource provider needs to be registered. Upon selecting the **Change history** tab, the tool will automatically register **Microsoft.ChangeAnalysis** resource provider.
+1. For the Azure Monitor Change Analysis service to scan for changes in users' subscriptions, a resource provider needs to be registered. When you select the **Change history** tab, the tool automatically registers **Microsoft.ChangeAnalysis** resource provider.
 1. Once registered, you can view changes from **Azure Resource Graph** immediately from the past 14 days.
    - Changes from other sources will be available after ~4 hours after subscription is onboard.
 
@@ -107,7 +107,7 @@ Change Analysis displays as an insight card in your virtual machine's **Diagnose
 
 #### Diagnose and solve problems tool for Azure SQL Database and other resources
 
-You can view Change Analysis data for [multiple Azure resources](./change-analysis.md#supported-resource-types), but we highlight Azure SQL Database below.
+You can view Change Analysis data for [multiple Azure resources](./change-analysis.md#supported-resource-types), but we highlight Azure SQL Database in these steps.
 
 1. Within your resource, select **Diagnose and solve problems** from the left menu.
 1. Under **Common problems**, select **View change details** to view the filtered view from Change Analysis standalone UI.
@@ -118,7 +118,7 @@ You can view Change Analysis data for [multiple Azure resources](./change-analys
 
 ### Integrate with VM Insights
 
-If you've enabled [VM Insights](../vm/vminsights-overview.md), you can view changes in your virtual machines that may have caused any spikes in a metric chart, such as CPU or Memory.
+If you enabled [VM Insights](../vm/vminsights-overview.md), you can view changes in your virtual machines that caused any spikes in a metric chart, such as CPU or Memory.
 
 1. Within your virtual machine, select **Insights** from under **Monitoring** in the left menu.
 1. Select the **Performance** tab.
@@ -172,7 +172,7 @@ Let's say you want to curate a change view on specific resources, like all Virtu
 
 ### Pin to the Azure dashboard
 
-Once you have applied filters to the Change Analysis homepage:
+Once you applied filters to the Change Analysis homepage:
 
 1. Select **Pin current filters** from the top menu. 
 1. Enter a name for the pin. 
@@ -180,7 +180,7 @@ Once you have applied filters to the Change Analysis homepage:
 
    :::image type="content" source="./media/change-analysis/click-pin-menu.png" alt-text="Screenshot of selecting Pin current filters button in Change Analysis.":::
 
-A side pane will open to configure the dashboard where you'll place your pin. You can select one of two dashboard types:
+A side pane opens to configure the dashboard where you place your pin. You can select one of two dashboard types:
 
 | Dashboard type | Description |
 | -------------- | ----------- |
@@ -194,7 +194,7 @@ If you already have a dashboard to place the pin:
 1. Select the **Existing** tab.
 1. Select either **Private** or **Shared**.
 1. Select the dashboard you'd like to use. 
-1. If you've selected **Shared**, select the subscription in which you'd like to place the dashboard.
+1. If you selected **Shared**, select the subscription in which you'd like to place the dashboard.
 1. Select **Pin**.
  
    :::image type="content" source="./media/change-analysis/existing-dashboard-small.png" alt-text="Screenshot of selecting an existing dashboard to pin your changes to. ":::

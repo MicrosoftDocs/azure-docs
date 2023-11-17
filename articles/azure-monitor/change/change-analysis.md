@@ -13,7 +13,7 @@ ms.custom: ignite-2022
 
 While standard monitoring solutions might alert you to a live site issue, outage, or component failure, they often don't explain the cause. Let's say your site worked five minutes ago, and now it's broken. What changed in the last five minutes? 
 
-We've designed Change Analysis to answer that question in Azure Monitor.
+Change Analysis is designed to answer that question in Azure Monitor.
 
 Building on the power of [Azure Resource Graph](../../governance/resource-graph/overview.md), Change Analysis:
 - Provides insights into your Azure application changes.
@@ -27,7 +27,7 @@ Building on the power of [Azure Resource Graph](../../governance/resource-graph/
 
 Change Analysis detects various types of changes, from the infrastructure layer through application deployment. Change Analysis is a subscription-level Azure resource provider that:
 - Checks resource changes in the subscription. 
-- Provides data for various diagnostic tools to help users understand what changes might have caused issues.
+- Provides data for various diagnostic tools to help users understand what changes caused issues.
 
 The following diagram illustrates the architecture of Change Analysis:
 
@@ -62,7 +62,7 @@ Change Analysis also tracks [resource dependency changes](#dependency-changes) t
 
 ### Azure Resource Manager resource properties changes
 
-Using [Azure Resource Graph](../../governance/resource-graph/overview.md), Change Analysis provides a historical record of how the Azure resources that host your application have changed over time. The following basic configuration settings are set using Azure Resource Manager and tracked by Azure Resource Graph:
+Using [Azure Resource Graph](../../governance/resource-graph/overview.md), Change Analysis provides a historical record of how the Azure resources that host your application changed over time. The following basic configuration settings are set using Azure Resource Manager and tracked by Azure Resource Graph:
 - Managed identities
 - Platform OS upgrade
 - Hostnames
@@ -74,7 +74,7 @@ In addition to the settings set via Azure Resource Manager, you can set configur
 - TLS settings
 - Extension versions
 
-These setting changes are not captured by Azure Resource Graph. Change Analysis fills this gap by capturing snapshots of changes in those main configuration properties, like changes to the connection string, etc. Snapshots are taken of configuration changes and change details every up to 6 hours. 
+Azure Resource Graph doesn't capture these setting changes. Change Analysis fills this gap by capturing snapshots of changes in those main configuration properties, like changes to the connection string, etc. Snapshots are taken of configuration changes and change details every up to 6 hours. 
 
 [See known limitations regarding resource configuration change analysis.](#limitations)
 
@@ -128,8 +128,8 @@ Currently, the following dependencies are supported in **Web App Diagnose and so
 - **Web app deployment changes**: Code deployment change information might not be available immediately in the Change Analysis tool. To view the latest changes in Change Analysis, select **Refresh**.
 - **Function and Web App file changes**: File changes take up to 30 minutes to display.
 - **Function and Web App configuration changes**: Due to the snapshot approach to configuration changes, timestamps of configuration changes could take up to 6 hours to display from when the change actually happened.
-- **Web app deployment and configuration changes**: Since these changes are collected by a site extension and stored on disk space owned by your application, data collection and storage is subject to your application's behavior. Check to see if a misbehaving application is affecting the results.
-- **Snapshot retention for all changes**: The Change Analysis data for resources is tracked by Azure Resource Graphs (ARG). ARG only keeps snapshot history of tracked resources for _14 days_.
+- **Web app deployment and configuration changes**: A site extension collects these changes and stores them on disk space owned by your application. Thus, data collection and storage is subject to your application's behavior. Check to see if a misbehaving application is affecting the results.
+- **Snapshot retention for all changes**: Azure Resource Graphs (ARG) tracks the Change Analysis data for resources. ARG only keeps snapshot history of tracked resources for _14 days_.
 
 ## Frequently asked questions
 

@@ -21,7 +21,7 @@ Register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource
 - Enter any UI entry point, like the Web App **Diagnose and Solve Problems** tool, or 
 - Bring up the Change Analysis standalone tab.
 
-In this guide, you'll learn the two ways to enable Change Analysis for Azure Functions and web app in-guest changes:
+In this guide, you learn the two ways to enable Change Analysis for Azure Functions and web app in-guest changes:
 - For one or a few Azure Functions or web apps, [enable Change Analysis via the UI](#enable-azure-functions-and-web-app-in-guest-change-collection-via-the-change-analysis-portal).
 - For a large number of web apps (for example, 50+ web apps), [enable Change Analysis using the provided PowerShell script](#enable-change-analysis-at-scale-using-powershell).
 
@@ -59,7 +59,7 @@ For web app in-guest changes, separate enablement is required for scanning code 
 
 If your subscription includes several web apps, run the following script to enable *all web apps* in your subscription.
 
-### Pre-requisites
+### Prerequisites
 
 PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell)
 

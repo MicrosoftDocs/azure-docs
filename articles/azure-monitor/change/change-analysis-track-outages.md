@@ -19,7 +19,7 @@ To track an outage, we will:
 > - Enable Change Analysis to track changes for Azure resources and for Azure Web App configurations
 > - Troubleshoot a Web App issue using Change Analysis
 
-## Pre-requisites
+## Prerequisites
 
 - Install [.NET 7.0 or above](https://dotnet.microsoft.com/download). 
 - Install [the Azure CLI](/cli/azure/install-azure-cli). 
@@ -97,7 +97,7 @@ Visit the web app URL to view the following error:
 
 ## Troubleshoot the outage using Change Analysis
 
-In the Azure portal, navigate to the Change Analysis overview page. Since you've triggered a web app outage, you'll see an entry of change for `AzureStorageConnection`:
+In the Azure portal, navigate to the Change Analysis overview page. Since you triggered a web app outage, you can see an entry of change for `AzureStorageConnection`:
 
 :::image type="content" source="./media/change-analysis/entry-of-outage.png" alt-text="Screenshot of outage entry on the Change Analysis pane.":::
 
@@ -107,7 +107,7 @@ Since the connection string is a secret value, we hide it on the overview page f
 
 The change details pane also shows important information, including who made the change. 
 
-Now that you've discovered the web app in-guest change and understand next steps, you can proceed with troubleshooting the issue. 
+Now that you discovered the web app in-guest change and understand next steps, you can proceed with troubleshooting the issue. 
 
 ## Virtual network changes
 
