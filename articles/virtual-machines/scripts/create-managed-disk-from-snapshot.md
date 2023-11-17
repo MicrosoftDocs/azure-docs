@@ -1,6 +1,6 @@
 ---
 title: Create managed disk from snapshot (Linux) - CLI sample
-description: Azure CLI Script Sample - Create a managed disk from a snapshot
+description: Azure CLI Script Sample - restore a snapshot of a disk and learn about the performance impact of restoring ultra disk and premium ssd v2 snapshots
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
