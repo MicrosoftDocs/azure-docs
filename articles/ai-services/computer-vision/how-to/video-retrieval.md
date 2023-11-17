@@ -2,7 +2,7 @@
 title: Do video retrieval using vectorization - Image Analysis 4.0
 titleSuffix: Azure AI services
 description: Learn how to call the Spatial Analysis Video Retrieval APIs to vectorize video frames and search terms.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
