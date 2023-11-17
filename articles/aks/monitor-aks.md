@@ -17,15 +17,15 @@ When you have critical applications and business processes relying on Azure reso
 > Kubernetes is a complex distributed system with many moving parts so monitoring at multiple levels is required. Although AKS is a managed Kubernetes service, the same rigor around monitoring at multiple levels is still required. This article provides high level information and best practices for monitoring an AKS cluster. See the following for additional details.
 
 - For detailed monitoring of the complete Kubernetes stack, see [Monitor Azure Kubernetes Service (AKS) with Azure Monitor](../azure-monitor/containers/monitor-kubernetes.md)
-> - For collecting metric data from Kubernetes clusters, see [Azure Monitor managed service for Prometheus](../azure-monitor/essentials/prometheus-metrics-overview.md). 
-> - For collecting logs in Kubernetes clusters, see [Container insights](../azure-monitor/containers/container-insights-overview.md). 
-> - For data visualization, see [Azure Workbooks](../azure-monitor/visualize/workbooks-overview.md) and [Azure Managed Grafana](../azure-monitor/visualize/grafana-plugin.md). 
+- For collecting metric data from Kubernetes clusters, see [Azure Monitor managed service for Prometheus](../azure-monitor/essentials/prometheus-metrics-overview.md). 
+- For collecting logs in Kubernetes clusters, see [Container insights](../azure-monitor/containers/container-insights-overview.md). 
+- For data visualization, see [Azure Workbooks](../azure-monitor/visualize/workbooks-overview.md) and [Azure Managed Grafana](../azure-monitor/visualize/grafana-plugin.md). 
 
  ## Monitoring data 
 
 AKS generates the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources). See [Monitoring AKS data reference](monitor-aks-reference.md) for detailed information on the metrics and logs created by AKS. [Other Azure services and features](#integrations) collect other data and enable other analysis options as shown in the following diagram and table. 
 
-:::image type="content" source="media/monitor-aks/aks-monitor-data_v2.png" alt-text="Diagram of collection of monitoring data from AKS." lightbox="media/monitor-aks/aks-monitor-data_v2.png" border="false":::
+:::image type="content" source="media/monitor-aks/aks-monitor-data-v2.png" alt-text="Diagram of collection of monitoring data from AKS." lightbox="media/monitor-aks/aks-monitor-data-v2.png" border="false":::
 
 
 
@@ -134,7 +134,7 @@ Container Insights collect various types of telemetry data from containers and K
 | Workloads, Deployments, and HPAs | InsightsMetrics, KubePodInventory, KubeEvents, ContainerInventory, ContainerNodeInventory, KubeNodeInventory, KubeServices | |
 | Persistent Volumes | InsightsMetrics, KubePVInventory | |
 
-:::image type="content" source="media/monitor-aks/monitorConfig.png" alt-text="Screenshot of AKS data plane logs collection configuration page." lightbox="media/monitor-aks/monitorConfig.png":::
+:::image type="content" source="media/monitor-aks/monitorconfig.png" alt-text="Screenshot of AKS data plane logs collection configuration page." lightbox="media/monitor-aks/monitorconfig.png":::
 
 The **Logs and events** grouping captures the logs from the _ContainerLog_ or _ContainerLogV2_, _KubeEvents_, _KubePodInventory_ tables, but not the metrics. The recommended path to collect metrics is to enable [Azure Monitor managed service Prometheus for Prometheus](../azure-monitor/essentials/prometheus-metrics-overview.md) from your AKS cluster and to use [Azure Managed Grafana](../managed-grafana/overview.md) for data visualization. For more information, see [Manage an Azure Monitor workspace](../azure-monitor/essentials/azure-monitor-workspace-manage.md).
 
