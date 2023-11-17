@@ -33,7 +33,7 @@ The workflow assistant delivers curated information based on reputable knowledge
 > However, the assistant currently supports only English for questions and responses.
 >
 > The workflow assistant follows responsible practices in accordance with the 
-> [Azure Privacy policy](https://portal.azure.com/explore/trusted-cloud/privacy) 
+> [Azure Privacy policy](https://azure.microsoft.com/explore/trusted-cloud/privacy) 
 > and follows responsible and ethical AI practices in accordance with the 
 > [Microsoft responsible AI principles and approach](https://www.microsoft.com/ai/principles-and-approach).
 > For more information, see [Azure customer data protection](../security/fundamentals/protection-customer-data.md) 
@@ -160,7 +160,7 @@ When you enter your question in the assistant's chat box, the Azure Logic Apps b
 
 **Q**: Where can I learn about privacy and data protection for Azure?
 
-**A**: The workflow assistant follows responsible practices in accordance with the [Azure Privacy policy](https://portal.azure.com/explore/trusted-cloud/privacy). For more information, see [Azure customer data protection](../security/fundamentals/protection-customer-data.md) and [Microsoft data protection and privacy](https://www.microsoft.com/trust-center/privacy).
+**A**: The workflow assistant follows responsible practices in accordance with the [Azure Privacy policy](https://azure.microsoft.com/explore/trusted-cloud/privacy). For more information, see [Azure customer data protection](../security/fundamentals/protection-customer-data.md) and [Microsoft data protection and privacy](https://www.microsoft.com/trust-center/privacy).
 
 **Q**: Where can I learn about responsible and ethical AI practices at Microsoft?
 
