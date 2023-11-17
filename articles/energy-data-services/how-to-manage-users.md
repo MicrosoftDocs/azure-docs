@@ -33,7 +33,8 @@ In this article, you'll learn how to manage users and their memberships in OSDU 
 It's the same value that you used to register your application during the provisioning of your [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md). It is often referred to as `app-id`.
 
 1. Find the `client-id` in the *Essentials* pane of Azure Data Manager for Energy *Overview* page.
-2. Copy the `client-id` and paste it into an editor to be used later. 
+2. Copy the `client-id` and paste it into an editor to be used later.
+3. Currently, one Azure Data Manager for Energy instance allows one app-id to be as associated with one instance.
 
 > [!IMPORTANT]
 > The 'client-id' that is passed as values in the entitlement API calls needs to be the same that was used for provisioning your Azure Data Manager for the Energy instance.
@@ -46,10 +47,12 @@ A `client-secret` is a string value your app can use in place of a certificate t
 1. Navigate to *App Registrations*.
 2. Open 'Certificates & secrets' under the *Manage* section.
 3. Create a `client-secret` for the `client-id` that you used to create your Azure Data Manager for Energy instance.
-4. Add one now by clicking on *New Client Secret*. Record the secret's `value` for use in your client application code. 
+4. Add one now by clicking on *New Client Secret*.
+5. Record the secret's `value` for later use in your client application code.
+6. The Service Principal [SPN] of the app id and client secret has the Infra Admin access to the instance.
 
 > [!CAUTION]
-> Don't forget to record the secret's value for use in your client application code. This secret value is never displayed again after you leave this page at the time of the creation of 'client secret'.
+> Don't forget to record the secret's value. This secret value is never displayed again after you leave this page of 'client secret' creation.
 
 :::image type="content" source="media/how-to-manage-users/client-secret.png" alt-text="Screenshot of finding the client secret.":::
 
@@ -59,7 +62,7 @@ A `client-secret` is a string value your app can use in place of a certificate t
 
 :::image type="content" source="media/how-to-manage-users/endpoint-url.png" alt-text="Screenshot of finding the URL from Azure Data Manager for Energy instance.":::
 
-#### Find the `data-partition-id` for your group
+#### Find the `data-partition-id` 
 1. You have two ways to get the list of data partitions in your Azure Data Manager for Energy instance. '
 2. One option is to navigate the *Data Partitions* menu item under the Advanced section of your Azure Data Manager for Energy UI.
 
@@ -70,7 +73,7 @@ A `client-secret` is a string value your app can use in place of a certificate t
 :::image type="content" source="media/how-to-manage-users/data-partition-id-second-option.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance overview page.":::
 
 :::image type="content" source="media/how-to-manage-users/data-partition-id-second-option-step-2.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance overview page with the data partitions.":::
-### Generate access token
+## Generate access token
 
 1. Run the below curl command in Azure Cloud Bash after replacing the placeholder values with the corresponding values found earlier in the above steps.
  
