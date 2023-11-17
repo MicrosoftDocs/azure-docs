@@ -180,7 +180,7 @@
 - name: Reference
   items:
   - name: Azure AI SDK for Python
-    href: /python/api/overview/azure/ai?view=azure-python-preview
+    href: /python/api/overview/azure/ai
   - name: Azure CLI
     href: /cli/azure/cognitiveservices
   - name: Azure PowerShell
