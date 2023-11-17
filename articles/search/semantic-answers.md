@@ -1,17 +1,19 @@
 ---
 title: Return a semantic answer
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Describes the composition of a semantic answer and how to obtain answers from a result set.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 10/04/2023
 ---
 
-# Return a semantic answer in Azure Cognitive Search
+# Return a semantic answer in Azure AI Search
 
 When invoking [semantic ranking and captions](semantic-how-to-query-request.md), you can optionally extract content from the top-matching documents that "answers" the query directly. One or more answers can be included in the response, which you can then render on a search page to improve the user experience of your app.
 
@@ -36,7 +38,7 @@ All prerequisites that apply to [semantic queries](semantic-how-to-query-request
 
 A semantic answer is a substructure of a [semantic query response](semantic-how-to-query-request.md). It consists of one or more verbatim passages from a search document, formulated as an answer to a query that looks like a question. To return an answer, phrases or sentences must exist in a search document that have the language characteristics of an answer, and the query itself must be posed as a question.
 
-Cognitive Search uses a machine reading comprehension model to recognize and pick the best answer. The model produces a set of potential answers from the available content, and when it reaches a high enough confidence level, it proposes one as an answer.
+Azure AI Search uses a machine reading comprehension model to recognize and pick the best answer. The model produces a set of potential answers from the available content, and when it reaches a high enough confidence level, it proposes one as an answer.
 
 Answers are returned as an independent, top-level object in the query response payload that you can choose to render on  search pages, along side search results. Structurally, it's an array element within the response consisting of text, a document key, and a confidence score.
 

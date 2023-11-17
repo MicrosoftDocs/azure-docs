@@ -34,8 +34,10 @@ Available to US government entities and their partners only. See more informatio
     - Neural voice
   - Speech translation
 - **Unsupported features:**
-  - Custom Voice
-  - Custom Commands
+  - Custom commands
+  - Custom neural voice
+  - Personal voice
+  - Text to speech avatar
 - **Supported languages:**
   - See the list of supported languages [here](language-support.md)
 

@@ -36,7 +36,7 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 - Attribute description
 - Whether the attribute is available in the Azure portal
 - Whether the attribute can be used in a user flow
-- Whether the attribute can be used in a custom policy [Microsoft Entra technical profile](active-directory-technical-profile.md) and in which section (&lt;InputClaims&gt;, &lt;OutputClaims&gt;, or &lt;PersistedClaims&gt;)
+- Whether the attribute can be used in a custom policy [Microsoft Entra ID technical profile](active-directory-technical-profile.md) and in which section (&lt;InputClaims&gt;, &lt;OutputClaims&gt;, or &lt;PersistedClaims&gt;)
 
 |Name     |Type     |Description|Azure portal|User flows|Custom policy|
 |---------|---------|----------|------------|----------|-------------|

@@ -18,13 +18,14 @@ Some summarization features are only available in limited regions. More regions 
 
 ## Regional availability table
 
-|Region            |Document abstractive summarization|Conversation issue and resolution summarization|Conversation narrative summarization with chapters|Custom summarization|
-|------------------|----------------------------------|-----------------------------------------------|--------------------------------------------------|--------------------|
-|Azure Gov Virginia|&#9989;                           |&#9989;                                        |&#9989;                                           |&#9989;             |
-|North Europe      |&#9989;                           |&#9989;                                        |&#9989;                                           |&#10060;            |
-|East US           |&#9989;                           |&#9989;                                        |&#9989;                                           |&#9989;             |
-|UK South          |&#9989;                           |&#9989;                                        |&#9989;                                           |&#10060;            |
-|Southeast Asia    |&#9989;                           |&#9989;                                        |&#9989;                                           |&#10060;            |
+|Region            |Document abstractive summarization|Conversation summarization                     |Custom summarization|
+|------------------|----------------------------------|-----------------------------------------------|--------------------|
+|Azure Gov Virginia|&#9989;                           |&#9989;                                        |&#10060;            |
+|North Europe      |&#9989;                           |&#9989;                                        |&#10060;            |
+|East US           |&#9989;                           |&#9989;                                        |&#9989;             |
+|South UK          |&#9989;                           |&#9989;                                        |&#10060;            |
+|Southeast Asia    |&#9989;                           |&#9989;                                        |&#10060;            |
+|Central Sweden    |&#9989;                           |&#9989;                                        |&#10060;            |
 
 ## Next steps
 

@@ -1,13 +1,12 @@
 ---
-title: Identify and analyze risks across your environment
-description: Learn how to prioritize remediation of cloud misconfigurations and vulnerabilities based on risk. 
+title: Investigating risks with security explorer/attack paths in Microsoft Defender for Cloud
+description: Learn about investigating risks with security explorer/attack paths in Microsoft Defender for Cloud.
  attack path.
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.date: 05/07/2023
 ---
 
-# Identify and analyze risks across your environment
+# Investigating risk with security explorer/attack paths
 
 > [!VIDEO https://aka.ms/docs/player?id=36a5c440-00e6-4bd8-be1f-a27fbd007119]
 

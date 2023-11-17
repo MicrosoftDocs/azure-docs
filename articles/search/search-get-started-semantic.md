@@ -1,32 +1,35 @@
 ---
 title: 'Quickstart: semantic ranking'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Change an existing index to use semantic ranking.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: devx-track-dotnet, devx-track-python
+ms.custom:
+  - devx-track-dotnet
+  - devx-track-python
+  - ignite-2023
 ms.topic: quickstart
-ms.date: 06/09/2023
+ms.date: 11/05/2023
 ---
 
 # Quickstart: Semantic ranking with .NET or Python
 
-In Azure Cognitive Search, [semantic ranking](semantic-search-overview.md) is query-side functionality that uses AI from Microsoft to rescore search results, moving results that have more semantic relevance to the top of the list. Depending on the content and the query, semantic ranking can significantly improve a BM25-ranked result set, with minimal work for the developer.
+In Azure AI Search, [semantic ranking](semantic-search-overview.md) is query-side functionality that uses AI from Microsoft to rescore search results, moving results that have more semantic relevance to the top of the list. Depending on the content and the query, semantic ranking can [significantly improve search relevance](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167), with minimal work for the developer.
 
 This quickstart walks you through the query modifications that invoke semantic ranking.
 
 > [!NOTE]
-> Looking for a Cognitive Search solution with ChatGPT interaction? See [this demo](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) for details.
+> Looking for an Azure AI Search solution with ChatGPT interaction? See [this demo](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) or [this accelerator](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) for details.
 
 ## Prerequisites
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search, at Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
++ Azure AI Search, at Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
-+ An API key and service endpoint:
++ An API key and search service endpoint:
 
   Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 

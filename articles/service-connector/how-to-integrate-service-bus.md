@@ -11,7 +11,7 @@ ms.date: 08/11/2022
 
 # Integrate Service Bus with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Service Bus to other cloud services using Service Connector. You might still be able to connect to Service Bus in other programming languages without using Service Connector. 
+This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Service Bus to other cloud services using Service Connector. You might still be able to connect to Service Bus in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create service connections. 
 
 ## Supported compute services
 
@@ -37,7 +37,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ## Default environment variable names or application properties
 
-Use the connection details below to connect compute services to Service Bus. This page also shows default environment variable names and values or Spring Boot configuration you get when you create service connections, as well as sample code. For each example below, replace the placeholder texts `<Service-Bus-namespace>`, `<access-key-name>`, `<access-key-value>` `<client-ID>`, `<client-secret>`, and `<tenant-id>` with your own Service Bus namespace, shared access key name, shared access key value, client ID, client secret and tenant ID. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Use the connection details below to connect compute services to Service Bus. For each example below, replace the placeholder texts `<Service-Bus-namespace>`, `<access-key-name>`, `<access-key-value>` `<client-ID>`, `<client-secret>`, and `<tenant-id>` with your own Service Bus namespace, shared access key name, shared access key value, client ID, client secret and tenant ID. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ### System-assigned managed identity
 

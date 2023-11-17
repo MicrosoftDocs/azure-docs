@@ -11,7 +11,7 @@ ms.custom: event-tier1-build-2022, ignite-2022
 
 # Integrate the Azure Cosmos DB for NoSQL with Service Connector
 
-This page shows the supported authentication types and client types for the Azure Cosmos DB for NoSQL using Service Connector. You might still be able to connect to the Azure Cosmos DB for SQL in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Cosmos DB for NoSQL to other cloud services using Service Connector. You might still be able to connect to Azure Cosmos DB for NoSQL in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
 
 ## Supported compute services
 
@@ -35,7 +35,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ## Default environment variable names or application properties and Sample code
 
-Use the connection details below to connect your compute services to the Azure Cosmos DB for NoSQL. For each example below, replace the placeholder texts `<database-server>`, `<database-name>`,`<account-key>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`, `<SQL-server>`, `<client-secret>`, `<tenant-id>`, and `<access-key>` with your own information.
+Use the connection details below to connect your compute services to the Azure Cosmos DB for NoSQL. For each example below, replace the placeholder texts `<database-server>`, `<database-name>`,`<account-key>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`, `<SQL-server>`, `<client-secret>`, `<tenant-id>`, and `<access-key>` with your own information. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ### System-assigned managed identity
 
@@ -59,7 +59,7 @@ Using a system-assigned managed identity as the authentication type is only avai
 
 #### Sample code
 
-Refer to the steps and code below to Connect to Azure Cosmos DB for NoSQL.
+Refer to the steps and code below to connect to Azure Cosmos DB for NoSQL using a system-assigned identity.
 [!INCLUDE [code for cosmos sql me id](./includes/code-cosmossql-me-id.md)]
 
 ### User-assigned managed identity
@@ -85,7 +85,7 @@ Using a user-assigned managed identity as the authentication type is only availa
 
 #### Sample code
 
-Refer to the steps and code below to Connect to Azure Cosmos DB for NoSQL.
+Refer to the steps and code below to connect to Azure Cosmos DB for NoSQL using a user-assigned identity.
 [!INCLUDE [code for cosmos sql me id](./includes/code-cosmossql-me-id.md)]
 
 ### Connection string
@@ -109,7 +109,7 @@ Refer to the steps and code below to Connect to Azure Cosmos DB for NoSQL.
 
 #### Sample code
 
-Refer to the steps and code below to Connect to Azure Cosmos DB for NoSQL.
+Refer to the steps and code below to connect to Azure Cosmos DB for NoSQL using a connection string.
 [!INCLUDE [code for cosmos sql](./includes/code-cosmossql-secret.md)]
 
 #### Service principal
@@ -137,7 +137,7 @@ Refer to the steps and code below to Connect to Azure Cosmos DB for NoSQL.
 
 #### Sample code
 
-Refer to the steps and code below to Connect to Azure Cosmos DB for NoSQL.
+Refer to the steps and code below to connect to Azure Cosmos DB for NoSQL using a service principal.
 [!INCLUDE [code for cosmos sql me id](./includes/code-cosmossql-me-id.md)]
 
 ## Next steps
