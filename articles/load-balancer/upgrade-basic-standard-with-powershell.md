@@ -31,6 +31,7 @@ The PowerShell module performs the following functions:
 - Migrates Virtual Machine Scale Set and Virtual Machine backend pool members from the Basic Load Balancer to the Standard Load Balancer.
 - Creates and associates a network security group with the Virtual Machine Scale Set or Virtual Machine to ensure load balanced traffic reaches backend pool members, following Standard Load Balancer's move to a default-deny network policy.
 - Upgrades instance-level Public IP addresses associated with Virtual Machine Scale Set or Virtual Machine instances
+- Upgrades [Inbound NAT Pools to Inbound NAT Rules](load-balancer-nat-pool-migration.md#why-migrate-to-nat-rules) for Virtual Machine Scale Set backends. Specify `-skipUpgradeNATPoolsToNATRules` to skip this upgrade.
 - Logs the upgrade operation for easy audit and failure recovery.
 
 >[!WARNING]
@@ -44,7 +45,7 @@ The PowerShell module performs the following functions:
 
 ### Unsupported Scenarios
 
-- Basic Load Balancers with IPV6 frontend IP configurations
+- Basic Load Balancers with IPv6 frontend IP configurations
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member where one or more Virtual Machine Scale Set instances have ProtectFromScaleSetActions Instance Protection policies enabled
 - Migrating a Basic Load Balancer to an existing Standard Load Balancer
 
@@ -220,7 +221,8 @@ The script migrates the following from the Basic Load Balancer to the Standard L
 - Inbound NAT Rules:
   - All user-created NAT rules are migrated to the new Standard Load Balancer
 - Inbound NAT Pools:
-  - All inbound NAT Pools will be migrated to the new Standard Load Balancer
+  - By default, NAT Pools are upgraded to NAT Rules
+  - To migrate NAT Pools instead, specify the `-skipUpgradeNATPoolsToNATRules` parameter when upgrading
 - Backend pools:
   - All backend pools are migrated to the new Standard Load Balancer
   - All Virtual Machine Scale Set and Virtual Machine network interfaces and IP configurations are migrated to the new Standard Load Balancer
@@ -246,7 +248,7 @@ The script migrates the following from the Basic Load Balancer to the Standard L
 - Private frontend IP configuration
 
 >[!NOTE]
-> Network security group are not configured as part of Internal Load Balancer upgrade. To learn more about NSGs, see [Network security groups](../virtual-network/network-security-groups-overview.md)
+> Network security groups are not configured as part of Internal Load Balancer upgrade. To learn more about NSGs, see [Network security groups](../virtual-network/network-security-groups-overview.md)
 
 ### How do I migrate when my backend pool members belong to multiple Load Balancers?
 
@@ -277,8 +279,9 @@ The basic failure recovery procedure is:
   1. Address the cause of the migration failure. Check the log file `Start-AzBasicLoadBalancerUpgrade.log` for details
   1. [Remove the new Standard Load Balancer](./update-load-balancer-with-vm-scale-set.md) (if created). Depending on which stage of the migration failed, you may have to remove the Standard Load Balancer reference from the Virtual Machine Scale Set or Virtual Machine network interfaces (IP configurations) and Health Probes in order to remove the Standard Load Balancer.
   1. Locate the Basic Load Balancer state backup file. This file will either be in the directory where the script was executed, or at the path specified with the `-RecoveryBackupPath` parameter during the failed execution. The file is named: `State_<basicLBName>_<basicLBRGName>_<timestamp>.json`
-  1. Rerun the migration script, specifying the `-FailedMigrationRetryFilePathLB <BasicLoadBalancerbackupFilePath>` and `-FailedMigrationRetryFilePathVMSS <VMSSBackupFile>` (for Virtual Machine Scaleset backends) parameters instead of -BasicLoadBalancerName or passing the Basic Load Balancer over the pipeline
+  1. Rerun the migration script, specifying the `-FailedMigrationRetryFilePathLB <BasicLoadBalancerbackupFilePath>` and `-FailedMigrationRetryFilePathVMSS <VMSSBackupFile>` (for Virtual Machine Scale set backends) parameters instead of -BasicLoadBalancerName or passing the Basic Load Balancer over the pipeline
 
 ## Next steps
 
+[If skipped, migrate from using NAT Pools to NAT Rules for Virtual Machine Scale Sets](load-balancer-nat-pool-migration.md)
 [Learn about Azure Load Balancer](load-balancer-overview.md)

@@ -1,17 +1,19 @@
 ---
 title: Search over JSON blobs
-titleSuffix: Azure Cognitive Search
-description: Crawl Azure JSON blobs for text content using the Azure Cognitive Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob Storage.
+titleSuffix: Azure AI Search
+description: Crawl Azure JSON blobs for text content using the Azure AI Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob Storage.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 03/22/2023
 ---
-# Index JSON blobs and files in Azure Cognitive Search
+# Index JSON blobs and files in Azure AI Search
 
 **Applies to**: [Blob indexers](search-howto-indexing-azure-blob-storage.md), [File indexers](search-file-storage-integration.md)
 
@@ -73,7 +75,7 @@ api-key: [admin key]
 
 ### json example (single hotel JSON files)
 
-The [hotel JSON document data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels/hotel-json-documents) on GitHub is helpful for testing JSON parsing, where each blob represents a structured JSON file. You can upload the data files to Blob Storage and use the [**Import data** wizard](search-get-started-portal.md) to quickly evaluate how this content is parsed into individual search documents. 
+The [hotel JSON document data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/hotels/hotel-json-documents) on GitHub is helpful for testing JSON parsing, where each blob represents a structured JSON file. You can upload the data files to Blob Storage and use the [**Import data** wizard](search-get-started-portal.md) to quickly evaluate how this content is parsed into individual search documents. 
 
 The data set consists of five blobs, each containing a hotel document with an address collection and a rooms collection. The blob indexer detects both collections and reflects the structure of the input documents in the index schema.
 
@@ -108,7 +110,7 @@ api-key: [admin key]
 
 ### jsonArrays example (clinical trials sample data)
 
-The [clinical trials JSON data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials/clinical-trials-json) on GitHub is helpful for testing JSON array parsing. You can upload the data files to Blob storage and use the [**Import data** wizard](search-get-started-portal.md) to quickly evaluate how this content is parsed into individual search documents. 
+The [clinical trials JSON data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/clinical-trials/clinical-trials-json) on GitHub is helpful for testing JSON array parsing. You can upload the data files to Blob storage and use the [**Import data** wizard](search-get-started-portal.md) to quickly evaluate how this content is parsed into individual search documents. 
 
 The data set consists of eight blobs, each containing a JSON array of entities, for a total of 100 entities. The entities vary as to which fields are populated, but the end result is one search document per entity, from all arrays, in all blobs.
 
