@@ -129,11 +129,7 @@ this.call.OnStateChanged += Call_OnStateChangedAsync;
 Feel free to use `8:echo123` to talk to the Azure Communication Services echo bot.
 
 ## Mute and unmute
-<<<<<<< HEAD
 To mute or unmute the outgoing audio you can use the `MuteOutgoingAudioAsync` and `UnmuteOutgoingAudioAsync` asynchronous APIs:
-=======
-To mute or unmute the local endpoint you can use the `MuteOutgoingAudioAsync` and `UnmuteOutgoingAudioAsync` asynchronous APIs:
->>>>>>> b85ee8b7906e (Add the changes for Native Mute Others - Windows)
 
 ```csharp
 // mute outgoing audio
