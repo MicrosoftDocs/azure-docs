@@ -29,7 +29,7 @@ You can use the following options to configure your DNS settings for private end
 > [!CAUTION]
 > - It's not recommended to override a zone that's actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service listed later in this article.
 > 
-> - Existing Private DNS Zones linked to a single service should not be associated with two different Private Endpoints. This will cause a deletion of the initial A-record and result in resolution issue when attempting to access that service from each respective Private Endpoint. However, linking a Private DNS Zones with private endpoints associated with different services would not face this resolution constraint.
+> - Existing Private DNS Zones linked to a single Azure service should not be associated with two different Azure service Private Endpoints. This will cause a deletion of the initial A-record and result in resolution issue when attempting to access that service from each respective Private Endpoint. Create a DNS zone for each Private Endpoint of like services. Don't place records for multiple services in the same DNS zone.
 
 ## Azure services DNS zone configuration
 
@@ -37,12 +37,13 @@ Azure creates a canonical name DNS record (CNAME) on the public DNS. The CNAME r
 
 Connection URLs for your existing applications don't change. Client DNS requests to a public DNS server resolve to your private endpoints. The process doesn't affect your existing applications.
 
-Azure File Shares must be remounted if connected to the public endpoint.
+> [!IMPORTANT]
+> Azure File Shares must be remounted if connected to the public endpoint.
 
 > [!CAUTION]
 > * Private networks already using the private DNS zone for a given type, can only connect to public resources if they don't have any private endpoint connections, otherwise a corresponding DNS configuration is required on the private DNS zone in order to complete the DNS resolution sequence. The corresponding DNS configuration is a manually entered A-record that points to the public IP address of the resource. This procedure isn't recommended as the IP address of the A record won't be automatically updated if the corresponding public IP address changes.
 >
-> * Private endpoint private DNS zone configurations will only automatically generate if you use the recommended naming scheme in the following table.
+> * Private endpoint private DNS zone configurations will only automatically generate if you use the recommended naming scheme in the following tables.
 
 For Azure services, use the recommended zone names as described in the following tables:
 
