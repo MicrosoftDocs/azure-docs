@@ -37,10 +37,10 @@ highlightedContent:
       url: https://techcommunity.microsoft.com/t5/security-compliance-and-identity/recordings-security-community-webinars/ba-p/2865990
     - title: Choose a secure network topology
       itemType: concept
-      url: secure-network-topology.md
+      url: ../secure-network-topology.md
     - title: Choose a secure application delivery service
       itemType: concept
-      url: secure-application-delivery.md
+      url: ../secure-application-delivery.md
 
 
 # additionalContent section (optional)
