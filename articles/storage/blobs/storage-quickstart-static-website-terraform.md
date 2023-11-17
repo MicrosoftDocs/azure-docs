@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Storage account with static website ho
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: quickstart
-ms.date: 11/13/2021
+ms.date: 11/17/2021
 ms.author: normesta
 ms.custom: devx-track-terraform
 content_well_notification: 
