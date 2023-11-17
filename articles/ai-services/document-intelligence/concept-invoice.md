@@ -5,6 +5,8 @@ description: Automate invoice data extraction with Document Intelligence's invoi
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: lajanuar

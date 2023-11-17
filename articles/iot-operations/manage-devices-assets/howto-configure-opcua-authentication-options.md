@@ -1,14 +1,17 @@
 ---
 title: Configure OPC UA authentication options
+titleSuffix: Azure IoT OPC UA Broker
 description: How to configure OPC UA authentication options to use with Azure IoT OPC UA Broker
 author: timlt
 ms.author: timlt
-# ms.subservice: opcua-broker
-ms.topic: how-to 
+ms.subservice: opcua-broker
+ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 11/6/2023
 
-# CustomerIntent: As a user in IT, operations, or development, I want to configure my OPC UA industrial edge environment 
-# with custom authentication options to keep it secure and work with my solution. 
+# CustomerIntent: As a user in IT, operations, or development, I want to configure my OPC UA industrial edge environment
+# with custom authentication options to keep it secure and work with my solution.
 ---
 
 # Configure OPC UA authentication options

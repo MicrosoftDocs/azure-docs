@@ -2,7 +2,9 @@
 title: Event hubs as event handler for Azure Event Grid namespaces
 description: Describes how you can use an Azure event hub as an event handler for Azure Event Grid namespaces.
 ms.topic: conceptual
-ms.date: 10/10/2023
+ms.custom:
+  - ignite-2023
+ms.date: 11/15/2023
 ---
 
 # Azure Event hubs as a handler destination in subscriptions to Azure Event Grid namespace topics

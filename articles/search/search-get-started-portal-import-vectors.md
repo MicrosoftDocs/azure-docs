@@ -6,6 +6,8 @@ description: Use the Import and vectorize data wizard to automate data chunking 
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: quickstart
 ms.date: 11/06/2023
 ---
@@ -153,4 +155,4 @@ Azure AI Search is a billable resource. If it's no longer needed, delete it from
 
 ## Next steps
 
-This quickstart introduced you to the **Import and vectorize data** wizard that creates all of the objects necessary for integrated vectorization. If you want to explore each step in detail, try the [integrated vectorization samples](https://github.com/Azure/cognitive-search-vector).
+This quickstart introduced you to the **Import and vectorize data** wizard that creates all of the objects necessary for integrated vectorization. If you want to explore each step in detail, try an [integrated vectorization sample](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-python/code/azure-search-integrated-vectorization-sample.ipynb).

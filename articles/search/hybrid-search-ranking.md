@@ -6,6 +6,8 @@ description: Describes the Reciprocal Rank Fusion (RRF) algorithm used to unify 
 author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/01/2023
 ---
@@ -69,7 +71,7 @@ For more information, see [How to work with search results](search-pagination-pa
 
 The following diagram illustrates a hybrid query that invokes keyword and vector search, with boosting through scoring profiles, and semantic ranking.
 
-:::image type="content" source="media/hybrid-search/search-scoring-flow.svg" alt-text="Diagram of prefilters." border="true" lightbox="media/hybrid-search/search-scoring-flow.png":::
+:::image type="content" source="media/hybrid-search/search-scoring-flow.png" alt-text="Diagram of prefilters." border="true" lightbox="media/hybrid-search/search-scoring-flow.png":::
 
 A query that generates the previous workflow might look like this:
 

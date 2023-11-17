@@ -10,7 +10,10 @@ keywords: Azure AI services, cognitive intelligence, cognitive solutions, ai ser
 ms.topic: include
 ms.date: 08/29/2022
 ms.author: migreene
-ms.custom: mode-api, devx-track-azurepowershell
+ms.custom:
+  - mode-api
+  - devx-track-azurepowershell
+  - ignite-2023
 ms.devlang: azurepowershell
 ---
 
@@ -118,4 +121,3 @@ To remove the resource group and its associated resources, use the [Remove-AzRes
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name ai-services-resource-group
 ```
-

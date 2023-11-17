@@ -1,10 +1,12 @@
 ---
 title: Publish and deliver events using namespace topics
-description: This article provides step-by-step instructions to publish to Azure Event Grid in the CloudEvents JSON format and deliver those events by using the push delivery model. 
+description: This article provides step-by-step instructions to publish to Azure Event Grid in the CloudEvents JSON format and deliver those events by using the push delivery model.
 ms.topic: quickstart
+ms.custom:
+  - ignite-2023
 ms.author: robece
 author: robece
-ms.date: 10/24/2023
+ms.date: 11/15/2023
 ---
 
 # Publish and deliver events using namespace topics (preview)

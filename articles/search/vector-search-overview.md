@@ -6,6 +6,8 @@ description: Describes concepts, scenarios, and availability of the vector searc
 author: robertklee
 ms.author: robertlee
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/01/2023
 ---
@@ -26,7 +28,7 @@ We recommend this article for background, but if you'd rather get started, follo
 
 You could also begin with the [vector quickstart](search-get-started-vector.md) or the [code samples on GitHub](https://github.com/Azure/cognitive-search-vector-pr). 
 
-Vector search is in the Azure portal and the Azure SDKs for [.NET](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.4), [Python](https://pypi.org/project/azure-search-documents/11.4.0b8/), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2).
+Vector search is in the Azure portal and the Azure SDKs for [.NET](https://www.nuget.org/packages/Azure.Search.Documents), [Python](https://pypi.org/project/azure-search-documents), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2).
 
 ## What's vector search in Azure AI Search?
 
@@ -45,6 +47,8 @@ You can index vector data as fields in documents alongside alphanumeric content.
 ## Availability and pricing
 
 Vector search is available as part of all Azure AI Search tiers in all regions at no extra charge.
+
+Newer services created after July 1, 2023 support [higher quotas for vector indexes](vector-search-index-size.md).
 
 > [!NOTE]
 > Some older search services created before January 1, 2019 are deployed on infrastructure that doesn't support vector workloads. If you try to add a vector field to a schema and get an error, it's a result of outdated services. In this situation, you must create a new search service to try out the vector feature.

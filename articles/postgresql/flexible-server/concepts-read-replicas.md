@@ -7,6 +7,8 @@ ms.reviewer: maghan
 ms.date: 11/06/2023
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ---
 
@@ -225,17 +227,6 @@ The sections below delve into how these endpoints react to both "Promote to prim
 > Resetting the admin password on the replica server is currently not supported. Additionally, updating the admin password along with promoting replica operation in the same request is also not supported. If you wish to do this you must first promote the replica server and then update the password on the newly promoted server separately.
 
 Learn how to [create virtual endpoints](how-to-read-replicas-portal.md#create-virtual-endpoints-preview).
-
-### Considerations
-
-- Before you stop replication on a read replica, check for the replication lag to ensure the replica has all the data that you require.
-- As the read replica has to apply all pending logs before it can be made a standalone server, RTO can be higher for write-heavy workloads when the stop replication happens, as there could be a significant delay on the replica. Pay attention to this when planning to promote a replica.
-
-- If you have multiple read replicas, and if you promote one of them to be your primary server, other replica servers are still connected to the old primary. You might have to recreate replicas from the new, promoted server.
-
-When you promote a replica, the replica loses all links to its previous primary and other replicas.
-
-Learn how to [promote a replica](how-to-read-replicas-portal.md#promote-replicas).
 
 ## Monitor replication
 

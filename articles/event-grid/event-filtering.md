@@ -2,8 +2,10 @@
 title: Event filtering for Azure Event Grid
 description: Describes how to filter events when creating an Azure Event Grid subscription.
 ms.topic: conceptual
-ms.custom: devx-track-arm-template
-ms.date: 11/02/2023
+ms.custom:
+  - devx-track-arm-template
+  - ignite-2023
+ms.date: 11/15/2023
 ---
 
 # Understand event filtering for Event Grid subscriptions

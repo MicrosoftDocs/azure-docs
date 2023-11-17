@@ -9,7 +9,10 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 05/16/2023
-ms.custom: subject-rbac-steps, references_regions
+ms.custom:
+  - subject-rbac-steps
+  - references_regions
+  - ignite-2023
 ---
 
 # Connect to Azure AI Search using Azure role-based access control (Azure RBAC)
@@ -298,7 +301,7 @@ For more information on how to acquire a token for a specific environment, see [
 
 ### [**.NET**](#tab/test-csharp)
 
-1. Use the [Azure.Search.Documents 11.4.0](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0) package.
+1. Use the [Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents) package.
 
 1. Use [Azure.Identity for .NET](/dotnet/api/overview/azure/identity-readme) for token authentication. Microsoft recommends [`DefaultAzureCredential()`](/dotnet/api/azure.identity.defaultazurecredential) for most scenarios.
 
@@ -325,7 +328,7 @@ For more information on how to acquire a token for a specific environment, see [
 
 ### [**Python**](#tab/test-python)
 
-1. Use [azure.search.documents (Azure SDK for Python) version 11.3](https://pypi.org/project/azure-search-documents/).
+1. Use [azure.search.documents (Azure SDK for Python)](https://pypi.org/project/azure-search-documents/).
 
 1. Use [Azure.Identity for Python](/python/api/overview/azure/identity-readme) for token authentication.
 
@@ -353,7 +356,7 @@ For more information on how to acquire a token for a specific environment, see [
 
 ### [**Java**](#tab/test-java)
 
-1. Use [azure-search-documents (Azure SDK for Java) version 11.5.6](https://central.sonatype.com/artifact/com.azure/azure-search-documents/11.5.6).
+1. Use [azure-search-documents (Azure SDK for Java)](https://central.sonatype.com/artifact/com.azure/azure-search-documents).
 
 1. Use [Azure.Identity for Java](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true) for token authentication.
 
@@ -368,7 +371,7 @@ If you're already a Contributor or Owner of your search service, you can present
 1. Get a bearer token for the current user:
 
     ```azurecli
-    az account get-access-token https://search.azure.com/.default
+    az account get-access-token --scope https://search.azure.com/.default
     ```
 
 1. Start a new Postman collection and edit its properties. In the **Variables** tab, create the following variable:

@@ -5,6 +5,8 @@ description: This article introduces the Embedding tool for flows in Azure AI St
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: eur

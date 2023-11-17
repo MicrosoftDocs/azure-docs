@@ -5,11 +5,13 @@ description: Document Intelligence prebuilt / pretrained model language extracti
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
 ---
 
-# Prebuilt model language support
+# Language support: prebuilt models
 
 ::: moniker range="doc-intel-4.0.0"
 [!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]

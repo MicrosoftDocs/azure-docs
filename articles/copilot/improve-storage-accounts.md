@@ -4,6 +4,9 @@ description: Learn how Microsoft Copilot for Azure (preview) can improve the sec
 ms.date: 11/15/2023
 ms.topic: conceptual
 ms.service: azure
+ms.custom:
+  - ignite-2023
+  - ignite-2023-copilotinAzure
 ms.author: jenhayes
 author: JnHs
 ---
@@ -20,7 +23,7 @@ When you ask Microsoft Copilot for Azure (preview) about improving security acco
 
 ## Sample prompts
 
-Here are a few examples of the kinds of prompts you can use to improve and protect your storage accounts. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of queries.
+Here are a few examples of the kinds of prompts you can use to improve and protect your storage accounts. Modify these prompts based on your real-life scenarios, or try additional prompts to get advice on specific areas.
 
 - "How can I make this storage account more secure?"
 - "Does this storage account follow security best practices?"

@@ -2,7 +2,9 @@
 title: Introduction to push delivery in Event Grid namespaces
 description: Learn about push delivery supported by Azure Event Grid namespaces.
 ms.topic: conceptual
-ms.date: 10/16/2023
+ms.custom:
+  - ignite-2023
+ms.date: 11/15/2023
 author: robece
 ms.author: robece
 ---

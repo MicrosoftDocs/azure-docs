@@ -5,9 +5,11 @@
  author: spelluru
  ms.service: event-grid
  ms.topic: include
- ms.date: 10/18/2023
+ ms.date: 11/15/2023
  ms.author: spelluru
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 
 > [!IMPORTANT]

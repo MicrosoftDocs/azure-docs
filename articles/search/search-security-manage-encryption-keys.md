@@ -9,7 +9,9 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 01/20/2023
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - ignite-2023
 ---
 
 # Configure customer-managed keys for data encryption in Azure AI Search

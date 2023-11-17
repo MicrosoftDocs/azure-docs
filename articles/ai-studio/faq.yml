@@ -26,7 +26,7 @@ sections:
       - question: |
           What regions is Azure AI Studio available in?
         answer: | 
-          Azure AI Studio is available in all regions where Azure OpenAI is available. For more information, see the [Azure OpenAI region availability guide](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability). 
+          Azure AI Studio is available in these regions: Australia East, Brazil South, Canada Central, East US, East US 2, France Central, Germany West Central, India South, Japan East, North Central US, Norway East, Poland Central, South Africa North, South Central US, Sweden Central, Switzerland North, UK South, West Europe, and West US.
       - question: |
           Can I integrate Microsoft Fabric data into Azure AI Studio? 
         answer: |
@@ -88,6 +88,6 @@ additionalContent: |
 
   ## Next steps
   - [Azure AI Studio](what-is-ai-studio.md)
-  - [Plan and manageg costs](./how-to/costs-plan-manage.md)
+  - [Plan and manage costs](./how-to/costs-plan-manage.md)
 
 

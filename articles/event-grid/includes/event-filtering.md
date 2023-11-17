@@ -1,13 +1,15 @@
 ---
  title: Event type filtering in Event Grid
- description: Provides information on different types of event filtering supported by Azure Event Grid. 
+ description: Provides information on different types of event filtering supported by Azure Event Grid.
  services: event-grid
  author: robece
  ms.service: event-grid
  ms.topic: include
- ms.date: 10/11/2023
+ ms.date: 11/15/2023
  ms.author: robece
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 
 ## Event type filtering

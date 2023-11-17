@@ -7,8 +7,10 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 10/09/2023
+ms.date: 11/16/2023
 ---
 
 # Create a full-text query in Azure AI Search
@@ -25,12 +27,12 @@ If you're building a query for [full text search](search-lucene-query-architectu
 
 In Azure AI Search, a query is a read-only request against the docs collection of a single search index, with parameters that both inform query execution and shape the response coming back. 
 
-A full text query is specified in a `search` parameter and consists of terms, quote-enclosed phrases, and operators. Other parameters add more definition to the request. For example, `searchFields` scopes query execution to specific fields, `select` specifies which fields are returned in results, and `count` returns the number of matches found in the index.
+A full text query is specified in a `search` parameter and consists of terms, quote-enclosed phrases, and operators. Other parameters add more definition to the request.
 
-The following [Search Documents REST API](/rest/api/searchservice/search-documents) call illustrates a query request using the aforementioned parameters.
+The following [Search POST REST API](/rest/api/searchservice/documents/search-post) call illustrates a query request using the aforementioned parameters.
 
 ```http
-POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2023-11-01
 {
     "search": "NY +view",
     "queryType": "simple",
@@ -76,35 +78,43 @@ In the portal, when you open an index, you can work with Search Explorer alongsi
 
 1. Open **Indexes** and select an index.
 
-1. An index opens to the [**Search explorer**](search-explorer.md) tab so that you can query right away. A query string can use simple or full syntax, with support for all query parameters (filter, select, searchFields, and so on). 
+1. An index opens to the [**Search explorer**](search-explorer.md) tab so that you can query right away. Switch to **JSON view** to specify query syntax. 
 
    Here's a full text search query expression that works for the Hotels sample index:
 
-   `search=pool spa +airport&$searchFields=Description,Tags&$select=HotelName,Description,Category&$count=true`
+   ```json
+      {
+          "search": "pool spa +airport",
+          "queryType": "simple",
+          "searchMode": "any",
+          "searchFields": "Description, Tags",
+          "select": "HotelName, Description, Tags",
+          "top": 10,
+          "count": true
+      }
+    ```
 
    The following screenshot illustrates the query and response:
 
    :::image type="content" source="media/search-explorer/search-explorer-full-text-query-hotels.png" alt-text="Screenshot of Search Explorer with a full text query.":::
 
-Notice that you can change the REST API version if you require search behaviors from a specific version, or switch to **JSON view** if you want to paste in the JSON definition of a query. For more information about what a JSON definition looks like, see [Search Documents (REST)](/rest/api/searchservice/search-documents).
-
 ### [**REST API**](#tab/rest-text-query)
 
-[Postman app](https://www.postman.com/downloads/) is useful for working with the REST APIs, such as [Search Documents (REST)](/rest/api/searchservice/search-documents). 
+[Postman app](https://www.postman.com/downloads/) is useful for working with the REST APIs, such as [Search Documents (REST)](/rest/api/searchservice/documents/search-post). 
 
 [Quickstart: Create a search index using REST and Postman](search-get-started-rest.md) has step-by-step instructions for setting up requests.
 
 The following example calls the REST API for full text search:
 
 ```http
-POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2023-11-01
 {
     "search": "NY +view",
     "queryType": "simple",
     "searchMode": "all",
     "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
     "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
-    "count": "true"
+    "count": true
 }
 ```
 

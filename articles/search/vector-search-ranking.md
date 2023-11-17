@@ -6,6 +6,8 @@ description: Explains the concepts behind vector relevance, scoring, including h
 author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 10/24/2023
 ---

@@ -5,6 +5,8 @@ description: Azure AI Document Intelligence is a machine-learning based OCR and 
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: overview
 ms.date: 11/15/2023
 ms.author: lajanuar
@@ -105,7 +107,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-insurance-card.png" link="#health-insurance-card":::</br>
-    [**Health Insurance card**](#health-insurance-card) | Extract health insurance details.
+    [**Health Insurance card**](#health-insurance-card) | Extract health </br>insurance details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::</br>
@@ -188,12 +190,13 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 
 ## Custom models
 
-Custom models are trained using your labeled datasets to extract distinct data from forms and documents, specific to your use cases. Standalone custom models can be combined to create composed models.
+* Custom models are trained using your labeled datasets to extract distinct data from forms and documents, specific to your use cases.
+* Standalone custom models can be combined to create composed models.
 
 :::row:::
     :::column:::
-        **Extraction models**</br>
-        Custom extraction models are trained to extract labeled fields from documents.
+        * **Extraction models**</br>
+        ✔️ Custom extraction models are trained to extract labeled fields from documents.
     :::column-end:::
 :::row-end:::
 
@@ -214,15 +217,15 @@ Custom models are trained using your labeled datasets to extract distinct data f
 
 :::row:::
     :::column:::
-        **Classification model**</br>
-         Custom classifiers analyze input documents to identify document types prior to invoking an extraction model.
+        * **Classification model**</br>
+         ✔️ Custom classifiers identify document types prior to invoking an extraction model.
     :::column-end:::
 :::row-end:::
 
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-custom-classifier.png" link="#custom-classification-model":::</br>
-    [**Custom classifier**](#custom-classification-model) | Identify designated document types (classes) prior to invoking an extraction model.
+    [**Custom classifier**](#custom-classification-model) | Identify designated document types (classes) </br>prior to invoking an extraction model.
    :::column-end:::
 :::row-end:::
 
@@ -259,8 +262,8 @@ Document Intelligence supports optional features that can be enabled and disable
 |prebuilt-tax.us.1099(Variations)|✓| | |✓| | |O|O|✓|O|O|O|✓|
 |prebuilt-contract|✓|✓|✓|✓| | |O|O|✓|O|O|O|✓|
 |{ customModelName }|✓|✓|✓|✓|✓| |O|O|✓|O|O|O|✓|
-|prebuilt-document (deprecated 2023-10-31-preview)|✓|✓|✓|✓|✓|✓|O|O| |O|O|O| |
-|prebuilt-businessCard (deprecated 2023-10-31-preview)|✓| | | | | | | |✓| | | | |
+|prebuilt-document (**deprecated </br>2023-10-31-preview**)|✓|✓|✓|✓|✓|✓|O|O| |O|O|O| |
+|prebuilt-businessCard (**deprecated </br>2023-10-31-preview**)|✓| | | | | | | |✓| | | | |
 
 ✓ - Enabled</br>
 O - Optional</br>

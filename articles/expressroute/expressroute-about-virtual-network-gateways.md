@@ -5,10 +5,11 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 11/16/2023
 ms.author: duau
-
+ms.custom: ignite-2023
 ---
+
 # About ExpressRoute virtual network gateways
 
 To connect your Azure virtual network and your on-premises network using ExpressRoute, you must first create a virtual network gateway. A virtual network gateway serves two purposes: exchange IP routes between the networks and route network traffic. This article explains different gateway types, gateway SKUs, and estimated performance by SKU. This article also explains ExpressRoute [FastPath](#fastpath), a feature that enables the network traffic from your on-premises network to bypass the virtual network gateway to improve performance.
@@ -68,6 +69,7 @@ Before you create an ExpressRoute gateway, you must create a gateway subnet. The
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
 >
+>- Linking a private DNS resolver to the virtual network where the ExpressRoute virtual network gateway is deployed may cause management connectivity issues and is not recommended.
 
 When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others. 
 
@@ -138,7 +140,7 @@ A virtual network with an ExpressRoute gateway can have virtual network peering 
 
 ## ExpressRoute scalable gateway (Preview)
 
-The ErGwScale virtual network gateway SKU enables you to achieve 40-Gbps connectivity to VMs and Private Endpoints in the virtual network. This SKU allows you to set a minimum and maximum scale unit for the virtual network gateway infrastructure, which auto scales based on the active bandwidth. You can also set a fixed scale unit to maintain a constant connectivity at a desired bandwidth value.
+The ErGwScale virtual network gateway SKU enables you to achieve 40-Gbps connectivity to VMs and Private Endpoints in the virtual network. This SKU allows you to set a minimum and maximum scale unit for the virtual network gateway infrastructure, which auto scales based on the active bandwidth or flow count. You can also set a fixed scale unit to maintain a constant connectivity at a desired bandwidth value.
 
 ### Availability zone deployment & regional availability
 
@@ -154,7 +156,7 @@ ErGwScale is available in preview in the following regions:
 
 ### Autoscaling vs. fixed scale unit
 
-The virtual network gateway infrastructure auto scales between the minimum and maximum scale unit that you configure, based on the bandwidth utilization. The scale operations might take up to 30 minutes to complete. If you want to achieve a fixed connectivity at a specific bandwidth value, you can configure a fixed scale unit by setting the minimum scale unit and the maximum scale unit to the same value.
+The virtual network gateway infrastructure auto scales between the minimum and maximum scale unit that you configure, based on the bandwidth or flow count utilization. Scale operations might take up to 30 minutes to complete. If you want to achieve a fixed connectivity at a specific bandwidth value, you can configure a fixed scale unit by setting the minimum scale unit and the maximum scale unit to the same value.
 
 ### Limitations
 

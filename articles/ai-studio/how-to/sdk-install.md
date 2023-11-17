@@ -5,6 +5,8 @@ description: This article provides instructions on how to get started with the A
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.author: eur
@@ -72,7 +74,16 @@ conda activate ai_env
 Currently to use the generative packages of the Azure AI SDK, you install a set of packages as described in this section. 
 
 > [!CAUTION]
-> It's recommended to run this command either in a virtual environment, conda environment, or docker container. If you do not do this, you may run into dependency issues with the packages you have installed on your system. For more information, see [Install Python](#install-python-via-virtual-environments).
+> It's recommended to install the SDK either in a virtual environment, conda environment, or docker container. If you don't do this, you might run into dependency issues with the packages you have installed on your system. For more information, see [Install Python](#install-python-via-virtual-environments).
+
+### Option 1: Install via pip
+
+```bash
+pip install azure-ai-generative[index,evaluate,promptflow]
+pip install azure-identity
+```
+
+### Option 2: Install via requirements.txt
 
 1. Create a new text file named `requirements.txt` in your project directory.
 1. Copy the content from the [Azure/aistudio-copilot-sample requirements.txt](https://github.com/Azure/aistudio-copilot-sample/blob/main/requirements.txt) repository on GitHub into your `requirements.txt` file.
@@ -114,5 +125,6 @@ The Azure AI code samples in GitHub Codespaces help you quickly get started with
 
 ## Next steps
 
+- [Get started building a sample copilot application](https://github.com/azure/aistudio-copilot-sample)
 - [Try the Azure AI CLI from Azure AI Studio in a browser](vscode-web.md)
 - [Azure SDK for Python reference documentation](/python/api/overview/azure)

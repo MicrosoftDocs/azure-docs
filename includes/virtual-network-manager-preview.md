@@ -5,9 +5,11 @@
  author: mbender
  ms.service: virtual-network-manager
  ms.topic: include
- ms.date: 11/01/2023
+ ms.date: 11/16/2023
  ms.author: mbender-ms
-  ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 
 > [!IMPORTANT]
@@ -19,7 +21,7 @@
 > - Japan East
 > - North Europe
 > - East Asia
-> - Australia East-
+> - Australia East
 > - West Central US
 > 
 > All other regions remain in public preview.

@@ -1,14 +1,15 @@
 ---
 title: Azure ECesv5 and ECedsv5-series confidential virtual machines
-description: Specifications for Azure Confidential Computing's ECesv5 and ECedsv5-series confidential virtual machines. 
+description: Specifications for Azure Confidential Computing's ECesv5 and ECedsv5-series confidential virtual machines.
 author: michamcr
 ms.author: mmcrey
 ms.reviewer: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/14/2023
-
 ---
 
 # ECesv5 and ECedsv5-series confidential VMs
@@ -67,7 +68,7 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 
 The ECedsv5 VMs offer even higher memory to vCPU ratio and an all new VM size with up to 128 vCPUs and 768 GiB of RAM, as well as up to 2.8 TB local disk storage. These VMs are ideal for memory intensive applications, large relational database servers, business intelligence applications, and additional critical applications which process sensitive and regulated data. 
 
-This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator]
+This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ### ECedsv5-series specifications
 

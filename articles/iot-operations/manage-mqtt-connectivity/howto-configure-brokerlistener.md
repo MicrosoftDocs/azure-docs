@@ -1,11 +1,14 @@
 ---
 title: Secure Azure IoT MQ communication using BrokerListener
-# titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ
 description: Understand how to use the BrokerListener resource to secure Azure IoT MQ communications including authorization, authentication, and TLS.
 author: PatAltimore
 ms.author: patricka
-ms.topic: concept-article
-ms.date: 11/05/2023
+ms.subservice: mq
+ms.topic: how-to
+ms.custom:
+  - ignite-2023
+ms.date: 11/15/2023
 
 #CustomerIntent: As an operator, I want understand options to secure MQTT communications for my IoT Operations solution.
 ---
@@ -22,16 +25,13 @@ The *BrokerListener* resource has these fields:
 
 | Field Name | Required | Description |
 | --- | --- | --- |
-| brokerRef | Yes | The name of the broker resource that this listener belongs to. This field is required and must match an existing *Broker* resource in the same namespace. |
-| port | Yes | The port number that this listener listens on. This field is required and must be a valid TCP port number. |
-| serviceType | No | The type of the Kubernetes service created for this listener. This subfield is optional and defaults to `loadBalancer`. Must be either `loadBalancer`, `clusterIp`, or `nodePort`. |
-| serviceName | | The name of Kubernetes service created for this listener. Kubernetes creates DNS records for this `serviceName` that clients should use to connect to IoT MQ. This subfield is optional and defaults to `aio-mq-dmqtt-frontend`. If multiple service types are specified across different `BrokerListeners`, each `serviceType` must have a unique `serviceName`. |
-| nodePort | | If `serviceType` is `nodePort`, specify the port to use as the `nodePort`. Has no effect for other service types. |
-| authenticationEnabled | | A boolean flag that indicates whether this listener requires authentication from clients. If set to `true`, this listener uses any *BrokerAuthentication* resources associated with it to verify and authorize the clients. If set to `false`, this listener allows any client to connect without authentication. This field is optional and defaults to `false`. |
-| tls | No | The TLS settings for the listener. The field is optional and can be omitted to disable TLS for the listener. To configure TLS, set it one of these types: `automatic`: Indicates that this listener uses cert-manager to get and renew a certificate for the listener. To use this type, specify an `issuerRef` field to reference the cert-manager issuer; `manual`: Indicates that the listener uses a manually provided certificate for the listener. To use this type, specify a `secret` field that references a Kubernetes secret resource containing the certificate and the private key. |
-
-> [!IMPORTANT]
-> At this time, you cannot have two listener resources of the same *serviceType* with a different *serviceName*
+| `brokerRef` | Yes | The name of the broker resource that this listener belongs to. This field is required and must match an existing *Broker* resource in the same namespace. |
+| `port` | Yes | The port number that this listener listens on. This field is required and must be a valid TCP port number. |
+| `serviceType` | No | The type of the Kubernetes service created for this listener. This subfield is optional and defaults to `clusterIp`. Must be either `loadBalancer`, `clusterIp`, or `nodePort`. |
+| `serviceName` | No | The name of Kubernetes service created for this listener. Kubernetes creates DNS records for this `serviceName` that clients should use to connect to IoT MQ. This subfield is optional and defaults to `aio-mq-dmqtt-frontend`. Important: If you have multiple listeners with the same `serviceType` and `serviceName`, the listeners share the same Kubernetes service. For more information, see [Service name and service type](#service-name-and-service-type). |
+| `authenticationEnabled` | No | A boolean flag that indicates whether this listener requires authentication from clients. If set to `true`, this listener uses any *BrokerAuthentication* resources associated with it to verify and authenticate the clients. If set to `false`, this listener allows any client to connect without authentication. This field is optional and defaults to `false`. To learn more about authentication, see [Configure Azure IoT MQ authentication](howto-configure-authentication.md). |
+| `authorizationEnabled` | No | A boolean flag that indicates whether this listener requires authorization from clients. If set to `true`, this listener uses any *BrokerAuthorization* resources associated with it to verify and authorize the clients. If set to `false`, this listener allows any client to connect without authorization. This field is optional and defaults to `false`. To learn more about authorization, see [Configure Azure IoT MQ authorization](howto-configure-authorization.md). |
+| `tls` | No | The TLS settings for the listener. The field is optional and can be omitted to disable TLS for the listener. To configure TLS, set it one of these types: <br> * If set to `automatic`, this listener uses cert-manager to get and renew a certificate for the listener. To use this type, [specify an `issuerRef` field to reference the cert-manager issuer](howto-configure-tls-auto.md). <br> * If set to `manual`, the listener uses a manually provided certificate for the listener. To use this type, [specify a `secretName` field that references a Kubernetes secret containing the certificate and private key](howto-configure-tls-manual.md). <br> * If set to `keyVault`, the listener uses a certificate from Azure Key Vault. To use this type, [specify a `keyVault` field that references the Azure Key Vault instance and secret](howto-manage-secrets.md). |
 
 ## Default BrokerListener
 
@@ -43,11 +43,14 @@ To inspect the listener, run:
 kubectl get brokerlistener listener -n azure-iot-operations -o yaml
 ```
 
-The output should look like this, with metadata removed for brevity:
+The output should look like this, with most metadata removed for brevity:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: BrokerListener
+metadata:
+  name: listener
+  namespace: azure-iot-operations
 spec:
   brokerRef: broker
   authenticationEnabled: true
@@ -65,7 +68,7 @@ spec:
 
 To learn more about the default BrokerAuthentication resource linked to this listener, see [Default BrokerAuthentication resource](howto-configure-authentication.md#default-brokerauthentication-resource).
 
-## Example: create new BrokerListeners
+## Create new BrokerListeners
 
 This example shows how to create two new *BrokerListener* resources for a *Broker* resource named *my-broker*. Each *BrokerListener* resource defines a port and a TLS setting for a listener that accepts MQTT connections from clients.
 
@@ -103,6 +106,25 @@ spec:
         kind: Issuer
         group: cert-manager.io
 ```
+
+## Service name and service type
+
+If you have multiple BrokerListener resources with the same `serviceType` and `serviceName`, the resources share the same Kubernetes service. This means that the service exposes all the ports of all the listeners. For example, if you have two listeners with the same `serviceType` and `serviceName`, one on port 1883 and the other on port 8883, the service exposes both ports. Clients can connect to the broker on either port. 
+
+There are two important rules to follow when sharing service name:
+
+1. Listeners with the same `serviceType` must share the same `serviceName`.
+
+1. Listeners with different `serviceType` must have different `serviceName`.
+
+Notably, the service for the default listener on port 8883 is `clusterIp` and named `aio-mq-dmqtt-frontend`. The following table summarizes what happens when you create a new listener on a different port:
+
+| New listener `serviceType` | New listener `serviceName` | Result |
+| --- | --- | --- |
+| `clusterIp` | `aio-mq-dmqtt-frontend` | The new listener creates successfully, and the service exposes both ports. |
+| `clusterIp` | `my-service` | The new listener fails to create because the service type conflicts with the default listener. |
+| `loadBalancer` or `nodePort` | `aio-mq-dmqtt-frontend` | The new listener fails to create because the service name conflicts with the default listener. |
+| `loadBalancer` or `nodePort` | `my-service` | The new listener creates successfully, and a new service is created. |
 
 ## Related content
 

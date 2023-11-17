@@ -2,7 +2,9 @@
 title: How to send Event Grid events to Azure monitor alerts
 description: This article describes how Azure Event Grid delivers Azure Key Vault events as Azure Monitor alerts.
 ms.topic: conceptual
-ms.date: 10/16/2023
+ms.custom:
+  - ignite-2023
+ms.date: 11/15/2023
 author: robece
 ms.author: robece
 ---
@@ -18,7 +20,7 @@ This article describes how Azure Event Grid delivers Azure Key Vault events as A
 
 [Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md) help you detect and address issues before users notice them by proactively notifying you when Azure Monitor data indicates there might be a problem with your infrastructure or application.
 
-Azure Monitor alerts as a destination in Event Grid event subscriptions allow you to receive notification of critical events via Short Message Service (SMS), email, push notification, and more. You can leverage on the low latency event delivery of Event Grid with the flexibility and direct-to-customer notifications of Azure Monitor alerts.
+Azure Monitor alerts as a destination in Event Grid event subscriptions allow you to receive notification of critical events via Short Message Service (SMS), email, push notification, and more. You can leverage the low latency event delivery of Event Grid with the direct notification system of Azure Monitor alerts.
 
 ## Azure Monitor alerts
 
@@ -63,13 +65,14 @@ When creating an event subscription, follow these steps:
         :::image type="content" source="media/handler-azure-monitor-alerts/event-subscription.png" alt-text="Screenshot that shows Azure Monitor alerts event subscription creation." border="false" lightbox="media/handler-azure-monitor-alerts/event-subscription.png":::
 1. Now, on the **Create Event Subscription** page, select **Create** to create the event subscription. For detailed steps, see [subscribe to events through portal](subscribe-through-portal.md).
 
-### Manage event subscriptions
+### Manage fired alerts
 
 You can manage the subscription directly in the source (e.g. Key Vault resource) by selecting the **Events** blade or by accessing to the **Event Grid system topic** resource, see the following references: [blob event quickstart](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage), and [manage the system topic](create-view-manage-system-topics.md).
 
 ### Fire alert instances
 
-See this article to [fire the alert instances](../azure-monitor/alerts/alerts-manage-alert-instances.md).
+Now, Key Vault events will appear as alerts and you can view them in alerts blade. See this article to learn how to
+[manage alert instances](../azure-monitor/alerts/alerts-manage-alert-instances.md).
 
 ## Next steps
 

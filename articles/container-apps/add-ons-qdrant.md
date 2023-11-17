@@ -4,6 +4,8 @@ description: Learn to use the Container Apps Qdrant vector database add-on.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/02/2023
 ms.author: cshoe
@@ -104,7 +106,7 @@ Execute the following commands to create your resource group, container apps env
 1. Create a dedicated workload profile with enough resources to work with a vector database.
 
     ```azurecli
-    az containerapp env workload-profile set \
+    az containerapp env workload-profile add \
       --name $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
       --workload-profile-type $WORKLOAD_PROFILE_TYPE \

@@ -5,6 +5,8 @@ description: Learn how to use prompt flow in Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
 author: ishinzhang
 ms.author: yijunzhang

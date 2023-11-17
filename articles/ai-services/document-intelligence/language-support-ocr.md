@@ -5,11 +5,13 @@ description: Document Intelligence Read and Layout OCR document analysis model l
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
 ---
 
-# Read, Layout, and General document language support
+# Language support: document analysis
 
 ::: moniker range="doc-intel-4.0.0"
 [!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]

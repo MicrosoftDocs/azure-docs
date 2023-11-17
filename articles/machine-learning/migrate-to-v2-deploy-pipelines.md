@@ -10,7 +10,9 @@ author: santiagxf
 ms.author: fasantia
 ms.date: 05/01/2023
 ms.reviewer: sgilley
-ms.custom: migration
+ms.custom:
+  - migration
+  - ignite-2023
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 

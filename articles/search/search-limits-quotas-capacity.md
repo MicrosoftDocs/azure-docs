@@ -8,8 +8,10 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/09/2023
-ms.custom: references_regions
+ms.date: 11/16/2023
+ms.custom:
+  - references_regions
+  - ignite-2023
 ---
 
 # Service limits in Azure AI Search
@@ -69,17 +71,21 @@ When estimating document size, remember to consider only those fields that can b
 
 ## Vector index size limits
 
-When you index documents with vector fields, we construct internal vector indexes using the algorithm parameters you provide. The size of these vector indexes is restricted by the memory reserved for vector search for your service's tier (or SKU).
+When you index documents with vector fields, Azure AI Search constructs internal vector indexes using the algorithm parameters you provide. The size of these vector indexes is restricted by the memory reserved for vector search for your service's tier (or SKU).
 
 The service enforces a vector index size quota **for every partition** in your search service. Each extra partition increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded results in failure. You may resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
 
-The table describes the vector index size quota per partition across the service tiers (or SKU). For context, it includes the [storage limits](#storage-limits) for each tier. Use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota.
+The table describes the vector index size quota per partition across the service tiers (or SKU). For context, it includes:
 
-See our [documentation on vector index size](./vector-search-index-size.md) for more details.
++ [Storage limits](#storage-limits) for each tier, repeated here for context.
++ Amount of each partition (in GB) available for vector indexes (created when you add vector fields to an index).
++ Approximate number of embeddings (floating point values) per partition.
+
+Use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota. See our [documentation on vector index size](vector-search-index-size.md) for more details.
 
 ### Services created prior to July 1, 2023
 
-| Tier   | Storage quota (GB) | Vector index size quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
+| Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 | ----- | ------------------ | ------------------------------------------ | ---------------------------- |
 | Basic | 2                  | 0.5                                        | 115 million                  |
 | S1    | 25                 | 1                                          | 235 million                  |
@@ -98,7 +104,7 @@ The following regions **do not** support increased limits:
 - Jio India West
 - Qatar Central
 
-| Tier   | Storage quota (GB) | Vector index size quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
+| Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 | ----- | ------------------ | ------------------------------------------ | ---------------------------- |
 | Basic | 2                  | 1                                          | 235 million                  |
 | S1    | 25                 | 3                                          | 700 million                  |

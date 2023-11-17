@@ -6,8 +6,10 @@ description: Explanation of the factors affecting the size of a vector index.
 author: robertklee
 ms.author: robertlee
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 11/16/2023
 ---
 
 # Vector index size limit
@@ -20,24 +22,24 @@ The size of vector indexes is measured in bytes. The size constraints are based 
 
 The service enforces a vector index size quota **based on the number of partitions** in your search service, where the quota per partition varies by tier and also by service creation date (see [Vector index size limits](search-limits-quotas-capacity.md#vector-index-size-limits) in service limits). 
 
-Each extra partition that you add to your service increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy. It also means that if vector size exceeds this limit, any further indexing requests will result in failure. You can resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
+Each extra partition that you add to your service increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy. It also means that if vector size exceeds this limit, any further indexing requests result in failure. You can resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
 
-The following limits are for newer search services created *after July 1, 2023*. For more information, including limits for older search services, see [Search service limits](search-limits-quotas-capacity.md). 
+The following table shows vector quotas by partition, and by service if all partitions are in use. This table is for newer search services created *after July 1, 2023*. For more information, including limits for older search services and also limits on the approximate number of embeddings per partition, see [Search service limits](search-limits-quotas-capacity.md). 
 
-| Tier   | Storage (GB) |Partitions | Vector quota per partition (GB) | Vector quota per service (GB) |
-| ----- | ------------- | ----------|-------------------------- | ---------------------------- |
-| Basic | 2             | 1         | 1                         | 1                |
-| S1    | 25            | 12        | 3                         | 36               |
-| S2    | 100           | 12        |12                         | 144              |
-| S3    | 200           | 12        |36                         | 432              |
-| L1    | 1,000         | 12        |12                         | 144              |
-| L2    | 2,000         | 12        |36                         | 432              |
+| Tier  | Partitions | Storage (GB)  | Vector quota per partition (GB) | Vector quota per service (GB) |
+| ----- | ---------- | --------------|-------------------------- | ----------------------------------- |
+| Basic | 1          | 2             | 1                         | 1                |
+| S1    | 12         | 25            | 3                         | 36               |
+| S2    | 12         | 100           | 12                        | 144              |
+| S3    | 12         | 200           | 36                        | 432              |
+| L1    | 12         | 1,000         | 12                        | 144              |
+| L2    | 12         | 2,000         | 36                        | 432              |
 
 **Key points**:
 
-+ Storage quota is the physical storage available to the search service for all search data. Basic has one partition sized at 2 GB that must accommodate all of the data on the service. S1 can have 12 partitions sized at 25 GB each, for a maximum limit of 300 GB for all search data. 
++ Storage quota is the physical storage available to the search service for all search data. Basic has one partition sized at 2 GB that must accommodate all of the data on the service. S1 can have up to 12 partitions, sized at 25 GB each, for a maximum limit of 300 GB for all search data. 
 
-+ Vector quotas for are the vector indexes created for each vector field, and they're enforced at the partition level. On Basic, the sum total of all vector fields can't be more than 1 GB because Basic only has one partition. On S1, which can have up to 12 partitions, the quota for vector data is 3 GB if you've only allocated one partition, or up to 36 GB if you've allocated 12 partitions. For more information about partitions and replicas, see [Estimate and manage capacity](search-capacity-planning.md).
++ Vector quotas for are the vector indexes created for each vector field, and they're enforced at the partition level. On Basic, the sum total of all vector fields can't be more than 1 GB because Basic only has one partition. On S1, which can have up to 12 partitions, the quota for vector data is 3 GB if you allocate just one partition, or up to 36 GB if you allocate all 12 partitions. For more information about partitions and replicas, see [Estimate and manage capacity](search-capacity-planning.md).
 
 ## How to get vector index size
 
@@ -114,7 +116,7 @@ For `Edm.Single`, the size of the data type is 4 bytes.
 
 ### Memory Overhead from the Selected Algorithm  
   
-Every approximate nearest neighbor (ANN) algorithm generates additional data structures in memory to enable efficient searching. These structures consume extra space within memory.  
+Every approximate nearest neighbor (ANN) algorithm generates extra data structures in memory to enable efficient searching. These structures consume extra space within memory.  
   
 **For the HNSW algorithm, the memory overhead ranges between 1% and 20%.**  
   

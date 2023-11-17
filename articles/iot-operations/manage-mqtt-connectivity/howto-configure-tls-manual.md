@@ -1,11 +1,14 @@
 ---
 title: Configure TLS with manual certificate management to secure MQTT communication
-# titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ
 description: Configure TLS with manual certificate management to secure MQTT communication between the MQTT broker and client.
 author: PatAltimore
 ms.author: patricka
+ms.subservice: mq
 ms.topic: how-to
-ms.date: 10/29/2023
+ms.custom:
+  - ignite-2023
+ms.date: 11/15/2023
 
 #CustomerIntent: As an operator, I want to configure IoT MQ to use TLS so that I have secure communication between the MQTT broker and client.
 ---

@@ -5,6 +5,8 @@ description: Custom Translator releases, improvements, bug fixes, and known issu
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
+ms.custom:
+  - ignite-2023
 ms.date: 11/15/2023
 ms.author: lajanuar
 ms.topic: release-notes
@@ -39,7 +41,7 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 |Korean (`ko-kr`)|Chinese Simplified (`zh-hans`)|
 |Spanish (`es-es`)|German (`de-de`)|
 
-#### To/from English language models
+#### To/From English language models
 
 |Source |Target|
 |:----|:----|

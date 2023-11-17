@@ -5,9 +5,11 @@
  author: robece
  ms.service: event-grid
  ms.topic: include
- ms.date: 10/09/2023
+ ms.date: 11/15/2023
  ms.author: robece
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 
 - [Event Hubs](../namespace-handler-event-hubs.md)

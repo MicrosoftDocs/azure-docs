@@ -3,11 +3,13 @@ title: Azure IoT Akri architecture
 description: Understand the key components in Azure IoT Akri Preview architecture.
 author: timlt
 ms.author: timlt
-# ms.subservice: akri
-ms.topic: concept-article 
+ms.subservice: akri
+ms.topic: concept-article
+ms.custom:
+  - ignite-2023
 ms.date: 10/26/2023
 
-# CustomerIntent: As an industrial edge IT or operations user, I want to to understand the key components in 
+# CustomerIntent: As an industrial edge IT or operations user, I want to to understand the key components in
 # in the Azure IoT Akri architecture so that I understand how it works to enable device and asset discovery for my edge solution.
 ---
 

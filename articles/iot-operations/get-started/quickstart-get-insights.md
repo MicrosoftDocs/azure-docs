@@ -4,7 +4,9 @@ description: "Quickstart: Use a Power BI report to capture insights from your OP
 author: baanders
 ms.author: baanders
 ms.topic: quickstart
-ms.date: 11/01/2023
+ms.custom:
+  - ignite-2023
+ms.date: 11/15/2023
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
@@ -13,7 +15,9 @@ ms.date: 11/01/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you create a Power BI report to capture insights from your OPC UA data that you sent to the Microsoft Fabric OneLake lakehouse in the previous quickstart. You'll prepare your data to be a source for Power BI, import a report template into Power BI, and connect your data sources to Power BI so that the report displays visual graphs of your data over time.
+In this quickstart, you populate a Power BI report to capture insights from your OPC UA data that you sent to a Microsoft Fabric lakehouse in the previous quickstart. You'll prepare your data to be a source for Power BI, import a report template into Power BI, and connect your data sources to Power BI so that the report displays visual graphs of your data over time.
+
+These operations are the last steps in the sample end-to-end quickstart experience, which goes from deploying Azure IoT Operations at the edge through getting insights from that device data. 
 
 ## Prerequisites
 
@@ -51,6 +55,8 @@ This section prepares your lakehouse data to be a source for Power BI. You'll cr
     MinPressure = CALCULATE(MINX(OPCUA, OPCUA[Pressure]))
     MaxPressure = CALCULATE(MAXX(OPCUA, OPCUA[Pressure]))
     ```
+
+    Make sure you're selecting **New measure** each time, so the measures are not overwriting each other.
     
     :::image type="content" source="media/quickstart-get-insights/power-bi-new-measure.png" alt-text="Screenshot of Power BI showing the creation of a new measure.":::
 
@@ -66,45 +72,69 @@ These steps are for Power BI Desktop, so open that application now.
 
 ### Import template and load Asset Registry data
 
-1. Download the following Power BI template: [insightsTemplate.pbit](https://github.com/Azure/azure-iot-operations/tree/main/samples/insightsTemplate.pbit).
+1. Download the following Power BI template: [insightsTemplate.pbit](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/dashboard/insightsTemplate.pbit).
 1. Open a new instance of Power BI Desktop.
 1. Exit the startup screen and select **File** > **Import** > **Power BI template**. Select the file you downloaded to import it.
-1. A dialog box pops up asking you to input an Azure subscription and resource group. Enter the Azure subscription ID and resource group where you've created your assets and select **Load**. This loads your sample Asset Registry data into Power BI using a custom [Power Query M](/powerquery-m/) script.  
-1. Optional: To view the script, right select **Asset** from the Data panel on the right side of the screen, and choose **Edit query**.
+1. A dialog box pops up asking you to input an Azure subscription and resource group. Enter the Azure subscription ID and resource group where you've created your assets and select **Load**. This loads your sample asset data into Power BI using a custom [Power Query M](/powerquery-m/) script.
 
-    :::image type="content" source="media/quickstart-get-insights/power-bi-edit-query.png" alt-text="Screenshot of Power BI showing the Edit query button.":::
+    You may see an error pop up for **DirectQuery to AS**. This is normal, and will be resolved later by configuring the data source. Close the error.
+
+    :::image type="content" source="media/quickstart-get-insights/power-bi-import-error.png" alt-text="Screenshot of Power BI showing an error labeled DirectQuery to AS - quickStartDataset.":::
+
+1. The template has now been imported, although it still needs some configuration to be able to display the data. If you see an option to **Apply changes** that are pending for your queries, select it and let the dashboard reload.
+
+    :::image type="content" source="media/quickstart-get-insights/power-bi-initial-report.png" alt-text="Screenshot of Power BI Desktop showing a blank report." lightbox="media/quickstart-get-insights/power-bi-initial-report.png":::
+
+1. Optional: To view the script that imports the asset data, right select **Asset** from the Data panel on the right side of the screen, and choose **Edit query**.
+
+    :::image type="content" source="media/quickstart-get-insights/power-bi-edit-query.png" alt-text="Screenshot of Power BI showing the Edit query button." lightbox="media/quickstart-get-insights/power-bi-edit-query.png":::
     
-    You'll see a few queries on the new page that comes up (the Transform page). Go through each of them and select **Advanced Editor** in the top menu to view the details of the queries. The most important query is **GetAssetData**.
+    You'll see a few queries in the Power Query Editor window that comes up. Go through each of them and select **Advanced Editor** in the top menu to view the details of the queries. The most important query is **GetAssetData**.
     
     :::image type="content" source="media/quickstart-get-insights/power-bi-advanced-editor.png" alt-text="Screenshot of Power BI showing the advanced editor.":::
     
-    When you're finished, exit the Transform page.
+    When you're finished, exit the Power Query Editor window.
 
 ### Configure remaining report visuals
 
-At this stage, some of the visuals in the Power BI report still display an error. That's because you still need to get the telemetry data.
+At this point, the visuals in the Power BI report still display errors. That's because you need to get the telemetry data.
 
 1. Select **File** > **Options and Settings** > **Data source settings**.  
-1. Select **Change source**. A list of data hubs and datasets are visible. Select the dataset you created in the previous section, choose the *OPCUA* contextualized telemetry table, and select **Submit**.
-1. In the left pane menu, select **Model view**.
+1. Select **Change Source**. 
 
-    :::image type="content" source="media/quickstart-get-insights/power-bi-model-view.png" alt-text="Screenshot of Power BI showing the Model View button.":::
+    :::image type="content" source="media/quickstart-get-insights/power-bi-change-data-source.png" alt-text="Screenshot of Power BI showing the Data source settings.":::
+
+    This displays a list of data source options. Select the dataset you created in the previous section and select **Create**.
+
+1. In the **Connect to your data** box that opens, expand your dataset and select the *OPCUA* contextualized telemetry table. Select **Submit**.
+
+    :::image type="content" source="media/quickstart-get-insights/power-bi-connect-to-your-data.png" alt-text="Screenshot of Power BI showing the Connect to your data options.":::
+
+    Close the data source settings. The dashboard should now load visual data.
+
+1. In the left pane menu, select the icon for **Model view**.
+
+    :::image type="content" source="media/quickstart-get-insights/power-bi-model-view.png" alt-text="Screenshot of Power BI showing the Model View button." lightbox="media/quickstart-get-insights/power-bi-model-view.png":::
 
 1. Drag **assetName** in the **Asset** box to **AssetName** in the **OPCUA** box, to create a relationship between the tables.
 
-1. Set **Cardinality** to _One to many (1:*)_, and set **Cross filter direction** to *Both*. Select **OK**.
+1. In the **Create relationship** box, set **Cardinality** to _One to many (1:*)_, and set **Cross filter direction** to *Both*. Select **OK**.
 
-    :::image type="content" source="media/quickstart-get-insights/power-bi-model-view-options.png" alt-text="Screenshot of Power BI showing the model view options.":::
+    :::image type="content" source="media/quickstart-get-insights/power-bi-create-relationship.png" alt-text="Screenshot of Power BI Create relationship options." lightbox="media/quickstart-get-insights/power-bi-create-relationship.png":::
 
 1. Return to the **Report view** using the left pane menu. All the visuals should display data now without error.
 
-    :::image type="content" source="media/quickstart-get-insights/power-bi-page-1.png" alt-text="Screenshot of Power BI showing the report view.":::
+    :::image type="content" source="media/quickstart-get-insights/power-bi-page-1.png" alt-text="Screenshot of Power BI showing the report view." lightbox="media/quickstart-get-insights/power-bi-page-1.png":::
 
 ## View insights
 
 In this section, you'll review the report that was created and consider how such reports can be used in your business.
 
-The report is split into two pages, each offering a different view of the asset and telemetry data. On Page 1, you can view each asset and their associated telemetry. On Page 2, you can view multiple assets and their associated telemetry simultaneously, to compare data points at a specified time period. Select your assets by using *CTRL+Select* on the assets you want to view. Explore the various filters for each visual to explore and do more with your data.
+The report is split into two pages, each offering a different view of the asset and telemetry data. On Page 1, you can view each asset and their associated telemetry. Page 2 allows you to view multiple assets and their associated telemetry simultaneously, to compare data points at a specified time period.
+
+:::image type="content" source="media/quickstart-get-insights/power-bi-page-2.png" alt-text="Screenshot of Power BI showing page 2 of the report view." lightbox="media/quickstart-get-insights/power-bi-page-2.png":::
+
+For this quickstart, you only created one asset. However, if you experiment with adding other assets, you'll be able to select them independently on this report page by using *CTRL+Select*. Take some time to explore the various filters for each visual to explore and do more with your data.
 
 With data connected from various sources at the edge being related to one another in Power BI, the visualizations and interactive features in the report allow you to gain deeper insights into asset health, utilization, and operational trends. This can empower you to enhance productivity, improve asset performance, and drive informed decision-making for better business outcomes.
 

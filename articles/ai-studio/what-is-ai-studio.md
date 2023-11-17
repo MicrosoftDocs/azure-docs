@@ -20,7 +20,7 @@ Azure AI Studio brings together capabilities from across multiple Azure AI servi
 
 :::image type="content" source="./media/explore/ai-studio-home.png" alt-text="Screenshot of the Azure AI Studio home page." lightbox="./media/explore/ai-studio-home.png":::
 
-Azure AI Studio is designed for developers to:
+[Azure AI Studio](https://ai.azure.com) is designed for developers to:
 
 - Build generative AI applications on an enterprise-grade platform. 
 - Directly from the studio you can interact with a project code-first via the Azure AI SDK and Azure AI CLI. 
@@ -74,13 +74,20 @@ As a developer, you can manage settings such as connections and compute. Your ad
 
 ---
 
+## Azure AI studio enterprise chat solution demo
+
+Learn how to create a retail copilot using your data with Azure AI Studio in this [end-to-end walkthrough video](https://youtu.be/Qes7p5w8Tz8).
+> [!VIDEO https://www.youtube.com/embed/Qes7p5w8Tz8]
+
 ## Pricing and Billing
 
 Using Azure AI Studio also incurs cost associated with the underlying services, to learn more read [Plan and manage costs for Azure AI services](./how-to/costs-plan-manage.md).
 
 ## Region availability
 
-Azure AI Studio is currently available in all regions where Azure OpenAI Service is available. To learn more, see [Azure global infrastructure - Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services).
+Azure AI Studio is currently available in the following regions: Australia East, Brazil South, Canada Central, East US, East US 2, France Central, Germany West Central, India South, Japan East, North Central US, Norway East, Poland Central, South Africa North, South Central US, Sweden Central, Switzerland North, UK South, West Europe, and West US. 
+
+To learn more, see [Azure global infrastructure - Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services).
 
 ## How to get access
 
@@ -88,8 +95,8 @@ You can explore Azure AI Studio without signing in, but for full functionality a
 
 ## Next steps 
 
-- [Create a project in Azure AI Studio](./how-to/create-projects.md)
-- [Quickstart: Generate product name ideas in the Azure AI Studio playground](quickstarts/playground-completions.md)
+- [Create an AI Studio project](./how-to/create-projects.md)
+- [Tutorial: Deploy a chat web app](tutorials/deploy-chat-web-app.md)
 - [Tutorial: Using Azure AI Studio with a screen reader](tutorials/screen-reader.md)
 
 

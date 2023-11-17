@@ -1,10 +1,14 @@
 ---
 title: Guide for running C# Azure Functions in an isolated worker process
-description: Learn how to use a .NET isolated worker process to run your C# functions in Azure, which supports non-LTS versions of .NET and .NET Framework apps.  
+description: Learn how to use a .NET isolated worker process to run your C# functions in Azure, which supports non-LTS versions of .NET and .NET Framework apps.
 ms.service: azure-functions
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 11/02/2023
-ms.custom: template-concept, devx-track-dotnet, devx-track-azurecli
+ms.custom:
+  - template-concept
+  - devx-track-dotnet
+  - devx-track-azurecli
+  - ignite-2023
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated worker process so that I can run my function code on current (not LTS) releases of .NET.
 ---
@@ -226,7 +230,7 @@ This section outlines options you can enable that improve performance around [co
 In general, your app should use the latest versions of its core dependencies. At a minimum, you should update your project as follows:
 
 - Upgrade [Microsoft.Azure.Functions.Worker] to version 1.19.0 or later.
-- Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.16.0 or later.
+- Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.16.2 or later.
 - Add a framework reference to `Microsoft.AspNetCore.App`, unless your app targets .NET Framework.
 
 The following example shows this configuration in the context of a project file:
@@ -235,7 +239,7 @@ The following example shows this configuration in the context of a project file:
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.2" />
   </ItemGroup>
 ```
 
@@ -261,7 +265,7 @@ az functionapp config set -g <groupName> -n <appName> --use-32bit-worker-process
 
 ### Optimized executor 
 
-The function executor is a component of the platform that causes invocations to run. An optimized version of this component is enabled by default starting with version 1.16.0 of the SDK. No additional configuration is required.
+The function executor is a component of the platform that causes invocations to run. An optimized version of this component is enabled by default starting with version 1.16.2 of the SDK. No additional configuration is required.
 
 ### ReadyToRun
 
@@ -609,12 +613,11 @@ Because your isolated worker process app runs outside the Functions runtime, you
 
 ## Preview .NET versions
 
-Azure Functions currently can be used with the following preview versions of .NET:
+Before a generally available release, a .NET version might be released in a "Preview" or "Go-live" state. See the [.NET Official Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) for details on these states.
 
-| Operating system | .NET preview version |
-| - | - |
-| Windows | .NET 8 RC2 | 
-| Linux | .NET 8 RC2 |
+While it might be possible to target a given release from a local Functions project, function apps hosted in Azure might not have that release available. Azure Functions can only be used with "Preview" or "Go-live" releases noted in this section.
+
+Azure Functions does not currently work with any "Preview" or "Go-live" .NET releases. See [Supported versions][supported-versions] for a list of generally available releases that you can use.
 
 ### Using a preview .NET SDK
 

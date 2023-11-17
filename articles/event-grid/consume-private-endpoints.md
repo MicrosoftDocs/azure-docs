@@ -1,8 +1,10 @@
 ---
 title: Deliver events using private link service
-description: This article describes how to work around push delivery's limitation to deliver events using private link service. 
+description: This article describes how to work around push delivery's limitation to deliver events using private link service.
 ms.topic: how-to
-ms.date: 11/02/2023
+ms.custom:
+  - ignite-2023
+ms.date: 11/15/2023
 ---
 
 # Deliver events using private link service

@@ -1,11 +1,14 @@
 ---
 title: Connect MQTT bridge cloud connector to other MQTT brokers
-# titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ
 description: Bridge Azure IoT MQ to another MQTT broker.
 author: PatAltimore
 ms.author: patricka
+ms.subservice: mq
 ms.topic: how-to
-ms.date: 11/02/2023
+ms.custom:
+  - ignite-2023
+ms.date: 11/15/2023
 
 #CustomerIntent: As an operator, I want to bridge Azure IoT MQ to another MQTT broker so that I can integrate Azure IoT MQ with other messaging systems.
 ---
@@ -342,17 +345,6 @@ routes:
 
 Other methods of source topic reference aren't supported.
 
-<!-- ### Bridge all topics
-
-To create an MQTT bridge that publishes all messages from Azure IoT MQ to the target broker with matching topics and vice versa, use the `#` wildcard and omit the target topic configuration.
-
-```yaml
-routes:
-  - direction: both # local-to-remote or remote-to-local also work for unidirectional bridging
-    name: "bridge-all"
-    source: "#"
-``` -->
-
 ### Shared subscriptions
 
 The `sharedSubscription` field defines the shared subscription configuration for the route. It includes the following fields:
@@ -383,13 +375,13 @@ This helps you balance the message traffic for the bridge between multiple clien
 
 ## Azure Event Grid MQTT broker support
 
-[Event Grid MQTT Broker](/azure/event-grid/mqtt-overview) requires each set of client credential like an X.509 certificate to be registered ahead of time in the registry, and then multiple clients with different client IDs can connect without you having to registry them again.
+To minimize credential management, using the system-assigned managed identity and Azure RBAC is the recommended way to bridge Azure IoT MQ with [Azure Event Grid's MQTT broker feature](../../event-grid/mqtt-overview.md).
 
-This support works well with MQTTBridgeConnector's dynamic client ID and shared subscription systems to scale out connector instances for increased throughput and redundancy.
+For an end-to-end tutorial, see [Tutorial: Configure MQTT bridge between IoT MQ and Azure Event Grid](../send-view-analyze-data/tutorial-connect-event-grid.md).
 
-To minimize credential management, using the system-assigned managed identity and Azure RBAC is the recommended way to bridge Azure IoT MQ with Event Grid MQTT broker.
+### Connect to Event Grid MQTT broker with managed identity
 
-First, using `az k8s-extension show`, find the principal ID for the Azure IoT MQ Arc extension. Take note of the output value for `identity.principalId`, which should look like `00000000-0000-0000-0000-000000000000`.
+First, using `az k8s-extension show`, find the principal ID for the Azure IoT MQ Arc extension. Take note of the output value for `identity.principalId`, which should look like `abcd1234-5678-90ab-cdef-1234567890ab`.
 
 ```azurecli
 az k8s-extension show --resource-group <RESOURCE_GROUP> --cluster-name <CLUSTER_NAME> --name mq --cluster-type connectedClusters --query identity.principalId -o tsv
@@ -413,12 +405,6 @@ If `bridgeInstances` is set higher than `1`, configure the Event Grid MQTT broke
 ### Per-connection limit
 
 If using managed identity isn't possible, keep the per-connection limits for Event Grid MQTT broker in mind when designing your setup. At the time of publishing, the limit is 100 messages/second each direction for a connection. To increase the MQTT bridge throughput, use shared subscriptions to increase the number of clients serving each route.
-
-<!-- ### Client registry and authorization policy sync
-
-Azure IoT MQ supports client registry and authorization policy sync with Event Grid's permission bindings only when Azure IoT MQ can authenticate to Event Grid with managed identity and was given the correct level of permission (Contributor or above, including write access on the resource).
-
-To learn more, see [TODO](/docs/mqtt-broker/authorization/). -->
 
 ## Bridge from another broker to Azure IoT MQ
 

@@ -713,6 +713,8 @@ items:
   - name: Lab Services
     tocHref: /azure/lab-services/
     topicHref: /azure/lab-services/
+  - name: Azure Integration Environments
+    tocHref: /azure/integration-environments/
   - name: Azure Logic Apps
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
@@ -1154,4 +1156,6 @@ items:
   - name: Operator Insights
     tocHref: /azure/operator-insights/
     topicHref: /azure/operator-insights/index
-    
+  - name: Microsoft Copilot for Azure
+    tocHref: /azure/copilot/
+    topicHref: /azure/copilot/

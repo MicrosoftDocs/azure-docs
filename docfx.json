@@ -773,6 +773,7 @@
         "articles/baremetal-infrastructure/**/*.md": "akashdubey",
         "articles/batch/**/*.md": "mamccrea",
         "articles/cloud-shell/**/*.md": "jasongroce",
+        "articles/connectors/*.md": "mijacobs",
         "articles/ai-studio/**/*.md": "nitinme",
         "articles/ai-services/**/*.md": "nitinme",
         "articles/defender-for-cloud/*.md": "raynew",
@@ -898,9 +899,9 @@
         "articles/hdinsight-aks/*.md": "sairamyeturi",
         "articles/hdinsight-aks/*.yml": "sairamyeturi",
         "articles/hdinsight-aks/**/*.md": "sairamyeturi",
-        "articles/jenkins/**/*.md": "tarcher",
         "articles/integration-environments/*.md": "estfan",
         "articles/integration-environments/*.yml": "estfan",
+        "articles/jenkins/**/*.md": "tarcher",
         "articles/lab-services/**/*.md": "nicktrog",
         "articles/playwright-testing/**/*.md": "nicktrog",
         "articles/lighthouse/**/*.md": "jenhayes",
@@ -1031,9 +1032,9 @@
         "articles/governance/policy/**/*.md": "azure-policy",
         "articles/governance/resource-graph/**/*.md": "resource-graph",
         "articles/industry/**/*.md": "azure-industry",
-        "articles/iot-operations/**/*.md": "iot",
-        "articles/iot-operations/**/*.yml": "iot",
-        "articles/integration-environments/*.md": "azure",
+        "articles/iot-operations/**/*.md": "iot-operations",
+        "articles/iot-operations/**/*.yml": "iot-operations",
+        "articles/integration-environments/*.md": "integration-environments",
         "articles/jenkins/**/*.md": "jenkins",
         "articles/lab-services/**/*.md": "lab-services",
         "articles/playwright-testing/**/*.md": "playwright-testing",
@@ -1342,12 +1343,14 @@
         "articles/hdinsight-aks/**/*.md": "Azure HDInsight on AKS",
         "articles/hdinsight-aks/**/*.yml": "Azure HDInsight on AKS",
         "articles/industry/agriculture/**/*.md": "Azure for Industry: Agriculture",
+        "articles/integration-environments/*.md": "Azure Integration Environments",
+        "articles/integration-environments/*.yml": "Azure Integration Environments",
         "articles/iot/**/*.md": "Azure IoT",
         "articles/iot/**/*yml": "Azure IoT",
         "articles/iot-central/**/*.md": "Azure IoT Central",
         "articles/iot-central/**/*yml": "Azure IoT Central",
-        "articles/integration-environments/*.md": "Azure Integration Environments",
-        "articles/integration-environments/*.yml": "Azure Integration Environments",
+        "articles/iot-operations/**/*.md": "Azure IoT Operations Preview",
+        "articles/iot-operations/**/*.yml": "Azure IoT Operations Preview",
         "articles/jenkins/**/*.yml": "Jenkins",
         "articles/lab-services/**/*.md": "Azure Lab Services",
         "articles/playwright-testing/**/*.md": "Microsoft Playwright Testing",
@@ -1553,6 +1556,5 @@
         ]
       }
     }
-
   }
 }

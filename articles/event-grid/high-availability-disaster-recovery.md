@@ -2,7 +2,9 @@
 title: High availability and disaster recovery for Azure Event Grid namespaces
 description: Describes how Azure Event Grid's namespaces support building highly available solutions with disaster recovery capabilities.
 ms.topic: conceptual
-ms.date: 10/13/2023
+ms.custom:
+  - ignite-2023
+ms.date: 11/15/2023
 author: veyaddan
 ms.author: veyaddan
 ---

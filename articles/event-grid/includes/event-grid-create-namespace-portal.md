@@ -5,9 +5,11 @@
  author: sonalika-roy
  ms.service: event-grid
  ms.topic: include
- ms.date: 05/30/20223
+ ms.date: 11/15/20223
  ms.author: sonalikaroy
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 
 ## Create a namespace in the Azure portal

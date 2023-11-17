@@ -5,7 +5,9 @@
  ms.topic: include
  ms.date: 11/03/2023
  ms.author: kgremban
- ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 
 
@@ -60,6 +62,9 @@ To connect your cluster to Azure Arc:
    ```bash
    az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
    ```
+
+   > [!TIP]
+   > If the `connectedk8s` commands fail on AKS EE, try using the cmdlets in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
 
 1. Fetch the `objectId` or `id` of the Microsoft Entra ID application that the Azure Arc service uses.
 

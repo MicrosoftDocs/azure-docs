@@ -9,7 +9,9 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 1/29/2021
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 ---
 
 # Collect telemetry data for search traffic analytics
@@ -92,7 +94,7 @@ Having the search ID allows correlation of the metrics emitted by Azure AI Searc
 
 **Use C# (newer v11 SDK)**
 
-The latest SDK requires the use of an Http Pipeline to set the header as detailed in this [sample](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Pipeline.md#implementing-a-syncronous-policy).
+The latest SDK requires the use of an Http Pipeline to set the header as detailed in this [sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Pipeline.md#implementing-a-syncronous-policy).
 
 ```csharp
 // Create a custom policy to add the correct headers

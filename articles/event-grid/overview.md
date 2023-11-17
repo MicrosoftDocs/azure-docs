@@ -1,11 +1,13 @@
 ---
-ms.date: 05/24/2023
+ms.date: 11/15/2023
 author: jfggdl
 ms.author: jafernan
 title: Overview
 description: Learn about Event Grid's http and MQTT messaging capabilities.
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - ignite-2023
 ---
 
 # What is Azure Event Grid?
@@ -68,11 +70,11 @@ Event Grid enables your clients to communicate on [custom MQTT topic names](http
 
 Event Grid integrates with [Azure IoT MQ](https://aka.ms/iot-mq) to bridge its MQTT broker capability on the edge with Event Grid’s MQTT broker capability in the cloud. Azure IoT MQ is a new distributed MQTT broker for edge computing, running on Arc enabled Kubernetes clusters. It's now available in [public preview](https://aka.ms/iot-mq-preview) as part of Azure IoT Operations.
 
-The MQTT support in Event Grid is ideal for the implementation of automotive and mobility scenarios, among others. See [the reference architecture](mqtt-automotive-connectivity-and-data-solution.md) to learn how to build secure and scalable solutions for connecting millions of vehicles to the cloud, using Azure’s messaging and data analytics services.
+The MQTT broker feature in Azure Event Grid is ideal for the implementation of automotive and mobility scenarios, among others. See [the reference architecture](mqtt-automotive-connectivity-and-data-solution.md) to learn how to build secure and scalable solutions for connecting millions of vehicles to the cloud, using Azure’s messaging and data analytics services.
 
 :::image type="content" source="media/overview/mqtt-messaging.png" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." lightbox="media/overview/mqtt-messaging-high-res.png" border="false":::
 
-Event Grid’s MQTT support enables you to accomplish the following scenarios.
+Azure Event Grid’s MQTT broker feature enables you to accomplish the following scenarios.
 
 #### Ingest IoT telemetry
 :::image type="content" source="media/overview/ingest-telemetry.png" alt-text="High-level diagram of Event Grid that shows IoT clients using MQTT protocol to send messages to a cloud app." lightbox="media/overview/ingest-telemetry-high-res.png" border="false":::

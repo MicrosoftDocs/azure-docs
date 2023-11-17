@@ -4,6 +4,8 @@ description: Learn how to use the autoscale feature for Azure AI services to dyn
 author: PatrickFarley
 ms.author: pafarley
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 06/27/2022
 ---

@@ -4,6 +4,9 @@ description: Learn about scenarios where Microsoft Copilot for Azure (preview) c
 ms.date: 11/15/2023
 ms.topic: conceptual
 ms.service: azure
+ms.custom:
+  - ignite-2023
+  - ignite-2023-copilotinAzure
 ms.author: jenhayes
 author: JnHs
 ---
@@ -34,11 +37,8 @@ In this example, Microsoft Copilot for Azure (preview) responds to the prompt, "
 
 When the **Review all** option is selected, Microsoft Copilot for Azure (preview) displays all recommendations. You can then select any recommendation to see more details.
 
-:::image type="content" source="media/optimize-code-application-insights/code-optimizations-show-recommendations.png" lightbox="media/optimize-code-application-insights/code-optimizations-show-recommendations.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) showing code optimization recommendations.":::
-
 ## Next steps
 
 - Explore [capabilities](capabilities.md) of Microsoft Copilot for Azure (preview).
 - Learn more about [Code Optimizations](/azure/azure-monitor/insights/code-optimizations).
 - [Request access](https://aka.ms/MSCopilotforAzurePreview) to Microsoft Copilot for Azure (preview).
-

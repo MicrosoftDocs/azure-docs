@@ -8,10 +8,14 @@ ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
-ms.date: 04/21/2023
+ms.date: 11/15/2023
 reviewer: msakande
 ms.reviewer: mopeakande
-ms.custom: how-to, devplatv2, event-tier1-build-2023
+ms.custom:
+  - how-to
+  - devplatv2
+  - event-tier1-build-2023
+  - ignite-2023
 ---
 
 # How to deploy pipelines with batch endpoints

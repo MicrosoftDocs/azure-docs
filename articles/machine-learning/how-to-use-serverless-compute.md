@@ -5,7 +5,9 @@ description: You no longer need to create your own compute cluster to train your
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.topic: how-to
 ms.author: vijetaj
 author: vijetajo
@@ -41,8 +43,8 @@ Serverless compute can be used to fine-tune models in the model catalog such as 
 ## How to use serverless compute
 
 * You can finetune foundation models such as LLAMA 2 using notebooks as shown below:
-  *  [Fine Tune LLAMA 2](https://github.com/Azure/azureml-examples/blob/bd799ecf31b60cec650e3b0ea2ea790fe0c99c4e/sdk/python/foundation-models/system/finetune/Llama-notebooks/text-classification/emotion-detection-llama-serverless-compute.ipynb)
-  *  [Fine Tune LLAMA 2 using multiple nodes](https://github.com/Azure/azureml-examples/blob/84ddcf23566038dfbb270da81c5b34b6e0fb3e5d/sdk/python/foundation-models/system/finetune/Llama-notebooks/multinode-text-classification/emotion-detection-llama-multinode-serverless.ipynb)
+  *  [Fine Tune LLAMA 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/finetune/Llama-notebooks/text-classification/emotion-detection-llama-serverless-compute.ipynb)
+  *  [Fine Tune LLAMA 2 using multiple nodes](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/finetune/Llama-notebooks/multinode-text-classification/emotion-detection-llama-multinode-serverless.ipynb)
 * When you create your own compute cluster, you use its name in the command job, such as `compute="cpu-cluster"`.  With serverless, you can skip creation of a compute cluster, and omit the `compute` parameter to instead use serverless compute.  When `compute` isn't specified for a job, the job runs on serverless compute. Omit the compute name in your CLI or SDK jobs to use serverless compute in the following job types and optionally provide resources a job would need in terms of instance count and instance type:
 
   * Command jobs, including interactive jobs and distributed training
@@ -221,7 +223,7 @@ You can override these defaults.  If you want to specify the VM type or number o
     from azure.ai.ml import command 
     from azure.ai.ml import MLClient # Handle to the workspace
     from azure.identity import DefaultAzureCredential # Authentication package
-    from azure.ai.ml.entities import ResourceConfiguration 
+    from azure.ai.ml.entities import JobResourceConfiguration 
 
     credential = DefaultAzureCredential()
     # Get a handle to the workspace. You can find the info on the workspace tab on ml.azure.com
@@ -234,7 +236,7 @@ You can override these defaults.  If you want to specify the VM type or number o
     job = command(
         command="echo 'hello world'",
         environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
-        resources = ResourceConfiguration(instance_type="Standard_NC24", instance_count=4)
+        resources = JobResourceConfiguration(instance_type="Standard_NC24", instance_count=4)
     )
     # submit the command job
     ml_client.create_or_update(job)
@@ -386,4 +388,4 @@ You can also set serverless compute as the default compute in Designer.
 View more examples of training with serverless compute at:-
 * [Quick Start](https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/quickstart.ipynb)
 * [Train Model](https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/train-model.ipynb)
-* [Fine Tune LLAMA 2](https://github.com/Azure/azureml-examples/blob/bd799ecf31b60cec650e3b0ea2ea790fe0c99c4e/sdk/python/foundation-models/system/finetune/Llama-notebooks/text-classification/emotion-detection-llama-serverless-compute.ipynb)
+* [Fine Tune LLAMA 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/finetune/Llama-notebooks/text-classification/emotion-detection-llama-serverless-compute.ipynb)

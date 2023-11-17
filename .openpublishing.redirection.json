@@ -871,6 +871,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-version-vmware.md",
+        "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/azuread-dev/active-directory-authentication-libraries.md",
       "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/active-directory-authentication-libraries",
       "redirect_document_id": false
@@ -1004,6 +1009,11 @@
           "source_path": "articles/azure-resource-manager/bicep/bicep-import-providers.md",
           "redirect_URL": "bicep-import",
           "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version.md",
+            "redirect_URL": "/azure/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version-scvmm",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/migrate/tutorial-assess-webapps-physical.md",
@@ -24561,7 +24571,13 @@
             "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-governance-application-migration-integration.md",
             "redirect_url": "/azure/devtest-labs/devtest-lab-guidance-governance-resources",
             "redirect_document_id": false
-        },        {
+        },        
+        {
+            "source_path_from_root": "/articles/devtest-labs/lab-services-overview.md",
+            "redirect_url": "/azure/devtest-labs/devtest-lab-overview",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
             "redirect_url": "/azure/advisor/advisor-overview",
             "redirect_document_id": false

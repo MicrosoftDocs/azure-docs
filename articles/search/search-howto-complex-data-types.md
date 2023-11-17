@@ -7,7 +7,8 @@ manager: nitinme
 author: bevloh
 ms.author: beloh
 tags: complex data types; compound data types; aggregate data types
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 01/30/2023
@@ -21,7 +22,7 @@ Complex fields represent either a single object in the document, or an array of 
 
 Azure AI Search natively supports complex types and collections. These types allow you to model almost any JSON structure in an Azure AI Search index. In previous versions of Azure AI Search APIs, only flattened row sets could be imported. In the newest version, your index can now more closely correspond to source data. In other words, if your source data has complex types, your index can have complex types also.
 
-To get started, we recommend the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels), which you can load in the **Import data** wizard in the Azure portal. The wizard detects complex types in the source and suggests an index schema based on the detected structures.
+To get started, we recommend the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/hotels), which you can load in the **Import data** wizard in the Azure portal. The wizard detects complex types in the source and suggests an index schema based on the detected structures.
 
 > [!NOTE]
 > Support for complex types became generally available starting in `api-version=2019-05-06`. 

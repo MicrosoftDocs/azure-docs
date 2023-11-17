@@ -5,13 +5,15 @@ description: Learn how to configure routing preference in Azure Route Server usi
 author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
 
 #CustomerIntent: As an Azure administrator, I want learn how to use routing preference setting so that I can influence route selection in Azure Route Server.
 ---
 
-# Configure routing preference to influence route selection using the Azure portal
+# Configure routing preference to influence route selection using the Azure portal (Preview)
 
 Learn how to use routing preference setting in Azure Route Server to influence its route learning and selection. For more information, see [Routing preference](hub-routing-preference.md).
 

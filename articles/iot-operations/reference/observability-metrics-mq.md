@@ -1,14 +1,16 @@
 ---
 title: Metrics for Azure IoT MQ
-# titleSuffix: Azure IoT Operations
+titleSuffix: Azure IoT Operations
 description: Available observability metrics for Azure IoT MQ to monitor the health and performance of your solution.
 author: timlt
 ms.author: timlt
 ms.topic: reference
+ms.custom:
+  - ignite-2023
 ms.date: 11/1/2023
 
-# CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data 
-# on the health of my industrial assets and edge environment. 
+# CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data
+# on the health of my industrial assets and edge environment.
 ---
 
 # Metrics for Azure IoT MQ

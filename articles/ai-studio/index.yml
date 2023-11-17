@@ -24,15 +24,18 @@ landingContent:
         links:
           - text: What is Azure AI Studio?
             url: what-is-ai-studio.md
-          - text: What are AI services?
-            url: ../ai-services/what-are-ai-services.md
           - text: What is prompt flow?
             url: how-to/prompt-flow.md
           - text: Retrieval Augmented Generation (RAG)
             url: concepts/retrieval-augmented-generation.md
-          - text: Responsible use of AI
-            url: ../ai-services/responsible-use-of-ai-overview.md?context=/azure/ai-studio/context/context
-
+          - text: Evaluation and monitoring metrics for generative AI
+            url: concepts/evaluation-metrics-built-in.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a project in Azure AI Studio
+            url: how-to/create-projects.md
+          - text: Get started with prompt flow
+            url: how-to/flow-develop.md
   # Card
   - title: 10-minute quickstarts
     linkLists:
@@ -58,39 +61,23 @@ landingContent:
             url: how-to/sdk-install.md
           - text: Get started with the Azure AI CLI
             url: how-to/cli-install.md
+          - text: Get started with projects in VS Code (Web)
+            url: how-to/vscode-web.md
+      - linkListType: concept
+        links:
+          - text: Connections for flows and indexing
+            url: concepts/connections.md
+          - text: Deploy models, flows, and web apps
+            url: concepts/deployments-overview.md
       - linkListType: reference
         links:
           - text: Azure SDK for Python
             url: /python/api/overview/azure/
           - text: Azure OpenAI Service Reference
             url: ../ai-services/openai/reference.md
-      - linkListType: quickstart
-        links:
-          - text: Speech to speech chat
-            url: ../ai-services/speech-service/openai-speech.md?pivots=programming-language-python
-          - text: Conversational language understanding
-            url: ../ai-services/language-service/conversational-language-understanding/quickstart.md?pivots=rest-api
-          - text: Document intelligence
-            url: ../ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api.md?pivots=programming-language-python
   
   # Card
   - title: Explore more AI resources
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Azure Machine Learning
-            url: ../machine-learning/index.yml
-          - text: Semantic Kernel
-            url: /semantic-kernel/
-          - text: AI Builder
-            url: /ai-builder/
-          - text: Power Virtual Agents with Azure AI Language
-            url: /power-virtual-agents/advanced-clu-integration
-          - text: GitHub Copilot
-            url: https://docs.github.com/copilot/getting-started-with-github-copilot
-
-  # Card
-  - title: Training
     linkLists:
       - linkListType: learn
         links:
@@ -98,11 +85,9 @@ landingContent:
             url: https://aka.ms/LearnAzureAIStudio
           - text: Vector search in Azure AI Search
             url: /training/modules/improve-search-results-vector-search/
-          - text: AI Learning paths and modules
-            url: /training/browse/?resource_type=learning%20path&expanded=data-ai&subjects=artificial-intelligence
-          - text: AI Engineer career path
-            url: /training/career-paths/ai-engineer
-          - text: AI learning and community hub
-            url: /ai/
-          - text: Identify principles and practices for responsible AI
-            url: /training/paths/responsible-ai-business-principles/
+      - linkListType: concept
+        links:
+          - text: Azure Machine Learning
+            url: ../machine-learning/index.yml
+          - text: Semantic Kernel
+            url: /semantic-kernel/

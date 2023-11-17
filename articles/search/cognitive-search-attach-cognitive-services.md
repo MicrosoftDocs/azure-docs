@@ -5,9 +5,10 @@ description: Learn how to attach an Azure AI multi-service resource to an AI enr
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 05/31/2023
-
 ---
 
 # Attach an Azure AI multi-service resource to a skillset in Azure AI Search
@@ -84,7 +85,7 @@ Content-Type: application/json
 
 ### [**.NET SDK**](#tab/cogkey-csharp)
 
-The following code snippet is from [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/tutorial-ai-enrichment/v11/Program.cs), trimmed for brevity.
+The following code snippet is from [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/main/tutorial-ai-enrichment/v11/Program.cs), trimmed for brevity.
 
 ```csharp
 IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");

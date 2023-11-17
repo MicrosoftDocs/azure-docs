@@ -9,7 +9,12 @@ ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 01/31/2023
 ms.author: jboback
-ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2022, ignite-2022
+ms.custom:
+  - language-service-summarization
+  - ignite-fall-2021
+  - event-tier1-build-2022
+  - ignite-2022
+  - ignite-2023
 ---
 
 # How to use conversation summarization
@@ -94,7 +99,7 @@ Conversation chapter title summarization lets you get chapter titles from input 
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
 
 ```bash
-curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conversations/jobs?api-version=2022-10-01-preview \
+curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conversations/jobs?api-version=2023-11-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
 -d \
@@ -170,8 +175,8 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
 ```
 
 2. Make the following changes in the command where needed:
-- Replace the value `your-value-language-key` with your key.
-- Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
+    - Replace the value `your-value-language-key` with your key.
+    - Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
 
 3. Open a command prompt window (for example: BASH).
 
@@ -180,13 +185,13 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
 5. Get the `operation-location` from the response header. The value looks similar to the following URL:
 
 ```http
-https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678?api-version=2022-10-01-preview
+https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678?api-version=2023-11-15-preview
 ```
 
 6. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the GUID value you received from the previous `operation-location` response header:
 
 ```curl
-curl -X GET https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/<my-job-id>?api-version=2022-10-01-preview \
+curl -X GET https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/<my-job-id>?api-version=2023-11-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
 ``` 
@@ -195,52 +200,80 @@ Example chapter title summarization JSON response:
 
 ```json
 {
-  "jobId": "d874a98c-bf31-4ac5-8b94-5c236f786754",
-  "lastUpdatedDateTime": "2022-09-29T17:36:42Z",
-  "createdDateTime": "2022-09-29T17:36:39Z",
-  "expirationDateTime": "2022-09-30T17:36:39Z",
-  "status": "succeeded",
-  "errors": [],
-  "displayName": "Conversation Task Example",
-  "tasks": {
-    "completed": 1,
-    "failed": 0,
-    "inProgress": 0,
-    "total": 1,
-    "items": [
-      {
-        "kind": "conversationalSummarizationResults",
-        "taskName": "Conversation Task 1",
-        "lastUpdateDateTime": "2022-09-29T17:36:42.895694Z",
-        "status": "succeeded",
-        "results": {
-          "conversations": [
+    "jobId": "b01af3b7-1870-460a-9e36-09af28d360a1",
+    "lastUpdatedDateTime": "2023-11-15T18:24:26Z",
+    "createdDateTime": "2023-11-15T18:24:23Z",
+    "expirationDateTime": "2023-11-16T18:24:23Z",
+    "status": "succeeded",
+    "errors": [],
+    "displayName": "Conversation Task Example",
+    "tasks": {
+        "completed": 1,
+        "failed": 0,
+        "inProgress": 0,
+        "total": 1,
+        "items": [
             {
-              "summaries": [
-                {
-                  "aspect": "chapterTitle",
-                  "text": "Smart Brew 300 Espresso Machine WiFi Connection",
-                  "contexts": [
-                    { "conversationItemId": "1", "offset": 0, "length": 53 },
-                    { "conversationItemId": "2", "offset": 0, "length": 94 },
-                    { "conversationItemId": "3", "offset": 0, "length": 266 },
-                    { "conversationItemId": "4", "offset": 0, "length": 85 },
-                    { "conversationItemId": "5", "offset": 0, "length": 119 },
-                    { "conversationItemId": "6", "offset": 0, "length": 21 },
-                    { "conversationItemId": "7", "offset": 0, "length": 109 }
-                  ]
+                "kind": "conversationalSummarizationResults",
+                "taskName": "Conversation Task 1",
+                "lastUpdateDateTime": "2023-11-15T18:24:26.3433677Z",
+                "status": "succeeded",
+                "results": {
+                    "conversations": [
+                        {
+                            "summaries": [
+                                {
+                                    "aspect": "chapterTitle",
+                                    "text": "\"Discussing the Problem of Smart Blend 300 Espresso Machine's Wi-Fi Connectivity\"",
+                                    "contexts": [
+                                        {
+                                            "conversationItemId": "1",
+                                            "offset": 0,
+                                            "length": 53
+                                        },
+                                        {
+                                            "conversationItemId": "2",
+                                            "offset": 0,
+                                            "length": 94
+                                        },
+                                        {
+                                            "conversationItemId": "3",
+                                            "offset": 0,
+                                            "length": 266
+                                        },
+                                        {
+                                            "conversationItemId": "4",
+                                            "offset": 0,
+                                            "length": 85
+                                        },
+                                        {
+                                            "conversationItemId": "5",
+                                            "offset": 0,
+                                            "length": 119
+                                        },
+                                        {
+                                            "conversationItemId": "6",
+                                            "offset": 0,
+                                            "length": 21
+                                        },
+                                        {
+                                            "conversationItemId": "7",
+                                            "offset": 0,
+                                            "length": 109
+                                        }
+                                    ]
+                                }
+                            ],
+                            "id": "conversation1",
+                            "warnings": []
+                        }
+                    ],
+                    "errors": [],
+                    "modelVersion": "latest"
                 }
-              ],
-              "id": "conversation1",
-              "warnings": []
             }
-          ],
-          "errors": [],
-          "modelVersion": "latest"
-        }
-      }
-    ]
-  }
+        ]
+    }
 }
 ```
 For long conversation, the model might segment it into multiple cohesive parts, and summarize each segment. There's also a lengthy `contexts` field for each summary, which tells from which range of the input conversation we generated the summary.
@@ -252,7 +285,7 @@ Conversation summarization also lets you get narrative summaries from input conv
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
 
 ```bash
-curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conversations/jobs?api-version=2022-10-01-preview \
+curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conversations/jobs?api-version=2023-11-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
 -d \
@@ -328,8 +361,8 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
 ```
 
 2. Make the following changes in the command where needed:
-- Replace the value `your-language-resource-key` with your key.
-- Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
+    - Replace the value `your-language-resource-key` with your key.
+    - Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
 
 3. Open a command prompt window (for example: BASH).
 
@@ -338,13 +371,13 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
 5. Get the `operation-location` from the response header. The value looks similar to the following URL:
 
 ```http
-https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678?api-version=2022-10-01-preview
+https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678?api-version=2023-11-15-preview
 ```
 
 6. To get the results of a request, use the following cURL command. Be sure to replace `<my-job-id>` with the GUID value you received from the previous `operation-location` response header:
 
 ```curl
-curl -X GET https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/<my-job-id>?api-version=2022-10-01-preview \
+curl -X GET https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/<my-job-id>?api-version=2023-11-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
 ```
@@ -411,7 +444,7 @@ Conversation summarization also lets you get recaps and follow-up tasks from inp
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
 
 ```bash
-curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conversations/jobs?api-version=2022-10-01-preview \
+curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conversations/jobs?api-version=2023-11-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
 -d \
@@ -477,7 +510,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
       "kind": "ConversationalSummarizationTask",
       "parameters": {
         "summaryAspects": [
-          "recap"
+          "recap",
           "follow-up tasks"
         ]
       }
@@ -488,8 +521,8 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
 ```
 
 2. Make the following changes in the command where needed:
-- Replace the value `your-language-resource-key` with your key.
-- Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
+    - Replace the value `your-language-resource-key` with your key.
+    - Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
 
 3. Open a command prompt window (for example: BASH).
 
@@ -498,13 +531,13 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
 5. Get the `operation-location` from the response header. The value looks similar to the following URL:
 
 ```http
-https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678?api-version=2022-10-01-preview
+https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678?api-version=2023-11-15-preview
 ```
 
 6. To get the results of a request, use the following cURL command. Be sure to replace `<my-job-id>` with the GUID value you received from the previous `operation-location` response header:
 
 ```curl
-curl -X GET https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/<my-job-id>?api-version=2022-10-01-preview \
+curl -X GET https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/<my-job-id>?api-version=2023-11-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
 ```
@@ -513,52 +546,92 @@ Example narrative summarization JSON response:
 
 ```json
 {
-  "jobId": "d874a98c-bf31-4ac5-8b94-5c236f786754",
-  "lastUpdatedDateTime": "2022-09-29T17:36:42Z",
-  "createdDateTime": "2022-09-29T17:36:39Z",
-  "expirationDateTime": "2022-09-30T17:36:39Z",
-  "status": "succeeded",
-  "errors": [],
-  "displayName": "Conversation Task Example",
-  "tasks": {
-    "completed": 1,
-    "failed": 0,
-    "inProgress": 0,
-    "total": 1,
-    "items": [
-      {
-        "kind": "conversationalSummarizationResults",
-        "taskName": "Conversation Task 1",
-        "lastUpdateDateTime": "2022-09-29T17:36:42.895694Z",
-        "status": "succeeded",
-        "results": {
-          "conversations": [
+    "jobId": "e585d097-c19a-466e-8f99-a9646e55b1f5",
+    "lastUpdatedDateTime": "2023-11-15T18:19:56Z",
+    "createdDateTime": "2023-11-15T18:19:53Z",
+    "expirationDateTime": "2023-11-16T18:19:53Z",
+    "status": "succeeded",
+    "errors": [],
+    "displayName": "Conversation Task Example",
+    "tasks": {
+        "completed": 1,
+        "failed": 0,
+        "inProgress": 0,
+        "total": 1,
+        "items": [
             {
-              "summaries": [
-                {
-                  "aspect": "narrative",
-                  "text": "Agent_1 helps customer to set up wifi connection for Smart Brew 300 espresso machine.",
-                  "contexts": [
-                    { "conversationItemId": "1", "offset": 0, "length": 53 },
-                    { "conversationItemId": "2", "offset": 0, "length": 94 },
-                    { "conversationItemId": "3", "offset": 0, "length": 266 },
-                    { "conversationItemId": "4", "offset": 0, "length": 85 },
-                    { "conversationItemId": "5", "offset": 0, "length": 119 },
-                    { "conversationItemId": "6", "offset": 0, "length": 21 },
-                    { "conversationItemId": "7", "offset": 0, "length": 109 }
-                  ]
+                "kind": "conversationalSummarizationResults",
+                "taskName": "Conversation Task 1",
+                "lastUpdateDateTime": "2023-11-15T18:19:56.1801785Z",
+                "status": "succeeded",
+                "results": {
+                    "conversations": [
+                        {
+                            "summaries": [
+                                {
+                                    "aspect": "recap",
+                                    "text": "The customer contacted the service agent, Rene, regarding an issue with setting up a wifi connection for their Smart Brew 300 espresso machine. The agent guided the customer through several steps, including pushing the wifi connection button and checking if the power light was blinking. However, the customer reported that no prompts were received in the Contoso Coffee app to connect with the machine. The agent then decided to look for another solution.",
+                                    "contexts": [
+                                        {
+                                            "conversationItemId": "1",
+                                            "offset": 0,
+                                            "length": 53
+                                        },
+                                        {
+                                            "conversationItemId": "2",
+                                            "offset": 0,
+                                            "length": 94
+                                        },
+                                        {
+                                            "conversationItemId": "3",
+                                            "offset": 0,
+                                            "length": 266
+                                        },
+                                        {
+                                            "conversationItemId": "4",
+                                            "offset": 0,
+                                            "length": 85
+                                        },
+                                        {
+                                            "conversationItemId": "5",
+                                            "offset": 0,
+                                            "length": 119
+                                        },
+                                        {
+                                            "conversationItemId": "6",
+                                            "offset": 0,
+                                            "length": 21
+                                        },
+                                        {
+                                            "conversationItemId": "7",
+                                            "offset": 0,
+                                            "length": 109
+                                        }
+                                    ]
+                                },
+                                {
+                                    "aspect": "Follow-Up Tasks",
+                                    "text": "@Agent_1 will ask the customer to push the wifi connection button, hold for 3 seconds, then check if the power light is slowly blinking on and off every second."
+                                },
+                                {
+                                    "aspect": "Follow-Up Tasks",
+                                    "text": "@Agent_1 will ask the customer to check in the Contoso Coffee app if it prompts to connect with the machine."
+                                },
+                                {
+                                    "aspect": "Follow-Up Tasks",
+                                    "text": "@Agent_1 will investigate another way to fix the issue."
+                                }
+                            ],
+                            "id": "conversation1",
+                            "warnings": []
+                        }
+                    ],
+                    "errors": [],
+                    "modelVersion": "latest"
                 }
-              ],
-              "id": "conversation1",
-              "warnings": []
             }
-          ],
-          "errors": [],
-          "modelVersion": "latest"
-        }
-      }
-    ]
-  }
+        ]
+    }
 }
 ```
 

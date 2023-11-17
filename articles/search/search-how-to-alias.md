@@ -5,6 +5,8 @@ description: Create an alias to define a secondary name that can be used to refe
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 04/04/2023
 ---
@@ -56,7 +58,7 @@ Follow the steps below to create an index alias in the Azure portal.
 ### [**.NET SDK**](#tab/sdk)
 
 
-In the preview [.NET SDK](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.1) for Azure AI Search, you can use the following syntax to create an index alias. 
+In the preview [.NET SDK](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.5) for Azure AI Search, you can use the following syntax to create an index alias. 
 
 ```csharp
 // Create a SearchIndexClient

@@ -2,8 +2,10 @@
 title: 'Topic Spaces'
 description: 'An overview of Topic Spaces and how to configure them.'
 ms.topic: conceptual
-ms.custom: build-2023
-ms.date: 05/23/2023
+ms.custom:
+  - build-2023
+  - ignite-2023
+ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
 ---

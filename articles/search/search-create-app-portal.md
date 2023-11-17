@@ -8,7 +8,9 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/13/2022
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - ignite-2023
 ---
 
 # Quickstart: Create a demo app in the Azure portal

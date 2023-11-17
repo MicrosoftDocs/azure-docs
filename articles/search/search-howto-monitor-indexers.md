@@ -7,7 +7,9 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: devx-track-dotnet
+ms.custom:
+  - devx-track-dotnet
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 09/15/2022
 ---

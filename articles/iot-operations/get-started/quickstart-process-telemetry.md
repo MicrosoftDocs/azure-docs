@@ -4,6 +4,8 @@ description: "Quickstart: Use a Data Processor pipeline to process data from you
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
+ms.custom:
+  - ignite-2023
 ms.date: 10/11/2023
 
 #CustomerIntent: As an OT user, I want to process and enrich my OPC UA data so that I can derive insights from it when I analyze it in the cloud.
@@ -22,20 +24,12 @@ Before you begin this quickstart, you must complete the following quickstarts:
 - [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)
 
-You also need a Microsoft Fabric subscription. You can sign up for a free [Microsoft Fabric (Preview) Trial](/fabric/get-started/fabric-trial).
+You also need a Microsoft Fabric subscription. You can sign up for a free [Microsoft Fabric (Preview) Trial](/fabric/get-started/fabric-trial). In your Microsoft Fabric subscription, ensure that the following settings are enabled for your tenant:
 
-Install the [mqttui](https://github.com/EdJoPaTo/mqttui) tool on the Ubuntu machine where you're running Kubernetes:
+- [Allow service principals to use Power BI APIs](/fabric/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis)
+- [Users can access data stored in OneLake with apps external to Fabric](/fabric/admin/service-admin-portal-onelake#users-can-access-data-stored-in-onelake-with-apps-external-to-fabric)
 
-```bash
-wget https://github.com/EdJoPaTo/mqttui/releases/download/v0.19.0/mqttui-v0.19.0-x86_64-unknown-linux-gnu.deb
-sudo dpkg -i mqttui-v0.19.0-x86_64-unknown-linux-gnu.deb
-```
-
-Install the [k9s](https://k9scli.io/) tool on the Ubuntu machine where you're running Kubernetes:
-
-```bash
-sudo snap install k9s
-```
+To learn more, see [Microsoft Fabric > About tenant settings](/fabric/admin/tenant-settings-index).
 
 ## What problem will we solve?
 
@@ -108,21 +102,28 @@ az keyvault secret set --vault-name <your-key-vault-name> --name AIOFabricSecret
 
 To add the secret reference to your Kubernetes cluster, edit the **aio-default-spc** `secretproviderclass` resource:
 
-1. Enter the following command on the machine where your cluster is running to launch the `k9s` utility:
+1. Enter the following command on the machine where your cluster is running to edit the **aio-default-spc** `secretproviderclass` resource. The YAML configuration for the resource opens in your default editor:
 
     ```bash
-    k9s
+    kubectl edit secretproviderclass aio-default-spc -n azure-iot-operations
     ```
-
-1. In `k9s` type `:` to open the command bar.
-
-1. In the command bar, type `secretproviderclass` and then press _Enter_. Then select the `aio-default-spc` resource.
-
-1. Type `e` to edit the resource. The editor that opens is `vi`, use `i` to insert content and `:wq` to save and exit.
 
 1. Add a new entry to the array of secrets for your new Azure Key Vault secret. The `spec` section looks like the following example:
 
     ```yaml
+    # Please edit the object below. Lines beginning with a '#' will be ignored,
+    # and an empty file will abort the edit. If an error occurs while saving this file will be
+    # reopened with the relevant failures.
+    #
+    apiVersion: secrets-store.csi.x-k8s.io/v1
+    kind: SecretProviderClass
+    metadata:
+      creationTimestamp: "2023-11-16T11:43:31Z"
+      generation: 2
+      name: aio-default-spc
+      namespace: azure-iot-operations
+      resourceVersion: "89083"
+      uid: cda6add7-3931-47bd-b924-719cc862ca29
     spec:                                      
       parameters:                              
         keyvaultName: <this is the name of your key vault>         
@@ -143,67 +144,11 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
 
 1. Save the changes and exit from the editor.
 
-The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the polling interval is reached. To update the pod immediately, restart the pods for the component. For Data Processor, restart the `aio-dp-reader-worker-0` and `aio-dp-runner-worker-0` pods. In the `k9s` tool, hover over the pod, and press _ctrl-k_ to kill a pod, the pod restarts automatically
+The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the polling interval is reached. To update the pod immediately, restart the pods for the component. For Data Processor, run the following commands:
 
-## Verify data is flowing
-
-To verify data is flowing from your assets by using the **mqttui** tool:
-
-1. Run the following command to make the MQ broker accessible from your local machine:
-
-    ```bash
-    # Create Listener
-    kubectl apply -f - <<EOF
-    apiVersion: mq.iotoperations.azure.com/v1beta1
-    kind: BrokerListener
-    metadata:
-      name: az-mqtt-non-tls-listener
-      namespace: azure-iot-operations
-    spec:
-      brokerRef: broker
-      authenticationEnabled: false
-      authorizationEnabled: false
-      port: 1883
-    EOF
-    ```
-
-1. Run the following command to set up port forwarding for the MQ broker. This command blocks the terminal, for subsequent commands you need a new terminal:
-
-    ```bash
-    kubectl port-forward svc/aio-mq-dmqtt-frontend 1883:mqtt-1883 -n azure-iot-operations
-    ```
-
-1. In a separate terminal window, run the following command to connect to the MQ broker using the mqttui tool:
-
-    ```bash
-    mqttui -b mqtt://127.0.0.1:1883
-    ```
-
-1. Verify that the thermostat asset you added in the previous quickstart is publishing data. You can find the telemetry in the `azure-iot-operations/data` topic.
-
-    :::image type="content" source="media/quickstart-process-telemetry/mqttui-output.png" alt-text="Screenshot of the mqttui topic display showing the temperature telemetry.":::
-
-    If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod. In the `k9s` tool, hover over the pod, and press _ctrl-k_ to kill a pod, the pod restarts automatically.
-
-The sample tags you added in the previous quickstart generate messages from your asset that look like the following samples:
-
-```json
-{
-    "Timestamp": "2023-08-10T00:54:58.6572007Z", 
-    "MessageType": "ua-deltaframe",
-    "payload": {
-      "temperature": {
-        "SourceTimestamp": "2023-08-10T00:54:58.2543129Z",
-        "Value": 7109
-      },
-      "Tag 10": {
-        "SourceTimestamp": "2023-08-10T00:54:58.2543482Z",
-        "Value": 7109
-      }
-    },
-    "DataSetWriterName": "oven",
-    "SequenceNumber": 4660
-}
+```bash
+kubectl delete pod aio-dp-reader-worker-0 -n azure-iot-operations
+kubectl delete pod aio-dp-runner-worker-0 -n azure-iot-operations
 ```
 
 ## Create a basic pipeline
@@ -212,7 +157,7 @@ Create a basic pipeline to pass through the data to a separate MQTT topic.
 
 In the following steps, leave all values at their default unless otherwise specified:
 
-1. In the [Azure IoT Operations portal](https://aka.ms/iot-operations-portal), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations portal](https://iotoperations.azure.com), navigate to **Data pipelines** in your cluster.  
 
 1. To create a new pipeline, select **+ Create pipeline**.
 
@@ -241,7 +186,7 @@ In the following steps, leave all values at their default unless otherwise speci
     | -------------- | --------------------------------- |
     | Display name   | `output data`             |
     | Broker         | `tls://aio-mq-dmqtt-frontend:8883` |
-    | Authentication | `none`                            |
+    | Authentication | `Service account token (SAT)`      |
     | Topic          | `dp-output`                 |
     | Data format    | `JSON`                              |
     | Path           | `.payload`                        |
@@ -264,7 +209,7 @@ Create a reference data pipeline to temporarily store reference data in a refere
 
 In the following steps, leave all values at their default unless otherwise specified:
 
-1. In the [Azure IoT Operations portal](https://aka.ms/iot-operations-portal), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations portal](https://iotoperations.azure.com), navigate to **Data pipelines** in your cluster.  
 
 1. Select **+ Create pipeline** to create a new pipeline.
 
@@ -274,7 +219,7 @@ In the following steps, leave all values at their default unless otherwise speci
     | ------------- | ----------------------------------- |
     | Name          | `reference data`                    |
     | Broker        | `tls://aio-mq-dmqtt-frontend:8883` |
-    | Authentication| `none`                  |
+    | Authentication| `Service account token (SAT)`       |
     | Topic         | `reference_data`                    |
     | Data format   | `JSON`                              |
 
@@ -316,7 +261,7 @@ After you publish the message, the pipeline receives the message and stores the 
 
 Create a Data Processor pipeline to process and enrich your data before it sends it to your Microsoft Fabric lakehouse. This pipeline uses the data stored in the equipment data reference data set to enrich messages.
 
-1. In the [Azure IoT Operations portal](https://aka.ms/iot-operations-portal), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations portal](https://iotoperations.azure.com), navigate to **Data pipelines** in your cluster.  
 
 1. Select **+ Create pipeline** to create a new pipeline.
 

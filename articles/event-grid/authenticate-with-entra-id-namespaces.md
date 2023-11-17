@@ -1,9 +1,11 @@
 ---
 title: Authenticate publishing namespace clients using Microsoft Entra ID
-description: This article describes how to authenticate Azure Event Grid publishing clients using Microsoft Entra ID that publish events to topics in Event Grid namespaces.  
+description: This article describes how to authenticate Azure Event Grid publishing clients using Microsoft Entra ID that publish events to topics in Event Grid namespaces.
 ms.topic: conceptual
-ms.custom: build-2023
-ms.date: 10/04/2023
+ms.custom:
+  - build-2023
+  - ignite-2023
+ms.date: 11/15/2023
 ---
 
 # Authentication and authorization with Microsoft Entra ID when using Event Grid namespaces

@@ -2,9 +2,10 @@
 title: Use a managed identity in Azure Kubernetes Service (AKS)
 description: Learn how to use a system-assigned or user-assigned managed identity in Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023
 ms.date: 07/31/2023
-
 ---
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
@@ -46,6 +47,7 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | azure-policy | No identity required. | N/A | No
 | Add-on | Calico | No identity required. | N/A | No
 | Add-on | Dashboard | No identity required. | N/A | No
+| Add-on | application-routing | Manages Azure DNS and Azure Key Vault certificates | Key Vault Secrets User role for Key Vault, DNZ Zone Contributor role for DNS zone | No
 | Add-on | HTTPApplicationRouting | Manages required network resources. | Reader role for node resource group, contributor role for DNS zone | No
 | Add-on | Ingress application gateway | Manages required network resources. | Contributor role for node resource group | No
 | Add-on | omsagent | Used to send AKS metrics to Azure Monitor. | Monitoring Metrics Publisher role | No
@@ -56,7 +58,7 @@ AKS uses several managed identities for built-in services and add-ons.
 ## Enable managed identities on a new AKS cluster
 
 > [!NOTE]
-> AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][Use a pre-created kubelet managed identity].
+> AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][use-a-pre-created-kubelet-managed-identity].
 
 1. Create an Azure resource group using the [`az group create`][az-group-create] command.
 
@@ -157,7 +159,7 @@ A custom user-assigned managed identity for the control plane enables access to 
 >
 > USDOD Central, USDOD East, and USGov Iowa regions in Azure US Government cloud aren't supported.
 >
-> AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][Use a pre-created kubelet managed identity].
+> AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][use-a-pre-created-kubelet-managed-identity].
 
 * If you don't have a managed identity, create one using the [`az identity create`][az-identity-create] command.
 

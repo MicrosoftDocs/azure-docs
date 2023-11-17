@@ -1,9 +1,11 @@
 ---
 title: Azure Event Grid - Monitor data reference (push delivery using namespaces)
-description: This article provides reference documentation for metrics and diagnostic logs for Azure Event Grid's push delivery on namespaces. 
+description: This article provides reference documentation for metrics and diagnostic logs for Azure Event Grid's push delivery on namespaces.
 ms.topic: conceptual
-ms.custom: build-2023
-ms.date: 10/11/2023
+ms.custom:
+  - build-2023
+  - ignite-2023
+ms.date: 11/15/2023
 ---
 
 # Monitor data reference for Azure Event Grid's push delivery using namespaces

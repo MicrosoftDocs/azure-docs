@@ -4,7 +4,9 @@ description: Understand how Azure IoT Orchestrator uses providers and components
 author: kgremban
 ms.author: kgremban
 # ms.subservice: orchestrator
-ms.topic: concept-article 
+ms.topic: concept-article
+ms.custom:
+  - ignite-2023
 ms.date: 11/02/2023
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
@@ -82,7 +84,7 @@ The following solution snippet demonstrates installing a Helm chart using the He
           },
           "opcUaConnector": {
             "settings": {
-              "discoveryUrl": "opc.tcp://opcplc-000000.alice-springs:50000",
+              "discoveryUrl": "opc.tcp://opcplc-000000:50000",
               "authenticationMode": "Anonymous",
               "autoAcceptUnrustedCertificates": "true"
             }

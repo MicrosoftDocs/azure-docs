@@ -6,6 +6,8 @@ author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 01/31/2023
 ---
@@ -95,7 +97,7 @@ The wizard automates several tasks. Specifically, both shaping and projections (
 
 ### [**REST**](#tab/kstore-rest)
 
-[**Create your first knowledge store using Postman**](knowledge-store-create-rest.md) is a tutorial that walks you through the objects and requests belonging to this [knowledge store collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store).
+[**Create your first knowledge store using Postman**](knowledge-store-create-rest.md) is a tutorial that walks you through the objects and requests belonging to this [knowledge store collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/knowledge-store).
 
 REST API version `2020-06-30` can be used to create a knowledge store through additions to a skillset.
 

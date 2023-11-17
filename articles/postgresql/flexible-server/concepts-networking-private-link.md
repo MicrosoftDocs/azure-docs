@@ -7,6 +7,8 @@ ms.reviewer: maghan
 ms.date: 10/12/2023
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ---
 
@@ -63,6 +65,10 @@ Cross Feature Availability Matrix for preview of Private Endpoint in Azure Datab
 | Microsoft Entra Authentication (Entra Auth) | Yes | Works as designed |
 | Connection pooling with PGBouncer | Yes | Works as designed |
 | Private Endpoint DNS | Yes | Works as designed and [documented](../../private-link/private-endpoint-dns.md) |
+
+> [!NOTE]
+> Azure Database for PostgreSQL - Flexible Server support for Private Endpoints in Preview requires enablement of [**PostgreSQL Private Endpoint capability** preview feature in your subscription](../../azure-resource-manager/management/preview-features.md). 
+
 
 
 ### Connect from an Azure VM in Peered Virtual Network 

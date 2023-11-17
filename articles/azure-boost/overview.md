@@ -5,10 +5,11 @@ author: mattmcinnes
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
+ms.custom:
+  - ignite-2023
 ms.date: 11/07/2023
 ms.author: mattmcinnes
 ms.reviewer: mattmcinnes
-
 #Customer intent: I want to improve the security and performance of my Azure virtual machines
 ---
 
@@ -56,7 +57,7 @@ Azure Boost delivers industry leading throughput performance at up to 12.5-GBps 
 
 :::image type="content" source="./media/boost-storage-nvme-vs-scsi.png" alt-text="Diagram showing the difference between managed SCSI storage and Azure Boost's managed NVMe storage.":::
 
-By fully applying Azure Boost architecture, we deliver remote, local, and cached disk performance improvements at up to 17-GBps throughput and 3.8M IOPS. Azure Boost SSDd are designed to provide high performance optimized encryption at rest, and minimal jitter to NVMe local disks for Azure VMs with local disks.
+By fully applying Azure Boost architecture, we deliver remote, local, and cached disk performance improvements at up to 17-GBps throughput and 3.8M IOPS. Azure Boost SSDs are designed to provide high performance optimized encryption at rest, and minimal jitter to NVMe local disks for Azure VMs with local disks.
 
 :::image type="content" source="./media/boost-storage-ssd-comparison.png" alt-text="Diagram showing the difference between local SCSI SSDs and Azure Boost's local NVMe SSDs.":::
 
@@ -76,7 +77,7 @@ Boost systems embrace multiple layers of defense-in-depth, including ubiquitous 
 Azure Boost uses Security Enhanced Linux (SELinux) to enforce principle of least privileges for all software running on its system on chip. All control plane and data plane software running on top of the Boost OS is restricted to running only with the minimum set of privileges required to operate – the operating system restricts any attempt by Boost software to act in an unexpected manner. Boost OS properties make it difficult to compromise code, data, or the availability of Boost and Azure hosting Infrastructure.
 
 - **Rust memory safety:**
-RUST serves as the primary language for all new code written on the Boost system, to provide memory safety without impacting performance. Control and data plane operations are isolated with memory safety improvements that enhance Azure’s ability to keep tenants safe. 
+Rust serves as the primary language for all new code written on the Boost system, to provide memory safety without impacting performance. Control and data plane operations are isolated with memory safety improvements that enhance Azure’s ability to keep tenants safe. 
 
 - **FIPS certification:**
 Boost employs a FIPS 140 certified system kernel, providing reliable and robust security validation of cryptographic modules.

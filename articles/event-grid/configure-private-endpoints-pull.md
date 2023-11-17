@@ -1,8 +1,10 @@
 ---
 title: Configure private endpoints for Azure Event Grid namespaces
-description: This article describes how to configure private endpoints for Azure Event Grid namespaces. 
+description: This article describes how to configure private endpoints for Azure Event Grid namespaces.
 ms.topic: how-to
-ms.date: 10/04/2023 
+ms.custom:
+  - ignite-2023
+ms.date: 11/15/2023
 ---
 
 # Configure private endpoints for Azure Event Grid namespaces

@@ -4,8 +4,11 @@ description: This quickstart shows you how to send messages to and receive messa
 ms.topic: quickstart
 ms.author: sonalikaroy
 author: sonalika-roy
-ms.custom: references_regions, devx-track-dotnet
-ms.date: 07/26/2023
+ms.custom:
+  - references_regions
+  - devx-track-dotnet
+  - ignite-2023
+ms.date: 11/15/2023
 ---
 
 

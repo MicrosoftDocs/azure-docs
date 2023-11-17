@@ -5,7 +5,9 @@ description: Learn how to set up an indexer connection to Azure SQL Database  us
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - ignite-2023
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 09/19/2022

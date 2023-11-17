@@ -3,7 +3,9 @@ title: Manage asset configurations remotely
 description: Use the Azure IoT Operations portal to manage your asset configurations remotely and enable data to flow from your assets to an MQTT broker.
 author: dominicbetts
 ms.author: dobett
-ms.topic: how-to 
+ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.date: 10/24/2023
 
 #CustomerIntent: As an OT user, I want configure my IoT Operations environment to so that data can flow from my OPC UA servers through to the MQTT broker.
@@ -32,7 +34,7 @@ To configure an assets endpoint, you need a running instance of Azure IoT Operat
 
 ## Sign in to the Azure IoT Operations portal
 
-Navigate to the [Azure IoT Operations portal](https://aka.ms/iot-operations-portal) in your browser and sign in by using your Microsoft Entra ID credentials.
+Navigate to the [Azure IoT Operations portal](https://iotoperations.azure.com) in your browser and sign in by using your Microsoft Entra ID credentials.
 
 ## Select your cluster
 
@@ -74,7 +76,7 @@ The following script shows how to create a secret for the username and password 
 
 ```sh
 # NAMESPACE is the namespace containing the MQ broker.
-export NAMESPACE="alice-springs-solution"
+export NAMESPACE="azure-iot-operations"
 
 # Set the desired username and password here.
 export USERNAME="username"

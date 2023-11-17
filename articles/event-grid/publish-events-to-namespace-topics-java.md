@@ -1,10 +1,12 @@
 ---
-title: Publish events using namespace topics with Java 
-description: This article provides step-by-step instructions to publish events to an Event Grid namespace topic using pull delivery. 
+title: Publish events using namespace topics with Java
+description: This article provides step-by-step instructions to publish events to an Event Grid namespace topic using pull delivery.
 ms.topic: quickstart
+ms.custom:
+  - ignite-2023
 ms.author: jafernan
 author: jfggdl
-ms.date: 11/02/2023
+ms.date: 11/15/2023
 ---
 
 # Publish events to namespace topics using Java
@@ -140,4 +142,3 @@ public class NamespaceTopicPublisher {
 * See [receive events using pull delivery](receive-events-from-namespace-topics-java.md) if you want to connect to Event Grid and control the time and rate at which you read events. You can also use a private endpoint to read events from Event Grid using pull delivery.
 * See [subscribe to events using push delivery to Event Hubs](publish-deliver-events-with-namespace-topics.md) if you need to subscribe to events using Event Hubs as a destination.
 * To learn more about pull delivery model, see [Pull delivery overview](pull-delivery-overview.md).
-

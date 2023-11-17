@@ -2,8 +2,11 @@
 title: 'Quickstart: Publish and subscribe on an MQTT topic using CLI'
 description: 'Quickstart guide to use Azure Event Grid’s MQTT broker feature and Azure CLI to publish and subscribe MQTT messages on a topic'
 ms.topic: quickstart
-ms.custom: build-2023, devx-track-azurecli
-ms.date: 05/23/2023
+ms.custom:
+  - build-2023
+  - devx-track-azurecli
+  - ignite-2023
+ms.date: 11/15/2023
 author: veyaddan
 ms.author: veyaddan
 ---
@@ -14,7 +17,7 @@ Azure Event Grid’s MQTT broker feature supports messaging using the MQTT proto
 
 
 In this article, you use the Azure CLI to do the following tasks:
-1. Create an Event Grid namespace and enable MQTT
+1. Create an Event Grid namespace and enable MQTT broker
 2. Create subresources such as clients, client groups, and topic spaces
 3. Grant clients access to publish and subscribe to topic spaces
 4. Publish and receive MQTT messages

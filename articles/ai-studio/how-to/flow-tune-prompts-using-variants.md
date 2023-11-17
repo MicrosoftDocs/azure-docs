@@ -5,6 +5,8 @@ description: Learn how to tune prompts using variants in Prompt flow with Azure 
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.author: eur
@@ -160,7 +162,7 @@ You can submit a batch run, which allows you test the variants with a large amou
 7. After the run is submitted, select the link, go to the run detail page.
 
 > [!NOTE]
-> The run may take several minutes to complete.
+> The run might take several minutes to complete.
 
 ### Visualize outputs
 

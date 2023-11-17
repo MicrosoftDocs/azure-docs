@@ -7,7 +7,8 @@ manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 02/22/2023
 ---

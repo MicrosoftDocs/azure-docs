@@ -7,16 +7,15 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 11/07/2023
-ms.custom: references_regions
+ms.date: 11/15/2023
+ms.custom:
+  - references_regions
+  - ignite-2023
 ---
 
 # What's new in Azure AI Search
 
-Azure Cognitive Search is now **Azure AI Search**. Learn about the latest updates to Azure AI Search functionality, docs, and samples.
-
-> [!NOTE]
-> Looking for preview features? Previews are announced here, but we also maintain a [preview features list](search-api-preview.md) so you can find them in one place.
+**Azure Cognitive Search is now Azure AI Search**. Learn about the latest updates to Azure AI Search functionality, docs, and samples.
 
 ## November 2023
 
@@ -33,6 +32,9 @@ Azure Cognitive Search is now **Azure AI Search**. Learn about the latest update
 | [**Text Split skill (preview)**](cognitive-search-skill-textsplit.md) | Skill | Updated in [2023-10-01-Preview](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) to support native data chunking. |
 | [**How vector search and semantic ranking improve your GPT prompts**](https://www.youtube.com/watch?v=Xwx1DJ0OqCk)| Video | Watch this short video to learn how hybrid retrieval gives you optimal grounding data for generating useful AI responses and enables search over both concepts and keywords. |
 | [**Access Control in Generative AI applications**](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)  | Blog | Explains how to use Microsoft Entra ID and Microsoft Graph API to roll out granular user permissions on chunked content in your index. |
+
+> [!NOTE]
+> Looking for preview features? Previews are announced here, but we also maintain a [preview features list](search-api-preview.md) so you can find them in one place.
 
 ## October 2023
 
@@ -54,7 +56,7 @@ Azure Cognitive Search is now **Azure AI Search**. Learn about the latest update
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
 |-----------------------------|------|--------------|
 | [**Vector demo (Azure SDK for JavaScript)**](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-javascript/code/azure-search-vector-sample.js) | Sample | Uses Node.js and the **@azure/search-documents 12.0.0-beta.2** library to generate embeddings, create and load an index, and run several vector queries. |
-| [**Vector demo (Azure SDK for .NET)**](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-dotnet/readme.md) | Sample | Uses the **Azure.Search.Documents 11.5.0-beta.3** library to generate embeddings, create and load an index, and run several vector queries. You can also try [this sample](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample07_VectorSearch.md) from the Azure SDK team.|
+| [**Vector demo (Azure SDK for .NET)**](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-dotnet/readme.md) | Sample | Uses the **Azure.Search.Documents 11.5.0-beta.3** library to generate embeddings, create and load an index, and run several vector queries. You can also try [this sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample07_VectorSearch.md) from the Azure SDK team.|
 | [**Vector demo (Azure SDK for Python)**](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-python/code/azure-search-vector-image-python-sample.ipynb) | Sample | Uses the latest beta release of the **azure.search.documents** to generate embeddings, create and load an index, and run several vector queries. Visit the [cognitive-search-vector-pr/demo-python](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-python) repo for more vector search demos. |
 
 ## June 2023
@@ -89,7 +91,7 @@ Azure Cognitive Search is now **Azure AI Search**. Learn about the latest update
 | Month | Item |
 |-------|---------|
 | November | **Add search to websites** series, updated versions of React and Azure SDK client libraries: <ul><li>[C#](tutorial-csharp-overview.md)</li><li>[Python](tutorial-python-overview.md)</li><li>[JavaScript](tutorial-javascript-overview.md) </li></ul> "Add search to websites" is a tutorial series with sample code available in three languages. If you're integrating client code with a search index, these samples demonstrate an end-to-end approach to integration. |
-| November | **Retired** - [Visual Studio Code extension for Azure AI Search](https://github.com/microsoft/vscode-azurecognitivesearch/blob/master/README.md). |
+| November | **Retired** - [Visual Studio Code extension for Azure AI Search](https://github.com/microsoft/vscode-azurecognitivesearch/blob/main/README.md). |
 | November | [Query performance dashboard](https://github.com/Azure-Samples/azure-samples-search-evaluation). This Application Insights sample demonstrates an approach for deep monitoring of query usage and performance of an Azure AI Search index. It includes a JSON template that creates a workbook and dashboard in Application Insights and a Jupyter Notebook that populates the dashboard with simulated data. |
 | October | [Compliance risk analysis using Azure AI Search](/azure/architecture/guide/ai/compliance-risk-analysis). On Azure Architecture Center, this guide covers the implementation of a compliance risk analysis solution that uses Azure AI Search. |
 | October | [Beiersdorf customer story using Azure AI Search](https://customers.microsoft.com/story/1552642769228088273-Beiersdorf-consumer-goods-azure-cognitive-search). This customer story showcases semantic search and document summarization to provide researchers with ready access to institutional knowledge. |

@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: ML pipelines with Python SDK v2"
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning to create your production-ready ML project in a cloud-based Python Jupyter Notebook using Azure Machine Learning Python SDK v2. 
+description: Use Azure Machine Learning to create your production-ready ML project in a cloud-based Python Jupyter Notebook using Azure Machine Learning Python SDK v2.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,13 @@ author: msdpalam
 ms.author: meeral
 ms.reviewer: lagayhar
 ms.date: 10/20/2023
-ms.custom: sdkv2, event-tier1-build-2022, ignite-2022, build-2023, devx-track-python
+ms.custom:
+  - sdkv2
+  - event-tier1-build-2022
+  - ignite-2022
+  - build-2023
+  - devx-track-python
+  - ignite-2023
 #Customer intent: This tutorial is intended to introduce Azure Machine Learning to data scientists who want to scale up or publish their ML projects. By completing a familiar end-to-end project, which starts by loading the data and ends by creating and calling an online inference endpoint, the user should become familiar with the core concepts of Azure Machine Learning and their most common usage. Each step of this tutorial can be modified or performed in other ways that might have security or scalability advantages. We will cover some of those in the Part II of this tutorial, however, we suggest the reader use the provide links in each section to learn more on each topic.
 ---
 

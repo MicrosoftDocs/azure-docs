@@ -5,6 +5,8 @@ description: This article describes how to create an Azure AI Studio project.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.author: eur
@@ -16,23 +18,26 @@ ms.author: eur
 
 This article describes how to create an Azure AI project in Azure AI studio. A project is used to organize your work and save state while building customized AI apps. 
 
-Projects are hosted by an Azure AI resource which provides enterprise-grade security and a collaborative environment. For more information about the Azure AI projects and resources model, see [Azure AI resources](../concepts/ai-resources.md).
+Projects are hosted by an Azure AI resource that provides enterprise-grade security and a collaborative environment. For more information about the Azure AI projects and resources model, see [Azure AI resources](../concepts/ai-resources.md).
 
-You can create a project in Azure AI Studio more than one way. The most direct way is from the **Build** tab.
+You can create a project in Azure AI Studio in more than one way. The most direct way is from the **Build** tab.
 1. Select the **Build** tab at the top of the page.
 1. Select **+ New project**.
 
     :::image type="content" source="../media/how-to/projects-create-new.png" alt-text="Screenshot of the Build tab of the Azure AI Studio with the option to create a new project visible." lightbox="../media/how-to/projects-create-new.png":::
 
 1. Enter a name for the project.
-1. Select **Create a new resource** from the **Azure AI resource** dropdown and then select **Next**. This option creates a new Azure AI resource to host the project. Alternatively you can select an existing Azure AI resource from the dropdown.
+1. Select an Azure AI resource from the dropdown to host your project. If you don't have access to an Azure AI resource yet, select **Create a new resource**.
+
+    > [!TIP]
+    > It's recommended to share an Azure AI resource with your team. This lets you share configurations like data connections with all projects, and centrally manage security settings and spend.
 
     > [!NOTE]
-    > To create an Azure AI resource, you must have **Owner** permissions. 
+    > To create an Azure AI resource, you must have **Owner** or **Contributor** permissions on the selected resource group. 
 
     :::image type="content" source="../media/how-to/projects-create-details.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/how-to/projects-create-details.png":::
 
-1. Enter a name for the Azure AI resource. 
+1. If you're creating a new Azure AI resource, enter a name.
 
     :::image type="content" source="../media/how-to/projects-create-resource.png" alt-text="Screenshot of the create resource page within the create project dialog." lightbox="../media/how-to/projects-create-resource.png":::
 
@@ -45,12 +50,11 @@ You can create a project in Azure AI Studio more than one way. The most direct w
 
 
 1. Enter the **Location** for the Azure AI resource and then select **Next**. The location is the region where the Azure AI resource is hosted. The location of the Azure AI resource is also the location of the project. 
-1. Review the project details and then select **Create a project**.
+1. Review the project details and then select **Create a project**. Azure AI services availability differs per region. For example, certain models might not be available in certain regions.
 
     :::image type="content" source="../media/how-to/projects-create-review-finish.png" alt-text="Screenshot of the review and finish page within the create project dialog." lightbox="../media/how-to/projects-create-review-finish.png":::
 
-
-Once a project is created, you can access the **Tools**, **Components**, and **Settings** assets in the left navigation panel. Tools and assets listed under each of those subheadings can vary depending on the type of project you've selected. For example, if you've selected a project that uses Azure OpenAI, you'll see the **Playground** navigation option under **Tools**. 
+Once a project is created, you can access the **Tools**, **Components**, and **Settings** assets in the left navigation panel. Tools and assets listed under each of those subheadings can vary depending on the type of project you've selected. For example, if you've selected a project that uses Azure OpenAI, you see the **Playground** navigation option under **Tools**. 
 
 ## Project details
 

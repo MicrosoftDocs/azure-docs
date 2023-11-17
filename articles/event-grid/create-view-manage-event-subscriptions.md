@@ -3,8 +3,10 @@ title: Create, view, and manage Azure Event Grid event subscriptions in namespac
 description: This article describes how to create, view and manage event subscriptions in namespace topics
 author: robece
 ms.topic: how-to
+ms.custom:
+  - ignite-2023
 ms.author: robece
-ms.date: 05/24/2023
+ms.date: 11/15/2023
 ---
 
 # Create, view, and manage event subscriptions in namespace topics

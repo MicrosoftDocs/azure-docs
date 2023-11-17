@@ -5,7 +5,8 @@ description: Skillsets are where you author an AI enrichment pipeline in Azure A
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 08/08/2023
 ---
@@ -168,7 +169,7 @@ The "sourceFieldName" property specifies either a field in your data source or a
 
 ## Enrichment example
 
-Using the [hotel reviews skillset](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_skillset.json) as a reference point, this example explains how an [enrichment tree](cognitive-search-working-with-skillsets.md#enrichment-tree) evolves through skill execution using conceptual diagrams.
+Using the [hotel reviews skillset](https://github.com/Azure-Samples/azure-search-sample-data/blob/main/hotelreviews/HotelReviews_skillset.json) as a reference point, this example explains how an [enrichment tree](cognitive-search-working-with-skillsets.md#enrichment-tree) evolves through skill execution using conceptual diagrams.
 
 This example also shows:
 

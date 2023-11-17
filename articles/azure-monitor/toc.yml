@@ -191,7 +191,7 @@ items:
             href: app/asp-net-trace-logs.md
           - name: Sampling
             displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
-            href: app/sampling.md
+            href: app/sampling-classic-api.md
           - name: SDK support policy
             href: app/sdk-support-guidance.md
           - name: Statsbeat
@@ -266,7 +266,7 @@ items:
       - name: Release and work item insights
         href: app/release-and-work-item-insights.md
       - name: Transaction Search and Diagnostics
-        href: app/search-and-transaction-diagnostics.md
+        href: app/transaction-search-and-diagnostics.md
     - name: Code analysis
       items:
       - name: Profiler
@@ -432,7 +432,7 @@ items:
       items:
       - name: Migrate from Operations Manager
         href: azure-monitor-operations-manager.md
-      - name: Azure Monitor SCOM Managed Instance (preview)
+      - name: Azure Monitor SCOM Managed Instance
         href: vm/scom-managed-instance-overview.md
       - name: Connect Operations Manager
         href: agents/om-agents.md
@@ -541,6 +541,10 @@ items:
           href: containers/container-insights-hybrid-setup.md          
         - name: Enable with Azure Policy
           href: containers/container-insights-enable-aks-policy.md
+        - name: Configure private link
+          href: containers/container-insights-private-link.md
+        - name: Legacy authentication
+          href: containers/container-insights-authentication.md
         - name: Supported region mappings
           href: containers/container-insights-region-mapping.md
         - name: Transition from Container monitoring solution
@@ -557,6 +561,9 @@ items:
           href: containers/container-insights-v2-migration.md
         - name: Enable cost optimization settings
           href: containers/container-insights-cost-config.md
+        - name: Data Transformations
+          displayName: Container insights
+          href: containers/container-insights-transformations.md
         - name: Authentication
           href: containers/container-insights-authentication.md
         - name: Send Prometheus metrics to Logs
@@ -618,7 +625,7 @@ items:
         href: ../network-watcher/network-insights-overview.md
       - name: Topology
         displayName: Network Insights, Network
-        href: ../network-watcher/network-insights-topology.md
+        href: ../network-watcher/network-insights-topology.md?toc=/azure/azure-monitor/toc.json
       - name: Troubleshooting
         displayName: Network Insights, Network
         href: ../network-watcher/network-insights-troubleshooting.md
@@ -651,12 +658,15 @@ items:
     - name: Best practices
       displayName: data collection, data collection rules
       href: essentials/data-collection-rule-best-practices.md
+    - name: Create and edit
+      displayName: Data collection rules
+      href: essentials/data-collection-rule-create-edit.md
+    - name: Edit tutorial
+      displayName: data collection rules
+      href: essentials/data-collection-rule-edit.md
     - name: Structure
       displayName: Data collection rules
       href: essentials/data-collection-rule-structure.md
-    - name: Edit a data collection rule
-      displayName: data collection rules
-      href: essentials/data-collection-rule-edit.md
   - name: Transformations
     items:
       - name: Overview
@@ -863,6 +873,9 @@ items:
     - name: Overview
       displayName: data ingestion
       href: logs/logs-ingestion-api-overview.md
+    - name: Configure with PowerShell
+      displayName: logs ingestion
+      href: logs/set-up-logs-ingestion-api-prerequisites.md
     - name: Migrate from Data Collector API
       href: logs/custom-logs-migrate.md
     - name: Tutorials
@@ -873,9 +886,6 @@ items:
       - name: Configure with ARM templates
         displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-api.md
-      - name: Configure with PowerShell
-        displayName: logs ingestion
-        href: logs/set-up-logs-ingestion-api-prerequisites.md
       - name: Sample code
         displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-code.md    
@@ -1486,11 +1496,7 @@ items:
   - name: Alerts 
     href: alerts/alerts-payload-samples.md
   - name: Data collection rules
-    items:
-    - name: Agent
-      href: agents/data-collection-rule-sample-agent.md
-    - name: Custom logs
-      href: logs/data-collection-rule-sample-custom-logs.md
+    href: essentials/data-collection-rule-samples.md
   - name: Monitor Logs in Azure CLI
     href: logs\azure-cli-log-analytics-workspace-sample.md
   - name: Configure workspaces using PowerShell

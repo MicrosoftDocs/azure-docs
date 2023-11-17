@@ -1,15 +1,17 @@
 ---
 title: About Azure IoT MQ state store protocol
-# titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ
 description: Learn about the fundamentals of the Azure IoT MQ state store protocol
 author: timlt
 ms.author: timlt
-# ms.subservice: mq
+ms.subservice: mq
 ms.topic: concept-article
+ms.custom:
+  - ignite-2023
 ms.date: 11/1/2023
 
 # CustomerIntent: As a developer, I want understand what the Azure IoT MQ state store protocol is, so
-# that I can use it to interact with the MQ state store. 
+# that I can use it to interact with the MQ state store.
 ---
 
 # Azure IoT MQ state store protocol

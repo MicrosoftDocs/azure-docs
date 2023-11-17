@@ -6,8 +6,10 @@ description: Steps for adding a vectorizer to a search index in Azure AI Search.
 author: heidisteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 11/04/2023
+ms.date: 11/10/2023
 ---
 
 # Configure a vectorizer in a search index
@@ -54,7 +56,7 @@ You can use the [**Import and vectorize data** wizard](search-get-started-portal
         },
         {
           "name": "my_custom_vectorizer",
-          "kind": "azureOpenAI",
+          "kind": "customWebApi",
           "customVectorizerParameters": {
             "uri": "https://my-endpoint",
             "authResourceId": " ",

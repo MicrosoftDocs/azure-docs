@@ -1,8 +1,10 @@
 ---
 title: How to send events to Event Grid namespace topics
-description: This article describes how to deliver events to Event Grid namespace topics. 
+description: This article describes how to deliver events to Event Grid namespace topics.
 ms.topic: conceptual
-ms.date: 10/16/2023
+ms.custom:
+  - ignite-2023
+ms.date: 11/15/2023
 author: robece
 ms.author: robece
 ---

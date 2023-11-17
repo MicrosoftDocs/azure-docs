@@ -5,7 +5,9 @@ description: The SerpAPI API is a Python tool that provides a wrapper to the Ser
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
-ms.custom: devx-track-python
+ms.custom:
+  - devx-track-python
+  - ignite-2023
 ms.topic: reference
 author: likebupt
 ms.author: keli19

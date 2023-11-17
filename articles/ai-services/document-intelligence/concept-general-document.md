@@ -5,6 +5,8 @@ description: Extract key-value pairs, tables, selection marks, and text from you
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: lajanuar
@@ -25,7 +27,7 @@ ms.author: lajanuar
 |General document model|&bullet; v3.1:2023-07-31 (GA)</br>&bullet; v3.0:2022-08-31 (GA)</br>&bullet; v2.1 (GA)|**`prebuilt-document`**|
 :::moniker-end
 
-::: moniker range=">=doc-intel-3.1.0"
+::: moniker range="doc-intel-3.1.0"
 **This content applies to:** ![checkmark](media/yes-icon.png) **v3.1 (GA)**  | **Latest version:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) | **Previous version:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.0**](?view=doc-intel-3.0.0&preserve-view=true)
 ::: moniker-end
 
@@ -34,6 +36,8 @@ ms.author: lajanuar
 ::: moniker-end
 
 The General document model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, tables, and selection marks from documents. General document is available with the v3.1 and v3.0 APIs.  For more information, _see_ our [migration guide](v3-1-migration-guide.md).
+
+::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
 
 ## General document features
 
@@ -53,9 +57,11 @@ The General document model combines powerful Optical Character Recognition (OCR)
 
 The general document API supports most form types and analyzes your documents and extract keys and associated values. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to training a custom model without labels.
 
-## Development options
+:::moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
+
+## Development options
 
 Document Intelligence v3.1 supports the following tools, applications, and libraries:
 
@@ -72,6 +78,8 @@ Document Intelligence v3.0 supports the following tools, applications, and libra
 |----------|-------------|-----------|
 |**General document model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-document**|
 ::: moniker-end
+
+::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
 
 ## Input requirements
 
@@ -127,11 +135,13 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 
 * Expect to see key-value pairs with a key, but no value. For example if a user chose to not provide an email address on the form.
 
+::: moniker-end
+
 ## Next steps
 
-* Follow our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+* Follow our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md) to learn how to use the v3.1 version in your applications and workflows.
 
-* Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
-
+* Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument).
+  
 > [!div class="nextstepaction"]
 > [Try the Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
