@@ -20,7 +20,7 @@ keywords:
 
 ### GPT-4-1106-preview & GPT-3.5-Turbo-1106 released
 
-Both models are the latest release from OpenAI with improved instruction following, JSON mode, reproducible outputs, and parallel function calling.
+Both models are the latest release from OpenAI with improved instruction following, [JSON mode](./how-to/json-mode.md), [reproducible output](./how-to/reproducible-output.md), and parallel function calling.
 
 - **GPT-4-1106-preview (also known as GPT-4 Turbo)** has a max context window of 128,000 tokens and can generate 4,096 output tokens. It has the latest training data with knowledge up to April 2023. This model is in preview and is not recommended for production use. All deployments of this preview model will be automatically updated in place once the stable release becomes available.
 
