@@ -2,14 +2,14 @@
 title: Azure OpenAI Service quotas and limits
 titleSuffix: Azure AI services
 description: Quick reference, detailed description, and best practices on the quotas and limits for the OpenAI service in Azure AI services.
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-openai
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 11/17/2023
 ms.author: mbullwin
 ---
 
@@ -71,6 +71,12 @@ The default quota for models varies by model and region. Default quota limits ar
     <td>240 K</td>  
   </tr>  
   <tr>  
+    <td>gpt-35-turbo (1106)</td>  
+    <td> Australia East, Canada East, France Central, South India, Sweden Central, UK South, West US
+</td>  
+    <td>120 K</td>  
+  </tr>  
+  <tr>  
     <td rowspan="2">gpt-4</td>  
     <td>East US, South Central US, West Europe, France Central</td>  
     <td>20 K</td>  
@@ -87,7 +93,16 @@ The default quota for models varies by model and region. Default quota limits ar
   <tr>  
     <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South,  Sweden Central, Switzerland North</td>  
     <td>80 K</td>  
+  </tr>
+<tr>  
+    <td rowspan="2">gpt-4 (1106-preview)<br>GPT-4 Turbo </td>  
+    <td>Australia East, Canada East, East US 2, France Central, UK South, West US</td>  
+    <td>80 K</td>  
   </tr>  
+  <tr>  
+    <td>South India, Norway East, Sweden Central</td>  
+    <td>150 K</td>  
+  </tr> 
   <tr>  
     <td rowspan="2">text-embedding-ada-002</td>  
     <td>East US, South Central US, West Europe, France Central</td>  

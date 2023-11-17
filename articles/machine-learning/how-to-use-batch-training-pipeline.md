@@ -267,7 +267,7 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
     
     # [Python](#tab/python)
 
-    Our pipeline is defined in a function. To transform it to a component, you'll use the `build()` method. Pipeline components are reusable compute graphs that can be included in batch deployments or used to compose more complex pipelines.
+    Our pipeline is defined in a function. To transform it to a component, you'll use the `component` property from it. Pipeline components are reusable compute graphs that can be included in batch deployments or used to compose more complex pipelines.
 
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=build_pipeline_component)]
     

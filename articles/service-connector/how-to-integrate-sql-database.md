@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 10/26/2023
 ms.custom: event-tier1-build-2022, engagement-fy23
 ---
-
 # Integrate Azure SQL Database with Service Connector
 
 This page shows supported authentication methods and clients, and shows sample code you can use to connect compute services to Azure SQL Database using Service Connector. You might still be able to connect to Azure SQL Database using other methods. This page also shows default environment variable names and values you get when you create the service connection.
@@ -16,28 +15,29 @@ This page shows supported authentication methods and clients, and shows sample c
 ## Supported compute services
 
 - Azure App Service
+- Azure Functions
 - Azure Container Apps
 - Azure Spring Apps
 
 ## Supported authentication types and clients
 
-Supported authentication and clients for App Service, Container Apps, and Azure Spring Apps:
+Supported authentication and clients for App Service, Azure Functions, Container Apps, and Azure Spring Apps:
 
-| Client type        | System-assigned managed identity     | User-assigned managed identity      | Secret/connection string             | Service principal                    |
-|--------------------|:------------------------------------:|:-----------------------------------:|:------------------------------------:|:------------------------------------:|
-| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Go                 |                                      |                                     | ![yes icon](./media/green-check.png) |                                      |
-| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| PHP                |                                      |                                     | ![yes icon](./media/green-check.png) |                                      |
-| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Python - Django    |                                      |                                     | ![yes icon](./media/green-check.png) |                                      |
-| Ruby               |                                      |                                     | ![yes icon](./media/green-check.png) |                                      |
-| None               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Client type        |  System-assigned managed identity  |   User-assigned managed identity   |      Secret/connection string      |         Service principal         |
+| ------------------ | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: |
+| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Go                 |                                    |                                    | ![yes icon](./media/green-check.png) |                                    |
+| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java - Spring Boot | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| PHP                |                                    |                                    | ![yes icon](./media/green-check.png) |                                    |
+| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Python - Django    |                                    |                                    | ![yes icon](./media/green-check.png) |                                    |
+| Ruby               |                                    |                                    | ![yes icon](./media/green-check.png) |                                    |
+| None               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 > [!NOTE]
-> System-assigned managed identity,User-assigned managed identity and Service principal are only supported on Azure CLI. 
+> System-assigned managed identity,User-assigned managed identity and Service principal are only supported on Azure CLI.
 
 ## Default environment variable names or application properties and sample code
 
@@ -165,11 +165,12 @@ Refer to the steps and code below to connect to Azure SQL Database using a user-
 #### [SpringBoot](#tab/sql-secret-spring)
 
 > [!div class="mx-tdBreakAll"]
-> | Default environment variable name | Description                            | Sample value                                                                     |
-> |-----------------------------------|----------------------------------------|----------------------------------------------------------------------------------|
-> | `spring.datasource.url`             | Azure SQL Database datasource URL      | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;` |
-> | `spring.datasource.username`        | Azure SQL Database datasource username | `<sql-user>`                                                                     |
-> | `spring.datasource.password`        | Azure SQL Database datasource password | `<sql-password>`                                                                 |
+>
+> | Default environment variable name | Description                            | Sample value                                                                       |
+> | --------------------------------- | -------------------------------------- | ---------------------------------------------------------------------------------- |
+> | `spring.datasource.url`         | Azure SQL Database datasource URL      | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;` |
+> | `spring.datasource.username`    | Azure SQL Database datasource username | `<sql-user>`                                                                     |
+> | `spring.datasource.password`    | Azure SQL Database datasource password | `<sql-password>`                                                                 |
 
 #### [Python](#tab/sql-secret-python)
 
@@ -302,6 +303,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a conne
 
 Refer to the steps and code below to connect to Azure SQL Database using a service principal.
 [!INCLUDE [code sample for sql](./includes/code-sql-me-id.md)]
+
 
 ## Next steps
 
