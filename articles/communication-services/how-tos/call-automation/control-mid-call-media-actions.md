@@ -6,15 +6,13 @@ author: kunaal
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.date: 08/09/2023
+ms.date: 11/16/2023
 ms.author: kpunjabi
 ms.custom: public_preview
 services: azure-communication-services
 ---
 
 # How to control mid-call media actions with Call Automation
-
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 Call Automation uses a REST API interface to receive requests for actions and provide responses to notify whether the request was successfully submitted or not. Due to the asynchronous nature of calling, most actions have corresponding events that are triggered when the action completes successfully or fails. This guide covers the actions available to developers during calls, like Send DTMF and Continuous DTMF Recognition. Actions are accompanied with sample code on how to invoke the said action.
 
@@ -59,11 +57,15 @@ You can send DTMF tones to an external participant, which may be useful when you
 Send a list of DTMF tones to an external participant.
 ### [csharp](#tab/csharp)
 ```csharp
-var tones = new DtmfTone[] { DtmfTone.One, DtmfTone.Two, DtmfTone.Three, DtmfTone.Pound };
+var tones = new DtmfTone[] { DtmfTone.One, DtmfTone.Two, DtmfTone.Three, DtmfTone.Pound }; 
+var sendDtmfTonesOptions = new SendDtmfTonesOptions(tones, new PhoneNumberIdentifier(calleePhonenumber))
+{ 
+	OperationContext = "dtmfs-to-ivr" 
+}; 
 
-await callAutomationClient.GetCallConnection(callConnectionId) 
-    .GetCallMedia() 
-    .SendDtmfTonesAsync(tones, new PhoneNumberIdentifier(c2Target), "dtmfs-to-ivr"); 
+var sendDtmfAsyncResult = await callAutomationClient.GetCallConnection(callConnectionId) 
+	.GetCallMedia() 
+        .SendDtmfTonesAsync(sendDtmfTonesOptions); 
 ```
 ### [Java](#tab/java)
 ```java
@@ -204,9 +206,16 @@ When your application no longer wishes to receive DTMF tones from the participan
 Stop detecting DTMF tones sent by participant.
 ### [csharp](#tab/csharp)
 ```csharp
-await callAutomationClient.GetCallConnection(callConnectionId) 
-    .GetCallMedia() 
-    .StopContinuousDtmfRecognitionAsync(new PhoneNumberIdentifier(c2Target), "dtmf-reco-on-c2"); 
+var continuousDtmfRecognitionOptions = new ContinuousDtmfRecognitionOptions(new PhoneNumberIdentifier(callerPhonenumber)) 
+{ 
+    OperationContext = "dtmf-reco-on-c2" 
+}; 
+
+var startContinuousDtmfRecognitionAsyncResult = await callAutomationClient.GetCallConnection(callConnectionId) 
+
+    .GetCallMedia() 
+
+    .StartContinuousDtmfRecognitionAsync(continuousDtmfRecognitionOptions); 
 ```
 ### [Java](#tab/java)
 ```java
@@ -242,12 +251,11 @@ Your application receives event updates when these actions either succeed or fai
 Example of how you can handle a DTMF tone successfully detected.
 ### [csharp](#tab/csharp)
 ``` csharp
-if (acsEvent is ContinuousDtmfRecognitionToneReceived continuousDtmfRecognitionToneReceived) 
+if (acsEvent is ContinuousDtmfRecognitionToneReceived continuousDtmfRecognitionToneReceived) 
 { 
-    logger.LogInformation("Tone detected: sequenceId={sequenceId}, tone={tone}, context={context}", 
-        continuousDtmfRecognitionToneReceived.ToneInfo.SequenceId, 
-        continuousDtmfRecognitionToneReceived.ToneInfo.Tone, 
-        continuousDtmfRecognitionToneReceived.OperationContext); 
+	logger.LogInformation("Tone detected: sequenceId={sequenceId}, tone={tone}", 
+	continuousDtmfRecognitionToneReceived.SequenceId, 
+        continuousDtmfRecognitionToneReceived.Tone); 
 } 
 ```
 ### [Java](#tab/java)
