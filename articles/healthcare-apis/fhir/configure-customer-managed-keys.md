@@ -22,7 +22,7 @@ Customer-managed keys enable you to:
 ## Prerequisites
 - Make sure you're familiar with [best practices for customer-managed keys](customer-managed-keys.md).
 
-- Verify you're assigned the [Azure Contributor](../../role-based-access-control/role-assignments-steps.md) RBAC role, which lets you create and modify Azure resources.
+- Verify you're assigned the [Azure Contributor](../../role-based-access-control/role-assignments-steps.md) RBAC role, which lets you create and modify Azure resources. 
 
 - Add a key for the FHIR service in Azure Key Vault. For steps, see [Add a key in Azure Key Vault](../../key-vault/keys/quick-create-portal.md#add-a-key-to-key-vault). Customer-managed keys must meet these requirements:
 
@@ -38,7 +38,7 @@ Customer-managed keys enable you to:
   
    - When using a key vault with a firewall to disable public access, the option to **Allow trusted Microsoft services to bypass this firewall** must be enabled.
 
-   - To prevent losing the encryption key for the FHIR service, the key vault or managed HSM must have **soft delete** and **purge protection** enabled. These features allow you to recover deleted keys for a certain time (default 90 days) and block permanent deletion until that time is over.
+   - To prevent losing the encryption key for the FHIR service, the key vault or managed HSM must have **soft delete** and **purge protection** enabled. These features allow you to recover deleted keys for a certain time (default 90 days) and block permanent deletion until that time is over. 
 
 > [!NOTE]
 >FHIR service supports attaching a single identity type (System-assigned or user-assigned identity). Changing identity type can have impact on background jobs such as export and import, if they have a specific identity type already mapped.
