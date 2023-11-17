@@ -22,11 +22,11 @@ You can find more detailed information about the Windows Desktop client at [Conn
 A new user interface is available in preview, which has the following new functionality:
 
 - An updated design.
-- [Switch between grid view and list view](users/client-features-web.md#grid-view-and-list-view-preview).
-- [Switch between light mode and dark mode](users/client-features-web.md#light-mode-and-dark-mode-preview).
-- [Reset user settings](users/client-features-web.md#reset-user-settings-preview).
+- [Switch between grid view and list view](users/client-features-web.md#grid-view-and-list-view).
+- [Switch between light mode and dark mode](users/client-features-web.md#light-mode-and-dark-mode).
+- [Reset user settings](users/client-features-web.md#reset-user-settings).
 
-For more information and how to try the new user interface, see [Preview user interface](users/client-features-web.md#preview-user-interface-preview).
+For more information and how to try the new user interface, see [New user interface](users/client-features-web.md#new-user-interface).
 
 ## Next steps
 

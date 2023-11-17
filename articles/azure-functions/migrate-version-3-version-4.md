@@ -1,9 +1,15 @@
 ---
-title: Migrate apps from Azure Functions version 3.x to 4.x 
-description: This article shows you how to upgrade your existing function apps running on version 3.x of the Azure Functions runtime to be able to run on version 4.x of the runtime. 
+title: Migrate apps from Azure Functions version 3.x to 4.x
+description: This article shows you how to upgrade your existing function apps running on version 3.x of the Azure Functions runtime to be able to run on version 4.x of the runtime.
 ms.service: azure-functions
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
-ms.topic: how-to 
+ms.custom:
+  - devx-track-dotnet
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-azurecli
+  - ignite-2023
+ms.topic: how-to
 ms.date: 07/31/2023
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -32,9 +38,11 @@ On version 3.x of the Functions runtime, your C# function app targets .NET Core 
 [!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 
 > [!TIP]
-> **If you're migrating from .NET 5 (on the isolated worker model), we recommend upgrading to .NET 6 on the isolated worker model.** This provides a quick upgrade path to the fully released version with the longest support window from .NET.
+> **If you're migrating from .NET 5 (on the isolated worker model), we recommend upgrading to .NET 8 on the isolated worker model.** This provides a quick upgrade path to the fully released version with the longest support window from .NET.
 >
-> **If you're migrating from .NET Core 3.1 (on the in-process model), we recommend upgrading to .NET 6 on the in-process model.** This provides a quick upgrade path. However, you might also consider upgrading to .NET 6 on the isolated worker model. Switching to the isolated worker model will require additional code changes as part of this migration, but it will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you are moving to an LTS or STS version of .NET using the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
+> **If you're migrating from .NET Core 3.1 (on the in-process model), we recommend upgrading to .NET 6 on the in-process model.** This provides a quick upgrade path. However, you might also consider upgrading to .NET 8 on the isolated worker model. Switching to the isolated worker model will require additional code changes as part of this migration, but it will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you are moving to an LTS or STS version of .NET using the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
+
+This guide doesn't present specific examples for .NET 7 or .NET 6 on the isolated worker model. If you need to target these versions, you can adapt the .NET 8 isolated worker model examples.
 
 ::: zone-end
 
@@ -70,7 +78,7 @@ Choose the tab that matches your target version of .NET and the desired process 
 
 ### .csproj file
 
-The following example is a .csproj project file that uses .NET Core 3.1 on version 3.x:
+The following example is a `.csproj` project file that uses .NET Core 3.1 on version 3.x:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -98,33 +106,25 @@ The following example is a .csproj project file that uses .NET Core 3.1 on versi
 
 Use one of the following procedures to update this XML file to run in Functions version 4.x:
 
-# [.NET 6 (isolated)](#tab/net6-isolated)
+# [.NET 8 (isolated)](#tab/net8)
 
-[!INCLUDE [functions-dotnet-migrate-project-v4-isolated](../../includes/functions-dotnet-migrate-project-v4-isolated.md)]
+[!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net8](../../includes/functions-dotnet-migrate-project-v4-isolated-net8.md)]
 
 # [.NET 6 (in-process)](#tab/net6-in-proc)
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-inproc](../../includes/functions-dotnet-migrate-project-v4-inproc.md)]
 
-# [.NET 7](#tab/net7)
-
-[!INCLUDE [functions-dotnet-migrate-project-v4-isolated-2](../../includes/functions-dotnet-migrate-project-v4-isolated-2.md)]
-
 # [.NET Framework 4.8](#tab/netframework48)
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net-framework](../../includes/functions-dotnet-migrate-project-v4-isolated-net-framework.md)]
-
-# [.NET 8 Preview (isolated)](#tab/net8)
-
-[!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net8](../../includes/functions-dotnet-migrate-project-v4-isolated-net8.md)]
 
 ---
 
 ### Package and namespace changes
 
-Based on the model you are migrating to, you may need to upgrade or change the packages your application references. When you adopt the target packages, you may then need to update the namespace of using statements and some types you reference. You can see the effect of these namespace changes on `using` statements in the [HTTP trigger template examples](#http-trigger-template) later in this article.
+Based on the model you are migrating to, you might need to upgrade or change the packages your application references. When you adopt the target packages, you then need to update the namespace of using statements and some types you reference. You can see the effect of these namespace changes on `using` statements in the [HTTP trigger template examples](#http-trigger-template) later in this article.
 
-# [.NET 6 (isolated)](#tab/net6-isolated)
+# [.NET 8 (isolated)](#tab/net8)
 
 [!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
 
@@ -132,15 +132,7 @@ Based on the model you are migrating to, you may need to upgrade or change the p
 
 [!INCLUDE [functions-dotnet-migrate-packages-v4-in-process](../../includes/functions-dotnet-migrate-packages-v4-in-process.md)]
 
-# [.NET 7](#tab/net7)
-
-[!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
-
 # [.NET Framework 4.8](#tab/netframework48)
-
-[!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
-
-# [.NET 8 Preview (isolated)](#tab/net8)
 
 [!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
 
@@ -150,25 +142,54 @@ Based on the model you are migrating to, you may need to upgrade or change the p
 
 When migrating to run in an isolated worker process, you must add the following program.cs file to your project:
 
-# [.NET 6 (isolated)](#tab/net6-isolated)
+# [.NET 8 (isolated)](#tab/net8)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="23-29":::
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+var host = new HostBuilder()
+    .ConfigureFunctionsWebApplication()
+    .ConfigureServices(services => {
+        services.AddApplicationInsightsTelemetryWorkerService();
+        services.ConfigureFunctionsApplicationInsights();
+    })
+    .Build();
+
+host.Run();
+```
 
 # [.NET 6 (in-process)](#tab/net6-in-proc)
 
 A program.cs file isn't required when running in-process.
 
-# [.NET 7](#tab/net7)
-
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="23-29":::
-
 # [.NET Framework 4.8](#tab/netframework48)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="2-20":::
+```csharp
+using Microsoft.Extensions.Hosting;
+using Microsoft.Azure.Functions.Worker;
 
-# [.NET 8 Preview (isolated)](#tab/net8)
+namespace Company.FunctionApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            FunctionsDebugger.Enable();
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="23-29":::
+            var host = new HostBuilder()
+                .ConfigureFunctionsWorkerDefaults()
+                .ConfigureServices(services => {
+                    services.AddApplicationInsightsTelemetryWorkerService();
+                    services.ConfigureFunctionsApplicationInsights();
+                })
+                .Build();
+            host.Run();
+        }
+    }
+}
+```
 
 ---
 
@@ -178,7 +199,7 @@ The local.settings.json file is only used when running locally. For information,
 
 When you upgrade to version 4.x, make sure that your local.settings.json file has at least the following elements:
 
-# [.NET 6 (isolated)](#tab/net6-isolated)
+# [.NET 8 (isolated)](#tab/net8)
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
 
@@ -189,21 +210,7 @@ When you upgrade to version 4.x, make sure that your local.settings.json file ha
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp/local.settings.json":::
 
-# [.NET 7](#tab/net7)
-
-:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
-
-> [!NOTE]
-> When migrating from running in-process to running in an isolated worker process, you need to change the `FUNCTIONS_WORKER_RUNTIME` value to "dotnet-isolated".
-
 # [.NET Framework 4.8](#tab/netframework48)
-
-:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
-
-> [!NOTE]
-> When migrating from running in-process to running in an isolated worker process, you need to change the `FUNCTIONS_WORKER_RUNTIME` value to "dotnet-isolated".
-
-# [.NET 8 Preview (isolated)](#tab/net8)
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
 
@@ -216,9 +223,9 @@ When you upgrade to version 4.x, make sure that your local.settings.json file ha
 
 Some key classes changed names between versions. These changes are a result either of changes in .NET APIs or in differences between in-process and isolated worker process. The following table indicates key .NET classes used by Functions that could change when migrating:
 
-# [.NET 6 (isolated)](#tab/net6-isolated)
+# [.NET 8 (isolated)](#tab/net8)
 
-| .NET Core 3.1  | .NET 5 |  .NET 6 (isolated) | 
+| .NET Core 3.1  | .NET 5 | .NET 8 | 
 | --- | --- | --- | 
 | `FunctionName` (attribute) | `Function` (attribute) | `Function` (attribute) | 
 | `ILogger` | `ILogger` | `ILogger`, `ILogger<T>` |
@@ -236,16 +243,6 @@ Some key classes changed names between versions. These changes are a result eith
 | `IActionResult` | `HttpResponseData` | `IActionResult` |
 | `FunctionsStartup` (attribute) | Uses [`Program.cs`](#programcs-file) instead | `FunctionsStartup` (attribute) |
 
-# [.NET 7](#tab/net7)
-
-| .NET Core 3.1  | .NET 5 | .NET 7 | 
-| --- | --- | --- | 
-| `FunctionName` (attribute) | `Function` (attribute) | `Function` (attribute) | 
-| `ILogger` | `ILogger` | `ILogger`, `ILogger<T>` |
-| `HttpRequest` | `HttpRequestData` | `HttpRequestData`, `HttpRequest` (using [ASP.NET Core integration])|
-| `IActionResult` | `HttpResponseData` | `HttpResponseData`, `IActionResult` (using [ASP.NET Core integration])|
-| `FunctionsStartup` (attribute) | Uses [`Program.cs`](#programcs-file) instead | Uses [`Program.cs`](#programcs-file) instead | 
-
 # [.NET Framework 4.8](#tab/netframework48)
 
 | .NET Core 3.1  | .NET 5 |.NET Framework 4.8 | 
@@ -255,17 +252,6 @@ Some key classes changed names between versions. These changes are a result eith
 | `HttpRequest` | `HttpRequestData` | `HttpRequestData`|
 | `IActionResult` | `HttpResponseData` | `HttpResponseData`|
 | `FunctionsStartup` (attribute) | Uses [`Program.cs`](#programcs-file) instead | Uses [`Program.cs`](#programcs-file) instead | 
-
-# [.NET 8 Preview (isolated)](#tab/net8)
-
-| .NET Core 3.1  | .NET 5 | .NET 7 | 
-| --- | --- | --- | 
-| `FunctionName` (attribute) | `Function` (attribute) | `Function` (attribute) | 
-| `ILogger` | `ILogger` | `ILogger`, `ILogger<T>` |
-| `HttpRequest` | `HttpRequestData` | `HttpRequestData`, `HttpRequest` (using [ASP.NET Core integration])|
-| `IActionResult` | `HttpResponseData` | `HttpResponseData`, `IActionResult` (using [ASP.NET Core integration])|
-| `FunctionsStartup` (attribute) | Uses [`Program.cs`](#programcs-file) instead | Uses [`Program.cs`](#programcs-file) instead | 
-
 
 ---
 
@@ -281,26 +267,75 @@ The differences between in-process and isolated worker process can be seen in HT
 
 The HTTP trigger template for the migrated version looks like the following example:
 
-# [.NET 6 (isolated)](#tab/net6-isolated)
+# [.NET 8 (isolated)](#tab/net8)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
+```csharp
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public class HttpTriggerCSharp
+    {
+        private readonly ILogger<HttpTriggerCSharp> _logger;
+
+        public HttpTriggerCSharp(ILogger<HttpTriggerCSharp> logger)
+        {
+            _logger = logger;
+        }
+
+        [Function("HttpTriggerCSharp")]
+        public IActionResult Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequest req)
+        {
+            _logger.LogInformation("C# HTTP trigger function processed a request.");
+
+            return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
+        }
+    }
+}
+```
 
 # [.NET 6 (in-process)](#tab/net6-in-proc)
 
 Sames as version 3.x (in-process).
 
-# [.NET 7](#tab/net7)
-
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
-
 # [.NET Framework 4.8](#tab/netframework48)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Http;
+using Microsoft.Extensions.Logging;
+using System.Net;
 
-# [.NET 8 Preview (isolated)](#tab/net8)
+namespace Company.Function
+{
+    public class HttpTriggerCSharp
+    {
+        private readonly ILogger<HttpTriggerCSharp> _logger;
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
+        public HttpTriggerCSharp(ILogger<HttpTriggerCSharp> logger)
+        {
+            _logger = logger;
+        }
 
+        [Function("HttpTriggerCSharp")]
+        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req)
+        {
+            _logger.LogInformation("C# HTTP trigger function processed a request.");
+
+            var response = req.CreateResponse(HttpStatusCode.OK);
+            response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+
+            response.WriteString($"Welcome to Azure Functions, {req.Query["name"]}!");
+
+            return response;
+        }
+    }
+}
+```
 ---
 
 ::: zone-end  
@@ -366,7 +401,7 @@ If you don't see your programming language, go select it from the [top of the pa
 
 ### Runtime
 
-- Azure Functions proxies is a legacy feature for versions 1.x through 3.x of the Azure Functions runtime. Support for Functions proxies can be re-enabled in version 4.x so that you can successfully upgrade your function apps to the latest runtime version. As soon as possible, you should instead switch to integrating your function apps with Azure API Management. API Management lets you take advantage of a more complete set of features for defining, securing, managing, and monetizing your Functions-based APIs. For more information, see [API Management integration](functions-proxies.md#api-management-integration). To learn how to re-enable proxies support in Functions version 4.x, see [Re-enable proxies in Functions v4.x](legacy-proxies.md#re-enable-proxies-in-functions-v4x).  
+- Azure Functions Proxies is a legacy feature for versions 1.x through 3.x of the Azure Functions runtime. Support for Functions Proxies can be re-enabled in version 4.x so that you can successfully upgrade your function apps to the latest runtime version. As soon as possible, you should instead switch to integrating your function apps with Azure API Management. API Management lets you take advantage of a more complete set of features for defining, securing, managing, and monetizing your Functions-based APIs. For more information, see [API Management integration](functions-proxies.md#api-management-integration). To learn how to re-enable Proxies support in Functions version 4.x, see [Re-enable Proxies in Functions v4.x](legacy-proxies.md#re-enable-proxies-in-functions-v4x).  
 
 - Logging to Azure Storage using *AzureWebJobsDashboard* is no longer supported in 4.x. You should instead use [Application Insights](./functions-monitoring.md). ([#1923](https://github.com/Azure/Azure-Functions/issues/1923))
 
@@ -400,14 +435,14 @@ If you don't see your programming language, go select it from the [top of the pa
 - Output serialization in Node.js apps was updated to address previous inconsistencies. ([#2007](https://github.com/Azure/Azure-Functions/issues/2007))
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-- Default thread count has been updated. Functions that aren't thread-safe or have high memory usage may be impacted. ([#1962](https://github.com/Azure/Azure-Functions/issues/1962))
+- Default thread count has been updated. Functions that aren't thread-safe or have high memory usage could be impacted. ([#1962](https://github.com/Azure/Azure-Functions/issues/1962))
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 - Python 3.6 isn't supported in Azure Functions 4.x. ([#1999](https://github.com/Azure/Azure-Functions/issues/1999))
 
 - Shared memory transfer is enabled by default. ([#1973](https://github.com/Azure/Azure-Functions/issues/1973))
 
-- Default thread count has been updated. Functions that aren't thread-safe or have high memory usage may be impacted. ([#1962](https://github.com/Azure/Azure-Functions/issues/1962))
+- Default thread count has been updated. Functions that aren't thread-safe or have high memory usage could be impacted. ([#1962](https://github.com/Azure/Azure-Functions/issues/1962))
 ::: zone-end
 
 ## Next steps

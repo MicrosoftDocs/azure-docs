@@ -5,10 +5,12 @@ description: 'Form and document processing, data extraction, and analysis using 
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 08/16/2023
 ms.author: lajanuar
-monikerRange: '>=doc-intel-3.0.0'
+monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 ---
 
 <!-- markdownlint-disable MD025 -->
@@ -36,7 +38,7 @@ In this quickstart, you use the following features to analyze and extract data a
 * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!TIP]
-> Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
+> Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll  need a single-service resource if you intend to use [Microsoft Entra authentication](../../../../active-directory/authentication/overview-authentication.md).
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. You paste your key and endpoint into the code later in the quickstart:
 

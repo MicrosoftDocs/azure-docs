@@ -129,35 +129,37 @@ Use of the shared quota pool is available for running Spark jobs and for testing
 
 ### Azure Machine Learning managed online endpoints
 
-Azure Machine Learning managed online endpoints have limits described in the following table. These limits are _regional_, meaning that you can use up to these limits per each region you're using.
+Azure Machine Learning managed online endpoints have limits described in the following table. These limits are _regional_, meaning that you can use up to these limits per each region you're using. Notice that some of the limits are shared with all the types of endpoints in the region (managed online endpoints, Kubernetes online endpoints, and batch endpoints).
 
 | **Resource** | **Limit** | **Allows exception** |
 | --- | --- | --- |
 | Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> | - |
 | Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> | - |
-| Number of endpoints per subscription | 50 | Yes |
+| Number of endpoints per subscription | 100 <sup>2</sup> | Yes |
 | Number of deployments per subscription | 200 | Yes |
 | Number of deployments per endpoint | 20 | Yes |
-| Number of instances per deployment | 20 <sup>2</sup> | Yes |
-| Max request time-out at endpoint level  | 90 seconds | - |
-| Total requests per second at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
-| Total connections per second at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
-| Total connections active at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
-| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>3</sup> | Yes |
+| Number of instances per deployment | 20 <sup>3</sup> | Yes |
+| Max request time-out at endpoint level  | 180 seconds | - |
+| Total requests per second at endpoint level for all deployments  | 500 <sup>4</sup> | Yes |
+| Total connections per second at endpoint level for all deployments  | 500 <sup>4</sup> | Yes |
+| Total connections active at endpoint level for all deployments  | 500 <sup>4</sup> | Yes |
+| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>4</sup> | Yes |
 
-<sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
+<sup>1</sup> Single hyphens like, `my-endpoint-name`, are accepted in endpoint and deployment names.
 
-<sup>2</sup> We reserve 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12. Otherwise, you receive an error.
+<sup>2</sup> Limit shared with other types of endpoints.
 
-<sup>3</sup> The default limit for some subscriptions may be different. For example, when you request a limit increase it may show 100 instead. If you request a limit increase, be sure to calculate related limit increases you might need. For example, if you request a limit increase for requests per second, you might also want to compute the required connections and bandwidth limits and include that limit increase in the same request.
+<sup>3</sup> We reserve 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12. Otherwise, you receive an error.
+
+<sup>4</sup> The default limit for some subscriptions may be different. For example, when you request a limit increase it may show 100 instead. If you request a limit increase, be sure to calculate related limit increases you might need. For example, if you request a limit increase for requests per second, you might also want to compute the required connections and bandwidth limits and include that limit increase in the same request.
 
 To determine the current usage for an endpoint, [view the metrics](how-to-monitor-online-endpoints.md#metrics). 
 
 To request an exception from the Azure Machine Learning product team, use the steps in the [Endpoint quota increases](#endpoint-quota-increases).
 
-### Azure Machine Learning kubernetes online endpoints
+### Azure Machine Learning Kubernetes online endpoints
 
-Azure Machine Learning kubernetes online endpoints have limits described in the following table. 
+Azure Machine Learning Kubernetes online endpoints have limits described in the following table. 
 
 | **Resource** | **Limit** |
 | --- | --- |
@@ -168,7 +170,24 @@ Azure Machine Learning kubernetes online endpoints have limits described in the 
 | Number of deployments per endpoint | 20 |
 | Max request time-out at endpoint level  | 300 seconds |
 
-The sum of kubernetes online endpoint, managed online endpoint, and managed batch endpoint under each subscription can't exceed 50. Similarly, the sum of kubernetes online deployments and managed online deployments and managed batch deployments under each subscription can't exceed 200.
+The sum of Kubernetes online endpoints, managed online endpoints, and managed batch endpoints under each subscription can't exceed 50. Similarly, the sum of Kubernetes online deployments, managed online deployments and managed batch deployments under each subscription can't exceed 200.
+
+### Azure Machine Learning batch endpoints
+
+Azure Machine Learning batch endpoints have limits described in the following table. These limits are _regional_, meaning that you can use up to these limits for each region you're using. Notice that some of the limits are shared with all the types of endpoints in the region (managed online endpoints, Kubernetes online endpoints, and batch endpoints).
+
+| **Resource** | **Limit** | **Allows exception** |
+| --- | --- | --- |
+| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> | - |
+| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> | - |
+| Number of endpoints per subscription | 100 <sup>2</sup> | Yes |
+| Number of deployments per subscription | 500 | Yes |
+| Number of deployments per endpoint | 20 | Yes |
+| Number of instances per deployment | 50 | Yes |
+
+<sup>1</sup> Single hyphens like, `my-endpoint-name`, are accepted in endpoint and deployment names.
+
+<sup>2</sup> Limit shared with other types of endpoints.
 
 ### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.

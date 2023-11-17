@@ -1,7 +1,7 @@
 ---
 title: Azure Arc network requirements
 description: A consolidated list of network requirements for Azure Arc features and Azure Arc-enabled services. Lists endpoints, ports, and protocols.
-ms.date: 09/25/2023
+ms.date: 11/15/2023
 ms.topic: reference
 ---
 
@@ -51,15 +51,15 @@ Connectivity to Arc-enabled server endpoints is required for:
 
 For more information, see [Connected Machine agent network requirements](servers/network-requirements.md).
 
-## Azure Arc resource bridge (preview)
+## Azure Arc resource bridge
 
-This section describes additional networking requirements specific to deploying Azure Arc resource bridge (preview) in your enterprise. These requirements also apply to Azure Arc-enabled VMware vSphere (preview) and Azure Arc-enabled System Center Virtual Machine Manager (preview).
+This section describes additional networking requirements specific to deploying Azure Arc resource bridge in your enterprise. These requirements also apply to Azure Arc-enabled VMware vSphere (preview) and Azure Arc-enabled System Center Virtual Machine Manager (preview).
 
 [!INCLUDE [network-requirements](resource-bridge/includes/network-requirements.md)]
 
-For more information, see [Azure Arc resource bridge (preview) network requirements](resource-bridge/network-requirements.md).
+For more information, see [Azure Arc resource bridge network requirements](resource-bridge/network-requirements.md).
 
-## Azure Arc-enabled System Center Virtual Machine Manager (preview)
+## Azure Arc-enabled System Center Virtual Machine Manager
 
 Azure Arc-enabled System Center Virtual Machine Manager (SCVMM) also requires:
 
@@ -69,7 +69,7 @@ Azure Arc-enabled System Center Virtual Machine Manager (SCVMM) also requires:
 
 For more information, see [Overview of Arc-enabled System Center Virtual Machine Manager (preview)](system-center-virtual-machine-manager/overview.md).
 
-## Azure Arc-enabled VMware vSphere (preview)
+## Azure Arc-enabled VMware vSphere
 
 Azure Arc-enabled VMware vSphere also requires:
 
@@ -77,11 +77,11 @@ Azure Arc-enabled VMware vSphere also requires:
 | --- | --- | --- | --- | --- |
 | vCenter Server | 443 | URL of the vCenter server  | Appliance VM IP and control plane endpoint need outbound connection. | Used to by the vCenter server to communicate with the Appliance VM and the control plane.|
 
-For more information, see [Support matrix for Azure Arc-enabled VMware vSphere (preview)](vmware-vsphere/support-matrix-for-arc-enabled-vmware-vsphere.md).
+For more information, see [Support matrix for Azure Arc-enabled VMware vSphere](vmware-vsphere/support-matrix-for-arc-enabled-vmware-vsphere.md).
 
 ## Additional endpoints
 
-Depending on your scenario, you may need connectivity to other URLs, such as those used by the Azure portal, management tools, or other Azure services. In particular, review these lists to ensure that you allow connectivity to any necessary endpoints:
+Depending on your scenario, you might need connectivity to other URLs, such as those used by the Azure portal, management tools, or other Azure services. In particular, review these lists to ensure that you allow connectivity to any necessary endpoints:
 
 - [Azure portal URLs](../azure-portal/azure-portal-safelist-urls.md)
 - [Azure CLI endpoints for proxy bypass](/cli/azure/azure-cli-endpoints)

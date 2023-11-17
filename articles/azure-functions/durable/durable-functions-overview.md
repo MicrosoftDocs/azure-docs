@@ -17,7 +17,7 @@ zone_pivot_groups: df-languages
 
 ## <a name="language-support"></a>Supported languages
 
-Durable Functions is designed to work with all Azure Functions programming languages but may have different minimum requirements for each language. The following table shows the minimum supported app configurations:
+Durable Functions is designed to work with all Azure Functions programming languages but might have different minimum requirements for each language. The following table shows the minimum supported app configurations:
 
 | Language stack | Azure Functions Runtime versions | Language worker version | Minimum bundles version |
 | - | - | - | - |
@@ -59,7 +59,7 @@ In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other fu
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/in-process)
+#### [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("Chaining")]
@@ -82,7 +82,7 @@ public static async Task<object> Run(
 
 You can use the `context` parameter to invoke other functions by name, pass parameters, and return function output. Each time the code calls `await`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `await` call. For more information, see the next section, Pattern #2: Fan out/fan in.
 
-# [C# (Isolated)](#tab/isolated-process)
+#### [Isolated worker process](#tab/isolated-process)
 
 ```csharp
 [Function("Chaining")]
@@ -230,7 +230,7 @@ public double functionChaining(
 }
 ```
 
-You can use the `ctx` object to invoke other functions by name, pass parameters, and return function output. The output of these method calls is a `Task<V>` object where `V` is the type of data returned by the invoked function. Each time you call `Task<V>.await()`, the Durable Functions framework checkpoints the progress of the current function instance. If the process unexpectedly recycles midway through the execution, the function instance resumes from the preceding `Task<V>.await()` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+You can use the `ctx` object to invoke other functions by name, pass parameters, and return function output. The output of these methods is a `Task<V>` object where `V` is the type of data returned by the invoked function. Each time you call `Task<V>.await()`, the Durable Functions framework checkpoints the progress of the current function instance. If the process unexpectedly recycles midway through the execution, the function instance resumes from the preceding `Task<V>.await()` call. For more information, see the next section, Pattern #2: Fan out/fan in.
 
 ::: zone-end
 
@@ -246,7 +246,7 @@ The Durable Functions extension handles this pattern with relatively simple code
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/in-process)
+#### [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("FanOutFanIn")]
@@ -275,7 +275,7 @@ The fan-out work is distributed to multiple instances of the `F2` function. The 
 
 The automatic checkpointing that happens at the `await` call on `Task.WhenAll` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
-# [C# (Isolated)](#tab/isolated-process)
+#### [Isolated worker process](#tab/isolated-process)
 
 ```csharp
 [Function("FanOutFanIn")]
@@ -504,7 +504,7 @@ Content-Type: application/json
 
 Because the Durable Functions runtime manages state for you, you don't need to implement your own status-tracking mechanism.
 
-The Durable Functions extension exposes built-in HTTP APIs that manage long-running orchestrations. You can alternatively implement this pattern yourself by using your own function triggers (such as HTTP, a queue, or Azure Event Hubs) and the [durable client binding](durable-functions-bindings.md#orchestration-client). For example, you might use a queue message to trigger termination. Or, you might use an HTTP trigger that's protected by an Azure Active Directory authentication policy instead of the built-in HTTP APIs that use a generated key for authentication.
+The Durable Functions extension exposes built-in HTTP APIs that manage long-running orchestrations. You can alternatively implement this pattern yourself by using your own function triggers (such as HTTP, a queue, or Azure Event Hubs) and the [durable client binding](durable-functions-bindings.md#orchestration-client). For example, you might use a queue message to trigger termination. Or, you might use an HTTP trigger that's protected by a Microsoft Entra authentication policy instead of the built-in HTTP APIs that use a generated key for authentication.
 
 For more information, see the [HTTP features](durable-functions-http-features.md) article, which explains how you can expose asynchronous, long-running processes over HTTP using the Durable Functions extension.
 
@@ -522,7 +522,7 @@ The following code implements a basic monitor:
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/in-process)
+#### [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("MonitorJobStatus")]
@@ -552,7 +552,7 @@ public static async Task Run(
 }
 ```
 
-# [C# (Isolated)](#tab/isolated-process)
+#### [Isolated worker process](#tab/isolated-process)
 
 ```csharp
 [Function("MonitorJobStatus")]
@@ -777,7 +777,7 @@ When a request is received, a new orchestration instance is created for that job
 
 Many automated processes involve some kind of human interaction. Involving humans in an automated process is tricky because people aren't as highly available and as responsive as cloud services. An automated process might allow for this interaction by using timeouts and compensation logic.
 
-An approval process is an example of a business process that involves human interaction. Approval from a manager might be required for an expense report that exceeds a certain dollar amount. If the manager doesn't approve the expense report within 72 hours (maybe the manager went on vacation), an escalation process kicks in to get the approval from someone else (perhaps the manager's manager).
+An approval process is an example of a business process that involves human interaction. Approval from a manager might be required for an expense report that exceeds a certain dollar amount. If the manager doesn't approve the expense report within 72 hours (might be the manager went on vacation), an escalation process kicks in to get the approval from someone else (perhaps the manager's manager).
 
 ![A diagram of the human interaction pattern](./media/durable-functions-concepts/approval.png)
 
@@ -787,7 +787,7 @@ These examples create an approval process to demonstrate the human interaction p
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/in-process)
+#### [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("ApprovalWorkflow")]
@@ -816,7 +816,7 @@ public static async Task Run(
 
 To create the durable timer, call `context.CreateTimer`. The notification is received by `context.WaitForExternalEvent`. Then, `Task.WhenAny` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
-# [C# (Isolated)](#tab/isolated-process)
+#### [Isolated worker process](#tab/isolated-process)
 
 ```csharp
 [Function("ApprovalWorkflow")]
@@ -1030,7 +1030,7 @@ An event can also be raised using the durable orchestration client from another 
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/in-process)
+#### [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("RaiseEventToOrchestration")]
@@ -1043,7 +1043,7 @@ public static async Task Run(
 }
 ```
 
-# [C# (Isolated)](#tab/isolated-process)
+#### [Isolated worker process](#tab/isolated-process)
 
 ```csharp
 [Function("RaiseEventToOrchestration")]
@@ -1091,17 +1091,13 @@ app.get("raiseEventToOrchestration", async function (request, context) {
 # [Python](#tab/v1-model)
 
 ```python
-import azure.functions as func
 import azure.durable_functions as df
 
-myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
-# An HTTP-Triggered Function with a Durable Functions Client binding
-@myApp.route(route="orchestrators/{functionName}")
-@myApp.durable_client_input(client_name="client")
-async def main(client):
+async def main(client: str):
+    durable_client = df.DurableOrchestrationClient(client)
     is_approved = True
-    await client.raise_event(instance_id, "ApprovalEvent", is_approved)
+    await durable_client.raise_event(instance_id, "ApprovalEvent", is_approved)
 ```
 
 
@@ -1147,7 +1143,7 @@ public void raiseEventToOrchestration(
 
 ### <a name="aggregator"></a>Pattern #6: Aggregator (stateful entities)
 
-The sixth pattern is about aggregating event data over a period of time into a single, addressable *entity*. In this pattern, the data being aggregated may come from multiple sources, may be delivered in batches, or may be scattered over long-periods of time. The aggregator might need to take action on event data as it arrives, and external clients may need to query the aggregated data.
+The sixth pattern is about aggregating event data over a period of time into a single, addressable *entity*. In this pattern, the data being aggregated might come from multiple sources, might be delivered in batches, or might be scattered over long-periods of time. The aggregator might need to take action on event data as it arrives, and external clients might need to query the aggregated data.
 
 ![Aggregator diagram](./media/durable-functions-concepts/aggregator.png)
 
@@ -1157,7 +1153,7 @@ You can use [Durable entities](durable-functions-entities.md) to easily implemen
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/in-process)
+#### [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("Counter")]
@@ -1200,10 +1196,61 @@ public class Counter
 }
 ```
 
-# [C# (Isolated)](#tab/isolated-process)
+#### [Isolated worker process](#tab/isolated-process)
 
-Durable entities are currently not supported in the .NET-isolated worker.
+```csharp
+[Function(nameof(Counter))]
+public static Task DispatchAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
+{
+    return dispatcher.DispatchAsync(operation =>
+    {
+        if (operation.State.GetState(typeof(int)) is null)
+        {
+            operation.State.SetState(0);
+        }
 
+        switch (operation.Name.ToLowerInvariant())
+        {
+            case "add":
+                int state = operation.State.GetState<int>();
+                state += operation.GetInput<int>();
+                operation.State.SetState(state);
+                return new(state);
+            case "reset":
+                operation.State.SetState(0);
+                break;
+            case "get":
+                return new(operation.State.GetState<int>());
+            case "delete": 
+                operation.State.SetState(null);
+                break; 
+        }
+
+        return default;
+    });
+}
+```
+
+Durable entities can also be modeled as classes in .NET. This model can be useful if the list of operations is fixed and becomes large. The following example is an equivalent implementation of the `Counter` entity using .NET classes and methods.
+
+```csharp
+public class Counter
+{
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+
+    public void Reset() => this.CurrentValue = 0;
+
+    public int Get() => this.CurrentValue;
+
+    [Function(nameof(Counter))]
+    public static Task RunEntityAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
+    {
+        return dispatcher.DispatchAsync<Counter>();
+    }
+}
+```
 ::: zone-end
 ::: zone pivot="javascript"
 
@@ -1322,7 +1369,7 @@ Clients can enqueue *operations* for (also known as "signaling") an entity funct
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/in-process)
+#### [In-process](#tab/in-process)
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -1342,10 +1389,21 @@ public static async Task Run(
 > [!NOTE]
 > Dynamically generated proxies are also available in .NET for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using [type-safe methods](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) on the orchestration client binding.
 
-# [C# (Isolated)](#tab/isolated-process)
+#### [Isolated worker process](#tab/isolated-process)
 
-Durable entities are currently not supported in the .NET-isolated worker.
+```csharp
+[Function("EventHubTriggerCSharp")]
+public static async Task Run(
+    [EventHubTrigger("device-sensor-events", Connection = "EventHubConnection", IsBatched = false)] EventData input, 
+    [DurableClient] DurableTaskClient client)
+{
+    var metricType = (string)input.Properties["metric"];
+    var delta = Convert.ToInt32(input.Data);
 
+    var entityId = new EntityInstanceId("Counter", metricType);
+    await client.Entities.SignalEntityAsync(entityId, "add", delta);
+}
+```
 ::: zone-end
 ::: zone pivot="javascript"
 
@@ -1460,10 +1518,6 @@ Durable Functions is developed in collaboration with Microsoft Research. As a re
 The following video highlights the benefits of Durable Functions:
 
 > [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
-
-For a more in-depth discussion of Durable Functions and the underlying technology, see the following video (it's focused on .NET, but the concepts also apply to other supported languages):
-
-> [!VIDEO https://learn.microsoft.com/Events/dotnetConf/2018/S204/player]
 
 Because Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), it isn't appropriate for all applications. For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
 

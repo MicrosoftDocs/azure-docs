@@ -20,7 +20,7 @@ keywords:
 - Access granted to the Azure OpenAI service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - [Go 1.21.0](https://go.dev/dl/) or higher installed locally.
-- An Azure OpenAI Service resource with the text-davinci-003 model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI Service resource with the `gpt-35-turbo-instuct` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 ## Set up
 
@@ -46,7 +46,7 @@ import (
 
 func main() {
 	azureOpenAIKey := os.Getenv("AZURE_OPENAI_KEY")
-	modelDeploymentID := "text-davinci-003"
+	modelDeploymentID := "gpt-35-turbo-instruct"
 
 	azureOpenAIEndpoint := os.Getenv("AZURE_OPENAI_ENDPOINT")
 

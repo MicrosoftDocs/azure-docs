@@ -3,17 +3,22 @@ title: Azure SQL trigger for Functions
 description: Learn to use the Azure SQL trigger in Azure Functions.
 author: JetterMcTedder
 ms.topic: reference
-ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 8/04/2023
+ms.custom:
+  - build-2023
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - ignite-2023
+ms.date: 11/14/2023
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Azure SQL trigger for Functions (preview)
+# Azure SQL trigger for Functions
 
 > [!NOTE]
-> The Azure SQL trigger for Functions is currently in preview and requires that a preview extension library or extension bundle is used. In consumption plan functions, automatic scaling is not available for SQL trigger. Use premium or dedicated plans for [scaling benefits](functions-scale.md) with SQL trigger.
+> In consumption plan functions, automatic scaling is not available for SQL trigger. Use premium or dedicated plans for [scaling benefits](functions-scale.md) with SQL trigger.
 
 The Azure SQL trigger uses [SQL change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) functionality to monitor a SQL table for changes and trigger a function when a row is created, updated, or deleted. For configuration details for change tracking for use with the Azure SQL trigger, see [Set up change tracking](#set-up-change-tracking-required). For information on setup details of the Azure SQL extension for Azure Functions, see the [SQL binding overview](./functions-bindings-azure-sql.md).
 
@@ -512,14 +517,14 @@ In addition to the required ConnectionStringSetting [application setting](./func
 |---------|---------|
 |**Sql_Trigger_BatchSize** |The maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function. The default value is 100.|
 |**Sql_Trigger_PollingIntervalMs**|The delay in milliseconds between processing each batch of changes. The default value is 1000 (1 second).|
-|**Sql_Trigger_MaxChangesPerWorker**|The upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it may result in a scale-out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling). The default value is 1000.|
+|**Sql_Trigger_MaxChangesPerWorker**|The upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it might result in a scale-out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling). The default value is 1000.|
 
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## Set up change tracking (required)
 
-Setting up change tracking for use with the Azure SQL trigger requires two steps.  These steps can be completed from any SQL tool that supports running queries, including [Visual Studio Code](/sql/tools/visual-studio-code/mssql-extensions), [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+Setting up change tracking for use with the Azure SQL trigger requires two steps.  These steps can be completed from any SQL tool that supports running queries, including [Visual Studio Code](/sql/tools/visual-studio-code/mssql-extensions), [Azure Data Studio](/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Enable change tracking on the SQL database, substituting `your database name` with the name of the database where the table to be monitored is located:
 
@@ -529,7 +534,7 @@ Setting up change tracking for use with the Azure SQL trigger requires two steps
     (CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON);
     ```
 
-    The `CHANGE_RETENTION` option specifies the time period for which change tracking information (change history) is kept.  The retention of change history by the SQL database may affect the trigger functionality. For example, if the Azure Function is turned off for several days and then resumed, the database will contain the changes that occurred in past two days in the above setup example.
+    The `CHANGE_RETENTION` option specifies the time period for which change tracking information (change history) is kept.  The retention of change history by the SQL database might affect trigger functionality. For example, if the Azure Function is turned off for several days and then resumed, the database will contain the changes that occurred in past two days in the above setup example.
 
     The `AUTO_CLEANUP` option is used to enable or disable the clean-up task that removes old change tracking information. If a temporary problem that prevents the trigger from running, turning off auto cleanup can be useful to pause the removal of information older than the retention period until the problem is resolved.
 
@@ -566,7 +571,7 @@ Note that these retries are outside the built-in idle connection retry logic tha
 ### Function exception retries
 If an exception occurs in the user function when processing changes then the batch of rows currently being processed are retried again in 60 seconds. Other changes are processed as normal during this time, but the rows in the batch that caused the exception are ignored until the timeout period has elapsed.
 
-If the function execution fails five times in a row for a given row then that row is completely ignored for all future changes. Because the rows in a batch are not deterministic, rows in a failed batch may end up in different batches in subsequent invocations. This means that not all rows in the failed batch will necessarily be ignored. If other rows in the batch were the ones causing the exception, the "good" rows may end up in a different batch that doesn't fail in future invocations.
+If the function execution fails five times in a row for a given row then that row is completely ignored for all future changes. Because the rows in a batch are not deterministic, rows in a failed batch might end up in different batches in subsequent invocations. This means that not all rows in the failed batch will necessarily be ignored. If other rows in the batch were the ones causing the exception, the "good" rows might end up in a different batch that doesn't fail in future invocations.
 
 ## Next steps
 

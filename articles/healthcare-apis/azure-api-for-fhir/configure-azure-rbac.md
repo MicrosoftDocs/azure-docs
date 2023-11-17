@@ -13,7 +13,7 @@ ms.author: kesheth
 
 [!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-In this article, you'll learn how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/index.yml) to assign access to the Azure API for FHIR data plane. Azure RBAC is the preferred methods for assigning data plane access when data plane users are managed in the Azure Active Directory tenant associated with your Azure subscription. If you're using an external Azure Active Directory tenant, refer to the [local RBAC assignment reference](configure-local-rbac.md).
+In this article, you'll learn how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/index.yml) to assign access to the Azure API for FHIR data plane. Azure RBAC is the preferred methods for assigning data plane access when data plane users are managed in the Microsoft Entra tenant associated with your Azure subscription. If you're using an external Microsoft Entra tenant, refer to the [local RBAC assignment reference](configure-local-rbac.md).
 
 ## Confirm Azure RBAC mode
 
@@ -21,7 +21,7 @@ To use Azure RBAC, your Azure API for FHIR must be configured to use your Azure 
 
 :::image type="content" source="media/rbac/confirm-azure-rbac-mode.png" alt-text="Confirm Azure RBAC mode":::
 
-The **Authority** should be set to the Azure Active directory tenant associated with your subscription and there should be no GUIDs in the box labeled **Allowed object IDs**. You'll also notice that the box is disabled and a label indicates that Azure RBAC should be used to assign data plane roles.
+The **Authority** should be set to the Microsoft Entra tenant associated with your subscription and there should be no GUIDs in the box labeled **Allowed object IDs**. You'll also notice that the box is disabled and a label indicates that Azure RBAC should be used to assign data plane roles.
 
 ## Assign roles
 
@@ -73,4 +73,3 @@ In this article, you learned how to assign Azure roles for the FHIR data plane. 
 >[Configure Private Link](configure-private-link.md)
 
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7. 
-

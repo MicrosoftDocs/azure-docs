@@ -1,17 +1,17 @@
 ---
-title: 'Configure Azure VPN Client - Azure AD authentication - Windows'
-description: Learn how to configure the Azure VPN Client to connect to a VNet using VPN Gateway point-to-site VPN, OpenVPN protocol connections, and Azure AD authentication from a Windows computer.
+title: 'Configure Azure VPN Client - Microsoft Entra authentication - Windows'
+description: Learn how to configure the Azure VPN Client to connect to a VNet using VPN Gateway point-to-site VPN, OpenVPN protocol connections, and Microsoft Entra authentication from a Windows computer.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/22/2022
+ms.date: 10/17/2023
 ms.author: cherylmc
 
 ---
-# Configure the Azure VPN Client - Azure AD authentication - Windows
+# Configure the Azure VPN Client - Microsoft Entra authentication - Windows
 
-This article helps you configure the Azure VPN Client on a Windows computer to connect to a virtual network using a VPN Gateway point-to-site (P2S) VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md). For more information about point-to-site, see [About point-to-site VPN](point-to-site-about.md). The Azure VPN Client supported with Windows FIPS mode with the [KB4577063](https://support.microsoft.com/help/4577063/windows-10-update-kb4577063) hotfix.
+This article helps you configure the Azure VPN Client on a Windows computer to connect to a virtual network using a VPN Gateway point-to-site (P2S) VPN and Microsoft Entra authentication. Before you can connect and authenticate using Microsoft Entra ID, you must first configure your Microsoft Entra tenant. For more information, see [Configure a Microsoft Entra tenant](openvpn-azure-ad-tenant.md). For more information about point-to-site, see [About point-to-site VPN](point-to-site-about.md). The Azure VPN Client supported with Windows FIPS mode with the [KB4577063](https://support.microsoft.com/help/4577063/windows-10-update-kb4577063) hotfix.
 
 [!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
@@ -36,7 +36,10 @@ After your Azure VPN Gateway P2S configuration is complete, your next steps are 
 
 ## <a name="import"></a>Import VPN client profile configuration files
 
-For Azure AD authentication configurations, the **azurevpnconfig.xml** is used. The file is located in the **AzureVPN** folder of the VPN client profile configuration package.
+> [!NOTE]
+> [!INCLUDE [Entra VPN client note](../../includes/vpn-gateway-entra-vpn-client-note.md)]
+
+For Microsoft Entra authentication configurations, the **azurevpnconfig.xml** is used. The file is located in the **AzureVPN** folder of the VPN client profile configuration package.
 
 1. On the page, select **Import**.
 
@@ -136,19 +139,10 @@ Once you have a working profile and need to distribute it to other users, you ca
 
 You can configure the Azure VPN Client with optional configuration settings such as additional DNS servers, custom DNS, forced tunneling, custom routes, and other additional settings. For a description of the available optional settings and configuration steps, see [Azure VPN Client optional settings](azure-vpn-client-optional-configurations.md).
 
-## Azure VPN Client Version Information
+## Azure VPN Client version information
 
-Version 3.2.0.0
-
-New in this Release:
-
-- AAD Authentication is now available from the settings page.
-- Server High Availability(HA), releasing on a rolling basis until October 20.
-- Accesibility Improvements
-- Connection logs in UTC
-- Minor bug fixes
+For Azure VPN Client version information, see [Azure VPN Client versions](azure-vpn-client-versions.md).
   
 ## Next steps
 
-For more information, see [Create an Azure AD tenant for P2S Open VPN connections that use Azure AD authentication](openvpn-azure-ad-tenant.md).
-
+For more information, see [Create a Microsoft Entra tenant for P2S Open VPN connections that use Microsoft Entra authentication](openvpn-azure-ad-tenant.md).

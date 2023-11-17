@@ -14,10 +14,6 @@ ms.custom: include file
 
 Moving a host and all associated VMs to newer generation hardware can be done through the host resize feature. Resize simplifies the migration process and avoids having to manually create new hosts and move all VMs individually.
 
-> [!IMPORTANT]
-> Host Resize is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 Resize limitations:
 - Host can only be resized to an ADH within the same VM family. A Dsv3-Type3 host can be resized to Dsv3-Type4 but **not** to an **E**sv3-Type4.
 - You can only resize to newer generation of hardware. A Dsv3-Type3 host can be resized to Dsv3-Type4 but **not** Dsv3-Type2.
@@ -28,8 +24,6 @@ Resize limitations:
 > The resize operation causes the loss of any non-persistent data such as temp disk data. Save all your work to persistent data storage before triggering resize.
 
 > [!Note]
-> During the public preview, hosts in host groups with Fault domain count of '1' might not support resize. This limitation is only temporary and will be removed as we announce general availability of host resize.
-> 
 > If the source host is already running on the latest hardware, 'Size' page would display an empty list. If you're looking for enhanced performance, consider switching to a different VM family.
 
 
@@ -47,7 +41,7 @@ Resize limitations:
 
 First list the sizes that you can resize in case you're unsure which to resize to.
 
-Use [az vm host list-resize-options](/cli/azure/vm#az-vm-host-list-resize-options) [Preview]
+Use [az vm host list-resize-options](/cli/azure/vm#az-vm-host-list-resize-options).
 
 ```azurecli-interactive
 az vm host list-resize-options \
@@ -56,7 +50,7 @@ az vm host list-resize-options \
  --resource-group myResourceGroup
 ```
 
-Resize the host using [az vm host resize](/cli/azure/vm#az-vm-host-resize) [Preview].
+Resize the host using [az vm host resize](/cli/azure/vm#az-vm-host-resize) .
 
 ```azurecli-interactive
 az vm host resize \
@@ -84,6 +78,6 @@ Update-AzHost
       [<CommonParameters>]
 ```
 
-For more info on Update-AzHost, check out the [Update-AzHost reference docs](https://learn.microsoft.com/powershell/module/az.compute/update-azhost).
+For more info on Update-AzHost, check out the [Update-AzHost reference docs](/powershell/module/az.compute/update-azhost).
 
 ---

@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 06/06/2023
+ms.date: 11/08/2023
 ms.author: danlep
 ---
 
@@ -25,7 +25,7 @@ API Management supports other client-side and service-side authentication and au
 
 > [!NOTE]
 > Other API Management components have separate mechanisms to secure and restrict user access:
-> * For managing the API Management instance through the Azure control plane, API Management relies on Azure AD and Azure [role-based access control (RBAC)](api-management-role-based-access-control.md).
+> * For managing the API Management instance through the Azure control plane, API Management relies on Microsoft Entra ID and Azure [role-based access control (RBAC)](api-management-role-based-access-control.md).
 > * The API Management developer portal supports [several options](secure-developer-portal-access.md) to facilitate secure user sign-up and sign-in.
 
 ## Authentication versus authorization
@@ -50,12 +50,12 @@ What happens when a client app calls an API with a request that is secured using
 * The client (the calling app, or *bearer*) authenticates using credentials to an *identity provider*.
 * The client obtains a time-limited *access token* (a JSON web token, or JWT) from the identity provider's *authorization server*. 
     
-    The identity provider (for example, Azure AD) is the *issuer* of the token, and the token includes an *audience claim* that authorizes access to a *resource server* (for example, to a backend API, or to the API Management gateway itself).
+    The identity provider (for example, Microsoft Entra ID) is the *issuer* of the token, and the token includes an *audience claim* that authorizes access to a *resource server* (for example, to a backend API, or to the API Management gateway itself).
 * The client calls the API and presents the access token - for example, in an Authorization header.
 * The *resource server* validates the access token. Validation is a complex process that includes a check that the *issuer* and *audience* claims contain expected values. 
 * Based on token validation criteria, access to resources of the [backend](backends.md) API is then granted.
 
-Depending on the type of client app and scenarios, different *authorization flows* are needed to request and manage tokens. For example, the authorization code flow and grant type are commonly used in apps that call web APIs. Learn more about [OAuth flows and application scenarios in Azure AD](../active-directory/develop/authentication-flows-app-scenarios.md).
+Depending on the type of client app and scenarios, different *authorization flows* are needed to request and manage tokens. For example, the authorization code flow and grant type are commonly used in apps that call web APIs. Learn more about [OAuth flows and application scenarios in Microsoft Entra ID](../active-directory/develop/authentication-flows-app-scenarios.md).
 
 ## OAuth 2.0 authorization scenarios in API Management
 
@@ -63,7 +63,7 @@ Depending on the type of client app and scenarios, different *authorization flow
 
 A common authorization scenario is when the calling application requests access to the backend API directly and presents an OAuth 2.0 token in an authorization header to the gateway. Azure API Management then acts as a "transparent" proxy between the caller and backend API, and passes the token through unchanged to the backend. The scope of the access token is between the calling application and backend API. 
 
-The following image shows an example where Azure AD is the authorization provider. The client app might be a single-page application (SPA). 
+The following image shows an example where Microsoft Entra ID is the authorization provider. The client app might be a single-page application (SPA). 
 
 :::image type="content" source="media/authentication-authorization-overview/oauth-token-backend.svg" alt-text="Diagram showing OAuth communication where audience is the backend.":::
 
@@ -74,16 +74,16 @@ Although the access token sent along with the HTTP request is intended for the b
 
 Example:
 
-* [Protect an API in Azure API Management using OAuth 2.0 authorization with Azure Active Directory](api-management-howto-protect-backend-with-aad.md)
+* [Protect an API in Azure API Management using OAuth 2.0 authorization with Microsoft Entra ID](api-management-howto-protect-backend-with-aad.md)
 
 > [!TIP]
-> In the special case when API access is protected using Azure AD, you can configure the [validate-azure-ad-token](validate-azure-ad-token-policy.md) policy for token validation.
+> In the special case when API access is protected using Microsoft Entra ID, you can configure the [validate-azure-ad-token](validate-azure-ad-token-policy.md) policy for token validation.
 
 ### Scenario 2 - Client app authorizes to API Management 
 
 In this scenario, the API Management service acts on behalf of the API, and the calling application requests access to the API Management instance. The scope of the access token is between the calling application and the API Management gateway. In API Management, configure a policy ([validate-jwt](validate-jwt-policy.md) or [validate-azure-ad-token](validate-azure-ad-token-policy.md)) to validate the token before the gateway passes the request to the backend. A separate mechanism typically secures the connection between the gateway and the backend API.
 
-In the following example, Azure AD is again the authorization provider, and mutual TLS (mTLS) authentication secures the connection between the gateway and the backend.
+In the following example, Microsoft Entra ID is again the authorization provider, and mutual TLS (mTLS) authentication secures the connection between the gateway and the backend.
 
 :::image type="content" source="media/authentication-authorization-overview/oauth-token-gateway.svg" alt-text="Diagram showing OAuth communication where audience is the API Management gateway.":::
 
@@ -107,21 +107,21 @@ There are different reasons for doing this. For example:
 
 ### Scenario 3: API management authorizes to backend
 
-With [API authorizations](authorizations-overview.md), you configure API Management itself to authorize access to one or more backend or SaaS services, such as LinkedIn, GitHub, or other OAuth 2.0-compatible backends. In this scenario, a user or client app makes a request to the API Management gateway, with gateway access controlled using an identity provider or other [client side options](#client-side-options). Then, through [policy configuration](get-authorization-context-policy.md), the user or client app delegates backend authentication and authorization to API Management. 
+With managed [connections](credentials-overview.md) (formerly called *authorizations*), you use credential manager in API Management to authorize access to one or more backend or SaaS services, such as LinkedIn, GitHub, or other OAuth 2.0-compatible backends. In this scenario, a user or client app makes a request to the API Management gateway, with gateway access controlled using an identity provider or other [client side options](#client-side-options). Then, through [policy configuration](get-authorization-context-policy.md), the user or client app delegates backend authentication and authorization to API Management. 
 
-In the following example, a subscription key is used between the client and the gateway, and GitHub is the authorization provider for the backend API.
+In the following example, a subscription key is used between the client and the gateway, and GitHub is the credential provider for the backend API.
 
-:::image type="content" source="media/authentication-authorization-overview/oauth-token-authorization.svg" alt-text="Diagraming showing authorization to backend SaaS service using API authorization.":::
+:::image type="content" source="media/authentication-authorization-overview/oauth-token-authorization.svg" alt-text="Diagraming showing authorization to backend SaaS service using API credential.":::
 
-With an API authorization, API Management acquires and refreshes the tokens for API access in the OAuth 2.0 flow. Authorizations simplify token management in multiple scenarios, such as:
+With a connection to a credential provider, API Management acquires and refreshes the tokens for API access in the OAuth 2.0 flow. Connections simplify token management in multiple scenarios, such as:
 
 * A client app might need to authorize to multiple SaaS backends to resolve multiple fields using GraphQL resolvers.
 * Users authenticate to API Management by SSO from their identity provider, but authorize to a backend SaaS provider (such as LinkedIn) using a common organizational account
 
 Examples:
 
-* [Create an authorization with the Microsoft Graph API](authorizations-how-to-azure-ad.md)
-* [Create an authorization with the GitHub API](authorizations-how-to-github.md)
+* [Configure credential manager - Microsoft Graph API](credentials-how-to-azure-ad.md)
+* [Configure credential manager - GitHub API](credentials-how-to-github.md)
 
 ## Other options to secure APIs
 
@@ -143,7 +143,7 @@ While authorization is preferred, and OAuth 2.0 has become the dominant method o
 
 |Mechanism  |Description  |Considerations  |
 |---------|---------|---------|
-|[Managed identity authentication](authentication-managed-identity-policy.md)     |   Authenticate to backend API with a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md).      |   Recommended for scoped access to a protected backend resource by obtaining a token from Azure AD.    |
+|[Managed identity authentication](authentication-managed-identity-policy.md)     |   Authenticate to backend API with a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md).      |   Recommended for scoped access to a protected backend resource by obtaining a token from Microsoft Entra ID.    |
 |[Certificate authentication](authentication-certificate-policy.md)     |    Authenticate to backend API using a client certificate.      |  Certificate may be stored in key vault.      |
 |[Basic authentication](authentication-basic-policy.md)     |   Authenticate to backend API with username and password that are passed through an Authorization header.      | Discouraged if better options are available.         |
 

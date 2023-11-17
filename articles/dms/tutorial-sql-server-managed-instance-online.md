@@ -2,8 +2,8 @@
 title: "Tutorial: Migrate SQL Server online to SQL Managed Instance"
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from SQL Server to an Azure SQL Managed Instance by using Azure Database Migration Service (classic)
-author: croblesm
-ms.author: roblescarlos
+author: abhims14
+ms.author: abhishekum
 ms.reviewer: randolphwest
 ms.date: 06/07/2023
 ms.service: dms
@@ -11,6 +11,7 @@ ms.topic: tutorial
 ms.custom:
   - seo-lt-2019
   - ignite-2022
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using DMS (classic)
@@ -89,7 +90,7 @@ To complete this tutorial, you need to:
 * Provide an SMB network share that contains all your database full database backup files and subsequent transaction log backup files, which Azure Database Migration Service can use for database migration.
 * Ensure that the service account running the source SQL Server instance has write privileges on the network share that you created and that the computer account for the source server has read/write access to the same share.
 * Make a note of a Windows user (and password) that has full control privilege on the network share that you previously created. Azure Database Migration Service impersonates the user credential to upload the backup files to Azure Storage container for restore operation.
-* Create an Azure Active Directory Application ID that generates the Application ID key that Azure Database Migration Service can use to connect to target Azure SQL Managed Instance and Azure Storage Container. For more information, see the article [Use portal to create an Azure Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
+* Create a Microsoft Entra Application ID that generates the Application ID key that Azure Database Migration Service can use to connect to target Azure SQL Managed Instance and Azure Storage Container. For more information, see the article [Use portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
 
   > [!NOTE]
   > The Application ID used by the Azure Database Migration Service supports secret (password-based) authentication for service principals. It does not support certificate-based authentication.
@@ -150,7 +151,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 1. On the **Select target** screen, specify the **Application ID** and **Key** that the DMS instance can use to connect to the target instance of SQL Managed Instance and the Azure Storage Account.
 
-    For more information, see the article [Use portal to create an Azure Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
+    For more information, see the article [Use portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
 
 2. Select the **Subscription** containing the target instance of SQL Managed Instance, and then choose the target SQL Managed instance.
 

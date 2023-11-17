@@ -48,9 +48,9 @@ Verify that you have met the following criteria before beginning your configurat
 
 When you create an Automation account in the Azure portal, a Run As account is automatically created. This account takes following actions:
 
-* Creates an Azure Active Directory (Azure AD) application with a self-signed certificate. The Run As account itself has a certificate that needs to be renewed by default every year.
+* Creates a Microsoft Entra application with a self-signed certificate. The Run As account itself has a certificate that needs to be renewed by default every year.
 
-* Creates a service principal account for the application in Azure AD.
+* Creates a service principal account for the application in Microsoft Entra ID.
 
 * Assigns itself the Contributor role (Azure RBAC) on the Azure Subscription in use. This role manages Azure Resource Manager resources using runbooks.
 
@@ -299,12 +299,12 @@ At the end of the workflow configuration, you can check the consistency of the r
 
 A logic app workflow accesses other apps, services, and the platform though connectors. The next step is to select a connector to access the Azure Automation account that was defined earlier.
 
-1. In **Logic Apps Designer**, below **Recurrence**, select **New step**. Under **Choose an action** and the the search box, select **All**.
+1. In **Logic Apps Designer**, below **Recurrence**, select **New step**. Under **Choose an action** and the search box, select **All**.
 2. In the search box, type **Azure Automation** and search. Select **Create job**. **Create job** will be used to fire the automation runbook that was created earlier.
 
    :::image type="content" source="./media/custom-route-alert-portal/create-job.png" alt-text="Create job":::
 
-3. Sign in using a service principal. You can use an existing service principal, or you can create a new one. To create a new service principal, see [How to use the portal to create an Azure AD service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Select **Connect with Service Principal**.
+3. Sign in using a service principal. You can use an existing service principal, or you can create a new one. To create a new service principal, see [How to use the portal to create a Microsoft Entra service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Select **Connect with Service Principal**.
 
    :::image type="content" source="./media/custom-route-alert-portal/sign-in.png" alt-text="Screenshot that shows the 'Recurrence' section with the 'Connect with Service Principal' action highlighted.":::
 
@@ -435,7 +435,7 @@ Logic Apps provides many email connectors. In this example, we add an Outlook co
 
    :::image type="content" source="./media/custom-route-alert-portal/office-365.png" alt-text="Sign in":::
 
-4. In the **Body** field, click **Add dynamic content**. From the Dynamic content panel, add the the variable **Emailbody**. Fill out the **Subject** and **To** fields.
+4. In the **Body** field, click **Add dynamic content**. From the Dynamic content panel, add the variable **Emailbody**. Fill out the **Subject** and **To** fields.
 
    :::image type="content" source="./media/custom-route-alert-portal/emailbody.png" alt-text="Body":::
 

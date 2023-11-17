@@ -9,7 +9,9 @@ metadata:
   description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.
   services: azure-resource-manager
   ms.service: azure
-  ms.custom: ignite-2022
+  ms.custom:
+    - ignite-2022
+    - ignite-2023
   ms.topic: hub-page
   author: kcpitt
   ms.author: kellypi
@@ -49,7 +51,7 @@ productDirectory:
     # Card
     - title: Azure AI services
       summary: Build cutting-edge, market-ready, responsible applications for your organization with AI
-      imageSrc: ai-services/media/service-icons/cognitive-services.svg
+      imageSrc: ai-services/media/service-icons/ai-services.svg
       azureCategories:
         - featured
         - ai-machine-learning
@@ -58,9 +60,8 @@ productDirectory:
     # Card
     - title: Azure OpenAI Service
       summary: Apply advanced coding and language models to a variety of use cases
-      imageSrc: ai-services/openai/media/icon/azure-openai-dark.svg
+      imageSrc: ai-services/media/service-icons/azure-openai.svg
       azureCategories:
-        - featured
         - ai-machine-learning
       url: ai-services/openai/index.yml
     # Card
@@ -106,26 +107,12 @@ productDirectory:
         - ai-machine-learning
       url: ai-services/computer-vision/overview-identity.md
     # Card
-    - title: Anomaly Detector
-      summary: Easily add anomaly detection capabilities to your apps
-      imageSrc: ai-services/media/service-icons/anomaly-detector.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ai-services/anomaly-detector/index.yml
-    # Card
     - title: Content Safety
-      summary: An AI service that detects unwanted contents
+      summary: Use AI to monitor text and image content for safety
       imageSrc: ai-services/media/service-icons/content-safety.svg
       azureCategories:
         - ai-machine-learning
       url: ai-services/content-moderator/index.yml
-    # Card
-    - title: Personalizer
-      summary: An AI service that delivers a personalized user experience
-      imageSrc: ai-services/media/service-icons/personalizer.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ai-services/personalizer/index.yml
     # Card
     - title: Azure AI Bot Service
       summary: Intelligent, serverless bot service that scales on demand
@@ -141,21 +128,14 @@ productDirectory:
         - ai-machine-learning
       url: ./ai-services/document-intelligence/index.yml
     # Card
-    - title: Azure Cognitive Search
+    - title: Azure AI Search
       summary: AI-powered cloud search service for mobile and web app development
-      imageSrc: ai-services/media/service-icons/cognitive-search.svg
+      imageSrc: ai-services/media/service-icons/search.svg
       azureCategories:
         - ai-machine-learning
         - mobile
         - web
       url: search/index.yml
-    # Card
-    - title: Metrics Advisor
-      summary: An AI service that monitors metrics and diagnoses issues
-      imageSrc: ai-services/media/service-icons/metrics-advisor.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ai-services/metrics-advisor/index.yml
     # Card
     - title: Azure AI Video Indexer
       summary: Unlock video insights
@@ -163,7 +143,7 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
         - media
-      url: ./azure-video-indexer/index.yml
+      url: /azure/azure-video-indexer/
     # Card
     - title: Immersive Reader
       summary: Empower users of all ages and abilities to read and comprehend text
@@ -221,8 +201,7 @@ productDirectory:
       summary: Rapidly connect your fixed and mobile networks with Microsoft Teams
       imageSrc: ./media/index/communications-gateway.svg
       azureCategories:
-        - networking
-        - 5g-space
+        - networking        
       url: communications-gateway/index.yml
     # Card
     - title: Data Science Virtual Machines
@@ -276,7 +255,7 @@ productDirectory:
         - analytics
       url: analysis-services/index.yml
     # Card
-    - title: Azure Chaos Studio (Preview)
+    - title: Azure Chaos Studio
       summary: Improve application resilience by introducing faults and simulating outages
       imageSrc: ./media/index/chaos-studio.svg
       azureCategories:
@@ -364,6 +343,13 @@ productDirectory:
       azureCategories:
         - analytics
       url: hdinsight/index.yml
+    # Card
+    - title: HDInsight on AKS
+      summary: Deploy Apache Spark, Apache Flink, and Trino workloads without managing and monitoring containers
+      imageSrc: media/index/hdinsight-aks.svg
+      azureCategories:
+        - analytics
+      url: hdinsight-aks/index.yml
     # Card
     - title: Log Analytics
       summary: Full observability into your applications, infrastructure, and network
@@ -517,21 +503,13 @@ productDirectory:
         - containers
       url: container-instances/index.yml
     # Card
-    - title: Linux Virtual Machines
-      summary: Provision virtual machines for Ubuntu, Red Hat, and more
+    - title: Virtual Machines
+      summary: Provision virtual machines for Ubuntu, Red Hat, Windows, and more
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
       azureCategories:
         - featured
         - compute
       url: ./virtual-machines/index.yml
-    # Card
-    - title: Service Fabric
-      summary: Develop microservices and orchestrate containers on Windows or Linux
-      imageSrc: https://static.docs.com/ui/media/product/azure/service-fabric-clusters.svg
-      azureCategories:
-        - compute
-        - containers
-      url: service-fabric/index.yml
     # Card
     - title: SQL Server on Virtual Machines
       summary: Host enterprise SQL Server apps in the cloud
@@ -555,6 +533,14 @@ productDirectory:
         - compute
       url: virtual-machine-scale-sets/index.yml
     # Card
+    - title: Service Fabric
+      summary: Develop microservices and orchestrate containers on Windows or Linux
+      imageSrc: https://static.docs.com/ui/media/product/azure/service-fabric-clusters.svg
+      azureCategories:
+        - compute
+        - containers
+      url: service-fabric/index.yml
+    # Card
     - title: Web Apps
       summary: Quickly create and deploy mission critical web apps at scale
       imageSrc: https://static.docs.com/ui/media/product/azure/app-service.svg
@@ -572,14 +558,6 @@ productDirectory:
         - compute
         - azure-virtual-desktop
       url: virtual-desktop/index.yml
-    # Card
-    - title: Windows Virtual Machines
-      summary: Provision Windows virtual machines in seconds
-      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
-      azureCategories:
-        - featured
-        - compute
-      url: ./virtual-machines/index.yml
     # Card
     - title: Azure Container Apps
       summary: Build and deploy modern apps and microservices using serverless containers
@@ -723,7 +701,7 @@ productDirectory:
       imageSrc: /sql/tools/media/overview-sql-tools/azure-data-studio.svg
       azureCategories:
         - developer-tools
-      url: /sql/azure-data-studio/
+      url: /azure-data-studio/
     # Card
     - title: Azure DevOps
       summary: Services for teams to share code, track work, and ship software
@@ -863,14 +841,14 @@ productDirectory:
         - azure-virtual-desktop
       url: dev-box/index.yml
     # Card
-    - title: Azure Active Directory (AD)
+    - title: Microsoft Entra ID
       summary: Synchronize on-premises directories and enable single sign-on
       imageSrc: https://static.docs.com/ui/media/product/azure/active-directory.svg
       azureCategories:
         - hybrid
         - identity
         - security
-      url: active-directory/index.yml
+      url: /entra/identity/
     # Card
     - title: Azure Arc
       summary: Bring Azure services and management to any infrastructure
@@ -932,20 +910,20 @@ productDirectory:
         - iot
       url: iot-edge/index.yml
     # Card
-    - title: Azure Active Directory External Identities
+    - title: Microsoft Entra External ID
       summary: Consumer identity and access management in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/active-directory-b2c.svg
       azureCategories:
         - identity
-      url: active-directory/external-identities/index.yml
+      url: /entra/external-id/
     # Card
-    - title: Azure Active Directory Domain Services
+    - title: Microsoft Entra Domain Services
       summary: Join Azure virtual machines to a domain without domain controllers
       imageSrc: https://static.docs.com/ui/media/product/azure/ad-domain-services.svg
       azureCategories:
         - identity
         - security
-      url: active-directory-domain-services/index.yml
+      url: /entra/identity/domain-services/
     # Card
     - title: Azure Information Protection
       summary: Better protect your sensitive information—anytime, anywhere
@@ -1001,6 +979,13 @@ productDirectory:
       azureCategories:
         - iot
       url: iot-hub/index.yml
+    # Card
+    - title: Azure IoT Operations (Preview)
+      summary: Unlock insights for intelligent local actions and global visibility
+      imageSrc: media/index/iot-operations.svg
+      azureCategories:
+        - iot
+      url: iot-operations/index.yml
     # Card
     - title: Azure Maps
       summary: Simple and secure location APIs provide geospatial context to data
@@ -1173,12 +1158,12 @@ productDirectory:
         - networking
       url: traffic-manager/index.yml
     # Card
-    - title: Update management center (Preview)
+    - title: Azure Update Manager
       summary: Centrally manage updates and compliance at scale
       imageSrc: https://static.docs.com/ui/media/product/azure/update-center.svg
       azureCategories:
         - management-and-governance
-      url: update-center/index.yml
+      url: update-manager/index.yml
 
     # Card
     - title: Azure Media Player
@@ -1357,8 +1342,23 @@ productDirectory:
       imageSrc: ./media/index/private-5g-core.svg
       azureCategories:
         - networking
-        - 5g-space
       url: private-5g-core/index.yml
+      # Card
+    - title: Azure Operator Service Manager
+      summary: Manage network services across hybrid cloud sites
+      imageSrc: ./media/index/operator-service-manager.svg
+      azureCategories:
+        - networking
+        - hybrid
+      url: operator-service-manager/index.yml
+      # Card
+    - title: Azure Operator Insights
+      summary: Analyze network data from multiple sources
+      imageSrc: ./media/index/operator-insights.svg
+      azureCategories:
+        - featured
+        - hybrid
+      url: operator-insights/index.yml
     # Card
     - title: Load Balancer
       summary: Deliver high availability and network performance to your applications
@@ -1539,12 +1539,11 @@ productDirectory:
         - web
       url: azure-signalr/index.yml
     # Card
-    - title: Azure Orbital (Preview)
+    - title: Azure Orbital Ground Station
       summary: Satellite ground station and scheduling services for fast downlinking of data
       imageSrc: /media/logos/logo-azureorbital.svg
       azureCategories:
         - networking
-        - 5g-space
       url: orbital/index.yml
     # Card
     - title: Azure Web PubSub
@@ -1566,7 +1565,7 @@ productDirectory:
       summary: Build your mission-critical mobile networks with a carrier-grade, hybrid cloud platform
       imageSrc: ./media/index/operator-nexus.svg
       azureCategories:
-       - 5g-space
+       - hybrid
       url: operator-nexus/index.yml
     # Card
     - title: Azure Network Function Manager
@@ -1574,7 +1573,6 @@ productDirectory:
       imageSrc: ./media/index/azure-network-function-manager.svg
       azureCategories:
        - networking
-       - 5g-space
       url: network-function-manager/index.yml
     # Card
     - title: Azure Container Storage
@@ -1628,6 +1626,14 @@ productDirectory:
       azureCategories:
        - hybrid
       url: /azure/aks/hybrid/aks-edge-overview  
+    # Card
+    - title: Microsoft Copilot for Azure (Preview)
+      summary: Simplify operations and management from cloud to edge with an AI companion
+      imageSrc: ./media/index/azure-copilot.svg
+      azureCategories:
+       - featured 
+       - management-and-governance
+      url: /azure/copilot
       
 tools:
   title: Languages and tools

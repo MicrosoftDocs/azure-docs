@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/20/2023
+ms.date: 11/06/2023
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal,subject-rbac-steps
 ---
@@ -16,7 +16,7 @@ ms.custom: contperf-fy21q3-portal,subject-rbac-steps
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] This article describes how to assign roles using the Azure portal.
 
-If you need to assign administrator roles in Azure Active Directory, see [Assign Azure AD roles to users](../active-directory/roles/manage-roles-portal.md).
+If you need to assign administrator roles in Microsoft Entra ID, see [Assign Microsoft Entra roles to users](../active-directory/roles/manage-roles-portal.md).
 
 ## Prerequisites
 
@@ -68,9 +68,9 @@ If you need to assign administrator roles in Azure Active Directory, see [Assign
 
 1. If you want to assign a privileged administrator role, select the **Privileged administrator roles** tab to select the role.
 
-    Privileged administrator roles are roles that grant privileged administrator access, such as the ability to manage Azure resources or assign roles to other users. You should avoid assigning a privileged administrator role when a job function role can be assigned instead. If you must assign a privileged administrator role, use a narrow scope, such as resource group or resource. For more information, see [Privileged administrator roles](./role-assignments-steps.md#privileged-administrator-roles).
-
-   ![Screenshot of Add role assignment page with Privileged administrator roles tab selected.](./media/shared/privileged-administrator-roles.png)
+    For best practices when using privileged administrator role assignments, see [Best practices for Azure RBAC](best-practices.md#limit-privileged-administrator-role-assignments).
+    
+    ![Screenshot of Add role assignment page with Privileged administrator roles tab selected.](./media/shared/privileged-administrator-roles.png)
 
 1. In the **Details** column, click **View** to get more details about a role.
 
@@ -80,7 +80,7 @@ If you need to assign administrator roles in Azure Active Directory, see [Assign
 
 ## Step 4: Select who needs access
 
-1. On the **Members** tab, select **User, group, or service principal** to assign the selected role to one or more Azure AD users, groups, or service principals (applications).
+1. On the **Members** tab, select **User, group, or service principal** to assign the selected role to one or more Microsoft Entra users, groups, or service principals (applications).
 
    ![Screenshot of Add role assignment page with Members tab.](./media/shared/members.png)
 

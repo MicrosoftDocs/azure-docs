@@ -13,7 +13,7 @@ ms.reviewer: wiassaf
 
 # Azure Synapse Analytics known issues
 
-This page lists the known issues in [Azure Synapse Analytics](overview-what-is.md), as well as their resolution date or possible workaround. 
+This page lists the known issues in [Azure Synapse Analytics](overview-what-is.md), and their resolution date or possible workaround. 
 Before submitting a Support request, please review this list to see if the issue that you're experiencing is already known and being addressed.
 
 To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Overview](index.yml), and [What's new in Azure Synapse Analytics?](whats-new.md). 
@@ -27,6 +27,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse dedicated SQL pool|[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|Has Workaround|
 |Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has Workaround|
 |Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has Workaround|
+|Azure Synapse Apache Spark pool|[Certain spark job or task fails too early with Error Code 503 due to storage account throttling](#certain-spark-job-or-task-fails-too-early-with-error-code-503-due-to-storage-account-throttling)|Has Workaround|
 
 ## Azure Synapse Analytics serverless SQL pool active known issues summary
 
@@ -66,7 +67,7 @@ Sometimes you may not be able to execute the ALTER DATABASE SCOPED CREDENTIAL qu
 
 ### Queries failing with Data Exfiltration Error
 
-Synapse workspaces created from an existing dedicated SQL Pool report query failures related to [Data Exfiltration Protection](security/workspace-data-exfiltration-protection.md) with generic error message while Data Exfiltration Protection is turned off in Synapse Analytics: 
+Synapse workspaces created from an existing dedicated SQL Pool report query failure related to [Data Exfiltration Protection](security/workspace-data-exfiltration-protection.md) with generic error message while Data Exfiltration Protection is turned off in Synapse Analytics: 
 
 `Data exfiltration to '{****}' is blocked. Add destination to allowed list for data exfiltration and try again.`
 
@@ -102,19 +103,34 @@ When using an ARM template, Bicep template, or direct REST API PUT operation to 
 
 **Workaround**: The problem can be mitigated by using a REST API PATCH operation or the Azure Portal UI to reverse and retry the desired configuration changes. The engineering team is aware of this behavior and working on a fix.
 
+## Azure Synapse Analytics Apache Spark pool active known issues summary
+
+The following are known issues with the Synapse Spark.
+
+### Certain spark job or task fails too early with Error Code 503 due to storage account throttling
+
+Starting at 00:00 UTC on October 3, 2023, few Azure Synapse Analytics Apache Spark pools might experience spark job/task failures due to storage API limit threshold being exceeded.
+
+**Workaround**: The engineering team is currently aware of this behavior and working on a fix. We recommend setting the following spark config at [pool level](spark/apache-spark-azure-create-spark-configuration.md#create-an-apache-spark-configuration)
+
+`spark.hadoop.fs.azure.io.retry.max.retries      19`
+
+
 ## Recently Closed Known issues
 
 |Synapse Component|Issue|Status|Date Resolved
 |---------|---------|---------|---------|
-|Azure Synapse serverless SQL pool|[Queries using Azure AD authentication fails after 1 hour](#queries-using-azure-ad-authentication-fails-after-1-hour)|Resolved|August 2023
+|Azure Synapse serverless SQL pool|[Queries using Microsoft Entra authentication fails after 1 hour](#queries-using-azure-ad-authentication-fails-after-1-hour)|Resolved|August 2023
 |Azure Synapse serverless SQL pool|[Query failures while reading Cosmos DB data using OPENROWSET](#query-failures-while-reading-azure-cosmos-db-data-using-openrowset)|Resolved|March 2023
 |Azure Synapse Apache Spark pool|[Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse Dedicated SQL Pool Connector for Apache Spark when using notebooks in pipelines](#failed-to-write-to-sql-dedicated-pool-from-synapse-spark-using-azure-synapse-dedicated-sql-pool-connector-for-apache-spark-when-using-notebooks-in-pipelines)|Resolved|June 2023
 
 ## Azure Synapse Analytics serverless SQL pool recently closed known issues summary
 
-### Queries using Azure AD authentication fails after 1 hour
+<a name='queries-using-azure-ad-authentication-fails-after-1-hour'></a>
 
-SQL connections using Azure AD authentication that remain active for more than 1 hour will start to fail. This includes querying storage using Azure AD pass-through authentication and statements that interact with Azure AD, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS and ADS. Tools that open new connection to execute queries aren't affected, like Synapse Studio.
+### Queries using Microsoft Entra authentication fails after 1 hour
+
+SQL connections using Microsoft Entra authentication that remain active for more than 1 hour starts to fail. This includes querying storage using Microsoft Entra pass-through authentication and statements that interact with Microsoft Entra ID, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS and ADS. Tools that open new connection to execute queries aren't affected, like Synapse Studio.
 
 **Status**: Resolved
 

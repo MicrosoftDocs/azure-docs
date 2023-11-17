@@ -2,7 +2,7 @@
 title: Introduction to Apache Kafka in Event Hubs on Azure Cloud
 description: Learn what Apache Kafka in the Event Hubs service on Azure Cloud is and how to use it to stream data from Apache Kafka applications without setting up a Kafka cluster on your own.
 ms.topic: overview
-ms.date: 02/03/2023
+ms.date: 11/16/2023
 ---
 
 # What is Azure Event Hubs for Apache Kafka
@@ -55,7 +55,7 @@ Azure Event Hubs provides multiple options to authorize access to your secure re
 - Shared access signature (SAS)
 
 ### OAuth 2.0
-Event Hubs integrates with Azure Active Directory (Azure AD), which provides an **OAuth 2.0** compliant centralized authorization server. With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant fine grained permissions to your client identities. You can use this feature with your Kafka clients by specifying **SASL_SSL** for the protocol and  **OAUTHBEARER** for the mechanism. For details about Azure roles and levels for scoping access, see [Authorize access with Azure AD](authorize-access-azure-active-directory.md).
+Event Hubs integrates with Microsoft Entra ID, which provides an **OAuth 2.0** compliant centralized authorization server. With Microsoft Entra ID, you can use Azure role-based access control (Azure RBAC) to grant fine grained permissions to your client identities. You can use this feature with your Kafka clients by specifying **SASL_SSL** for the protocol and  **OAUTHBEARER** for the mechanism. For details about Azure roles and levels for scoping access, see [Authorize access with Microsoft Entra ID](authorize-access-azure-active-directory.md).
 
 ```properties
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -117,9 +117,11 @@ As explained [above](#is-apache-kafka-the-right-solution-for-your-workload), the
 
 The client-side [compression](https://cwiki.apache.org/confluence/display/KAFKA/Compression) feature of Apache Kafka compresses a batch of multiple messages into a single message on the producer side and decompresses the batch on the consumer side. The Apache Kafka broker treats the batch as a special message.
 
-This feature is fundamentally at odds with Azure Event Hubs' multi-protocol model, which allows for messages, even those sent in batches, to be individually retrievable from the broker and through any protocol. 
+Kafka producer application developers can enable message compression by setting the compression.type property. In the public preview, the only compression algorithm supported is gzip. 
+     Compression.type = none | gzip
+These changes are exposed in the header, which then allows the consumer to properly decompress the data. The feature is currently only supported for Apache Kafka traffic producer and consumer traffic and not AMQP or web service traffic. 
 
-The payload of any Event Hubs event is a byte stream and the content can be compressed with an algorithm of your choosing. The Apache Avro encoding format supports compression natively.
+The payload of any Event Hubs event is a byte stream and the content can be compressed with an algorithm of your choosing though in public preview, the only option is gzip. The benefits of using Kafka compression are through smaller message size, increased payload size you can transmit, and lower message broker resource consumption.  
 
 ### Kafka Streams
 

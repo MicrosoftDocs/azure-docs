@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/28/2022
+ms.date: 11/08/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -151,3 +151,6 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C99011` | The metadata value '{0}' has not been specified in TechnicalProfile '{1}' in policy '{2}'. | [Custom policy Technical profiles](technicalprofiles.md) |
 | `AADB2C99013` | The supplied grant_type [{0}] and token_type [{1}] combination is not supported. |
 | `AADB2C99015` | Profile '{0}' in policy '{1}' in tenant '{2}' is missing all InputClaims required for resource owner password credential flow. | [Create a resource owner policy](add-ropc-policy.md#create-a-resource-owner-policy) |
+|`AADB2C99002`| User doesn't exist. Please sign up before you can sign in. |
+| `AADB2C99027` | Policy '{0}' does not contain a AuthorizationTechnicalProfile with a corresponding ClientAssertionType. | [Client credentials flow](client-credentials-grant-flow.md) |
+|`AADB2C90229`|Azure AD B2C throttled traffic if too many requests are sent from the same source in a short period of time| [Best practices for Azure Active Directory B2C](best-practices.md#testing) |

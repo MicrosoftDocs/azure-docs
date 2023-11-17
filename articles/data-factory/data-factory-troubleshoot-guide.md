@@ -159,9 +159,9 @@ The following table applies to U-SQL.
 
 - **Message**: `The access token is from the wrong tenant.`
 
-- **Cause**: Incorrect Azure Active Directory (Azure AD) tenant.
+- **Cause**: Incorrect Microsoft Entra tenant.
 
-- **Recommendation**: Incorrect Azure Active Directory (Azure AD) tenant.
+- **Recommendation**: Incorrect Microsoft Entra tenant.
 
 <br/>
 

@@ -14,7 +14,7 @@ ms.reviewer: aul
 Azure Monitor Container insights offers a schema for container logs, called ContainerLogV2. As part of this schema, there are fields to make common queries to view Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes data. In addition, this schema is compatible with [Basic Logs](../logs/basic-logs-configure.md), which offers a low-cost alternative to standard analytics logs.
 
 >[!NOTE]
-> ContainerLogV2 will be default schema for customers who will be onboarding container insights with Managed Identity Auth using ARM, Bicep, Terraform, Policy and Portal onboarding. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
+> ContainerLogV2 will be the default schema via the ConfigMap for CLI version 2.54.0 and greater. ContainerLogV2 will be default ingestion format for customers who will be onboarding container insights with Managed Identity Auth using ARM, Bicep, Terraform, Policy and Portal onboarding. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
 
 The new fields are:
 * `ContainerName`
@@ -47,25 +47,28 @@ Follow the instructions to configure an existing ConfigMap or to use a new one.
 
 ## [Azure portal](#tab/configure-portal)
 
+>[!NOTE]
+> DCR based configuration is not supported for service principal based clusters. Please [migrate your clusters with service principal to managed identity](./container-insights-enable-aks.md#migrate-to-managed-identity-authentication) to use this experience.
+
 1. In the Insights section of your Kubernetes cluster, select the **Monitoring Settings** button from the top toolbar
 
-![Screenshot that shows monitoring settings.](./media/container-insights-logging-v2/container-insights-v2-monitoring-settings.png)
+:::image type="content" source="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings.png" lightbox="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings.png" alt-text="Screenshot that shows monitoring settings.":::
 
 2. Select **Edit collection settings** to open the advanced settings
 
-![Screenshot that shows advanced collection settings.](./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-open.png)
+:::image type="content" source="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-open.png" lightbox="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-open.png" alt-text="Screenshot that shows advanced collection settings.":::
 
 3. Select the checkbox with **Enable ContainerLogV2** and choose the **Save** button below
 
-![Screenshot that shows ContainerLogV2 checkbox.](./media/container-insights-logging-v2/container-insights-v2-collection-settings.png)
+:::image type="content" source="./media/container-insights-logging-v2/container-insights-v2-collection-settings.png" lightbox="./media/container-insights-logging-v2/container-insights-v2-collection-settings.png" alt-text="Screenshot that shows ContainerLogV2 checkbox.":::
 
 4. The summary section should display the message "ContainerLogV2 enabled", click the **Configure** button to complete your configuration change
 
-![Screenshot that shows ContainerLogV2 enabled.](./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-configured.png)
+:::image type="content" source="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-configured.png" lightbox="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-configured.png" alt-text="Screenshot that shows ContainerLogV2 enabled.":::
 
 ## [CLI](#tab/configure-CLI)
 
-1. For configuring via CLI, use the corresponding [config file](./container-insights-cost-config.md#configuring-aks-data-collection-settings-using-azure-cli), update the `enableContainerLogV2` field in the config file to be true.
+1. For configuring via CLI, use the corresponding [config file](./container-insights-cost-config.md#enable-cost-settings), update the `enableContainerLogV2` field in the config file to be true.
 
 
 ---
@@ -82,8 +85,8 @@ This applies to the scenario where you have already enabled container insights f
 ```
 
 ### Configure a new ConfigMap
-1. [Download the new ConfigMap](https://aka.ms/container-azm-ms-agentconfig). For the newly downloaded ConfigMap, the default value for `containerlog_schema_version` is `"v1"`.
-1. Update `containerlog_schema_version` to `"v2"`:
+1. [Download the new ConfigMap](https://aka.ms/container-azm-ms-agentconfig). For the newly downloaded ConfigMap, the default value for `containerlog_schema_version` is `"v2"`.
+1. Ensure that the  `containerlog_schema_version` to `"v2"` and the `[log_collection_settings.schema]` is also uncommented by removing the `#` preceding it:
 
     ```yaml
     [log_collection_settings.schema]
@@ -108,29 +111,29 @@ Additionally, the feature also adds support for .NET, Go, Python and Java stack 
 Below are two screenshots which demonstrate Multi-line logging at work for Go exception stack trace:
 
 Multi-line logging disabled scenario:
-
-![Screenshot that shows Multi-line logging disabled.](./media/container-insights-logging-v2/multi-line-disabled-go.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/container-insights-logging-v2/multi-line-disabled-go.png" lightbox="./media/container-insights-logging-v2/multi-line-disabled-go.png" alt-text="Screenshot that shows Multi-line logging disabled." border="false":::
 
 Multi-line logging enabled scenario:
-
-[ ![Screenshot that shows Multi-line enabled.](./media/container-insights-logging-v2/multi-line-enabled-go.png) ](./media/container-insights-logging-v2/multi-line-enabled-go.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="./media/container-insights-logging-v2/multi-line-enabled-go.png" lightbox="./media/container-insights-logging-v2/multi-line-enabled-go.png" alt-text="Screenshot that shows Multi-line enabled." border="false":::
 
 Similarly, below screenshots depict Multi-line logging enabled scenarios for Java and Python stack traces:
 
 For Java:
 
-[ ![Screenshot that shows Multi-line enabled for Java](./media/container-insights-logging-v2/multi-line-enabled-java.png) ](./media/container-insights-logging-v2/multi-line-enabled-java.png#lightbox)
+:::image type="content" source="./media/container-insights-logging-v2/multi-line-enabled-java.png" lightbox="./media/container-insights-logging-v2/multi-line-enabled-java.png" alt-text="Screenshot that shows Multi-line enabled for Java.":::
 
 For Python:
 
-[ ![Screenshot that shows Multi-line enabled for Python](./media/container-insights-logging-v2/multi-line-enabled-python.png) ](./media/container-insights-logging-v2/multi-line-enabled-python.png#lightbox)
+:::image type="content" source="./media/container-insights-logging-v2/multi-line-enabled-python.png" lightbox="./media/container-insights-logging-v2/multi-line-enabled-python.png" alt-text="Screenshot that shows Multi-line enabled for Python.":::
 
 ### Pre-requisites 
 
 Customers must [enable ContainerLogV2](./container-insights-logging-v2.md#enable-the-containerlogv2-schema) for multi-line logging to work.
 
 ### How to enable 
-Multi-line logging feature can be enabled by setting **enabled** flag to "true" under the `[log_collection_settings.enable_multiline_logs]` section in the the [config map](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml)
+Multi-line logging feature can be enabled by setting **enabled** flag to "true" under the `[log_collection_settings.enable_multiline_logs]` section in the [config map](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml)
 
 ```yaml
 [log_collection_settings.enable_multiline_logs]

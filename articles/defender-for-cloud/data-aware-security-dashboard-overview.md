@@ -1,10 +1,8 @@
 ---
 title: The data-aware security dashboard
 description: Learn about the capabilities and functions of the data-aware security view in Microsoft Defender for Cloud
-author: AlizaBernstein
-ms.author: v-bernsteina
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 11/15/2023
 ---
 
 # Data security dashboard
@@ -21,20 +19,21 @@ The data security dashboard addresses the need for an interactive, data-centric 
 
 You can select any element on the page to get more detailed information.
 
-| Aspect | Details |
-|---------|---------|
-|Release state: | Public Preview |
-| Prerequisites: | Defender for CSPM fully enabled, including sensitive data discovery <br/> Workload protection for database and storage to explore active risks |
-| Required roles and permissions: | No other roles needed on top of what is required for the security explorer. |
-| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png":::  Commercial clouds <br/> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government <br/> :::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet |
+## Before you start
 
-## Support and prerequisites
+- You must [enable Defender CSPM](tutorial-enable-cspm-plan.md) and the [sensitive data discovery extension](tutorial-enable-cspm-plan.md#enable-the-components-of-the-defender-cspm-plan) within Defender CSPM.  
+- To receive the alerts for data sensitivity 
+    - for storage related alerts, you must [enable the Defender for Storage plan](tutorial-enable-storage-plan.md).
+    - for database related alerts, you must [enable the Defender for Databases plan](tutorial-enable-databases-plan.md).
 
-Sensitive data discovery is available in the Defender CSPM and Defender for storage plans.
+> [!NOTE]
+> The feature is turned on at the subscription level.
 
-When you enable one of the plans, the sensitive data discovery extension is turned on as part of the plan.
+### Required roles and permissions: 
 
-The feature is turned on at the subscription level.
+No other roles needed aside from what is required for the security explorer.
+
+To access the dashboard with more than 1000 subscriptions, you must have tenant-level permissions, which include one of the following roles: **Global Reader**, **Global Administrator**, **Security Administrator**, or **Security Reader**.
 
 ## Data security overview section
 
@@ -71,12 +70,6 @@ The **Closer look** section provides a more detailed view into the sensitive dat
 You can select the **Manage data sensitivity settings** to get to the **Data sensitivity** page.  The **Data sensitivity** page allows you to manage the data sensitivity settings of cloud resources at the tenant level, based on selective info types and labels originating from the Purview compliance portal, and [customize sensitivity settings](data-sensitivity-settings.md) such as creating your own customized info types and labels, and setting sensitivity label thresholds.
 
 :::image type="content" source="media/data-aware-security-dashboard/manage-security-sensitivity-settings.png" alt-text="Screenshot that shows where to access managing data sensitivity settings." lightbox="media/data-aware-security-dashboard/manage-security-sensitivity-settings.png":::
-
-### Data resources security status
-
-**Sensitive resources status over time** - displays how data security evolves over time with a graph that shows the number of sensitive resources affected by alerts, attack paths, and recommendations within a defined period (last 30, 14, or 7 days). 
-
-:::image type="content" source="media/data-aware-security-dashboard/data-resources-security-status.png" alt-text="Screenshot that shows the data resources security status section of the data security view." lightbox="media/data-aware-security-dashboard/data-resources-security-status.png":::
 
 ## Next steps
 

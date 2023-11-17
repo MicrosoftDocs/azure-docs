@@ -5,15 +5,15 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 10/20/2023
 ms.custom: event-tier1-build-2022, engagement-fy23
 ---
 
 # Integrate Azure Database for PostgreSQL with Service Connector
 
-This page shows the supported authentication types and client types of Azure Database for PostgreSQL using Service Connector. You might still be able to connect to Azure Database for PostgreSQL in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Database for PostgreSQL to other cloud services using Service Connector. You might still be able to connect to Azure Database for PostgreSQL in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection.
 
-## Supported compute service
+## Supported compute services
 
 - Azure App Service
 - Azure App Configuration
@@ -37,115 +37,103 @@ Supported authentication and clients for App Service, Container Apps, and Azure 
 | None                      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 > [!NOTE]
-> System-assigned managed identity,User-assigned managed identity and Service principal are only supported on Azure CLI. 
+> System-assigned managed identity, User-assigned managed identity and Service principal are only supported on Azure CLI. 
 
-## Default environment variable names or application properties
+## Default environment variable names or application properties and sample code
 
-Use the connection details below to connect compute services to PostgreSQL. For each example below, replace the placeholder texts `<postgreSQL-server-name>`, `<database-name>`, `<username>`, and `<password>` with your server name, database name, username and password.
+Reference the connection details and sample code in the following tables, according to your connection's authentication type and client type, to connect compute services to Azure Database for PostgreSQL. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
-### .NET (ADO.NET)
+### System-assigned Managed Identity
 
-#### .NET (ADO.NET) System-assigned managed identity
+#### [.NET](#tab/dotnet)
 
 | Default environment variable name  | Description                          | Example value                                                                                                                                                                      |
 |------------------------------------|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CONNECTIONSTRING`  | .NET PostgreSQL connection string    | `Server=<PostgreSQL-server-name>.postgres.database.azure.com;Database=<database-name>;Port=5432;Ssl Mode=Require;User Id=<username>@<PostgreSQL-server-name>;` |
-
-#### .NET (ADO.NET) User-assigned managed identity
-
-| Default environment variable name  | Description                       | Example value                                           |
-|------------------------------------|-----------------------------------|---------------------------------------------------------|
-| `Azure_POSTGRESQL_CLIENTID`          | Your client ID                    | `<identity-client-ID>`                                  |
-| `Azure_POSTGRESQL_CONNECTIONSTRING`  | .NET PostgreSQL connection string | `Server=<PostgreSQL-server-name>.postgres.database.azure.com;Database=<database-name>;Port=5432;Ssl Mode=Require;User Id=<username>@<PostgreSQL-server-name>;` |
-
-#### .NET (ADO.NET) secret / connection string
-
-| Default environment variable name | Description                          | Example value                                                                                                                                                                      |
-|-----------------------------------|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | .NET PostgreSQL connection string    | `Server=<PostgreSQL-server-name>.postgres.database.azure.com;Database=<database-name>;Port=5432;Ssl Mode=Require;User Id=<username>@<PostgreSQL-server-name>;Password=<password>;` |
-
-#### .NET (ADO.NET) Service principal
-
-| Default environment variable name   | Description                       | Example value                                           |
-|-------------------------------------|-----------------------------------|---------------------------------------------------------|
-| `Azure_POSTGRESQL_CLIENTID`         | Your client ID                    | `<client-ID>`                                           |
-| `Azure_POSTGRESQL_CLIENTSECRET`     | Your client secret                | `<client-secret>`                                       |
-| `Azure_POSTGRESQL_TENANTID`         | Your tenant ID                    | `<tenant-ID>`                                           |
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | .NET PostgreSQL connection string | `Server=<PostgreSQL-server-name>.postgres.database.azure.com;Database=<database-name>;Port=5432;Ssl Mode=Require;User Id=<username>@<PostgreSQL-server-name>;` |
-
-### Go (pg)
-
-#### Go (pg) System-assigned managed identity
-
-| Default environment variable name   | Description                     | Example value                                                                                                                   |
-|-------------------------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | Go postgres connection string   | `host=<PostgreSQL-server-name>.postgres.database.azure.com dbname=<database-name> sslmode=require user=<username>@<server-name>`|
+| `AZURE_POSTGRESQL_CONNECTIONSTRING`  | .NET PostgreSQL connection string    | `Server=<PostgreSQL-server-name>.postgres.database.azure.com;Database=<database-name>;Port=5432;Ssl Mode=Require;User Id=<username>;` |
 
 
-#### Go (pg) User-assigned managed identity
-
-| Default environment variable name   | Description                     | Example value                                                                                                                   |
-|-------------------------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CLIENTID`         | Your client ID                  | `<identity-client-ID>`                                                                                                          |
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | Go postgres connection string   | `host=<PostgreSQL-server-name>.postgres.database.azure.com dbname=<database-name> sslmode=require user=<username>@<server-name>`|
-
-#### Go (pg) secret / connection string
-
-| Default environment variable name   | Description                     | Example value                                                                                                                   |
-|-------------------------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | Go postgres connection string   | `host=<PostgreSQL-server-name>.postgres.database.azure.com dbname=<database-name> sslmode=require user=<username>@<server-name> password=<password>`             |
-
-#### Go (pg) Service principal
-
-| Default environment variable name   | Description                     | Example value                                                                                                                   |
-|-------------------------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CLIENTID`         | Your client ID                  | `<client-ID>`                                                                                                                   |
-| `Azure_POSTGRESQL_CLIENTSECRET`     | Your client SECRET              | `<client-secret>`                                                                                                               |
-| `Azure_POSTGRESQL_TENANTID`         | Your tenant ID                  | `<tenant-ID>`                                                                                                                   |
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | Go postgres connection string   | `host=<PostgreSQL-server-name>.postgres.database.azure.com dbname=<database-name> sslmode=require user=<username>@<servername>` |
-
-
-### Java (JDBC)
-
-#### Java (JDBC) System-assigned managed identity
+#### [Java](#tab/java)
 
 | Default environment variable name   | Description                       | Example value                                                                                                                        |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | JDBC PostgreSQL connection string | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require&user=<username>` |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | JDBC PostgreSQL connection string | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require&user=<username>` |
 
-
-#### Java (JDBC) User-assigned managed identity
-
-| Default environment variable name    | Description                       | Example value                                           |
-|--------------------------------------|-----------------------------------|---------------------------------------------------------|
-| `Azure_POSTGRESQL_CLIENTID`          | Your client ID                    | `<identity-client-ID>`                                  |
-| `Azure_POSTGRESQL_CONNECTIONSTRING`  | JDBC PostgreSQL connection string | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require&user=<username>` |
-
-#### Java (JDBC) secret / connection string
-
-| Default environment variable name | Description                       | Example value                                                                                                                                                                 |
-|-----------------------------------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | JDBC PostgreSQL connection string | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require&user=<username>%40<PostgreSQL-server-name>&password=<password>` |
-
-#### Java (JDBC) Service principal
-
-| Default environment variable name   | Description                       | Example value                                           |
-|-------------------------------------|-----------------------------------|---------------------------------------------------------|
-| `Azure_POSTGRESQL_CLIENTID`         | Your client ID                    | `<client-ID>`                                           |
-| `Azure_POSTGRESQL_CLIENTSECRET`     | Your client secret                | `<client-secret>`                                       |
-| `Azure_POSTGRESQL_TENANTID`         | Your tenant ID                    | `<tenant-ID>`                                           |
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | JDBC PostgreSQL connection string | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require&user=<username>` |
-
-### Java - Spring Boot (JDBC)
-
-#### Java - Spring Boot (JDBC) System-assigned managed identity
+#### [SpringBoot](#tab/springBoot)
 | Application properties                    | Description                         | Example value                                                                                                 |
 |-------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------|
 | `spring.datasource.azure.passwordless-enabled`  | Enable passwordless authentication  | `true`                                                                                                        |
 | `spring.datasource.url`                   | Database URL                        | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` |
-| `spring.datasource.username`              | Database username                   | `username`                                                                                             |
+| `spring.datasource.username`              | Database username                   | `username` |
 
-#### Java - Spring Boot (JDBC) User-assigned managed identity
+
+#### [Python](#tab/python)
+
+| Default environment variable name | Description                | Example value                                                                                                                   |
+|-----------------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | psycopg2 connection string | `dbname=<database-name> host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 sslmode=require user=<username>` |
+
+#### [Django](#tab/django)
+
+| Default environment variable name | Description       | Example value                                          |
+|-----------------------------------|-------------------|--------------------------------------------------------|
+| `AZURE_POSTGRESQL_NAME`             | Database name     | `<database-name>`                                      |
+| `AZURE_POSTGRESQL_HOST`             | Database host URL | `<PostgreSQL-server-name>.postgres.database.azure.com` |
+| `AZURE_POSTGRESQL_USER`             | Database username | `<username>`                  |
+
+
+#### [Go](#tab/go)
+
+| Default environment variable name   | Description                     | Example value                                                                                                                   |
+|-------------------------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Go postgres connection string   | `host=<PostgreSQL-server-name>.postgres.database.azure.com dbname=<database-name> sslmode=require user=<username>`|
+
+#### [NodeJS](#tab/nodejs)
+
+| Default environment variable name | Description       | Example value                                          |
+|-----------------------------------|-------------------|--------------------------------------------------------|
+| `AZURE_POSTGRESQL_HOST`             | Database host URL | `<PostgreSQL-server-name>.postgres.database.azure.com` |
+| `AZURE_POSTGRESQL_USER`             | Database username | `<username>`                  |
+| `AZURE_POSTGRESQL_DATABASE`         | Database name     | `<database-name>`                                      |
+| `AZURE_POSTGRESQL_PORT`             | Port number       | `5432`                                                 |
+| `AZURE_POSTGRESQL_SSL`              | SSL option        | `true`                                                 |
+
+#### [PHP](#tab/php)
+
+| Default environment variable name | Description                           | Example value                                                                                                                                                             |
+|-----------------------------------|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | PHP native postgres connection string | `host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>` |
+
+#### [Ruby](#tab/ruby)
+
+| Default environment variable name | Description                     | Example value                                                                    |
+|-----------------------------------|---------------------------------|----------------------------------------------------------------------------------|
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Ruby postgres connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>` |
+
+---
+
+#### Sample code
+
+Refer to the steps and code below to connect to Azure Database for PostgreSQL using a system-assigned managed identity.
+[!INCLUDE [code sample for postgresql system mi](./includes/code-postgres-me-id.md)]
+
+
+### User-assigned Managed Identity
+
+#### [.NET](#tab/dotnet)
+
+| Default environment variable name  | Description                       | Example value                                           |
+|------------------------------------|-----------------------------------|---------------------------------------------------------|
+| `AZURE_POSTGRESQL_CLIENTID`          | Your client ID                    | `<identity-client-ID>`                                  |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING`  | .NET PostgreSQL connection string | `Server=<PostgreSQL-server-name>.postgres.database.azure.com;Database=<database-name>;Port=5432;Ssl Mode=Require;User Id=<username>;` |
+
+#### [Java](#tab/java)
+
+| Default environment variable name    | Description                       | Example value                                           |
+|--------------------------------------|-----------------------------------|---------------------------------------------------------|
+| `AZURE_POSTGRESQL_CLIENTID`          | Your client ID                    | `<identity-client-ID>`                                  |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING`  | JDBC PostgreSQL connection string | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require&user=<username>` |
+
+#### [SpringBoot](#tab/springBoot)
 
 | Application properties                                        | Description                         | Example value                                                                                                 |
 |---------------------------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------|
@@ -153,18 +141,158 @@ Use the connection details below to connect compute services to PostgreSQL. For 
 | `spring.cloud.azure.credential.client-id`                     | Your client ID                      | `<identity-client-ID>`                                                                                        |
 | `spring.cloud.azure.credential.client-managed-identity-enabled`| Enable client managed identity      | `true`                                                                                                 |
 | `spring.datasource.url`                                       | Database URL                        | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` | 
-| `spring.datasource.username`                                  | Database username                   | `username`                                                                                             |
+| `spring.datasource.username`                                  | Database username                   | `username`  |
 
-#### Java - Spring Boot (JDBC) secret / connection string
+#### [Python](#tab/python)
+
+| Default environment variable name | Description                | Example value                                                                                                                   |
+|-----------------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `AZURE_POSTGRESQL_CLIENTID`         | Your client ID             | `<identity-client-ID>`  |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | psycopg2 connection string | `dbname=<database-name> host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 sslmode=require user=<username>` |
+
+#### [Django](#tab/django)
+
+| Default environment variable name | Description       | Example value                                          |
+|-----------------------------------|-------------------|--------------------------------------------------------|
+| `AZURE_POSTGRESQL_NAME`             | Database name     | `<database-name>`                                      |
+| `AZURE_POSTGRESQL_HOST`             | Database host URL | `<PostgreSQL-server-name>.postgres.database.azure.com` |
+| `AZURE_POSTGRESQL_USER`             | Database username | `<username>`                  |
+| `AZURE_POSTGRESQL_CLIENTID`         | Your client ID    | `<<identity-client-ID>>`                               |
+
+#### [Go](#tab/go)
+
+| Default environment variable name   | Description                     | Example value                                                                                                                   |
+|-------------------------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `AZURE_POSTGRESQL_CLIENTID`         | Your client ID                  | `<identity-client-ID>`                                                                                                          |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Go PostgreSQL connection string   | `host=<PostgreSQL-server-name>.postgres.database.azure.com dbname=<database-name> sslmode=require user=<username>`|
+
+#### [NodeJS](#tab/nodejs)
+
+| Default environment variable name | Description       | Example value                                          |
+|-----------------------------------|-------------------|--------------------------------------------------------|
+| `AZURE_POSTGRESQL_HOST`             | Database host URL | `<PostgreSQL-server-name>.postgres.database.azure.com` |
+| `AZURE_POSTGRESQL_USER`             | Database username | `<username>`                  |
+| `AZURE_POSTGRESQL_DATABASE`         | Database name     | `<database-name>`                                      |
+| `AZURE_POSTGRESQL_PORT`             | Port number       | `5432`                                                 |
+| `AZURE_POSTGRESQL_SSL`              | SSL option        | `true`                                                 |
+| `AZURE_POSTGRESQL_CLIENTID`         | Your client ID    | `<identity-client-ID>`                                 |
+
+#### [PHP](#tab/php)
+
+| Default environment variable name | Description                           | Example value                                                                                                                                                             |
+|-----------------------------------|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `AZURE_POSTGRESQL_CLIENTID`         | Your client ID                        | `<identity-client-ID>`|
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | PHP native PostgreSQL connection string | `host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>` |
+
+#### [Ruby](#tab/ruby)
+
+| Default environment variable name | Description                     | Example value                                                                    |
+|-----------------------------------|---------------------------------|----------------------------------------------------------------------------------|
+| `AZURE_POSTGRESQL_CLIENTID`         | Your client ID                  | `<identity-client-ID>`                                                           |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Ruby PostgreSQL connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username> ` |
+
+---
+
+#### Sample code
+
+Refer to the steps and code below to connect to Azure Database for PostgreSQL using a user-assigned managed identity.
+[!INCLUDE [code sample for postgresql user mi](./includes/code-postgres-me-id.md)]
+
+### Connection String
+
+#### [.NET](#tab/dotnet)
+
+| Default environment variable name | Description                          | Example value                                                                                                                                                                      |
+|-----------------------------------|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | .NET PostgreSQL connection string    | `Server=<PostgreSQL-server-name>.postgres.database.azure.com;Database=<database-name>;Port=5432;Ssl Mode=Require;User Id=<username>;` |
+
+#### [Java](#tab/java)
+
+| Default environment variable name | Description                       | Example value                                                                                                                                                                 |
+|-----------------------------------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | JDBC PostgreSQL connection string | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require&user=<username>&password=<password>` |
+
+#### [SpringBoot](#tab/springBoot)
 
 | Application properties                                        | Description       | Example value                                                                                                 |
 |---------------------------------------------------------------|-------------------|---------------------------------------------------------------------------------------------------------------|
 | `spring.datasource.url`                                         | Database URL      | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` |
-| `spring.datasource.username`                                    | Database username | `<username>@<PostgreSQL-server-name>`                                                                         |
+| `spring.datasource.username`                                    | Database username | `<username>`                                                                         |
 | `spring.datasource.password`                                   | Database password | `<password>`                                                                                                  |
 
+#### [Python](#tab/python)
 
-#### Java - Spring Boot (JDBC) Service principal
+| Default environment variable name | Description                | Example value                                                                                                                   |
+|-----------------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | psycopg2 connection string | `dbname=<database-name> host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 sslmode=require user=<username> password=<password>` |
+
+#### [Django](#tab/django)
+
+| Default environment variable name | Description       | Example value                                          |
+|-----------------------------------|-------------------|--------------------------------------------------------|
+| `AZURE_POSTGRESQL_NAME`             | Database name     | `<database-name>`                                      |
+| `AZURE_POSTGRESQL_HOST`             | Database host URL | `<PostgreSQL-server-name>.postgres.database.azure.com` |
+| `AZURE_POSTGRESQL_USER`             | Database username | `<username>`                  |
+| `AZURE_POSTGRESQL_PASSWORD`         | Database password | `<database-password>`                                  |
+
+#### [Go](#tab/go)
+
+| Default environment variable name   | Description                     | Example value                                                                                                                   |
+|-------------------------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Go PostgreSQL connection string   | `host=<PostgreSQL-server-name>.postgres.database.azure.com dbname=<database-name> sslmode=require user=<username> password=<password>`             |
+
+#### [NodeJS](#tab/nodejs)
+
+| Default environment variable name | Description       | Example value                                          |
+|-----------------------------------|-------------------|--------------------------------------------------------|
+| `AZURE_POSTGRESQL_HOST`             | Database host URL | `<PostgreSQL-server-name>.postgres.database.azure.com` |
+| `AZURE_POSTGRESQL_USER`             | Database username | `<username>`                  |
+| `AZURE_POSTGRESQL_PASSWORD`         | Database password | `<password>`                                           |
+| `AZURE_POSTGRESQL_DATABASE`         | Database name     | `<database-name>`                                      |
+| `AZURE_POSTGRESQL_PORT`             | Port number       | `5432`                                                 |
+| `AZURE_POSTGRESQL_SSL`              | SSL option        | `true`                                                 |
+
+#### [PHP](#tab/php)
+
+| Default environment variable name | Description                          | Example value                                                                                                                   |
+|-----------------------------------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | PHP native PostgreSQL connection string | `host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username> password=<password>` |
+
+#### [Ruby](#tab/ruby)
+
+| Default environment variable name | Description                     | Example value                                                                    |
+|-----------------------------------|---------------------------------|----------------------------------------------------------------------------------|
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Ruby PostgreSQL connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username> password=<password>` |
+
+---
+
+#### Sample code
+
+Refer to the steps and code below to connect to Azure Database for PostgreSQL using a connection string.
+[!INCLUDE [code sample for postgresql secrets](./includes/code-postgres-secret.md)]
+
+### Service Principal
+
+#### [.NET](#tab/dotnet)
+
+| Default environment variable name   | Description                       | Example value                                           |
+|-------------------------------------|-----------------------------------|---------------------------------------------------------|
+| `AZURE_POSTGRESQL_CLIENTID`         | Your client ID                    | `<client-ID>`                                           |
+| `AZURE_POSTGRESQL_CLIENTSECRET`     | Your client secret                | `<client-secret>`                                       |
+| `AZURE_POSTGRESQL_TENANTID`         | Your tenant ID                    | `<tenant-ID>`                                           |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | .NET PostgreSQL connection string | `Server=<PostgreSQL-server-name>.postgres.database.azure.com;Database=<database-name>;Port=5432;Ssl Mode=Require;User Id=<username>;` |
+
+
+#### [Java](#tab/java)
+
+| Default environment variable name   | Description                       | Example value                                           |
+|-------------------------------------|-----------------------------------|---------------------------------------------------------|
+| `AZURE_POSTGRESQL_CLIENTID`         | Your client ID                    | `<client-ID>`                                           |
+| `AZURE_POSTGRESQL_CLIENTSECRET`     | Your client secret                | `<client-secret>`                                       |
+| `AZURE_POSTGRESQL_TENANTID`         | Your tenant ID                    | `<tenant-ID>`                                           |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | JDBC PostgreSQL connection string | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require&user=<username>` |
+
+#### [SpringBoot](#tab/springBoot)
 
 | Application properties                                        | Description                         | Example value                                                                                                 |
 |---------------------------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------|
@@ -175,181 +303,75 @@ Use the connection details below to connect compute services to PostgreSQL. For 
 | `spring.datasource.url`                                       | Database URL                        | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` |
 | `spring.datasource.username`                                  | Database username                   | `username`                                                                                             |
 
-### Node.js (pg)
+#### [Python](#tab/python)
 
-#### Node.js (pg) System-assigned managed identity
+| Default environment variable name | Description                | Example value                                                                                                                   |
+|-----------------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `AZURE_POSTGRESQL_CLIENTID`         | Your client ID             | `<client-ID>`                                                                                                                   |
+| `AZURE_POSTGRESQL_CLIENTSECRET`     | Your client SECRET         | `<client-secret>`                                                                                                               |
+| `AZURE_POSTGRESQL_TENANTID`         | Your tenant ID             | `<tenant-ID>`                                                                                                                   |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | psycopg2 connection string | `dbname=<database-name> host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 sslmode=require user=<username>` |
 
-| Default environment variable name | Description       | Example value                                          |
-|-----------------------------------|-------------------|--------------------------------------------------------|
-| `Azure_POSTGRESQL_HOST`             | Database host URL | `<PostgreSQL-server-name>.postgres.database.azure.com` |
-| `Azure_POSTGRESQL_USER`             | Database username | `<username>@<PostgreSQL-server-name>`                  |
-| `Azure_POSTGRESQL_DATABASE`         | Database name     | `<database-name>`                                      |
-| `Azure_POSTGRESQL_PORT`             | Port number       | `5432`                                                 |
-| `Azure_POSTGRESQL_SSL`              | SSL option        | `true`                                                 |
-
-#### Node.js (pg) User-assigned managed identity
+#### [Django](#tab/django)
 
 | Default environment variable name | Description       | Example value                                          |
 |-----------------------------------|-------------------|--------------------------------------------------------|
-| `Azure_POSTGRESQL_HOST`             | Database host URL | `<PostgreSQL-server-name>.postgres.database.azure.com` |
-| `Azure_POSTGRESQL_USER`             | Database username | `<username>@<PostgreSQL-server-name>`                  |
-| `Azure_POSTGRESQL_DATABASE`         | Database name     | `<database-name>`                                      |
-| `Azure_POSTGRESQL_PORT`             | Port number       | `5432`                                                 |
-| `Azure_POSTGRESQL_SSL`              | SSL option        | `true`                                                 |
-| `Azure_POSTGRESQL_CLIENTID`         | Your client ID    | `<identity-client-ID>`                                 |
+| `AZURE_POSTGRESQL_NAME`             | Database name     | `<database-name>`                                      |
+| `AZURE_POSTGRESQL_HOST`             | Database host URL | `<PostgreSQL-server-name>.postgres.database.azure.com` |
+| `AZURE_POSTGRESQL_USER`             | Database username | `<username>`                  |
+| `AZURE_POSTGRESQL_CLIENTID`         | Your client ID    | `<client-ID>`                                          |
+| `AZURE_POSTGRESQL_CLIENTSECRET`     | Your client SECRET| `<client-secret>`                                      |
+| `AZURE_POSTGRESQL_TENANTID`         | Your tenant ID    | `<tenant-ID>`                                          |
 
-#### Node.js (pg) secret / connection string
 
-| Default environment variable name | Description       | Example value                                          |
-|-----------------------------------|-------------------|--------------------------------------------------------|
-| `Azure_POSTGRESQL_HOST`             | Database host URL | `<PostgreSQL-server-name>.postgres.database.azure.com` |
-| `Azure_POSTGRESQL_USER`             | Database username | `<username>@<PostgreSQL-server-name>`                  |
-| `Azure_POSTGRESQL_PASSWORD`         | Database password | `<password>`                                           |
-| `Azure_POSTGRESQL_DATABASE`         | Database name     | `<database-name>`                                      |
-| `Azure_POSTGRESQL_PORT`             | Port number       | `5432`                                                 |
-| `Azure_POSTGRESQL_SSL`              | SSL option        | `true`                                                 |
+#### [Go](#tab/go)
 
-#### Node.js (pg) Service principal
+| Default environment variable name   | Description                     | Example value                                                                                                                   |
+|-------------------------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `AZURE_POSTGRESQL_CLIENTID`         | Your client ID                  | `<client-ID>`                                                                                                                   |
+| `AZURE_POSTGRESQL_CLIENTSECRET`     | Your client SECRET              | `<client-secret>`                                                                                                               |
+| `AZURE_POSTGRESQL_TENANTID`         | Your tenant ID                  | `<tenant-ID>`                                                                                                                   |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Go PostgreSQL connection string   | `host=<PostgreSQL-server-name>.postgres.database.azure.com dbname=<database-name> sslmode=require user=<username>` |
+
+#### [NodeJS](#tab/nodejs)
 
 | Default environment variable name | Description           | Example value                                          |
 |-----------------------------------|-----------------------|--------------------------------------------------------|
-| `Azure_POSTGRESQL_HOST`             | Database host URL     | `<PostgreSQL-server-name>.postgres.database.azure.com` |
-| `Azure_POSTGRESQL_USER`             | Database username     | `<username>@<PostgreSQL-server-name>`                  |
-| `Azure_POSTGRESQL_DATABASE`         | Database name         | `<database-name>`                                      |
-| `Azure_POSTGRESQL_PORT`             | Port number           | `5432`                                                 |
-| `Azure_POSTGRESQL_SSL`              | SSL option            | `true`                                                 |
-| `Azure_POSTGRESQL_CLIENTID`         | Your client ID        | `<client-ID>`                                          |
-| `Azure_POSTGRESQL_CLIENTSECRET`     | Your client secret    | `<client-secret>`                                      |
-| `Azure_POSTGRESQL_TENANTID`         | Your tenant ID        | `<tenant-ID>`                                          |
+| `AZURE_POSTGRESQL_HOST`             | Database host URL     | `<PostgreSQL-server-name>.postgres.database.azure.com` |
+| `AZURE_POSTGRESQL_USER`             | Database username     | `<username>`                  |
+| `AZURE_POSTGRESQL_DATABASE`         | Database name         | `<database-name>`                                      |
+| `AZURE_POSTGRESQL_PORT`             | Port number           | `5432`                                                 |
+| `AZURE_POSTGRESQL_SSL`              | SSL option            | `true`                                                 |
+| `AZURE_POSTGRESQL_CLIENTID`         | Your client ID        | `<client-ID>`                                          |
+| `AZURE_POSTGRESQL_CLIENTSECRET`     | Your client secret    | `<client-secret>`                                      |
+| `AZURE_POSTGRESQL_TENANTID`         | Your tenant ID        | `<tenant-ID>`                                          |
 
 
-#### PHP (native)
-
-#### PHP (native) System-assigned managed identity
-
-| Default environment variable name | Description                           | Example value                                                                                                                                                             |
-|-----------------------------------|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | PHP native postgres connection string | `host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>@<PostgreSQL-server-name>` |
-
-#### PHP (native) User-assigned managed identity
-
-| Default environment variable name | Description                           | Example value                                                                                                                                                             |
-|-----------------------------------|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CLIENTID`         | Your client ID                        | `<identity-client-ID>`|
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | PHP native postgres connection string | `host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>@<PostgreSQL-server-name>` |
-
-#### PHP (native) secret / connection string
-
-| Default environment variable name | Description                          | Example value                                                                                                                   |
-|-----------------------------------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | PHP native postgres connection string | `host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>@<PostgreSQL-server-name> password=<password>` |
-
-#### PHP (native) Service principal
+#### [PHP](#tab/php)
 
 | Default environment variable name | Description                           | Example value                                                                                                        |
 |-----------------------------------|---------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CLIENTID`         | Your client ID                        | `<client-ID>`                                                                                                        |
-| `Azure_POSTGRESQL_CLIENTSECRET`     | Your client SECRET                    | `<client-secret>`                                                                                                        |
-| `Azure_POSTGRESQL_TENANTID`         | Your tenant ID                        | `<tenant-ID>`                                                                                                        |
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | PHP native postgres connection string | `host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>@<PostgreSQL-server-name>` |
+| `AZURE_POSTGRESQL_CLIENTID`         | Your client ID                        | `<client-ID>`                                                                                                        |
+| `AZURE_POSTGRESQL_CLIENTSECRET`     | Your client SECRET                    | `<client-secret>`                                                                                                        |
+| `AZURE_POSTGRESQL_TENANTID`         | Your tenant ID                        | `<tenant-ID>`                                                                                                        |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | PHP native PostgreSQL connection string | `host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>` |
 
-### Python
-
-#### Python (psycopg2) System-assigned managed identity
-
-| Default environment variable name | Description                | Example value                                                                                                                   |
-|-----------------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | psycopg2 connection string | `dbname=<database-name> host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 sslmode=require user=<username>@<PostgreSQL-server-name>` |
-
-#### Python (psycopg2) User-assigned managed identity
-
-| Default environment variable name | Description                | Example value                                                                                                                   |
-|-----------------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CLIENTID`         | Your client ID             | `<identity-client-ID>`  |
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | psycopg2 connection string | `dbname=<database-name> host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 sslmode=require user=<username>@<PostgreSQL-server-name>` |
-
-#### Python (psycopg2) secret / connection string
-
-| Default environment variable name | Description                | Example value                                                                                                                   |
-|-----------------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | psycopg2 connection string | `dbname=<database-name> host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 sslmode=require user=<username>@<PostgreSQL-server-name> password=<password>` |
-
-#### Python (psycopg2) Service principal
-
-| Default environment variable name | Description                | Example value                                                                                                                   |
-|-----------------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CLIENTID`         | Your client ID             | `<client-ID>`                                                                                                                   |
-| `Azure_POSTGRESQL_CLIENTSECRET`     | Your client SECRET         | `<client-secret>`                                                                                                               |
-| `Azure_POSTGRESQL_TENANTID`         | Your tenant ID             | `<tenant-ID>`                                                                                                                   |
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | psycopg2 connection string | `dbname=<database-name> host=<PostgreSQL-server-name>.postgres.database.azure.com port=5432 sslmode=require user=<username>@<PostgreSQL-server-name>` |
-
-#### Python-Django System-assigned managed identity
-
-| Default environment variable name | Description       | Example value                                          |
-|-----------------------------------|-------------------|--------------------------------------------------------|
-| `Azure_POSTGRESQL_NAME`             | Database name     | `<database-name>`                                      |
-| `Azure_POSTGRESQL_HOST`             | Database host URL | `<PostgreSQL-server-name>.postgres.database.azure.com` |
-| `Azure_POSTGRESQL_USER`             | Database username | `<username>@<PostgreSQL-server-name>`                  |
-
-#### Python-Django User-assigned managed identity
-
-| Default environment variable name | Description       | Example value                                          |
-|-----------------------------------|-------------------|--------------------------------------------------------|
-| `Azure_POSTGRESQL_NAME`             | Database name     | `<database-name>`                                      |
-| `Azure_POSTGRESQL_HOST`             | Database host URL | `<PostgreSQL-server-name>.postgres.database.azure.com` |
-| `Azure_POSTGRESQL_USER`             | Database username | `<username>@<PostgreSQL-server-name>`                  |
-| `Azure_POSTGRESQL_CLIENTID`         | Your client ID    | `<<identity-client-ID>>`                               |
-
-#### Python-Django secret / connection string
-
-| Default environment variable name | Description       | Example value                                          |
-|-----------------------------------|-------------------|--------------------------------------------------------|
-| `Azure_POSTGRESQL_NAME`             | Database name     | `<database-name>`                                      |
-| `Azure_POSTGRESQL_HOST`             | Database host URL | `<PostgreSQL-server-name>.postgres.database.azure.com` |
-| `Azure_POSTGRESQL_USER`             | Database username | `<username>@<PostgreSQL-server-name>`                  |
-| `Azure_POSTGRESQL_PASSWORD`         | Database password | `<database-password>`                                  |
-
-#### Python-Django Service principal
-
-| Default environment variable name | Description       | Example value                                          |
-|-----------------------------------|-------------------|--------------------------------------------------------|
-| `Azure_POSTGRESQL_NAME`             | Database name     | `<database-name>`                                      |
-| `Azure_POSTGRESQL_HOST`             | Database host URL | `<PostgreSQL-server-name>.postgres.database.azure.com` |
-| `Azure_POSTGRESQL_USER`             | Database username | `<username>@<PostgreSQL-server-name>`                  |
-| `Azure_POSTGRESQL_CLIENTID`         | Your client ID    | `<client-ID>`                                          |
-| `Azure_POSTGRESQL_CLIENTSECRET`     | Your client SECRET| `<client-secret>`                                      |
-| `Azure_POSTGRESQL_TENANTID`         | Your tenant ID    | `<tenant-ID>`                                          |
-
-
-### Ruby (ruby-pg)
-
-#### Ruby (ruby-pg) System-assigned managed identity
+#### [Ruby](#tab/ruby)
 
 | Default environment variable name | Description                     | Example value                                                                    |
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | Ruby postgres connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>@<servername>` |
+| `AZURE_POSTGRESQL_CLIENTID`         | Your client ID                  | `<client-ID>`                                                                    |
+| `AZURE_POSTGRESQL_CLIENTSECRET`     | Your client SECRET              | `<client-secret>`                                                                |
+| `AZURE_POSTGRESQL_TENANTID`         | Your tenant ID                  | `<tenant-ID>`                                                                    |
+| `AZURE_POSTGRESQL_CONNECTIONSTRING` | Ruby PostgreSQL connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>` |
 
-#### Ruby (ruby-pg) User-assigned managed identity
+---
 
-| Default environment variable name | Description                     | Example value                                                                    |
-|-----------------------------------|---------------------------------|----------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CLIENTID`         | Your client ID                  | `<identity-client-ID>`                                                           |
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | Ruby postgres connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>@<servername> ` |
+#### Sample code
 
-#### Ruby (ruby-pg) secret / connection string
+Refer to the steps and code below to connect to Azure Database for PostgreSQL using a service principal.
+[!INCLUDE [code sample for postgresql service principal](./includes/code-postgres-me-id.md)]
 
-| Default environment variable name | Description                     | Example value                                                                    |
-|-----------------------------------|---------------------------------|----------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | Ruby postgres connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>@<servername> password=<password>` |
-
-#### Ruby (ruby-pg) Service principal
-
-| Default environment variable name | Description                     | Example value                                                                    |
-|-----------------------------------|---------------------------------|----------------------------------------------------------------------------------|
-| `Azure_POSTGRESQL_CLIENTID`         | Your client ID                  | `<client-ID>`                                                                    |
-| `Azure_POSTGRESQL_CLIENTSECRET`     | Your client SECRET              | `<client-secret>`                                                                |
-| `Azure_POSTGRESQL_TENANTID`         | Your tenant ID                  | `<tenant-ID>`                                                                    |
-| `Azure_POSTGRESQL_CONNECTIONSTRING` | Ruby postgres connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>@<servername>` |
 
 ## Next steps
 

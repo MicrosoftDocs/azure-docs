@@ -16,9 +16,19 @@ This article provides an overview of the requirements and options that are avail
 Container insights supports the following environments:
 
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)
-- [Azure Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
-   - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises
-   - [Red Hat OpenShift](https://docs.openshift.com/container-platform/latest/welcome/index.html) version 4.x
+- Following [Azure Arc-enabled Kubernetes cluster distributions](../../azure-arc/kubernetes/validation-program.md):
+   - AKS on Azure Stack HCI
+   - AKS Edge Essentials
+   - Canonical
+   - Cluster API Provider on Azure
+   - K8s on Azure Stack Edge
+   - Red Hat OpenShift version 4.x
+   - SUSE Rancher (Rancher Kubernetes engine)
+   - SUSE Rancher K3s
+   - VMware (ie. TKG)
+
+> [!NOTE]
+> Container insights supports ARM64 nodes on AKS. See [Cluster requirements](../../azure-arc/kubernetes/system-requirements.md#cluster-requirements) for the details of Azure Arc-enabled clusters that support ARM64 nodes.
 
 The versions of Kubernetes and support policy are the same as those versions [supported in AKS](../../aks/supported-kubernetes-versions.md).
 
@@ -51,7 +61,7 @@ Container insights stores its data in a [Log Analytics workspace](../logs/log-an
 
 You can let the onboarding experience create a Log Analytics workspace in the default resource group of the AKS cluster subscription. If you already have a workspace, you'll probably want to use that one. For more information, see [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md).
 
- You can attach an AKS cluster to a Log Analytics workspace in a different Azure subscription in the same Azure Active Directory tenant. Currently, you can't do it with the Azure portal, but you can use the Azure CLI or an Azure Resource Manager template.
+ You can attach an AKS cluster to a Log Analytics workspace in a different Azure subscription in the same Microsoft Entra tenant. Currently, you can't do it with the Azure portal, but you can use the Azure CLI or an Azure Resource Manager template.
 
 ### Azure Monitor workspace (preview)
 
@@ -152,9 +162,13 @@ The following table lists the extra firewall configuration required for managed 
 | `global.handler.control.monitor.azure.us` | Access control service | 443 |
 | `<cluster-region-name>.handler.control.monitor.azure.us` | Fetch data collection rules for specific AKS cluster | 443 |
 
+## Troubleshooting
+If you have registered your cluster and/or configured HCI Insights before November, 2023, features that use the AMA agent on HCI, such as Arc for Servers Insights, VM Insights, Container Insights, Defender for Cloud or Sentinel may not be collecting logs and event data properly. See [Repair AMA agent for HCI](/azure-stack/hci/manage/monitor-hci-single?tabs=22h2-and-later) for steps to reconfigure the AMA agent and HCI Insights.
+
 ## Next steps
 
 After you've enabled monitoring, you can begin analyzing the performance of your Kubernetes clusters that are hosted on AKS, Azure Stack, or another environment.
 
 To learn how to use Container insights, see [View Kubernetes cluster performance](container-insights-analyze.md).
+
 

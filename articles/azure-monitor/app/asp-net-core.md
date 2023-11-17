@@ -4,7 +4,7 @@ description: Monitor ASP.NET Core web applications for availability, performance
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 09/12/2023
+ms.date: 11/15/2023
 ms.reviewer: mmcc
 ---
 # Application Insights for ASP.NET Core applications
@@ -768,6 +768,67 @@ This limitation isn't applicable from version [2.15.0](https://www.nuget.org/pac
 ### Is this SDK supported for the new .NET Core 3.X Worker Service template applications?
 
 This SDK requires `HttpContext`. It doesn't work in any non-HTTP applications, including the .NET Core 3.X Worker Service applications. To enable Application Insights in such applications by using the newly released Microsoft.ApplicationInsights.WorkerService SDK, see [Application Insights for Worker Service applications (non-HTTP applications)](worker-service.md).
+
+### How can I uninstall the SDK?
+
+To remove Application Insights, you need to remove the NuGet packages and references from the API in your application. You can uninstall NuGet packages by using the NuGet Package Manager in Visual Studio.
+
+> [!NOTE]
+> These instructions are for uninstalling the ASP.NET Core SDK. If you need to uninstall the ASP.NET SDK, see [How can I uninstall the ASP.NET SDK?](./asp-net.md#how-can-i-uninstall-the-sdk).
+
+1. Uninstall the Microsoft.ApplicationInsights.AspNetCore package by using the [NuGet Package Manager](/nuget/consume-packages/install-use-packages-visual-studio#uninstall-a-package).
+1. To fully remove Application Insights, check and manually delete the added code or files along with any API calls you added in your project. For more information, see [What is created when you add the Application Insights SDK?](#what-is-created-when-you-add-the-application-insights-sdk).
+
+### What is created when you add the Application Insights SDK?
+
+When you add Application Insights to your project, it creates files and adds code to some of your files. Solely uninstalling the NuGet Packages won't always discard the files and code. To fully remove Application Insights, you should check and manually delete the added code or files along with any API calls you added in your project.
+
+When you add Application Insights Telemetry to a Visual Studio ASP.NET Core template project, it adds the following code:
+
+- [Your project's name].csproj
+
+    ```csharp
+      <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <ApplicationInsightsResourceId>/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/WebApplication4core</ApplicationInsightsResourceId>
+      </PropertyGroup>
+    
+      <ItemGroup>
+        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.12.0" />
+      </ItemGroup>
+    
+      <ItemGroup>
+        <WCFMetadata Include="Connected Services" />
+      </ItemGroup>
+    ```
+
+- Appsettings.json:
+
+    ```json
+    "ApplicationInsights": {
+        "InstrumentationKey": "00000000-0000-0000-0000-000000000000"
+    ```
+
+- ConnectedService.json
+    
+    ```json
+    {
+      "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
+      "Version": "16.0.0.0",
+      "GettingStartedDocument": {
+        "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
+      }
+    }
+    ```
+- Startup.cs
+
+    ```csharp
+       public void ConfigureServices(IServiceCollection services)
+            {
+                services.AddRazorPages();
+                services.AddApplicationInsightsTelemetry(); // This is added
+            }
+    ```
 
 ## Troubleshooting
 

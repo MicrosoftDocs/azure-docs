@@ -16,9 +16,11 @@ ms.author: aahi
 
 Azure AI Language supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions for your projects authoring resources. See the [Azure RBAC documentation](../../../role-based-access-control/index.yml) for more information.
 
-## Enable Azure Active Directory authentication 
+<a name='enable-azure-active-directory-authentication'></a>
 
-To use Azure RBAC, you must enable Azure Active Directory authentication. You can [create a new resource with a custom subdomain](../../authentication.md#create-a-resource-with-a-custom-subdomain) or [create a custom subdomain for your existing resource](../../cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources).
+## Enable Microsoft Entra authentication 
+
+To use Azure RBAC, you must enable Microsoft Entra authentication. You can [create a new resource with a custom subdomain](../../authentication.md#create-a-resource-with-a-custom-subdomain) or [create a custom subdomain for your existing resource](../../cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources).
 
 ## Add role assignment to Language resource
 
@@ -44,7 +46,7 @@ These custom roles only apply to Language resources.
 > [!NOTE]
 > * All prebuilt capabilities are accessible to all roles
 > * *Owner* and *Contributor* roles take priority over the custom language roles
-> * AAD is only used in case of custom Language roles
+> * Microsoft Entra ID is only used in case of custom Language roles
 > * If you are assigned as a *Contributor* on Azure, your role will be shown as *Owner* in Language studio portal.
 
 
@@ -118,7 +120,7 @@ A user that is responsible for building and modifying an application, as a colla
 ### Cognitive Services Language Owner
 
 > [!NOTE]
-> If you are assigned as an *Owner* and *Language Owner* you will be be shown as *Cognitive Services Language Owner* in Language studio portal.
+> If you are assigned as an *Owner* and *Language Owner* you will be shown as *Cognitive Services Language Owner* in Language studio portal.
 
 
 These users are the gatekeepers for the Language applications in production environments. They should have full access to any of the underlying functions and thus can view everything in the application and have direct access to edit any changes for both authoring and runtime environments

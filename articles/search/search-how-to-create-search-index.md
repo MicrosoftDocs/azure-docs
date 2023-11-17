@@ -1,6 +1,6 @@
 ---
 title: Create a search index
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Create a search index using the Azure portal, REST APIs, or an Azure SDK.
 
 manager: nitinme
@@ -8,13 +8,15 @@ author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 09/25/2023
 ---
 
-# Create an index in Azure Cognitive Search
+# Create an index in Azure AI Search
 
-In Azure Cognitive Search, query requests target the searchable text in a [**search index**](search-what-is-an-index.md). 
+In Azure AI Search, query requests target the searchable text in a [**search index**](search-what-is-an-index.md). 
 
 In this article, learn the steps for defining and publishing a search index. Creating an index establishes the physical data structures on your search service. Once the index definition exists, [**loading the index**](search-what-is-data-import.md) follows as a separate task. 
 
@@ -32,7 +34,7 @@ In this article, learn the steps for defining and publishing a search index. Cre
 
 ## Document keys
 
-A search index has one required field: a document key. A document key is the unique identifier of a search document. In Azure Cognitive Search, it must be a string, and it must originate from unique values in the data source that's providing the content to be indexed. A search service doesn't generate key values, but in some scenarios (such as the [Azure Table indexer](search-howto-indexing-azure-tables.md)) it synthesizes existing values to create a unique key for the documents being indexed.
+A search index has one required field: a document key. A document key is the unique identifier of a search document. In Azure AI Search, it must be a string, and it must originate from unique values in the data source that's providing the content to be indexed. A search service doesn't generate key values, but in some scenarios (such as the [Azure Table indexer](search-howto-indexing-azure-tables.md)) it synthesizes existing values to create a unique key for the documents being indexed.
 
 During incremental indexing, where new and updated content is indexed, incoming documents with new keys are added, while incoming documents with existing keys are either merged or overwritten, depending on whether index fields are null or populated.
 
@@ -56,7 +58,11 @@ Use this checklist to assist the design decisions for your search index.
 
    + Filterable fields are returned in arbitrary order, so consider making them sortable as well.
 
-1. Determine whether to use the default analyzer (`"analyzer": null`) or a different analyzer. [Analyzers](search-analyzers.md) are used to tokenize text fields during indexing and query execution. If strings are descriptive and semantically rich, or if you have translated strings, consider overriding the default with a [language analyzer](index-add-language-analyzers.md).
+1. Determine whether to use the default analyzer (`"analyzer": null`) or a different analyzer. [Analyzers](search-analyzers.md) are used to tokenize text fields during indexing and query execution. 
+
+   For multi-lingual strings, consider a [language analyzer](index-add-language-analyzers.md).
+
+   For hyphenated strings or special characters, consider [specialized analyzers](index-add-custom-analyzers.md#built-in-analyzers). One example is [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) that treats the entire contents of a field as a single token. This behavior is useful for data like zip codes, IDs, and some product names. For more information, see [Partial term search and patterns with special characters](search-query-partial-matching.md).
 
 > [!NOTE]
 > Full text search is conducted over terms that are tokenized during indexing. If your queries fail to return the results you expect, [test for tokenization](/rest/api/searchservice/test-analyzer) to verify the string actually exists. You can try different analyzers on strings to see how tokens are produced for various analyzers.
@@ -92,8 +98,6 @@ The following screenshot highlights where **Add index** and **Import data** appe
 [**Create Index (REST API)**](/rest/api/searchservice/create-index) is used to create an index. The Postman app can function as a search index client to connect to your search service and send requests. See [Create a search index using REST and Postman](search-get-started-rest.md) to get started.
 
 The REST API provides defaults for field attribution. For example, all `Edm.String` fields are searchable by default. Attributes are shown in full below for illustrative purposes, but you can omit attribution in cases where the default values apply.
-
-Refer to the [Index operations (REST)](/rest/api/searchservice/index-operations) for help with formulating index requests.
 
 ```json
 POST https://[servicename].search.windows.net/indexes?api-version=[api-version] 
@@ -150,11 +154,11 @@ SearchIndex index = new SearchIndex(indexName)
 await indexClient.CreateIndexAsync(index);
 ```
 
-For more examples, see[azure-search-dotnet-samples/quickstart/v11/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11).
+For more examples, see[azure-search-dotnet-samples/quickstart/v11/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/quickstart/v11).
 
 ### [**Other SDKs**](#tab/index-other-sdks)
 
-For Cognitive Search, the Azure SDKs implement generally available features. As such, you can use any of the SDKs to create a search index. All of them provide a **SearchIndexClient** that has methods for creating and updating indexes.
+For Azure AI Search, the Azure SDKs implement generally available features. As such, you can use any of the SDKs to create a search index. All of them provide a **SearchIndexClient** that has methods for creating and updating indexes.
 
 | Azure SDK | Client | Examples |
 |-----------|--------|----------|

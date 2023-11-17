@@ -120,13 +120,13 @@ Also see the following SAP resources:
 
 ### Microsoft Entra ID (formerly Azure AD)
 
-For more information about integration with Azure AD, see the following Azure documentation:
+For more information about integration with Microsoft Entra ID, see the following Azure documentation:
 
-- [Secure access with SAP Cloud Identity Services and Azure AD](../../active-directory/fundamentals/scenario-azure-first-sap-identity-integration.md)
+- [Secure access with SAP Cloud Identity Services and Microsoft Entra ID](../../active-directory/fundamentals/scenario-azure-first-sap-identity-integration.md)
 - [SAP workload security - Microsoft Azure Well-Architected Framework](/azure/architecture/framework/sap/security)
 - [Provision users from SAP SuccessFactors to Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
-- [Provision users from SAP SuccessFactors to Azure AD](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
-- [Write-back users from Azure AD to SAP SuccessFactors](../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md)
+- [Provision users from SAP SuccessFactors to Microsoft Entra ID](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
+- [Write-back users from Microsoft Entra ID to SAP SuccessFactors](../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md)
 - [Provision users to SAP Cloud Identity Services - Identity Authentication](../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md)
 
 For how to configure single sign-on, see the following Azure documentation and tutorials:
@@ -143,8 +143,8 @@ For how to configure single sign-on, see the following Azure documentation and t
 - [SAP Cloud for Customer](../../active-directory/saas-apps/sap-customer-cloud-tutorial.md)
 
 Also see the following SAP resources:
-- [Azure Application Gateway Setup for for Public and Internal SAP URLs](https://blogs.sap.com/2020/12/10/sap-on-azure-single-sign-on-configuration-using-saml-and-azure-active-directory-for-public-and-internal-urls/)
-- [SAPGUI using Kerberos and Azure AD Domain Services](https://blogs.sap.com/2018/08/03/your-sap-on-azure-part-8-single-sign-on-using-azure-ad-domain-services/)
+- [Azure Application Gateway Setup for Public and Internal SAP URLs](https://blogs.sap.com/2020/12/10/sap-on-azure-single-sign-on-configuration-using-saml-and-azure-active-directory-for-public-and-internal-urls/)
+- [SAPGUI using Kerberos and Microsoft Entra Domain Services](https://blogs.sap.com/2018/08/03/your-sap-on-azure-part-8-single-sign-on-using-azure-ad-domain-services/)
 
 ### Azure Integration Services
 

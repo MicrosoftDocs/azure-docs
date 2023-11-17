@@ -1,25 +1,22 @@
 ---
 title: Hybrid search scoring (RRF)
-titleSuffix: Azure Cognitive Search
-description: Describes the Reciprocal Rank Fusion (RRF) algorithm used to unify search scores from parallel queries in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Describes the Reciprocal Rank Fusion (RRF) algorithm used to unify search scores from parallel queries in Azure AI Search.
 
 author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 11/01/2023
 ---
 
 # Relevance scoring in hybrid search using Reciprocal Rank Fusion (RRF)
 
-> [!IMPORTANT]
-> Hybrid search uses the [vector features](vector-search-overview.md) currently in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Reciprocal Rank Fusion (RRF) is an algorithm that evaluates the search scores from multiple, previously ranked results to produce a unified result set. In Azure AI Search, RRF is used whenever there are two or more queries that execute in parallel. Each query produces a ranked result set, and RRF is used to merge and homogenize the rankings into a single result set, returned in the query response. Examples of scenarios where RRF is always used include [*hybrid search*](hybrid-search-overview.md) and multiple vector queries executing concurrently. 
 
-For hybrid search scoring, Cognitive Search uses the Reciprocal Rank Fusion (RRF) algorithm. RRF combines the results of different search methods - such as vector search and full text search or multiple vector queries executing in parallel - to produce a single relevance score. RRF is based on the concept of *reciprocal rank*, which is the inverse of the rank of the first relevant document in a list of search results. 
-
-The goal of the technique is to take into account the position of the items in the original rankings, and give higher importance to items that are ranked higher in multiple lists. This can help improve the overall quality and reliability of the final ranking, making it more useful for the task of fusing multiple ordered search results.
-
-In Azure Cognitive Search, RRF is used whenever there are two or more queries that execute in parallel. Each query produces a ranked result set, and RRF is used to merge and homogenize the rankings into a single result set, returned in the query response.
+RRF is based on the concept of *reciprocal rank*, which is the inverse of the rank of the first relevant document in a list of search results. The goal of the technique is to take into account the position of the items in the original rankings, and give higher importance to items that are ranked higher in multiple lists. This can help improve the overall quality and reliability of the final ranking, making it more useful for the task of fusing multiple ordered search results.
 
 ## How RRF ranking works
 
@@ -56,15 +53,51 @@ The following chart identifies the scoring property returned on each match, algo
 | full-text search | `@search.score` | BM25 algorithm | No upper limit. |
 | vector search | `@search.score` | HNSW algorithm, using the similarity metric specified in the HNSW configuration. | 0.333 - 1.00 (Cosine), 0 to 1 for Euclidean and DotProduct. | 
 | hybrid search | `@search.score` | RRF algorithm | Upper limit is bounded by the number of queries being fused, with each query contributing a maximum of approximately 1 to the RRF score. For example, merging three queries would produce higher RRF scores than if only two search results are merged. |
-| semantic ranking | `@search.rerankerScore` | Semantic ranking | 1.00 - 4.00 |
+| semantic ranking | `@search.rerankerScore` | Semantic ranking | 0.00 - 4.00 |
 
 Semantic ranking doesn't participate in RRF. Its score (`@search.rerankerScore`) is always reported separately in the query response. Semantic ranking can rerank full text and hybrid search results, assuming those results include fields having semantically rich content.
 
 ## Number of ranked results in a hybrid query response
 
-By default, if you aren't using pagination, the search engine returns the top 50 highest ranking matches for full text search, and it returns `k` matches for vector search. In a hybrid query, `top` determines the number of results in the response. Based on defaults, the top 50 highest ranked matches of the unified result set are returned. Full text search is subject to a maximum limit of 1,000 matches (see [API response limits](search-limits-quotas-capacity.md#api-response-limits)). Once 1,000 matches are found, the search engine no longer looks for more.
+By default, if you aren't using pagination, the search engine returns the top 50 highest ranking matches for full text search, and the most similar `k` matches for vector search. In a hybrid query, `top` determines the number of results in the response. Based on defaults, the top 50 highest ranked matches of the unified result set are returned. 
 
-You can use `top`, `skip`, and `next` for paginated results. Paging results is how you determine the number of results on each logical page and navigate through the full payload. For more information, see [How to work with search results](search-pagination-page-layout.md).
+Often, the search engine finds more results than `top` and `k`. To return more results, use the paging parameters `top`, `skip`, and `next`. Paging is how you determine the number of results on each logical page and navigate through the full payload. 
+
+Full text search is subject to a maximum limit of 1,000 matches (see [API response limits](search-limits-quotas-capacity.md#api-response-limits)). Once 1,000 matches are found, the search engine no longer looks for more.
+
+For more information, see [How to work with search results](search-pagination-page-layout.md).
+
+## Diagram of a search scoring workflow
+
+The following diagram illustrates a hybrid query that invokes keyword and vector search, with boosting through scoring profiles, and semantic ranking.
+
+:::image type="content" source="media/hybrid-search/search-scoring-flow.svg" alt-text="Diagram of prefilters." border="true" lightbox="media/hybrid-search/search-scoring-flow.png":::
+
+A query that generates the previous workflow might look like this:
+
+```http
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
+Content-Type: application/json
+api-key: {{admin-api-key}}
+{
+   "queryType":"semantic",
+   "search":"hello world",
+   "searchFields":"field_a, field_b",
+   "vectorQueries": [
+       {
+           "kind":"vector",
+           "vector": [1.0, 2.0, 3.0],
+           "fields": "field_c, field_d"
+       },
+       {
+           "kind":"vector",
+           "vector": [4.0, 5.0, 6.0],
+           "fields": "field_d, field_e"
+       }
+   ],
+   "scoringProfile":"my_scoring_profile"
+}
+```
 
 ## See also
 

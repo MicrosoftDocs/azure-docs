@@ -171,6 +171,20 @@ When using the delta query, [temporal tables in Azure SQL Database](/azure/azure
 
    Note that Stream Analytics runtime may periodically run the snapshot query in addition to the delta query to store checkpoints.
 
+      > [!IMPORTANT]
+   > When using reference data delta queries, do not make identical updates to the temporal reference data table multiple times. This could cause incorrect results to be produced.
+      > Here's an example which may cause reference data to produce incorrect results:
+      > ```SQL
+      >  UPDATE myTable SET VALUE=2 WHERE ID = 1;
+      >  UPDATE myTable SET VALUE=2 WHERE ID = 1;      
+      > ```
+      > Correct example:
+      > ```SQL
+      >  UPDATE myTable SET VALUE = 2 WHERE ID = 1 and not exists (select * from myTable where ID = 1 and value = 2);
+      > ```
+      > This ensures no duplicate updates are performed.
+
+
 ## Test your query
    It is important to verify that your query is returning the expected dataset that the Stream Analytics job will use as reference data. To test your query, go to Input under Job Topology section on portal. You can then select Sample Data on your SQL Database Reference input. After the sample becomes available, you can download the file and check to see if the data being returned is as expected. If you want a optimize your development and test iterations, it is recommended to use the [Stream Analytics tools for Visual Studio](./stream-analytics-tools-for-visual-studio-install.md). You can also any other tool of your preference to first ensure the query is returning the right results from you Azure SQL Database and then use that in your Stream Analytics job.
 
