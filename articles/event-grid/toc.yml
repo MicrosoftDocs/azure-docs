@@ -57,7 +57,7 @@ items:
         - name: MQTT clients life cycle events
           href: mqtt-client-life-cycle-events.md
         - name: JWT authentication and RBAC authorization for clients with Microsoft Entra identity
-          href: mqtt-client-azure-ad-token-and-rbac.md
+          href: mqtt-client-microsoft-entra-token-and-rbac.md
         - name: High availability and disaster recovery
           href: high-availability-disaster-recovery.md 
         - name: Security

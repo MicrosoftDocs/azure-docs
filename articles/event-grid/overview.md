@@ -44,7 +44,7 @@ Event Grid offers a rich mixture of features. These features include:
 - **[Built-in cloud integration](mqtt-routing.md)** - route your MQTT messages to Azure services or custom webhooks for further processing.
 - **Flexible and fine-grained [access control model](mqtt-access-control.md)** - group clients and topic to simplify access control management, and use the variable support in topic templates for a fine-grained access control.
 - **X.509 certificate [authentication](mqtt-client-authentication.md)** - authenticate your devices using the IoT industry's standard mechanism for authentication.
-- **[Microsoft Entra ID (formerly Azure Active Directory) authentication](mqtt-client-azure-ad-token-and-rbac.md)** - authenticate your applications using the Azure's standard mechanism for authentication.
+- **[Microsoft Entra ID (formerly Azure Active Directory) authentication](mqtt-client-microsoft-entra-token-and-rbac.md)** - authenticate your applications using the Azure's standard mechanism for authentication.
 - **TLS 1.2 and TLS 1.3 support** - secure your client communication using robust encryption protocols.
 - **Multi-session support** - connect your applications with multiple active sessions to ensure reliability and scalability.
 - **MQTT over WebSockets** - enable connectivity for clients in firewall-restricted environments.
