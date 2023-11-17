@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/24/2023
+ms.date: 11/20/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -97,9 +97,9 @@ The sample code is made up of the following components. Add these components fro
 
 ## Step 4: Configure your React app
 
-After you [add the authentication components](#step-3-add-the-authentication-components), configure your React app with your Azure AD B2C settings. Azure AD B2C identity provider settings are configured in the *auth_config_b2c.json* file and `B2CConfiguration` class. 
+After you [add the authentication components](#step-3-add-the-authentication-components), configure your React app with your Azure AD B2C settings. Azure AD B2C identity provider settings are configured in the *authConfig.js* file. 
 
-For guidance, see [Configure your React app](enable-authentication-react-spa-app.md#step-4-configure-your-react-app).
+For guidance, see [Configure your React app](configure-authentication-sample-react-spa-app.md#step-4-configure-the-web-api). 
 
 ## Step 5: Run the React application
 
