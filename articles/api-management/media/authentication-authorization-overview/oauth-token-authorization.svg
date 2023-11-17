@@ -20,12 +20,12 @@
 		.st10 {marker-end:url(#mrkr4-50);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st11 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.22935779816514}
 		.st12 {marker-end:url(#mrkr13-59);marker-start:url(#mrkr13-57);stroke:#000000;stroke-dasharray:5.25,3.75;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
-		.st13 {fill:#ffffff;stroke:none;stroke-linecap:butt}
+		.st13 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
 		.st14 {fill:#000000;font-family:Calibri;font-size:0.666664em}
 		.st15 {marker-end:url(#mrkr13-59);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st16 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st17 {marker-end:url(#mrkr13-59);stroke:#000000;stroke-dasharray:5.25,3.75;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
-		.st18 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
+		.st18 {fill:#ffffff;stroke:none;stroke-linecap:butt}
 		.st19 {fill:#ffffff}
 		.st20 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st21 {fill:#4d1e1a;font-family:Calibri;font-size:0.666664em}
@@ -681,7 +681,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="48.4879" cy="174.991" width="53.79" height="36.8035"/>
 			<path d="M9.45 173.62 L9.81 173.62 L86.33 173.64" class="st12"/>
-			<rect v:rectContext="textBkgnd" x="27.4081" y="160.591" width="42.1595" height="28.7996" class="st13"/>
+			<rect v:rectContext="textBkgnd" x="27.4081" y="160.591" width="42.1595" height="28.7996" class="st18"/>
 			<text x="35.23" y="167.79" class="st14" v:langID="2057"><v:paragraph v:horizAlign="1"/><v:tabList/>Request<v:newlineChar/><tspan
 						x="27.41" dy="1.2em" class="st3">Access token <v:newlineChar/></tspan><tspan x="33.26" dy="1.2em"
 						class="st3">AUD=</tspan><tspan class="st3" v:langID="1033">XYZ</tspan></text>		</g>
