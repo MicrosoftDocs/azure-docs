@@ -9,37 +9,34 @@ ms.date: 04/13/2023
 ms.devlang: azurecli
 ms.custom: event-tier1-build-2022, devx-track-azurecli
 ---
-
 # Quickstart: Create a service connection in App Service with the Azure CLI
 
-The [Azure CLI](/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. This quickstart shows you the options to create Azure Web PubSub instance with the Azure CLI.
+The [Azure CLI](/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. This quickstart shows you the options to create a service connection with the Azure CLI.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This quickstart requires version 2.30.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
 - This quickstart assumes that you already have at least an App Service running on Azure. If you don't have an App Service, [create one](../app-service/quickstart-dotnetcore.md).
 
 ## Initial set-up
 
 1. If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
 
-    ```azurecli
-    az provider register -n Microsoft.ServiceLinker
-    ```
-    
-    > [!TIP]
-    > You can check if the resource provider has already been registered by running the command  `az provider show -n "Microsoft.ServiceLinker" --query registrationState`. If the output is `Registered`, then Service Connector has already been registered.
+   ```azurecli
+   az provider register -n Microsoft.ServiceLinker
+   ```
 
+   > [!TIP]
+   > You can check if the resource provider has already been registered by running the command  `az provider show -n "Microsoft.ServiceLinker" --query registrationState`. If the output is `Registered`, then Service Connector has already been registered.
+   >
+2. Optionally, use the Azure CLI [az webapp connection list-support-types](/cli/azure/webapp/connection#az-webapp-connection-list-support-types) command to get a list of supported target services for App Service.
 
-1. Optionally, use the Azure CLI [az webapp connection list-support-types](/cli/azure/webapp/connection#az-webapp-connection-list-support-types) command to get a list of supported target services for App Service.
+   ```azurecli
+   az webapp connection list-support-types --output table
+   ```
 
-    ```azurecli
-    az webapp connection list-support-types --output table
-    ```
-    
 ## Create a service connection
 
 #### [Using an access key](#tab/Using-access-key)

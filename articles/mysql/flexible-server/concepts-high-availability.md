@@ -82,7 +82,7 @@ The overall failover time depends on the current workload and the last checkpoin
 > [!NOTE]
 >Azure Resource Health event is generated in the event of planned failover, representing the failover time during which server was unavailable. The triggered events can be seen when clicked on "Resource Health" in the left pane. User initiated/ Manual failover is represented by status as **"Unavailable"** and tagged as **"Planned"**. Example - "A failover operation was triggered by an authorized user (Planned)". If your resource remains in this state for an extended period of time, please open a [support ticket](https://azure.microsoft.com/support/create-ticket/) and we will assist you.
 
- 
+
 ### Unplanned: Automatic failover 
  
 Unplanned service downtime can be caused by software bugs or infrastructure faults like compute, network, or storage failures, or power outages that affect the availability of the database. If the database becomes unavailable, replication to the standby replica is severed and the standby replica is activated as the primary database. DNS is updated, and clients reconnect to the database server and resume their operations. 
@@ -122,8 +122,8 @@ Here are some considerations to keep in mind when you use high availability:
 - Zone-redundant high availability can be set only when the flexible server is created.
 - High availability isn't supported in the burstable compute tier.
 - Restarting the primary database server to pick up static parameter changes also restarts the standby replica.
-- Data-in Replication isn't supported for HA servers.
 - GTID mode will be turned on as the HA solution uses GTID. Check whether your workload has [restrictions or limitations on replication with GTIDs](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-restrictions.html).  
+
 >[!Note] 
 >If you are enabling same-zone HA post the server create, you need to make sure the server parameters enforce_gtid_consistency” and [“gtid_mode”](./concepts-read-replicas.md#global-transaction-identifier-gtid) is set to ON before enabling HA.
 
@@ -176,13 +176,7 @@ You need to be able to mitigate downtime for your application even when you're n
 Yes, read replicas are supported for HA servers.</br>
 
 - **Can I use Data-in Replication for HA servers?**</br>
-Data-in Replication isn't supported for HA servers. But Data-in Replication for HA servers is on our roadmap and will be available soon. For now, if you want to use Data-in Replication for migration, you can follow these steps:
-    1. Create the server with zone-redundant HA enabled.
-    1. Disable HA.
-    1. Complete the steps to [set up Data-in Replication](./concepts-data-in-replication.md).  (Be sure `gtid_mode` has the same setting on the source and target servers.)
-    1. Post cutovers remove the Data-in Replication configuration.
-    1. Enable HA.
-
+Yes, support for data-in replication for high availability (HA) enabled server is available only through GTID-based replication.
 - **To reduce downtime, can I fail over to the standby server during server restarts or while scaling up or down?** </br>
 Currently, Azure MySQL Flexible Server has utlized Planned Failover to optmize the HA operations including scaling up/down, and planned maintenance to help reduce the downtime.
 When such operations started, it would operate on the original standby instance first, followed by triggering a planned failover operation, and then operate on the original primary instance. </br>
@@ -195,3 +189,4 @@ If you create the server with Zone-redundant HA mode enabled then you can change
 - Learn about [business continuity](./concepts-business-continuity.md).
 - Learn about [zone-redundant high availability](./concepts-high-availability.md).
 - Learn about [backup and recovery](./concepts-backup-restore.md).
+
