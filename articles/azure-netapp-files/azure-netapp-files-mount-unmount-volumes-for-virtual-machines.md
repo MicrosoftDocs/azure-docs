@@ -48,7 +48,7 @@ If a network address translation (NAT) or firewall sits between the NFS client a
 
 For more information about NFS locking, see [Understand file locking and lock types in Azure NetApp Files](understand-file-locks.md).
 
-For more information about how NFS operates in Azure NetApp Files, see [Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols.md#network-file-system-nfs.md).
+For more information about how NFS operates in Azure NetApp Files, see [Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols.md#network-file-systems-nfs.md).
 
 ## Mount NFS volumes on Linux clients
 
@@ -92,4 +92,4 @@ If you want to mount NFSv3 volumes on a Windows client using NFS:
 * [Mount an NFS Kerberos volume](configure-kerberos-encryption.md#kerberos_mount)
 * [Configure two VMs with the same hostname to access NFSv4.1 volumes](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes) 
 * [Understand file locking and lock types in Azure NetApp Files](understand-file-locks.md)
-* [Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols.md#network-file-system-nfs.md)
+* [Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols.md#network-file-systems-nfs.md)
