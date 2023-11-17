@@ -75,7 +75,7 @@ You must have:
 1. You're taken to the index details page where you can see the status of your index creation
 
 
-## Mitigate DeploymentNotFound error
+### Mitigate DeploymentNotFound error
 
 When you try to create a vector index, you might see the following error at the **Review + Finish** step:
 
@@ -86,7 +86,7 @@ This can happen if you are trying to create an index using an **Owner**, **Contr
 > [!NOTE]
 > You need to be assigned the **Owner** role of the resource group or higher scope (like Subscription) to perform the operation in the next steps. This is because only the Owner role can assign roles to others. See details [here](/azure/role-based-access-control/built-in-roles).
 
-### Method 1: Assign more permissions to the user on the Azure AI resource
+#### Method 1: Assign more permissions to the user on the Azure AI resource
 
 If the Azure AI resource the project uses was created through Azure AI Studio:
 1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. 
@@ -102,7 +102,7 @@ If the Azure AI resource the project uses was created through Azure AI Studio:
 > [!NOTE]
 > You can also opt to assign more permissions [on the resource group](#method-2-assign-more-permissions-on-the-resource-group). However, that method assigns more permissions than needed to mitigate the **DeploymentNotFound** error.
 
-### Method 2: Assign more permissions on the resource group
+#### Method 2: Assign more permissions on the resource group
 
 If the Azure AI resource the project uses was created through Azure portal:
 1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. 
