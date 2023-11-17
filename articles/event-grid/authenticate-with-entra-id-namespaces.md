@@ -137,16 +137,16 @@ Once you decide to use Microsoft Entra authentication, you can disable authentic
 
 When creating a new topic, you can disable local authentication on the **Advanced** tab of the **Create Topic** page. 
 
-:::image type="content" source="./media/authenticate-with-active-directory/create-topic-disable-local-auth.png" alt-text="Screenshot showing the Advanced tab of Create Topic page when you can disable local authentication.":::
+:::image type="content" source="./media/authenticate-with-microsoft-entra-id/create-topic-disable-local-auth.png" alt-text="Screenshot showing the Advanced tab of Create Topic page when you can disable local authentication.":::
 
 For an existing topic, following these steps to disable local authentication:
 
 1. Navigate to the **Event Grid Topic** page for the topic, and select **Enabled** under **Local Authentication**
 
-    :::image type="content" source="./media/authenticate-with-active-directory/existing-topic-local-auth.png" alt-text="Screenshot showing the Overview page of an existing topic.":::
+    :::image type="content" source="./media/authenticate-with-microsoft-entra-id/existing-topic-local-auth.png" alt-text="Screenshot showing the Overview page of an existing topic.":::
 2. In the **Local Authentication** popup window, select **Disabled**, and select **OK**.
 
-    :::image type="content" source="./media/authenticate-with-active-directory/local-auth-popup.png" alt-text="Screenshot showing the Local Authentication window.":::
+    :::image type="content" source="./media/authenticate-with-microsoft-entra-id/local-auth-popup.png" alt-text="Screenshot showing the Local Authentication window.":::
 
 
 ### Azure CLI

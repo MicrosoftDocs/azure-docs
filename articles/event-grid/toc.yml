@@ -56,7 +56,7 @@ items:
           href: mqtt-support.md
         - name: MQTT clients life cycle events
           href: mqtt-client-life-cycle-events.md
-        - name: JWT authentication and RBAC authorization for clients with Azure AD identity
+        - name: JWT authentication and RBAC authorization for clients with Microsoft Entra identity
           href: mqtt-client-azure-ad-token-and-rbac.md
         - name: High availability and disaster recovery
           href: high-availability-disaster-recovery.md 
@@ -374,7 +374,7 @@ items:
             - name: Graph API event sources
               href: partner-events-graph-api.md
             - name: Microsoft Entra ID
-              href: azure-active-directory-events.md
+              href: microsoft-entra-events.md
             - name: Microsoft Outlook
               href: outlook-events.md
             - name: Microsoft Teams
@@ -435,7 +435,7 @@ items:
           - name: Overview
             href: authentication-overview.md
           - name: Publish events using Microsoft Entra authentication
-            href: authenticate-with-active-directory.md
+            href: authenticate-with-microsoft-entra-id.md
           - name: Publish events using access key or shared access signature
             href: authenticate-with-access-keys-shared-access-signatures.md
         - name: Authorize access to Event Grid resources

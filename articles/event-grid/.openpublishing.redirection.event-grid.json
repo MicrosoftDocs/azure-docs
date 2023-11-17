@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "authenticate-with-active-directory.md",
+      "redirect_url": "/azure/event-grid/authenticate-with-microsoft-entra-id",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "azure-active-directory-events.md",
+      "redirect_url": "/azure/event-grid/microsoft-entra-events",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "concepts-pull-delivery.md",
       "redirect_url": "/azure/event-grid/concepts-event-grid-namespaces",
       "redirect_document_id": false
