@@ -68,7 +68,7 @@ items:
       href: ./how-to/completions.md
     - name: JSON mode
       href: ./how-to/json-mode.md
-    - name: Reproducible outputs
+    - name: Reproducible output
       href: ./how-to/reproducible-output.md
     - name: Work with code
       href: ./how-to/work-with-code.md
