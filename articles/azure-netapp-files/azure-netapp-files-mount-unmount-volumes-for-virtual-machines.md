@@ -16,13 +16,18 @@ You can mount an NFS file for Windows or Linux virtual machines (VMs).
 
 * You must have at least one export policy to be able to access an NFS volume.
 * Since NFS is a network attached service, it requires specific network ports to be opened across firewalls to ensure proper functionality. Ensure your configuration aligns:
-    * Port 2049 TCP/UDP – This is the NFS port. It's **required** for NFS traffic for both **NFSv3** and **NFSv4.1** communication in Azure NetApp Files. **NFSv4.1** uses _only_ port 2049.
-    *	Port 111 TCP/UDP – This is the `portmapper` port. It's used to negotiate which ports are used in NFS requests for **NFSv3** only. It is **required** for proper NFSv3 operation.
-    * Port 635 TCP/UDP – This is the `mountd` port. It's used by the Azure NetApp Files NFS server to receive incoming mount requests for **NFSv3** only. It is **required** for proper **NFSv3** operation.
-    *	Port 4045 TCP/UDP – This is the lock manager port. It's used by the Azure NetApp Files NFS server to handle lock requests for **NFSv3** only. It is **required** for proper **NFSv3** operation.
-    *	Port 4046 TCP/UDP – This is the lock status manager port. It's used by the Azure NetApp Files NFS server to monitor locks for **NFSv3** only. It is **required** for proper **NFSv3** operation.
-    *	Port 4049 TCP/UDP – This is the [`rquotad`](https://linux.die.net/man/8/rpc.rquotad) port. It's used by the Azure NetApp Files NFS server to service client-side `rquota` requests for **NFSv3** only. It is **optional** for proper **NFSv3** operation.
-    
+
+| Port and description | NFSv3 | NFSv4.x | 
+| --- | - | - | 
+| **Port 111 TCP/UDP – Portmapper** <br /> _Used to negotiate which ports are used in NFS requests._ | ![White checkmark in green box](../static-web-apps/media/get-started-cli/checkmark-green-circle.png) | N/A* | 
+| **Port 635 TCP/UDP – `Mountd`** <br /> *Used to receive incoming mount requests.* | ![White checkmark in green box](../static-web-apps/media/get-started-cli/checkmark-green-circle.png) | N/A* | 
+| **Port 2049 TCP/UDP – NFS** <br /> _NFS traffic._ | ![White checkmark in green box](../static-web-apps/media/get-started-cli/checkmark-green-circle.png) | ![White checkmark in green box](../static-web-apps/media/get-started-cli/checkmark-green-circle.png) |
+| **Port 4045 TCP/UDP – Network Lock Manager (NLM)** <br /> _Handles lock requests._ | ![White checkmark in green box](../static-web-apps/media/get-started-cli/checkmark-green-circle.png) | N/A* | 
+| **Port 4046 TCP/UDP – Network Status Monitor (NSM)** <br /> _Notifies NFS clients about reboots of the server for lock management._ | ![White checkmark in green box](../static-web-apps/media/get-started-cli/checkmark-green-circle.png) | N/A* | 
+| **Port 4049 TCP/UDP – `Rquotad`** <br /> _Handles [remote quota](https://linux.die.net/man/8/rpc.rquotad) services. (optional)_ | ![White checkmark in green box](../static-web-apps/media/get-started-cli/checkmark-green-circle.png) | N/A* | 
+
+\* Incorporated into the NFSv4.1 standards. All traffic passed over port 2049.
+
 ### About outbound client ports
 
 Outbound client port requests leverage a port range for NFS connectivity. For instance, while the Azure NetApp Files mount port is static at 635, a client can initiate a connection using a dynamic port number in the range of 1 to 1024. (for example, 1010 -> 635)
