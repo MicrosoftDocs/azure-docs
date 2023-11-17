@@ -25,7 +25,7 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 | [DALL-E](#dall-e-models-preview) (Preview) | A series of models in preview that can generate original images from natural language. |
 | [Whisper](#whisper-models-preview) (Preview) | A series of models in preview that can transcribe and translate speech to text. |
 
-## GPT-4 and GPT-4 Turbo
+## GPT-4 and GPT-4 Turbo Preview
 
  GPT-4 can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like GPT-3.5 Turbo, GPT-4 is optimized for chat and works well for traditional completions tasks. Use the Chat Completions API to use GPT-4. To learn more about how to interact with GPT-4 and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
 
@@ -72,7 +72,7 @@ You can also use the Whisper model via Azure AI Speech [batch transcription](../
 >
 > - South Central US is temporarily unavailable for creating new resources and deployments.
 
-### GPT-4 and GPT-4 Turbo models
+### GPT-4 and GPT-4 Turbo Preview models
 
 GPT-4 and GPT-4-32k models are now available to all Azure OpenAI Service customers.  Availability varies by region.  If you don't see GPT-4 in your region, please check back later.
 
@@ -98,7 +98,7 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 > [!NOTE]
 > Regions where GPT-4 (0314) & (0613) are listed as available have access to both the 8K and 32K versions of the model
 
-### GPT-4 and GPT-4 Turbo model availability
+### GPT-4 and GPT-4 Turbo Previw model availability
 
 | Model Availability | gpt-4 (0314) | gpt-4 (0613) | gpt-4 (1106-preview) |
 |---|:---|:---|:---|
