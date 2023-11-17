@@ -629,7 +629,7 @@ This example shows localized messages for local account signup.
 ```
 
 ### Claims transformations example 2:
-The below example shows localized messages for local account password reset.
+This example shows localized messages for local account password reset.
 
 ```xml
 <LocalizedResources Id="api.localaccountpasswordreset.en">
