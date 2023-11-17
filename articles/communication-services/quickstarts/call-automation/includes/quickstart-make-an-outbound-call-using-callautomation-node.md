@@ -53,7 +53,7 @@ Then update your `.env` file with following values:
 - `CALLBACK_URI`: Once you have your DevTunnel host initialized, update this field with that URI.
 - `TARGET_PHONE_NUMBER`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `ACS_RESOURCE_PHONE_NUMBER`: update this field with the Azure Communication Services phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
-
+- `COGNITIVE_SERVICES_ENDPOINT`: update field with your cognitive services endpoint.
 
 ```dosini
 CONNECTION_STRING="<YOUR_CONNECTION_STRING>" 
