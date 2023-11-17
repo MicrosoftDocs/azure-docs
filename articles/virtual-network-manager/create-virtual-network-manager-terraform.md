@@ -45,6 +45,8 @@ In this article, you learn how to:
 
 ## Implement the Terraform code
 
+This code sample will implement Azure Virtual Network Manager at the subscription scope.
+
 > [!NOTE]
 > The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-manager-create-mesh). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-manager-create-mesh/TestRecord.md).
 > 
@@ -52,19 +54,19 @@ In this article, you learn how to:
 
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
-1. Create a file named `providers.tf` and insert the following code:
+2. Create a file named `providers.tf` and insert the following code:
 
     [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-mesh/providers.tf)]
 
-1. Create a file named `main.tf` and insert the following code:
+3. Create a file named `main.tf` and insert the following code:
 
     [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-mesh/main.tf)]
 
-1. Create a file named `variables.tf` and insert the following code:
+4. Create a file named `variables.tf` and insert the following code:
 
     [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-mesh/variables.tf)]
 
-1. Create a file named `outputs.tf` and insert the following code:
+5. Create a file named `outputs.tf` and insert the following code:
 
     [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-mesh/outputs.tf)]
 
@@ -75,6 +77,8 @@ In this article, you learn how to:
 
 ## Implement the Terraform code
 
+This code sample will implement Azure Virtual Network Manager at the management group scope.
+ 
 > [!NOTE]
 > The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-manager-create-mesh). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-manager-create-mesh/TestRecord.md).
 > 
