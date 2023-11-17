@@ -4,7 +4,7 @@ description: 'An overview of Routing MQTT Messages and how to configure it.'
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 05/23/2023
+ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
 ---
@@ -41,7 +41,8 @@ The routing configuration enables you to send all your MQTT messages from your c
 
 :::image type="content" source="media/mqtt-routing/routing-custom-topic.png" alt-text="Diagram of the MQTT message routing to custom topics." border="false":::
 
-
+> [!NOTE]
+> Disabling public network access on the namespace will cause the MQTT routing to fail.
 
 ### Difference between namespace topics and custom topics as a routing destination
 The following table shows the difference between namespace topics and custom topics as a routing destination. For a detailed breakdown of which quotas and limits are included in each Event Grid resource, see [Quotas and limits](quotas-limits.md).

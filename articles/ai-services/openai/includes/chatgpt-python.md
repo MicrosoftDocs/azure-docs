@@ -2,17 +2,17 @@
 title: 'Quickstart: Use Azure OpenAI Service with the Python SDK'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the Python SDK. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 03/21/2023
+ms.date: 11/15/2023
 keywords: 
 ---
 
-[Library source code](https://github.com/openai/openai-python?azure-portal=true) | [Package (PyPi)](https://pypi.org/project/openai?azure-portal=true) |
+[Library source code](https://github.com/openai/openai-python?azure-portal=true) | [Package (PyPi)](https://pypi.org/project/openai?azure-portal=true) | [Enterprise chat app template](/azure/developer/python/get-started-app-chat-template) |
 
 ## Prerequisites
 

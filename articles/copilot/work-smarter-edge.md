@@ -3,7 +3,7 @@ title: Work smarter with your Azure Stack HCI clusters using Microsoft Copilot f
 description: Learn about scenarios where Microsoft Copilot for Azure (preview) can help you work with your Azure Stack HCI clusters.
 ms.date: 11/15/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
@@ -21,7 +21,7 @@ When you ask Microsoft Copilot for Azure (preview) for information about the sta
 
 ## Sample prompts
 
-Here are a few examples of the kinds of prompts you can use to work with your Azure Stack HCI clusters. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of queries.
+Here are a few examples of the kinds of prompts you can use to work with your Azure Stack HCI clusters. Modify these prompts based on your real-life scenarios, or try additional prompts to get different types of information.
 
 - "Summarize my HCI clusters"
 - "Tell me more about the alerts"

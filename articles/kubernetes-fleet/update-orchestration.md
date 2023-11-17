@@ -13,7 +13,7 @@ ms.custom:
 
 # Orchestrate updates across multiple clusters by using Azure Kubernetes Fleet Manager
 
-Platform admins managing Kubernetes fleets with large number of clusters often have problems with staging their updates in a safe and predictable way across multiple clusters. To address this pain point, Kubernetes Fleet Manager (Fleet) allows you to orchestrate updates across multiple clusters using update runs, stages, and groups.
+Platform admins managing Kubernetes fleets with large number of clusters often have problems with staging their updates in a safe and predictable way across multiple clusters. To address this pain point, Kubernetes Fleet Manager (Fleet) allows you to orchestrate updates across multiple clusters using update runs, stages, groups, and strategies.
 
 :::image type="content" source="./media/update-orchestration/fleet-overview-inline.png" alt-text="Screenshot of the Azure portal pane for a fleet resource, showing member cluster Kubernetes versions and node images in use across all node pools of member clusters." lightbox="./media/update-orchestration/fleet-overview-lightbox.png":::
 
@@ -86,7 +86,7 @@ az fleet updaterun create --resource-group $GROUP --fleet-name $FLEET --name run
 
 ## Update clusters in a specific order
 
-Update groups and stages provide more control over the sequence that update runs follow when you're updating the clusters.
+Update groups and stages provide more control over the sequence that update runs follow when you're updating the clusters. Within an update stage, updates are applied to all the different update groups in parallel; within an update group, member clusters update sequentially.
 
 ### Assign a cluster to an update group
 
@@ -138,7 +138,7 @@ az fleet member update --resource-group $GROUP --fleet-name $FLEET --name member
 
 ### Define an update run and stages
 
-You can define an update run by using update stages to pool together update groups for whom the updates need to be run in parallel. You can also specify a wait time between the update stages.
+You can define an update run using update stages in order to sequentially order the application of updates to different update groups. For example, a first update stage might update test environment member clusters, and a second update stage would then subsequently update production environment member clusters. You can also specify a wait time between the update stages.
 
 #### [Azure portal](#tab/azure-portal)
 

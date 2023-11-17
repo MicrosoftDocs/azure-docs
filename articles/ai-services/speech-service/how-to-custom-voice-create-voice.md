@@ -2,7 +2,7 @@
 title: Train your custom voice model - Speech service
 titleSuffix: Azure AI services
 description: Learn how to train a custom neural voice through the Speech Studio portal. Training duration varies depending on how much data you're training.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

@@ -3,7 +3,7 @@ title: Azure Virtual Desktop Start VM Connect FAQ - Azure
 description: Frequently asked questions and best practices for using the Start VM on Connect feature.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 09/19/2022
+ms.date: 11/01/2023
 ms.author: helohr
 manager: femila
 ---
@@ -28,11 +28,11 @@ To configure the deallocation policy:
 >[!NOTE]
 >Make sure to set the time limit for the "End a disconnected session" policy to a value greater than five minutes. A low time limit can cause users' sessions to end if their network loses connection for too long, resulting in lost work.
 
-Signing users out won't deallocate their VMs. To learn how to deallocate VMs, see [Start or stop VMs during off hours](../automation/automation-solution-vm-management.md) for personal host pools and [Autoscale](autoscale-scaling-plan.md) for pooled host pools.
+Signing users out won't deallocate their VMs. To learn how to deallocate VMs, see [Autoscale](autoscale-scaling-plan.md) for pooled and personal host pools.
 
 ## Can users turn off the VM from their clients?
 
-Yes. Users can shut down the VM by using the Start menu within their session, just like they would with a physical machine. However, shutting down the VM won't deallocate the VM. To learn how to deallocate VMs, see [Start or stop VMs during off hours](../automation/automation-solution-vm-management.md) for personal host pools and [Autoscale](autoscale-scaling-plan.md) for pooled host pools.
+Yes. Users can shut down the VM by using the Start menu within their session, just like they would with a physical machine. However, shutting down the VM won't deallocate the VM. To learn how to deallocate VMs, see [Autoscale](autoscale-scaling-plan.md) for pooled and personal host pools.
 
 ## How does load balancing affect Start VM on Connect?
 

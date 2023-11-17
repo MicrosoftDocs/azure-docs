@@ -5,8 +5,6 @@
   items:
   - name: What is Azure AI Studio?
     href: what-is-ai-studio.md
-  - name: Azure AI services
-    href: ../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context
     displayName: applied, cognitive, form recognizer
   - name: Azure AI FAQ
     href: faq.yml
@@ -57,6 +55,12 @@
         href: how-to/index-add.md
     - name: Add and manage data
       href: how-to/data-add.md
+    - name: Generate synthetic data
+      items:
+      - name: Generate samples from your dataset
+        href: how-to/generate-data-qa.md
+      - name: Simulate interaction data with your app
+        href: how-to/simulator-interaction-data.md
   - name: Build apps with prompt flow
     items:
     - name: Prompt flow overview
@@ -121,6 +125,8 @@
       href: how-to/deploy-models.md
     - name: Monitor quality and safety of deployed applications
       href: how-to/monitor-quality-safety.md
+    - name: Troubleshoot deployments and monitoring
+      href: how-to/troubleshoot-deploy-and-monitor.md
   - name: Set up your development environment
     items:
     - name: Get started with the Azure AI SDK
@@ -135,10 +141,12 @@
     items:
     - name: Plan and manage costs
       href: how-to/costs-plan-manage.md
+    - name: Manage quotas
+      href: how-to/quota.md
     - name: Increase rate limit
-      href: ../ai-services/autoscale.md
+      href: how-to/autoscale.md
     - name: Use commitment tier pricing 
-      href: ../ai-services/commitment-tier.md
+      href: how-to/commitment-tier.md
   - name: Infrastructure & security
     items:
     - name: Identity & access management
@@ -171,6 +179,8 @@
       href: ../ai-services/openai/concepts/system-message.md?context=/azure/ai-studio/context/context
 - name: Reference
   items:
+  - name: Azure AI SDK for Python
+    href: /python/api/overview/azure/ai
   - name: Azure CLI
     href: /cli/azure/cognitiveservices
   - name: Azure PowerShell

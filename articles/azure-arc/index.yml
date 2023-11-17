@@ -26,7 +26,7 @@ highlightedContent:
     # Card
     - title: Azure Arc Jumpstart
       itemType: sample
-      url: https://azurearcjumpstart.io/overview/
+      url: https://aka.ms/AzureArcJumpstart/overview/
       # Card
     - title: Azure Arc-enabled servers
       itemType: overview
@@ -124,7 +124,7 @@ conceptualContent:
           text: Azure Arc-enabled VMware vSphere
         - url: ./system-center-virtual-machine-manager/overview.md
           itemType: overview
-          text: Azure Arc-enabled System Center Virtual Machine Manager (preview)
+          text: Azure Arc-enabled System Center Virtual Machine Manager
         - url: /azure-stack/hci/manage/azure-arc-vm-management-overview
           itemType: overview
           text: Azure Arc VM management on Azure Stack HCI (preview)

@@ -4,7 +4,7 @@ metadata:
   description: Frequently asked questions and best practices for Azure Virtual Desktop.
   author: Heidilohr
   ms.topic: faq
-  ms.date: 07/18/2023
+  ms.date: 11/01/2023
   ms.author: helohr 
   ms.custom:
   manager: femila
@@ -49,6 +49,11 @@ sections:
          Can you use Azure CLI to configure autoscale?
         answer: |
          No, currently autoscale doesn't offer the option to configure settings with Azure CLI.
+
+      - question: |
+         Which regions are supported?
+        answer: |
+         Scaling plan configuration data must be stored in the same region as the host pool configuration, however, deploying session host VMs is supported in all Azure regions. VMs can be deployed in a different region than where the host pool and scaling plan configuration data is stored.
 
       - question: |
          Does autoscale handle scaling session hosts in secondary regions if the session hosts in the primary region have an outage?
@@ -107,7 +112,7 @@ sections:
         answer: |
          When you set up your scaling plan schedule, you can specify different load balancing algorithms for different phases of the day. For example, during the ramp-up and peak phases, you can use the breadth-first load balancing algorithm. This algorithm ensures you have an even distribution of user sessions during the first two phases of the day, which optimizes performance. Likewise, during the ramp-down and off-peak phases, you can use the depth-first load balancing algorithm to help the autoscale feature consolidate user sessions until it reaches the minimal possible number of session hosts in the host pool.
 
-  - name: Autoscale for personal host pools (preview)
+  - name: Autoscale for personal host pools
     questions:
       - question: |
          What happens to session hosts that get turned on but don't ever get signed into?
@@ -133,3 +138,8 @@ sections:
          Does autoscale for personal desktops overwrite the drain mode of session hosts?
         answer: |
          No. When autoscale is ready to deallocate a personal desktop due to the user session being signed out or disconnected, autoscale doesn't put the session host in drain mode. If the user tries to connect while autoscale is deallocating the session host, they'll receive an error message that says "No resources available."
+
+      - question: |
+         What happens if I opt for personal desktops to get hibernated in my scaling plan, but my personal desktops don’t have hibernate enabled?
+        answer: |
+         If you opt to have personal desktops hibernated in your personal scaling plan schedule, but the personal desktops don’t have hibernate enabled or hibernate is not enabled for your subscription, autoscale will not do anything to your session hosts (won’t hibernate them and won’t deallocate them).  

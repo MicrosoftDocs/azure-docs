@@ -114,4 +114,9 @@ sections:
       - question: |
           Are build environment variables supported?
         answer: |
-          No. Container Apps automatically selects the Maven version. 
+          No. Container Apps automatically selects the Maven version.
+      - question: |
+          How do I ensure the build and image of my Docker-less build are available in the same region as my app?
+        answer: |
+          When using `containerapp up` in combination with a Docker-less code base, use the `--location` parameter so that application runs in a location other than US East.
+
