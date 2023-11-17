@@ -1,6 +1,6 @@
 ---
-title: Long Term Support for Azure Kubernetes Service (AKS)
-description: Learn about Azure Kubernetes Service (AKS) Long Term Support for Kubernetes
+title: Long term support for Azure Kubernetes Service (AKS)
+description: Learn about Azure Kubernetes Service (AKS) Long term support for Kubernetes
 ms.topic: article
 ms.date: 08/16/2023
 ms.author: juda
@@ -8,7 +8,7 @@ author: justindavies
 #Customer intent: As a cluster operator or developer, I want to understand how Long Term Support for Kubernetes on AKS works.
 ---
 
-# Long Term Support
+# Long term support
 The Kubernetes community releases a new minor version approximately every four months, with a support window for each version for one year.  This support in terms of  Azure Kubernetes Service (AKS) is called "Community Support."
 
 AKS supports versions of Kubernetes that are within this Community Support window, to push bug fixes and security updates from community releases.
@@ -54,7 +54,7 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --tier premiu
 az aks update --resource-group myResourceGroup --name myAKSCluster --tier [free|standard] --k8s-support-plan KubernetesOfficial
 ```
 
-## Long Term Support, add-ons and features
+## Long term support, add-ons and features
 The AKS team currently tracks add-on versions where Kubernetes community support exists. Once a version leaves Community Support, we rely on Open Source projects for managed add-ons to continue that support. Due to various external factors, some add-ons and features may not support Kubernetes versions outside these upstream Community Support windows.
 
 See the following table for a list of add-ons and features that aren't supported and the reason why.  
@@ -74,10 +74,8 @@ See the following table for a list of add-ons and features that aren't supported
 
 
 > [!NOTE]
-
-You can't move your cluster to Long Term support if any of these add-ons or features are enabled.  
-
-Whilst these AKS managed add-ons aren't supported by Microsoft, you're able to install the Open Source versions of these on your cluster if you wish to use it past Community Support.
+>You can't move your cluster to Long Term support if any of these add-ons or features are enabled.  
+>Whilst these AKS managed add-ons aren't supported by Microsoft, you're able to install the Open Source versions of these on your cluster if you wish to use it past Community Support.
 
 ## How we decide the next LTS version
 Versions of Kubernetes LTS are available for two years from General Availability, we mark a later version of Kubernetes as LTS based on the following criteria:
