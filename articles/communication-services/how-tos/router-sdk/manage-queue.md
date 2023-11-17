@@ -156,7 +156,7 @@ administration_client.upsert_queue(queue.id, queue)
 ```java
 queue.setName("XBOX Updated Queue");
 queue.setLabels(Map.of("Additional-Queue-Label", new RouterValue("ChatQueue")));
-administrationClient.updateQueue(queue);
+administrationClient.updateQueue(queue.getId(), BinaryData.fromObject(queue));
 ```
 
 ::: zone-end
