@@ -23,7 +23,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Oracle on Azure
-            url: oracle-overview.md         
+            url: oracle-azure-overview.md         
 
   #card 2
   - title: Oracle on Azure Virtual Machines
