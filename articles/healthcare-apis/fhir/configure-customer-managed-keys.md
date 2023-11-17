@@ -283,8 +283,8 @@ For the FHIR service to operate properly, it must always have access to the key 
 
 - The FHIR service system-assigned managed identity loses access to the key vault.
 
-In any scenario where the FHIR service can't access the key, API requests return with `500` errors and the data is inaccessible until access to the key is restored. The [Azure Resource health](../../service-health/overview.md) view for the FHIR service helps you diagnose key access issues.
+In any scenario where the FHIR service can't access the key, API requests return with `500` errors and the data is inaccessible until access to the key is restored. 
 
-If key access is lost, ensure you updated the key and required resources so they're accessible by the FHIR service. For more information, see [Create or update REST API for the FHIR service](/rest/api/healthcareapis/fhir-services/create-or-update). Make sure to match all the properties and identities with your current FHIR service.
+If key access is lost, ensure you updated the key and required resources so they're accessible by the FHIR service. 
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
