@@ -31,6 +31,8 @@ description: Deploys a web app in Azure without a datastore
 runner: ARM
 templatePath: azuredeploy.json
 ```
+### Definitions
+The following table describes the properties that you can use in environment.yaml.
 
 | **Property** | **Type** | **Description**                                    | **Required** | **Examples**                                    |
 | ------------ | -------- | -------------------------------------------------- | ------------ | ----------------------------------------------- |
@@ -93,17 +95,3 @@ Each parameter can use any of the following properties:
 - [Add and configure an environment definition in Azure Deployment Environments](configure-environment-definition.md)
 - [Parameters in ARM templates](../azure-resource-manager/templates/parameters.md)
 - [Data types in ARM templates](../azure-resource-manager/templates/data-types.md)
-
-<!-- Optional: Related content - H2
-
-Consider including a "Related content" H2 section that 
-lists links to 1 to 3 articles the user might find helpful.
-
--->
-
-<!--
-
-Remove all comments except the customer intent
-before you sign off or merge to the main branch.
-
--->
