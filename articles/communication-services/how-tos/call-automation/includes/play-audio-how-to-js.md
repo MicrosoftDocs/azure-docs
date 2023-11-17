@@ -38,21 +38,23 @@ node app.js
 
 ## (Optional) Prepare your audio file if you wish to use audio files for playing prompts
 
-Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to Azure Communication Services with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. Azure Communication Services supports both file types of **MP3** and **WAV files, mono 16-bit PCM at 16 KHz sample rate**. 
+Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to Azure Communication Services with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. Azure Communication Services supports both file types of **MP3 files with ID3V2TAG** and **WAV files, mono 16-bit PCM at 16 KHz sample rate**. 
 
 You can test creating your own audio file using our [Speech synthesis with Audio Content Creation tool](../../../../ai-services/Speech-Service/how-to-audio-content-creation.md).
 
-## (Optional) Connect your Azure Cognitive Service to your Azure Communication Service (Public Preview)
+## (Optional) Connect your Azure Cognitive Service to your Azure Communication Service 
 
-If you would like to use Text-To-Speech capabilities, then it's required for you to connect your [Azure Cognitive Service to your Azure Communication Service](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
+If you would like to use Text-To-Speech capabilities, then it's **required** for you to connect your [Azure Cognitive Service to your Azure Communication Service](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 
 ## Establish a call
 
 By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/quickstart-make-an-outbound-call.md). You can also use the code snippet provided here to understand how to answer a call.
 
 ```javascript
-const answerCallOptions: AnswerCallOptions = { cognitiveServicesEndpoint: "<https://sample-callback-uri>" }; 
-await callAutomationClient.answerCall("<Incoming call context>", "<https://sample-callback-uri>", answerCallOptions); 
+const callIntelligenceOptions: CallIntelligenceOptions = { "<https://sample-callback-uri>" }; 
+        const answerCallOptions: AnswerCallOptions = { callIntelligenceOptions: callIntelligenceOptions };
+  
+await acsClient.answerCall("<Incoming call context>", "<https://sample-callback-uri>", answerCallOptions); 
 ```
 
 ## Play audio
