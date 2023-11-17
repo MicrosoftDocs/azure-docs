@@ -1,11 +1,12 @@
 ---
 title: Configure MQTT bridge between IoT MQ and Azure Event Grid
-# titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ
 description: Learn how to configure IoT MQ for bi-directional MQTT bridge with Azure Event Grid MQTT broker PaaS.
 author: PatAltimore
+ms.subservice: mq
 ms.author: patricka
 ms.topic: tutorial
-ms.date: 11/13/2023
+ms.date: 11/15/2023
 
 #CustomerIntent: As an operator, I want to configure IoT MQ to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
 ---
