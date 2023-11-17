@@ -9,7 +9,7 @@ ms.service: azure-ai-openai
 ms.custom:
   - ignite-2023
 ms.topic: whats-new
-ms.date: 10/16/2023
+ms.date: 10/17/2023
 recommendations: false
 keywords:
 ---
@@ -26,7 +26,7 @@ Both models are the latest release from OpenAI with improved instruction followi
 
 - **GPT-3.5-Turbo-1106** has a max context window of 16,385 tokens and can generate 4,096 output tokens.
 
-For information on model regional availability consult the [models page](./concepts/models.md)
+For information on model regional availability consult the [models page](./concepts/models.md).
 
 ### DALL-E 3 public preview
 
