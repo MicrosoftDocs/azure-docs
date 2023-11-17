@@ -1,25 +1,25 @@
 ---
-title: Scenarios for using Change Analysis in Azure Monitor
+title: View and use Change Analysis in Azure Monitor
 description: Learn the various scenarios in which you can use Azure Monitor's Change Analysis.
 ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
-ms.contributor: cawa
-ms.date: 01/12/2023
+ms.date: 11/17/2023
 ms.subservice: change-analysis
-ms.custom:
-ms.reviewer: cawa
+ms.custom: ignite-2022
 ---
 
-# Scenarios for using Change Analysis in Azure Monitor
+# View and use Change Analysis in Azure Monitor
 
 Change Analysis provides data for various management and troubleshooting scenarios to help you understand what changes to your application might have caused the issues. 
 
 ## View Change Analysis data
 
-You can access the Change Analysis overview portal under Azure Monitor, where you can view all changes and application dependency/resource insights. You can access Change Analysis through a couple of entry points:
+### Access Change Analysis screens
 
-### Monitor home page
+You can access the Change Analysis overview portal under Azure Monitor, where you can view all changes and application dependency/resource insights. You can access Change Analysis through two entry points:
+
+#### Via the Azure Monitor home page
 
 From the Azure portal home page, select **Monitor** from the menu.
 
@@ -29,7 +29,7 @@ In the Monitor overview page, select the **Change Analysis** card.
 
 :::image type="content" source="./media/change-analysis/change-analysis-monitor-overview.png" alt-text="Screenshot of selecting the Change Analysis card on the Monitor overview page.":::
 
-### Search
+#### Via search
 
 In the Azure portal, search for Change Analysis to launch the experience.
 
@@ -55,44 +55,7 @@ The UI supports selecting multiple subscriptions to view resource changes. Use t
 
 :::image type="content" source="./media/change-analysis/multiple-subscriptions-support.png" alt-text="Screenshot of subscription filter that supports selecting multiple subscriptions":::
 
-## Diagnose and solve problems tool
-
-From your resource's overview page in Azure portal, you can view change data by selecting **Diagnose and solve problems** the left menu. As you enter the Diagnose and Solve Problems tool, the **Microsoft.ChangeAnalysis** resource provider will automatically be registered. 
-
-### Diagnose and solve problems tool for Web App
-
-Azure Monitor's Change Analysis is:
-- A standalone detector in the Web App **Diagnose and solve problems** tool. 
-- Aggregated in **Application Crashes** and **Web App Down detectors**. 
-
-You can view change data via the **Web App Down** and **Application Crashes** detectors. The graph summarizes:
-- The change types over time.
-- Details on those changes. 
-
-By default, the graph displays changes from within the past 24 hours help with immediate problems.   
-
-### Diagnose and solve problems tool for Virtual Machines
-
-Change Analysis displays as an insight card in your virtual machine's **Diagnose and solve problems** tool. The insight card displays the number of changes or issues a resource experiences within the past 72 hours. 
-
-1. Within your virtual machine, select **Diagnose and solve problems** from the left menu. 
-1. Go to **Troubleshooting tools**.
-1. Scroll to the end of the troubleshooting options and select **Analyze recent changes** to view changes on the virtual machine.
-
-   :::image type="content" source="./media/change-analysis/vm-dnsp-troubleshootingtools.png" alt-text="Screenshot of the VM Diagnose and Solve Problems":::   
-
-   :::image type="content" source="./media/change-analysis/analyze-recent-changes.png" alt-text="Change analyzer in troubleshooting tools":::   
-
-### Diagnose and solve problems tool for Azure SQL Database and other resources
-
-You can view Change Analysis data for [multiple Azure resources](./change-analysis.md#supported-resource-types), but we highlight Azure SQL Database below.
-
-1. Within your resource, select **Diagnose and solve problems** from the left menu.
-1. Under **Common problems**, select **View change details** to view the filtered view from Change Analysis standalone UI.
-
-   :::image type="content" source="./media/change-analysis/change-insight-diagnose-and-solve.png" alt-text="Screenshot of viewing common problems in Diagnose and Solve Problems tool.":::  
-
-## Activity Log change history
+### View the Activity Log change history
 
 Use the [View change history](../essentials/activity-log.md#view-change-history) feature to call the Azure Monitor Change Analysis service backend to view changes associated with an operation. Changes returned include:
 
@@ -109,7 +72,51 @@ Use the [View change history](../essentials/activity-log.md#view-change-history)
 
    :::image type="content" source="./media/change-analysis/activity-log-change-history.png" alt-text="Activity Log change history integration":::   
 
-## VM Insights integration
+### View changes using the Diagnose and Solve Problems tool
+
+From your resource's overview page in Azure portal, you can view change data by selecting **Diagnose and solve problems** the left menu. As you enter the Diagnose and Solve Problems tool, the **Microsoft.ChangeAnalysis** resource provider is automatically registered. 
+
+Learn how to use the Diagnose and Solve Problems tool for:
+- [Web App](#diagnose-and-solve-problems-tool-for-web-app)
+- [Virtual Machines](#diagnose-and-solve-problems-tool-for-virtual-machines)
+- [Azure SQL Database and other resources](#diagnose-and-solve-problems-tool-for-azure-sql-database-and-other-resources)
+
+#### Diagnose and solve problems tool for Web App
+
+Azure Monitor's Change Analysis is:
+- A standalone detector in the Web App **Diagnose and solve problems** tool. 
+- Aggregated in **Application Crashes** and **Web App Down detectors**. 
+
+You can view change data via the **Web App Down** and **Application Crashes** detectors. The graph summarizes:
+- The change types over time.
+- Details on those changes. 
+
+By default, the graph displays changes from within the past 24 hours help with immediate problems.   
+
+#### Diagnose and solve problems tool for Virtual Machines
+
+Change Analysis displays as an insight card in your virtual machine's **Diagnose and solve problems** tool. The insight card displays the number of changes or issues a resource experiences within the past 72 hours. 
+
+1. Within your virtual machine, select **Diagnose and solve problems** from the left menu. 
+1. Go to **Troubleshooting tools**.
+1. Scroll to the end of the troubleshooting options and select **Analyze recent changes** to view changes on the virtual machine.
+
+   :::image type="content" source="./media/change-analysis/vm-dnsp-troubleshootingtools.png" alt-text="Screenshot of the VM Diagnose and Solve Problems":::   
+
+   :::image type="content" source="./media/change-analysis/analyze-recent-changes.png" alt-text="Change analyzer in troubleshooting tools":::   
+
+#### Diagnose and solve problems tool for Azure SQL Database and other resources
+
+You can view Change Analysis data for [multiple Azure resources](./change-analysis.md#supported-resource-types), but we highlight Azure SQL Database below.
+
+1. Within your resource, select **Diagnose and solve problems** from the left menu.
+1. Under **Common problems**, select **View change details** to view the filtered view from Change Analysis standalone UI.
+
+   :::image type="content" source="./media/change-analysis/change-insight-diagnose-and-solve.png" alt-text="Screenshot of viewing common problems in Diagnose and Solve Problems tool.":::  
+
+## Activities using Change Analysis
+
+### Integrate with VM Insights
 
 If you've enabled [VM Insights](../vm/vminsights-overview.md), you can view changes in your virtual machines that may have caused any spikes in a metric chart, such as CPU or Memory.
 
@@ -124,7 +131,7 @@ If you've enabled [VM Insights](../vm/vminsights-overview.md), you can view chan
 
     :::image type="content" source="./media/change-analysis/vm-insights-2.png" alt-text="View of the property panel, selecting Investigate Changes button.":::   
 
-## Drill to Change Analysis logs
+### Drill to Change Analysis logs
 
 You can also drill to Change Analysis logs via a chart you've created or pinned to your resource's **Monitoring** dashboard.
 
@@ -138,13 +145,13 @@ You can also drill to Change Analysis logs via a chart you've created or pinned 
 
    :::image type="content" source="./media/change-analysis/view-change-analysis-2.png" alt-text="Drill into logs and select to view Change Analysis.":::
 
-## Browse using custom filters and search bar
+### Browse using custom filters and search bar
 
 Browsing through a long list of changes in the entire subscription is time consuming. With Change Analysis custom filters and search capability, you can efficiently navigate to changes relevant to issues for troubleshooting.
 
 :::image type="content" source="./media/change-analysis/filters-search-bar.png" alt-text="Screenshot showing that filters and search bar are available at the top of Change Analysis homepage, right above the changes section.":::
 
-### Filters
+#### Filters
 
 | Filter | Description |
 | ------ | ----------- |
@@ -155,15 +162,15 @@ Browsing through a long list of changes in the entire subscription is time consu
 | Resource | Select **Add filter** to use this filter. </br> Filter the changes to specific resources. Helpful if you already know which resources to look at for changes. [If the filter is only returning 1,000 resources, see the corresponding solution in troubleshooting guide](./change-analysis-troubleshoot.md#cant-filter-to-your-resource-to-view-changes). |
 | Resource type | Select **Add filter** to use this filter. </br> Filter the changes to specific resource types. |
 
-### Search bar
+#### Search bar
 
 The search bar filters the changes according to the input keywords. Search bar results apply only to the changes loaded by the page already and don't pull in results from the server side.
 
-## Pin and share a Change Analysis query to the Azure dashboard
+### Pin and share a Change Analysis query to the Azure dashboard
 
 Let's say you want to curate a change view on specific resources, like all Virtual Machine changes in your subscription, and include it in a report sent periodically. You can pin the view to an Azure dashboard for monitoring or sharing scenarios. If you'd like to share a specific change with your team members, you can use the share feature in the Change Details page.
 
-## Pin to the Azure dashboard
+### Pin to the Azure dashboard
 
 Once you have applied filters to the Change Analysis homepage:
 
@@ -180,7 +187,7 @@ A side pane will open to configure the dashboard where you'll place your pin. Yo
 | Private | Only you can access a private dashboard. Choose this option if you're creating the pin for your own easy access to the changes. |
 | Shared | A shared dashboard supports role-based access control for view/read access. Shared dashboards are created as a resource in your subscription with a region and resource group to host it. Choose this option if you're creating the pin to share with your team. |
 
-### Select an existing dashboard
+#### Select an existing dashboard
 
 If you already have a dashboard to place the pin:
 
@@ -192,7 +199,7 @@ If you already have a dashboard to place the pin:
  
    :::image type="content" source="./media/change-analysis/existing-dashboard-small.png" alt-text="Screenshot of selecting an existing dashboard to pin your changes to. ":::
 
-### Create a new dashboard
+#### Create a new dashboard
 
 You can create a new dashboard for this pin.
  
@@ -212,7 +219,7 @@ Once the dashboard and pin are created, navigate to the Azure dashboard to view 
 
    :::image type="content" source="./media/change-analysis/view-share-dashboard.png" alt-text="Screenshot of the pin in the dashboard.":::
 
-## Share a single change with your team
+### Share a single change with your team
 
 In the Change Analysis homepage, select a line of change to view details on the change.
 
@@ -220,7 +227,6 @@ In the Change Analysis homepage, select a line of change to view details on the 
 1. On the Share Change Details pane, copy the deep link of the page and share with your team in messages, emails, reports, or whichever communication channel your team prefers.
 
    :::image type="content" source="./media/change-analysis/share-single-change.png" alt-text="Screenshot of selecting the share button on the dashboard and copying link.":::
-
 
 ## Next steps
 

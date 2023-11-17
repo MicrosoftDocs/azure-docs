@@ -4,10 +4,9 @@ description: Use Change Analysis in Azure Monitor to track and troubleshoot issu
 ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
-ms.contributor: cawa
-ms.date: 08/23/2022 
+ms.date: 11/17/2023 
 ms.subservice: change-analysis
-ms.custom:
+ms.custom: ignite-2022
 ---
 
 # Enable Change Analysis
@@ -23,8 +22,8 @@ Register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource
 - Bring up the Change Analysis standalone tab.
 
 In this guide, you'll learn the two ways to enable Change Analysis for Azure Functions and web app in-guest changes:
-- For one or a few Azure Functions or web apps, enable Change Analysis via the UI.
-- For a large number of web apps (for example, 50+ web apps), enable Change Analysis using the provided PowerShell script.
+- For one or a few Azure Functions or web apps, [enable Change Analysis via the UI](#enable-azure-functions-and-web-app-in-guest-change-collection-via-the-change-analysis-portal).
+- For a large number of web apps (for example, 50+ web apps), [enable Change Analysis using the provided PowerShell script](#enable-change-analysis-at-scale-using-powershell).
 
 > [!NOTE]
 > Slot-level enablement for Azure Functions or web app is not supported at the moment.

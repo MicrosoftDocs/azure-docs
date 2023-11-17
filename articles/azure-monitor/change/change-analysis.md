@@ -4,15 +4,14 @@ description: Use Change Analysis in Azure Monitor to troubleshoot issues on live
 ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
-ms.contributor: cawa
-ms.date: 11/15/2022 
+ms.date: 11/17/2023 
 ms.subservice: change-analysis
 ms.custom: ignite-2022
 ---
 
 # Use Change Analysis in Azure Monitor
 
-While standard monitoring solutions might alert you to a live site issue, outage, or component failure, they often don't explain the cause. For example, your site worked five minutes ago, and now it's broken. What changed in the last five minutes? 
+While standard monitoring solutions might alert you to a live site issue, outage, or component failure, they often don't explain the cause. Let's say your site worked five minutes ago, and now it's broken. What changed in the last five minutes? 
 
 We've designed Change Analysis to answer that question in Azure Monitor.
 
@@ -75,7 +74,9 @@ In addition to the settings set via Azure Resource Manager, you can set configur
 - TLS settings
 - Extension versions
 
-These setting changes are not captured by Azure Resource Graph. Change Analysis fills this gap by capturing snapshots of changes in those main configuration properties, like changes to the connection string, etc. Snapshots are taken of configuration changes and change details every up to 6 hours. [See known limitations.](#limitations)
+These setting changes are not captured by Azure Resource Graph. Change Analysis fills this gap by capturing snapshots of changes in those main configuration properties, like changes to the connection string, etc. Snapshots are taken of configuration changes and change details every up to 6 hours. 
+
+[See known limitations regarding resource configuration change analysis.](#limitations)
 
 ### Changes in Azure Function and Web Apps (in-guest changes)
 
@@ -83,9 +84,11 @@ Every 30 minutes, Change Analysis captures the configuration state of a web appl
 
 :::image type="content" source="./media/change-analysis/scan-changes.png" alt-text="Screenshot of the selecting the Refresh button to view latest changes.":::   
 
-If you don't see file changes within 30 minutes or configuration changes within 6 hours, refer to [our troubleshooting guide](./change-analysis-troubleshoot.md#cannot-see-in-guest-changes-for-newly-enabled-web-app). 
+Refer to [our troubleshooting guide](./change-analysis-troubleshoot.md#cannot-see-in-guest-changes-for-newly-enabled-web-app) if you don't see:
+- File changes within 30 minutes
+- Configuration changes within 6 hours 
 
-[See known limitations.](#limitations)
+[See known limitations regarding in-guest change analysis.](#limitations)
 
 Currently, all text-based files under site root **wwwroot** with the following extensions are supported:
 
@@ -107,13 +110,13 @@ Currently, all text-based files under site root **wwwroot** with the following e
 
 Changes to resource dependencies can also cause issues in a resource. For example, if a web app calls into a Redis cache, the Redis cache SKU could affect the web app performance. 
 
-As another example, if port 22 was closed in a virtual machine's Network Security Group, it will cause connectivity errors.
+As another example, if port 22 was closed in a virtual machine's Network Security Group, it causes connectivity errors.
 
 #### Web App diagnose and solve problems navigator (preview)
 
-To detect changes in dependencies, Change Analysis checks the web app's DNS record. In this way, it identifies changes in all app components that could cause issues.
+Change Analysis checks the web app's DNS record, to detect changes in dependencies and app components that could cause issues.
 
-Currently the following dependencies are supported in **Web App Diagnose and solve problems | Navigator**:
+Currently, the following dependencies are supported in **Web App Diagnose and solve problems | Navigator**:
 
 - Web Apps
 - Azure Storage
@@ -126,7 +129,7 @@ Currently the following dependencies are supported in **Web App Diagnose and sol
 - **Function and Web App file changes**: File changes take up to 30 minutes to display.
 - **Function and Web App configuration changes**: Due to the snapshot approach to configuration changes, timestamps of configuration changes could take up to 6 hours to display from when the change actually happened.
 - **Web app deployment and configuration changes**: Since these changes are collected by a site extension and stored on disk space owned by your application, data collection and storage is subject to your application's behavior. Check to see if a misbehaving application is affecting the results.
-- **Snapshot retention for all changes**: The Change Analysis data for resources is tracked by Azure Resource Graphs (ARG). ARG keeps snapshot history of tracked resources only for 14 days.
+- **Snapshot retention for all changes**: The Change Analysis data for resources is tracked by Azure Resource Graphs (ARG). ARG only keeps snapshot history of tracked resources for _14 days_.
 
 ## Frequently asked questions
 
