@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 10/19/2023
+ms.date: 111/17/2023
 ---
 
 # Retrieval Augmented Generation (RAG) in Azure AI Search
@@ -232,6 +232,13 @@ print("\n-------------------\nPrompt:\n" + prompt)
 ## How to get started
 
 + [Use Azure AI Studio and "bring your own data"](/azure/ai-services/openai/concepts/use-your-data) to experiment with prompts on an existing search index. This step helps you decide what model to use, and shows you how well your existing index works in a RAG scenario.
+
++ [Enterprise chat app templates](https://aka.ms/azai) deploy Azure resources, code, and sample grounding data. This end-to-end solution gives you an operational chat app in as little as 15 minutes. The following links provide language-specific versions:
+
+  + [Python](https://aka.ms/azai/py)
+  + [JavaScript](https://aka.ms/azai/js)
+  + [.NET](https://aka.ms/azai/js)
+  + [Java](https://aka.ms/azai/net)
 
 + ["Chat with your data" solution accelerator](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) to create your own RAG solution.
 
