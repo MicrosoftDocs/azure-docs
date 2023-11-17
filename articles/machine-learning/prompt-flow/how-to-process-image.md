@@ -8,6 +8,7 @@ ms.subservice: prompt-flow
 ms.topic: how-to
 ms.author: jinzhong
 ms.date: 11/20/2023
+author: zhongj
 ---
 
 # How to utilize images in prompt flow (preview)
