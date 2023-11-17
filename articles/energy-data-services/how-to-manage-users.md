@@ -19,7 +19,7 @@ In this article, you'll learn how to manage users and their memberships in OSDU 
 3. Get various parameters of your instance such as client-id, client-secret, etc.  
 4. Keep all these parameter values handy as they will be needed for executing different user management requests via the Entitlements API. 
 
-### Fetch Parameters
+## Fetch Parameters
 #### Find `tenant-id`
 1. Navigate to the Microsoft Entra account for your organization. You can search for "Microsoft Entra ID" in the Azure portal's search bar.
 2. Locate `tenant-id` under the basic information section in the *Overview* tab.
@@ -98,10 +98,7 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 ```
 2. Copy the `access_token` value from the response. You'll need it to pass as one of the headers in all calls to the Entitlements APIs. 
 
-## User management activities
-
-You can manage users' access to your Azure Data Manager for the Energy instance and its data partitions. 
-### Fetch OID
+## Fetch OID
 `object-id` (OID) is the Microsoft Entra user Object ID.
 
 1. Find the 'object-id' (OID) of the user(s) first. If you are managing an application's access, you must find and use the application ID (or client ID) instead of the OID.
@@ -111,7 +108,7 @@ You can manage users' access to your Azure Data Manager for the Energy instance 
 
 :::image type="content" source="media/how-to-manage-users/profile-object-id.png" alt-text="Screenshot of finding the object-id from the profile.":::
 
-### Get the list of all available groups 
+## Get the list of all available groups 
 
 Run the below curl command in Azure Cloud Bash to get all the groups that are available for your Azure Data Manager for the Energy instance and its data partitions.
 
@@ -121,7 +118,7 @@ Run the below curl command in Azure Cloud Bash to get all the groups that are av
     --header 'Authorization: Bearer <access_token>'
 ```
 
-### Add user(s) to a OSDU group
+## Add user(s) to a OSDU group
 
 1. Run the below curl command in Azure Cloud Bash to add the user(s) to the "Users" group using the Entitlement service.
 2. The value to be sent for the param **"email"** is the **Object_ID (OID)** of the user and not the user's email.
@@ -161,7 +158,7 @@ Consider an Azure Data Manager for Energy instance named "medstest" with a data 
     }
 ```
 
-### Add user(s) to an entitlements group
+## Add user(s) to an entitlements group
 
 1. Run the below curl command in Azure Cloud Bash to add the user(s) to an entitlement group using the Entitlement service.
 2. The value to be sent for the param **"email"** is the **Object_ID (OID)** of the user and not the user's email.
@@ -202,7 +199,7 @@ Consider an Azure Data Manager for Energy instance named "medstest" with a data 
     }
 ```
 
-### Get entitlements groups for a given user
+## Get entitlements groups for a given user
 
 1. Run the below curl command in Azure Cloud Bash to get all the groups associated with the user.
 
@@ -242,7 +239,7 @@ Consider an Azure Data Manager for Energy instance named "medstest" with a data 
     }
 ```
 
-### Delete entitlement groups of a given user
+## Delete entitlement groups of a given user
 
 1. Run the below curl command in Azure Cloud Bash to delete a given user from a given data partition.
 2. As stated above, **DO NOT** delete the OWNER of a group unless you have another OWNER who can manage users in that group.
