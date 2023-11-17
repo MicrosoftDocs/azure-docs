@@ -31,8 +31,8 @@ The Chat SDK for JavaScript would return `AttachmentType` of `file` for regular 
 ```c#
 public class ChatAttachment
 {
-    public ChatAttachment(string id, AttachmentType attachmentType)
-    public AttachmentType AttachmentType { get }
+    public ChatAttachment(string id, ChatAttachmentType attachmentType)
+    public ChatAttachmentType AttachmentType { get }
     public string Id { get }
     public string Name { get }
     public System.Uri PreviewUrl { get }
@@ -42,8 +42,8 @@ public class ChatAttachment
 public struct ChatAttachmentType : System.IEquatable<AttachmentType>
 {
     public ChatAttachmentType(string value)
-    public static Azure.Communication.Chat.AttachmentType File { get }
-    public static Azure.Communication.Chat.AttachmentType Image { get }
+    public static File { get }
+    public static Image { get }
 }
 ```
 
