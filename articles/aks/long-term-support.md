@@ -29,7 +29,7 @@ LTS intends to give you an extended period of time to plan and test for upgrades
 |  **Support versions** | Three GA minor versions | One Kubernetes version (currently *1.27*) for two years  |
 
 
-## Enabling Long Term Support
+## Enable Long Term Support
 
 Enabling and disabling Long Term Support is a combination of moving your cluster to the Premium tier and explicitly selecting the LTS support plan.  
 
@@ -87,7 +87,7 @@ Versions of Kubernetes LTS are available for two years from General Availability
 Read the AKS release notes to stay informed of when you're able to plan your migration.
 
 ### Migrate from LTS to Community support
-Using LTS is a way to extend your planning to upgrade Kubernetes versions. You may want to migrate to a version of Kubernetes that is within the standard support window, something we call N-2 on AKS.  N being the latest Kubernetes.  
+Using LTS is a way to extend your window to plan a Kubernetes version upgrade. You may want to migrate to a version of Kubernetes that is within the [standard support window](supported-kubernetes-versions.md#kubernetes-version-support-policy).
 
 To move from an LTS enabled cluster to a version of Kubernetes that is within the standard support window, you need to disable LTS on the cluster:
 
@@ -101,7 +101,7 @@ And then upgrade the cluster to a later supported version:
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.28.3
 ```
 > [!NOTE]
-> Kubernetes 1.28.3 is used as an example here, please check for available releases in the portal or using the get-version parameter in the azure CLI.
+> Kubernetes 1.28.3 is used as an example here, please check the [AKS release tracker](release-tracker.md) for available Kubernetes releases.
 
 There are approximately two years between one LTS version and the next.  In lieu of upstream support for migrating more than two minor versions, there's a high likelihood your application depends on Kubernetes APIs that have been deprecated.  We recommend you thoroughly test your application on the target LTS Kubernetes version and carry out a blue/green deployment from one version to another.
 
