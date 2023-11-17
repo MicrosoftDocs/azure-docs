@@ -66,6 +66,8 @@ items:
       href: ./how-to/function-calling.md
     - name: Completions
       href: ./how-to/completions.md
+    - name: JSON mode
+      href: ./how-to/json-mode.md
     - name: Work with code
       href: ./how-to/work-with-code.md
     - name: Use with large datasets
