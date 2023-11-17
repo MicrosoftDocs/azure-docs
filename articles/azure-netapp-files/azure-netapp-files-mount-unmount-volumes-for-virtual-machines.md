@@ -41,6 +41,10 @@ If a network address translation (NAT) or firewall sits between the NFS client a
 *	In addition, NAT can also cause issues with NFS mounts hanging due to how NAT handles idle sessions. If using NAT, the configuration should take idle sessions into account and leave them open indefinitely to prevent issues. NAT can also create issues with NLM lock reclamation.
 *	Some firewalls might drop idle TCP connections after a set amount of time. For example, if a client has an NFS mount connected, but doesn’t use it for a while, it’s deemed idle. When this occurs, client access to mounts can hang because the network connection has been severed by the firewall. `Keepalives` can help prevent this, but it's better to address potential idle clients by configuring firewalls to not actively reject packets from stale sessions.
 
+For more information about NFS locking, see [Understand file locking and lock types in Azure NetApp Files](understand-file-locks.md).
+
+For more information about how NFS operates in Azure NetApp Files, see [Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols#network-file-system-nfs.md).
+
 ## Mount NFS volumes on Linux clients
 
 1. Review the [Linux NFS mount options best practices](performance-linux-mount-options.md).
@@ -71,7 +75,7 @@ If you want to mount NFSv3 volumes on a Windows client using NFS:
 1. Mount the volume via the NFS client on Windows using the mount option `mtype=hard` to reduce connection issues. 
   See [Windows command line utility for mounting NFS volumes](/windows-server/administration/windows-commands/mount) for more detail. 
   For example: `Mount -o rsize=256 -o wsize=256 -o mtype=hard \\10.x.x.x\testvol X:* `
-1. You can also access NFS volumes from Windows clients via SMB by setting the protocol access for the volume to “dual-protocol”. This setting allows access to the volume via SMB and NFS (NFSv3 or NFSv4.1) and will result in better performance than using the NFS client on Windows with an NFS volume. See [Create a dual-protocol volume](create-volumes-dual-protocol.md) for details, and take note of the security style mappings table. Mounting a dual-protocol volume from Windows clients using the same procedure as regular SMB volumes. 
+1. You can also access NFS volumes from Windows clients via SMB by setting the protocol access for the volume to “dual-protocol”. This setting allows access to the volume via SMB and NFS (NFSv3 or NFSv4.1) and results in better performance than using the NFS client on Windows with an NFS volume. See [Create a dual-protocol volume](create-volumes-dual-protocol.md) for details, and take note of the security style mappings table. Mounting a dual-protocol volume from Windows clients using the same procedure as regular SMB volumes. 
 
 ## Next steps
 
@@ -82,3 +86,5 @@ If you want to mount NFSv3 volumes on a Windows client using NFS:
 * [Network File System overview](/windows-server/storage/nfs/nfs-overview)
 * [Mount an NFS Kerberos volume](configure-kerberos-encryption.md#kerberos_mount)
 * [Configure two VMs with the same hostname to access NFSv4.1 volumes](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes) 
+* [Understand file locking and lock types in Azure NetApp Files](understand-file-locks.md)
+* [Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols#network-file-system-nfs.md)
