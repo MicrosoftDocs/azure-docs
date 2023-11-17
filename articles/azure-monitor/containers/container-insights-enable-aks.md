@@ -124,12 +124,12 @@ az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-
 1.	Download Bicep templates and parameter files depending on whether you want to enable Syslog collection.
 
     **Syslog**
-    - Template file: [[Template without Syslog](https://aka.ms/enable-monitoring-msi-syslog-bicep-template)](https://aka.ms/enable-monitoring-msi-bicep-template)
-    - Parameter file: [[Parameter without Syslog](https://aka.ms/enable-monitoring-msi-syslog-bicep-parameters)](https://aka.ms/enable-monitoring-msi-bicep-parameters)
+    - Template file: [Template without Syslog](https://aka.ms/enable-monitoring-msi-bicep-template)
+    - Parameter file: [Parameter without Syslog](https://aka.ms/enable-monitoring-msi-bicep-parameters)
 
     **No Syslog**
-    - Template file: [[Template with Syslog](https://aka.ms/enable-monitoring-msi-bicep-template)](https://aka.ms/enable-monitoring-msi-syslog-bicep-template)
-    - Parameter file: [[Parameter with Syslog](https://aka.ms/enable-monitoring-msi-bicep-parameters)](https://aka.ms/enable-monitoring-msi-syslog-bicep-parameters)
+    - Template file: [Template with Syslog](https://aka.ms/enable-monitoring-msi-syslog-bicep-template)
+    - Parameter file: [Parameter with Syslog](https://aka.ms/enable-monitoring-msi-syslog-bicep-parameters)
 
 2.	Edit the following values in the parameter file:
  
