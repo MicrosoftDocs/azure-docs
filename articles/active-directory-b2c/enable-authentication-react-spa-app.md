@@ -99,7 +99,7 @@ The sample code is made up of the following components. Add these components fro
 
 After you [add the authentication components](#step-3-add-the-authentication-components), configure your React app with your Azure AD B2C settings. Azure AD B2C identity provider settings are configured in the *authConfig.js* file. 
 
-For guidance, see [Configure your React app](configure-authentication-sample-react-spa-app.md##31-configure-the-react-sample). 
+For guidance, see [Configure your React app](configure-authentication-sample-react-spa-app.md#31-configure-the-react-sample). 
 
 ## Step 5: Run the React application
 
