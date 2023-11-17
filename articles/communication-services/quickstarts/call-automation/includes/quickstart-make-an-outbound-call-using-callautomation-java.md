@@ -16,9 +16,11 @@ ms.custom: mode-other
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - A [phone number](../../telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. If you have a free subscription, you can [get a trial phone number](../../telephony/get-trial-phone-number.md).
-- Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started)
-- [Java Development Kit (JDK) version 11 or above](/azure/developer/java/fundamentals/java-jdk-install)
-- [Apache Maven](https://maven.apache.org/download.cgi)
+- Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started).
+- Create and connect [a Multi-service Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
+- Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
+- [Java Development Kit (JDK) version 11 or above](/azure/developer/java/fundamentals/java-jdk-install).
+- [Apache Maven](https://maven.apache.org/download.cgi).
 
 ## Sample code
 Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallAutomation_OutboundCalling). 
@@ -43,13 +45,15 @@ Then open the `application.yml` file in the `/resources` folder to configure the
 - `basecallbackuri`: Once you have your DevTunnel host initialized, update this field with that URI.
 - `callerphonenumber`: update this field with the Azure Communication Services phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `targetphonenumber`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+- `cognitiveServiceEndpoint`: update field with your cognitive services endpoint.
 
 ```yaml
 acs:
-  connectionstring: <YOUR Azure Communication Services CONNECTION STRING>
-  basecallbackuri: <YOUR DEV TUNNEL ENDPOINT>
-  callerphonenumber: <YOUR Azure Communication Services PHONE NUMBER>
-  targetphonenumber: <YOUR TARGET PHONE NUMBER>
+  connectionstring: <YOUR ACS CONNECTION STRING> 
+  basecallbackuri: <YOUR DEV TUNNEL ENDPOINT> 
+  callerphonenumber: <YOUR ACS PHONE NUMBER ex. "+1425XXXAAAA"> 
+  targetphonenumber: <YOUR TARGET PHONE NUMBER ex. "+1425XXXAAAA"> 
+  cognitiveServiceEndpoint: <YOUR COGNITIVE SERVICE ENDPOINT> 
 ```
 
 
@@ -62,7 +66,9 @@ PhoneNumberIdentifier caller = new PhoneNumberIdentifier(appConfig.getCallerphon
 PhoneNumberIdentifier target = new PhoneNumberIdentifier(appConfig.getTargetphonenumber());
 CallInvite callInvite = new CallInvite(target, caller);
 CreateCallOptions createCallOptions = new CreateCallOptions(callInvite, appConfig.getCallBackUri());
-Response<CreateCallResult> result = client.createCallWithResponse(createCallOptions, Context.NONE);
+CallIntelligenceOptions callIntelligenceOptions = new CallIntelligenceOptions().setCognitiveServicesEndpoint(appConfig.getCognitiveServiceEndpoint());
+createCallOptions = createCallOptions.setCallIntelligenceOptions(callIntelligenceOptions);
+Response < CreateCallResult > result = client.createCallWithResponse(createCallOptions, Context.NONE);
 ```
 
 ## Start recording a call
@@ -109,51 +115,61 @@ Using the `FileSource` API, you can provide the service the audio file you want 
 Next we pass the audio file into the `CallMediaRecognizeDtmfOptions` and then call `startRecognizingWithResponse`. This recognizes and options API enables the telephony client to send DTMF tones that we can recognize.
 
 ```java
-PhoneNumberIdentifier target = new PhoneNumberIdentifier(appConfig.getTargetphonenumber());
-CallMediaRecognizeDtmfOptions recognizeDtmfOptions = new CallMediaRecognizeDtmfOptions(target, 1);
+var playSource = new TextSource().setText(content).setVoiceName("en-US-NancyNeural");
 
-PlaySource playSource = new FileSource()
-    .setUrl(appConfig.getBasecallbackuri() + "/" + mediaFile)
-    .setPlaySourceCacheId(mediaFile);
-
-recognizeDtmfOptions.setPlayPrompt(playSource)
-    .setInterruptPrompt(true)
-    .setInitialSilenceTimeout(Duration.ofSeconds(15));
+var recognizeOptions = new CallMediaRecognizeChoiceOptions(new PhoneNumberIdentifier(targetParticipant), getChoices())
+  .setInterruptCallMediaOperation(false)
+  .setInterruptPrompt(false)
+  .setInitialSilenceTimeout(Duration.ofSeconds(10))
+  .setPlayPrompt(playSource)
+  .setOperationContext(context);
 
 client.getCallConnection(callConnectionId)
-    .getCallMedia()
-    .startRecognizingWithResponse(recognizeDtmfOptions, Context.NONE);
+  .getCallMedia()
+  .startRecognizing(recognizeOptions);
+
+private List < RecognitionChoice > getChoices() {
+  var choices = Arrays.asList(
+    new RecognitionChoice().setLabel(confirmLabel).setPhrases(Arrays.asList("Confirm", "First", "One")).setTone(DtmfTone.ONE),
+    new RecognitionChoice().setLabel(cancelLabel).setPhrases(Arrays.asList("Cancel", "Second", "Two")).setTone(DtmfTone.TWO)
+  );
+
+  return choices;
+}
 ```
 
-## Recognize DTMF Events
+## Handle Choice Events
 
-When the telephony endpoint selects a DTMF tone, Azure Communication Services Call Automation triggers the webhook we have setup and notify us with the `RecognizeCompleted` event. The event gives us the ability to respond to a specific DTMF tone and trigger an action. 
+Azure Communication Services Call Automation triggers the `api/callbacks` to the webhook we have setup and will notify us with the `RecognizeCompleted` event. The event gives us the ability to respond to input recieved and trigger an action. The application then plays a message to the caller based on the specific input received.
 
 ```java
 else if (event instanceof RecognizeCompleted) {
-    log.info("Recognize Completed event received");
-    RecognizeCompleted recognizeEvent = (RecognizeCompleted) event;
-    DtmfResult dtmfResult = (DtmfResult) recognizeEvent
-            .getRecognizeResult().get();
-    DtmfTone selectedTone = dtmfResult.getTones().get(0);
+  log.info("Recognize Completed event received");
 
-    switch(selectedTone.convertToString()) {
-        case "1":
-            log.info("Received DTMF tone 1.");
-            playToAll(callConnectionId, "Confirmed.wav");
-            break;
+  RecognizeCompleted acsEvent = (RecognizeCompleted) event;
 
-        case "2":
-            log.info("Received DTMF tone 2.");
-            playToAll(callConnectionId, "Goodbye.wav");
-            break;
+  var choiceResult = (ChoiceResult) acsEvent.getRecognizeResult().get();
 
-        default:
-            log.info("Unexpected DTMF received: {}", selectedTone.convertToString());
-            playToAll(callConnectionId, "Invalid.wav");
-            break;
-    }
+  String labelDetected = choiceResult.getLabel();
 
+  String phraseDetected = choiceResult.getRecognizedPhrase();
+
+  log.info("Recognition completed, labelDetected=" + labelDetected + ", phraseDetected=" + phraseDetected + ", context=" + event.getOperationContext());
+
+  String textToPlay = labelDetected.equals(confirmLabel) ? confirmedText : cancelText;
+
+  handlePlay(callConnectionId, textToPlay);
+}
+
+private void handlePlay(final String callConnectionId, String textToPlay) {
+  var textPlay = new TextSource()
+    .setText(textToPlay)
+    .setVoiceName("en-US-NancyNeural");
+
+  client.getCallConnection(callConnectionId)
+    .getCallMedia()
+    .playToAll(textPlay);
+}
 ```
 
 ## Hang up the call
