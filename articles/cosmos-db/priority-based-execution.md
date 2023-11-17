@@ -93,7 +93,7 @@ container.enableLocalThroughputControlGroup(groupConfig);
 CosmosItemRequestOptions requestOptions = new CosmosItemRequestOptions();
         requestOptions.setThroughputControlGroupName(groupConfig.getGroupName());
 
-Family family = new Family()
+Family family = new Family();
 family.setLastName("Anderson");
 
 
