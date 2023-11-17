@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/10/2023
+ms.date: 11/06/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -31,7 +31,7 @@ Azure AD B2C custom policy [starter pack](tutorial-create-user-flows.md?pivots=b
 - **SocialAndLocalAccounts** - Enables the use of both local and social accounts. Most of our samples refer to this policy.
 - **SocialAndLocalAccountsWithMFA** - Enables social, local, and multi-factor authentication options.
 
-In the [Azure AD B2C samples GitHub repository](https://github.com/azure-ad-b2c/samples), you'll find samples for several enhanced Azure AD B2C custom CIAM user journeys and scenarios. For example, local account policy enhancements, social account policy enhancements, MFA enhancements, user interface enhancements, generic enhancements, app migration, user migration, conditional access, web test, and CI/CD.
+In the [Azure AD B2C samples GitHub repository](https://github.com/azure-ad-b2c/samples), you find samples for several enhanced Azure AD B2C custom CIAM user journeys and scenarios. For example, local account policy enhancements, social account policy enhancements, MFA enhancements, user interface enhancements, generic enhancements, app migration, user migration, conditional access, web test, and CI/CD.
  
 ## Understanding the basics 
 

@@ -2,7 +2,7 @@
 title: Container security
 titleSuffix: Azure AI services
 description: Learn how to secure your container
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-services

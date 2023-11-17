@@ -2,7 +2,7 @@
 title:  How to recognize intents with custom entity pattern matching
 titleSuffix: Azure AI services
 description: In this guide, you learn how to recognize intents and custom entities from simple patterns.
-services: cognitive-services
+#services: cognitive-services
 author: chschrae
 manager: travisw
 ms.service: azure-ai-speech
