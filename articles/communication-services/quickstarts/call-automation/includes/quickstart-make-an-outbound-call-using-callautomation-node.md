@@ -145,9 +145,9 @@ async function startRecognizing(callMedia: CallMedia, textToPlay: string, contex
  }
 ```
 
-## Recognize DTMF Events
+## Handle Choice Events
 
-When the telephony endpoint selects a DTMF tone, Azure Communication Services Call Automation triggers the webhook we have set up and notify us with the `Microsoft.Communication.RecognizeCompleted` event. This event gives us the ability to respond to a specific DTMF tone and trigger an action. 
+Azure Communication Services Call Automation triggers the `api/callbacks` to the webhook we have setup and will notify us with the `RecognizeCompleted` event. The event gives us the ability to respond to input recieved and trigger an action. The application then plays a message to the caller based on the specific input received.
 
 ```typescript
 else if (event.type === "Microsoft.Communication.RecognizeCompleted") { 
