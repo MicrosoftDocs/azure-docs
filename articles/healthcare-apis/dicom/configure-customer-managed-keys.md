@@ -30,6 +30,8 @@ By using customer-managed keys (CMK), you can protect and control access to your
 
    - To prevent losing the encryption key for the DICOM service, the key vault or managed HSM must have **soft delete** and **purge protection** enabled. These features allow you to recover deleted keys for a certain time (default 90 days) and block permanent deletion until that time is over.
 
+   - When using a managed HSM, if the vault has disabled public traffic and has a private endpoint, a user-assigned managed identity must be used with the DICOM service.
+
 ## Enable a managed identity for the DICOM service
 
  You can use either a system-assigned or user-assigned managed identity. To find out the differences between a system-assigned and user-assigned managed identity, see [Managed identity types](/entra/identity/managed-identities-azure-resources/overview). 
