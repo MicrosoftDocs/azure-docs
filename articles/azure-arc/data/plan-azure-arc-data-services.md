@@ -149,7 +149,7 @@ Currently, only one Azure Arc data controller per Kubernetes cluster is supporte
 You have several additional options for creating the Azure Arc data controller:
 
 > **Just want to try things out?**
-> Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on AKS, Amazon EKS, or GKE, or in an Azure VM.
+> Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data) on AKS, Amazon EKS, or GKE, or in an Azure VM.
 >
 
 - [Create a data controller in direct connectivity mode with the Azure portal](create-data-controller-direct-prerequisites.md)
