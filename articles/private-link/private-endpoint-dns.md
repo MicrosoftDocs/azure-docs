@@ -211,117 +211,130 @@ For Azure services, use the recommended zone names as described in the following
 
 ### AI + Machine Learning
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure AI services (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.us | cognitiveservices.azure.us |
-| Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.ml.azure.us<br/>privatelink.notebooks.usgovcloudapi.net | api.ml.azure.us<br/>notebooks.usgovcloudapi.net <br/> instances.azureml.us<br/>aznbcontent.net <br/> inference.ml.azure.us |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure AI services (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.us | cognitiveservices.azure.us |
+>| Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.ml.azure.us<br/>privatelink.notebooks.usgovcloudapi.net | api.ml.azure.us<br/>notebooks.usgovcloudapi.net <br/> instances.azureml.us<br/>aznbcontent.net <br/> inference.ml.azure.us |
 
 ### Analytics
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
-| Azure Synapse Analytics (Microsoft.Synapse/workspaces) | Sql | privatelink.sql.azuresynapse.usgovcloudapi.net | sql.azuresynapse.usgovcloudapi.net |
-| Azure Synapse Analytics (Microsoft.Synapse/workspaces) | SqlOnDemand | privatelink.sql.azuresynapse.usgovcloudapi.net | {workspaceName}-ondemand.sql.azuresynapse.usgovcloudapi.net |
-| Azure Synapse Analytics (Microsoft.Synapse/workspaces) | Dev | privatelink.dev.azuresynapse.usgovcloudapi.net | dev.azuresynapse.usgovcloudapi.net |
-| Azure Synapse Studio (Microsoft.Synapse/privateLinkHubs) | Web | privatelink.azuresynapse.usgovcloudapi.net | azuresynapse.usgovcloudapi.net |
-| Azure Data Factory (Microsoft.DataFactory/factories) | dataFactory | privatelink.datafactory.azure.us | datafactory.azure.us |
-| Azure Data Factory (Microsoft.DataFactory/factories) | portal | privatelink.adf.azure.us | adf.azure.us |
-| Azure HDInsight (Microsoft.HDInsight) | N/A | privatelink.azurehdinsight.us | azurehdinsight.us |
-| Azure Databricks (Microsoft.Databricks/workspaces) | databricks_ui_api </br> browser_authentication | privatelink.databricks.azure.us | databricks.azure.us |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
+>| Azure Synapse Analytics (Microsoft.Synapse/workspaces) | Sql | privatelink.sql.azuresynapse.usgovcloudapi.net | sql.azuresynapse.usgovcloudapi.net |
+>| Azure Synapse Analytics (Microsoft.Synapse/workspaces) | SqlOnDemand | privatelink.sql.azuresynapse.usgovcloudapi.net | {workspaceName}-ondemand.sql.azuresynapse.usgovcloudapi.net |
+>| Azure Synapse Analytics (Microsoft.Synapse/workspaces) | Dev | privatelink.dev.azuresynapse.usgovcloudapi.net | dev.azuresynapse.usgovcloudapi.net |
+>| Azure Synapse Studio (Microsoft.Synapse/privateLinkHubs) | Web | privatelink.azuresynapse.usgovcloudapi.net | azuresynapse.usgovcloudapi.net |
+>| Azure Data Factory (Microsoft.DataFactory/factories) | dataFactory | privatelink.datafactory.azure.us | datafactory.azure.us |
+>| Azure Data Factory (Microsoft.DataFactory/factories) | portal | privatelink.adf.azure.us | adf.azure.us |
+>| Azure HDInsight (Microsoft.HDInsight) | N/A | privatelink.azurehdinsight.us | azurehdinsight.us |
+>| Azure Databricks (Microsoft.Databricks/workspaces) | databricks_ui_api </br> browser_authentication | privatelink.databricks.azure.us | databricks.azure.us |
 
 ### Compute
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Batch (Microsoft.Batch/batchAccounts) | batchAccount | privatelink.batch.usgovcloudapi.net | {regionName}.batch.usgovcloudapi.net |
-| Azure Batch (Microsoft.Batch/batchAccounts) | nodeManagement | privatelink.batch.usgovcloudapi.net | {regionName}.service.batch.usgovcloudapi.net |
-| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) | global | privatelink-global.wvd.azure.us | wvd.azure.us |
-| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces </br> Microsoft.DesktopVirtualization/hostpools) | feed <br> connection | privatelink.wvd.azure.us | wvd.azure.us |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Batch (Microsoft.Batch/batchAccounts) | batchAccount | privatelink.batch.usgovcloudapi.net | {regionName}.batch.usgovcloudapi.net |
+>| Azure Batch (Microsoft.Batch/batchAccounts) | nodeManagement | privatelink.batch.usgovcloudapi.net | {regionName}.service.batch.usgovcloudapi.net |
+>| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) | global | privatelink-global.wvd.azure.us | wvd.azure.us |
+>| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces </br> Microsoft.DesktopVirtualization/hostpools) | feed <br> connection | privatelink.wvd.azure.us | wvd.azure.us |
 
 ### Containers
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.us </br> {regionName}.privatelink.azurecr.us | azurecr.us </br> {regionName}.azurecr.us |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.us </br> {regionName}.privatelink.azurecr.us | azurecr.us </br> {regionName}.azurecr.us |
 
 ### Databases
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure SQL Database (Microsoft.Sql/servers) | sqlServer | privatelink.database.usgovcloudapi.net | database.usgovcloudapi.net |
-| Azure SQL Managed Instance (Microsoft.Sql/managedInstances) | managedInstance | privatelink.{dnsPrefix}.database.usgovcloudapi.net | {instanceName}.{dnsPrefix}.database.usgovcloudapi.net |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Sql | privatelink.documents.azure.us | documents.azure.us |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.us | mongo.cosmos.azure.us |
-| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.usgovcloudapi.net | postgres.database.usgovcloudapi.net |
-| Azure Database for MySQL - Single Server (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.usgovcloudapi.net | mysql.database.usgovcloudapi.net |
-| Azure Database for MySQL - Flexible Server (Microsoft.DBforMySQL/flexibleServers) | mysqlServer | privatelink.mysql.database.usgovcloudapi.net | mysql.database.usgovcloudapi.net |
-| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) | mariadbServer | privatelink.mariadb.database.usgovcloudapi.net| mariadb.database.usgovcloudapi.net |
-| Azure Cache for Redis (Microsoft.Cache/Redis) | redisCache | privatelink.redis.cache.usgovcloudapi.net | redis.cache.usgovcloudapi.net |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure SQL Database (Microsoft.Sql/servers) | sqlServer | privatelink.database.usgovcloudapi.net | database.usgovcloudapi.net |
+>| Azure SQL Managed Instance (Microsoft.Sql/managedInstances) | managedInstance | privatelink.{dnsPrefix}.database.usgovcloudapi.net | {instanceName}.{dnsPrefix}.database.usgovcloudapi.net |
+>| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Sql | privatelink.documents.azure.us | documents.azure.us |
+>| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.us | mongo.cosmos.azure.us |
+>| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.usgovcloudapi.net | postgres.database.usgovcloudapi.net |
+>| Azure Database for MySQL - Single Server (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.usgovcloudapi.net | mysql.database.usgovcloudapi.net |
+>| Azure Database for MySQL - Flexible Server (Microsoft.DBforMySQL/flexibleServers) | mysqlServer | privatelink.mysql.database.usgovcloudapi.net | mysql.database.usgovcloudapi.net |
+>| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) | mariadbServer | privatelink.mariadb.database.usgovcloudapi.net| mariadb.database.usgovcloudapi.net |
+>| Azure Cache for Redis (Microsoft.Cache/Redis) | redisCache | privatelink.redis.cache.usgovcloudapi.net | redis.cache.usgovcloudapi.net |
 
 ### Hybrid + multicloud
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
 
 ### Integration
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
-| Azure Event Grid (Microsoft.EventGrid/topics) | topic | privatelink.eventgrid.azure.us | eventgrid.azure.us |
-| Azure Event Grid (Microsoft.EventGrid/domains) | domain | privatelink.eventgrid.azure.us | eventgrid.azure.us |
-| Azure Health Data Services (Microsoft.HealthcareApis/workspaces) | healthcareworkspace | privatelink.workspace.azurehealthcareapis.us </br> privatelink.fhir.azurehealthcareapis.us </br> privatelink.dicom.azurehealthcareapis.us | workspace.azurehealthcareapis.us </br> fhir.azurehealthcareapis.us </br> dicom.azurehealthcareapis.us |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
+>| Azure Event Grid (Microsoft.EventGrid/topics) | topic | privatelink.eventgrid.azure.us | eventgrid.azure.us |
+>| Azure Event Grid (Microsoft.EventGrid/domains) | domain | privatelink.eventgrid.azure.us | eventgrid.azure.us |
+>| Azure Health Data Services (Microsoft.HealthcareApis/workspaces) | healthcareworkspace | privatelink.workspace.azurehealthcareapis.us </br> privatelink.fhir.azurehealthcareapis.us </br> privatelink.dicom.azurehealthcareapis.us | workspace.azurehealthcareapis.us </br> fhir.azurehealthcareapis.us </br> dicom.azurehealthcareapis.us |
 
 ### Internet of Things (IoT)
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure IoT Hub (Microsoft.Devices/IotHubs) | iotHub | privatelink.azure-devices.us<br/>privatelink.servicebus.windows.us<sup>1</sup> | azure-devices.us<br/>servicebus.usgovcloudapi.net |
-| Azure IoT Hub Device Provisioning Service (Microsoft.Devices/ProvisioningServices) | iotDps | privatelink.azure-devices-provisioning.us | azure-devices-provisioning.us |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure IoT Hub (Microsoft.Devices/IotHubs) | iotHub | privatelink.azure-devices.us<br/>privatelink.servicebus.windows.us<sup>1</sup> | azure-devices.us<br/>servicebus.usgovcloudapi.net |
+>| Azure IoT Hub Device Provisioning Service (Microsoft.Devices/ProvisioningServices) | iotDps | privatelink.azure-devices-provisioning.us | azure-devices-provisioning.us |
 
 ### Media
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
 
 ### Management and Governance
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Automation / (Microsoft.Automation/automationAccounts) | Webhook </br> DSCAndHybridWorker | privatelink.azure-automation.us | azure-automation.us |
-| Azure Backup (Microsoft.RecoveryServices/vaults) | AzureBackup | privatelink.{regionCode}.backup.windowsazure.us | {regionCode}.backup.windowsazure.us |
-| Azure Site Recovery (Microsoft.RecoveryServices/vaults) | AzureSiteRecovery | privatelink.siterecovery.windowsazure.us | {regionCode}.siterecovery.windowsazure.us |
-| Azure Monitor (Microsoft.Insights/privateLinkScopes) | azuremonitor | privatelink.monitor.azure.us <br/> privatelink.adx.monitor.azure.us <br/> privatelink.oms.opinsights.azure.us <br/> privatelink.ods.opinsights.azure.us <br/> privatelink.agentsvc.azure-automation.us <br/> privatelink.blob.core.usgovcloudapi.net | monitor.azure.us <br/> adx.monitor.azure.us <br/> oms.opinsights.azure.us<br/> ods.opinsights.azure.us<br/> agentsvc.azure-automation.us <br/> blob.core.usgovcloudapi.net |
-| Microsoft Purview (Microsoft.Purview) | account | privatelink.purview.azure.us | purview.azure.us |
-| Microsoft Purview (Microsoft.Purview) | portal | privatelink.purviewstudio.azure.us | purview.azure.com </br> purviewstudio.azure.us |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Automation / (Microsoft.Automation/automationAccounts) | Webhook </br> DSCAndHybridWorker | privatelink.azure-automation.us | azure-automation.us |
+>| Azure Backup (Microsoft.RecoveryServices/vaults) | AzureBackup | privatelink.{regionCode}.backup.windowsazure.us | {regionCode}.backup.windowsazure.us |
+>| Azure Site Recovery (Microsoft.RecoveryServices/vaults) | AzureSiteRecovery | privatelink.siterecovery.windowsazure.us | {regionCode}.siterecovery.windowsazure.us |
+>| Azure Monitor (Microsoft.Insights/privateLinkScopes) | azuremonitor | privatelink.monitor.azure.us <br/> privatelink.adx.monitor.azure.us <br/> privatelink.oms.opinsights.azure.us <br/> privatelink.ods.opinsights.azure.us <br/> privatelink.agentsvc.azure-automation.us <br/> privatelink.blob.core.usgovcloudapi.net | monitor.azure.us <br/> adx.monitor.azure.us <br/> oms.opinsights.azure.us<br/> ods.opinsights.azure.us<br/> agentsvc.azure-automation.us <br/> blob.core.usgovcloudapi.net |
+>| Microsoft Purview (Microsoft.Purview) | account | privatelink.purview.azure.us | purview.azure.us |
+>| Microsoft Purview (Microsoft.Purview) | portal | privatelink.purviewstudio.azure.us | purview.azure.com </br> purviewstudio.azure.us |
 
 ### Security
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Key Vault (Microsoft.KeyVault/vaults) | vault | privatelink.vaultcore.usgovcloudapi.net | vault.usgovcloudapi.net <br> vaultcore.usgovcloudapi.net |
-| Azure App Configuration (Microsoft.AppConfiguration/configurationStores) | configurationStores | privatelink.azconfig.azure.us | azconfig.azure.us |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Key Vault (Microsoft.KeyVault/vaults) | vault | privatelink.vaultcore.usgovcloudapi.net | vault.usgovcloudapi.net <br> vaultcore.usgovcloudapi.net |
+>| Azure App Configuration (Microsoft.AppConfiguration/configurationStores) | configurationStores | privatelink.azconfig.azure.us | azconfig.azure.us |
 
 ### Storage
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Storage account (Microsoft.Storage/storageAccounts) | blob </br> blob_secondary | privatelink.blob.core.usgovcloudapi.net | blob.core.usgovcloudapi.net |
-| Storage account (Microsoft.Storage/storageAccounts) | table </br> table_secondary | privatelink.table.core.usgovcloudapi.net | table.core.usgovcloudapi.net |
-| Storage account (Microsoft.Storage/storageAccounts) | queue </br> queue_secondary | privatelink.queue.core.usgovcloudapi.net | queue.core.usgovcloudapi.net |
-| Storage account (Microsoft.Storage/storageAccounts) | file </br> file_secondary | privatelink.file.core.usgovcloudapi.net | file.core.usgovcloudapi.net |
-| Storage account (Microsoft.Storage/storageAccounts) | web </br> web_secondary | privatelink.web.core.usgovcloudapi.net | web.core.usgovcloudapi.net |
-| Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) | dfs </br> dfs_secondary | privatelink.dfs.core.usgovcloudapi.net | dfs.core.usgovcloudapi.net |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Storage account (Microsoft.Storage/storageAccounts) | blob </br> blob_secondary | privatelink.blob.core.usgovcloudapi.net | blob.core.usgovcloudapi.net |
+>| Storage account (Microsoft.Storage/storageAccounts) | table </br> table_secondary | privatelink.table.core.usgovcloudapi.net | table.core.usgovcloudapi.net |
+>| Storage account (Microsoft.Storage/storageAccounts) | queue </br> queue_secondary | privatelink.queue.core.usgovcloudapi.net | queue.core.usgovcloudapi.net |
+>| Storage account (Microsoft.Storage/storageAccounts) | file </br> file_secondary | privatelink.file.core.usgovcloudapi.net | file.core.usgovcloudapi.net |
+>| Storage account (Microsoft.Storage/storageAccounts) | web </br> web_secondary | privatelink.web.core.usgovcloudapi.net | web.core.usgovcloudapi.net |
+>| Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) | dfs </br> dfs_secondary | privatelink.dfs.core.usgovcloudapi.net | dfs.core.usgovcloudapi.net |
 
 ### Web
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Search (Microsoft.Search/searchServices) | searchService | privatelink.search.windows.us | search.windows.us |
-| Azure Relay (Microsoft.Relay/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
-| Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.us </br> scm.privatelink.azurewebsites.us | azurewebsites.us </br> scm.azurewebsites.us |
-| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net | 
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Search (Microsoft.Search/searchServices) | searchService | privatelink.search.windows.us | search.windows.us |
+>| Azure Relay (Microsoft.Relay/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
+>| Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.us </br> scm.privatelink.azurewebsites.us | azurewebsites.us </br> scm.azurewebsites.us |
+>| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net | 
 
 >[!Note]
 >In the above text, `{regionCode}` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
@@ -334,104 +347,117 @@ For Azure services, use the recommended zone names as described in the following
 
 ### AI + Machine Learning
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.ml.azure.cn<br/>privatelink.notebooks.chinacloudapi.cn | api.ml.azure.cn<br/>notebooks.chinacloudapi.cn <br/> instances.azureml.cn <br/> aznbcontent.net <br/> inference.ml.azure.cn |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.ml.azure.cn<br/>privatelink.notebooks.chinacloudapi.cn | api.ml.azure.cn<br/>notebooks.chinacloudapi.cn <br/> instances.azureml.cn <br/> aznbcontent.net <br/> inference.ml.azure.cn |
 
 ### Analytics
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Data Factory (Microsoft.DataFactory/factories) | dataFactory | privatelink.datafactory.azure.cn | datafactory.azure.cn |
-| Azure Data Factory (Microsoft.DataFactory/factories) | portal | privatelink.adf.azure.cn | adf.azure.cn |
-| Azure HDInsight (Microsoft.HDInsight) | N/A | privatelink.azurehdinsight.cn | azurehdinsight.cn |
-| Azure Data Explorer (Microsoft.Kusto/Clusters) | cluster | privatelink.{regionName}.kusto.windows.cn | {regionName}.kusto.windows.cn |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Data Factory (Microsoft.DataFactory/factories) | dataFactory | privatelink.datafactory.azure.cn | datafactory.azure.cn |
+>| Azure Data Factory (Microsoft.DataFactory/factories) | portal | privatelink.adf.azure.cn | adf.azure.cn |
+>| Azure HDInsight (Microsoft.HDInsight) | N/A | privatelink.azurehdinsight.cn | azurehdinsight.cn |
+>| Azure Data Explorer (Microsoft.Kusto/Clusters) | cluster | privatelink.{regionName}.kusto.windows.cn | {regionName}.kusto.windows.cn |
 
 ### Compute
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Batch (Microsoft.Batch/batchAccounts) | batchAccount | privatelink.batch.chinacloudapi.cn | {region}.batch.chinacloudapi.cn |
-| Azure Batch (Microsoft.Batch/batchAccounts) | nodeManagement | privatelink.batch.chinacloudapi.cn | {region}.service.batch.chinacloudapi.cn |
-| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) | global | privatelink-global.wvd.azure.cn | wvd.azure.cn |
-| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces and Microsoft.DesktopVirtualization/hostpools) | feed </br> connection | privatelink.wvd.azure.cn | wvd.azure.cn |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Batch (Microsoft.Batch/batchAccounts) | batchAccount | privatelink.batch.chinacloudapi.cn | {region}.batch.chinacloudapi.cn |
+>| Azure Batch (Microsoft.Batch/batchAccounts) | nodeManagement | privatelink.batch.chinacloudapi.cn | {region}.service.batch.chinacloudapi.cn |
+>| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) | global | privatelink-global.wvd.azure.cn | wvd.azure.cn |
+>| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces and Microsoft.DesktopVirtualization/hostpools) | feed </br> connection | privatelink.wvd.azure.cn | wvd.azure.cn |
 
 ### Containers
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
 
 ### Databases
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure SQL Database (Microsoft.Sql/servers) | sqlServer | privatelink.database.chinacloudapi.cn | database.chinacloudapi.cn |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Sql | privatelink.documents.azure.cn | documents.azure.cn |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.cn | mongo.cosmos.azure.cn |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.cn | cassandra.cosmos.azure.cn |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.cn | gremlin.cosmos.azure.cn |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.cn | table.cosmos.azure.cn |
-| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.chinacloudapi.cn | postgres.database.chinacloudapi.cn |
-| Azure Database for MySQL - Single Server (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.chinacloudapi.cn | mysql.database.chinacloudapi.cn |
-| Azure Database for MySQL - Flexible Server (Microsoft.DBforMySQL/flexibleServers) | mysqlServer | privatelink.mysql.database.chinacloudapi.cn | mysql.database.chinacloudapi.cn |
-| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) | mariadbServer | privatelink.mariadb.database.chinacloudapi.cn | mariadb.database.chinacloudapi.cn |
-| Azure Cache for Redis (Microsoft.Cache/Redis) | redisCache | privatelink.redis.cache.chinacloudapi.cn | redis.cache.chinacloudapi.cn |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure SQL Database (Microsoft.Sql/servers) | sqlServer | privatelink.database.chinacloudapi.cn | database.chinacloudapi.cn |
+>| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Sql | privatelink.documents.azure.cn | documents.azure.cn |
+>| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.cn | mongo.cosmos.azure.cn |
+>| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.cn | cassandra.cosmos.azure.cn |
+>| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.cn | gremlin.cosmos.azure.cn |
+>| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.cn | table.cosmos.azure.cn |
+>| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.chinacloudapi.cn | postgres.database.chinacloudapi.cn |
+>| Azure Database for MySQL - Single Server (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.chinacloudapi.cn | mysql.database.chinacloudapi.cn |
+>| Azure Database for MySQL - Flexible Server (Microsoft.DBforMySQL/flexibleServers) | mysqlServer | privatelink.mysql.database.chinacloudapi.cn | mysql.database.chinacloudapi.cn |
+>| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) | mariadbServer | privatelink.mariadb.database.chinacloudapi.cn | mariadb.database.chinacloudapi.cn |
+>| Azure Cache for Redis (Microsoft.Cache/Redis) | redisCache | privatelink.redis.cache.chinacloudapi.cn | redis.cache.chinacloudapi.cn |
 
 ### Hybrid + multicloud
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
 
 ### Integration
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.chinacloudapi.cn | servicebus.chinacloudapi.cn |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.chinacloudapi.cn | servicebus.chinacloudapi.cn |
 
 ### Internet of Things (IoT)
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure IoT Hub (Microsoft.Devices/IotHubs) | iotHub | privatelink.azure-devices.cn <br/> privatelink.servicebus.chinacloudapi.cn <sup>1</sup> | azure-devices.cn<br/>servicebus.chinacloudapi.cn |
-| Azure IoT Hub Device Provisioning Service (Microsoft.Devices/ProvisioningServices) | iotDps | privatelink.azure-devices-provisioning.cn | azure-devices-provisioning.cn |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure IoT Hub (Microsoft.Devices/IotHubs) | iotHub | privatelink.azure-devices.cn <br/> privatelink.servicebus.chinacloudapi.cn <sup>1</sup> | azure-devices.cn<br/>servicebus.chinacloudapi.cn |
+>| Azure IoT Hub Device Provisioning Service (Microsoft.Devices/ProvisioningServices) | iotDps | privatelink.azure-devices-provisioning.cn | azure-devices-provisioning.cn |
 
 ### Media
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
 
 ### Management and Governance
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Automation / (Microsoft.Automation/automationAccounts) | Webhook </br> DSCAndHybridWorker | privatelink.azure-automation.cn | azure-automation.cn |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Automation / (Microsoft.Automation/automationAccounts) | Webhook </br> DSCAndHybridWorker | privatelink.azure-automation.cn | azure-automation.cn |
 
 ### Security
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Key Vault (Microsoft.KeyVault/vaults) | vault | privatelink.vaultcore.azure.cn | vaultcore.azure.cn |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Key Vault (Microsoft.KeyVault/vaults) | vault | privatelink.vaultcore.azure.cn | vaultcore.azure.cn |
 
 ### Storage
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Storage account (Microsoft.Storage/storageAccounts) | blob </br> blob_secondary | privatelink.blob.core.chinacloudapi.cn | blob.core.chinacloudapi.cn |
-| Storage account (Microsoft.Storage/storageAccounts) | table </br> table_secondary | privatelink.table.core.chinacloudapi.cn | table.core.chinacloudapi.cn |
-| Storage account (Microsoft.Storage/storageAccounts) | queue </br> queue_secondary | privatelink.queue.core.chinacloudapi.cn | queue.core.chinacloudapi.cn |
-| Storage account (Microsoft.Storage/storageAccounts) | file </br> file_secondary | privatelink.file.core.chinacloudapi.cn | file.core.chinacloudapi.cn |
-| Storage account (Microsoft.Storage/storageAccounts) | web </br> web_secondary | privatelink.web.core.chinacloudapi.cn | web.core.chinacloudapi.cn |
-| Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) | dfs </br> dfs_secondary | privatelink.dfs.core.chinacloudapi.cn | dfs.core.chinacloudapi.cn |
-| Azure File Sync (Microsoft.StorageSync/storageSyncServices) | afs | privatelink.afs.azure.cn | afs.azure.cn 
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Storage account (Microsoft.Storage/storageAccounts) | blob </br> blob_secondary | privatelink.blob.core.chinacloudapi.cn | blob.core.chinacloudapi.cn |
+>| Storage account (Microsoft.Storage/storageAccounts) | table </br> table_secondary | privatelink.table.core.chinacloudapi.cn | table.core.chinacloudapi.cn |
+>| Storage account (Microsoft.Storage/storageAccounts) | queue </br> queue_secondary | privatelink.queue.core.chinacloudapi.cn | queue.core.chinacloudapi.cn |
+>| Storage account (Microsoft.Storage/storageAccounts) | file </br> file_secondary | privatelink.file.core.chinacloudapi.cn | file.core.chinacloudapi.cn |
+>| Storage account (Microsoft.Storage/storageAccounts) | web </br> web_secondary | privatelink.web.core.chinacloudapi.cn | web.core.chinacloudapi.cn |
+>| Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) | dfs </br> dfs_secondary | privatelink.dfs.core.chinacloudapi.cn | dfs.core.chinacloudapi.cn |
+>| Azure File Sync (Microsoft.StorageSync/storageSyncServices) | afs | privatelink.afs.azure.cn | afs.azure.cn 
 
 ### Web
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.chinacloudapi.cn | servicebus.chinacloudapi.cn |
-| Azure Relay (Microsoft.Relay/namespaces) | namespace | privatelink.servicebus.chinacloudapi.cn | servicebus.chinacloudapi.cn |
-| Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.chinacloudsites.cn | chinacloudsites.cn |
-| SignalR (Microsoft.SignalRService/SignalR) | signalR | privatelink.signalr.azure.cn | service.signalr.azure.cn |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.chinacloudapi.cn | servicebus.chinacloudapi.cn |
+>| Azure Relay (Microsoft.Relay/namespaces) | namespace | privatelink.servicebus.chinacloudapi.cn | servicebus.chinacloudapi.cn |
+>| Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.chinacloudsites.cn | chinacloudsites.cn |
+>| SignalR (Microsoft.SignalRService/SignalR) | signalR | privatelink.signalr.azure.cn | service.signalr.azure.cn |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
 
