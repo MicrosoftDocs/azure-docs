@@ -26,10 +26,10 @@ You can use the following options to configure your DNS settings for private end
 
 - **Use Azure Private Resolver (optional)**. You can use Azure Private Resolver to override the DNS resolution for a private link resource. For more information about Azure Private Resolver, see [What is Azure Private Resolver?](../dns/dns-private-resolver-overview.md).
 
-> [!IMPORTANT]
-> It is not recommended to override a zone that's actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service listed later in this article.
+> [!CAUTION]
+> - It's not recommended to override a zone that's actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service listed later in this article.
 > 
-> Existing Private DNS Zones linked to a single service should not be associated with two different Private Endpoints. This will cause a deletion of the initial A-record and result in resolution issue when attempting to access that service from each respective Private Endpoint. However, linking a Private DNS Zones with private endpoints associated with different services would not face this resolution constraint.
+> - Existing Private DNS Zones linked to a single service should not be associated with two different Private Endpoints. This will cause a deletion of the initial A-record and result in resolution issue when attempting to access that service from each respective Private Endpoint. However, linking a Private DNS Zones with private endpoints associated with different services would not face this resolution constraint.
 
 ## Azure services DNS zone configuration
 
@@ -39,7 +39,7 @@ Connection URLs for your existing applications don't change. Client DNS requests
 
 Azure File Shares must be remounted if connected to the public endpoint.
 
-> [!IMPORTANT]
+> [!CAUTION]
 > * Private networks already using the private DNS zone for a given type, can only connect to public resources if they don't have any private endpoint connections, otherwise a corresponding DNS configuration is required on the private DNS zone in order to complete the DNS resolution sequence. The corresponding DNS configuration is a manually entered A-record that points to the public IP address of the resource. This procedure isn't recommended as the IP address of the A record won't be automatically updated if the corresponding public IP address changes.
 >
 > * Private endpoint private DNS zone configurations will only automatically generate if you use the recommended naming scheme in the following table.
@@ -60,129 +60,141 @@ For Azure services, use the recommended zone names as described in the following
 
 ### Analytics
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Synapse Analytics (Microsoft.Synapse/workspaces) | Sql | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
-| Azure Synapse Analytics (Microsoft.Synapse/workspaces) | Dev | privatelink.dev.azuresynapse.net | dev.azuresynapse.net |
-| Azure Synapse Studio (Microsoft.Synapse/privateLinkHubs) | Web | privatelink.azuresynapse.net | azuresynapse.net |
-| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
-| Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
-| Azure Data Factory (Microsoft.DataFactory/factories) | dataFactory | privatelink.datafactory.azure.net | datafactory.azure.net |
-| Azure Data Factory (Microsoft.DataFactory/factories) | portal | privatelink.adf.azure.com | adf.azure.com |
-| Azure HDInsight (Microsoft.HDInsight/clusters) | N/A | privatelink.azurehdinsight.net | azurehdinsight.net |
-| Azure Data Explorer (Microsoft.Kusto/Clusters) | cluster | privatelink.{regionName}.kusto.windows.net | {regionName}.kusto.windows.net |
-| Microsoft Power BI (Microsoft.PowerBI/privateLinkServicesForPowerBI) | tenant | privatelink.analysis.windows.net </br> privatelink.pbidedicated.windows.net </br> privatelink.tip1.powerquery.microsoft.com | analysis.windows.net </br> pbidedicated.windows.net </br> tip1.powerquery.microsoft.com |
-| Azure Databricks (Microsoft.Databricks/workspaces) | databricks_ui_api </br> browser_authentication | privatelink.azuredatabricks.net | azuredatabricks.net |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Synapse Analytics (Microsoft.Synapse/workspaces) | Sql | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
+>| Azure Synapse Analytics (Microsoft.Synapse/workspaces) | Dev | privatelink.dev.azuresynapse.net | dev.azuresynapse.net |
+>| Azure Synapse Studio (Microsoft.Synapse/privateLinkHubs) | Web | privatelink.azuresynapse.net | azuresynapse.net |
+>| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
+>| Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
+>| Azure Data Factory (Microsoft.DataFactory/factories) | dataFactory | privatelink.datafactory.azure.net | datafactory.azure.net |
+>| Azure Data Factory (Microsoft.DataFactory/factories) | portal | privatelink.adf.azure.com | adf.azure.com |
+>| Azure HDInsight (Microsoft.HDInsight/clusters) | N/A | privatelink.azurehdinsight.net | azurehdinsight.net |
+>| Azure Data Explorer (Microsoft.Kusto/Clusters) | cluster | privatelink.{regionName}.kusto.windows.net | {regionName}.kusto.windows.net |
+>| Microsoft Power BI (Microsoft.PowerBI/privateLinkServicesForPowerBI) | tenant | privatelink.analysis.windows.net </br> privatelink.pbidedicated.windows.net </br> privatelink.tip1.powerquery.microsoft.com | analysis.windows.net </br> pbidedicated.windows.net </br> tip1.powerquery.microsoft.com |
+>| Azure Databricks (Microsoft.Databricks/workspaces) | databricks_ui_api </br> browser_authentication | privatelink.azuredatabricks.net | azuredatabricks.net |
 
 ### Compute
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Batch (Microsoft.Batch/batchAccounts) | batchAccount | {regionName}.privatelink.batch.azure.com | {regionName}.batch.azure.com |
-| Azure Batch (Microsoft.Batch/batchAccounts) | nodeManagement | {regionName}.service.privatelink.batch.azure.com | {regionName}.service.batch.azure.com |
-| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) | global | privatelink-global.wvd.microsoft.com | wvd.microsoft.com |
-| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces </br> Microsoft.DesktopVirtualization/hostpools) | feed <br> connection | privatelink.wvd.microsoft.com | wvd.microsoft.com |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Batch (Microsoft.Batch/batchAccounts) | batchAccount | {regionName}.privatelink.batch.azure.com | {regionName}.batch.azure.com |
+>| Azure Batch (Microsoft.Batch/batchAccounts) | nodeManagement | {regionName}.service.privatelink.batch.azure.com | {regionName}.service.batch.azure.com |
+>| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) | global | privatelink-global.wvd.microsoft.com | wvd.microsoft.com |
+>| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces </br> Microsoft.DesktopVirtualization/hostpools) | feed <br> connection | privatelink.wvd.microsoft.com | wvd.microsoft.com |
 
 ### Containers
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters) | management | privatelink.{regionName}.azmk8s.io </br> {subzone}.privatelink.{regionName}.azmk8s.io | {regionName}.azmk8s.io |
-| Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.io </br> {regionName}.privatelink.azurecr.io | azurecr.io </br> {regionName}.azurecr.io |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters) | management | privatelink.{regionName}.azmk8s.io </br> {subzone}.privatelink.{regionName}.azmk8s.io | {regionName}.azmk8s.io |
+>| Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.io </br> {regionName}.privatelink.azurecr.io | azurecr.io </br> {regionName}.azurecr.io |
 
 ### Databases
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure SQL Database (Microsoft.Sql/servers) | sqlServer | privatelink.database.windows.net | database.windows.net |
-| Azure SQL Managed Instance (Microsoft.Sql/managedInstances) | managedInstance | privatelink.{dnsPrefix}.database.windows.net | {instanceName}.{dnsPrefix}.database.windows.net |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Sql | privatelink.documents.azure.com | documents.azure.com |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.com | mongo.cosmos.azure.com |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
-| Azure Cosmos DB (Microsoft.DBforPostgreSQL/serverGroupsv2) | coordinator | privatelink.postgres.cosmos.azure.com | postgres.cosmos.azure.com |
-| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
-| Azure Database for MySQL - Single Server (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
-| Azure Database for MySQL - Flexible Server (Microsoft.DBforMySQL/flexibleServers) | mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
-| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) | mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
-| Azure Cache for Redis (Microsoft.Cache/Redis) | redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
-| Azure Cache for Redis Enterprise (Microsoft.Cache/RedisEnterprise) | redisEnterprise | privatelink.redisenterprise.cache.azure.net | redisenterprise.cache.azure.net |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure SQL Database (Microsoft.Sql/servers) | sqlServer | privatelink.database.windows.net | database.windows.net |
+>| Azure SQL Managed Instance (Microsoft.Sql/managedInstances) | managedInstance | privatelink.{dnsPrefix}.database.windows.net | {instanceName}.{dnsPrefix}.database.windows.net |
+>| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Sql | privatelink.documents.azure.com | documents.azure.com |
+>| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.com | mongo.cosmos.azure.com |
+>| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
+>| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
+>| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
+>| Azure Cosmos DB (Microsoft.DBforPostgreSQL/serverGroupsv2) | coordinator | privatelink.postgres.cosmos.azure.com | postgres.cosmos.azure.com |
+>| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
+>| Azure Database for MySQL - Single Server (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
+>| Azure Database for MySQL - Flexible Server (Microsoft.DBforMySQL/flexibleServers) | mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
+>| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) | mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
+>| Azure Cache for Redis (Microsoft.Cache/Redis) | redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
+>| Azure Cache for Redis Enterprise (Microsoft.Cache/RedisEnterprise) | redisEnterprise | privatelink.redisenterprise.cache.azure.net | redisenterprise.cache.azure.net |
 
 ### Hybrid + multicloud
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Arc (Microsoft.HybridCompute/privateLinkScopes) | hybridcompute | privatelink.his.arc.azure.com <br/> privatelink.guestconfiguration.azure.com </br> privatelink.dp.kubernetesconfiguration.azure.com | his.arc.azure.com <br/> guestconfiguration.azure.com </br> dp.kubernetesconfiguration.azure.com |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Arc (Microsoft.HybridCompute/privateLinkScopes) | hybridcompute | privatelink.his.arc.azure.com <br/> privatelink.guestconfiguration.azure.com </br> privatelink.dp.kubernetesconfiguration.azure.com | his.arc.azure.com <br/> guestconfiguration.azure.com </br> dp.kubernetesconfiguration.azure.com |
 
 ### Integration
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
-| Azure Event Grid (Microsoft.EventGrid/topics) | topic | privatelink.eventgrid.azure.net | eventgrid.azure.net |
-| Azure Event Grid (Microsoft.EventGrid/domains) | domain | privatelink.eventgrid.azure.net | eventgrid.azure.net |
-| Azure API Management (Microsoft.ApiManagement/service) | gateway | privatelink.azure-api.net | azure-api.net |
-| Azure Health Data Services (Microsoft.HealthcareApis/workspaces) | healthcareworkspace | privatelink.workspace.azurehealthcareapis.com </br> privatelink.fhir.azurehealthcareapis.com </br> privatelink.dicom.azurehealthcareapis.com | workspace.azurehealthcareapis.com </br> fhir.azurehealthcareapis.com </br> dicom.azurehealthcareapis.com |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
+>| Azure Event Grid (Microsoft.EventGrid/topics) | topic | privatelink.eventgrid.azure.net | eventgrid.azure.net |
+>| Azure Event Grid (Microsoft.EventGrid/domains) | domain | privatelink.eventgrid.azure.net | eventgrid.azure.net |
+>| Azure API Management (Microsoft.ApiManagement/service) | gateway | privatelink.azure-api.net | azure-api.net |
+>| Azure Health Data Services (Microsoft.HealthcareApis/workspaces) | healthcareworkspace | privatelink.workspace.azurehealthcareapis.com </br> privatelink.fhir.azurehealthcareapis.com </br> privatelink.dicom.azurehealthcareapis.com | workspace.azurehealthcareapis.com </br> fhir.azurehealthcareapis.com </br> dicom.azurehealthcareapis.com |
 
 ### Internet of Things (IoT)
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure IoT Hub (Microsoft.Devices/IotHubs) | iotHub | privatelink.azure-devices.net<br/>privatelink.servicebus.windows.net<sup>1</sup> | azure-devices.net<br/>servicebus.windows.net |
-| Azure IoT Hub Device Provisioning Service (Microsoft.Devices/ProvisioningServices) | iotDps | privatelink.azure-devices-provisioning.net | azure-devices-provisioning.net |
-| Azure Digital Twins (Microsoft.DigitalTwins/digitalTwinsInstances) | digitalTwinsInstances | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure IoT Hub (Microsoft.Devices/IotHubs) | iotHub | privatelink.azure-devices.net<br/>privatelink.servicebus.windows.net<sup>1</sup> | azure-devices.net<br/>servicebus.windows.net |
+>| Azure IoT Hub Device Provisioning Service (Microsoft.Devices/ProvisioningServices) | iotDps | privatelink.azure-devices-provisioning.net | azure-devices-provisioning.net |
+>| Azure Digital Twins (Microsoft.DigitalTwins/digitalTwinsInstances) | digitalTwinsInstances | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
 
 ### Media
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Media Services (Microsoft.Media/mediaservices) | keydelivery </br> liveevent </br> streamingendpoint | privatelink.media.azure.net | media.azure.net |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Media Services (Microsoft.Media/mediaservices) | keydelivery </br> liveevent </br> streamingendpoint | privatelink.media.azure.net | media.azure.net |
 
 ### Management and Governance
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Automation (Microsoft.Automation/automationAccounts) | Webhook <br> DSCAndHybridWorker | privatelink.azure-automation.net | {regionCode}.azure-automation.net |
-| Azure Backup (Microsoft.RecoveryServices/vaults) | AzureBackup | privatelink.{regionCode}.backup.windowsazure.com | {regionCode}.backup.windowsazure.com |
-| Azure Site Recovery (Microsoft.RecoveryServices/vaults) | AzureSiteRecovery | privatelink.siterecovery.windowsazure.com | {regionCode}.siterecovery.windowsazure.com |
-| Azure Monitor (Microsoft.Insights/privateLinkScopes) | azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net <br/> privatelink.blob.core.windows.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net <br/> blob.core.windows.net |
-| Microsoft Purview (Microsoft.Purview/accounts) | account | privatelink.purview.azure.com | purview.azure.com |
-| Microsoft Purview (Microsoft.Purview/accounts) | portal | privatelink.purviewstudio.azure.com | purview.azure.com </br> purviewstudio.azure.com |
-| Azure Migrate (Microsoft.Migrate/migrateProjects) | Default | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
-| Azure Migrate (Microsoft.Migrate/assessmentProjects) | Default | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
-| Azure Resource Manager (Microsoft.Authorization/resourceManagementPrivateLinks) | ResourceManagement | privatelink.azure.com | azure.com |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Automation (Microsoft.Automation/automationAccounts) | Webhook <br> DSCAndHybridWorker | privatelink.azure-automation.net | {regionCode}.azure-automation.net |
+>| Azure Backup (Microsoft.RecoveryServices/vaults) | AzureBackup | privatelink.{regionCode}.backup.windowsazure.com | {regionCode}.backup.windowsazure.com |
+>| Azure Site Recovery (Microsoft.RecoveryServices/vaults) | AzureSiteRecovery | privatelink.siterecovery.windowsazure.com | {regionCode}.siterecovery.windowsazure.com |
+>| Azure Monitor (Microsoft.Insights/privateLinkScopes) | azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net <br/> privatelink.blob.core.windows.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net <br/> blob.core.windows.net |
+>| Microsoft Purview (Microsoft.Purview/accounts) | account | privatelink.purview.azure.com | purview.azure.com |
+>| Microsoft Purview (Microsoft.Purview/accounts) | portal | privatelink.purviewstudio.azure.com | purview.azure.com </br> purviewstudio.azure.com |
+>| Azure Migrate (Microsoft.Migrate/migrateProjects) | Default | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
+>| Azure Migrate (Microsoft.Migrate/assessmentProjects) | Default | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
+>| Azure Resource Manager (Microsoft.Authorization/resourceManagementPrivateLinks) | ResourceManagement | privatelink.azure.com | azure.com |
 
 ### Security
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Key Vault (Microsoft.KeyVault/vaults) | vault | privatelink.vaultcore.azure.net | vault.azure.net <br> vaultcore.azure.net |
-| Azure Key Vault (Microsoft.KeyVault/managedHSMs) | managedhsm | privatelink.managedhsm.azure.net | managedhsm.azure.net 
-| Azure App Configuration (Microsoft.AppConfiguration/configurationStores) | configurationStores | privatelink.azconfig.io | azconfig.io |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Key Vault (Microsoft.KeyVault/vaults) | vault | privatelink.vaultcore.azure.net | vault.azure.net <br> vaultcore.azure.net |
+>| Azure Key Vault (Microsoft.KeyVault/managedHSMs) | managedhsm | privatelink.managedhsm.azure.net | managedhsm.azure.net 
+>| Azure App Configuration (Microsoft.AppConfiguration/configurationStores) | configurationStores | privatelink.azconfig.io | azconfig.io |
 
 ### Storage
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Storage account (Microsoft.Storage/storageAccounts) | blob </br> blob_secondary | privatelink.blob.core.windows.net | blob.core.windows.net |
-| Storage account (Microsoft.Storage/storageAccounts) | table </br> table_secondary | privatelink.table.core.windows.net | table.core.windows.net |
-| Storage account (Microsoft.Storage/storageAccounts) | queue </br> queue_secondary | privatelink.queue.core.windows.net | queue.core.windows.net |
-| Storage account (Microsoft.Storage/storageAccounts) | file | privatelink.file.core.windows.net | file.core.windows.net |
-| Storage account (Microsoft.Storage/storageAccounts) | web </br> web_secondary | privatelink.web.core.windows.net | web.core.windows.net |
-| Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) | dfs </br> dfs_secondary | privatelink.dfs.core.windows.net | dfs.core.windows.net |
-| Azure File Sync (Microsoft.StorageSync/storageSyncServices) | afs | privatelink.afs.azure.net | afs.azure.net |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Storage account (Microsoft.Storage/storageAccounts) | blob </br> blob_secondary | privatelink.blob.core.windows.net | blob.core.windows.net |
+>| Storage account (Microsoft.Storage/storageAccounts) | table </br> table_secondary | privatelink.table.core.windows.net | table.core.windows.net |
+>| Storage account (Microsoft.Storage/storageAccounts) | queue </br> queue_secondary | privatelink.queue.core.windows.net | queue.core.windows.net |
+>| Storage account (Microsoft.Storage/storageAccounts) | file | privatelink.file.core.windows.net | file.core.windows.net |
+>| Storage account (Microsoft.Storage/storageAccounts) | web </br> web_secondary | privatelink.web.core.windows.net | web.core.windows.net |
+>| Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) | dfs </br> dfs_secondary | privatelink.dfs.core.windows.net | dfs.core.windows.net |
+>| Azure File Sync (Microsoft.StorageSync/storageSyncServices) | afs | privatelink.afs.azure.net | afs.azure.net |
 
 ### Web
 
-| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
-| Azure Search (Microsoft.Search/searchServices) | searchService | privatelink.search.windows.net | search.windows.net |
-| Azure Relay (Microsoft.Relay/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
-| Azure Web Apps - Azure Function Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.net </br> scm.privatelink.azurewebsites.net | azurewebsites.net </br> scm.azurewebsites.net |
-| SignalR (Microsoft.SignalRService/SignalR) | signalR | privatelink.service.signalr.net | service.signalr.net |
-| Azure Static Web Apps (Microsoft.Web/staticSites) | staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
-| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
+>[!div class="mx-tdBreakAll"]
+>| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+>|---|---|---|---|
+>| Azure Search (Microsoft.Search/searchServices) | searchService | privatelink.search.windows.net | search.windows.net |
+>| Azure Relay (Microsoft.Relay/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
+>| Azure Web Apps - Azure Function Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.net </br> scm.privatelink.azurewebsites.net | azurewebsites.net </br> scm.azurewebsites.net |
+>| SignalR (Microsoft.SignalRService/SignalR) | signalR | privatelink.service.signalr.net | service.signalr.net |
+>| Azure Static Web Apps (Microsoft.Web/staticSites) | staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
+>| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
 

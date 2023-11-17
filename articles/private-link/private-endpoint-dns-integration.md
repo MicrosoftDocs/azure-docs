@@ -14,7 +14,7 @@ ms.custom: fasttrack-edit
 
 Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your virtual network, effectively bringing the service into your virtual network. The service can be an Azure service such as Azure Storage, Azure Cosmos DB, SQL, etc., or your own Private Link Service. This article describes DNS configuration scenarios for Azure Private Endpoint.
 
-**For private DNS zone settings for Azure services that support a a private endpoint, see [Azure Private Endpoint private DNS zone values](private-endpoint-dns.md).**
+**For private DNS zone settings for Azure services that support a private endpoint, see [Azure Private Endpoint private DNS zone values](private-endpoint-dns.md).**
 
 ## DNS configuration scenarios
 
