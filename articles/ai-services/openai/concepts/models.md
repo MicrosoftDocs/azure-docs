@@ -98,7 +98,7 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 > [!NOTE]
 > Regions where GPT-4 (0314) & (0613) are listed as available have access to both the 8K and 32K versions of the model
 
-### GPT-4 and GPT-4 Turbo Previw model availability
+### GPT-4 and GPT-4 Turbo Preview model availability
 
 | Model Availability | gpt-4 (0314) | gpt-4 (0613) | gpt-4 (1106-preview) |
 |---|:---|:---|:---|
