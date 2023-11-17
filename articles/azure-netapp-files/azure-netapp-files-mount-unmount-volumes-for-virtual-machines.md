@@ -15,12 +15,31 @@ You can mount an NFS file for Windows or Linux virtual machines (VMs).
 ## Requirements 
 
 * You must have at least one export policy to be able to access an NFS volume.
-* To mount an NFS volume successfully, ensure that the following NFS ports are open between the client and the NFS volumes:
-    * 111 TCP/UDP = `RPCBIND/Portmapper`
-    * 635 TCP/UDP = `mountd`
-    * 2049 TCP/UDP = `nfs`
-    * 4045 TCP/UDP = `nlockmgr` (NFSv3 only)
-    * 4046 TCP/UDP = `status` (NFSv3 only)
+* Since NFS is a network attached service, it requires specific network ports to be opened across firewalls to ensure proper functionality. Ensure your configuration aligns:
+    * Port 2049 TCP/UDP – This is the NFS port. It's **required** for NFS traffic for both **NFSv3** and **NFSv4.1** communication in Azure NetApp Files. **NFSv4.1** uses _only_ port 2049.
+    *	Port 111 TCP/UDP – This is the `portmapper` port. It's used to negotiate which ports are used in NFS requests for **NFSv3** only. It is **required** for proper NFSv3 operation.
+    * Port 635 TCP/UDP – This is the `mountd` port. It's used by the Azure NetApp Files NFS server to receive incoming mount requests for **NFSv3** only. It is **required** for proper **NFSv3** operation.
+    *	Port 4045 TCP/UDP – This is the lock manager port. It's used by the Azure NetApp Files NFS server to handle lock requests for **NFSv3** only. It is **required** for proper **NFSv3** operation.
+    *	Port 4046 TCP/UDP – This is the lock status manager port. It's used by the Azure NetApp Files NFS server to monitor locks for **NFSv3** only. It is **required** for proper **NFSv3** operation.
+    *	Port 4049 TCP/UDP – This is the [`rquotad`](https://linux.die.net/man/8/rpc.rquotad) port. It's used by the Azure NetApp Files NFS server to service client-side `rquota` requests for **NFSv3** only. It is **optional** for proper **NFSv3** operation.
+    
+### About outbound client ports
+
+Outbound client port requests leverage a port range for NFS connectivity. For instance, while the Azure NetApp Files mount port is static at 635, a client can initiate a connection using a dynamic port number in the range of 1 to 1024. (for example, 1010 -> 635)
+
+Since there are only 1023 ports in that range, concurrent mount requests should be limited to below that amount. Otherwise, mount attempts fail if no available outgoing ports are available at the time of the request. Mount requests are ephemeral, so once the mount is established, the outbound client mount port frees up the connection.
+
+If mounting using UDP, once the mount request completes, a port isn't freed for up to 60 seconds. If mounting with TCP specified in the mount options, then the mount port is freed upon completion.
+
+Outbound client requests for NFS (directed to port 2049) allow up to 65,534 concurrent client ports per Azure NetApp Files NFS server. Once an NFS request is complete, the port is returned to the pool.
+
+### Network address translation and firewalls
+
+If a network address translation (NAT) or firewall sits between the NFS client and server, consider:
+
+*	NFS maintains a reply cache to keep track of certain operations to make sure that they've been completed. This reply cache is based on the source port and source IP address. When NAT is used in NFS operations, the source IP or port might change in flight, which could lead to data resiliency issues. If NAT is used, static entries for the NFS server IP and port should be added to make sure that data remains consistent.
+*	In addition, NAT can also cause issues with NFS mounts hanging due to how NAT handles idle sessions. If using NAT, the configuration should take idle sessions into account and leave them open indefinitely to prevent issues. NAT can also create issues with NLM lock reclamation.
+*	Some firewalls might drop idle TCP connections after a set amount of time. For example, if a client has an NFS mount connected, but doesn’t use it for a while, it’s deemed idle. When this occurs, client access to mounts can hang because the network connection has been severed by the firewall. `Keepalives` can help prevent this, but it's better to address potential idle clients by configuring firewalls to not actively reject packets from stale sessions.
 
 ## Mount NFS volumes on Linux clients
 
