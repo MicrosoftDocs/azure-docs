@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "scripts/powershell-webhook-secure-delivery-microsoft-entra-user.md",
+      "redirect_url": "scripts/powershell-webhook-secure-delivery-microsoft-entra-user",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "scripts/powershell-webhook-secure-delivery-microsoft-entra-app.md",
+      "redirect_url": "scripts/powershell-webhook-secure-delivery-microsoft-entra-app",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "mqtt-client-azure-ad-token-and-rbac.md",
       "redirect_url": "/azure/event-grid/mqtt-client-microsoft-entra-token-and-rbac",
       "redirect_document_id": false
@@ -181,8 +191,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-app.md",
-      "redirect_url": "/azure/event-grid/scripts/powershell-webhook-secure-delivery-azure-ad-app",
+      "source_path": "scripts/event-grid-powershell-webhook-secure-delivery-microsoft-entra-app.md",
+      "redirect_url": "/azure/event-grid/scripts/powershell-webhook-secure-delivery-microsoft-entra-app",
       "redirect_document_id": false
     },
     {

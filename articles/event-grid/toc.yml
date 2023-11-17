@@ -268,7 +268,7 @@ items:
         - name: Subscribe and filter events for resource group
           href: scripts/powershell-resource-group-filter.md
         - name: Secure WebHook delivery with Microsoft Entra App in Azure Event Grid
-          href: scripts/powershell-webhook-secure-delivery-azure-ad-app.md
+          href: scripts/powershell-webhook-secure-delivery-microsoft-entra-app.md
         - name: Secure WebHook delivery with Microsoft Entra user in Azure Event Grid
           href: scripts/powershell-webhook-secure-delivery-azure-ad-user.md
       - name: Resource Manager templates
