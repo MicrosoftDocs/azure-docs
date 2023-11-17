@@ -68,6 +68,8 @@ items:
       href: ./how-to/completions.md
     - name: JSON mode
       href: ./how-to/json-mode.md
+    - name: Reproducible outputs
+      href: ./how-to/reproducible-outputs.md
     - name: Work with code
       href: ./how-to/work-with-code.md
     - name: Use with large datasets
