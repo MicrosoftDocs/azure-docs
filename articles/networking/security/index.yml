@@ -32,12 +32,6 @@ highlightedContent:
     - title: Azure Networking security blog
       itemType: concept
       url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/bg-p/AzureNetworkSecurityBlog
-    - title: How to use Azure Bastion to connect securely to your Azure VMs
-      itemType: video
-      url: https://www.youtube.com/watch?v=WElUQm02BTU&list=PLLasX02E8BPDT2Z2pdCHNCkENpcQWy5n6&index=79
-    - title: What is Azure Web Application Firewall?
-      itemType: video
-      url: https://www.microsoft.com/en-us/videoplayer/embed/RWCwkM
     - title: Azure network security webinars
       itemType: video
       url: https://techcommunity.microsoft.com/t5/security-compliance-and-identity/recordings-security-community-webinars/ba-p/2865990
