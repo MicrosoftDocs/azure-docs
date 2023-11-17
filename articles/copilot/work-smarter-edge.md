@@ -3,7 +3,7 @@ title: Work smarter with your Azure Stack HCI clusters using Microsoft Copilot f
 description: Learn about scenarios where Microsoft Copilot for Azure (preview) can help you work with your Azure Stack HCI clusters.
 ms.date: 11/15/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure

@@ -2,7 +2,7 @@
 title: Conversational Language Understanding Project Versioning
 titleSuffix: Azure AI services
 description: Learn how versioning works in conversational language understanding
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

@@ -2,7 +2,7 @@
 title: Confidence score - question answering
 titleSuffix: Azure AI services
 description: When a user query is matched against a knowledge base, question answering returns relevant answers, along with a confidence score.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: jboback
 ms.author: jboback
