@@ -1008,7 +1008,7 @@ This section describes the new features introduced or enabled for this release.
 ## Next steps
 
 > **Just want to try things out?**
-> Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on AKS, AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
+> Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data) on AKS, AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
 - [Install the client tools](install-client-tools.md)
 - [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md) (requires installing the client tools first)
