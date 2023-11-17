@@ -1,5 +1,5 @@
 ---
-title: Register a single-page application (SPA) in Azure Active Directory B2C
+title: Register a single-page application in Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Follow this guide to learn how to register a single-page application (SPA) in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
@@ -9,13 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 11/20/2023
 ms.custom: project-no-code 
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Register a single-page application (SPA) in Azure Active Directory B2C
+# Register a single-page application in Azure Active Directory B2C
 
 Before your [applications](application-types.md) can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. This guide shows you how to register a single-page application ("SPA") using the Azure portal.
 
@@ -94,11 +94,7 @@ When all your production SPA represented by an app registration starts using the
 
 Applications using the implicit flow can continue to function if you leave the implicit flow enabled (checked).
 
-* * *
 
 ## Next steps
 
-Next, learn how to create user flows to enable your users to sign up, sign in, and manage their profiles.
-
-> [!div class="nextstepaction"]
-> [Create user flows in Azure Active Directory B2C >](tutorial-create-user-flows.md)
+Learn how to [Create user flows in Azure Active Directory B2C >](tutorial-create-user-flows.md).
