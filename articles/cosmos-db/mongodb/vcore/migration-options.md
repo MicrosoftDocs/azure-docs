@@ -18,7 +18,7 @@ This document describes the various options to lift and shift your MongoDB workl
 
 ## Azure Data Studio (Offline)
 
-The [Azure Cosmos DB Migration for MongoDB extension](azure-data-studio/extensions/database-migration-for-mongo-extension)  helps you in migrating your MongoDB workloads to Azure Cosmos DB. The migration process has 2 phases:
+The [Azure Cosmos DB Migration for MongoDB extension](/azure-data-studio/extensions/database-migration-for-mongo-extension)  helps you in migrating your MongoDB workloads to Azure Cosmos DB. The migration process has 2 phases:
 ### Premigration assessment
 
 Assessment involves finding out whether you're using the [features and syntax that are supported](./compatibility.md). The purpose of this stage is to identify any incompatibilities or warnings that may exist. You should resolve the issues found in the assessment results before moving on with the migration process.
