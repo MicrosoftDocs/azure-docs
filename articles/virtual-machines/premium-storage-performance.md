@@ -1,6 +1,6 @@
 ---
-title: 'Azure Premium Storage: Design for high performance'
-description: Design high-performance applications by using Azure premium SSD managed disks. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
+title: 'Premium Storage: Design for high performance'
+description: Design high-performance apps by using Azure Premium SSD managed disks. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure VMs.
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: conceptual
@@ -8,11 +8,11 @@ ms.date: 06/29/2021
 ms.author: rogarana
 ---
 
-# Azure Premium Storage: Design for high performance
+# Premium Storage: Design for high performance
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-This article provides guidelines for building high-performance applications by using Azure Premium Storage. You can use the instructions provided in this document combined with performance best practices applicable to technologies used by your application. To illustrate the guidelines, we use SQL Server running on Premium Storage as an example throughout this document.
+This article provides guidelines for building high-performance applications by using the Azure Storage Premium tier (Premium Storage). You can use the instructions provided in this document combined with performance best practices applicable to technologies used by your application. To illustrate the guidelines, we use SQL Server running on Premium Storage as an example throughout this document.
 
 While we address performance scenarios for the storage layer in this article, you need to optimize the application layer. For example, if you're hosting a SharePoint Farm on Premium Storage, you can use the SQL Server examples from this article to optimize the database server. You can also optimize the SharePoint Farm's web server and application server to get the most performance.
 
@@ -63,7 +63,7 @@ When you attach a premium storage disk to your high-scale VM, Azure provisions f
 
 Throughput, or bandwidth, is the amount of data that your application is sending to the storage disks in a specified interval. If your application is performing input/output operations with large I/O unit sizes, it requires high throughput. Data warehouse applications tend to issue scan-intensive operations that access large portions of data at a time and commonly perform bulk operations. In other words, such applications require higher throughput. If you have such an application, you must design its infrastructure to optimize for throughput. In the next section, we discuss the factors you must tune to achieve this optimization.
 
-When you attach a premium storage disk to a high-scale VM, Azure provisions throughput according to that disk specification. For example, a P50 disk provisions 250 MB per second disk throughput. Each high-scale VM size also has a specific throughput limit that it can sustain. For example, Standard GS5 VM has a maximum throughput of 2,000 MB per second.
+When you attach a premium storage disk to a high-scale VM, Azure provisions throughput according to that disk specification. For example, a P50 disk provisions 250 MB/sec disk throughput. Each high-scale VM size also has a specific throughput limit that it can sustain. For example, Standard GS5 VM has a maximum throughput of 2,000 MB/sec.
 
 There's a relation between throughput and IOPS, as shown in the following formula.
 
@@ -73,7 +73,7 @@ It's important to determine the optimal throughput and IOPS values that your app
 
 ## Latency
 
-Latency is the time it takes an application to receive a single request, send it to storage disks, and send the response to the client. Latency is a critical measure of an application's performance in addition to IOPS and throughput. The latency of a premium storage disk is the time it takes to retrieve the information for a request and communicate it back to your application. Premium Storage provides consistently low latencies. Premium Disks are designed to provide single-digit millisecond latencies for most I/O operations. If you enable `ReadOnly` host caching on premium storage disks, you can get much lower read latency. For more information on disk caching, see [Disk caching](#disk-caching).
+Latency is the time it takes an application to receive a single request, send it to storage disks, and send the response to the client. Latency is a critical measure of an application's performance in addition to IOPS and throughput. The latency of a premium storage disk is the time it takes to retrieve the information for a request and communicate it back to your application. Premium Storage provides consistently low latencies. Premium Disks are designed to provide single-digit millisecond latencies for most I/O operations. If you enable **ReadOnly** host caching on premium storage disks, you can get much lower read latency. For more information on disk caching, see [Disk caching](#disk-caching).
 
 When you optimize your application to get higher IOPS and throughput, it affects the latency of your application. After you tune the application performance, always evaluate the latency of the application to avoid unexpected high latency behavior.
 
@@ -134,9 +134,9 @@ On Linux, the `iostat` command generates a CPU and disk utilization report. The 
 
 | Counter | Description | PerfMon | iostat |
 | --- | --- | --- | --- |
-| IOPS or transactions per second |Number of I/O requests issued to the storage disk per second |Disk reads/sec <br> Disk writes/sec |tps <br> r/s <br> w/s |
+| IOPS or transactions/sec |Number of I/O requests issued to the storage disk/sec |Disk reads/sec <br> Disk writes/sec |tps <br> r/s <br> w/s |
 | Disk reads and writes |% of read and write operations performed on the disk |% Disk read time <br> % Disk write time |r/s <br> w/s |
-| Throughput |Amount of data read from or written to the disk per second |Disk read bytes/sec <br> Disk write bytes/sec |kB_read/s <br> kB_wrtn/s |
+| Throughput |Amount of data read from or written to the disk/sec |Disk read bytes/sec <br> Disk write bytes/sec |kB_read/s <br> kB_wrtn/s |
 | Latency |Total time to complete a disk I/O request |Average disk sec/read <br> Average disk sec/write |await <br> svctm |
 | I/O size |The size of I/O request issues to the storage disks |Average disk bytes/read <br> Average disk bytes/write |avgrq-sz |
 | Queue depth |Number of outstanding I/O requests waiting to be read from or written to the storage disk |Current disk queue length |avgqu-sz |
@@ -169,7 +169,7 @@ For more information on VM sizes and on the IOPS, throughput, and latency availa
 | VM size |Use a VM size that offers IOPS greater than your application requirement. |Use a VM size with a throughput limit greater than your application requirement. |Use a VM size that offers scale limits greater than your application requirement. |
 | Disk size |Use a disk size that offers IOPS greater than your application requirement. |Use a disk size with a throughput limit greater than your application requirement. |Use a disk size that offers scale limits greater than your application requirement. |
 | VM and disk scale limits |IOPS limit of the VM size chosen should be greater than the total IOPS driven by the storage disks attached to it. |Throughput limit of the VM size chosen should be greater than the total throughput driven by the premium storage disks attached to it. |Scale limits of the VM size chosen must be greater than the total scale limits of the attached premium storage disks. |
-| Disk caching |Enable `ReadOnly` cache on premium storage disks with read-heavy operations to get higher read IOPS. | &nbsp; |Enable `ReadOnly` cache on premium storage disks with read-heavy operations to get very low read latencies. |
+| Disk caching |Enable **ReadOnly** cache on premium storage disks with read-heavy operations to get higher read IOPS. | &nbsp; |Enable **ReadOnly** cache on premium storage disks with read-heavy operations to get very low read latencies. |
 | Disk striping |Use multiple disks and stripe them together to get a combined higher IOPS and throughput limit. The combined limit per VM should be higher than the combined limits of attached premium disks. | &nbsp; | &nbsp; |
 | Stripe size |Smaller stripe size for random small I/O pattern seen in OLTP applications. For example, use a 64-KB stripe size for a SQL Server OLTP application. |Larger stripe size for sequential large I/O pattern seen in data warehouse applications. For example, use a 256-KB stripe size for a SQL Server data warehouse application. | &nbsp; |
 | Multithreading |Use multithreading to push a higher number of requests to Premium Storage to lead to higher IOPS and throughput. For example, on SQL Server, set a high MAXDOP value to allocate more CPUs to SQL Server. | &nbsp; | &nbsp; |
@@ -196,18 +196,18 @@ If you're using an application that allows you to change the I/O size, use this 
 
 Here's an example of how you can calculate the IOPS and throughput/bandwidth for your application.
 
-Consider an application that uses a P30 disk. The maximum IOPS and throughput/bandwidth a P30 disk can achieve is 5,000 IOPS and 200 MB per second, respectively. If your application requires the maximum IOPS from the P30 disk and you use a smaller I/O size, like 8 KB, the resulting bandwidth you can get is 40 MB per second. If your application requires the maximum throughput/bandwidth from a P30 disk and you use a larger I/O size, like 1,024 KB, the resulting IOPS is less, such as 200 IOPS.
+Consider an application that uses a P30 disk. The maximum IOPS and throughput/bandwidth a P30 disk can achieve is 5,000 IOPS and 200 MB/sec, respectively. If your application requires the maximum IOPS from the P30 disk and you use a smaller I/O size, like 8 KB, the resulting bandwidth you can get is 40 MB/sec. If your application requires the maximum throughput/bandwidth from a P30 disk and you use a larger I/O size, like 1,024 KB, the resulting IOPS is less, such as 200 IOPS.
 
 Tune the I/O size so that it meets both your application's IOPS and throughput/bandwidth requirement. The following table summarizes the different I/O sizes and their corresponding IOPS and throughput for a P30 disk.
 
 | Application requirement | I/O size | IOPS | Throughput/Bandwidth |
 | --- | --- | --- | --- |
-| Maximum IOPS |8 KB |5,000 |40 MB per second |
-| Maximum throughput |1,024 KB |200 |200 MB per second |
-| Maximum throughput + high IOPS |64 KB |3,200 |200 MB per second |
-| Maximum IOPS + high throughput |32 KB |5,000 |160 MB per second |
+| Maximum IOPS |8 KB |5,000 |40 MB/sec |
+| Maximum throughput |1,024 KB |200 |200 MB/sec |
+| Maximum throughput + high IOPS |64 KB |3,200 |200 MB/sec |
+| Maximum IOPS + high throughput |32 KB |5,000 |160 MB/sec |
 
-To get IOPS and bandwidth higher than the maximum value of a single premium storage disk, use multiple premium disks striped together. For example, stripe two P30 disks to get a combined IOPS of 10,000 IOPS or a combined throughput of 400 MB per second. As explained in the next section, you must use a VM size that supports the combined disk IOPS and throughput.
+To get IOPS and bandwidth higher than the maximum value of a single premium storage disk, use multiple premium disks striped together. For example, stripe two P30 disks to get a combined IOPS of 10,000 IOPS or a combined throughput of 400 MB/sec. As explained in the next section, you must use a VM size that supports the combined disk IOPS and throughput.
 
 > [!NOTE]
 > As you increase either IOPS or throughput, the other also increases. Make sure you don't hit throughput or IOPS limits of the disk or VM when you increase either one.
@@ -222,8 +222,8 @@ High-scale VMs are available in different sizes with a different number of CPU c
 
 | VM size | CPU cores | Memory | VM disk sizes | Maximum data disks | Cache size | IOPS | Bandwidth cache I/O limits |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 GB |OS = 1,023 GB <br> Local SSD = 224 GB |32 |576 GB |50,000 IOPS <br> 512 MB per second |4,000 IOPS and 33 MB per second |
-| Standard_GS5 |32 |448 GB |OS = 1,023 GB <br> Local SSD = 896 GB |64 |4224 GB |80,000 IOPS <br> 2,000 MB per second |5,000 IOPS and 50 MB per second |
+| Standard_DS14 |16 |112 GB |OS = 1,023 GB <br> Local SSD = 224 GB |32 |576 GB |50,000 IOPS <br> 512 MB/sec |4,000 IOPS and 33 MB/sec |
+| Standard_GS5 |32 |448 GB |OS = 1,023 GB <br> Local SSD = 896 GB |64 |4224 GB |80,000 IOPS <br> 2,000 MB/sec |5,000 IOPS and 50 MB/sec |
 
 To view a complete list of all available Azure VM sizes, see [Sizes for virtual machines in Azure](sizes.md). Choose a VM size that can meet and scale to your desired application performance requirements. Also take into account the following important considerations when you choose VM sizes.
 
@@ -251,13 +251,13 @@ The following table summarizes the cost breakdown of this scenario for Standard 
 
 ### Linux distros
 
-With Premium Storage, you get the same level of performance for VMs running Windows and Linux. We support many flavors of Linux distros. For more information, see [Linux distributions endorsed on Azure](linux/endorsed-distros.md). 
+With Premium Storage, you get the same level of performance for VMs running Windows and Linux. We support many flavors of Linux distros. For more information, see [Linux distributions endorsed on Azure](linux/endorsed-distros.md).
 
 Different distros are better suited for different types of workloads. You see different levels of performance depending on the distro on which your workload is running. Test the Linux distros with your application and choose the one that works best.
 
 When you run Linux with Premium Storage, check the latest updates about required drivers to ensure high performance.
 
-## Premium storage disk sizes
+## Premium Storage disk sizes
 
 Premium Storage offers various sizes so you can choose one that best suits your needs. Each disk size has a different scale limit for IOPS, bandwidth, and storage. Choose the right premium storage disk size depending on the application requirements and the high-scale VM size. The following table shows the disks sizes and their capabilities. P4, P6, P15, P60, P70, and P80 sizes are currently only supported for managed disks.
 
@@ -284,14 +284,14 @@ Remember, the premium storage disks have higher performance capabilities compare
 
 ## Disk caching
 
-High-scale VMs that use Premium Storage have a multitier caching technology called `BlobCache`. `BlobCache` uses a combination of the host RAM and local SSD for caching. This cache is available for the Premium Storage persistent disks and the VM local disks. By default, this cache setting is set to read/write for OS disks and `ReadOnly` for data disks hosted on Premium Storage. With disk caching enabled on the premium storage disks, the high-scale VMs can achieve extremely high levels of performance that exceed the underlying disk performance.
+High-scale VMs that use Premium Storage have a multitier caching technology called **BlobCache**. **BlobCache** uses a combination of the host RAM and local SSD for caching. This cache is available for the Premium Storage persistent disks and the VM local disks. By default, this cache setting is set to **ReadWrite** for OS disks and **ReadOnly** for data disks hosted on Premium Storage. With disk caching enabled on the premium storage disks, the high-scale VMs can achieve extremely high levels of performance that exceed the underlying disk performance.
 
 > [!WARNING]
 > Disk caching isn't supported for disks 4 TiB and larger. If multiple disks are attached to your VM, each disk that's smaller than 4 TiB supports caching.
 >
 > Changing the cache setting of an Azure disk detaches and reattaches the target disk. If it's the operating system disk, the VM is restarted. Stop all applications and services that might be affected by this disruption before you change the disk cache setting. Not following those recommendations could lead to data corruption.
 
-To learn more about how `BlobCache` works, see the Inside [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) blog post.
+To learn more about how **BlobCache** works, see the Inside [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) blog post.
 
 It's important to enable caching on the right set of disks. Whether you should enable disk caching on a premium disk or not depends on the workload pattern that disk is handling. The following table shows the default cache settings for OS and data disks.
 
@@ -304,40 +304,40 @@ We recommend the following disk cache settings for data disks.
 
 | Disk caching setting | Recommendation for when to use this setting |
 | --- | --- |
-| None |Configure host-cache as `None` for write-only and write-heavy disks. |
-| ReadOnly |Configure host-cache as `ReadOnly` for read-only and read-write disks. |
-| ReadWrite |Configure host-cache as `ReadWrite` only if your application properly handles writing cached data to persistent disks when needed. |
+| None |Configure host-cache as **None** for write-only and write-heavy disks. |
+| ReadOnly |Configure host-cache as **ReadOnly** for read-only and read-write disks. |
+| ReadWrite |Configure host-cache as **ReadWrite** only if your application properly handles writing cached data to persistent disks when needed. |
 
 ### ReadOnly
 
-By configuring `ReadOnly` caching on premium storage data disks, you can achieve low read latency and get very high read IOPS and throughput for your application for two reasons:
+By configuring **ReadOnly** caching on premium storage data disks, you can achieve low read latency and get very high read IOPS and throughput for your application for two reasons:
 
 1. Reads performed from cache, which is on the VM memory and local SSD, are faster than reads from the data disk, which is on Azure Blob Storage.
 1. Premium Storage doesn't count the reads served from the cache toward the disk IOPS and throughput. For this reason, your application can achieve higher total IOPS and throughput.
 
 ### ReadWrite
 
-By default, the OS disks have `ReadWrite` caching enabled. We recently added support for `ReadWrite` caching on data disks too. If you're using `ReadWrite` caching, you must have a proper way to write the data from cache to persistent disks. For example, SQL Server handles writing cached data to the persistent storage disks on its own. Using `ReadWrite` cache with an application that doesn't handle persisting the required data can lead to data loss, if the VM crashes.
+By default, the OS disks have **ReadWrite** caching enabled. We recently added support for **ReadWrite** caching on data disks too. If you're using **ReadWrite** caching, you must have a proper way to write the data from cache to persistent disks. For example, SQL Server handles writing cached data to the persistent storage disks on its own. Using **ReadWrite** cache with an application that doesn't handle persisting the required data can lead to data loss, if the VM crashes.
 
 ### None
 
-Currently, `None` is only supported on data disks. It isn't supported on OS disks. If you set `None` on an OS disk, it overrides this setting internally and sets it to `ReadOnly`.
+Currently, **None** is only supported on data disks. It isn't supported on OS disks. If you set **None** on an OS disk, it overrides this setting internally and sets it to **ReadOnly**.
 
 As an example, you can apply these guidelines to SQL Server running on Premium Storage by following these steps:
 
-1. Configure the `ReadOnly` cache on premium storage disks hosting data files
+1. Configure the **ReadOnly** cache on premium storage disks hosting data files
    1. The fast reads from cache lower the SQL Server query time because data pages are retrieved faster from the cache compared to directly from the data disks.
    1. Serving reads from cache means there's more throughput available from premium data disks. SQL Server can use this extra throughput toward retrieving more data pages and other operations like backup/restore, batch loads, and index rebuilds.
-1. Configure the `None` cache on premium storage disks hosting the log files.
-   1. Log files have primarily write-heavy operations, so they don't benefit from the `ReadOnly` cache.
+1. Configure the **None** cache on premium storage disks hosting the log files.
+   1. Log files have primarily write-heavy operations, so they don't benefit from the **ReadOnly** cache.
 
 ## Optimize performance on Linux VMs
 
-For all Premium SSDs or Ultra Disks, you might be able to disable *barriers* for file systems on the disk to improve performance when it's known that there are no caches that could lose data. If Azure disk caching is set to `ReadOnly` or `None`, you can disable barriers. But if caching is set to `ReadWrite`, barriers should remain enabled to ensure write durability. Barriers are typically enabled by default, but you can disable barriers by using one of the following methods depending on the file system type:
+For all Premium SSDs or Ultra Disks, you might be able to disable *barriers* for file systems on the disk to improve performance when it's known that there are no caches that could lose data. If Azure disk caching is set to **ReadOnly** or **None**, you can disable barriers. But if caching is set to **ReadWrite**, barriers should remain enabled to ensure write durability. Barriers are typically enabled by default, but you can disable barriers by using one of the following methods depending on the file system type:
 
-* **reiserFS**: Use the `barrier=none` mount option to disable barriers. To explicitly enable barriers, use `barrier=flush`.
-* **ext3/ext4**: Use the `barrier=0` mount option to disable barriers. To explicitly enable barriers, use `barrier=1`.
-* **XFS**: Use the `nobarrier` mount option to disable barriers. To explicitly enable barriers, use `barrier`. As of version 4.10 of the mainline Linux kernel, the design of the XFS file system always ensures durability. Disabling barriers has no effect and the `nobarrier` option is deprecated. However, some Linux distributions might have backported the changes to a distribution release with an earlier kernel version. Check with your distribution vendor for the status in the distribution and version that you're running.
+* **reiserFS**: Use the **barrier=none** mount option to disable barriers. To explicitly enable barriers, use **barrier=flush**.
+* **ext3/ext4**: Use the **barrier=0** mount option to disable barriers. To explicitly enable barriers, use **barrier=1**.
+* **XFS**: Use the **nobarrier** mount option to disable barriers. To explicitly enable barriers, use **barrier**. As of version 4.10 of the mainline Linux kernel, the design of the XFS file system always ensures durability. Disabling barriers has no effect and the **nobarrier** option is deprecated. However, some Linux distributions might have backported the changes to a distribution release with an earlier kernel version. Check with your distribution vendor for the status in the distribution and version that you're running.
 
 ## Disk striping
 
@@ -424,5 +424,5 @@ Learn more about the available disk types:
 
 For SQL Server users, see the articles on performance best practices for SQL Server:
 
-* [Performance best practices for SQL Server in Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist)
+* [Performance best practices for SQL Server in Azure VMs](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist)
 * [Azure Premium Storage provides highest performance for SQL Server in Azure VM](https://cloudblogs.microsoft.com/sqlserver/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm/)
