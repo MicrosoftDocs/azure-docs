@@ -30,7 +30,7 @@ In this guide, you learn the two ways to enable Change Analysis for Azure Functi
 
 ## Enable Azure Functions and web app in-guest change collection via the Change Analysis portal
 
-For web app in-guest changes, separate enablement is required for scanning code files within a web app. For more information, see [Change Analysis in the Diagnose and solve problems tool](change-analysis-visualizations.md#diagnose-and-solve-problems-tool) section.
+For web app in-guest changes, separate enablement is required for scanning code files within a web app. For more information, see [Change Analysis in the Diagnose and solve problems tool](change-analysis-visualizations.md#view-changes-using-the-diagnose-and-solve-problems-tool) section.
 
 > [!NOTE]
 > You may not immediately see web app in-guest file changes and configuration changes. Prepare for downtime and restart your web app to view changes within 30 minutes. If you still can't see changes, refer to [the troubleshooting guide](./change-analysis-troubleshoot.md#cannot-see-in-guest-changes-for-newly-enabled-web-app).
@@ -94,7 +94,7 @@ This section provides answers to common questions.
 
 ### How can I enable Change Analysis for a web application?
 
-Enable Change Analysis for web application in guest changes by using the [Diagnose and solve problems tool](./change-analysis-visualizations.md#diagnose-and-solve-problems-tool).
+Enable Change Analysis for web application in guest changes by using the [Diagnose and solve problems tool](./change-analysis-visualizations.md#view-changes-using-the-diagnose-and-solve-problems-tool).
 
 ## Next steps
 
