@@ -1,5 +1,5 @@
 ---
-title: Long Term Support Azure Kubernetes Service (AKS)
+title: Long Term Support for Azure Kubernetes Service (AKS)
 description: Learn about Azure Kubernetes Service (AKS) Long Term Support for Kubernetes
 ms.topic: article
 ms.date: 08/16/2023
