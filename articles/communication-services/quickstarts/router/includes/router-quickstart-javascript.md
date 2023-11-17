@@ -172,7 +172,7 @@ console.log(`Worker ${worker.body.id} is assigned job ${accept.body.jobId}`);
 Once the worker has completed the work associated with the job (for example, completed the call), we complete the job.
 
 ```javascript
-await client.path("/routing/jobs/{jobId}/assignments/{assignmentId}:complete", accept.body.jobId, assignmentId: accept.body.assignmentId).post();
+await client.path("/routing/jobs/{jobId}/assignments/{assignmentId}:complete", accept.body.jobId, accept.body.assignmentId).post();
 console.log(`Worker ${worker.body.id} has completed job ${accept.body.jobId}`);
 ```
 
@@ -181,7 +181,7 @@ console.log(`Worker ${worker.body.id} has completed job ${accept.body.jobId}`);
 Once the worker is ready to take on new jobs, the worker should close the job.  Optionally, the worker can provide a disposition code to indicate the outcome of the job.
 
 ```javascript
-await client.path("/routing/jobs/{jobId}/assignments/{assignmentId}:complete", accept.body.jobId, assignmentId: accept.assignmentId).post({
+await client.path("/routing/jobs/{jobId}/assignments/{assignmentId}:complete", accept.body.jobId, accept.assignmentId).post({
     body: { dispositionCode: "Resolved" }
 });
 console.log(`Worker ${worker.body.id} has closed job ${accept.body.jobId}`);
