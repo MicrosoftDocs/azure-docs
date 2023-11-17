@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 111/17/2023
+ms.date: 11/17/2023
 ---
 
 # Retrieval Augmented Generation (RAG) in Azure AI Search
