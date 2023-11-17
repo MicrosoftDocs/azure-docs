@@ -6,7 +6,7 @@ ms.custom:
   - ignite-2023
 ms.author: jafernan
 author: jfggdl
-ms.date: 11/02/2023
+ms.date: 11/15/2023
 ---
 
 # Publish events to namespace topics using Java

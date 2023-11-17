@@ -1171,3 +1171,6 @@
   - name: Operator Insights
     tocHref: /azure/operator-insights/
     topicHref: /azure/operator-insights/index
+  - name: Microsoft Copilot for Azure
+    tocHref: /azure/copilot/
+    topicHref: /azure/copilot/
