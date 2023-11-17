@@ -127,4 +127,4 @@ The Azure AI code samples in GitHub Codespaces help you quickly get started with
 
 - [Get started building a sample copilot application](https://github.com/azure/aistudio-copilot-sample)
 - [Try the Azure AI CLI from Azure AI Studio in a browser](vscode-web.md)
-- [Azure SDK for Python reference documentation](/python/api/overview/azure)
+- [Azure SDK for Python reference documentation](python/api/overview/azure/ai?view=azure-python-preview)

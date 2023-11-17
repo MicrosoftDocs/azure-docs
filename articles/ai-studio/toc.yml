@@ -179,6 +179,10 @@
       href: ../ai-services/openai/concepts/system-message.md?context=/azure/ai-studio/context/context
 - name: Reference
   items:
+  - name: Azure AI SDK for Python
+    href: /python/api/overview/azure/ai?view=azure-python-preview
+  - name: Azure AI SDK for Python
+    href: /python/api/overview/azure/ai?view=azure-python-preview?view=azure-python-preview?context=/azure/ai-studio/context/context
   - name: Azure CLI
     href: /cli/azure/cognitiveservices
   - name: Azure PowerShell
