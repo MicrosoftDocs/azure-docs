@@ -1,7 +1,7 @@
 ---
 title: 'Run OpenAI models in batch endpoints'
 titleSuffix: Azure Machine Learning
-description: In this article, learn how to use batch endpoints with OpenAI models
+description: In this article, learn how to use batch endpoints with OpenAI models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
@@ -125,7 +125,7 @@ You can get an access key and configure the batch deployment to use the access k
 ---
 
 
-### Registering the OpenAI model
+### Register the OpenAI model
 
 Model deployments in batch endpoints can only deploy registered models. You can use MLflow models with the flavor OpenAI to create a model in your workspace referencing a deployment in Azure OpenAI.
 
@@ -284,7 +284,7 @@ Model deployments in batch endpoints can only deploy registered models. You can 
 
 1. At this point, our batch endpoint is ready to be used.  
 
-## Testing out the deployment
+## Test the deployment
    
 For testing our endpoint, we are going to use a sample of the dataset [BillSum: A Corpus for Automatic Summarization of US Legislation](https://arxiv.org/abs/1910.00523). This sample is included in the repository in the folder data.
 
@@ -332,7 +332,7 @@ For testing our endpoint, we are going to use a sample of the dataset [BillSum: 
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/openai-embeddings/deploy-and-test.ipynb?name=download_outputs)]
 
-1. The output predictions looks like the following.
+1. The output predictions look like the following.
 
     ```python
     import pandas as pd 
