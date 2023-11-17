@@ -99,14 +99,18 @@ If the Azure AI resource the project uses was created through Azure AI Studio:
 1. Select **Access control (IAM)** > **+ Add** to add a role assignment.
 1. Add the **Cognitive Services OpenAI User** role to the user who wants to make an index. `Cognitive Services OpenAI Contributor` and `Cognitive Services Contributor` also work, but they assign more permissions than needed for creating an index in Azure AI Studio.
 
+> [!NOTE]
+> You can also opt to assign more permissions [on the resource group](#method-2-assign-more-permissions-on-the-resource-group). However, that method assigns more permissions than needed to mitigate the **DeploymentNotFound** error.
+
 ### Method 2: Assign more permissions on the resource group
 
-If the Azure AI resource the project uses was created through Azure portal or Azure AI Studio:
+If the Azure AI resource the project uses was created through Azure portal:
 1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. 
 1. Select **Settings** from the collapsible left menu.
 1. From the **Resource Configuration** section, select the link for your resource group name that takes you to the Azure portal.
 1. Select **Access control (IAM)** > **+ Add** to add a role assignment.
 1. Add the **Cognitive Services OpenAI User** role to the user who wants to make an index. `Cognitive Services OpenAI Contributor` and `Cognitive Services Contributor` also work, but they assign more permissions than needed for creating an index in Azure AI Studio.
+
 
 ## Use an index in prompt flow
 
