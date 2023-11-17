@@ -1,6 +1,6 @@
 ---
 title: Azure Private Endpoint DNS integration
-description: Learn about Azure Private Endpoint DNS configuration.
+description: Learn about Azure Private Endpoint DNS configuration scenarios.
 services: private-link
 author: asudbring
 ms.service: private-link
@@ -24,16 +24,9 @@ DNS is a critical component to make the application work correctly by successful
 
 Based on your preferences, the following scenarios are available with DNS resolution integrated:
 
-- [Azure Private Endpoint DNS configuration](#azure-private-endpoint-dns-configuration)
-  - [Azure services DNS zone configuration](#azure-services-dns-zone-configuration)
-    - [Government](#government)
-    - [China](#china)
-  - [DNS configuration scenarios](#dns-configuration-scenarios)
   - [Virtual network workloads without custom DNS server](#virtual-network-workloads-without-custom-dns-server)
   - [On-premises workloads using a DNS forwarder](#on-premises-workloads-using-a-dns-forwarder)
   - [Virtual network and on-premises workloads using a DNS forwarder](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder)
-  - [Private DNS zone group](#private-dns-zone-group)
-  - [Next steps](#next-steps)
 
 > [!NOTE]
 > [Azure Firewall DNS proxy](../firewall/dns-settings.md#dns-proxy) can be used as DNS forwarder for [On-premises workloads](#on-premises-workloads-using-a-dns-forwarder) and [Virtual network workloads using a DNS forwarder](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
