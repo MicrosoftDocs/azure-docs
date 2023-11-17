@@ -49,15 +49,25 @@ az ad sp list --display-name vm-name --query [*].appId --out tsv
 
 ## Create a PostgreSQL user for your Managed Identity
 
-Now, connect as the Microsoft Entra administrator user to your PostgreSQL database, and run the following SQL statements, replacing `CLIENT_ID` with the client ID you retrieved for your system-assigned managed identity:
+Now, connect as the Microsoft Entra administrator user to the database named `postgres` in the PostgreSQL databases, and run the following SQL statements, replacing `<identity_name>` with the name of the resources for which you created a system-assigned managed identity:
 
 ```sql
 select * from pgaadauth_create_principal('<identity_name>', false, false);
 ```
 
+Success looks like:
+```sql
+    pgaadauth_create_principal
+-----------------------------------
+ Created role for "<identity_name>"
+(1 row)
+```
+
 For more information on managing Microsoft Entra ID enabled database roles, see [how to manage Microsoft Entra ID enabled PostgreSQL roles](./how-to-manage-azure-ad-users.md)
 
 The managed identity now has access when authenticating with the identity name as a role name and the Microsoft Entra token as a password.
+
+> Note: if the managed identity is not valid, an error is returned: `ERROR:   Could not validate AAD user <ObjectId> because its name is not found in the tenant. [...]`
 
 ## Retrieve the access token from the Azure Instance Metadata service
 
@@ -92,7 +102,7 @@ You're now connected to the database you configured earlier.
 
 This section shows how to get an access token using the VM's user-assigned managed identity and use it to call Azure Database for PostgreSQL. Azure Database for PostgreSQL natively supports Microsoft Entra authentication, so it can directly accept access tokens obtained using managed identities for Azure resources. When creating a connection to PostgreSQL, you pass the access token in the password field.
 
-Here's a .NET code example of opening a connection to PostgreSQL using an access token. This code must run on the VM to use the system-assigned managed identity to obtain an access token from Microsoft Entra ID. Replace the values of HOST, USER, DATABASE, and CLIENT_ID.
+Here's a .NET code example of opening a connection to PostgreSQL using an access token. This code must run on the VM to use the system-assigned managed identity to obtain an access token from Microsoft Entra ID. Replace the values of HOST, USER (with `<identity_name>`), and DATABASE.
 
 ```csharp
 using System;
