@@ -54,6 +54,8 @@ response = client.chat.completions.create(
 print(response.choices[0].message.content)
 ```
 
+### Output
+
 ```output
 {
   "winner": "Los Angeles Dodgers",
@@ -69,7 +71,9 @@ There are two key factors that need to be present to successfully use JSON mode:
 
 Including guidance to the model that it should produce JSON as part of the messages conversation is **required**. We recommend adding this instruction as part of the system message. According to OpenAI failure to add this instruction can cause the model to *"generate an unending stream of whitespace and the request may run continually until it reaches the token limit."*
 
-When using the [OpenAI Python API library](https://github.com/openai/openai-python) failure to include "JSON" within the messages array will return:
+When using the [OpenAI Python API library](https://github.com/openai/openai-python) failure to include "JSON" within the messages will return:
+
+### Output
 
 ```output
 BadRequestError: Error code: 400 - {'error': {'message': "'messages' must contain the word 'json' in some form, to use 'response_format' of type 'json_object'.", 'type': 'invalid_request_error', 'param': 'messages', 'code': None}}
