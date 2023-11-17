@@ -6,6 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
 ms.topic: how-to
+ms.author: jinzhong
+ms.date: 11/20/2023
 ---
 
 # How to utilize images in prompt flow (preview)
@@ -64,7 +66,7 @@ In this section, you'll learn how to build a chatbot that can process image and 
 Assume you want to build a chatbot that can answer any questions about the image and text together. You can achieve this by following the steps below:
 1. Create a **chat flow**.
 1. Add a **chat input**, select the data type as **"list"**. In the chat box, user can input a mixed sequence of texts and images, and prompt flow service will transform that into a list.
-   :::image type="content" source="./media/how-to-use-image-in-promptflow/chat-input-definition.png" alt-text="GPT-4V tool in chat flow." lightbox = "./media/how-to-use-image-in-promptflow/chat-input-definition.png":::  
+   :::image type="content" source="./media/how-to-use-image-in-promptflow/chat-input-definition.png" alt-text="Chat input definition." lightbox = "./media/how-to-use-image-in-promptflow/chat-input-definition.png":::  
 1. Add **GPT-4V** tool to the flow.
     :::image type="content" source="./media/how-to-use-image-in-promptflow/gpt-4v-tool-in-chatflow.png" alt-text="GPT-4V tool in chat flow." lightbox = "./media/how-to-use-image-in-promptflow/gpt-4v-tool-in-chatflow.png":::  
 
