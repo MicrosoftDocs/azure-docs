@@ -59,13 +59,13 @@ You can now view the state of the Spring Cloud Gateway on the **Spring Cloud Gat
 Use the following Azure CLI commands to enable or disable VMware Spring Cloud Gateway:
 
 ```azurecli
-az spring spring-cloud-gateway create \
+az spring gateway create \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
 
 ```azurecli
-az spring spring-cloud-gateway delete \
+az spring gateway delete \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name>
 ```
@@ -91,7 +91,7 @@ Use the following steps to restart VMware Spring Cloud Gateway by using the Azur
 Use the following Azure CLI command to restart the gateway:
 
 ```azurecli
-az spring spring-cloud-gateway restart \
+az spring gateway restart \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
