@@ -1,7 +1,7 @@
 ---
 title: Encryption of backup data in the Backup vault using customer-managed keys
-description: Learn how Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK).
-ms.topic: conceptual
+description: Learn how Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK) in a Backup vault.
+ms.topic: how-to
 ms.date: 11/20/2023
 ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 ms.service: backup
@@ -16,7 +16,7 @@ Azure Backup allows you to encrypt your backup data using customer-managed keys 
 The encryption key used for encrypting backups might be different from the one used for the source. The data is protected using an AES 256-based data encryption key (DEK), which in turn, is protected using your key encryption keys (KEK). This provides you with full control over the data and the keys. To allow encryption, you must grant Backup vault the permissions to access the encryption key in the Azure Key Vault. You can change the key when required.
 
 >[!Note]
->Support for Customer-Managed keys configuration for Backup vault is in preview.
+>Support for customer-managed keys configuration for Backup vault is in preview.
 
 ## Support matrix
 
@@ -24,23 +24,23 @@ The encryption key used for encrypting backups might be different from the one u
 
 CMK for Backup vault is currently available in: West Central US, Australia East, North Europe, South Central US. 
 
-### Key Vault, Managed HSM Key requirements
+### Key Vault and managed HSM key requirements
 
 - Encryption settings use Azure Key Vault or Managed HSM Key and Backup vault's managed identity details.
 
 - The Backup vault's managed identity needs to have: 
 
-  - Built-in [Crypto Service Encryption User role](/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-user) assigned if your Key Vault is using IAM based RBAC configuration.
+  - Built-in [Crypto Service Encryption User role](/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-user) assigned if your Key Vault is using IAM-based RBAC configuration.
   - **Get**, **Wrap**, and **Unwrap** permissions if your Key Vault is using *Access Policies based configuration*.
-  - **Get**, **Wrap**, **Unwrap** permissions granted via its Local RBAC on the key if you're using managed MSM.
+  - **Get**, **Wrap**, and **Unwrap** permissions granted via its Local RBAC on the key if you're using managed MSM.
 
-- Ensure that you've a valid (non-expired), enabled Key Vault Key. Don't use disabled or expired key as it can't be used for encryption at rest and will lead to Backup and restore operation failures. Key Vault term is also indicating Managed HSM unless noted specifically.
+- Ensure that you've a valid (non-expired), enabled Key Vault Key. Don't use disabled or expired key as it can't be used for encryption at rest and will lead to backup and restore operation failures. Key Vault term is also indicating Managed HSM unless noted specifically.
 
 - Key Vault must have Soft Delete and Purge Protection enabled.
 
 - Encryption settings support Azure Key Vault RSA and RSA-HSM keys only of sizes 2048, 3072, and 4096. [Learn more about keys](/azure/key-vault/keys/about-keys). Before you consider Key Vault region for encryption settings, see [Key Vault DR scenarios](/azure/key-vault/general/disaster-recovery-guidance) for region failover support.
 
-- Managed HSM uses Local RBAC to manage keys permissions. [Learn more](/azure/key-vault/managed-hsm/overview).
+- Managed HSM uses Local RBAC to manage the keys permissions. [Learn more](/azure/key-vault/managed-hsm/overview).
 
 ### Known limitations
 
@@ -54,7 +54,7 @@ CMK for Backup vault is currently available in: West Central US, Australia East,
 - Moving CMK encrypted Backup vault across Resource Groups and Subscriptions isn't currently supported.
 
 - User-assigned Manged Identity for Backup vault feature is in preview.
-- Ensure that you check the Key Vault Key requirements provided in [this section]().
+- Ensure that you check the Key Vault Key requirements provided in [this section](#key-vault-managed-hsm-key-requirements).
 - Once you the enable encryption settings on the Backup vault, don't disable/detach the managed identity, or remove Key Vault permissions  used for encryption settings. If you do these actions, it'll lead to failure of backup, restore, tiering, restore points expiry jobs, and will incur cost for the data stored in the Backup vault until: 
 
 
@@ -68,7 +68,7 @@ CMK for Backup vault is currently available in: West Central US, Australia East,
   >[!Note]
   >If the Key or Key Vault being used is deleted or access is revoked and can't be restored, you'll lose access to the data stored in the Backup vault. Also, ensure that you've appropriate permissions to provide/update managed identity, Backup vault, and Key Vault details. 
 
-- Ensure that you've check the [known limitations]() before you start using the encryption feature. 
+- Ensure that you've checked the [known limitations](#known-limitations) before you start using the encryption feature. 
 
 - You can configure this feature via the Azure portal and REST APIs. 
 
@@ -86,7 +86,7 @@ To enable the encryption, follow these steps:
 
    You can also browse and select the key.
 
-5. To enable auto-rotation of the encryption key used for the Backup vault, click **Select from Key Vault** or run the *Version component* from the **Key URI** when you choose **Enter key URI**. [Learn more](encryption-at-rest-with-cmk.md?tabs=portal#enable-auto-rotation-of-encryption-keys) on auto-rotation.
+5. To enable auto-rotation of the encryption key used for the Backup vault, click **Select from Key Vault** or run the *Version component* from the **Key URI** when you choose **Enter key URI**. [Learn more](encryption-at-rest-with-cmk.md#enable-autorotation-of-encryption-keys) about auto-rotation.
 
 6. Specify the *user-assigned managed identity* to manage encryption with *customer-managed keys*.
 7. Add **Tags** (optional) and continue creating the vault.
@@ -135,7 +135,7 @@ An *Object ID* is generated, which is the system-assigned managed identity of th
 
 #### Assign user-assigned managed identity to the vault (in preview)
 
-To assign the user-assigned managed identity for your Recovery Services vault, choose a client:
+To assign the user-assigned managed identity for your *Backup vault*, choose a client:
 
 1. Go to your *Backup vault* > **Identity**.
 
@@ -226,7 +226,7 @@ To assign the key and follow the steps, choose a client by following these steps
     2. Browse and select the key from the Key Vault in the **Key picker** pane.
 
         >[!NOTE]
-        >When you specify the encryption key using the key picker pane, the key will be auto-rotated whenever a new version for the key is enabled. [Learn more](#enable-autorotation-of-encryption-keys) on enabling autorotation of encryption keys.
+        >When you specify the encryption key using the key picker pane, the key will be auto-rotated whenever a new version for the key is enabled. [Learn more](encryption-at-rest-with-cmk.md#enable-autorotation-of-encryption-keys) on enabling autorotation of encryption keys.
 
         ![Select key from key vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
@@ -239,12 +239,12 @@ To assign the key and follow the steps, choose a client by following these steps
 
 
 
-### Updating Encryption Settings details
+### Update Encryption Settings details
 
-You can update the encryption settings details anytime. Whenever you want to use a new key URI, ensure that your existing Key Vault still has access to the managed identity and the key is valid. Otherwise, update operation will fail. 
+You can update the encryption settings details anytime. Whenever you want to use a new key URI, ensure that your existing Key Vault still has access to the managed identity and the key is valid. Otherwise, the update operation will fail. 
 
 >[!Note]
->The managed identity which you want to use for Encryption needs to have the required permission before you use.   
+>The managed identity that you want to use for encryption needs to have the required permission before you use.   
 
 
 
@@ -287,7 +287,7 @@ The process to configure and perform backups to a Backup vault encrypted with cu
 - If Key Vault is using IAM – RBAC then Key Vault Crypto Service Encryption User built-in role permissions on the Key Vault.
 - If you use *Access Policies*, **Get**, **Wrap** and **Unwrap** permissions are needed.
 
-**Recommendation**: Check the Key Vault access policies and grant permission accordingly.
+**Recommended action**: Check the Key Vault access policies and grant permissions accordingly.
 
 ## Next steps
 
