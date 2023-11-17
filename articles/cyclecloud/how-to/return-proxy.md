@@ -10,16 +10,22 @@ ms.author: adjohnso
 
 Nodes in a cluster need to communicate with the Azure CycleCloud server to
 report status, as well as making API requests for auto-scaling and distributed
-synchronization. Both HTTPS and AMQP protocols are used with the default TCP
-ports (443 and 5672 respectively).
+synchronization. Nodes communicate with HTTPS to CycleCloud on its private 9443 port.
 
 If network topology or firewalls prevent communication between the Azure
 CycleCloud server and cluster nodes, a node in the cluster can be designated as
-a **return proxy** with the listening ports on Azure CycleCloud server forwarded
+a **return proxy** with the listening port on Azure CycleCloud server forwarded
 through an SSH tunnel. The cluster nodes will then reach the CycleCloud server
-via ports 37140 and 37141 on the proxy. A typical deployment has the cluster
+via port 37140 on the proxy. A typical deployment has the cluster
 head node designated as the return proxy, but any persistent node can play that
 same role.
+
+::: moniker range="=cyclecloud-7"
+
+CycleCloud 7 includes an AMQP broker for getting messages from nodes in a cluster, instead of HTTPS.
+The AMQP broker listens locally on port 5672. If a return proxy is used, port 37141 on the proxy node is forwarded to 5672.
+
+::: moniker-end
 
 The settings for enabling or disabling the return proxy can be found in the
 Advanced Settings section of the create cluster dialog. 
