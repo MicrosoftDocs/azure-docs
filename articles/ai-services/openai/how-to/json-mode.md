@@ -14,7 +14,7 @@ keywords:
 
 ---
 
-# Learn how to use JSON Mode
+# Learn how to use JSON mode
 
 JSON mode allows you to set the models response format to return a valid JSON object as part of a chat completion. While generating valid JSON was possible previously, there could be issues with response consistency that would lead to invalid JSON objects being generated.
 
@@ -27,7 +27,7 @@ JSON mode is only currently supported with the following:
 - `gpt-4-1106-preview`
 - `gpt-35-turbo-1106`
 
-### API Version
+### API version
 
 - `2023-12-01-preview`
 
