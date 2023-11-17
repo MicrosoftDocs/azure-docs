@@ -12,7 +12,7 @@ manager: jsuri
 
 # Perform ongoing administration for Arc-enabled System Center Virtual Machine Manager
 
-In this article, you learn how to perform various administrative operations related to Azure Arc-enabled System Center Virtual Machine Manager:
+In this article, you learn how to perform various administrative operations related to Azure Arc-enabled System Center Virtual Machine Manager (SCVMM):
 
 - Upgrade the Azure Arc resource bridge
 - Update the credentials
@@ -22,7 +22,7 @@ Each of these operations requires either SSH key to the resource bridge VM or th
 
 ## Upgrade the Arc resource bridge
 
-Azure Arc-enabled System Center Virtual Machine Manager requires the Arc resource bridge to connect your System Center Virtual Machine Manager environment with Azure. Periodically, new images of Arc resource bridge will be released to include security and feature updates.
+Azure Arc-enabled SCVMM requires the Arc resource bridge to connect your SCVMM environment with Azure. Periodically, new images of Arc resource bridge will be released to include security and feature updates.
 
 > [!NOTE]
 > To upgrade the Arc resource bridge VM to the latest version, you need to perform the onboarding again with the **same resource IDs**. This will cause some downtime as operations performed through Arc during this time might fail.
@@ -51,19 +51,19 @@ To upgrade to the latest version of the resource bridge, perform the following s
     $vCenterName = <vcenter-name-in-azure>
     ```
 
-4. [Run the onboarding script](quickstart-connect-system-center-virtual-machine-manager-to-arc.md) again with the `--force` parameter
+4. [Run the onboarding script](quick-start-connect-vcenter-to-arc-using-script.md#run-the-script) again with the `--force` parameter
 
     ``` powershell-interactive
     ./resource-bridge-onboarding-script.ps1 --force
     ```
 
-5. [Provide the inputs](quickstart-connect-system-center-virtual-machine-manager-to-arc.md) as prompted.
+5. [Provide the inputs](quick-start-connect-vcenter-to-arc-using-script.md#inputs-for-the-script) as prompted.
 
 6. Once the onboarding is successfully completed, the resource bridge is upgraded to the latest version.
 
-## Update the vSphere account credentials (using a new password or a new vSphere account after onboarding)
+## Update the SCVMM account credentials (using a new password or a new SCVMM account after onboarding)
 
-Azure Arc-enabled System Center Virtual Machine Manager uses the vSphere account credentials you provided during the onboarding to communicate with your vCenter server. These credentials are only persisted locally on the Arc resource bridge VM.
+Azure Arc-enabled SCVMM uses the SCVMM account credentials you provided during the onboarding to communicate with your SCVMM management server. These credentials are only persisted locally on the Arc resource bridge VM.
 
 As part of your security practices, you might need to rotate credentials for your vCenter accounts. As credentials are rotated, you must also update the credentials provided to Azure Arc to ensure the functioning of Azure Arc-enabled System Center Virtual Machine Manager. You can also use the same steps in case you need to use a different vSphere account after onboarding. You must ensure the new account also has all the [required vSphere permissions]().
 
