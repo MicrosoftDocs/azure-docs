@@ -8,7 +8,7 @@ ms.subservice: prompt-flow
 ms.topic: how-to
 ---
 
-# How to incorporate images into prompt flow (preview)
+# How to utilize images in prompt flow (preview)
 Multimodal Large Language Models(LLMs), which can process and interpret diverse forms of data inputs, present a powerful tool that can elevate the capabilities of language-only systems to new heights. Among the various data types, images are particularly important for many real-world applications. The incorporation of image data into AI systems provides an essential layer of visual understanding. 
 
 In this article, you'll learn:
@@ -36,7 +36,7 @@ To use image data in prompt flow authoring page:
 > [!IMPORTANT]
 > To process image using Python function, you need to use the `Image` class, import it from `promptflow.contracts.multimedia` package. The Image class is used to represent an Image type within prompt flow. It is designed to work with image data in byte format, which is convenient when you need to handle or manipulate the image data directly.
 >
-> To return the processed image data, you need to use the `Image` class to wrap the image data. Create an `Image` object by providing the image data in bytes and the MIME type `mime_type`. The MIME type lets the system understand the format of the image data. Without it, the system cannot correctly interpret the image data.
+> To return the processed image data, you need to use the `Image` class to wrap the image data. Create an `Image` object by providing the image data in bytes and the MIME type `mime_type`. The MIME type lets the system understand the format of the image data. Without it, the system might not correctly interpret the image data.
 4. Run the Python node and check the output. In this example, the Python function returns the processed Image object. Click the image output to preview the image.
    :::image type="content" source="./media/how-to-use-image-in-promptflow/python-node-image-output.png" alt-text="Python node image output." lightbox = "./media/how-to-use-image-in-promptflow/python-node-image-output.png"::: 
 If the Image object from Python node is set as the flow output, you can preview the image in the flow output page as well.
@@ -76,10 +76,26 @@ Assume you want to build a chatbot that can answer any questions about the image
     :::image type="content" source="./media/how-to-use-image-in-promptflow/chat-input-value.png" alt-text="Chat input value is automatically backfilled from the input in chat window." lightbox = "./media/how-to-use-image-in-promptflow/chat-input-value.png":::
 
 ## Create a batch run using image data
-By creating a batch run, you can test the flow with more data. The image data can be represented in the following ways:
-- **Image file**. To use image files, you should prepare a **data folder** with an batch run entry file in `jsonl` format in the root folder, and all the images in the same folder or subfolders.
+A batch run allows you to test the flow with an extensive dataset. You can represent image data in two ways:
+- **Image file**. To test with image files in batch run, you need to prepare a **data folder**. This folder should contain a batch run entry file in `jsonl` format located in the root directory, along with all image files stored in the same folder or subfolders.
    :::image type="content" source="./media/how-to-use-image-in-promptflow/batch-run-sample-data.png" alt-text="Batch run sample data with images." lightbox = "./media/how-to-use-image-in-promptflow/batch-run-sample-data.png":::
-   In the entry file, use this format `{"data:image/[image extension];path":"[image file]"}` to refer to the image file. For example, `{"data:image/png;path":"./images/1.png"}`.
-- **Public image URL**. In this case, you can directly use the image URL in the entry file. For example, `{"data:image/png;url":"[image url]"}`.
+   In the entry file, you should use the format `{"data:image/[image extension];path":"[image file]"}` to reference each image file. For example, `{"data:image/png;path":"./images/1.png"}`.
+- **Public image URL**. You can directly reference the image URL in the entry file using this format `{"data:image/[image extension];url":"[image URL]"}`. For example, `{"data:image/png;url":"https://www.example.com/images/1.png"}`.
+
+### Create a batch run
+In flow authoring page, select the **Evaluate** button to initiate a batch run. In Batch run settings, select a dataset which can be either a folder (containing the entry file and image files) or a file (containing only the entry file). You can preview the entry file and perform input mapping to align the columns in the entry file with the flow inputs.
+   :::image type="content" source="./media/how-to-use-image-in-promptflow/batch-run-data-selection.png" alt-text="Screen shot of batch run data selection." lightbox = "./media/how-to-use-image-in-promptflow/batch-run-data-selection.png":::
+
+### View batch run results
+You can check the batch run outputs in the run detail page. Select the image object in the output table to easily preview the image.
+   :::image type="content" source="./media/how-to-use-image-in-promptflow/batch-run-output.png" alt-text="Screen shot of batch run output." lightbox = "./media/how-to-use-image-in-promptflow/batch-run-output.png":::
+
+If the batch run outputs contain images, you can check the **flow_outputs dataset** with the output jsonl file as well as the output images. 
+   :::image type="content" source="./media/how-to-use-image-in-promptflow/explore-run-outputs.png" alt-text="Screen shot of batch run flow output." lightbox = "./media/how-to-use-image-in-promptflow/explore-run-outputs.png"::: 
+
+## Next steps
+- [Iterate and optimize your flow by tuning prompts using variants](./how-to-tune-prompts-using-variants.md)
+- [Deploy a flow](./how-to-deploy-for-real-time-inference.md)
   
+
 
