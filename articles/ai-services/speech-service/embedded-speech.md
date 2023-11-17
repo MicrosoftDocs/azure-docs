@@ -2,7 +2,7 @@
 title: Embedded Speech - Speech service
 titleSuffix: Azure AI services
 description: Embedded Speech is designed for on-device scenarios where cloud connectivity is intermittent or unavailable.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -163,7 +163,7 @@ dependencies {
 
 For embedded speech, you need to download the speech recognition models for [speech to text](speech-to-text.md) and voices for [text to speech](text-to-speech.md). Instructions are provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
 
-The following [speech to text](speech-to-text.md) models are available: de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nl-NL, pt-BR, ru-RU, sv-SE, tr-TR, zh-CN, zh-HK, and zh-TW.
+The following [speech to text](speech-to-text.md) models are available: da-DK, de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, pt-PT, zh-CN, zh-HK, and zh-TW.
 
 All text to speech locales [here](language-support.md?tabs=tts) (except fa-IR, Persian (Iran)) are available out of box with either 1 selected female and/or 1 selected male voices. We welcome your input to help us gauge demand for more languages and voices. 
 

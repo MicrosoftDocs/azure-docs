@@ -2,7 +2,7 @@
 title: "Quickstart: Use the Sentiment Analysis client library and REST API"
 titleSuffix: Azure AI services
 description: Use this quickstart to start using the Sentiment Analysis API.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

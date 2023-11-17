@@ -2,7 +2,7 @@
 title: 'Troubleshooting guide for a Custom Commands application at runtime'
 titleSuffix: Azure AI services
 description: In this article, you learn how to debug runtime errors in a Custom Commands application.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
