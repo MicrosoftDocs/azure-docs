@@ -159,9 +159,6 @@ items:
   - name: Business Continuity Center
     tocHref: /azure/business-continuity-center/
     topicHref: /azure/business-continuity-center/index
-  - name: Microsoft Copilot for Azure
-    tocHref: /azure/copilot/
-    topicHref: /azure/copilot/index
   - name: Apache Airflow on Astro
     tocHref: /azure/partner-solutions/astronomer/
     topicHref: /azure/partner-solutions/astronomer/index     
