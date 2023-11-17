@@ -137,7 +137,7 @@ Here's our step-by-step troubleshooting guide for monitoring Python applications
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 <!-- TODO: This shared release timeline is not updated -->
-<!-- ## Release notes
+<!-- ## Release notes 
 
 For the latest updates and bug fixes, [consult the release notes](web-app-extension-release-notes.md). -->
 
