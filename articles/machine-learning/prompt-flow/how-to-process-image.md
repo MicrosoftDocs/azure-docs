@@ -37,6 +37,7 @@ To use image data in prompt flow authoring page:
 > To process image using Python function, you need to use the `Image` class, import it from `promptflow.contracts.multimedia` package. The Image class is used to represent an Image type within prompt flow. It is designed to work with image data in byte format, which is convenient when you need to handle or manipulate the image data directly.
 >
 > To return the processed image data, you need to use the `Image` class to wrap the image data. Create an `Image` object by providing the image data in bytes and the MIME type `mime_type`. The MIME type lets the system understand the format of the image data. Without it, the system might not correctly interpret the image data.
+
 4. Run the Python node and check the output. In this example, the Python function returns the processed Image object. Click the image output to preview the image.
    :::image type="content" source="./media/how-to-use-image-in-promptflow/python-node-image-output.png" alt-text="Python node image output." lightbox = "./media/how-to-use-image-in-promptflow/python-node-image-output.png"::: 
 If the Image object from Python node is set as the flow output, you can preview the image in the flow output page as well.
