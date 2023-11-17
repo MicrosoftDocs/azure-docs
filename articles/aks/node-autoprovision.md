@@ -36,12 +36,12 @@ Node autoprovision (NAP) will decide based on pending pod resource requirements 
     az extension update --name aks-preview
     ```
 
-### Register the `NodeAutoprovision` feature flag
+### Register the `NodeAutoProvisioningPreview` feature flag
 
-1. Register the `NodeAutoprovision` feature flag using the [`az feature register`][az-feature-register] command.
+1. Register the `NodeAutoProvisioningPreview` feature flag using the [`az feature register`][az-feature-register] command.
 
     ```azurecli-interactive
-    az feature register --namespace "Microsoft.ContainerService" --name "NodeAutoprovision"
+    az feature register --namespace "Microsoft.ContainerService" --name "NodeAutoProvisioningPreview"
     ```
 
     It takes a few minutes for the status to show *Registered*.
@@ -49,7 +49,7 @@ Node autoprovision (NAP) will decide based on pending pod resource requirements 
 2. Verify the registration status using the [`az feature show`][az-feature-show] command.
 
     ```azurecli-interactive
-    az feature show --namespace "Microsoft.ContainerService" --name "NodeAutoprovision"
+    az feature show --namespace "Microsoft.ContainerService" --name "NodeAutoProvisioningPreview"
     ```
 
 3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
@@ -60,9 +60,10 @@ Node autoprovision (NAP) will decide based on pending pod resource requirements 
 
 
 ## Enable Node autoprovision
+To enable node autoprovision, you will need to use overlay networking and the cilium network policy.
 
 ```azure-cli
-az aks create --resource-group myResourceGroup --name myAKSCluster --node-provisioning-mode Auto
+az aks create --name karpuktest --resource-group karpuk --node-provisioning-mode Auto --network-plugin azure --network-plugin-mode overlay --network-dataplane cilium
 
 ```
 
