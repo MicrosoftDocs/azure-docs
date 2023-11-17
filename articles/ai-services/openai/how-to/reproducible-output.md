@@ -165,7 +165,7 @@ Matter coalesced into the simplest elements, hydrogen and helium, which later fo
 ---
 ```
 
-By using the same `seed` parameter of 42 for each of our three requests we're able to produce much more consistent, in this case identical results.
+By using the same `seed` parameter of 42 for each of our three requests we're able to produce much more consistent (in this case identical) results.
 
 ## Parameter details
 
@@ -177,7 +177,7 @@ This feature is in Preview. If specified, our system will make a best effort to 
 
 This fingerprint represents the backend configuration that the model runs with.
 
-Can be used with the seed request parameter to understand when backend changes have been made that might affect determinism.
+It can be used with the seed request parameter to understand when backend changes have been made that might affect determinism.
 
 To view the full chat completion object with `system_fingerprint`, you could add ` print(response.model_dump_json(indent=2))` to the previous code next to the existing print statement. This change results in the following additional information being part of the output:
 
