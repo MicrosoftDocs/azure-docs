@@ -2,7 +2,7 @@
 title: Frequently Asked Questions
 titleSuffix: Azure AI services
 description: Use this article to quickly get the answers to FAQ about conversational language understanding
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

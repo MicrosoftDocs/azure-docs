@@ -2,7 +2,7 @@
 title: What is the Speech service?
 titleSuffix: Azure AI services
 description: The Speech service provides speech to text, text to speech, and speech translation capabilities with an Azure resource. Add speech to your applications, tools, and devices with the Speech SDK, Speech Studio, or REST APIs.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
