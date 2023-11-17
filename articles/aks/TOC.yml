@@ -10,6 +10,8 @@
       href: release-tracker.md
     - name: Supported Kubernetes versions
       href: supported-kubernetes-versions.md
+    - name: Long Term Support
+      href: long-term-support.md
     - name: Add-ons, extensions, and other integrations
       href: integrations.md
       displayName: add-on, extensions, prometheus, grafana, openfaas, spark, istio, linkerd, consul, github, actions

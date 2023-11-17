@@ -35,4 +35,4 @@ Be sure to review the basic [prerequisites](prerequisites.md) and [network confi
 * Learn about the Azure Connected Machine agent [prerequisites](prerequisites.md) and [network requirements](network-requirements.md).
 * Review the [Planning and deployment guide for Azure Arc-enabled servers](plan-at-scale-deployment.md)
 * Learn about [reconfiguring, upgrading, and removing the Connected Machine agent](manage-agent.md).
-* Try out Arc-enabled servers by using the [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/).
+* Try out Arc-enabled servers by using the [Azure Arc Jumpstart](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers).
