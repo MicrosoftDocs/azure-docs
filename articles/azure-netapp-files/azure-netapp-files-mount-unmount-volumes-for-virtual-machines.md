@@ -42,13 +42,13 @@ Outbound client requests for NFS (directed to port 2049) allow up to 65,534 conc
 
 If a network address translation (NAT) or firewall sits between the NFS client and server, consider:
 
-*	NFS maintains a reply cache to keep track of certain operations to make sure that they've been completed. This reply cache is based on the source port and source IP address. When NAT is used in NFS operations, the source IP or port might change in flight, which could lead to data resiliency issues. If NAT is used, static entries for the NFS server IP and port should be added to make sure that data remains consistent.
+*	NFS maintains a reply cache to keep track of certain operations to make sure that they have completed. This reply cache is based on the source port and source IP address. When NAT is used in NFS operations, the source IP or port might change in flight, which could lead to data resiliency issues. If NAT is used, static entries for the NFS server IP and port should be added to make sure that data remains consistent.
 *	In addition, NAT can also cause issues with NFS mounts hanging due to how NAT handles idle sessions. If using NAT, the configuration should take idle sessions into account and leave them open indefinitely to prevent issues. NAT can also create issues with NLM lock reclamation.
 *	Some firewalls might drop idle TCP connections after a set amount of time. For example, if a client has an NFS mount connected, but doesn’t use it for a while, it’s deemed idle. When this occurs, client access to mounts can hang because the network connection has been severed by the firewall. `Keepalives` can help prevent this, but it's better to address potential idle clients by configuring firewalls to not actively reject packets from stale sessions.
 
 For more information about NFS locking, see [Understand file locking and lock types in Azure NetApp Files](understand-file-locks.md).
 
-For more information about how NFS operates in Azure NetApp Files, see [Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols#network-file-system-nfs.md).
+For more information about how NFS operates in Azure NetApp Files, see [Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols.md#network-file-system-nfs.md).
 
 ## Mount NFS volumes on Linux clients
 
@@ -59,7 +59,7 @@ For more information about how NFS operates in Azure NetApp Files, see [Understa
       * Ensure that you use the `vers` option in the `mount` command to specify the NFS protocol version that corresponds to the volume you want to mount. 
   For example, if the NFS version is NFSv4.1: 
   `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT` 
-      * If you use NFSv4.1 and your configuration requires using VMs with the same host names (for example, in a DR test), refer to [Configure two VMs with the same hostname to access NFSv4.1 volumes](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes).
+      * If you use NFSv4.1 and your configuration requires using VMs with the same host names (for example, in a DR test), see [Configure two VMs with the same hostname to access NFSv4.1 volumes](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes).
       * In Azure NetApp Files, NFSv4.2 is enabled when NFSv4.1 is used, however NFSv4.2 is officially unsupported. If you don’t specify NFSv4.1 in the client’s mount options (`vers=4.1`), the client may negotiate to the highest allowed NFS version, meaning the mount is out of support compliance.
 4. If you want the volume mounted automatically when an Azure VM is started or rebooted, add an entry to the `/etc/fstab` file on the host. 
   For example: `$ANFIP:/$FILEPATH /$MOUNTPOINT nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
@@ -92,4 +92,4 @@ If you want to mount NFSv3 volumes on a Windows client using NFS:
 * [Mount an NFS Kerberos volume](configure-kerberos-encryption.md#kerberos_mount)
 * [Configure two VMs with the same hostname to access NFSv4.1 volumes](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes) 
 * [Understand file locking and lock types in Azure NetApp Files](understand-file-locks.md)
-* [Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols#network-file-system-nfs.md)
+* [Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols.md#network-file-system-nfs.md)
