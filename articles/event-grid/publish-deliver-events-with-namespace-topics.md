@@ -6,7 +6,7 @@ ms.custom:
   - ignite-2023
 ms.author: robece
 author: robece
-ms.date: 10/24/2023
+ms.date: 11/15/2023
 ---
 
 # Publish and deliver events using namespace topics (preview)

@@ -43,7 +43,7 @@ The steps in this tutorial are:
 
 Follow these steps to deploy a chat model and test it without your data. 
 
-1. Sign in to [Azure AI Studio](https://aka.ms/aistudio) with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource. You should be on the Azure AI Studio **Home** page.
+1. Sign in to [Azure AI Studio](https://ai.azure.com) with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource. You should be on the Azure AI Studio **Home** page.
 1. Select **Build** from the top menu and then select **Deployments** > **Create**.
     
     :::image type="content" source="../media/tutorials/chat-web-app/deploy-create.png" alt-text="Screenshot of the deployments page without deployments." lightbox="../media/tutorials/chat-web-app/deploy-create.png":::
