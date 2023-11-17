@@ -2,8 +2,10 @@
 title: 'Azure Event Grid Namespace MQTT client authentication'
 description: 'Describes how MQTT clients are authenticated and mTLS connection is established when a client connects to Azure Event Grid’s MQTT broker feature.'
 ms.topic: conceptual
-ms.custom: build-2023
-ms.date: 05/23/2023
+ms.custom:
+  - build-2023
+  - ignite-2023
+ms.date: 11/15/2023
 author: veyaddan
 ms.author: veyaddan
 ---
@@ -12,7 +14,7 @@ ms.author: veyaddan
 
 We support authentication of clients using X.509 certificates.  X.509 certificate provides the credentials to associate a particular client with the tenant.  In this model, authentication generally happens once during session establishment.  Then, all future operations using the same session are assumed to come from that identity.  
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 ## Supported authentication modes
 

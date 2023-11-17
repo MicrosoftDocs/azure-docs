@@ -2,11 +2,11 @@
 title: 'How to generate embeddings with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Learn how to generate embeddings with Azure OpenAI
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 11/02/2023
+ms.date: 11/06/2023
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -30,7 +30,8 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
   -d '{"input": "Sample Document goes here"}'
 ```
 
-# [python](#tab/python)
+# [OpenAI Python 0.28.1](#tab/python)
+
 ```python
 import openai
 
@@ -45,6 +46,26 @@ response = openai.Embedding.create(
 )
 embeddings = response['data'][0]['embedding']
 print(embeddings)
+```
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+import os
+from openai import AzureOpenAI
+
+client = AzureOpenAI(
+  api_key = os.getenv("AZURE_OPENAI_KEY"),  
+  api_version = "2023-05-15",
+  azure_endpoint =os.getenv("AZURE_OPENAI_ENDPOINT") 
+)
+
+response = client.embeddings.create(
+    input = "Your text string goes here",
+    model= "text-embedding-ada-002"
+)
+
+print(response.model_dump_json(indent=2))
 ```
 
 # [C#](#tab/csharp)

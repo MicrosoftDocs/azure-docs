@@ -43,6 +43,8 @@ items:
       href: ./concepts/fine-tuning-considerations.md
     - name: Red teaming large language models (LLMs)
       href: ./concepts/red-teaming.md
+    - name: Image provenance
+      href: ./concepts/content-credentials.md
     - name: Intro to prompt engineering
       href: ./concepts/prompt-engineering.md
     - name: Model versions
@@ -64,12 +66,18 @@ items:
       href: ./how-to/function-calling.md
     - name: Completions
       href: ./how-to/completions.md
+    - name: JSON mode
+      href: ./how-to/json-mode.md
+    - name: Reproducible output
+      href: ./how-to/reproducible-output.md
     - name: Work with code
       href: ./how-to/work-with-code.md
     - name: Use with large datasets
       href: ./how-to/integrate-synapseml.md
   - name: Content filtering
     href: ./how-to/content-filters.md
+  - name: Use blocklists
+    href: ./how-to/use-blocklists.md
   - name: Embeddings
     items:
     - name: Embeddings basics
@@ -80,6 +88,8 @@ items:
     items:
       - name: Fine-tuning your model
         href: ./how-to/fine-tuning.md
+  - name: Migrate to OpenAI Python v1.x
+    href: ./how-to/migration.md
   - name: Models
     items:
       - name: Manage models
@@ -146,7 +156,7 @@ items:
     - name: REST API (completions & embeddings)
       href: reference.md
     - name: REST API (fine-tuning)
-      href: /rest/api/cognitiveservices/azureopenaistable/fine-tunes
+      href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview&preserve-view=true 
     - name: REST API (resource creation & deployment)
       href: /rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP
 - name: Resources

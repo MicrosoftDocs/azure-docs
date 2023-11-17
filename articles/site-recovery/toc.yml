@@ -187,12 +187,6 @@
       href: vmware-azure-architecture.md
     - name: Modernized
       href: vmware-azure-architecture-modernized.md
-  - name: About excluding disks from replication
-    href: exclude-disks-replication.md
-  - name: Failback location options from Azure to VMware
-    href: concepts-types-of-failback.md
-  - name: Multi-tenant support for VMware disaster recovery
-    href: vmware-azure-multi-tenant-overview.md
   - name: About Hyper-V VM disaster recovery
     items:
     - name: Hyper-V to Azure architecture
@@ -239,6 +233,10 @@
       href: /security/benchmark/azure/baselines/site-recovery-security-baseline?toc=/azure/site-recovery/toc.json
     - name: Transport Layer Security
       href: transport-layer-security.md
+  - name: Failback location options from Azure to VMware
+    href: concepts-types-of-failback.md
+  - name: Multitenant support for VMware disaster recovery
+    href: vmware-azure-multi-tenant-overview.md
   - name: About recovery plans
     href: recovery-plan-overview.md
   - name: About migration to Azure

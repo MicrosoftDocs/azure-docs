@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 11/03/2023
+ms.date: 11/06/2023
 
 #CustomerIntent: As an Azure administrator, I want to migrate my connection monitors from Connection monitor (classic) to the new Connection monitor so I avoid service disruption. 
 ---
@@ -14,7 +14,7 @@ ms.date: 11/03/2023
 # Migrate to Connection monitor from Connection monitor (classic)
 
 > [!IMPORTANT]
-> Starting July 1, 2021, you will not be able to add new connection monitors in Connection Monitor (classic) but you can continue to use existing connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, migrate from Connection Monitor (classic) to the new Connection Monitor in Azure Network Watcher before February 29, 2024.
+> Starting July 1, 2021, you will not be able to add new connection monitors in Connection Monitor (classic) but you can continue to use existing connection monitors created prior to July 1, 2021. To minimize service disruption to your current workloads, migrate from Connection Monitor (classic) to the new Connection Monitor in Azure Network Watcher before February 29, 2024.
 
 You can migrate existing connection monitors to new, improved Connection monitor with only a few clicks and with zero downtime. To learn more about the benefits of the new Connection monitor, see [Connection monitor overview](connection-monitor-overview.md).
 
@@ -70,5 +70,5 @@ The following table list common errors that you might encounter during the migra
 
 ## Related content
 
-- [Migrate from Network Performance Monitor to Connection Monitor](migrate-to-connection-monitor-from-network-performance-monitor.md).
-- [Create Connection Monitor by using the Azure portal](connection-monitor-create-using-portal.md).
+- [Migrate from Network performance monitor to Connection monitor](migrate-to-connection-monitor-from-network-performance-monitor.md).
+- [Create a connection monitor using the Azure portal](connection-monitor-create-using-portal.md).

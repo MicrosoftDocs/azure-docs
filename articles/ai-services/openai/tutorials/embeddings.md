@@ -2,11 +2,11 @@
 title: Azure OpenAI Service embeddings tutorial
 titleSuffix: Azure OpenAI
 description: Learn how to use Azure OpenAI's embeddings API for document search with the BillSum dataset
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: tutorial
-ms.date: 09/12/2023
+ms.date: 11/06/2023
 author: mrbullwinkle #noabenefraim
 ms.author: mbullwin
 recommendations: false
@@ -46,9 +46,19 @@ In this tutorial, you learn how to:
 
 If you haven't already, you need to install the following libraries:
 
+# [OpenAI Python 0.28.1](#tab/python)
+
 ```cmd
 pip install "openai==0.28.1" num2words matplotlib plotly scipy scikit-learn pandas tiktoken
 ```
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```console
+pip install openai num2words matplotlib plotly scipy scikit-learn pandas tiktoken
+```
+
+---
 
 <!--Alternatively, you can use our [requirements.txt file](https://github.com/Azure-Samples/Azure-OpenAI-Docs-Samples/blob/main/Samples/Tutorials/Embeddings/requirements.txt).-->
 
@@ -105,7 +115,9 @@ Run the following code in your preferred Python IDE:
 
 <!--If you wish to view the Jupyter notebook that corresponds to this tutorial you can download the tutorial from our [samples repo](https://github.com/Azure-Samples/Azure-OpenAI-Docs-Samples/blob/main/Samples/Tutorials/Embeddings/embedding_billsum.ipynb).-->
 
-## Import libraries and list models
+## Import libraries
+
+# [OpenAI Python 0.28.1](#tab/python)
 
 ```python
 import openai
@@ -192,6 +204,23 @@ print(r.text)
 ```
 
 The output of this command will vary based on the number and type of models you've deployed. In this case, we need to confirm that we have an entry for **text-embedding-ada-002**. If you find that you're missing this model, you'll need to [deploy the model](../how-to/create-resource.md#deploy-a-model) to your resource before proceeding.
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+import os
+import re
+import requests
+import sys
+from num2words import num2words
+import os
+import pandas as pd
+import numpy as np
+import tiktoken
+from openai import AzureOpenAI
+```
+
+---
 
 Now we need to read our csv file and create a pandas DataFrame. After the initial DataFrame is created, we can view the contents of the table by running `df`.
 
@@ -334,9 +363,28 @@ len(decode)
 
 Now that we understand more about how tokenization works we can move on to embedding. It is important to note, that we haven't actually tokenized the documents yet. The `n_tokens` column is simply a way of making sure none of the data we pass to the model for tokenization and embedding exceeds the input token limit of 8,192. When we pass the documents to the embeddings model, it will break the documents into tokens similar (though not necessarily identical) to the examples above and then convert the tokens to a series of floating point numbers that will be accessible via vector search. These embeddings can be stored locally or in an [Azure Database to support Vector Search](../../../cosmos-db/mongodb/vcore/vector-search.md). As a result, each bill will have its own corresponding embedding vector in the new `ada_v2` column on the right side of the DataFrame.
 
+# [OpenAI Python 0.28.1](#tab/python)
+
 ```python
 df_bills['ada_v2'] = df_bills["text"].apply(lambda x : get_embedding(x, engine = 'text-embedding-ada-002')) # engine should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (Version 2) model
 ```
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+client = AzureOpenAI(
+  api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
+  api_version = "2023-05-15",
+  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+)
+
+def generate_embeddings(text, model="text-embedding-ada-002"): # model = "deployment_name"
+    return client.embeddings.create(input = [text], model=model).data[0].embedding
+
+df_bills['ada_v2'] = df_bills["text"].apply(lambda x : generate_embeddings (x, model = 'text-embedding-ada-002')) # model should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (Version 2) model
+```
+
+---
 
 ```python
 df_bills
@@ -347,6 +395,8 @@ df_bills
 :::image type="content" source="../media/tutorials/embed-text-documents.png" alt-text="Screenshot of the formatted results from df_bills command." lightbox="../media/tutorials/embed-text-documents.png":::
 
 As we run the search code block below, we'll embed the search query *"Can I get information on cable company tax revenue?"* with the same **text-embedding-ada-002 (Version 2)** model. Next we'll find the closest bill embedding to the newly embedded text from our query ranked by [cosine similarity](../concepts/understand-embeddings.md).
+
+# [OpenAI Python 0.28.1](#tab/python)
 
 ```python
 # search through the reviews for a specific product
@@ -368,6 +418,36 @@ def search_docs(df, user_query, top_n=3, to_print=True):
 
 res = search_docs(df_bills, "Can I get information on cable company tax revenue?", top_n=4)
 ```
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+def cosine_similarity(a, b):
+    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
+def get_embedding(text, model="text-embedding-ada-002"): # model = "deployment_name"
+    return client.embeddings.create(input = [text], model=model).data[0].embedding
+
+def search_docs(df, user_query, top_n=4, to_print=True):
+    embedding = get_embedding(
+        user_query,
+        model="text-embedding-ada-002" # model should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (Version 2) model
+    )
+    df["similarities"] = df.ada_v2.apply(lambda x: cosine_similarity(x, embedding))
+
+    res = (
+        df.sort_values("similarities", ascending=False)
+        .head(top_n)
+    )
+    if to_print:
+        display(res)
+    return res
+
+
+res = search_docs(df_bills, "Can I get information on cable company tax revenue?", top_n=4)
+```
+
+---
 
 **Output**:
 

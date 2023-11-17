@@ -2,11 +2,13 @@
 title: "Quickstart: Create an Azure AI services resource in the Azure portal"
 titleSuffix: Azure AI services
 description: Get started with Azure AI services by creating and subscribing to a resource in the Azure portal.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 keywords: Azure AI services, cognitive intelligence, cognitive solutions, ai services
 ms.service: azure-ai-services
+ms.custom:
+  - ignite-2023
 ms.topic: quickstart
 ms.date: 02/13/2023
 ms.author: aahi
@@ -57,6 +59,3 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 1. Locate the resource group containing the resource to be deleted.
 1. If you want to delete the entire resource group, select the resource group name. On the next page, Select **Delete resource group**, and confirm.
 1. If you want to delete only the Azure AI services resource, select the resource group to see all the resources within it. On the next page, select the resource that you want to delete, select the ellipsis menu for that row, and select **Delete**.
-
-If you need to recover a deleted resource, see [Recover or purge deleted Azure AI services resources](../../recover-purge-resources.md).
-

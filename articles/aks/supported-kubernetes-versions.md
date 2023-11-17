@@ -28,7 +28,7 @@ Examples:
 
 Each number in the version indicates general compatibility with the previous version:
 
-* **Major versions** change when incompatible API updates or backwards compatibility may be broken.
+* **Major versions** change when incompatible API updates or backwards compatibility might be broken.
 * **Minor versions** change when functionality updates are made that are backwards compatible to the other minor releases.
 * **Patch versions** change when backwards-compatible bug fixes are made.
 
@@ -49,7 +49,7 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 | 1.25 | Aug 2022 | Oct 2022 | Dec 2022 | Jan 2, 2024 | Until 1.29 GA |
 | 1.26 | Dec 2022 | Feb 2023 | Apr 2023 | Mar 2024 | Until 1.30 GA |
 | 1.27* | Apr 2023 | Jun 2023 | Jul 2023 | Jul 2024, LTS until Jul 2025 | Until 1.31 GA |
-| 1.28 | Aug 2023 | Sep 2023 | Oct 2023 || Until 1.32 GA|
+| 1.28 | Aug 2023 | Sep 2023 | Nov 2023 | Nov 2024 | Until 1.32 GA|
 | 1.29 | Dec 2023 | Jan 2024 | Feb 2024 | | Until 1.33 GA |
 
 *\* Indicates the version is designated for Long Term Support*
@@ -66,9 +66,10 @@ Note the following important changes to make before you upgrade to any of the av
 
 |Kubernetes Version | AKS Managed Addons  | AKS Components | OS components | Breaking Changes | Notes
 |--------------|------------------------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------------|----------------|---------------------------|
-| 1.25 | Azure policy 1.0.1<br>Metrics-Server 0.6.3<br>KEDA 2.9.3<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Ingress AppGateway 1.2.1<br>Eraser v1.1.1<br>Azure Workload identity v1.0.0<br>ASC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>KMS 0.5.0| Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 18.04 Cgroups V1 <br>ContainerD 1.7<br>| Ubuntu 22.04 by default with cgroupv2 and Overlay VPA 0.13.0  |CgroupsV2 - If you deploy Java applications with the JDK, prefer to use JDK 11.0.16 and later or JDK 15 and later, which fully support cgroup v2
-| 1.26 | Azure policy 1.0.1<br>Metrics-Server 0.6.3<br>KEDA 2.9.3<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Ingress AppGateway 1.2.1<br>Eraser v1.1.1<br>Azure Workload identity v1.0.0<br>ASC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>KMS 0.5.0| Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7<br>|No Breaking Changes  |None
-| 1.27 | Azure policy 1.1.0<br>Metrics-Server 0.6.3<br>KEDA 2.10.0<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Ingress AppGateway 1.2.1<br>Eraser v1.1.1<br>Azure Workload identity v1.0.0<br>ASC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>KMS 0.5.0|Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7 for Linux and 1.6 for Windows<br>|Keda 2.10.0  |Because of Ubuntu 22.04 FIPS certification status, we'll switch AKS FIPS nodes from 18.04 to 20.04 from 1.27 onwards.
+| 1.25 | Azure policy 1.0.1<br>Metrics-Server 0.6.3<br>KEDA 2.9.3<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.5.3<br>Image Cleaner v1.1.1<br>Azure Workload identity v1.0.0<br>MDC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>KMS 0.5.0| Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 18.04 Cgroups V1 <br>ContainerD 1.7<br>| Ubuntu 22.04 by default with cgroupv2 and Overlay VPA 0.13.0  |CgroupsV2 - If you deploy Java applications with the JDK, prefer to use JDK 11.0.16 and later or JDK 15 and later, which fully support cgroup v2
+| 1.26 | Azure policy 1.0.1<br>Metrics-Server 0.6.3<br>KEDA 2.9.3<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.5.3<br>Image Cleaner v1.1.1<br>Azure Workload identity v1.0.0<br>MDC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>KMS 0.5.0| Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7<br>|No breaking changes  |None
+| 1.27 | Azure policy 1.1.0<br>Metrics-Server 0.6.3<br>KEDA 2.10.0<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.7.2<br>Image Cleaner v1.1.1<br>Azure Workload identity v1.0.0<br>MDC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>KMS 0.5.0|Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7 for Linux and 1.6 for Windows<br>|Keda 2.10.0  |Because of Ubuntu 22.04 FIPS certification status, we'll switch AKS FIPS nodes from 18.04 to 20.04 from 1.27 onwards.
+| 1.28 | Azure policy 1.2.1<br>Metrics-Server 0.6.3<br>KEDA 2.11.2<br>Open Service Mesh 1.2.7<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.13.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.7.2<br>Image Cleaner v1.2.2<br>Azure Workload identity v2.0.0<br>MDC Defender Security Publisher 1.0.68<br>MDC Defender Old File Cleaner 1.3.68<br>MDC Defender Pod Collector 1.0.78<br>MDC Defender Low Level Collector 1.3.81<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.8.1|Cilium 1.13.5<br>CNI v1.4.43.1 (Default)/v1.5.11 (Azure CNI Overlay)<br> Cluster Autoscaler 1.27.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7.5 for Linux and 1.7.1 for Windows<br>|No breaking changes|None
 
 ## Alias minor version
 
@@ -99,12 +100,12 @@ AKS defines a generally available (GA) version as a version available in all reg
 * Two previous minor versions.
   * Each supported minor version also supports a maximum of two stable patches.
 
-AKS may also support preview versions, which are explicitly labeled and subject to [preview terms and conditions][preview-terms].
+AKS might also support preview versions, which are explicitly labeled and subject to [preview terms and conditions][preview-terms].
 
 AKS provides platform support only for one GA minor version of Kubernetes after the regular supported versions. The platform support window of Kubernetes versions on AKS is known as "N-3". For more information, see [platform support policy](#platform-support-policy).
 
 > [!NOTE]
-> AKS uses safe deployment practices which involve gradual region deployment. This means it may take up to 10 business days for a new release or a new version to be available in all regions.
+> AKS uses safe deployment practices which involve gradual region deployment. This means it might take up to 10 business days for a new release or a new version to be available in all regions.
 
 The supported window of Kubernetes versions on AKS is known as "N-2": (N (Latest release) - 2 (minor versions)), and ".letter" is representative of patch versions.
 
@@ -201,21 +202,6 @@ Install-AzAksKubectl -Version latest
 
 ---
 
-## Long Term Support (LTS)
-
-AKS provides a Long Term Support (LTS) version of Kubernetes for a two-year period. There's only a single minor version of Kubernetes deemed LTS at any one time.  
-
-|   | Community Support  |Long Term Support   |
-|---|---|---|
-| **When to use** | When you can keep up with upstream Kubernetes releases | When you need control over when to migrate from one version to another  |
-|  **Support versions** | Three GA minor versions | One Kubernetes version (currently *1.27*) for two years  |
-|  **Pricing** | Included  |  Per hour cluster cost |
-
-The upstream community maintains a minor release of Kubernetes for one year from release. After this period, Microsoft creates and applies security updates to the LTS version of Kubernetes to provide a total of two years of support on AKS.
-
-> [!IMPORTANT]
-> Kubernetes version 1.27 will be the first supported LTS version of Kubernetes on AKS. It is not yet available.
-
 ## Release and deprecation process
 
 You can reference upcoming version releases and deprecations on the [AKS Kubernetes release calendar](#aks-kubernetes-release-calendar).
@@ -239,7 +225,7 @@ For new **patch** versions of Kubernetes:
 
 AKS reserves the right to add or remove new/existing versions with one or more critical production-impacting bugs or security issues without advance notice.
 
-Specific patch releases may be skipped or rollout accelerated, depending on the severity of the bug or security issue.
+Specific patch releases might be skipped or rollout accelerated, depending on the severity of the bug or security issue.
 
 ## Azure portal and CLI versions
 
@@ -324,11 +310,11 @@ When performing an upgrade from an _unsupported version_ that skips two or more 
 
 ### Can I create a new 1.xx.x cluster during its 30 day support window?
 
-No. Once a version is deprecated/removed, you can't create a cluster with that version. As the change rolls out, you'll start to see the old version removed from your version list. This process may take up to two weeks from announcement, progressively by region.
+No. Once a version is deprecated/removed, you can't create a cluster with that version. As the change rolls out, you'll start to see the old version removed from your version list. This process might take up to two weeks from announcement, progressively by region.
 
 ### I'm on a freshly deprecated version, can I still add new node pools? Or will I have to upgrade?
 
-No. You aren't allowed to add node pools of the deprecated version to your cluster. You can add node pools of a new version, but it may require you to update the control plane first.
+No. You aren't allowed to add node pools of the deprecated version to your cluster. You can add node pools of a new version, but it might require you to update the control plane first.
 
 ### How often do you update patches?
 

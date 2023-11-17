@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: build-2023
 ms.topic: reference
-ms.date: 12/29/2022
+ms.date: 11/06/2023
 ms.author: kengaderdus
 ms.reviewer: yoelhor
 ms.subservice: B2C
@@ -252,7 +252,7 @@ The following technical profile deletes a social user account using **alternativ
 | --------- | -------- | ----------- |
 | Operation | Yes | The operation to be performed. Possible values: `Read`, `Write`, `DeleteClaims`, or `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | No | Raise an error if the user object does not exist in the directory. Possible values: `true` or `false`. |
-| RaiseErrorIfClaimsPrincipalAlreadyExists | No | Raise an error if the user object already exists. Possible values: `true` or `false`.|
+| RaiseErrorIfClaimsPrincipalAlreadyExists | No | Raise an error if the user object already exists. Possible values: `true` or `false`. This metadata is applicable only for the Write operation.|
 | ApplicationObjectId | No | The application object identifier for extension attributes. Value: ObjectId of an application. For more information, see [Use custom attributes](user-flow-custom-attributes.md?pivots=b2c-custom-policy). |
 | ClientId | No | The client identifier for accessing the tenant as a third party. For more information, see [Use custom attributes in a custom profile edit policy](user-flow-custom-attributes.md?pivots=b2c-custom-policy) |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |

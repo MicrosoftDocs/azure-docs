@@ -335,7 +335,7 @@ Creating a Service of type `LoadBalancer` in Azure Kubernetes Service will resul
    ```
     
    > [!NOTE]
-   > Replace `20.81.108.180` with the the public IP address for your environment
+   > Replace `20.81.108.180` with the public IP address for your environment
 
 ## Kubernetes resources for the application
 

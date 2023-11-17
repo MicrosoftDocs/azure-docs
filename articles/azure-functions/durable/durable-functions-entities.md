@@ -17,7 +17,7 @@ Entity functions define operations for reading and updating small pieces of stat
 Entities provide a means for scaling out applications by distributing the work across many entities, each with a modestly sized state.
 ::: zone pivot="csharp,javascript,python"
 > [!NOTE]
-> Entity functions and related functionality are only available in [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) and above. They are currently supported in .NET in-proc, .NET isolated worker ([preview](durable-functions-dotnet-entities.md)), JavaScript, and Python, but not in PowerShell or Java.
+> Entity functions and related functionality are only available in [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) and above. They are currently supported in .NET in-proc, .NET isolated worker, JavaScript, and Python, but not in PowerShell or Java.
 ::: zone-end  
 ::: zone pivot="powershell,java"  
 >[!IMPORTANT]
@@ -261,6 +261,28 @@ module.exports = df.entity(function(context) {
 ::: zone pivot="python"
 The following code is the `Counter` entity implemented as a durable function written in Python.
 
+# [v2](#tab/python-v2)
+
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+# Entity function called counter
+@myApp.entity_trigger(context_name="context")
+def Counter(context):
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        context.set_result(current_value)
+    context.set_state(current_value)
+```
+
+# [v1](#tab/python-v1)
 **Counter/function.json**
 ```json
 {
@@ -362,7 +384,25 @@ module.exports = async function (context) {
 };
 ```
 ::: zone-end  
-::: zone pivot="python"  
+::: zone pivot="python"
+
+# [v2](#tab/python-v2)
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+# An HTTP-Triggered Function with a Durable Functions Client to set a value on a durable entity
+@myApp.route(route="entitysetvalue")
+@myApp.durable_client_input(client_name="client")
+async def http_set(req: func.HttpRequest, client):
+    logging.info('Python HTTP trigger function processing a request.')
+    entityId = df.EntityId("Counter", "myCounter")
+    await client.signal_entity(entityId, "add", 1)
+    return func.HttpResponse("Done", status_code=200)
+```
+
+# [v1](#tab/python-v1)
+
 ```Python
 from azure.durable_functions import DurableOrchestrationClient
 import azure.functions as func
@@ -431,7 +471,25 @@ module.exports = async function (context) {
 };
 ```
 ::: zone-end  
-::: zone pivot="python"  
+::: zone pivot="python"
+
+# [v2](#tab/python-v2)
+
+```python
+# An HTTP-Triggered Function with a Durable Functions Client to retrieve the state of a durable entity
+@myApp.route(route="entityreadvalue")
+@myApp.durable_client_input(client_name="client")
+async def http_read(req: func.HttpRequest, client):
+    entityId = df.EntityId("Counter", "myCounter")
+    entity_state_result = await client.read_entity_state(entityId)
+    entity_state = "No state found"
+    if entity_state_result.entity_exists:
+      entity_state = str(entity_state_result.entity_state)
+    return func.HttpResponse(entity_state)
+```
+
+# [v1](#tab/python-v1)
+
 ```python
 from azure.durable_functions import DurableOrchestrationClient
 import azure.functions as func
@@ -508,7 +566,21 @@ module.exports = df.orchestrator(function*(context){
 > [!NOTE]
 > JavaScript does not currently support signaling an entity from an orchestrator. Use `callEntity` instead.
 ::: zone-end  
-::: zone pivot="python"  
+::: zone pivot="python"
+
+# [v2](#tab/python-v2)
+
+```python
+@myApp.orchestration_trigger(context_name="context")
+def orchestrator(context: df.DurableOrchestrationContext):
+    entityId = df.EntityId("Counter", "myCounter")
+    context.signal_entity(entityId, "add", 3)
+    logging.info("signaled entity")
+    state = yield context.call_entity(entityId, "get")
+    return state
+```
+
+# [v1](#tab/python-v1)
 ```Python
 import azure.functions as func
 import azure.durable_functions as df
