@@ -5,8 +5,6 @@ description: Learn about Azure Route Server routing preference feature to change
 author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
-ms.custom:
-  - ignite-2023
 ms.topic: concept-article
 ms.date: 11/15/2023
 

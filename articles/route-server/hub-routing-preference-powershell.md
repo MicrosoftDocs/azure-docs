@@ -7,9 +7,7 @@ ms.author: halkazwini
 ms.service: route-server
 ms.topic: how-to
 ms.date: 11/15/2023
-ms.custom:
-  - devx-track-azurepowershell
-  - ignite-2023
+ms.custom: devx-track-azurepowershell
 
 #CustomerIntent: As an Azure administrator, I want learn how to use routing preference setting so that I can influence route selection in Azure Route Server using Azure PowerShell.
 ---
