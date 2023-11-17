@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom:
   - build-2023
   - ignite-2023
-ms.date: 10/04/2023
+ms.date: 11/15/2023
 ---
 
 # Authentication and authorization with Microsoft Entra ID when using Event Grid namespaces

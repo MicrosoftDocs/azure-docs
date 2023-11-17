@@ -103,7 +103,7 @@ With the rise of Kubernetes and the OSS ecosystem, Container Insights migrate to
 
 ## Repair duplicate agents
 
-Customers who manually Container Insights using custom methods prior to October 2022 can end up with multiple versions of our agent running together. To clear this duplication, customers are recommended to follow the steps below: 
+Customers who manually enable Container Insights using custom methods prior to October 2022 can end up with multiple versions of our agent running together. To clear this duplication, customers are recommended to follow the steps below: 
 
 ### Migration guidelines for AKS clusters 
 
@@ -124,13 +124,13 @@ Current ama-logs default limit are below
 
 Validate whether the current default settings and limits meet the customer's needs. And if not, create support tickets under containerinsights agent to help investigate and toggle memory/cpu limits for the customer. Through doing this, it can help address the scale limitations issues that some customers encountered previously that resulted in OOMKilled exceptions.
 
-4.	Fetch current Azure analytic workspace ID since we're going to re-onboard the container insights.
+3.	Fetch current Azure analytic workspace ID since we're going to re-onboard the container insights.
 
 ```console
 az aks show -g  $resourceGroupNameofCluster -n $nameofTheCluster | grep logAnalyticsWorkspaceResourceID`
 ```
 
-6.	Clean resources from previous onboarding: 
+4.	Clean resources from previous onboarding: 
 
 **For customers that previously onboarded to containerinsights through helm chart** :
 
@@ -160,13 +160,13 @@ curl -LO raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/kubernetes/o
 kubectl delete -f omsagent.yaml
 ```
 
-7.	Disable container insights to clean all related resources with aks command: [Disable Container insights on your Azure Kubernetes Service (AKS) cluster - Azure Monitor | Microsoft Learn](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-optout)
+5.	Disable container insights to clean all related resources with aks command: [Disable Container insights on your Azure Kubernetes Service (AKS) cluster - Azure Monitor | Microsoft Learn](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-optout)
 
 ```console
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
-8.	Re-onboard to containerinsights with the workspace fetched from step 3 using [the steps outlined here](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-enable-aks?tabs=azure-cli#specify-a-log-analytics-workspace)
+6.	Re-onboard to containerinsights with the workspace fetched from step 3 using [the steps outlined here](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-enable-aks?tabs=azure-cli#specify-a-log-analytics-workspace)
 
 
 
