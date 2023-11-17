@@ -110,9 +110,9 @@ for (CallAutomationEventBase event : events) {
 
 ## Play welcome message and recognize 
 
-Using the `FileSource` API, you can provide the service the audio file you want to use for your welcome message. The Azure Communication Services Call Automation service plays this message upon the `CallConnected` event. 
+Using the `TextSource`, you can provide the service with the text you want synthesized and used for your welcome message. The Azure Communication Services Call Automation service plays this message upon the `CallConnected` event. 
 
-Next we pass the audio file into the `CallMediaRecognizeDtmfOptions` and then call `startRecognizingWithResponse`. This recognizes and options API enables the telephony client to send DTMF tones that we can recognize.
+Next, we pass the text into the `CallMediaRecognizeChoiceOptions` and then call `StartRecognizingAsync`. This allows your application to recognize the option the caller chooses.
 
 ```java
 var playSource = new TextSource().setText(content).setVoiceName("en-US-NancyNeural");
