@@ -15,7 +15,8 @@ Customer-managed keys (CMK) are encryption keys that you create and manage in yo
 
 ## Rotate keys often
 
-Follow [security best practices](../../key-vault/secrets/secrets-best-practices.md) and rotate keys often. Keys used with the FHIR service must be rotated manually. When you rotate a key, update the version of the existing key or set a new encryption key from a different storage location. Always make sure to keep existing keys enabled when adding new keys because they're still needed to access the data that was encrypted with them.  
+Follow security best practices and rotate keys often. Keys used with the FHIR service must be rotated manually. When you rotate a key, update the version of the existing key or set a new encryption key from a different storage location. Always make sure to keep existing keys enabled when adding new keys because they're still needed to access the data that was encrypted with them.  
+To rotate the key based on the key policy by generating a new version of the key, use az keyvault key rotate command. For more information, visit [Azure key vault rotate command](https://learn.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-rotate).
 
 ## Update the FHIR service after changing a managed identity
 

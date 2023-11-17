@@ -40,34 +40,9 @@ Customer-managed keys enable you to:
 
    - To prevent losing the encryption key for the FHIR service, the key vault or managed HSM must have **soft delete** and **purge protection** enabled. These features allow you to recover deleted keys for a certain time (default 90 days) and block permanent deletion until that time is over.
 
-## Assign the Key Vault Crypto Service Encryption User role
-
-The system-assigned managed identity needs the [Key Vault Crypto Service Encryption User](../../key-vault/general/rbac-guide.md) role to access keys and use them to encrypt and decrypt data.  
-
-1. In the Azure portal, go to the key vault and then select **Access control (IAM)** from the left pane.
-
-2. On the **Access control (IAM)** page, select **Add role assignment**.
-
-:::image type="content" source="media/configure-customer-managed-keys/key-vault-access-control.png" alt-text="Screenshot of the Access control (IAM) view for the key vault." lightbox="media/configure-customer-managed-keys/key-vault-access-control.png":::
-
-3. On the Add role assignment page, select the **Key Vault Crypto Service Encryption User** role. 
-   
-4. Select **Next**.
-
-:::image type="content" source="media/configure-customer-managed-keys/key-vault-crypto-encryption-user-role.png" alt-text="Screenshot showing the Key Vault Crypto Officer role selected on the role assignments tab." lightbox="media/configure-customer-managed-keys/key-vault-crypto-encryption-user-role.png":::
-
-5. On the Members tab, select **Managed Identity** and then select **+Select members**.
-
-6. On the **Select managed identities** pane, select **FHIR service** from the **Managed identity** drop-down list. Select your FHIR service.
-   
-7. On the **Select managed identities** pane, choose **Select**. 
-
-:::image type="content" source="media/configure-customer-managed-keys/key-vault-add-role-assignment.png" alt-text="Screenshot of selecting the system assigned managed identity in the Add role assignment page." lightbox="media/configure-customer-managed-keys/key-vault-add-role-assignment.png":::
-
-8. Review the role assignment and then select **Review + assign**. 
-
-:::image type="content" source="media/configure-customer-managed-keys/key-vault-add-role-review.png" alt-text="Screenshot of the role assignment with the review + assign action." lightbox="media/configure-customer-managed-keys/key-vault-add-role-review.png":::
-
+> [!NOTE]
+>FHIR service supports attaching a single identity type (System-assigned or user-assigned identity). Changing identity type can have impact on background jobs such as export and import, if they have a specific identity type already mapped.
+     
 ## Update the FHIR service with the encryption key
 
 After you add the key, you need to update the FHIR service with the key URL.  
@@ -83,6 +58,8 @@ After you add the key, you need to update the FHIR service with the key URL.
 4. Copy the **Key Identifier**.  You need the key URL when you update the key by using an ARM template.
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-url.png" alt-text="Screenshot showing the key version details and the copy action for the Key Identifier." lightbox="media/configure-customer-managed-keys/key-vault-url.png":::
+
+You can update the key in FHIR service using Portal or ARM template. During Update workflow, you can choose to use system-assigned or user-assigned managed identity. For system-assigned managed identity ensure it and has Key Vault Crypto Service Encryption User role enabled. For more information on assigning Azure RBAC roles with the Azure portal, see [Assign Azure roles using the Azure portal](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition).
 
 ### Update the key by using the Azure portal
 
@@ -306,8 +283,11 @@ For the FHIR service to operate properly, it must always have access to the key 
 
 - The FHIR service system-assigned managed identity loses access to the key vault.
 
-In any scenario where the FHIR service can't access the key, API requests return with `500` errors and the data is inaccessible until access to the key is restored. The [Azure Resource health](../../service-health/overview.md) view for the FHIR service helps you diagnose key access issues.
+In any scenario where the FHIR service can't access the key, API requests return with `500` errors and the data is inaccessible until access to the key is restored. 
 
-If key access is lost, ensure you updated the key and required resources so they're accessible by the FHIR service. For more information, see [Create or update REST API for the FHIR service](/rest/api/healthcareapis/fhir-services/create-or-update). Make sure to match all the properties and identities with your current FHIR service.
+If key access is lost, ensure you updated the key and required resources so they're accessible by the FHIR service. 
+
+## Common errors 
+Common error causing databases to become inaccessible are mainly related to configuration issues, to learn more about common issues and error messages, visit [Common errors with customer-managed keys](https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current#common-errors-causing-databases-to-become-inaccessible). 
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
