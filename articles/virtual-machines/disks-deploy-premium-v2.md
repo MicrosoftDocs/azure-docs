@@ -21,7 +21,9 @@ Premium SSD v2 support a 4k physical sector size by default, but can be configur
 
 ## Determine region availability programmatically
 
-To use a Premium SSD v2, you need to determine the regions and zones where it's supported. Not every region and zones support Premium SSD v2. To determine regions, and zones support premium SSD v2, replace `yourSubscriptionId` then run the following command:
+To use a Premium SSD v2, you need to determine the regions and zones where it's supported. Not every region and zones support Premium SSD v2. For a list of regions, see [Regional availability](#regional-availability).
+
+To determine regions, and zones support premium SSD v2, replace `yourSubscriptionId` then run the following command:
 
 # [Azure CLI](#tab/azure-cli)
 
