@@ -14,10 +14,10 @@ ms.custom: template-how-to, devx-track-azurecli
 > [!CAUTION]
 > Please note this process is used in emergency situations when all other troubleshooting options via Azure have been exhausted. SSH access to these bare metal machines is restricted to users managed via this method from the specified jump host list.
 
-There are rare situations where a user needs to investigate & resolve issues with a bare metal machine and all other ways using Azure have been exhausted. Operator Nexus provides the `az networkcloud cluster bmckeyset` command so users can manage SSH access to the baseboard management controller (BMC) on these bare metal machines. On keyset creation, users are validated agaisnt Azure Active Directory for proper authorization if a User Principal Name (UPN) is provided. For proper AAD authorization to occur, when creating new keyset a Azure Group ID must also be supplied with `--azure-group-id <Azure AAD Group ID>`.
+There are rare situations where a user needs to investigate & resolve issues with a bare metal machine and all other ways using Azure have been exhausted. Operator Nexus provides the `az networkcloud cluster bmckeyset` command so users can manage SSH access to the baseboard management controller (BMC) on these bare metal machines. On keyset creation, users are validated against Microsoft Entra ID for proper authorization by cross referencing the User Principal Name provided for a user against the supplied Azure Group ID `--azure-group-id <Azure AAD Group ID>`.
 
-> [!CAUTION]
-> Not supplying a UPN is currently supported during keyset creation and update. After July 1st, 2024, if a UPN is not supplied for a user on keyset creation the user will marked invalid and will be unable to use their keyset. After the grace period date, if a UPN is not supplied for a user during keyset update the user will be marked invalid during reconciliation. In both creation and update scenarios, the keysets and the users are **NOT** deleted, simply invalidated. It is suggested that before July 1st, 2024, the steps are followed to re-create keysets with the UPN for users being provided.
+> [!NOTE]
+> Not supplying a UPN is currently supported during keyset creation and update. However in a future release enforcement of AAD validation is planned and if a UPN is not supplied for a user on keyset creation/update the user will marked invalid. A user marked invalid does not get deleted but, the user and the matching keyset will no longer be able to be used for SSH access. It is suggested that begin to follow steps to update or re-create keysets supplying UPN for users.
 
 When the command runs, it executes on each bare metal machine in the Cluster with an active Kubernetes node. There's a reconciliation process that runs periodically that retries the command on any bare metal machine that wasn't available at the time of the original command. Also, any bare metal machine that returns to the cluster via an `az networkcloud baremetalmachine actionreimage` or `az networkcloud baremetalmachine actionreplace` command (see [BareMetal functions](./howto-baremetal-functions.md)) sends a signal causing any active keysets to be sent to the machine as soon as it returns to the cluster. Multiple commands execute in the order received.
 
@@ -54,8 +54,9 @@ az networkcloud cluster bmckeyset create \
   --expiration <Expiration Timestamp> \
   --jump-hosts-allowed <List of jump server IP addresses> \
   --privilege-level <"Administrator" or "ReadOnly"> \
-  --user-list '[{"description":"<User description>","azureUserName":"<User Name>", \
-   "sshPublicKey":{"keyData":"<SSH Public Key>"}}]' \
+  --user-list '[{"description":"<User List Description>","azureUserName":"<User Name>",\
+    "sshPublicKey":{"keyData":"<SSH Public Key>"}, \
+    "userPrincipalName":""}]', \
   --tags key1=<Key Value> key2=<Key Value> \
   --cluster-name <Cluster Name> \
   --resource-group <Resource Group Name>
@@ -91,6 +92,7 @@ az networkcloud cluster bmckeyset create \
       azure-user-name: Required. User name used to login to the server.
       description: The free-form description for this user.
       key-data: Required. The public ssh key of the user.
+      userPrincipalName: Optional. The User Principal Name of the User.
 
       Multiple users can be specified by using more than one --user-list argument.
   --tags                                                 : Space-separated tags: key[=value]
@@ -191,9 +193,9 @@ az networkcloud cluster bmckeyset update \
   --name <BMC Keyset Name> \
   --jump-hosts-allowed <List of jump server IP addresses> \
   --privilege-level <"Standard" or "Superuser"> \
-  --user-list '[{"description":"<User description>",\
-    "azureUserName":"<UserName>", \
-    "sshPublicKey":{"keyData":"<SSH Public Key>"}}]' \
+  --user-list '[{"description":"<User List Description>","azureUserName":"<User Name>",\
+    "sshPublicKey":{"keyData":"<SSH Public Key>"}, \
+    "userPrincipalName":""}]', \
   --tags key1=<Key Value> key2=<Key Value> \
   --cluster-name <Cluster Name> \
   --resource-group <Resource Group Name>
@@ -220,6 +222,7 @@ az networkcloud cluster bmckeyset update \
       azure-user-name: Required. User name used to login to the server.
       description: The free-form description for this user.
       key-data: Required. The public SSH key of the user.
+      userPrincipalName: Optional. The User Principal Name of the User.
 
       Multiple users can be specified by using more than one --user-list argument.
   --resource-group -g                         [Required] : Name of resource group. Optional if
@@ -239,7 +242,9 @@ az networkcloud cluster bmckeyset update \
   --name "bmcKeySetName" \
   --expiration "2023-12-31T23:59:59.008Z" \
   --user-list '[{"description":"Needs access for troubleshooting as a part of the support team",\
-  "azureUserName":"userDEF","sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}}]\
+    "azureUserName":"userDEF", \
+    "sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}, \
+    "userPrincipalName":"example@contoso.com"}] \
   --cluster-name "clusterName" \
   --resource-group "resourceGroupName"
 ```
