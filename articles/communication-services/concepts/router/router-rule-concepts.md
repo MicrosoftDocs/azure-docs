@@ -55,7 +55,7 @@ await administrationClient.CreateClassificationPolicyAsync(
 ```typescript
 await administrationClient.path("/routing/classificationPolicies/{classificationPolicyId}", "my-policy-id").patch({
     body: {
-        prioritizationRule: { kind: "static-rule", value: 5 }
+        prioritizationRule: { kind: "static", value: 5 }
     },
     contentType: "application/merge-patch+json"
   });
@@ -104,7 +104,7 @@ await administrationClient.CreateClassificationPolicyAsync(
 await administrationClient.path("/routing/classificationPolicies/{classificationPolicyId}", "my-policy-id").patch({
     body: {
         prioritizationRule: {
-            kind: "expression-rule",
+            kind: "expression",
             expression: "If(job.Escalated = true, 10, 5)"
         }
     },

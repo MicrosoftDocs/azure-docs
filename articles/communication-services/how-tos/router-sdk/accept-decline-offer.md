@@ -175,7 +175,7 @@ await routerClient.CompleteJobAsync(new CompleteJobOptions(jobId: accept.Value.J
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.path("/routing/jobs/{jobId}:complete", accept.body.jobId, accept.body.assignmentId).post();
+await client.path("/routing/jobs/{jobId}/assignments/{assignmentId}:complete", accept.body.jobId, accept.body.assignmentId).post();
 ```
 
 ::: zone-end
@@ -213,7 +213,7 @@ await routerClient.CloseJobAsync(new CloseJobOptions(jobId: accept.Value.JobId, 
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.path("/routing/jobs/{jobId}:close", accept.body.jobId, accept.body.assignmentId).post({
+await client.path("/routing/jobs/{jobId}/assignments/{assignmentId}:close", accept.body.jobId, accept.body.assignmentId).post({
     body: {
         dispositionCode: "Resolved"
     }
