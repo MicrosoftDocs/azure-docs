@@ -22,7 +22,7 @@ If you use Azure Kubernetes Service (AKS), this tutorial will show you how to en
 Finish the quickstart: [Use Azure App Configuration in Azure Kubernetes Service](./quickstart-azure-kubernetes-service.md).
 
 > [!TIP]
-> The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
+> The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md).
 >
 ## Add a sentinel key
 
@@ -80,7 +80,7 @@ Add the following key-value to your App Configuration store. For more informatio
 
 1. Open a browser window, and navigate to the IP address obtained in the [previous step](./quickstart-azure-kubernetes-service.md#deploy-the-application). The web page looks like this:
 
-    ![Screenshot of the web app with old values](./media/quickstarts/kubernetes-provider-app-launch-after.png)
+    ![Screenshot of the web app with old values.](./media/quickstarts/kubernetes-provider-app-launch-after.png)
 
 
 1. Update the following key-values in your App Configuration store, ensuring to update the sentinel key last.
@@ -92,7 +92,7 @@ Add the following key-value to your App Configuration store. For more informatio
 
 1. After refreshing the browser a few times, you will see the updated content once the ConfigMap is updated in 30 seconds.
 
-    ![Screenshot of the web app with updated values](./media/quickstarts/kubernetes-provider-app-launch-dynamic-after.png)
+    ![Screenshot of the web app with updated values.](./media/quickstarts/kubernetes-provider-app-launch-dynamic-after.png)
 
 ## Reload ConfigMap and Secret
 
