@@ -3,7 +3,7 @@ title: Improve security and resiliency of storage accounts using Microsoft Copil
 description: Learn how Microsoft Copilot for Azure (preview) can improve the security posture and data resiliency of storage accounts.
 ms.date: 11/15/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
