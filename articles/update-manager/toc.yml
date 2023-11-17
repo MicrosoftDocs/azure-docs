@@ -63,15 +63,9 @@
       - name: Overview
         href: guidance-patching-sql-server-azure-vm.md
       - name: Guidance on patching for SQL Server on Azure VMs
-        href: /azure/azure-sql/virtual-machines/azure-update-manager-sql-vm?toc=/azure/update-center/toc.json
-    - name: Pre and Post Events (preview)
-      items:
-      - name: Overview
-        href: pre-post-scripts-overview.md
-      - name: Manage pre and post events (preview)
-        href: manage-pre-post-events.md
-      - name: FAQ
-        href: pre-post-events-common-scenarios.md
+        href: /azure/azure-sql/virtual-machines/azure-update-manager-sql-vm?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json
+    - name: Azure Stack HCI Patching
+      href: /azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json
     - name: Check update compliance 
       href: view-updates.md
     - name: Deploy updates and track results

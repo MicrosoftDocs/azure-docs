@@ -88,6 +88,8 @@
         href: flexible-server/concepts-limitations.md
       - name: Storage IOPS
         href: flexible-server/concepts-storage-iops.md
+      - name: Accelerated Logs
+        href: flexible-server/concepts-accelerated-logs.md    
     - name: Networking
       items:
       - name: Networking concepts
@@ -210,6 +212,8 @@
         href: flexible-server/how-to-move-regions.md
       - name: Major version upgrade
         href: flexible-server/how-to-upgrade.md
+      - name: Server Maintenance
+        href: flexible-server/how-to-maintenance-portal.md
     - name: Networking
       items:
       - name: Configure Private access (VNet Integration)
@@ -232,10 +236,6 @@
           href: flexible-server/how-to-networking-private-link-deny-public-access.md
         - name: Azure CLI
           href: flexible-server/how-to-networking-private-link-azure-cli.md
-      - name: Service Maintenance
-        items:
-      - name: Configure Scheduled Maintenance using Azure portal
-        href: flexible-server/how-to-maintenance-portal.md
     - name: High Availability
       items:
       - name: Configure Zone redundant high availability

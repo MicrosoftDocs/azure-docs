@@ -1,23 +1,25 @@
 ---
 title: Projection concepts
-titleSuffix: Azure Cognitive Search
-description: Introduces projection concepts and best practices. If you are creating a knowledge store in Cognitive Search, projections will determine the type, quantity, and composition of objects in Azure Storage.
+titleSuffix: Azure AI Search
+description: Introduces projection concepts and best practices. If you are creating a knowledge store in Azure AI Search, projections will determine the type, quantity, and composition of objects in Azure Storage.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 10/25/2022
 ---
 
-# Knowledge store "projections" in Azure Cognitive Search
+# Knowledge store "projections" in Azure AI Search
 
-Projections are the physical tables, objects, and files in a [**knowledge store**](knowledge-store-concept-intro.md) that accept content from a Cognitive Search AI enrichment pipeline. If you're creating a knowledge store, defining and shaping projections is most of the work.
+Projections are the physical tables, objects, and files in a [**knowledge store**](knowledge-store-concept-intro.md) that accept content from an Azure AI Search enrichment pipeline. If you're creating a knowledge store, defining and shaping projections is most of the work.
 
 This article introduces projection concepts and workflow so that you have some background before you start coding.
 
-Projections are defined in Cognitive Search skillsets, but the end results are the table, object, and image file projections in Azure Storage.
+Projections are defined in Azure AI Search skillsets, but the end results are the table, object, and image file projections in Azure Storage.
 
 :::image type="content" source="media/knowledge-store-concept-intro/kstore-in-storage-explorer.png" alt-text="Projections expressed in Azure Storage" border="true":::
 
@@ -89,7 +91,7 @@ Projection groups have the following key characteristics of mutual exclusivity a
 
 The source parameter is the third component of a projection definition. Because projections store data from an AI enrichment pipeline, the source of a projection is always the output of a skill. As such, output might be a single field (for example, a field of translated text), but often it's a reference to a data shape.
 
-Data shapes come from your skillset. Among all of the built-in skills provided in Cognitive Search, there is a utility skill called the [**Shaper skill**](cognitive-search-skill-shaper.md) that's used to create data shapes. You can include Shaper skills (as many as you need) to support the projections in the knowledge store.
+Data shapes come from your skillset. Among all of the built-in skills provided in Azure AI Search, there is a utility skill called the [**Shaper skill**](cognitive-search-skill-shaper.md) that's used to create data shapes. You can include Shaper skills (as many as you need) to support the projections in the knowledge store.
 
 Shapes are frequently used with table projections, where the shape not only specifies which rows go into the table, but also which columns are created (you can also pass a shape to an object projection).
 
@@ -154,7 +156,7 @@ Recall that projections are exclusive to knowledge stores, and are not used to s
 
 1. While in Azure Storage, familiarize yourself with existing content in containers and tables so that you choose non-conflicting names for the projections. A knowledge store is a loose collection of tables and containers. Consider adopting a naming convention to keep track of related objects.
 
-1. In Cognitive Search, [enable enrichment caching (preview)](search-howto-incremental-index.md) in the indexer and then [run the indexer](search-howto-run-reset-indexers.md) to execute the skillset and populate the cache. This is a preview feature, so be sure to use the preview REST API (api-version=2020-06-30-preview or later) on the indexer request. Once the cache is populated, you can modify projection definitions in a knowledge store free of charge (as long as the skills themselves are not modified).
+1. In Azure AI Search, [enable enrichment caching (preview)](search-howto-incremental-index.md) in the indexer and then [run the indexer](search-howto-run-reset-indexers.md) to execute the skillset and populate the cache. This is a preview feature, so be sure to use the preview REST API (api-version=2020-06-30-preview or later) on the indexer request. Once the cache is populated, you can modify projection definitions in a knowledge store free of charge (as long as the skills themselves are not modified).
 
 1. In your code, all projections are defined solely in a skillset. There are no indexer properties (such as field mappings or output field mappings) that apply to projections. Within a skillset definition, you will focus on two areas: knowledgeStore property and skills array.
 

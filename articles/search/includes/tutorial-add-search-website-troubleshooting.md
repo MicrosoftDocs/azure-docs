@@ -4,6 +4,8 @@ ms.date: 07/18/2023
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ---
 
 If the web app didn't deploy or work, use the following list to determine and fix the issue:
@@ -20,4 +22,4 @@ If the web app didn't deploy or work, use the following list to determine and fi
 
     You should be able to interact with the client app, searching for books and filtering. If the form doesn't return any values, open the browser's developer tools, and determine if the HTTP calls to the API were successful. If the calls weren't successful, the most likely reason if the static web app configurations for the API endpoint name and Search query key are incorrect.
 
-    If the path to the Azure function code (`api_location`) isn't correct in the YML file, the application loads but won't call any of the functions that provide integration with Cognitive Search. Revisit the workaround in the deployment section for help with correcting the path.
+    If the path to the Azure function code (`api_location`) isn't correct in the YML file, the application loads but won't call any of the functions that provide integration with Azure AI Search. Revisit the workaround in the deployment section for help with correcting the path.
