@@ -68,8 +68,45 @@ You must have:
 
 1. Select **Next** after configuring index settings
 1. Review the details you entered and select **Create**
+    
+    > [!NOTE]
+    > If you see a **DeploymentNotFound** error, you need to assign more permissions. See [mitigate DeploymentNotFound error](#mitigate-deploymentnotfound-error) for more details.
+
 1. You're taken to the index details page where you can see the status of your index creation
 
+
+## Mitigate DeploymentNotFound error
+
+When you try to create a vector index, you might see the following error at the **Review + Finish** step:
+
+**Failed to create vector index. DeploymentNotFound: A valid deployment for the model=text-embedding-ada-002 was not found in the workspace connection=Default_AzureOpenAI provided.**
+
+This can happen if you are trying to create an index using an **Owner**, **Contributor**, or **Azure AI Developer** role at the project level. To mitigate this error, you might need to assign more permissions using either of the following methods. 
+
+> [!NOTE]
+> You need to be assigned the **Owner** role of the resource group or higher scope (like Subscription) to perform the operation in the next steps. This is because only the Owner role can assign roles to others. See details [here](/azure/role-based-access-control/built-in-roles).
+
+### Method 1: Assign more permissions to the user on the Azure AI resource
+
+If the Azure AI resource the project uses was created through Azure AI Studio:
+1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. 
+1. Select **Settings** from the collapsible left menu.
+1. From the **Resource Configuration** section, select the link for your resource group name that takes you to the Azure portal.
+1. In the Azure portal under **Overview** > **Resources** select the Azure AI service type. It's named similar to "YourAzureAIResourceName-aiservices."
+
+    :::image type="content" source="../media/roles-access/resource-group-azure-ai-service.png" alt-text="Screenshot of Azure AI service in a resource group." lightbox="../media/roles-access/resource-group-azure-ai-service.png":::
+
+1. Select **Access control (IAM)** > **+ Add** to add a role assignment.
+1. Add the **Cognitive Services OpenAI User** role to the user who wants to make an index. `Cognitive Services OpenAI Contributor` and `Cognitive Services Contributor` also work, but they assign more permissions than needed for creating an index in Azure AI Studio.
+
+### Method 2: Assign more permissions on the resource group
+
+If the Azure AI resource the project uses was created through Azure portal or Azure AI Studio:
+1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. 
+1. Select **Settings** from the collapsible left menu.
+1. From the **Resource Configuration** section, select the link for your resource group name that takes you to the Azure portal.
+1. Select **Access control (IAM)** > **+ Add** to add a role assignment.
+1. Add the **Cognitive Services OpenAI User** role to the user who wants to make an index. `Cognitive Services OpenAI Contributor` and `Cognitive Services Contributor` also work, but they assign more permissions than needed for creating an index in Azure AI Studio.
 
 ## Use an index in prompt flow
 
@@ -88,4 +125,3 @@ You must have:
 ## Next steps
 
 - [Learn more about RAG](../concepts/retrieval-augmented-generation.md)
-
