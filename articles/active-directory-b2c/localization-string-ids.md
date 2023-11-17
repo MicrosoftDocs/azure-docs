@@ -616,7 +616,7 @@ The following IDs are used for claims transformations error messages:
 | `UserMessageIfClaimsTransformationStringsAreNotEqual` |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | Claim value comparison failed using StringComparison "OrdinalIgnoreCase".|
 
 ### Claims transformations example 1:
-The below example shows localized messages for local account signup.
+This example shows localized messages for local account signup.
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
