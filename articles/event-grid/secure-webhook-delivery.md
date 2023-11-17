@@ -10,7 +10,7 @@ ms.date: 10/12/2022
 This article describes how to use Microsoft Entra ID to secure the connection between your **event subscription** and your **webhook endpoint**. It uses the Azure portal for demonstration, however the feature can also be enabled using CLI, PowerShell, or the SDKs.
 
 > [!IMPORTANT]
-> Additional access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. Reconfigure your Microsoft Entra Application following the new instructions below.For an overview of Microsoft Entra applications and service principals, see [Microsoft identity platform (v2.0) overview](../active-directory/develop/v2-overview.md).
+> Additional access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. Reconfigure your Microsoft Entra Application following the new instructions below.For an overview of Microsoft Entra applications and service principals, see [Microsoft identity platform (v2.0) overview](/entra/identity-platform/v2-overview).
 
 ## Scenarios
 This article explains how to implement the following two scenarios in detail: 
@@ -61,7 +61,7 @@ This section shows how to configure the event subscription by using a Microsoft 
         - **$eventSubscriptionWriterUserPrincipalName**: Azure user principal name of the user who creates event subscription
 
     > [!NOTE]
-    > You don't need to modify the value of **$eventGridAppId**. In this script, **AzureEventGridSecureWebhookSubscriber** is set for the **$eventGridRoleName**. Remember, you must be a member of the [Microsoft Entra Application Administrator role](../active-directory/roles/permissions-reference.md#all-roles) or be an owner of the service principal of webhook app in Microsoft Entra ID to execute this script.
+    > You don't need to modify the value of **$eventGridAppId**. In this script, **AzureEventGridSecureWebhookSubscriber** is set for the **$eventGridRoleName**. Remember, you must be a member of the [Microsoft Entra Application Administrator role](/entra/identity/role-based-access-control/permissions-reference#all-roles) or be an owner of the service principal of webhook app in Microsoft Entra ID to execute this script.
 
     If you see the following error message, you need to elevate to the service principal. An extra access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. 
     
@@ -117,7 +117,7 @@ This section shows how to configure the event subscription by using a Microsoft 
         - **$eventSubscriptionWriterAppId**: Microsoft Entra application ID for Event Grid subscription writer app.
 
     > [!NOTE]
-    > You don't need to modify the value of **```$eventGridAppId```**. In this script, **AzureEventGridSecureWebhookSubscriber** as set for the **```$eventGridRoleName```**. Remember, you must be a member of the [Microsoft Entra Application Administrator role](../active-directory/roles/permissions-reference.md#all-roles) or be an owner of the service principal of webhook app in Microsoft Entra ID to execute this script.
+    > You don't need to modify the value of **```$eventGridAppId```**. In this script, **AzureEventGridSecureWebhookSubscriber** as set for the **```$eventGridRoleName```**. Remember, you must be a member of the [Microsoft Entra Application Administrator role](/entra/identity/role-based-access-control/permissions-reference#all-roles) or be an owner of the service principal of webhook app in Microsoft Entra ID to execute this script.
 
 8. Sign-in as the Event Grid subscription writer Microsoft Entra Application by running the command.
 
@@ -180,7 +180,7 @@ Do the following steps in **Tenant B**:
         - **$eventSubscriptionWriterAppId**: Microsoft Entra application ID for Event Grid subscription writer
 
             > [!NOTE]
-            > You don't need to modify the value of **```$eventGridAppId```**. In this script, **AzureEventGridSecureWebhookSubscriber** is set for **```$eventGridRoleName```**. Remember, you must be a member of the [Microsoft Entra Application Administrator role](../active-directory/roles/permissions-reference.md#all-roles) or be an owner of the service principal of webhook app in Microsoft Entra ID to execute this script.
+            > You don't need to modify the value of **```$eventGridAppId```**. In this script, **AzureEventGridSecureWebhookSubscriber** is set for **```$eventGridRoleName```**. Remember, you must be a member of the [Microsoft Entra Application Administrator role](/entra/identity/role-based-access-control/permissions-reference#all-roles) or be an owner of the service principal of webhook app in Microsoft Entra ID to execute this script.
 
     If you see the following error message, you need to elevate to the service principal. An extra access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. 
     

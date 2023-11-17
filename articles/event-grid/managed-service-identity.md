@@ -7,7 +7,7 @@ ms.date: 03/25/2021
 ---
 
 # Event delivery with a managed identity
-This article describes how to use a [managed service identity](../active-directory/managed-identities-azure-resources/overview.md) for an Azure event grid system topic, custom topic, or domain. Use it to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts.
+This article describes how to use a [managed service identity](/entra/identity/managed-identities-azure-resources/overview) for an Azure event grid system topic, custom topic, or domain. Use it to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts.
 
 
 
@@ -185,4 +185,4 @@ Under this configuration, the traffic goes over the public IP/internet from Even
 
 
 ## Next steps
-To learn about managed identities, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+To learn about managed identities, see [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).

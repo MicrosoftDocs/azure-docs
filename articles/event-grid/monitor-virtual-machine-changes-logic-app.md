@@ -122,7 +122,7 @@ Now add the Azure Event Grid trigger, which you use to monitor the resource grou
    > 
    > If you're signed in with a personal Microsoft account, such as @outlook.com or @hotmail.com, 
    > the Azure Event Grid trigger might not appear correctly. As a workaround, select 
-   > [Connect with Service Principal](../active-directory/develop/howto-create-service-principal-portal.md), 
+   > [Connect with Service Principal](/entra/identity-platform/howto-create-service-principal-portal), 
    > or authenticate as a member of the Microsoft Entra that's associated with 
    > your Azure subscription, for example, *user-name*@emailoutlook.onmicrosoft.com.
 
