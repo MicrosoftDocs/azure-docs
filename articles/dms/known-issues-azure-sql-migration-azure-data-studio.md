@@ -270,6 +270,69 @@ WHERE STEP in (3,4,6);
 
 - **Recommendation**: Check if the selected tables exist in the target Azure SQL Database. If this migration is called from a PowerShell script, check if the table list parameter includes the correct table names and is passed into the migration.
 
+## Error code: 2060 - SqlSchemaCopyFailed
+
+- **Message**:` The SELECT permission was denied on the object 'sql_logins', database 'master', schema 'sys'.`
+
+- **Cause**: The account customers use to connect Azure SQL Database lacks the permission to access sys.sql_logins table.
+
+- **Recommendation**: There are two ways to mitigate the issue:
+1. Add 'sysadmin' role to the account, which grant the admin permission.
+2. If customers cannot use admin account or cannot grant admin permission to the account, they can create a user in master and grant dbmanager and loginmanager permission to the user. For example,
+```sql
+-- Run the script in the master
+create user testuser from login testlogin;
+exec sp_addRoleMember 'dbmanager', 'testuser'
+exec sp_addRoleMember 'loginmanager', 'testuser'
+```
+
+
+- **Message**:` Failed to get service token from ADF service.`
+
+- **Cause**: The customer's SHIR fails to connect data factory.
+
+- **Recommendation**: This is sample doc how to solve it: [Integration runtime Unable to connect to Data Factory](https://learn.microsoft.com/answers/questions/139976/integration-runtime-unable-to-connect-to-data-fact)
+
+
+
+- **Message**:` IR Nodes are offline.`
+
+- **Cause**: The cause might be that the network is interrupted during migration and thus the IR node become offline. Make sure that the machine where SHIR is installed is on.
+
+- **Recommendation**: Make sure that the machine where SHIR is installed is on.
+
+
+- **Message**:` Deployed failure: {0}. Object element: {1}.`
+
+- **Cause**: This is the most common error customers might encounter. It means that the object cannot be deployed to the target because it is unsupported on the target.
+
+- **Recommendation**: Customers need to check the assessment results ([Assessment rules](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql)). This is the list of assessment issues that might fail the schema migration:
+  
+[BUIK INSERT](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#BulkInsert)
+
+[COMPUTE clause](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#ComputeClause)
+
+[Cryptographic provider](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#CryptographicProvider)
+
+[Cross database references](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#CrossDatabaseReferences)
+
+[Database principal alias](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#DatabasePrincipalAlias)
+
+[DISABLE_DEF_CNST_CHK option](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#DisableDefCNSTCHK)
+
+[FASTFIRSTROW hint](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#FastFirstRowHint)
+
+[FILESTREAM](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#FileStream)
+
+[MS DTC](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#MSDTCTransactSQL)
+
+[OPENROWSET (bulk)](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#OpenRowsetWithNonBlobDataSourceBulk)
+
+[OPENROWSET (provider)](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#OpenRowsetWithSQLAndNonSQLProvider)
+
+Note: To view error detail, Open Microsoft Integration runtime configurtion manager > Diagnostics > logging > view logs. 
+It will open the Event viewer > Application and Service logs > Connectors - Integration runtime and now filter for errors.
+
 ## Error code: Ext_RestoreSettingsError
 
 - **Message**: Unable to read blobs in storage container, exception: The remote server returned an error: (403) Forbidden.; The remote server returned an error: (403) Forbidden
