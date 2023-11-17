@@ -159,7 +159,7 @@ A custom user-assigned managed identity for the control plane enables access to 
 >
 > USDOD Central, USDOD East, and USGov Iowa regions in Azure US Government cloud aren't supported.
 >
-> AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][Use a pre-created kubelet managed identity].
+> AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity](use-a-pre-created-kubelet-managed-identity).
 
 * If you don't have a managed identity, create one using the [`az identity create`][az-identity-create] command.
 
@@ -187,7 +187,7 @@ A custom user-assigned managed identity for the control plane enables access to 
 > [!NOTE]
 > It may take up to 60 minutes for the permissions granted to your cluster's managed identity to populate.
 
-* Before creating the cluster, [add the role assignment for managed identity][add-role-assignment-for-managed-identity] using the [`az role assignment create`][az-role-assignment-create] command.
+* Before creating the cluster, [add the role assignment for managed identity](add-role-assignment-for-managed-identity) using the [`az role assignment create`](az-role-assignment-create) command.
 
 * Create the cluster with user-assigned managed identity.
 
@@ -208,7 +208,7 @@ A custom user-assigned managed identity for the control plane enables access to 
 > [!NOTE]
 > Migrating a managed identity for the control plane, from system-assigned to user-assigned, doesn't cause any downtime for control plane and agent pools. Meanwhile, control plane components will keep using the old system-assigned identity for several hours until the next token refresh.
 
-* If you don't have a managed identity, create one using the [`az identity create`][az-identity-create] command.
+* If you don't have a managed identity, create one using the [`az identity create`](az-identity-create) command.
 
     ```azurecli-interactive
     az identity create --name myIdentity --resource-group myResourceGroup
@@ -231,9 +231,9 @@ A custom user-assigned managed identity for the control plane enables access to 
     }
     ```
   
-* After creating the identity, [add the role assignment for control plane managed identity][add-role-assignment-for-control-plane-managed-identity] using the [`az role assignment create`][az-role-assignment-create] command.
+* After creating the identity, [add the role assignment for control plane managed identity](add-role-assignment-for-control-plane-managed-identity) using the [`az role assignment create`](az-role-assignment-create) command.
 
-* Update your cluster with your existing identities using the [`az aks update`][az-aks-update] command. Make sure to provide the resource ID of the managed identity for the control plane by including the `assign-identity` argument.
+* Update your cluster with your existing identities using the [`az aks update`](az-aks-update) command. Make sure to provide the resource ID of the managed identity for the control plane by including the `assign-identity` argument.
 
     ```azurecli-interactive
     az aks update \
@@ -272,7 +272,7 @@ A kubelet identity enables access to the existing identity prior to cluster crea
 
 #### Control plane managed identity
 
-* If you don't have a managed identity for the control plane, create one using the [`az identity create`][az-identity-create].
+* If you don't have a managed identity for the control plane, create one using the [`az identity create`](az-identity-create).
 
     ```azurecli-interactive
     az identity create --name myIdentity --resource-group myResourceGroup
@@ -297,7 +297,7 @@ A kubelet identity enables access to the existing identity prior to cluster crea
 
 #### kubelet managed identity
 
-* If you don't have a kubelet managed identity, create one using the [`az identity create`][az-identity-create] command.
+* If you don't have a kubelet managed identity, create one using the [`az identity create`](az-identity-create) command.
 
     ```azurecli-interactive
     az identity create --name myKubeletIdentity --resource-group myResourceGroup
@@ -324,7 +324,7 @@ A kubelet identity enables access to the existing identity prior to cluster crea
 
 Now you can create your AKS cluster with your existing identities. Make sure to provide the resource ID of the managed identity for the control plane by including the `assign-identity` argument, and the kubelet managed identity using the `assign-kubelet-identity` argument.
 
-* Create an AKS cluster with your existing identities using the [`az aks create`][az-aks-create] command.
+* Create an AKS cluster with your existing identities using the [`az aks create`](az-aks-create) command.
 
     ```azurecli-interactive
     az aks create \
@@ -372,7 +372,7 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 
 #### Get the current control plane managed identity for your AKS cluster
 
-1. Confirm your AKS cluster is using the user-assigned managed identity using the [`az aks show`][az-aks-show] command.
+1. Confirm your AKS cluster is using the user-assigned managed identity using the [`az aks show`](az-aks-show) command.
 
     ```azurecli-interactive
     az aks show -g <RGName> -n <ClusterName> --query "servicePrincipalProfile"
@@ -386,7 +386,7 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
     }
     ```
 
-2. After confirming your cluster is using a managed identity, find the managed identity's resource ID using the [`az aks show`][az-aks-show] command.
+2. After confirming your cluster is using a managed identity, find the managed identity's resource ID using the [`az aks show`](az-aks-show) command.
 
     ```azurecli-interactive
     az aks show -g <RGName> -n <ClusterName> --query "identity"
@@ -407,7 +407,7 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 
 #### Update your cluster with kubelet identity
 
-1. If you don't have a kubelet managed identity, create one using the [`az identity create`][az-identity-create] command.
+1. If you don't have a kubelet managed identity, create one using the [`az identity create`](az-identity-create) command.
 
     ```azurecli-interactive
     az identity create --name myKubeletIdentity --resource-group myResourceGroup
@@ -430,7 +430,7 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
     }
     ```
 
-2. Update your cluster with your existing identities using the [`az aks update`][az-aks-update] command. Make sure to provide the resource ID of the managed identity for the control plane by including the `assign-identity` argument, and the kubelet managed identity for `assign-kubelet-identity` argument.
+2. Update your cluster with your existing identities using the [`az aks update`](az-aks-update) command. Make sure to provide the resource ID of the managed identity for the control plane by including the `assign-identity` argument, and the kubelet managed identity for `assign-kubelet-identity` argument.
 
     ```azurecli-interactive
     az aks update \
@@ -466,7 +466,7 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 
 ## Next steps
 
-Use [Azure Resource Manager templates][aks-arm-template] to create a managed identity-enabled cluster.
+Use [Azure Resource Manager templates](aks-arm-template) to create a managed identity-enabled cluster.
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
