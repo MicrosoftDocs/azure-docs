@@ -2,7 +2,7 @@
 title: Translator BreakSentence Method
 titleSuffix: Azure AI services
 description: The Translator BreakSentence method identifies the positioning of sentence boundaries in a piece of text.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 
