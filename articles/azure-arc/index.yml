@@ -26,7 +26,7 @@ highlightedContent:
     # Card
     - title: Azure Arc Jumpstart
       itemType: sample
-      url: https://azurearcjumpstart.io/overview/
+      url: https://aka.ms/AzureArcJumpstart/overview/
       # Card
     - title: Azure Arc-enabled servers
       itemType: overview

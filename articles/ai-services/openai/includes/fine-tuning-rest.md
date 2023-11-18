@@ -2,7 +2,7 @@
 title: 'Customize a model with Azure OpenAI Service and the REST API'
 titleSuffix: Azure OpenAI
 description: Learn how to create your own customized model with Azure OpenAI Service by using the REST APIs.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include

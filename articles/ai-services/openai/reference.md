@@ -2,7 +2,7 @@
 title: Azure OpenAI Service REST API reference
 titleSuffix: Azure OpenAI
 description: Learn how to use Azure OpenAI's REST API. In this article, you'll learn about authorization options,  how to structure a request and receive a response.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
@@ -589,7 +589,7 @@ curl -i -X GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-
 Generate and retrieve a batch of images from a text caption.
 
 ```http
-POST https://{your-resource-name}.openai.azure.com/openai/{deployment-id}/images/generations?api-version={api-version} 
+POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment-id}/images/generations?api-version={api-version} 
 ```
 
 **Path parameters**
@@ -620,15 +620,15 @@ POST https://{your-resource-name}.openai.azure.com/openai/{deployment-id}/images
 
 
 ```console
-curl -X POST https://{your-resource-name}.openai.azure.com/openai/{deployment-id}/images/generations?api-version=2023-12-01-preview \
+curl -X POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment-id}/images/generations?api-version=2023-12-01-preview \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d '{
     "prompt": "An avocado chair",
     "size": "1024x1024",
     "n": 3,
-    "quality": "hd", 
-    "style": "vivid"
+    "quality": "hd", 
+    "style": "vivid"
   }'
 ```
 
@@ -638,17 +638,17 @@ The operation returns a `202` status code and an `GenerateImagesResponse` JSON o
 
 ```json
 { 
-    "created": 1698116662, 
-    "data": [ 
+    "created": 1698116662, 
+    "data": [ 
         { 
-            "url": "url to the image", 
-            "revised_prompt": "the actual prompt that was used" 
+            "url": "url to the image", 
+            "revised_prompt": "the actual prompt that was used" 
         }, 
         { 
-            "url": "url to the image" 
-        },
+            "url": "url to the image" 
+        },
         ...
-    ]
+    ]
 } 
 ```
 

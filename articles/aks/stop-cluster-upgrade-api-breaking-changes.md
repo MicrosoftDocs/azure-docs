@@ -51,7 +51,7 @@ You can also check past API usage by enabling [Container Insights][container-ins
 ### Bypass validation to ignore API changes
 
 > [!NOTE]
-> This method requires you to use the Azure CLI version 2.53 or later. This method isn't recommended, as deprecated APIs in the targeted Kubernetes version may not work long term. We recommend removing them as soon as possible after the upgrade completes.
+> This method requires you to use the Azure CLI version 2.53 or later. If you have the `aks-preview` CLI extension installed, you'll need to update to version `0.5.154` or later. This method isn't recommended, as deprecated APIs in the targeted Kubernetes version may not work long term. We recommend removing them as soon as possible after the upgrade completes.
 
 * Bypass validation to ignore API breaking changes using the [`az aks update`][az-aks-update] command. Specify the `enable-force-upgrade` flag and set the `upgrade-override-until` property to define the end of the window during which validation is bypassed. If no value is set, it defaults the window to three days from the current time. The date and time you specify must be in the future.
 
