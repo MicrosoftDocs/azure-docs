@@ -25727,11 +25727,11 @@
         },
         {
             "source_path_from_root": "/articles/automation/dsc-linux-powershell.md",
-            "redirect_url": "/articles/automation/automation-dsc-overview"
+            "redirect_url": "/azure/automation/automation-dsc-overview"
         },
         {
             "source_path_from_root": "/articles/virtual-machines/extensions/dsc-linux.md",
-            "redirect_url": "/articles/virtual-machines/extensions/dsc-overview"
+            "redirect_url": "/azure/virtual-machines/extensions/dsc-overview"
         }
     ]
 }
