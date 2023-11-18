@@ -2,7 +2,7 @@
 title: What is document and conversation summarization?
 titleSuffix: Azure AI services
 description: Learn about summarizing text.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language

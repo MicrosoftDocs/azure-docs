@@ -28,6 +28,8 @@ Both models are the latest release from OpenAI with improved instruction followi
 
 For information on model regional availability consult the [models page](./concepts/models.md).
 
+The models have their own unique per region [quota allocations](./quotas-limits.md).
+
 ### DALL-E 3 public preview
 
 DALL-E 3 is the latest image generation model from OpenAI. It features enhanced image quality, more complex scenes, and improved performance when rendering text in images. It also comes with more aspect ratio options. DALL-E 3 is available through OpenAI Studio and through the REST API. Your OpenAI resource must be in the `SwedenCentral` Azure region.
