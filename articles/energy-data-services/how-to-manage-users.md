@@ -162,6 +162,7 @@ Consider an Azure Data Manager for Energy instance named "medstest" with a data 
 ```
 > [!IMPORTANT]
 > The app-id is the default OWNER of all the groups.
+:::image type="content" source="media/how-to-manage-users/appid.png" alt-text="Screenshot of app-d in Microsoft Entra ID.":::
 
 ## Add user(s) to an entitlements group
 
