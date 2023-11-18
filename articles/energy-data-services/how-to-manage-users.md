@@ -160,6 +160,8 @@ Consider an Azure Data Manager for Energy instance named "medstest" with a data 
         "role": "MEMBER"
     }
 ```
+> [!IMPORTANT]
+> The app-id is the default OWNER of all the groups.
 
 ## Add user(s) to an entitlements group
 
