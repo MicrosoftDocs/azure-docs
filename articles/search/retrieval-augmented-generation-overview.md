@@ -27,7 +27,7 @@ The decision about which information retrieval system to use is critical because
 
 + Integration with LLMs.
 
-Azure AI Search is a [proven solution for information retrieval](https://github.com/Azure-Samples/azure-search-openai-demo) in a RAG architecture. It provides indexing and query capabilities, with the infrastructure and security of the Azure cloud. Through code and other components, you can design a comprehensive RAG solution that includes all of the elements for generative AI over your proprietary content. 
+Azure AI Search is a [proven solution for information retrieval](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) in a RAG architecture. It provides indexing and query capabilities, with the infrastructure and security of the Azure cloud. Through code and other components, you can design a comprehensive RAG solution that includes all of the elements for generative AI over your proprietary content. 
 
 > [!NOTE]
 > New to copilot and RAG concepts? Watch [Vector search and state of the art retrieval for Generative AI apps](https://ignite.microsoft.com/sessions/18618ca9-0e4d-4f9d-9a28-0bc3ef5cf54e?source=sessions).
@@ -248,7 +248,7 @@ print("\n-------------------\nPrompt:\n" + prompt)
   + [JavaScript](https://aka.ms/azai/js)
   + [Java](https://aka.ms/azai/javat)
 
-+ For another helpful demo, here's [AOAISearchDemo](https://github.com/Azure-Samples/openai/blob/main/End_to_end_Solutions/AOAISearchDemo/README.md) from the Azure OpenAI team. This demo uses an unstructured .pdf data consisting of publicly available documentation on Microsoft Surface devices.
+<!-- + For another helpful demo, here's [AOAISearchDemo](https://github.com/Azure-Samples/openai/blob/main/End_to_end_Solutions/AOAISearchDemo/README.md) from the Azure OpenAI team. This demo uses an unstructured .pdf data consisting of publicly available documentation on Microsoft Surface devices. -->
 
 + [Review indexing concepts and strategies](search-what-is-an-index.md) to determine how you want to ingest and refresh data. Decide whether to use vector search, keyword search, or hybrid search. The kind of content you need to search over, and the type of queries you want to run, determines index design.
 
