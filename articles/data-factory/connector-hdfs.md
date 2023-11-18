@@ -7,15 +7,11 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/11/2023
+ms.date: 10/20/2023
 ms.author: jianleishen
 ---
 
 # Copy data from the HDFS server using Azure Data Factory or Synapse Analytics
-
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you are using:"]
-> * [Version 1](v1/data-factory-hdfs-connector.md)
-> * [Current version](connector-hdfs.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -31,7 +27,7 @@ This HDFS connector is supported for the following capabilities:
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 |[Delete activity](delete-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 Specifically, the HDFS connector supports:
 

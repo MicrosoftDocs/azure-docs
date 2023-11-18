@@ -26,7 +26,7 @@ Below tutorials describe steps to enable SMART on FHIR applications with FHIR Se
 - An instance of the FHIR service
 - .NET SDK 6.0
 - [Enable cross-origin resource sharing (CORS)](configure-cross-origin-resource-sharing.md)
-- [Register public client application in Azure AD](/azure/healthcare-apis/azure-api-for-fhir/register-public-azure-ad-client-app)
+- [Register public client application in Microsoft Entra ID](/azure/healthcare-apis/azure-api-for-fhir/register-public-azure-ad-client-app)
      - After registering the application, make note of the applicationId for client application.
 - Ensure you have access to Azure Subscription of FHIR service, to create resources and add role assignments.
 
@@ -39,7 +39,7 @@ Follow the steps listed under section [Manage Users: Assign Users to Role](../..
 [Follow the steps](https://aka.ms/azure-health-data-services-smart-on-fhir-sample) under Azure Health Data and AI Samples OSS. This will enable integration of FHIR server with other Azure Services (such as APIM, Azure functions and more).
 
 > [!NOTE]
-> Samples are open-source code, and you should review the information and licensing terms on GitHub before using it. They are not part of the Azure Health Data Service and are not supported by Microsoft Support. These samples can be used to demonstrate how Azure Health Data Services and other open-source tools can be used together to demonstrate ONC (g)(10) compliance, using Azure Active Directory as the identity provider workflow. 
+> Samples are open-source code, and you should review the information and licensing terms on GitHub before using it. They are not part of the Azure Health Data Service and are not supported by Microsoft Support. These samples can be used to demonstrate how Azure Health Data Services and other open-source tools can be used together to demonstrate ONC (g)(10) compliance, using Microsoft Entra ID as the identity provider workflow. 
 
 
 ## SMART on FHIR proxy
@@ -58,7 +58,7 @@ If you do have administrative privileges, complete the following steps to grant 
 
 To add yourself or another user as owner of an app:
 
-1. In the Azure portal, go to Azure Active Directory.
+1. In the Azure portal, go to Microsoft Entra ID.
 2. In the left menu, select **App Registration**.
 3. Search for the app registration you created, and then select it.
 4. In the left menu, under **Manage**, select **Owners**.
@@ -73,9 +73,9 @@ To enable the SMART on FHIR proxy in the **Authentication** settings for your Az
 
 ![Screenshot shows enabling the SMART on FHIR proxy.](media/tutorial-smart-on-fhir/enable-smart-on-fhir-proxy.png)
 
-The SMART on FHIR proxy acts as an intermediary between the SMART on FHIR app and Azure AD. The authentication reply (the authentication code) must go to the SMART on FHIR proxy instead of the app itself. The proxy then forwards the reply to the app. 
+The SMART on FHIR proxy acts as an intermediary between the SMART on FHIR app and Microsoft Entra ID. The authentication reply (the authentication code) must go to the SMART on FHIR proxy instead of the app itself. The proxy then forwards the reply to the app. 
 
-Because of this two-step relay of the authentication code, you need to set the reply URL (callback) for your Azure AD client application to a URL that is a combination of the reply URL for the SMART on FHIR proxy and the reply URL for the SMART on FHIR app. The combined reply URL takes this form:
+Because of this two-step relay of the authentication code, you need to set the reply URL (callback) for your Microsoft Entra client application to a URL that is a combination of the reply URL for the SMART on FHIR proxy and the reply URL for the SMART on FHIR app. The combined reply URL takes this form:
 
 ```http
 https://MYFHIRAPI.azurehealthcareapis.com/AadSmartOnFhirProxy/callback/aHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMS9zYW1wbGVhcHAvaW5kZXguaHRtbA
@@ -97,7 +97,7 @@ $encodedText = $encodedText.Replace('+','-');
 $newReplyUrl = $FhirServerUrl.TrimEnd('/') + "/AadSmartOnFhirProxy/callback/" + $encodedText
 ```
 
-Add the reply URL to the public client application that you created earlier for Azure AD:
+Add the reply URL to the public client application that you created earlier for Microsoft Entra ID:
 
 ![Screenshot show how reply url can be configured for the public client.](media/tutorial-smart-on-fhir/configure-reply-url.png)
 

@@ -38,7 +38,7 @@ For defense in depth, we then use EasyAuth to validate the token again inside th
 > * Creation of an Azure Functions Backend API
 > * Import of an Azure Functions API into Azure API Management
 > * Securing the API in Azure API Management
-> * Calling the Azure Active Directory B2C Authorization Endpoints via the Microsoft Identity Platform Libraries (MSAL.js)
+> * Calling the Azure Active Directory B2C Authorization Endpoints via the Microsoft identity platform Libraries (MSAL.js)
 > * Storing a HTML / Vanilla JS Single Page Application and serving it from an Azure Blob Storage Endpoint
 
 ## Prerequisites
@@ -148,7 +148,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 
 ## Build the function API
 
-1. Switch back to your standard Azure AD tenant in the Azure portal so we can configure items in your subscription again.
+1. Switch back to your standard Microsoft Entra tenant in the Azure portal so we can configure items in your subscription again.
 1. Go to the Function Apps blade of the Azure portal, open your empty function app, then click 'Functions', click 'Add'.
 1. In the flyout that appears, choose 'Develop in portal', under 'select a template' then choose 'HTTP trigger', under Template details name it 'hello' with authorization level 'Function', then select Add.
 1. Switch to the Code + Test blade and copy-paste the sample code from below *over the existing code* that appears.
@@ -198,7 +198,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 
    > [!IMPORTANT]
    > Now your Function API is deployed and should throw 401 responses if the correct JWT isn't supplied as an Authorization: Bearer header, and should return data when a valid request is presented.
-   > You added additional defense-in-depth security in EasyAuth by configuring the 'Login With Azure AD' option to handle unauthenticated requests.
+   > You added additional defense-in-depth security in EasyAuth by configuring the 'Login With Microsoft Entra ID' option to handle unauthenticated requests.
    >
    > We still have no IP security applied, if you have a valid key and OAuth2 token, anyone can call this from anywhere - ideally we want to force all requests to come via API Management.
    >
@@ -425,7 +425,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 1. Select the '$web' container from the list
 1. Select index.html blob from the list
 1. Click 'Edit'
-1. Update the auth values in the msal config section to match your *front-end* application you registered in B2C earlier. Use the code comments for hints on how the config values should look.
+1. Update the auth values in the MSAL config section to match your *front-end* application you registered in B2C earlier. Use the code comments for hints on how the config values should look.
 The *authority* value needs to be in the format:- https://{b2ctenantname}.b2clogin.com/tfp/{b2ctenantname}.onmicrosoft.com}/{signupandsigninpolicyname}, if you have used our sample names and your b2c tenant is called 'contoso' then you would expect the authority to be 'https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/Frontendapp_signupandsignin'.
 1. Set the api values to match your backend address (The API Base Url you recorded earlier, and the 'b2cScopes' values were recorded earlier for the *backend application*).
 1. Click Save
@@ -461,7 +461,7 @@ The steps above can be adapted and edited to allow many different uses of Azure 
 
 ## Next steps
 
-* Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
+* Learn more about [Microsoft Entra ID and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 * Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
 * For other ways to secure your back-end service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md).
 * [Create an API Management service instance](get-started-create-service-instance.md).

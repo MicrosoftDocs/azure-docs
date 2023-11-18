@@ -19,7 +19,6 @@
 | ATH | Athens, Greece | Greece Central, Europe |
 | BCN | Barcelona, Spain | Spain Central, Europe |
 | BER | Berlin, Germany | Germany West Central, Europe |
-| BJJ | Beijing, China | APAC |
 | BKK | Bangkok, Thailand | South East Asia |
 | BL  | Ashburn, Virginia, USA | East US, United States |
 | BN  | Boydton, Virginia, USA | East US, United States |
@@ -65,7 +64,7 @@
 | HNL | Honolulu, Hawaii, USA | West US, United States |
 | HOU | Houston, Texas, USA | Central US, United States |
 | HYD | Hyderabad, India | Central India, Asia |
-| IST | Istanbul, Turkey | West Europe |
+| IST | Istanbul, Türkiye | West Europe |
 | JAX | Jacksonville, Florida, USA | East US, United States |
 | JKT | Jakarta, Indonesia | Indonesia Central, Asia |
 | JNB | Johannesburg, South Africa | South Africa North |

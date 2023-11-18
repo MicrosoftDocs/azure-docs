@@ -33,11 +33,11 @@ Sign in to the [Azure portal](https://portal.azure.com).--->
 
 ## Enable VM insights
 
-1. Launch the Azure Arc service in the Azure portal by clicking **All services**, then searching for and selecting **Servers - Azure Arc**.
+1. Launch the Azure Arc service in the Azure portal by clicking **All services**, then searching for and selecting **Machines - Azure Arc**.
 
     :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Screenshot of Azure portal showing search for Servers, Azure Arc." border="false":::
 
-1. On the **Azure Arc - Servers** page, select the connected machine you created in the [quickstart](quick-enable-hybrid-vm.md) article.
+1. On the **Azure Arc - Machines** page, select the connected machine you created in the [quickstart](quick-enable-hybrid-vm.md) article.
 
 1. From the left-pane under the **Monitoring** section, select **Insights** and then **Enable**.
 

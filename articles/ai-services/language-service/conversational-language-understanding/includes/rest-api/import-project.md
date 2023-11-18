@@ -1,5 +1,5 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
@@ -23,7 +23,7 @@ Use the following URL when creating your API request. Replace the placeholder va
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive, and must match the project name in the JSON file you're importing.   | `EmailAppDemo` |
-|`{API-VERSION}`     | The [version](../../../concepts/model-lifecycle.md#api-versions) of the API you are calling. | `2023-04-01` |
+|`{API-VERSION}`     | The [version](../../../concepts/model-lifecycle.md#api-versions) of the API you're calling. | `2023-04-01` |
 
 ### Headers
 
@@ -35,7 +35,7 @@ Use the following header to authenticate your request.
 
 ### Body
 
-The JSON body you send is similar to the following example. See the [reference documentation](/rest/api/language/2022-10-01-preview/conversational-analysis-authoring/import?tabs=HTTP#successful-import-project) for more details about the JSON object.
+The JSON body you send is similar to the following example. See the [reference documentation](/rest/api/language/2023-04-01/conversational-analysis-authoring/import?tabs=HTTP#successful-import-project) for more details about the JSON object.
 
 ```json
 {
@@ -94,7 +94,7 @@ The JSON body you send is similar to the following example. See the [reference d
 
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
-|`{API-VERSION}`     | The [version](../../../concepts/model-lifecycle.md#api-versions) of the API you are calling. | `2023-04-01` |
+|`{API-VERSION}`     | The [version](../../../concepts/model-lifecycle.md#api-versions) of the API you're calling. | `2023-04-01` |
 | `projectName` | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive. | `EmailAppDemo` |
 | `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the utterances used in your project. If your project is a multilingual project, choose the [language code](../../language-support.md) of the majority of the utterances. |`en-us`|
 | `multilingual` | `true`| A boolean value that enables you to have documents in multiple languages in your dataset. When your model is deployed, you can query the model in any [supported language](../../language-support.md#multi-lingual-option) including languages that aren't included in your training documents.  | `true`|

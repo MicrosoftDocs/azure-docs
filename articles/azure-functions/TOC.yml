@@ -512,6 +512,7 @@
           href: run-functions-from-deployment-package.md
         - name: Automate resource deployment
           href: functions-infrastructure-as-code.md
+          displayName: bicep, ARM template
         - name: Deploy using the Jenkins plugin
           href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json
     - name: Configure
@@ -566,7 +567,7 @@
       items:
         - name: Configure auth providers
           items:
-            - name: Authenticate with Azure AD
+            - name: Authenticate with Microsoft Entra ID
               href: ../app-service/configure-authentication-provider-aad.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with Facebook
               href: ../app-service/configure-authentication-provider-facebook.md?toc=/azure/azure-functions/toc.json
@@ -633,7 +634,9 @@
                 - name: JavaScript
                   href: ../azure-signalr/signalr-quickstart-azure-functions-javascript.md?toc=/azure/azure-functions/toc.json
                 - name: Python
-                  href: ../azure-signalr/signalr-quickstart-azure-functions-python.md?toc=/azure/azure-functions/toc.json                  
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-python.md?toc=/azure/azure-functions/toc.json
+            - name: Web PubSub
+              href: ../azure-web-pubsub/tutorial-serverless-notification.md?toc=/azure/azure-functions/toc.json
             - name: Work with Event Grid
               href: event-grid-how-tos.md  
         - name: Start/Stop VMs
@@ -785,7 +788,43 @@
               href: functions-bindings-azure-sql-output.md
               displayName: Azure SQL
         - name: Dapr
-          href: https://github.com/dapr/azure-functions-extension
+          items: 
+            - name: Overview
+              href: functions-bindings-dapr.md
+              displayName: Dapr
+            - name: Trigger
+              items: 
+              - name: Binding
+                href: functions-bindings-dapr-trigger.md
+                displayName: Dapr
+              - name: Service Invocation
+                href: functions-bindings-dapr-trigger-svc-invoke.md
+                displayName: Dapr
+              - name: Topic
+                href: functions-bindings-dapr-trigger-topic.md
+                displayName: Dapr
+            - name: Input
+              items: 
+              - name: State
+                href: functions-bindings-dapr-input-state.md
+                displayName: Dapr
+              - name: Secret
+                href: functions-bindings-dapr-input-secret.md
+                displayName: Dapr
+            - name: Output
+              items: 
+              - name: State
+                href: functions-bindings-dapr-output-state.md
+                displayName: Dapr
+              - name: Invoke
+                href: functions-bindings-dapr-output-invoke.md 
+                displayName: Dapr
+              - name: Publish
+                href: functions-bindings-dapr-output-publish.md 
+                displayName: Dapr
+              - name: Binding
+                href: functions-bindings-dapr-output.md 
+                displayName: Dapr
         - name: Event Grid
           items:
             - name: Overview
@@ -908,6 +947,8 @@
           href: functions-bindings-twilio.md
         - name: Warmup
           href: functions-bindings-warmup.md
+        - name: Web PubSub
+          href: ../azure-web-pubsub/reference-functions-bindings.md?toc=/azure/azure-functions/toc.json
     - name: Errors and diagnostics
       items:
         - name: .NET worker rules

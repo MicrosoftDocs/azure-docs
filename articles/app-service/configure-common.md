@@ -510,6 +510,9 @@ Set-AzWebApp $webapp
 
 By default, App Service starts your app from the root directory of your app code. But certain web frameworks don't start in the root directory. For example, [Laravel](https://laravel.com/) starts in the `public` subdirectory. Such an app would be accessible at `http://contoso.com/public`, for example, but you typically want to direct `http://contoso.com` to the `public` directory instead. If your app's startup file is in a different folder, or if your repository has more than one application, you can edit or add virtual applications and directories.
 
+> [!IMPORTANT]
+> Virtual directory to a physical path feature is only available on Windows apps.
+
 # [Azure portal](#tab/portal)
 
 1. In the [Azure portal], search for and select **App Services**, and then select your app. 

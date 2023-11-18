@@ -1,5 +1,5 @@
 ---
-title: Build a React app to add users to a Face service
+title: Build a React Native app to add users to a Face service
 titleSuffix: Azure AI services
 description: Learn how to set up your development environment and deploy a Face app to get consent from customers.
 author: PatrickFarley
@@ -7,14 +7,16 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.subservice: azure-ai-face
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
 ms.date: 11/17/2020
 ms.author: pafarley
 ---
 
-# Build a React app to add users to a Face service
+# Build a React Native app to add users to a Face service
 
-This guide will show you how to get started with the sample Face enrollment application. The app demonstrates best practices for obtaining meaningful consent to add users into a face recognition service and acquire high-accuracy face data. An integrated system could use an app like this to provide touchless access control, identity verification, attendance tracking, or personalization kiosk, based on their face data.
+This guide will show you how to get started with the sample Face enrollment application. The app demonstrates best practices for obtaining meaningful consent to add users into a face recognition service and acquire high-accuracy face data. An integrated system could use an app like this to provide touchless access control, identification, attendance tracking, or personalization kiosk, based on their face data.
 
 When launched, the application shows users a detailed consent screen. If the user gives consent, the app prompts for a username and password and then captures a high-quality face image using the device's camera.
 
@@ -80,15 +82,15 @@ For example, you may want to add situation-specific information on your consent 
     The service provides image quality checks to help you make the choice of whether the image is of sufficient quality based on the above factors to add the customer or attempt face recognition. This app demonstrates how to access frames from the device's camera, detect quality and show user interface messages to the user to help them capture a higher quality image, select the highest-quality frames, and add the detected face into the Face API service. 
 
 
-> [!div class="mx-imgBorder"]
-> ![app image capture instruction page](../media/enrollment-app/4-instruction.jpg)
-
+    > [!div class="mx-imgBorder"]
+    > ![app image capture instruction page](../media/enrollment-app/4-instruction.jpg)
+    
 1. The sample app offers functionality for deleting the user's information and the option to readd. You can enable or disable these operations based on your business requirement. 
 
-> [!div class="mx-imgBorder"]
-> ![profile management page](../media/enrollment-app/10-manage-2.jpg)
-
-To extend the app's functionality to cover the full experience, read the [overview](../enrollment-overview.md) for additional features to implement and best practices.
+    > [!div class="mx-imgBorder"]
+    > ![profile management page](../media/enrollment-app/10-manage-2.jpg)
+        
+    To extend the app's functionality to cover the full experience, read the [overview](../enrollment-overview.md) for additional features to implement and best practices.
 
 1. Configure your database to map each person with their ID
 

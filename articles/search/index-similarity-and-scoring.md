@@ -1,11 +1,13 @@
 ---
 title: BM25 relevance scoring
-titleSuffix: Azure Cognitive Search
-description: Explains the concepts of BM25 relevance and scoring in Azure Cognitive Search, and what a developer can do to customize the scoring result.
+titleSuffix: Azure AI Search
+description: Explains the concepts of BM25 relevance and scoring in Azure AI Search, and what a developer can do to customize the scoring result.
 
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 09/27/2023
 ---
@@ -16,7 +18,7 @@ This article explains the BM25 relevance scoring algorithm used to compute searc
 
 ## Scoring algorithms used in full text search
 
-Azure Cognitive Search provides the following scoring algorithms for full text search:
+Azure AI Search provides the following scoring algorithms for full text search:
 
 | Algorithm | Usage | Range |
 |-----------|-------------|-------|
@@ -30,7 +32,7 @@ BM25 offers advanced customization options, such as allowing the user to decide 
 > [!NOTE]
 > If you're using a search service that was created before July 2020, the scoring algorithm is most likely the previous default, `ClassicSimilarity`, which you can upgrade on a per-index basis. See [Enable BM25 scoring on older services](index-ranking-similarity.md#enable-bm25-scoring-on-older-services) for details.
 
-The following video segment fast-forwards to an explanation of the generally available ranking algorithms used in Azure Cognitive Search. You can watch the full video for more background.
+The following video segment fast-forwards to an explanation of the generally available ranking algorithms used in Azure AI Search. You can watch the full video for more background.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 
@@ -38,9 +40,7 @@ The following video segment fast-forwards to an explanation of the generally ava
 
 Relevance scoring refers to the computation of a search score (**@search.score**) that serves as an indicator of an item's relevance in the context of the current query. The range is unbounded. However, the higher the score, the more relevant the item. 
 
-By default, the top 50 highest scoring matches are returned in the response, but you can use the **$top** parameter to return a smaller or larger number of items (up to 1000 in a single response), and **$skip** to get the next set of results.
-
-The search score is computed based on statistical properties of the string input and the query itself. Azure Cognitive Search finds documents that match on search terms (some or all, depending on [searchMode](/rest/api/searchservice/search-documents#query-parameters)), favoring documents that contain many instances of the search term. The search score goes up even higher if the term is rare across the data index, but common within the document. The basis for this approach to computing relevance is known as *TF-IDF or* term frequency-inverse document frequency.
+The search score is computed based on statistical properties of the string input and the query itself. Azure AI Search finds documents that match on search terms (some or all, depending on [searchMode](/rest/api/searchservice/search-documents#query-parameters)), favoring documents that contain many instances of the search term. The search score goes up even higher if the term is rare across the data index, but common within the document. The basis for this approach to computing relevance is known as *TF-IDF or* term frequency-inverse document frequency.
 
 Search scores can be repeated throughout a result set. When multiple hits have the same search score, the ordering of the same scored items is undefined and not stable. Run the query again, and you might see items shift position, especially if you're using the free service or a billable service with multiple replicas. Given two items with an identical score, there's no guarantee that one appears first.
 
@@ -75,7 +75,7 @@ Search scores convey general sense of relevance, reflecting the strength of matc
 
 ### Scoring statistics and sticky sessions
 
-For scalability, Azure Cognitive Search distributes each index horizontally through a sharding process, which means that [portions of an index are physically separate](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
+For scalability, Azure AI Search distributes each index horizontally through a sharding process, which means that [portions of an index are physically separate](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 
 By default, the score of a document is calculated based on statistical properties of the data *within a shard*. This approach is generally not a problem for a large corpus of data, and it provides better performance than having to calculate the score based on information across all shards. That said, using this performance optimization could cause two very similar documents (or even identical documents) to end up with different relevance scores if they end up in different shards.
 
@@ -106,7 +106,7 @@ As long as the same `sessionId` is used, a best-effort attempt is made to target
 
 ## Relevance tuning
 
-In Azure Cognitive Search, you can configure BM25 algorithm parameters, and tune search relevance and boost search scores through these mechanisms:
+In Azure AI Search, you can configure BM25 algorithm parameters, and tune search relevance and boost search scores through these mechanisms:
 
 | Approach | Implementation | Description |
 |----------|----------------|-------------|
@@ -149,9 +149,15 @@ For a query that targets the "description" and "title" fields, a response that i
 
 You can consume these data points in [custom scoring solutions](https://github.com/Azure-Samples/search-ranking-tutorial) or use the information to debug search relevance problems.
 
+## Number of ranked results in a full text query response
+
+By default, if you aren't using pagination, the search engine returns the top 50 highest ranking matches for full text search. You can use the `top` parameter to return a smaller or larger number of items (up to 1000 in a single response). Full text search is subject to a maximum limit of 1,000 matches (see [API response limits](search-limits-quotas-capacity.md#api-response-limits)). Once 1,000 matches are found, the search engine no longer looks for more.
+
+To return more or less results, use the paging parameters `top`, `skip`, and `next`. Paging is how you determine the number of results on each logical page and navigate through the full payload. For more information, see [How to work with search results](search-pagination-page-layout.md).
+
 ## See also
 
 + [Scoring Profiles](index-add-scoring-profiles.md)
 + [REST API Reference](/rest/api/searchservice/)
 + [Search Documents API](/rest/api/searchservice/search-documents)
-+ [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search)
++ [Azure AI Search .NET SDK](/dotnet/api/overview/azure/search)

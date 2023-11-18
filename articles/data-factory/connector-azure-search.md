@@ -13,10 +13,6 @@ ms.date: 07/13/2023
 
 # Copy data to an Azure Cognitive Search index using Azure Data Factory or Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-azure-search-connector.md)
-> * [Current version](connector-azure-search.md)
-
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data into Azure Cognitive Search index. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
@@ -29,7 +25,7 @@ This Azure Cognitive Search connector is supported for the following capabilitie
 |---------| --------| --------|
 |[Copy activity](copy-activity-overview.md) (-/sink)|&#9312; &#9313;|✓ |
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 You can copy data from any supported source data store into search index. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 

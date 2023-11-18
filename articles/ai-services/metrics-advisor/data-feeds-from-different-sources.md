@@ -14,6 +14,8 @@ ms.author: mbullwin
 
 # How-to: Connect different data sources
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 Use this article to find the settings and requirements for connecting different types of data sources to Azure AI Metrics Advisor. To learn about using your data with Metrics Advisor, see [Onboard your data](how-tos/onboard-your-data.md). 
 
 ## Supported authentication types
@@ -21,7 +23,7 @@ Use this article to find the settings and requirements for connecting different 
 | Authentication types | Description |
 | ---------------------|-------------|
 |**Basic** | You need to provide basic parameters for accessing data sources. For example, you can use a connection string or a password. Data feed admins can view these credentials. |
-| **Azure managed identity** | [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) for Azure resources is a feature of Azure Active Directory (Azure AD). It provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication.|
+| **Azure managed identity** | [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) for Azure resources is a feature of Microsoft Entra ID. It provides Azure services with an automatically managed identity in Microsoft Entra ID. You can use the identity to authenticate to any service that supports Microsoft Entra authentication.|
 | **Azure SQL connection string**| Store your Azure SQL connection string as a credential entity in Metrics Advisor, and use it directly each time you import metrics data. Only admins of the credential entity can view these credentials, but authorized viewers can create data feeds without needing to know details for the credentials. |
 | **Azure Data Lake Storage Gen2 shared key**| Store your data lake account key as a credential entity in Metrics Advisor, and use it directly each time you import metrics data. Only admins of the credential entity can view these credentials, but authorized viewers can create data feeds without needing to know details for the credentials.|
 | **Service principal**| Store your [service principal](../../active-directory/develop/app-objects-and-service-principals.md) as a credential entity in Metrics Advisor, and use it directly each time you import metrics data. Only admins of the credential entity can view the credentials, but authorized viewers can create data feeds without needing to know details for the credentials.|
@@ -88,7 +90,7 @@ The following sections specify the parameters required for all authentication ty
 
     * **Basic**: See [Configure Azure Storage connection strings](../../storage/common/storage-configure-connection-string.md#configure-a-connection-string-for-an-azure-storage-account) for information on retrieving this string. Also, you can visit the Azure portal for your Azure Blob Storage resource, and find the connection string directly in **Settings** > **Access keys**.
     
-    * **Managed identity**: Managed identities for Azure resources can authorize access to blob and queue data. The feature uses Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. 
+    * **Managed identity**: Managed identities for Azure resources can authorize access to blob and queue data. The feature uses Microsoft Entra credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. 
     
         You can create a managed identity in the Azure portal for your Azure Blob Storage resource. In **Access Control (IAM)**, select **Role assignments**, and then select **Add**. A suggested role type is: **Storage Blob Data Reader**. For more details, refer to [Use managed identity to access Azure Storage](../../active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage.md#grant-access-1).
     
@@ -154,7 +156,7 @@ The following sections specify the parameters required for all authentication ty
 
 * **Connection string**: There are four authentication types for Azure Data Explorer (Kusto): basic, service principal, service principal from key vault, and managed identity. The data source in the connection string should be in the URI format (starts with "https"). You can find the URI in the Azure portal.
     
-    * **Basic**: Metrics Advisor supports accessing Azure Data Explorer (Kusto) by using Azure AD application authentication. You need to create and register an Azure AD application, and then authorize it to access an Azure Data Explorer database. For more information, see [Create an Azure AD app registration in Azure Data Explorer](/azure/data-explorer/provision-azure-ad-app). Here's an example of connection string:
+    * **Basic**: Metrics Advisor supports accessing Azure Data Explorer (Kusto) by using Microsoft Entra application authentication. You need to create and register a Microsoft Entra application, and then authorize it to access an Azure Data Explorer database. For more information, see [Create a Microsoft Entra app registration in Azure Data Explorer](/azure/data-explorer/provision-azure-ad-app). Here's an example of connection string:
         
         ```
         Data Source=<URI Server>;Initial Catalog=<Database>;AAD Federated Security=True;Application Client ID=<Application Client ID>;Application Key=<Application Key>;Authority ID=<Tenant ID>
@@ -162,7 +164,7 @@ The following sections specify the parameters required for all authentication ty
 
     * **Service principal**: A service principal is a concrete instance created from the application object. The service principal inherits certain properties from that application object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access. To use a service principal in Metrics Advisor:
     
-        1. Create the Azure AD application registration. For more information, see [Create an Azure AD app registration in Azure Data Explorer](/azure/data-explorer/provision-azure-ad-app).
+        1. Create the Microsoft Entra application registration. For more information, see [Create a Microsoft Entra app registration in Azure Data Explorer](/azure/data-explorer/provision-azure-ad-app).
 
         1. Manage Azure Data Explorer database permissions. For more information, see [Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions). 
 
@@ -179,7 +181,7 @@ The following sections specify the parameters required for all authentication ty
         Data Source=<URI Server>;Initial Catalog=<Database>
         ```
 
-    * **Managed identity**: Managed identity for Azure resources can authorize access to blob and queue data. Managed identity uses Azure AD credentials from applications running in Azure virtual machines, function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources and Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](../../storage/blobs/authorize-managed-identity.md#enable-managed-identities-on-a-vm). 
+    * **Managed identity**: Managed identity for Azure resources can authorize access to blob and queue data. Managed identity uses Microsoft Entra credentials from applications running in Azure virtual machines, function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources and Microsoft Entra authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](../../storage/blobs/authorize-managed-identity.md#enable-managed-identities-on-a-vm). 
     
         You can create a managed identity in the Azure portal for your Azure Data Explorer (Kusto). Select **Permissions** > **Add**. The suggested role type is: **admin / viewer**.
         
@@ -215,7 +217,7 @@ The following sections specify the parameters required for all authentication ty
 
         The account name is the same as the basic authentication type.
     
-        **Step 1:** Create and register an Azure AD application, and then authorize it to access the database. For more information, see [Create an Azure AD app registration](/azure/data-explorer/provision-azure-ad-app).
+        **Step 1:** Create and register a Microsoft Entra application, and then authorize it to access the database. For more information, see [Create a Microsoft Entra app registration](/azure/data-explorer/provision-azure-ad-app).
 
         **Step 2:** Assign roles.
         
@@ -227,7 +229,7 @@ The following sections specify the parameters required for all authentication ty
 
         4. Select **+ Add**, and select **Add role assignment** from the menu.
 
-        5. Set the **Select** field to the Azure AD application name, and set the role to **Storage Blob Data Contributor**. Then select **Save**.
+        5. Set the **Select** field to the Microsoft Entra application name, and set the role to **Storage Blob Data Contributor**. Then select **Save**.
         
         ![Screenshot that shows the steps to assign roles.](media/datafeeds/adls-gen-2-app-reg-assign-roles.png)
 
@@ -346,13 +348,13 @@ Azure Monitor Logs has the following authentication types: basic, service princi
     
 * **Service principal**: A service principal is a concrete instance created from the application object, and it inherits certain properties from that application object. A service principal is created in each tenant where the application is used, and it references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
     
-    **Step 1:** Create and register an Azure AD application, and then authorize it to access a database. For more information, see [Create an Azure AD app registration](/azure/data-explorer/provision-azure-ad-app).
+    **Step 1:** Create and register a Microsoft Entra application, and then authorize it to access a database. For more information, see [Create a Microsoft Entra app registration](/azure/data-explorer/provision-azure-ad-app).
 
     **Step 2:** Assign roles.
     1. In the Azure portal, go to the **Storage accounts** service.
     2. Select **Access Control (IAM)**.
     3. Select **+ Add**, and then select **Add role assignment** from the menu.
-    4. Set the **Select** field to the Azure AD application name, and set the role to **Storage Blob Data Contributor**. Then select **Save**.
+    4. Set the **Select** field to the Microsoft Entra application name, and set the role to **Storage Blob Data Contributor**. Then select **Save**.
     
         ![Screenshot that shows how to assign roles.](media/datafeeds/adls-gen-2-app-reg-assign-roles.png)
 
@@ -384,18 +386,18 @@ Azure Monitor Logs has the following authentication types: basic, service princi
         Data Source=<Server>;Initial Catalog=<db-name>;User ID=<user-name>;Password=<password>
         ```
     
-    * <span id='jump'>**Managed identity**</span>: Managed identity for Azure resources can authorize access to blob and queue data. It does so by using Azure AD credentials from applications running in Azure virtual machines, function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources and Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. To [enable your managed entity](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md), follow these steps:
+    * <span id='jump'>**Managed identity**</span>: Managed identity for Azure resources can authorize access to blob and queue data. It does so by using Microsoft Entra credentials from applications running in Azure virtual machines, function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources and Microsoft Entra authentication, you can avoid storing credentials with your applications that run in the cloud. To [enable your managed entity](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md), follow these steps:
     1. Enabling a system-assigned managed identity is a one-click experience. In the Azure portal, for your Metrics Advisor workspace, go to **Settings** > **Identity** > **System assigned**. Then set the status as **on**. 
     
         ![Screenshot that shows how to set the status as on.](media/datafeeds/set-identity-status.png)
 
-    1. Enable Azure AD authentication. In the Azure portal, for your data source, go to **Settings** > **Active Directory admin**. Select **Set admin**, and select an **Azure AD user account** to be made an administrator of the server. Then, choose **Select**.
+    1. Enable Microsoft Entra authentication. In the Azure portal, for your data source, go to **Settings** > **Active Directory admin**. Select **Set admin**, and select an **Microsoft Entra user account** to be made an administrator of the server. Then, choose **Select**.
     
         ![Screenshot that shows how to set the admin.](media/datafeeds/set-admin.png)
 
     1. Enable managed identity in Metrics Advisor. You can edit a query in the database management tool or in the Azure portal.
     
-        **Management tool**: In your database management tool, select **Active Directory - Universal with MFA support** in the authentication field. In the **User name** field, enter the name of the Azure AD account that you set as the server administrator in step 2. For example, this might be `test@contoso.com`.
+        **Management tool**: In your database management tool, select **Active Directory - Universal with MFA support** in the authentication field. In the **User name** field, enter the name of the Microsoft Entra account that you set as the server administrator in step 2. For example, this might be `test@contoso.com`.
     
         ![Screenshot that shows how to set connection details.](media/datafeeds/connection-details.png)
         
@@ -430,7 +432,7 @@ Azure Monitor Logs has the following authentication types: basic, service princi
 
     * **Service principal**: A service principal is a concrete instance created from the application object, and it inherits certain properties from that application object. A service principal is created in each tenant where the application is used, and it references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
     
-        **Step 1:** Create and register an Azure AD application, and then authorize it to access a database. For more information, see [Create an Azure AD app registration](/azure/data-explorer/provision-azure-ad-app).
+        **Step 1:** Create and register a Microsoft Entra application, and then authorize it to access a database. For more information, see [Create a Microsoft Entra app registration](/azure/data-explorer/provision-azure-ad-app).
 
         **Step 2:** Follow the steps documented previously, in [managed identity in SQL Server](#jump). 
 

@@ -2,10 +2,10 @@
 title: Verify a COCO annotation file
 titleSuffix: Azure AI services
 description: Use a Python script to verify your COCO file for custom model training.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-vision
 ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 03/21/2023

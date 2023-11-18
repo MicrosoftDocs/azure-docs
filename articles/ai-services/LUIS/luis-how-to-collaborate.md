@@ -2,7 +2,7 @@
 title: Collaborate with others - LUIS
 titleSuffix: Azure AI services
 description: An app owner can add contributors to the authoring resource. These contributors can modify the model, train, and publish the app.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 ms.author: aahi
 manager: nitinme
@@ -35,13 +35,15 @@ After you have been added as a contributor, [sign in to the LUIS portal](how-to/
 
 ### Users with multiple emails
 
-If you add contributors to a LUIS app, you are specifying the exact email address. While Azure Active Directory (Azure AD) allows a single user to have more than one email account used interchangeably, LUIS requires the user to sign in with the email address specified when adding the contributor.
+If you add contributors to a LUIS app, you are specifying the exact email address. While Microsoft Entra ID allows a single user to have more than one email account used interchangeably, LUIS requires the user to sign in with the email address specified when adding the contributor.
 
 <a name="owner-and-collaborators"></a>
 
-### Azure Active Directory resources
+<a name='azure-active-directory-resources'></a>
 
-If you use [Azure Active Directory](../../active-directory/index.yml) (Azure AD) in your organization, Language Understanding (LUIS) needs permission to the information about your users' access when they want to use LUIS. The resources that LUIS requires are minimal.
+### Microsoft Entra resources
+
+If you use [Microsoft Entra ID](../../active-directory/index.yml) (Microsoft Entra ID) in your organization, Language Understanding (LUIS) needs permission to the information about your users' access when they want to use LUIS. The resources that LUIS requires are minimal.
 
 You see the detailed description when you attempt to sign up with an account that has admin consent or does not require admin consent, such as administrator consent:
 
@@ -49,20 +51,22 @@ You see the detailed description when you attempt to sign up with an account tha
 * Allows the app to see and update your data, even when you are not currently using the app. The permission is required to refresh the access token of the user.
 
 
-### Azure Active Directory tenant user
+<a name='azure-active-directory-tenant-user'></a>
 
-LUIS uses standard Azure Active Directory (Azure AD) consent flow.
+### Microsoft Entra tenant user
 
-The tenant admin should work directly with the user who needs access granted to use LUIS in the Azure AD.
+LUIS uses standard Microsoft Entra consent flow.
+
+The tenant admin should work directly with the user who needs access granted to use LUIS in the Microsoft Entra ID.
 
 * First, the user signs into LUIS, and sees the pop-up dialog needing admin approval. The user contacts the tenant admin before continuing.
 * Second, the tenant admin signs into LUIS, and sees a consent flow pop-up dialog. This is the dialog the admin needs to give permission for the user. Once the admin accepts the permission, the user is able to continue with LUIS. If the tenant admin will not sign in to LUIS, the admin can access [consent](https://account.activedirectory.windowsazure.com/r#/applications) for LUIS. On this page you can filter the list to items that include the name `LUIS`.
 
 If the tenant admin only wants certain users to use LUIS, there are a couple of possible solutions:
-* Giving the "admin consent" (consent to all users of the Azure AD), but then set to "Yes" the "User assignment required" under Enterprise Application Properties, and finally assign/add only the wanted users to the Application. With this method, the Administrator is still providing "admin consent" to the App, however, it's possible to control the users that can access it.
-* A second solution, is by using the [Azure AD identity and access management API in Microsoft Graph](/graph/azuread-identity-access-management-concept-overview) to provide consent to each specific user.
+* Giving the "admin consent" (consent to all users of the Microsoft Entra ID), but then set to "Yes" the "User assignment required" under Enterprise Application Properties, and finally assign/add only the wanted users to the Application. With this method, the Administrator is still providing "admin consent" to the App, however, it's possible to control the users that can access it.
+* A second solution, is by using the [Microsoft Entra identity and access management API in Microsoft Graph](/graph/azuread-identity-access-management-concept-overview) to provide consent to each specific user.
 
-Learn more about Azure active directory users and consent:
+Learn more about Microsoft Entra users and consent:
 * [Restrict your app](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) to a set of users
 
 ## Next steps

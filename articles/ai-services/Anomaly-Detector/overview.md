@@ -2,7 +2,7 @@
 title: What is Anomaly Detector?
 titleSuffix: Azure AI services
 description: Use the Anomaly Detector API's algorithms to apply anomaly detection on your time series data.
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-anomaly-detector
@@ -14,6 +14,8 @@ ms.custom:
 ---
 
 # What is Anomaly Detector?
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 [!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 

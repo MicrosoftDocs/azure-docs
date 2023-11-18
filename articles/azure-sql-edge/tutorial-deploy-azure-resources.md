@@ -25,8 +25,8 @@ In this three-part tutorial, you'll create a machine learning model to predict i
    - Azure IoT Edge tools
    - .NET core cross-platform development
    - Container development tools
-1. Install [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
-1. Open Azure Data Studio and configure Python for notebooks. For details, see [Configure Python for Notebooks](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks). This step can take several minutes.
+1. Install [Azure Data Studio](/azure-data-studio/download-azure-data-studio/)
+1. Open Azure Data Studio and configure Python for notebooks. For details, see [Configure Python for Notebooks](/azure-data-studio/notebooks/notebooks-python-kernel). This step can take several minutes.
 1. Install the latest version of [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). The following scripts require that AZ PowerShell be the latest version (3.5.0, Feb 2020).
 1. Set up the environment to debug, run, and test IoT Edge solution by installing [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/).
 1. Install Docker.

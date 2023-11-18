@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Get started with Azure Machine Learning"
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning to train and deploy a model in a cloud-based Python Jupyter Notebook. 
+description: Use Azure Machine Learning to train and deploy a model in a cloud-based Python Jupyter Notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,8 +9,13 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 03/15/2023
-ms.custom: sdkv2, ignite-2022, build-2023, devx-track-python
+ms.date: 10/20/2023
+ms.custom:
+  - sdkv2
+  - ignite-2022
+  - build-2023
+  - devx-track-python
+  - ignite-2023
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
@@ -36,7 +41,7 @@ The steps you'll take are:
 > * Call the Azure Machine Learning endpoint for inferencing
 
 Watch this video for an overview of the steps in this quickstart.
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RW14vFs]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=02ca158d-103d-4934-a8aa-fe6667533433]
 
 
 ## Prerequisites
@@ -51,8 +56,7 @@ Watch this video for an overview of the steps in this quickstart.
 
 [!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/main/tutorials/get-started-notebooks/quickstart.ipynb -->
-
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/sdg-serverless/tutorials/get-started-notebooks/quickstart.ipynb -->
 
 ## Create handle to workspace
 
@@ -75,17 +79,28 @@ from azure.identity import DefaultAzureCredential
 # authenticate
 credential = DefaultAzureCredential()
 
+SUBSCRIPTION="<SUBSCRIPTION_ID>"
+RESOURCE_GROUP="<RESOURCE_GROUP>"
+WS_NAME="<AML_WORKSPACE_NAME>"
 # Get a handle to the workspace
 ml_client = MLClient(
     credential=credential,
-    subscription_id="<SUBSCRIPTION_ID>",
-    resource_group_name="<RESOURCE_GROUP>",
-    workspace_name="<AML_WORKSPACE_NAME>",
+    subscription_id=SUBSCRIPTION,
+    resource_group_name=RESOURCE_GROUP,
+    workspace_name=WS_NAME,
 )
 ```
 
 > [!NOTE]
-> Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (in this notebook, that will happen in the cell that creates the compute cluster).
+> Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (this will happen in the next code cell).
+
+
+```python
+# Verify that the handle works correctly.  
+# If you ge an error here, modify your SUBSCRIPTION, RESOURCE_GROUP, and WS_NAME in the previous cell.
+ws = ml_client.workspaces.get(WS_NAME)
+print(ws.location,":", ws.resource_group)
+```
 
 ## Create training script
 
@@ -219,191 +234,17 @@ You might need to select **Refresh** to see the new folder and script in your **
 
 :::image type="content" source="media/tutorial-azure-ml-in-a-day/refresh.png" alt-text="Screenshot shows the refresh icon.":::
 
-### [Optional] Enable Intel® Extension for Scikit-Learn optimizations for more performance on Intel hardware
-
-Want to speed up your scikit-learn scripts on Intel hardware? Try enabling [Intel® Extension for Scikit-Learn](https://www.intel.com/content/www/us/en/developer/tools/oneapi/scikit-learn.html) in your training script. Intel® Extension for Scikit-Learn is already installed in the Azure Machine Learning curated environment used in this tutorial, so no additional installation is needed.
-
-To learn more about Intel® Extension for Scikit-Learn, visit the package's [documentation](https://intel.github.io/scikit-learn-intelex/).
-
-If you want to use Intel® Extension for Scikit-Learn as part of the training script described above, you can enable the performance optimizations by adding the two lines of code to the top of the script file, as shown below.
-
-
-```python
-%%writefile {train_src_dir}/main.py
-import os
-import argparse
-
-# Import and enable Intel Extension for Scikit-learn optimizations
-# where possible
-from sklearnex import patch_sklearn
-patch_sklearn()
-
-import pandas as pd
-import mlflow
-import mlflow.sklearn
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.metrics import classification_report
-from sklearn.model_selection import train_test_split
-
-def main():
-    """Main function of the script."""
-
-    # input and output arguments
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--data", type=str, help="path to input data")
-    parser.add_argument("--test_train_ratio", type=float, required=False, default=0.25)
-    parser.add_argument("--n_estimators", required=False, default=100, type=int)
-    parser.add_argument("--learning_rate", required=False, default=0.1, type=float)
-    parser.add_argument("--registered_model_name", type=str, help="model name")
-    args = parser.parse_args()
-   
-    # Start Logging
-    mlflow.start_run()
-
-    # enable autologging
-    mlflow.sklearn.autolog()
-
-    ###################
-    #<prepare the data>
-    ###################
-    print(" ".join(f"{k}={v}" for k, v in vars(args).items()))
-
-    print("input data:", args.data)
-    
-    credit_df = pd.read_csv(args.data, header=1, index_col=0)
-
-    mlflow.log_metric("num_samples", credit_df.shape[0])
-    mlflow.log_metric("num_features", credit_df.shape[1] - 1)
-
-    train_df, test_df = train_test_split(
-        credit_df,
-        test_size=args.test_train_ratio,
-    )
-    ####################
-    #</prepare the data>
-    ####################
-
-    ##################
-    #<train the model>
-    ##################
-    # Extracting the label column
-    y_train = train_df.pop("default payment next month")
-
-    # convert the dataframe values to array
-    X_train = train_df.values
-
-    # Extracting the label column
-    y_test = test_df.pop("default payment next month")
-
-    # convert the dataframe values to array
-    X_test = test_df.values
-
-    print(f"Training with data of shape {X_train.shape}")
-
-    clf = GradientBoostingClassifier(
-        n_estimators=args.n_estimators, learning_rate=args.learning_rate
-    )
-    clf.fit(X_train, y_train)
-
-    y_pred = clf.predict(X_test)
-
-    print(classification_report(y_test, y_pred))
-    ###################
-    #</train the model>
-    ###################
-
-    ##########################
-    #<save and register model>
-    ##########################
-    # Registering the model to the workspace
-    print("Registering the model via MLFlow")
-    mlflow.sklearn.log_model(
-        sk_model=clf,
-        registered_model_name=args.registered_model_name,
-        artifact_path=args.registered_model_name,
-    )
-
-    # Saving the model to a file
-    mlflow.sklearn.save_model(
-        sk_model=clf,
-        path=os.path.join(args.registered_model_name, "trained_model"),
-    )
-    ###########################
-    #</save and register model>
-    ###########################
-    
-    # Stop Logging
-    mlflow.end_run()
-
-if __name__ == "__main__":
-    main()
-```
-
-
-## Create a compute cluster, a scalable way to run a training job
-
-> [!NOTE]
-> To try [serverless compute (preview)](./how-to-use-serverless-compute.md), skip this step and proceed to [configure the command](#configure-the-command).
-
-You already have a compute instance, which you're using to run the notebook.  Now you'll add a second type of compute, a **compute cluster** that you'll use to run your training job. While a compute instance is a single node machine, a compute cluster can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
-
-You'll provision a Linux compute cluster. See the [full list on VM sizes and prices](https://azure.microsoft.com/pricing/details/machine-learning/) .
-
-For this example, you only need a basic cluster, so you'll use a Standard_DS3_v2 model with 2 vCPU cores, 7-GB RAM.
-
-```python
-from azure.ai.ml.entities import AmlCompute
-
-# Name assigned to the compute cluster
-cpu_compute_target = "cpu-cluster"
-
-try:
-    # let's see if the compute target already exists
-    cpu_cluster = ml_client.compute.get(cpu_compute_target)
-    print(
-        f"You already have a cluster named {cpu_compute_target}, we'll reuse it as is."
-    )
-
-except Exception:
-    print("Creating a new cpu compute target...")
-
-    # Let's create the Azure Machine Learning compute object with the intended parameters
-    # if you run into an out of quota error, change the size to a comparable VM that is available.\
-    # Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
-    cpu_cluster = AmlCompute(
-        name=cpu_compute_target,
-        # Azure Machine Learning Compute is the on-demand VM service
-        type="amlcompute",
-        # VM Family
-        size="STANDARD_DS3_V2",
-        # Minimum running nodes when there is no job running
-        min_instances=0,
-        # Nodes in cluster
-        max_instances=4,
-        # How many seconds will the node running after the job termination
-        idle_time_before_scale_down=180,
-        # Dedicated or LowPriority. The latter is cheaper but there is a chance of job termination
-        tier="Dedicated",
-    )
-    print(
-        f"AMLCompute with name {cpu_cluster.name} will be created, with compute size {cpu_cluster.size}"
-    )
-    # Now, we pass the object to MLClient's create_or_update method
-    cpu_cluster = ml_client.compute.begin_create_or_update(cpu_cluster)
-```
-
 ## Configure the command
 
 Now that you have a script that can perform the desired tasks, and a compute cluster to run the script, you'll use a general purpose **command** that can run command line actions. This command line action can directly call system commands or run a script. 
 
 Here, you'll create input variables to specify the input data, split ratio, learning rate and registered model name.  The command script will:
-* Use the compute cluster to run the command.
-* Use an *environment* that defines software and runtime libraries needed for the training script. Azure Machine Learning provides many curated or ready-made environments, which are useful for common training and inference scenarios. You'll use one of those environments here.  In the [Train a model](tutorial-train-model.md) tutorial, you'll learn how to create a custom environment. 
+
+* Use an *environment* that defines software and runtime libraries needed for the training script. Azure Machine Learning provides many curated or ready-made environments, which are useful for common training and inference scenarios. You'll use one of those environments here.  In [Tutorial: Train a model in Azure Machine Learning](tutorial-train-model.md), you'll learn how to create a custom environment.
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
 * In this sample, we access the data from a file on the internet. 
+* Since a compute resource was not specified, the script will be run on a [serverless compute cluster](how-to-use-serverless-compute.md) that is automatically created.
 
-> [!NOTE]
-> To use [serverless compute (preview)](./how-to-use-serverless-compute.md), delete `compute="cpu-cluster"` in this code. Serverless is the simplest way to run jobs on AzureML.
 
 ```python
 from azure.ai.ml import command
@@ -424,7 +265,6 @@ job = command(
     code="./src/",  # location of source code
     command="python main.py --data ${{inputs.data}} --test_train_ratio ${{inputs.test_train_ratio}} --learning_rate ${{inputs.learning_rate}} --registered_model_name ${{inputs.registered_model_name}}",
     environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
-    compute="cpu-cluster", #delete this line to use serverless compute
     display_name="credit_default_prediction",
 )
 ```
@@ -533,9 +373,8 @@ model = ml_client.models.get(name=registered_model_name, version=latest_model_ve
 
 # Expect this deployment to take approximately 6 to 8 minutes.
 # create an online deployment.
-# if you run into an out of quota error, change the instance_type to a comparable VM that is available.\
-# Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
-
+# if you run into an out of quota error, change the instance_type to a comparable VM that is available.
+# Learn more on https://azure.microsoft.com/pricing/details/machine-learning/.
 blue_deployment = ManagedOnlineDeployment(
     name="blue",
     endpoint_name=online_endpoint_name,

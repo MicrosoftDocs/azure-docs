@@ -286,7 +286,7 @@ item.setSessionId("0000-11-0000-1111");
 Mono<CosmosItemResponse<UserSession>> createResponse = container.createItem(item);
 ```
 
-##### [Javascript SDK v4](#tab/javascript-v4)
+##### [JavaScript SDK v4](#tab/javascript-v4)
 
 ```javascript
  // Create a new item
@@ -354,7 +354,7 @@ PartitionKey partitionKey = new PartitionKeyBuilder()
 Mono<CosmosItemResponse<UserSession>> createResponse = container.createItem(item, partitionKey);
 ```
 
-##### [Javascript SDK v4](#tab/javascript-v4)
+##### [JavaScript SDK v4](#tab/javascript-v4)
 
 ```javascript
 const item: UserSession = {
@@ -416,7 +416,7 @@ PartitionKey partitionKey = new PartitionKeyBuilder()
 // Perform a point read
 Mono<CosmosItemResponse<UserSession>> readResponse = container.readItem(id, partitionKey, UserSession.class);
 ```
-##### [Javascript SDK v4](#tab/javascript-v4)
+##### [JavaScript SDK v4](#tab/javascript-v4)
 
 ```javascript
 // Store the unique identifier
@@ -499,7 +499,7 @@ pagedResponse.byPage().flatMap(fluxResponse -> {
     return Flux.empty();
 }).blockLast();
 ```
-##### [Javascript SDK v4](#tab/javascript-v4)
+##### [JavaScript SDK v4](#tab/javascript-v4)
 
 ```javascript
 // Define a single-partition query that specifies the full partition key path
@@ -562,7 +562,7 @@ pagedResponse.byPage().flatMap(fluxResponse -> {
 }).blockLast();
 ```
 
-##### [Javascript SDK v4](#tab/javascript-v4)
+##### [JavaScript SDK v4](#tab/javascript-v4)
 
 ```javascript
 // Define a targeted cross-partition query specifying prefix path[s]
@@ -583,7 +583,7 @@ while (queryIterator.hasMoreResults()) {
 - Working with containers that use hierarchical partition keys is supported only in the .NET v3 SDK, in the Java v4 SDK, and in the preview version of the JavaScript SDK. You must use a supported SDK to create new containers that have hierarchical partition keys and to perform CRUD or query operations on the data. Support for other SDKs, including Python, isn't available currently.
 - There are limitations with various Azure Cosmos DB connectors (for example, with Azure Data Factory).
 - You can specify hierarchical partition keys only up to three layers in depth.
-- Hierarchical partition keys can currently be enabled only on new containers. You must set partition key paths at the time of container creation, and you can't change them later. To use hierarchical partitions on existing containers, create a new container with the hierarchical partition keys set and move the data by using [container copy jobs](intra-account-container-copy.md).
+- Hierarchical partition keys can currently be enabled only on new containers. You must set partition key paths at the time of container creation, and you can't change them later. To use hierarchical partitions on existing containers, create a new container with the hierarchical partition keys set and move the data by using [container copy jobs](container-copy.md).
 - Hierarchical partition keys are currently supported only for the API for NoSQL accounts. The APIs for MongoDB and Cassandra aren't currently supported.
 
 ## Next steps

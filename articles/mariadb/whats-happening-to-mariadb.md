@@ -14,7 +14,7 @@ ms.custom: deprecation announcement
 
 Azure Database for MariaDB is on the retirement path, and **Azure Database for MariaDB is scheduled for retirement by September 19, 2025**.
 
-As part of this retirement, there is no extended support for creating new MariaDB server instances from the Azure portal beginning **December 19, 2023**, if you still need to create MariaDB instances to meet business continuity needs, you can use [Azure CLI](/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-cli) until **March 19, 2024**.
+As part of this retirement, there is no extended support for creating new MariaDB server instances from the Azure portal beginning **January 19, 2024**, if you still need to create MariaDB instances to meet business continuity needs, you can use [Azure CLI](/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-cli) until **March 19, 2024**.
 
 We're investing in our flagship offering of Azure Database for MySQL - Flexible Server better suited for mission-critical workloads. Azure Database for MySQL - Flexible Server has better features, performance, an improved architecture, and more controls to manage costs across all service tiers compared to Azure Database for MariaDB. We encourage you to migrate to Azure Database for MySQL - Flexible Server before retirement to experience the new capabilities of Azure Database for MySQL - Flexible Server.
 
@@ -54,7 +54,11 @@ A. Unfortunately, we don't plan to support Azure Database for MariaDB beyond the
 
 **Q. After the Azure Database for MariaDB retirement announcement, what if I still need to create a new MariaDB server to meet my business needs?**
 
-A. As part of this retirement, we'll no longer support creating new MariaDB instances from the Azure portal beginning **December 19, 2023**. Suppose you still need to create MariaDB instances to meet business continuity needs. In that case, you can use [Azure CLI](/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-cli) until **March 19, 2024**.
+A. As part of this retirement, we'll no longer support creating new MariaDB instances from the Azure portal beginning **January 19, 2024**. Suppose you still need to create MariaDB instances to meet business continuity needs. In that case, you can use [Azure CLI](/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-cli) until **March 19, 2024**.
+
+**Q. Will I be able to restore instances of Azure Database for MariaDB after March 19, 2024?**
+
+A. Yes, you will be able to restore your MariaDB instances from your existing servers until September 19, 2025.
 
 **Q. How does the Azure Database for MySQL flexible server's 99.99% availability SLA differ from MariaDB?**
 

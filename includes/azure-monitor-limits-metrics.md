@@ -60,7 +60,7 @@ Based on query time range and request type over a 30-second window (for client t
 
 | Limit | Value |
 |:---|:---|
-| Query hours per user (Azure Active Directory, managed identity, Azure Managed Grafana workspace) | 30,000 |
+| Query hours per user (Microsoft Entra ID, managed identity, Azure Managed Grafana workspace) | 30,000 |
 | Query hours per Azure Monitor workspace | 60,000 |
 | Query hours per Azure tenant | 600,000 |
 
@@ -76,7 +76,7 @@ Based on query time range and range vectors in query over a 30-second window (fo
 
 | Limit | Value |
 |:---|:---|
-| Query hours per user (Azure Active Directory, managed identity, Azure Managed Grafana workspace) | 2,000,000 |
+| Query hours per user (Microsoft Entra ID, managed identity, Azure Managed Grafana workspace) | 2,000,000 |
 | Query hours per Azure Monitor workspace | 2,000,000 |
 | Query hours per Azure tenant | 20,000,000 |
 

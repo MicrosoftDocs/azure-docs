@@ -4,7 +4,7 @@ description: This article helps you understand the measuring unit costs capabili
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/23/2023
+ms.date: 10/25/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: finops
@@ -23,6 +23,8 @@ Identify what a single unit is for your business – like a sale transaction for
 
 Measuring unit costs provides insights into profitability and allows organizations to make data-driven business decisions regarding cloud investments. Unit economics is what ties the cloud to measurable business value.
 
+The ultimate goal of unit economics, as a derivative of activity-based costing methodology, is to factor in the whole picture of your business's cost. This article focuses on capturing how you can factor your Microsoft Cloud costs into those efforts. As your FinOps practice matures, consider the manual processes and steps outside of the cloud that might be important for calculating units that are critical for your business to track the most accurate cost per unit.
+
 ## Before you begin
 
 Before you can effectively measure unit costs, you need to familiarize yourself with [how you're charged for the services you use](https://azure.microsoft.com/pricing#product-pricing). Understanding the factors that contribute to costs, helps you break down the usage and costs and map them to individual units. Cost contributing-factors factors include compute, storage, networking, and data transfer. How your service usage aligns with the various pricing models (for example, pay-as-you-go, reservations, and Azure Hybrid Benefit) also impacts your costs.
@@ -37,7 +39,7 @@ Measuring unit costs isn't a simple task. Unit economics requires a deep underst
   - If you don't have telemetry in place, consider setting up [Application Insights](../../azure-monitor/app/app-insights-overview.md), which is an extension of Azure Monitor.
 - Use [Azure Monitor metrics](../../azure-monitor/essentials/data-platform-metrics.md) to pull resource utilization data.
   - If you don't have telemetry, see what metrics are available in Azure Monitor that can map your application usage to the costs. You need anything that can break down the usage of your resources to give you an idea of what percentage of the billed usage was from one unit vs. another.
-  - If you don't see the data you need in metrics, also check [logs and traces in Azure Monitor](../../azure-monitor/overview.md#data-platform). It may not be a direct correlation to usage but might be able to give you some indication of usage.
+  - If you don't see the data you need in metrics, also check [logs and traces in Azure Monitor](../../azure-monitor/overview.md#data-platform). It might not be a direct correlation to usage but might be able to give you some indication of usage.
 - Use service-specific APIs to get detailed usage telemetry.
   - Every service uses Azure Monitor for a core set of logs and metrics. Some services also provide more detailed monitoring and utilization APIs to get more details than are available in Azure Monitor. Explore [Azure service documentation](../../index.yml) to find the right API for the services you use.
 - Using the data you've collected, quantify the percentage of usage coming from each unit.

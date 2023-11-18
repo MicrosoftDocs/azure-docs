@@ -53,7 +53,7 @@ In the **Advanced** configuration section, provide the following details to crea
 Azure Migrate: Discovery and assessment use a lightweight Azure Migrate appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Migrate.
 
 > [!Note]
-> If you have deployed an appliance using a template (OVA for servers on a VMware environment and VHD for a Hyper-V environment), you can use the same appliance and register it with an Azure Migrate project with private endpoint connectivity.
+> If you have deployed an appliance using a template (OVA for servers on a VMware environment and VHD for a Hyper-V environment), you can use the same appliance and register it with an Azure Migrate project with private endpoint connectivity. You will need to run the Azure Migrate installer script and select the private endpoint connectivity option mentioned in the instructions below. 
 
 To set up the appliance:
   1. Download the zipped file that contains the installer script from the portal.
@@ -100,6 +100,11 @@ After the script has executed successfully, the appliance configuration manager 
 
 > [!NOTE]
 > If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
+
+## Enabling DNS Resolution to Private Endpoints
+
+1. The DNS records required for the private endpoints can be downloaded from the Azure Migrate project. Instructions on how to download the DNS entries is [here](./troubleshoot-network-connectivity.md#verify-dns-resolution)
+2. Add these DNS records to your DNS server on-premises using our [Private Endpoint Connectivity documentation](../private-link/private-endpoint-dns.md) or add these DNS records to the local host file in the Azure Migrate appliance.
 
 ## Configure the appliance and start continuous discovery
 

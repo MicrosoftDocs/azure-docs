@@ -1,7 +1,7 @@
 ---
 title: Programmatically deploy and manage Azure Arc Extended Security Updates licenses
 description: Learn how to programmatically deploy and manage Azure Arc Extended Security Updates licenses for Windows Server 2012.
-ms.date: 10/02/2023
+ms.date: 10/23/2023
 ms.topic: conceptual
 ---
 
@@ -43,13 +43,13 @@ To link a license, execute the following commands:
 ```
 PUT  
 https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/Microsoft.HybridCompute/machines/MACHINE_NAME/licenseProfiles/default?api-version=2023-06-20-preview 
-{ 
-  “location”: “SAME_REGION_AS_MACHINE”, 
-  “properties”: { 
-    “esuProfile”: { 
-      “assignedLicense”: “RESOURCE_ID_OF_LICENSE” 
-    } 
-  } 
+{
+   "location": "SAME_REGION_AS_MACHINE",
+   "properties": {
+      "esuProfile": {
+         "assignedLicense": "RESOURCE_ID_OF_LICENSE"
+      }
+   }
 }
 ```
 
@@ -61,10 +61,9 @@ To unlink a license, execute the following commands:
 PUT 
 https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/Microsoft.HybridCompute/machines/MACHINE_NAME/licenseProfiles/default?api-version=2023-06-20-preview
 {
-  “location”: “SAME_REGION_AS_MACHINE”,
-  “properties”: {
-    “esuProfile”: {
-      “assignedLicense”: “”
+  "location": "SAME_REGION_AS_MACHINE",
+  "properties": {
+    "esuProfile": {
     }
   }
 }

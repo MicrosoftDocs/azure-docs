@@ -222,7 +222,7 @@
       href: ../azure-functions/functions-bindings-cache.md
     - name: Role-based access control
       href: cache-configure-role-based-access-control.md
-    - name: Azure AD for authentication
+    - name: Microsoft Entra ID for authentication
       href: cache-azure-active-directory-for-authentication.md
   - name: Monitor
     items:

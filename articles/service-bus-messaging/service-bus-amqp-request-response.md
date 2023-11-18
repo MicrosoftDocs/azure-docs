@@ -13,7 +13,7 @@ For a detailed wire-level AMQP 1.0 protocol guide, which explains how Service Bu
   
 ## Concepts  
     
-### Brokered message  
+### ServiceBusReceivedMessage / ServiceBusMessage  
 
 Represents a message in Service Bus, which is mapped to an AMQP message. The mapping is defined in the [Service Bus AMQP protocol guide](service-bus-amqp-protocol-guide.md).  
   
@@ -479,7 +479,7 @@ The **correlation-filter** map must include at least one of the following entrie
 |session-id|string|No||  
 |reply-to-session-id|string|No||  
 |content-type|string|No||  
-|properties|map|No|Maps to Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).|  
+|properties|map|No|Maps to Service Bus [ServiceBusMessage.Properties](/dotnet/api/azure.messaging.servicebus.servicebusmessage.applicationproperties)|  
   
 The **sql-rule-action** map must include the following entries:  
   

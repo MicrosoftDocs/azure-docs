@@ -22,6 +22,8 @@ For the JSON syntax and properties to use in templates, see [Microsoft.Network r
 > [!IMPORTANT]
 > In cases where a template is deploying connectivity or security configurations, the template requires a custom deployment script to deploy the configuration. The script is located at the end of the ARM template, and it uses the `Microsoft.Resources/deploymentScripts` resource type. For more information on deployment scripts, review [Use deployment scripts in ARM templates](../azure-resource-manager/templates/deployment-script-template.md).
 
+[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
+
 ## Samples
 | Example | Description |
 |-------- | ----------- |

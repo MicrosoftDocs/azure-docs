@@ -18,7 +18,7 @@ With this account created for you, you can quickly start building and deploying 
 
 To create or update an Automation account, and to complete the tasks described in this article, you must have the following privileges and permissions:
 
-To create an Automation account, your Azure AD user account must be added to a role with permissions equivalent to the Owner role for `Microsoft.Automation` resources. For more information, see [Role-Based Access Control in Azure Automation](automation-role-based-access-control.md).
+To create an Automation account, your Microsoft Entra user account must be added to a role with permissions equivalent to the Owner role for `Microsoft.Automation` resources. For more information, see [Role-Based Access Control in Azure Automation](automation-role-based-access-control.md).
 
 ## Create a new Automation account in the Azure portal
 
@@ -62,7 +62,7 @@ The following table describes the fields on the **Advanced** tab.
 
 | **Field** | **Required**<br> **or**<br> **optional** |**Description** |
 |---|---|---|
-|System-assigned |Optional |An Azure Active Directory identity that is tied to the lifecycle of the Automation account. |
+|System-assigned |Optional |A Microsoft Entra identity that is tied to the lifecycle of the Automation account. |
 |User-assigned |Optional |A managed identity represented as a standalone Azure resource that is managed separately from the resources that use it.|
 
 You can chose to enable managed identities later, and the Automation account is created without one. To enable a managed identity after the account is created, see [Enable managed identity](enable-managed-identity-for-automation.md). If you select both options, for the user-assigned identity, select the **Add user assigned identities** option. On the **Select user assigned managed identity** page, select a subscription and add one or more user-assigned identities created in that subscription to assign to the Automation account.

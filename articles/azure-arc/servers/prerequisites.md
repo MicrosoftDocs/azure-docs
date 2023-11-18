@@ -51,7 +51,7 @@ Azure Arc supports the following Windows and Linux operating systems. Only x86-6
   * Both Desktop and Server Core experiences are supported
   * Azure Editions are supported on Azure Stack HCI
 
-The Azure Connected Machine agent can't currently be installed on systems hardened by the Center for Information Security (CIS) Benchmark.
+The Azure Connected Machine agent hasn't been tested on operating systems hardened by the Center for Information Security (CIS) Benchmark.
 
 ### Client operating system guidance
 
@@ -94,7 +94,7 @@ You'll need the following Azure built-in roles for different aspects of managing
 
 There are no limits to the number of Azure Arc-enabled servers you can register in any single resource group, subscription or tenant.
 
-Each Azure Arc-enabled server is associated with an Azure Active Directory object and counts against your directory quota. See [Azure AD service limits and restrictions](../../active-directory/enterprise-users/directory-service-limits-restrictions.md) for information about the maximum number of objects you can have in an Azure AD directory.
+Each Azure Arc-enabled server is associated with a Microsoft Entra object and counts against your directory quota. See [Microsoft Entra service limits and restrictions](../../active-directory/enterprise-users/directory-service-limits-restrictions.md) for information about the maximum number of objects you can have in a Microsoft Entra directory.
 
 ## Azure resource providers
 

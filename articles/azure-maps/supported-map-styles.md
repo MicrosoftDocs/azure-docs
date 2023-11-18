@@ -3,7 +3,7 @@ title: Supported built-in Azure Maps map styles
 description: Learn about the built-in map styles that Azure Maps supports, such as road, blank_accessible, satellite, satellite_road_labels, road_shaded_relief, and night.
 author: eriklindeman
 ms.author: eriklind
-ms.date: 04/26/2020
+ms.date: 11/01/2023
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -18,7 +18,7 @@ Azure Maps supports several different built-in map styles as described in this a
 
 A **road** map is a standard map that displays roads. It also displays natural and artificial features, and the labels for those features.
 
-![road map style](./media/supported-map-styles/road.png)
+:::image type="content" source="./media/supported-map-styles/road.png" lightbox="./media/supported-map-styles/road.png" alt-text="A screenshot of map using the road style.":::
 
 **Applicable APIs:**
 
@@ -43,7 +43,7 @@ The **blank** and **blank_accessible** map styles provide a blank canvas for vis
 
 The **satellite** style is a combination of satellite and aerial imagery.
 
-![satellite tile map style](./media/supported-map-styles/satellite.png)
+:::image type="content" source="./media/supported-map-styles/satellite.png" lightbox="./media/supported-map-styles/satellite.png" alt-text="A screenshot of map using the satellite style.":::
 
 **Applicable APIs:**
 
@@ -56,7 +56,7 @@ The **satellite** style is a combination of satellite and aerial imagery.
 
 This map style is a hybrid of roads and labels overlaid on top of satellite and aerial imagery.
 
-![satellite_road_labels map style](./media/supported-map-styles/satellite-road-labels.png)
+:::image type="content" source="./media/supported-map-styles/satellite-road-labels.png" lightbox="./media/supported-map-styles/satellite-road-labels.png" alt-text="A screenshot of map using the satellite-road-labels style.":::
 
 **Applicable APIs:**
 
@@ -68,7 +68,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **grayscale dark** is a dark version of the road map style.
 
-![gray_scale map style](./media/supported-map-styles/grayscale-dark.png)
+:::image type="content" source="./media/supported-map-styles/grayscale-dark.png" lightbox="./media/supported-map-styles/grayscale-dark.png" alt-text="A screenshot of map using the grayscale-dark style.":::
 
 **Applicable APIs:**
 
@@ -82,7 +82,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **grayscale light** is a light version of the road map style.
 
-![grayscale light map style](./media/supported-map-styles/grayscale-light.jpg)
+:::image type="content" source="./media/supported-map-styles/grayscale-light.jpg" lightbox="./media/supported-map-styles/grayscale-light.jpg" alt-text="A screenshot of map using the grayscale light style.":::
 
 **Applicable APIs:**
 
@@ -94,7 +94,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **night** is a dark version of the road map style with colored roads and symbols.
 
-![night map style](./media/supported-map-styles/night.png)
+:::image type="content" source="./media/supported-map-styles/night.png" lightbox="./media/supported-map-styles/night.png" alt-text="A screenshot of map using the night style.":::
 
 **Applicable APIs:**
 
@@ -106,7 +106,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **road shaded relief** is an Azure Maps main style completed with contours of the Earth.
 
-![shaded relief map style](./media/supported-map-styles/shaded-relief.png)
+:::image type="content" source="./media/supported-map-styles/shaded-relief.png" lightbox="./media/supported-map-styles/shaded-relief.png" alt-text="A screenshot of map using the shaded relief map style.":::
 
 **Applicable APIs:**
 
@@ -119,7 +119,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **high_contrast_dark** is a dark map style with a higher contrast than the other styles.
 
-![high contrast dark map style](./media/supported-map-styles/high-contrast-dark.png)
+:::image type="content" source="./media/supported-map-styles/high-contrast-dark.png" lightbox="./media/supported-map-styles/high-contrast-dark.png" alt-text="A screenshot of map using the high contrast dark map style.":::
 
 **Applicable APIs:**
 
@@ -131,7 +131,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **high_contrast_light** is a light map style with a higher contrast than the other styles.
 
-![high contrast light map style](./media/supported-map-styles/high-contrast-light.jpg)
+:::image type="content" source="./media/supported-map-styles/high-contrast-light.jpg" lightbox="./media/supported-map-styles/high-contrast-light.jpg" alt-text="A screenshot of map using the high contrast light map style.":::
 
 **Applicable APIs:**
 
@@ -155,7 +155,7 @@ The interactive Azure Maps map controls use vector tiles in the map styles to po
 | `road` | Partial | Yes | The main colorful road map style in Azure Maps. Due to the number of different colors and possible overlapping color combinations, it's nearly impossible to make it 100% accessible. That said, this map style goes through regular accessibility testing and is improved as needed to make labels clearer to read. |
 | `road_shaded_relief` | Partial | Yes | Similar to the main road map style, but has an added tile layer in the background that adds shaded relief of mountains and land cover coloring when zoomed out. |
 | `satellite` | N/A | Yes | Purely satellite and aerial imagery, no labels, or road lines. The vector tiles are loaded behind the scenes to power the screen reader and to make for a smoother transition when switching to `satellite_with_roads`. |
-| `satellite_with_roads` | No | Yes | Satellite and aerial imagery, with labels and road lines overlaid. On a global scale, there's an unlimited number of color combinations that may occur between the overlaid data and the imagery. A focus on making labels readable in most common scenarios, however, in some places the color contrast with the background imagery may make labels difficult to read. |
+| `satellite_with_roads` | No | Yes | Satellite and aerial imagery, with labels and road lines overlaid. On a global scale, there's an unlimited number of color combinations that might occur between the overlaid data and the imagery. A focus on making labels readable in most common scenarios, however, in some places the color contrast with the background imagery might make labels difficult to read. |
 
 ## Next steps
 

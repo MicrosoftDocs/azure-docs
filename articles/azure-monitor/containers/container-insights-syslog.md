@@ -6,16 +6,17 @@ ms.date: 01/31/2023
 ms.reviewer: damendo
 ---
 
-# Syslog collection with Container Insights (preview)
+# Syslog collection with Container Insights 
 
-Container Insights offers the ability to collect Syslog events from Linux nodes in your [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters. This includes the ability to collect logs from control plane componemts like kubelet. Customers can also use Syslog for monitoring security and health events, typically by ingesting syslog into a SIEM system like [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/#overview).  
+Container Insights offers the ability to collect Syslog events from Linux nodes in your [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters. This includes the ability to collect logs from control plane components like kubelet. Customers can also use Syslog for monitoring security and health events, typically by ingesting syslog into a SIEM system like [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/#overview).  
 
 > [!IMPORTANT]
-> Syslog collection with Container Insights is a preview feature. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. Previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use.
+> Syslog collection is now GA. However due to slower rollouts towards the year end, the agent version with the GA changes will not be in all regions until January 2024.  Agent versions 3.1.16 and above have Syslog GA changes. Please check agent version before enabling in production.
 
 ## Prerequisites 
 
-- You need to have managed identity authentication enabled on your cluster. To enable, see [migrate your AKS cluster to managed identity authentication](container-insights-enable-existing-clusters.md?tabs=azure-cli#migrate-to-managed-identity-authentication). Note: Enabling Managed Identity will create a new Data Collection Rule (DCR) named `MSCI-<WorkspaceRegion>-<ClusterName>` 
+- You need to have managed identity authentication enabled on your cluster. To enable, see [migrate your AKS cluster to managed identity authentication](container-insights-enable-existing-clusters.md?tabs=azure-cli#migrate-to-managed-identity-authentication). Note: Enabling Managed Identity will create a new Data Collection Rule (DCR) named `MSCI-<WorkspaceRegion>-<ClusterName>`
+- Port 28330 should be available on the host node.
 - Minimum versions of Azure components
   - **Azure CLI**: Minimum version required for Azure CLI is [2.45.0 (link to release notes)](/cli/azure/release-notes-azure-cli#february-07-2023). See [How to update the Azure CLI](/cli/azure/update-azure-cli) for upgrade instructions. 
   - **Azure CLI AKS-Preview Extension**: Minimum version required for AKS-Preview Azure CLI extension is [0.5.125 (link to release notes)](https://github.com/Azure/azure-cli-extensions/blob/main/src/aks-preview/HISTORY.rst#05125). See [How to update extensions](/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) for upgrade guidance. 
@@ -152,8 +153,6 @@ Select the minimum log level for each facility that you want to collect.
 :::image type="content" source="media/container-insights-syslog/dcr-4.png" lightbox="media/container-insights-syslog/dcr-4.png" alt-text="Screenshot of Configuration panel for Syslog data collection rule." border="false":::
 
 
-## Known limitations
-- **Container restart data loss**. Agent Container restarts can lead to syslog data loss during public preview. 
 
 ## Next steps
 
@@ -164,4 +163,4 @@ Once setup customers can start sending Syslog data to the tools of their choice
 Read more  
 - [Syslog record properties](/azure/azure-monitor/reference/tables/syslog)
 
-Share your feedback for the preview here: https://forms.office.com/r/BBvCjjDLTS 
+Share your feedback for this feature here: https://forms.office.com/r/BBvCjjDLTS 

@@ -67,7 +67,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version|
 |-----|-----|-----|-----|-----|
-|Lenovo ThinkAgile MX1020 |1.24.6| 1.14.0_2022-12-13 |16.0.816.19223|Not validated|
+|Lenovo ThinkAgile MX1020 |1.26.6| 1.24.0_2023-10-10 |16.0.5100.7246|Not validated|
 |Lenovo ThinkAgile MX3520 |1.22.6| 1.10.0_2022-08-09 |16.0.312.4243| 12.3 (Ubuntu 12.3-1)|
 
 ### Nutanix
@@ -95,10 +95,11 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
+|TKGs 2.2|1.25.7|1.23.0_2023-09-12|16.0.5100.7246|14.5 (Ubuntu 20.04)|
 |TKGm 2.3|1.26.5|1.23.0_2023-09-12|16.0.5100.7246|14.5 (Ubuntu 20.04)|
 |TKGm 2.2|1.25.7|1.19.0_2023-05-09|16.0.937.6223|14.5 (Ubuntu 20.04)|
 |TKGm 2.1.0|1.24.9|1.15.0_2023-01-10|16.0.816.19223|14.5 (Ubuntu 20.04)|
-|TKGm 1.6.0|1.23.8|1.11.0_2022-09-13|16.0.312.4243|12.3 (Ubuntu 12.3-1)|
+
 
 
 ### Wind River
@@ -146,6 +147,8 @@ More tests will be added in future releases of Azure Arc-enabled data services.
 - [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)
 - [Create a data controller - indirectly connected with the CLI](create-data-controller-indirect-cli.md)
 - To create a directly connected data controller, start with [Prerequisites to deploy the data controller in direct connectivity mode](create-data-controller-direct-prerequisites.md).
+
+
 
 
 

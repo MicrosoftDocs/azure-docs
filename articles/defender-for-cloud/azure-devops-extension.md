@@ -8,9 +8,6 @@ ms.custom: ignite-2022
 
 # Configure the Microsoft Security DevOps Azure DevOps extension
 
-> [!NOTE]
-> Effective December 31, 2022, the Microsoft Security Code Analysis (MSCA) extension is retired. MSCA is replaced by the Microsoft Security DevOps Azure DevOps extension. MSCA customers should follow the instructions in this article to install and configure the extension.
-
 Microsoft Security DevOps is a command line application that integrates static analysis tools into the development lifecycle. Microsoft Security DevOps installs, configures, and runs the latest versions of static analysis tools (including, but not limited to, SDL/security and compliance tools). Microsoft Security DevOps is data-driven with portable configurations that enable deterministic execution across multiple environments.
 
 The Microsoft Security DevOps uses the following Open Source tools:
@@ -20,15 +17,18 @@ The Microsoft Security DevOps uses the following Open Source tools:
 | [AntiMalware](https://www.microsoft.com/windows/comprehensive-security) | AntiMalware protection in Windows from Microsoft Defender for Endpoint, that scans for malware and breaks the build if malware has been found. This tool scans by default on windows-latest agent. | Not Open Source |
 | [Bandit](https://github.com/PyCQA/bandit) | Python | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/master/LICENSE) |
 | [BinSkim](https://github.com/Microsoft/binskim) | Binary--Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
-| [Credscan](detect-exposed-secrets.md) | Credential Scanner (also known as CredScan) is a tool developed and maintained by Microsoft to identify credential leaks such as those in source code and configuration files <br> common types: default passwords, SQL connection strings, Certificates with private keys | Not Open Source |
 | [ESlint](https://github.com/eslint/eslint) | JavaScript | [MIT License](https://github.com/eslint/eslint/blob/main/LICENSE) |
-| [Template Analyzer](https://github.com/Azure/template-analyzer) | ARM template, Bicep file | [MIT License](https://github.com/Azure/template-analyzer/blob/main/LICENSE.txt) |
-| [Terrascan](https://github.com/accurics/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation | [Apache License 2.0](https://github.com/accurics/terrascan/blob/master/LICENSE) |
-| [Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE) |
+| [IaCFileScanner](iac-template-mapping.md) | Terraform, CloudFormation, ARM Template, Bicep | Not Open Source |
+| [Template Analyzer](https://github.com/Azure/template-analyzer) | ARM Template, Bicep | [MIT License](https://github.com/Azure/template-analyzer/blob/main/LICENSE.txt) |
+| [Terrascan](https://github.com/accurics/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, CloudFormation | [Apache License 2.0](https://github.com/accurics/terrascan/blob/master/LICENSE) |
+| [Trivy](https://github.com/aquasecurity/trivy) | container images, Infrastructure as Code (IaC) | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE) |
+
+> [!NOTE]
+> Effective September 20, 2023, the secret scanning (CredScan) tool within the Microsoft Security DevOps (MSDO) Extension for Azure DevOps has been deprecated. MSDO secret scanning will be replaced with [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security). 
 
 ## Prerequisites
 
-- Admin privileges to the Azure DevOps organization are required to install the extension.
+- Project Collection Administrator privileges to the Azure DevOps organization are required to install the extension.
 
 If you don't have access to install the extension, you must request access from your Azure DevOps organization's administrator during the installation process.
 
@@ -94,11 +94,26 @@ If you don't have access to install the extension, you must request access from 
     # https://aka.ms/yaml
     trigger: none
     pool:
+      # ubuntu-latest also supported.
       vmImage: 'windows-latest'
     steps:
     - task: MicrosoftSecurityDevOps@1
       displayName: 'Microsoft Security DevOps'
+      inputs:    
+      # command: 'run' | 'pre-job' | 'post-job'. Optional. The command to run. Default: run
+      # config: string. Optional. A file path to an MSDO configuration file ('*.gdnconfig').
+      # policy: 'azuredevops' | 'microsoft' | 'none'. Optional. The name of a well-known Microsoft policy. If no configuration file or list of tools is provided, the policy may instruct MSDO which tools to run. Default: azuredevops.
+      # categories: string. Optional. A comma-separated list of analyzer categories to run. Values: 'secrets', 'code', 'artifacts', 'IaC', 'containers. Example: 'IaC,secrets'. Defaults to all.
+      # languages: string. Optional. A comma-separated list of languages to analyze. Example: 'javascript,typescript'. Defaults to all.
+      # tools: string. Optional. A comma-separated list of analyzer tools to run. Values: 'bandit', 'binskim', 'eslint', 'templateanalyzer', 'terrascan', 'trivy'.
+      # break: boolean. Optional. If true, will fail this build step if any error level results are found. Default: false.
+      # publish: boolean. Optional. If true, will publish the output SARIF results file to the chosen pipeline artifact. Default: true.
+      # artifactName: string. Optional. The name of the pipeline artifact to publish the SARIF result file to. Default: CodeAnalysisLogs*.
+    
     ```
+
+    > [!NOTE]
+    > The artifactName 'CodeAnalysisLogs' is required for integration with Defender for Cloud.
 
 1. To commit the pipeline, select **Save and run**.
 
@@ -111,12 +126,8 @@ The pipeline will run for a few minutes and save the results.
 
 - Learn how to [create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
 
-- Learn how to [deploy pipelines to Azure](/azure/devops/pipelines/overview-azure).
-
 ## Next steps
 
-Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
+Learn more about [DevOps Security in Defender for Cloud](defender-for-devops-introduction.md).
 
-Learn how to [connect your Azure DevOps](quickstart-onboard-devops.md) to Defender for Cloud.
-
-[Discover misconfigurations in Infrastructure as Code (IaC)](iac-vulnerabilities.md).
+Learn how to [connect your Azure DevOps Organizations](quickstart-onboard-devops.md) to Defender for Cloud.

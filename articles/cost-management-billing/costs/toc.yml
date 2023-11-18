@@ -65,6 +65,8 @@
       items:
       - name: Use built-in views
         href: cost-analysis-built-in-views.md
+      - name: View Kubernetes costs
+        href: view-kubernetes-costs.md
       - name: Customize views
         href: customize-cost-analysis-views.md
       - name: Save and share customized views
@@ -115,6 +117,8 @@
       href: quick-create-budget-template.md
     - name: Use cost alerts
       href: cost-mgt-alerts-monitor-usage-spending.md
+    - name: Reservation utilization alerts
+      href: reservation-utilization-alerts.md
     - name: Automate actions with budgets
       href: ../manage/cost-management-budget-scenario.md
   - name: Reference

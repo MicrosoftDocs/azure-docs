@@ -158,7 +158,7 @@ await call.muteIncomingAudio();
 await call.unmuteIncomingAudio();
 ```
 
-When incoming audio is muted, the participant will still receive the call audio (remote participant's audio). The call audio will not play in the speaker and the participant will not be able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio.
+When incoming audio is muted, the participant will still receive the call audio (remote participant's audio). The call audio won't play in the speaker and the participant won't be able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio.
 
 ## Mute other participants
 > [!NOTE]
@@ -213,34 +213,28 @@ await call.removeParticipant(pstnIdentifier);
 Remote participants have a set of associated properties and collections:
 
 - `CommunicationIdentifier`: Get the identifier for a remote participant. Identity is one of the `CommunicationIdentifier` types:
-
-    ```js
-    const identifier = remoteParticipant.identifier;
-    ```
-
-It can be one of the following `CommunicationIdentifier` types:
-
-- `{ communicationUserId: '<ACS_USER_ID'> }`: Object representing the Azure Communication Services user.
-- `{ phoneNumber: '<E.164>' }`: Object representing the phone number in E.164 format.
-- `{ microsoftTeamsUserId: '<TEAMS_USER_ID>', isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" }`: Object representing the Teams user.
-- `{ id: string }`: object representing identifier that doesn't fit any of the other identifier types
+```js
+const identifier = remoteParticipant.identifier;
+```
+- It can be one of the following `CommunicationIdentifier` types:
+    - `{ communicationUserId: '<ACS_USER_ID'> }`: Object representing the Azure Communication Services user.
+    - `{ phoneNumber: '<E.164>' }`: Object representing the phone number in E.164 format.
+    - `{ microsoftTeamsUserId: '<TEAMS_USER_ID>', isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" }`: Object representing the Teams user.
+    - `{ id: string }`: object representing identifier that doesn't fit any of the other identifier types
 
 - `state`: Get the state of a remote participant.
-
-    ```js
-    const state = remoteParticipant.state;
-    ```
-
-The state can be:
-
-- `Idle`: Initial state.
-- `Connecting`: Transition state while a participant is connecting to the call.
-- `Ringing`: Participant is ringing.
-- `Connected`: Participant is connected to the call.
-- `Hold`: Participant is on hold.
-- `EarlyMedia`: Announcement that plays before a participant connects to the call.
-- `InLobby`: Indicates that remote participant is in lobby.
-- `Disconnected`: Final state. The participant is disconnected from the call. If the remote participant loses their network connectivity, their state changes to `Disconnected` after two minutes.
+```js
+const state = remoteParticipant.state;
+```
+- The state can be:
+    - `Idle`: Initial state.
+    - `Connecting`: Transition state while a participant is connecting to the call.
+    - `Ringing`: Participant is ringing.
+    - `Connected`: Participant is connected to the call.
+    - `Hold`: Participant is on hold.
+    - `EarlyMedia`: Announcement that plays before a participant connects to the call.
+    - `InLobby`: Indicates that remote participant is in lobby.
+    - `Disconnected`: Final state. The participant is disconnected from the call. If the remote participant loses their network connectivity, their state changes to `Disconnected` after two minutes.
 
 - `callEndReason`: To learn why a participant left the call, check the `callEndReason` property:
     ```js
@@ -250,7 +244,7 @@ The state can be:
     ```
     Note:
     - This property is only set when adding a remote participant via the Call.addParticipant() API, and the remote participant declines for example.
-    - In the scenario, where for example, UserB kicks UserC, from UserA's perspective, UserA will not see this flag get set for UserC. In other words UserA will not see UserC's callEndReason property get set at all.
+    - In the scenario, where for example, UserB kicks UserC, from UserA's perspective, UserA won't see this flag get set for UserC. In other words UserA won't see UserC's callEndReason property get set at all.
 
 - `isMuted` status: To find out if a remote participant is muted, check the `isMuted` property. It returns `Boolean`.
 
@@ -274,6 +268,11 @@ The state can be:
     ```js
     const displayName = remoteParticipant.displayName;
     ```
+- `endpointDetails`: Get the details of all the endpoints for this remote participant
+    ```js
+        const endpointDetails: EndpointDetails[] = remoteParticipant.endpointDetails;
+    ```
+    *Note: A remote participant could be in the call from many endpoints, and each endpoint will have its own unique `participantId`. `participantId` is different from the RemoteParticipant.identifier's raw Id.*
 
 ## Check call properties
 
@@ -282,6 +281,22 @@ Get the unique ID (string) for a call:
 ```js
 const callId: string = call.id;
 ```
+
+Get the local participant Id:
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
+```js
+const participantId: string = call.info.participantId;
+```
+*Note: An ACS identity can use the web calling sdk in many endpoints, and each endpoint will have its own unique `participantId`. `participantId` is different from the ACS identity raw Id.*
+
+Retrieve the thread ID if joining a Teams meeting:
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
+```js
+const threadId: string | undefined = call.info.threadId;
+```
+
 Get information about the call:
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
@@ -312,7 +327,7 @@ This returns a string representing the current state of a call:
 
 - `None`: Initial call state.
 - `Connecting`: Initial transition state when a call is placed or accepted.
-- `Ringing`: For an outgoing call, indicates that a call is ringing for remote participants. It is `Incoming` on their side.
+- `Ringing`: For an outgoing call, indicates that a call is ringing for remote participants. It's `Incoming` on their side.
 - `EarlyMedia`: Indicates a state in which an announcement is played before the call is connected.
 - `Connected`: Indicates that the call is connected.
 - `LocalHold`: Indicates that the call is put on hold by a local participant. No media is flowing between the local endpoint and remote participants.
