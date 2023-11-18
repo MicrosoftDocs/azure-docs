@@ -183,7 +183,7 @@ Refresh your app service when the caution icon is next to the version value for 
 <summary><b>I deleted my existing Search service. How can I fix this?</b></summary>
 
 **Answer**:
-If you delete an Azure Cognitive Search index, the operation is final and the index cannot be recovered.
+If you delete an Azure AI Search index, the operation is final and the index cannot be recovered.
 
 </details>
 
@@ -212,7 +212,7 @@ Refresh your endpoint keys if you suspect that they have been compromised.
 </details>
 
 <details>
-<summary><b>Can I use the same Azure Cognitive Search resource for knowledge bases using multiple languages?</b></summary>
+<summary><b>Can I use the same Azure AI Search resource for knowledge bases using multiple languages?</b></summary>
 
 **Answer**:
 To use multiple language and multiple knowledge bases, the user has to create a QnA Maker resource for each language. This will create a separate Azure search service per language. Mixing different language knowledge bases in a single Azure search service will result in degraded relevance of results.
@@ -220,10 +220,10 @@ To use multiple language and multiple knowledge bases, the user has to create a 
 </details>
 
 <details>
-<summary><b>How can I change the name of the Azure Cognitive Search resource used by QnA Maker?</b></summary>
+<summary><b>How can I change the name of the Azure AI Search resource used by QnA Maker?</b></summary>
 
 **Answer**:
-The name of the Azure Cognitive Search resource is the QnA Maker resource name with some random letters appended at the end. This makes it hard to distinguish between multiple Search resources for QnA Maker. Create a separate search service (naming it the way you would like to) and connect it to your QnA Service. The steps are similar to the steps you need to do to [upgrade an Azure search](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service).
+The name of the Azure AI Search resource is the QnA Maker resource name with some random letters appended at the end. This makes it hard to distinguish between multiple Search resources for QnA Maker. Create a separate search service (naming it the way you would like to) and connect it to your QnA Service. The steps are similar to the steps you need to do to [upgrade an Azure search](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service).
 
 </details>
 
