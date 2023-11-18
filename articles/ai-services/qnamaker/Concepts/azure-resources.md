@@ -71,8 +71,8 @@ The following table gives you some high-level guidelines.
 |Upgrade|Reason|
 |--|--|
 |[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) QnA Maker management SKU|You want to have more QnA pairs or document sources in your knowledge base.|
-|[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) App Service SKU and check Cognitive Search tier and [create Cognitive Search replicas](../../../search/search-capacity-planning.md)|Your knowledge base needs to serve more requests from your client app, such as a chat bot.|
-|[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) Azure AI Search service|You plan to have many knowledge bases.|
+|[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) App Service SKU and check the Azure AI Search tier and [create Cognitive Search replicas](../../../search/search-capacity-planning.md)|Your knowledge base needs to serve more requests from your client app, such as a chat bot.|
+|[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-ai-search-service) Azure AI Search service|You plan to have many knowledge bases.|
 
 Get the latest runtime updates by [updating your App Service in the Azure portal](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates).
 
