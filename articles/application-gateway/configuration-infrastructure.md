@@ -57,7 +57,7 @@ The subnet named `GatewaySubnet` is reserved for VPN gateways. The Application G
 >
 > For example, if the subnet address space is 10.5.5.0/24, consider setting the private frontend IP configuration of your gateways starting with 10.5.5.254 and then following with 10.5.5.253, 10.5.5.252, 10.5.5.251, and so forth for future gateways.
 
-It's possible to change the subnet of an existing Application Gateway instance within the same virtual network. To make this change, use Azure PowerShell or the Azure CLI. For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.yml#can-i-change-the-virtual-network-or-subnet-for-an-existing-application-gateway)
+It's possible to change the subnet of an existing Application Gateway instance within the same virtual network. To make this change, use Azure PowerShell or the Azure CLI. For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.yml#can-i-change-the-virtual-network-or-subnet-for-an-existing-application-gateway).
 
 ### DNS servers for name resolution
 
@@ -119,7 +119,7 @@ To use an NSG with your application gateway, you need to create or retain some e
 
 #### Inbound rules
 
-1. **Client traffic**: Allow incoming traffic from the expected clients (as source IP or IP range), and for the destination as your application gateway's entire subnet IP prefix and inbound access ports. For example, if you have listeners configured for ports 80 and 443, you must allow these ports. You can also set this rule to `Any`.
+**Client traffic**: Allow incoming traffic from the expected clients (as source IP or IP range), and for the destination as your application gateway's entire subnet IP prefix and inbound access ports. For example, if you have listeners configured for ports 80 and 443, you must allow these ports. You can also set this rule to `Any`.
 
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|
@@ -131,16 +131,16 @@ After you configure *active public and private listeners* (with rules) *with the
 |---|---|---|---|---|---|
 |`<as per need>`|Any|`<Public and Private<br/>frontend IPs>`|`<listener ports>`|TCP|Allow|
 
-1. **Infrastructure ports**: Allow incoming requests from the source as the **GatewayManager** service tag and **Any** destination. The destination port range differs based on SKU and is required for communicating the status of the backend health. These ports are protected/locked down by Azure certificates. External entities can't initiate changes on those endpoints without appropriate certificates in place.
+**Infrastructure ports**: Allow incoming requests from the source as the **GatewayManager** service tag and **Any** destination. The destination port range differs based on SKU and is required for communicating the status of the backend health. These ports are protected/locked down by Azure certificates. External entities can't initiate changes on those endpoints without appropriate certificates in place.
 
-	- **V2**: Ports 65200-65535
-	- **V1**: Ports 65503-65534
+- **V2**: Ports 65200-65535
+- **V1**: Ports 65503-65534
 
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|
 |GatewayManager|Any|Any|`<as per SKU given above>`|TCP|Allow|
 
-1. **Azure Load Balancer probes**: Allow incoming traffic from the source as the **AzureLoadBalancer** service tag. This rule is created by default for [NSGs](../virtual-network/network-security-groups-overview.md). You must not override it with a manual **Deny** rule to ensure smooth operations of your application gateway.
+**Azure Load Balancer probes**: Allow incoming traffic from the source as the **AzureLoadBalancer** service tag. This rule is created by default for [NSGs](../virtual-network/network-security-groups-overview.md). You must not override it with a manual **Deny** rule to ensure smooth operations of your application gateway.
 
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|
@@ -150,7 +150,7 @@ You can block all other incoming traffic by using a **Deny All** rule.
 
 #### Outbound rules
 
-1. **Outbound to the internet**: Allow outbound traffic to the internet for all destinations. This rule is created by default for [NSGs](../virtual-network/network-security-groups-overview.md). You must not override it with a manual **Deny** rule to ensure smooth operations of your application gateway. Outbound NSG rules that deny any outbound connectivity must not be created.
+**Outbound to the internet**: Allow outbound traffic to the internet for all destinations. This rule is created by default for [NSGs](../virtual-network/network-security-groups-overview.md). You must not override it with a manual **Deny** rule to ensure smooth operations of your application gateway. Outbound NSG rules that deny any outbound connectivity must not be created.
 
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|
@@ -165,56 +165,52 @@ With current functionality, there are some restrictions:
 > [!IMPORTANT]
 > Using UDRs on the Application Gateway subnet might cause the health status in the [backend health view](application-gateway-backend-health.md) to appear as **Unknown**. It also might cause generation of Application Gateway logs and metrics to fail. We recommend not using UDRs on the Application Gateway subnet so that you can view the backend health, logs, and metrics.
 
-- **v1**
+For the v1 SKU, UDRs are supported on the Application Gateway subnet if they don't alter end-to-end request/response communication. For example, you can set up a UDR in the Application Gateway subnet to point to a firewall appliance for packet inspection. But you must make sure that the packet can reach its intended destination after inspection. Failure to do so might result in incorrect health-probe or traffic-routing behavior. Learned routes or default 0.0.0.0/0 routes that are propagated by Azure ExpressRoute or VPN gateways in the virtual network are also included.
 
-   For the v1 SKU, UDRs are supported on the Application Gateway subnet if they don't alter end-to-end request/response communication. For example, you can set up a UDR in the Application Gateway subnet to point to a firewall appliance for packet inspection. But you must make sure that the packet can reach its intended destination after inspection. Failure to do so might result in incorrect health-probe or traffic-routing behavior. Learned routes or default 0.0.0.0/0 routes that are propagated by Azure ExpressRoute or VPN gateways in the virtual network are also included.
+For the v2 SKU, there are supported and unsupported scenarios.
 
-- **v2**
+### v2 supported scenarios
 
-   For the v2 SKU, there are supported and unsupported scenarios.
+> [!WARNING]
+> An incorrect configuration of the route table could result in asymmetrical routing in Application Gateway v2. Ensure that all management/control plane traffic is sent directly to the internet and not through a virtual appliance. Logging, metrics, and CRL checks could also be affected.
 
-   ### v2 supported scenarios
+**Scenario 1:** UDR to disable Border Gateway Protocol (BGP) route propagation to the Application Gateway subnet
 
-   > [!WARNING]
-   > An incorrect configuration of the route table could result in asymmetrical routing in Application Gateway v2. Ensure that all management/control plane traffic is sent directly to the internet and not through a virtual appliance. Logging, metrics, and CRL checks could also be affected.
+Sometimes the default gateway route (0.0.0.0/0) is advertised via the ExpressRoute or VPN gateways associated with the Application Gateway virtual network. This behavior breaks management plane traffic, which requires a direct path to the internet. In such scenarios, you can use a UDR to disable BGP route propagation.
 
-  **Scenario 1:** UDR to disable Border Gateway Protocol (BGP) route propagation to the Application Gateway subnet
+To disable BGP route propagation:
 
-   Sometimes the default gateway route (0.0.0.0/0) is advertised via the ExpressRoute or VPN gateways associated with the Application Gateway virtual network. This behavior breaks management plane traffic, which requires a direct path to the internet. In such scenarios, you can use a UDR to disable BGP route propagation.
+1. Create a route table resource in Azure.
+1. Disable the **Virtual network gateway route propagation** parameter.
+1. Associate the route table to the appropriate subnet.
 
-   To disable BGP route propagation:
+Enabling the UDR for this scenario shouldn't break any existing setups.
 
-   1. Create a route table resource in Azure.
-   1. Disable the **Virtual network gateway route propagation** parameter.
-   1. Associate the route table to the appropriate subnet.
+**Scenario 2:** UDR to direct 0.0.0.0/0 to the internet
 
-   Enabling the UDR for this scenario shouldn't break any existing setups.
+You can create a UDR to send 0.0.0.0/0 traffic directly to the internet.
 
-  **Scenario 2:** UDR to direct 0.0.0.0/0 to the internet
+**Scenario 3:** UDR for Azure Kubernetes Service (AKS) with kubenet
 
-   You can create a UDR to send 0.0.0.0/0 traffic directly to the internet.
+If you're using kubenet with AKS and Application Gateway Ingress Controller, you need a route table to allow traffic sent to the pods from Application Gateway to be routed to the correct node. You don't need to use a route table if you use Azure Container Networking Interface.
 
-  **Scenario 3:** UDR for Azure Kubernetes Service (AKS) with kubenet
+To use the route table to allow kubenet to work:
 
-  If you're using kubenet with AKS and Application Gateway Ingress Controller, you need a route table to allow traffic sent to the pods from Application Gateway to be routed to the correct node. You don't need to use a route table if you use Azure Container Networking Interface.
-
-  To use the route table to allow kubenet to work:
-
-  1. Go to the resource group created by AKS. The name of the resource group should begin with `MC_`.
-  1. Find the route table created by AKS in that resource group. The route table should be populated with the following information:
+1. Go to the resource group created by AKS. The name of the resource group should begin with `MC_`.
+1. Find the route table created by AKS in that resource group. The route table should be populated with the following information:
   
-     - Address prefix should be the IP range of the pods you want to reach in AKS.
-     - Next hop type should be virtual appliance.
-     - Next hop address should be the IP address of the node hosting the pods.
-  1. Associate this route table to the Application Gateway subnet.
+   - Address prefix should be the IP range of the pods you want to reach in AKS.
+   - Next hop type should be virtual appliance.
+   - Next hop address should be the IP address of the node hosting the pods.
+1. Associate this route table to the Application Gateway subnet.
 
-  ### v2 unsupported scenarios
+### v2 unsupported scenarios
 
-  **Scenario 1:** UDR for virtual appliances
+**Scenario 1:** UDR for virtual appliances
 
-  Any scenario where 0.0.0.0/0 needs to be redirected through a virtual appliance, a hub/spoke virtual network, or on-premises (forced tunneling) isn't supported for v2.
+Any scenario where 0.0.0.0/0 needs to be redirected through a virtual appliance, a hub/spoke virtual network, or on-premises (forced tunneling) isn't supported for v2.
 
 ## Next steps
 
-- [Learn about frontend IP address configuration](configuration-frontend-ip.md).
-- [Learn about private Application Gateway deployment](application-gateway-private-deployment.md).
+- [Learn about frontend IP address configuration](configuration-frontend-ip.md)
+- [Learn about private Application Gateway deployment](application-gateway-private-deployment.md)
