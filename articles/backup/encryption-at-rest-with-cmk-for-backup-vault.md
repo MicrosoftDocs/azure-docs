@@ -9,7 +9,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Encryption of backup data in the Backup vault using customer-managed keys
+# Encryption of backup data in the Backup vault using customer-managed keys (preview)
 
 Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK) instead of using platform-managed keys, which are enabled by default. Your keys to encrypt the backup data must be stored in [Azure Key Vault](../key-vault/index.yml).
 
@@ -22,7 +22,7 @@ The encryption key used for encrypting backups might be different from the one u
 
 ### Supported regions
 
-CMK for Backup vault is currently available in: West Central US, Australia East, North Europe, South Central US. 
+CMK for Backup vault is currently available in: West Central US, Switzerland North. 
 
 ### Key Vault and managed HSM key requirements
 
@@ -105,7 +105,9 @@ To configure a vault, perform the following actions in the given sequence to ac
 
 ### Enable managed identity for your Backup vault
 
-Azure Backup uses system-assigned managed identities and user-assigned managed identities to authenticate the Backup vault to access encryption keys stored in Azure Key Vault. To enable managed identity for your Backup vault, see the following sections.
+Azure Backup uses system-assigned managed identities and user-assigned managed identities of the Backup vault to authenticate the vault to access encryption keys stored in Azure Key Vault. You've an option to use either system-assigned identity of Backup vault or user-assigned identity attached to Backup vault.
+
+To enable managed identity for your Backup vault, see the following sections.
 
 >[!NOTE]
 >- Once enabled, you must **not** disable the managed identity (even temporarily). Disabling the managed identity might lead to inconsistent behavior.
@@ -118,7 +120,7 @@ Follow these steps:
 
 1. Go to your *Backup vault* > **Identity**.
 
-    ![Identity settings](media/encryption-at-rest-with-cmk/enable-system-assigned-managed-identity-for-vault.png)
+    ![Screenshot shows how to open Identity settings.](media/encryption-at-rest-with-cmk/enable-system-assigned-managed-identity-for-vault.png)
 
 2. Select the **System assigned** tab.
 
@@ -139,7 +141,7 @@ To assign the user-assigned managed identity for your *Backup vault*, choose a c
 
 1. Go to your *Backup vault* > **Identity**.
 
-    ![Assign user-assigned managed identity to the vault](media/encryption-at-rest-with-cmk/assign-user-assigned-managed-identity-to-vault.png)
+    ![Screenshot shows how to open assign the user-assigned managed identity to the vault.](media/encryption-at-rest-with-cmk/assign-user-assigned-managed-identity-to-vault.png)
 
 2. Select the **User assigned** tab.
 
@@ -161,26 +163,38 @@ To assign the user-assigned managed identity for your *Backup vault*, choose a c
 
 You now need to permit the Backup vault to access the Azure Key Vault that contains the encryption key. This is done by allowing the Backup vault's managed identity to access the Key Vault.
 
+**Scenario: Key vault having Access Control (IAM) access configuration enabled.**
+
+Follow these steps:
+
+1. Go to *Azure Key Vault* > **Access Control** > **Add Role Assignment**.
+2. Select **Key Vault Crypto Service Encryption User** role from **Job function** roles.
+3. Select **Next** > **Assign Access to** > **Managed Identity** > **Select Members**.
+4. Select your *Backup vault managed identity*.
+5. Select **Next** and assign.
+
+**Scenario: If your Key Vault has Access Policies configuration enabled**
+
 Follow these steps:
 
 1. Go to your *Azure Key Vault* > **Access Policies** > **+Create**.
 
-    ![Add Access Policies](./media/encryption-at-rest-with-cmk/access-policies.png)
+    ![Screenshot shows how to add Access Policies.](./media/encryption-at-rest-with-cmk/access-policies.png)
 
     1. Under **Key Permissions**, select **Get**, **List**, **Unwrap Key**, and **Wrap Key** operations. This specifies the actions on the key that will be permitted.
 
-    ![Assign key permissions](./media/encryption-at-rest-with-cmk/key-permissions.png)
+    ![Screenshot shows how to assign key permissions.](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
 3. Select **Next** to go to **Select Principal** and search for your vault in the search box using its name or managed identity. Once it shows up, select the *vault* > **Next**.
 
-    ![Select principal](./media/encryption-at-rest-with-cmk/select-principal.png)
+    ![Screenshot of Select principal.](./media/encryption-at-rest-with-cmk/select-principal.png)
 
 4. Once done, select **Add** to add the new access policy.
 
 5. Select **Save** to save changes made to the access policy of the Azure Key Vault.
 
->[!NOTE] 
->- If you're using user-assigned identities, the same permissions must be assigned to the user-assigned identity.
+>[!NOTE]
+>- If you're using **user-assigned identities**, the same permissions must be assigned to the user-assigned identity.
 >- You can also assign an RBAC role to the Backup vault that contains the above mentioned permissions, such as the *[Key Vault Crypto Officer](../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations)* role. These roles might contain additional permissions other than the ones discussed above.
 
 
@@ -191,7 +205,7 @@ You need to **enable soft delete and purge protection** on your Azure Key Vault 
 
 You can do this from the Azure Key Vault UI as shown below. Alternatively, you can set these properties while creating the Key Vault. Learn more about these [Key Vault properties](../key-vault/general/soft-delete-overview.md).
 
-![Enable soft delete and purge protection](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
+![Screenshot of soft delete and purge protection status enabled.](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 
 
 ### Assign encryption key to the Backup vault
@@ -207,7 +221,7 @@ To assign the key and follow the steps, choose a client by following these steps
 
 1. Go to your *Backup vault* > **Properties**.
 
-    ![Encryption settings](./media/encryption-at-rest-with-cmk/encryption-settings.png)
+    ![Screenshot shows the encryption settings.](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
 2. Select **Update** under **Encryption Settings (preview)**.
 
@@ -221,25 +235,25 @@ To assign the key and follow the steps, choose a client by following these steps
         >- When you try to update Encryption Settings but update operation fails due to internal error, the encryption setting is updated to **Inconsistent** and requires your attention.
         >- When specifying the encryption key using the full Key URI with version, the key will not be autorotated, and you need to do key updates manually by specifying the new key or version when required. Alternatively, remove the Version component of the Key URI to get automatic rotation.
 
-        ![Enter key URI](./media/encryption-at-rest-with-cmk/key-uri.png)
+        ![Screenshot shows how to enter key URI.](./media/encryption-at-rest-with-cmk/key-uri.png)
 
     2. Browse and select the key from the Key Vault in the **Key picker** pane.
 
         >[!NOTE]
         >When you specify the encryption key using the key picker pane, the key will be auto-rotated whenever a new version for the key is enabled. [Learn more](encryption-at-rest-with-cmk.md#enable-autorotation-of-encryption-keys) on enabling autorotation of encryption keys.
 
-        ![Select key from key vault](./media/encryption-at-rest-with-cmk/key-vault.png)
+        ![Screenshot shows how to select key from Key Vault.](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-4. Select **Save**.
+4. Select **Update**.
 
 5. **Tracking progress and status of encryption key update**: You can track the progress and status of the encryption key assignment under the Notifications. The encryption key updates are also logged in the vault's Activity Log under Backup Vault update (PATCH) operation.
 
-    ![Status completed](./media/encryption-at-rest-with-cmk/status-succeeded.png)
+    ![Screenshot hows the status as complete.](./media/encryption-at-rest-with-cmk/status-succeeded.png)
 
 
 
 
-### Update Encryption Settings details
+### Update encryption settings details
 
 You can update the encryption settings details anytime. Whenever you want to use a new key URI, ensure that your existing Key Vault still has access to the managed identity and the key is valid. Otherwise, the update operation will fail. 
 
@@ -277,6 +291,10 @@ The process to configure and perform backups to a Backup vault encrypted with cu
 
 - The managed identity being used for Encryption settings doesn't have the permissions to access the Key Vault. Also, the backup or restore jobs might fail with this error code if the access is removed after Encryption Settings are updated or managed identity is disable/detached from the Backup vault.
 - You're using non-RSA (EC Key URI).
+
+**Recommended action**: Ensure that the managed identity selected to use for encryption settings has the required permissions and the key is an RSA type, and the retry the operation.
+
+
 
 ### UserErrorCMKKeyVaultAuthFailure
 
