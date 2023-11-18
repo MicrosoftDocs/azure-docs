@@ -55,7 +55,7 @@ To run the application locally, make sure you have [Python 3.7 or higher](https:
 ### [Flask](#tab/flask)
 
 ```bash
-git clone git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
+git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
 cd msdocs-flask-postgresql-sample-app
 ```
 
