@@ -223,7 +223,7 @@ To use multiple language and multiple knowledge bases, the user has to create a 
 <summary><b>How can I change the name of the Azure AI Search resource used by QnA Maker?</b></summary>
 
 **Answer**:
-The name of the Azure AI Search resource is the QnA Maker resource name with some random letters appended at the end. This makes it hard to distinguish between multiple Search resources for QnA Maker. Create a separate search service (naming it the way you would like to) and connect it to your QnA Service. The steps are similar to the steps you need to do to [upgrade an Azure search](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service).
+The name of the Azure AI Search resource is the QnA Maker resource name with some random letters appended at the end. This makes it hard to distinguish between multiple Search resources for QnA Maker. Create a separate search service (naming it the way you would like to) and connect it to your QnA Service. The steps are similar to the steps you need to do to [upgrade an Azure search](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-ai-search-service).
 
 </details>
 

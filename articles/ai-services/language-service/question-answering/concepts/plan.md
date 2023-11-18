@@ -19,7 +19,7 @@ Each [Azure resource](azure-resources.md#resource-purposes) created with questio
 | Resource | Purpose |
 |--|--|
 | [Language resource](azure-resources.md) resource | Authoring, query prediction endpoint and telemetry|
-| [Azure AI Search](azure-resources.md#azure-cognitive-search-resource) resource | Data storage and search |
+| [Azure AI Search](azure-resources.md#azure-ai-search-resource) resource | Data storage and search |
 
 ### Resource planning
 
