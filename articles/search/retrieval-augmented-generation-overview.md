@@ -27,23 +27,24 @@ The decision about which information retrieval system to use is critical because
 
 + Integration with LLMs.
 
-Azure AI Search is a [proven solution for information retrieval](https://github.com/Azure-Samples/azure-search-openai-demo) in a RAG architecture. It provides indexing and query capabilities, with the infrastructure and security of the Azure cloud. Through code and other components, you can design a comprehensive RAG solution that includes all of the elements for generative AI over your proprietary content.
+Azure AI Search is a [proven solution for information retrieval](https://github.com/Azure-Samples/azure-search-openai-demo) in a RAG architecture. It provides indexing and query capabilities, with the infrastructure and security of the Azure cloud. Through code and other components, you can design a comprehensive RAG solution that includes all of the elements for generative AI over your proprietary content. 
 
-> [!NOTE]
-> New to LLM and RAG concepts? This [video clip](https://youtu.be/2meEvuWAyXs?t=404) from a Microsoft presentation offers a simple explanation.
+<!-- > [!NOTE]
+> TBD VIDEO -->
 
 ## Approaches for RAG with Azure AI Search
 
 Microsoft has several built-in implementations for using Azure AI Search in a RAG solution.
 
-+ Azure AI Studio, [using your data with an Azure OpenAI Service](/azure/ai-services/openai/concepts/use-your-data). Azure AI Studio integrates with Azure AI Search for storage and retrieval. If you already have a search index, you can connect to it in Azure AI Studio and start chatting right away. If you don't have an index, you can [create one by uploading your data](/azure/ai-services/openai/use-your-data-quickstart) using the studio.
++ Azure AI Studio, using Azure AI Search for a [vector index and retrieval augmentation](/azure/ai-studio/concepts/retrieval-augmented-generation). 
 
-+ Azure Machine Learning, a search index can be used as a [vector store](/azure/machine-learning/concept-vector-stores). You can [create a vector index in an Azure Machine Learning prompt flow](/azure/machine-learning/how-to-create-vector-index) that uses your Azure AI Search service for storage and retrieval.
++ Azure OpenAI Studio, [using your search data with an Azure OpenAI Service](/azure/ai-services/openai/concepts/use-your-data). Connect to existing search indexes in Azure OpenAI Studio and start chatting right away or [create one by uploading your data](/azure/ai-services/openai/use-your-data-quickstart) in the studio.
 
-If you need a custom approach however, you can create your own custom RAG solution. The remainder of this article explores how Azure AI Search fits into a custom RAG solution.
++ Azure Machine Learning can use a search index as a [vector store](/azure/machine-learning/concept-vector-stores). You can [create a vector index in an Azure Machine Learning prompt flow](/azure/machine-learning/how-to-create-vector-index) connecting to your Azure AI Search service for storage and retrieval.
 
-> [!NOTE]
-> Prefer to look at code? You can review the [Azure AI Search OpenAI demo](https://github.com/Azure-Samples/azure-search-openai-demo) for an example.
+These curated approaches make it simple to get started. However, for more control and a custom approach, you can create a RAG solution in code. Templates for end-to-end solutions in [Python](https://aka.ms/azai/py), [.NET](https://aka.ms/azai/net), [JavaScript](https://aka.ms/azai/js), and [Java](https://aka.ms/azai/java) can help.
+
+The remainder of this article explores how Azure AI Search fits into a custom RAG solution.
 
 ## Custom RAG pattern for Azure AI Search
 
@@ -77,7 +78,7 @@ Azure AI Search doesn't provide native LLM integration, web frontends, or vector
 
 ## Searchable content in Azure AI Search
 
-In Azure AI Search, all searchable content is stored in a search index that's hosted on your search service in the cloud. A search index is designed for fast queries with millisecond response times, so its internal data structures exist to support that objective. To that end, a search index stores *indexed content*, and not whole content files like entire PDFs or images. Internally, the data structures include inverted indexes of [tokenized text](https://lucene.apache.org/core/7_5_0/test-framework/org/apache/lucene/analysis/Token.html), vector indexes for embeddings, and unaltered text for cases where verbatim matching is required (for example, in filters, fuzzy search, regular expression queries).
+In Azure AI Search, all searchable content is stored in a search index that's hosted on your search service. A search index is designed for fast queries with millisecond response times, so its internal data structures exist to support that objective. To that end, a search index stores *indexed content*, and not whole content files like entire PDFs or images. Internally, the data structures include inverted indexes of [tokenized text](https://lucene.apache.org/core/7_5_0/test-framework/org/apache/lucene/analysis/Token.html), vector indexes for embeddings, and unaltered text for cases where verbatim matching is required (for example, in filters, fuzzy search, regular expression queries).
 
 When you set up the data for your RAG solution, you use the features that create and load an index in Azure AI Search. An index includes fields that duplicate or represent your source content. An index field might be simple transference (a title or description in a source document becomes a title or description in a search index), or a field might contain the output of an external process, such as vectorization or skill processing that generates a representation or text description of an image.
 
@@ -231,20 +232,20 @@ print("\n-------------------\nPrompt:\n" + prompt)
 
 ## How to get started
 
-+ [Use Azure AI Studio and "bring your own data"](/azure/ai-services/openai/concepts/use-your-data) to experiment with prompts on an existing search index. This step helps you decide what model to use, and shows you how well your existing index works in a RAG scenario.
++ [Use Azure AI Studio to create a search index](/azure/ai-studio/how-to/index-add).
 
-+ [Enterprise chat app templates](https://aka.ms/azai) deploy Azure resources, code, and sample grounding data. This end-to-end solution gives you an operational chat app in as little as 15 minutes. The following links provide language-specific versions:
++ [Use Azure OpenAI Studio and "bring your own data"](/azure/ai-services/openai/concepts/use-your-data) to experiment with prompts on an existing search index in a playground. This step helps you decide what model to use, and shows you how well your existing index works in a RAG scenario.
 
++ [Enterprise chat app templates](https://aka.ms/azai) deploy Azure resources, code, and sample grounding data using fictitious health plan documents for Contoso and Northwind. This end-to-end solution gives you an operational chat app in as little as 15 minutes. Code for these templates is the **azure-search-openai-demo** featured in several presentations. The following links provide language-specific versions:
+
+  + [.NET](https://aka.ms/azai/net)
   + [Python](https://aka.ms/azai/py)
   + [JavaScript](https://aka.ms/azai/js)
-  + [.NET](https://aka.ms/azai/js)
-  + [Java](https://aka.ms/azai/net)
+  + [Java](https://aka.ms/azai/javat)
 
-+ ["Chat with your data" solution accelerator](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) to create your own RAG solution.
++ For another helpful demo, here's [AOAISearchDemo](https://github.com/Azure-Samples/openai/blob/main/End_to_end_Solutions/AOAISearchDemo/README.md) from the Azure OpenAI team. This demo uses an unstructured .pdf data consisting of publicly available documentation on Microsoft Surface devices.
 
-+ [Review the azure-search-openai-demo demo](https://github.com/Azure-Samples/azure-search-openai-demo) to see a working RAG solution that includes Azure AI Search, and to study the code that builds the experience. This demo uses a fictitious Northwind Health Plan for its data.
-
-  Here's a [similar end-to-end demo](https://github.com/Azure-Samples/openai/blob/main/End_to_end_Solutions/AOAISearchDemo/README.md) from the Azure OpenAI team. This demo uses an unstructured .pdf data consisting of publicly available documentation on Microsoft Surface devices.
++ ["Chat with your data" solution accelerator](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator), built by the Azure AI Search team, helps you create your own custom RAG solution.
 
 + [Review indexing concepts and strategies](search-what-is-an-index.md) to determine how you want to ingest and refresh data. Decide whether to use vector search, keyword search, or hybrid search. The kind of content you need to search over, and the type of queries you want to run, determines index design.
 
