@@ -53,7 +53,7 @@ You can create private and public listeners with the same port number. However, 
 > The default domain name behavior for v1 SKU:
 >
 > - Deployments before May 1, 2023: These deployments will continue to have the default domain names like \<label>.cloudapp.net mapped to the application gateway's public IP address.
-> - Deployments after May 1, 2023: For deployments after this date, there will *not* be any default domain name mapped to the gateway's public IP address. You must manually configure using your domain name by mapping its DNS record to the gateway's IP address
+> - Deployments after May 1, 2023: For deployments after this date, there will *not* be any default domain name mapped to the gateway's public IP address. You must manually configure using your domain name by mapping its DNS record to the gateway's IP address.
 
 ## Next steps
 
