@@ -15,7 +15,7 @@ ms.date: 11/17/2023
 
 # Retrieval Augmented Generation (RAG) in Azure AI Search
 
-Retrieval Augmentation Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT by adding an information retrieval system that provides the data. Adding an information retrieval system gives you control over the data used by an LLM when it formulates a response. For an enterprise solution, RAG architecture means that you can constrain natural language processing to *your enterprise content* sourced from vectorized documents, images, audio, and video.
+Retrieval Augmentation Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT by adding an information retrieval system that provides the data. Adding an information retrieval system gives you control over the data used by an LLM when it formulates a response. For an enterprise solution, RAG architecture means that you can constrain generative AI to *your enterprise content* sourced from vectorized documents, images, audio, and video.
 
 The decision about which information retrieval system to use is critical because it determines the inputs to the LLM. The information retrieval system should provide:
 
@@ -29,20 +29,23 @@ The decision about which information retrieval system to use is critical because
 
 Azure AI Search is a [proven solution for information retrieval](https://github.com/Azure-Samples/azure-search-openai-demo) in a RAG architecture. It provides indexing and query capabilities, with the infrastructure and security of the Azure cloud. Through code and other components, you can design a comprehensive RAG solution that includes all of the elements for generative AI over your proprietary content. 
 
-<!-- > [!NOTE]
-> TBD VIDEO -->
+> [!NOTE]
+> New to copilot and RAG concepts? Watch [Vector search and state of the art retrieval for Generative AI apps](https://ignite.microsoft.com/sessions/18618ca9-0e4d-4f9d-9a28-0bc3ef5cf54e?source=sessions).
 
 ## Approaches for RAG with Azure AI Search
 
 Microsoft has several built-in implementations for using Azure AI Search in a RAG solution.
 
-+ Azure AI Studio, using Azure AI Search for a [vector index and retrieval augmentation](/azure/ai-studio/concepts/retrieval-augmented-generation). 
++ Azure AI Studio, [use a vector index and retrieval augmentation](/azure/ai-studio/concepts/retrieval-augmented-generation). 
++ Azure OpenAI Studio, [use a search index with or without vectors](/azure/ai-services/openai/concepts/use-your-data).
++ Azure Machine Learning, [use a search index as a vector store in a prompt flow](/azure/machine-learning/how-to-create-vector-index).
 
-+ Azure OpenAI Studio, [using your search data with an Azure OpenAI Service](/azure/ai-services/openai/concepts/use-your-data). Connect to existing search indexes in Azure OpenAI Studio and start chatting right away or [create one by uploading your data](/azure/ai-services/openai/use-your-data-quickstart) in the studio.
+Curated approaches make it simple to get started, but for more control over the architecture, you need a custom solution. These templates create end-to-end solutions in:
 
-+ Azure Machine Learning can use a search index as a [vector store](/azure/machine-learning/concept-vector-stores). You can [create a vector index in an Azure Machine Learning prompt flow](/azure/machine-learning/how-to-create-vector-index) connecting to your Azure AI Search service for storage and retrieval.
-
-These curated approaches make it simple to get started. However, for more control and a custom approach, you can create a RAG solution in code. Templates for end-to-end solutions in [Python](https://aka.ms/azai/py), [.NET](https://aka.ms/azai/net), [JavaScript](https://aka.ms/azai/js), and [Java](https://aka.ms/azai/java) can help.
++ [Python](https://aka.ms/azai/py)
++ [.NET](https://aka.ms/azai/net)
++ [JavaScript](https://aka.ms/azai/js)
++ [Java](https://aka.ms/azai/java)
 
 The remainder of this article explores how Azure AI Search fits into a custom RAG solution.
 
@@ -236,6 +239,8 @@ print("\n-------------------\nPrompt:\n" + prompt)
 
 + [Use Azure OpenAI Studio and "bring your own data"](/azure/ai-services/openai/concepts/use-your-data) to experiment with prompts on an existing search index in a playground. This step helps you decide what model to use, and shows you how well your existing index works in a RAG scenario.
 
++ ["Chat with your data" solution accelerator](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator), built by the Azure AI Search team, helps you create your own custom RAG solution.
+
 + [Enterprise chat app templates](https://aka.ms/azai) deploy Azure resources, code, and sample grounding data using fictitious health plan documents for Contoso and Northwind. This end-to-end solution gives you an operational chat app in as little as 15 minutes. Code for these templates is the **azure-search-openai-demo** featured in several presentations. The following links provide language-specific versions:
 
   + [.NET](https://aka.ms/azai/net)
@@ -244,8 +249,6 @@ print("\n-------------------\nPrompt:\n" + prompt)
   + [Java](https://aka.ms/azai/javat)
 
 + For another helpful demo, here's [AOAISearchDemo](https://github.com/Azure-Samples/openai/blob/main/End_to_end_Solutions/AOAISearchDemo/README.md) from the Azure OpenAI team. This demo uses an unstructured .pdf data consisting of publicly available documentation on Microsoft Surface devices.
-
-+ ["Chat with your data" solution accelerator](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator), built by the Azure AI Search team, helps you create your own custom RAG solution.
 
 + [Review indexing concepts and strategies](search-what-is-an-index.md) to determine how you want to ingest and refresh data. Decide whether to use vector search, keyword search, or hybrid search. The kind of content you need to search over, and the type of queries you want to run, determines index design.
 
