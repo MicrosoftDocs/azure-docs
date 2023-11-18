@@ -28,7 +28,7 @@ Search is foundational to any app that surfaces text to users, where common scen
 
 Architecturally, a search service sits between the external data stores that contain your un-indexed data, and your client app that sends query requests to a search index and handles the response.
 
-![Azure Cognitive Search architecture](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Cognitive Search architecture")
+![Azure Cognitive Search architecture](media/search-what-is-azure-search/azure-search.svg "Azure Cognitive Search architecture")
 
 In your client app, the search experience is defined using APIs from Azure Cognitive Search, and can include relevance tuning, semantic ranking, autocomplete, synonym matching, fuzzy matching, pattern matching, filter, and sort.
 
