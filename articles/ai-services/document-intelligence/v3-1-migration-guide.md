@@ -64,7 +64,7 @@ Formulas/StyleFont/OCR High Resolution* - Premium features incur added costs
 
 Compared with v3.0, Document Intelligence v3.1 introduces several new features and capabilities:
 
-* [Barcode](concept-read.md#barcode-extraction) extraction.
+* [Barcode](concept-add-on-capabilities.md#barcode-property-extraction) extraction.
 * [Add-on capabilities](concept-add-on-capabilities.md) including high resolution, formula, and font properties extraction.
 * [Custom classification model](concept-custom-classifier.md) for document splitting and classification.
 * Language expansion and new fields support in [Invoice](concept-invoice.md) and [Receipt](concept-receipt.md) model.

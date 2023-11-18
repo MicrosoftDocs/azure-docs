@@ -138,7 +138,6 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row-end:::
 :::moniker-end
 
-
 :::moniker range="<=doc-intel-3.1.0"
 :::row:::
    :::column span="":::
@@ -282,7 +281,7 @@ You can use Document Intelligence to automate document processing in application
 
 |Model ID| Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
-|[**prebuilt-read**](concept-read.md)|&#9679; Extract **text** from documents.</br>&#9679; [Data and field extraction](concept-read.md#data-detection-and-extraction)| &#9679; Contract processing. </br>&#9679; Financial or medical report processing.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/read)</br>&#9679; [**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-rest-api)</br>&#9679; [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-csharp)</br>&#9679; [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-python)</br>&#9679; [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-java)</br>&#9679; [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-javascript) |
+|[**prebuilt-read**](concept-read.md)|&#9679; Extract **text** from documents.</br>&#9679; [Data and field extraction](concept-read.md#read-model-data-extraction)| &#9679; Contract processing. </br>&#9679; Financial or medical report processing.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/read)</br>&#9679; [**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-rest-api)</br>&#9679; [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-csharp)</br>&#9679; [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-python)</br>&#9679; [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-java)</br>&#9679; [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-javascript) |
 
 > [!div class="nextstepaction"]
 > [Return to model types](#document-analysis-models)
