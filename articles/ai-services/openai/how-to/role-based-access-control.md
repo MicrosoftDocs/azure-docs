@@ -151,11 +151,11 @@ All the capabilities of Cognitive Services Contributor plus the ability to:
 
 ## Common Issues
 
-### Unable to view Azure AI Search option in Azure OpenAI Studio
+### Unable to view Azure Cognitive Search option in Azure OpenAI Studio
 
 **Issue:**
 
-When selecting an existing Azure AI Search resource the search indices don't load, and the loading wheel spins continuously. In Azure OpenAI Studio, go to **Playground Chat** > **Add your data (preview)** under Assistant setup. Selecting **Add a data source** opens a modal that allows you to add a data source through either Azure AI Search or Blob Storage. Selecting the Azure AI Search option and an existing Azure AI Search resource should load the available Azure Cognitive Search indices to select from.
+When selecting an existing Azure Cognitive Search resource the search indices don't load, and the loading wheel spins continuously. In Azure OpenAI Studio, go to **Playground Chat** > **Add your data (preview)** under Assistant setup. Selecting **Add a data source** opens a modal that allows you to add a data source through either Azure Cognitive Search or Blob Storage. Selecting the Azure Cognitive Search option and an existing Azure Cognitive Search resource should load the available Azure Cognitive Search indices to select from.
 
 **Root cause** 
 
