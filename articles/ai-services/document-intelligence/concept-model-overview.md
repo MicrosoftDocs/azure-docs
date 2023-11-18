@@ -117,7 +117,7 @@ For all models, except Business card model, Document Intelligence now supports a
 
 ✓ - Enabled</br>
 O - Optional</br>
-\* - Premium features incur additional costs
+\* - Premium features incur extra costs
 
 ### Read OCR
 
@@ -338,7 +338,7 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 
 ***Sample document processed using the [Sample Labeling tool](https://fott-2-1.azurewebsites.net/layout-analyze)***:
 
-:::image type="content" source="media/overview-layout.png" alt-text="Screenshot of layout analysis using the Sample Labeling tool.":::
+:::image type="content" source="media/overview-layout.png" alt-text="Screenshot of `layout` analysis using the Sample Labeling tool.":::
 
 > [!div class="nextstepaction"]
 >
