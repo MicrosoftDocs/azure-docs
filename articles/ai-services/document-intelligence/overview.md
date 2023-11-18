@@ -116,8 +116,8 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row-end:::
 :::row:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-form":::</br>
-    [**US Tax W-2 form**](#us-tax-w-2-form) | Extract taxable </br>compensation details.
+      :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-model":::</br>
+    [**US Tax W-2 form**](#us-tax-w-2-model) | Extract taxable </br>compensation details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form":::</br>
@@ -169,8 +169,8 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row-end:::
 :::row:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-form":::</br>
-    [**US Tax W-2 form**](#us-tax-w-2-form) | Extract taxable </br>compensation details.
+      :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-model":::</br>
+    [**US Tax W-2 form**](#us-tax-w-2-model) | Extract taxable </br>compensation details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form":::</br>
