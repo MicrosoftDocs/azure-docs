@@ -145,7 +145,7 @@ To assign the user-assigned managed identity for your *Backup vault*, choose a c
 
 1. Go to your *Backup vault* > **Identity**.
 
-   :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/assign-user-assigned-managed-identity-to-vault.png" alt-text="Screenshot shows how to open assign the user-assigned managed identity to the vault.":::
+   :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/assign-user-assigned-managed-identity-to-vault.png" alt-text="Screenshot shows how to assign the user-assigned managed identity to the vault.":::
 
 2. Select the **User assigned** tab.
 
