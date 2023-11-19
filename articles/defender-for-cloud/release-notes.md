@@ -24,6 +24,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
+| November 20|GA release: New autoprovisioning process for SQL Servers on machines plan|
 | November 15 | [Defender for Cloud is now integrated with Microsoft 365 Defender](#defender-for-cloud-is-now-integrated-with-microsoft-365-defender) |
 | November 15 | [General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries](#general-availability-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries) |
 | November 15 | [Change to Container Vulnerability Assessments recommendation names](#change-to-container-vulnerability-assessments-recommendation-names) |
@@ -34,6 +35,14 @@ If you're looking for items older than six months, you can find them in the [Arc
 | November 15 | [General Availability release of Data security dashboard](#general-availability-release-of-data-security-dashboard) |
 | November 15 | [General Availability release of sensitive data discovery for databases](#general-availability-release-of-sensitive-data-discovery-for-databases) |
 | November 6 | [New version of the recommendation to find missing system updates is now GA](#new-version-of-the-recommendation-to-find-missing-system-updates-is-now-ga) |
+
+### GA release: New autoprovisioning process for SQL Servers on machines plan
+
+November 20, 2023
+
+In preparation for the Microsoft Monitoring Agent (MMA) deprecation in August 2024. Defender for Cloud releases a SQL Server-targeted Azure Monitoring Agent (AMA) autoprovisioning process. The new process is automatically enabled and configured for all new customers, and also provides the ability for resource level enablement for Azure SQL VMs and Arc-enabled SQL Servers.
+
+Customers using the MMA autoprovisioning process, are requested to [migrate to the new Azure Monitoring Agent for SQL server on machines autoprovisioning process](/azure/defender-for-cloud/defender-for-sql-autoprovisioning). The migration process is seamless and provides continuous protection for all machines.  
 
 ### Defender for Cloud is now integrated with Microsoft 365 Defender
 
@@ -375,7 +384,6 @@ Agentless discovery for Kubernetes is now available to all Defender For Containe
 
 > [!NOTE]
 > Enabling the latest additions won't incur new costs to active Defender for Containers customers.
-
 For more information, see [Overview of Container security Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
 ### Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection
