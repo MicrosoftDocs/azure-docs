@@ -76,6 +76,8 @@ Open Postman and follow these steps:
 
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="View the logs to see the master key test results." border="true":::
 
+To access the body of the manual trigger within the function app, you'll need to refer to the binding's name. In this example, assuming the binding was called "queue", you could access the value "test" through **context.bindingData.queue**. It's also worth noting that the value of **input** can only be a string, number, or boolean - objects and arrays will result in a 400 bad request. 
+
 ## Next steps
 
 - [Event Grid local testing with viewer web app](./event-grid-how-tos.md#local-testing-with-viewer-web-app)
