@@ -68,11 +68,11 @@ The way that you update the language version depends on whether you're running o
 
 When using a [staging slot](functions-deployment-slots.md), make sure to target your updates to the correct slot.  
 
-### [Windows](#tab/azure-portal/windows)
+### [Windows](#tab/windows/azure-portal)
 
 [!INCLUDE [functions-update-language-version-portal](../../includes/functions-update-language-version-portal.md)]
 
-### [Linux](#tab/azure-portal/linux)
+### [Linux](#tab/linux/azure-portal)
 
 You can only use the Azure portal to update function apps on Linux hosted in a [Premium plan](./functions-premium-plan.md) or a [Dedicated (App Service) plan](./dedicated-plan.md). For apps on Linux hosted in a [Consumption plan](./consumption-plan.md), you must instead use the [Azure CLI](update-language-versions.md?tabs=azure-cli#update-the-language-version).
  
@@ -91,8 +91,8 @@ You can only use the Azure portal to update function apps on Linux hosted in a [
 1. Select **Save** and when notified about a restart select **Continue**. 
 ::: zone-end 
 
-### [Windows](#tab/azure-cli/windows)
-::: zone pivot="programming-language-java,programming-language-dotnet,programming-language-python,programming-language-powershell" 
+### [Windows](#tab/windows/azure-cli)
+::: zone pivot="programming-language-java,programming-language-csharp,programming-language-python,programming-language-powershell" 
 Run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the language version of your function app:  
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
@@ -100,7 +100,7 @@ Run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functiona
 az functionapp config set --java-version "<VERSION>" --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" 
 ```
 ::: zone-end  
-::: zone pivot="programming-language-dotnet"  
+::: zone pivot="programming-language-csharp"  
 ```azurecli
 az functionapp config set --net-framework-version "<VERSION>" --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" 
 ```
@@ -126,7 +126,7 @@ az functionapp config set --powershell-version "<VERSION>" --name "<APP_NAME>" -
 ::: zone-end 
 In this example, replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the name of your function app and resource group, respectively. Also replace `<VERSION>` with the supported language version to which you're updating.
 
-### [Linux](#tab/azure-cli/linux)
+### [Linux](#tab/linux/azure-cli)
 
 Run the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) site setting for your language version:
 ::: zone pivot="programming-language-java"  
@@ -134,7 +134,7 @@ Run the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-l
 az functionapp list-runtimes --os linux --query "[?runtime == 'python'].{Version:version, linuxFxVersion:linux_fx_version}" --output table
 ```
 ::: zone-end  
-::: zone pivot="programming-language-dotnet"  
+::: zone pivot="programming-language-csharp"  
 ```azurecli
 az functionapp list-runtimes --os linux --query "[?runtime == 'dotnet-isolated'].{Version:version, linuxFxVersion:linux_fx_version}" --output table
 ```
