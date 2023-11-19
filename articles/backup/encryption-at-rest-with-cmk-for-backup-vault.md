@@ -80,6 +80,10 @@ To enable the encryption, follow these steps:
 
 1. Next to the **Basics** tab, on the **Vault Properties** tab, specify the *encryption key* and the *identity* to be used for encryption.
 
+   :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/backup-vault-properties.png{source}" alt-text="Screenshot shows the Backup vault property.":::
+
+   :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/add-key-uri.png" alt-text="Screenshot shows how to add key URI.":::
+
 2. Select **Use customer-managed key** as the **Encryption type**.
 3. To specify the key to be used for encryption, select the appropriate option.
 4. Provide the *URI for the encryption key*.
@@ -120,7 +124,7 @@ Follow these steps:
 
 1. Go to your *Backup vault* > **Identity**.
 
-    ![Screenshot shows how to open Identity settings.](media/encryption-at-rest-with-cmk/enable-system-assigned-managed-identity-for-vault.png)
+    :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/enable-system-assigned-managed-identity-for-vault.png" alt-text="Screenshot shows how to open Identity settings.":::
 
 2. Select the **System assigned** tab.
 
@@ -141,7 +145,7 @@ To assign the user-assigned managed identity for your *Backup vault*, choose a c
 
 1. Go to your *Backup vault* > **Identity**.
 
-    ![Screenshot shows how to open assign the user-assigned managed identity to the vault.](media/encryption-at-rest-with-cmk/assign-user-assigned-managed-identity-to-vault.png)
+   :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/assign-user-assigned-managed-identity-to-vault.png" alt-text="Screenshot shows how to open assign the user-assigned managed identity to the vault.":::
 
 2. Select the **User assigned** tab.
 
@@ -179,15 +183,15 @@ Follow these steps:
 
 1. Go to your *Azure Key Vault* > **Access Policies** > **+Create**.
 
-    ![Screenshot shows how to add Access Policies.](./media/encryption-at-rest-with-cmk/access-policies.png)
+    :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/access-policies.png" alt-text="Screenshot shows how to add Access Policies.":::
 
-    1. Under **Key Permissions**, select **Get**, **List**, **Unwrap Key**, and **Wrap Key** operations. This specifies the actions on the key that will be permitted.
+ 2. Under **Key Permissions**, select **Get**, **List**, **Unwrap Key**, and **Wrap Key** operations. This specifies the actions on the key that will be permitted.
 
-    ![Screenshot shows how to assign key permissions.](./media/encryption-at-rest-with-cmk/key-permissions.png)
+    :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/key-permissions.png" alt-text="Screenshot shows how to assign key permissions.":::
 
 3. Select **Next** to go to **Select Principal** and search for your vault in the search box using its name or managed identity. Once it shows up, select the *vault* > **Next**.
 
-    ![Screenshot of Select principal.](./media/encryption-at-rest-with-cmk/select-principal.png)
+    :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/select-principal.png" alt-text="Screenshot of Select principal.":::
 
 4. Once done, select **Add** to add the new access policy.
 
@@ -205,7 +209,7 @@ You need to **enable soft delete and purge protection** on your Azure Key Vault 
 
 You can do this from the Azure Key Vault UI as shown below. Alternatively, you can set these properties while creating the Key Vault. Learn more about these [Key Vault properties](../key-vault/general/soft-delete-overview.md).
 
-![Screenshot of soft delete and purge protection status enabled.](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
+:::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/soft-delete-purge-protection.png" alt-text="Screenshot of soft delete and purge protection status enabled.":::
 
 
 ### Assign encryption key to the Backup vault
@@ -225,15 +229,22 @@ To assign the key and follow the steps, choose a client by following these steps
 
 2. Select **Update** under **Encryption Settings (preview)**.
 
+   :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/update-encryption-settings.png" alt-text="Screenshot shows how to update encryption settings.":::
+
 3. In the **Encryption Settings** pane, select **Use your own key** and continue to specify the key using one of the following ways. 
  
    *Ensure that you use an RSA key, which is in enabled state.*
 
     1. Enter the **Key URI** with which you want to encrypt the data in this Backup vault. You can also obtain this key URI from the corresponding key in your Azure Key Vault. Ensure the key URI is copied correctly. It's recommended that you use the **Copy to clipboard** button provided with the key identifier.
 
+       :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/key-uri.png" alt-text="Screenshot of key URI.":::
+
         >[!NOTE]
-        >- When you try to update Encryption Settings but update operation fails due to internal error, the encryption setting is updated to **Inconsistent** and requires your attention.
-        >- When specifying the encryption key using the full Key URI with version, the key will not be autorotated, and you need to do key updates manually by specifying the new key or version when required. Alternatively, remove the Version component of the Key URI to get automatic rotation.
+        >When you try to update Encryption Settings but update operation fails due to internal error, the encryption setting is updated to **Inconsistent** and requires your attention.
+       :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/encryption-key-with-full-key-uri.png" alt-text="Screenshot shows encryption key with full key URI.":::
+
+        >[!Note]
+        >When specifying the encryption key using the full Key URI with version, the key will not be autorotated, and you need to do key updates manually by specifying the new key or version when required. Alternatively, remove the Version component of the Key URI to get automatic rotation.
 
         ![Screenshot shows how to enter key URI.](./media/encryption-at-rest-with-cmk/key-uri.png)
 
@@ -242,7 +253,7 @@ To assign the key and follow the steps, choose a client by following these steps
         >[!NOTE]
         >When you specify the encryption key using the key picker pane, the key will be auto-rotated whenever a new version for the key is enabled. [Learn more](encryption-at-rest-with-cmk.md#enable-autorotation-of-encryption-keys) on enabling autorotation of encryption keys.
 
-        ![Screenshot shows how to select key from Key Vault.](./media/encryption-at-rest-with-cmk/key-vault.png)
+        :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/key-vault-encryption.png" alt-text="Screenshot shows how to select key from Key Vault.":::
 
 4. Select **Update**.
 
