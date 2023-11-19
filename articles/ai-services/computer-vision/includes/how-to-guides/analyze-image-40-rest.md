@@ -25,7 +25,7 @@ To authenticate against the Image Analysis service, you need a Computer Vision k
 The SDK example assumes that you defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
 
 
-Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:analyze&api-version=2023-02-01-preview`, where `<endpoint>` is your unique computer vision endpoint URL. You add query strings based on your analysis options.
+Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview`, where `<endpoint>` is your unique computer vision endpoint URL. You add query strings based on your analysis options.
 
 
 ## Select the image to analyze
