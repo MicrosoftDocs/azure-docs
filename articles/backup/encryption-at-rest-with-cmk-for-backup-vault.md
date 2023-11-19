@@ -80,7 +80,7 @@ To enable the encryption, follow these steps:
 
 1. Next to the **Basics** tab, on the **Vault Properties** tab, specify the *encryption key* and the *identity* to be used for encryption.
 
-   :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/backup-vault-properties.png{source}" alt-text="Screenshot shows the Backup vault property.":::
+   :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/backup-vault-properties.png" alt-text="Screenshot shows the Backup vault property.":::
 
    :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/add-key-uri.png" alt-text="Screenshot shows how to add key URI.":::
 
