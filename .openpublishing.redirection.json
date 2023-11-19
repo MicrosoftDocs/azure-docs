@@ -783,7 +783,7 @@
     {
       "source_path": "articles/cognitive-services/bing-visual-search/quickstarts/ruby.md",
       "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/quickstarts/ruby",
-      "redirect_document_id": false,
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/api-management/api-management-api-templates.md",
@@ -9610,6 +9610,11 @@
         {
             "source_path_from_root": "/articles/azure-functions/functions-bindings-triggers-python.md",
             "redirect_url": "/azure/azure-functions/functions-reference-python?pivots=python-mode-decorators#triggers-and-inputs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/update-java-versions.md",
+            "redirect_url": "/azure/azure-functions/update-language-versions",
             "redirect_document_id": false
         },
         {

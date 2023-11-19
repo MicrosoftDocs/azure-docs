@@ -114,9 +114,35 @@ All slots scale to the same number of workers as the production slot.
 - For Consumption plans, the slot scales as the function app scales.
 - For App Service plans, the app scales to a fixed number of workers. Slots run on the same number of workers as the app plan.
 
+## View slots
+
+You can view information about existing slots using either the [Azure CLI](/cli/azure) or through the [Azure portal](https://portal.azure.com).
+
+### [Azure portal](#tab/azure-portal)
+
+Use these steps to create a new slot in the portal:
+
+1. Navigate to your function app.
+
+1. Select **Deployment slots** and the existing slots are shown. 
+ 
+### [Azure CLI](#tab/azure-cli)
+
+Run this [az functionapp deployment slot list](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-list) command to list the existing slots in your function app:
+
+```azurecli
+az functionapp deployment slot list --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>"
+```
+
+---
+
 ## Add a slot
 
-You can add a slot via the [CLI](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-create) or through the portal. The following steps demonstrate how to create a new slot in the portal:
+You can add a slot using either the [Azure CLI](/cli/azure) or through the [Azure portal](https://portal.azure.com). 
+
+### [Azure portal](#tab/azure-portal)
+
+Use these steps to create a slot in the portal:
 
 1. Navigate to your function app.
 
@@ -128,11 +154,26 @@ You can add a slot via the [CLI](/cli/azure/functionapp/deployment/slot#az-funct
 
     :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Name the Azure Functions deployment slot." border="true":::
 
+### [Azure CLI](#tab/azure-cli)
+
+Run the [az functionapp deployment slot create](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-create) command to create a slot named `staging` in your function app:
+
+```azurecli
+az functionapp deployment slot create --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" --slot staging
+```
+
+---
+
 ## Swap slots
 
-You can swap slots via the [CLI](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-swap) or through the portal. The following steps demonstrate how to swap slots in the portal:
+You can swap slots in an out of production using either the [Azure CLI](/cli/azure) or through the [Azure portal](https://portal.azure.com). 
+
+### [Azure portal](#tab/azure-portal)
+
+Use these steps to swap a staging slot into production:
 
 1. Navigate to the function app.
+
 1. Select **Deployment slots**, and then select **Swap**.
 
     :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Screenshot that shows the 'Deployment slot' page with the 'Add Slot' action selected." border="true":::
@@ -143,13 +184,26 @@ You can swap slots via the [CLI](/cli/azure/functionapp/deployment/slot#az-funct
 
 The operation may take a moment while the swap operation is executing.
 
+### [Azure CLI](#tab/azure-cli)
+
+Run this [az functionapp deployment slot swap](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-swap) command to swap between a slot named `staging` and the production slot in your function app:
+
+```azurecli
+az functionapp deployment slot swap --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" --slot staging --target-slot production
+```  
+---
+
 ## Roll back a swap
 
 If a swap results in an error or you simply want to "undo" a swap, you can roll back to the initial state. To return to the pre-swapped state, do another swap to reverse the swap.
 
 ## Remove a slot
 
-You can remove a slot via the [CLI](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-delete) or through the portal. The following steps demonstrate how to remove a slot in the portal:
+You can remove a slot using either the [Azure CLI](/cli/azure) or through the [Azure portal](https://portal.azure.com). 
+
+### [Azure portal](#tab/azure-portal)
+
+Use these steps to remove a slot from your app in the portal:
 
 1. Navigate to **Deployment slots** in the function app, and then select the slot name.
 
@@ -167,15 +221,15 @@ You can remove a slot via the [CLI](/cli/azure/functionapp/deployment/slot#az-fu
 
     :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Deployment slot delete confirmation." border="true":::
 
-## Automate slot management
+### [Azure CLI](#tab/azure-cli)
 
-Using the [Azure CLI](/cli/azure/functionapp/deployment/slot), you can automate the following actions for a slot:
+Run the [az functionapp deployment slot delete](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-delete) command to remove a slot named `staging` from your function app:
 
-- [create](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-create)
-- [delete](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-delete)
-- [list](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-list)
-- [swap](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-swap)
-- [auto-swap](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-auto-swap)
+```azurecli
+az functionapp deployment slot delete --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" --slot staging
+```
+
+---
 
 ## Change App Service plan
 
