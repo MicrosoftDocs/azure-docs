@@ -296,6 +296,7 @@
         }
       },
       "brand": "azure",
+      "show_latex": true,
       "breadcrumb_path": "/azure/bread/toc.json",
       "feedback_github_repo": "MicrosoftDocs/azure-docs",
       "feedback_product_url": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
