@@ -158,7 +158,7 @@
       href: flexible-server/tutorial-add-redis-to-mysql.md
     - name: Azure Logic Apps
       href: flexible-server/tutorial-logic-apps-with-mysql.md
-    - name: Azure Cognitive Search
+    - name: Azure AI Search
       href: ../search/search-howto-index-mysql.md
     - name: Azure Advisor
       href: ../mysql/single-server/concepts-azure-advisor-recommendations.md
