@@ -10543,6 +10543,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/bastion/tutorial-protect-bastion-host-ddos.md",
+            "redirect_url": "/azure/bastion/tutorial-create-host-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/bastion/bastion-connect-vm-rdp.md",
             "redirect_url": "/azure/bastion/bastion-connect-vm-rdp-windows",
             "redirect_document_id": false
