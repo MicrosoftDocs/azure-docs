@@ -4,8 +4,8 @@ description: C# recognize action quickstart
 services: azure-communication-services
 author: Kunaal
 ms.service: azure-communication-services
-ms.subservice: azure-communication-services
-ms.date: 08/10/2023
+ms.subservice: call-automation
+ms.date: 11/20/2023
 ms.topic: include
 ms.topic: include file
 ms.author: kpunjabi
@@ -18,8 +18,7 @@ ms.author: kpunjabi
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - Obtain the latest [NuGet package](https://www.nuget.org/packages/Azure.Communication.CallAutomation/).
 
-### For AI features (Public preview)
-- Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
+### For AI features 
 - Create and connect [Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
 
@@ -62,20 +61,19 @@ dotnet new web -n MyApplication
 
 The NuGet package can be obtained from [here](https://www.nuget.org/packages/Azure.Communication.CallAutomation/), if you haven't already done so. 
 
-For access to AI features in public preview, you need to obtain the NuGet package from the Dev Feed. You can do this by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed) and locate **Azure.Communication.CallAutomation** package.
-
 ## Establish a call
 
 By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/quickstart-make-an-outbound-call.md). You can also use the code snippet provided here to understand how to answer a call.
 
 ``` csharp
-var callAutomationClient = new CallAutomationClient("<Azure Communication Services connection string>");
+var callAutomationClient = new CallAutomationClient("<Azure Communication Services connection string
 
-var answerCallOptions = new AnswerCallOptions("<Incoming call context once call is connected>", new Uri("<https://sample-callback-uri>")) 
-{ 
-    CognitiveServicesEndpoint = new Uri("<Azure Cognitive Services Endpoint>") 
-}; 
-var answerCallResult = await callAutomationClient.AnswerCallAsync(answerCallOptions);
+var answerCallOptions = new AnswerCallOptions("<Incoming call context once call is connected>", new Uri("<https://sample-callback-uri>"))  
+{  
+    CallIntelligenceOptions = new CallIntelligenceOptions() { CognitiveServicesEndpoint = new Uri("<Azure Cognitive Services Endpoint>") } 
+};  
+
+var answerCallResult = await callAutomationClient.AnswerCallAsync(answerCallOptions); 
 ```
 
 ## Call the recognize action
@@ -102,7 +100,7 @@ var recognizeResult = await callAutomationClient.GetCallConnection(callConnectio
 ```
 For speech-to-text flows, Call Automation recognize action also supports the use of custom speech models. Features like custom speech models can be useful when you're building an application that needs to listen for complex words which the default speech-to-text models may not be capable of understanding, a good example of this can be when you're building an application for the telemedical industry and your virtual agent needs to be able to recognize medical terms. You can learn more about creating and deploying custom speech models [here](../../../../ai-services/speech-service/how-to-custom-speech-create-project.md).
 
-### Speech-to-Text Choices (Public Preview)
+### Speech-to-Text Choices 
 ``` csharp
 var choices = new List < RecognitionChoice > {
   new RecognitionChoice("Confirm", new List < string > {
@@ -136,7 +134,7 @@ var recognizeResult = await callAutomationClient.GetCallConnection(callConnectio
   .StartRecognizingAsync(recognizeOptions);
 ```
 
-### Speech-to-Text (Public Preview)
+### Speech-to-Text
 
 ``` csharp
 String textToPlay = "Hi, how can I help you today?";
@@ -153,7 +151,7 @@ var recognizeResult = await callAutomationClient.GetCallConnection(callConnectio
   .StartRecognizingAsync(recognizeOptions);
 ```
 
-### Speech-to-Text or DTMF (Public Preview)
+### Speech-to-Text or DTMF 
 
 ``` csharp
 var maxTonesToCollect = 1; 
