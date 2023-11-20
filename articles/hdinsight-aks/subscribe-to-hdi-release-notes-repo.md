@@ -1,6 +1,6 @@
 ---
 title: Subscribe to GitHub release notes repo
-description: Learn how to subscribe to GitHub release notes repo
+description: Learn how to subscribe to HDInsight on AKS GitHub release notes repo
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 11/20/2023
