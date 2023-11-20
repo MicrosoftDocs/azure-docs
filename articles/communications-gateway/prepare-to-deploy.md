@@ -22,7 +22,7 @@ The following sections describe the information you need to collect and the deci
 
 ## Arrange onboarding
 
-You need an Microsoft onboarding team to deploy Azure Communications Gateway. Azure Communications Gateway includes an onboarding program called [Included Benefits](onboarding.md). If you're not eligible for Included Benefits or you require more support, discuss your requirements with your Microsoft sales representative.
+You need a Microsoft onboarding team to deploy Azure Communications Gateway. Azure Communications Gateway includes an onboarding program called [Included Benefits](onboarding.md). If you're not eligible for Included Benefits or you require more support, discuss your requirements with your Microsoft sales representative.
  
 The Operator Connect and Teams Phone Mobile programs also require an onboarding partner who manages the necessary changes to the Operator Connect or Teams Phone Mobile environments and coordinates with Microsoft Teams on your behalf. The Azure Communications Gateway Included Benefits project team fulfills this role, but you can choose a different onboarding partner to coordinate with Microsoft Teams on your behalf.
 
