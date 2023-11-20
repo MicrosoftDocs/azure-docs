@@ -23,7 +23,7 @@ Use the following API, to get the audio conferencing details of a meeting
 ```js
 try {
      const details: SDK.TeamsMeetingAudioConferencingDetails = audioConferencingFeature.getTeamsMeetingAudioConferencingDetails();
-     console.log(`Meeting Conference Id: ${details.phoneConferenceId}`);
+     console.log(`Microsoft Teams Meeting Conference Id: ${details.phoneConferenceId}`);
      details.phoneNumbers.forEach(dialInPhoneNumber => {
         if (dialInPhoneNumber.tollPhoneNumber) { 
              console.log(`Dial-In Toll PhoneNumber: ${dialInPhoneNumber.tollPhoneNumber.phoneNumber}`);
