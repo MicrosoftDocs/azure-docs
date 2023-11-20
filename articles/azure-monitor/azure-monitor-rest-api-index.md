@@ -11,7 +11,7 @@ Organized by subject area.
 
 | Operation groups                                            | Description |
 |-------------------------------------------------------------|-------------|
-| [Operations](/rest/api/monitor/alertsmanagement/operations) | COMING SOON |
+| [Operations](/rest/api/monitor/alertsmanagement/operations) | Lists the available REST API operations for Azure Monitor. |
 | ***Activity Log*** |  |
 | [Activity log(s)](/rest/api/monitor/activity-logs) | Get a list of event entries in the [activity log](./essentials/platform-logs-overview.md). |
 | [(Activity log) event categories](/rest/api/monitor/event-categories) | Lists the types of Activity Log Entries. |
@@ -43,10 +43,10 @@ Organized by subject area.
 | [Autoscale settings](/rest/api/monitor/autoscale-settings) | Operations to manage autoscale settings. |
 | [Predictive metric](/rest/api/monitor/predictive-metric) | Retrieves predicted autoscale metric data. |
 | ***Data Collection Endpoints*** |  |
-| [Data collection endpoints](/rest/api/monitor/data-collection-endpoints) | Manage a data collection endpoint and retrieve the data collection endpoints within a resource group or subscription. |
-| ***Data Collection Rules*** |  |
-| [Data collection rule associations](/rest/api/monitor/data-collection-rule-associations) | COMING SOON |
-| [Data collection rules](/rest/api/monitor/data-collection-rules) | COMING SOON |
+| [Data collection endpoints](/rest/api/monitor/data-collection-endpoints) | Create and manage a data collection endpoint and retrieve the data collection endpoints within a resource group or subscription. |
+| ***Data Collection Rules*** | Create and manage a data collection rule and retrieve the data collection rules within a resource group or subscription. |
+| [Data collection rule associations](/rest/api/monitor/data-collection-rule-associations) | Create and manage a data collection rule association and retrieve the data collection rule associations for a data collection endpoint, resource, or data collection rule. |
+| [Data collection rules](/rest/api/monitor/data-collection-rules) | Create and manage a data collection rule and retrieve the data collection rules within a resource group or subscription. |
 | ***Diagnostic Settings*** |  |
 | [Diagnostic settings](/rest/api/monitor/diagnostic-settings) | COMING SOON |
 | [Diagnostic settings category](/rest/api/monitor/diagnostic-settings-category) | COMING SOON |
@@ -80,10 +80,10 @@ Organized by subject area.
 | [Workspaces](/rest/api/loganalytics/workspaces) | Manage Log Analytics workspaces. |
 | ***Metrics*** |  |
 | [Azure Monitor Workspaces](/rest/api/monitor/azure-monitor-workspaces) | COMING SOON |
-| [Metric definitions](/rest/api/monitor/metric-definitions) | COMING SOON |
-| [Metric namespaces](/rest/api/monitor/metric-namespaces) | COMING SOON |
+| [Metric definitions](/rest/api/monitor/metric-definitions) | Lists the metric definitions available for the resource. That is, what [specific metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index) can you collect. |
+| [Metric namespaces](/rest/api/monitor/metric-namespaces) | Lists the metric namespaces. Most relevant when using [custom metrics](./essentials/metrics-custom-overview.md). |
 | [Metrics Batch](/rest/api/monitor/metrics-batch) | COMING SOON |
-| [Metrics](/rest/api/monitor/metrics) | COMING SOON |
+| [Metrics](/rest/api/monitor/metrics) | Lists the metric values for a resource you identify. |
 | [Metrics – Custom](/rest/api/monitor/metrics-custom) | COMING SOON |
 | ***Private Link Networking*** |  |
 | [Private endpoint connections (preview)](/rest/api/monitor/private-endpoint-connections) | Approve, reject, delete, and retrieve a private endpoint connection and retrieve all project endpoint connections on a private link scope. |
