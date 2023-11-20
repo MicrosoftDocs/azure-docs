@@ -23,8 +23,6 @@ You access the OracleDB@Azure service through the Microsoft Azure portal.
 
 From here, you create and manage Oracle Exadata Infrastructure and Oracle Exadata VM Cluster resources with direct access to the Oracle Cloud Infrastructure (OCI) portal for creation and management of Oracle Exadata Databases, including all Container Databases (CDBs) and Pluggable Databases (PDBs).
 
-:::image type="content" source="media/ODAAZExaInf01.png" alt-text="Diagram showing the second page for accessing Oracle Database@Azure from the Microsoft Azure portal.":::
-
 ## Other information
 
 For more information on specific database articles beyond their implementation and use within Oracle Database@Azure, see the following:
@@ -38,7 +36,7 @@ You can use the Oracle Database@Azure portal to provision Oracle Exadata Infrast
 
 From the OracleDB@Azure blade, you can provision Oracle Exadata Infrastructure and Oracle Exadata VM Cluster resources.
 
-:::image type="content" source="media/ODAAZExaInf01.png" alt-text="Diagram showing second page to access Oracle Database@Azure from the Microsoft Azure portal.":::
+:::image type="content" source="media/ODAAZExaInf01.png" alt-text="Diagram showing next page to access Oracle Database@Azure from the Microsoft Azure portal.":::
 
 1. By default, the Oracle Exadata Infrastructure tab is selected.
 1. To create an Oracle Exadata VM Cluster resource, select that tab first.
