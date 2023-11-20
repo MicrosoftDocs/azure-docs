@@ -4,7 +4,7 @@ description: Learn how to migrate to Azure file shares and find your migration g
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/30/2023
+ms.date: 11/20/2023
 ms.author: kendownie
 ---
 
@@ -22,37 +22,48 @@ For an app that currently runs on an on-premises server, storing files in an Azu
 
 Some cloud apps don't depend on SMB or on machine-local data access or shared access. For those apps, object storage like [Azure blobs](../blobs/storage-blobs-overview.md) is often the best choice.
 
-The key in any migration is to capture all the applicable file fidelity when moving your files from their current storage location to Azure. How much fidelity the Azure storage option supports and how much your scenario requires also helps you pick the right Azure storage. General-purpose file data traditionally depends on file metadata. App data might not.
+The key in any migration is to capture all the applicable file fidelity when moving your files from their current storage location to Azure. How much fidelity the Azure storage option supports and how much your scenario requires also helps you pick the right Azure storage. 
 
 Here are the two basic components of a file:
 
 - **Data stream**: The data stream of a file stores the file content.
-- **File metadata**: The file metadata has these subcomponents:
+- **File metadata**: Unlike object storage in Azure blobs, an Azure file share can natively store file metadata. General-purpose file data traditionally depends on file metadata. App data might not. The file metadata has these subcomponents:
    * File attributes like read-only
    * File permissions, which can be referred to as *NTFS permissions* or *file and folder ACLs*
    * Timestamps, most notably the creation and last-modified timestamps
-   * An alternative data stream, which is a space to store larger amounts of nonstandard properties
+   * An alternative data stream, which is a space to store larger amounts of nonstandard properties. This alternative data stream can't be stored on a file in an Azure file share. It's preserved on-premises when Azure File Sync is used.
 
 File fidelity in a migration can be defined as the ability to:
 
 - Store all applicable file information on the source.
 - Transfer files with the migration tool.
-- Store files in the target storage of the migration. </br> Ultimately, the target for migration guides on this page is one or more Azure file shares. Consider this [list of features that SMB Azure file shares don't support](files-smb-protocol.md#limitations).
+- Store files in the target storage of the migration. </br> The target for migration guides on this page is one or more Azure file shares. Consider this [list of features that SMB Azure file shares don't support](files-smb-protocol.md#limitations).
 
 To ensure your migration proceeds smoothly, identify [the best copy tool for your needs](#migration-toolbox) and match a storage target to your source.
-
-Taking the previous information into account, you can see that the target storage for general-purpose files in Azure is [Azure file shares](storage-files-introduction.md).
-
-Unlike object storage in Azure blobs, an Azure file share can natively store file metadata. Azure file shares also preserve the file and folder hierarchy, attributes, and permissions. NTFS permissions can be stored on files and folders because they're on-premises.
 
 > [!IMPORTANT]
 > If you're migrating on-premises file servers to Azure File Sync, set the ACLs for the root directory of the file share **before** copying a large number of files, as changes to permissions for root ACLs can take up to a day to propagate if done after a large file migration.
 
 Users that leverage Active Directory Domain Services (AD DS) as their on-premises domain controller can natively access an Azure file share. So can users of Microsoft Entra Domain Services. Each uses their current identity to get access based on share permissions and on file and folder ACLs. This behavior is similar to a user connecting to an on-premises file share.
 
-The alternative data stream is the primary aspect of file fidelity that currently can't be stored on a file in an Azure file share. It's preserved on-premises when Azure File Sync is used.
-
 Learn more about [on-premises Active Directory authentication](storage-files-identity-auth-active-directory-enable.md) and [Microsoft Entra Domain Services authentication](storage-files-identity-auth-domain-services-enable.md) for Azure file shares.
+
+## Supported metadata
+
+The following table lists supported metadata for Azure Files.
+
+> [!IMPORTANT]
+> The *LastAccessTime* timestamp isn't currently supported for files or directories on the target share.
+
+| **Source** | **Target** |
+|------------|------------|
+| Directory structure | The original directory structure of the source can be preserved on the target share. |
+| Symbolic links | Symbolic links on the source can be preserved and mapped on the target share. |
+| Access permissions | Azure Files supports Windows ACLs, and they must be set on the target share even if no AD integration is configured at migration time. The following ACLs must be preserved: owner security identifier (SID), group SID, discretionary access lists (DACLs), system access control lists (SACLs). |
+| Create timestamp | The original create timestamp of the source file can be preserved on the target share. |
+| Change timestamp | The original change timestamp of the source file can be preserved on the target share. |
+| Modified timestamp | The original modified timestamp of the source file can be preserved on the target share. |
+| File attributes | Common attributes such as read-only, hidden, and archive flags can be preserved on the target share. |
 
 ## Migration guides
 
@@ -109,6 +120,7 @@ The following table classifies Microsoft tools and their current suitability for
 
 | Recommended | Tool | Support for Azure file shares | Preservation of file fidelity |
 | :-: | :-- | :---- | :---- |
+|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| [Azure Storage Mover](../../storage-mover/service-overview.md) | Supported. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Supported. Azure file shares can be mounted as network drives. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Natively integrated into Azure file shares. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| [Azure Storage Migration Program](../solution-integration/validated-partners/data-management/azure-file-migration-program-solutions.md) | Supported. | Full fidelity.* |
@@ -124,6 +136,10 @@ The following table classifies Microsoft tools and their current suitability for
 ### Migration helper tools
 
 This section describes tools that help you plan and run migrations.
+
+#### Azure Storage Mover
+
+Azure Storage Mover is a relatively new, fully managed migration service that enables you to migrate files and folders to SMB Azure file shares with the same level of file fidelity as the underlying Azure file share. Folder structure and metadata values such as file and folder timestamps, ACLs, and file attributes are maintained.
 
 #### RoboCopy
 
