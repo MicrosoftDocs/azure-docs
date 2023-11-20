@@ -20,7 +20,6 @@ In this article, you learn how to use Azure Communication Services Calling SDK t
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
-- Policy settings to configure service number for audio conferencing [Audio Conferencing Policy Configuration](https://learn.microsoft.com/en-us/microsoftteams/set-up-audio-conferencing-in-teams)
 
 [!INCLUDE [Audio Conferencing Client-side JavaScript](./includes/audio-conferencing/audio-conferencing-web.md)]
 
