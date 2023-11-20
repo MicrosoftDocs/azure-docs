@@ -154,6 +154,8 @@ You can use the `context.df` object to invoke other functions by name, pass para
 
 ::: zone-end
 ::: zone pivot="python"
+> [!NOTE]
+> Refer to the [Azure Functions Python developer guide](../functions-reference-python.md) for more details about how the V2 model works.
 
 # [Python](#tab/v1-model)
 
