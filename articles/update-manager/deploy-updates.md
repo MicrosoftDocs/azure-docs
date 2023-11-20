@@ -2,7 +2,7 @@
 title: Deploy updates and track results in Azure Update Manager
 description: This article details how to use Azure Update Manager in the Azure portal to deploy updates and view results for supported machines.
 ms.service: azure-update-manager
-ms.date: 09/18/2023
+ms.date: 11/20/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -60,6 +60,7 @@ To install one-time updates on a single VM:
       :::image type="content" source="./media/deploy-updates/include-update-classification-inline.png" alt-text="Screenshot that shows update classification." lightbox="./media/deploy-updates/include-update-classification-expanded.png":::
    
    - Select **Include KB ID/package** to include in the updates. Enter a comma separated list of Knowledge Base article ID numbers to include or exclude for Windows updates. For example, use `3103696` or `3134815`. For Windows, you can refer to the [MSRC webpage](https://msrc.microsoft.com/update-guide/deployments) to get the details of the latest Knowledge Base release. For supported Linux distros, you specify a comma separated list of packages by the package name, and you can include wildcards. For example, use `kernel*`, `glibc`, or `libc=1.0.1`. Based on the options specified, Update Manager shows a preview of OS updates under the **Selected Updates** section.
+       - Here, you can add multiple KB IDs and package names. When you add KB ID/package name, the next row is appears. The package can have both name and version.
    - To exclude updates that you don't want to install, select **Exclude KB ID/package**. We recommend selecting this option because updates that aren't displayed here might be installed, as newer updates might be available.
    - To ensure that the updates published are on or before a specific date, select **Include by maximum patch publish date**. Select the date and select **Add** > **Next**.
    
