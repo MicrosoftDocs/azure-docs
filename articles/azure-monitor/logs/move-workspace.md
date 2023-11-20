@@ -4,14 +4,14 @@ description: Learn how to move your Log Analytics workspace to another subscript
 ms.topic: conceptual
 ms.service:  azure-monitor
 ms.reviewer: yossiy
-ms.date: 07/06/2023
+ms.date: 10/30/2023
 ms.custom: devx-track-azurepowershell
 
 ---
 
 # Move a Log Analytics workspace to a different subscription or resource group
 
-In this article, you'll learn the steps to move a Log Analytics workspace to another resource group or subscription in the same region. 
+In this article, you'll learn the steps to move a Log Analytics workspace to another resource group or subscription in the same region. To move a workspace across regions, see [Move a Log Analytics workspace to another region](./move-workspace-region.md).
 
 > [!TIP] 
 > To learn more about how to move Azure resources through the Azure portal, PowerShell, the Azure CLI, or the REST API, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
@@ -19,55 +19,45 @@ In this article, you'll learn the steps to move a Log Analytics workspace to ano
 ## Prerequisites
 
 - The subscription or resource group where you want to move your Log Analytics workspace must be located in the same region as the Log Analytics workspace you're moving.
-   > [!NOTE]
-   > To move a workspace across regions, see [Move a Log Analytics workspace to another region](./move-workspace-region.md).
-- The move operation requires that no services can be linked to the workspace. Prior to the move, delete solutions that rely on linked services, including an Azure Automation account. These solutions must be removed before you can unlink your Automation account. Data collection for the solutions will stop and their tables will be removed from the UI, but data will remain in the workspace per the table retention period. When you add solutions after the move, ingestion is restored and tables become visible with data. Linked services include:
+- The move operation requires that no services can be linked to the workspace. Prior to the move, delete solutions that rely on linked services, including an Azure Automation account. These solutions must be removed before you can unlink your Automation account. Data collection for the solutions will stop and their tables will be removed from the UI, but data remains in workspace for the retention period defined for table. When you add solutions back after the move, ingestion restored and tables become visible with data. Linked services include:
   - Update management
   - Change tracking
   - Start/Stop VMs during off-hours
   - Microsoft Defender for Cloud
 - Connected [Log Analytics agents](../agents/log-analytics-agent.md) and [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md) remain connected to the workspace after the move with no interruption to ingestion.
-- Microsoft Sentinel can't be deployed on the Log Analytics workspace.
+- Alerts should be re-created after the move, since permissions for alerts is based on workspace resource ID, which changes with the move. Alerts created after June 1, 2019, or in workspaces that were [upgraded from the legacy Log Analytics Alert API to the scheduledQueryRules API](../alerts/alerts-log-api-switch.md) can be exported in templates and deployed after the move. You can [check if the scheduledQueryRules API is used for alerts in your workspace](../alerts/alerts-log-api-switch.md#check-switching-status-of-workspace). Alternatively, you can configure alerts manually in the target workspace.
+- Update resource paths after a workspace move for Azure or external resources that point to the workspace. For example: [Azure Monitor alert rules](../alerts/alerts-resource-move.md), Third-party applications, Custom scripting, etc.
 
 ## Permissions required
 
 | Action | Permissions required |
 |:---|:---|
-| Verify the Azure Active Directory tenant. | `Microsoft.AzureActiveDirectory/b2cDirectories/read` permissions, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example. |
+| Verify the Microsoft Entra tenant. | `Microsoft.AzureActiveDirectory/b2cDirectories/read` permissions, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example. |
 | Delete a solution. | `Microsoft.OperationsManagement/solutions/delete` permissions on the solution, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
 | Remove alert rules for the Start/Stop VMs solution. | `microsoft.insights/scheduledqueryrules/delete` permissions, as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), for example. |
 | Unlink the Automation account | `Microsoft.OperationalInsights/workspaces/linkedServices/delete` permissions on the linked Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
 | Move a Log Analytics workspace. | `Microsoft.OperationalInsights/workspaces/delete` and `Microsoft.OperationalInsights/workspaces/write` permissions on the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
 
-## Workspace move considerations
+## Considerations and limits
 
 Consider these points before you move a Log Analytics workspace:
 
-- Managed solutions that are installed in the workspace will be moved in this operation.
+- It can take Azure Resource Manager a few hours to complete. Solutions might be unresponsive during the operation.
+- Managed solutions that are installed in the workspace, will be moved as well.
+- Managed solutions are workspace's objects and can't be moved independently.
 - Workspace keys (both primary and secondary) are regenerated with a workspace move operation. If you keep a copy of your workspace keys in Azure Key Vault, update them with the new keys generated after the workspace is moved.
 
 >[!IMPORTANT]
 > **Microsoft Sentinel customers**
 > - Currently, after Microsoft Sentinel is deployed on a workspace, moving the workspace to another resource group or subscription isn't supported.
 > - If you've already moved the workspace, disable all active rules under **Analytics** and reenable them after five minutes. This solution should be effective in most cases, although it's unsupported and undertaken at your own risk.
-> - It could take Azure Resource Manager a few hours to complete. Solutions might be unresponsive during the operation.
->
-> **Re-create alerts:** All alerts must be re-created because the permissions are based on the workspace resource ID, which changes during a workspace move or resource name change. Alerts in workspaces created after June 1, 2019, or in workspaces that were [upgraded from the legacy Log Analytics Alert API to the scheduledQueryRules API](../alerts/alerts-log-api-switch.md) can be exported in templates and deployed after the move. You can [check if the scheduledQueryRules API is used for alerts in your workspace](../alerts/alerts-log-api-switch.md#check-switching-status-of-workspace). Alternatively, you can configure alerts manually in the target workspace.
->
-> **Update resource paths:** After a workspace move, any Azure or external resources that point to the workspace must be reviewed and updated to point to the new resource target path.
->
->   Examples:
->   - [Azure Monitor alert rules](../alerts/alerts-resource-move.md)
->   - Third-party applications
->   - Custom scripting
->
 
-## Verify the Azure Active Directory tenant
-The workspace source and destination subscriptions must exist within the same Azure Active Directory tenant. Use Azure PowerShell to verify that both subscriptions have the same tenant ID.
+## Verify the Microsoft Entra tenant
+The workspace source and destination subscriptions must exist within the same Microsoft tenant. Use Azure PowerShell to verify that both subscriptions have the same Entra tenant ID.
 
 ### [Portal](#tab/azure-portal)
 
-[Find your Azure AD tenant](../../azure-portal/get-subscription-tenant-id.md#find-your-azure-ad-tenant) for the source and destination subscriptions.
+[Find your Microsoft Entra tenant](../../azure-portal/get-subscription-tenant-id.md#find-your-azure-ad-tenant) for the source and destination subscriptions.
 
 ### [REST API](#tab/rest-api)
 
@@ -104,8 +94,8 @@ Run the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription/)
 1. Open the menu for the resource group where any solutions are installed.
 1. Select the solutions to remove.
 1. Select **Delete Resources** and then confirm the resources to be removed by selecting **Delete**.
-
-   [![Screenshot that shows deleting solutions.](media/move-workspace/delete-solutions.png)](media/move-workspace/delete-solutions.png#lightbox)
+   <!-- convertborder later -->
+   :::image type="content" source="media/move-workspace/delete-solutions.png" lightbox="media/move-workspace/delete-solutions.png" alt-text="Screenshot that shows deleting solutions." border="false":::
 
 ### [REST API](#tab/rest-api)
 
@@ -148,8 +138,8 @@ To remove the **Start/Stop VMs** solution, you also need to remove the alert rul
    - AutoStop_VM_Child
    - ScheduledStartStop_Parent
    - SequencedStartStop_Parent
-
-    [![Screenshot that shows deleting rules.](media/move-workspace/delete-rules.png)](media/move-workspace/delete-rules.png#lightbox)
+    <!-- convertborder later -->
+    :::image type="content" source="media/move-workspace/delete-rules.png" lightbox="media/move-workspace/delete-rules.png" alt-text="Screenshot that shows deleting rules." border="false":::
 
 ### [REST API](#tab/rest-api)
 
@@ -223,7 +213,7 @@ Not supported.
 1. Select a destination **Subscription** and **Resource group**. If you're moving the workspace to another resource group in the same subscription, you won't see the **Subscription** option.
 1. Select **OK** to move the workspace and selected resources.
 
-    [![Screenshot that shows the Overview pane in the Log Analytics workspace with options to change the resource group and subscription name.](media/move-workspace/portal.png)](media/move-workspace/portal.png#lightbox)
+    :::image type="content" source="media/move-workspace/portal.png" lightbox="media/move-workspace/portal.png" alt-text="Screenshot that shows the Overview pane in the Log Analytics workspace with options to change the resource group and subscription name.":::
 
 ### [ REST API](#tab/rest-api)
 

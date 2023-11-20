@@ -75,7 +75,7 @@
           href: ../../batch/account-move.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Cache for Redis
           href: ../../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Cognitive Search
+        - name: Azure AI Search
           href: ../../search/search-howto-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Container Registry
           href: ../../container-registry/manual-regional-move.md
@@ -114,7 +114,7 @@
         - name: Networking
           href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Managed identities for Azure Resources
-          href: ../../active-directory/managed-identities-azure-resources/how-to-managed-identity-regional-move.md
+          href: /entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move
         - name: Power BI
           href: /power-bi/admin/service-admin-region-move
         - name: Site Recovery (Recovery Services vaults)

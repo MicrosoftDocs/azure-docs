@@ -5,6 +5,76 @@
         "redirect_url": "/azure/api-management/developer-portal-overview",
         "redirect_document_id": false
     },    {
+        "source_path_from_root": "/articles/api-management/authorizations-overview.md",
+        "redirect_url": "/azure/api-management/credentials-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/authorizations-configure-common-providers.md",
+        "redirect_url": "/azure/api-management/credentials-configure-common-providers",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/configure-authorization-connection.md",
+        "redirect_url": "/azure/api-management/configure-credential-connection",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/authorizations-how-to-azure-ad.md",
+        "redirect_url": "/azure/api-management/credentials-how-to-azure-ad",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/authorizations-how-to-github.md",
+        "redirect_url": "/azure/api-management/credentials-how-to-github",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/powershell-samples.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/scripts/powershell-add-user-and-get-subscription-key.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/scripts/powershell-create-apim-service.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/scripts/powershell-backup-restore-apim-service.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/scripts/powershell-scale-and-addregion-apim-service.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/scripts/powershell-setup-custom-domain.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/scripts/powershell-import-api-and-add-to-product.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/scripts/powershell-secure-backend-with-mutual-certificate-authentication.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/scripts/powershell-setup-rate-limit-policy.md",
+        "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/api-management/policies/authorize-request-using-external-authorizer.md",
         "redirect_url": "https://github.com/Azure/api-management-policy-snippets",
         "redirect_document_id": false

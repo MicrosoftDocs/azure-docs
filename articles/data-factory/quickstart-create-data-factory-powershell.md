@@ -12,9 +12,6 @@ ms.custom: devx-track-azurepowershell, mode-api
 ---
 # Quickstart: Create an Azure Data Factory using PowerShell
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Current version](quickstart-create-data-factory-powershell.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 

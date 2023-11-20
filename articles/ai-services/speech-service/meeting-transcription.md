@@ -2,11 +2,10 @@
 title: Meeting transcription overview - Speech service
 titleSuffix: Azure AI services
 description: You use the meeting transcription feature for meetings. It combines recognition, speaker ID, and diarization to provide transcription of any meeting.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 05/06/2023
 ms.author: eur

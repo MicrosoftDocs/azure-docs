@@ -1,22 +1,31 @@
 ---
-title: Tax document data extraction – Document Intelligence (formerly Form Recognizer)
+title: US Tax document data extraction – Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
-description: Automate tax document data extraction with Document Intelligence's tax document models
+description: Automate US tax document data extraction with Document Intelligence's US tax document models
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: 'doc-intel-3.1.0'
+monikerRange: '>=doc-intel-3.0.0'
 ---
 
 <!-- markdownlint-disable MD033 -->
 
-# Document Intelligence tax document model
+# Document Intelligence US tax document models
 
-[!INCLUDE [applies to v3.1](includes/applies-to-v3-1.md)]
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [preview-version-notice](includes/preview-notice.md)]
+
+**This content applies to:** ![checkmark](media/yes-icon.png) **v4.0 (preview)** | **Previous versions:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.1 (GA)**](?view=doc-intel-3.1.0&preserve-view=tru)
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+**This content applies to:** ![checkmark](media/yes-icon.png) **v3.1 (GA)** | **Latest version:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true)
+:::moniker-end
 
 The Document Intelligence contract model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields and line items from a select group of tax documents. Tax documents can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports certain English tax document formats.
 
@@ -26,18 +35,40 @@ The Document Intelligence contract model uses powerful Optical Character Recogni
 * 1098
 * 1098-E
 * 1098-T
+* 1099 and variations (A, B, C, CAP, DIV, G, H, INT, K, LS, LTC, MISC,  NEC, OID, PATR, Q, QA, R, S, SA, SB​)
 
 ## Automated tax document processing
 
-Automated tax document processing is the process of extracting key fields from tax documents. Historically, tax documents have been done manually this model allows for the easy automation of tax scenarios
+Automated tax document processing is the process of extracting key fields from tax documents. Historically, tax documents were processed manually. This model allows for the easy automation of tax scenarios.
 
 ## Development options
 
-Document Intelligence v3.0 supports the following tools:
+::: moniker range="doc-intel-4.0.0"
+
+Document Intelligence v4.0 (2023-10-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Tax model** |&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br> &#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> &#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br> &#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br> &#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br> &#9679; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-tax.us.W-2**</br>**prebuilt-tax.us.1098**</br>**prebuilt-tax.us.1098E**</br>**prebuilt-tax.us.1098T**|
+|**US tax form models**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**&bullet; prebuilt-tax.us.W-2</br>&bullet; prebuilt-tax.us.1098</br>&bullet; prebuilt-tax.us.1098E</br>&bullet; prebuilt-tax.us.1098T</br>&bullet; prebuilt-tax.us.1099(Variations)**|
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+
+Document Intelligence v3.1 supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**US tax form models**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)|**&bullet; prebuilt-tax.us.W-2</br>&bullet; prebuilt-tax.us.1098</br>&bullet; prebuilt-tax.us.1098E</br>&bullet; prebuilt-tax.us.1098T**|
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+
+Document Intelligence v3.0 supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**US tax form models**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**&bullet; prebuilt-tax.us.W-2</br>&bullet; prebuilt-tax.us.1098</br>&bullet; prebuilt-tax.us.1098E</br>&bullet; prebuilt-tax.us.1098T**|
+::: moniker-end
 
 ## Input requirements
 
@@ -49,7 +80,7 @@ See how data, including customer information, vendor details, and line items, is
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
@@ -68,12 +99,7 @@ See how data, including customer information, vendor details, and line items, is
 
 ## Supported languages and locales
 
->[!NOTE]
-> Document Intelligence auto-detects language and locale data.
-
-| Supported languages | Details |
-|:----------------------|:---------|
-| English (en) | United States (us)|
+*See* our [Language Support—prebuilt models](language-support-prebuilt.md) page for a complete list of supported languages.
 
 ## Field extraction W-2
 
@@ -107,7 +133,7 @@ The following are the fields extracted from a W-2 tax form in the JSON output re
 
 ## Field extraction 1098
 
-The following are the fields extracted from a1098 tax form in the JSON output response.
+The following are the fields extracted from a 1098 tax form in the JSON output response. The 1098-T and 1098-E forms are also supported. 
 
 |Name| Type | Description | Example output |
 |:-----|:----|:----|:---:|
@@ -128,34 +154,19 @@ The following are the fields extracted from a1098 tax form in the JSON output re
 | AdditionalAssessment |String| Added assessments made on the property  (box 10)| 1,234,567.89|
 | MortgageAcquisitionDate |date | Mortgage acquisition date (box 11)| 2022-01-01|
 
-### Field extraction 1098-T
+## Field extraction 1099-NEC
 
-The following are the fields extracted from a1098-E tax form in the JSON output response.
-
-|Name| Type | Description | Example output |
-|:-----|:----|:----|:---:|
-| Student | Object | An object that contains the borrower's TIN, Name, Address, and AccountNumber | |
-| Filer | Object | An object that contains the lender's TIN, Name, Address, and Telephone| |
-| PaymentReceived | Number | Payment received for qualified tuition and related expenses (box 1)| 1234567.89 |
-| Scholarships | Number |Scholarships or grants (box 5)| 1234567.89 |
-| ScholarshipsAdjustments | Number | Adjustments of scholarships or grants for a prior year (box 6) 1234567.89 |
-| AdjustmentsForPriorYear | Number | Adjustments of payments for a prior year (box 4)| 1234567.89 |
-| IncludesAmountForNextPeriod |String| Does payment received relate to an academic period beginning in the next tax year (box 7)| true |
-| IsAtLeastHalfTimeStudent |String| Was the student at least a half-time student during any academic period in this tax year (box 8)| true |
-| IsGraduateStudent |String| Was the student a graduate student (box 9)| true |
-| InsuranceContractReimbursements | Number | Total number and amounts of reimbursements or refunds of qualified tuition and related expanses (box 10)| 1234567.89 |
-
-## Field extraction 1098-E
-
-The following are the fields extracted from a1098-T tax form in the JSON output response.
+The following are the fields extracted from a 1099-nec tax form in the JSON output response. The other variations of 1099 are also supported.
 
 |Name| Type | Description | Example output |
 |:-----|:----|:----|:---:|
-| TaxYear | Number | Form tax year| 2021 |
-| Borrower | Object | An object that contains the borrower's TIN, Name, Address, and AccountNumber | |
-| Lender | Object | An object that contains the lender's TIN, Name, Address, and Telephone| |
-| StudentLoanInterest |number| Student loan interest received by lender (box 1)| 1234567.89 |
-| ExcludesFeesOrInterest |string| Does box 1 exclude loan origination fees and/or capitalized interest (box 2)| true |
+| TaxYear | String | Tax Year extracted from Form 1099-NEC.| 2021 |
+| Payer | Object | An object that contains the payers's TIN, Name, Address, and PhoneNumber | |
+| Recipient | Object | An object that contains the recipient's TIN, Name, Address, and AccountNumber| |
+| Box1 |number|Box 1 extracted from Form 1099-NEC.| 123456 |
+| Box2 |boolean|Box 2 extracted from Form 1099-NEC.| true |
+| Box4 |number|Box 4 extracted from Form 1099-NEC.| 123456 |
+| StateTaxesWithheld |array| State Taxes Withheld extracted from Form 1099-NEC (boxes 5,6, and 7)| |
 
 The tax documents key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 

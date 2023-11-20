@@ -38,9 +38,9 @@ For requirements for agentless scanning, see [Learn about agentless scanning](co
 
 ## Remediate secrets with attack path
 
-Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph). These scans expose exploitable paths that attackers may use to breach your environment to reach your high-impact assets. Attack path analysis exposes attack paths and suggests recommendations as to how best remediate issues that break the attack path and prevent successful breach.
+Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph). These scans expose exploitable paths that attackers might use to breach your environment to reach your high-impact assets. Attack path analysis exposes attack paths and suggests recommendations as to how best remediate issues that break the attack path and prevent successful breach.
 
-Attack path analysis takes into account the contextual information of your environment to identify issues that may compromise it. This analysis helps prioritize the riskiest issues for faster remediation.
+Attack path analysis takes into account the contextual information of your environment to identify issues that might compromise it. This analysis helps prioritize the riskiest issues for faster remediation.
 
 The attack path page shows an overview of your attack paths, affected resources and a list of active attack paths.
 

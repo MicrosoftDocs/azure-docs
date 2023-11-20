@@ -4,7 +4,7 @@ description: Learn how to install and use JavaScript framework extensions for th
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/11/2023
+ms.date: 11/15/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -22,7 +22,7 @@ These plugins provide extra functionality and integration with the specific fram
 
 ### [React](#tab/react)
 
-None.
+- Make sure the version of the React plugin that you want to install is compatible with your version of Application Insights. For more information, see [Compatibility Matrix for the React plugin](https://github.com/microsoft/applicationinsights-react-js#compatibility-matrix). 
 
 ### [React Native](#tab/reactnative)
 
@@ -536,7 +536,7 @@ It measures time from the [`ComponentDidMount`](https://react.dev/reference/reac
 
 ##### Explore your data
 
-Use  [Metrics Explorer](../essentials/metrics-getting-started.md) to plot a chart for the custom metric name `React Component Engaged Time (seconds)` and [split](../essentials/metrics-getting-started.md#apply-dimension-filters-and-splitting) this custom metric by `Component Name`.
+Use [Azure Monitor metrics explorer](../essentials/analyze-metrics.md) to plot a chart for the custom metric name `React Component Engaged Time (seconds)` and [split](../essentials/analyze-metrics.md#use-dimension-filters-and-splitting) this custom metric by `Component Name`.
 
 :::image type="content" source="./media/javascript-react-plugin/chart.png" lightbox="./media/javascript-react-plugin/chart.png" alt-text="Screenshot that shows a chart that displays the custom metric React Component Engaged Time (seconds) split by Component Name":::
 

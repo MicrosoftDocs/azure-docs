@@ -15,6 +15,8 @@ ms.custom: devx-track-python, devguide-python
 
 # Create and manage blob leases with Python
 
+[!INCLUDE [storage-dev-guide-selector-lease-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-lease-blob.md)]
+
 This article shows how to create and manage blob leases using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can use the client library to acquire, renew, release, and break blob leases.
 
 ## Prerequisites

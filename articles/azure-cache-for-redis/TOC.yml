@@ -37,8 +37,22 @@
       href: cache-rust-get-started.md
 - name: Tutorials
   items:
-  - name: Connect an AKS application to a cache
-    href: cache-tutorial-aks-get-started.md
+  - name: Use Azure Functions
+    items:
+    - name: Create a simple Function app for Redis triggers 
+      href: cache-tutorial-functions-getting-started.md
+    - name: Using Azure Functions to create a write-behind cache
+      href: cache-tutorial-write-behind.md
+  - name: Use Azure Kubernetes Service with a cache
+    items:
+    - name: Connect an AKS application to a cache
+      href: cache-tutorial-aks-get-started.md
+    - name: Use active geo-replication with an AKS-hosted application
+      href: cache-tutorial-active-replication.md      
+  - name: Artificial Intelligence
+    items:
+    - name: Vector similarity search
+      href: cache-tutorial-vector-similarity.md
   - name: ASP.NET
     items:
     - name: Use session state provider
@@ -61,12 +75,6 @@
     href: cache-web-app-cache-aside-leaderboard.md
   - name: Deploy a machine learning model 
     href: cache-ml.md
-  - name: Use Azure Functions
-    items:
-    - name: Create a simple Function app for Redis triggers 
-      href: cache-tutorial-functions-getting-started.md
-    - name: Using Azure Functions to create a write-behind cache
-      href: cache-tutorial-write-behind.md
 - name: Samples
   items:
   - name: PowerShell samples
@@ -83,6 +91,10 @@
       href: scripts/create-manage-premium-cache-cluster.md
 - name: Concepts
   items:
+    - name: Artificial Intelligence
+      items:
+      - name: Vector Search
+        href: cache-overview-vector-similarity.md
     - name: Resiliency
       items:
       - name: High availability
@@ -192,8 +204,8 @@
       href: cache-how-to-encryption.md
     - name: Reboot
       href: cache-administration.md#reboot
-    - name: Schedule updates
-      href: cache-administration.md#schedule-updates
+    - name: Update channel and schedule updates
+      href: cache-administration.md#update-channel-and-schedule-updates
     - name: Configure redis-cli.exe access
       href: cache-how-to-redis-cli-tool.md
     - name: Create and manage a cache using CLI
@@ -210,7 +222,7 @@
       href: ../azure-functions/functions-bindings-cache.md
     - name: Role-based access control
       href: cache-configure-role-based-access-control.md
-    - name: Azure AD for authentication
+    - name: Microsoft Entra ID for authentication
       href: cache-azure-active-directory-for-authentication.md
   - name: Monitor
     items:

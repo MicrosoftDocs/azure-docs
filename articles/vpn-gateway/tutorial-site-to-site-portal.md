@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 08/10/2023
+ms.date: 10/05/2023
 
 ---
 
@@ -48,6 +48,8 @@ In this section, you'll create a virtual network (VNet) using the following valu
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
+After you create your VNet, you can optionally configure Azure DDos Protection. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md)
+
 ## <a name="VNetGateway"></a>Create a VPN gateway
 
 In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
@@ -63,7 +65,6 @@ Create a virtual network gateway (VPN gateway) using the following values:
 * **Name:** VNet1GW
 * **Region:** East US
 * **Gateway type:** VPN
-* **VPN type:** Route-based
 * **SKU:** VpnGw2
 * **Generation:** Generation 2
 * **Virtual network:** VNet1

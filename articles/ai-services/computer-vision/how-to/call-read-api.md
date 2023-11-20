@@ -2,12 +2,11 @@
 title: How to call the Read API
 titleSuffix: Azure AI services
 description: Learn how to call the Read API and configure its behavior in detail.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 11/03/2022

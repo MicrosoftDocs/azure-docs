@@ -2,11 +2,10 @@
 title: Audio Content Creation - Speech service
 titleSuffix: Azure AI services
 description: Audio Content Creation is an online tool that allows you to run Text to speech synthesis without writing any code.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 09/25/2022
 ms.author: eur
@@ -187,7 +186,7 @@ To add users to a Speech resource so that they can use Audio Content Creation, d
 1. Select **Access control (IAM)** on the left navigation pane.
 1. Select **Add** -> **Add role assignment**.
 1. On the **Role** tab on the next screen, select a role you want to add (in this case, **Owner**).
-1. On the **Members** tab, enter a user's email address and select the user's name in the directory. The email address must be linked to a Microsoft account that's trusted by Azure Active Directory. Users can easily sign up for a [Microsoft account](https://account.microsoft.com/account) by using their personal email address. 
+1. On the **Members** tab, enter a user's email address and select the user's name in the directory. The email address must be linked to a Microsoft account that's trusted by Microsoft Entra ID. Users can easily sign up for a [Microsoft account](https://account.microsoft.com/account) by using their personal email address. 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 Here is what happens next:
@@ -215,7 +214,7 @@ If you want to allow a user to grant access to other users, you need to assign t
 
     :::image type="content" source="media/audio-content-creation/add-role.png" alt-text="Screenshot showing the 'Owner' role on the 'Add role assignment' pane. ":::
 
-1. In the [Azure portal](https://portal.azure.com/), select the collapsed menu at the upper left, select **Azure Active Directory**, and then select **Users**.
+1. In the [Azure portal](https://portal.azure.com/), select the collapsed menu at the upper left, select **Microsoft Entra ID**, and then select **Users**.
 1. Search for the user's Microsoft account, go to their detail page, and then select **Assigned roles**.
 1. Select **Add assignments** > **Directory Readers**. If the **Add assignments** button is unavailable, it means that you don't have access. Only the global administrator of this directory can add assignments to users.
 

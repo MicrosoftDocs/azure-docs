@@ -77,7 +77,7 @@ SOURCE_REGISTRY=registry.k8s.io
 CONTROLLER_IMAGE=ingress-nginx/controller
 CONTROLLER_TAG=v1.8.1
 PATCH_IMAGE=ingress-nginx/kube-webhook-certgen
-PATCH_TAG=v2023040
+PATCH_TAG=v20230407
 DEFAULTBACKEND_IMAGE=defaultbackend-amd64
 DEFAULTBACKEND_TAG=1.5
 

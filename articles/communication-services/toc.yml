@@ -39,6 +39,11 @@ items:
       href: concepts/email/prepare-email-communication-resource.md
     - name: Network Traversal
       href: concepts/network-traversal.md
+    - name: Advanced Messaging
+      expanded: true
+      items:
+      - name: WhatsApp
+        href: concepts/advanced-messaging/whatsapp/whatsapp-overview.md
     - name: Job Router
       href: concepts/router/concepts.md
   - name: Common scenarios
@@ -47,6 +52,8 @@ items:
       href: tutorials/virtual-visits.md
     - name: Virtual event
       href: tutorials/events-playbook.md
+    - name: Contact center
+      href: tutorials/contact-center.md
   - name: Privacy and compliance
     items:
     - name: Data residency and user privacy
@@ -178,8 +185,9 @@ items:
           href: quickstarts/email/send-email-advanced/use-email-object-model-for-payload.md
     - name: Add multiple sender addresses
       href: quickstarts/email/add-multiple-senders.md
-    - name: Add multiple sender addresses with ACS Management SDKs
+    - name: Add multiple sender addresses with Azure Communication Services Management SDKs
       href: quickstarts/email/add-multiple-senders-mgmt-sdks.md
+    
   - name: Job Router
     items: 
       - name: Submit a job for queuing and routing
@@ -187,12 +195,30 @@ items:
   - name: Network Traversal
     items:
     - name: Access TURN relays
-      href: quickstarts/relay-token.md
+      href: quickstarts/relay-token.md  
+  - name: Advanced Messaging
+    items:
+    - name: WhatsApp
+      items:
+        - name: Register WhatsApp Business Account
+          href: quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md
+        - name: WhatsApp Business Account FAQ
+          href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
+        - name: Send WhatsApp Messages
+          href: quickstarts/advanced-messaging/whatsapp/get-started.md
+        - name: Handle Advanced Messaging Events
+          href: quickstarts/advanced-messaging/whatsapp/handle-advanced-messaging-events.md
+        - name: Try Advanced Messaging Sandbox
+          href: quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
+  - name: Managed Identity
+    items:
+    - name: Enable Managed Identity on Azure Communication Services resources
+      href: how-tos/managed-identity.md
 - name: Tutorials
   items:
   - name: SMS
     items:
-    - name: Authenticate with Azure AD
+    - name: Authenticate with Microsoft Entra ID
       href: quickstarts/identity/service-principal.md
     - name: Use Postman to send SMS messages
       href: tutorials/postman-tutorial.md
@@ -234,7 +260,7 @@ items:
       href: tutorials/trusted-service-tutorial.md
     - name: Add video calling to your Android WebView client app
       href: quickstarts/voice-video-calling/get-started-android-webview.md
-    - name: Using Event Grid to send VOIP push notifications to devices
+    - name: Using Event Grid to send calling push notifications
       href: tutorials/add-voip-push-notifications-event-grid.md
     - name: Proxy your calling traffic
       href: tutorials/proxy-calling-support-tutorial.md
@@ -259,14 +285,8 @@ items:
             href: tutorials/virtual-visits/extend-teams/call.md
     - name: Calling widget
       items:
-        - name: Calling widget overview
-          href: tutorials/calling-widget/calling-widget-overview.md
-        - name: 1. Creating your widget
-          href: tutorials/calling-widget/calling-widget-tutorial-part-1-creating-your-widget.md
-        - name: 2. Creating a new window experience
-          href: tutorials/calling-widget/calling-widget-tutorial-part-2-creating-new-window-experience.md
-        - name: 3. (Optional) Embedding your calling experience
-          href: tutorials/calling-widget/calling-widget-tutorial-part-3-embedding-your-calling-experience.md
+        - name: Create Calling widget for Teams Voice Apps
+          href: tutorials/calling-widget/calling-widget-tutorial.md
     - name: Call management
       items:
       - name: Manage calls
@@ -283,6 +303,8 @@ items:
         href: how-tos/calling-sdk/record-calls.md
       - name: Raise Hand
         href: how-tos/calling-sdk/raise-hand.md
+      - name: Reactions
+        href: how-tos/calling-sdk/reactions.md
       - name: Spotlight
         href: how-tos/calling-sdk/spotlight.md
       - name: Show transcription state
@@ -360,8 +382,10 @@ items:
           href: how-tos/ui-library-sdk/theming.md
         - name: Participant view data injection
           href: how-tos/ui-library-sdk/data-model.md
-        - name: Bypass Setup Screen
+        - name: Skip Setup Screen
           href: how-tos/ui-library-sdk/skip-setup-screen.md
+        - name: Setup Orientation
+          href: how-tos/ui-library-sdk/orientation.md
         - name: Troubleshooting
           href: how-tos/ui-library-sdk/troubleshooting.md
     - name: Events
@@ -394,8 +418,12 @@ items:
       href: tutorials/trusted-service-tutorial.md
     - name: Add a bot to your chat app
       href: quickstarts/chat/quickstart-botframework-integration.md
-    - name: Add file sharing to your application with UI Library
-      href: tutorials/file-sharing-tutorial.md
+    - name: Add file sharing with UI Library in Azure Communication Service Chat
+      href: tutorials/file-sharing-tutorial-acs-chat.md
+    - name: Add file sharing with UI Library in Teams Interoperability Chat
+      href: tutorials/file-sharing-tutorial-interop-chat.md
+    - name: Add inline image support with UI Library in Teams Interoperability Chat
+      href: tutorials/inline-image-tutorial-interop-chat.md
     - name: Integrate with data loss prevention policies
       href: how-tos/chat-sdk/data-loss-prevention.md
     - name: Connect to Teams
@@ -646,7 +674,7 @@ items:
             href: concepts/interop/teams-user/teams-client-experience.md
           - name: Teams license requirements
             href: quickstarts/eligible-teams-licenses.md
-          - name: Azure AD API permissions
+          - name: Microsoft Entra API permissions
             href: concepts/interop/teams-user/azure-ad-api-permissions.md
           - name: Firewall configuration
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
@@ -917,6 +945,26 @@ items:
         href: concepts/analytics/turn-metrics.md  
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
+  - name: Advanced Messaging
+    items:
+    - name: WhatsApp
+      items:
+      - name: Overview
+        href: concepts/advanced-messaging/whatsapp/whatsapp-overview.md
+      - name: WhatsApp Terms of Service
+        href: concepts/advanced-messaging/whatsapp/whatsapp-terms-of-service.md
+      - name: Messaging policy
+        href: concepts/sms/messaging-policy.md
+      - name: Pricing
+        href: concepts/advanced-messaging/whatsapp/pricing.md
+      - name: Events
+        items:
+        - name: Overview
+          href: ../event-grid/event-schema-communication-services.md
+        - name: Advanced Messaging events
+          href: ../event-grid/communication-services-advanced-messaging-events.md
+      - name: Templates
+        href: concepts/advanced-messaging/whatsapp/template-messages.md
   - name: Azure Advisor
     href: concepts/advisor-overview.md
 - name: Resources 
@@ -993,6 +1041,10 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-identity
     - name: Identity (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity
+  - name: Advanced Messaging
+    items:
+    - name: Advanced Messaging (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azure-communication-messages
   - name: Common 
     items:
     - name: Common (JavaScript)
@@ -1027,6 +1079,8 @@ items:
       href: concepts/numbers/phone-number-management-for-canada.md
     - name: Phone number management for China
       href: concepts/numbers/phone-number-management-for-china.md
+    - name: Phone number management for Czech Republic
+      href: concepts/numbers/phone-number-management-for-czech-republic.md
     - name: Phone number management for Denmark
       href: concepts/numbers/phone-number-management-for-denmark.md
     - name: Phone number management for Estonia
@@ -1039,12 +1093,16 @@ items:
       href: concepts/numbers/phone-number-management-for-germany.md
     - name: Phone number management for Hong Kong SAR
       href: concepts/numbers/phone-number-management-for-hong-kong.md
+    - name: Phone number management for Indonesia
+      href: concepts/numbers/phone-number-management-for-indonesia.md
     - name: Phone number management for Ireland
       href: concepts/numbers/phone-number-management-for-ireland.md
     - name: Phone number management for Israel
       href: concepts/numbers/phone-number-management-for-israel.md
     - name: Phone number management for Italy
       href: concepts/numbers/phone-number-management-for-italy.md
+    - name: Phone number management for Japan
+      href: concepts/numbers/phone-number-management-for-japan.md
     - name: Phone number management for Latvia
       href: concepts/numbers/phone-number-management-for-latvia.md
     - name: Phone number management for Lithuania
@@ -1071,6 +1129,8 @@ items:
       href: concepts/numbers/phone-number-management-for-singapore.md
     - name: Phone number management for Slovakia
       href: concepts/numbers/phone-number-management-for-slovakia.md
+    - name: Phone number management for Slovenia
+      href: concepts/numbers/phone-number-management-for-slovenia.md
     - name: Phone number management for South Korea
       href: concepts/numbers/phone-number-management-for-south-korea.md
     - name: Phone number management for Spain

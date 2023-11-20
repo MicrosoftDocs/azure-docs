@@ -10,7 +10,7 @@ author: xiaoharper
 ms.reviewer: lagayhar
 ms.date:  08/27/2023
 ms.topic: how-to
-ms.custom: devplatv2, pipeline
+ms.custom: devplatv2, pipeline, devx-track-azurecli
 ---
 # Manage inputs and outputs of component and pipeline
 
@@ -35,16 +35,36 @@ At the pipeline level, inputs and outputs are useful for submitting pipeline job
 
 ### Types of Inputs and Outputs
 
-Inputs could be either of below types:
+The following types are supported as **outputs** of a component or a pipeline.
+ 
+- Data types. Check [data types in Azure Machine Learning](./concept-data.md#data-types) to learn more about data types. 
+     - `uri_file`
+     - `uri_folder`
+     - `mltable`
+ 
+- Model types. 
+     - `mlflow_model`
+     - `custom_model`
 
- - Primitive types: `string`, `number`, `integer`, or `boolean`.
+Using data or model output essentially serializing the outputs and save them as files in a storage location. In subsequent steps, this storage location can be mounted, downloaded, or uploaded to the compute target filesystem, enabling the next step to access the files during job execution. 
 
- - Asset types: used for passing data or a model between components
-     - Data asset types: `uri_file`, `uri_folder`, `mltable`.
-     - Model asset types: `mlflow_model`, `custom_model`
+This process requires the component's source code serializing the desired output object - usually stored in memory - into files. For instance, you could serialize a pandas dataframe as a CSV file. Note that Azure Machine Learning doesn't define any standardized methods for object serialization. As a user, you have the flexibility to choose your preferred method to serialize objects into files. Following that, in the downstream component, you can independently deserialize and read these files. Here are a few examples for your reference:
+  
+- In the *nyc_taxi_data_regression* example, the [prep component](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/prep.yml) has  an`uri_folder` type output. In the component source code, it reads the csv files from input folder, processes the files and writes processed CSV files to the output folder. 
+- In the *nyc_taxi_data_regression* example, the [train component](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/train.yml) has a `mlflow_model` type output. In the component source code, it saves the trained model using `mlflow.sklearn.save_model` method. 
 
-Outputs need to be asset types. 
 
+In addition to above data or model types, pipeline or component **inputs** can also be following primitive types. 
+ - `string`
+ - `number`
+ - `integer`
+ - `boolean`
+
+In the *nyc_taxi_data_regression* example, [train component](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/train.yml) has a `number` input named `test_split_ratio`. 
+
+> [!NOTE]
+>Primitive types output is not supported. 
+ 
 ### Path and mode for data inputs/outputs
 
 For data asset input/output, you must specify a `path` parameter that points to the data location. This table shows the different data locations that Azure Machine Learning pipeline supports, and also shows path parameter examples:
@@ -60,8 +80,8 @@ For data asset input/output, you must specify a `path` parameter that points to 
 > [!NOTE]
 > For input/output on storage, we highly suggest to use Azure Machine Learning datastore path instead of direct Azure Storage path. Datastore path are supported across various job types in pipeline.   
 
-For data input/output, you can choose from various modes (download or mount) to define how the data is accessed in the compute target.
-This table shows the possible modes for different type/mode/input/output combinations. To learn more, see [data asset modes](./how-to-read-write-data-v2.md#modes). 
+For data input/output, you can choose from various modes (download, mount or upload) to define how the data is accessed in the compute target.
+This table shows the possible modes for different type/mode/input/output combinations. 
 
 Type | Input/Output | `upload` | `download` | `ro_mount` | `rw_mount` | `direct` | `eval_download` | `eval_mount` 
 ------ | ------ | :---: | :---: | :---: | :---: | :---: | :---: | :---:
@@ -72,14 +92,18 @@ Type | Input/Output | `upload` | `download` | `ro_mount` | `rw_mount` | `direct`
 `uri_file`   | Output | ✓  |   |    | ✓  |   |  | 
 `mltable`   | Output | ✓  |   |    | ✓  | ✓  |  | 
 
+> [!NOTE]
+> In most cases, we suggest to use `ro_mount` or `rw_mount` mode. To learn more about mode, see [data asset modes](./how-to-read-write-data-v2.md#modes). 
+
+
 
 ### Visual representation in Azure Machine Learning studio
 
 The following screenshots provide an example of how inputs and outputs are displayed in a pipeline job in Azure Machine Learning studio. This particular job, named `nyc-taxi-data-regression`, can be found in [azureml-example.](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression) 
 
-In the pipeline job page of studio, the asset type inputs/output of a component is shown as a small circle in the corresponding component, known as the Input/Output port. These ports represent the data flow in a pipeline. 
+In the pipeline job page of studio, the data/model type inputs/output of a component is shown as a small circle in the corresponding component, known as the Input/Output port. These ports represent the data flow in a pipeline. 
 
-The pipeline level input/output is displayed as a purple box for easy identification.
+The pipeline level output is displayed as a purple box for easy identification.
 
 
 :::image type="content" source="./media/how-to-manage-pipeline-input-output/input-output-port.png" lightbox="./media/how-to-manage-pipeline-input-output/input-output-port.png" alt-text="Screenshot highlighting the pipeline input and output port.":::
@@ -194,7 +218,7 @@ The end to end notebook example in [azureml-example repo](https://github.com/Azu
 
 ### Studio
 
-You can promote a component's input to pipeline level input in designer authoring page. Go to the component's setting panel by double click the component -> find the input you'd like to promote -> Select the three dots on the right -> Select Add to pipeline input. 
+You can promote a component's input to pipeline level input in designer authoring page. Go to the component's setting panel by double clicking the component -> find the input you'd like to promote -> Select the three dots on the right -> Select Add to pipeline input. 
 
  :::image type="content" source="./media/how-to-manage-pipeline-input-output/promote-pipeline-input.png" lightbox="./media/how-to-manage-pipeline-input-output/promote-pipeline-input.png" alt-text="Screenshot highlighting how to promote to pipeline input in designer.":::
 
@@ -203,7 +227,12 @@ You can promote a component's input to pipeline level input in designer authorin
 
 By default, all inputs are required and must be assigned a value (or a default value) each time you submit a pipeline job. However, there may be instances where you need optional inputs. In such cases, you have the flexibility to not assign a value to the input when submitting a pipeline job. 
 
-For example, if you have an optional input with data/model type and you don't assign a value when submitting the pipeline job, there will be a component in the pipeline that doesn't have upstream data dependency (the input port isn't connected to any component or data/model node). The pipeline service invokes this component directly rather than waiting upstream dependency to be ready.
+Optional input can be useful in below two scenarios:
+
+- If you have an optional data/model type input and don't assign a value to it when submitting the pipeline job, there will be a component in the pipeline that lacks a preceding data dependency. In other words, the input port isn't linked to any component or data/model node. This causes the pipeline service to invoke this component directly, instead of waiting for the preceding dependency to be ready.
+- Below screenshot provides a clear example of the second scenario. If you set `continue_on_step_failure = True` for the pipeline and have a second node (node2) that uses the output from the first node (node1) as an optional input, node2 will still be executed even if node1 fails. However, if node2 is using required input from node1, it will not be executed if node1 fails.
+ 
+     :::image type="content" source="./media/how-to-manage-pipeline-input-output/continue-on-failure-optional-input.png" lightbox="./media/how-to-manage-pipeline-input-output/continue-on-failure-optional-input.png" alt-text="Screenshot to show the orchestration logic of optional input and continue on failure.":::
 
 Following are examples about how to define optional input.
 

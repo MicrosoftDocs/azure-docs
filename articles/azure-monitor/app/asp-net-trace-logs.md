@@ -54,19 +54,19 @@ Use this method if your project type isn't supported by the Application Insights
 1. Select one of the following packages:
 
    - **ILogger**: [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
-[:::image type="content" source="https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg" alt-text="NuGet iLogger banner":::
+:::image type="content" source="https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg" alt-text="NuGet iLogger banner":::
    - **NLog**: [Microsoft.ApplicationInsights.NLogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
-[:::image type="content" source="https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg" alt-text="NuGet NLog banner":::
+:::image type="content" source="https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg" alt-text="NuGet NLog banner":::
    - **log4net**: [Microsoft.ApplicationInsights.Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
-[:::image type="content" source="https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg" alt-text="NuGet Log4Net banner":::
+:::image type="content" source="https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg" alt-text="NuGet Log4Net banner":::
    - **System.Diagnostics**: [Microsoft.ApplicationInsights.TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
-[:::image type="content" source="https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg" alt-text="NuGet System.Diagnostics banner":::
+:::image type="content" source="https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg" alt-text="NuGet System.Diagnostics banner":::
    - [Microsoft.ApplicationInsights.DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
-[:::image type="content" source="https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg" alt-text="NuGet Diagnostic Source Listener banner":::
+:::image type="content" source="https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg" alt-text="NuGet Diagnostic Source Listener banner":::
    - [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
-[:::image type="content" source="https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg" alt-text="NuGet Etw Collector banner":::
+:::image type="content" source="https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg" alt-text="NuGet Etw Collector banner":::
    - [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
-[:::image type="content" source="https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg" alt-text="NuGet Event Source Listener banner":::
+:::image type="content" source="https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg" alt-text="NuGet Event Source Listener banner":::
 
 The NuGet package installs the necessary assemblies and modifies web.config or app.config if that's applicable.
 
@@ -172,7 +172,7 @@ Now you can easily filter out in **Transaction Search** all the messages of a pa
 
 The Azure Monitor Log Handler allows you to export Python logs to Azure Monitor.
 
-Instrument your application with the [OpenCensus Python SDK](./opencensus-python.md) for Azure Monitor.
+Instrument your application with the [OpenCensus Python SDK](/previous-versions/azure/azure-monitor/app/opencensus-python) for Azure Monitor.
 
 This example shows how to send a warning level log to Azure Monitor.
 
@@ -247,12 +247,12 @@ Perhaps your application sends voluminous amounts of data and you're using the A
 ## <a name="add"></a>Next steps
 
 * [Diagnose failures and exceptions in ASP.NET](asp-net-exceptions.md)
-* [Learn more about Transaction Search](diagnostic-search.md)
+* [Learn more about Transaction Search](transaction-search-and-diagnostics.md?tabs=transaction-search)
 * [Set up availability and responsiveness tests](availability-overview.md)
 
 <!--Link references-->
 
 [availability]: ./availability-overview.md
-[diagnostic]: ./diagnostic-search.md
+[diagnostic]: ./transaction-search-and-diagnostics.md?tabs=transaction-search
 [exceptions]: asp-net-exceptions.md
 [start]: ./app-insights-overview.md

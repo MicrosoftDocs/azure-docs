@@ -20,7 +20,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event
 
 This article shows you how to create a managed identity for an app deployed to Azure Spring Apps and use it to access Azure Key Vault.
 
-Azure Key Vault can be used to securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets for your app. You can create a managed identity in Azure Active Directory (Azure AD), and authenticate to any service that supports Azure AD authentication, including Key Vault, without having to display credentials in your code.
+Azure Key Vault can be used to securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets for your app. You can create a managed identity in Microsoft Entra ID, and authenticate to any service that supports Microsoft Entra authentication, including Key Vault, without having to display credentials in your code.
 
 The following video describes how to manage secrets using Azure Key Vault.
 

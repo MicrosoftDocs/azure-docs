@@ -2,11 +2,10 @@
 title: 'Debug errors when authoring a Custom Commands application (Preview)'
 titleSuffix: Azure AI services
 description: In this article, you learn how to debug errors when authoring Custom Commands application.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: eur

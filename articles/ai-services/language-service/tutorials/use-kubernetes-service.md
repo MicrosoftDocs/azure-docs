@@ -2,11 +2,10 @@
 title: Deploy a key phrase extraction container to Azure Kubernetes Service
 titleSuffix: Azure AI services
 description: Deploy a key phrase extraction container image to Azure Kubernetes Service, and test it in a web browser.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: tutorial
 ms.date: 05/27/2022
 ms.author: aahi

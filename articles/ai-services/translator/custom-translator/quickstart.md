@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: A step-by-step guide to building a translation system using the Custom Translator portal v2.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.date: 07/05/2023
 ms.author: lajanuar
 ms.topic: quickstart

@@ -11,8 +11,6 @@
     href: tutorial-create-gateway-portal.md
   - name: Configure a site-to-site connection
     href: tutorial-site-to-site-portal.md
-  - name: Deploy VPN gateway with DDoS protection
-    href: tutorial-protect-vpn-gateway.md
 - name: Concepts
   items:
   - name: Work remotely
@@ -65,7 +63,7 @@
   items:
   - name: Create and manage a VPN gateway
     items:
-    - name: Create a route-based VPN gateway
+    - name: Create a VPN gateway
       items:
       - name: Azure portal
         href: tutorial-create-gateway-portal.md
@@ -83,8 +81,6 @@
         href: vpn-gateway-delete-vnet-gateway-portal.md
       - name: Azure PowerShell
         href: vpn-gateway-delete-vnet-gateway-powershell.md
-    - name: Manage legacy Gateway SKUs
-      href: vpn-gateway-about-skus-legacy.md
   - name: Site-to-site connections
     items:
     - name: Configure site-to-site connections
@@ -95,8 +91,8 @@
         href: vpn-gateway-create-site-to-site-rm-powershell.md
       - name: Azure CLI
         href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
-    - name: Add additional site-to-site connections
-      href: vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md
+    - name: Add or remove site-to-site-connections
+      href: add-remove-site-to-site-connections.md
     - name: Connect to multiple policy-based VPN devices
       href: vpn-gateway-connect-multiple-policybased-rm-ps.md
   - name: Site-to-site with ExpressRoute connections
@@ -151,7 +147,7 @@
           href: point-to-site-how-to-radius-ps.md
         - name: Integrate point-to-site VPN RADIUS authentication with NPS server
           href: vpn-gateway-radius-mfa-nsp.md
-      - name: Azure AD authentication
+      - name: Microsoft Entra authentication
         items:
         - name: Configure a point-to-site VPN and tenant
           href: openvpn-azure-ad-tenant.md
@@ -201,18 +197,28 @@
           href: point-to-site-vpn-client-configuration-radius-password.md
         - name: Other authentication protocols
           href: point-to-site-vpn-client-configuration-radius-other.md
-      - name: Azure AD authentication clients
+      - name: Microsoft Entra authentication clients
         items:
         - name: Windows
           href: openvpn-azure-ad-client.md
         - name: macOS
           href: openvpn-azure-ad-client-mac.md
-        - name: Generate profile files - Azure AD
+        - name: Generate profile files - Microsoft Entra ID
           href: about-vpn-profile-download.md 
       - name: Azure VPN Client - optional settings
         href: azure-vpn-client-optional-configurations.md
+      - name: Azure VPN Client versions
+        href: azure-vpn-client-versions.md
     - name: Intune - Deploy VPN client profile
       href: vpn-profile-intune.md
+  - name: Manage gateway SKUs
+    items:
+    - name: Resize a gateway SKU
+      href: gateway-sku-resize.md
+    - name: Change a gateway SKU
+      href: gateway-sku-change.md
+    - name: Manage legacy gateway SKUs
+      href: vpn-gateway-about-skus-legacy.md
   - name: Routing, BGP, and VNet Peering
     items:
     - name: Configure BGP for a VPN gateway
@@ -273,6 +279,8 @@
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: Configure packet captures 
       href: packet-capture.md
+  - name: Configure customer-controlled gateway maintenance
+    href: customer-controlled-gateway-maintenance.md
   - name: Troubleshooting
     items:
     - name: Troubleshoot VPN Gateway
@@ -291,7 +299,7 @@
         href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
       - name: Point-to-site connection problems - macOS X VPN client
         href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
-      - name: Point-to-site - Azure AD authentication
+      - name: Point-to-site - Microsoft Entra authentication
         href: troubleshoot-ad-vpn-client.md
     - name: Site-to-site connection issues
       items:
@@ -309,7 +317,7 @@
       href: vpn-gateway-howto-vnet-vnet-portal-classic.md
     - name: Delete a VPN gateway
       href: vpn-gateway-delete-vnet-gateway-classic-powershell.md
-    - name: Configure multiple site-to-site connections
+    - name: Add or remove site-to-site connections
       href: vpn-gateway-multi-site.md
     - name: Configure a VPN gateway
       href: ./vpn-gateway-howto-site-to-site-classic-portal.md

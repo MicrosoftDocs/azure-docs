@@ -75,4 +75,4 @@ Be thorough about adding [application logging](./service-fabric-diagnostics-even
 ## Design guidance on Azure
 * Visit the [Azure architecture center](/azure/architecture/microservices/) for design guidance on [building microservices on Azure](/azure/architecture/microservices/).
 
-* Visit [Get Started with Azure for Gaming](/gaming/azure/) for design guidance on [using Service Fabric in gaming services](/gaming/azure/reference-architectures/multiplayer-synchronous).
+* Visit [Get Started with Azure for Gaming](/gaming/azure/) for design guidance on using Service Fabric in gaming services.

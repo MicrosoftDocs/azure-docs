@@ -42,8 +42,41 @@ For more information about developer portal features and options, see [Azure API
 Follow these steps to access the managed version of the developer portal.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. Select the **Developer portal** button in the top navigation bar. A new browser tab with an administrative version of the portal will open.
+1. If you created your instance in a v2 service tier that supports the developer portal, first enable the developer portal. 
+    1. In the left menu, under **Developer portal**, select **Portal settings**. 
+    1. In the **Portal settings** window, select **Enabled**. Select **Save**. 
+    
+    It might take a few minutes to enable the developer portal.
+1. In the left menu, under **Developer portal**, select **Portal overview**. Then select the **Developer portal** button in the top navigation bar. A new browser tab with an administrative version of the portal will open.
 
+## Developer portal architectural concepts
+
+The portal components can be logically divided into two categories: *code* and *content*.
+
+### Code
+
+Code is maintained in the API Management developer portal [GitHub repository](https://github.com/Azure/api-management-developer-portal) and includes:
+
+- **Widgets** - represent visual elements and combine HTML, JavaScript, styling ability, settings, and content mapping. Examples are an image, a text paragraph, a form, a list of APIs etc.
+- **Styling definitions** - specify how widgets can be styled
+- **Engine** - which generates static webpages from portal content and is written in JavaScript
+- **Visual editor** - allows for in-browser customization and authoring experience
+
+### Content
+
+Content is divided into two subcategories: *portal content* and *API Management content*.
+
+*Portal content* is specific to the portal and includes:
+
+- **Pages** - for example, landing page, API tutorials, blog posts
+- **Media** - images, animations, and other file-based content
+- **Layouts** - templates, which are matched against a URL and define how pages are displayed
+- **Styles** - values for styling definitions, such as fonts, colors, borders
+- **Settings** - configurations such as favicon, website metadata
+
+    Portal content, except for media, is expressed as JSON documents.
+
+*API Management content* includes entities such as APIs, Operations, Products, Subscriptions.
 ## Understand the portal's administrative interface
 
 [!INCLUDE [api-management-developer-portal-editor](../../includes/api-management-developer-portal-editor.md)]
@@ -204,3 +237,6 @@ Advance to the next tutorial:
 > [!div class="nextstepaction"]
 > [Import and manage APIs using Visual Studio Code](visual-studio-code-tutorial.md)
 
+- [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
+- Configure authentication to the developer portal with [usernames and passwords](developer-portal-basic-authentication.md), [Microsoft Entra ID](api-management-howto-aad.md), or [Azure AD B2C](api-management-howto-aad-b2c.md).
+- Learn more about [customizing and extending](developer-portal-extend-custom-functionality.md) the functionality of the developer portal.

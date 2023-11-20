@@ -27,7 +27,7 @@ Some of the common use cases that can be built using Call Automation include:
 - Increase engagement by building automated customer outreach programs for marketing and customer service.
 - Analyze in a post-call process your unmixed audio recordings for quality assurance purposes.  
 
-Azure Communication Services Call Automation can be used to build calling workflows for customer service scenarios, as depicted in the high-level architecture. You can answer inbound calls or make outbound calls. Execute actions like playing a welcome message, connecting the customer to a live agent on an ACS Calling SDK client app to answer the incoming call request. With support for ACS PSTN or Direct Routing, you can then connect this workflow back to your contact center.  
+Azure Communication Services Call Automation can be used to build calling workflows for customer service scenarios, as depicted in the high-level architecture. You can answer inbound calls or make outbound calls. Execute actions like playing a welcome message, connecting the customer to a live agent on an Azure Communication Services Calling SDK client app to answer the incoming call request. With support for Azure Communication Services PSTN or Direct Routing, you can then connect this workflow back to your contact center.  
 
 ![Diagram of calling flow for a customer service scenario.](./media/call-automation-architecture.png)
 

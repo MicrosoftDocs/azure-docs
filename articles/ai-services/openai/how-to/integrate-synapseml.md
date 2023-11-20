@@ -2,10 +2,9 @@
 title: 'Use Azure OpenAI Service with large datasets'
 titleSuffix: Azure OpenAI
 description: Learn how to integrate Azure OpenAI Service with SynapseML and Apache Spark to apply large language models at a distributed scale.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to
 ms.date: 09/01/2023

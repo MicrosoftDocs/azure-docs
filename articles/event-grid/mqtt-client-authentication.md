@@ -1,9 +1,11 @@
 ---
 title: 'Azure Event Grid Namespace MQTT client authentication'
-description: 'Describes how MQTT clients are authenticated and mTLS connection is established when a client connects to MQTT service.'
+description: 'Describes how MQTT clients are authenticated and mTLS connection is established when a client connects to Azure Event Grid’s MQTT broker feature.'
 ms.topic: conceptual
-ms.custom: build-2023
-ms.date: 05/23/2023
+ms.custom:
+  - build-2023
+  - ignite-2023
+ms.date: 11/15/2023
 author: veyaddan
 ms.author: veyaddan
 ---
@@ -12,7 +14,7 @@ ms.author: veyaddan
 
 We support authentication of clients using X.509 certificates.  X.509 certificate provides the credentials to associate a particular client with the tenant.  In this model, authentication generally happens once during session establishment.  Then, all future operations using the same session are assumed to come from that identity.  
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 ## Supported authentication modes
 
@@ -70,9 +72,9 @@ You can use one of the following fields to provide client authentication name in
 
 ## High level flow of how mutual transport layer security (mTLS) connection is established
 
-To establish a secure connection for MQTT support in Event Grid, you can use either MQTTS over port 8883 or MQTT over web sockets on port 443. It's important to note that only secure connections are supported. The following steps are to establish secure connection prior to the client authentication.
+To establish a secure connection with MQTT broker, you can use either MQTTS over port 8883 or MQTT over web sockets on port 443. It's important to note that only secure connections are supported. The following steps are to establish secure connection prior to the client authentication.
 
-1. The client initiates the handshake with Event Grid MQTT service.  It sends a hello packet with supported TLS version, cipher suites.
+1. The client initiates the handshake with MQTT broker.  It sends a hello packet with supported TLS version, cipher suites.
 2. Service presents its certificate to the client.  
     - Service presents either a P-384 EC certificate or an RSA 2048 certificate depending on the ciphers in the client hello packet.
     - Service certificates are signed by a public certificate authority.

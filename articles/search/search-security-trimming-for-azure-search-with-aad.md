@@ -1,7 +1,7 @@
 ---
-title: Security filters to trim results using Active Directory
-titleSuffix: Azure Cognitive Search
-description: Learn how to implement security privileges at the document level for Azure Cognitive Search search results, using security filters and Azure Active Directory (AD) identities.
+title: Security filters to trim results using MIcrosoft Entra ID
+titleSuffix: Azure AI Search
+description: Access control at the document level for search results, using security filters and Microsoft Entra identities.
 
 manager: nitinme
 author: HeidiSteen
@@ -9,37 +9,38 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 03/24/2023
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 ---
-# Security filters for trimming Azure Cognitive Search results using Active Directory identities
+# Security filters for trimming Azure AI Search results using Microsoft Entra tenants and identities
 
-This article demonstrates how to use Azure Active Directory (AD) security identities together with filters in Azure Cognitive Search to trim search results based on user group membership.
+This article demonstrates how to use Microsoft Entra security identities together with filters in Azure AI Search to trim search results based on user group membership.
 
 This article covers the following tasks:
 
 > [!div class="checklist"]
-> - Create Azure AD groups and users
+> - Create Microsoft Entra groups and users
 > - Associate the user with the group you have created
 > - Cache the new groups
 > - Index documents with associated groups
 > - Issue a search request with group identifiers filter
 
-> [!NOTE]
-> Sample code snippets in this article are written in C#. You can find the full source code [on GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). 
-
 ## Prerequisites
 
-Your index in Azure Cognitive Search must have a [security field](search-security-trimming-for-azure-search.md) to store the list of group identities having read access to the document. This use case assumes a one-to-one correspondence between a securable item (such as an individual's college application) and a security field specifying who has access to that item (admissions personnel).
+Your index in Azure AI Search must have a [security field](search-security-trimming-for-azure-search.md) to store the list of group identities having read access to the document. This use case assumes a one-to-one correspondence between a securable item (such as an individual's college application) and a security field specifying who has access to that item (admissions personnel).
 
-You must have Azure AD administrator permissions (Owner or administrator) to create users, groups, and associations. 
+You must have Microsoft Entra administrator permissions (Owner or administrator) to create users, groups, and associations. 
 
-Your application must also be registered with Azure AD as a multi-tenant app, as described in the following procedure.
+Your application must also be registered with Microsoft Entra ID as a multi-tenant app, as described in the following procedure.
 
-### Register your application with Azure Active Directory
+<a name='register-your-application-with-azure-active-directory'></a>
 
-This step integrates your application with Azure AD for the purpose of accepting sign-ins of user and group accounts. If you aren't a tenant admin in your organization, you might need to [create a new tenant](../active-directory/develop/quickstart-create-new-tenant.md) to perform the following steps.
+### Register your application with Microsoft Entra ID
 
-1. In [Azure portal](https://portal.azure.com), find the Azure Active Directory tenant.
+This step integrates your application with Microsoft Entra ID for the purpose of accepting sign-ins of user and group accounts. If you aren't a tenant admin in your organization, you might need to [create a new tenant](../active-directory/develop/quickstart-create-new-tenant.md) to perform the following steps.
+
+1. In [Azure portal](https://portal.azure.com), find the Microsoft Entra tenant.
 
 1. On the left, under **Manage**, select **App registrations**, and then select **New registration**.
 
@@ -63,17 +64,17 @@ This step integrates your application with Azure AD for the purpose of accepting
    - **Group.ReadWrite.All**
    - **User.ReadWrite.All**
 
-    Microsoft Graph provides an API that allows programmatic access to Azure AD through a REST API. The code sample for this walkthrough uses the permissions to call the Microsoft Graph API for creating groups, users, and associations. The APIs are also used to cache group identifiers for faster filtering.
+    Microsoft Graph provides an API that allows programmatic access to Microsoft Entra ID through a REST API. The code sample for this walkthrough uses the permissions to call the Microsoft Graph API for creating groups, users, and associations. The APIs are also used to cache group identifiers for faster filtering.
 
 1. Select **Grant admin consent for tenant** to complete the consent process.
 
 ## Create users and groups
 
-If you're adding search to an established application, you might have existing user and group identifiers in Azure AD. In this case, you can skip the next three steps. 
+If you're adding search to an established application, you might have existing user and group identifiers in Microsoft Entra ID. In this case, you can skip the next three steps. 
 
-However, if you don't have existing users, you can use Microsoft Graph APIs to create the security principals. The following code snippets demonstrate how to generate identifiers, which become data values for the security field in your Azure Cognitive Search index. In our hypothetical college admissions application, this would be the security identifiers for admissions staff.
+However, if you don't have existing users, you can use Microsoft Graph APIs to create the security principals. The following code snippets demonstrate how to generate identifiers, which become data values for the security field in your Azure AI Search index. In our hypothetical college admissions application, this would be the security identifiers for admissions staff.
 
-User and group membership might be very fluid, especially in large organizations. Code that builds user and group identities should run often enough to pick up changes in organization membership. Likewise, your Azure Cognitive Search index requires a similar update schedule to reflect the current status of permitted users and resources.
+User and group membership might be very fluid, especially in large organizations. Code that builds user and group identities should run often enough to pick up changes in organization membership. Likewise, your Azure AI Search index requires a similar update schedule to reflect the current status of permitted users and resources.
 
 ### Step 1: [Create Group](/graph/api/group-post-groups) 
 
@@ -113,17 +114,17 @@ Dictionary<Group, List<User>> groups = new Dictionary<Group, List<User>>() { { g
 
 ### Step 4: Cache the groups identifiers
 
-Optionally, to reduce network latency, you can cache the user-group associations so that when a search request is issued, groups are returned from the cache, saving a roundtrip to Azure AD. You can use [Azure AD Batch API](/graph/json-batching) to send a single Http request with multiple users and build the cache.
+Optionally, to reduce network latency, you can cache the user-group associations so that when a search request is issued, groups are returned from the cache, saving a roundtrip to Microsoft Entra ID. You can use [Microsoft Entra Batch API](/graph/json-batching) to send a single Http request with multiple users and build the cache.
 
 Microsoft Graph is designed to handle a high volume of requests. If an overwhelming number of requests occur, Microsoft Graph fails the request with HTTP status code 429. For more information, see [Microsoft Graph throttling](/graph/throttling).
 
 ## Index document with their permitted groups
 
-Query operations in Azure Cognitive Search are executed over an Azure Cognitive Search index. In this step, an indexing operation imports searchable data into an index, including the identifiers used as security filters. 
+Query operations in Azure AI Search are executed over an Azure AI Search index. In this step, an indexing operation imports searchable data into an index, including the identifiers used as security filters. 
 
-Azure Cognitive Search doesn't authenticate user identities, or provide logic for establishing which content a user has permission to view. The use case for security trimming assumes that you provide the association between a sensitive document and the group identifier having access to that document, imported intact into a search index. 
+Azure AI Search doesn't authenticate user identities, or provide logic for establishing which content a user has permission to view. The use case for security trimming assumes that you provide the association between a sensitive document and the group identifier having access to that document, imported intact into a search index. 
 
-In the hypothetical example, the body of the PUT request on  an Azure Cognitive Search index would include an applicant's college essay or transcript along with the group identifier having permission to view that content. 
+In the hypothetical example, the body of the PUT request on  an Azure AI Search index would include an applicant's college essay or transcript along with the group identifier having permission to view that content. 
 
 In the generic example used in the code sample for this walkthrough, the index action might look as follows:
 
@@ -146,7 +147,7 @@ IndexDocumentsResult result = searchClient.IndexDocuments(batch);
 
 ## Issue a search request
 
-For security trimming purposes, the values in your security field in the index are static values used for including or excluding documents in search results. For example, if the group identifier for Admissions is "A11B22C33D44-E55F66G77-H88I99JKK", any documents in an Azure Cognitive Search index having that identifier in the security field are included (or excluded) in the search results sent back to the caller.
+For security trimming purposes, the values in your security field in the index are static values used for including or excluding documents in search results. For example, if the group identifier for Admissions is "A11B22C33D44-E55F66G77-H88I99JKK", any documents in an Azure AI Search index having that identifier in the security field are included (or excluded) in the search results sent back to the caller.
 
 To filter documents returned in search results based on groups of the user issuing the request, review the following steps.
 
@@ -192,7 +193,7 @@ The response includes a filtered list of documents, consisting of those that the
 
 ## Next steps
 
-In this walkthrough, you learned a pattern for using Azure AD sign-ins to filter documents in Azure Cognitive Search results, trimming the results of documents that don't match the filter provided on the request. For an alternative pattern that might be simpler, or to revisit other security features, see the following links.
+In this walkthrough, you learned a pattern for using Microsoft Entra sign-ins to filter documents in Azure AI Search results, trimming the results of documents that don't match the filter provided on the request. For an alternative pattern that might be simpler, or to revisit other security features, see the following links.
 
 - [Security filters for trimming results](search-security-trimming-for-azure-search.md)
-- [Security in Azure Cognitive Search](search-security-overview.md)
+- [Security in Azure AI Search](search-security-overview.md)

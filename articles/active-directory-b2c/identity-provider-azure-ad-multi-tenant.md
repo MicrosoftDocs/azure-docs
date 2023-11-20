@@ -1,7 +1,7 @@
 ---
-title: Set up sign-in for multi-tenant Azure AD by custom policies
+title: Set up sign-in for multi-tenant Microsoft Entra ID by custom policies
 titleSuffix: Azure AD B2C
-description: Add a multi-tenant Azure AD identity provider using custom policies in Azure Active Directory B2C.
+description: Add a multi-tenant Microsoft Entra identity provider using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: garrodonnell
 manager: CelesteDG
@@ -16,7 +16,7 @@ ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Set up sign-in for multi-tenant Azure Active Directory using custom policies in Azure Active Directory B2C
+# Set up sign-in for multi-tenant Microsoft Entra ID using custom policies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -28,7 +28,7 @@ zone_pivot_groups: b2c-policy-type
 
 ::: zone pivot="b2c-custom-policy"
 
-This article shows you how to enable sign-in for users using the multi-tenant endpoint for Azure Active Directory (Azure AD). Allowing users from multiple Azure AD tenants to sign in using Azure AD B2C, without you having to configure an identity provider for each tenant. However, guest members in any of these tenants **will not** be able to sign in. For that, you need to [individually configure each tenant](identity-provider-azure-ad-single-tenant.md).
+This article shows you how to enable sign-in for users using the multi-tenant endpoint for Microsoft Entra ID. Allowing users from multiple Microsoft Entra tenants to sign in using Azure AD B2C, without you having to configure an identity provider for each tenant. However, guest members in any of these tenants **will not** be able to sign in. For that, you need to [individually configure each tenant](identity-provider-azure-ad-single-tenant.md).
 
 ## Prerequisites
 
@@ -37,17 +37,18 @@ This article shows you how to enable sign-in for users using the multi-tenant en
 > [!NOTE]
 > In this article, it assumed that **SocialAndLocalAccounts** starter pack is used in the previous steps mentioned in pre-requisite.  
 
-## Register an Azure AD app
+<a name='register-an-azure-ad-app'></a>
 
-To enable sign-in for users with an Azure AD account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in the [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
+## Register a Microsoft Entra app
+
+To enable sign-in for users with a Microsoft Entra account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in the [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, Contoso). Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **New registration**.
 1. Enter a **Name** for your application. For example, `Azure AD B2C App`.
-1. Select **Accounts in any organizational directory (Any Azure AD directory – Multitenant)** for this application.
+1. Select **Accounts in any organizational directory (Any Microsoft Entra directory – Multitenant)** for this application.
 1. For the **Redirect URI**, accept the value of **Web**, and enter the following URL in all lowercase letters, where `your-B2C-tenant-name` is replaced with the name of your Azure AD B2C tenant.
 
     ```
@@ -64,9 +65,9 @@ To enable sign-in for users with an Azure AD account in Azure Active Directory B
 
 ### Configuring optional claims
 
-If you want to get the `family_name`, and `given_name` claims from Azure AD, you can configure optional claims for your application in the Azure portal UI or application manifest. For more information, see [How to provide optional claims to your Azure AD app](../active-directory/develop/optional-claims.md).
+If you want to get the `family_name`, and `given_name` claims from Microsoft Entra ID, you can configure optional claims for your application in the Azure portal UI or application manifest. For more information, see [How to provide optional claims to your Microsoft Entra app](../active-directory/develop/optional-claims.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Search for and select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com). Search for and select **Microsoft Entra ID**.
 1. From the **Manage** section, select **App registrations**.
 1. Select the application you want to configure optional claims for in the list.
 1. From the **Manage** section, select **Token configuration**.
@@ -83,8 +84,7 @@ If you want to get the `family_name`, and `given_name` claims from Azure AD, you
 
 You need to store the application key that you created in your Azure AD B2C tenant.
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Policy keys** and then select **Add**.
@@ -94,11 +94,13 @@ You need to store the application key that you created in your Azure AD B2C tena
 1. For **Key usage**, select `Signature`.
 1. Select **Create**.
 
-## Configure Azure AD as an identity provider
+<a name='configure-azure-ad-as-an-identity-provider'></a>
 
-To enable users to sign in using an Azure AD account, you need to define Azure AD as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
+## Configure Microsoft Entra ID as an identity provider
 
-You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsProvider** element in the extension file of your policy.
+To enable users to sign in using a Microsoft Entra account, you need to define Microsoft Entra ID as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
+
+You can define Microsoft Entra ID as a claims provider by adding Microsoft Entra ID to the **ClaimsProvider** element in the extension file of your policy.
 
 1. Open the *SocialAndLocalAccounts/**TrustFrameworkExtensions.xml*** file (see the files you've used in the prerequisites).
 1. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
@@ -153,18 +155,18 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
 
 1. Under the **ClaimsProvider** element, update the value for **Domain** to a unique value that can be used to distinguish it from other identity providers.
 1. Under the **TechnicalProfile** element, update the value for **DisplayName**, for example, `Multi-Tenant AAD`. This value is displayed on the sign-in button on your sign-in page.
-1. Set **client_id** to the application ID of the Azure AD multi-tenant application that you registered earlier.
+1. Set **client_id** to the application ID of the Microsoft Entra multi-tenant application that you registered earlier.
 1. Under **CryptographicKeys**, update the value of **StorageReferenceId** to the name of the policy key that created earlier. For example, `B2C_1A_AADAppSecret`.
 
 ### Restrict access
 
-Using `https://login.microsoftonline.com/` as the value for **ValidTokenIssuerPrefixes** allows all Azure AD users to sign in to your application. Update the list of valid token issuers and restrict access to a specific list of Azure AD tenant users who can sign in.
+Using `https://login.microsoftonline.com/` as the value for **ValidTokenIssuerPrefixes** allows all Microsoft Entra users to sign in to your application. Update the list of valid token issuers and restrict access to a specific list of Microsoft Entra tenant users who can sign in.
 
-To obtain the values, look at the OpenID Connect discovery metadata for each of the Azure AD tenants that you would like to have users sign in from. The format of the metadata URL is similar to `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, where `your-tenant` is your Azure AD tenant name. For example:
+To obtain the values, look at the OpenID Connect discovery metadata for each of the Microsoft Entra tenants that you would like to have users sign in from. The format of the metadata URL is similar to `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, where `your-tenant` is your Microsoft Entra tenant name. For example:
 
 `https://login.microsoftonline.com/fabrikam.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 
-Perform these steps for each Azure AD tenant that should be used to sign in:
+Perform these steps for each Microsoft Entra tenant that should be used to sign in:
 
 1. Open your browser and go to the OpenID Connect metadata URL for the tenant. Find the `issuer` object and record its value. It should look similar to `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0`.
 1. Copy and paste the value into the **ValidTokenIssuerPrefixes** key. Separate multiple issuers with a comma. An example with two issuers appears in the previous `ClaimsProvider` XML sample.
@@ -196,15 +198,15 @@ Perform these steps for each Azure AD tenant that should be used to sign in:
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
 1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
-1. From the sign-up or sign-in page, select **Common AAD** to sign in with Azure AD account.
+1. From the sign-up or sign-in page, select **Common Microsoft Entra ID** to sign in with Microsoft Entra account.
 
-To test the multi-tenant sign-in capability, perform the last two steps using the credentials for a user that exists another Azure AD tenant. Copy the **Run now endpoint** and open it in a private browser window, for example, Incognito Mode in Google Chrome or an InPrivate window in Microsoft Edge. Opening in a private browser window allows you to test the full user journey by not using any currently cached Azure AD credentials.
+To test the multi-tenant sign-in capability, perform the last two steps using the credentials for a user that exists another Microsoft Entra tenant. Copy the **Run now endpoint** and open it in a private browser window, for example, Incognito Mode in Google Chrome or an InPrivate window in Microsoft Edge. Opening in a private browser window allows you to test the full user journey by not using any currently cached Microsoft Entra credentials.
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ## Next steps
 
-- Learn how to [pass the Azure AD token to your application](idp-pass-through-user-flow.md).
-- Check out the Azure AD multi-tenant federation [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory), and how to pass Azure AD access token [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory-with-access-token)
+- Learn how to [pass the Microsoft Entra token to your application](idp-pass-through-user-flow.md).
+- Check out the Microsoft Entra multi-tenant federation [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory), and how to pass Microsoft Entra access token [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory-with-access-token)
 
 ::: zone-end

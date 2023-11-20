@@ -2,11 +2,10 @@
 title: Configure Read OCR containers - Azure AI Vision
 titleSuffix: Azure AI services
 description: This article shows you how to configure both required and optional settings for Read OCR containers in Azure AI Vision.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 04/09/2021
 ms.author: aahi

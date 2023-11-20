@@ -137,7 +137,7 @@ Review the code to understand the steps in the [Azure Batch Python Quickstart](h
        for file_path in input_file_paths]
    ```
 
-1. The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch account. The Batch client uses shared key authentication. Batch also supports Azure Active Directory (Azure AD) authentication.
+1. The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch account. The Batch client uses shared key authentication. Batch also supports Microsoft Entra authentication.
 
    ```python
    credentials = SharedKeyCredentials(config.BATCH_ACCOUNT_NAME,

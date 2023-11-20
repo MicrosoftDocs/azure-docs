@@ -1,22 +1,20 @@
 ---
-title: Customize environment for runtime in Prompt flow (preview)
+title: Customize environment for runtime in prompt flow
 titleSuffix: Azure Machine Learning
-description: Learn how to create customized environment for runtime in Prompt flow with Azure Machine Learning studio.
+description: Learn how to create customized environment for runtime in prompt flow with Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar
-ms.date: 09/12/2023
+ms.date: 11/02/2023
 ---
 
-# Customize environment for runtime (preview)
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Customize environment for runtime
 
 ## Customize environment with docker context for runtime
 
@@ -49,6 +47,7 @@ langchain == 0.0.149        # Version Matching. Must be version 0.6.1
 keyring >= 4.1.1            # Minimum version 4.1.1
 coverage != 3.5             # Version Exclusion. Anything except version 3.5
 Mopidy-Dirble ~= 1.1        # Compatible release. Same as >= 1.1, == 1.*
+<path_to_local_package>     # reference to local pip wheel package
 ```
 
 You can obtain the path of local packages using `ls > requirements.txt`.
@@ -64,7 +63,7 @@ RUN pip install -r requirements.txt
 ```
 
 > [!NOTE]
-> This docker image should be built from prompt flow base image that is `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). 
+> This docker image should be built from prompt flow base image that is `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime-stable/tags/list). 
 
 ### Step 2: Create custom Azure Machine Learning environment 
 
@@ -107,13 +106,13 @@ az ml environment create -f environment.yaml --subscription <sub-id> -g <resourc
 > [!NOTE]
 > Building the image may take several minutes.
 
-Go to your workspace UI page, then go to the **environment** page, and locate the custom environment you created. You can now use it to create a runtime in your Prompt flow. To learn more, see [Create compute instance runtime in UI](how-to-create-manage-runtime.md#create-compute-instance-runtime-in-ui).
+Go to your workspace UI page, then go to the **environment** page, and locate the custom environment you created. You can now use it to create a runtime in your prompt flow. To learn more, see [Create compute instance runtime in UI](how-to-create-manage-runtime.md#create-compute-instance-runtime-in-ui).
 
 To learn more about environment CLI, see [Manage environments](../how-to-manage-environments-v2.md#manage-environments).
 
-## Create a custom application on compute instance that can be used as Prompt flow runtime
+## Create a custom application on compute instance that can be used as prompt flow runtime
 
-A prompt flow runtime is a custom application that runs on a compute instance. You can create a custom application on a compute instance and then use it as a Prompt flow runtime. To create a custom application for this purpose, you need to specify the following properties:
+A prompt flow runtime is a custom application that runs on a compute instance. You can create a custom application on a compute instance and then use it as a prompt flow runtime. To create a custom application for this purpose, you need to specify the following properties:
 
 | UI             | SDK                         | Note                                                                           |
 |----------------|-----------------------------|--------------------------------------------------------------------------------|
@@ -121,7 +120,7 @@ A prompt flow runtime is a custom application that runs on a compute instance. Y
 | Target port    | EndpointsSettings.target    | Port where you want to access the application, the port inside the container   |
 | published port | EndpointsSettings.published | Port where your application is running in the image, the publicly exposed port |
 
-### Create custom application as Prompt flow runtime via SDK v2
+### Create custom application as prompt flow runtime via SDK v2
 
 ```python
 # import required libraries
@@ -144,7 +143,7 @@ from azure.ai.ml.entities import CustomApplications, ImageSettings, EndpointsSet
 
 ml_client = MLClient.from_config(credential=credential)
 
-image = ImageSettings(reference='mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>') 
+image = ImageSettings(reference='mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>') 
 
 endpoints = [EndpointsSettings(published=8081, target=8080)]
 
@@ -160,101 +159,64 @@ ml_client.begin_create_or_update(ci_basic)
 > [!NOTE]
 > Change `newest_version`, `compute_instance_name` and `instance_type` to your own value.
 
-### Create custom application as Prompt flow runtime via Azure Resource Manager template
+### Create custom application as prompt flow runtime via Azure Resource Manager template
 
 You can use this Azure Resource Manager template to create compute instance with custom application.
 
  [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloga%2Fazure-quickstart-templates%2Flochen%2Fpromptflow%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-prompt-flow%2Fcreate-compute-instance-with-custom-application%2Fazuredeploy.json)
 
-To learn more, see [Azure Resource Manager template for custom application as Prompt flow runtime on compute instance](https://github.com/cloga/azure-quickstart-templates/tree/lochen/promptflow/quickstarts/microsoft.machinelearningservices/machine-learning-prompt-flow/create-compute-instance-with-custom-application). 
+To learn more, see [Azure Resource Manager template for custom application as prompt flow runtime on compute instance](https://github.com/cloga/azure-quickstart-templates/tree/lochen/promptflow/quickstarts/microsoft.machinelearningservices/machine-learning-prompt-flow/create-compute-instance-with-custom-application). 
 
-## Create custom application as Prompt flow runtime via Compute instance UI
+## Create custom application as prompt flow runtime via Compute instance UI
 
 Follow [this document to add custom application](../how-to-create-compute-instance.md#setup-other-custom-applications).
 
 :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-add-custom-application-ui.png" alt-text="Screenshot of compute showing custom applications. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-add-custom-application-ui.png":::
 
-## Create managed online deployment that can be used as Prompt flow runtime (deprecated)
+## Leverage `requirements.txt` in flow folder to dynamic your environment - quick test only
 
-> [!IMPORTANT]
-> Managed online endpoint/deployment as runtime is **deprecated**. Please use [Migrate guide for managed online endpoint/deployment runtime](./migrate-managed-inference-runtime.md).
+In promptflow `flow.dag.yaml`, you can also specify define `requirements.txt`, which will be used when you deploy your flow as deployment.
 
-### Create managed online deployment that can be used as Prompt flow runtime via CLI v2
+:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-requirements.png" alt-text="Screenshot of flow dag yaml file showing requirements txt file. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-requirements.png":::
 
-Learn more about [deploy and score a machine learning model by using an online endpoint](../how-to-deploy-online-endpoints.md)
+### Add packages in private pypi repository - optional
 
-#### Create managed online endpoint
+Use the following command to download your packages to local: `pip wheel <package_name> --index-url=<private pypi> --wheel-dir <local path to save packages>`
 
-To define a managed online endpoint, you can use the following yaml template. Make sure to replace the `ENDPOINT_NAME` with the desired name for your endpoint.
+### Create a python tool to install `requirements.txt` to runtime
 
-```yaml
-$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
-name: <ENDPOINT_NAME>
-description: this is a sample promptflow endpoint
-auth_mode: key
+:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-tool-add-custom-packages.png" alt-text="Screenshot of python tool showing how to add custom packages. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-flow-folder-tool-add-custom-packages.png":::
+
+```python
+from promptflow import tool
+
+import subprocess
+import sys
+
+# Run the pip install command
+def add_custom_packages():
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
+
+import os
+# List the contents of the current directory
+files = os.listdir()
+# Print the list of files
+
+# The inputs section will change based on the arguments of the tool function, after you save the code
+# Adding type to arguments and return value will help the system show the types properly
+# Please update the function name/signature per need
+
+# In Python tool you can do things like calling external services or
+# pre/post processing of data, pretty much anything you want
+
+
+@tool
+def echo(input: str) -> str:
+    add_custom_packages()
+    return files
 ```
 
-Use following CLI command `az ml online-endpoint create -f <yaml_file> -g <resource_group> -w <workspace_name>` to create managed online endpoint. To learn more, see [Deploy and score a machine learning model by using an online endpoint](../how-to-deploy-online-endpoints.md).
-
-#### Create Prompt flow runtime image config file
-
-To configure your Prompt flow runtime, place the following config file in your model folder. This config file provides the necessary information for the runtime to work properly.
-
-For the `mt_service_endpoint` parameter, follow this format: `https://<region>.api.azureml.ms`. For example, if your region is eastus, then your service endpoint should be `https://eastus.api.azureml.ms`
-
-```yaml
-storage:
-  storage_account: <WORKSPACE_LINKED_STORAGE>
-deployment:
-  subscription_id: <SUB_ID>
-  resource_group: <RG_NAME>
-  workspace_name: <WORKSPACE_NAME>
-  endpoint_name: <ENDPOINT_NAME>
-  deployment_name: blue
-  mt_service_endpoint: <PROMPT_FLOW_SERVICE_ENDPOINT>
-```
-
-#### Create managed online endpoint
-
-You need to replace the following placeholders with your own values:
-
-- `ENDPOINT_NAME`: the name of the endpoint you created in the previous step
-- `PRT_CONFIG_FILE`: the name of the config file that contains the port and runtime settings. Include the parent model folder name, for example, if model folder name is `model`, then the config file name should be `model/config.yaml`.
-- `IMAGE_NAME` to name of your own image, for example: `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`, you can also follow [Customize environment with docker context for runtime](#customize-environment-with-docker-context-for-runtime) to create your own environment.
-
-```yaml
-$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
-name: blue
-endpoint_name: <ENDPOINT_NAME>
-type: managed
-model:
-  path: ./
-  type: custom_model
-instance_count: 1
-# 4core, 32GB
-instance_type: Standard_E4s_v3
-request_settings:
-  max_concurrent_requests_per_instance: 10
-  request_timeout_ms: 90000
-environment_variables:
-  PRT_CONFIG_FILE: <PRT_CONFIG_FILE>
-environment:
-  name: promptflow-runtime
-  image: <IMAGE_NAME>
-  inference_config:
-    liveness_route:
-      port: 8080
-      path: /health
-    readiness_route:
-      port: 8080
-      path: /health
-    scoring_route:
-      port: 8080
-      path: /score
-
-```
-
-Use following CLI command `az ml online-deployment create -f <yaml_file> -g <resource_group> -w <workspace_name>` to create managed online deployment that can be used as a Prompt flow runtime.
+We would recommend to put the common packages (include private wheel) in the `requirements.txt` when building the image. Put the packages (include private wheel) in flow folder that are only used in flow or change more rapidly in the `requirements.txt` in the flow folder, the later approach is not recommended for production.
 
 ## Next steps
 

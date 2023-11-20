@@ -1,11 +1,10 @@
 ---
 title: "Quickstart: Image Analysis client 4.0 SDK for .NET"
 description: In this quickstart, get started with the Image Analysis 4.0 client SDK for .NET.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.custom: ignite-2022
 ms.topic: include
 ms.date: 01/24/2023
@@ -14,7 +13,7 @@ ms.author: pafarley
  
 <a name="HOLTop"></a>
 
-Use the Image Analysis client SDK for C# to analyze an image to read text and generate an image caption. This quickstart calls a method `Analyze()`, which uses the client object to analyze a remote image and print the results to the console. 
+Use the Image Analysis client SDK for C# to analyze an image to read text and generate an image caption. This quickstart calls a function `AnalyzeImage()`, which uses the client object to analyze a remote image and print the results to the console. 
 
 [Reference documentation](/dotnet/api/azure.ai.vision.imageanalysis) | [Packages (NuGet)](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
@@ -108,9 +107,9 @@ dotnet run
 
 ---
 
-
-
 ## Output
+
+The console output should show something similar to the following text:
 
 ```console
 Caption:

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 09/14/2023
+ms.date: 10/30/2023
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -31,7 +31,7 @@ The following tables list the values for a single workflow definition:
 | ---- | ----- | ----- |
 | Workflows per region per Azure subscription | - Consumption: 1,000 workflows where each logic app is limited to 1 workflow <br><br>- Standard: Unlimited, based on the selected hosting plan, app activity, size of machine instances, and resource usage, where each logic app can have multiple workflows ||
 | Workflow - Maximum name length | - Consumption: 80 characters <br><br>- Standard: 32 characters ||
-| Triggers per workflow | 10 triggers | This limit applies only when you work on the JSON workflow definition, whether in code view or an Azure Resource Manager (ARM) template, not the designer. |
+| Triggers per workflow | - Consumption (designer): 1 trigger <br>- Consumption (JSON): 10 triggers <br><br>- Standard: 1 trigger | - Consumption:  Multiple triggers are possible only when you work on the JSON workflow definition, whether in code view or an Azure Resource Manager (ARM) template, not the designer. <br><br>- Standard: Only one trigger is possible, whether in the designer, code view, or an Azure Resource Manager (ARM) template. |
 | Actions per workflow | 500 actions | To extend this limit, you can use nested workflows as necessary. |
 | Actions nesting depth | 8 actions | To extend this limit, you can use nested workflows as necessary. |
 | Single trigger or action - Maximum name length | 80 characters ||
@@ -186,7 +186,7 @@ The following table lists the values for a single workflow definition:
 | Runtime endpoint - Concurrent inbound calls | ~1,000 calls | None | You can reduce the number of concurrent requests or reduce the duration as necessary. |
 | Runtime endpoint - Read calls per 5 min  | 60,000 read calls | None | This limit applies to calls that get the raw inputs and outputs from a workflow's run history. You can distribute the workload across more than one workflow as necessary. |
 | Runtime endpoint - Invoke calls per 5 min | 45,000 invoke calls | None | You can distribute workload across more than one workflow as necessary. |
-| Content throughput per 5 min | 600 MB | None | You can distribute workload across more than one workflow as necessary. |
+| Content throughput per 5 min | 6 GB | None | For example, suppose the backend has 100 workers. Each worker has a limit of 60 MB, which is the result from dividing 6 GB by 100 workers. You can distribute workload across more than one workflow as necessary. |
 
 <a name="run-high-throughput-mode"></a>
 
@@ -305,11 +305,11 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 
 <a name="content-storage-size-limits"></a>
 
-### Request trigger size limits
+### Request trigger and webhook trigger size limits
 
 | Name | Multi-tenant | Single-tenant | Notes |
 |------|--------------|---------------|-------|
-| Request trigger (inbound) - Content size limit per 5-minute rolling interval per workflow | 3,145,728 KB | None | This limit applies only to the content size for inbound requests received by the Request trigger. <br><br>For example, suppose the backend has 100 workers. Each worker has a limit of 31,457,280 bytes, which is the result from dividing 3,145,728,000 bytes by 100 workers. To avoid experiencing premature throttling, use a new HTTP client for each request, which helps evenly distribute the calls across all nodes. |
+| Request trigger (inbound) and webhook-based triggers - Content size limit per 5-minute rolling interval per workflow | 3,145,728 KB | None | This limit applies only to the content size for inbound requests received by the Request trigger or any webhook trigger. <br><br>For example, suppose the backend has 100 workers. Each worker has a limit of 31,457,280 bytes, which is the result from dividing 3,145,728,000 bytes by 100 workers. To avoid experiencing premature throttling for the Request trigger, use a new HTTP client for each request, which helps evenly distribute the calls across all nodes. For a webhook trigger, you might have to use multiple workflows, which splits the load and avoids throttling. |
 
 <a name="message-size-limits"></a>
 
@@ -333,11 +333,11 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 
 ### Authentication limits
 
-The following table lists the values for a workflow that starts with a Request trigger and enables [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) for authorizing inbound calls to the Request trigger:
+The following table lists the values for a workflow that starts with a Request trigger and enables [Microsoft Entra ID Open Authentication](../active-directory/develop/index.yml) (Microsoft Entra ID OAuth) for authorizing inbound calls to the Request trigger:
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Azure AD authorization policies | 5 policies | |
+| Microsoft Entra authorization policies | 5 policies | |
 | Claims per authorization policy | 10 claims | |
 | Claim value - Maximum number of characters | 150 characters |
 
@@ -570,7 +570,7 @@ For Azure Logic Apps to receive incoming communication through your firewall, yo
 | Switzerland West | 51.107.225.180, 51.107.225.167, 51.107.225.163, 51.107.239.66, 51.107.235.139,51.107.227.18 |
 | UAE Central | 20.45.75.193, 20.45.64.29, 20.45.64.87, 20.45.71.213 |
 | UAE North | 20.46.42.220, 40.123.224.227, 40.123.224.143, 20.46.46.173, 20.74.255.147, 20.74.255.37 |
-| UK South | 51.140.79.109, 51.140.78.71, 51.140.84.39, 51.140.155.81, 20.108.102.180, 20.90.204.232 |
+| UK South | 51.140.79.109, 51.140.78.71, 51.140.84.39, 51.140.155.81, 20.108.102.180, 20.90.204.232, 20.108.148.173, 20.254.10.157 |
 | UK West | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150, 51.104.62.166, 51.141.123.161 |
 | West Central US | 52.161.26.172, 52.161.8.128, 52.161.19.82, 13.78.137.247, 52.161.64.217, 52.161.91.215 |
 | West Europe | 13.95.155.53, 52.174.54.218, 52.174.49.6, 20.103.21.113, 20.103.18.84, 20.103.57.210, 20.101.174.52, 20.93.236.81, 20.103.94.255, 20.82.87.229, 20.76.171.34, 20.103.84.61 |
@@ -651,7 +651,7 @@ This section lists the outbound IP addresses that Azure Logic Apps requires in y
 | Switzerland West | 51.107.239.66, 51.107.231.86, 51.107.239.112, 51.107.239.123, 51.107.225.190, 51.107.225.179, 51.107.225.186, 51.107.225.151, 51.107.239.83, 51.107.232.61, 51.107.234.254, 51.107.226.253, 20.199.193.249 |
 | UAE Central | 20.45.75.200, 20.45.72.72, 20.45.75.236, 20.45.79.239, 20.45.67.170, 20.45.72.54, 20.45.67.134, 20.45.67.135 |
 | UAE North | 40.123.230.45, 40.123.231.179, 40.123.231.186, 40.119.166.152, 40.123.228.182, 40.123.217.165, 40.123.216.73, 40.123.212.104, 20.74.255.28, 20.74.250.247, 20.216.16.75, 20.74.251.30 |
-| UK South | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24, 20.108.102.142, 20.108.102.123, 20.90.204.228, 20.90.204.188 |
+| UK South | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24, 20.108.102.142, 20.108.102.123, 20.90.204.228, 20.90.204.188, 20.108.146.132, 20.90.223.4, 20.26.15.70, 20.26.13.151 |
 | UK West | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63, 51.104.58.40, 51.104.57.160, 51.141.121.72, 51.141.121.220 |
 | West Central US | 52.161.27.190, 52.161.18.218, 52.161.9.108, 13.78.151.161, 13.78.137.179, 13.78.148.140, 13.78.129.20, 13.78.141.75, 13.71.199.128 - 13.71.199.159, 13.78.212.163, 13.77.220.134, 13.78.200.233, 13.77.219.128 |
 | West Europe | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126, 13.69.71.160, 13.69.71.161, 13.69.71.162, 13.69.71.163, 13.69.71.164, 13.69.71.165, 13.69.71.166, 13.69.71.167, 20.103.21.81, 20.103.17.247, 20.103.17.223, 20.103.16.47, 20.103.58.116, 20.103.57.29, 20.101.174.49, 20.101.174.23, 20.93.236.26, 20.93.235.107, 20.103.94.250, 20.76.174.72, 20.82.87.192, 20.82.87.16, 20.76.170.145, 20.103.91.39, 20.103.84.41, 20.76.161.156 |

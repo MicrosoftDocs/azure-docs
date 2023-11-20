@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ---
 
 # Branching and chaining activities in an Azure Data Factory pipeline using the Azure portal

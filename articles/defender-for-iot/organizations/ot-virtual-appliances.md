@@ -30,7 +30,7 @@ Learn more:
 - [On-premises management console as a virtual appliance with Microsoft Hyper-V](appliance-catalog/virtual-management-hyper-v.md)
 
 > [!IMPORTANT]
-> Other types of hypervisors, such as hosted hypervisors, may also run Defender for IoT. However, due due to their lack of exclusive hardware control and resource reservation, other types of hypervisors are not supported for production environments. For example: Parallels, Oracle VirtualBox, and VMware Workstation or Fusion
+> Other types of hypervisors, such as hosted hypervisors, may also run Defender for IoT. However, due to their lack of exclusive hardware control and resource reservation, other types of hypervisors are not supported for production environments. For example: Parallels, Oracle VirtualBox, and VMware Workstation or Fusion
 >
 
 ## Virtual appliance design considerations

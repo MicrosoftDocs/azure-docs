@@ -1,11 +1,11 @@
 ---
 title: Service configuration - QnA Maker
 description: Understand how and where to configure resources.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: reference
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
@@ -41,7 +41,7 @@ The QnA Maker service provides configuration for the following users to collabor
 
 Learn [how to add collaborators](./index.yml) to your service.
 
-## Change Azure Cognitive Search
+## Change Azure AI Search
 
 Learn [how to change the Cognitive Search service](./how-to/configure-QnA-Maker-resources.md#configure-qna-maker-to-use-different-cognitive-search-resource) linked to your QnA Maker service.
 

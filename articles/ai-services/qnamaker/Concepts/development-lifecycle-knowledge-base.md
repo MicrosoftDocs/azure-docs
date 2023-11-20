@@ -1,11 +1,11 @@
 ---
 title: Lifecycle of knowledge base - QnA Maker
 description: QnA Maker learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: conceptual
 ms.date: 09/01/2020
 ---
@@ -48,7 +48,7 @@ For large KBs, use automated testing with the [generateAnswer API](../how-to/met
 ```
 
 ## Publish the knowledge base
-Once you are done testing the knowledge base, you can publish it. Publish pushes the latest version of the tested knowledge base  to a dedicated Azure Cognitive Search index representing the **published** knowledge base. It also creates an endpoint that can be called in your application or chat bot.
+Once you are done testing the knowledge base, you can publish it. Publish pushes the latest version of the tested knowledge base  to a dedicated Azure AI Search index representing the **published** knowledge base. It also creates an endpoint that can be called in your application or chat bot.
 
 Due to the publish action, any further changes made to the test version of the knowledge base leave the published version unaffected. The published version might be live in a production application.
 

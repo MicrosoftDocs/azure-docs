@@ -1,11 +1,11 @@
 ---
 title: Get model with REST call in Go
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.topic: include
 ms.date: 06/03/2020
 

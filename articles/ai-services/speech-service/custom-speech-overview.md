@@ -2,11 +2,10 @@
 title: Custom Speech overview - Speech service
 titleSuffix: Azure AI services
 description: Custom Speech is a set of online tools that allows you to evaluate and improve the speech to text accuracy for your applications, tools, and products. 
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 09/15/2023
 ms.author: eur

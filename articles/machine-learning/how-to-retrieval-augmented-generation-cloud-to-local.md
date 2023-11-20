@@ -10,16 +10,17 @@ author: jiaochenlu
 ms.author: chenlujiao
 ms.reviewer: lagayhar
 ms.date: 09/12/2023
-ms.custom: prompt-flow
-
+ms.custom:
+  - prompt-flow
+  - ignite-2023
 ---
 
 # RAG from cloud to local - bring your own data QnA (preview)
 
-In this article, you'll learn how to transition your RAG created flows from cloud in your Azure Machine Learning workspace to local using the Prompt flow VS Code extension.
+In this article, you'll learn how to transition your RAG created flows from cloud in your Azure Machine Learning workspace to local using the prompt flow VS Code extension.
 
 > [!IMPORTANT]
-> Prompt flow and Retrieval Augmented Generation (RAG) is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Retrieval Augmented Generation (RAG) is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
@@ -143,7 +144,7 @@ Scroll up to the top of the flow, fill in the "Inputs" value of this single run 
 
 :::image type="content" source="./media/how-to-retrieval-augmented-generation-cloud-to-local/flow-run.png" alt-text="Screenshot of the flow dag YAML file showing inputs and highlighting value of the question input and run button." lightbox = "./media/how-to-retrieval-augmented-generation-cloud-to-local/flow-run.png":::
 
-For batch run and evaluation, you can refer to [Submit flow run to Azure Machine Learning workspace](./prompt-flow/how-to-integrate-with-llm-app-devops.md#submit-flow-run-to-azure-machine-learning-workspace)
+For batch run and evaluation, you can refer to [Submit flow run to Azure Machine Learning workspace](./prompt-flow/how-to-integrate-with-llm-app-devops.md)
 
 ## Next steps
 
