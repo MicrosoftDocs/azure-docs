@@ -25,6 +25,8 @@ You can get support for your NGINXaaS deployment through a **New Support request
 
 ## Troubleshooting
 
+### Marketplace purchase errors
+
 [!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
 ### Unable to create an NGINXaaS resource as not a subscription owner  
