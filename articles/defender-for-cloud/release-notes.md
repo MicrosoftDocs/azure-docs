@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 09/07/2023
+ms.date: 11/05/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,14 +20,130 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## November 2023
+
+|Date |Update  |
+|----------|----------|
+| November 6 | [New version of the recommendation to find missing system updates is now GA](#new-version-of-the-recommendation-to-find-missing-system-updates-is-now-ga) |
+
+### New version of the recommendation to find missing system updates is now GA
+
+An additional agent is no longer needed on your Azure VMs and Azure Arc machines to ensure the machines have all of the latest security or critical system updates.
+
+The new system updates recommendation, `System updates should be installed on your machines (powered by Azure Update Manager)` in the `Apply system updates` control, is based on the [Update Manager](/azure/update-center/overview) and is now fully GA. The recommendation relies on a native agent embedded in every Azure VM and Azure Arc machines instead of an installed agent. The quick fix in the new recommendation navigates you to a one-time installation of the missing updates in the Update Manager portal.
+
+The old and the new versions of the recommendations to find missing system updates will both be available until August 2024, which is when the older version will be deprecated. Both recommendations: `System updates should be installed on your machines (powered by Azure Update Manager)`and `System updates should be installed on your machines` are available under the same control: `Apply system updates` and has the same results. Thus, there's no duplication in the effect on the secure score.
+
+We recommend migrating to the new recommendation and remove the old one, by disabling it from Defender for Cloud's built-in initiative in Azure policy.
+
+The recommendation `[Machines should be configured to periodically check for missing system updates](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/90386950-71ca-4357-a12e-486d1679427c)` is also GA and is a prerequisite, which will have a negative effect on your Secure Score. You can remediate the negative effect with the available Fix.  
+
+To apply the new recommendation, you need to:
+
+1. Connect your non-Azure machines to Arc.
+1. Turn on the [periodic assessment property](/azure/update-center/assessment-options). You can use the Quick Fix in the new recommendation, `[Machines should be configured to periodically check for missing system updates](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/90386950-71ca-4357-a12e-486d1679427c)` to fix the recommendation.
+
+> [!NOTE]
+> Enabling periodic assessments for Arc enabled machines that Defender for Servers Plan 2 isn't enabled on their related Subscription or Connector, is subject to [Azure Update Manager pricing](https://azure.microsoft.com/pricing/details/azure-update-management-center/). Arc enabled machines that [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) is enabled on their related Subscription or Connectors, or any Azure VM, are eligible for this capability with no additional cost.
+
+## October 2023
+
+|Date |Update  |
+|----------|----------|
+| October 30 | [Changing adaptive application control’s security alert's severity](#changing-adaptive-application-controls-security-alerts-severity) |
+| October 25 | [Offline Azure API Management revisions removed from Defender for APIs](#offline-azure-api-management-revisions-removed-from-defender-for-apis) |
+| October 19 | [DevOps security posture management recommendations available in public preview](#devops-security-posture-management-recommendations-available-in-public-preview) |
+| October 18 | [Releasing CIS Azure Foundations Benchmark v2.0.0 in Regulatory Compliance dashboard](#releasing-cis-azure-foundations-benchmark-v200-in-regulatory-compliance-dashboard) |
+
+### Changing adaptive application controls security alert's severity
+
+Announcement date: October 30, 2023
+
+As part of security alert quality improvement process of Defender for Servers, and as part of the [adaptive application controls](adaptive-application-controls.md) feature, the severity of the following security alert is changing to “Informational”:
+
+| Alert [Alert Type] | Alert Description |
+|--|--|
+| Adaptive application control policy violation was audited.[VM_AdaptiveApplicationControlWindowsViolationAudited, VM_AdaptiveApplicationControlWindowsViolationAudited] | The below users ran applications that are violating the application control policy of your organization on this machine. It can possibly expose the machine to malware or application vulnerabilities.|
+
+To keep viewing this alert in the “Security alerts” blade in the Microsoft Defender for Cloud portal, change the default view filter **Severity** to include **informational** alerts in the grid.
+
+   :::image type="content" source="media/release-notes/add-informational-severity.png" alt-text="Screenshot that shows you where to add the informational severity for alerts." lightbox="media/release-notes/add-informational-severity.png":::
+
+### Offline Azure API Management revisions removed from Defender for APIs
+
+October 25, 2023
+
+Defender for APIs has updated its support for Azure API Management API revisions. Offline revisions no longer appear in the onboarded Defender for APIs inventory and no longer appear to be onboarded to Defender for APIs. Offline revisions don't allow any traffic to be sent to them and pose no risk from a security perspective.
+
+### DevOps security posture management recommendations available in public preview
+
+October 19, 2023
+
+New DevOps posture management recommendations are now available in public preview for all customers with a connector for Azure DevOps or GitHub. DevOps posture management helps to reduce the attack surface of DevOps environments by uncovering weaknesses in security configurations and access controls. Learn more about [DevOps posture management](concept-devops-posture-management-overview.md).
+
+### Releasing CIS Azure Foundations Benchmark v2.0.0 in regulatory compliance dashboard
+
+October 18, 2023
+
+Microsoft Defender for Cloud now supports the latest [CIS Azure Security Foundations Benchmark - version 2.0.0](https://www.cisecurity.org/benchmark/azure) in the Regulatory Compliance [dashboard](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/22), and a built-in policy initiative in Azure Policy. The release of version 2.0.0 in Microsoft Defender for Cloud is a joint collaborative effort between Microsoft, the Center for Internet Security (CIS), and the user communities. The version 2.0.0 significantly expands assessment scope, which now includes 90+ built-in Azure policies and succeed the prior versions 1.4.0 and 1.3.0 and 1.0 in Microsoft Defender for Cloud and Azure Policy. For more information, you can check out this [blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-cloud-now-supports-cis-azure-security/ba-p/3944860).
+
 ## September 2023
 
 |Date |Update  |
 |----------|----------|
+| September 27 | [Data security dashboard available in public preview](#data-security-dashboard-available-in-public-preview)
+| September 21 | [Preview release: New autoprovisioning process for SQL Server on machines plan](#preview-release-new-autoprovisioning-process-for-sql-server-on-machines-plan) |
+| September 20 | [GitHub Advanced Security for Azure DevOps alerts in Defender for Cloud](#github-advanced-security-for-azure-devops-alerts-in-defender-for-cloud) |
+| September 11 | [Exempt functionality now available for Defender for APIs recommendations](#exempt-functionality-now-available-for-defender-for-apis-recommendations) |
+| September 11 | [Create sample alerts for Defender for APIs detections](#create-sample-alerts-for-defender-for-apis-detections) |
 | September 6 | [Preview release: Containers vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports scan on pull](#preview-release-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-now-supports-scan-on-pull)|
 | September 6 | [Updated naming format of Center for Internet Security (CIS) standards in regulatory compliance](#updated-naming-format-of-center-for-internet-security-cis-standards-in-regulatory-compliance) |
 | September 5 | [Sensitive data discovery for PaaS databases (Preview)](#sensitive-data-discovery-for-paas-databases-preview) |
 | September 1 | [General Availability (GA): malware scanning in Defender for Storage](#general-availability-ga-malware-scanning-in-defender-for-storage)|
+
+### Data security dashboard available in public preview
+
+September 27, 2023
+
+The data security dashboard is now available in public preview as part of the Defender CSPM plan.
+The data security dashboard is an interactive, data-centric dashboard that illuminates significant risks to sensitive data, prioritizing alerts and potential attack paths for data across hybrid cloud workloads. Learn more about the [data security dashboard](data-aware-security-dashboard-overview.md).
+
+### Preview release: New autoprovisioning process for SQL Server on machines plan
+
+September 21, 2023
+
+Microsoft Monitoring Agent (MMA) is being deprecated in August 2024. Defender for Cloud [updated it's strategy](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) by replacing MMA with the release of a SQL Server-targeted Azure Monitoring Agent autoprovisioning process.
+
+During the preview, customers who are using the MMA autoprovisioning process with Azure Monitor Agent (Preview) option, are requested to [migrate to the new Azure Monitoring Agent for SQL server on machines (Preview) autoprovisioning process](defender-for-sql-autoprovisioning.md#migrate-to-the-sql-server-targeted-ama-autoprovisioning-process). The migration process is seamless and provides continuous protection for all machines.
+
+For more information, see [Migrate to SQL server-targeted Azure Monitoring Agent autoprovisioning process](defender-for-sql-autoprovisioning.md).
+
+### GitHub Advanced Security for Azure DevOps alerts in Defender for Cloud
+
+September 20, 2023
+
+You can now view GitHub Advanced Security for Azure DevOps (GHAzDO) alerts related to CodeQL, secrets, and dependencies in Defender for Cloud. Results are displayed in the DevOps blade and in Recommendations. To see these results, onboard your GHAzDO-enabled repositories to Defender for Cloud.
+
+Learn more about [GitHub Advanced Security for Azure DevOps](https://azure.microsoft.com/products/devops/github-advanced-security).
+
+### Exempt functionality now available for Defender for APIs recommendations
+
+September 11, 2023
+
+You can now exempt recommendations for the following Defender for APIs security recommendations.
+
+| Recommendation | Description & related policy | Severity |
+|--|--|--|
+| (Preview) API endpoints that are unused should be disabled and removed from the Azure API Management service | As a security best practice, API endpoints that haven't received traffic for 30 days are considered unused, and should be removed from the Azure API Management service. Keeping unused API endpoints might pose a security risk. These might be APIs that should have been deprecated from the Azure API Management service, but have accidentally been left active. Such APIs typically do not receive the most up-to-date security coverage. | Low |
+| (Preview) API endpoints in Azure API Management should be authenticated | API endpoints published within Azure API Management should enforce authentication to help minimize security risk. Authentication mechanisms are sometimes implemented incorrectly or are missing. This allows attackers to exploit implementation flaws and to access data. For APIs published in Azure API Management, this recommendation assesses the execution of authentication via the Subscription Keys, JWT, and Client Certificate configured within Azure API Management. If none of these authentication mechanisms are executed during the API call, the API will receive this recommendation. | High |
+
+Learn more about [exempting recommendations in Defender for Cloud](/azure/defender-for-cloud/exempt-resource).
+
+### Create sample alerts for Defender for APIs detections
+
+September 11, 2023
+
+You can now generate sample alerts for the security detections that were released as part of the Defender for APIs public preview. Learn more about [generating sample alerts in Defender for Cloud](/azure/defender-for-cloud/alert-validation#generate-sample-security-alerts).
 
 ### Preview release: containers vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports scan on pull
 
@@ -35,7 +151,7 @@ September 6, 2023
 
 Containers vulnerability assessment powered by Microsoft Defender Vulnerability Management (MDVM), now supports an additional trigger for scanning images pulled from an ACR. This newly added trigger provides additional coverage for active images in addition to the existing triggers scanning images pushed to an ACR in the last 90 days and images currently running in AKS.
 
-This new trigger is available today for some customers, and will be available to all customers by mid-September.
+The new trigger will start rolling out today, and is expected to be available to all customers by end of September.
 
 For more information, see [Container Vulnerability Assessment powered by MDVM](agentless-container-registry-vulnerability-assessment.md)
 
@@ -81,7 +197,7 @@ You can learn more about data aware security posture in the following articles:
 
 September 1, 2023
 
-Malware scanning is now generally available (GA) as an add-on to Defender for Storage. Malware scanning in Defender for Storage helps protect your storage accounts from malicious content by performing a full malware scan on uploaded content in near real time, using Microsoft Defender Antivirus capabilities. It's designed to help fulfill security and compliance requirements for handling untrusted content. The malware scanning capability is an agentless SaaS solution that allows setup at scale, and supports automating response at scale. 
+Malware scanning is now generally available (GA) as an add-on to Defender for Storage. Malware scanning in Defender for Storage helps protect your storage accounts from malicious content by performing a full malware scan on uploaded content in near real time, using Microsoft Defender Antivirus capabilities. It's designed to help fulfill security and compliance requirements for handling untrusted content. The malware scanning capability is an agentless SaaS solution that allows setup at scale, and supports automating response at scale.
 
 Learn more about [malware scanning in Defender for Storage](defender-for-storage-malware-scan.md).
 
@@ -366,7 +482,7 @@ June 15, 2023
 
 The NIST 800-53 standards (both R4 and R5) have recently been updated with control changes in Microsoft Defender for Cloud regulatory compliance. The Microsoft-managed controls have been removed from the standard, and the information on the Microsoft responsibility implementation (as part of the cloud shared responsibility model) is now available only in the control details pane under **Microsoft Actions**.
 
-These controls were previously calculated as passed controls, so you may see a significant dip in your compliance score for NIST standards between April 2023 and May 2023.
+These controls were previously calculated as passed controls, so you might see a significant dip in your compliance score for NIST standards between April 2023 and May 2023.
 
 For more information on compliance controls, see [Tutorial: Regulatory compliance checks - Microsoft Defender for Cloud](regulatory-compliance-dashboard.md#investigate-regulatory-compliance-issues).
 
@@ -713,7 +829,7 @@ If you have already configured continuous export of your alerts to a Log Analyti
 
 The security alert quality improvement process for Defender for Servers includes the deprecation of some alerts for both Windows and Linux servers. The deprecated alerts are now sourced from and covered by Defender for Endpoint threat alerts.  
 
-If you already have the Defender for Endpoint integration enabled, no further action is required. You may experience a decrease in your alerts volume in April 2023.
+If you already have the Defender for Endpoint integration enabled, no further action is required. You might experience a decrease in your alerts volume in April 2023.
 
 If you don't have the Defender for Endpoint integration enabled in Defender for Servers, you'll need to enable the Defender for Endpoint integration to maintain and improve your alert coverage.
 
@@ -755,7 +871,7 @@ The two versions of the recommendations:
 
 will both be available until the [Log Analytics agent is deprecated on August 31, 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/), which is when the older version (`System updates should be installed on your machines`) of the recommendation will be deprecated as well. Both recommendations return the same results and are available under the same control `Apply system updates`.
 
-The new recommendation `System updates should be installed on your machines (powered by Azure Update Manager)`, has a remediation flow available through the Fix button, which can be used to remediate any results through the Update Management Center (Preview). This remediation process is still in Preview.
+The new recommendation `System updates should be installed on your machines (powered by Azure Update Manager)`, has a remediation flow available through the Fix button, which can be used to remediate any results through the Update Manager (Preview). This remediation process is still in Preview.
 
 The new recommendation `System updates should be installed on your machines (powered by Azure Update Manager)`, isn't expected to affect your Secure Score, as it has the same results as the old recommendation `System updates should be installed on your machines`.
 

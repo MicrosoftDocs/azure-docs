@@ -34,9 +34,12 @@ The public IPv4 address used for the access is called the default outbound acces
 
 ## When is default outbound access provided?
 
-If you deploy a virtual machine in Azure and it doesn't have explicit outbound connectivity, it's assigned a default outbound access IP.
+If you deploy a virtual machine in Azure and it doesn't have explicit outbound connectivity, it's assigned a default outbound access IP. The image below shows the underlying logic behind deciding which method of outbound to utilize, with default outbound being a "last resort".
 
-:::image type="content" source="./media/default-outbound-access/default-outbound-access.png" alt-text="Diagram of default outbound access.":::
+:::image type="content" source="./media/default-outbound-access/decision-tree-load-balancer.svg"  alt-text="Diagram of decision tree for default outbound access.":::
+
+>[!Important]
+>On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/).  We recommend that you use one of the explicit forms of connectivity discussed in the following section.
 
 ## Why is disabling default outbound access recommended?
 
@@ -50,7 +53,7 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 
 * Loss of IP address
 
-    * Customers don't own the default outbound access IP. This IP may change, and any dependency on it could cause issues in the future.
+    * Customers don't own the default outbound access IP. This IP might change, and any dependency on it could cause issues in the future.
 
 ## How can I transition to an explicit method of public connectivity (and disable default outbound access)?
 
@@ -61,8 +64,6 @@ There are multiple ways to turn off default outbound access:
     * Associate a NAT gateway to the subnet of your virtual machine.
 
     * Associate a standard load balancer configured with outbound rules.
-
-    * Associate a Basic public IP to the virtual machine's network interface (if there's only one network interface).
     
     * Associate a Standard public IP to any of the virtual machine's network interfaces (if there are multiple network interfaces, having a single NIC with a standard public IP prevents default outbound access for the virtual machine).
 
@@ -85,8 +86,10 @@ NAT gateway is the recommended approach to have explicit outbound connectivity. 
 
 ## Next steps
 
-For more information on outbound connections in Azure and Azure Virtual Network NAT (NAT gateway), see:
+For more information on outbound connections in Azure and Azure NAT Gateway, see:
 
 * [Source Network Address Translation (SNAT) for outbound connections](../../load-balancer/load-balancer-outbound-connections.md).
 
-* [What is Azure Virtual Network NAT?](../nat-gateway/nat-overview.md)
+* [What is Azure NAT Gateway?](../../nat-gateway/nat-overview.md)
+
+* [Azure NAT Gateway FAQ](../../nat-gateway/faq.yml)

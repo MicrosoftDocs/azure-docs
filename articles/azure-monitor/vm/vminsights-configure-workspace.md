@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom: references_regions
 author: guywi-ms
 ms.author: guywild
-ms.date: 06/22/2022
+ms.date: 09/28/2023
 ---
 
 # Configure a Log Analytics workspace for VM insights
@@ -28,8 +28,8 @@ After the workspace is configured, you can use any of the available options to i
 >The information described in this section also applies to the [Service Map solution](service-map.md).
 
 To access Log Analytics workspaces in the Azure portal, use the **Log Analytics workspaces** menu.
-
-[![Screenshot that shows a Log Analytics workspace.](media/vminsights-configure-workspace/log-analytics-workspaces.png)](media/vminsights-configure-workspace/log-analytics-workspaces.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="media/vminsights-configure-workspace/log-analytics-workspaces.png" lightbox="media/vminsights-configure-workspace/log-analytics-workspaces.png" alt-text="Screenshot that shows a Log Analytics workspace." border="false":::
 
 You can create a new Log Analytics workspace by using any of the following methods:
 
@@ -59,16 +59,16 @@ Before a Log Analytics workspace can be used with VM insights, it must have the 
 There are three options for configuring an existing workspace by using the Azure portal:
 
 - To configure a single workspace, on the **Azure Monitor** menu, select **Virtual Machines**. Select **Other onboarding options** and then select **Configure a workspace**. Select a subscription and a workspace and then select **Configure**.
-
-   [![Screenshot that shows configuring a workspace.](../vm/media/vminsights-enable-policy/configure-workspace.png)](../vm/media/vminsights-enable-policy/configure-workspace.png#lightbox)
+   <!-- convertborder later -->
+   :::image type="content" source="../vm/media/vminsights-enable-policy/configure-workspace.png" lightbox="../vm/media/vminsights-enable-policy/configure-workspace.png" alt-text="Screenshot that shows configuring a workspace." border="false":::
 
 - To configure multiple workspaces, on the **Monitor** menu, select **Virtual Machines**. Then select the **Workspace configuration** tab. Set the filter values to display a list of existing workspaces. Select the checkbox next to each workspace to enable it and then select **Configure selected**.
-
-   [![Screenshot that shows workspace configuration.](../vm/media/vminsights-enable-policy/workspace-configuration.png)](../vm/media/vminsights-enable-policy/workspace-configuration.png#lightbox)
+   <!-- convertborder later -->
+   :::image type="content" source="../vm/media/vminsights-enable-policy/workspace-configuration.png" lightbox="../vm/media/vminsights-enable-policy/workspace-configuration.png" alt-text="Screenshot that shows workspace configuration." border="false":::
 
 - When you enable VM insights on a single virtual machine or virtual machine scale set by using the Azure portal, you can select an existing workspace or create a new one. The VMInsights solution is installed in this workspace if it isn't already. You can then use this workspace for other agents.
-
-   [![Screenshot that shows enabling a single VM in the portal.](../vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png)](../vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png#lightbox)
+   <!-- convertborder later -->
+   :::image type="content" source="../vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png" lightbox="../vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png" alt-text="Screenshot that shows enabling a single VM in the portal." border="false":::
 
 ### Resource Manager template
 The Azure Resource Manager templates for VM insights are provided in an archive file (.zip) that you can [download from our GitHub repo](https://aka.ms/VmInsightsARMTemplates). A template called **ConfigureWorkspace** configures a Log Analytics workspace for VM insights. You deploy this template by using any of the standard methods, including the following sample PowerShell and CLI commands.

@@ -74,7 +74,7 @@ $gallery = New-AzGallery `
 ## Create an image definition 
 Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](../virtual-machines/shared-image-galleries.md#image-definitions).
 
-Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). In this example, the gallery image is named *myGalleryImage* and is created for a specialized image. 
+Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimagedefinition). In this example, the gallery image is named *myGalleryImage* and is created for a specialized image. 
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `

@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/24/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -73,7 +73,7 @@ This example uses a regular expression match as a filter to return a subset of i
     | **Ignore whitespace** | `x` | Ignore all whitespace characters. |
 - If you'd like to use a meta-character in a regular expression and don't want it to have special meaning, you should escape the metacharacter using `\`.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`IS_STRING`](is-string.md)

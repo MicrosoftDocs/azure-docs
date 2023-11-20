@@ -4,7 +4,7 @@ description: Learn how to use a .NET isolated worker process to run your C# func
 ms.service: azure-functions
 ms.topic: conceptual 
 ms.date: 07/21/2023
-ms.custom: template-concept, devx-track-dotnet
+ms.custom: template-concept, devx-track-dotnet, devx-track-azurecli
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated worker process so that I can run my function code on current (not LTS) releases of .NET.
 ---
@@ -176,7 +176,7 @@ namespace MyFunctionApp
 }
 ```
 
-The [ILogger&lt;T&gt;] in this example was also obtained through dependency injection. It is registered automatically. To learn more about configuration options for logging, see [Logging](#logging).
+The [`ILogger<T>`][ILogger&lt;T&gt;] in this example was also obtained through dependency injection. It is registered automatically. To learn more about configuration options for logging, see [Logging](#logging).
 
 > [!TIP]
 > The example used a literal string for the name of the client in both `Program.cs` and the function. Consider instead using a shared constant string defined on the function class. For example, you could add `public const string CopyStorageClientName = nameof(_copyContainerClient);` and then reference `BlobCopier.CopyStorageClientName` in both locations. You could similarly define the configuration section name with the function rather than in `Program.cs`.
@@ -221,104 +221,53 @@ The following example performs clean-up actions if a cancellation request has be
 
 ## Performance optimizations
 
-This section outlines options you can enable to improve performance around [cold start](./event-driven-scaling.md#cold-start).
+This section outlines options you can enable that improve performance around [cold start](./event-driven-scaling.md#cold-start).
 
-### Placeholders (preview)
+In general, your app should use the latest versions of its core dependencies. At a minimum, you should update your project as follows:
 
-Placeholders are a platform capability that improves cold start. Normally, you do not have to be aware of them, but during the preview period for placeholders for .NET Isolated, they require some opt-in configuration. Placeholders require .NET 6 or later. To enable placeholders:
+- Upgrade [Microsoft.Azure.Functions.Worker] to version 1.19.0 or later.
+- Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.15.1 or later.
+- Add a framework reference to `Microsoft.AspNetCore.App`, unless your app targets .NET Framework.
 
-- Set the `WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED` application setting to "1"
+The following example shows this configuration in the context of a project file:
+
+```xml
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.15.1" />
+  </ItemGroup>
+```
+
+### Placeholders
+
+Placeholders are a platform capability that improves cold start for apps targeting .NET 6 or later. The feature requires some opt-in configuration. To enable placeholders:
+
+- **Update your project as detailed in the preceding section.**
+- Additionally, when using version 1.15.1 or earlier of `Microsoft.Azure.Functions.Worker.Sdk`, you must add two properties to the project file:
+    - Set the property `FunctionsEnableWorkerIndexing` to "True".
+    - Set the property `FunctionsAutoRegisterGeneratedMetadataProvider` to "True".
+- Set the `WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED` application setting to "1".
 - Ensure that the `netFrameworkVersion` property of the function app matches your project's target framework, which must be .NET 6 or later.
-- Update your project file:
-    - Upgrade [Microsoft.Azure.Functions.Worker] to version 1.19.0 or later
-    - Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.14.1 or later
-    - Add a framework reference to `Microsoft.AspNetCore.App`
-    - Set the property `FunctionsEnableWorkerIndexing` to "True". 
-    - Set the property `FunctionsAutoRegisterGeneratedMetadataProvider` to "True"
+- Ensure that the function app is configured to use a 64-bit process.
 
-> [!NOTE]
-> Setting `FunctionsEnableWorkerIndexing` to "True" may cause an issue when debugging locally using version 4.0.5274 or earlier of the [Azure Functions Core Tools](./functions-run-local.md). The issue manifests with the debugger not being able to attach. If you encounter this issue, remove the `FunctionsEnableWorkerIndexing` property during local testing.
+> [!IMPORTANT]
+> Setting the `WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED` to "1" requires all other aspects of the configuration to be set correctly. Any deviation can cause startup failures.
 
-The following CLI commands will set the application setting and update the `netFrameworkVersion` property. Replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. Replace `<framework>` with the appropriate version string, such as "v6.0" or "v7.0", according to your target .NET version.
+The following CLI commands will set the application setting, update the `netFrameworkVersion` property, and make the app run as 64-bit. Replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. Replace `<framework>` with the appropriate version string, such as "v6.0", "v7.0", or "v8.0", according to your target .NET version.
 
 ```azurecli
 az functionapp config appsettings set -g <groupName> -n <appName> --settings 'WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED=1'
 az functionapp config set -g <groupName> -n <appName> --net-framework-version <framework>
+az functionapp config set -g <groupName> -n <appName> --use-32bit-worker-process false
 ```
 
-The following example shows a project file with the appropriate changes in place:
+### Optimized executor 
 
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
-    <OutputType>Exe</OutputType>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <FunctionsEnableWorkerIndexing>True</FunctionsEnableWorkerIndexing>
-    <FunctionsAutoRegisterGeneratedMetadataProvider>True</FunctionsAutoRegisterGeneratedMetadataProvider>
-  </PropertyGroup>
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.14.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="host.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="local.settings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext" />
-  </ItemGroup>
-</Project>
-```
+The function executor is a component of the platform that causes invocations to run. An optimized version of this component is available, and in version 1.15.1 or earlier  of the SDK, it requires opt-in configuration. To enable the optimized executor, you must update your project file:
 
-### Optimized executor (preview)
-
-The function executor is a component of the platform that causes invocations to run. By default, it makes use of reflection, but a newer version is available in preview which removes this performance overhead. Normally, you do not have to be aware of this component, but during the preview period of the new version, it requires some opt-in configuration.
-
-To enable the optimized executor, you must update your project file:
-
-- Upgrade [Microsoft.Azure.Functions.Worker] to version 1.19.0 or later
-- Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.14.1 or later
-- Set the property `FunctionsEnableExecutorSourceGen` to "True"
-
-The following example shows a project file with the appropriate changes in place:
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
-    <OutputType>Exe</OutputType>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <FunctionsEnableExecutorSourceGen>True</FunctionsEnableExecutorSourceGen>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.14.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="host.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="local.settings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext" />
-  </ItemGroup>
-</Project>
-```
+- **Update your project as detailed in the above section.**
+- Additionally set the property `FunctionsEnableExecutorSourceGen` to "True"
 
 ### ReadyToRun
 
@@ -326,12 +275,14 @@ You can compile your function app as [ReadyToRun binaries](/dotnet/core/deployin
 
 ReadyToRun requires you to build the project against the runtime architecture of the hosting app. **If these are not aligned, your app will encounter an error at startup.** Select your runtime identifier from the table below:
 
-|Operating System | App is 32-bit | Runtime identifier |
+|Operating System | App is 32-bit<sup>1</sup> | Runtime identifier |
 |-|-|-|
 | Windows | True | `win-x86` |
 | Windows | False | `win-x64` |
 | Linux | True | N/A (not supported) |
 | Linux | False | `linux-x64` | 
+
+<sup>1</sup> Only 64-bit apps are eligible for some other performance optimizations.
 
 To check if your Windows app is 32-bit or 64-bit, you can run the following CLI command, substituting `<group_name>` with the name of your resource group and `<app_name>` with the name of your application. An output of "true" indicates that the app is 32-bit, and "false" indicates 64-bit.
 
@@ -339,21 +290,27 @@ To check if your Windows app is 32-bit or 64-bit, you can run the following CLI 
  az functionapp config show -g <group_name> -n <app_name> --query "use32BitWorkerProcess"
 ```
 
-To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following examples shows a configuration for publishing to a Windows 32-bit function app.
+You can change your application to 64-bit with the following command, using the same substitutions:
+
+```azurecli
+az functionapp config set -g <group_name> -n <app_name> --use-32bit-worker-process false`
+```
+
+To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following example shows a configuration for publishing to a Windows 64-bit function app.
 
 ```xml
 <PropertyGroup>
   <TargetFramework>net6.0</TargetFramework>
   <AzureFunctionsVersion>v4</AzureFunctionsVersion>
-  <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+  <RuntimeIdentifier>win-x64</RuntimeIdentifier>
   <PublishReadyToRun>true</PublishReadyToRun>
 </PropertyGroup>
 ```
 
-If you don't want to set the `<RuntimeIdentifier>` as part of the project file, you can also configure this as part of the publish gesture itself. For example, with a Windows 32-bit function app, the .NET CLI command would be:
+If you don't want to set the `<RuntimeIdentifier>` as part of the project file, you can also configure this as part of the publish gesture itself. For example, with a Windows 64-bit function app, the .NET CLI command would be:
 
 ```dotnetcli
-dotnet publish --runtime win-x86
+dotnet publish --runtime win-x64
 ```
 
 In Visual Studio, the "Target Runtime" option in the publish profile should be set to the correct runtime identifier. If it is set to the default value "Portable", ReadyToRun will not be used.
@@ -411,9 +368,9 @@ Each trigger and binding extension also has its own minimum version requirement,
 |-|-|-|-|
 | [Azure Blobs][blob-sdk-types] | **Generally Available** | **Generally Available** | _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Queues][queue-sdk-types] | **Generally Available** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Service Bus][servicebus-sdk-types] | **Generally Available**<sup>2</sup>  | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Service Bus][servicebus-sdk-types] | **Generally Available**  | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Event Hubs][eventhub-sdk-types] | **Generally Available** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Cosmos DB][cosmos-sdk-types] | _SDK types not used<sup>3</sup>_ | **Generally Available**  |  _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Cosmos DB][cosmos-sdk-types] | _SDK types not used<sup>2</sup>_ | **Generally Available**  |  _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Tables][tables-sdk-types] | _Trigger does not exist_ | **Generally Available** |  _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Event Grid][eventgrid-sdk-types] | **Generally Available** | _Input binding does not exist_ |  _SDK types not recommended.<sup>1</sup>_ | 
 
@@ -427,11 +384,7 @@ Each trigger and binding extension also has its own minimum version requirement,
 
 <sup>1</sup> For output scenarios in which you would use an SDK type, you should create and work with SDK clients directly instead of using an output binding. See [Register Azure clients](#register-azure-clients) for an example of how to do this with dependency injection.
 
-<sup>2</sup> The Service Bus trigger does not yet support message settlement scenarios for the isolated model.
-
-<sup>3</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
-
-The [SDK type binding samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/WorkerBindingSamples) show examples of working with the various supported types.
+<sup>2</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
 
 > [!NOTE]
 > When using [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data, SDK types for the trigger itself cannot be used.
@@ -445,7 +398,7 @@ The [SDK type binding samples](https://github.com/Azure/azure-functions-dotnet-w
 
 #### ASP.NET Core integration
 
-This section shows how to work with the underlying HTTP request and response objects using types from ASP.NET Core including [HttpRequest], [HttpResponse], and [IActionResult]. Use of this feature for local testing requires [Core Tools version 4.0.5240 or later](./functions-run-local.md) and that you set `AzureWebJobsFeatureFlags` to "EnableHttpProxying" in `local.settings.json` if you are using Core Tools version 4.0.5274 and earlier. This model is not available to [apps targeting .NET Framework][supported-versions], which should instead leverage the [built-in model](#built-in-http-model).
+This section shows how to work with the underlying HTTP request and response objects using types from ASP.NET Core including [HttpRequest], [HttpResponse], and [IActionResult]. This model is not available to [apps targeting .NET Framework][supported-versions], which should instead leverage the [built-in model](#built-in-http-model).
 
 > [!NOTE]
 > Not all features of ASP.NET Core are exposed by this model. Specifically, the ASP.NET Core middleware pipeline and routing capabilities are not available.
@@ -513,7 +466,7 @@ public class MyFunction {
 
 The logger can also be obtained from a [FunctionContext] object passed to your function. Call the [GetLogger&lt;T&gt;] or [GetLogger] method, passing a string value that is the name for the category in which the logs are written. The category is usually the name of the specific function from which the logs are written. To learn more about categories, see the [monitoring article](functions-monitoring.md#log-levels-and-categories).
 
-Use the methods of [ILogger&lt;T&gt;] and [`ILogger`][ILogger] to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories). You can customize the log levels for components added to your code by registering filters as part of the `HostBuilder` configuration:
+Use the methods of [`ILogger<T>`][ILogger&lt;T&gt;] and [`ILogger`][ILogger] to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories). You can customize the log levels for components added to your code by registering filters as part of the `HostBuilder` configuration:
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -538,13 +491,13 @@ var host = new HostBuilder()
     .Build();
 ```
 
-As part of configuring your app in `Program.cs`, you can also define the behavior for how errors are surfaced to your logs. By default, exceptions thrown by your code may end up wrapped in an `RpcException`. To remove this extra layer, set the `EnableUserCodeExceptions` property to "true" as part of configuring the builder:
+As part of configuring your app in `Program.cs`, you can also define the behavior for how errors are surfaced to your logs. By default, exceptions thrown by your code may end up wrapped in an `RpcException`. To remove this extra layer, set the `EnableUserCodeException` property to "true" as part of configuring the builder:
 
 ```csharp
 var host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults(builder => {}, options =>
     {
-        options.EnableUserCodeExceptions = true;
+        options.EnableUserCodeException = true;
     })
     .Build();
 ```
@@ -655,6 +608,38 @@ After the debugger is attached, the process execution resumes, and you'll be abl
 ## Remote Debugging using Visual Studio
 
 Because your isolated worker process app runs outside the Functions runtime, you need to attach the remote debugger to a separate process. To learn more about debugging using Visual Studio, see [Remote Debugging](functions-develop-vs.md?tabs=isolated-process#remote-debugging).
+
+## Preview .NET versions
+
+Azure Functions currently can be used with the following preview versions of .NET:
+
+| Operating system | .NET preview version |
+| - | - |
+| Windows | .NET 8 RC2 | 
+| Linux | .NET 8 RC2 |
+
+### Using a preview .NET SDK
+
+To use Azure Functions with a preview version of .NET, you need to update your project by:
+
+1. Installing the relevant .NET SDK version in your development
+1. Changing the `TargetFramework` setting in your `.csproj` file
+
+When deploying to a function app in Azure, you also need to ensure that the framework is made available to the app. To do so on Windows, you can use the following CLI command. Replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. Replace `<framework>` with the appropriate version string, such as "v8.0".
+
+```azurecli
+az functionapp config set -g <groupName> -n <appName> --net-framework-version <framework>
+```
+
+### Considerations for using .NET preview versions
+
+Keep these considerations in mind when using Functions with preview versions of .NET: 
+
+If you author your functions in Visual Studio, you must use [Visual Studio Preview](https://visualstudio.microsoft.com/vs/preview/), which supports building Azure Functions projects with .NET preview SDKs. You should also ensure you have the latest Functions tools and templates. To update these, navigate to `Tools->Options`, select `Azure Functions` under `Projects and Solutions`, and then click the `Check for updates` button, installing updates as prompted.
+
+During the preview period, your development environment might have a more recent version of the .NET preview than the hosted service. This can cause the application to fail when deployed. To address this, you can configure which version of the SDK to use in [`global.json`](/dotnet/core/tools/global-json). First, identify which versions you have installed using `dotnet --list-sdks` and note the version that matches what the service supports. Then you can run `dotnet new globaljson --sdk-version <sdk-version> --force`, substituting `<sdk-version>` for the version you noted in the previous command. For example, `dotnet new globaljson --sdk-version dotnet-sdk-8.0.100-preview.7.23376.3 --force` will cause the system to use the .NET 8 Preview 7 SDK when building your project.
+
+Note that due to just-in-time loading of preview frameworks, function apps running on Windows may experience increased cold start times when compared against earlier GA versions.
 
 ## Next steps
 

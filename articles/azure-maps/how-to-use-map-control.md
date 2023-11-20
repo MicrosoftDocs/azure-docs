@@ -2,8 +2,8 @@
 title: How to use the Azure Maps web map control
 titleSuffix: Microsoft Azure Maps
 description: Learn how to add and localize maps to web and mobile applications by using the Map Control client-side JavaScript library in Azure Maps. 
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -17,15 +17,18 @@ The Azure Maps Web SDK provides a [Map Control] that enables the customization o
 
 This article uses the Azure Maps Web SDK, however the Azure Maps services work with any map control. For a list of third-party map control plug-ins, see [Azure Maps community - Open-source projects].
 
-> [!IMPORTANT]
-> If you have existing applications incorporating Azure Maps using version 2 of the [Map Control], it is recomended to start using version 3. Version 3 is backwards compatible and has several benifits including [WebGL 2 Compatibility], increased performance and support for [3D terrain tiles].
+> [!NOTE]
+>
+> **Azure Maps Web SDK Map Control v1 retirement**
+>
+> Version 1 of the Web SDK Map Control is now deprecated and will be retired on 9/19/26. To avoid service disruptions, migrate to version 3 of the Web SDK Map Control by 9/19/26. Version 3 is backwards compatible and has several benifits including [WebGL 2 Compatibility], increased performance and support for [3D terrain tiles]. For more information, see [The Azure Maps Web SDK v1 migration guide].
 
 ## Prerequisites
 
 To use the Map Control in a web page, you must have one of the following prerequisites:
 
 * An [Azure Maps account]
-* A [subscription key] or Azure Active Directory (Azure AD) credentials. For more information, see [authentication options].
+* A [subscription key] or Microsoft Entra credentials. For more information, see [authentication options].
 
 ## Create a new map in a web page
 
@@ -82,7 +85,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
     </body>
    ```
 
-5. Next, initialize the map control. In order to authenticate the control, use an Azure Maps subscription key or Azure AD credentials with [authentication options].
+5. Next, initialize the map control. In order to authenticate the control, use an Azure Maps subscription key or Microsoft Entra credentials with [authentication options].
 
     If you're using a subscription key for authentication, copy and paste the following script element inside the `<head>` element, and below the first `<script>` element. Replace `<Your Azure Maps Key>` with your Azure Maps subscription key.
 
@@ -103,7 +106,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
     </script>
     ```
 
-    If you're using Azure AD for authentication, copy and paste the following script element inside the `<head>` element, and below the first `<script>` element.
+    If you're using Microsoft Entra ID for authentication, copy and paste the following script element inside the `<head>` element, and below the first `<script>` element.
 
       ```HTML
     <script type="text/javascript">
@@ -115,9 +118,9 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
                 language: 'en-US',
                 authOptions: {
                     authType: 'aad',
-                    clientId: '<Your AAD Client Id>',
-                    aadAppId: '<Your AAD App Id>',
-                    aadTenant: '<Your AAD Tenant Id>'
+                    clientId: '<Your Microsoft Entra Client Id>',
+                    aadAppId: '<Your Microsoft Entra App Id>',
+                    aadTenant: '<Your Microsoft Entra tenant Id>'
                 }
             });
         }
@@ -195,7 +198,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
 
 8. Open the file in your web browser and view the rendered map. It should look like the following image:
 
-   ![Map image showing rendered result](./media/how-to-use-map-control/map-of-seattle.png)
+    :::image type="content" source="./media/how-to-use-map-control/map-of-seattle.png" alt-text="Screenshot of a map image showing rendered result." lightbox="./media/how-to-use-map-control/map-of-seattle.png":::
 
 ## Localizing the map
 
@@ -227,7 +230,7 @@ map = new atlas.Map('myMap', {
 
 Here's an example of Azure Maps with the language set to "fr-FR" and the regional view set to `Auto`.
 
-![Map image showing labels in French](./media/how-to-use-map-control/websdk-localization.png)
+:::image type="content" source="./media/how-to-use-map-control/websdk-localization.png" alt-text="Screenshot showing a map image with its labels in French." lightbox="./media/how-to-use-map-control/websdk-localization.png":::
 
 For a list of supported languages and regional views, see [Localization support in Azure Maps].
 
@@ -434,10 +437,10 @@ Learn best practices and see samples:
 > [!div class="nextstepaction"]
 > [Code samples](/samples/browse/?products=azure-maps)
 
-For a list of samples showing how to integrate Azure AD with Azure Maps, see:
+For a list of samples showing how to integrate Microsoft Entra ID with Azure Maps, see:
 
 > [!div class="nextstepaction"]
-> [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+> [Microsoft Entra authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
 
 [3D terrain tiles]: #3d-terrain-tiles
 [authentication options]: /javascript/api/azure-maps-control/atlas.authenticationoptions
@@ -452,6 +455,7 @@ For a list of samples showing how to integrate Azure AD with Azure Maps, see:
 [Map Control]: https://www.npmjs.com/package/azure-maps-control
 [ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[The Azure Maps Web SDK v1 migration guide]: web-sdk-migration-guide.md
 [Vue Azure Maps]: https://github.com/rickyruiz/vue-azure-maps
 [WebGL 2 Compatibility]: #webgl-2-compatibility
 [WebGL 2]: https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API#webgl_2

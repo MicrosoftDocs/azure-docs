@@ -57,7 +57,7 @@ GCP connector issues:
 - Make sure that the GCP Cloud Shell script completed successfully.
 - Make sure that GKE clusters are successfully connected to Arc-enabled Kubernetes.
 - Make sure that Azure Arc endpoints are in the firewall allowlist. The GCP connector makes API calls to these endpoints to fetch the necessary onboarding files.
-- If the onboarding of GCP projects failed, make sure you have “compute.regions.list” permission and Azure AD permission to create the service principle used as part of the onboarding process. Make sure that the GCP resources `WorkloadIdentityPoolId`, `WorkloadIdentityProviderId`, and `ServiceAccountEmail` are created in the GCP project.
+- If the onboarding of GCP projects failed, make sure you have “compute.regions.list” permission and Microsoft Entra permission to create the service principle used as part of the onboarding process. Make sure that the GCP resources `WorkloadIdentityPoolId`, `WorkloadIdentityProviderId`, and `ServiceAccountEmail` are created in the GCP project.
 
 ## Troubleshooting the Log Analytics agent
 
@@ -123,14 +123,14 @@ If you're having trouble onboarding the Log Analytics agent, make sure to read [
 
 ## Antimalware protection isn't working properly
 
-The guest agent is the parent process of everything the [Microsoft Antimalware](../security/fundamentals/antimalware.md) extension does. When the guest agent process fails, the Microsoft Antimalware protection that runs as a child process of the guest agent may also fail.
+The guest agent is the parent process of everything the [Microsoft Antimalware](../security/fundamentals/antimalware.md) extension does. When the guest agent process fails, the Microsoft Antimalware protection that runs as a child process of the guest agent might also fail.
 
 Here are some other troubleshooting tips:
 
 - If the target VM was created from a custom image, make sure that the creator of the VM installed guest agent.
 - If the target is a Linux VM, then installing the Windows version of the antimalware extension will fail. The Linux guest agent has specific OS and package requirements.
 - If the VM was created with an old version of guest agent, the old agents might not have the ability to auto-update to the newer version. Always use the latest version of guest agent when you create your own images.
-- Some third-party administration software may disable the guest agent, or block access to certain file locations. If third-party administration software is installed on your VM, make sure that the antimalware agent is on the exclusion list.
+- Some third-party administration software might disable the guest agent, or block access to certain file locations. If third-party administration software is installed on your VM, make sure that the antimalware agent is on the exclusion list.
 - Make sure that firewall settings and Network Security Group (NSG) aren't blocking network traffic to and from guest agent.
 - Make sure that there are no Access Control Lists (ACLs) that prevent disk access.
 - The guest agent requires sufficient disk space in order to function properly.

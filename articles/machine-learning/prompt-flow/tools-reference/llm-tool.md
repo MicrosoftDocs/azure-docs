@@ -19,7 +19,9 @@ Prompt flow LLM tool enables you to leverage widely used large language models l
 Prompt flow provides a few different LLM APIs:
 - **[Completion](https://platform.openai.com/docs/api-reference/completions)**: OpenAI's completion models generate text based on provided prompts.
 - **[Chat](https://platform.openai.com/docs/api-reference/chat)**: OpenAI's chat models facilitate interactive conversations with text-based inputs and responses.
-- **[Embedding](https://platform.openai.com/docs/api-reference/embeddings)**: OpenAI's embedding models convert text into dense vector representations for various NLP tasks.
+
+> [!NOTE]
+> We now remove the `embedding` option from LLM tool api setting. You can use embedding api with [Embedding tool](embedding-tool.md).
 
 > [!IMPORTANT]
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -52,7 +54,7 @@ Set up connections to provisioned resources in Prompt flow.
 
 | Name                   | Type        | Description                                                                             | Required |
 |------------------------|-------------|-----------------------------------------------------------------------------------------|----------|
-| prompt                 | string      | text prompt that the language model will complete                                       | Yes      |
+| prompt                 | string      | text prompt for the language model.                                     | Yes      |
 | model, deployment_name | string      | the language model to use                                                               | Yes      |
 | max\_tokens            | integer     | the maximum number of tokens to generate in the completion. Default is 16.              | No       |
 | temperature            | float       | the randomness of the generated text. Default is 1.                                     | No       |
@@ -82,21 +84,12 @@ Set up connections to provisioned resources in Prompt flow.
 | frequency\_penalty     | float       | value that controls the model's behavior with regard to generating rare phrases. Default is 0. | No       |
 | logit\_bias            | dictionary  | the logit bias for the language model. Default is empty dictionary.                            | No       |
 
-### Embedding
-
-|  Name                  | Type        | Description                                                           | Required |
-|------------------------|-------------|-----------------------------------------------------------------------|----------|
-| input                  | string      | the input text to embed                                               | Yes      |
-| model, deployment_name | string      | instance of the text-embedding engine to use                          | Yes      |
-
-
 ## Outputs
 
 | API        | Return Type | Description                              |
 |------------|-------------|------------------------------------------|
 | Completion | string      | The text of one predicted completion     |
 | Chat       | string      | The text of one response of conversation |
-| Embedding  | list        | The vector representations for inputs    |
 
 ## How to use LLM Tool?
 

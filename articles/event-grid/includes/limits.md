@@ -11,11 +11,8 @@ ms.custom: include file, build-2023
 ---
 
 > [!NOTE]
-> The following limits listed in this article are per region.
-
-## Event Grid throttle limits
-
-Event Grid offers a standard tier and basic tier. Event Grid standard tier enables pub-sub using MQTT broker functionality and pull delivery of messages through the Event Grid namespace. Event Grid basic tier enables push delivery using Event Grid custom topics, Event Grid system topics, Event domains and Event Grid partner topics. See [Choose the right Event Grid tier](../choose-right-tier.md). This article describes the quota and limits for both tiers.
+> - The following limits listed in this article are per region.
+> - See [throughput units (TUs)](../concepts-pull-delivery.md#throughput-units) for more information.
 
 ## Namespace resource limits
 
@@ -27,37 +24,46 @@ The following limits apply to namespace resources in Azure Event Grid.
 | Namespaces per Azure subscription      | 10    |
 | Maximum throughput units per namespace | 20    |
 
-See [throughput units (TUs)](../concepts-pull-delivery.md#throughput-units) for more information.
-
 ## MQTT limits in namespace
 
 The following limits apply to MQTT in Azure Event Grid namespace resource.
 
 | Limit description                            | Limit                                                                             |
 |----------------------------------------------|-----------------------------------------------------------------------------------|
-| MQTT connections per namespace               | 10,000 per TU                                                                     |
+| MQTT sessions per namespace               | 10,000 per TU                                                                     |
 | Sessions per namespace                       | 10,000 per TU                                                                     |
-| MQTT inbound publish requests per namespace  | Up to 1,000 messages per second or 1 MB per second per TU (whichever comes first) |
-| MQTT inbound publish requests per connection | Up to 100 messages per second or 1 MB per second (whichever comes first)          |
-| MQTT outbound publish requests per namespace | Up to 1,000 messages per second or 1 MB per second per TU (whichever comes first) |
-| MQTT outbound publish requests per connection| Up to 100 messages per second or 1 MB per second (whichever comes first)          |
-| Connect requests                             | 200 requests per second per TU                                                    |
-| Subscribe and unsubscribe requests           | 200 requests per second per TU                                                    |
+| Session Expiry Interval                      | 8 hours, [configurable on the namesapce](../mqtt-support.md#maximum-session-expiry-interval-configuration)|
+| Inbound MQTT publish requests per namespace  | 1,000 messages per second                                                         |
+| Inbound MQTT bandwidth per namespace         | 1 MB per second per TU                                                            |
+| Inbound MQTT publish requests per session | 100 messages per second                                                           |
+| Inbound MQTT bandwidth per session        | 1 MB per second                                                                   |
+| Outbound MQTT publish requests per namespace | 1,000 messages per second                                                         |
+| Outbound MQTT bandwidth per namespace        | 1 MB per second per TU                                                            |
+| Outbound MQTT publish requests per session| 100 messages per second                                                           |
+| Outbound MQTT bandwidth per session       | 1 MB per second                                                                   |
 | Max message size                             | 512 KB                                                                            |
+| Segments per topic/ topic filter             | 8                                                                                 |
 | Topic size                                   | 256 B                                                                             |
-| Segments per topic filter                    | 8                                                                                 |
-| MQTTv5 topic aliases                         | 10 per connection                                                                 |
-| Subscriptions per MQTT client session        | 50                                                                                |
-| Topic filters per MQTT SUBSCRIBE packet      | 10                                                                                |
+| MQTTv5 response topic                        | 256 B                                                                             |
+| MQTTv5 topic aliases                         | 10 per session                                                                 |
+| MQTTv5 total size of all user properties     | 32 KB                                                                              |
+| MQTTv5 content type size                     | 256 B                                                                             |
+| MQTTv5 correlation data size                 | 256 B                                                                             |
+| Connect requests                             | 200 requests per second per TU                                                    |
+| MQTTv5 authentication data size              | 8 KB                                                                              |
 | Maximum keep-alive interval                  | 1160                                                                              |
+| Topic filters per MQTT SUBSCRIBE packet      | 10                                                                                |
+| Subscribe and unsubscribe requests per namespace | 200 requests per second                                                       |
+| Subscribe and unsubscribe requests per session | 5 requests per second                                                        |
+| Subscriptions per MQTT session            | 50                                                                                |
+| Subscriptions per namespace                  | 1 million                                                                         |
+| Subscriptions per MQTT topic                 | Unlimited, as long as they don't exceed the limit for subscriptions per namespace or session|
 | Registered client resources                  | 10,000 clients per TU                                                             |
-| CA certificates                              | 2                                                                                 |
+| CA certificates                              | 10                                                                                 |
 | Client groups                                | 10                                                                                |
 | Topic spaces                                 | 10                                                                                |
 | Topic templates                              | 10 per topic space                                                                |
 | Permission bindings                          | 100                                                                               |
-
-
 
 
 ## Events limits in namespace
@@ -67,8 +73,8 @@ The following limits apply to events in Azure Event Grid namespace resource.
 | Limit description                                     | Limit                                                                              |
 |-------------------------------------------------------|------------------------------------------------------------------------------------|
 | Namespace topics                                      | 100 per TU                                                                         |
-| Event ingress                                         | Up to 1,000 events per second or 1 MB per second per TU (whichever comes first)    |
-| Event egress                                          | Up to 2,000 events per second or 2 MB per second per TU                            |
+| Event ingress                                         | 1,000 events per second or 1 MB per second per TU (whichever comes first)          |
+| Event egress                                          | 2,000 events per second or 2 MB per second per TU (whichever comes first)          |
 | Event duration period in topic                        | 1 day                                                                              |
 | Subscriptions per topic                               | 100                                                                                |
 | Connected clients per namespace (queue subscriptions) | 1,000                                                                              |

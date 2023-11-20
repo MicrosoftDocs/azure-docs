@@ -17,8 +17,11 @@ Monitoring of your Node.js web applications running on [Azure App Services](../.
 The easiest way to enable application monitoring for Node.js applications running on Azure App Services is through Azure portal.
 Turning on application monitoring in Azure portal will automatically instrument your application with Application Insights, and doesn't require any code changes.
 
+>[!NOTE]
+> You can configure the automatically attached agent using the APPLICATIONINSIGHTS_CONFIGURATION_CONTENT environment variable in the App Service Environment variable blade. For details on the configuration options that can be passed via this environment variable, see [Node.js Configuration](https://github.com/microsoft/ApplicationInsights-node.js#Configuration).
+
 > [!NOTE]
-> If both autoinstrumentation monitoring and manual SDK-based instrumentation are detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) in this article.
+> If both automatic instrumentation and manual SDK-based instrumentation are detected, only the manual instrumentation settings are honored. This is to prevent duplicate data from being sent. For more information, see the [troubleshooting section](#troubleshooting) in this article.
 
 ### Autoinstrumentation through Azure portal
 
@@ -106,7 +109,6 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
     If `SDKPresent` is true this indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off.
 
-
 # [Linux](#tab/linux)
 
 1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~3".
@@ -134,6 +136,8 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     ```
 
     If `SDKPresent` is true this indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off.
+
+
 ---
 
 [!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
@@ -152,3 +156,4 @@ For the latest updates and bug fixes, [consult the release notes](web-app-extens
 * [Receive alert notifications](../alerts/alerts-overview.md) whenever operational events happen or metrics cross a threshold.
 * Use [Application Insights for JavaScript apps and web pages](javascript.md) to get client telemetry from the browsers that visit a web page.
 * [Availability overview](availability-overview.md)
+

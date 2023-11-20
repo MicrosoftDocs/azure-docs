@@ -9,7 +9,7 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring engagement-fy23
-ms.date: 01/19/2023
+ms.date: 09/12/2023
 ---
 
 # Monitoring Azure Machine Learning data reference
@@ -55,9 +55,31 @@ Quota information is for Azure Machine Learning compute only.
 | Metric| Unit | Description |
 |--|--|--|
 | CpuUtilization | Count | Percentage of utilization on a CPU node. Utilization is reported at one-minute intervals. |
+| CpuUtilizationPercentage | Count | Utilization percentage of a CPU node. Utilization is aggregated in one minute intervals. |
+| CpuUtilizationMillicores | Count | Utilization of a CPU node in millicores. Utilization is aggregated in one minute intervals. |
+| CpuCapacityMillicores | Count | Maximum capacity of a CPU node in millicores. Capacity is aggregated in one minute intervals. |
+| CpuMemoryCapacityMegabytes | Count | Maximum memory utilization of a CPU node in megabytes. Utilization is aggregated in one minute intervals. |
+| CpuMemoryUtilizationMegabytes | Count | Memory utilization of a CPU node in megabytes. Utilization is aggregated in one minute intervals. |
+| CpuMemoryUtilizationPercentage | Count | Memory utilization percentage of a CPU node. Utilization is aggregated in one minute intervals. |
 | GpuUtilization | Count | Percentage of utilization on a GPU node. Utilization is reported at one-minute intervals. |
+| GpuUtilizationPercentage | Count | Utilization percentage of a GPU device. Utilization is aggregated in one minute intervals. |
+| GpuUtilizationMilliGPUs | Count | Utilization of a GPU device in milli-GPUs. Utilization is aggregated in one minute intervals. |
+| GpuCapacityMilliGPUs | Count | Maximum capacity of a GPU device in milli-GPUs. Capacity is aggregated in one minute intervals. |
+| GpuMemoryCapacityMegabytes | Count | Maximum memory capacity of a GPU device in megabytes. Capacity aggregated in at one minute intervals. |
 | GpuMemoryUtilization | Count | Percentage of memory utilization on a GPU node. Utilization is reported at one-minute intervals. |
+| GpuMemoryUtilizationMegabytes | Count | Memory utilization of a GPU device in megabytes. Utilization aggregated in at one minute intervals.
+| GpuMemoryUtilizationPercentage | Count | Memory utilization percentage of a GPU device. Utilization aggregated in at one minute intervals.
 | GpuEnergyJoules | Count | Interval energy in Joules on a GPU node. Energy is reported at one-minute intervals. |
+| DiskAvailMegabytes | Count | Available disk space in megabytes. Metrics are aggregated in one minute intervals. |
+| DiskReadMegabytes | Count | Data read from disk in megabytes. Metrics are aggregated in one minute intervals. |
+| DiskUsedMegabytes | Count | Used disk space in megabytes. Metrics are aggregated in one minute intervals. |
+| DiskWriteMegabytes | Count | Data written into disk in megabytes. Metrics are aggregated in one minute intervals. |
+| IBReceiveMegabytes | Count | Network data received over InfiniBand in megabytes. Metrics are aggregated in one minute intervals. |
+| IBTransmitMegabytes | Count | Network data sent over InfiniBand in megabytes. Metrics are aggregated in one minute intervals. |
+| NetworkInputMegabytes | Count | Network data received in megabytes. Metrics are aggregated in one minute intervals. |
+| NetworkOutputMegabytes | Count | Network data sent in megabytes. Metrics are aggregated in one minute intervals. |
+
+
 
 **Run**
 
@@ -272,7 +294,7 @@ The following schemas are in use by Azure Machine Learning
 | CorrelationId | A GUID used to group together a set of related events, when applicable. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The Azure Active Directory (Azure AD) tenant ID the operation was submitted for. |
+| AadTenantId | The Microsoft Entra tenant ID the operation was submitted for. |
 | AmlComputeInstanceName | "The name of the compute instance associated with the log entry. |
 
 ### AmlDataLabelEvent table
@@ -286,7 +308,7 @@ The following schemas are in use by Azure Machine Learning
 | CorrelationId | A GUID used to group together a set of related events, when applicable. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
+| AadTenantId | The Microsoft Entra tenant ID the operation was submitted for. |
 | AmlProjectId | The unique identifier of the Azure Machine Learning project. |
 | AmlProjectName | The name of the Azure Machine Learning project. |
 | AmlLabelNames | The label class names which are created for the project. |
@@ -303,7 +325,7 @@ The following schemas are in use by Azure Machine Learning
 | AmlWorkspaceId | A GUID and unique ID of the Azure Machine Learning workspace. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
+| AadTenantId | The Microsoft Entra tenant ID the operation was submitted for. |
 | AmlDatasetId | The ID of the Azure Machine Learning Data Set. |
 | AmlDatasetName | The name of the Azure Machine Learning Data Set. |
 
@@ -318,7 +340,7 @@ The following schemas are in use by Azure Machine Learning
 | AmlWorkspaceId | A GUID and unique ID of the Azure Machine Learning workspace. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
+| AadTenantId | The Microsoft Entra tenant ID the operation was submitted for. |
 | AmlDatastoreName | The name of the Azure Machine Learning Data Store. |
 
 ### AmlDeploymentEvent table
@@ -331,7 +353,7 @@ The following schemas are in use by Azure Machine Learning
 | ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
+| AadTenantId | The Microsoft Entra tenant ID the operation was submitted for. |
 | AmlServiceName | The name of the Azure Machine Learning Service. |
 
 ### AmlInferencingEvent table
@@ -344,7 +366,7 @@ The following schemas are in use by Azure Machine Learning
 | ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
+| AadTenantId | The Microsoft Entra tenant ID the operation was submitted for. |
 | AmlServiceName | The name of the Azure Machine Learning Service. |
 
 ### AmlModelsEvent table
@@ -357,7 +379,7 @@ The following schemas are in use by Azure Machine Learning
 | ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
+| AadTenantId | The Microsoft Entra tenant ID the operation was submitted for. |
 | ResultSignature | The HTTP status code of the event. Typical values include 200, 201, 202 etc. |
 | AmlModelName | The name of the Azure Machine Learning Model. |
 
@@ -373,7 +395,7 @@ The following schemas are in use by Azure Machine Learning
 | AmlWorkspaceId | The name of the Azure Machine Learning workspace. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
+| AadTenantId | The Microsoft Entra tenant ID the operation was submitted for. |
 | AmlModuleId | A GUID and unique ID of the module.|
 | AmlModelName | The name of the Azure Machine Learning Model. |
 | AmlPipelineId | The ID of the Azure Machine Learning pipeline. |
@@ -395,7 +417,7 @@ The following schemas are in use by Azure Machine Learning
 | OperationName | The name of the operation associated with the log entry |
 | AmlWorkspaceId | A GUID and unique ID of the Azure Machine Learning workspace. |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
+| AadTenantId | The Microsoft Entra tenant ID the operation was submitted for. |
 | RunId | The unique ID of the run. |
 
 ### AmlEnvironmentEvent  table
@@ -407,7 +429,7 @@ The following schemas are in use by Azure Machine Learning
 | Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
-| AadTenantId | The Azure AD tenant ID the operation was submitted for. |
+| AadTenantId | The Microsoft Entra tenant ID the operation was submitted for. |
 | AmlEnvironmentName | The name of the Azure Machine Learning environment configuration. |
 | AmlEnvironmentVersion | The name of the Azure Machine Learning environment configuration version. |
 

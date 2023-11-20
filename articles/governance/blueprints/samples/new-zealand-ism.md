@@ -6,6 +6,8 @@ ms.topic: sample
 ---
 # New Zealand ISM Restricted blueprint sample
 
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
+
 The New Zealand ISM Restricted blueprint sample provides governance guardrails using
 [Azure Policy](../../policy/overview.md) that help you assess specific
 [New Zealand Information Security Manual](https://www.nzism.gcsb.govt.nz/) controls. This blueprint

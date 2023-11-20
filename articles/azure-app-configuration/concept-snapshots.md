@@ -12,6 +12,8 @@ ms.date: 05/16/2023
 
 A snapshot is a named, immutable subset of an App Configuration store's key-values. The key-values that make up a snapshot are chosen during creation time through the usage of key and label filters. Once a snapshot is created, the key-values within are guaranteed to remain unchanged.
 
+A brief overview is available in this [video](https://aka.ms/appconfig/snapshotVideo), highlighting three reasons that snapshots can be helpful to you.
+
 ## Deploy safely with snapshots
 
 Snapshots are designed to safely deploy configuration changes. Deploying faulty configuration changes into a running environment can cause issues such as service disruption and data loss. In order to avoid such issues, it's important to be able to vet configuration changes before moving into production environments. If such an issue does occur, it's important to be able to roll back any faulty configuration changes in order to restore service. Snapshots are created for managing these scenarios.
@@ -47,11 +49,11 @@ As snapshots are immutable entities, snapshots can only be created and archived.
 
 ## Requirements for snapshot operations
 
-The following sections detail the permissions required to perform snapshot related operations with Azure AD and HMAC authentication.
+The following sections detail the permissions required to perform snapshot related operations with Microsoft Entra ID and HMAC authentication.
 
 ### Create a snapshot
 
-To create a snapshot in stores using Azure Active Directory (Azure AD) authentication, the following permissions are required. The App Configuration Data Owner role already has these permissions.
+To create a snapshot in stores using Microsoft Entra authentication, the following permissions are required. The App Configuration Data Owner role already has these permissions.
 - `Microsoft.AppConfiguration/configurationStores/keyvalues/read`
 - `Microsoft.AppConfiguration/configurationStores/snapshots/write`
 
@@ -59,21 +61,19 @@ To archive and/or recover a snapshot using HMAC authentication, a read-write acc
 
 ### Archive and recover a snapshot
 
-To archive and/or recover a snapshot using Azure AD authentication, the following permission is needed. The App Configuration Data Owner role already has this permission.
+To archive and/or recover a snapshot using Microsoft Entra authentication, the following permission is needed. The App Configuration Data Owner role already has this permission.
 - `Microsoft.AppConfiguration/configurationStores/snapshots/archive/action`
 
 To archive and/or recover a snapshot using HMAC authentication, a read-write access key must be used.
 
 ### Read and list snapshots
 
-To  list all snapshots, or get all the key-values in an individual snapshot by name the following permission is needed for stores utilizing Azure AD authentication. The built-in Data Owner and Data Reader roles already have this permission.
+To  list all snapshots, or get all the key-values in an individual snapshot by name the following permission is needed for stores utilizing Microsoft Entra authentication. The built-in Data Owner and Data Reader roles already have this permission.
 - `Microsoft.AppConfiguration/configurationStores/snapshots/read`
 
 For stores that use HMAC authentication, both the "read snapshot" operation (to read the key-values from a snapshot) and the "list snapshots" operation can be performed using either the read-write access keys or the read-only access keys.
 
 ## Billing considerations and limits
-
-The storage quota for snapshots is detailed in the "storage per resource section" of the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration/) There's no extra charge for snapshots before the included snapshot storage quota is exhausted.
 
 App Configuration has two tiers, Free and Standard. Check the following details for snapshot quotas in each tier.
 

@@ -114,4 +114,6 @@ Lastly, validate that your application content is getting served using a browser
 
 ## Next steps
 
-Learn how to [enable HTTPS for your custom domain](how-to-configure-https-custom-domain.md).
+* Learn how to [enable HTTPS for your custom domain](how-to-configure-https-custom-domain.md).
+* Learn more about [custom domains in Azure Front Door](../domain.md).
+* Learn about [End-to-end TLS with Azure Front Door](../end-to-end-tls.md).

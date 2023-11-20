@@ -4,10 +4,9 @@ titleSuffix: Azure AI services
 description: Azure AI Document Intelligence is a machine-learning based OCR and intelligent document processing service to automate extraction of key data from forms and documents.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: overview
-ms.date: 09/05/2023
+ms.date: 09/20/2023
 ms.author: lajanuar
 monikerRange: '<=doc-intel-3.1.0'
 ---
@@ -39,7 +38,7 @@ Azure AI Document Intelligence is a cloud-based [Azure AI service](../../ai-serv
 
 | ✔️ [**Document analysis models**](#document-analysis-models) | ✔️ [**Prebuilt models**](#prebuilt-models) | ✔️ [**Custom models**](#custom-model-overview) |
 
-### Document analysis models
+## Document analysis models
 
 Document analysis models enable text extraction from forms and documents and return structured business-ready content ready for your organization's action, use, or progress.
 
@@ -58,7 +57,7 @@ Document analysis models enable text extraction from forms and documents and ret
    :::column-end:::
 :::row-end:::
 
-### Prebuilt models
+## Prebuilt models
 
 Prebuilt models enable you to add intelligent document processing to your apps and flows without having to train and build your own models.
 
@@ -92,16 +91,16 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row-end:::
 :::row:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-w2.png" link="#w-2":::</br>
-    [**W2**](#w-2) | Extract taxable </br>compensation details.
-   :::column-end:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-1098e.png" link="#us-tax-1098-e-form":::</br>
-    [**US Tax 1098-E form**](#us-tax-1098-e-form) | Extract student loan interest details
+      :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-form":::</br>
+    [**US Tax W-2 form**](#us-tax-w-2-form) | Extract taxable </br>compensation details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form":::</br>
     [**US Tax 1098 form**](#us-tax-1098-form) | Extract mortgage interest details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-1098e.png" link="#us-tax-1098-e-form":::</br>
+    [**US Tax 1098-E form**](#us-tax-1098-e-form) | Extract student loan interest details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form":::</br>
@@ -111,7 +110,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
    :::column-end:::
 :::row-end:::
 
-### Custom models
+## Custom models
 
 Custom models are trained using your labeled datasets to extract distinct data from forms and documents, specific to your use cases. Standalone custom models can be combined to create composed models.
 
@@ -235,7 +234,18 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
 
-### W-2
+### Contract model
+
+:::image type="content" source="media/overview/analyze-contract.png" alt-text="Screenshot of Contract model extraction using Document Intelligence Studio.":::
+
+| About | Development options |
+|----------|--------------|
+|Extract contract agreement and party details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=contract)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
+
+> [!div class="nextstepaction"]
+> [Return to model types](#prebuilt-models)
+
+### US Tax W-2 form
 
 :::image type="content" source="media/overview/analyze-w2.png" alt-text="Screenshot of W-2 model analysis using Document Intelligence Studio.":::
 
@@ -246,13 +256,35 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
 
-### Contract model
+### US tax 1098 form
 
-:::image type="content" source="media/overview/analyze-contract.png" alt-text="Screenshot of Contract model extraction using Document Intelligence Studio.":::
+:::image type="content" source="media/overview/analyze-1098.png" alt-text="Screenshot of US 1098 tax form analyzed in the Document Intelligence Studio.":::
 
 | About | Development options |
 |----------|--------------|
-|Extract contract agreement and party details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=contract)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
+|Extract mortgage interest information and details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
+
+> [!div class="nextstepaction"]
+> [Return to model types](#prebuilt-models)
+
+### US tax 1098-E form
+
+:::image type="content" source="media/overview/analyze-1098e.png" alt-text="Screenshot of US 1098-E tax form analyzed in the Document Intelligence Studio.":::
+
+| About | Development options |
+|----------|--------------|
+|Extract student loan information and details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098E)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
+
+> [!div class="nextstepaction"]
+> [Return to model types](#prebuilt-models)
+
+### US tax 1098-T form
+
+:::image type="content" source="media/overview/analyze-1098t.png" alt-text="Screenshot of US 1098-T tax form analyzed in the Document Intelligence Studio.":::
+
+| About | Development options |
+|----------|--------------|
+|Extract tuition information and details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098T)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
@@ -331,40 +363,17 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to custom model types](#custom-models)
 
-### US tax 1098 form
+## Add-on capabilities
 
-:::image type="content" source="media/overview/analyze-1098.png" alt-text="Screenshot of US 1098 tax form analyzed in the Document Intelligence Studio.":::
+Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for`2023-07-31 (GA)` and later releases:
 
-| About | Development options |
-|----------|--------------|
-|Extract mortgage interest information and details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
+* [`ocr.highResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
 
-> [!div class="nextstepaction"]
-> [Return to model types](#prebuilt-models)
+* [`ocr.formula`](concept-add-on-capabilities.md#formula-extraction)
 
-### US tax 1098-E form
+* [`ocr.font`](concept-add-on-capabilities.md#font-property-extraction)
 
-:::image type="content" source="media/overview/analyze-1098e.png" alt-text="Screenshot of US 1098-E tax form analyzed in the Document Intelligence Studio.":::
-
-| About | Development options |
-|----------|--------------|
-|Extract student loan information and details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098E)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
-
-> [!div class="nextstepaction"]
-> [Return to model types](#prebuilt-models)
-
-### US tax 1098-T form
-
-:::image type="content" source="media/overview/analyze-1098t.png" alt-text="Screenshot of US 1098-T tax form analyzed in the Document Intelligence Studio.":::
-
-| About | Development options |
-|----------|--------------|
-|Extract tuition information and details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098T)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
-
-> [!div class="nextstepaction"]
-> [Return to model types](#prebuilt-models)
-
-### Add-on capabilities
+* [`ocr.barcode`](concept-add-on-capabilities.md#barcode-property-extraction)
 
 :::moniker-end
 

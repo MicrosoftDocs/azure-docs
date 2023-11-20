@@ -15,15 +15,17 @@ resource, an updated resource, or an existing resource.
 
 These effects are currently supported in a policy definition:
 
+- [AddToNetworkGroup](#addtonetworkgroup)
 - [Append](#append)
 - [Audit](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny)
-- [DenyAction (preview)](#denyaction-preview)
+- [DenyAction](#denyaction)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
 - [Manual](#manual)
 - [Modify](#modify)
+- [Mutate](#mutate-preview)
 
 ## Interchanging effects
 
@@ -48,7 +50,7 @@ manages the evaluation and outcome and reports the results back to Azure Policy.
 
 - **Disabled** is checked first to determine whether the policy rule should be evaluated.
 - **Append** and **Modify** are then evaluated. Since either could alter the request, a change made
-  may prevent an audit or deny effect from triggering. These effects are only available with a
+  might prevent an audit or deny effect from triggering. These effects are only available with a
   Resource Manager mode.
 - **Deny** is then evaluated. By evaluating deny before audit, double logging of an undesired
   resource is prevented.
@@ -63,6 +65,14 @@ logging or action is required.
 
 `PATCH` requests that only modify `tags` related fields restricts policy evaluation to
 policies containing conditions that inspect `tags` related fields.
+
+## AddToNetworkGroup
+
+AddToNetworkGroup is used in Azure Virtual Network Manager to define dynamic network group membership. This effect is specific to _Microsoft.Network.Data_ [policy mode](./definition-structure.md#resource-provider-modes) definitions only.
+
+With network groups, your policy definition includes your conditional expression for matching virtual networks meeting your criteria, and specifies the destination network group where any matching resources are placed. The addToNetworkGroup effect is used to place resources in the destination network group.
+
+To learn more, go to [Configuring Azure Policy with network groups in Azure Virtual Network Manager](../../../virtual-network-manager/concept-azure-policy-integration.md).
 
 ## Append
 
@@ -161,7 +171,7 @@ definitions as `constraintTemplate` is deprecated.
       location must be publicly accessible.
 
       > [!WARNING]
-      > Don't use SAS URIs, URL tokens, or or anything else that could expose secrets in plain text.
+      > Don't use SAS URIs, URL tokens, or anything else that could expose secrets in plain text.
 
     - If _Base64Encoded_, paired with property `content` to provide the base 64 encoded constraint
       template. See
@@ -207,7 +217,7 @@ definitions as `constraintTemplate` is deprecated.
   - An empty or missing value causes policy evaluation to include all labels and selectors, except
     namespaces defined in _excludedNamespaces_.
 - **scope** (optional)
-  - A _string_ that includes the [scope](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#the-match-field) property to allow specifying if cluster-scoped or namespaced-scoped resources are matched. 
+  - A _string_ that includes the [scope](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#the-match-field) property to allow specifying if cluster-scoped or namespaced-scoped resources are matched.
 - **apiGroups** (required when using _templateInfo_)
   - An _array_ that includes the
     [API groups](https://kubernetes.io/docs/reference/using-api/#api-groups) to match. An empty
@@ -284,11 +294,11 @@ related resources to match.
     However, an [audit](#audit) effect should be considered instead.
 
 > [!NOTE]
-> 
+>
 > **Type** and **Name** segments can be combined to generically retrieve nested resources.
-> 
-> To retrieve a specific resource, you can use `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/nestedResourceName"`. 
-> 
+>
+> To retrieve a specific resource, you can use `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/nestedResourceName"`.
+>
 > To retrieve a collection of nested resources, a wildcard character `?` can be provided in place of the last name segment. For example, `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/?"`. This can be combined with field functions to access resources related to the evaluated resource, such as `"name": "[concat(field('name'), '/?')]"`."
 
 - **ResourceGroupName** (optional)
@@ -312,7 +322,7 @@ related resources to match.
     complete, regardless of outcome. If provisioning takes longer than 6 hours, it's treated as a
     failure when determining _AfterProvisioning_ evaluation delays.
   - Default is `PT10M` (10 minutes).
-  - Specifying a long evaluation delay may cause the recorded compliance state of the resource to
+  - Specifying a long evaluation delay might cause the recorded compliance state of the resource to
     not update until the next
     [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (optional)
@@ -481,9 +491,9 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
 }
 ```
 
-## DenyAction (preview)
+## DenyAction
 
-`DenyAction` is used to block requests on intended action to resources. The only supported action today is `DELETE`. This effect helps prevent any accidental deletion of critical resources.
+`DenyAction` is used to block requests based on intended action to resources at scale. The only supported action today is `DELETE`. This effect and action name helps prevent any accidental deletion of critical resources.
 
 ### DenyAction evaluation
 
@@ -538,7 +548,7 @@ Example: Deny any delete calls targeting database accounts that have a tag envir
       ]
    },
    "then": {
-      "effect": "DenyAction",
+      "effect": "denyAction",
       "details": {
          "actionNames": [ "delete" ],
          "cascadeBehaviors": { "resourceGroup": "deny" }
@@ -587,11 +597,11 @@ related resources to match and the template deployment to execute.
     becomes _required_ and must be `[field('name')]`, or `[field('fullName')]` for a child resource.
 
 > [!NOTE]
-> 
+>
 > **Type** and **Name** segments can be combined to generically retrieve nested resources.
-> 
-> To retrieve a specific resource, you can use `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/nestedResourceName"`. 
-> 
+>
+> To retrieve a specific resource, you can use `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/nestedResourceName"`.
+>
 > To retrieve a collection of nested resources, a wildcard character `?` can be provided in place of the last name segment. For example, `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/?"`. This can be combined with field functions to access resources related to the evaluated resource, such as `"name": "[concat(field('name'), '/?')]"`."
 
 - **ResourceGroupName** (optional)
@@ -616,7 +626,7 @@ related resources to match and the template deployment to execute.
     complete, regardless of outcome. If provisioning takes longer than 6 hours, it's treated as a
     failure when determining _AfterProvisioning_ evaluation delays.
   - Default is `PT10M` (10 minutes).
-  - Specifying a long evaluation delay may cause the recorded compliance state of the resource to
+  - Specifying a long evaluation delay might cause the recorded compliance state of the resource to
     not update until the next
     [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (optional)
@@ -667,7 +677,7 @@ If not, then a deployment to enable is executed.
     "equals": "Microsoft.Sql/servers/databases"
 },
 "then": {
-    "effect": "DeployIfNotExists",
+    "effect": "deployIfNotExists",
     "details": {
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
@@ -721,7 +731,7 @@ of that policy's assignments.
 > Policy definitions that use the **Disabled** effect have the default compliance state **Compliant** after assignment.
 
 An alternative to the **Disabled** effect is **enforcementMode**, which is set on the policy assignment.
-When **enforcementMode** is **Disabled**_**, resources are still evaluated. Logging, such as Activity
+When **enforcementMode** is **Disabled**, resources are still evaluated. Logging, such as Activity
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
 
@@ -991,10 +1001,26 @@ is applied only when evaluating requests with API version greater or equals to `
     }
 }
 ```
+## Mutate (preview)
+
+Mutation is used in Azure Policy for Kubernetes to remediate AKS cluster components, like pods. This effect is specific to _Microsoft.Kubernetes.Data_ [policy mode](./definition-structure.md#resource-provider-modes) definitions only.
+
+To learn more, go to [Understand Azure Policy for Kubernetes clusters](./policy-for-kubernetes.md).
+
+### Mutate properties
+- **mutationInfo** (optional)
+  - Can't be used with `constraint`, `constraintTemplate`, `apiGroups`, or `kinds`.
+  - Cannot be parameterized.
+  - **sourceType** (required)
+    - Defines the type of source for the constraint. Allowed values: _PublicURL_ or _Base64Encoded_.
+    - If _PublicURL_, paired with property `url` to provide location of the mutation template. The location must be publicly accessible.
+      > [!WARNING]
+      > Don't use SAS URIs or tokens in `url` or anything else that could expose a secret.
+
 
 ## Layering policy definitions
 
-A resource may be affected by several assignments. These assignments may be at the same scope or at
+A resource can be affected by several assignments. These assignments might be at the same scope or at
 different scopes. Each of these assignments is also likely to have a different effect defined. The
 condition and effect for each policy is independently evaluated. For example:
 

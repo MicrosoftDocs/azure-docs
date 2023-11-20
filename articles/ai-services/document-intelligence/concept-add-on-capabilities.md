@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: How to increase service limit capacity with add-on capabilities.
 author: jaep3347
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 08/25/2023
 ms.author: lajanuar
@@ -23,11 +22,13 @@ monikerRange: 'doc-intel-3.1.0'
 
 > [!NOTE]
 >
-> Add-on capabilities for Document Intelligence Studio are available with the Read and Layout models starting with the `2023-02-28-preview` and later releases.
+> Add-on capabilities for Document Intelligence Studio are available with the Read and Layout models starting with the `2023-07-31 (GA)` and later releases.
 >
 > Add-on capabilities are available within all models except for the [Business card model](concept-business-card.md).
 
-Document Intelligence now supports more sophisticated analysis capabilities. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. The following add-on capabilities are available for`2023-02-28-preview` and later releases:
+Document Intelligence supports more sophisticated analysis capabilities. These optional features can be enabled and disabled depending on the scenario of the document extraction. The following add-on capabilities are available for `2023-07-31 (GA)` and later releases:
+
+Document Intelligence now supports more sophisticated analysis capabilities. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. The following add-on capabilities are available for `2023-07-31 (GA)` and later releases:
 
 * [`ocr.highResolution`](#high-resolution-extraction)
 

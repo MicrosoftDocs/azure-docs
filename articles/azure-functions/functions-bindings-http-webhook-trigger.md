@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 03/06/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Functions HTTP trigger
@@ -23,6 +23,9 @@ For more information about HTTP bindings, see the [overview](./functions-binding
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
 ::: zone pivot="programming-language-python"
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
 
@@ -47,7 +50,26 @@ This article supports both programming models.
 
 The code in this article defaults to .NET Core syntax, used in Functions version 2.x and higher. For information on the 1.x syntax, see the [1.x functions templates](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
-# [In-process](#tab/in-process)    
+# [Isolated worker model](#tab/isolated-process)
+
+The following example shows an HTTP trigger that returns a "hello, world" response as an [IActionResult], using [ASP.NET Core integration in .NET Isolated]:
+
+```csharp
+[Function("HttpFunction")]
+public IActionResult Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest req)
+{
+    return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
+}
+```
+
+[IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
+
+The following example shows an HTTP trigger that returns a "hello world" response as an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger":::
+
+# [In-process model](#tab/in-process)    
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that looks for a `name` parameter either in the query string or the body of the HTTP request. Notice that the return value is used for the output binding, but a return value attribute isn't required.
 
@@ -74,25 +96,6 @@ public static async Task<IActionResult> Run(
         : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
 }
 ```
-
-# [Isolated process](#tab/isolated-process)
-
-The following example shows an HTTP trigger that returns a "hello world" response as an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger":::
-
-The following example shows an HTTP trigger that returns a "hello, world" response as an [IActionResult], using [ASP.NET Core integration in .NET Isolated]:
-
-```csharp
-[Function("HttpFunction")]
-public IActionResult Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest req)
-{
-    return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
-}
-```
-
-[IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
 
 ---
 
@@ -286,7 +289,30 @@ public HttpResponseMessage run(
 ```
 
 ::: zone-end  
+::: zone pivot="programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows an HTTP trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function looks for a `name` parameter either in the query string or the body of the HTTP request.
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTrigger1.ts" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end  
 ::: zone pivot="programming-language-javascript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows an HTTP trigger [JavaScript function](functions-reference-node.md). The function looks for a `name` parameter either in the query string or the body of the HTTP request.
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTrigger1.js" :::
+
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
@@ -333,6 +359,8 @@ module.exports = async function(context, req) {
     }
 };
 ```
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -473,7 +501,17 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `HttpTriggerAttribute` to define the trigger binding. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#http-trigger).
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+In [isolated worker process](dotnet-isolated-process-guide.md) function apps, the `HttpTriggerAttribute` supports the following parameters:
+
+| Parameters | Description|
+|---------|----------------------|
+|  **AuthLevel** | Determines what keys, if any, need to be present on the request in order to invoke the function. For supported values, see [Authorization level](#http-auth).  |
+| **Methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](#customize-the-http-endpoint). |
+| **Route** | Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
+
+# [In-process model](#tab/in-process)
 
 In [in-process functions](functions-dotnet-class-library.md), the `HttpTriggerAttribute` supports the following parameters:
 
@@ -483,16 +521,6 @@ In [in-process functions](functions-dotnet-class-library.md), the `HttpTriggerAt
 | **Methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](#customize-the-http-endpoint). |
 | **Route** | Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
 | **WebHookType** | _Supported only for the version 1.x runtime._<br/><br/>Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. For supported values, see [WebHook type](#webhook-type).|
-
-# [Isolated process](#tab/isolated-process)
-
-In [isolated worker process](dotnet-isolated-process-guide.md) function apps, the `HttpTriggerAttribute` supports the following parameters:
-
-| Parameters | Description|
-|---------|----------------------|
-|  **AuthLevel** | Determines what keys, if any, need to be present on the request in order to invoke the function. For supported values, see [Authorization level](#http-auth).  |
-| **Methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](#customize-the-http-endpoint). |
-| **Route** | Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
 
 ---
 
@@ -507,9 +535,9 @@ For Python v2 functions defined using a decorator, the following properties for 
 
 | Property    | Description |
 |-------------|-----------------------------|
-| `route` | Route for the http endpoint, if None, it will be set to function name if present or user defined python function name. |
-| `trigger_arg_name` | Argument name for HttpRequest, defaults to 'req'. |
-| `binding_arg_name` | Argument name for HttpResponse, defaults to '$return'. |
+| `route` | Route for the http endpoint. If None, it will be set to function name if present or user defined python function name. |
+| `trigger_arg_name` | Argument name for HttpRequest. The default value is 'req'. |
+| `binding_arg_name` | Argument name for HttpResponse. The default value is '$return'. |
 | `methods` | A tuple of the HTTP methods to which the function responds. |
 | `auth_level` | Determines what keys, if any, need to be present on the request in order to invoke the function. |
 
@@ -528,7 +556,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 + [route](/java/api/com.microsoft.azure.functions.annotation.httptrigger.route)
 
 ::: zone-end 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"  
 
 ## Configuration
 ::: zone-end
@@ -537,7 +565,35 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 _Applies only to the Python v1 programming model._
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following table explains the properties that you can set on the `options` object passed to the `app.http()` method.
+
+| Property | Description |
+|---------|---------------------|
+| **authLevel** |  Determines what keys, if any, need to be present on the request in order to invoke the function. For supported values, see [Authorization level](#http-auth).  |
+| **methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](#customize-the-http-endpoint). |
+| **route** |  Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
+
+# [Model v3](#tab/nodejs-v3)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+|function.json property | Description|
+|---------|---------------------|
+| **type** | Required - must be set to `httpTrigger`. |
+| **direction** | Required - must be set to `in`. |
+| **name** | Required - the variable name used in function code for the request or request body. |
+| **authLevel** |  Determines what keys, if any, need to be present on the request in order to invoke the function. For supported values, see [Authorization level](#http-auth).  |
+| **methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](#customize-the-http-endpoint). |
+| **route** |  Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
+
+---
+
+::: zone-end 
+::: zone pivot="programming-language-powershell,programming-language-python"  
 
 The following table explains the trigger configuration properties that you set in the *function.json* file, which differs by runtime version.
 
@@ -589,21 +645,17 @@ The [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger
 
 ### Payload
 
-# [In-process](#tab/in-process)   
-
-The trigger input type is declared as either `HttpRequest` or a custom type. If you choose `HttpRequest`, you get full access to the request object. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The trigger input type is declared as one of the following types:
 
 | Type              | Description | 
 |-|-|
-| [HttpRequestData] | A projection of the full request object. |
 | [HttpRequest]     | _Use of this type requires that the app is configured with [ASP.NET Core integration in .NET Isolated]._<br/>This gives you full access to the request object and overall HttpContext. |
+| [HttpRequestData] | A projection of the request object. |
 | A custom type     | When the body of the request is JSON, the runtime will try to parse it to set the object properties. |
 
-When using `HttpRequestData` or `HttpRequest`, custom types can also be bound to additional parameters using `Microsoft.Azure.Functions.Worker.Http.FromBodyAttribute`. Use of this attribute requires [`Microsoft.Azure.Functions.Worker.Extensions.Http` version 3.1.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http). Note that this is a different type than the similar attribute in `Microsoft.AspNetCore.Mvc`, and when using ASP.NET Core integration, you will need a fully qualified reference or `using` statement. The following example shows how to use the attribute to get just the body contents while still having access to the full `HttpRequest`, using the ASP.NET Core integration:
+When the trigger parameter is an `HttpRequestData`  an `HttpRequest`, custom types can also be bound to additional parameters using `Microsoft.Azure.Functions.Worker.Http.FromBodyAttribute`. Use of this attribute requires [`Microsoft.Azure.Functions.Worker.Extensions.Http` version 3.1.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http). Note that this is a different type than the similar attribute in `Microsoft.AspNetCore.Mvc`, and when using ASP.NET Core integration, you will need a fully qualified reference or `using` statement. The following example shows how to use the attribute to get just the body contents while still having access to the full `HttpRequest`, using the ASP.NET Core integration:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -627,6 +679,10 @@ namespace AspNetIntegration
 }
 ```
 
+# [In-process model](#tab/in-process)   
+
+The trigger input type is declared as either `HttpRequest` or a custom type. If you choose `HttpRequest`, you get full access to the request object. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
+
 ---
 
 ::: zone-end 
@@ -643,23 +699,7 @@ You can customize this route using the optional `route` property on the HTTP tri
 
 ::: zone pivot="programming-language-csharp"
 
-# [In-process](#tab/in-process)
-
-The following C# function code accepts two parameters `category` and `id` in the route and writes a response using both parameters.
-
-```csharp
-[FunctionName("Function1")]
-public static IActionResult Run(
-[HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "products/{category:alpha}/{id:int?}")] HttpRequest req,
-string category, int? id, ILogger log)
-{
-    log.LogInformation("C# HTTP trigger function processed a request.");
-
-    var message = String.Format($"Category: {category}, ID: {id}");
-    return (ActionResult)new OkObjectResult(message);
-}
-```
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following function code accepts two parameters `category` and `id` in the route and writes a response using both parameters.
 
@@ -681,6 +721,22 @@ FunctionContext executionContext)
 }
 ```
 
+# [In-process model](#tab/in-process)
+
+The following C# function code accepts two parameters `category` and `id` in the route and writes a response using both parameters.
+
+```csharp
+[FunctionName("Function1")]
+public static IActionResult Run(
+[HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "products/{category:alpha}/{id:int?}")] HttpRequest req,
+string category, int? id, ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
+
+    var message = String.Format($"Category: {category}, ID: {id}");
+    return (ActionResult)new OkObjectResult(message);
+}
+```
 ---
 
 ::: zone-end
@@ -712,7 +768,30 @@ public class HttpTriggerJava {
 ```
 
 ::: zone-end 
-::: zone pivot="programming-language-javascript,programming-language-powershell"  
+::: zone pivot="programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+As an example, the following TypeScript code defines a `route` property for an HTTP trigger with two parameters, `category` and `id`. The example reads the parameters from the request and returns their values in the response.
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTrigger2.ts" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end 
+::: zone pivot="programming-language-javascript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+As an example, the following JavaScript code defines a `route` property for an HTTP trigger with two parameters, `category` and `id`. The example reads the parameters from the request and returns their values in the response.
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTrigger2.js" :::
+
+# [Model v3](#tab/nodejs-v3)
 
 As an example, the following *function.json* file defines a `route` property for an HTTP trigger with two parameters, `category` and `id`:
 
@@ -734,6 +813,23 @@ As an example, the following *function.json* file defines a `route` property for
     ]
 }
 ```
+
+The Functions runtime provides the request body from the `context` object. The following example shows how to read route parameters from `context.bindingData`.
+
+```javascript
+module.exports = async function (context, req) {
+
+    var category = context.bindingData.category;
+    var id = context.bindingData.id;
+    var message = `Category: ${category}, ID: ${id}`;
+
+    context.res = {
+        body: message;
+    }
+}
+```
+
+---
 
 ::: zone-end 
 ::: zone pivot="programming-language-python"
@@ -773,24 +869,6 @@ In the *function.json* file:
 ---
 
 ::: zone-end 
-::: zone pivot="programming-language-javascript"
-
-The Functions runtime provides the request body from the `context` object. The following example shows how to read route parameters from `context.bindingData`.
-
-```javascript
-module.exports = async function (context, req) {
-
-    var category = context.bindingData.category;
-    var id = context.bindingData.id;
-    var message = `Category: ${category}, ID: ${id}`;
-
-    context.res = {
-        body: message;
-    }
-}
-```
-
-::: zone-end  
 ::: zone pivot="programming-language-powershell" 
 
 Route parameters declared in the *function.json* file are accessible as a property of the `$Request.Params` object.
@@ -851,7 +929,7 @@ By default, all function routes are prefixed with *api*. You can also customize 
 ### Using route parameters
 
 Route parameters that defined a function's `route` pattern are available to each binding. For example, if you have a route defined as `"route": "products/{id}"` then a table storage binding can use the value of the `{id}` parameter in the binding configuration.
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 The following configuration shows how the `{id}` parameter is passed to the binding's `rowKey`.
 ::: zone-end
 ::: zone pivot="programming-language-python"  
@@ -877,7 +955,39 @@ The following configuration shows how the `{id}` parameter is passed to the bind
 ```
 ---
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell"  
+::: zone pivot="programming-language-typescript"
+# [Model v4](#tab/nodejs-v4)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTrigger3.ts" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+::: zone-end
+::: zone pivot="programming-language-javascript"
+# [Model v4](#tab/nodejs-v4)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTrigger3.js" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+```json
+{
+    "type": "table",
+    "direction": "in",
+    "name": "product",
+    "connection": "MyStorageConnectionAppSetting",
+    "partitionKey": "products",
+    "tableName": "products",
+    "rowKey": "{id}"
+}
+```
+
+---
+::: zone-end
+::: zone pivot="programming-language-powershell"  
 ```json
 {
     "type": "table",
@@ -902,7 +1012,11 @@ You can also read this information from binding data. This capability is only av
 ::: zone pivot="programming-language-csharp"
 Information regarding authenticated clients is available as a [ClaimsPrincipal], which is available as part of the request context as shown in the following example:
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+The authenticated user is available via [HTTP Headers](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
+
+# [In-process model](#tab/in-process)
 
 ```csharp
 using System.Net;
@@ -931,14 +1045,10 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
     return;
 }
 ```
-# [Isolated process](#tab/isolated-process)
-
-The authenticated user is available via [HTTP Headers](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
-
 ---
 
 ::: zone-end 
-::: zone pivot="programming-language-javascript,programming-language-java,programming-language-python,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-java,programming-language-python,programming-language-powershell"  
 
 The authenticated user is available via [HTTP Headers](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
@@ -1011,9 +1121,9 @@ The `webHookType` binding property indicates the type if webhook supported by th
 
 | Type value | Description |
 | --- | --- |
-| **genericJson**| A general-purpose webhook endpoint without logic for a specific provider. This setting restricts requests to only those using HTTP POST and with the `application/json` content type.|
-| **[github](#github-webhooks)** | The function responds to [GitHub webhooks](https://developer.github.com/webhooks/). Don't use the  `authLevel` property with GitHub webhooks. | 
-| **[slack](#slack-webhooks)** | The function responds to [Slack webhooks](https://api.slack.com/outgoing-webhooks). Don't use the `authLevel` property with Slack webhooks. |
+| **`genericJson`**| A general-purpose webhook endpoint without logic for a specific provider. This setting restricts requests to only those using HTTP POST and with the `application/json` content type.|
+| **[`github`](#github-webhooks)** | The function responds to [GitHub webhooks](https://developer.github.com/webhooks/). Don't use the  `authLevel` property with GitHub webhooks. | 
+| **[`slack`](#slack-webhooks)** | The function responds to [Slack webhooks](https://api.slack.com/outgoing-webhooks). Don't use the `authLevel` property with Slack webhooks. |
 
 When setting the `webHookType` property, don't also set the `methods` property on the binding. 
 

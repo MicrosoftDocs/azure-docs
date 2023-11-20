@@ -3,7 +3,6 @@ title: Manage Azure Native Qumulo Scalable File Service
 description: This article describes how to manage Azure Native Qumulo Scalable File Service in the Azure portal. 
 
 ms.topic: how-to 
-ms.custom: template-how-to
 ms.date: 01/18/2023
 ---
 

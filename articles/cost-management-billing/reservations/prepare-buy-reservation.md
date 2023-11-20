@@ -7,7 +7,7 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 08/21/2023
+ms.date: 10/31/2023
 ms.author: banders
 ---
 
@@ -140,7 +140,7 @@ Notifications are sent to the following users:
 - Customers with Microsoft Customer Agreement (Azure Plan)
     - Notifications are sent to the reservation owners and the reservation administrator.
 - Cloud Solution Provider and new commerce partners
-    - Emails are sent to the partner notification contact. 
+    - Partner Center Action Center emails are sent to partners. For more information about how partners can update their transactional notifications, see [Action Center preferences](/partner-center/action-center-overview#preferences).
 - Individual subscription customers with pay-as-you-go rates
     - Emails are sent to users who are set up as account administrators, reservation owners, and the reservation administrator.
 

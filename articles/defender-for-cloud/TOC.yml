@@ -221,6 +221,8 @@
       href: concept-data-security-posture.md
     - name: Support and prerequisites
       href: concept-data-security-posture-prepare.md
+    - name: Data security dashboard
+      href: data-aware-security-dashboard-overview.md  
   - name: Improve your container security posture
     items:
     - name: Agentless container posture
@@ -236,6 +238,9 @@
     - name: Reference list of GCP recommendations
       displayName: gcp, recommendations
       href: recommendations-reference-gcp.md
+    - name: Reference list of DevOps recommendations
+      displayName: devops, recommendations
+      href: recommendations-reference-devops.md
     - name: Reference list of attack paths and cloud security graph components
       displayName: attack, paths, security, graph, components
       href: attack-path-reference.md
@@ -418,7 +423,7 @@
     - name: Overview
       displayName: auto, provisioning, auto-provisioning, Settings & monitoring
       href: monitoring-components.md
-    - name: Deploy the Azure Monitor agent
+    - name: Azure Monitor Agent in Defender for Cloud
       displayName: AMA, Azure monitor agent
       href: auto-deploy-azure-monitoring-agent.md
     - name: Working with the Log Analytics agent
@@ -565,7 +570,7 @@
         href: view-and-remediate-vulnerabilities-for-images-running-on-aks.md
       - name: Disable vulnerabilities on images
         href: disable-vulnerability-findings-containers.md
-      - name: Subassessment REST API
+      - name: REST API
         href: subassessment-rest-api.md 
     - name: Vulnerability assessment for AWS
       displayName: AWS, ECR, registry, images, qualys
@@ -636,6 +641,9 @@
       - name: Enable Defender for SQL servers on machines
         href: defender-for-sql-usage.md
         displayName: hybrid, arc, Azure Defender
+      - name: Migrate to SQL server-targeted Azure Monitoring Agent's autoprovisioning process
+        href: defender-for-sql-autoprovisioning.md
+        displayName: defender for sql, autoprovisioning, auto provisioning, auto-provisioning
       - name: Scan your SQL resources for vulnerabilities
         href: defender-for-sql-on-machines-vulnerability-assessment.md
         displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
@@ -749,6 +757,9 @@
     - name: Overview
       displayName: DevOps
       href: defender-for-devops-introduction.md
+    - name: DevOps posture management
+      displayName: DevOps posture management
+      href: concept-devops-posture-management-overview.md
     - name: Protect DevOps environments
       items: 
       - name: Connect GitHub repositories

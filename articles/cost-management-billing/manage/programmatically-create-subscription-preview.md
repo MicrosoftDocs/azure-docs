@@ -170,7 +170,7 @@ In the response, as part of the header `Location`, you get back a url that you c
 
 ### [PowerShell](#tab/azure-powershell)
 
-To install the latest version of the module that contains the `New-AzSubscription` cmdlet, run `Install-Module Az.Subscription`. To install a recent version of PowerShellGet, see [Get PowerShellGet Module](/powershell/gallery/powershellget/install-powershellget).
+To install the version of the module that contains the `New-AzSubscriptionAlias` cmdlet, in below example run `Install-Module Az.Subscription -RequiredVersion 0.9.0`. To install version 0.9.0 of PowerShellGet, see [Get PowerShellGet Module](/powershell/gallery/powershellget/install-powershellget).
 
 Run the [New-AzSubscription](/powershell/module/az.subscription) command below, replacing `<enrollmentAccountObjectId>` with the `ObjectId` collected in the first step (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). To specify owners, see [how to get user object IDs](grant-access-to-create-subscription.md#userObjectId).
 

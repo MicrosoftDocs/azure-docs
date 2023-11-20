@@ -3,8 +3,6 @@ items:
   href: index.yml
 - name: Switch to Data Factory in Microsoft Fabric documentation
   href: /fabric/data-factory
-- name: Switch to version 1 documentation
-  href: v1/data-factory-introduction.md
 - name: Overview
   items:
   - name: Introduction to Data Factory
@@ -14,8 +12,6 @@ items:
     href: whats-new.md
   - name: What's new (archived months)
     href: whats-new-archive.md
-  - name: Compare current version to version 1
-    href: compare-versions.md
     displayName: timeout
 - name: Quickstarts
   expanded: true
@@ -352,6 +348,8 @@ items:
         href: continuous-integration-delivery.md
       - name: Automate with Azure Pipelines releases
         href: continuous-integration-delivery-automate-azure-pipelines.md
+      - name: Automate with GitHub Actions
+        href: continuous-integration-delivery-automate-github-actions.md
       - name: Manually promote a Resource Manager template for each environment
         href: continuous-integration-delivery-manual-promotion.md
       - name: Use custom parameters with a Resource Manager template
@@ -509,6 +507,8 @@ items:
       displayName: active directory
     - name: Microsoft Access
       href: connector-microsoft-access.md
+    - name: Microsoft Fabric Lakehouse
+      href: connector-microsoft-fabric-lakehouse.md
     - name: MongoDB
       href: connector-mongodb.md
       items:
@@ -1005,7 +1005,7 @@ items:
     - name: Configure Self-Hosted IR as a proxy for Azure-SSIS IR
       href: self-hosted-integration-runtime-proxy-ssis.md
       displayName: self hosted
-    - name: Enable Azure AD authentication for Azure-SSIS IR
+    - name: Enable Microsoft Entra authentication for Azure-SSIS IR
       href: enable-aad-authentication-azure-ssis-ir.md
       displayName: active directory
     - name: Connect to data with Windows Authentication
@@ -1322,12 +1322,22 @@ items:
       href: how-does-managed-airflow-work.md
     - name: How to change the Airflow password
       href: password-change-airflow.md
+    - name: Create a private requirement Package
+      href: airflow-create-private-requirement-package.md
     - name: Enable Azure Key Vault for Airflow
       href: enable-azure-key-vault-for-managed-airflow.md
-    - name: Add Kubernetes secret to access a private container registry
+    - name: Kubernetes secret to access private container registry
       href: kubernetes-secret-pull-image-from-private-container-registry.md
-    - name: Rest APIs for managing the Airflow integrated runtime
+    - name: Rest APIs for the Airflow integrated runtime
       href: rest-apis-for-airflow-integrated-runtime.md
+    - name: Retrieve the IP address of an Airflow cluster
+      href: airflow-get-ip-airflow-cluster.md
+    - name: Sync a GitHub repository with Airflow
+      href: airflow-sync-github-repository.md
+    - name: Diagnostic logs and metrics
+      href: how-to-diagnostic-logs-and-metrics-for-managed-airflow.md
+    - name: CI/CD Patterns with Managed Airflow
+      href: ci-cd-pattern-with-airflow.md
   - name: Pricing
     href: airflow-pricing.md
 - name: Reference

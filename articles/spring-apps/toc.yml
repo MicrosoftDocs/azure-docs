@@ -24,6 +24,8 @@ items:
     href: quickstart.md?pivots=sc-enterprise
   - name: Launch your first web app
     href: quickstart-deploy-web-app.md?pivots=sc-enterprise
+  - name: Launch your first RESTful API app
+    href: quickstart-deploy-restful-api-app.md
   - name: Launch your first event-driven app
     href: quickstart-deploy-event-driven-app.md?pivots=sc-enterprise
   - name: Launch your first microservice apps
@@ -33,12 +35,14 @@ items:
 - name: Tutorials
   expanded: true
   items:
-  - name: "Run polyglot apps on Enterprise plan (ACME Fitness Store)"
+  - name: Run polyglot apps on Enterprise plan
     items:
     - name: Introduction to Fitness Store sample
       href: quickstart-sample-app-acme-fitness-store-introduction.md
     - name: Build and deploy apps
       href: quickstart-deploy-apps-enterprise.md
+    - name: Integrate Azure OpenAI
+      href: quickstart-fitness-store-azure-openai.md
     - name: Configure single sign-on
       href: quickstart-configure-single-sign-on-enterprise.md
     - name: Integrate Azure Database for PostgreSQL and Azure Cache for Redis
@@ -67,10 +71,6 @@ items:
       href: quickstart-logs-metrics-tracing.md
     - name: Integrate with Azure Database for MySQL
       href: quickstart-integrate-azure-database-mysql.md
-  - name: "Production-ready"
-    items:
-     - name: Custom DNS name
-       href: how-to-custom-domain.md
   - name: Authenticate client with Spring Cloud Gateway
     href: tutorial-authenticate-client-with-gateway.md
 - name: Concepts
@@ -159,10 +159,10 @@ items:
           href: how-to-configure-enterprise-spring-cloud-gateway-filters.md
         - name: Troubleshoot
           href: how-to-troubleshoot-enterprise-spring-cloud-gateway.md
-      - name: Use VMware Tanzu Application Accelerator
-        href: how-to-use-accelerator.md
       - name: Configure Tanzu Dev Tools
         href: how-to-use-dev-tool-portal.md
+      - name: Use VMware Tanzu Application Accelerator
+        href: how-to-use-accelerator.md
       - name: Use Application Live View
         href: how-to-use-application-live-view.md
       - name: Monitor apps using Application Live View
@@ -203,6 +203,8 @@ items:
         href: how-to-outbound-public-ip.md
       - name: Move across regions
         href: how-to-move-across-regions.md
+      - name: Configure planned maintenance
+        href: how-to-configure-planned-maintenance.md
     - name: Scale
       items:
       - name: Manually scale an app
@@ -233,8 +235,6 @@ items:
         href: tutorial-alerts-action-groups.md
       - name: Circuit Breaker Dashboard
         href: tutorial-circuit-breaker.md
-      - name: Distributed tracing and App Insights
-        href: how-to-distributed-tracing.md
       - name: Analyze logs and metrics
         href: diagnostic-services.md
       - name: Stream logs in real time
@@ -257,7 +257,7 @@ items:
         href: how-to-custom-domain.md
       - name: Deploy Azure Spring Apps in a virtual network
         href: how-to-deploy-in-azure-virtual-network.md
-      - name: Access your application in a private network
+      - name: Access your app in a private network
         href: access-app-virtual-network.md
       - name: Expose applications to the internet with TLS Termination at gateway
         href: expose-apps-gateway-tls-termination.md
@@ -303,10 +303,10 @@ items:
         href: how-to-github-actions.md
       - name: Auth with Key Vault in GitHub Actions
         href: github-actions-key-vault.md
-    - name: Disaster recovery
+    - name: Reliability
       items:
-      - name: Redundancy and high availability
-        href: how-to-enable-redundancy-and-disaster-recovery.md
+      - name: Disaster recovery and availability zones
+        href: ../reliability/reliability-spring-apps.md?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Troubleshoot
       items:
       - name: Self-diagnose and solve problems
@@ -417,6 +417,8 @@ items:
         href: how-to-outbound-public-ip.md
       - name: Move across regions
         href: how-to-move-across-regions.md
+      - name: Configure planned maintenance
+        href: how-to-configure-planned-maintenance.md
     - name: Scale
       items:
       - name: Manually scale an app
@@ -447,8 +449,6 @@ items:
         href: tutorial-alerts-action-groups.md
       - name: Circuit Breaker Dashboard
         href: tutorial-circuit-breaker.md
-      - name: Distributed tracing and App Insights
-        href: how-to-distributed-tracing.md
       - name: Analyze logs and metrics
         href: diagnostic-services.md
       - name: Stream logs in real time
@@ -475,6 +475,8 @@ items:
         href: how-to-elastic-diagnostic-settings.md
       - name: Health probes and graceful termination
         href: how-to-configure-health-probes-graceful-termination.md
+      - name: Optimize application observability
+        href: application-observability.md
     - name: Network
       items:
       - name: Custom DNS name
@@ -577,12 +579,15 @@ items:
     href: /powershell/module/az.springcloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Azure Pipelines task
     href: /azure/devops/pipelines/tasks/deploy/azure-spring-cloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: REST API reference
+    href: /rest/api/azurespringcloud/?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Azure Policy built-in definitions
+    href: policy-reference.md
+  - name: Region availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=spring-apps
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/spring-apps/
   - name: Resources
     href: resources.md
   - name: Frequently asked questions
     href: faq.md
-  - name: REST API reference
-    href: /rest/api/azurespringcloud/?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: policy-reference.md

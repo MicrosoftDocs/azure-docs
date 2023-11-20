@@ -5,7 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 08/24/2023
+ms.date: 09/13/2023
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy24
 #Customer intent: As a VMware VM admin, I want to assess my VMware VMs in preparation for migration to Azure.
@@ -144,7 +144,7 @@ To view an assessment:
    - The Azure readiness graph displays the status of the VM.
    - The Supportability section displays the distribution by OS license support status and the distribution by Windows Server version.
    - The Savings option section displays the estimated savings on moving to Azure.
- 
+
 ### Review readiness
 
 1. Select **Azure readiness**.
@@ -191,6 +191,12 @@ Confidence ratings are as follows.
 81%-100% | 5 stars
 
 [Learn more](concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence ratings.
+
+### Review issues
+
+In the Assessment report, you can see a list of errors if there are any issues faced by the assessment service for any VM. To troubleshoot the issues, select **Details** in the **Issues** column to view errors corresponding to a VM. A context pane will open with detailed information about the errors. Use this information to resolve the issues.
+
+![Screenshot of issue details.](./media/tutorial-assess-vmware-azure-vm/issue-details.png)
 
 ## Next steps
 

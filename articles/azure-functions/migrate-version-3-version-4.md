@@ -2,24 +2,18 @@
 title: Migrate apps from Azure Functions version 3.x to 4.x 
 description: This article shows you how to upgrade your existing function apps running on version 3.x of the Azure Functions runtime to be able to run on version 4.x of the runtime. 
 ms.service: azure-functions
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-azurecli
 ms.topic: how-to 
 ms.date: 07/31/2023
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# <a name="top"></a>Migrate apps from Azure Functions version 3.x to version 4.x 
+# Migrate apps from Azure Functions version 3.x to version 4.x 
 
 Azure Functions version 4.x is highly backwards compatible to version 3.x. Most apps should safely upgrade to 4.x without requiring significant code changes. For more information about Functions runtime versions, see [Azure Functions runtime versions overview](./functions-versions.md).
 
 > [!IMPORTANT]
-> As of December 13, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime have reached the end of life (EOL) of extended support. 
-> 
-> Apps using versions 2.x and 3.x can still be created and deployed from your CI/CD DevOps pipeline, and all existing apps continue to run without breaking changes. However, your apps are not eligible for new features, security patches, and performance optimizations. You'll only get related service support once you upgrade them to version 4.x.
-> 
-> End of support for these older runtime versions is due to the end of support for .NET Core 3.1, which they had as a core dependency. This requirement affects all [languages supported by Azure Functions](supported-languages.md). 
->
-> We highly recommend that you migrate your function apps to version 4.x of the Functions runtime by following this article.
+> As of December 13, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime have reached the end of life (EOL) of extended support. For more information, see [Retired versions](functions-versions.md#retired-versions).
 
 This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime. Because project upgrade instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
 
@@ -116,9 +110,13 @@ Use one of the following procedures to update this XML file to run in Functions 
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-isolated-2](../../includes/functions-dotnet-migrate-project-v4-isolated-2.md)]
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net-framework](../../includes/functions-dotnet-migrate-project-v4-isolated-net-framework.md)]
+
+# [.NET 8 Preview (isolated)](#tab/net8)
+
+[!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net8](../../includes/functions-dotnet-migrate-project-v4-isolated-net8.md)]
 
 ---
 
@@ -138,7 +136,11 @@ Based on the model you are migrating to, you may need to upgrade or change the p
 
 [!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
+
+[!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
+
+# [.NET 8 Preview (isolated)](#tab/net8)
 
 [!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
 
@@ -150,7 +152,19 @@ When migrating to run in an isolated worker process, you must add the following 
 
 # [.NET 6 (isolated)](#tab/net6-isolated)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="23-29":::
+```csharp
+using Microsoft.Extensions.Hosting;
+
+var host = new HostBuilder()
+    .ConfigureFunctionsWebApplication()
+    .ConfigureServices(services => {
+        services.AddApplicationInsightsTelemetryWorkerService();
+        services.ConfigureFunctionsApplicationInsights();
+    })
+    .Build();
+
+host.Run();
+```
 
 # [.NET 6 (in-process)](#tab/net6-in-proc)
 
@@ -158,11 +172,62 @@ A program.cs file isn't required when running in-process.
 
 # [.NET 7](#tab/net7)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="23-29":::
+```csharp
+using Microsoft.Extensions.Hosting;
 
-# [.NET Framework 4.8](#tab/v4)
+var host = new HostBuilder()
+    .ConfigureFunctionsWebApplication()
+    .ConfigureServices(services => {
+        services.AddApplicationInsightsTelemetryWorkerService();
+        services.ConfigureFunctionsApplicationInsights();
+    })
+    .Build();
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="2-20":::
+host.Run();
+```
+
+# [.NET Framework 4.8](#tab/netframework48)
+
+```csharp
+using Microsoft.Extensions.Hosting;
+using Microsoft.Azure.Functions.Worker;
+
+namespace Company.FunctionApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            FunctionsDebugger.Enable();
+
+            var host = new HostBuilder()
+                .ConfigureFunctionsWorkerDefaults()
+                .ConfigureServices(services => {
+                    services.AddApplicationInsightsTelemetryWorkerService();
+                    services.ConfigureFunctionsApplicationInsights();
+                })
+                .Build();
+            host.Run();
+        }
+    }
+}
+```
+
+# [.NET 8 Preview (isolated)](#tab/net8)
+
+```csharp
+using Microsoft.Extensions.Hosting;
+
+var host = new HostBuilder()
+    .ConfigureFunctionsWebApplication()
+    .ConfigureServices(services => {
+        services.AddApplicationInsightsTelemetryWorkerService();
+        services.ConfigureFunctionsApplicationInsights();
+    })
+    .Build();
+
+host.Run();
+```
 
 ---
 
@@ -190,7 +255,14 @@ When you upgrade to version 4.x, make sure that your local.settings.json file ha
 > [!NOTE]
 > When migrating from running in-process to running in an isolated worker process, you need to change the `FUNCTIONS_WORKER_RUNTIME` value to "dotnet-isolated".
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
+
+:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
+
+> [!NOTE]
+> When migrating from running in-process to running in an isolated worker process, you need to change the `FUNCTIONS_WORKER_RUNTIME` value to "dotnet-isolated".
+
+# [.NET 8 Preview (isolated)](#tab/net8)
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
 
@@ -233,7 +305,7 @@ Some key classes changed names between versions. These changes are a result eith
 | `IActionResult` | `HttpResponseData` | `HttpResponseData`, `IActionResult` (using [ASP.NET Core integration])|
 | `FunctionsStartup` (attribute) | Uses [`Program.cs`](#programcs-file) instead | Uses [`Program.cs`](#programcs-file) instead | 
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 | .NET Core 3.1  | .NET 5 |.NET Framework 4.8 | 
 | --- | --- | --- | 
@@ -242,6 +314,17 @@ Some key classes changed names between versions. These changes are a result eith
 | `HttpRequest` | `HttpRequestData` | `HttpRequestData`|
 | `IActionResult` | `HttpResponseData` | `HttpResponseData`|
 | `FunctionsStartup` (attribute) | Uses [`Program.cs`](#programcs-file) instead | Uses [`Program.cs`](#programcs-file) instead | 
+
+# [.NET 8 Preview (isolated)](#tab/net8)
+
+| .NET Core 3.1  | .NET 5 | .NET 7 | 
+| --- | --- | --- | 
+| `FunctionName` (attribute) | `Function` (attribute) | `Function` (attribute) | 
+| `ILogger` | `ILogger` | `ILogger`, `ILogger<T>` |
+| `HttpRequest` | `HttpRequestData` | `HttpRequestData`, `HttpRequest` (using [ASP.NET Core integration])|
+| `IActionResult` | `HttpResponseData` | `HttpResponseData`, `IActionResult` (using [ASP.NET Core integration])|
+| `FunctionsStartup` (attribute) | Uses [`Program.cs`](#programcs-file) instead | Uses [`Program.cs`](#programcs-file) instead | 
+
 
 ---
 
@@ -269,7 +352,11 @@ Sames as version 3.x (in-process).
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
+
+:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
+
+# [.NET 8 Preview (isolated)](#tab/net8)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
 

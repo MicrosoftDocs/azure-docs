@@ -4,7 +4,7 @@ description: Tutorial - Step-by-step instructions on how to build Apache Spark m
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
-ms.date: 08/28/2022
+ms.date: 09/14/2023
 
 # Customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to create a simple machine learning Spark application.
 ---
@@ -81,7 +81,7 @@ This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/
 
     In the code snippet, you define a function that compares the actual temperature with the target temperature. If the actual temperature is greater, the building is hot, denoted by the value **1.0**. Otherwise the building is cold, denoted by the value **0.0**.
 
-1. Configure the Spark machine learning pipeline that consists of three stages: tokenizer, hashingTF, and lr.
+1. Configure the Spark machine learning pipeline that consists of three stages: `tokenizer`, `hashingTF`, and `lr`.
 
     ```PySpark
     tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
@@ -144,12 +144,12 @@ This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/
     ```PySpark
     # SystemInfo here is a combination of system ID followed by system age
     Document = Row("id", "SystemInfo")
-    test = sc.parallelize([(1L, "20 25"),
-                    (2L, "4 15"),
-                    (3L, "16 9"),
-                    (4L, "9 22"),
-                    (5L, "17 10"),
-                    (6L, "7 22")]) \
+    test = sc.parallelize([("1L", "20 25"),
+                    ("2L", "4 15"),
+                    ("3L", "16 9"),
+                    ("4L", "9 22"),
+                    ("5L", "17 10"),
+                    ("6L", "7 22")]) \
         .map(lambda x: Document(*x)).toDF()
     ```
 
@@ -160,7 +160,7 @@ This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/
     prediction = model.transform(test)
     selected = prediction.select("SystemInfo", "prediction", "probability")
     for row in selected.collect():
-        print row
+        print (row)
     ```
 
     The output is similar to:

@@ -6,10 +6,10 @@ items:
   items:
   - name: What is Azure Communications Gateway?
     href: overview.md
-  - name: What's new?
-    href: whats-new.md
   - name: Get started
     href: get-started.md
+  - name: What's new?
+    href: whats-new.md
 - name: Planning
   items:
   - name: Your network and Communications Gateway
@@ -34,6 +34,8 @@ items:
     href: prepare-to-deploy.md
   - name: Deploy Azure Communications Gateway
     href: deploy.md
+  - name: Integrate with the Provisioning API
+    href: integrate-with-provisioning-api.md
 - name: Integration with Operator Connect and Teams Phone Mobile
   items:
   - name: Overview of interoperability
@@ -47,9 +49,39 @@ items:
   - name: Mobile Control Point
     href: mobile-control-point.md
   - name: Emergency calling
-    href: emergency-calling-operator-connect.md
+    href: emergency-calls-operator-connect.md
   - name: Use the Number Management Portal
     href: manage-enterprise-operator-connect.md
+- name: Integration with Microsoft Teams Direct Routing
+  items:
+  - name: Overview of interoperability
+    href: interoperability-teams-direct-routing.md
+  - name: Setup
+    items:
+    - name: Connect
+      href: connect-teams-direct-routing.md
+    - name: Configure a test customer
+      href: configure-test-customer-teams-direct-routing.md
+    - name: Configure test numbers
+      href: configure-test-numbers-teams-direct-routing.md
+    - name: Prepare for live traffic
+      href: prepare-for-live-traffic-teams-direct-routing.md
+  - name: Emergency calling
+    href: emergency-calls-teams-direct-routing.md
+- name: Integration with Zoom Phone Cloud Peering
+  items:
+  - name: Overview of interoperability
+    href: interoperability-zoom.md
+  - name: Setup
+    items:
+    - name: Connect
+      href: connect-zoom.md
+    - name: Configure test numbers
+      href: configure-test-numbers-zoom.md
+    - name: Prepare for live traffic
+      href: prepare-for-live-traffic-zoom.md
+  - name: Emergency calling
+    href: emergency-calls-zoom.md
 - name: Maintenance
   items:
   - name: Set up user roles
@@ -62,7 +94,7 @@ items:
       href: monitoring-azure-communications-gateway-data-reference.md
   - name: Get support or request changes
     href: request-changes.md
-- name: Resources
+- name: Reference
   items:
   - name: Azure Communications Gateway product page
     href: https://azure.microsoft.com/products/communications-gateway
@@ -70,4 +102,7 @@ items:
     href: https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/connect
   - name: Overview of Teams Phone Mobile
     href: https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/teams-phone-mobile
-
+  - name: Overview of multitenant Microsoft Teams Direct Routing
+    href: /microsoftteams/direct-routing-sbc-multiple-tenants
+  - name: Overview of Zoom Phone Cloud Peering
+    href: https://partner.zoom.us/partner-type/cloud-peering/

@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Batch
 description: Lists Azure Policy built-in policy definitions for Azure Batch. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 09/06/2023
+ms.date: 11/06/2023
 ms.topic: reference
 ms.custom: subject-policy-reference
 ---

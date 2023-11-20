@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 08/29/2023
+ms.date: 10/19/2023
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -38,7 +38,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / [80], 443                  | Inbound            | TCP                | Internet / VirtualNetwork           | **Client communication to API Management**                     | External only            |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VirtualNetwork       | **Management endpoint for Azure portal and PowerShell**         | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VirtualNetwork / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
-| * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) and Azure Key Vault dependency (optional)              | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureActiveDirectory | [Microsoft Entra ID](api-management-howto-aad.md) and Azure Key Vault dependency (optional)              | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureConnectors | [Authorizations](authorizations-overview.md) dependency (optional)              | External & Internal  |
 | * / 1433                     | Outbound           | TCP                | VirtualNetwork / Sql                 | **Access to Azure SQL endpoints**                           | External & Internal  |
 | * / 443                     | Outbound           | TCP                | VirtualNetwork / AzureKeyVault                | **Access to Azure Key Vault**                         | External & Internal  |
@@ -49,6 +49,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / 6381 - 6383              | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access internal Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
 | * / 4290              | Inbound & Outbound | UDP                | VirtualNetwork / VirtualNetwork     | Sync Counters for [Rate Limit](rate-limit-policy.md) policies between machines (optional)        | External & Internal  |
 | * / 6390                       | Inbound            | TCP                | AzureLoadBalancer / VirtualNetwork | **Azure Infrastructure Load Balancer**                          | External & Internal  |
+| * / 443                       | Inbound            | TCP                | AzureTrafficManager / VirtualNetwork | **Azure Traffic Manager**  routing for multi-region deployment                        | External |
 
 ### [stv1](#tab/stv1)
 
@@ -57,7 +58,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / [80], 443                  | Inbound            | TCP                | Internet / VirtualNetwork            | **Client communication to API Management**                     | External only          |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VirtualNetwork       | **Management endpoint for Azure portal and PowerShell**       | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VirtualNetwork / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
-| * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) and Azure Key Vault dependency  (optional)                | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureActiveDirectory | [Microsoft Entra ID](api-management-howto-aad.md) and Azure Key Vault dependency  (optional)                | External & Internal  |
 | * / 443                     | Outbound           | TCP                | VirtualNetwork / AzureKeyVault                | Access to Azure Key Vault for [named values](api-management-howto-properties.md) integration (optional)                         | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureConnectors | [Authorizations](authorizations-overview.md) dependency (optional)              | External & Internal  |
 | * / 1433                     | Outbound           | TCP                | VirtualNetwork / Sql                 | **Access to Azure SQL endpoints**                           | External & Internal  |
@@ -69,6 +70,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / 6381 - 6383              | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access internal Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
 | * / 4290              | Inbound & Outbound | UDP                | VirtualNetwork / VirtualNetwork     | Sync Counters for [Rate Limit](rate-limit-policy.md) policies between machines (optional)        | External & Internal  |
 | * / *                         | Inbound            | TCP                | AzureLoadBalancer / VirtualNetwork | **Azure Infrastructure Load Balancer** (required for Premium SKU, optional for other SKUs)                        | External & Internal  |
+| * / 443                       | Inbound            | TCP                | AzureTrafficManager / VirtualNetwork | **Azure Traffic Manager** routing for multi-region deployment                         | External only |
 
 ---
 
@@ -85,9 +87,11 @@ To enable TLS/SSL certificate chain building and validation, the API Management 
 
 Outbound access on port `53` is required for communication with DNS servers. If a custom DNS server exists on the other end of a VPN gateway, the DNS server must be reachable from the subnet hosting API Management.
 
-## Azure Active Directory integration
+<a name='azure-active-directory-integration'></a>
 
-To operate properly, the API Management service needs outbound connectivity on port 443 to the following endpoints associated with Azure Active Directory: `<region>.login.microsoft.com` and `login.microsoftonline.com`. 
+## Microsoft Entra integration
+
+To operate properly, the API Management service needs outbound connectivity on port 443 to the following endpoints associated with Microsoft Entra ID: `<region>.login.microsoft.com` and `login.microsoftonline.com`. 
 
 ## Metrics and health monitoring 
 

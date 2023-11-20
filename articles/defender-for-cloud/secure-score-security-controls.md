@@ -58,7 +58,7 @@ The contribution of each security control towards the overall secure score is sh
 To get all the possible points for a security control, all of your resources must comply with all of the security recommendations within the security control. For example, Defender for Cloud has multiple recommendations regarding how to secure your management ports. You'll need to remediate them all to make a difference to your secure score.
 
 > [!NOTE]
-> Each control is calculated every eight hours per subscription or cloud connector. Recommendations within a control are updated more frequently than the control, and so there may be discrepancies between the resources count on the recommendations versus the one found on the control.
+> Each control is calculated every eight hours per subscription or cloud connector. Recommendations within a control are updated more frequently than the control, and so there might be discrepancies between the resources count on the recommendations versus the one found on the control.
 
 ### Example scores for a control
 
@@ -100,7 +100,7 @@ In this example:
 
 ### Which recommendations are included in the secure score calculations?
 
-Only built-in recommendations that are part of the default initiative, Azure Security Benchmark, have an impact on the secure score.
+Only built-in recommendations that are part of the default initiative, Microsoft Cloud Security Benchmark, have an impact on the secure score.
 Recommendations flagged as **Preview** aren't included in the calculations of your secure score. They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
 
 Preview recommendations are marked with: :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false":::
@@ -122,7 +122,7 @@ We recommend every organization carefully reviews their assigned Azure Policy in
 > [!TIP]
 > For details about reviewing and editing your initiatives, see [manage security policies](tutorial-security-policy.md).
 
-Even though Defender for Cloud's default security initiative, the Azure Security Benchmark, is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. It's sometimes necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies, industry standards, regulatory standards, and benchmarks.<br><br>
+Even though Defender for Cloud's default security initiative, the Microsoft Cloud Security Benchmark, is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. It's sometimes necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies, industry standards, regulatory standards, and benchmarks.<br><br>
 
 [!INCLUDE [security-center-controls-and-recommendations](../../includes/asc/security-control-recommendations.md)]
 

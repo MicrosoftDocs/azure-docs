@@ -3,7 +3,7 @@ title: Set daily cap on Log Analytics workspace
 description: Set a 
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 03/28/2022
+ms.date: 10/23/2023
 ---
  
 # Set daily cap on Log Analytics workspace
@@ -51,7 +51,7 @@ The maximum cap for an Application Insights classic resource is 1,000 GB/day unl
 We've removed the restriction on some subscription types that have credit that couldn't be used for Application Insights. Previously, if the subscription has a spending limit, the daily cap dialog has instructions to remove the spending limit and enable the daily cap to be raised beyond 32.3 MB/day.
 
 ## Determine your daily cap
-To help you determine an appropriate  daily cap for your workspace, see [Azure Monitor cost and usage](../usage-estimated-costs.md) to understand your data ingestion trends. You can also review [Analyze usage in Log Analytics workspace](analyze-usage.md) which provides methods to analyze your workspace usage in more detail. 
+To help you determine an appropriate  daily cap for your workspace, see [Azure Monitor cost and usage](../cost-usage.md) to understand your data ingestion trends. You can also review [Analyze usage in Log Analytics workspace](analyze-usage.md) which provides methods to analyze your workspace usage in more detail. 
 
 
 

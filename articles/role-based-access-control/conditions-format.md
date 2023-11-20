@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/10/2023
+ms.date: 09/20/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
@@ -251,7 +251,7 @@ Depending on the selected actions, the attribute might be found in different pla
 > | Attribute source | Description | Code |
 > | --- | --- | --- |
 > | [Environment](#environment-attributes) | Indicates that the attribute is associated with the environment of the request, such as the network origin of the request or the current date and time.</br>***(Environment attributes are currently in preview.)*** | `@Environment` |
-> | [Principal](#principal-attributes) | Indicates that the attribute is an Azure AD custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity.</br>***(Principal attributes are currently in preview.)*** | `@Principal` |
+> | [Principal](#principal-attributes) | Indicates that the attribute is a Microsoft Entra custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity.</br>***(Principal attributes are currently in preview.)*** | `@Principal` |
 > | [Request](#request-attributes) | Indicates that the attribute is part of the action request, such as setting the blob index tag. | `@Request` |
 > | [Resource](#resource-attributes) | Indicates that the attribute is a property of the resource, such as a container name. | `@Resource` |
 
@@ -283,7 +283,7 @@ The following table lists the supported environment attributes for conditions.
 
 #### Principal attributes
 
-Principal attributes are Azure AD custom security attributes associated with the principal requesting access to a resource. The security principal can be a user, an enterprise application (a service principal), or a managed identity.
+Principal attributes are Microsoft Entra custom security attributes associated with the principal requesting access to a resource. The security principal can be a user, an enterprise application (a service principal), or a managed identity.
 
 > [!IMPORTANT]
 > Principal attributes are currently in PREVIEW.
@@ -291,15 +291,15 @@ Principal attributes are Azure AD custom security attributes associated with the
 
 To use principal attributes, you must have **all** of the following:
 
-- Azure AD Premium P1 or P2 license
-- Azure AD permissions for signed-in user, such as the [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) role
-- Custom security attributes defined in Azure AD
+- Microsoft Entra ID P1 or P2 license
+- Microsoft Entra permissions for signed-in user, such as the [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) role
+- Custom security attributes defined in Microsoft Entra ID
 
 For more information about custom security attributes, see:
 
 - [Allow read access to blobs based on tags and custom security attributes (Preview)](conditions-custom-security-attributes.md)
 - [Principal does not appear in Attribute source (Preview)](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source)
-- [Add or deactivate custom security attributes in Azure AD (Preview)](../active-directory/fundamentals/custom-security-attributes-add.md)
+- [Add or deactivate custom security attributes in Microsoft Entra ID (Preview)](../active-directory/fundamentals/custom-security-attributes-add.md)
 
 #### Request attributes
 
@@ -460,6 +460,17 @@ This section lists the date/time comparison operators that are available to cons
 > | **Description** | Full-precision check with the format: `yyyy-mm-ddThh:mm:ss.mmmmmmmZ`. Used for blob version ID, blob snapshot, and UTC now. |
 > | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T00:00:00.0Z'` |
 
+## GUID comparison operators
+
+This section lists the globally unique identifier (GUID) comparison operators that are available to construct conditions.
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Operators** | `GuidEquals`<br/>`GuidNotEquals` |
+> | **Description** | Case-insensitive matching with the format: `00000000-0000-0000-0000-000000000000`. Used to identify a resource, such as principal ID or role definition ID. |
+> | **Examples** |  |
+
 ## Cross product comparison operators
 
 This section lists the cross product comparison operators that are available to construct conditions.
@@ -469,7 +480,7 @@ This section lists the cross product comparison operators that are available to 
 > [!div class="mx-tdCol2BreakAll"]
 > | Property | Value |
 > | --- | --- |
-> | **Operators** | `ForAnyOfAnyValues:StringEquals`<br/>`ForAnyOfAnyValues:StringEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotEquals`<br/>`ForAnyOfAnyValues:StringNotEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringLike`<br/>`ForAnyOfAnyValues:StringLikeIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotLike`<br/>`ForAnyOfAnyValues:StringNotLikeIgnoreCase`<br/>`ForAnyOfAnyValues:NumericEquals`<br/>`ForAnyOfAnyValues:NumericNotEquals`<br/>`ForAnyOfAnyValues:NumericGreaterThan`<br/>`ForAnyOfAnyValues:NumericGreaterThanEquals`<br/>`ForAnyOfAnyValues:NumericLessThan`<br/>`ForAnyOfAnyValues:NumericLessThanEquals` |
+> | **Operators** | `ForAnyOfAnyValues:StringEquals`<br/>`ForAnyOfAnyValues:StringEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotEquals`<br/>`ForAnyOfAnyValues:StringNotEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringLike`<br/>`ForAnyOfAnyValues:StringLikeIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotLike`<br/>`ForAnyOfAnyValues:StringNotLikeIgnoreCase`<br/>`ForAnyOfAnyValues:NumericEquals`<br/>`ForAnyOfAnyValues:NumericNotEquals`<br/>`ForAnyOfAnyValues:NumericGreaterThan`<br/>`ForAnyOfAnyValues:NumericGreaterThanEquals`<br/>`ForAnyOfAnyValues:NumericLessThan`<br/>`ForAnyOfAnyValues:NumericLessThanEquals`<br/>`ForAnyOfAnyValues:GuidEquals`<br/>`ForAnyOfAnyValues:GuidNotEquals` |
 > | **Description** | If at least one value on the left-hand side satisfies the comparison to at least one value on the right-hand side, then the expression evaluates to true. Has the format: `ForAnyOfAnyValues:<BooleanFunction>`. Supports multiple strings and numbers. |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/encryptionScopes:name] ForAnyOfAnyValues:StringEquals {'validScope1', 'validScope2'}`<br/>If encryption scope name equals `validScope1` or `validScope2`, then true.<br/><br/>`{'red', 'blue'} ForAnyOfAnyValues:StringEquals {'blue', 'green'}`<br/>true<br/><br/>`{'red', 'blue'} ForAnyOfAnyValues:StringEquals {'orange', 'green'}`<br/>false |
 
@@ -478,7 +489,7 @@ This section lists the cross product comparison operators that are available to 
 > [!div class="mx-tdCol2BreakAll"]
 > | Property | Value |
 > | --- | --- |
-> | **Operators** | `ForAllOfAnyValues:StringEquals`<br/>`ForAllOfAnyValues:StringEqualsIgnoreCase`<br/>`ForAllOfAnyValues:StringNotEquals`<br/>`ForAllOfAnyValues:StringNotEqualsIgnoreCase`<br/>`ForAllOfAnyValues:StringLike`<br/>`ForAllOfAnyValues:StringLikeIgnoreCase`<br/>`ForAllOfAnyValues:StringNotLike`<br/>`ForAllOfAnyValues:StringNotLikeIgnoreCase`<br/>`ForAllOfAnyValues:NumericEquals`<br/>`ForAllOfAnyValues:NumericNotEquals`<br/>`ForAllOfAnyValues:NumericGreaterThan`<br/>`ForAllOfAnyValues:NumericGreaterThanEquals`<br/>`ForAllOfAnyValues:NumericLessThan`<br/>`ForAllOfAnyValues:NumericLessThanEquals` |
+> | **Operators** | `ForAllOfAnyValues:StringEquals`<br/>`ForAllOfAnyValues:StringEqualsIgnoreCase`<br/>`ForAllOfAnyValues:StringNotEquals`<br/>`ForAllOfAnyValues:StringNotEqualsIgnoreCase`<br/>`ForAllOfAnyValues:StringLike`<br/>`ForAllOfAnyValues:StringLikeIgnoreCase`<br/>`ForAllOfAnyValues:StringNotLike`<br/>`ForAllOfAnyValues:StringNotLikeIgnoreCase`<br/>`ForAllOfAnyValues:NumericEquals`<br/>`ForAllOfAnyValues:NumericNotEquals`<br/>`ForAllOfAnyValues:NumericGreaterThan`<br/>`ForAllOfAnyValues:NumericGreaterThanEquals`<br/>`ForAllOfAnyValues:NumericLessThan`<br/>`ForAllOfAnyValues:NumericLessThanEquals`<br/>`ForAllOfAnyValues:GuidEquals`<br/>`ForAllOfAnyValues:GuidNotEquals` |
 > | **Description** | If every value on the left-hand side satisfies the comparison to at least one value on the right-hand side, then the expression evaluates to true. Has the format: `ForAllOfAnyValues:<BooleanFunction>`. Supports multiple strings and numbers. |
 > | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] ForAllOfAnyValues:StringEquals {'Cascade', 'Baker', 'Skagit'}`<br/><br/>`{'red', 'blue'} ForAllOfAnyValues:StringEquals {'orange', 'red', 'blue'}`<br/>true<br/><br/>`{'red', 'blue'} ForAllOfAnyValues:StringEquals {'red', 'green'}`<br/>false |
 
@@ -487,7 +498,7 @@ This section lists the cross product comparison operators that are available to 
 > [!div class="mx-tdCol2BreakAll"]
 > | Property | Value |
 > | --- | --- |
-> | **Operators** | `ForAnyOfAllValues:StringEquals`<br/>`ForAnyOfAllValues:StringEqualsIgnoreCase`<br/>`ForAnyOfAllValues:StringNotEquals`<br/>`ForAnyOfAllValues:StringNotEqualsIgnoreCase`<br/>`ForAnyOfAllValues:StringLike`<br/>`ForAnyOfAllValues:StringLikeIgnoreCase`<br/>`ForAnyOfAllValues:StringNotLike`<br/>`ForAnyOfAllValues:StringNotLikeIgnoreCase`<br/>`ForAnyOfAllValues:NumericEquals`<br/>`ForAnyOfAllValues:NumericNotEquals`<br/>`ForAnyOfAllValues:NumericGreaterThan`<br/>`ForAnyOfAllValues:NumericGreaterThanEquals`<br/>`ForAnyOfAllValues:NumericLessThan`<br/>`ForAnyOfAllValues:NumericLessThanEquals` |
+> | **Operators** | `ForAnyOfAllValues:StringEquals`<br/>`ForAnyOfAllValues:StringEqualsIgnoreCase`<br/>`ForAnyOfAllValues:StringNotEquals`<br/>`ForAnyOfAllValues:StringNotEqualsIgnoreCase`<br/>`ForAnyOfAllValues:StringLike`<br/>`ForAnyOfAllValues:StringLikeIgnoreCase`<br/>`ForAnyOfAllValues:StringNotLike`<br/>`ForAnyOfAllValues:StringNotLikeIgnoreCase`<br/>`ForAnyOfAllValues:NumericEquals`<br/>`ForAnyOfAllValues:NumericNotEquals`<br/>`ForAnyOfAllValues:NumericGreaterThan`<br/>`ForAnyOfAllValues:NumericGreaterThanEquals`<br/>`ForAnyOfAllValues:NumericLessThan`<br/>`ForAnyOfAllValues:NumericLessThanEquals`<br/>`ForAnyOfAllValues:GuidEquals`<br/>`ForAnyOfAllValues:GuidNotEquals` |
 > | **Description** | If at least one value on the left-hand side satisfies the comparison to every value on the right-hand side, then the expression evaluates to true. Has the format: `ForAnyOfAllValues:<BooleanFunction>`. Supports multiple strings and numbers. |
 > | **Examples** | `{10, 20} ForAnyOfAllValues:NumericLessThan {15, 18}`<br/>true |
 
@@ -496,7 +507,7 @@ This section lists the cross product comparison operators that are available to 
 > [!div class="mx-tdCol2BreakAll"]
 > | Property | Value |
 > | --- | --- |
-> | **Operators** | `ForAllOfAllValues:StringEquals`<br/>`ForAllOfAllValues:StringEqualsIgnoreCase`<br/>`ForAllOfAllValues:StringNotEquals`<br/>`ForAllOfAllValues:StringNotEqualsIgnoreCase`<br/>`ForAllOfAllValues:StringLike`<br/>`ForAllOfAllValues:StringLikeIgnoreCase`<br/>`ForAllOfAllValues:StringNotLike`<br/>`ForAllOfAllValues:StringNotLikeIgnoreCase`<br/>`ForAllOfAllValues:NumericEquals`<br/>`ForAllOfAllValues:NumericNotEquals`<br/>`ForAllOfAllValues:NumericGreaterThan`<br/>`ForAllOfAllValues:NumericGreaterThanEquals`<br/>`ForAllOfAllValues:NumericLessThan`<br/>`ForAllOfAllValues:NumericLessThanEquals` |
+> | **Operators** | `ForAllOfAllValues:StringEquals`<br/>`ForAllOfAllValues:StringEqualsIgnoreCase`<br/>`ForAllOfAllValues:StringNotEquals`<br/>`ForAllOfAllValues:StringNotEqualsIgnoreCase`<br/>`ForAllOfAllValues:StringLike`<br/>`ForAllOfAllValues:StringLikeIgnoreCase`<br/>`ForAllOfAllValues:StringNotLike`<br/>`ForAllOfAllValues:StringNotLikeIgnoreCase`<br/>`ForAllOfAllValues:NumericEquals`<br/>`ForAllOfAllValues:NumericNotEquals`<br/>`ForAllOfAllValues:NumericGreaterThan`<br/>`ForAllOfAllValues:NumericGreaterThanEquals`<br/>`ForAllOfAllValues:NumericLessThan`<br/>`ForAllOfAllValues:NumericLessThanEquals`<br/>`ForAllOfAllValues:GuidEquals`<br/>`ForAllOfAllValues:GuidNotEquals` |
 > | **Description** | If every value on the left-hand side satisfies the comparison to every value on the right-hand side, then the expression evaluates to true. Has the format: `ForAllOfAllValues:<BooleanFunction>`. Supports multiple strings and numbers. |
 > | **Examples** | `{10, 20} ForAllOfAllValues:NumericLessThan {5, 15, 18}`<br/>false<br/><br/>`{10, 20} ForAllOfAllValues:NumericLessThan {25, 30}`<br/>true<br/><br/>`{10, 20} ForAllOfAllValues:NumericLessThan {15, 25, 30}`<br/>false |
 

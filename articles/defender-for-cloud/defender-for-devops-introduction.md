@@ -26,9 +26,10 @@ Defender for DevOps uses a central console to empower security teams with the ab
 Defender for DevOps helps unify, strengthen and manage multi-pipeline DevOps security. 
 
 ## Availability
+
 | Aspect | Details |
 |--|--|
-| Release state: | Preview<br>The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. |
+| Release state: | Preview<br>The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. |
 | Clouds | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet) |
 | Regions: | Australia East, Central US, West Europe |
 | Source Code Management Systems | [Azure DevOps](https://portal.azure.com/#home) <br>[GitHub](https://github.com/) supported versions: GitHub Free, Pro, Team, and GitHub Enterprise Cloud | 
@@ -36,7 +37,7 @@ Defender for DevOps helps unify, strengthen and manage multi-pipeline DevOps sec
 
 ## Manage your DevOps environments in Defender for Cloud
 
-Defender for DevOps allows you to manage your connected environments and provides your security teams with a high level overview of discovered issues that may exist within them through the [Defender for DevOps console](https://portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/DevOpsSecurity).
+Defender for DevOps allows you to manage your connected environments and provides your security teams with a high level overview of discovered issues that might exist within them through the [Defender for DevOps console](https://portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/DevOpsSecurity).
 
 :::image type="content" source="media/defender-for-devops-introduction/devops-dashboard.png" alt-text="Screenshot of the Defender for DevOps dashboard." lightbox="media/defender-for-devops-introduction/devops-dashboard.png":::
 
@@ -73,9 +74,6 @@ On this part of the screen you see:
 - **Exposed secrets** - Shows the number of secrets identified in the repositories.
 
 - **OSS vulnerabilities** – Shows the number of open source dependency vulnerabilities identified in the repositories. 
-
-    > [!NOTE]
-    > Currently, this information is available only for GitHub repositories.
 
 - **IaC scanning findings** – Shows the number of infrastructure as code misconfigurations identified in the repositories.
 

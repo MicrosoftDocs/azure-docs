@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN Preview volume from a 
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 07/11/2023
+ms.date: 09/12/2023
 ms.author: rogarana
 ms.custom: references_regions, ignite-2022
 ---
@@ -13,27 +13,23 @@ ms.custom: references_regions, ignite-2022
 
 This article explains how to connect to an Elastic storage area network (SAN) volume from a Windows client. For details on connecting from a Linux client, see [Connect to Elastic SAN Preview volumes - Linux](elastic-san-connect-linux.md).
 
-In this article, you'll add the Storage service endpoint to an Azure virtual network's subnet, then you'll configure your volume group to allow connections from your subnet. Finally, you'll configure your client environment to connect to an Elastic SAN volume and establish a connection.
+In this article, you add the Storage service endpoint to an Azure virtual network's subnet, then you configure your volume group to allow connections from your subnet. Finally, you configure your client environment to connect to an Elastic SAN volume and establish a connection. For best performance, ensure that your VM and your Elastic SAN are in the same zone.
 
 ## Prerequisites
 
 - Use either the [latest Azure CLI](/cli/azure/install-azure-cli) or install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell)
 - [Deploy an Elastic SAN Preview](elastic-san-create.md)
-- [Configure a virtual network endpoint](elastic-san-networking.md#configure-a-virtual-network-endpoint)
+- [Configure a virtual network endpoint](elastic-san-networking.md)
 - [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
 
 ## Limitations
 
 [!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
 
-## Connect to a volume
+## Connect to volumes
 
-You can either create single sessions or multiple-sessions to every Elastic SAN volume based on your application's multi-threaded capabilities and performance requirements. To achieve higher IOPS and throughput to a volume and reach its maximum limits, use multiple sessions and adjust the queue depth and IO size as needed, if your workload allows.
-
-When using multiple sessions, generally, you should aggregate them with Multipath I/O. It allows you to aggregate multiple sessions from an iSCSI initiator to the target into a single device, and can improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
-
-### Set up your environment
-
+### Set up your client environment
+#### Enable iSCSI Initiator
 To create iSCSI connections from a Windows client, confirm the iSCSI service is running. If it's not, start the service, and set it to start automatically.
 
 ```powershell
@@ -47,7 +43,9 @@ Start-Service -Name MSiSCSI
 Set-Service -Name MSiSCSI -StartupType Automatic
 ```
 
-#### Multipath I/O - for multi-session connectivity
+#### Install Multipath I/O
+
+To achieve higher IOPS and throughput to a volume and reach its maximum limits, you need to create multiple-sessions from the iSCSI initiator to the target volume based on your application's multi-threaded capabilities and performance requirements. You need Multipath I/O to aggregate these multiple paths into a single device, and to improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
 
 Install Multipath I/O, enable multipath support for iSCSI devices, and set a default load balancing policy.
 
@@ -66,116 +64,27 @@ Enable-MSDSMAutomaticClaim -BusType iSCSI
 Set-MSDSMGlobalDefaultLoadBalancePolicy -Policy RR
 ```
 
-### Gather information
+### Attach Volumes to the client
 
-Before you can connect to a volume, you'll need to get **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort** from your Azure Elastic SAN volume.
+You can use the following script to create your connections. To execute it, you require the following parameters: 
+- $rgname: Resource Group Name
+- $esanname: Elastic SAN Name
+- $vgname: Volume Group Name
+- $vol1: First Volume Name
+- $vol2: Second Volume Name
+and other volume names that you might require
+- 32: Number of sessions to each volume
 
-Run the following commands to get these values:
+Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/PSH%20(Windows)%20Multi-Session%20Connect%20Scripts/ElasticSanDocScripts0523/connect.ps1) and save it as a .ps1 file, for example, connect.ps1. Then execute it with the required parameters. The following is an example of how to run the script: 
 
-```azurepowershell
-# Get the target name and iSCSI portal name to connect a volume to a client 
-$connectVolume = Get-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $searchedVolumeGroup -Name $searchedVolume
-$connectVolume.storagetargetiqn
-$connectVolume.storagetargetportalhostname
-$connectVolume.storagetargetportalport
-```
-
-Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next sections.
-
-## Determine sessions to create
-
-You can either create single sessions or multiple-sessions to every Elastic SAN volume based on your application's multi-threaded capabilities and performance requirements. To achieve higher IOPS and throughput to a volume and reach its maximum limits, use multiple sessions and adjust the queue depth and IO size as needed, if your workload allows.
-
-For multi-session connections, install [Multipath I/O - for multi-session connectivity](#multipath-io---for-multi-session-connectivity).
-
-### Multi-session configuration
-
-To create multiple sessions to each volume, you must configure the target and connect to it multiple times, based on the number of sessions you want to that volume.
-
-You can use the following scripts to create your connections.
-
-To script multi-session configurations, use two files. An XML configuration file includes the information for each volume you'd like to establish connections to, and a script that uses the XML files to create connections.
-
-The following example shows you how to format your XML file for the script, for each volume, create a new `<Target>` section:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<Targets>
-  <Target>
-     <Iqn>Volume 1 Storage Target Iqn</Iqn>
-     <Hostname>Volume 1 Storage Target Portal Hostname</Hostname>
-     <Port>Volume 1 Storage Target Portal Port</Port>
-     <NumSessions>Number of sessions</NumSessions>
-     <EnableMultipath>true</EnableMultipath>
-  </Target>
-  <Target>
-     <Iqn>Volume 2 Storage Target Iqn</Iqn>
-     <Hostname>Volume 2 Storage Target Portal Hostname</Hostname>
-     <Port>Volume 2 Storage Target Portal Port</Port>
-     <NumSessions>Number of sessions</NumSessions>
-     <EnableMultipath>true</EnableMultipath>
-  </Target>
-</Targets>
-```
-
-Use the following script to create the connections, to run the script use `.\LoginTarget.ps1 -TargetConfigPath [path to config.xml]`:
-
-```
-param(
-  [string] $TargetConfigPath
-)
-$TargetConfig = New-Object XML
-$TargetConfig.Load($TargetConfigPath)
-foreach ($Target in $TargetConfig.Targets.Target)
-{
-  $TargetIqn = $Target.Iqn
-  $TargetHostname = $Target.Hostname
-  $TargetPort = $Target.Port
-  $NumSessions = $Target.NumSessions
-  $succeeded = 1
-  iscsicli AddTarget $TargetIqn * $TargetHostname $TargetPort * 0 * * * * * * * * * 0
-  while ($succeeded -le $NumSessions)
-  {
-    Write-Host "Logging session ${succeeded}/${NumSessions} into ${TargetIqn}"
-    $LoginOptions = '*'
-    if ($Target.EnableMultipath)
-    {
-        Write-Host "Enabled Multipath"
-        $LoginOptions = '0x00000002'
-    }
-    # PersistentLoginTarget will not establish login to the target until after the system is rebooted.
-    # Use LoginTarget if the target is needed before rebooting. Using just LoginTarget will not persist the
-    # session(s).
-    iscsicli PersistentLoginTarget $TargetIqn t $TargetHostname $TargetPort Root\ISCSIPRT\0000_0 -1 * $LoginOptions * * * * * * * * * 0
-    #iscsicli LoginTarget $TargetIqn t $TargetHostname $TargetPort Root\ISCSIPRT\0000_0 -1 * $LoginOptions * * * * * * * * * 0
-    if ($LASTEXITCODE -eq 0)
-    {
-        $succeeded += 1
-    }
-    Start-Sleep -s 1
-    Write-Host ""
-  }
-}
+```bash
+./connnect.ps1 $rgname $esanname $vgname $vol1,$vol2,$vol3 32
 ```
 
 Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
 
-### Single-session configuration
-
-Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume. If you'd like to modify these commands, run `iscsicli commandHere -?` for information on the command and its parameters.
-
-```
-# Add target IQN
-# The *s are essential, as they are default arguments
-iscsicli AddTarget yourStorageTargetIQN * yourStorageTargetPortalHostName yourStorageTargetPortalPort * 0 * * * * * * * * * 0
-
-# Login
-# The *s are essential, as they are default arguments
-iscsicli LoginTarget yourStorageTargetIQN t yourStorageTargetPortalHostName yourStorageTargetPortalPort Root\ISCSIPRT\0000_0 -1 * * * * * * * * * * * 0 
-
-# This command instructs the system to automatically reconnect after a reboot
-iscsicli PersistentLoginTarget yourStorageTargetIQN t yourStorageTargetPortalHostName yourStorageTargetPortalPort Root\ISCSIPRT\0000_0 -1 * * * * * * * * * * * 0
-```
+#### Number of sessions
+You need to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. Windows iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than 8 volumes to a Windows client, reduce the number of sessions to each volume. 
 
 ## Next steps
 

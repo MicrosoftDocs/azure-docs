@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/30/2023
+ms.date: 10/05/2023
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
@@ -147,7 +147,7 @@ While the *Predicates* define the validation to check against a claim type, the 
         </ClaimType>
     ``` 
 
-1. Add a `Predicates` element as a child of `BuildingBlocks` section by using the following code: 
+1. Add a `Predicates` element as a child of `BuildingBlocks` section by using the following code. You add the `Predicates` element below the `ClaimsSchema` element: 
 
     ```xml
         <Predicates>
@@ -210,7 +210,7 @@ While the *Predicates* define the validation to check against a claim type, the 
 
     We've defined several rules, which when put together described an acceptable password. Next, you can group predicates, to form a set of password policies that you can use in your policy.  
 
-1. Add a `PredicateValidations` element as a child of `BuildingBlocks` section by using the following code: 
+1. Add a `PredicateValidations` element as a child of `BuildingBlocks` section by using the following code. You add the `PredicateValidations` element below the `Predicates` element: 
 
     ```xml
         <PredicateValidations>
@@ -326,7 +326,7 @@ Use the following steps to validate password re-enter in your custom policy:
     ```xml
         <DisplayClaim ClaimTypeReferenceId="reenterPassword" Required="true"/>
     ```
-1. In your your `ContosoCustomPolicy.XML` file, locate the `UserInformationCollector` self-asserted technical profile, add *reenterPassword* claim as an output claim by using the following code:
+1. In your `ContosoCustomPolicy.XML` file, locate the `UserInformationCollector` self-asserted technical profile, add *reenterPassword* claim as an output claim by using the following code:
 
     ```xml
         <OutputClaim ClaimTypeReferenceId="reenterPassword"/>

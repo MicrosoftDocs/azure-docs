@@ -49,8 +49,7 @@ The following diagram shows the refresh token sliding window lifetime behavior.
 To configure your user flow token lifetime:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **User flows (policies)**.
 1. Open the user flow that you previously created.
@@ -238,4 +237,4 @@ When using the [OAuth 2.0 authorization code flow](authorization-code-flow.md), 
 ## Next steps
 
 - Learn more about how to [request access tokens](access-tokens.md).
-- Learn how to build [Resilience through developer best practices](../active-directory/fundamentals/resilience-b2c-developer-best-practices.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json).
+- Learn how to build [Resilience through developer best practices](../active-directory/architecture/resilience-b2c-developer-best-practices.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json).

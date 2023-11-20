@@ -58,7 +58,7 @@ Use the following steps to create a VM image starting from an Azure Marketplace 
 
 3.	On the **Create an Image** dialog, review VM details and then select **Create**.
 
-4.	When the image download is complete, the VM image shows up in the list of images,, and **Status** shows **Downloaded**. You'll also see a notification that the operation completed successfully.
+4.	When the image download is complete, the VM image shows up in the list of images, and **Status** shows **Downloaded** with **Source** from **Azure Marketplace**. You'll also see a notification that the operation completed successfully.
 
     [![Screenshot showing successful download of a new VM image for an Azure Stack Edge device in Azure portal.](./media/azure-stack-edge-create-a-vm-from-azure-marketplace/azure-stack-edge-downloaded-marketplace-image-04.png)](./media/azure-stack-edge-create-a-vm-from-azure-marketplace/azure-stack-edge-downloaded-marketplace-image-04.png#lightbox)
 

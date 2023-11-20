@@ -9,10 +9,11 @@ ms.topic: tutorial
 ms.date: 04/13/2023
 ---
 
-# Tutorial: Deploy environments in CI/CD with GitHub
-Continuous integration and continuous delivery (CI/CD) is a software development approach that helps teams to automate the process of building, testing, and deploying software changes. CI/CD enables you to release software changes more frequently and with greater confidence. 
+# Tutorial: Deploy environments in CI/CD with GitHub and Azure Deployment Environments
 
 In this tutorial, you'll Learn how to integrate Azure Deployment Environments into your CI/CD pipeline by using GitHub Actions. You can use any GitOps provider that supports CI/CD, like GitHub Actions, Azure Arc, GitLab, or Jenkins. 
+
+Continuous integration and continuous delivery (CI/CD) is a software development approach that helps teams to automate the process of building, testing, and deploying software changes. CI/CD enables you to release software changes more frequently and with greater confidence. 
 
 You use a workflow that features three branches: main, dev, and test.
 
@@ -20,9 +21,9 @@ You use a workflow that features three branches: main, dev, and test.
 - You create feature branches from the *main* branch.
 - You create pull requests to merge feature branches into *main*.
 
-This workflow is a small example for the purposes of this tutorial. Real world workflows may be more complex.
+This workflow is a small example for the purposes of this tutorial. Real world workflows might be more complex.
 
-Before beginning this tutorial, you can familiarize yourself with Deployment Environments resources and concepts by reviewing [Key concepts for Azure Deployment Environments](/azure/deployment-environments/concept-environments-key-concepts).
+Before beginning this tutorial, you can familiarize yourself with Deployment Environments resources and concepts by reviewing [Key concepts for Azure Deployment Environments](concept-environments-key-concepts.md).
 
 In this tutorial, you learn how to:
 
@@ -48,11 +49,12 @@ In this tutorial, you learn how to:
 
 ## 1. Create and configure a dev center
 
-In this section, you create a dev center and project with three environment types; Dev, Test and Prod
+In this section, you create an Azure Deployment Environments dev center and project with three environment types: Dev, Test and Prod.
 
 - The Prod environment type contains the single production environment
 - A new environment is created in Dev for each feature branch
 - A new environment is created in Test for each pull request
+
 ### 1.1 Setup the Azure CLI
 
 To begin, sign in to Azure. Run the following command, and follow the prompts to complete the authentication process.
@@ -365,7 +367,7 @@ You can protect important branches by setting branch protection rules. Protectio
 
 ### 3.4 Create a GitHub personal access token
 
-Next, create a [fine-grained personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#fine-grained-personal-access-tokens) to enable your dev center to connect to your repository and consume the environment catalog.
+Next, create a [fine-grained personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#fine-grained-personal-access-tokens) to enable your Azure Deployment Environments dev center to connect to your repository and consume the environment catalog.
 
 > [!NOTE]
 > Fine-grained personal access token are currently in beta and subject to change. To leave feedback, see the [feedback discussion](https://github.com/community/community/discussions/36441).
@@ -409,7 +411,7 @@ az keyvault secret set \
 
 ## 4. Connect the catalog to your dev center
 
-A catalog is a repository that contains a set of environment definitions. Catalog items consist of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Development teams use environment definitions from the catalog to create environments.                                                         
+In Azure Deployment Environments, a catalog is a repository that contains a set of environment definitions. Catalog items consist of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Development teams use environment definitions from the catalog to create environments.                                                         
 
 The template you used to create your GitHub repository contains a catalog in the _Environments_ folder.
 
@@ -593,7 +595,7 @@ You can also authenticate a service principal directly using a secret, but that 
 
 With GitHub environments, you can configure environments with protection rules and secrets. A workflow job that references an environment must follow any protection rules for the environment before running or accessing the environment's secrets.
 
-Create three environments: Dev, Test, and Prod to map to the project's environment types.
+Create three environments: Dev, Test, and Prod to map to the environment types in the Azure Deployment Environments project.
 
 > [!NOTE]
 > Environments, environment secrets, and environment protection rules are available in public repositories for all products. For access to environments, environment secrets, and deployment branches in **private** or **internal** repositories, you must use GitHub Pro, GitHub Team, or GitHub Enterprise. For access to other environment protection rules in **private** or **internal** repositories, you must use GitHub Enterprise. For more information, see "[GitHub’s products.](https://docs.github.com/en/get-started/learning-about-github/githubs-products)"
@@ -614,7 +616,7 @@ Create three environments: Dev, Test, and Prod to map to the project's environme
 
    :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-secret.png" alt-text="Screenshot showing the Environment Configure Dev pane, with Add secret highlighted.":::
 
-1. For **Value**, enter the client ID (`appId`) for the **Dev** Azure AD app you created earlier (saved as the `$DEV_AZURE_CLIENT_ID` environment variable).
+1. For **Value**, enter the client ID (`appId`) for the **Dev** Microsoft Entra app you created earlier (saved as the `$DEV_AZURE_CLIENT_ID` environment variable).
  
    :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-add-secret.png" alt-text="Screenshot of the Add secret box with the name AZURE CLIENT ID, the value set to an ID number, and add secret highlighted.":::
 
@@ -628,7 +630,7 @@ Return to the main environments page by selecting **Environments** in the left s
 
 2. Under **Environment secrets**, select **Add Secret** and enter _AZURE_CLIENT_ID_ for **Name**.
 
-3. For **Value**, enter the client ID (`appId`) for the **Test** Azure AD app you created earlier (saved as the `$TEST_AZURE_CLIENT_ID` environment variable).
+3. For **Value**, enter the client ID (`appId`) for the **Test** Microsoft Entra app you created earlier (saved as the `$TEST_AZURE_CLIENT_ID` environment variable).
 
 4. Select **Add secret**.
 
@@ -640,7 +642,7 @@ Once more, return to the main environments page by selecting **Environments** in
 
 2. Under **Environment secrets**, select **Add Secret** and enter _AZURE_CLIENT_ID_ for **Name**.
 
-3. For **Value**, enter the client ID (`appId`) for the **Prod** Azure AD app you created earlier (saved as the `$PROD_AZURE_CLIENT_ID` environment variable).
+3. For **Value**, enter the client ID (`appId`) for the **Prod** Microsoft Entra app you created earlier (saved as the `$PROD_AZURE_CLIENT_ID` environment variable).
 
 4. Select **Add secret**.
 
@@ -650,7 +652,7 @@ For more information about environments and required approvals, see "[Using envi
 
 1. Select **Required reviewers**.
 
-2. Search for and select your GitHub user.  You may enter up to six people or teams. Only one of the required reviewers needs to approve the job for it to proceed.
+2. Search for and select your GitHub user.  You can enter up to six people or teams. Only one of the required reviewers needs to approve the job for it to proceed.
 
 3. Select **Save protection rules**.
 

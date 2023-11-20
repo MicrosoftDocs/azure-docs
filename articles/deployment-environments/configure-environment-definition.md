@@ -1,7 +1,7 @@
 ---
 title: Add and configure an environment definition 
 titleSuffix: Azure Deployment Environments
-description: Learn how to add and configure an environment definition to use in your dev center projects. Environment definitions contain an IaC template that defines the environment. 
+description: Learn how to add and configure an environment definition to use in your Azure Deployment Environments projects. Environment definitions contain an IaC template that defines the environment.
 services: Azure Deployment Environments
 author: RoseHJM
 ms.author: rosemalcolm
@@ -12,6 +12,8 @@ ms.custom: devdivchpfy22, ignite-2022, build-2023
 ---
 
 # Add and configure an environment definition in Azure Deployment Environments
+
+In this article, you learn how to add or update an environment definition in an Azure Deployment Environments catalog.
 
 In Azure Deployment Environments, you can use a [catalog](concept-environments-key-concepts.md#catalogs) to provide your development teams with a curated set of predefined [infrastructure as code (IaC)](/devops/deliver/what-is-infrastructure-as-code) templates called [*environment definitions*](concept-environments-key-concepts.md#environment-definitions).
 
@@ -40,6 +42,8 @@ In this article, you learn how to:
 <a name="add-a-new-environment-definition"></a>
 
 ## Add an environment definition
+
+To add an environment definition to a catalog in Azure Deployment Environments, you first add the files to the repository. You then synchronize the dev center catalog with the updated repository.
 
 To add an environment definition:
 
@@ -143,13 +147,13 @@ az devcenter dev environment create --environment-definition-name
 Refer to the [Azure CLI devcenter extension](/cli/azure/devcenter/dev/environment) for full details of the `az devcenter dev environment create` command.
 ## Update an environment definition
 
-To modify the configuration of Azure resources in an existing environment definition, update the associated ARM template JSON file in the repository. The change is immediately reflected when you create a new environment by using the specific environment definition. The update also is applied when you redeploy an environment that's associated with that environment definition.
+To modify the configuration of Azure resources in an existing environment definition in Azure Deployment Environments, update the associated ARM template JSON file in the repository. The change is immediately reflected when you create a new environment by using the specific environment definition. The update also is applied when you redeploy an environment that's associated with that environment definition.
 
 To update any metadata related to the ARM template, modify *manifest.yaml*, and then [update the catalog](how-to-configure-catalog.md#update-a-catalog).
 
 ## Delete an environment definition
 
-To delete an existing environment definition, in the repository, delete the subfolder that contains the ARM template JSON file and the associated manifest YAML file. Then, [update the catalog](how-to-configure-catalog.md#update-a-catalog).
+To delete an existing environment definition, in the repository, delete the subfolder that contains the ARM template JSON file and the associated manifest YAML file. Then, [update the catalog](how-to-configure-catalog.md#update-a-catalog) in Azure Deployment Environments.
 
 After you delete an environment definition, development teams can no longer use the specific environment definition to deploy a new environment. Update the environment definition reference for any existing environments that were created by using the deleted environment definition. If the reference isn't updated and the environment is redeployed, the deployment fails.
 

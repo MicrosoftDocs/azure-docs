@@ -4,10 +4,11 @@ description: This article lists Microsoft Defender for Cloud's security recommen
 author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 01/24/2023
+ms.date: 09/27/2023
 ms.author: dacurwin
 ms.custom: generated
 ---
+
 # Security recommendations - a reference guide
 
 This article lists the recommendations you might see in Microsoft Defender for Cloud. The recommendations
@@ -52,8 +53,6 @@ impact on your secure score.
 
 [!INCLUDE [asc-recs-data](../../includes/asc-recs-data.md)]
 
-[!INCLUDE [devops-recommendations](includes/defender-for-devops-recommendations.md)]
-
 ## <a name='recs-identityandaccess'></a>IdentityAndAccess recommendations
 
 [!INCLUDE [asc-recs-identityandaccess](../../includes/asc-recs-identityandaccess.md)]
@@ -71,9 +70,9 @@ impact on your secure score.
 |Recommendation|Description & related policy|Severity|
 |----|----|----|
 |(Preview) Microsoft Defender for APIs should be enabled|Enable the Defender for APIs plan to discover and protect API resources against attacks and security misconfigurations. [Learn more](defender-for-apis-deploy.md)|High|
-(Preview) Azure API Management APIs should be onboarded to Defender for APIs. | Onboarding APIs to Defender for APIs requires compute and memory utilization on the Azure API Management service. Monitor performance of your Azure API Management service while onboarding APIs, and scale out your Azure API Management resources as needed.|High|
-(Preview) API endpoints that are unused should be disabled and removed from the Azure API Management service|As a security best practice, API endpoints that haven't received traffic for 30 days are considered unused, and should be removed from the Azure API Management service. Keeping unused API endpoints might pose a security risk. These might be APIs that should have been deprecated from the Azure API Management service, but have accidentally been left active. Such APIs typically do not receive the most up-to-date security coverage.|Low|
-(Preview) API endpoints in Azure API Management should be authenticated|API endpoints published within Azure API Management should enforce authentication to help minimize security risk. Authentication mechanisms are sometimes implemented incorrectly or are missing. This allows attackers to exploit implementation flaws and to access data. For APIs published in Azure API Management, this recommendation assesses the execution of authentication via the Subscription Keys, JWT, and Client Certificate configured within Azure API Management. If none of these authentication mechanisms are executed during the API call, the API will receive this recommendation.|High
+|(Preview) Azure API Management APIs should be onboarded to Defender for APIs. | Onboarding APIs to Defender for APIs requires compute and memory utilization on the Azure API Management service. Monitor performance of your Azure API Management service while onboarding APIs, and scale out your Azure API Management resources as needed.|High|
+|(Preview) API endpoints that are unused should be disabled and removed from the Azure API Management service|As a security best practice, API endpoints that haven't received traffic for 30 days are considered unused, and should be removed from the Azure API Management service. Keeping unused API endpoints might pose a security risk. These might be APIs that should have been deprecated from the Azure API Management service, but have accidentally been left active. Such APIs typically do not receive the most up-to-date security coverage.|Low|
+|(Preview) API endpoints in Azure API Management should be authenticated|API endpoints published within Azure API Management should enforce authentication to help minimize security risk. Authentication mechanisms are sometimes implemented incorrectly or are missing. This allows attackers to exploit implementation flaws and to access data. For APIs published in Azure API Management, this recommendation assesses authentication though verifying the presence of Azure API Management subscription keys for APIs or products where subscription is required, and the execution of policies for validating [JWT](/azure/api-management/validate-jwt-policy), [client certificates](/azure/api-management/validate-client-certificate-policy), and [Microsoft Entra](/azure/api-management/validate-azure-ad-token-policy) tokens. If none of these authentication mechanisms are executed during the API call, the API will receive this recommendation.|High|
 
 ## API management recommendations
 
@@ -126,3 +125,4 @@ To learn more about recommendations, see the following:
 
 - [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
 - [Review your security recommendations](review-security-recommendations.md)
+

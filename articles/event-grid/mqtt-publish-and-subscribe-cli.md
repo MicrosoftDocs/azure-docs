@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Publish and subscribe on an MQTT topic using CLI'
-description: 'Quickstart guide to use Azure Event Grid MQTT and Azure CLI to publish and subscribe MQTT messages on a topic'
+description: 'Quickstart guide to use Azure Event Grid’s MQTT broker feature and Azure CLI to publish and subscribe MQTT messages on a topic'
 ms.topic: quickstart
 ms.custom: build-2023, devx-track-azurecli
 ms.date: 05/23/2023
@@ -10,7 +10,7 @@ ms.author: veyaddan
 
 # Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure CLI (Preview)
 
-Azure Event Grid supports messaging using the MQTT protocol.  Clients (both devices and cloud applications) can publish and subscribe MQTT messages over flexible hierarchical topics for scenarios such as high scale broadcast, and command & control.
+Azure Event Grid’s MQTT broker feature supports messaging using the MQTT protocol.  Clients (both devices and cloud applications) can publish and subscribe MQTT messages over flexible hierarchical topics for scenarios such as high scale broadcast, and command & control.
 
 [!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
 

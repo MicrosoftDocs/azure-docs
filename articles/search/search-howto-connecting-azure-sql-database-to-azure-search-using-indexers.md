@@ -392,7 +392,7 @@ Yes. However, you need to allow your search service to connect to your database.
 
 **Q: Can I use Azure SQL indexer with SQL databases running on-premises?**
 
-Not directly. We don't recommend or support a direct connection, as doing so would require you to open your databases to Internet traffic. Customers have succeeded with this scenario using bridge technologies like Azure Data Factory. For more information, see [Push data to an Azure Cognitive Search index using Azure Data Factory](../data-factory/v1/data-factory-azure-search-connector.md).
+Not directly. We don't recommend or support a direct connection, as doing so would require you to open your databases to Internet traffic. Customers have succeeded with this scenario using bridge technologies like Azure Data Factory. For more information, see [Push data to an Azure Cognitive Search index using Azure Data Factory](../data-factory/connector-azure-search.md).
 
 **Q: Can I use a secondary replica in a [failover cluster](/azure/azure-sql/database/auto-failover-group-overview) as a data source?**
 

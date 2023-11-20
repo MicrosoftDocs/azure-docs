@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Automate invoice data extraction with Document Intelligence's invoice model to extract accounts payable data including invoice line items.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 08/10/2023
 ms.author: lajanuar
@@ -105,11 +104,11 @@ See how data, including customer information, vendor details, and line items, is
 
 1. On the Document Intelligence Studio home page, select **Invoices**
 
-1. You can analyze the sample invoice or select the **+ Add** button to upload your own sample.
+1. You can analyze the sample invoice or upload your own files.
 
-1. Select the **Analyze** button:
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
 
-    :::image type="content" source="media/studio/invoice-analyze.png" alt-text="Screenshot of analyze invoice menu.":::
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
 > [!div class="nextstepaction"]
 > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
@@ -193,7 +192,7 @@ See how data, including customer information, vendor details, and line items, is
 | &bullet; Albanian (`sq`) | Albania (`al`)|
 | &bullet; Swedish (`sv`) | Sweden (`se`)|
 | &bullet; Chinese (simplified (zh-hans)) | China (zh-hans-cn)|
-| &bullet; Chinese (traditional (zh-hant)) | Hong Kong (zh-hant-hk), Taiwan (zh-hant-tw)|
+| &bullet; Chinese (traditional (zh-hant)) | Hong Kong SAR (zh-hant-hk), Taiwan (zh-hant-tw)|
 
 | Supported Currency Codes | Details |
 |:----------------------|:---------|
@@ -203,7 +202,7 @@ See how data, including customer information, vendor details, and line items, is
 | &bullet; CAD | Canadian Dollar (`ca`) |
 | &bullet; CLP | Chilean Peso (`cl`) |
 | &bullet; CNY | Chinese Yuan (`cn`) |
-| &bullet; COP | Columbian Peso (`co`) |
+| &bullet; COP | Colombian Peso (`co`) |
 | &bullet; CRC | Costa Rican Coldón (`us`) |
 | &bullet; CZK | Czech Koruna (`cz`) |
 | &bullet; DKK | Danish Krone (`dk`) |

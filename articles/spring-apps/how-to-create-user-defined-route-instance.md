@@ -214,7 +214,9 @@ az network firewall network-rule create \
     --protocols 'TCP' \
     --source-addresses '*' \
     --destination-addresses "AzureCloud" \
-    --destination-ports 443 445
+    --destination-ports 443 445 \
+    --action allow \
+    --priority 100
 
 # Add firewall application rules.
 
@@ -226,7 +228,8 @@ az network firewall application-rule create \
     --source-addresses '*' \
     --protocols 'https=443' \
     --fqdn-tags "AzureKubernetesService" \
-    --action allow --priority 100
+    --action allow \
+    --priority 100
 ```
 
 ### Associate route tables with subnets

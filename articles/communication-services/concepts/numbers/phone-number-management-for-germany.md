@@ -22,7 +22,7 @@ Use the below tables to find all the relevant information on number availability
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | Toll-Free   |-  | - | General Availability | General Availability\* |
 | Local       | -                    | -                    | General Availability | General Availability\* |
-|Alphanumeric Sender ID\**|Public Preview|-|-|-|
+|Alphanumeric Sender ID\**|General Availability      |-|-|-|
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
@@ -46,7 +46,30 @@ More details on eligible subscription types are as follows:
 | Country/Region |
 | :---------- |
 |Germany|
+|United States|
+|Canada|
+|United Kingdom|
 
+## Azure subscription billing locations where Germany alphanumeric sender IDs are available
+| Country/Region |
+| :---------- |
+| Australia |
+| Austria |
+| Denmark |
+| France |
+| Germany |
+| India |
+| Ireland |
+| Italy |
+| Netherlands |
+| Poland |
+| Portugal |
+| Puerto Rico |
+| Spain |
+| Sweden |
+| Switzerland |
+| United Kingdom |
+| United States |
 
 ## Find information about other countries/regions
 

@@ -1,12 +1,12 @@
 ---
-title: New Custom Recommendations for AWS and GCP | Defender for Cloud in the field 
+title: New custom recommendations for AWS and GCP | Defender for Cloud in the field 
 
 description: Learn about new custom recommendations for AWS and GCP in Defender for Cloud
 ms.topic: reference
 ms.date: 05/14/2023
 ---
 
-# New Custom Recommendations for AWS and GCP in Defender for Cloud
+# New custom recommendations for AWS and GCP in Defender for Cloud
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Yael Genut joins Yuri Diogenes to talk about the new custom recommendations for AWS and GCP. Yael explains the importance of creating custom recommendations in a multicloud environment and how to use Kusto Query Language to create these customizations. Yael also demonstrates the step-by-step process to create custom recommendations using this new capability and how these custom recommendations appear in the Defender for Cloud dashboard.
 
@@ -16,8 +16,8 @@ ms.date: 05/14/2023
 - [03:15](/shows/mdc-in-the-field/new-custom-recommendations#time=03m15s) - Creating a custom recommendation based on a template
 - [08:20](/shows/mdc-in-the-field/new-custom-recommendations#time=08m20s) - Creating a custom recommendation from scratch
 - [12:27](/shows/mdc-in-the-field/new-custom-recommendations#time=12m27s) - Custom recommendation update interval
-- [14:30](/shows/mdc-in-the-field/new-custom-recommendations#time=14m30s) -  Filtering custom recommendations in the Defender for Cloud dashboard 
-- [16:40](/shows/mdc-in-the-field/new-custom-recommendations#time=16m40s) -  Prerequisites to use the custom recommendations feature
+- [14:30](/shows/mdc-in-the-field/new-custom-recommendations#time=14m30s) - Filtering custom recommendations in the Defender for Cloud dashboard 
+- [16:40](/shows/mdc-in-the-field/new-custom-recommendations#time=16m40s) - Prerequisites to use the custom recommendations feature
  
 ## Recommended resources
   - Learn how to [create custom recommendations and security standards](create-custom-recommendations.md) 
@@ -35,4 +35,4 @@ ms.date: 05/14/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Understanding data aware security posture capability](episode-thirty-one.md)
+> [Understanding data aware security posture capabilities](episode-thirty-one.md)

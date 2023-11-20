@@ -7,11 +7,11 @@ documentationcenter: ''
 ms.service: azure-government
 author: bandersmsft
 ms.author: banders
-ms.reviewer: prsaini
+ms.reviewer: sapnakeshari
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 05/08/2023
+ms.date: 11/03/2023
 ---
 
 # Access your EA billing account in the Azure Government portal
@@ -19,18 +19,19 @@ ms.date: 05/08/2023
 As an Azure Government Enterprise Agreement (EA) customer, you can now manage your EA billing account directly from [Azure Government portal](https://portal.azure.us/). This article helps you to get started with your billing account on the Azure Government portal.
 
 > [!NOTE]
-> The Azure Enterprise (EA) portal is getting retired. We recommend that both direct and indirect EA Azure Government customers use Cost Management + Billing in the Azure Government portal to manage their enrollment and billing instead of using the EA portal.
+> On November 15, 2023, the Azure Enterprise portal is retiring for EA enrollments in the Commercial cloud and is becoming read-only for EA enrollments in the Azure Government cloud.
+> Customers and Partners should use Cost Management + Billing in the Azure portal to manage their enrollments. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](../cost-management-billing/manage/ea-direct-portal-get-started.md).
 
 ## Access the Azure Government portal
 
 You can manage your Enterprise Agreement (EA) billing account using the [Azure Government portal](https://portal.azure.us/). To access the portal, sign in using your Azure Government credentials.
 
-If you don't have Azure Government credentials, contact the User Administrator or Global Administrator of your Azure Government Active Directory (Azure AD) tenant. Ask them to add you as a new user in Azure Government Active directory.
+If you don't have Azure Government credentials, contact the User Administrator or Global Administrator of your Azure Government Microsoft Entra tenant. Ask them to add you as a new user in Azure Government Active directory.
 
 A User Administrator or Global Administrator uses the following steps to add a new user:
 
 1. Sign in to the [Azure Government portal](https://portal.azure.us/) in the User Administrator or Global Administrator role.
-1. Navigate to **Azure Active Directory** > **Users**.
+1. Navigate to **Microsoft Entra ID** > **Users**.
 1. Select **New user** > **Create new user** from the menu.  
     :::image type="content" source="./media/documentation-government-how-to-access-enterprise-agreement-billing-account-01.png" alt-text="Screenshot showing the New user option." lightbox="./media/documentation-government-how-to-access-enterprise-agreement-billing-account-01.png" :::
 1. On the **New User** page, provide the new user's information like user name, display name, role etc.

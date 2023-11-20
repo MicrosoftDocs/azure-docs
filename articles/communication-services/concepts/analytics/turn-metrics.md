@@ -13,7 +13,7 @@ ms.subservice: data
 ---
 # TURN metrics overview
 
-Azure Communication Services currently provides metrics for all Communication Services primitives. [Azure Metrics Explorer](../../../azure-monitor\essentials\metrics-getting-started.md) can be used to:
+Azure Communication Services currently provides metrics for all Communication Services primitives. [Azure Monitor metrics explorer](../../../azure-monitor\essentials\analyze-metrics.md) can be used to:
 
 - Plot your own charts.
 - Investigate abnormalities in your metric values.

@@ -1,5 +1,5 @@
 ---
-title: Configure Container insights cost optimization data collection rules | Microsoft Docs
+title: Configure Container insights cost optimization data collection rules
 description: This article describes how you can configure the Container insights agent to control data collection for metric counters
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
@@ -7,7 +7,7 @@ ms.date: 07/31/2023
 ms.reviewer: aul
 ---
 
-# Enable cost optimization settings
+# Enable cost optimization settings in Container insights
 
 Cost optimization settings offer users the ability to customize and control the metrics data collected through the container insights agent. This feature supports the data collection settings for individual table selection, data collection intervals, and namespaces to exclude for the data collection through [Azure Monitor Data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md). These settings control the volume of ingestion and reduce the monitoring costs of container insights.
 
@@ -51,20 +51,20 @@ This table outlines the list of the container insights Log Analytics tables for 
 | ContainerInsights Table Name | Is Data collection setting: interval applicable? | Is Data collection setting: namespaces applicable? | Remarks |
 | --- | --- | --- | --- |
 | ContainerInventory | Yes | Yes | |
-| ContainerNodeInventory | Yes | No | Data collection setting for namespaces is not applicable since Kubernetes Node is not a namespace scoped resource |
-| KubeNodeInventory | Yes | No | Data collection setting for namespaces is not applicable Kubernetes Node is not a namespace scoped resource |
+| ContainerNodeInventory | Yes | No | Data collection setting for namespaces isn't applicable since Kubernetes Node isn't a namespace scoped resource |
+| KubeNodeInventory | Yes | No | Data collection setting for namespaces isn't applicable Kubernetes Node isn't a namespace scoped resource |
 | KubePodInventory | Yes | Yes ||
 | KubePVInventory | Yes | Yes | |
 | KubeServices | Yes | Yes | |
-| KubeEvents | No | Yes | Data collection setting for interval is not applicable for the Kubernetes Events |
-| Perf | Yes | Yes\* | \*Data collection setting for namespaces is not applicable for the Kubernetes Node related metrics since the Kubernetes Node is not a namespace scoped object. |
+| KubeEvents | No | Yes | Data collection setting for interval isn't applicable for the Kubernetes Events |
+| Perf | Yes | Yes\* | \*Data collection setting for namespaces isn't applicable for the Kubernetes Node related metrics since the Kubernetes Node isn't a namespace scoped object. |
 | InsightsMetrics| Yes\*\* | Yes\*\* | \*\*Data collection settings are only applicable for the metrics collecting the following namespaces: container.azm.ms/kubestate, container.azm.ms/pv and container.azm.ms/gpu |
 
 ## Custom metrics
 
 | Metric namespace | Is Data collection setting: interval applicable? | Is Data collection setting: namespaces applicable? | Remarks |
 | --- | --- | --- | --- |
-| Insights.container/nodes| Yes | No | Node is not a namespace scoped resource |
+| Insights.container/nodes| Yes | No | Node isn't a namespace scoped resource |
 |Insights.container/pods | Yes | Yes| |
 | Insights.container/containers | Yes | Yes | |
 | Insights.container/persistentvolumes | Yes | Yes | |
@@ -73,9 +73,9 @@ This table outlines the list of the container insights Log Analytics tables for 
 
 The default container insights experience is powered through using all the existing data streams. Removing one or more of the default streams renders the container insights experience unavailable.
 
-[![Screenshot that shows the custom experience.](media/container-insights-cost-config/container-insights-cost-custom.png)](media/container-insights-cost-config/container-insights-cost-custom.png#lightbox)
+:::image type="content" source="media/container-insights-cost-config/container-insights-cost-custom.png" lightbox="media/container-insights-cost-config/container-insights-cost-custom.png" alt-text="Screenshot that shows the custom experience.":::
 
-If you are currently using the above tables for other custom alerts or charts, then modifying your data collection settings may degrade those experiences. If you are excluding namespaces or reducing data collection frequency, review your existing alerts, dashboards, and workbooks using this data.
+If you're currently using the above tables for other custom alerts or charts, then modifying your data collection settings may degrade those experiences. If you're excluding namespaces or reducing data collection frequency, review your existing alerts, dashboards, and workbooks using this data.
 
 To scan for alerts that may be referencing these tables, run the following Azure Resource Graph query:
 
@@ -111,7 +111,7 @@ Cost presets and collection settings are available for selection in the Azure po
 | Cost-optimized | 5 m | Excludes kube-system, gatekeeper-system, azure-arc | Not enabled |
 | Syslog | 1 m | None | Enabled by default |
 
-[![Screenshot that shows the cost presets.](media/container-insights-cost-config/cost-profiles-options.png)](media/container-insights-cost-config/cost-profiles-options.png#lightbox)
+:::image type="content" source="media/container-insights-cost-config/cost-profiles-options.png" lightbox="media/container-insights-cost-config/cost-profiles-options.png" alt-text="Screenshot that shows the cost presets.":::
 
 ## Custom data collection
 Container insights Collected Data can be customized through the Azure portal, using the following options. Selecting any options other than **All (Default)** leads to the container insights experience becoming unavailable.
@@ -120,11 +120,11 @@ Container insights Collected Data can be customized through the Azure portal, us
 | --- | --- | --- |
 | All (Default) | All standard container insights tables | Required for enabling the default container insights visualizations |
 | Performance | Perf, InsightsMetrics | |
-| Logs and events | ContainerLog or ContainerLogV2, KubeEvents, KubePodInventory | Recommended if you have enabled managed Prometheus metrics |
+| Logs and events | ContainerLog or ContainerLogV2, KubeEvents, KubePodInventory | Recommended if you enabled managed Prometheus metrics |
 | Workloads, Deployments, and HPAs | InsightsMetrics, KubePodInventory, KubeEvents, ContainerInventory, ContainerNodeInventory, KubeNodeInventory, KubeServices | |
 | Persistent Volumes | InsightsMetrics, KubePVInventory | |
 
-[![Screenshot that shows the collected data options.](media/container-insights-cost-config/collected-data-options.png)](media/container-insights-cost-config/collected-data-options.png#lightbox)
+:::image type="content" source="media/container-insights-cost-config/collected-data-options.png" lightbox="media/container-insights-cost-config/collected-data-options.png" alt-text="Screenshot that shows the collected data options.":::
 
 ## Configuring AKS data collection settings using Azure CLI
 
@@ -201,11 +201,11 @@ az aks enable-addons -a monitoring -g <clusterResourceGroup> -n <clusterName> --
 ## [Azure portal](#tab/create-portal)
 1. In the Azure portal, select the AKS cluster that you wish to monitor.
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
-3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar.    
-4. If you are configuring Container Insights for the first time or have not migrated to using [managed identity authentication](../containers/container-insights-onboard.md#authentication), select the "Use managed identity" checkbox.
-[![Screenshot that shows the onboarding options.](media/container-insights-cost-config/cost-settings-onboarding.png)](media/container-insights-cost-config/cost-settings-onboarding.png#lightbox)
+3. If you have not configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar.    
+4. If you're configuring Container Insights for the first time or have not migrated to using [managed identity authentication](../containers/container-insights-onboard.md#authentication), select the "Use managed identity" checkbox.
+:::image type="content" source="media/container-insights-cost-config/cost-settings-onboarding.png" lightbox="media/container-insights-cost-config/cost-settings-onboarding.png" alt-text="Screenshot that shows the onboarding options.":::
 5. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit collection settings"
-[![Screenshot that shows the collection settings.](media/container-insights-cost-config/advanced-collection-settings.png)](media/container-insights-cost-config/advanced-collection-settings.png#lightbox)
+:::image type="content" source="media/container-insights-cost-config/advanced-collection-settings.png" lightbox="media/container-insights-cost-config/advanced-collection-settings.png" alt-text="Screenshot that shows the collection settings.":::
 6. Click the blue "Configure" button to finish.
 
 
@@ -267,10 +267,10 @@ The collection settings can be modified through the input of the `dataCollection
 ## [Azure portal](#tab/create-portal)
 1. In the Azure portal, select the AKS hybrid cluster that you wish to monitor.
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
-3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar.
-[![Screenshot that shows the onboarding options.](media/container-insights-cost-config/cost-settings-onboarding.png)](media/container-insights-cost-config/cost-settings-onboarding.png#lightbox)
-4. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit collection settings"
-[![Screenshot that shows the collection settings.](media/container-insights-cost-config/advanced-collection-settings.png)](media/container-insights-cost-config/advanced-collection-settings.png#lightbox).
+3. If you have not configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar.
+:::image type="content" source="media/container-insights-cost-config/cost-settings-onboarding.png" lightbox="media/container-insights-cost-config/cost-settings-onboarding.png" alt-text="Screenshot that shows the onboarding options.":::
+4. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit collection settings".
+:::image type="content" source="media/container-insights-cost-config/advanced-collection-settings.png" lightbox="media/container-insights-cost-config/advanced-collection-settings.png" alt-text="Screenshot that shows the collection settings.":::
 5. Click the blue "Configure" button to finish.
 
 
@@ -335,11 +335,11 @@ The collection settings can be modified through the input of the `dataCollection
 ## [Azure portal](#tab/create-portal)
 1. In the Azure portal, select the Arc cluster that you wish to monitor.
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
-3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar.    
-4. If you are configuring Container Insights for the first time, select the "Use managed identity" checkbox
-[![Screenshot that shows the onboarding options.](media/container-insights-cost-config/cost-settings-onboarding.png)](media/container-insights-cost-config/cost-settings-onboarding.png#lightbox).
-5. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit advanced collection settings"
-[![Screenshot that shows the collection settings.](media/container-insights-cost-config/advanced-collection-settings.png)](media/container-insights-cost-config/advanced-collection-settings.png#lightbox).
+3. If you have not configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar.    
+4. If you're configuring Container Insights for the first time, select the "Use managed identity" checkbox.
+:::image type="content" source="media/container-insights-cost-config/cost-settings-onboarding.png" lightbox="media/container-insights-cost-config/cost-settings-onboarding.png" alt-text="Screenshot that shows the onboarding options.":::
+5. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit advanced collection settings".
+:::image type="content" source="media/container-insights-cost-config/advanced-collection-settings.png" lightbox="media/container-insights-cost-config/advanced-collection-settings.png" alt-text="Screenshot that shows the collection settings.":::
 6. Click the blue "Configure" button to finish.
 
 
@@ -389,5 +389,5 @@ To update your data collection Settings, modify the values in parameter files an
 
 ## Limitations
 
-- Recommended alerts will not work as intended if the Data collection interval is configured more than 1-minute interval. To continue using Recommended alerts, please migrate to the [Prometheus metrics addon](../essentials/prometheus-metrics-overview.md)
+- Recommended alerts don't work as intended if the Data collection interval is configured more than 1-minute interval. To continue using Recommended alerts, migrate to the [Prometheus metrics addon](../essentials/prometheus-metrics-overview.md)
 - There may be gaps in Trend Line Charts of Deployments workbook if configured Data collection interval more than time granularity of the selected Time Range.
