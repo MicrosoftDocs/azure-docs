@@ -2,7 +2,7 @@
 title: How reservation discounts apply to Azure Synapse Analytics (data warehousing only)
 description: Learn how reservation discounts apply to Azure Synapse Analytics to help you save money.
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual

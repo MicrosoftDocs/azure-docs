@@ -144,7 +144,7 @@ To manually create a private DNS zone:
     1. On the **Add record set** page, add an entry for the FQDN and private IP as an A type record.
 
 > [!Important]
-> You might require additional DNS settings to resolve the private IP address of the storage account's private endpoint from the source environment. To understand the DNS configuration needed, see [Azure private endpoint DNS configuration](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).  
+> You might require additional DNS settings to resolve the private IP address of the storage account's private endpoint from the source environment. To understand the DNS configuration needed, see [Azure private endpoint DNS configuration](../private-link/private-endpoint-dns-integration.md#on-premises-workloads-using-a-dns-forwarder).  
 
 ### Verify network connectivity to the storage account
 
