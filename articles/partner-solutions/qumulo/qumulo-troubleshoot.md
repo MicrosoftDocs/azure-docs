@@ -4,7 +4,8 @@ description: This article provides information about troubleshooting Azure Nativ
 
 ms.topic: conceptual
 ms.date: 11/15/2023
-
+ms.custom:
+  - ignite-2023
 ---
 
 # Troubleshoot Azure Native Qumulo Scalable File Service
