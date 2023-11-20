@@ -89,7 +89,7 @@ Custom Neural Voice lets you create synthetic voices that are rich in speaking s
 
 Select the right locale that matches your training data to train a custom neural voice model. For example, if the recording data is spoken in English with a British accent, select `en-GB`. 
 
-With the cross-lingual feature, you can transfer your custom neural voice model to speak a second language. For example, with the `zh-CN` data, you can create a voice that speaks `en-AU` or any of the languages with Cross-lingual support.
+With the cross-lingual feature, you can transfer your custom neural voice model to speak a second language. For example, with the `zh-CN` data, you can create a voice that speaks `en-AU` or any of the languages with Cross-lingual support. Within the following table, distinguish locales supporting cross-lingual feature and locales eligible for selection as the target locale for cross-lingual transfer.
 
 [!INCLUDE [Language support include](includes/language-support/tts-cnv.md)]
 
