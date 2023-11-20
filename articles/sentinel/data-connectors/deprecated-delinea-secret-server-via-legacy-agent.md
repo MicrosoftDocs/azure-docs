@@ -52,9 +52,6 @@ To integrate with [Deprecated] Delinea Secret Server via Legacy Agent make sure 
 
 - **Delinea Secret Server**: must be configured to export logs via Syslog 
 
-   [Learn more about configure Secret Server](https://thy.center/ss/link/syslog)
-
-
 ## Vendor installation instructions
 
 1. Linux Syslog agent configuration
