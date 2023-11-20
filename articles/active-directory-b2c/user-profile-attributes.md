@@ -18,7 +18,7 @@ ms.custom: b2c-support
 
 Your Azure Active Directory B2C (Azure AD B2C) directory user profile comes with a set of built-in attributes, such as given name, surname, city, postal code, and phone number. You can extend the user profile with your own application data without requiring an external data store.
 
-Most of the attributes that you can use with Azure AD B2C user profiles are also supported by Microsoft Graph API. This article describes user profile attributes that Azure AD B2C supports. It also notes those attributes that Microsoft Graph doesn't support, and Microsoft Graph API attributes that Azure AD B2C shouldn't use.
+Microsoft Graph API supports most of the attributes that you can use with Azure AD B2C user profiles.. This article describes user profile attributes that Azure AD B2C supports. It also notes those attributes that Microsoft Graph doesn't support, and Microsoft Graph API attributes that Azure AD B2C shouldn't use.
 
 > [!IMPORTANT]
 > You shouldn't use built-in or extension attributes to store sensitive personal data, such as account credentials, government identification numbers, cardholder data, financial account data, healthcare information, or sensitive background information.
@@ -29,7 +29,7 @@ You can also integrate with external systems. For example, you can use Azure AD 
 
 ## Microsoft Entra user resource type
 
-The table below lists the [user resource type](/graph/api/resources/user) attributes that are supported by the Azure AD B2C directory user profile. It gives the following information about each attribute:
+Azure AD B2C directory user profile supports the [user resource type](/graph/api/resources/user) attributes listed in the table below. It gives the following information about each attribute:
 
 - Attribute name used by Azure AD B2C (followed by the Microsoft Graph name in parentheses, if different)
 - Attribute data type
@@ -67,12 +67,12 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 |passwordPolicies     |String|Policy of the password. It's a string consisting of different policy name separated by comma. For example, "DisablePasswordExpiration, DisableStrongPassword".|No|No|Persisted, Output|
 |physicalDeliveryOfficeName (officeLocation)|String|The office location in the user's place of business. Max length 128.|Yes|No|Persisted, Output|
 |postalCode      |String|The postal code for the user's postal address. The postal code is specific to the user's country/region. In the United States of America, this attribute contains the ZIP code. Max length 40.|Yes|No|Persisted, Output|
-|preferredLanguage    |String|The preferred language for the user. The preferred language format is based on RFC 4646. The name is a combination of an ISO 639 two-letter lowercase culture code associated with the language, and an ISO 3166 two-letter uppercase subculture code associated with the country or region. Example: "en-US", or "es-ES".|No|No|Persisted, Output|
-|refreshTokensValidFromDateTime (signInSessionsValidFromDateTime)|DateTime|Any refresh tokens issued before this time are invalid, and applications get an error when using an invalid refresh token to acquire a new access token. If this happens, the application needs to acquire a new refresh token by making a request to the authorize endpoint. Read-only.|No|No|Output|
+|preferredLanguage    |String|The preferred language for the user. The preferred language format is based on RFC 4646. The name is a combination of an ISO 639 two-letter lowercase culture code associated with the language, and an ISO 3166 two-letter uppercase subculture code associated with the country or region. For example: *en-US*, or *es-ES*.|No|No|Persisted, Output|
+|refreshTokensValidFromDateTime (signInSessionsValidFromDateTime)|DateTime|Any refresh tokens issued before this time are invalid, and applications get an error when using an invalid refresh token to acquire a new access token. In this case, the application needs to acquire a new refresh token by making a request to the authorize endpoint. Read-only.|No|No|Output|
 |signInNames ([Identities](#identities-attribute)) |String|The unique sign-in name of the local account user of any type in the directory. Use this attribute to get a user with sign-in value without specifying the local account type.|No|No|Input|
 |signInNames.userName ([Identities](#identities-attribute)) |String|The unique username of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in username. Specifying this in PersistedClaims alone during Patch operation removes other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames. NOTE: Accent characters aren't allowed in the username.|No|No|Input, Persisted, Output|
 |signInNames.phoneNumber ([Identities](#identities-attribute)) |String|The unique phone number of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in phone number. Specifying this attribute in PersistedClaims alone during Patch operation removes other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
-|signInNames.emailAddress ([Identities](#identities-attribute))|String|The unique email address of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in email address. Specifying this attribute in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
+|signInNames.emailAddress ([Identities](#identities-attribute))|String|The unique email address of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in email address. Specifying this attribute in PersistedClaims alone during Patch operation removes other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
 |state           |String|The state or province in the user's address. Max length 128.|Yes|Yes|Persisted, Output|
 |streetAddress   |String|The street address of the user's place of business. Max length 1024.|Yes|Yes|Persisted, Output|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|The secondary telephone number of the user, used for multifactor authentication.|Yes|No|Persisted, Output|
@@ -81,7 +81,7 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 |surname         |String|The user's surname (family name or last name). Max length 64.|Yes|Yes|Persisted, Output|
 |telephoneNumber (first entry of businessPhones)|String|The primary telephone number of the user's place of business.|Yes|No|Persisted, Output|
 |userPrincipalName    |String|The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. The domain must be present in the tenant's collection of verified domains. This property is required when an account is created. Immutable.|No|No|Input, Persisted, Output|
-|usageLocation   |String|Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries/regions. Not nullable. A two letter country/region code (ISO standard 3166). For examples, *US*, *JP*, and *GB*.|Yes|No|Persisted, Output|
+|usageLocation   |String|Required for users that are assigned licenses due to legal requirement to check for availability of services in countries/regions. Not nullable. A two letter country/region code (ISO standard 3166). For examples, *US*, *JP*, and *GB*.|Yes|No|Persisted, Output|
 |userType        |String|A string value that can be used to classify user types in your directory. Value must be Member. Read-only.|Read only|No|Persisted, Output|
 |userState (externalUserState)<sup>3</sup>|String|For Microsoft Entra B2B account only, and it indicates whether the invitation is PendingAcceptance or Accepted.|No|No|Persisted, Output|
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Shows the timestamp for the latest change to the UserState property.|No|No|Persisted, Output|
@@ -111,7 +111,7 @@ A customer account, which could be a consumer, partner, or citizen, can be assoc
 
 A user with a customer account can sign in with multiple identities. For example, username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social, with the same password.
 
-In the Microsoft Graph API, both local and federated identities are stored in the user `identities` attribute, which is of type [objectIdentity](/graph/api/resources/objectidentity). The `identities` collection represents a set of identities used to sign in to a user account. This collection enables the user to sign in to the user account with any of its associated identities. The identities attribute can contain up to ten [objectIdentity](/graph/api/resources/objectidentity) objects. Each object contains the following properties:
+In the Microsoft Graph API, both local and federated identities are stored in the user `identities` attribute, which is of type [objectIdentity](/graph/api/resources/objectidentity). The `identities` collection represents a set of identities used to sign in to a user account. This collection enables the user to sign in to the user account with any of its associated identities. The identities attribute can contain up to 10 [objectIdentity](/graph/api/resources/objectidentity) objects. Each object contains the following properties:
 
 | Name   | Type |Description|
 |:---------------|:--------|:----------|
@@ -188,7 +188,7 @@ Extension attributes in the Graph API are named by using the convention `extensi
 - The `ApplicationClientID` is the **Application (client) ID** of the `b2c-extensions-app` application. [Learn how to find the extensions app](extensions-app.md#verifying-that-the-extensions-app-is-present). 
 - The `AttributeName` is the name of the extension attribute.  
 
-Note that the **Application (client) ID** when used to create the name of the extension attribute doesn't include hyphens. For example:
+The **Application (client) ID** when used to create the name of the extension attribute doesn't include hyphens. For example:
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -199,7 +199,7 @@ The following data types are supported when defining an attribute in a schema ex
 |Type |Remarks  |
 |--------------|---------|
 |Boolean    | Possible values: **true** or **false**. |
-|DateTime   | Must be specified in ISO 8601 format. Will be stored in UTC.   |
+|DateTime   | Must be specified in ISO 8601 format. The value is stored in UTC.   |
 |Integer    | 32-bit value.               |
 |String     | 256 characters maximum.     |
 

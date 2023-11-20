@@ -17,7 +17,7 @@ zone_pivot_groups: b2c-policy-type
 
 # Secure APIs used for API connectors in Azure AD B2C 
 
-When integrating a REST API within an Azure AD B2C user flow, you must protect your REST API endpoint with authentication. The REST API authentication ensures that only services that have proper credentials, such as Azure AD B2C, can make calls to your endpoint. This article will explore how to secure REST API. 
+When integrating a REST API within an Azure AD B2C user flow, you must protect your REST API endpoint with authentication. The REST API authentication ensures that only services that have proper credentials, such as Azure AD B2C, can make calls to your endpoint. This article explores how to secure REST API. 
 
 
 ## Prerequisites
@@ -26,7 +26,7 @@ Complete the steps in the [Add an API connector to a sign-up user flow](add-api-
 
 ::: zone pivot="b2c-user-flow"
 
-You can protect your API endpoint by using either HTTP basic authentication or HTTPS client certificate authentication. In either case, you provide the credentials that Azure AD B2C will use when calling your API endpoint. Your API endpoint then checks the credentials and performs authorization decisions.
+You can protect your API endpoint by using either HTTP basic authentication or HTTPS client certificate authentication. In either case, you provide the credentials that Azure AD B2C uses when it calls your API endpoint. Your API endpoint then checks the credentials and performs authorization decisions.
 
 ::: zone-end
 
@@ -168,9 +168,9 @@ Your API must implement the authorization based on sent client certificates in o
 ../api-management/api-management-howto-mutual-certificates-for-clients.md) against desired values.
 
 ### Renewing certificates
-It's recommended you set reminder alerts for when your certificate will expire. You will need to generate a new certificate and repeat the steps above when used certificates are about to expire. To "roll" the use of a new certificate, your API service can continue to accept old and new certificates for a temporary amount of time while the new certificate is deployed. 
+It's recommended you set reminder alerts for when your certificate will expire. You need to generate a new certificate and repeat the steps above when used certificates are about to expire. To "roll" the use of a new certificate, your API service can continue to accept old and new certificates for a temporary amount of time while the new certificate is deployed. 
 
-To upload a new certificate to an existing API connector, select the API connector under **API connectors** and click on **Upload new certificate**. The most recently uploaded certificate which is not expired and whose start date has passed will automatically be used by Azure AD B2C.
+To upload a new certificate to an existing API connector, select the API connector under **API connectors** and click on **Upload new certificate**. The most recently uploaded certificate, which is not expired and whose start date has passed will automatically be used by Azure AD B2C.
 
   :::image type="content" source="media/secure-api-connector/api-connector-renew-cert.png" alt-text="Providing a new certificate to an API connector when one already exists.":::
 
@@ -275,7 +275,7 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 
 ### Acquiring an access token 
 
-You can obtain an access token in one of several ways: by obtaining it [from a federated identity provider](idp-pass-through-user-flow.md), by calling a REST API that returns an access token, by using an [ROPC flow](../active-directory/develop/v2-oauth-ropc.md), or by using the [client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). The client credentials flow is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user.
+You can obtain an access token in one of several ways, for the [from a federated identity provider](idp-pass-through-user-flow.md), by calling a REST API that returns an access token, by using an [ROPC flow](../active-directory/develop/v2-oauth-ropc.md), or by using the [client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). The client credentials flow is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user.
 
 <a name='acquiring-an-azure-ad-access-token-'></a>
 
@@ -294,7 +294,7 @@ Before the technical profile can interact with Microsoft Entra ID to obtain an a
 1. Select **Register**.
 1. Record the **Application (client) ID**.
 
-For a client credentials flow, you need to create an application secret. The client secret is also known as an application password. The secret will be used by your application to acquire an access token.
+For a client credentials flow, you need to create an application secret. The client secret is also known as an application password. Your application uses the secret to acquire an access token.
 
 1. In the **Microsoft Entra ID - App registrations** page, select the application you created, for example *Client_Credentials_Auth_app*.
 1. In the left menu, under **Manage**, select **Certificates & secrets**.
@@ -352,7 +352,7 @@ For the ServiceUrl, replace your-tenant-name with the name of your Microsoft Ent
 
 ### Change the REST technical profile to use bearer token authentication
 
-To support bearer token authentication in your custom policy, modify the REST API technical profile with the following:
+To support bearer token authentication in your custom policy, modify the REST API technical profile by using the following steps:
 
 1. In your working directory, open the *TrustFrameworkExtensions.xml* extension policy file.
 1. Search for the `<TechnicalProfile>` node that includes `Id="REST-API-SignUp"`.
@@ -361,19 +361,19 @@ To support bearer token authentication in your custom policy, modify the REST AP
     ```xml
     <Item Key="AuthenticationType">Bearer</Item>
     ```
-1. Change or add the *UseClaimAsBearerToken* to *bearerToken*, as follows. The *bearerToken* is the name of the claim that the bearer token will be retrieved from (the output claim from `REST-AcquireAccessToken`).
+1. Change or add the *UseClaimAsBearerToken* to *bearerToken*, as follows. The *bearerToken* is the name of the claim that the bearer token is retrieved from (the output claim from `REST-AcquireAccessToken`).
 
     ```xml
     <Item Key="UseClaimAsBearerToken">bearerToken</Item>
     ```
     
-1. Ensure you add the claim used above as an input claim:
+1. Add the claim from the previous step as an input claim:
 
     ```xml
     <InputClaim ClaimTypeReferenceId="bearerToken"/>
     ```    
 
-After you add the above snippets, your technical profile should look like the following XML code:
+After you update your policy, your technical profile should look similar to the following XML code:
 
 ```xml
 <ClaimsProvider>

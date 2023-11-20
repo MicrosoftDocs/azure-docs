@@ -47,7 +47,7 @@ This authentication flow doesn't include application scenarios that use cross-pl
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-tenant.md), create one now. You can use an existing Azure AD B2C tenant.
+- If you don't have an [Azure AD B2C Tenant](tutorial-create-tenant.md), create one now. You can use an existing Azure AD B2C tenant.
 
 ## Register the SPA application
 
@@ -59,7 +59,7 @@ This authentication flow doesn't include application scenarios that use cross-pl
 1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**
 1. Under **Redirect URI**, select **Single-page application (SPA)**, and then enter `https://jwt.ms` in the URL text box.
 
-    The redirect URI is the endpoint to where the user is sent by the authorization server (Azure AD B2C, in this case) after completing its interaction with the user. Also, the redirect URI endpoint receives the access token or authorization code upon successful authorization. In a production application, it's typically a publicly accessible endpoint where your app is running, like `https://contoso.com/auth-response`. For testing purposes like this guide, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). During app development, you might add the endpoint where your application listens locally, like `http://localhost:5000`. You can add and modify redirect URIs in your registered applications at any time.
+    The redirect URI is the endpoint to where authorization server (Azure AD B2C, in this case) sends the user after it completes its interaction with the user. Also, the redirect URI endpoint receives the access token or authorization code upon successful authorization. In a production application, it's typically a publicly accessible endpoint where your app is running, like `https://contoso.com/auth-response`. For testing purposes like this guide, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). During app development, you might add the endpoint where your application listens locally, like `http://localhost:5000`. You can add and modify redirect URIs in your registered applications at any time.
 
     The following restrictions apply to redirect URIs:
 
@@ -72,7 +72,7 @@ This authentication flow doesn't include application scenarios that use cross-pl
 
 ## Enable the implicit flow
 
-If your SPA app uses MSAL.js 1.3 or earlier and the implicit grant flow or you configure the [https://jwt.ms/](https://jwt.ms/) app for testing a user flow or custom policy, you need to enable the implicit grant flow in the app registration:
+If you’re using MSAL.js 1.3 or an earlier version with the implicit grant flow in your SPA app, or if you  configure the [https://jwt.ms/](https://jwt.ms/) app for testing a user flow or custom policy, you need to enable the implicit grant flow in the app registration:
 
 1. In the left menu, under **Manage**, select **Authentication**.
 
@@ -89,7 +89,7 @@ If you've an existing application that uses the implicit flow, we recommend that
 When all your production SPA represented by an app registration starts using the authorization code flow, disable the implicit grant flow settings as follows: 
 
 1. In the left menu, under **Manage**, select **Authentication**.
-1. Under **Implicit grant**, de-select both the **Access tokens** and **ID tokens** check boxes.
+1. Under **Implicit grant**, deselect both the **Access tokens** and **ID tokens** check boxes.
 1. Select **Save**.
 
 Applications using the implicit flow can continue to function if you leave the implicit flow enabled (checked).

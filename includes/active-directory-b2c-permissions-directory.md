@@ -21,5 +21,5 @@ ms.author: kengaderdus
     * **Policy** > **Policy.ReadWrite.TrustFramework**: For continuous integration/continuous delivery (CI/CD) scenarios. For example, custom policy deployment with Azure Pipelines.
 1. Select **Add permissions**. As directed, wait a few minutes before proceeding to the next step.
 1. Select **Grant admin consent for (your tenant name)**.
-1. If you are not currently signed-in with Global Administrator account, sign in with an account in your Azure AD B2C tenant that's been assigned at least the *Cloud application administrator* role and then select **Grant admin consent for (your tenant name)**.
-1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status**. It might take a few minutes for the permissions to propagate.
+1. Sign in with an account in your Azure AD B2C tenant that has the *Cloud Application Administrator* role assigned to it, then select **Grant admin consent for (your tenant name)**.
+1. Select **Refresh**, then verify that "Granted for ..." appears under **Status**. It might take a few minutes for the permissions to propagate.

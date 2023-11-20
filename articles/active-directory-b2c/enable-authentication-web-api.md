@@ -15,7 +15,7 @@ ms.custom: "b2c-support"
 
 # Enable authentication in your own web API by using Azure AD B2C
 
-To authorize access to a web API, you can serve only requests that include a valid access token that's issued by Azure Active Directory B2C (Azure AD B2C). This article shows you how to enable Azure AD B2C authorization to your web API. After you complete the steps in this article, only users who obtain a valid access token will be authorized to call your web API endpoints.  
+To authorize access to a web API, you can serve only requests that include a valid access token that Azure Active Directory B2C (Azure AD B2C) issues. This article shows you how to enable Azure AD B2C authorization to your web API. After you complete the steps in this article, only users who obtain a valid access token will be authorized to call your web API endpoints.  
 
 ## Prerequisites
 
@@ -26,9 +26,9 @@ Before you begin, read one of the following articles, which discuss how to confi
 
 ## Overview
 
-Token-based authentication ensures that requests to a web API are accompanied by a valid access token. 
+Token-based authentication ensures that requests to a web API includes a valid access token. 
 
-The app does the following:
+The app completes the following steps:
 
 1. It authenticates users with Azure AD B2C.
 1. It acquires an access token with the required permissions (scopes) for the web API endpoint.
@@ -38,7 +38,7 @@ The app does the following:
     Authorization: Bearer <access token>
     ```    
 
-The web API does the following:
+The web API completes the following steps:
 
 1. It reads the bearer token from the authorization header in the HTTP request.
 
@@ -61,7 +61,7 @@ The application registrations and the application architecture are described in 
 
 ## Prepare your development environment  
 
-In the next sections, you'll create a new web API project. Select your programming language, ASP.NET Core or Node.js. Make sure you have a computer that's running either of the following: 
+In the next sections, you create a new web API project. Select your programming language, ASP.NET Core or Node.js. Make sure you have a computer that's running either of the following software: 
 
 # [ASP.NET Core](#tab/csharpclient)
 
@@ -393,7 +393,7 @@ Add the following JSON snippet to the *appsettings.json* file.
 
 # [Node.js](#tab/nodejsgeneric)
 
-Add the following JavaScript code to the *app.js* file. It is possible to [setup HTTP and HTTPS endpoints for the Node application](https://github.com/expressjs/express/wiki/Migrating-from-2.x-to-3.x#application-function). 
+Add the following JavaScript code to the *app.js* file. It's possible to [setup HTTP and HTTPS endpoints for the Node application](https://github.com/expressjs/express/wiki/Migrating-from-2.x-to-3.x#application-function). 
 
 ```javascript
 // Starts listening on port 6000

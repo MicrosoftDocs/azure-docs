@@ -56,11 +56,11 @@ Consider the following scenario:
 
 1. A user signs into Facebook to check their feed.
 2. Later, the user opens your application and starts the sign-in process. The application redirects the user to Azure AD B2C to complete the sign-in process.
-3. On the Azure AD B2C sign-up or sign-in page, the user chooses to sign-in with their Facebook account. The user is redirected to Facebook. If there's an active session at Facebook, the user is not prompted to provide their credentials and is immediately redirected to Azure AD B2C with a Facebook token.
+3. On the Azure AD B2C sign-up or sign-in page, the user chooses to sign-in with their Facebook account. The user is redirected to Facebook. If there's an active session at Facebook, the user isn't prompted to provide their credentials and is immediately redirected to Azure AD B2C with a Facebook token.
 
 ### Application session
 
-A web, mobile, or single page application can be protected by an OAuth2 access token, ID token, or SAML token. When a user tries to access a protected resource on the app, the app checks whether there is an active session on the application side. If there's no app session or the session has expired, the app takes the user to the Azure AD B2C sign-in page.
+An OAuth2 access token, ID token, or SAML token can protect a web, mobile, or single page application. When a user tries to access a protected resource on the app, the app checks whether there's an active session on the application side. If an app session does not exist or the session expires, the app directs the user to the Azure AD B2C sign-in page.
 
 The application session can be a cookie-based session stored under the application domain name, such as `https://contoso.com`. Mobile applications might store the session in a different way but using a similar approach.
 
@@ -77,7 +77,7 @@ You can configure the Azure AD B2C session behavior, including:
 - **Single sign-on configuration** - The Azure AD B2C session can be configured with the following scopes:
   - **Tenant** - This setting is the default. Using this setting allows multiple applications and user flows in your B2C tenant to share the same user session. For example, once a user signs into an application, the user can also seamlessly sign into another one upon accessing it.
   - **Application** - This setting allows you to maintain a user session exclusively for an application, independent of other applications. For example, you can use this setting if you want the user to sign in to Contoso Pharmacy regardless of whether the user is already signed into Contoso Groceries.
-  - **Policy** - This setting allows you to maintain a user session exclusively for a user flow, independent of the applications using it. For instance, Azure AD B2C grants the user access to higher-security parts of multiple applications if the user has already signed in and completed a multi-factor authentication (MFA) step. This access continues as long as the session associated with the user flow remains active.
+  - **Policy** - This setting allows you to maintain a user session exclusively for a user flow, independent of the applications using it. For instance, Azure AD B2C grants the user access to higher-security parts of multiple applications if the user has already signed in and completed a multifactor authentication (MFA) step. This access continues as long as the session associated with the user flow remains active.
   - **Suppressed** - This setting forces the user to run through the entire user flow upon every execution of the policy.
 
 ::: zone pivot="b2c-user-flow"
@@ -155,8 +155,8 @@ You can enable the KMSI feature for users of your web and native applications wh
 
 KMSI is configurable at the individual user flow level. Before enabling KMSI for your user flows, consider the following:
 
-- KMSI is supported only for the **Recommended** versions of sign-up and sign-in (SUSI), sign-in, and profile editing user flows. If you currently have **Standard (Legacy)** or **Legacy preview - v2** versions of these user flows and want to enable KMSI, you'll need to create new, **Recommended** versions of these user flows.
-- KMSI is not supported with password reset or sign-up user flows.
+- KMSI is supported only for the **Recommended** versions of sign-up and sign-in (SUSI), sign-in, and profile editing user flows. If you currently have **Standard (Legacy)** or **Legacy preview - v2** versions of these user flows and want to enable KMSI, you need to create new, **Recommended** versions of these user flows.
+- KMSI isn't supported with password reset or sign-up user flows.
 - If you want to enable KMSI for all applications in your tenant, we recommend that you enable KMSI for all user flows in your tenant. Because a user can be presented with multiple policies during a session, it's possible they could encounter one that doesn't have KMSI enabled, which would remove the KMSI cookie from the session.
 - KMSI shouldn't be enabled on public computers.
 
@@ -185,7 +185,7 @@ Users shouldn't enable this option on public computers.
 
 To enable KMSI, set the content definition `DataUri` element to [page identifier](contentdefinitions.md#datauri) `unifiedssp` and [page version](page-layout.md) *1.1.0* or above.
 
-1. Open the extension file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>. This extension file is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
+1. Open the extension file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>. This extension file is one of the policy files included in the custom policy starter pack, which you obtain in the prerequisite, [Get started with custom policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 1. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
 1. Add the **ContentDefinitions** element to the **BuildingBlocks** element of the policy.
 
@@ -268,7 +268,7 @@ You set both KeepAliveInDays and SessionExpiryInSeconds so that during a sign-in
 
 ::: zone-end
 
-## Sign-out
+## Sign out
 
 When you want to sign the user out of the application, it isn't enough to clear the application's cookies or otherwise end the session with the user. You must redirect the user to Azure AD B2C to sign out. Otherwise, the user might be able to reauthenticate to your applications without entering their credentials again.
 
@@ -376,7 +376,7 @@ When Azure AD B2C notifies all applications about the sign-out, it proceeds to d
 
 ### Secure your logout redirect
 
-After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that you specify for the application. However, if a valid `id_token_hint` is passed and the **Require ID Token in logout requests** is turned on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected. 
+After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that you specify for the application. However, if a valid `id_token_hint` is passed and the **Require ID Token in logout requests** is turned on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user isn't redirected. 
 
 ::: zone pivot="b2c-user-flow"
 
