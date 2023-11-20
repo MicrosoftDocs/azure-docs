@@ -12,7 +12,7 @@ ms.date: 01/06/2023
 
 This document contains information about troubleshooting your solutions that use Datadog - An Azure Native ISV Service.
 
-## Purchase errors
+## Marketplace Purchase errors
 
 [!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
