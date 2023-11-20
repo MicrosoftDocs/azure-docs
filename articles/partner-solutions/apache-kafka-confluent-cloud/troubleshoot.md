@@ -2,9 +2,8 @@
 title: Troubleshooting Apache Kafka for Confluent Cloud
 description: This article provides information about troubleshooting and frequently asked questions (FAQ) for Confluent Cloud on Azure.
 ms.topic: conceptual
-ms.date: 02/18/2021
-author: flang-msft
-ms.author: franlanglois
+
+ms.date: 11/20/2023
 ---
 
 # Troubleshooting Apache Kafka on Confluent Cloud solutions
@@ -72,7 +71,7 @@ If the problem persists, contact [Confluent support](https://support.confluent.i
 ## Next steps
 
 - Learn about [managing your instance](manage.md) of Apache Kafka on Confluent Cloud.
-- Get started with Apache Kafka on Confluent Cloud - Azure Native ISV Service on
+- Get started with Apache Kafka on Confluent Cloud - An Azure Native ISV Service on
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)

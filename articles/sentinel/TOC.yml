@@ -902,8 +902,6 @@
     items:
     - name: Visualize collected data
       href: get-visibility.md
-    - name: Visualize data with enrichment widgets 
-      href: enable-enrichment-widgets.md
     - name: Use Azure Monitor workbooks
       href: ./monitor-your-data.md
     - name: Create a Power BI report
@@ -1032,6 +1030,14 @@
       href: work-with-tasks.md
     - name: Audit and track changes to incident tasks
       href: audit-track-tasks.md
+  - name: Investigate entities
+    items:
+    - name: Overview
+      href: entity-pages.md
+    - name: Enable enrichment widgets 
+      href: enable-enrichment-widgets.md
+    - name: Create custom entity activities
+      href: customize-entity-activities.md
   - name: Investigate large datasets
     items:
     - name: Overview
@@ -1040,12 +1046,6 @@
       href: search-jobs.md
     - name: Restore historical data
       href: restore.md
-  - name: Investigate entities with entity pages
-    items:
-    - name: Overview
-      href: entity-pages.md
-    - name: Create custom entity activities
-      href: customize-entity-activities.md
   - name: Collaborate in Microsoft Teams
     href: collaborate-in-microsoft-teams.md
 - name: Automate responses
