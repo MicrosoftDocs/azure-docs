@@ -5,7 +5,7 @@ services: azure-communication-services
 author: Kunaal Punjabi
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/10/2023
+ms.date: 11/20/2023
 ms.topic: include
 ms.topic: include file
 ms.author: kpunjabi
@@ -19,8 +19,7 @@ ms.author: kpunjabi
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - Obtain the latest [NuGet package](https://www.nuget.org/packages/Azure.Communication.CallAutomation/).
 
-### For AI features (Public preview)
-- Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
+### For AI features
 - Create and connect [Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
 
@@ -36,15 +35,13 @@ dotnet new web -n MyApplication
 
 The NuGet package can be obtained from [here](https://www.nuget.org/packages/Azure.Communication.CallAutomation/), if you haven't already done so. 
 
-For access to AI features in public preview, you need to obtain the NuGet package from the Dev Feed. You can do this by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed) and locate **Azure.Communication.CallAutomation** package.
-
 ## (Optional) Prepare your audio file if you wish to use audio files for playing prompts
 
-Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to Azure Communication Services with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. Azure Communication Services supports both file types of **MP3** and **WAV files, mono 16-bit PCM at 16 KHz sample rate**. . 
+Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to Azure Communication Services with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. Azure Communication Services supports both file types of **MP3 files with ID3V2TAG** and **WAV files, mono 16-bit PCM at 16 KHz sample rate**. . 
 
 You can test creating your own audio file using our [Speech synthesis with Audio Content Creation tool](../../../../ai-services/Speech-Service/how-to-audio-content-creation.md).
 
-## (Optional) Connect your Azure Cognitive Service to your Azure Communication Service (Public Preview)
+## (Optional) Connect your Azure Cognitive Service to your Azure Communication Service
 
 If you would like to use Text-To-Speech capabilities, then it's required for you to connect your [Azure Cognitive Service to your Azure Communication Service](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 
@@ -53,12 +50,14 @@ If you would like to use Text-To-Speech capabilities, then it's required for you
 By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/quickstart-make-an-outbound-call.md). You can also use the code snippet provided here to understand how to answer a call.
 
 ```csharp
-var callAutomationClient = new CallAutomationClient("<Azure Communication Services connection string>");  
+var callAutomationClient = new CallAutomationClient("<Azure Communication Services connection string>");   
 
-var answerCallOptions = new AnswerCallOptions("<Incoming call context once call is connected>", new Uri("<https://sample-callback-uri>")) 
-{ 
-    CognitiveServicesEndpoint = new Uri("<Azure Cognitive Services Endpoint>") 
-}; 
+var answerCallOptions = new AnswerCallOptions("<Incoming call context once call is connected>", new Uri("<https://sample-callback-uri>"))  
+
+{  
+    CallIntelligenceOptions = new CallIntelligenceOptions() { CognitiveServicesEndpoint = new Uri("<Azure Cognitive Services Endpoint>") } 
+};  
+
 var answerCallResult = await callAutomationClient.AnswerCallAsync(answerCallOptions); 
 ```
 
