@@ -158,7 +158,7 @@ To get Application Insights ID and key:
 
 ### Set up Azure AD B2C VS Code extension
 
-Now the you have Azure Application insights API ID and Key, you can configure the VS Code extension to read the logs. Azure AD B2C VS Code extension provides two scopes for settings:
+Now that you have Azure Application insights API ID and Key, you can configure the VS Code extension to read the logs. Azure AD B2C VS Code extension provides two scopes for settings:
 
 - **User Global Settings** - Settings that apply globally to any instance of VS Code you open.
 - **Workspace Settings** - Settings stored inside your workspace and only apply when the workspace is opened (using VS Code **open folder**).
