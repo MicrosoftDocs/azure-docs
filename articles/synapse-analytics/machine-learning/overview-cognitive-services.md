@@ -92,7 +92,7 @@ The tutorial, [Pre-requisites for using Azure AI services in Azure Synapse](tuto
 
 ### Search
 - [Bing Image search](https://www.microsoft.com/bing/apis/bing-image-search-api) ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/BingImageSearch.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.BingImageSearch))
-- [Azure Cognitive Search](../../search/search-what-is-azure-search.md) ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/index.html#com.microsoft.azure.synapse.ml.cognitive.search.AzureSearchWriter$), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.AzureSearchWriter))
+- [Azure AI Search](../../search/search-what-is-azure-search.md) ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/index.html#com.microsoft.azure.synapse.ml.cognitive.search.AzureSearchWriter$), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.AzureSearchWriter))
 
 ## Prerequisites
 
@@ -505,7 +505,7 @@ display(
 )
 ```
 
-## Azure Cognitive Search sample
+## Azure AI Search sample
 
 In this example, we show how you can enrich data using Cognitive Skills and write to an Azure Search Index using SynapseML.
 

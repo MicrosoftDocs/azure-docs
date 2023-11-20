@@ -268,6 +268,12 @@ For more information, see [Map configuration] in the article about indoor map co
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [What is Azure Maps Creator?]
+
+> [!div class="nextstepaction"]
+> [Creator for indoor maps]
+
+> [!div class="nextstepaction"]
 > [Use the Azure Maps Indoor Maps module with custom styles](how-to-use-indoor-module.md)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
@@ -289,3 +295,5 @@ For more information, see [Map configuration] in the article about indoor map co
 [Tileset service]: /rest/api/maps/2023-03-01-preview/tileset
 [tileset get]: /rest/api/maps/2023-03-01-preview/tileset/get
 [Map configuration]: creator-indoor-maps.md#map-configuration
+[What is Azure Maps Creator?]: about-creator.md
+[Creator for indoor maps]: creator-indoor-maps.md

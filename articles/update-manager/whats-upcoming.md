@@ -5,12 +5,15 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/27/2023
+ms.date: 11/07/2023
 ---
 
 # What are the upcoming features in Azure Update Manager
 
 The article [What's new in Azure Update Manager](whats-new.md) contains updates of feature releases. This article lists all the upcoming features for Azure Update Manager.
+
+## Azure Stack HCI patching (preview)
+Azure Update Manager will allow you to patch Azure Stack HCI cluster.
 
 ## Alerting 
 Enable alerts to address events as captured in updates data.

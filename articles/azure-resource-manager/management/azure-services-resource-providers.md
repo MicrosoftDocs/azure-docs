@@ -1,18 +1,20 @@
 ---
-title: Resource providers by Azure services
+title: Find resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 11/07/2023
 ms.custom: ignite-2022, devx-track-arm-template
 content_well_notification: 
   - AI-contribution
 ---
 
-# Resource providers for Azure services
+# What are the resource providers for Azure services
 
-This article connects resource provider namespaces to Azure services. If you don't know the resource provider, see [Find resource provider](#find-resource-provider).
+A resource provider is a collection of REST operations that enables functionality for an Azure service. Each resource provider has a namespace in the format of `company-name.service-label`. This article shows the resource providers for Azure services. If you don't know the resource provider, see [Find resource provider](#find-resource-provider).
 
 ## AI and machine learning resource providers
+
+The resource providers for AI and machine learning services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
@@ -22,9 +24,11 @@ This article connects resource provider namespaces to Azure services. If you don
 | Microsoft.EnterpriseKnowledgeGraph | Enterprise Knowledge Graph |
 | Microsoft.MachineLearning | [Machine Learning Studio](../../machine-learning/classic/index.yml) |
 | Microsoft.MachineLearningServices | [Azure Machine Learning](../../machine-learning/index.yml) |
-| Microsoft.Search | [Azure Cognitive Search](../../search/index.yml) |
+| Microsoft.Search | [Azure AI Search](../../search/index.yml) |
 
 ## Analytics resource providers
+
+The resource providers for analytics services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
@@ -46,12 +50,16 @@ This article connects resource provider namespaces to Azure services. If you don
 
 ## Blockchain resource providers
 
+The resource providers for Blockchain services are:
+
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.Blockchain | [Azure Blockchain Service](../../blockchain/workbench/index.yml) |
 | Microsoft.BlockchainTokens | [Azure Blockchain Tokens](https://azure.microsoft.com/services/blockchain-tokens/) |
 
 ## Compute resource providers
+
+The resource providers for compute services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
@@ -75,6 +83,8 @@ This article connects resource provider namespaces to Azure services. If you don
 
 ## Container resource providers
 
+The resource providers for container services are:
+
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.App | [Azure Container Apps](../../container-apps/index.yml) |
@@ -84,6 +94,8 @@ This article connects resource provider namespaces to Azure services. If you don
 | Microsoft.RedHatOpenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
 
 ## Core resource providers
+
+The resource providers for core services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
@@ -101,6 +113,8 @@ This article connects resource provider namespaces to Azure services. If you don
 
 ## Database resource providers
 
+The resource providers for database services are:
+
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.AzureData | SQL Server registry |
@@ -114,6 +128,8 @@ This article connects resource provider namespaces to Azure services. If you don
 
 ## Developer tools resource providers
 
+The resource providers for developer tools services are:
+
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.AppConfiguration | [Azure App Configuration](../../azure-app-configuration/index.yml) |
@@ -123,12 +139,16 @@ This article connects resource provider namespaces to Azure services. If you don
 
 ## DevOps resource providers
 
+The resource providers for DevOps services are:
+
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | microsoft.visualstudio | [Azure DevOps](/azure/devops/) |
 | Microsoft.VSOnline | [Azure DevOps](/azure/devops/) |
 
 ## Hybrid resource providers
+
+The resource providers for hybrid services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
@@ -140,6 +160,8 @@ This article connects resource provider namespaces to Azure services. If you don
 
 ## Identity resource providers
 
+The resource providers for identity services are:
+
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.AAD | [Microsoft Entra Domain Services](../../active-directory-domain-services/index.yml) |
@@ -149,6 +171,8 @@ This article connects resource provider namespaces to Azure services. If you don
 | Microsoft.Token | Token |
 
 ## Integration resource providers
+
+The resource providers for integration services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
@@ -166,6 +190,8 @@ This article connects resource provider namespaces to Azure services. If you don
 
 ## IoT resource providers
 
+The resource providers for IoT services are:
+
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.Devices | [Azure IoT Hub](../../iot-hub/index.yml)<br />[Azure IoT Hub Device Provisioning Service](../../iot-dps/index.yml) |
@@ -177,6 +203,8 @@ This article connects resource provider namespaces to Azure services. If you don
 | Microsoft.WindowsIoT | [Windows 10 IoT Core Services](/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
 
 ## Management resource providers
+
+The resource providers for management services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
@@ -207,11 +235,15 @@ This article connects resource provider namespaces to Azure services. If you don
 
 ## Media resource providers
 
+The resource providers for media services are:
+
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.Media | [Media Services](/azure/media-services/) |
 
 ## Migration resource providers
+
+The resource providers for migration services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
@@ -223,6 +255,8 @@ This article connects resource provider namespaces to Azure services. If you don
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 
 ## Monitoring resource providers
+
+The resource providers for monitoring services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
@@ -236,6 +270,8 @@ This article connects resource provider namespaces to Azure services. If you don
 
 ## Network resource providers
 
+The resource providers for network services are:
+
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.Cdn | [Content Delivery Network](../../cdn/index.yml) |
@@ -245,6 +281,8 @@ This article connects resource provider namespaces to Azure services. If you don
 | Microsoft.Peering | [Azure Peering Service](../../peering-service/index.yml) |
 
 ## Security resource providers
+
+The resource providers for security services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
@@ -259,6 +297,8 @@ This article connects resource provider namespaces to Azure services. If you don
 | Microsoft.WindowsESU | Extended Security Updates |
 
 ## Storage resource providers
+
+The resource providers for storage services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
@@ -275,6 +315,8 @@ This article connects resource provider namespaces to Azure services. If you don
 
 ## Web resource providers
 
+The resource providers for web services are:
+
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.BingMaps | [Bing Maps](/BingMaps/#pivot=main&panel=BingMapsAPI) |
@@ -285,6 +327,8 @@ This article connects resource provider namespaces to Azure services. If you don
 | Microsoft.Web | [App Service](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml) |
 
 ## 5G & Space resource providers
+
+The resource providers for 5G & space services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |

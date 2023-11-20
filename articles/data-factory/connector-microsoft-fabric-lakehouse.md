@@ -29,9 +29,9 @@ This Microsoft Fabric Lakehouse connector is supported for the following capabil
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
-|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |
+|[Mapping data flow](concepts-data-flow-overview.md) (-/sink)|&#9312; |- |
 
-<small>*&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*
 
 ## Get started
 
@@ -261,12 +261,12 @@ The following properties are under `storeSettings` settings in format-based copy
 | OPTION 2: wildcard<br>- wildcardFileName | The file name with wildcard characters under the given folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual file name has wildcard or this escape char inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes |
 | OPTION 3: a list of files<br>- fileListPath | Indicates to copy a given file set. Point to a text file that includes a list of files you want to copy, one file per line, which is the relative path to the path configured in the dataset.<br/>When using this option, don't specify file name in dataset. See more examples in [File list examples](#file-list-examples). |No |
 | ***Additional settings:*** |  | |
-| recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. <br>Allowed values are **true** (default) and **false**.<br>This property doesn't apply when you configure `fileListPath`. |No |
-| deleteFilesAfterCompletion | Indicates whether the binary files will be deleted from source store after successfully moving to the destination store. The file deletion is per file, so when copy activity fails, you'll see some files have already been copied to the destination and deleted from source, while others are still remaining on source store. <br/>This property is only valid in binary files copy scenario. The default value: false. |No |
-| modifiedDatetimeStart    | Files filter based on the attribute: Last Modified. <br>The files will be selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL, which means no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.<br/>This property doesn't apply when you configure `fileListPath`. | No                                            |
+| recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. When recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. <br>Allowed values are **true** (default) and **false**.<br>This property doesn't apply when you configure `fileListPath`. |No |
+| deleteFilesAfterCompletion | Indicates whether the binary files will be deleted from source store after successfully moving to the destination store. The file deletion is per file, so when copy activity fails, you see some files have already been copied to the destination and deleted from source, while others are still remaining on source store. <br/>This property is only valid in binary files copy scenario. The default value: false. |No |
+| modifiedDatetimeStart    | Files filter based on the attribute: Last Modified. <br>The files will be selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL, which means no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.<br/>This property doesn't apply when you configure `fileListPath`. | No                                            |
 | modifiedDatetimeEnd      | Same as above.                                               | No                                            |
-| enablePartitionDiscovery | For files that are partitioned, specify whether to parse the partitions from the file path and add them as additional source columns.<br/>Allowed values are **false** (default) and **true**. | No                                            |
-| partitionRootPath | When partition discovery is enabled, specify the absolute root path in order to read partitioned folders as data columns.<br/><br/>If it isn't specified, by default,<br/>- When you use file path in dataset or list of files on source, partition root path is the path configured in dataset.<br/>- When you use wildcard folder filter, partition root path is the sub-path before the first wildcard.<br/><br/>For example, assuming you configure the path in dataset as "root/folder/year=2020/month=08/day=27":<br/>- If you specify partition root path as "root/folder/year=2020", copy activity will generate two more columns `month` and `day` with value "08" and "27" respectively, in addition to the columns inside the files.<br/>- If partition root path isn't specified, no extra column will be generated. | No                                            |
+| enablePartitionDiscovery | For files that are partitioned, specify whether to parse the partitions from the file path and add them as another source columns.<br/>Allowed values are **false** (default) and **true**. | No                                            |
+| partitionRootPath | When partition discovery is enabled, specify the absolute root path in order to read partitioned folders as data columns.<br/><br/>If it isn't specified, by default,<br/>- When you use file path in dataset or list of files on source, partition root path is the path configured in dataset.<br/>- When you use wildcard folder filter, partition root path is the subpath before the first wildcard.<br/><br/>For example, assuming you configure the path in dataset as "root/folder/year=2020/month=08/day=27":<br/>- If you specify partition root path as "root/folder/year=2020", copy activity generates two more columns `month` and `day` with value "08" and "27" respectively, in addition to the columns inside the files.<br/>- If partition root path isn't specified, no extra column is generated. | No                                            |
 | maxConcurrentConnections | The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No                                            |
 
 **Example:**
@@ -326,7 +326,7 @@ The following properties are under `storeSettings` settings in format-based copy
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | The type property under `storeSettings` must be set to **LakehouseWriteSettings**. | Yes      |
 | copyBehavior             | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of the source file to the source folder is identical to the relative path of the target file to the target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No       |
-| blockSizeInMB | Specify the block size in MB used to write data to Microsoft Fabric Lakehouse. Learn more [about Block Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Allowed value is **between 4 MB and 100 MB**. <br/>By default, ADF automatically determines the block size based on your source store type and data. For non-binary copy into Microsoft Fabric Lakehouse, the default block size is 100 MB so as to fit in at most approximately 4.75-TB data. It might be not optimal when your data isn't large, especially when you use Self-hosted Integration Runtime with poor network resulting in operation timeout or performance issue. You can explicitly specify a block size, while ensure blockSizeInMB*50000 is big enough to store the data, otherwise copy activity run will fail. | No |
+| blockSizeInMB | Specify the block size in MB used to write data to Microsoft Fabric Lakehouse. Learn more [about Block Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Allowed value is **between 4 MB and 100 MB**. <br/>By default, ADF automatically determines the block size based on your source store type and data. For nonbinary copy into Microsoft Fabric Lakehouse, the default block size is 100 MB so as to fit in at most approximately 4.75-TB data. It might be not optimal when your data isn't large, especially when you use Self-hosted Integration Runtime with poor network resulting in operation timeout or performance issue. You can explicitly specify a block size, while ensure blockSizeInMB*50000 is large enough to store the data, otherwise copy activity run fails. | No |
 | maxConcurrentConnections | The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No       |
 | metadata |Set custom metadata when copy to sink. Each object under the `metadata` array represents an extra column. The `name` defines the metadata key name, and the `value` indicates the data value of that key. If [preserve attributes feature](./copy-activity-preserve-metadata.md#preserve-metadata) is used, the specified metadata will union/overwrite with the source file metadata.<br/><br/>Allowed data values are:<br/>- `$$LASTMODIFIED`: a reserved variable indicates to store the source files' last modified time. Apply to file-based source with binary format only.<br/><b>- Expression<b><br/>- <b>Static value<b>| No       |
 
@@ -514,16 +514,6 @@ For more information, see the [source transformation](data-flow-source.md) and [
 
 To use Microsoft Fabric Lakehouse Files dataset as a source or sink dataset in mapping data flow, go to the following sections for the detailed configurations.
 
-#### Microsoft Fabric Lakehouse Files as a source type
-
-Microsoft Fabric Lakehouse connector supports the following file formats. Refer to each article for format-based settings.
-
-- [Avro format](format-avro.md)
-- [Delimited text format](format-delimited-text.md)
-- [JSON format](format-json.md)
-- [ORC format](format-orc.md)
-- [Parquet format](format-parquet.md)
-
 #### Microsoft Fabric Lakehouse Files as a sink type
 
 Microsoft Fabric Lakehouse connector supports the following file formats. Refer to each article for format-based settings.
@@ -538,10 +528,6 @@ Microsoft Fabric Lakehouse connector supports the following file formats. Refer 
 
 To use Microsoft Fabric Lakehouse Table dataset as a source or sink dataset in mapping data flow, go to the following sections for the detailed configurations.
 
-#### Microsoft Fabric Lakehouse Table as a source type
-
-There are no configurable properties under source options.
-
 #### Microsoft Fabric Lakehouse Table as a sink type
 
 The following properties are supported in the Mapping Data Flows **sink** section:
@@ -550,8 +536,8 @@ The following properties are supported in the Mapping Data Flows **sink** sectio
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Update method | When you select "Allow insert" alone or when you write to a new delta table, the target receives all incoming rows regardless of the Row policies set. If your data contains rows of other Row policies, they need to be excluded using a preceding Filter transform. <br><br> When all Update methods are selected a Merge is performed, where rows are inserted/deleted/upserted/updated as per the Row Policies set using a preceding Alter Row transform. | yes | `true` or `false` | insertable <br> deletable <br> upsertable <br> updateable  |
 | Optimized Write | Achieve higher throughput for write operation via optimizing internal shuffle in Spark executors. As a result, you might notice fewer partitions and files that are of a larger size | no | `true` or `false` | optimizedWrite: true |
-| Auto Compact | After any write operation has completed, Spark will automatically execute the ```OPTIMIZE``` command to re-organize the data, resulting in more partitions if necessary, for better reading performance in the future | no | `true` or `false` |    autoCompact: true | 
-| Merge Schema | Merge schema option allows schema evolution, i.e. any columns that are present in the current incoming stream but not in the target Delta table is automatically added to its schema. This option is supported across all update methods. | no | `true` or `false` |    mergeSchema: true | 
+| Auto Compact | After any write operation has completed, Spark will automatically execute the ```OPTIMIZE``` command to reorganize the data, resulting in more partitions if necessary, for better reading performance in the future | no | `true` or `false` |    autoCompact: true | 
+| Merge Schema | Merge schema option allows schema evolution, that is, any columns that are present in the current incoming stream but not in the target Delta table is automatically added to its schema. This option is supported across all update methods. | no | `true` or `false` |    mergeSchema: true | 
 
 **Example: Microsoft Fabric Lakehouse Table sink**
 
