@@ -146,7 +146,7 @@ Consent Tab of the Create Oracle Exadata VM Cluster Flow.
 1. From the Tags tab of the Create Oracle Exadata VM Cluster flow, you can define Microsoft Azure tags.
 
      >[!NOTE]
-     > These tags are not propagated to the Oracle Cloud Infrastructure (OCI) portal. !
+     > These tags are not propagated to the Oracle Cloud Infrastructure (OCI) portal.
 
     :::image type="content" source="media/ODAAZExaVM07.png" alt-text="Diagram showing the Tags Tab of the Create Oracle Exadata VM Cluster Flow"::: 
 
