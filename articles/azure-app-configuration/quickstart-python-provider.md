@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: devx-track-python, mode-other, engagement-fy23
-ms.date: 03/20/2023
+ms.date: 11/20/2023
 ms.author: malev
 #Customer intent: As a Python developer, I want to manage all my app settings in one place.
 ---
