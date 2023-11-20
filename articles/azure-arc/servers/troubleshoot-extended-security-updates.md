@@ -33,6 +33,26 @@ If you're unable to successfully link your Azure Arc-enabled server to an activa
 
 - **License properties:** Verify the license is activated and has been allocated sufficient physical or virtual cores to support the intended scope of servers.
 
+	## Resource Providers
+
+ If you're unable to enable this service offering, it is recommended to review the resource providers registered on the subscription as noted below. If you receive an error while attempting to register the resource providers you will need to validate the role assignment/s on the subscription. Furthmore review any potential Azure policy's that may be set with a Deny effect preventing the enablement of these resource providers.
+
+- **Microsoft.HybridCompute:** This resource provider is essential for Azure Arc-enabled servers, allowing you to onboard and manage on-premises servers in the Azure portal.
+
+- **Microsoft.GuestConfiguration:** Enables Guest Configuration policies, which are used to assess and enforce configurations on your Arc-enabled servers for compliance and security.
+	
+- **Microsoft.UpdateManagement:** This resource provider is required for Azure Update Management, which is used to manage updates and patches on your on-premises servers, including ESU updates.
+	
+- **Microsoft.Security:** Enabling this resource provider is crucial for implementing security-related features and configurations for both Azure Arc and on-premises servers.
+	
+- **Microsoft.KubernetesConfiguration:** If you plan to use Azure Arc-enabled Kubernetes clusters, you should enable this resource provider to manage and monitor Kubernetes resources centrally.
+	
+- **Microsoft.OperationalInsights:** This resource provider is associated with Azure Monitor and Log Analytics, which are used for monitoring and collecting telemetry data from your hybrid infrastructure, including on-premises servers.
+	
+- **Microsoft.Sql:** If you're managing on-premises SQL Server instances and require ESU for SQL Server, enabling this resource provider is necessary.
+	
+- **Microsoft.Storage:** Enabling this resource provider is important for managing storage resources, which may be relevant for hybrid and on-premises scenarios.
+  
 ## ESU patches issues
 
 If you have issues receiving ESUs after successfully enrolling the server through Arc-enabled servers, or you need additional information related to issues affecting ESU deployment, see [Troubleshoot issues in ESU](/troubleshoot/windows-client/windows-7-eos-faq/troubleshoot-extended-security-updates-issues).
