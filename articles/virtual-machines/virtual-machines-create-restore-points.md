@@ -29,7 +29,7 @@ A multidisk crash-consistent VM restore point stores the VM configuration and po
 > [!NOTE]
 > For disks configured with read/write host caching, multidisk crash consistency can't be guaranteed because writes that occur while the snapshot is taken might not be acknowledged by Azure Storage. If maintaining consistency is crucial, we recommend that you use the application-consistency mode.
 
-VM restore points are organized into restore point collections. A restore point collection is an Azure Resource Manager resource that contains the restore points for a specific VM. If you want to utilize Resource Manager templates for creating restore points and restore point collections, see the public [Virtual-Machine-Restore-Points](https://github.com/Azure/Virtual-Machine-Restore-Points) repository in GitHub.
+VM restore points are organized into restore point collections. A restore point collection is an Azure Resource Manager resource that contains the restore points for a specific VM. If you want to utilize Azure Resource Manager templates (ARM templates) for creating restore points and restore point collections, see the public [Virtual-Machine-Restore-Points](https://github.com/Azure/Virtual-Machine-Restore-Points) repository in GitHub.
 
 The following image illustrates the relationship between restore point collections, VM restore points, and disk restore points.
 
@@ -45,8 +45,6 @@ Currently, you can create restore points in only one VM at a time. You can't cre
 > A virtual machine scale set with Uniform orchestration isn't supported by restore points. You can't create restore points of VMs inside a virtual machine scale set with Uniform orchestration.
 
 ## Limitations
-
-Here are current limitations:
 
 - Restore points are supported only for managed disks.
 - Ultra-disks, ephemeral OS disks, and shared disks aren't supported.

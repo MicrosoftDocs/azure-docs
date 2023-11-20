@@ -26,7 +26,7 @@ Scenarios where this API can be helpful:
 
 * Private links aren't supported when you copy restore points across regions or create restore points in a region other than the source VM.
 * Azure confidential VMs aren't supported.
-* The API version for a cross-region copy of the VM restore point feature is March 1, 2021, or later.
+* The API version for a cross-region copy of the VM restore point feature is 2021-03-01, or later.
 * Copy of a copy isn't supported. You can't copy a restore point that was already copied from another region. For example, if you copied RP1 from East US to West US as RRP1, you can't copy RRP1 from West US to another region (or back to East US).
 * Multiple copies of the same restore point in a single target region aren't supported. A single restore point in the source region can be copied only once to a target region.
 * Copying a restore point that's CMK encrypted in the source is encrypted by using CMK in the target region. This feature is currently in preview.

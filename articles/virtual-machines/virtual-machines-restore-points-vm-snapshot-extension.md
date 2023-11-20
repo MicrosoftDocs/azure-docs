@@ -17,7 +17,7 @@ Application-consistent restore points use the Volume Shadow Copy Service (VSS) s
 For Windows images, the **VMSnapshot Windows** extension, and for Linux images, the **VMSnapshot Linux** extension, are used for taking application consistent restore points. When there's a create application consistent restore point request issued from a VM, Azure installs the VM snapshot extension if it's not already present. The extension is updated automatically.
 
 > [!IMPORTANT]
-> Azure begins creating a restore point only after all extension (including but not limited to VMSnapshot) provisioning states are complete.
+> Azure begins creating a restore point only after all extensions (including but not limited to VMSnapshot) provisioning state are complete.
 
 ## Extension logs
 
