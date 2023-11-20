@@ -24,6 +24,10 @@ The process of classifying a Job involves optionally setting the following prope
 - Worker Selectors
 - Queue ID
 
+## Fallback queue
+
+The fallback queue is used when the primary classification process fails to find a queue. In this case, if a fallback queue is defined, a job will be assigned to the fallback queue instead.
+
 ## Prioritization rule
 
 The priority of a Job can be resolved during classification using one of many rule engines.
