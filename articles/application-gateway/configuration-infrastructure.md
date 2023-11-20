@@ -165,9 +165,9 @@ With current functionality, there are some restrictions:
 > [!IMPORTANT]
 > Using UDRs on the Application Gateway subnet might cause the health status in the [backend health view](application-gateway-backend-health.md) to appear as **Unknown**. It also might cause generation of Application Gateway logs and metrics to fail. We recommend not using UDRs on the Application Gateway subnet so that you can view the backend health, logs, and metrics.
 
-For the v1 SKU, UDRs are supported on the Application Gateway subnet if they don't alter end-to-end request/response communication. For example, you can set up a UDR in the Application Gateway subnet to point to a firewall appliance for packet inspection. But you must make sure that the packet can reach its intended destination after inspection. Failure to do so might result in incorrect health-probe or traffic-routing behavior. Learned routes or default 0.0.0.0/0 routes that are propagated by Azure ExpressRoute or VPN gateways in the virtual network are also included.
+- **v1**: For the v1 SKU, UDRs are supported on the Application Gateway subnet if they don't alter end-to-end request/response communication. For example, you can set up a UDR in the Application Gateway subnet to point to a firewall appliance for packet inspection. But you must make sure that the packet can reach its intended destination after inspection. Failure to do so might result in incorrect health-probe or traffic-routing behavior. Learned routes or default 0.0.0.0/0 routes that are propagated by Azure ExpressRoute or VPN gateways in the virtual network are also included.
 
-For the v2 SKU, there are supported and unsupported scenarios.
+- **v2**: For the v2 SKU, there are supported and unsupported scenarios.
 
 ### v2 supported scenarios
 
