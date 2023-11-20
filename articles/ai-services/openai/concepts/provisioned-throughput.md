@@ -33,9 +33,9 @@ An Azure OpenAI Deployment is a unit of management for a specific OpenAI Model. 
 |---|---|
 | What is it? | Provides guaranteed throughput at smaller increments than the existing provisioned offer. Deployments will have a consistent max latency for a given model-version |
 | Who is it for? | Customers who want guaranteed throughput with minimal latency variance. |
-| Quota | Provisioned-Managed throughput Units |
+| Quota | Provisioned-managed throughput Units |
 | Latency | Max latency constrained |
-| Utilization | Provisioned-Managed Utilization measure provided in Azure Monitor |
+| Utilization | Provisioned-managed Utilization measure provided in Azure Monitor |
 | Estimating size | Provided calculator in the studio & load test script |
 
 ## Key concepts
