@@ -24,7 +24,8 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
-| November 20|GA release: New autoprovisioning process for SQL Servers on machines plan|
+| November 20 | Defender for Cloud integration with ServiceNow |
+| November 20| [General Availability of the autoprovisioning process for SQL Servers on machines plan](#general-availability-of-the-autoprovisioning-process-for-sql-servers-on-machines-plan)|
 | November 15 | [Defender for Cloud is now integrated with Microsoft 365 Defender](#defender-for-cloud-is-now-integrated-with-microsoft-365-defender) |
 | November 15 | [General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries](#general-availability-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries) |
 | November 15 | [Change to Container Vulnerability Assessments recommendation names](#change-to-container-vulnerability-assessments-recommendation-names) |
@@ -36,7 +37,15 @@ If you're looking for items older than six months, you can find them in the [Arc
 | November 15 | [General Availability release of sensitive data discovery for databases](#general-availability-release-of-sensitive-data-discovery-for-databases) |
 | November 6 | [New version of the recommendation to find missing system updates is now GA](#new-version-of-the-recommendation-to-find-missing-system-updates-is-now-ga) |
 
-### GA release: New autoprovisioning process for SQL Servers on machines plan
+### Defender for Cloud integration with ServiceNow
+
+Microsoft Defender for Cloud is now integrated with ServiceNow. This integration allows you to connect ServiceNow to your Defender for Cloud environment. This allows you to prioritize the remediation of recommendations that impact your business. 
+
+Defender for Cloud's integration with SerivceNow's IT Service Management (ITSM) module for incident management, allows you to create and view ServiceNow tickets (which are linked to recommendations) from the Defender for Cloud portal.
+
+You can learn more about [Defender for Cloud's integration with ServiceNow](integration-servicenow.md).
+
+### General Availability of the autoprovisioning process for SQL Servers on machines plan
 
 November 20, 2023
 
