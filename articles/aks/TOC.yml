@@ -176,6 +176,8 @@
           href: operator-best-practices-scheduler.md
         - name: Run AKS clusters at scale
           href: operator-best-practices-run-at-scale.md
+        - name: Cluster autoscaler
+          href: cluster-autoscaler-best-practices.md
         - name: Advanced scheduler features
           href: operator-best-practices-advanced-scheduler.md
         - name: Networking

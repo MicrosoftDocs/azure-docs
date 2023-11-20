@@ -37,14 +37,6 @@ The cluster autoscaler and Horizontal Pod Autoscaler can work together and are o
 
 With cluster autoscaler enabled, when the node pool size is lower than the minimum or greater than the maximum it applies the scaling rules. Next, the autoscaler waits to take effect until a new node is needed in the node pool or until a node might be safely deleted from the current node pool. For more information, see [How does scale-down work?](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-scale-down-work)
 
-The cluster autoscaler might be unable to scale down if pods can't move, such as in the following situations:
-
-* A directly created pod not backed by a controller object, such as a deployment or replica set.
-* A pod disruption budget (PDB) is too restrictive and doesn't allow the number of pods to fall below a certain threshold.
-* A pod uses node selectors or anti-affinity that can't be honored if scheduled on a different node.
-
-For more information, see [What types of pods can prevent the cluster autoscaler from removing a node?][autoscaler-scaledown]
-
 ## Use the cluster autoscaler on your AKS cluster
 
 In this section, you deploy, upgrade, disable, or re-enable the cluster autoscaler on your cluster.
