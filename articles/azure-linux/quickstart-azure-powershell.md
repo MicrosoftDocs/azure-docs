@@ -248,7 +248,7 @@ In this quickstart, you deployed an Azure Linux Container Host AKS cluster. To l
 
 <!-- LINKS - internal -->
 [install-azure-powershell]: /powershell/azure/install-az-ps
-[azure-resource-group]: ../../azure-resource-manager/management/overview.md
+[azure-resource-group]: ../azure-resource-manager/management/overview.md
 [new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
 [new-azakscluster]: /powershell/module/az.aks/new-azakscluster
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
