@@ -473,7 +473,7 @@ sections:
 
           Please refer to [Managed identities for Document Intelligence](managed-identities.md) to setup up your Azure resources.
       - question: |
-          Why am I receiving 'Access denied due to Virtual Network/Firewall rules' on Auto Label or OCR Upgrading when my Storage Account resource is configured with a firewall or virtual network?
+          Why am I receiving 'Access denied due to Virtual Network/Firewall rules' on Auto Label or OCR Upgrading when my Document Intelligence resource is configured with a firewall or virtual network?
         answer: |
 
           Add our website IP address, 20.3.165.95, to the firewall allowlist for Document Intelligence resource. This is Document Intelligence Studio's dedicated IP address and can be safely allowed.
