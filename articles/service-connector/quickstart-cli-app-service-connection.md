@@ -64,7 +64,7 @@ Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command t
 
 - The name of the resource group that contains the App Service
 - The name of the App Service
-- The nam of the resource group that contains the storage account
+- The name of the resource group that contains the storage account
 - The name of the storage account
 
 ```azurecli
@@ -72,7 +72,7 @@ az webapp connection create storage-blob
 ```
 
 > [!NOTE]
-> If you don't have a Blob Storage, you can run `az webapp connection create storage-blob --new --system-identity` to provision a new Blob Storag resource and directly connected it to your App Service instance.
+> If you don't have a Blob Storage, you can run `az webapp connection create storage-blob --new --system-identity` to provision a new Blob Storage resource and directly connected it to your App Service instance.
 
 ---
 
