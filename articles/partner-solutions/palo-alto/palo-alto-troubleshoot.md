@@ -21,6 +21,8 @@ You can get support for your Palo Alto deployment through a **New Support reques
 
 ## Troubleshooting
 
+### Marketplace purchase errors
+
 [!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
 ### Unable to create a PCloud NGFW by Palo Alto Networks as not a subscription owner
