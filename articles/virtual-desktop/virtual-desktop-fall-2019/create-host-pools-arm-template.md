@@ -15,7 +15,7 @@ manager: femila
 
 Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop tenant environments. Each host pool can contain an application group that users can interact with as they would on a physical desktop.
 
-Follow this section's instructions to create a host pool for a Azure Virtual Desktop tenant with an Azure Resource Manager template provided by Microsoft. This article will tell you how to create a host pool in Azure Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to the AD domain, and register the VMs with Azure Virtual Desktop.
+Follow this section's instructions to create a host pool for an Azure Virtual Desktop tenant with an Azure Resource Manager template provided by Microsoft. This article will tell you how to create a host pool in Azure Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to the AD domain, and register the VMs with Azure Virtual Desktop.
 
 ## What you need to run the Azure Resource Manager template
 
@@ -25,7 +25,7 @@ Make sure you know the following things before running the Azure Resource Manage
 - Your domain join credentials.
 - Your Azure Virtual Desktop credentials.
 
-When you create a Azure Virtual Desktop host pool with the Azure Resource Manager template, you can create a virtual machine from the Azure gallery, a managed image, or an unmanaged image. To learn more about how to create VM images, see [Prepare a Windows VHD or VHDX to upload to Azure](../../virtual-machines/windows/prepare-for-upload-vhd-image.md) and [Create a managed image of a generalized VM in Azure](../../virtual-machines/windows/capture-image-resource.md).
+When you create an Azure Virtual Desktop host pool with the Azure Resource Manager template, you can create a virtual machine from the Azure gallery, a managed image, or an unmanaged image. To learn more about how to create VM images, see [Prepare a Windows VHD or VHDX to upload to Azure](../../virtual-machines/windows/prepare-for-upload-vhd-image.md) and [Create a managed image of a generalized VM in Azure](../../virtual-machines/windows/capture-image-resource.md).
 
 ## Run the Azure Resource Manager template for provisioning a new host pool
 

@@ -12,7 +12,7 @@ metadata:
   author: vhorne
   ms.author: victorh
   manager: kumudD
-  ms.date: 05/17/2023
+  ms.date: 11/17/2023
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -32,15 +32,15 @@ highlightedContent:
     - title: Azure Networking security blog
       itemType: concept
       url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/bg-p/AzureNetworkSecurityBlog
-    - title: How to use Azure Bastion to connect securely to your Azure VMs
-      itemType: video
-      url: https://www.youtube.com/watch?v=WElUQm02BTU&list=PLLasX02E8BPDT2Z2pdCHNCkENpcQWy5n6&index=79
-    - title: What is Azure Web Application Firewall?
-      itemType: video
-      url: https://www.microsoft.com/en-us/videoplayer/embed/RWCwkM
     - title: Azure network security webinars
       itemType: video
       url: https://techcommunity.microsoft.com/t5/security-compliance-and-identity/recordings-security-community-webinars/ba-p/2865990
+    - title: Choose a secure network topology
+      itemType: concept
+      url: ../secure-network-topology.md
+    - title: Choose a secure application delivery service
+      itemType: concept
+      url: ../secure-application-delivery.md
 
 
 # additionalContent section (optional)
@@ -63,6 +63,8 @@ additionalContent:
               url: ../../firewall-manager/overview.md
             - text: Learn more about Azure Firewall
               url: ../../firewall/index.yml
+            - text: Learn about the Azure Firewall solution for Microsoft Sentinel
+              url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/new-detections-hunting-queries-and-response-automation-in-azure/ba-p/2688746
         - title: Training
           links:
             - text: Introduction to Azure Firewall

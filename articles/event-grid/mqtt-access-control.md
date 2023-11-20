@@ -2,7 +2,9 @@
 title: 'Access control for MQTT clients'
 description: 'Describes the main concepts for access control for MQTT clients in Azure Event Grid’s MQTT broker feature.'
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.custom:
+  - ignite-2023
+ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
 ---
@@ -10,7 +12,7 @@ ms.author: geguirgu
 
 Access control enables you to manage the authorization of clients to publish or subscribe to topics, using a role-based access control model. Given the enormous scale of IoT environments, assigning permission for each client to each topic is incredibly tedious. Azure Event Grid’s MQTT broker feature tackles this scale challenge through grouping clients and topics into client groups and topic spaces.
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 The main components of the access control model are:
 
