@@ -87,7 +87,8 @@ The following table describes DCR support for Microsoft Sentinel data connector 
 | [**MMA standard logs**](connect-services-windows-based.md), such as <li>[Syslog data](connect-syslog.md)<li>[CommonSecurityLog](connect-azure-windows-microsoft-services.md) | Workspace transformation DCRs |
 | [**Diagnostic settings-based connections**](connect-services-diagnostic-setting-based.md) | Workspace transformation DCRs, based on the [supported output tables](../azure-monitor/logs/tables-feature-support.md) for specific data connectors |
 | **Built-in, service-to-service data connectors**, such as:<li>[Microsoft Office 365](connect-services-api-based.md)<li>[Microsoft Entra ID](connect-azure-active-directory.md)<li>[Amazon S3](connect-aws.md) | Workspace transformation DCRs, based on the [supported output tables](../azure-monitor/logs/tables-feature-support.md) for specific data connectors |
-| **Built-in, API-based data connectors**, such as: <li>[Codeless data connectors](create-codeless-connector.md)<li>[Azure Functions-based data connectors](connect-azure-functions-template.md) | Not currently supported |
+| **Built-in, API-based data connector**, such as: <li>[Codeless data connectors](create-codeless-connector.md) | Standard DCRs |
+| **Built-in, API-based data connectors**, such as: <li>[Legacy codeless data connectors](create-codeless-connector-legacy.md)<li>[Azure Functions-based data connectors](connect-azure-functions-template.md) | Not currently supported |
 
 
 ## Data transformation support for custom data connectors
@@ -102,8 +103,11 @@ Only the following tables are currently supported for custom log ingestion:
 - [**ASimAuditEventLogs**](/azure/azure-monitor/reference/tables/asimauditeventlogs)
 - **ASimAuthenticationEventLogs**
 - [**ASimDnsActivityLogs**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs)
+- [**ASimFileEventLogs**](/azure/azure-monitor/reference/tables/asimfileeventlogs)
 - [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs)
 - [**ASimWebSessionLogs**](/azure/azure-monitor/reference/tables/asimwebsessionlogs)
+
+For more information, see [Tables that support ingestion-time transformations](../azure-monitor/logs/tables-feature-support.md).
 
 ## Limitations
 
