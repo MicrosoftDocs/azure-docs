@@ -1112,6 +1112,8 @@
         "articles/partner-solutions/qumulo/**/*.md": "qumulo",
         "articles/partner-solutions/new-relic/**/*.md": "new-relic",
         "articles/partner-solutions/palo-alto/**/*.md": "palo-alto",
+        "articles/partner-solutions/astronomer/**/*.md": "astronomer",
+        "articles/partner-solutions/astronomer/**/*.yml": "astronomer",
         "articles/cognitive-services/Bing-Autosuggest/**/*.md": "bing-autosuggest",
         "articles/cognitive-services/Bing-Custom-Search/**/*.md": "bing-custom-search",
         "articles/cognitive-services/Bing-Entities-Search/**/*.md": "bing-entity-search",
