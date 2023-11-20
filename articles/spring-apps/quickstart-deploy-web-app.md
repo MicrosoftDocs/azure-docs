@@ -94,7 +94,7 @@ This article provides the following options for deploying to Azure Spring Apps:
 - An Azure subscription and one of the following roles:
   - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
   - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, except Microsoft Graph app roles (application permissions).
-  - A custom directory role that includes the [permission to grant permissions to applications](/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
+  - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
   See [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#prerequisites) for more information. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
