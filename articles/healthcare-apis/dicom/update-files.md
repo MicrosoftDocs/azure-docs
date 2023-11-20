@@ -197,4 +197,4 @@ There are a few limitations when you use the bulk update operation:
 - Only one bulk update operation can be performed at a time.
 - You can't delete only the latest version of a study or revert back to the original version. 
 
-[!INCLUDE [DICOM trademark statements](../includes/healthcare-apis-dicom-dicom-trademark.md)]
+[!INCLUDE [DICOM trademark statements](../includes/healthcare-apis-dicom-trademark.md)]
