@@ -4,7 +4,7 @@ description: C# play audio quickstart
 services: azure-communication-services
 author: Kunaal Punjabi
 ms.service: azure-communication-services
-ms.subservice: azure-communication-services
+ms.subservice: call-automation
 ms.date: 11/20/2023
 ms.topic: include
 ms.topic: include file
