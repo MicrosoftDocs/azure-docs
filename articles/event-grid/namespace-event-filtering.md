@@ -4,7 +4,7 @@ description: Describes how to filter events when creating subscriptions to Azure
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 10/19/2023
+ms.date: 11/15/2023
 ---
 
 # Event filters for subscriptions to Azure Event Grid namespace topics

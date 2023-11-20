@@ -2,7 +2,7 @@
 title: Summarize text with the extractive summarization API
 titleSuffix: Azure AI services
 description: This article shows you how to summarize text with the extractive summarization API.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
@@ -115,14 +115,14 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
       "kind": "AbstractiveSummarization",
       "taskName": "Document Abstractive Summarization Task 1",
       "parameters": {
-        "sentenceCount": 1
+        "summaryLength": short
       }
     }
   ]
 }
 '
 ```
-If you don't specify `sentenceCount`, the model determines the summary length. Note that `sentenceCount` is the approximation of the sentence count of the output summary, range 1 to 20.
+If you don't specify `sentenceCount`, the model determines the summary length. Note that `sentenceCount` is the approximation of the sentence count of the output summary, range 1 to 20. Using sentenceCount is not recommended for abstractive summarization.
 
 2. Make the following changes in the command where needed:
     - Replace the value `your-language-resource-key` with your key.
@@ -203,11 +203,11 @@ curl -X GET https://<your-language-resource-endpoint>/language/analyze-text/jobs
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
 
-## Query based extractive summarization
+## Query based summarization
 
-The query-based extractive summarization API is an extension to the existing document summarization API.
+The query-based document summarization API is an extension to the existing document summarization API.
 
-The biggest difference is a new `query` field in the request body (under `tasks` > `parameters` > `query`). Additionally, there's a new way to specify the preferred `summaryLength` in "buckets" of short/medium/long, which we recommend using instead of `sentenceCount`. Below is an example request:
+The biggest difference is a new `query` field in the request body (under `tasks` > `parameters` > `query`). Additionally, there's a new way to specify the preferred `summaryLength` in "buckets" of short/medium/long, which we recommend using instead of `sentenceCount`, especially when using abstractive. Below is an example request:
 
 ```bash
 curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/jobs?api-version=2023-11-15-preview \
@@ -232,7 +232,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
       "taskName": "Document Extractive Summarization Task 1",
       "parameters": {
         "query": "XYZ-code",
-        "sentenceCount": 1
+        "summaryLength": short
       }
     }
   ]
@@ -240,42 +240,6 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
 '
 ```
 
-## Query based abstractive summarization
-
-The query-based abstractive summarization API is an extension to the existing document summarization API.
-
-The biggest difference is a new `query` field in the request body (under `tasks` > `parameters` > `query`). Additionally, there's a new way to specify the preferred `summaryLength` in "buckets" of short/medium/long, which we recommend using instead of `sentenceCount`. Below is an example request:
-
-```bash
-curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/jobs?api-version=2023-11-15-preview \
--H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
--d \
-' 
-{
-  "displayName": "Document Abstractive Summarization Task Example",
-  "analysisInput": {
-    "documents": [
-      {
-        "id": "1",
-        "language": "en",
-        "text": "At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding. As Chief Technology Officer of Azure AI services, I have been working with a team of amazing scientists and engineers to turn this quest into a reality. In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z). At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better. We believe XYZ-code enables us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages. The goal is to have pretrained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today. Over the past five years, we have achieved human performance on benchmarks in conversational speech recognition, machine translation, conversational question answering, machine reading comprehension, and image captioning. These five breakthroughs provided us with strong signals toward our more ambitious aspiration to produce a leap in AI capabilities, achieving multi-sensory and multilingual learning that is closer in line with how humans learn and understand. I believe the joint XYZ-code is a foundational component of this aspiration, if grounded with external knowledge sources in the downstream AI tasks."
-      }
-    ]
-  },
-  "tasks": [
-    {
-      "kind": "AbstractiveSummarization",
-      "taskName": "Document Abstractive Summarization Task 1",
-      "parameters": {
-        "query": "XYZ-code",
-        "summaryLength": "short"
-      }
-    }
-  ]
-}
-'
-```
 ### Using the summaryParameter
 For the `summaryLength` parameter, three values are accepted:
 * short: Generates a summary of mostly 2-3 sentences, with around 120 tokens.

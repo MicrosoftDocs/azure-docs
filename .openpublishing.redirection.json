@@ -24571,7 +24571,13 @@
             "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-governance-application-migration-integration.md",
             "redirect_url": "/azure/devtest-labs/devtest-lab-guidance-governance-resources",
             "redirect_document_id": false
-        },        {
+        },        
+        {
+            "source_path_from_root": "/articles/devtest-labs/lab-services-overview.md",
+            "redirect_url": "/azure/devtest-labs/devtest-lab-overview",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
             "redirect_url": "/azure/advisor/advisor-overview",
             "redirect_document_id": false
@@ -25724,6 +25730,14 @@
         {
             "source_path_from_root": "/articles/kubernetes-fleet/configuration-propagation.md",
             "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
+        },
+        {
+            "source_path_from_root": "/articles/automation/dsc-linux-powershell.md",
+            "redirect_url": "/azure/automation/automation-dsc-overview"
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/extensions/dsc-linux.md",
+            "redirect_url": "/azure/virtual-machines/extensions/dsc-overview"
         }
     ]
 }

@@ -26,7 +26,7 @@
         href: migrate-functions.md
       - name: Azure Cache for Redis
         href: migrate-cache-redis.md
-      - name: Azure Cognitive Search
+      - name: Azure AI Search
         href: migrate-search-service.md
       - name: Azure Container instances
         href: migrate-container-instances.md
@@ -64,7 +64,7 @@
       href: reliability-batch.md
     - name: Azure Cache for Redis
       href: ../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Azure Cognitive Search
+    - name: Azure AI Search
       href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Communications Gateway
       href: ../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
@@ -226,7 +226,7 @@
           href: ../bastion/bastion-faq.md#dr
         - name: Azure Cache for Redis
           href: ../azure-cache-for-redis/cache-how-to-geo-replication.md
-        - name: Azure Cognitive Search
+        - name: Azure AI Search
           href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Azure Container Instances
           href: reliability-containers.md#disaster-recovery
@@ -304,7 +304,7 @@
       href: reliability-backup.md
     - name: Azure Batch
       href: reliability-batch.md
-    - name: Azure Cognitive Search
+    - name: Azure AI Search
       href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Communications Gateway
       href: ../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json

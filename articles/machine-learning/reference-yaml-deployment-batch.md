@@ -117,7 +117,7 @@ error_threshold: -1
 logging_level: info
 ```
 
-## YAML: Pipeline component deployment (preview)
+## YAML: Pipeline component deployment
 
 A simple pipeline component deployment:
 

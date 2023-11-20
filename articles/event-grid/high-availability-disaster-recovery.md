@@ -4,7 +4,7 @@ description: Describes how Azure Event Grid's namespaces support building highly
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 10/13/2023
+ms.date: 11/15/2023
 author: veyaddan
 ms.author: veyaddan
 ---
