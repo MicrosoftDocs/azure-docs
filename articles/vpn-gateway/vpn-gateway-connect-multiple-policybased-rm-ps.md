@@ -6,12 +6,12 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 10/10/2023
+ms.date: 11/20/2023
 ms.author: cherylmc
 ---
 # Connect a VPN gateway to multiple on-premises policy-based VPN devices
 
-This article helps you configure an Azure route-based VPN gateway to connect to multiple on-premises policy-based VPN devices leveraging custom IPsec/IKE policies on S2S VPN connections. The steps for this configuration use Azure PowerShell.
+This article helps you configure an Azure route-based VPN gateway to connect to multiple on-premises policy-based VPN devices leveraging custom IPsec/IKE policies on S2S VPN connections. The steps in this article use Azure PowerShell.
 
 ## <a name="about"></a>About policy-based and route-based VPN gateways
 
