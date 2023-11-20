@@ -104,33 +104,33 @@ For more information, see [How does scale down work?](https://github.com/kuberne
 
 | Common causes | Mitigation recommendations |
 |--------------|--------------|
-| **PersistentVolume node affinity conflicts**, which can arise when using the cluster autoscaler with multiple availability zones or when a pod's or persistent volume's zone differs from the node's zone. | Use one node pool per availability zone and enabling `--balance-similar-node-groups`. You can also [set the `volumeBindingMode` field to `WaitForFirstConsumer` in the pod specification to prevent the volume from being bound to a node until a pod using the volume is created](./azure-disk-csi.md#create-a-custom-storage-class). |
-| **Taints and Tolerations node affinity conflicts** | Assess the taints assigned to your nodes and review the tolerations defined in your pods. If necessary, [make adjustments to the taints and tolerations to ensure that your pods can be efficiently scheduled on your nodes](./operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations). |
+| PersistentVolume node affinity conflicts, which can arise when using the cluster autoscaler with multiple availability zones or when a pod's or persistent volume's zone differs from the node's zone. | Use one node pool per availability zone and enabling `--balance-similar-node-groups`. You can also [set the `volumeBindingMode` field to `WaitForFirstConsumer` in the pod specification to prevent the volume from being bound to a node until a pod using the volume is created](./azure-disk-csi.md#create-a-custom-storage-class). |
+| Taints and Tolerations node affinity conflicts | Assess the taints assigned to your nodes and review the tolerations defined in your pods. If necessary, [make adjustments to the taints and tolerations to ensure that your pods can be efficiently scheduled on your nodes](./operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations). |
 
 ### Scale up operation failures
 
 | Common causes | Mitigation recommendations |
 |--------------|--------------|
-| **IP address exhaustion in the subnet** | Add another subnet in the same virtual network and add another node pool into the new subnet. |
-| **Core quota exhaustion** | [Request a quota increase][LINK]. |
-| **Max size of node pool** | Increase the max nodes on the node pool or create a new node pool. |
-| **Image unavailable in the region** | TBD |
-| **Concurrent request conflicts** | TBD |
-| **Requests/Calls exceeding the rate limit** | See [429 Too Many Requests errors](/troubleshoot/azure/azure-kubernetes/429-too-many-requests-errors). |
-| **Virtual machine extension/provisioning failures/ScaleUpTimedOut** | TBD |
+| IP address exhaustion in the subnet | Add another subnet in the same virtual network and add another node pool into the new subnet. |
+| Core quota exhaustion | [Request a quota increase](../quotas/quickstart-increase-quota-portal.md). |
+| Max size of node pool | Increase the max nodes on the node pool or create a new node pool. |
+| Image unavailable in the region | TBD |
+| Concurrent request conflicts | TBD |
+| Requests/Calls exceeding the rate limit | See [429 Too Many Requests errors](/troubleshoot/azure/azure-kubernetes/429-too-many-requests-errors). |
+| Virtual machine extension/provisioning failures/ScaleUpTimedOut | TBD |
 
 ### Scale down operation failures
 
 | Common causes | Mitigation recommendations |
 |--------------|--------------|
-| **Pod preventing node drain/Unable to evict pod** | For pods using local storage, such as hostPath and emptyDir, set the cluster autoscaler profile flag `skip-nodes-with-local-storage` to `true`. In the pod specification, set the `cluster-autoscaler.kubernetes.io/safe-to-evict` annotation to `false`. You can also check the PDBs. |
-| **Min size of node pool** | Reduce the minimum size of the node pool. |
-| **Requests/Calls exceeding the rate limit** | See [429 Too Many Requests errors](/troubleshoot/azure/azure-kubernetes/429-too-many-requests-errors). |
-| **Write operations locked** | Don't make any changes to the [fully-managed AKS resource group](./cluster-configuration.md#fully-managed-resource-group-preview). Remove or reset any resource locks you previously applied to the resource group. |
+| Pod preventing node drain/Unable to evict pod | For pods using local storage, such as hostPath and emptyDir, set the cluster autoscaler profile flag `skip-nodes-with-local-storage` to `true`. In the pod specification, set the `cluster-autoscaler.kubernetes.io/safe-to-evict` annotation to `false`. You can also check the PDBs. |
+| Min size of node pool | Reduce the minimum size of the node pool. |
+| Requests/Calls exceeding the rate limit** | See [429 Too Many Requests errors](/troubleshoot/azure/azure-kubernetes/429-too-many-requests-errors). |
+| Write operations locked | Don't make any changes to the [fully-managed AKS resource group](./cluster-configuration.md#fully-managed-resource-group-preview). Remove or reset any resource locks you previously applied to the resource group. |
 
 ### Other issues
 
 | Common causes | Mitigation recommendations |
 |--------------|--------------|
-| **PriorityConfigMapNotMatchedGroup** | Make sure that you [add all the node groups requiring autoscaling to the expander configuration file](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/expander/priority/readme.md#configuration). |
-| **Node pool in backoff**, which was first implemented in version 0.6.2 and causes the cluster autoscaler to back off from scaling up a node group after a failure. Depending on how long the scale up operations have been experiencing failures, it may take wait up to 30 minutes before making another attempt. | Reset the node pool's backoff state by disabling and then re-enabling autoscaling. |
+| PriorityConfigMapNotMatchedGroup | Make sure that you [add all the node groups requiring autoscaling to the expander configuration file](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/expander/priority/readme.md#configuration). |
+| Node pool in backoff, which was introduced in version 0.6.2 and causes the cluster autoscaler to back off from scaling up a node group after a failure. Depending on how long the scale up operations have been experiencing failures, it may take wait up to 30 minutes before making another attempt. | Reset the node pool's backoff state by disabling and then re-enabling autoscaling. |
