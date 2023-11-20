@@ -113,7 +113,7 @@ New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
-Sometimes you need to modify the local network gateway settings. For example, when you add or modify the address range, or if the IP address of the VPN device changes. For more information, see [Modify local network gateway settings](vpn-gateway-modify-local-network-gateway-portal).
+Sometimes you need to modify the local network gateway settings. For example, when you add or modify the address range, or if the IP address of the VPN device changes. For more information, see [Modify local network gateway settings](vpn-gateway-modify-local-network-gateway-portal.md).
 
 ## <a name="resources"></a>REST APIs, PowerShell cmdlets, and CLI
 
