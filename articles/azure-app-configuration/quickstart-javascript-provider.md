@@ -68,7 +68,7 @@ Add the following key-values to the App Configuration store. For more informatio
         // Find the key "message" and print its value.
         console.log(settings.get("message"));  // Output: Message from Azure App Configuration
 
-        // Find the key "json" as an object, and print its property "myKey".
+        // Find the key "app.json" as an object, and print its property "myKey".
         const jsonObject = settings.get("app.json");
         console.log(jsonObject.myKey);  // Output: myValue
 
@@ -102,7 +102,7 @@ Add the following key-values to the App Configuration store. For more informatio
 
     ### [Windows command prompt](#tab/windowscommandprompt)
 
-    To build and run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+    To run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
     ```cmd
     setx AZURE_APPCONFIG_CONNECTION_STRING "app-configuration-store-connection-string"
@@ -166,7 +166,7 @@ Add the following key-values to the App Configuration store. For more informatio
     echo "$AZURE_APPCONFIG_CONNECTION_STRING"
     ```
 
-1. After the build successfully completes, run the following command to run the app locally:
+1. After the environment variable is properly set, run the following command to run the app locally:
 
     ```bash
     node app.js
