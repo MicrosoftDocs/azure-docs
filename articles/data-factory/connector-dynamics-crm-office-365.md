@@ -126,7 +126,7 @@ The following properties are supported for the Dynamics linked service.
 >The Dynamics connector formerly used the optional **organizationName** property to identify your Dynamics CRM or Dynamics 365 online instance. While that property still works, we suggest you specify the new **serviceUri** property instead to gain better performance for instance discovery.
 
 >[!CAUTION]
->**ServicePrincipalCert** credential type is currently in preview with no SLA guarantee. You may encounter transient issue when using it.
+>The **ServicePrincipalCert** credential type is currently in preview with no SLA guarantee. You may encounter transient issues when using it.
 
 <a name='example-dynamics-online-using-azure-ad-service-principal-and-key-authentication'></a>
 
