@@ -18,7 +18,7 @@ This overview describes concepts for **contact center** applications. After comp
 
 Contact center applications are focused on unscheduled communication between **consumers** and **agents**. The **organizational boundary** between consumers and agents, and the **unscheduled** nature of the interaction, are key attributes of contact center applications.
 
-This article focuses on *inbound* engagement, where the consumer initiates communication. Developers interested in scheduled business-to-consumer interactions should read our [Virtual Visits](/azure/communication-services/tutorials/virtual-visits) tutorial. Many businesses also have *outbound* communication needs, for which we recommend the outbound [customer engagement](/learn.microsoft.com/dynamics365/customer-insights/journeys/portal-optional) tutorial.
+This article focuses on *inbound* engagement, where the consumer initiates communication. Developers interested in scheduled business-to-consumer interactions should read our [Virtual Visits](/azure/communication-services/tutorials/virtual-visits) tutorial.
 
 
 The term “contact center” captures a large family of applications diverse across scale, channels, and organizational approach:
