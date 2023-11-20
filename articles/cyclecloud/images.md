@@ -38,8 +38,8 @@ If you are using a custom (non-standard) image that was created with Jetpack, yo
 
 CycleCloud currently includes the following images:
 
-| Operating System | Label | Name | End of life date
-| ---------------- | ------------------ | --------------------- |
+| Operating System | Label | Name | End of life date |
+| ---------------- | ------|------| ---------------- |
 | Alma Linux 8.5 HPC | Alma Linux 8 | almalinux-8 | |
 | CentOS 7         | CentOS 7     | cycle.image.centos7   | |
 | CentOS 8         | CentOS 8     | cycle.image.centos8   | December 31, 2021 |
