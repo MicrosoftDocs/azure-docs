@@ -15,6 +15,22 @@ keywords:
 
 # What's new in Azure OpenAI Service
 
+## November 2023
+
+### Expanded customer configurability
+
+All Azure OpenAI customers can now configure all severity levels (low, medium, high) for the content filtering categories hate, violence, sexual and self-harm, including filtering only high severity content.
+
+### New RAI models
+- **Jailbreak risk detection**: Jailbreak attacks are user prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. The jailbreak risk detection model is optional (default off), and available in annotate and filter model. It runs on prompts.
+- **Protected material text**: Protected material text describes known text content (for example, song lyrics, articles, recipes, and selected web content) that can be outputted by large language models. The protected material text model is optional (default off), and available in annotate and filter model. It runs on completions.
+- **Protected material code**: Protected material code describes source code that matches a set of source code from public repositories, which can be outputted by large language models without proper citation of source repositories. The protected material code model is optional (default off), and available in annotate and filter model. It runs on completions.
+
+### Blocklists
+
+Customers can now quickly customize content filter behavior for prompts and completions further by creating a custom blocklist in their filters. The custom blocklist allows the filter to take action on a customized list of patterns, such as specific terms or regex patterns. In addition to custom blocklists, we provide a Microsoft profanity blocklist (English).
+
+
 ## August 2023
 
 ### Azure OpenAI on your own data (preview) updates
