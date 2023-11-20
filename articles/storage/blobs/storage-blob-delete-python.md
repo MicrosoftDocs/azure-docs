@@ -19,7 +19,7 @@ ms.custom: devx-track-python, devguide-python
 
 This article shows how to delete blobs using the [Azure Storage client library for Python](/python/api/overview/azure/storage). If you've enabled [soft delete for blobs](soft-delete-blob-overview.md), you can restore deleted blobs during the retention period.
 
-To learn about deleting a blob using asynchronous APIs, see [Delete blobs asynchronously](#delete-a-blob-asynchronously).
+To learn about deleting a blob using asynchronous APIs, see [Delete a blob asynchronously](#delete-a-blob-asynchronously).
 
 ## Prerequisites
 
