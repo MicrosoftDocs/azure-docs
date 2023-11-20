@@ -61,7 +61,7 @@ Longitude = \frac{10 m}{\frac{111320}{cos(lat)}}
 $$
 
 $$
-\ Where\: lat = The\: centroid's\: latitude\: from\: the\: provided\: geometry
+\ Where\ lat = The\ centroid's\ latitude\ from\ the\ provided\ geometry
 $$
 
 ## Caching
