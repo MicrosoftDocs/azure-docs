@@ -10233,7 +10233,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-tutorial-protect-vpn-gateway.md",
+            "source_path_from_root": "/articles/vpn-gateway/tutorial-protect-vpn-gateway.md",
             "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
             "redirect_document_id": false
         },
