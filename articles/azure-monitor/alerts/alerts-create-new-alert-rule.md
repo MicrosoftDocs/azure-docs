@@ -321,6 +321,7 @@ To edit an existing alert rule:
 
         The identity associated with the rule must have these roles:
         - If the query is accessing a Log Analytics workspace, the identity must be assigned a **Reader role** for all workspaces accessed by the query. If you're creating resource-centric log alerts, the alert rule may access multiple workspaces, and the identity must have a reader role on all of them.
+        - If the you are querying an ADX or ARG cluster you must add **Reader role** for all data sources accessed by the query. For example, if the query is resource centric, it needs a reader role on that resources. 
         - If the query is [accessing a remote Azure Data Explorer cluster](../logs/azure-monitor-data-explorer-proxy.md), the identity must be assigned:
             - **Reader role** for all data sources accessed by the query. For example, if the query is calling a remote Azure Data Explorer cluster using the adx() function, it needs a reader role on that ADX cluster.
             - **Database viewer** for all databases the query is accessing.
