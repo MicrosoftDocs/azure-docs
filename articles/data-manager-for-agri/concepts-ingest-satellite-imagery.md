@@ -27,7 +27,7 @@ Using satellite data in Data Manager for Agriculture involves following steps:
 ## Consumption visibility and logging
 As all ingest data is under a BYOL model, transparency into the cost of a given job is needed. Our data manager offers built-in logging to provide transparency on PU consumption for calls to our upstream partner Sentinel Hub. The information appears under the “SatelliteLogs” Category of the standard data manager Logging found [here](how-to-set-up-audit-logs.md). 
 
-## STAC Search for available imagery  
+## STAC search for available imagery  
 Our data manager supports the industry standard [STAC](https://stacspec.org/en) search interface to find metadata on imagery in the sentinel collection prior to committing to downloading pixels. To do so, the search endpoint accepts a location in the form of a point, polygon or multipolygon plus a start and end date time. Alternatively, if you already have the unique "Item ID," it can be provided as an array, of up 5, to retrieve those specific items directly
 
 > [!IMPORTANT]
