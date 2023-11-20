@@ -1,10 +1,10 @@
 ---
 title: Azure services and Confluent Cloud integration
 description: This article describes how to use Azure services and install connectors for Confluent Cloud integration.
+
 ms.topic: conceptual
-ms.date: 06/24/2022
-author: flang-msft
-ms.author: franlanglois
+ms.date: 11/20/2023
+
 ---
 
 # Azure services and Confluent Cloud integrations
