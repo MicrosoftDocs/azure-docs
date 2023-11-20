@@ -1,18 +1,15 @@
 ---
 title: Integrate ServiceNow with Microsoft Defender for Cloud
 description: Learn about integrating ServiceNow with Microsoft Defender for Cloud to protect Azure, hybrid, and multicloud machines.
-author: dcurwin
-ms.author: justinha
-ms.reviewer: safeenab
 ms.topic: how-to
-ms.date: 11/13/2023
+ms.date: 11/20/2023
 ---
 
 # Integrate ServiceNow with Microsoft Defender for Cloud (preview)
 
 ServiceNow is a cloud-based workflow automation and enterprise-oriented solution that enables organizations to manage and track digital workflows within a unified, robust platform. ServiceNow helps to improve operational efficiencies by streamlining and automating routine work tasks and delivers resilient services that help increase your productivity.  
 
-ServiceNow is now integrated with Microsoft Defender for Cloud, which enables customers to connect ServiceNow to their Defender for Cloud environment to prioritize remediation of recommendations that impact your business. Microsoft Defender for Cloud integrates with the ITSM module (incident management). As part of this connection, customers will be able to create/view ServiceNow tickets (linked to recommendations) from Microsoft Defender for Cloud.   
+ServiceNow is now integrated with Microsoft Defender for Cloud, which enables customers to connect ServiceNow to their Defender for Cloud environment to prioritize remediation of recommendations that affect your business. Microsoft Defender for Cloud integrates with the ITSM module (incident management). As part of this connection, customers are able to create/view ServiceNow tickets (linked to recommendations) from Microsoft Defender for Cloud.   
 
 ## Common use cases and scenarios
 
@@ -26,7 +23,7 @@ As part of the integration, you can create and monitor tickets in ServiceNow dir
 
 | Prerequisite | Details |
 |--------------|---------|
-| Environment  | - Have an application registry in ServiceNow. For more information, see [Create a ServiceNow API Client ID and Client Secret for the SCOM ServiceNow Incident Connector (opslogix.com)](https://www.opslogix.com/knowledgebase/servicenow/kb-create-a-servicenow-api-key-and-secret-for-the-scom-servicenow-incident-connector) <br>- Enable Defender Cloud Security Posture Management (DCSPM) |
+| Environment  | - Have an application registry in ServiceNow. For more information, see [Create a ServiceNow API Client ID and Client Secret for the System Center Operations Manager ServiceNow Incident Connector (opslogix.com)](https://www.opslogix.com/knowledgebase/servicenow/kb-create-a-servicenow-api-key-and-secret-for-the-scom-servicenow-incident-connector) <br>- Enable Defender Cloud Security Posture Management (DCSPM) |
 | Roles  | To create an integration:<br>- Security Admin<br>- Contributor<br>- Owner<br><br>To create an assignment:<br>- The user should have admin permissions to ServiceNow |
 | Cloud  | &#x2705; Azure <br> &#10060; Azure Government, Azure China 21Vianet, air-gapped clouds |
 
@@ -35,13 +32,13 @@ As part of the integration, you can create and monitor tickets in ServiceNow dir
 To onboard ServiceNow to Defender for Cloud, you need a Client ID and Client Secret for the ServiceNow instance. If you don't have a Client ID and Client Secret, follow these steps to create them: 
 
 1. Sign in to ServiceNow with an account that has permission to modify the Application Registry.
-1. Browse to **System OAuth**, click **Application Registry**.
+1. Navigate to **System OAuth** > **Application Registry**.
 
    :::image type="content" border="true" source="./media/integration-servicenow/app-registry.png" alt-text="Screenshot of application registry.":::
 
-1. In the upper right corner, click **New**.
+1. In the upper right corner, select **New**.
 
-   :::image type="content" border="true" source="./media/integration-servicenow/new.png" alt-text="Screenshot of where to start a new instance.":::
+   :::image type="content" border="true" source="./media/integration-servicenow/new.png" alt-text="Screenshot of where to start a new instance." lightbox="media/integration-servicenow/new.png":::
 
 1. Select **Create an OAuth API endpoint for external clients**.
 
@@ -58,22 +55,22 @@ Secret:
    >[!NOTE]
    >The default value of Refresh Token Lifespan is too small. Increase the value as much as possible so that you don't need to refresh the token soon.
 
-   :::image type="content" border="true" source="./media/integration-servicenow/app-details.png" alt-text="Screenshot of application details.":::
+   :::image type="content" border="true" source="./media/integration-servicenow/app-details.png" alt-text="Screenshot of application details." lightbox="media/integration-servicenow/app-details.png":::
 
-1. Click **Submit** to save the API Client ID and Client Secret. 
+1. Select **Submit** to save the API Client ID and Client Secret. 
 
 After you complete these steps, you can use this integration name (MDCIntegrationSNOW in our example) to connect ServiceNow to Microsoft Defender for Cloud.
 
 ## Create ServiceNow Integration with Microsoft Defender for Cloud
 
 1. Sign in to [the Azure portal](https://aka.ms/integrations) as at least a [Security Administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator) and navigate to **Microsoft Defender for Cloud** > **Environment settings**.
-1. Click **Integrations** to connect your environment to a third-party ticketing system, which is ServiceNow in this scenario.
+1. Select **Integrations** to connect your environment to a third-party ticketing system, which is ServiceNow in this scenario.
 
    :::image type="content" border="true" source="./media/integration-servicenow/integrations.png" alt-text="Screenshot of integrations.":::
 
 1. Select **Add integration** > **ServiceNow**.
 
-   :::image type="content" border="true" source="./media/integration-servicenow/add-servicenow.png" alt-text="Screenshot of how to add ServiceNow.":::
+   :::image type="content" border="true" source="./media/integration-servicenow/add-servicenow.png" alt-text="Screenshot of how to add ServiceNow." lightbox="media/integration-servicenow/add-servicenow.png":::
 
    Use the instance URL, name, password, Client ID, and Client Secret that you previously created for the application registry to help complete the ServiceNow general information.
    
@@ -86,13 +83,13 @@ After you complete these steps, you can use this integration name (MDCIntegratio
 
    For simplicity, We recommend creating the integration on the higher scope based on the user permissions. For example, if you have permission for a management group, you could create a single integration of a management group rather than create integrations in each one of the subscriptions. 
 
-1. Choose **Default** or **Customized** based on your requirement.
+1. Select **Default** or **Customized** based on your requirement.
    
    The default option creates a Title, Description and Short description in the backend. The customized option lets you choose other fields such as **Incident data**, **Problems data**, and **Changes data**.
 
    :::image type="content" border="true" source="./media/integration-servicenow/customize-fields.png" alt-text="Screenshot of how to customize fields.":::
 
-   If you click the drop-down menu, you see **Assigned to**, **Caller**,  and **Short description** are grayed out because those are necessary fields. You can choose other fields such as **Assignment group**, **Description**, **Impact**, or **Urgency**.
+   If you select the drop-down menu, you see **Assigned to**, **Caller**,  and **Short description** are grayed out because those are necessary fields. You can choose other fields such as **Assignment group**, **Description**, **Impact**, or **Urgency**.
 
    :::image type="content" border="true" source="./media/integration-servicenow/customize-fields.png" alt-text="Screenshot of how to customize fields.":::
 
@@ -104,7 +101,7 @@ You can review the integrations in ARG both on the individual integration or on 
 
 :::image type="content" border="true" source="./media/integration-servicenow/all-integrations.png" alt-text="Screenshot of all integrations.":::
 
-You can review an integration, or all integrations, in [Azure Resource Graph (ARG)](/azure/governance/resource-graph), an Azure service that gives you the ability to query across multiple subscriptions. On the Integrations page, click **Open in ARG** to explore the details in ARG.
+You can review an integration, or all integrations, in [Azure Resource Graph (ARG)](/azure/governance/resource-graph), an Azure service that gives you the ability to query across multiple subscriptions. On the Integrations page, select **Open in ARG** to explore the details in ARG.
 
 :::image type="content" border="true" source="./media/integration-servicenow/open.png" alt-text="Screenshot of how to open in ARG.":::
 
@@ -113,7 +110,7 @@ You can review an integration, or all integrations, in [Azure Resource Graph (AR
 Security admins can now create and assign tickets directly from the Microsoft Defender for Cloud portal.
 
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations** and select any recommendation with unhealthy resources that you want to create a ServiceNow ticket for and assign an owner to. 
-1. Click the resource from the unhealthy resources and click **Create assignment**.
+1. Select the resource from the unhealthy resources and select **Create assignment**.
 
    :::image type="content" border="true" source="./media/integration-servicenow/create-assignment.png" alt-text="Screenshot of how to create an assignment.":::
 
@@ -143,7 +140,7 @@ Security admins can now create and assign tickets directly from the Microsoft De
 
    :::image type="content" border="true" source="./media/integration-servicenow/ticket.png" alt-text="Screenshot of a ticket ID.":::
 
-   Click the Ticket ID to go to the newly created incident in the ServiceNow portal.
+   Select the Ticket ID to go to the newly created incident in the ServiceNow portal.
 
    :::image type="content" border="true" source="./media/integration-servicenow/incident.png" alt-text="Screenshot of an incident.":::
 
