@@ -361,4 +361,9 @@ In this quickstart, you:
 * Created a ConfigMap with data from your App Configuration store.
 * Ran the application with configuration from your App Configuration store without changing your application code.
 
+To learn how to update your AKS workloads to dynamically refresh configuration, continue to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Use dynamic configuration in Azure Kubernetes Service](./enable-dynamic-configuration-azure-kubernetes-service.md)
+
 To learn more about the Azure App Configuration Kubernetes Provider, see [Azure App Configuration Kubernetes Provider reference](./reference-kubernetes-provider.md).
