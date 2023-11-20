@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 08/23/2023
+ms.date: 11/20/2023
 ms.author: radeltch
 ---
 
@@ -524,12 +524,19 @@ The following items are prefixed with:
     ```bash
     sudo vi /usr/sap/sapservices
    
-    # On the node where you installed the ASCS, comment out the following line
+    # Depending on whether the SAP Startup framework is integrated with systemd, you will observe one of the two entries on the ASCS node. You should comment out the line(s). 
     # LD_LIBRARY_PATH=/usr/sap/NW1/ASCS00/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/NW1/ASCS00/exe/sapstartsrv pf=/usr/sap/NW1/SYS/profile/NW1_ASCS00_sapascs -D -u nw1adm
+    # systemctl --no-ask-password start SAPNW1_00 # sapstartsrv pf=/usr/sap/NW1/SYS/profile/NW1_ASCS00_sapascs
    
-    # On the node where you installed the ERS, comment out the following line
+    # Depending on whether the SAP Startup framework is integrated with systemd, you will observe one of the two entries on the ERS node. You should comment out the line(s). 
     # LD_LIBRARY_PATH=/usr/sap/NW1/ERS01/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/NW1/ERS01/exe/sapstartsrv pf=/usr/sap/NW1/ERS01/profile/NW1_ERS01_sapers -D -u nw1adm
+    # systemctl --no-ask-password start SAPNW1_00 # sapstartsrv pf=/usr/sap/NW1/SYS/profile/NW1_ERS01_sapers
     ```
+
+   > [!IMPORTANT]
+   > With the systemd based SAP Startup Framework, SAP instances can now be managed by systemd. The minimum required Red Hat Enterprise Linux (RHEL) version is RHEL 8 for SAP. As described in SAP Note [3115048](https://me.sap.com/notes/3115048), a fresh installation of a SAP kernel with integrated systemd based SAP Startup Framework support will always result in a systemd controlled SAP instance. After an SAP kernel upgrade of an existing SAP installation to a kernel which has systemd based SAP Startup Framework support, however, some manual steps have to be performed as documented in SAP Note [3115048](https://me.sap.com/notes/3115048) to convert the existing SAP startup environment to one which is systemd controlled.
+   >
+   > When utilizing Red Hat HA services for SAP (cluster configuration) to manage SAP application server instances such as SAP ASCS and SAP ERS, additional modifications will be necessary to ensure compatibility between the SAPInstance resource agent and the new systemd-based SAP startup framework. So once the SAP application server instances has been installed or switched to a systemd enabled SAP Kernel as per SAP Note [3115048](https://me.sap.com/notes/3115048), the steps mentioned in [Red Hat KBA 6884531](https://access.redhat.com/articles/6884531) must be completed successfully on all cluster nodes. These additonal steps are not required if SAP Startup framework is not integrated with systemd.
 
 1. **[1]** Create the SAP cluster resources.
 
