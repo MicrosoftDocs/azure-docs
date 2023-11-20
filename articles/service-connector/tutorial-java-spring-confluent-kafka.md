@@ -22,8 +22,8 @@ Learn how to access Apache Kafka on Confluent Cloud for a Spring Boot applicatio
 
 ## Prerequisites
 
-1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-1. Java 8 or above.
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+* Java 8 or a more recent version with LTS.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
