@@ -48,5 +48,5 @@ The [Managed Identity Guide](managed-identities.md) has details on creating an a
 To use a Service Principle to give permissions to CycleCloud, ensure that the "Manage Identity" checkbox is unchecked.
 
 ::: moniker range=">=cyclecloud-8"
-:::image type="content" source="../images/version-8/add-subscription-service-principle.png" alt-text="Add Subscription Managed Identities":::
+![Add Subscription Managed Identities](../images/version-8/add-subscription-service-principle.png)
 ::: moniker-end

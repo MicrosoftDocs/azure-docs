@@ -160,7 +160,7 @@ Some events have a reason that they were initiated. Unless otherwise indicated, 
 
 Some events contain timing information. The `timing` entry in `data` is an object with keys corresponding to stages of the event, and values as total seconds. Each event may have multiple timing stages associated with it. For instance, suppose a node is added to a cluster, started, and terminated:
 
-:::image type="content" source="~/images/event-grid-timing.png" alt-text="Event Grid Timing Diagram":::
+[!Event Grid Timing Diagram](./images/event-grid-timing.png)
 
 - T1: User adds a node. A `NodeAdded` event is sent, with no timing.
 - T2: The create-VM operation fails, so `NodeCreated` is sent with a status of Failed and the following timing information:

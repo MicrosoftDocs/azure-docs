@@ -17,11 +17,11 @@ Terminating is an orchestration process. Cluster nodes will move into the `Termi
 Click **Terminate** in the CycleCloud GUI to shut down all of the cluster's infrastructure. All underlying Azure resources will be cleaned up as part of the cluster termination, which may take several minutes.
 
 ::: moniker range="=cyclecloud-7"
-:::image type="content" source="~/images/version-7/terminate-cluster.png" alt-text="terminate cluster dialog":::
+![terminate cluster dialog](../images/version-7/terminate-cluster.png)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-:::image type="content" source="~/images/version-8/terminate-cluster.png" alt-text="terminate cluster dialog":::
+![terminate cluster dialog](../images/version-8/terminate-cluster.png)
 ::: moniker-end
 
 ## Terminate via CycleCloud CLI

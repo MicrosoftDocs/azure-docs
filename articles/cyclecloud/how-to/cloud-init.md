@@ -30,7 +30,7 @@ echo "cloud-init works" > /tmp/cloud-init.txt
 
 The CycleCloud UI has support for cloud-init editing. When creating or editing any cluster a new tab named "Cloud-Init" will allow you to edit the cloud-init script for each node in your cluster. The editor in the CycleCloud UI will allow any text input. Syntax highlighting is enabled for Python, Shell scripts or YAML.
 
-:::image type="content" source="~/images/cloud-init.png" alt-text="Editing cloud-init in the CycleCloud UI":::
+![Editing cloud-init in the CycleCloud UI](../images/cloud-init.png)
 
 ## Cloud-Init Ordering and Error Handling
 

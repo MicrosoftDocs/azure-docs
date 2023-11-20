@@ -16,22 +16,19 @@ The NFS can be another resource managed by CycleCloud or an external resource.
 
 The default cluster templates for each scheduler includes a section for configuring NFS options when creating a clsuter.
 
-:::image type="content" source="../images/version-8/quickstart-networkattachedstorage-settings.png" alt-text="New Cluster Network Attached Storage Settings screen":::
+![New Cluster Network Attached Storage Settings screen](../images/version-8/quickstart-networkattachedstorage-settings.png)
 
 The `/shared/` directory for each cluster is an NFS share by default. The `NFS Type` dropdown in this configuration section provides options for this NFS share to be either exported from the cluster headnode (the `Builtin` option), or mounted from an NFS server. 
 
 If `Builtin` is selected, the NFS share is created on a Azure Managed Disk([Standard SSD](/azure/virtual-machines/disks-types#standard-ssd)) mounted onto the headnode of the cluster, and the `Size` option specifies the size of the  provisioned disk.
 
-Alternatively, if the `External NFS` option is specified, additional fields appear for specifying the IP address (or hostname) of the NFS server, as well as other NFS mount options. This `External NFS` option can be used to mount endpoints such as [NFS on Azure Files Storage](/storage/files/storage-files-how-to-create-nfs-shares?tabs=azure-portal), [Azure HPC Cache](/azure/hpc-cache/hpc-cache-overview), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), or [NFS on Azure Blob Storage](/azure/storage/blobs/network-file-system-protocol-support).
+Alternatively, if the `External NFS` option is specified, additional fields appear for specifying the IP address (or hostname) of the NFS server, as well as other NFS mount options. This `External NFS` option can be used to mount endpoints such as [NFS on Azure Files Storage](/azure/storage/files/storage-files-quick-create-use-linux), [Azure HPC Cache](/azure/hpc-cache/hpc-cache-overview), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), or [NFS on Azure Blob Storage](/azure/storage/blobs/network-file-system-protocol-support).
 
-:::image type="content" source="../images/external-nfs-options.png" alt-text="Mount an external NFS to /shared":::
+![Mount an external NFS to /shared](../images/external-nfs-options.png)
 
 If another NFS mount point is required, for example as a `/data` resource for all users, selecting the `Add NFS Mount` option brings up additional fields add another mount.
-:::image type="content" source="../images/additional-nfs-options.png" alt-text="Add an another NFS mountpoint":::
 
-
-
-
+![Add an another NFS mountpoint](../images/additional-nfs-options.png)
 ::: moniker-end
 
 ## Mount an NFS Filesystem

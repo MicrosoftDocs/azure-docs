@@ -17,11 +17,11 @@ This article shows you how to create a new cluster from an existing template. [R
 Click the **Add** button located in the lower left of the clusters page. This will bring up a list of icons, each representing a cluster template from which the new cluster will be created. If you would like to import a new cluster template so that it shows up on this page, see [Importing a Cluster Template](#importing-a-cluster-template) below. Select one of the templates and enter a unique name for the new cluster.
 
 ::: moniker range="=cyclecloud-7"
-:::image type="content" source="../images/version-7/create-cluster-selection.png" alt-text="CycleCloud Create New Cluster Screen":::
+![CycleCloud Create New Cluster Screen](../images/version-7/create-cluster-selection.png)
 ::: moniker-end
 
 ::: moniker range="=cyclecloud-8"
-:::image type="content" source="../images/version-8/create-cluster-selection.png" alt-text="CycleCloud Create New Cluster Screen":::
+![CycleCloud Create New Cluster Screen](../images/version-8/create-cluster-selection.png)
 ::: moniker-end
 
 
@@ -38,11 +38,11 @@ Fill out the new cluster form and hit **Save** to create the new cluster. The fo
 - **Return Proxy** if checked, nodes will communicate back to the CycleCloud application server via a proxy running on the cluster head node. Select this option if direct network access to CycleCloud is blocked from the cluster nodes.
 
 ::: moniker range="=cyclecloud-7"
-:::image type="content" source="../images/version-7/create-cluster-form.png" alt-text="CycleCloud New Cluster Form":::
+![CycleCloud New Cluster Form](../images/version-7/create-cluster-form.png)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-:::image type="content" source="../images/version-8/create-cluster-form.png" alt-text="CycleCloud New Cluster Form":::
+![CycleCloud New Cluster Form](../images/version-8/create-cluster-form.png)
 ::: moniker-end
 
 ## Using the CycleCloud CLI

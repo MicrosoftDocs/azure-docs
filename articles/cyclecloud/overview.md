@@ -72,7 +72,7 @@ CycleCloud does not dictate cluster topology; the installation comes with templa
 
 ## What a CycleCloud Deployed Environment Looks Like
 
-:::image type="content" source="~/images/architecture-deployment.png" alt-text="CycleCloud Deployment":::
+![CycleCloud Deployment](./images/architecture-deployment.png)
 
 An entire CycleCloud HPC system can be deployed on Azure infrastructure. CycleCloud itself is installed as an application server on a VM in Azure that requires outbound access to Azure Resource Provider APIs. CycleCloud then starts and manages VMs that form the HPC systems — these typically consist of the HPC scheduler head node(s) and compute nodes, but may also include VM based Network Attached Storage such as an NFS server or BeeGFS cluster, login nodes, bastion hosts, and other components needed to support an HPC infrastructure. The makeup of the HPC system is defined entirely through CycleCloud templates. Additionally, CycleCloud HPC environments can utilize other PaaS services such as Azure NetApp Files, Azure HPC Cache, and Azure Active Directory Domain Service.
 

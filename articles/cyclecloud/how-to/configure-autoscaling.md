@@ -15,11 +15,11 @@ ms.author: adjohnso
 When creating a new cluster via the GUI, the **Compute Backend** tab allows you to choose to auto-scale your cluster and add execute hosts as required. Check the box to allow CycleCloud to start and stop execute nodes as required, and set the number of initial and maximum cores allowed.
 
 ::: moniker range="=cyclecloud-7"
-:::image type="content" source="~/images/version-7/autoscale-setting.png" alt-text="Auto-Scale Setting for New Cluster":::
+![Auto-Scale Setting for New Cluster](../images/version-7/autoscale-setting.png)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-:::image type="content" source="~/images/version-8/autoscale-setting.png" alt-text="Auto-Scale Setting for New Cluster":::
+![Auto-Scale Setting for New Cluster](../images/version-8/autoscale-setting.png)
 ::: moniker-end
 
 Setting a **Max Cores** number will limit the number of nodes started to ensure your workload does not run unfetted. You can also set up an [usage alert](~/concepts/usage-tracking.md) when submitting your job to ensure a budget is not exceeded.
