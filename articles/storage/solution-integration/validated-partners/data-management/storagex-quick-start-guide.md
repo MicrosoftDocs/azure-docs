@@ -226,4 +226,3 @@ Various resources are available to learn more:
 - [Storage migration overview](../../../common/storage-migration-overview.md)
 - Features supported by Data Dynamics StorageX in [migration tools comparison matrix](./migration-tools-comparison.md)
 - [Data Dynamics](https://www.datadynamicsinc.com/)
-- [Data Dynamics Customer Portal](https://www.datdynsupport.com/) contains full documentation for StorageX
