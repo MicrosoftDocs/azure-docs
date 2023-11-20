@@ -103,7 +103,7 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 2. Forward ExtraHop Networks logs to Syslog agent
 
 1.  Set your security solution to send Syslog messages in CEF format to the proxy machine. Make sure to send the logs to port 514 TCP on the machine IP address.
-2. Follow the directions to install the [ExtraHop Detection SIEM Connector bundle](https://aka.ms/asi-syslog-extrahop-forwarding) on your Reveal(x) system. The SIEM Connector is required for this integration.
+2. Follow the directions to install the [ExtraHop Detection SIEM Connector bundle](https://learn.extrahop.com/extrahop-detection-siem-connector-bundle) on your Reveal(x) system. The SIEM Connector is required for this integration.
 3. Enable the trigger for **ExtraHop Detection SIEM Connector - CEF**
 4. Update the trigger with the ODS syslog targets you created 
 5. The Reveal(x) system formats syslog messages in Common Event Format (CEF) and then sends data to Microsoft Sentinel.
