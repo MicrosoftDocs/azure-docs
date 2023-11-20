@@ -162,6 +162,7 @@ items:
     - name: Templates
       items: 
         - name: Retrieval Augmented Generation (RAG) enterprise chat
+          displayName: RAG, rag
           items:
             - name: C#
               href: /dotnet/azure/ai/get-started-app-chat-template
