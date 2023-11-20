@@ -2,12 +2,12 @@
 title: Find tenant name and tenant ID
 titleSuffix: Azure Active Directory B2C
 description: Learn how to find tenant name and tenant ID 
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: tutorial
 ms.date: 01/30/2023
 ms.custom: project-no-code, b2c-docs-improvements

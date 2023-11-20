@@ -1,7 +1,7 @@
 ---
 title: Add API connectors to sign up user flows
 description: Configure an API connector to be used in a sign-up user flow.
-services: active-directory-b2c
+
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to

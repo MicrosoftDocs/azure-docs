@@ -1,12 +1,12 @@
 ---
 title: Request an access token in Azure Active Directory B2C
 description: Learn how to request an access token from Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: conceptual
 ms.date: 03/09/2023
 ms.custom: project-no-code, build-2023

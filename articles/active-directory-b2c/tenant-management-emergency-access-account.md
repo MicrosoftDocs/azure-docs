@@ -2,12 +2,12 @@
 title: Manage emergency access accounts in Azure Active Directory B2C
 titleSuffix: Azure Active Directory B2C
 description: Learn how to manage emergency access accounts in Azure AD B2C tenants 
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: tutorial
 ms.date: 01/30/2023
 ms.custom: project-no-code, b2c-docs-improvements

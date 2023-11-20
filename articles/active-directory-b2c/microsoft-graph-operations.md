@@ -6,7 +6,7 @@ services: B2C
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 11/3/2022
 ms.custom: "project-no-code, ignite-fall-2021, b2c-support"

@@ -2,12 +2,12 @@
 title: Set up sign-up and sign-in with a Google account
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Google accounts in your applications using Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 03/10/2022
 ms.custom: project-no-code

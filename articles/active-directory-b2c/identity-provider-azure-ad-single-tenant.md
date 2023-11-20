@@ -2,12 +2,12 @@
 title: Set up sign-in for a Microsoft Entra organization
 titleSuffix: Azure AD B2C
 description: Set up sign-in for a specific Microsoft Entra organization in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 02/07/2023
 ms.author: godonnell

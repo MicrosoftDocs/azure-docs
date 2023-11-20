@@ -2,12 +2,12 @@
 title: Set up sign-up and sign-in with SAML identity provider
 titleSuffix: Azure Active Directory B2C
 description: Set up sign-up and sign-in with any SAML identity provider (IdP) in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.custom: project-no-code

@@ -7,7 +7,7 @@ author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 11/08/2023
 ms.author: kengaderdus

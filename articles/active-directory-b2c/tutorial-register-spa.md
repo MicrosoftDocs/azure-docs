@@ -2,12 +2,12 @@
 title: Register a single-page application (SPA) in Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Follow this guide to learn how to register a single-page application (SPA) in Azure Active Directory B2C using the Azure portal.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 03/30/2022
 ms.custom: project-no-code 

@@ -1,12 +1,12 @@
 ---
 title: Azure Active Directory B2C custom policy overview  
 description: A topic about Azure Active Directory B2C custom policies and the Identity Experience Framework.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: overview
 ms.date: 11/06/2023
 ms.author: kengaderdus
