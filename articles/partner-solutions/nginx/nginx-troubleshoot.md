@@ -25,6 +25,8 @@ You can get support for your NGINXaaS deployment through a **New Support request
 
 ## Troubleshooting
 
+[!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
+
 ### Unable to create an NGINXaaS resource as not a subscription owner  
 
 The NGINXaaS integration can only be set up by users who have Owner access on the Azure subscription. Ensure you have the appropriate Owner access before starting to set up this integration.
