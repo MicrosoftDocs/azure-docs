@@ -900,6 +900,36 @@ To resolve the issue, delete the below resources one by one in the specific orde
 
 For additional assistance, you can [contact Azure support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to resolve the stuck deletion error.
 
+### Distribute target not found in the update request 
+
+#### Error  
+
+```text
+Validation failed: Distribute target with Runoutput name <runoutputname> not found in the update request. Deleting a distribution target is not allowed.
+```
+#### Cause
+
+This error occurs when an existing distribute target isn't found in the Patch request body. 
+
+#### Solution  
+
+The distribution array should contain all the distribution targets that is, new targets (if any), existing targets with no change and updated targets. If you want to remove an existing distribution target, delete and re-create the image template as deleting a distribution target is currently not supported through the Patch API.   
+
+### Missing required fields 
+
+#### Error  
+
+```text
+Validation failed: 'ImageTemplate.properties.distribute[<index>]': Missing field <fieldname>. Please review http://aka.ms/azvmimagebuildertmplref for details on fields required in the Image Builder Template.
+``` 
+#### Cause
+
+This error occurs when a required field is missing from a distribute target. 
+
+#### Solution 
+
+When creating a request, please provide every required field in a distribute target even if there's no change.
+
 ## DevOps tasks
 
 ### Troubleshoot the task
