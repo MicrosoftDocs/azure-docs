@@ -30,7 +30,7 @@ Only users who have *Owner* or *Contributor* access on the Azure subscription ca
 
 - Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings.
 
-## Purchase errors
+## Marketplace Purchase errors
 
 [!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
