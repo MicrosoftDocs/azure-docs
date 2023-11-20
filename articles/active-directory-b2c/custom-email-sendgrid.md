@@ -61,9 +61,9 @@ With a SendGrid account created and SendGrid API key stored in an Azure AD B2C p
 
 1. On the SendGrid site, open the [transactional templates](https://sendgrid.com/dynamic_templates) page and select **Create a Dynamic Template**.
 1. Enter a unique template name like `Verification email` and then select **Create**.
-1. To begin editing your new template, select the template i.e. `Verification email`, then select **Add Version**.
+1. To begin editing your new template, select the template that is, `Verification email`, then select **Add Version**.
 1. Select **Blank Template** and then **Code Editor**.
-1. In the HTML editor, paste following HTML template or use your own. The `{{otp}}` and `{{email}}` parameters will be replaced dynamically with the one-time password value and the user email address.
+1. In the HTML editor, paste following HTML template or use your own. The `{{otp}}` and `{{email}}` parameters are replaced dynamically with the one-time password value and the user email address.
 
     ```html
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -157,9 +157,9 @@ With a SendGrid account created and SendGrid API key stored in an Azure AD B2C p
     </html>
     ```
 
-1. Expand **Settings** on the left, and for **Version Name**, enter a template version.
+1. Expand **Settings** menu, and for **Version Name**, enter a template version.
 1. For **Subject**, enter `{{subject}}`.
-1. A the top of the page, select **Save**.
+1. Select **Save**.
 1. Return to the **Transactional Templates** page by selecting the back arrow.
 1. Record the **ID** of template you created for use in a later step. For example, `d-989077fbba9746e89f3f6411f596fb96`. You specify this ID when you [add the claims transformation](#add-the-claims-transformation).
 
@@ -196,7 +196,7 @@ These claims types are necessary to generate and verify the email address using 
 
 ## Add the claims transformation
 
-Next, you need a claims transformation to output a JSON string claim that will be the body of the request sent to SendGrid.
+Next, you need a claims transformation to output a JSON string claim that forms the body of the request sent to SendGrid.
 
 The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties. For more information about JSON claims transformations, see [JSON claims transformations](json-transformations.md).
 
@@ -255,7 +255,7 @@ Below the claims transformations within `<BuildingBlocks>`, add the following [C
 
 ## Create a DisplayControl
 
-A verification display control is used to verify the email address with a verification code that's sent to the user.
+A verification display control is used to verify the email address with a verification code that the user receives.
 
 This example display control is configured to:
 
@@ -422,7 +422,7 @@ To localize the email, you must send localized strings to SendGrid, or your emai
 1. In your policy, define the following string claims: subject, message, codeIntro, and signature.
 1. Define a [GetLocalizedStringsTransformation](string-transformations.md) claims transformation to substitute localized string values into the claims from step 1.
 1. Change the `GenerateEmailRequestBody` claims transformation to use input claims with the following XML snippet.
-1. Update your SendGrid template to use dynamic parameters in place of all the strings that will be localized by Azure AD B2C.
+1. Update your SendGrid template to use dynamic parameters in place of all the strings that Azure AD B2C localizes.
 
     ```xml
     <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
@@ -557,6 +557,6 @@ The Localization element allows you to support multiple locales or languages in 
 ## Next steps
 
 - Find an example of [Custom email verification - DisplayControls custom policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol/policy/SendGrid) on GitHub.
-- LEarn how to use a custom REST API or any HTTP-based SMTP email provider, see [Define a RESTful technical profile in an Azure AD B2C custom policy](restful-technical-profile.md).
+- Learn how to use a custom REST API or any HTTP-based SMTP email provider, see [Define a RESTful technical profile in an Azure AD B2C custom policy](restful-technical-profile.md).
 
 ::: zone-end

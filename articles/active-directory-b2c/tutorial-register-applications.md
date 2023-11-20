@@ -121,4 +121,4 @@ In this article, you learned how to:
 > * Register a web application
 > * Create a client secret
 
-Learn how to[Create user flows in Azure Active Directory B2C >](tutorial-create-user-flows.md)
+Learn how to [Create user flows in Azure Active Directory B2C](tutorial-create-user-flows.md)

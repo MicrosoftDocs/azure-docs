@@ -97,4 +97,4 @@ Applications using the implicit flow can continue to function if you leave the i
 
 ## Next steps
 
-Learn how to [Create user flows in Azure Active Directory B2C >](tutorial-create-user-flows.md).
+Learn how to [Create user flows in Azure Active Directory B2C](tutorial-create-user-flows.md).
