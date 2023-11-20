@@ -44,7 +44,7 @@ To view detailed information for a pipeline, run the following command:
 kubectl describe pipelines passthrough-data-pipeline -n azure-iot-operations
 ```
 
-The output from the pervious command looks like the following example:
+The output from the previous command looks like the following example:
 
 ```text
 ...

@@ -2,7 +2,7 @@
 title: How to perform Named Entity Recognition (NER)
 titleSuffix: Azure AI services
 description: This article will show you how to extract named entities from text.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language

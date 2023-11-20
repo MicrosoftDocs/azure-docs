@@ -3,8 +3,8 @@ title: Use Azure VM Image Builder with an Azure Compute Gallery for Linux VMs
 description: Create Linux VM images with Azure VM Image Builder and Azure Compute Gallery.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 04/11/2023
+ms.reviewer: erd
+ms.date: 11/10/2023
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -20,9 +20,9 @@ This article uses a sample JSON template to configure the image. The JSON file i
 
 To distribute the image to an Azure Compute Gallery, the template uses [sharedImage](image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
 
-## Register the features
+## Register the providers
 
-To use VM Image Builder, you need to register the feature. Check your registration by running the following commands:
+To use VM Image Builder, you need to register the providers. Check your registration by running the following commands:
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages -o json | grep registrationState
@@ -30,6 +30,7 @@ az provider show -n Microsoft.KeyVault -o json | grep registrationState
 az provider show -n Microsoft.Compute -o json | grep registrationState
 az provider show -n Microsoft.Storage -o json | grep registrationState
 az provider show -n Microsoft.Network -o json | grep registrationState
+az provider show -n Microsoft.ContainerInstance -o json | grep registrationState
 ```
 
 If the output doesn't say *registered*, run the following commands:
@@ -40,6 +41,7 @@ az provider register -n Microsoft.Compute
 az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
 az provider register -n Microsoft.Network
+az provider register -n Microsoft.ContainerInstance
 ```
 
 ## Set variables and permissions

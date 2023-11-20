@@ -2,7 +2,7 @@
 title: "Harm categories in Azure AI Content Safety"
 titleSuffix: Azure AI services
 description: Learn about the different content moderation flags and severity levels that the Azure AI Content Safety service returns.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety

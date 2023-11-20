@@ -266,7 +266,7 @@ items:
       - name: Release and work item insights
         href: app/release-and-work-item-insights.md
       - name: Transaction Search and Diagnostics
-        href: app/search-and-transaction-diagnostics.md
+        href: app/transaction-search-and-diagnostics.md
     - name: Code analysis
       items:
       - name: Profiler
@@ -541,6 +541,10 @@ items:
           href: containers/container-insights-hybrid-setup.md          
         - name: Enable with Azure Policy
           href: containers/container-insights-enable-aks-policy.md
+        - name: Configure private link
+          href: containers/container-insights-private-link.md
+        - name: Legacy authentication
+          href: containers/container-insights-authentication.md
         - name: Supported region mappings
           href: containers/container-insights-region-mapping.md
         - name: Transition from Container monitoring solution

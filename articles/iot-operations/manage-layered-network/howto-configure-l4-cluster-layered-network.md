@@ -1,13 +1,14 @@
 ---
 title: Configure Azure IoT Layered Network Management on level 4 cluster
-# titleSuffix: Azure IoT Layered Network Management
+titleSuffix: Azure IoT Layered Network Management
 description: Deploy and configure Azure IoT Layered Network Management on a level 4 cluster.
 author: PatAltimore
+ms.subservice: layered-network-management
 ms.author: patricka
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/07/2023
+ms.date: 11/15/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
