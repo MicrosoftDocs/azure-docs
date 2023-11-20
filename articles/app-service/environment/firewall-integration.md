@@ -145,7 +145,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 |graph.microsoft.com:443 |
 |login.live.com:443 |
 |login.windows.com:443 |
-|login.windows.NET:443 |
+|login.windows.net:443 |
 |login.microsoftonline.com:443 |
 |\*.login.microsoftonline.com:443|
 |\*.login.microsoft.com:443|
@@ -173,85 +173,85 @@ With an Azure Firewall, you automatically get everything below configured with t
 |crl.verisign.com:80 |
 |ocsp.verisign.com:80 |
 |cacerts.digicert.com:80 |
-|azperfcounters1.blob.core.windows.NET:443 |
-|azurewatsonanalysis-prod.core.windows.NET:443 |
-|global.metrics.nsatc.NET:80 |
-|global.metrics.nsatc.NET:443 |
-|az-prod.metrics.nsatc.NET:443 |
-|antares.metrics.nsatc.NET:443 |
-|azglobal-black.azglobal.metrics.nsatc.NET:443 |
-|azglobal-red.azglobal.metrics.nsatc.NET:443 |
-|antares-black.antares.metrics.nsatc.NET:443 |
-|antares-red.antares.metrics.nsatc.NET:443 |
+|azperfcounters1.blob.core.windows.net:443 |
+|azurewatsonanalysis-prod.core.windows.net:443 |
+|global.metrics.nsatc.net:80 |
+|global.metrics.nsatc.net:443 |
+|az-prod.metrics.nsatc.net:443 |
+|antares.metrics.nsatc.net:443 |
+|azglobal-black.azglobal.metrics.nsatc.net:443 |
+|azglobal-red.azglobal.metrics.nsatc.net:443 |
+|antares-black.antares.metrics.nsatc.net:443 |
+|antares-red.antares.metrics.nsatc.net:443 |
 |prod.microsoftmetrics.com:443 |
-|maupdateaccount.blob.core.windows.NET:443 |
-|clientconfig.passport.NET:443 |
+|maupdateaccount.blob.core.windows.net:443 |
+|clientconfig.passport.net:443 |
 |packages.microsoft.com:443 |
 |schemas.microsoft.com:80 |
 |schemas.microsoft.com:443 |
-|management.core.windows.NET:443 |
-|management.core.windows.NET:80 |
+|management.core.windows.net:443 |
+|management.core.windows.net:80 |
 |management.azure.com:443 |
 |www.msftconnecttest.com:80 |
-|shavamanifestcdnprod1.azureedge.NET:443 |
+|shavamanifestcdnprod1.azureedge.net:443 |
 |validation-v2.sls.microsoft.com:443 |
 |flighting.cp.wd.microsoft.com:443 |
 |dmd.metaservices.microsoft.com:80 |
-|admin.core.windows.NET:443 |
+|admin.core.windows.net:443 |
 |prod.warmpath.msftcloudes.com:443 |
 |prod.warmpath.msftcloudes.com:80 |
-|gcs.prod.monitoring.core.windows.NET:80|
-|gcs.prod.monitoring.core.windows.NET:443|
-|azureprofileruploads.blob.core.windows.NET:443 |
-|azureprofileruploads2.blob.core.windows.NET:443 |
-|azureprofileruploads3.blob.core.windows.NET:443 |
-|azureprofileruploads4.blob.core.windows.NET:443 |
-|azureprofileruploads5.blob.core.windows.NET:443 |
-|azperfmerges.blob.core.windows.NET:443 |
-|azprofileruploads1.blob.core.windows.NET:443 |
-|azprofileruploads10.blob.core.windows.NET:443 |
-|azprofileruploads2.blob.core.windows.NET:443 |
-|azprofileruploads3.blob.core.windows.NET:443 |
-|azprofileruploads4.blob.core.windows.NET:443 |
-|azprofileruploads6.blob.core.windows.NET:443 |
-|azprofileruploads7.blob.core.windows.NET:443 |
-|azprofileruploads8.blob.core.windows.NET:443 |
-|azprofileruploads9.blob.core.windows.NET:443 |
-|azureprofilerfrontdoor.cloudapp.NET:443 |
+|gcs.prod.monitoring.core.windows.net:80|
+|gcs.prod.monitoring.core.windows.net:443|
+|azureprofileruploads.blob.core.windows.net:443 |
+|azureprofileruploads2.blob.core.windows.net:443 |
+|azureprofileruploads3.blob.core.windows.net:443 |
+|azureprofileruploads4.blob.core.windows.net:443 |
+|azureprofileruploads5.blob.core.windows.net:443 |
+|azperfmerges.blob.core.windows.net:443 |
+|azprofileruploads1.blob.core.windows.net:443 |
+|azprofileruploads10.blob.core.windows.net:443 |
+|azprofileruploads2.blob.core.windows.net:443 |
+|azprofileruploads3.blob.core.windows.net:443 |
+|azprofileruploads4.blob.core.windows.net:443 |
+|azprofileruploads6.blob.core.windows.net:443 |
+|azprofileruploads7.blob.core.windows.net:443 |
+|azprofileruploads8.blob.core.windows.net:443 |
+|azprofileruploads9.blob.core.windows.net:443 |
+|azureprofilerfrontdoor.cloudapp.net:443 |
 |settings-win.data.microsoft.com:443 |
-|maupdateaccount2.blob.core.windows.NET:443 |
-|maupdateaccount3.blob.core.windows.NET:443 |
+|maupdateaccount2.blob.core.windows.net:443 |
+|maupdateaccount3.blob.core.windows.net:443 |
 |dc.services.visualstudio.com:443 |
-|gmstorageprodsn1.blob.core.windows.NET:443 |
-|gmstorageprodsn1.file.core.windows.NET:443 |
-|gmstorageprodsn1.queue.core.windows.NET:443 |
-|gmstorageprodsn1.table.core.windows.NET:443 |
-|rteventservice.trafficmanager.NET:443 |
+|gmstorageprodsn1.blob.core.windows.net:443 |
+|gmstorageprodsn1.file.core.windows.net:443 |
+|gmstorageprodsn1.queue.core.windows.net:443 |
+|gmstorageprodsn1.table.core.windows.net:443 |
+|rteventservice.trafficmanager.net:443 |
 |ctldl.windowsupdate.com:80 |
 |ctldl.windowsupdate.com:443 |
-|global-dsms.dsms.core.windows.NET:443 |
+|global-dsms.dsms.core.windows.net:443 |
 
 ### Wildcard HTTP/HTTPS dependencies
 
 | Endpoint |
 |----------|
-|gr-prod-\*.cloudapp.NET:443 |
-|gr-prod-\*.azurewebsites.windows.NET:443 |
+|gr-prod-\*.cloudapp.net:443 |
+|gr-prod-\*.azurewebsites.windows.net:443 |
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
-| \*.identity.azure.NET:443 |
+| \*.identity.azure.net:443 |
 | \*.ctldl.windowsupdate.com:80 |
 | \*.ctldl.windowsupdate.com:443 |
 | \*.prod.microsoftmetrics.com:443 |
-| \*.dsms.core.windows.NET:443 |
-| \*.prod.warm.ingest.monitor.core.windows.NET:443 |
+| \*.dsms.core.windows.net:443 |
+| \*.prod.warm.ingest.monitor.core.windows.net:443 |
 
 ### Linux dependencies
 
 | Endpoint |
 |----------|
-|wawsinfraprodbay063.blob.core.windows.NET:443 |
+|wawsinfraprodbay063.blob.core.windows.net:443 |
 |registry-1.docker.io:443 |
 |auth.docker.io:443 |
 |production.cloudflare.docker.com:443 |
@@ -267,8 +267,8 @@ With an Azure Firewall, you automatically get everything below configured with t
 |\*.data.mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
 |packages.fluentbit.io:443 |
-|apt-mo.trafficmanager.NET:80 |
-|apt-mo.trafficmanager.NET:443 |
+|apt-mo.trafficmanager.net:80 |
+|apt-mo.trafficmanager.net:443 |
 |azure.archive.ubuntu.com:80 |
 |azure.archive.ubuntu.com:443 |
 |changelogs.ubuntu.com:80 |
@@ -319,21 +319,21 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 
 | Endpoint |
 |----------|
-|admin.core.usgovcloudapi.NET:80 |
-|azperfmerges.blob.core.windows.NET:80 |
-|azperfmerges.blob.core.windows.NET:80 |
-|azprofileruploads1.blob.core.windows.NET:80 |
-|azprofileruploads10.blob.core.windows.NET:80 |
-|azprofileruploads2.blob.core.windows.NET:80 |
-|azprofileruploads3.blob.core.windows.NET:80 |
-|azprofileruploads4.blob.core.windows.NET:80 |
-|azprofileruploads5.blob.core.windows.NET:80 |
-|azprofileruploads6.blob.core.windows.NET:80 |
-|azprofileruploads7.blob.core.windows.NET:80 |
-|azprofileruploads8.blob.core.windows.NET:80 |
-|azprofileruploads9.blob.core.windows.NET:80 |
-|azureprofilerfrontdoor.cloudapp.NET:80 |
-|azurewatsonanalysis.usgovcloudapp.NET:80 |
+|admin.core.usgovcloudapi.net:80 |
+|azperfmerges.blob.core.windows.net:80 |
+|azperfmerges.blob.core.windows.net:80 |
+|azprofileruploads1.blob.core.windows.net:80 |
+|azprofileruploads10.blob.core.windows.net:80 |
+|azprofileruploads2.blob.core.windows.net:80 |
+|azprofileruploads3.blob.core.windows.net:80 |
+|azprofileruploads4.blob.core.windows.net:80 |
+|azprofileruploads5.blob.core.windows.net:80 |
+|azprofileruploads6.blob.core.windows.net:80 |
+|azprofileruploads7.blob.core.windows.net:80 |
+|azprofileruploads8.blob.core.windows.net:80 |
+|azprofileruploads9.blob.core.windows.net:80 |
+|azureprofilerfrontdoor.cloudapp.net:80 |
+|azurewatsonanalysis.usgovcloudapp.net:80 |
 |cacerts.digicert.com:80 |
 |client.wns.windows.com:80 |
 |crl.microsoft.com:80 |
@@ -343,51 +343,51 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |ctldl.windowsupdate.com:80 |
 |definitionupdates.microsoft.com:80 |
 |download.windowsupdate.com:80 |
-|fairfax.warmpath.usgovcloudapi.NET:80 |
+|fairfax.warmpath.usgovcloudapi.net:80 |
 |flighting.cp.wd.microsoft.com:80 |
-|gcwsprodgmdm2billing.queue.core.usgovcloudapi.NET:80 |
-|gcwsprodgmdm2billing.table.core.usgovcloudapi.NET:80 |
-|global.metrics.nsatc.NET:80 |
+|gcwsprodgmdm2billing.queue.core.usgovcloudapi.net:80 |
+|gcwsprodgmdm2billing.table.core.usgovcloudapi.net:80 |
+|global.metrics.nsatc.net:80 |
 |go.microsoft.com:80 |
-|gr-gcws-prod-bd3.usgovcloudapp.NET:80 |
-|gr-gcws-prod-bn1.usgovcloudapp.NET:80 |
-|gr-gcws-prod-dd3.usgovcloudapp.NET:80 |
-|gr-gcws-prod-dm2.usgovcloudapp.NET:80 |
-|gr-gcws-prod-phx20.usgovcloudapp.NET:80 |
-|gr-gcws-prod-sn5.usgovcloudapp.NET:80 |
+|gr-gcws-prod-bd3.usgovcloudapp.net:80 |
+|gr-gcws-prod-bn1.usgovcloudapp.net:80 |
+|gr-gcws-prod-dd3.usgovcloudapp.net:80 |
+|gr-gcws-prod-dm2.usgovcloudapp.net:80 |
+|gr-gcws-prod-phx20.usgovcloudapp.net:80 |
+|gr-gcws-prod-sn5.usgovcloudapp.net:80 |
 |login.live.com:80 |
 |login.microsoftonline.us:80 |
-|management.core.usgovcloudapi.NET:80 |
-|management.usgovcloudapi.NET:80 |
-|maupdateaccountff.blob.core.usgovcloudapi.NET:80 |
+|management.core.usgovcloudapi.net:80 |
+|management.usgovcloudapi.net:80 |
+|maupdateaccountff.blob.core.usgovcloudapi.net:80 |
 |mscrl.microsoft.com:80
 |ocsp.digicert.com:80 |
 |ocsp.verisign.com:80 |
-|rteventse.trafficmanager.NET:80 |
+|rteventse.trafficmanager.net:80 |
 |settings-n.data.microsoft.com:80 |
-|shavamafestcdnprod1.azureedge.NET:80 |
-|shavanifestcdnprod1.azureedge.NET:80 |
+|shavamafestcdnprod1.azureedge.net:80 |
+|shavanifestcdnprod1.azureedge.net:80 |
 |v10ortex-win.data.microsoft.com:80 |
 |wp.microsoft.com:80 |
 |dcpalt.microsoft.com:80 |
 |www.microsoft.com:80 |
 |www.msftconnecttest.com:80 |
 |www.thawte.com:80 |
-|admin.core.usgovcloudapi.NET:443 |
-|azperfmerges.blob.core.windows.NET:443 |
-|azperfmerges.blob.core.windows.NET:443 |
-|azprofileruploads1.blob.core.windows.NET:443 |
-|azprofileruploads10.blob.core.windows.NET:443 |
-|azprofileruploads2.blob.core.windows.NET:443 |
-|azprofileruploads3.blob.core.windows.NET:443 |
-|azprofileruploads4.blob.core.windows.NET:443 |
-|azprofileruploads5.blob.core.windows.NET:443 |
-|azprofileruploads6.blob.core.windows.NET:443 |
-|azprofileruploads7.blob.core.windows.NET:443 |
-|azprofileruploads8.blob.core.windows.NET:443 |
-|azprofileruploads9.blob.core.windows.NET:443 |
-|azureprofilerfrontdoor.cloudapp.NET:443 |
-|azurewatsonanalysis.usgovcloudapp.NET:443 |
+|admin.core.usgovcloudapi.net:443 |
+|azperfmerges.blob.core.windows.net:443 |
+|azperfmerges.blob.core.windows.net:443 |
+|azprofileruploads1.blob.core.windows.net:443 |
+|azprofileruploads10.blob.core.windows.net:443 |
+|azprofileruploads2.blob.core.windows.net:443 |
+|azprofileruploads3.blob.core.windows.net:443 |
+|azprofileruploads4.blob.core.windows.net:443 |
+|azprofileruploads5.blob.core.windows.net:443 |
+|azprofileruploads6.blob.core.windows.net:443 |
+|azprofileruploads7.blob.core.windows.net:443 |
+|azprofileruploads8.blob.core.windows.net:443 |
+|azprofileruploads9.blob.core.windows.net:443 |
+|azureprofilerfrontdoor.cloudapp.net:443 |
+|azurewatsonanalysis.usgovcloudapp.net:443 |
 |cacerts.digicert.com:443 |
 |client.wns.windows.com:443 |
 |crl.microsoft.com:443 |
@@ -397,25 +397,25 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |ctldl.windowsupdate.com:443 |
 |definitionupdates.microsoft.com:443 |
 |download.windowsupdate.com:443 |
-|fairfax.warmpath.usgovcloudapi.NET:443 |
-|gcs.monitoring.core.usgovcloudapi.NET:443 |
+|fairfax.warmpath.usgovcloudapi.net:443 |
+|gcs.monitoring.core.usgovcloudapi.net:443 |
 |flighting.cp.wd.microsoft.com:443 |
-|gcwsprodgmdm2billing.queue.core.usgovcloudapi.NET:443 |
-|gcwsprodgmdm2billing.table.core.usgovcloudapi.NET:443 |
-|global.metrics.nsatc.NET:443 |
+|gcwsprodgmdm2billing.queue.core.usgovcloudapi.net:443 |
+|gcwsprodgmdm2billing.table.core.usgovcloudapi.net:443 |
+|global.metrics.nsatc.net:443 |
 |prod.microsoftmetrics.com:443 |
 |go.microsoft.com:443 |
-|gr-gcws-prod-bd3.usgovcloudapp.NET:443 |
-|gr-gcws-prod-bn1.usgovcloudapp.NET:443 |
-|gr-gcws-prod-dd3.usgovcloudapp.NET:443 |
-|gr-gcws-prod-dm2.usgovcloudapp.NET:443 |
-|gr-gcws-prod-phx20.usgovcloudapp.NET:443 |
-|gr-gcws-prod-sn5.usgovcloudapp.NET:443 |
+|gr-gcws-prod-bd3.usgovcloudapp.net:443 |
+|gr-gcws-prod-bn1.usgovcloudapp.net:443 |
+|gr-gcws-prod-dd3.usgovcloudapp.net:443 |
+|gr-gcws-prod-dm2.usgovcloudapp.net:443 |
+|gr-gcws-prod-phx20.usgovcloudapp.net:443 |
+|gr-gcws-prod-sn5.usgovcloudapp.net:443 |
 |login.live.com:443 |
 |login.microsoftonline.us:443 |
-|management.core.usgovcloudapi.NET:443 |
-|management.usgovcloudapi.NET:443 |
-|maupdateaccountff.blob.core.usgovcloudapi.NET:443 |
+|management.core.usgovcloudapi.net:443 |
+|management.usgovcloudapi.net:443 |
+|maupdateaccountff.blob.core.usgovcloudapi.net:443 |
 |mscrl.microsoft.com:443 |
 |ocsp.digicert.com:443 |
 |ocsp.msocsp.com:443 |
@@ -423,30 +423,30 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |oneocsp.microsoft.com:80 |
 |oneocsp.microsoft.com:443 |
 |ocsp.verisign.com:443 |
-|rteventservice.trafficmanager.NET:443 |
+|rteventservice.trafficmanager.net:443 |
 |settings-win.data.microsoft.com:443 |
-|shavamanifestcdnprod1.azureedge.NET:443 |
-|shavamanifestcdnprod1.azureedge.NET:443 |
+|shavamanifestcdnprod1.azureedge.net:443 |
+|shavamanifestcdnprod1.azureedge.net:443 |
 |v10.vortex-win.data.microsoft.com:443 |
 |wdcp.microsoft.com:443 |
 |wdcpalt.microsoft.com:443 |
 |www.microsoft.com:443 |
 |www.msftconnecttest.com:443 |
 |www.thawte.com:443 |
-|global-dsms.dsms.core.usgovcloudapi.NET:443 |
+|global-dsms.dsms.core.usgovcloudapi.net:443 |
 
 ### Wildcard HTTP/HTTPS dependencies
 
 | Endpoint |
 |----------|
 |\*.ctldl.windowsupdate.com:80 |
-|\*.management.usgovcloudapi.NET:80 |
+|\*.management.usgovcloudapi.net:80 |
 |\*.update.microsoft.com:80 |
 |\*ctldl.windowsupdate.com:443 |
-|\*.management.usgovcloudapi.NET:443 |
+|\*.management.usgovcloudapi.net:443 |
 |\*.update.microsoft.com:443 |
 |\*.prod.microsoftmetrics.com:443 |
-| \*.prod.warm.ingest.monitor.core.usgovcloudapi.NET:443 |
+| \*.prod.warm.ingest.monitor.core.usgovcloudapi.net:443 |
 
 <!--Image references-->
 [1]: ./media/firewall-integration/firewall-apprule.png
