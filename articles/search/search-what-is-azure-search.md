@@ -32,7 +32,7 @@ Information retrieval is foundational to any app that surfaces text and vectors.
 
 Architecturally, a search service sits between the external data stores that contain your un-indexed data, and your client app that sends query requests to a search index and handles the response.
 
-![Azure AI Search architecture](media/search-what-is-azure-search/azure-search-diagram.svg "Azure AI Search architecture")
+![Azure AI Search architecture](media/search-what-is-azure-search/azure-search.svg "Azure AI Search architecture")
 
 In your client app, the search experience is defined using APIs from Azure AI Search, and can include relevance tuning, semantic ranking, autocomplete, synonym matching, fuzzy matching, pattern matching, filter, and sort.
 

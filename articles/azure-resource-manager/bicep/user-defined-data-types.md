@@ -111,7 +111,7 @@ The valid type expressions include:
         level2: {
           level3: {
             level4: {
-              level5: invalidRecursiveObject
+              level5: invalidRecursiveObjectType
             }
           }
         }

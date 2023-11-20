@@ -107,7 +107,7 @@ Our embedding models may be unreliable or pose social risks in certain cases, an
 * Learn more about using Azure OpenAI and embeddings to perform document search with our [embeddings tutorial](../tutorials/embeddings.md).
 * Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
 * Store your embeddings and perform vector (similarity) search using your choice of Azure service:
-  * [Azure Cognitive Search](../../../search/vector-search-overview.md)
+  * [Azure AI Search](../../../search/vector-search-overview.md)
   * [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md)
   * [Azure Cosmos DB for NoSQL](../../../cosmos-db/vector-search.md)
   * [Azure Cosmos DB for PostgreSQL](../../../cosmos-db/postgresql/howto-use-pgvector.md)
