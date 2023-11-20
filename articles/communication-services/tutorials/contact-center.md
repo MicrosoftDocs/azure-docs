@@ -130,7 +130,6 @@ The following list presents the set of features that are currently available for
 
 -   [Quickstart: Join your calling app to a Teams call queue](/azure/communication-services/quickstarts/voice-video-calling/get-started-teams-call-queue)
 -   [Quickstart - Teams Auto Attendant on Azure Communication Services](/azure/communication-services/quickstarts/voice-video-calling/get-started-teams-auto-attendant)
--   [Get started with a click to call experience using Azure Communication Services - An Azure Communication Services tutorial](/azure/communication-services/tutorials/calling-widget/calling-widget-overview)
 
 ## Extend your contact center voice solution to Teams users
 
