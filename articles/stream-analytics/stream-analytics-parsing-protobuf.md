@@ -49,9 +49,6 @@ To learn more about Protobuf data types, see the [official Protocol Buffers docu
 
 - Maps in Protobuf aren't supported. Maps in Protobuf result in an error about missing a string key.
   
-- When 
-  
-
 - When a Protobuf definition file contains a namespace or package, the message type must include it. For example:
 
     :::image type="content" source="./media/protobuf/proto-namespace-example.png" alt-text=" Screenshot that shows an example of a Protobuf definition file with a namespace." lightbox="./media/protobuf/proto-namespace-example.png" :::
