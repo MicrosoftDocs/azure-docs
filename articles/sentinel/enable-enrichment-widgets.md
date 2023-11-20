@@ -9,7 +9,9 @@ ms.date: 11/15/2023
 
 # Enable enrichment widgets in Microsoft Sentinel 
 
-Enrichment widgets are dynamic components that provide you with in-depth, actionable intelligence about entities. They integrate external and internal content and data from various sources, allowing you a better understanding of potential security threats, and helping you make better, faster decisions.
+Enrichment widgets are dynamic components that provide you with in-depth, actionable intelligence about entities. They integrate external and internal content and data from various sources, allowing you a better understanding of potential security threats.
+
+This article shows you how to enable the enrichment widgets experience, allowing you to take advantage of this new capability and helping you make better, faster decisions.
 
 > [!IMPORTANT]
 >
