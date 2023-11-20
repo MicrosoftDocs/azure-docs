@@ -12,6 +12,9 @@ ms.custom:
 
 Azure Stream Analytics supports processing events in Protocol Buffer (Protobuf) data formats. You can use the built-in Protobuf deserializer when configuring your inputs. To use the built-in deserializer, specify the Protobuf definition file, message type, and prefix style.
 
+>[!NOTE]
+> Azure Stream Analytics does not support schema registry for Protocol Buffer (Protobuf) data formats/
+
 ## Steps to configure a Stream Analytics job
 
 To configure your Stream Analytics job to deserialize events in Protobuf:
