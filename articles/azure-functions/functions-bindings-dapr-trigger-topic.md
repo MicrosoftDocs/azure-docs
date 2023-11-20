@@ -70,6 +70,30 @@ public String run(
 
 ::: zone pivot="programming-language-javascript"
 
+# [Node.js v4](#tab/v4)
+
+Use the `app` object to register the `daprTopicTrigger`:
+
+```javascript
+app.generic('TransferEventBetweenTopics', {
+    trigger: trigger.generic({
+        type: 'daprTopicTrigger',
+        name: "subEvent",
+        pubsubname: "%PubSubName%",
+        topic: "A"
+    }),
+    return: daprPublishOutput,
+    handler: async (request, context) => {
+        context.log("Node function processed a TransferEventBetweenTopics request from the Dapr Runtime.");
+        context.log(context.triggerMetadata.subEvent.data);
+
+        return { payload: context.triggerMetadata.subEvent.data };
+    }
+});
+```
+ 
+# [Node.js v3](#tab/v3)
+
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
 Here's the _function.json_ file for `daprTopicTrigger`:
@@ -98,6 +122,7 @@ module.exports = async function (context) {
 };
 ```
 
+---
 
 ::: zone-end
 
@@ -253,7 +278,32 @@ The `DaprTopicTrigger` annotation allows you to create a function that runs when
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell"
+::: zone pivot="programming-language-javascript" 
+
+# [Node.js v4](#tab/v4)
+
+The following table explains the binding configuration properties that you set in the code.
+
+|Property | Description| 
+|-----------------------|------------|
+|**pubsubname** | The name of the Dapr pub/sub component type. |
+|**topic** | Name of the topic. |
+
+ 
+# [Node.js v3](#tab/v3)
+
+The following table explains the binding configuration properties that you set in the function.json file.
+
+|function.json property | Description| 
+|-----------------------|------------|
+|**pubsubname** | The name of the Dapr pub/sub component type. |
+|**topic** | Name of the topic. |
+
+---
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
 
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 

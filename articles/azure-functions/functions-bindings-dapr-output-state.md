@@ -80,6 +80,33 @@ public String run(
 
 ::: zone pivot="programming-language-javascript"
 
+# [Node.js v4](#tab/v4)
+
+In the following example, the Dapr state output binding is paired with an HTTP trigger, which is registered by the `app` object:
+
+```javascript
+app.generic('StateOutputBinding', {
+    trigger: trigger.generic({
+        type: 'httpTrigger',
+        authLevel: 'anonymous',
+        methods: ['POST'],
+        route: "state/{key}",
+        name: "req"
+    }),
+    return: daprStateOutput,
+    handler: async (request, context) => {
+        context.log("Node HTTP trigger function processed a request.");
+
+        const payload = await request.text();
+        context.log(JSON.stringify(payload));
+        
+        return { value : payload };
+    }
+});
+```
+ 
+# [Node.js v3](#tab/v3)
+
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
 Here's the _function.json_ file for `daprState` output:
@@ -113,6 +140,8 @@ module.exports = async function (context, req) {
     };
 };
 ```
+
+---
 
 ::: zone-end
 
@@ -277,7 +306,34 @@ The `DaprStateOutput` annotation allows you to function access a state store.
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell"
+::: zone pivot="programming-language-javascript" 
+
+# [Node.js v4](#tab/v4)
+
+The following table explains the binding configuration properties that you set in the code.
+
+|Property | Description| Can be sent via Attribute | Can be sent via RequestBody |
+|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
+| **stateStore** | The name of the state store to save state. | :heavy_check_mark: | :x: |
+| **key** | The name of the key to save state within the state store. | :heavy_check_mark: | :heavy_check_mark: |
+| **value** | _Required._ The value being stored. | :x: | :heavy_check_mark: |
+
+ 
+# [Node.js v3](#tab/v3)
+
+The following table explains the binding configuration properties that you set in the function.json file.
+
+|function.json property | Description| Can be sent via Attribute | Can be sent via RequestBody |
+|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
+| **stateStore** | The name of the state store to save state. | :heavy_check_mark: | :x: |
+| **key** | The name of the key to save state within the state store. | :heavy_check_mark: | :heavy_check_mark: |
+| **value** | _Required._ The value being stored. | :x: | :heavy_check_mark: |
+
+---
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
 
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 

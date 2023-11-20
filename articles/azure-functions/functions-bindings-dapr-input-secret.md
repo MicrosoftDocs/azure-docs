@@ -68,6 +68,31 @@ public void run(
 
 ::: zone pivot="programming-language-javascript"
 
+# [Node.js v4](#tab/v4)
+
+In the following example, the Dapr secret input binding is paired with a Dapr invoke trigger, which is registered by the `app` object:
+
+```javascript
+app.generic('RetrieveSecret', {
+    trigger: trigger.generic({
+        type: 'daprServiceInvocationTrigger',
+        name: "payload"
+    }),
+    extraInputs: [daprSecretInput],
+    handler: async (request, context) => {
+        context.log("Node function processed a RetrieveSecret request from the Dapr Runtime.");
+        const daprSecretInputValue = context.extraInputs.get(daprSecretInput);
+
+        // print the fetched secret value
+        for (var key in daprSecretInputValue) {
+            context.log(`Stored secret: Key=${key}, Value=${daprSecretInputValue[key]}`);
+        }
+    }
+});
+```
+ 
+# [Node.js v3](#tab/v3)
+
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
 Here's the _function.json_ file for `daprServiceInvocationTrigger`:
@@ -101,6 +126,8 @@ module.exports = async function (context) {
     }
 };
 ```
+
+---
 
 ::: zone-end
 
@@ -266,7 +293,33 @@ The `DaprSecretInput` annotation allows you to have your function access a secre
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell"
+::: zone pivot="programming-language-javascript"
+
+# [Node.js v4](#tab/v4)
+
+The following table explains the binding configuration properties that you set in the code.
+
+|Property | Description |
+|-----------------------|-------------|
+|**key** | The secret key value. |
+|**secretStoreName** | Name of the secret store as defined in the _local-secret-store.yaml_ component file. |
+|**metadata** | The metadata namespace. |
+ 
+# [Node.js v3](#tab/v3)
+
+The following table explains the binding configuration properties that you set in the function.json file.
+
+|function.json property | Description |
+|-----------------------|-------------|
+|**key** | The secret key value. |
+|**secretStoreName** | Name of the secret store as defined in the _local-secret-store.yaml_ component file. |
+|**metadata** | The metadata namespace. |
+
+---
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
 
 The following table explains the binding configuration properties that you set in the function.json file.
 

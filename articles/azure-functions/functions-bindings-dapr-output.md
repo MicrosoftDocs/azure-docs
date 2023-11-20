@@ -77,6 +77,28 @@ public String run(
 
 ::: zone pivot="programming-language-javascript"
 
+# [Node.js v4](#tab/v4)
+
+In the following example, the Dapr output binding is paired with the Dapr invoke output trigger, which is registered by the `app` object:
+
+```javascript
+app.generic('SendMessageToKafka', {
+    trigger: trigger.generic({
+        type: 'daprServiceInvocationTrigger',
+        name: "payload"
+    }),
+    return: daprBindingOuput,
+    handler: async (request, context) => {
+        context.log("Node function processed a SendMessageToKafka request from the Dapr Runtime.");
+        context.log(context.triggerMetadata.payload)
+
+        return { "data": context.triggerMetadata.payload };
+    }
+});
+```
+ 
+# [Node.js v3](#tab/v3)
+
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
 Here's the _function.json_ file for `daprBinding`:
@@ -103,6 +125,8 @@ module.exports = async function (context) {
     context.bindings.messages = { "data": context.bindings.args };
 };
 ```
+
+---
 
 ::: zone-end
 
@@ -257,7 +281,37 @@ The `DaprBindingOutput` annotation allows you to create a function that sends an
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell"
+::: zone pivot="programming-language-javascript" 
+
+# [Node.js v4](#tab/v4)
+
+The following table explains the binding configuration properties that you set in the code.
+
+|Property | Description| Can be sent via Attribute | Can be sent via RequestBody |
+|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
+|**bindingName** | The name of the binding. | :heavy_check_mark: | :heavy_check_mark: |
+|**operation** | The binding operation. | :heavy_check_mark: | :heavy_check_mark: |
+| **metadata** | The metadata namespace. |  :x: | :heavy_check_mark: |
+| **data** | _Required._ The data for the binding operation. |  :x: | :heavy_check_mark: |
+
+ 
+# [Node.js v3](#tab/v3)
+
+The following table explains the binding configuration properties that you set in the function.json file.
+
+|function.json property | Description| Can be sent via Attribute | Can be sent via RequestBody |
+|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
+|**bindingName** | The name of the binding. | :heavy_check_mark: | :heavy_check_mark: |
+|**operation** | The binding operation. | :heavy_check_mark: | :heavy_check_mark: |
+| **metadata** | The metadata namespace. |  :x: | :heavy_check_mark: |
+| **data** | _Required._ The data for the binding operation. |  :x: | :heavy_check_mark: |
+
+---
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
 The following table explains the binding configuration properties that you set in the function.json file.
 
 |function.json property | Description| Can be sent via Attribute | Can be sent via RequestBody |

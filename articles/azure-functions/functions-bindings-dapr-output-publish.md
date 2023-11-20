@@ -74,6 +74,32 @@ public String run(
 
 ::: zone pivot="programming-language-javascript"
 
+# [Node.js v4](#tab/v4)
+
+In the following example, the Dapr publish output binding is paired with an HTTP trigger, which is registered by the `app` object:
+
+```javascript
+app.generic('PublishOutputBinding', {
+    trigger: trigger.generic({
+        type: 'httpTrigger',
+        authLevel: 'anonymous',
+        methods: ['POST'],
+        route: "topic/{topicName}",
+        name: "req"
+    }),
+    return: daprPublishOutput,
+    handler: async (request, context) => {
+        context.log("Node HTTP trigger function processed a request.");
+        const payload = await request.text();
+        context.log(JSON.stringify(payload));
+
+        return { payload: payload };
+    }
+});
+```
+ 
+# [Node.js v3](#tab/v3)
+
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
 Here's the _function.json_ file for `daprPublish`:
@@ -102,6 +128,8 @@ module.exports = async function (context, req) {
     context.done(null);
 };
 ```
+
+---
 
 ::: zone-end
 
@@ -267,7 +295,33 @@ The `DaprPublishOutput` annotation allows you to have a function access a publis
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell"
+::: zone pivot="programming-language-javascript" 
+
+# [Node.js v4](#tab/v4)
+
+The following table explains the binding configuration properties that you set in the code.
+
+|Property | Description| Can be sent via Attribute | Can be sent via RequestBody |
+|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
+|**pubsubname** | The name of the publisher component service. | :heavy_check_mark: | :heavy_check_mark: |
+|**topic** | The name/identifier of the publisher topic. | :heavy_check_mark: | :heavy_check_mark: |
+| **payload** | _Required._ The message being published. | :x: | :heavy_check_mark: |
+ 
+# [Node.js v3](#tab/v3)
+
+The following table explains the binding configuration properties that you set in the function.json file.
+
+|function.json property | Description| Can be sent via Attribute | Can be sent via RequestBody |
+|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
+|**pubsubname** | The name of the publisher component service. | :heavy_check_mark: | :heavy_check_mark: |
+|**topic** | The name/identifier of the publisher topic. | :heavy_check_mark: | :heavy_check_mark: |
+| **payload** | _Required._ The message being published. | :x: | :heavy_check_mark: |
+
+---
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
 
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 

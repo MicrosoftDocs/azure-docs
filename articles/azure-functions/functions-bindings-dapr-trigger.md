@@ -61,6 +61,26 @@ public String run(
 
 ::: zone pivot="programming-language-javascript"
 
+# [Node.js v4](#tab/v4)
+
+Use the `app` object to register the `daprBindingTrigger`:
+
+```javascript
+app.generic('ConsumeMessageFromKafka', {
+    trigger: trigger.generic({
+        type: 'daprBindingTrigger',
+        bindingName: "%KafkaBindingName%",
+        name: "triggerData"
+    }),
+    handler: async (request, context) => {
+        context.log("Node function processed a ConsumeMessageFromKafka request from the Dapr Runtime.");
+        context.log(context.triggerMetadata.triggerData)
+    }
+});
+```
+ 
+# [Node.js v3](#tab/v3)
+
 The following example shows Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
 Here's the _function.json_ file for `daprBindingTrigger`:
@@ -88,6 +108,8 @@ module.exports = async function (context) {
     context.log(`Trigger data: ${context.bindings.triggerData}`);
 };
 ```
+
+---
 
 ::: zone-end
 
@@ -235,7 +257,31 @@ The `DaprBindingTrigger` annotation allows you to create a function that gets tr
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell"
+::: zone pivot="programming-language-javascript"
+
+# [Node.js v4](#tab/v4)
+
+The following table explains the binding configuration properties that you set in the code.
+
+|Property | Description| 
+|-----------------------|------------|
+|**bindingName** | The name of the binding. |
+
+ 
+# [Node.js v3](#tab/v3)
+
+The following table explains the binding configuration properties that you set in the function.json file.
+
+|function.json property | Description| 
+|-----------------------|------------|
+|**bindingName** | The name of the binding. |
+
+---
+
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
