@@ -165,12 +165,16 @@ items:
           items:
             - name: C#
               href: /dotnet/azure/ai/get-started-app-chat-template
+              displayName: RAG, rag
             - name: Java
               href: /azure/developer/java/quickstarts/get-started-app-chat-template
+              displayName: RAG, rag
             - name: JavaScript
               href: /azure/developer/javascript/get-started-app-chat-template
+              displayName: RAG, rag
             - name: Python
               href: /azure/developer/python/get-started-app-chat-template
+              displayName: RAG, rag
 - name: Resources
   items: 
     - name: Support and help options
