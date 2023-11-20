@@ -3,9 +3,8 @@ title: Encryption of backup data in the Backup vault using customer-managed keys
 description: Learn how Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK) in a Backup vault.
 ms.topic: how-to
 ms.date: 11/20/2023
-ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurepowershell-azurecli, devx-track-azurecli
 ms.service: backup
-ms.custom: references_regions
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -23,7 +22,7 @@ The encryption key used for encrypting backups might be different from the one u
 
 ### Supported regions
 
-CMK for Backup vault is currently available in: West Central US, Switzerland North. 
+CMK for Backup vault is currently available in the following regions: West Central US, Switzerland North. 
 
 ### Key Vault and managed HSM key requirements
 
@@ -52,14 +51,16 @@ CMK for Backup vault is currently available in: West Central US, Switzerland Nor
 
 - After you enable it for a Backup vault, encryption using customer-managed keys can't be reverted to use platform-managed keys (default). You can change the encryption keys, managed identity as per the requirements.
 
+- CMK is applied on the Azure Backup Storage Vault and Vault-Archive tiers, and not applicable for operational-tier.
+
 - Moving CMK encrypted Backup vault across Resource Groups and Subscriptions isn't currently supported.
 
-- User-assigned Manged Identity for Backup vault feature is in preview.
+- User-assigned Manged Identity for Backup vault feature is currently in preview.
 - Ensure that you check the Key Vault Key requirements provided in [this section](#key-vault-and-managed-hsm-key-requirements).
-- Once you the enable encryption settings on the Backup vault, don't disable/detach the managed identity, or remove Key Vault permissions  used for encryption settings. If you do these actions, it'll lead to failure of backup, restore, tiering, restore points expiry jobs, and will incur cost for the data stored in the Backup vault until: 
+- Once you enable the encryption settings on the Backup vault, don't disable/detach the managed identity, or remove Key Vault permissions  used for encryption settings. If you do these actions, it'll lead to failure of backup, restore, tiering, restore points expiry jobs, and will incur cost for the data stored in the Backup vault until: 
 
 
-  - The You restore the Key vault permissions.
+  - You can restore the Key Vault permissions.
   - You reenable System Assigned identity, grant the Key Vault permissions to it and perform Encryption Settings update operation, if the System-assigned identity was used for encryption settings.
   - You reattach the managed identity is reattached and has the required Key Vault permissions.
   - You ensure that it has permissions to access the Key Vault and key to use new User-assigned identity.
@@ -192,7 +193,7 @@ Follow these steps:
 
 3. Select **Next** to go to **Select Principal** and search for your vault in the search box using its name or managed identity. Once it shows up, select the *vault* > **Next**.
 
-    :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/select-principal.png" alt-text="Screenshot of Select principal jn your Azure Key Vault.":::
+    :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/select-principal.png" alt-text="Screenshot of Select principal in your Azure Key Vault.":::
 
 4. Once done, select **Add** to add the new access policy.
 
@@ -234,7 +235,7 @@ To assign the key and follow the steps, choose a client by following these steps
 
 3. In the **Encryption Settings** pane, select **Use your own key** and continue to specify the key using one of the following ways. 
  
-   *Ensure that you use an RSA key, which is in enabled state.*
+   *Ensure that you use an RSA key, which is in enabled and active state.*
 
     1. Enter the **Key URI** with which you want to encrypt the data in this Backup vault. You can also obtain this key URI from the corresponding key in your Azure Key Vault. Ensure the key URI is copied correctly. It's recommended that you use the **Copy to clipboard** button provided with the key identifier.
 
@@ -276,7 +277,7 @@ You can update the encryption settings details anytime. Whenever you want to use
 
 ## Back up to a vault encrypted with customer-managed keys
 
-Before you configure protection, we recommend you to ensure that the following checklist is adhered. It's important because once an item is configured to be backed up (or attempted to be configured) to a non-CMK encrypted vault, encryption using customer-managed keys can't be enabled on it and it will continue to use platform-managed keys.
+Before you configure protection, we recommend you to ensure that the following checklist is adhered.
 
 
 
@@ -304,7 +305,7 @@ The process to configure and perform backups to a Backup vault encrypted with cu
 - The managed identity being used for Encryption settings doesn't have the permissions to access the Key Vault. Also, the backup or restore jobs might fail with this error code if the access is removed after Encryption Settings are updated or managed identity is disable/detached from the Backup vault.
 - You're using non-RSA (EC Key URI).
 
-**Recommended action**: Ensure that the managed identity selected to use for encryption settings has the required permissions and the key is an RSA type, and the retry the operation.
+**Recommended action**: Ensure that the managed identity selected to use for encryption settings has the required permissions and the key is an RSA type, and then retry the operation.
 
 
 
