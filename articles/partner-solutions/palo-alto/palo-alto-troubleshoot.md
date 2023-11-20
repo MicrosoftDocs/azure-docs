@@ -21,6 +21,8 @@ You can get support for your Palo Alto deployment through a **New Support reques
 
 ## Troubleshooting
 
+[!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
+
 ### Unable to create a PCloud NGFW by Palo Alto Networks as not a subscription owner
 
 Only users who have Owner access can setup a Palo Alto resource on the Azure subscription. Ensure you have the appropriate Owner access before starting to create a Palo Alto resource.
