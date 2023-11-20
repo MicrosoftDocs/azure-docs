@@ -91,7 +91,7 @@ Logs
 Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 * [Azure App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
-* [Azure Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
+* [Azure AI Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
 * [Azure Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
 * [Azure Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
 * [Azure Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
