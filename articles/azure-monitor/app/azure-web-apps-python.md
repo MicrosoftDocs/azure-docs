@@ -24,6 +24,9 @@ The integration instruments popular Python libraries in your code, letting you a
 | [OpenTelemetry UrlLib Instrumentation][ot_instrumentation_urllib] | [`urllib`][pypi_urllib] | All
 | [OpenTelemetry UrlLib3 Instrumentation][ot_instrumentation_urllib3] | [`urllib3`][pypi_urllib3] | [link][ot_instrumentation_urllib3_version]
 
+> [!NOTE]
+> If using Django, see the additional[Django Instrumentation](#Django-Instrumentation) section in this article.
+
 Logging telemetry is also collected with your logs that use the standard Python logging library.
 
 ## Enable Application Insights
@@ -101,6 +104,10 @@ In order to enable telemetry collection with Application Insights, only the foll
 
 [!INCLUDE [azure-web-apps-arm-automation](../../../includes/azure-monitor-app-insights-azure-web-apps-arm-automation.md)]
 
+## Django Instrumentation
+
+In order to use the OpenTelemetry Django Instrumentation, you need to set the `DJANGO_SETTINGS_MODULE` environment variable in the App Service settings to point from your app folder to your settings module. See the [Django documentation][django_settings_module_docs] for more information.
+
 ## Frequently asked questions
 
 [!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
@@ -152,6 +159,7 @@ For the latest updates and bug fixes, [consult the release notes](web-app-extens
 
 [application_insights_sampling]: ./sampling.md
 [azure_core_tracing_opentelemetry_plugin]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/core/azure-core-tracing-opentelemetry
+[django_settings_module_docs]: https://docs.djangoproject.com/en/4.2/topics/settings/#envvar-DJANGO_SETTINGS_MODULE
 [ot_env_vars]: https://opentelemetry.io/docs/reference/specification/sdk-environment-variables/
 [ot_instrumentation_django]: https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django
 [ot_instrumentation_django_version]: https://github.com/open-telemetry/opentelemetry-python-contrib/blob/main/instrumentation/opentelemetry-instrumentation-django/src/opentelemetry/instrumentation/django/package.py#L16
