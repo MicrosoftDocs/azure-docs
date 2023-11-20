@@ -21,6 +21,8 @@ Try the troubleshooting information in this article first. If that doesn't work,
 
 ## Fix common errors
 
+### Marketplace purchase errors
+
 [!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
 ### You can't create a New Relic resource
