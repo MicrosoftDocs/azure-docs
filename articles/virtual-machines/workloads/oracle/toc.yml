@@ -69,6 +69,6 @@ items:
   items:
   - name: Overview - Oracle Database@Azure
     href: database-overview.md
-  - name: Provision Oracle Database on Azure
+  - name: Provision and manage Oracle Database@Azure
     href: ../oracle-db/provision-oracle-database.md
   
