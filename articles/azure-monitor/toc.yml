@@ -1613,11 +1613,3 @@ items:
       href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor
-- name: Learn
-  items: 
-    - name: Azure Monitor fundamentals 
-      href: /training/paths/monitor-usage-performance-availability-resources-azure-monitor/
-    - name: Analyze monitoring data with Kusto Query Language
-      href: /training/paths/analyze-monitoring-data-with-kql/
-    - name: Monitor hybrid virtual machines, containers, and network resources
-      href: /training/paths/monitor-hybrid-virtual-machines-containers-network/
