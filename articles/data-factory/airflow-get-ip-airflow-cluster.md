@@ -20,7 +20,6 @@ This document explains how to enhance security of your data stores and resources
 
 ### Step 1: Retrieve the bearer token for the Airflow API.
 - Similar to the authentication process used in the standard Azure REST API, acquiring an access token from Azure AD is required before making a call to the Airflow REST API. A guide on how to obtain the token from Azure AD can be found at https://learn.microsoft.com/rest/api/azure.
-- It should be noted that to obtain an access token for Data Factory, the resource to be used is **https://datafactory.azure.com**. 
 - Additionally, the service principal used to obtain the access token needs to have atleast a **contributor role** on the Data Factory where the Airflow Integration Runtime is located.
  
 For more information, see the below screenshots.
