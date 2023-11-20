@@ -28,66 +28,7 @@ The examples below use variables. You can set variables in your environment as f
 
 First, you'll need to enable SSH in your Windows machine.
 
-**Windows Server 2019 and newer**
-
-Following the Windows Server documentation page
-[Get started with OpenSSH](/windows-server/administration/openssh/openssh_install_firstuse),
-run the command `Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0`
-to enable the built-in capability, start the service, and open the Windows Firewall port.
-
-You can use the Azure RunCommand extension to complete this task.
-
-# [Azure CLI](#tab/azurecli)
-
-```azurecli-interactive
-az vm run-command invoke -g $myResourceGroup -n $myVM --command-id RunPowerShellScript --scripts "Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0"
-```
-
-# [Azure PowerShell](#tab/azurepowershell-interactive)
-
-```azurepowershell-interactive
-Invoke-AzVMRunCommand -ResourceGroupName $myResourceGroup -VMName $myVM -CommandId 'RunPowerShellScript' -ScriptString "Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0"
-```
-
-# [ARM template](#tab/json)
-
-```json
-{
-  "type": "Microsoft.Compute/virtualMachines/runCommands",
-  "apiVersion": "2022-03-01",
-  "name": "[concat(parameters('VMName'), '/RunPowerShellScript')]",
-  "location": "[parameters('location')]",
-  "properties": {
-    "source": {
-      "script": "Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0",
-    },
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-resource runPowerShellScript 'Microsoft.Compute/virtualMachines/runCommands@2022-03-01' = {
-  name: 'RunPowerShellScript'
-  location: resourceGroup().location
-  parent: virtualMachine
-  properties: {
-    source: {
-      script: 'Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0'
-    }
-  }
-}
-```
-
----
-
-
-**Windows Server 2016 and older**
-
-- Deploy the SSH extension for Windows. The extension provides an automated installation of the
-  Win32 OpenSSH solution, similar to enabling the capability in newer versions of Windows. Use the
-  following examples to deploy the extension.
+Deploy the SSH extension for Windows. The extension provides an automated installation of the Win32 OpenSSH solution, similar to enabling the capability in newer versions of Windows. Use the following examples to deploy the extension.
 
 # [Azure CLI](#tab/azurecli)
 
@@ -220,13 +161,13 @@ and making sure the file has correct permissions.
 # [Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
-az vm run-command invoke -g $myResourceGroup -n $myVM --command-id RunPowerShellScript --scripts "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys';icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
+az vm run-command invoke -g $myResourceGroup -n $myVM --command-id RunPowerShellScript --scripts "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys' -Encoding UTF8;icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
 ```
 
 # [Azure PowerShell](#tab/azurepowershell-interactive)
 
 ```azurepowershell-interactive
-Invoke-AzVMRunCommand -ResourceGroupName $myResourceGroup -VMName $myVM -CommandId 'RunPowerShellScript' -ScriptString "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys';icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
+Invoke-AzVMRunCommand -ResourceGroupName $myResourceGroup -VMName $myVM -CommandId 'RunPowerShellScript' -ScriptString "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys' -Encoding UTF8;icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
 ```
 
 # [ARM template](#tab/json)
@@ -238,9 +179,10 @@ Invoke-AzVMRunCommand -ResourceGroupName $myResourceGroup -VMName $myVM -Command
   "name": "[concat(parameters('VMName'), '/RunPowerShellScript')]",
   "location": "[parameters('location')]",
   "properties": {
+    "timeoutInSeconds":600
     "source": {
-      "script": "MYPUBLICKEY | Add-Content 'C:\\ProgramData\\ssh\\administrators_authorized_keys';icacls.exe 'C:\\ProgramData\\ssh\\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'",
-    },
+      "script": "MYPUBLICKEY | Add-Content 'C:\\ProgramData\\ssh\\administrators_authorized_keys -Encoding UTF8';icacls.exe 'C:\\ProgramData\\ssh\\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
+    }
   }
 }
 ```
@@ -253,8 +195,9 @@ resource runPowerShellScript 'Microsoft.Compute/virtualMachines/runCommands@2022
   location: resourceGroup().location
   parent: virtualMachine
   properties: {
+    timeoutInSeconds: 600
     source: {
-      script: "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys';icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
+      script: "MYPUBLICKEY | Add-Content 'C:\ProgramData\ssh\administrators_authorized_keys' -Encoding UTF8;icacls.exe 'C:\ProgramData\ssh\administrators_authorized_keys' /inheritance:r /grant 'Administrators:F' /grant 'SYSTEM:F'"
     }
   }
 }

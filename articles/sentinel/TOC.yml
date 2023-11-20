@@ -406,7 +406,7 @@
       href: data-connectors/azure-activity.md
     - name: Azure Batch Account
       href: data-connectors/azure-batch-account.md
-    - name: Azure Cognitive Search
+    - name: Azure AI Search
       href: data-connectors/azure-cognitive-search.md
     - name: Azure Data Lake Storage Gen1
       href: data-connectors/azure-data-lake-storage-gen1.md
@@ -898,6 +898,16 @@
     href: use-matching-analytics-to-detect-threats.md
 - name: Detect threats and analyze data
   items:
+  - name: Monitor and visualize data
+    items:
+    - name: Visualize collected data
+      href: get-visibility.md
+    - name: Visualize data with enrichment widgets 
+      href: enable-enrichment-widgets.md
+    - name: Use Azure Monitor workbooks
+      href: ./monitor-your-data.md
+    - name: Create a Power BI report
+      href: powerbi.md
   - name: Tutorial - Detect threats using analytics rules
     href: tutorial-log4j-detection.md
   - name: MITRE ATT&CK coverage
@@ -1000,9 +1010,9 @@
   items:
   - name: Overview
     href: incident-investigation.md 
-  - name: Investigate incidents (Preview)
+  - name: Investigate incidents (New)
     href: investigate-incidents.md
-  - name: Investigate incidents (GA)
+  - name: Investigate incidents (Legacy)
     href: investigate-cases.md
   - name: Tutorial - Investigate with UEBA
     href: investigate-with-ueba.md
@@ -1020,6 +1030,8 @@
       href: incident-tasks.md
     - name: Use tasks to handle incident workflow
       href: work-with-tasks.md
+    - name: Audit and track changes to incident tasks
+      href: audit-track-tasks.md
   - name: Investigate large datasets
     items:
     - name: Overview
@@ -1108,16 +1120,6 @@
     href: customer-managed-keys.md
   - name: Manage your SOC with incident metrics
     href: manage-soc-with-incident-metrics.md
-  - name: Audit and track changes to incident tasks
-    href: audit-track-tasks.md
-  - name: Monitor and visualize data
-    items:
-    - name: Visualize collected data
-      href: get-visibility.md
-    - name: Use Azure Monitor workbooks
-      href: ./monitor-your-data.md
-    - name: Create a Power BI report
-      href: powerbi.md
   - name: Monitor Microsoft Sentinel health
     items:
     - name: Overview 

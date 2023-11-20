@@ -2,7 +2,7 @@
 title: Analyze videos in near real time - Azure AI Vision
 titleSuffix: Azure AI services
 description: Learn how to perform near real-time analysis on frames that are taken from a live video stream by using the Azure AI Vision API.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: PatrickFarley
 ms.author: pafarley
