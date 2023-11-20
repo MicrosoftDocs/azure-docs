@@ -2,7 +2,7 @@
 title: Product Recognition - Image Analysis 4.0
 titleSuffix: Azure AI services
 description: Learn concepts related to the Product Recognition feature set of Image Analysis 4.0 - usage and limits.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 

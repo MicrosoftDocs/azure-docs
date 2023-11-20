@@ -104,18 +104,6 @@ Enablement on ACR is a prerequisite for Artifact Streaming on AKS. For more info
         --enable-artifact-streaming true
     ```
 
-### Enable Artifact Streaming on an existing node pool
-
-* Enable Artifact Streaming on an existing node pool using the [`az aks nodepool update`][az-aks-nodepool-update] command with the `--enable-artifact-streaming` flag.
-
-    ```azurecli-interactive
-    az aks nodepool update \
-        --resource-group myResourceGroup \
-        --cluster-name myAKSCluster \
-        --name myNodePool \
-        --enable-artifact-streaming
-    ```
-
 ## Check if Artifact Streaming is enabled
 
 Now that you enabled Artifact Streaming on a premium ACR and connected that to an AKS node pool with Artifact Streaming enabled, any new pod deployments on this cluster with an image pull from the ACR with Artifact Streaming enabled will see reductions in image pull times.
@@ -127,25 +115,6 @@ Now that you enabled Artifact Streaming on a premium ACR and connected that to a
     ```
 
     In the output, check that the `Enabled` field is set to `true`.
-
-## Disable Artifact Streaming on AKS
-
-You can disable Artifact Streaming at the node pool level. The change takes effect on the next node pool upgrade.
-
-> [!NOTE]
-> Artifact Streaming requires connection to and enablement on an ACR. If you disconnect or disable from ACR, Artifact Streaming is automatically disabled on the node pool. If you don't disable Artifact Streaming at the node pool level, it begins working immediately once you resume the connection to and enablement on ACR.
-
-### Disable Artifact Streaming on an existing node pool
-
-* Disable Artifact Streaming on an existing node pool using the [`az aks nodepool update`][az-aks-nodepool-update] command with the `--disable-artifact-streaming` flag.
-
-    ```azurecli-interactive
-    az aks nodepool update \
-        --resource-group myResourceGroup \
-        --cluster-name myAKSCluster \
-        --name myNodePool \
-        --disable-artifact-streaming
-    ```
 
 ## Next steps
 

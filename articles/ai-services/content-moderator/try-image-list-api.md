@@ -2,7 +2,7 @@
 title: Moderate images with custom lists and the API console - Content Moderator
 titleSuffix: Azure AI Content Moderator
 description: You use the List Management API in Azure AI Content Moderator to create custom lists of images.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-moderator

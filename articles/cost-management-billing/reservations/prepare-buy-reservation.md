@@ -2,7 +2,7 @@
 title: Buy an Azure reservation
 description: Learn about important points to help you buy an Azure reservation.
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom:
