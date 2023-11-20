@@ -42,7 +42,11 @@ The following diagram shows the architecture of the system:
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription and one of the following roles:
+  - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
+  - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, except Microsoft Graph app roles (application permissions).
+  - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
+See [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#prerequisites) for more information. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
@@ -67,14 +71,22 @@ See [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pi
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription and one of the following roles:
+  - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
+  - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, except Microsoft Graph app roles (application permissions).
+  - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
+See [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#prerequisites) for more information. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription and one of the following roles:
+  - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
+  - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, except Microsoft Graph app roles (application permissions).
+  - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
+See [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#prerequisites) for more information. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
@@ -94,157 +106,9 @@ See [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pi
 
 [!INCLUDE [deploy-restful-api-app-with-consumption-plan](includes/quickstart-deploy-restful-api-app/deploy-restful-api-app-with-consumption-plan.md)]
 
+[!INCLUDE [validate-the-app-portal](includes/quickstart-deploy-restful-api-app/validate-the-app-portal.md)]
+
 ::: zone-end
-
-## 5. Validate the app
-
-You can now access the RESTful API to see if it works.
-
-### 5.1. Request an access token
-
-The RESTful APIs act as a resource server, which is protected by Microsoft Entra ID. Before acquiring an access token, you're required to register another application in Microsoft Entra ID and grant permissions to the client application, which is named `ToDoWeb`.
-
-### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
-
-#### Register the client application
-
-Use the following steps to register an application in Microsoft Entra ID, which is used to add the permissions for the `ToDo` app:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. If you have access to multiple tenants, use the **Directory + subscription** filter (:::image type="icon" source="media/quickstart-deploy-restful-api-app/portal-directory-subscription-filter.png" border="false":::) to select the tenant in which you want to register an application.
-
-1. Search for and select **Microsoft Entra ID**.
-
-1. Under **Manage**, select **App registrations** > **New registration**.
-
-1. Enter a name for your application in the **Name** field - for example, *ToDoWeb*. Users of your app might see this name, and you can change it later.
-
-1. For **Supported account types**, use the default value **Accounts in this organizational directory only**.
-
-1. Select **Register** to create the application.
-
-1. On the app **Overview** page, look for the **Application (client) ID** value, and then record it for later use. You need it to acquire an access token.
-
-1. Select **API permissions** > **Add a permission** > **My APIs**. Select the `ToDo` application that you registered earlier, and then select the **ToDo.Read**, **ToDo.Write**, and **ToDo.Delete** permissions. Select **Add permissions**.
-
-1. Select **Grant admin consent for \<your-tenant-name>** to grant admin consent for the permissions you added.
-
-   :::image type="content" source="media/quickstart-deploy-restful-api-app/api-permissions.png" alt-text="Screenshot of the Azure portal that shows the API permissions of a web application." lightbox="media/quickstart-deploy-restful-api-app/api-permissions.png":::
-
-#### Add user to access the RESTful APIs
-
-Use the following steps to create a member user in your Microsoft Entra tenant. Then, the user can manage the data of the `ToDo` application through RESTful APIs.
-
-1. Under **Manage**, select **Users** > **New user** > **Create new user**.
-
-1. On the **Create new user** page, enter the following information:
-
-   - **User principal name**: Enter a name for the user.
-   - **Display name**: Enter a display name for the user.
-   - **Password**: Copy the autogenerated password provided in the **Password** box.
-
-   > [!NOTE]
-   > New users must complete the first sign-in authentication and update their passwords, otherwise, you receive an `AADSTS50055: The password is expired` error when you get the access token.
-   >
-   > When a new user logs in, they receive an **Action Required** prompt. They can choose **Ask later** to skip the validation.
-
-1. Select **Review + create** to review your selections. Select **Create** to create the user.
-
-#### Update the OAuth2 configuration for Swagger UI authorization
-
-Use the following steps to update the OAuth2 configuration for Swagger UI authorization. Then, you can authorize users to acquire access tokens through the `ToDoWeb` app.
-
-1. Open your **Microsoft Entra ID** tenant in the Azure portal, and go to the registered `ToDoWeb` app.
-
-1. Under **Manage**, select **Authentication**, select **Add a platform**, and then select **Single-page application**.
-
-1. Use the format `<your-app-exposed-application-url-or-endpoint>/swagger-ui/oauth2-redirect.html` as the OAuth2 redirect URL in the **Redirect URIs** field, and then select **Configure**.
-
-   :::image type="content" source="media/quickstart-deploy-restful-api-app/single-page-app-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication page for Microsoft Entra ID." lightbox="media/quickstart-deploy-restful-api-app/single-page-app-authentication.png":::
-
-### [Azure CLI](#tab/Azure-CLI)
-
-#### Register the client application
-
-1. Use the following command to create a json file contains permissions info：
-
-   ```azurecli
-   echo '[{ "resourceAppId": "'$appid'",
-        "resourceAccess": [
-            {
-                "id": "'$permissionid1'",
-                "type": "Scope"
-            },
-            {
-                "id": "'$permissionid2'",
-                "type": "Scope"
-            },
-            {
-                "id": "'$permissionid3'",
-                "type": "Scope"
-            }]}]' > manifest.json
-   ```
-
-1. Use the following command to create a Microsoft Entra ID application,  which is used to add the permissions for the `ToDo` app:
-
-   ```azurecli
-   az ad app create --display-name ${TODOWEB_APP_NAME} \
-       --sign-in-audience AzureADMyOrg \
-       --identifier-uris ${TODOWEB_APP_URL} \
-       --required-resource-accesses @manifest.json
-   ```
-
-1. Use the following command to grant admin consent for the permissions you added:
-
-   ```azurecli
-   az ad app permission admin-consent --id ${TODOWEB_APP_URL}
-   ```
-
-1. Use the following command to get the client ID of the `ToDoWeb` app used in 'Obtain the access token' step :
-
-   ```azurecli
-   az ad app show --id ${TODOWEB_APP_URL} \
-    --query appId \
-    --output tsv
-   ```
-
-#### Add user to access the RESTful APIs
-
-1. Use the following steps to create a member user in your Microsoft Entra tenant. Then, the user can manage the data of the `ToDo` application through RESTful APIs:
-
-   ```azurecli
-   az ad user create --display-name ${NEW_MEMBER_USERNAME} \
-       --password ${NEW_MEMBER_PASSWORD} \
-       --user-principal-name ${USER_PRINCIPAL_NAME}
-   ```
-
-#### Update the OAuth2 configuration for Swagger UI authorization
-
-1. use the following command to get the object id of the `ToDoWeb` app:
-
-   ```azurecli
-   az ad app show --id ${TODOWEB_APP_URL} --query id
-   ```
-
-1. use the following command to get the url of your `simple-todo-api` ASA app:
-
-   ```azurecli
-   az spring app show --name ${APP_NAME} \
-       --service ${AZURE_SPRING_APPS_NAME} \ 
-       --query properties.url
-   ```
-
-1. Use the following command to update the OAuth2 configuration for Swagger UI authorization, replace **\<object-id>** and **\<url>** with the parameters you got. Then, you can authorize users to acquire access tokens through the ToDoWeb app.
-
-   ```azurecli
-   az rest --method PATCH \
-     --uri "https://graph.microsoft.com/v1.0/applications/<object-id>" \
-     --headers 'Content-Type=application/json' \
-     --body '{"spa":{"redirectUris":["<url>/swagger-ui/oauth2-redirect.html"]}}'
-   ```
-
----
 
 #### Obtain the access token
 

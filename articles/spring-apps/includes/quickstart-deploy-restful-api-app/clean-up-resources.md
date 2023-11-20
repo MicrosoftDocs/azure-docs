@@ -7,7 +7,7 @@ ms.date: 10/02/2023
 ---
 
 <!-- 
-For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure Portal or AZD.
+For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure Portal or AZD or Azure Cli.
 
 [!INCLUDE [clean-up-resources-portal-or-azd](includes/quickstart-deploy-restful-api-app/clean-up-resources.md)]
 
@@ -19,11 +19,23 @@ You can delete the Azure resource group, which includes all the resources in the
 
 ::: zone pivot="sc-enterprise"
 
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
 1. Locate your resource group in the Azure portal.
 
 1. On the navigation menu, select **Resource groups**. Then, select the name of your resource group - for example, **myresourcegroup**.
 
 1. On your resource group page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion - for example, *myresourcegroup*. Then, select **Delete**.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to delete the entire resource group, including the newly created service:
+
+```azurecli
+az group delete --name ${RESOURCE_GROUP}
+```
+
+---
 
 ::: zone-end
 

@@ -113,6 +113,8 @@ You can now deploy the app to Azure Spring Apps.
    [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-simple-todo-api.azuremicroservices.io
    ```
 
+[!INCLUDE [validate-the-app-portal](validate-the-app-portal.md)]
+
 ### [Azure CLI](#tab/Azure-CLI)
 
 ### 3.1. Provide names for each resource
@@ -331,6 +333,93 @@ Use the following command to deploy the .jar file for the app:
     --service ${AZURE_SPRING_APPS_NAME} \
     --name ${APP_NAME} \
     --artifact-path target/simple-todo-api-0.0.2-SNAPSHOT.jar
+   ```
+
+## 5. Validate the app
+
+You can now access the RESTful API to see if it works.
+
+### 5.1. Request an access token
+
+The RESTful APIs act as a resource server, which is protected by Microsoft Entra ID. Before acquiring an access token, you're required to register another application in Microsoft Entra ID and grant permissions to the client application, which is named `ToDoWeb`.
+
+#### Register the client application
+
+1. Use the following command to create a json file contains permissions info：
+
+   ```azurecli
+   echo '[{ "resourceAppId": "'$appid'",
+        "resourceAccess": [
+            {
+                "id": "'$permissionid1'",
+                "type": "Scope"
+            },
+            {
+                "id": "'$permissionid2'",
+                "type": "Scope"
+            },
+            {
+                "id": "'$permissionid3'",
+                "type": "Scope"
+            }]}]' > manifest.json
+   ```
+
+1. Use the following command to create a Microsoft Entra ID application,  which is used to add the permissions for the `ToDo` app:
+
+   ```azurecli
+   az ad app create --display-name ${TODOWEB_APP_NAME} \
+       --sign-in-audience AzureADMyOrg \
+       --identifier-uris ${TODOWEB_APP_URL} \
+       --required-resource-accesses @manifest.json
+   ```
+
+1. Use the following command to grant admin consent for the permissions you added:
+
+   ```azurecli
+   az ad app permission admin-consent --id ${TODOWEB_APP_URL}
+   ```
+
+1. Use the following command to get the client ID of the `ToDoWeb` app used in 'Obtain the access token' step :
+
+   ```azurecli
+   az ad app show --id ${TODOWEB_APP_URL} \
+    --query appId \
+    --output tsv
+   ```
+
+#### Add user to access the RESTful APIs
+
+1. Use the following steps to create a member user in your Microsoft Entra tenant. Then, the user can manage the data of the `ToDo` application through RESTful APIs:
+
+   ```azurecli
+   az ad user create --display-name ${NEW_MEMBER_USERNAME} \
+       --password ${NEW_MEMBER_PASSWORD} \
+       --user-principal-name ${USER_PRINCIPAL_NAME}
+   ```
+
+#### Update the OAuth2 configuration for Swagger UI authorization
+
+1. use the following command to get the object id of the `ToDoWeb` app:
+
+   ```azurecli
+   az ad app show --id ${TODOWEB_APP_URL} --query id
+   ```
+
+1. use the following command to get the url of your `simple-todo-api` ASA app:
+
+   ```azurecli
+   az spring app show --name ${APP_NAME} \
+       --service ${AZURE_SPRING_APPS_NAME} \ 
+       --query properties.url
+   ```
+
+1. Use the following command to update the OAuth2 configuration for Swagger UI authorization, replace **\<object-id>** and **\<url>** with the parameters you got. Then, you can authorize users to acquire access tokens through the ToDoWeb app.
+
+   ```azurecli
+   az rest --method PATCH \
+     --uri "https://graph.microsoft.com/v1.0/applications/<object-id>" \
+     --headers 'Content-Type=application/json' \
+     --body '{"spa":{"redirectUris":["<url>/swagger-ui/oauth2-redirect.html"]}}'
    ```
 
 ---
