@@ -48,13 +48,18 @@ To learn more about Protobuf data types, see the [official Protocol Buffers docu
 - Enumerations aren't supported. If the Protobuf definition file contains enumerations, the `enum` field is empty when the Protobuf events deserialize. This condition leads to data loss.
 
 - Maps in Protobuf aren't supported. Maps in Protobuf result in an error about missing a string key.
+  
+- When 
+  
 
-- When a Protobuf definition file contains a namespace or package, the message type must include it with the first character of the package or namespace in uppercase. For example:
+- When a Protobuf definition file contains a namespace or package, the message type must include it. For example:
 
     :::image type="content" source="./media/protobuf/proto-namespace-example.png" alt-text=" Screenshot that shows an example of a Protobuf definition file with a namespace." lightbox="./media/protobuf/proto-namespace-example.png" :::
 
     In the Protobuf deserializer in the portal, the message type must be `Namespacetest.Volunteer` instead of the usual `Volunteer`.
   
+- If the original package or namespace is all uppercase or lowercase, the message type must include it with the first character of the package or namespace in uppercase. For example, if the namespace is `nameSpaceTest`, use `nameSpaceTest.Volunteer`. This applies to a message type without a namespace or package.
+
 - You must specify your message in your protobuf definition file without the `Optional` keyword. In Proto 3, all fields are optional. For example:
 
     :::image type="content" source="./media/protobuf/proto-with-optional-keyword.png" alt-text="Screenshot that shows an example of a Protobuf definition file with optional keyword in the message." lightbox="./media/protobuf/proto-with-optional-keyword.png" :::
