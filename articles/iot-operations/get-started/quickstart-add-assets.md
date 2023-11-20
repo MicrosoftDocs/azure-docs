@@ -27,16 +27,6 @@ Complete [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes c
 
 To sign in to the Azure IoT Operations portal you need a work or school account in the tenant where you deployed Azure IoT Operations. If you're currently using a Microsoft account (MSA), you need to create a Microsoft Entra ID with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#azure-iot-operations-preview-portal).
 
-Install the [mqttui](https://github.com/EdJoPaTo/mqttui) tool on the Ubuntu machine where you're running Kubernetes:
-
-```bash
-wget https://github.com/EdJoPaTo/mqttui/releases/download/v0.19.0/mqttui-v0.19.0-x86_64-unknown-linux-gnu.deb
-sudo dpkg -i mqttui-v0.19.0-x86_64-unknown-linux-gnu.deb
-```
-
-> [!TIP]
-> If you're running the quickstart on another platform, you can use other MQTT tools such as [MQTT Explorer](https://apps.microsoft.com/detail/9PP8SFM082WD).
-
 ## What problem will we solve?
 
 The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQ broker and Azure IoT Data Processor (preview) pipelines.
@@ -89,20 +79,22 @@ To enable the asset endpoint to use an untrusted certificate:
 
 1. Run the following command to apply the configuration to use an untrusted certificate:
 
-    ```bash
+    ```console
     kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/opc-ua-connector-0.yaml
     ```
 
-1. Restart the `aio-opc-supervisor` pod by using a command that looks like the following example:
+1. Find the name of your `aio-opc-supervisor` pod by using the following command:
 
-    ```bash
-    kubectl delete pod aio-opc-supervisor-956fbb649-k9ppr -n azure-iot-operations
+    ```console
+    kubectl get pods -n azure-iot-operations
     ```
 
-    The name of your `aio-opc-supervisor` pod will be different. To find the name of your pod, run the following command:
+    The name of your pod looks like `aio-opc-supervisor-956fbb649-k9ppr`.
 
-    ```bash
-    kubectl get pods -n azure-iot-operations
+1. Restart the `aio-opc-supervisor` pod by using a command that looks like the following example. Use the `aio-opc-supervisor` pod name from the previous step:
+
+    ```console
+    kubectl delete pod aio-opc-supervisor-956fbb649-k9ppr -n azure-iot-operations
     ```
 
 ## Manage your assets
@@ -163,43 +155,47 @@ Review your asset and tag details and make any adjustments you need before you s
 
 ## Verify data is flowing
 
-To verify data is flowing from your assets by using the **mqttui** tool:
+To verify data is flowing from your assets by using the **mqttui** tool. In this quickstart you run the **mqttui** tool inside your Kubernetes cluster:
 
-1. Run the following command to make the MQ broker accessible from your local machine:
+1. Run the following command to deploy a pod that includes the **mqttui** and **mosquitto** tools that are useful for interacting with the MQ broker in the cluster:
 
-    ```bash
-    kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/az-mqtt-non-tls-listener.yaml
+    ```console
+    kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/mqtt-client.yaml
     ```
 
     > [!CAUTION]
-    > This configuration exposes the MQ broker without TLS. Don't use this configuration in production environments.
+    > This configuration isn't secure. Don't use this configuration in a production environment.
 
-1. Run the following command to find the `EXTERNAL-IP` address that the non-TLS listener pod is using:
+1. Run the following command to create a shell environment in the **mqtt-client** pod you created:
 
-    ```bash
-    kubectl get svc aio-mq-dmqtt-frontend-nontls -n azure-iot-operations
+    ```console
+    kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
     ```
 
-1. In a separate terminal window, run the following command to connect to the MQ broker using the **mqttui** tool. Replace the `<external-ip>` placeholder with the `EXTERNAL-IP` address that you found in the previous step:
+1. At the shell in the **mqtt-client** pod, run the following command to connect to the MQ broker using the **mqttui** tool:
 
-    ```bash
-    mqttui -b mqtt://<external-ip>:1883
+    ```console
+    mqttui -b mqtts://aio-mq-dmqtt-frontend:8883 -u '$sat' --password $(cat /var/run/secrets/tokens/mq-sat) --insecure
     ```
 
 1. Verify that the thermostat asset you added is publishing data. You can find the telemetry in the `azure-iot-operations/data` topic.
 
     :::image type="content" source="media/quickstart-add-assets/mqttui-output.png" alt-text="Screenshot of the mqttui topic display showing the temperature telemetry.":::
 
-    If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod by using a command that looks like the following example:
+    If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod.
 
-    ```bash
-    kubectl delete pod aio-opc-opc.tcp-1-849dd78866-vhmz6 -n azure-iot-operations
+    First, find the name of your `aio-opc-opc.tcp-1` pod by using the following command:
+
+    ```console
+    kubectl get pods -n azure-iot-operations
     ```
 
-    The name of your `aio-opc-opc.tcp-1` pod will be different. To find the name of your pod, run the following command:
+    The name of your pod looks like `aio-opc-opc.tcp-1-849dd78866-vhmz6`.
 
-    ```bash
-    kubectl get pods -n azure-iot-operations
+    Then restart the `aio-opc-opc.tcp-1` pod by using a command that looks like the following example. Use the `aio-opc-opc.tcp-1` pod name from the previous step:
+
+    ```console
+    kubectl delete pod aio-opc-opc.tcp-1-849dd78866-vhmz6 -n azure-iot-operations
     ```
 
 The sample tags you added in the previous quickstart generate messages from your asset that look like the following examples:
@@ -229,13 +225,13 @@ In the previous section, you saw how to add assets manually. You can also use Az
 
 When you deploy Azure IoT Operations, the deployment includes the Akri discovery handler pods. To verify these pods are running, run the following command:
 
-```bash
+```console
 kubectl get pods -n azure-iot-operations | grep akri
 ```
 
 The output from the previous command looks like the following example:
 
-```text
+```console
 akri-opcua-asset-discovery-daemonset-h47zk     1/1     Running   3 (4h15m ago)    2d23h
 aio-akri-otel-collector-5c775f745b-g97qv       1/1     Running   3 (4h15m ago)    2d23h
 aio-akri-agent-daemonset-mp6v7                 1/1     Running   3 (4h15m ago)    2d23h
@@ -243,19 +239,19 @@ aio-akri-agent-daemonset-mp6v7                 1/1     Running   3 (4h15m ago)  
 
 On the machine where your Kubernetes cluster is running, run the following command to apply the configuration for a new configuration for the discovery handler:
 
-```bash
+```console
 kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/akri-opcua-asset.yaml
 ```
 
 To verify the configuration, run the following command to view the Akri instances that represent the OPC UA data sources discovered by Akri:
 
-```bash
+```console
 kubectl get akrii -n azure-iot-operations
 ```
 
 The output from the previous command looks like the following example:
 
-```text
+```console
 NAMESPACE              NAME                      CONFIG             SHARED   NODES            AGE
 azure-iot-operations   akri-opcua-asset-dbdef0   akri-opcua-asset   true     ["dom-aio-vm"]   35m
 ```
