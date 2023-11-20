@@ -9,7 +9,7 @@ ms.service: active-directory
 
 ms.topic: conceptual
 ms.date: 03/09/2023
-ms.custom: project-no-code, build-2023
+ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
 ---

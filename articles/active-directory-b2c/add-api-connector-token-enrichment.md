@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 
-ms.custom: build-2023
+ms.custom: 
 ms.topic: how-to
 
 ms.date: 01/17/2023

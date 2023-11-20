@@ -8,7 +8,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 
-ms.custom: build-2023
+ms.custom: 
 ms.topic: how-to
 ms.date: 08/24/2021
 ms.author: kengaderdus

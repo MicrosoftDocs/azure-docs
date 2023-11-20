@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.author: godonnell
 ms.date: 02/08/2023
-ms.custom: mvc, build-2023
+ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
