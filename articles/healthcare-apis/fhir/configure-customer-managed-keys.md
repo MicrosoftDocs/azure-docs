@@ -59,7 +59,7 @@ After you add the key, you need to update the FHIR service with the key URL.
 
 :::image type="content" source="media/configure-customer-managed-keys/key-vault-url.png" alt-text="Screenshot showing the key version details and the copy action for the Key Identifier." lightbox="media/configure-customer-managed-keys/key-vault-url.png":::
 
-You update the key for the FHIR service by using the Azure portal or an ARM template. During the update, you choose whether to use a system-assigned or user-assigned managed identity. For a system-assigned managed identity, make sure to assign the **Key Vault Crypto Service Encryption User** role. For more information, see [Assign Azure roles using the Azure portal](azure/role-based-access-control/role-assignments-portal).
+You update the key for the FHIR service by using the Azure portal or an ARM template. During the update, you choose whether to use a system-assigned or user-assigned managed identity. For a system-assigned managed identity, make sure to assign the **Key Vault Crypto Service Encryption User** role. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ### Update the key by using the Azure portal
 
