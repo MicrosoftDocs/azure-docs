@@ -264,7 +264,7 @@ items:
   - name: FAQ
     href: ./faq.md
   - name: Subscribe to release notes Github repo
-    href: ./subscribe-to-hdi-release-notes-repo.md  
+    href: ./subscribe-to-release-notes-repo.md  
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Support options
