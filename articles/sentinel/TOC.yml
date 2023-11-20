@@ -406,7 +406,7 @@
       href: data-connectors/azure-activity.md
     - name: Azure Batch Account
       href: data-connectors/azure-batch-account.md
-    - name: Azure Cognitive Search
+    - name: Azure AI Search
       href: data-connectors/azure-cognitive-search.md
     - name: Azure Data Lake Storage Gen1
       href: data-connectors/azure-data-lake-storage-gen1.md
