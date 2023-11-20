@@ -8,18 +8,15 @@ ms.date: 06/06/2023
 
 # Enable pull request annotations in GitHub and Azure DevOps
 
-Defender for DevOps exposes security findings as annotations in Pull Requests (PR). Security operators can enable PR annotations in Microsoft Defender for Cloud. Any exposed issues can then be remedied by developers. This process can prevent and fix potential security vulnerabilities and misconfigurations before they enter the production stage. Defender for DevOps annotates the vulnerabilities within the differences in the file rather than all the vulnerabilities detected across the entire file. Developers are able to see annotations in their source code management systems and Security operators can see any unresolved findings in Microsoft Defender for Cloud.  
+DevOps security exposes security findings as annotations in Pull Requests (PR). Security operators can enable PR annotations in Microsoft Defender for Cloud. Any exposed issues can be remedied by developers. This process can prevent and fix potential security vulnerabilities and misconfigurations before they enter the production stage. DevOps security annotates vulnerabilities within the differences introduced during the pull request rather than all the vulnerabilities detected across the entire file. Developers are able to see annotations in their source code management systems and Security operators can see any unresolved findings in Microsoft Defender for Cloud.  
 
-With Microsoft Defender for Cloud, you can configure PR annotations in Azure DevOps. You can get PR annotations in GitHub if you're a GitHub Advanced Security customer. 
-
-> [!NOTE]
-> GitHub Advanced Security for Azure DevOps (GHAzDO) is providing a free trial of PR annotations during the Defender for DevOps preview. 
+With Microsoft Defender for Cloud, you can configure PR annotations in Azure DevOps. You can get PR annotations in GitHub if you're a GitHub Advanced Security customer.
 
 ## What are pull request annotations
 
 Pull request annotations are comments that are added to a pull request in GitHub or Azure DevOps. These annotations provide feedback on the code changes made and identified security issues in the pull request and help reviewers understand the changes that are made.
 
-Annotations can be added by a user with access to the repository, and can be used to suggest changes, ask questions, or provide feedback on the code. Annotations can also be used to track issues and bugs that need to be fixed before the code is merged into the main branch. Defender for DevOps uses annotations to surface security findings. 
+Annotations can be added by a user with access to the repository, and can be used to suggest changes, ask questions, or provide feedback on the code. Annotations can also be used to track issues and bugs that need to be fixed before the code is merged into the main branch. DevOps security in Defender for Cloud uses annotations to surface security findings.
 
 ## Prerequisites
 
@@ -29,14 +26,13 @@ Annotations can be added by a user with access to the repository, and can be use
 - Be a [GitHub Advanced Security](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security) customer. 
 - [Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md).
 - [Configure the Microsoft Security DevOps GitHub action](github-action.md).
- 
+
 **For Azure DevOps**:
 
 - An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 - [Have write access (owner/contributer) to the Azure subscription](../active-directory/privileged-identity-management/pim-how-to-activate-role.md). 
 - [Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-devops.md).
 - [Configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
-- [Setup secret scanning in Azure DevOps](detect-exposed-secrets.md#setup-secret-scanning-in-azure-devops).
 
 ## Enable pull request annotations in GitHub
 
@@ -76,20 +72,7 @@ By enabling pull request annotations in GitHub, your developers gain the ability
 
 1. Select **Commit changes**.
 
-Any issues that are discovered by the scanner will be viewable in the Files changed section of your pull request.
-
-### Resolve security issues in GitHub
-
-**To resolve security issues in GitHub**:
-
-1. Navigate through the page and locate an affected file with an annotation.
-
-1. Follow the remediation steps in the annotation. If you choose not to remediate the annotation, select **Dismiss alert**.
-
-1. Select a reason to dismiss:
-
-    - **Won't fix** - The alert is noted but won't be fixed.
-    - **False positive** - The alert isn't valid.
+    Any issues that are discovered by the scanner will be viewable in the Files changed section of your pull request.
     - **Used in tests** - The alert isn't in the production code.
 
 ## Enable pull request annotations in Azure DevOps
@@ -134,19 +117,19 @@ Once you've completed these steps, you can select the build pipeline you created
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to **Defender for Cloud** > **DevOps Security**.
+1. Navigate to **Defender for Cloud** > **DevOps security**.
 
 1. Select all relevant repositories to enable the pull request annotations on.
 
-1. Select **Configure**.
+1. Select **Manage resources**.
 
-    :::image type="content" source="media/tutorial-enable-pr-annotations/select-configure.png" alt-text="Screenshot that shows you how to configure PR annotations within the portal.":::
+    :::image type="content" source="media/tutorial-enable-pr-annotations/manage-resources.png" alt-text="Screenshot that shows you how to manage resources.":::
 
-1. Toggle Pull request annotations to **On**.
+1. Toggle pull request annotations to **On**.
 
     :::image type="content" source="media/tutorial-enable-pr-annotations/annotation-on.png" alt-text="Screenshot that shows the toggle switched to on.":::
 
-1. (Optional) Select a category from the drop-down menu. 
+1. (Optional) Select a category from the drop-down menu.
 
     > [!NOTE]
     > Only Infrastructure-as-Code misconfigurations (ARM, Bicep, Terraform, CloudFormation, Dockerfiles, Helm Charts, and more) results are currently supported.
@@ -157,43 +140,70 @@ Once you've completed these steps, you can select the build pipeline you created
 
 All annotations on your pull requests will be displayed from now on based on your configurations.
 
-### Resolve security issues in Azure DevOps
+**To enable pull request annotations for my Projects and Organizations in Azure DevOps**:
 
-Once you've configured the scanner, you're able to view all issues that were detected.
+You can do this programatically by calling the Update Azure DevOps Resource API exposed the Microsoft. Security
+Resource Provider.
 
-**To resolve security issues in Azure DevOps**:
+API Info:
 
-1. Sign in to the [Azure DevOps](https://azure.microsoft.com/products/devops).
+**Http Method**: PATCH
+**URLs**:
+- Azure DevOps Project Update: `https://management.azure.com/subscriptions/<subId>/resourcegroups/<resourceGroupName>/providers/Microsoft.Security/securityConnectors/<connectorName>/devops/default/azureDevOpsOrgs/<adoOrgName>/projects/<adoProjectName>?api-version=2023-09-01-preview`
+- Azure DevOps Org Update]: `https://management.azure.com/subscriptions/<subId>/resourcegroups/<resourceGroupName>/providers/Microsoft.Security/securityConnectors/<connectorName>/devops/default/azureDevOpsOrgs/<adoOrgName>?api-version=2023-09-01-preview`
 
-1. Navigate to **Pull requests**.
+Request Body:
 
-    :::image type="content" source="media/tutorial-enable-pr-annotations/pull-requests.png" alt-text="Screenshot showing where to go to navigate to pull requests.":::
+```json
+{
+   "properties": {
+"actionableRemediation": {
+              "state": <ActionableRemediationState>,
+              "categoryConfigurations":[
+                    {"category": <Category>,"minimumSeverityLevel": <Severity>}
+               ]
+           }
+    }
+}
+```
 
-1. On the Overview, or files page, locate an affected line with an annotation.
+Parameters / Options Available
 
-1. Follow the remediation steps in the annotation.
+**`<ActionableRemediationState>`**
+**Description**: State of the PR Annotation Configuration
+**Options**: Enabled | Disabled
 
-1. Select **Active** to change the status of the annotation and access the dropdown menu. 
+**`<Category>`**
+**Description**: Category of Findings that will be annotated on pull requests. 
+**Options**: IaC | Code | Artifacts | Dependencies | Containers
+**Note**: Only IaC is supported currently
 
-1. Select an action to take:
+**`<Severity>`**
+**Description**: The minimum severity of a finding that will be considered when creating PR annotations. 
+**Options**: High | Medium | Low
 
-    - **Active** - The default status for new annotations.    
-    - **Pending** - The finding is being worked on.
-    - **Resolved** - The finding has been addressed.
-    - **Won't fix** - The finding is noted but won't be fixed.
-    - **Closed** - The discussion in this annotation is closed.
+Example of enabling an Azure DevOps Org's PR Annotations for the IaC category with a minimum severity of Medium using the az cli tool.
 
-Defender for DevOps reactivates an annotation if the security issue isn't fixed in a new iteration.
+Update Org:
+
+```azurecli
+az --method patch --uri https://management.azure.com/subscriptions/4383331f-878a-426f-822d-530fb00e440e/resourcegroups/myrg/providers/Microsoft.Security/securityConnectors/myconnector/devops/default/azureDevOpsOrgs/testOrg?api-version=2023-09-01-preview --body "{'properties':{'actionableRemediation':{'state':'Enabled','categoryConfigurations':[{'category':'IaC','minimumSeverityLevel':'Medium'}]}}}
+```
+
+Example of enabling an Azure DevOps Project's PR Annotations for the IaC category with a minimum severity of High using the az cli tool.
+
+Update Project:
+
+```azurecli
+az --method patch --uri https://management.azure.com/subscriptions/4383331f-878a-426f-822d-530fb00e440e/resourcegroups/myrg/providers/Microsoft.Security/securityConnectors/myconnector/devops/default/azureDevOpsOrgs/testOrg/projects/testProject?api-version=2023-09-01-preview --body "{'properties':{'actionableRemediation':{'state':'Enabled','categoryConfigurations':[{'category':'IaC','minimumSeverityLevel':'High'}]}}}"
+```
 
 ## Learn more
 
-Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
-
-Learn how to [Discover misconfigurations in Infrastructure as Code](iac-vulnerabilities.md).
-
-Learn how to [detect exposed secrets in code](detect-exposed-secrets.md).
+- Learn more about [DevOps security](defender-for-devops-introduction.md).
+- Learn more about [DevOps security in Infrastructure as Code](iac-vulnerabilities.md).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Now learn more about [Defender for DevOps](defender-for-devops-introduction.md).
+> Now learn more about [DevOps security](defender-for-devops-introduction.md).

@@ -1,0 +1,87 @@
+### YamlMime:Hub
+
+title: Microsoft Copilot for Azure (preview) documentation
+summary: Manage operations from cloud to edge with an AI assistant.
+brand: azure
+
+metadata:
+  title: Microsoft Copilot for Azure (preview)
+  description: Manage operations from cloud to edge with an AI assistant.
+  ms.service: copilot-for-azure
+  ms.custom:
+    - ignite-2023
+    - ignite-2023-copilotinAzure
+  ms.topic: hub-page
+  ms.date: 11/15/2023
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: What is Microsoft Copilot for Azure (preview)?
+      itemType: overview
+      url: ./overview.md
+    # Card
+    - title: Capabilities
+      itemType: concept
+      url: ./capabilities.md
+    # Card
+    - title: Limited access
+      itemType: get-started
+      url: ./limited-access.md
+    # Card
+    - title: Responsible AI FAQ
+      itemType: concept
+      url: ./responsible-ai-faq.md
+
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
+  # Supports up to 3 subsections
+  sections:
+    - title: Enhanced scenarios
+      summary: Learn about some of the ways that Microsoft Copilot for Azure (preview) can help you be more effective.
+      items:
+        # Card
+        - title: Understand your Azure environment
+          links:
+            - url: ./get-information-resource-graph.md
+              itemType: get-started
+              text: Get resource information
+            - url: ./understand-service-health.md
+              itemType: get-started
+              text: Understand service health
+            - url: ./analyze-cost-management.md
+              itemType: get-started
+              text: Analyze and estimate costs
+        # Card
+        - title: Work smarter with Azure services
+          links:
+            - url: ./deploy-vms-effectively.md
+              itemType: get-started
+              text: Deploy VMs effectively
+            - url: ./build-infrastructure-deploy-workloads.md
+              itemType: get-started
+              text: Build infrastructure and deploy workloads
+            - url: ./improve-storage-accounts.md
+              itemType: get-started
+              text: Secure and protect storage accounts
+            - url: ./work-smarter-edge.md
+              itemType: get-started
+              text: Work smarter with hybrid infrastructure
+            - url: ./get-monitoring-information.md
+              itemType: get-started
+              text: Get monitoring information
+        # Card
+        - title: Write and optimize code
+          links:
+            - url: ./generate-cli-scripts.md
+              itemType: get-started
+              text: Generate Azure CLI scripts
+            - url: ./optimize-code-application-insights.md
+              itemType: get-started
+              text: Discover performance recommendations with Code Optimizations
+            - url: ./generate-kubernetes-yaml.md
+              itemType: get-started
+              text: Generate Kubernetes YAML files
+            - url: ./author-api-management-policies.md
+              itemType: get-started
+              text: Author API Management policies

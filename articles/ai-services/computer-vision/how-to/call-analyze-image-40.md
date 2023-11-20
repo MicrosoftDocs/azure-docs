@@ -2,7 +2,7 @@
 title: Call the Image Analysis 4.0 Analyze API
 titleSuffix: Azure AI services
 description: Learn how to call the Image Analysis 4.0 API and configure its behavior.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: PatrickFarley
 ms.author: pafarley
