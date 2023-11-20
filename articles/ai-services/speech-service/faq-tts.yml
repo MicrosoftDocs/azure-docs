@@ -54,9 +54,9 @@ sections:
   - name: Audio Content Creation
     questions:
         - question: |
-          How can I reference a lexicon file that I created on the Audio Content Creation platform in my code?
+            How can I reference a lexicon file that I created on the Audio Content Creation platform in my code?
           answer: |
-          First, you can open the lexicon file on the Audio Content Creation and obtain the lexicon file ID, which is located before "?fileKind=CustomLexiconFile" in the file path. Then, switch a file referencing this lexicon to SSML format on the Audio Content Creation. In the SSML file, locate the `<!--ID=FCB` xml node, where you can find the URI of the lexicon file based on the mentioned file ID. Finally, reference the lexicon file URI link using the SSML lexicon element in your code.
+            First, you can open the lexicon file on the Audio Content Creation and obtain the lexicon file ID, which is located before "?fileKind=CustomLexiconFile" in the file path. Then, switch a file referencing this lexicon to SSML format on the Audio Content Creation. In the SSML file, locate the `<!--ID=FCB` xml node, where you can find the URI of the lexicon file based on the mentioned file ID. Finally, reference the lexicon file URI link using the SSML lexicon element in your code.
         
   - name: Custom Neural Voice
     questions:
