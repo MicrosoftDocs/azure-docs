@@ -41,7 +41,7 @@ landingContent:
           - text: Oracle Database@Azure
             url: database-overview.md
           - text: Provision Oracle Database on Azure
-            url: ./oracle-db/provision-oracle-database.md    
+            url: /oracle-db/provision-oracle-database.md    
   
   #card 4  
   - title: Get started
