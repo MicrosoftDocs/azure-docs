@@ -52,7 +52,13 @@ To learn more about Protobuf data types, see the [official Protocol Buffers docu
 
     In the Protobuf deserializer in the portal, the message type must be `Namespacetest.Volunteer` instead of the usual `Volunteer`.
   
-- You must specify your message in your protobuf definition file without the 'Optional` keyword. In Proto 3, all fields are optional. For example:
+- You must specify your message in your protobuf definition file without the `Optional` keyword. In Proto 3, all fields are optional. For example:
+
+    :::image type="content" source="./media/protobuf/proto-with-optional-keyword.png" alt-text="Screenshot that shows an example of a Protobuf definition file with optional keyword in the message." lightbox="./media/protobuf/proto-with-optional-keyword.png" :::
+
+    This Protobuf definition file shows a message that has `Optional` To deserialize correctly, you must remove the keyword to be this:
+
+    :::image type="content" source="./media/protobuf/proto-without-optional-keyword.png" alt-text="Screenshot that shows an example of a Protobuf definition file without optional keyword in the message." lightbox="./media/protobuf/proto-without-optional-keyword.png" :::
 
 - When you're sending messages that were serialized via `google.protobuf`, the prefix type should be set to `base128` because that's the most cross-compatible type.
 
