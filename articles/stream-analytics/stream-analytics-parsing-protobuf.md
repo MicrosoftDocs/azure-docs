@@ -59,7 +59,7 @@ To learn more about Protobuf data types, see the [official Protocol Buffers docu
 
     :::image type="content" source="./media/protobuf/proto-with-optional-keyword.png" alt-text="Screenshot that shows an example of a Protobuf definition file with optional keyword in the message." lightbox="./media/protobuf/proto-with-optional-keyword.png" :::
 
-    This Protobuf definition file shows a message that has `Optional` keyword To deserialize correctly, you must remove the keyword to be this:
+    This Protobuf definition file shows a message that has `Optional` keyword. To deserialize correctly, you must remove the keyword to be this:
 
     :::image type="content" source="./media/protobuf/proto-without-optional-keyword.png" alt-text="Screenshot that shows an example of a Protobuf definition file without optional keyword in the message." lightbox="./media/protobuf/proto-without-optional-keyword.png" :::
 
