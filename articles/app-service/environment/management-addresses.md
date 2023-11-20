@@ -14,7 +14,7 @@ ms.custom: seodec18, references_regions, devx-track-azurecli
 > This article is about the App Service Environment v2 which is used with Isolated App Service plans
 > 
 
-[!INCLUDE [azure-CLI-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Summary
 
