@@ -58,17 +58,17 @@ To learn more about Protobuf data types, see the [official Protocol Buffers docu
 
     In the Protobuf deserializer in the portal, the message type must be `Namespacetest.Volunteer` instead of the usual `Volunteer`.
   
-- If the original package or namespace is all uppercase or lowercase, the message type must include it with the first character of the package or namespace in uppercase. For example, if the namespace is `nameSpaceTest`, use `nameSpaceTest.Volunteer`. This applies to a message type without a namespace or package.
+- If the original package or namespace is all uppercase or lowercase, the message type must include it with the first character of the package or namespace in uppercase. For example, if the namespace is `nameSpaceTest`, use `nameSpaceTest.Volunteer`. This rule applies to a message type without a namespace or package.
 
 - You must specify your message in your protobuf definition file without the `Optional` keyword. In Proto 3, all fields are optional. For example:
 
     :::image type="content" source="./media/protobuf/proto-with-optional-keyword.png" alt-text="Screenshot that shows an example of a Protobuf definition file with optional keyword in the message." lightbox="./media/protobuf/proto-with-optional-keyword.png" :::
 
-    This Protobuf definition file shows a message that has `Optional` keyword. To deserialize correctly, you must remove the keyword to be this:
+    This Protobuf definition file shows a message that has `Optional` keyword. To deserialize correctly, you must remove the keyword: 
 
     :::image type="content" source="./media/protobuf/proto-without-optional-keyword.png" alt-text="Screenshot that shows an example of a Protobuf definition file without optional keyword in the message." lightbox="./media/protobuf/proto-without-optional-keyword.png" :::
 
-- When you're sending messages that were serialized via `google.protobuf`, the prefix type should be set to `base128` because that's the most cross-compatible type.
+- When sending messages that were serialized via `google.protobuf`, the prefix type should be set to `base128` because that's the most cross-compatible type.
 
 - Service messages aren't supported in the Protobuf deserializers. Your job throws an exception if you try to use a service message. For example:
 
