@@ -101,7 +101,7 @@ As a temporary extension, we introduced a subscription-level [Azure Feature Expo
 
 Azure Virtual Network Manager is a management service that allows you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define network groups to identify and logically segment your virtual networks. After that, you can determine the connectivity and security configurations you want and apply them across all the selected virtual networks in network groups at once.
 
-Azure Virtual Network Manager's security admin rule configuration allows you to define security policies at scale and apply them to multiple virtual networks at once.
+Security admin rule configuration in Azure Virtual Network Manager allows you to define security policies at scale and apply them to multiple virtual networks at once.
 
 > [!NOTE]
 > Security admin rules of Azure Virtual Network Manager apply to Application Gateway subnets that only contain application gateways that have [Network Isolation](Application-gateway-private-deployment.md) enabled. Subnets that have any application gateway that doesn't have [Network Isolation](Application-gateway-private-deployment.md) enabled won't have security admin rules.
