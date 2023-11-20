@@ -6,8 +6,6 @@ ms.date: 11/17/2023
 ms.author: priyverma
 ---
 
-### Marketplace purchase errors
-
 - **The Microsoft.SaaS RP is not registered on the Azure subscription.**
 
   - Before you use a resource provider, you must make sure your Azure subscription is registered for the resource provider. Learn more about [Resource provider registration](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) and [resolving errors on RP registration](../../azure-resource-manager/troubleshooting/error-register-resource-provider.md).
