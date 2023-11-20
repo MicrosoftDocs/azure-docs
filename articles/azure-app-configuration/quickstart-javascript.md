@@ -74,7 +74,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
 
     ### [Windows command prompt](#tab/windowscommandprompt)
 
-    To build and run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+    To run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
     ```cmd
     setx AZURE_APPCONFIG_CONNECTION_STRING "app-configuration-store-connection-string"
