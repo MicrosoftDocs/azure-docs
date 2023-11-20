@@ -20,9 +20,9 @@ Learn how to subscribe to HDInsight on AKS release notes GitHub repo to get emai
 1. Click **watch** and then **Custom**
 1. Select **Releases** and click **Apply**
 
-   :::image type="content" source="./media/subscribe-to-github-repo/github-subscription.png" alt-text="Screenshot showing how to subscribe to GitHub repo.":::
+   :::image type="content" source="./media/subscribe-to-release-notes-repo/github-subscription.png" alt-text="Screenshot showing how to subscribe to GitHub repo.":::
 
-   :::image type="content" source="./media/subscribe-to-github-repo/subscribe-to-github-repo.png" alt-text="Screenshot showing how to select release option.":::
+   :::image type="content" source="./media/subscribe-to-release-notes-repo/subscribe-to-github-repo.png" alt-text="Screenshot showing how to select release option.":::
 
 Whenever there's a new Release Note is published, a notification will be sent to the subscribed e-mail ID.
 
