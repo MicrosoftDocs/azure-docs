@@ -103,7 +103,7 @@ For guidance, see [Configure your React app](configure-authentication-sample-rea
 
 ## Step 5: Run the React application
 
-1. From Visual Studio code, open a new terminal and run the following commands:
+1. From Visual Studio Code, open a new terminal and run the following commands:
 
     ```console
     npm install && npm update
