@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a public DNS zone and record - Azure portal'
 titleSuffix: Azure DNS
-description: Use this step-by-step quickstart guide to learn how to create a public Azure DNS zone and record using the Azure portal.
+description: Use this step-by-step quickstart guide to learn how to create an Azure public DNS zone and record using the Azure portal.
 services: dns
 author: greg-lindsay
 ms.author: greglin
@@ -16,7 +16,7 @@ ms.custom: mode-ui
 
 You can configure Azure DNS to resolve host names in your public domain. For example, if you purchased the *contoso.xyz* domain name from a domain name registrar, you can configure Azure DNS to host the *contoso.xyz* domain and resolve *`www.contoso.xyz`* to the IP address of your web server or web app.
 
-In this quickstart, you'll create a test domain, and then create an address record to resolve *www* to the IP address *10.10.10.10*. 
+In this quickstart, you create a test domain, and then create an address record to resolve *www* to the IP address *10.10.10.10*. 
 
 :::image type="content" source="media/dns-getstarted-portal/environment-diagram.png" alt-text="Diagram of DNS deployment environment using the Azure portal." border="false":::
 
@@ -51,12 +51,12 @@ A DNS zone contains the DNS entries for a domain. To start hosting your domain i
 3. On the **Create DNS zone** page, type or select the following values:
 
    - **Resource group**: Select **Create new**, enter *MyResourceGroup*, and select **OK**. The resource group name must be unique within the Azure subscription. 
-   - **Name**: Type *contoso.xyz* for this quickstart example. The DNS zone name can be any value that is not already configured on the Azure DNS servers. A real-world value would be a domain that you bought from a domain name registrar.
+   - **Name**: Type *contoso.xyz* for this quickstart example. The DNS zone name can be any value that isn't already configured on the Azure DNS servers. A real-world value would be a domain that you bought from a domain name registrar.
    - **Resource group location**: Select a location for the new resource group. In this example, the location selected is **West US**.
 
 4. Select **Review create** and then select **Create**.
 
-   ![A screenshot of the DNS zone marketplace.](./media/dns-getstarted-portal/dns-create-zone.png)
+   ![A screenshot showing how to create a DNS zone.](./media/dns-getstarted-portal/dns-create-zone.png)
 
 It may take a few minutes to create the zone.
 
@@ -73,7 +73,7 @@ Next, DNS records are created for your domain inside the DNS zone. A new address
    - **Name**: Type *www*. This record name is the host name that you want to resolve to the specified IP address.
    - **Type**: Select **A**. 'A' records are the most common, but there are other record types for mail servers ('MX'), IP v6 addresses ('AAAA'), and so on. 
    - **TTL**: Type *1*. *Time-to-live* of the DNS request specifies how long DNS servers and clients can cache a response.
-   - **TTL unit**: Select **Hours**. This is the time unit for the **TTL** value. 
+   - **TTL unit**: Select **Hours**. The time unit for the **TTL** entry is specified here. 
    - **IP address**: For this quickstart example, type *10.10.10.10*. This value is the IP address that the record name resolves to. In a real-world scenario, you would enter the public IP address for your web server.
 4. Select **OK** to create the A record.
 
