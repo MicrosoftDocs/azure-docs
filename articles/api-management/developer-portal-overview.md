@@ -23,6 +23,35 @@ This article introduces features of the developer portal, the types of content t
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
+## Developer portal architectural concepts
+
+The portal components can be logically divided into two categories: *code* and *content*.
+
+### Code
+
+Code is maintained in the API Management developer portal [GitHub repository](https://github.com/Azure/api-management-developer-portal) and includes:
+
+- **Widgets** - represent visual elements and combine HTML, JavaScript, styling ability, settings, and content mapping. Examples are an image, a text paragraph, a form, a list of APIs etc.
+- **Styling definitions** - specify how widgets can be styled
+- **Engine** - which generates static webpages from portal content and is written in JavaScript
+- **Visual editor** - allows for in-browser customization and authoring experience
+
+### Content
+
+Content is divided into two subcategories: *portal content* and *API Management content*.
+
+*Portal content* is specific to the portal and includes:
+
+- **Pages** - for example, landing page, API tutorials, blog posts
+- **Media** - images, animations, and other file-based content
+- **Layouts** - templates, which are matched against a URL and define how pages are displayed
+- **Styles** - values for styling definitions, such as fonts, colors, borders
+- **Settings** - configurations such as favicon, website metadata
+
+    Portal content, except for media, is expressed as JSON documents.
+
+*API Management content* includes entities such as APIs, Operations, Products, Subscriptions.
+
 ## Customize and style the portal
 
 Out of the box, the developer portal is already populated with your published APIs and products and ready to be customized for your needs. As an API publisher, you use the developer portal's administrative interface to customize the appearance and functionality of the developer portal. 

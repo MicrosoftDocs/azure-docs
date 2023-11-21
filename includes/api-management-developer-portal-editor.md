@@ -8,7 +8,7 @@ ms.author: danlep
 
 As an administrator, you can customize the content of the portal using the visual editor. 
 
-:::image type="content" source="../articles/api-management/media/developer-portal-overview/visual-editor.png" alt-text="Screenshot of the visual editor in the developer portal." :::
+:::image type="content" source="media/api-management-developer-portal-editor/visual-editor.png" alt-text="Screenshot of the visual editor in the developer portal." :::
 
 * Use the menu options on the left to create or modify pages, media, layouts, menus, styles, or website settings. 
 

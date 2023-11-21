@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 09/18/2023
+ms.date: 11/20/2023
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -49,34 +49,6 @@ Follow these steps to access the managed version of the developer portal.
     It might take a few minutes to enable the developer portal.
 1. In the left menu, under **Developer portal**, select **Portal overview**. Then select the **Developer portal** button in the top navigation bar. A new browser tab with an administrative version of the portal will open.
 
-## Developer portal architectural concepts
-
-The portal components can be logically divided into two categories: *code* and *content*.
-
-### Code
-
-Code is maintained in the API Management developer portal [GitHub repository](https://github.com/Azure/api-management-developer-portal) and includes:
-
-- **Widgets** - represent visual elements and combine HTML, JavaScript, styling ability, settings, and content mapping. Examples are an image, a text paragraph, a form, a list of APIs etc.
-- **Styling definitions** - specify how widgets can be styled
-- **Engine** - which generates static webpages from portal content and is written in JavaScript
-- **Visual editor** - allows for in-browser customization and authoring experience
-
-### Content
-
-Content is divided into two subcategories: *portal content* and *API Management content*.
-
-*Portal content* is specific to the portal and includes:
-
-- **Pages** - for example, landing page, API tutorials, blog posts
-- **Media** - images, animations, and other file-based content
-- **Layouts** - templates, which are matched against a URL and define how pages are displayed
-- **Styles** - values for styling definitions, such as fonts, colors, borders
-- **Settings** - configurations such as favicon, website metadata
-
-    Portal content, except for media, is expressed as JSON documents.
-
-*API Management content* includes entities such as APIs, Operations, Products, Subscriptions.
 ## Understand the portal's administrative interface
 
 [!INCLUDE [api-management-developer-portal-editor](../../includes/api-management-developer-portal-editor.md)]
@@ -100,18 +72,18 @@ A placeholder logo is provided in the top left corner of the navigation bar. You
 
 1. In the developer portal, select the default **Contoso** logo in the top left of the navigation bar. 
 1. Select **Edit**. 
-1. Under the **Main** section, select **Source**.
+1. In the **Picture** pop-up, under **Main**, select **Source**.
 1. In the **Media** pop-up, select one of the following:
     * An image already uploaded in your media library
     * **Upload file** to upload a new image file to your media library
     * **None** if you don't want to use a logo
 1. The logo updates in real time.
 1. Select outside the pop-up windows to exit the media library.
-1. Select **Save**.
+1. In the top bar, select **Save**.
 
 ## Edit content on the home page
 
-The default **Home** page and other pages are filled with placeholder text and other images. You can either remove entire sections containing this content or keep the structure and adjust the elements one by one. Replace the generated text and images with your own and make sure any links point to desired locations. 
+The default **Home** page and other pages are provided with placeholder text and other images. You can either remove entire sections containing this content or keep the structure and adjust the elements one by one. Replace the generated text and images with your own and make sure any links point to desired locations. 
 
 Edit the structure and content of the generated pages in several ways. For example:
 
@@ -125,7 +97,7 @@ To change colors, gradients, typography, buttons, and other user interface eleme
 1. Under the **Colors** section, select the color style item you want to edit. For example, select **Primary**.
 1. Select **Edit color**.
 1. Select the color from the color-picker, or enter the color hex code.
-1. Select **Save**.
+1. In the top bar, elect **Save**.
 
 The updated color is applied to the site in real time.
 
@@ -143,10 +115,10 @@ You can change the background on your home page to an image or color that matche
 
     :::image type="content" source="media/api-management-howto-developer-portal-customize/background.png" alt-text="Screenshot of background settings in the developer portal.":::
     * **Clear background**, to remove a background image
-    * **Background image**, to select an image from the media library, or upload a new image
-    * **Background color**, to select a color from the color picker, or clear a color
-    * **Background gradient**, to select a gradient from your site styles page, or clear a gradient
-1. Select **Save**.
+    * **Background image**, to select an image from the media library, or to upload a new image
+    * **Background color**, to select a color from the color picker, or to clear a color
+    * **Background gradient**, to select a gradient from your site styles page, or to clear a gradient
+1. In the top bar, select **Save**.
 
 ## Change the default layout
 
@@ -167,26 +139,32 @@ For example, to change the logo that's used in the navigation bar of the Default
 1. In the left menu of the visual editor, select **Pages**.
 1. Select the **Layouts** tab, and select **Default**.
 1. Select the picture of the logo in the upper left corner and select **Edit**.
-1. Under the **Main** section, select **Source**.
-1. In the **Media** pop-up, either select one of the following:
+1. Under **Main**, select **Source**.
+1. In the **Media** pop-up windows, select one of the following:
     * An image already uploaded in your media library
     * **Upload file** to upload a new image file to your media file that you can select
     * **None** if you don't want to use a logo
 1. The logo updates in real time.
 1. Select outside the pop-up windows to exit the media library.
-1. Select **Save**.
+1. In the top bar, select **Save**.
 
 ## Edit navigation menus
 
 You can edit the navigation menus at the top of the developer portal pages to change the order of menu items, add items, or remove items. You can also change the name of menu items and the URL or other content they point to.
 
-The **Default** and **Home** layouts the developer portal pages show two menus: a main menu with links to **Home**, **APIs**, and **Products**, and an anonymous user menu with links to **Sign in** and **Sign up** pages. However, you might want to customize them. For example, if you want to independently invite users to your site, you could disable the **Sign up** link in the anonymous user menu.
+For example, the **Default** and **Home** layouts for the developer portal show two menus to guest users of the developer portal: 
+
+* a main menu with links to **Home**, **APIs**, and **Products**
+* an anonymous user menu with links to **Sign in** and **Sign up** pages. 
+
+However, you might want to customize them. For example, if you want to independently invite users to your site, you could disable the **Sign up** link in the anonymous user menu.
 
 :::image type="content" source="media/api-management-howto-developer-portal-customize/navigation-menus.png" alt-text="Screenshot of default navigation menus in the developer portal.":::
 
 1. In the left menu of the visual editor, select **Site menu**.
 1. On the left, expand **Anonymous user menu**.
-1. Select **Sign up**, and select **Delete**. To confirm your choice, select **Yes**.
+1. Select the settings (gear icon) next to **Sign up**, and select **Delete**. 
+1. Select **Save**.
 
 ## Edit site settings
 
@@ -194,7 +172,7 @@ Edit the site settings for the developer portal to change the site name, descrip
 
 1. In the left menu of the visual edit, select **Settings**.
 1. In the **Settings** pop-up, enter the site metadata you want to change. Optionally, setup a favicon for the site from an image in your media library.
-1. Select **Save**.
+1. In the top bar, **Save**.
 
 > [!TIP]
 > If you want to change the site's domain name, you must first set up a custom domain in your API Management instance. [Learn more about custom domain names](configure-custom-domain.md) in API Management.
