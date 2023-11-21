@@ -89,7 +89,7 @@ Perform the following steps to connect and copy data from your computer to the D
 
     The following screenshot shows an order where a GPv2 storage account and archive tier were specified:
 
-    :::image type="content" source="media/data-box-disk-deploy-copy-data/content-sml.png" alt-text="Contents of the disk drive" lightbox="media/data-box-disk-deploy-copy-data/content.png":::
+    :::image type="content" source="media/data-box-disk-deploy-copy-data/content-sml.png" alt-text="Screenshot of the contents of the disk drive." lightbox="media/data-box-disk-deploy-copy-data/content.png":::
 
 1. Copy data to be imported as block blobs into the *BlockBlob* folder. Copy data to be stored as block blobs with the archive tier into the *BlockBlob_Archive* folder. Similarly, copy VHD or VHDX data to the *PageBlob* folder, and file share data into *AzureFile* folder.
 
@@ -218,20 +218,20 @@ The Data Box Split Copy tool helps split and copy data across two or more Azure 
 1. On your Windows computer, ensure that you have the Data Box Split Copy tool downloaded and extracted in a local folder. This tool is included within the Data Box Disk toolset for Windows.
 1. Open File Explorer. Make a note of the data source drive and drive letters assigned to Data Box Disk.
 
-   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-1-sml.png" alt-text="Split copy data" lightbox="media/data-box-disk-deploy-copy-data/split-copy-1.png":::
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-1-sml.png" alt-text="Screenshot of the data source drive and drive letters assigned to Data Box Disk." lightbox="media/data-box-disk-deploy-copy-data/split-copy-1.png":::
 
 1. Identify the source data to copy. For instance, in this case:
    - The following block blob data was identified.
 
-      :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-2-sml.png" alt-text="Split copy data 2" lightbox="media/data-box-disk-deploy-copy-data/split-copy-2.png":::
+      :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-2-sml.png" alt-text="Screenshot of block blob data identified for the copy process." lightbox="media/data-box-disk-deploy-copy-data/split-copy-2.png":::
 
    - The following page blob data was identified.
 
-      :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-3-sml.png" alt-text="Split copy data 3" lightbox="media/data-box-disk-deploy-copy-data/split-copy-3.png":::
+      :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-3-sml.png" alt-text="Screenshot of page blob data identified for the copy process." lightbox="media/data-box-disk-deploy-copy-data/split-copy-3.png":::
 
 1. Navigate to the folder where the software is extracted and locate the `SampleConfig.json` file. This file is a read-only file that you can modify and save.
 
-   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-4-sml.png" alt-text="Split copy data 4" lightbox="media/data-box-disk-deploy-copy-data/split-copy-4.png":::
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-4-sml.png" alt-text="Screenshot showing the location of the sample configuration file." lightbox="media/data-box-disk-deploy-copy-data/split-copy-4.png":::
 
 1. Modify the `SampleConfig.json` file.
 
@@ -241,11 +241,11 @@ The Data Box Split Copy tool helps split and copy data across two or more Azure 
    - Provide a path for the log files. By default, log files are sent to the directory where the `.exe` file is located.
    - To validate the file format, go to `JSONlint`.
 
-      :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-5.png" alt-text="Split copy data 5":::
+      :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-5.png" alt-text="Screenshot showing the contents of the sample configuration file.":::
 
    - Save the file as `ConfigFile.json`.
 
-      :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-6-sml.png" alt-text="Split copy data 6" lightbox="media/data-box-disk-deploy-copy-data/split-copy-6.png":::
+      :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-6-sml.png" alt-text="Screenshot showing the location of the replacement configuration file." lightbox="media/data-box-disk-deploy-copy-data/split-copy-6.png":::
 
 1. Open a Command Prompt window with elevated privileges and run the `DataBoxDiskSplitCopy.exe` using the following command.
 
@@ -255,21 +255,21 @@ The Data Box Split Copy tool helps split and copy data across two or more Azure 
 
 1. When prompted, press any key to continue running the tool.
 
-   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-8-sml.png" alt-text="Split copy data 8" lightbox="media/data-box-disk-deploy-copy-data/split-copy-8.png":::
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-8-sml.png" alt-text="Screenshot showing the command prompt window executing the Split Copy tool." lightbox="media/data-box-disk-deploy-copy-data/split-copy-8.png":::
   
 1. After the dataset is split and copied, the summary of the Split Copy tool for the copy session is presented as shown in the following sample output.
 
-   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-9-sml.png" alt-text="Split copy data 9" lightbox="media/data-box-disk-deploy-copy-data/split-copy-9.png":::
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-9-sml.png" alt-text="Screenshot showing the summary presented after successful execution of the Split Copy tool." lightbox="media/data-box-disk-deploy-copy-data/split-copy-9.png":::
 
 1. Verify that the data is split properly across the target disks.
 
-   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-10-sml.png" alt-text="Split copy data 10" lightbox="media/data-box-disk-deploy-copy-data/split-copy-10.png":::
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-10-sml.png" alt-text="Screenshot indicating resulting data split properly across the first of two target disks." lightbox="media/data-box-disk-deploy-copy-data/split-copy-10.png":::
 
-   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-11-sml.png" alt-text="Split copy data 11" lightbox="media/data-box-disk-deploy-copy-data/split-copy-11.png":::
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-11-sml.png" alt-text="Screenshot indicating resulting data split properly across the second of two target disks." lightbox="media/data-box-disk-deploy-copy-data/split-copy-11.png":::
 
-   Examine the `h:` drive contents and ensure that two subfolders are created that correspond to block blob and page blob format data.
+   Examine the `H:` drive contents and ensure that two subfolders are created that correspond to block blob and page blob format data.
 
-   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-12-sml.png" alt-text="Split copy data 12" lightbox="media/data-box-disk-deploy-copy-data/split-copy-12.png":::
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-12-sml.png" alt-text="Screenshot showing two subfolders created which correspond to block blob and page blob format data." lightbox="media/data-box-disk-deploy-copy-data/split-copy-12.png":::
 
 1. If the copy session fails, use the following command to recover and resume:
 
@@ -287,11 +287,11 @@ If you didn't use the Data Box Split Copy tool to copy data, you need to validat
 
 1. Run `DataBoxDiskValidation.cmd` for checksum validation in the *DataBoxDiskImport* folder of your drive. This tool is only available for the Windows environment. Linux users need to validate that the source data copied to the disk meets [Azure Data Box prerequisites](./data-box-disk-limits.md).
 
-   :::image type="content" source="media/data-box-disk-deploy-copy-data/validation-tool-output-sml.png" alt-text="Data Box Disk validation tool output" lightbox="media/data-box-disk-deploy-copy-data/validation-tool-output.png":::
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/validation-tool-output-sml.png" alt-text="Screenshot showing Data Box Disk validation tool output." lightbox="media/data-box-disk-deploy-copy-data/validation-tool-output.png":::
 
 1. Choose the appropriate validation option when prompted. **We recommend that you always validate the files and generate checksums by selecting option 2**. After the script has completed, exit out of the command window. The time required for validation to complete depends upon the size of your data. The tool notifies you of any errors encountered during validation and checksum generation, and provides you with a link to the error logs.
 
-   :::image type="content" source="media/data-box-disk-deploy-copy-data/checksum-output-sml.png" alt-text="Checksum output" lightbox="media/data-box-disk-deploy-copy-data/checksum-output.png":::
+   :::image type="content" source="media/data-box-disk-deploy-copy-data/checksum-output-sml.png" alt-text="Screenshot showing a failed execution attempt and indicating the location of the corresponding log file." lightbox="media/data-box-disk-deploy-copy-data/checksum-output.png":::
 
    > [!TIP]
    > - Reset the tool between two runs.
