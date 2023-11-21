@@ -30,7 +30,6 @@ Latency varies based on what model you are using. For an identical request, it i
 
 |Model|Relative Latency (fastest🚀 to slowest🐢)|
 |---|:---|
-|---|---|
 |`babbage-002` (fine-tuned)|🚀🚀🚀🚀🚀🚀🚀🚀  |
 | `gpt-35-turbo` (1106) |  🚀🚀🚀🚀🚀🚀🚀   |
 | `gpt-4` (1106-preview) | 🚀🚀🚀🚀🚀🚀 |
