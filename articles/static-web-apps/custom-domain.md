@@ -51,7 +51,7 @@ For custom domain verification to work with Static Web Apps, the DNS must be pub
 
 ## Zero downtime migration
 
-You may want to migrate a custom domain currently serving a production website to your Static Web Apps with zero downtime. When doing so, you may observe that your DNS provider does not accept multiple records for the same name/host. To work around this, you can separately perform the domain ownership validation and the traffic routing to your Static Web Apps.
+You may want to migrate a custom domain currently serving a production website to your static web app with zero downtime. DNS providers do not accept multiple records for the same name/host, so you can separate the action of validating domain ownership and the traffic routing to your web app.
 
 1. Open your static web app in the Azure portal.
 1. Add a **TXT record** for your custom domain (APEX or subdomain). Instead of entering the *Host* value as displayed, enter the *Host* in your DNS provider as follows:
