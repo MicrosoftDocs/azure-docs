@@ -57,7 +57,7 @@ You may want to migrate a custom domain currently serving a production website t
 1. Add a **TXT record** for your custom domain (APEX or subdomain). Instead of entering the *Host* value as displayed, enter the *Host* in your DNS provider as follows:
    * For APEX domains, enter **_dnsauth.www.<YOUR-DOMAIN.COM>**.
    * For subdomains, enter **_dnsauth.<SUBDOMAIN>.<YOUR-DOMAIN.COM>**
-1. Once your domain is validated, you can migrate your traffic to static web app. Now you can update your `CNAME`, `ALIAS`, or `A` record to point to your [default host name](./apex-domain-external.md)
+1. Once your domain is validated, you can migrate your traffic to your static web app by updating your `CNAME`, `ALIAS`, or `A` record to point to your [default host name](./apex-domain-external.md)
 
 ## Next steps
 
