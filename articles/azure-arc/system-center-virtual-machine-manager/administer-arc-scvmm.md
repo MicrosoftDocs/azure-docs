@@ -29,7 +29,7 @@ Azure Arc-enabled SCVMM requires the Arc resource bridge to connect your SCVMM e
 
 To upgrade to the latest version of the resource bridge, perform the following steps:
 
-1. Copy the Azure region and resource IDs of the Arc resource bridge, custom location and vCenter Azure resources.
+1. Copy the Azure region and resource IDs of the Arc resource bridge, custom location, and vCenter Azure resources.
 
 2. Find and delete the old Arc resource bridge **template** from your vCenter.
 
@@ -70,7 +70,7 @@ As part of your security practices, you might need to rotate credentials for you
 There are two different sets of credentials stored on the Arc resource bridge. You can use the same account credentials for both.
 
 - **Account for Arc resource bridge**. This account is used for deploying the Arc resource bridge VM and will be used for upgrade.
-- **Account for SCVMM cluster extension**. This account is used to discover inventory and perform all VM operations through Azure Arc-enabled SCVMM.
+- **Account for SCVMM cluster extension**. This account is used to discover inventory and perform all the VM operations through Azure Arc-enabled SCVMM.
 
 To update the credentials of the account for Arc resource bridge, run the following Azure CLI commands. Run the commands from a workstation that can access cluster configuration IP address of the Arc resource bridge locally:
 
