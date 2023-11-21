@@ -4,6 +4,7 @@ description: Learn about how to set up an Azure Stream Analytics job as a produc
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/09/2023
 ---

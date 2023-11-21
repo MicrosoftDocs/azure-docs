@@ -7,8 +7,7 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 10/11/2023
 ms.devlang: azurecli
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, devx-track-azurecli
 ---
 # Quickstart: Configure a hybrid cluster with Azure Managed Instance for Apache Cassandra using Client Configurator
 

@@ -5,8 +5,7 @@ description: Learn how to configure a private link for Azure AI
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.author: eur
