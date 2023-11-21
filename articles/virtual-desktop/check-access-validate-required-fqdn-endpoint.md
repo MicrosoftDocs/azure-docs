@@ -51,17 +51,13 @@ To use the Azure Virtual Desktop Agent URL Tool:
  
 1. Once you run the file, you'll see a list of accessible and inaccessible FQDNs and endpoints.
 
-    For example, the following screenshot shows a scenario where you'd need to unblock two required non-wildcard FQDNs:
+   For example, the following screenshot shows a scenario where you'd need to unblock two required non-wildcard FQDNs:
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of non-accessible URLs output.](media/noaccess.png)
-    
+   :::image type="content" source="media/check-access-validate-required-fqdn-endpoint/agent-url-tool-inaccessible.png" alt-text="A screenshot of the Azure Virtual Desktop Agent URL Tool showing that some FQDNs are inaccessible.":::
 
+   Here's what the output should look like once you've unblocked all required non-wildcard FQDNs and endpoints:
 
-    Here's what the output should look like once you've unblocked all required non-wildcard FQDNs and endpoints:
-
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of accessible URLs output.](media/access.png)
+   :::image type="content" source="media/check-access-validate-required-fqdn-endpoint/agent-url-tool-accessible.png" alt-text="A screenshot of the Azure Virtual Desktop Agent URL Tool showing that all FQDNs and endpoints are accessible.":::
 
 1. You can repeat these steps on your other session host, particularly if they are in a different Azure region or use a different virtual network.
 
