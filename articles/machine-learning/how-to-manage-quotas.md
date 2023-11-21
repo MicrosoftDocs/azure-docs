@@ -1,7 +1,7 @@
 ---
 title: Manage resources and quotas
 titleSuffix: Azure Machine Learning
-description: Learn about the quotas and limits on resources for Azure Machine Learning and how to request quota increases.
+description: Learn about the quotas and limits on resources for Azure Machine Learning and how to request quota and limit increases.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -13,9 +13,9 @@ ms.topic: how-to
 ms.custom: troubleshooting, contperf-fy20q4, contperf-fy21q2, event-tier1-build-2022
 ---
 
-# Manage and increase quotas for resources with Azure Machine Learning
+# Manage and increase quotas and limits for resources with Azure Machine Learning
 
-Azure uses limits and quotas to prevent budget overruns due to fraud, and to honor Azure capacity constraints. Consider these limits as you scale for production workloads. In this article, you learn about:
+Azure uses quotas and limits to prevent budget overruns due to fraud, and to honor Azure capacity constraints. Consider these limits as you scale for production workloads. In this article, you learn about:
 
 > [!div class="checklist"]
 > + Default limits on Azure resources related to [Azure Machine Learning](overview-what-is-azure-machine-learning.md).
@@ -23,7 +23,7 @@ Azure uses limits and quotas to prevent budget overruns due to fraud, and to hon
 > + Viewing your quotas and limits.
 > + Requesting quota increases.
 
-Along with managing quotas, you can learn how to [plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md) or learn about the [service limits in Azure Machine Learning](resource-limits-capacity.md).
+Along with managing quotas and limits, you can learn how to [plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md) or learn about the [service limits in Azure Machine Learning](resource-limits-capacity.md).
 
 ## Special considerations
 
@@ -38,22 +38,22 @@ Along with managing quotas, you can learn how to [plan and manage costs for Azur
 
 + **Default limits vary by offer category type**, such as free trial, pay-as-you-go, and virtual machine (VM) series (such as Dv2, F, and G).
 
-## Default resource quotas
+## Default resource quotas and limits
 
-In this section, you learn about the default and maximum quota limits for the following resources:
+In this section, you learn about the default and maximum quotas and limits for the following resources:
 
 + Azure Machine Learning assets
-    + Azure Machine Learning computes (including serverless Spark)
-    + Azure Machine Learning online endpoints (both managed and Kubernetes)
-    + Azure Machine Learning pipelines
++ Azure Machine Learning computes (including serverless Spark)
++ Azure Machine Learning shared quota
++ Azure Machine Learning online endpoints (both managed and Kubernetes) and batch endpoints
++ Azure Machine Learning pipelines
++ Azure Machine Learning integration with Synapse
 + Virtual machines
 + Azure Container Instances
 + Azure Storage
 
 > [!IMPORTANT]
 > Limits are subject to change. For the latest information, see  [Service limits in Azure Machine Learning](resource-limits-capacity.md).
-
-
 
 ### Azure Machine Learning assets
 The following limits on assets apply on a *per-workspace* basis. 
@@ -136,7 +136,7 @@ Azure Machine Learning online endpoints and batch endpoints have resource limits
 
 To determine the current usage for an endpoint, [view the metrics](how-to-monitor-online-endpoints.md#metrics). 
 
-To request an exception from the Azure Machine Learning product team, use the steps in the [Endpoint quota increases](#endpoint-quota-increases).
+To request an exception from the Azure Machine Learning product team, use the steps in the [Endpoint limit increases](#endpoint-limit-increases).
 
 | **Resource**&nbsp;&nbsp; | **Limit <sup>1</sup>** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | **Allows exception** | **Applies to** |
 | --- | ---- | --- | --- |
@@ -192,6 +192,7 @@ For more information, see [Container Instances limits](../azure-resource-manager
 ### Storage
 Azure Storage has a limit of 250 storage accounts per region, per subscription. This limit includes both Standard and Premium storage accounts.
 
+
 ## Workspace-level quotas
 
 Use workspace-level quotas to manage Azure Machine Learning compute target allocation between multiple [workspaces](concept-workspace.md) in the same subscription.
@@ -210,6 +211,7 @@ You can't set a negative value or a value higher than the subscription-level quo
 
 > [!NOTE]
 > You need subscription-level permissions to set a quota at the workspace level.
+
 
 ## View quotas in the studio
 
@@ -245,6 +247,7 @@ You manage the Azure Machine Learning compute quota on your subscription separat
 
 4. You can switch between a subscription-level view and a workspace-level view.
 
+
 ## Request quota and limit increases
 
 VM quota increase is to increase the number of cores per VM family per region. Endpoint limit increase is to increase the endpoint-specific limits per subscription per region. Make sure to choose the right category when you are submitting the quota increase request, as described in the next section.
@@ -261,15 +264,15 @@ To raise the limit for Azure Machine Learning VM quota above the default limit, 
 
 [![Screenshot of the new VM quota request form.](./media/how-to-manage-quotas/mlstudio-new-quota-limit.png)](./media/how-to-manage-quotas/mlstudio-new-quota-limit.png)
 
-### Endpoint quota increases
+### Endpoint limit increases
 
-To raise endpoint quota, [open an online customer support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). When requesting for quota increase, provide the following information:
+To raise endpoint limit, [open an online customer support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). When requesting for endpoint limit increase, provide the following information:
 
 1. When opening the support request, select __Service and subscription limits (quotas)__ as the __Issue type__.
-2. Select the subscription of your choice
-3. Select __Machine Learning Service: Endpoint Limits__ as the __Quota type__.
-1. On the __Additional details__ tab, you need to provide detailed reasons for the quota increase in order for your request to be processed. Select __Enter details__ and then provide the quota you'd like to increase and the new value for each quota, the reason for the quota increase request, and __location(s)__ where you need the quota increase. 
-Be sure to add the following information into the reason for quota increase:
+1. Select the subscription of your choice.
+1. Select __Machine Learning Service: Endpoint Limits__ as the __Quota type__.
+1. On the __Additional details__ tab, you need to provide detailed reasons for the limit increase in order for your request to be processed. Select __Enter details__ and then provide the limit you'd like to increase and the new value for each limit, the reason for the limit increase request, and __location(s)__ where you need the limit increase. 
+Be sure to add the following information into the reason for limit increase:
     1. Description of your scenario and workload (such as text, image, and so on).
     1. Rationale for the requested increase.
         1. Provide the target throughput and its pattern (average/peak QPS, concurrent users).
@@ -280,7 +283,7 @@ Be sure to add the following information into the reason for quota increase:
         1. Provide planned time plan (by when you need increased limits - provide staged plan if possible) and confirm if (1) the cost of running it at that scale is reflected in your budget and (2) the target VM SKUs are approved.
 1. Finally, select __Save and continue__ to continue.
 
-[![Screenshot of the endpoint quota details form.](./media/how-to-manage-quotas/quota-details.png)](./media/how-to-manage-quotas/quota-details.png)
+[![Screenshot of the endpoint limit details form.](./media/how-to-manage-quotas/quota-details.png)](./media/how-to-manage-quotas/quota-details.png)
 
 > [!NOTE]
 > This endpoint limit increase request is different from VM quota increase request. If your request is related to VM quota increase, follow the instructions in the [VM quota increases](#vm-quota-increases) section.
