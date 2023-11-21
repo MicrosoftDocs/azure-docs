@@ -33,7 +33,7 @@ Metric category|Metric name|Metric description|
 
 1. In the Azure portal, go to your Azure Health Data Services workspace. Select  and select **Services** > **MedTech service**.
 
-   :::image type="content" source="media\configure-metrics\select-medtech-service-crop.png" alt-text="Screenshot showing how to open the MedTech service in a workspace." lightbox="media\configure-metrics\select-medtech-service-crop.png":::
+   :::image type="content" source="media\configure-metrics\select-medtech-service-crop.png" alt-text="Screenshot showing how to open the MedTech service in a workspace." lightbox="media\configure-metrics\select-medtech-service.png":::
 
 2. Select the MedTech service that you want to display metrics for. In this example, we select a MedTech service named **mt-azuredocsdemo**. You need to select a MedTech service within your organization's Azure Health Data Services workspace.
 
