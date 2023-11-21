@@ -2,12 +2,12 @@
 title: Tutorial to configure Keyless with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Tutorial to configure Sift Keyless with Azure Active Directory B2C for passwordless authentication 
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 03/06/2023
 ms.author: gasinh

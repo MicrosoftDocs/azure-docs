@@ -14,7 +14,7 @@ ms.reviewer: aul
 Azure Monitor Container insights offers a schema for container logs, called ContainerLogV2. As part of this schema, there are fields to make common queries to view Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes data. In addition, this schema is compatible with [Basic Logs](../logs/basic-logs-configure.md), which offers a low-cost alternative to standard analytics logs.
 
 >[!NOTE]
-> ContainerLogV2 will be default schema for customers who will be onboarding container insights with Managed Identity Auth using ARM, Bicep, Terraform, Policy and Portal onboarding. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
+> ContainerLogV2 will be the default schema via the ConfigMap for CLI version 2.54.0 and greater. ContainerLogV2 will be default ingestion format for customers who will be onboarding container insights with Managed Identity Auth using ARM, Bicep, Terraform, Policy and Portal onboarding. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
 
 The new fields are:
 * `ContainerName`
@@ -48,7 +48,7 @@ Follow the instructions to configure an existing ConfigMap or to use a new one.
 ## [Azure portal](#tab/configure-portal)
 
 >[!NOTE]
-> DCR based configuration is not supported for service principal based clusters. Please [migrate your clusters with service principal to managed identity](./container-insights-enable-aks.md#migrate-to-managed-identity-authentication) to use this experience.
+> DCR based configuration is not supported for service principal based clusters. Please [migrate your clusters with service principal to managed identity](./container-insights-authentication.md) to use this experience.
 
 1. In the Insights section of your Kubernetes cluster, select the **Monitoring Settings** button from the top toolbar
 
@@ -85,8 +85,8 @@ This applies to the scenario where you have already enabled container insights f
 ```
 
 ### Configure a new ConfigMap
-1. [Download the new ConfigMap](https://aka.ms/container-azm-ms-agentconfig). For the newly downloaded ConfigMap, the default value for `containerlog_schema_version` is `"v1"`.
-1. Update `containerlog_schema_version` to `"v2"`:
+1. [Download the new ConfigMap](https://aka.ms/container-azm-ms-agentconfig). For the newly downloaded ConfigMap, the default value for `containerlog_schema_version` is `"v2"`.
+1. Ensure that the  `containerlog_schema_version` to `"v2"` and the `[log_collection_settings.schema]` is also uncommented by removing the `#` preceding it:
 
     ```yaml
     [log_collection_settings.schema]

@@ -2,7 +2,7 @@
 title: IP addresses used by Azure Monitor | Microsoft Docs
 description: This article discusses server firewall exceptions that are required by Azure Monitor
 ms.topic: reference
-ms.date: 08/11/2023
+ms.date: 11/15/2023
 ms.reviewer: saars
 ---
 

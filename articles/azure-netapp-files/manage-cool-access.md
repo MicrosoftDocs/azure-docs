@@ -33,6 +33,7 @@ The standard storage with cool access feature provides options for the “coolne
 * A cool-access capacity pool can contain both volumes with cool access enabled and volumes with cool access disabled. 
 * After the capacity pool is configured with the option to support cool access volumes, the setting can't be disabled at the _capacity pool_ level. However, you can turn on or turn off the cool access setting at the volume level anytime. Turning off the cool access setting at the _volume_ level stops further tiering of data.  
 * Standard storage with cool access is supported only on capacity pools of the **auto** QoS type.   
+    * An auto QoS capacity pool enabled for standard storage with cool access cannot be converted to a capacity pool using manual QoS.
 * You can't use large volumes with Standard storage with cool access.
 * See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits) for maximum number of volumes supported for cool access per subscription per region.
 * Considerations for using cool access with [cross-region replication](cross-region-replication-requirements-considerations.md) (CRR): 

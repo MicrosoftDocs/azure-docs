@@ -101,6 +101,7 @@ The following features and services now have an Azure Monitor Agent version (som
 |	[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)	|	Migrate to new service called Connection Monitor with Azure Monitor Agent	|	Generally available	|	[Monitor network connectivity using Azure Monitor agent with connection monitor](../../network-watcher/azure-monitor-agent-with-connection-monitor.md)	|
 |	Azure Stack HCI Insights	|	Migrate to Azure Monitor Agent 	| Generally available|	[Monitor Azure Stack HCI with Insights](/azure-stack/hci/manage/monitor-hci-single)	|
 |	[Azure Virtual Desktop (AVD) Insights](../../virtual-desktop/insights.md) |	Migrate to Azure Monitor Agent	|Generally available	| [Use Azure Virtual Desktop Insights to monitor your deployment](../../virtual-desktop/insights.md#session-host-data-settings)	|
+| [Container Monitoring Solution](../containers/containers.md) | Migrate to new service called Container Insights with Azure Monitor Agent | Generally Available | [Enable Container Insights](../containers/container-insights-transition-solution.md) |
 
 > [!NOTE]
 > Features and services listed above in preview **may not be available in Azure Government and China clouds**. They will be available typically within a month *after* the features/services become generally available.

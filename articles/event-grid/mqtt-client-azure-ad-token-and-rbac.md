@@ -4,7 +4,7 @@ description: Describes JWT authentication and RBAC roles to authorize clients wi
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 10/24/2023
+ms.date: 11/15/2023
 author: veyaddan
 ms.author: veyaddan
 ---

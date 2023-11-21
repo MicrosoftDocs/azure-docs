@@ -28,7 +28,7 @@ This Azure Cosmos DB for MongoDB connector is supported for the following capabi
 |---------| --------| --------|
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 You can copy data from Azure Cosmos DB for MongoDB to any supported sink data store, or copy data from any supported source data store to Azure Cosmos DB for MongoDB. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 

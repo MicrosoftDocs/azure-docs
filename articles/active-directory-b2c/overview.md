@@ -1,15 +1,15 @@
 ---
 title: What is Azure Active Directory B2C?
 description: Learn how you can use Azure Active Directory B2C to support external identities in your applications, including social sign-up with Facebook, Google, and other identity providers.
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: overview
 ms.date: 10/26/2022
-ms.custom: engagement-fy23
+ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
 ---

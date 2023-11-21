@@ -2,7 +2,7 @@
 title: Custom Named Entity Recognition (NER) service limits
 titleSuffix: Azure AI services
 description: Learn about the data and service limits when using Custom Named Entity Recognition (NER).
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

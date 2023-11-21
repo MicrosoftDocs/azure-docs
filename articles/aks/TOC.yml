@@ -10,6 +10,8 @@
       href: release-tracker.md
     - name: Supported Kubernetes versions
       href: supported-kubernetes-versions.md
+    - name: Long Term Support
+      href: long-term-support.md
     - name: Add-ons, extensions, and other integrations
       href: integrations.md
       displayName: add-on, extensions, prometheus, grafana, openfaas, spark, istio, linkerd, consul, github, actions
@@ -313,6 +315,8 @@
               href: create-node-pools.md
             - name: Manage node pools
               href: manage-node-pools.md
+            - name: Reduce image pull time with Artifact Streaming on AKS
+              href: artifact-streaming.md
             - name: Add an Azure Spot node pool
               href: spot-node-pool.md
             - name: Multi-instance GPU node pool
@@ -381,8 +385,6 @@
               href: use-managed-identity.md
             - name: Enable access to AKS clusters using Trusted Access
               href: trusted-access-feature.md
-            - name: Remove vulnerable images with ImageCleaner
-              href: image-cleaner.md
             - name: Limit access to cluster configuration file
               href: control-kubeconfig-access.md
             - name: Define API server authorized IP ranges
@@ -521,8 +523,8 @@
               items:
                 - name: Application routing add-on overview
                   href: app-routing.md
-                - name: Application routing add-on advanced configurations
-                  href: app-routing-configuration.md
+                - name: Custom hostname and secure ingress configuration
+                  href: app-routing-dns-ssl.md
                 - name: Monitor using Prometheus and Grafana
                   href: app-routing-nginx-prometheus.md
                 - name: Migrate from HTTP application routing to the application routing add-on

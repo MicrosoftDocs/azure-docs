@@ -6,8 +6,8 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 11/03/2023
-ms.custom: ignite-2023
+ms.date: 11/15/2023
+ms.custom: ignite-2023, devx-track-azurecli
 ---
 
 # Quickstart: Deploy an artifact file to Azure Container Apps
@@ -213,6 +213,9 @@ This command:
 - Creates and deploys the container app using a public container image
 
 The `up` command uses the Docker file in the root of the repository to build the container image.  The `EXPOSE` instruction in the Docker file defines the target port. A Docker file, however, isn't required to build a container app.
+
+> [!NOTE]
+> Note: When using `containerapp up` in combination with a Docker-less code base, use the `--location` parameter so that application runs in a location other than US East.
 
 # [Bash](#tab/bash)
 

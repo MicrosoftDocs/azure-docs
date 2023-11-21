@@ -1,3 +1,4 @@
+items:
 - name: Azure Logic Apps documentation
   href: index.yml
 - name: Overview
@@ -88,6 +89,8 @@
       href: designer-overview.md
     - name: Create single-tenant workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
+    - name: Get AI-powered help from the workflow assistant
+      href: workflow-assistant-standard.md
     - name: Create single-tenant workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
     - name: Set up SQL storage for single-tenant workflows

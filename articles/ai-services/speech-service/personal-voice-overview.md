@@ -13,10 +13,11 @@ ms.custom: references_regions
 
 # What is personal voice (preview) for text to speech? 
 
-With personal voice (preview), you can get AI generated replication of your voice (or users of your application) in a few seconds. You provide a one-minute speech sample as the audio prompt, and then use it to generate speech in any of the more than 90 languages supported across more than locales.  
+With personal voice (preview), you can get AI generated replication of your voice (or users of your application) in a few seconds. You provide a one-minute speech sample as the audio prompt, and then use it to generate speech in any of the more than 90 languages supported across more than 100 locales.  
 
 > [!NOTE]
 > Personal voice is available in these regions: West Europe, East US, and South East Asia. 
+> For supported locales, see [personal voice language support](./language-support.md#personal-voice).
 
 The following table summarizes the difference between custom neural voice pro and personal voice.  
  
@@ -69,6 +70,10 @@ Here's example SSML in a request for text to speech with the voice name and the 
     </voice> 
 </speak> 
 ```
+
+### Responsible AI 
+
+We care about the people who use AI and the people who will be affected by it as much as we care about technology. For more information, see the Responsible AI [transparency notes](/legal/cognitive-services/speech-service/text-to-speech/transparency-note?context=/azure/ai-services/speech-service/context/context).
 
 ## Reference documentation
 
