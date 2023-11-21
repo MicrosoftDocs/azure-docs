@@ -47,13 +47,13 @@ App settings are always encrypted when stored (encrypted-at-rest).
 
     ![Search for App Services](./media/configure-common/search-for-app-services.png)
 
-1. In the app's left menu, select **Configuration** > **Application settings**.
+1. In the app's left menu, select **Environment Variables** > **App settings**.
 
-    ![Application Settings](./media/configure-common/open-ui.png)
+    ![Application Settings](https://github.com/MicrosoftDocs/azure-docs/assets/114693937/7db8fd29-cc82-4bcb-bbb7-f8ccdda9f393)
 
     By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, select its **Value** field. To see the hidden values of all app settings, select the **Show values** button.
 
-1. To add a new app setting, select **New application setting**. To edit a setting, select the **Edit** button on the right side.
+1. To add a new app setting, Enter the values in the Text field. To edit a setting, Edit the values inside the text field and click **Apply** to Save.
 
 1. In the dialog, you can [stick the setting to the current slot](deploy-staging-slots.md#which-settings-are-swapped).
 
