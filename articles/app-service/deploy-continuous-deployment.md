@@ -106,7 +106,7 @@ See [Local Git deployment to Azure App Service](deploy-local-git.md).
 - [How does the GitHub Actions build provider work?](#how-does-the-github-actions-build-provider-work)
 - [How do I configure continuous deployment without basic authentication?](#how-do-i-configure-continuous-deployment-without-basic-authentication)
 - [What does the user-assigned identity option do for GitHub Actions?](#what-does-the-user-assigned-identity-option-do-for-github-actions)
-- [I see "You do not have sufficient permissions on this app to assign role-based access to a managed identity and configure federated credentials." when I select the user-assigned identity option with GitHut Actions.](#i-see-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials-when-i-select-the-user-assigned-identity-option-with-githut-actions)
+- [I see "You do not have sufficient permissions on this app to assign role-based access to a managed identity and configure federated credentials." when I select the user-assigned identity option with GitHub Actions.](#i-see-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials-when-i-select-the-user-assigned-identity-option-with-github-actions)
 - [How do I deploy from other repositories](#how-do-i-deploy-from-other-repositories)
 
 #### How does the GitHub Actions build provider work?
