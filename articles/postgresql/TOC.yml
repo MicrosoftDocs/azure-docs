@@ -313,7 +313,7 @@
       - name: Configure Server Logs
         items:
         - name: Azure portal
-          href: flexible-server/how-to-server-logs-portal
+          href: flexible-server/how-to-server-logs-portal.md
     - name: Encryption with CMK
       items:
       - name: Azure CLI

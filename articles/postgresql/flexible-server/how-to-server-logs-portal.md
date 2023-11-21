@@ -1,6 +1,6 @@
 ---
 title: 'How to enable and download server logs for Azure Database for PostgreSQL - Flexible Server'
-description: This article describes how to download and list server logs using Azure portal.
+description: This article describes how to download server logs using Azure portal.
 ms.service: postgresql
 ms.subservice: flexible-server
 author: varun-dhawan
