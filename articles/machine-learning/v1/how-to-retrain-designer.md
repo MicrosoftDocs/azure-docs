@@ -109,7 +109,7 @@ Use the following steps to submit a parameterized pipeline endpoint job from the
 
 You can find the REST endpoint of a published pipeline in the overview panel. By calling the endpoint, you can retrain the published pipeline.
 
-To make a REST call, you need an OAuth 2.0 bearer-type authentication header. For information about setting up authentication to your workspace and making a parameterized REST call, see [Build an Azure Machine Learning pipeline for batch scoring](../tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint).
+To make a REST call, you need an OAuth 2.0 bearer-type authentication header. For information about setting up authentication to your workspace and making a parameterized REST call, see [this article](../how-to-manage-rest.md).
 
 ## Next steps
 
