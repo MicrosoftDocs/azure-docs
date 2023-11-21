@@ -66,7 +66,7 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
 
 ### Prerequisites
 
-- Install a supported version of Logstash. The plugin supports: 
+- Install a supported version of Logstash. The plugin supports the following Logstash versions: 
     - 7.0 - 7.17.13
     - 8.0 - 8.9
     - 8.11
