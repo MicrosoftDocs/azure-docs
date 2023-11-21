@@ -101,7 +101,7 @@ The VMAccess Extension configuration includes settings for username, passwords, 
 | ssh_key | string | The SSH public key to add for the user account. The SSH key can be in `ssh-rsa`, `ssh-ed25519`, or `.pem` format. |
 | reset_ssh | boolean | Whether or not to reset the SSH. If `true`, it will replace the sshd_config file with an internal resource file corresponding to the default SSH config for that distro. |
 | remove_user | string | The name of the user to remove. Can't be used with `reset_ssh`, `restore_backup_ssh`, and `password`. |
-| expiration | string | Expiration to set to for the account. Defaults to never. |
+| expiration | string | Expiration to set to for the account, in the form of `yyyy-mm-dd`. Defaults to never. |
 | remove_prior_keys | boolean | Whether or not to remove old SSH keys when adding a new one. Must be used with `ssh_key`. |
 | restore_backup_ssh | boolean | Whether or not to restore the original backed-up sshd_config. |
 
@@ -302,7 +302,7 @@ The VMAccess extension logs exist locally on the VM and are most informative whe
 | ---- | ---- |
 | /var/log/waagent.log	| Shows when an update to the extension occurred. This contains logs from the Linux Agent, and we can check it to ensure the extension ran. |
 | /var/log/azure/Microsoft.OSTCExtensions.VMAccessForLinux/*	| The VMAccess Extension produces logs which can be found here. Here you will see a `CommandExecution.log` where you can find each command executed along with its result. There is also an `extension.log` file which contains individual logs for each execution. |
-| /var/lib/waagent/Microsoft.OSTCExtensions-VMAccessForLinux-\<most recent version\>/config/*	| The configuration and binaries for VMAccess VM Extension. |
+| /var/lib/waagent/Microsoft.OSTCExtensions.VMAccessForLinux-\<most recent version\>/config/*	| The configuration and binaries for VMAccess VM Extension. |
 |||
 
 You can also retrieve the execution state of the VMAccess Extension, along with other extensions on a given VM, by running the following command:
