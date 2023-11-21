@@ -22,7 +22,7 @@ Each of these operations requires either SSH key to the resource bridge VM or th
 
 ## Upgrade the Arc resource bridge
 
-Azure Arc-enabled SCVMM requires the Arc resource bridge to connect your SCVMM environment with Azure. Periodically, new images of Arc resource bridge will be released to include security and feature updates.
+Azure Arc-enabled SCVMM requires the Arc resource bridge to connect your SCVMM environment with Azure. Periodically, new images of Arc resource bridge are released to include security and feature updates.
 
 > [!NOTE]
 > To upgrade the Arc resource bridge VM to the latest version, you need to perform the onboarding again with the **same resource IDs**. This will cause some downtime as operations performed through Arc during this time might fail.
