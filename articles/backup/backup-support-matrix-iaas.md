@@ -42,7 +42,7 @@ Back up managed disks after enabling a resource group lock | Not supported.<br/>
 Modify backup policy for a VM | Supported.<br/><br/> The VM will be backed up according to the schedule and retention settings in the new policy. If retention settings are extended, existing recovery points are marked and kept. If they're reduced, existing recovery points will be pruned in the next cleanup job and eventually deleted.
 Cancel a backup job| Supported during the snapshot process.<br/><br/> Not supported when the snapshot is being transferred to the vault.
 Back up the VM to a different region or subscription |Not supported.<br><br>For successful backup, virtual machines must be in the same subscription as the vault for backup.
-Back up daily via the Azure VM extension | Four backups per day: one scheduled backup as set up in the backup policy, and three on-demand backups.    <br><br>    To allow user retries in case of failed attempts, the hard limit for on-demand backups is set to nine attempts.
+Back up daily via the Azure VM extension | Four backups per day: one scheduled backup as set up in the backup policy, and three on-demand backups.    <br><br>    To allow user retries in case of failed attempts, the hard limit for on-demand backups is set to nine attempts in a 24 hour UTC period.
 Back up daily via the MARS agent | Three scheduled backups per day.
 Back up daily via DPM or MABS | Two scheduled backups per day.
 Back up monthly or yearly| Not supported when you're backing up with the Azure VM extension. Only daily and weekly are supported.<br/><br/> You can set up the policy to retain daily or weekly backups for a monthly or yearly retention period.
