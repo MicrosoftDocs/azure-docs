@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 11/20/2023
+ms.date: 11/21/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,7 +24,8 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
-| November 20|GA release: New autoprovisioning process for SQL Servers on machines plan|
+| November 27 | [General availability of agentless secret scanning in Defender for Servers and Defender CSPM](#general-availability-of-agentless-secret-scanning-in-defender-for-servers-and-defender-cspm) |
+| November 20 | [General availability of the new autoprovisioning process for SQL Servers on machines plan](#general-availability-of-new-autoprovisioning-process-for-sql-servers-on-machines-plan) |
 | November 15 | [Defender for Cloud is now integrated with Microsoft 365 Defender](#defender-for-cloud-is-now-integrated-with-microsoft-365-defender) |
 | November 15 | [General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries](#general-availability-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries) |
 | November 15 | [Change to Container Vulnerability Assessments recommendation names](#change-to-container-vulnerability-assessments-recommendation-names) |
@@ -36,7 +37,19 @@ If you're looking for items older than six months, you can find them in the [Arc
 | November 15 | [General Availability release of sensitive data discovery for databases](#general-availability-release-of-sensitive-data-discovery-for-databases) |
 | November 6 | [New version of the recommendation to find missing system updates is now GA](#new-version-of-the-recommendation-to-find-missing-system-updates-is-now-ga) |
 
-### GA release: New autoprovisioning process for SQL Servers on machines plan
+### General availability of agentless secret scanning in Defender for Servers and Defender CSPM
+
+November 27, 2023
+
+We are announcing the General Availability (GA) of agentless secret scanning which is included in [Defender CSPM](tutorial-enable-cspm-plan.md) and [Defender for Servers P2](tutorial-enable-servers-plan.md). 
+
+Agentless secret scanning enhances the security of your cloud Virtual Machines (VM) by detecting plaintext secrets that are  stored on VM disks. This capability allows you to prioritize any detected findings and to mitigate lateral movement risks before they happen in order to prevent unauthorized access, ensuring your cloud environment remains secure. 
+
+We have also enhanced the the database and the data store connection strings that are available and added additional the ability to discover additional secret findings capabilities.
+
+You can learn more about what Go here to see all the available secrets we now can detect in this documentation page. 
+
+### General availability of the new autoprovisioning process for SQL Servers on machines plan
 
 November 20, 2023
 
