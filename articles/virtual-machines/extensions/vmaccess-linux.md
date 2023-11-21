@@ -296,10 +296,23 @@ Update-AzVmss `
 
 ## Troubleshoot and support
 
-Get data about the state of extension deployments from the Azure portal and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command by using the Azure CLI.
+The VMAccess extension logs exist locally on the VM and are most informative when it comes to troubleshooting.
 
-```azurecli
+| Location | Description |
+| ---- | ---- |
+| /var/log/waagent.log	| Shows when an update to the extension occurred. This contains logs from the Linux Agent, and we can check it to ensure the extension ran. |
+| /var/log/azure/Microsoft.OSTCExtensions.VMAccessForLinux/*	| The VMAccess Extension produces logs which can be found here. Here you will see a `CommandExecution.log` where you can find each command executed along with its result. There is also an `extension.log` file which contains individual logs for each execution. |
+| /var/lib/waagent/Microsoft.OSTCExtensions-VMAccessForLinux-\<most recent version\>/config/*	| The configuration and binaries for VMAccess VM Extension. |
+|||
+
+You can also retrieve the execution state of the VMAccess Extension, along with other extensions on a given VM, by running the following command:
+
+```azurecli-interactive
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
 For more help, you can contact the Azure experts at [Azure Community Support](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to [Azure support](https://azure.microsoft.com/support/options/) and select **Get support**. For more information about Azure Support, read the [Azure support plans FAQ](https://azure.microsoft.com/support/faq/).
+
+## Next steps
+
+To see the code, current versions, and more documentation, see [VMAccess Linux - GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
