@@ -49,7 +49,7 @@ App settings are always encrypted when stored (encrypted-at-rest).
 
 1. In the app's left menu, select **Environment Variables** > **App settings**.
 
-    ![Application Settings](https://github.com/MicrosoftDocs/azure-docs/assets/114693937/7db8fd29-cc82-4bcb-bbb7-f8ccdda9f393)
+    ![app settings](https://github.com/sattract/azure-docs/assets/114693937/f258af07-a2a5-4a6c-a17f-b2484e7a0fce)
 
     By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, select its **Value** field. To see the hidden values of all app settings, select the **Show values** button.
 
