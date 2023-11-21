@@ -88,7 +88,7 @@ The following table shows the available models for each current preview and stab
 | [Custom classification model](#custom-classifier)| The **Custom classification model** can classify each page in an input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
 | [Composed models](#composed-models) | Combine several custom models into a single model to automate processing of diverse document types with a single composed model.
 
-For all models, except Business card model, Document Intelligence now supports add-on capabilities to allow for more sophisticated analysis. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are six add-on capabilities available for the `2023-07-31` (GA) and later API version:
+For all models, except Business card model, Document Intelligence now supports add-on capabilities to allow for more sophisticated analysis. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are seven add-on capabilities available for the `2023-07-31` (GA) and later API version:
 
 * [`ocrHighResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
 * [`formulas`](concept-add-on-capabilities.md#formula-extraction)
