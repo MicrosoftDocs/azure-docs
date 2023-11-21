@@ -19,7 +19,7 @@ The following table lists the settings for a series of frameworks and libraries<
 
 The intent of the table columns is explained by the following items:
 
-- **Output location (App artifact location)**: Lists the value for `output_location`, which is the [folder for built application files](build-configuration.md).
+- **Output location (App artifact location)**: Lists the value for `output_location`, which is the [folder for built static website files](build-configuration.md).
 - **API artifact location (api location)**: Lists the value for `api_location`, which is the folder containing the built managed Azure Functions for frameworks that require server-side hosting. 
 - **Custom build command**: When the framework requires  a command different from `npm run build` or `npm run azure:build`, you can define a [custom build command](build-configuration.md#custom-build-commands).
 
