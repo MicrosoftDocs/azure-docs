@@ -5,7 +5,7 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/18/2023
+ms.date: 11/13/2023
 ---
 
 # What's new in Azure Update Manager
@@ -14,18 +14,18 @@ ms.date: 09/18/2023
 
 ## November 2023
 
+## Alerting (preview)
+Azure Update Manager allows you to enable alerts to address events as captured in updates data.
+
 ## Azure Stack HCI patching (preview)
 
 Azure Update Manager allows you to patch Azure Stack HCI cluster. [Learn more](/azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json)
 
-## Alerting 
-Azure Update Manager allows you enable alerts to address events as captured in updates data.
-
 ## October 2023
 
-### Azure Migrate, Azure Backup, Azure Site Recovery VMs support (preview)
+### Azure Migrate, Azure Backup, Azure Site Recovery VMs support
 
-Azure Update Manager now supports scheduled patching and periodic assessment for [specialized](../virtual-machines/linux/imaging.md#specialized-images) VMs including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery in preview.
+Azure Update Manager now supports [specialized](../virtual-machines/linux/imaging.md#specialized-images) VMs including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery. [Learn more](manage-updates-customized-images.md).
 
 ## September 2023
 
