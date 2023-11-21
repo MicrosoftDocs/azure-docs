@@ -3,7 +3,7 @@ title: "Exchange Security Insights Online Collector (using Azure Functions) conn
 description: "Learn how to install the connector Exchange Security Insights Online Collector (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 10/23/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -42,7 +42,7 @@ To integrate with Exchange Security Insights Online Collector (using Azure Funct
 
 
 > [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected. Follow the steps for each Parser to create the Kusto Functions alias : [**ExchangeConfiguration**](https://aka.ms/sentinel-ESI-ExchangeConfiguration-Online-parser) and [**ESI_ExchConfigAvailableEnvironments**](https://aka.ms/sentinel-ESI-ExchangeEnvironmentList-Online-parser) 
+   >  This data connector depends on a parser based on a Kusto Function to work as expected. Follow the steps for each Parser to create the Kusto Functions alias : [**ExchangeConfiguration**](https://aka.ms/sentinel-ESI-ExchangeConfiguration-Online-parser) and [**ExchangeEnvironmentList**](https://aka.ms/sentinel-ESI-ExchangeEnvironmentList-Online-parser) 
 
 **STEP 1 - Parsers deployment**
 

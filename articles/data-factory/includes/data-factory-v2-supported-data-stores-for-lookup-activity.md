@@ -5,7 +5,7 @@ services: data-factory
 author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 05/31/2022
+ms.date: 10/20/2023
 ms.author: jianleishen
 ms.custom: include file, ignite-2022
 ---

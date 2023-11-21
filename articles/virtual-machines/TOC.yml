@@ -227,6 +227,8 @@
         href: dcasv5-dcadsv5-series.md
       - name: DCas_cc_v5 and DCads_cc_v5-series
         href: dcasccv5-dcadsccv5-series.md
+      - name: DCesv5 and DCedsv5-series
+        href: dcesv5-dcedsv5-series.md
       - name: Dpsv5 and Dpdsv5-series
         href: dpsv5-dpdsv5-series.md
       - name: Dplsv5 and Dpldsv5-series
@@ -274,6 +276,8 @@
         href: ecasv5-ecadsv5-series.md
       - name: ECas_cc_v5 and ECads_cc_v5-series
         href: ecasccv5-ecadsccv5-series.md
+      - name: ECesv5 and ECedsv5-series
+        href: ecesv5-ecedsv5-series.md
       - name: Epsv5 and Epdsv5-series
         href: epsv5-epdsv5-series.md
       - name: M-series
@@ -312,6 +316,8 @@
         href: sizes-gpu.md
       - name: NC-series
         href: nc-series.md
+      - name: NCads_H100_v5-series
+        href: ncads-h100-v5.md
       - name: NCv2-series
         href: ncv2-series.md
       - name: NCv3-series
@@ -330,7 +336,7 @@
         href: ndv2-series.md
       - name: NDm-H100-v5-series
         href: nd-h100-v5-series.md
-      - name: NGads V620-series (preview)
+      - name: NGads V620-series
         href: ngads-v-620-series.md
       - name: NV-series
         href: nv-series.md
@@ -657,6 +663,9 @@
           href: ./windows/image-builder-virtual-desktop.md
       - name: Security
         items:
+        - name: Security mechanisms
+          displayName: Image builder, images, building
+          href: ./security-isolated-image-builds-image-builder.md
         - name: Security controls by Azure Policy
           displayName: Image builder, images, building
           href: ./security-controls-policy-image-builder.md
@@ -701,7 +710,7 @@
         - name: Windows
           displayName: Image builder, images, building, update
           href: ./windows/image-builder-gallery-update-image-version.md
-      - name: How to use AIB triggers to set up an automatic image build (preview)
+      - name: How to use AIB triggers to set up an automatic image build
         displayName: Image builder, images, building, triggers
         href: image-builder-triggers-how-to.md
       - name: Store scripts
@@ -776,7 +785,7 @@
     - name: ARM template
       displayName: pre-empt, preempt, spot, low priority, low-priority, ARM, template
       href: ./linux/spot-template.md
-    - name: Spot Priority Mix (preview)
+    - name: Spot Priority Mix
       href: ../virtual-machine-scale-sets/spot-priority-mix.md?toc=/azure/virtual-machines/toc.json
     - name: VM size recommendation
       href: ../virtual-machine-scale-sets/spot-vm-size-recommendation.md?toc=/azure/virtual-machines/toc.json
@@ -787,6 +796,9 @@
       displayName: pre-empt, preempt, spot, low priority, low-priority
       href: /azure/architecture/guide/spot/spot-eviction
       maintainContext: true
+  - name: Azure Boost
+    displayname: Boost, Azure Boost, boost vm, boost virtual machine
+    href: ../azure-boost/overview.md
   - name: Azure Hybrid Benefit
     items:
     - name: Linux
@@ -869,6 +881,14 @@
     - name: Create from an existing OS disk or VHD
       displayName: attach
       href: attach-os-disk.md
+  - name: Auto-shutdown a VM
+    href: auto-shutdown-vm.md
+  - name: Hibernating Virtual Machines
+    items:
+      - name: Hibernate a VM
+        href: hibernate-resume.md
+      - name: Troubleshoot VM hibernation
+        href: hibernate-resume-troubleshooting.md
   - name: Delete a VM and its resources
     href: delete.md
   - name: Connect to Virtual Machines
@@ -1040,9 +1060,6 @@
     - name: PowerShell DSC
       href: ./extensions/dsc-overview.md
       items:
-      - name: DSC and Linux
-        displayName: Desired state configuration, dsc
-        href: ./extensions/dsc-linux.md
       - name: DSC and Windows
         displayName: Desired state configuration, dsc
         href: ./extensions/dsc-windows.md
@@ -1128,7 +1145,18 @@
       href: ./create-portal-availability-zone.md
     - name: Migrate to Availability Zones
       displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
-      href: ../availability-zones/migrate-vm.md
+      href: ../availability-zones/migrate-vm.md?toc=/azure/virtual-machines/toc.json&bc=/azure/virtual-machines/breadcrumb/toc.json
+    - name: Regional to zonal move guides
+      items:
+      - name: Portal
+        displayName: availability and scale, availability, scale, single instance virtual machines, availability zones, AV zones
+        href: ./move-virtual-machines-regional-zonal-portal.md
+      - name: PowerShell and CLI
+        displayName: availability and scale, availability, single instance virtual machines, autoscale, availability zones, AV zones
+        href: ./move-virtual-machines-regional-zonal-powershell.md
+      - name: FAQ
+        displayName: availability and scale, availability, scale, single instance virtual machines, availability zones, AV zones
+        href: ./move-virtual-machines-regional-zonal-faq.md
   - name: Virtual Machine Scale Sets
     items: 
     - name: Overview
@@ -1207,7 +1235,7 @@
         - name: CLI
           href: linux/disks-enable-customer-managed-keys-cli.md
           displayname: Server side encryption, encryption, ADE
-      - name: Use customer-managed keys across Azure AD tenants
+      - name: Use customer-managed keys across Microsoft Entra tenants
         href: disks-cross-tenant-customer-managed-keys.md
         displayname: Server side encryption, encryption, ADE
       - name: Enable encryption at host
@@ -1354,7 +1382,7 @@
     href: disks-scalability-targets.md
   - name: Backup and data protection
     items:
-    - name: Enable incremental snapshots
+    - name: Create incremental snapshots
       href: disks-incremental-snapshots.md
     - name: Copy incremental snapshots across regions
       href: disks-copy-incremental-snapshot-across-regions.md
@@ -1417,6 +1445,8 @@
     items:
     - name: Change disk types
       href: disks-convert-types.md
+    - name: Migrate from LRS to ZRS
+      href: disks-migrate-lrs-zrs.md
     - name: Migrate to the same or different subscription
       items:
       - name: Copy a managed disk to the same or different subscription - CLI
@@ -1747,7 +1777,7 @@
         href: ./windows/key-vault-setup.md
   - name: Mitigating speculative execution
     href: mitigate-se.md
-  - name: Join a Linux VM to Azure Active Directory
+  - name: Join a Linux VM to Microsoft Entra ID
     displayName: Azure AD
     items:
     - name: Red Hat Enterprise Linux
@@ -1763,27 +1793,27 @@
     items:
     - name: Portal
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?toc=/azure/virtual-machines/toc.json
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm?toc=/azure/virtual-machines/toc.json
     - name: CLI
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md?toc=/azure/virtual-machines/toc.json
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-cli-windows-vm?toc=/azure/virtual-machines/toc.json
     - name: PowerShell
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md?toc=/azure/virtual-machines/toc.json
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-powershell-windows-vm?toc=/azure/virtual-machines/toc.json
     - name: Azure Resource Manager Template
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md?toc=/azure/virtual-machines/toc.json
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-template-windows-vm?toc=/azure/virtual-machines/toc.json
     - name: REST
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md?toc=/azure/virtual-machines/toc.json
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-rest-vm?toc=/azure/virtual-machines/toc.json
     - name: Azure SDKs
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?toc=/azure/virtual-machines/toc.json
-  - name: Linux VMs SSH with Azure AD
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-sdk-windows-vm?toc=/azure/virtual-machines/toc.json
+  - name: Linux VMs SSH with Microsoft Entra ID
     displayName: aad, ssh, active directory
-    href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md?toc=/azure/virtual-machines/toc.json
-  - name: Windows VMs and Azure AD
-    href: ../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md?toc=/azure/virtual-machines/toc.json
+    href: /entra/identity/devices/howto-vm-sign-in-azure-ad-linux?toc=/azure/virtual-machines/toc.json
+  - name: Windows VMs and Microsoft Entra ID
+    href: /entra/identity/devices/howto-vm-sign-in-azure-ad-windows?toc=/azure/virtual-machines/toc.json
     displayname: aad, active directory
 - name: Updates and maintenance
   items:
@@ -1791,27 +1821,8 @@
     displayName: maintenance, updates, live-migration
     href: updates-maintenance-overview.md
   - name: Automatic OS image upgrade
-    items:
-    - name: Overview
-      displayName: Automatic OS image upgrade, image, upgrade, OS
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/toc.json
-    - name: Maintenance control for OS image upgrade
-      items:
-      - name: Overview
-        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
-        href: virtual-machine-scale-sets-maintenance-control.md
-      - name: PowerShell
-        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
-        href: virtual-machine-scale-sets-maintenance-control-powershell.md
-      - name: CLI
-        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
-        href: virtual-machine-scale-sets-maintenance-control-cli.md
-      - name: Portal
-        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
-        href: virtual-machine-scale-sets-maintenance-control-portal.md
-      - name: ARM Template
-        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
-        href: virtual-machine-scale-sets-maintenance-control-template.md
+    displayName: Automatic OS image upgrade, image, upgrade, OS
+    href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/toc.json
   - name: Windows Server in-place upgrade
     href: windows-in-place-upgrade.md
   - name: Automatic VM guest patching
@@ -1861,6 +1872,23 @@
       - name: Portal
         displayName: Maintenance configurations
         href: maintenance-configurations-portal.md
+      - name: Maintenance control for OS image upgrade
+        items:
+        - name: Overview
+          displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+          href: virtual-machine-scale-sets-maintenance-control.md
+        - name: PowerShell
+          displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+          href: virtual-machine-scale-sets-maintenance-control-powershell.md
+        - name: CLI
+          displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+          href: virtual-machine-scale-sets-maintenance-control-cli.md
+        - name: Portal
+          displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+          href: virtual-machine-scale-sets-maintenance-control-portal.md
+        - name: ARM Template
+          displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+          href: virtual-machine-scale-sets-maintenance-control-template.md
     - name: Scheduled events
       items:
       - name: Linux
@@ -1998,6 +2026,10 @@
       items:
       - name: Create VM restore points
         href: create-restore-points.md
+      - name: VMSnapshot extension
+        href: virtual-machines-restore-points-vm-snapshot-extension.md
+      - name: Cross-region copy
+        href: virtual-machines-restore-points-copy.md        
     - name: Manage VM restore points
       href: manage-restore-points.md
     - name: Tutorials
@@ -2008,6 +2040,8 @@
         href: virtual-machines-create-restore-points-powershell.md
       - name: Portal
         href: virtual-machines-create-restore-points-portal.md
+      - name: How to copy VM restore points to another region
+        href: virtual-machines-copy-restore-points-how-to.md        
     - name: Support matrix
       href: concepts-restore-points.md
     - name: Troubleshooting

@@ -2,12 +2,12 @@
 title: What's new in QnA Maker service?
 titleSuffix: Azure AI services
 description: This article contains news about QnA Maker.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
 ms.custom: ignite-fall-2021

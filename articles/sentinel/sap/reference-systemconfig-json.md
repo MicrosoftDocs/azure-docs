@@ -168,7 +168,7 @@ The *systemconfig.json* file is used to configure behavior of the data collector
       #SAPControl server hostname/fqdn/IP address
 
       "instance": "<instance>",
-      #SAPControl instance name
+      #SAPControl instance number
 
       "abapseverity": "<severity>",
       # 0 = All logs ; 1 = Warning ; 2 = Error

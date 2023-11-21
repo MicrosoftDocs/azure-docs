@@ -12,7 +12,7 @@ There are two endpoints through which you can communicate with the Log Analytics
 - A direct URL for the API: `https://api.loganalytics.azure.com`
 - Through Azure Resource Manager (ARM).
 
-While the URLs are different, the query parameters are the same for each endpoint. Both endpoints require authorization through Azure Active Directory (Azure AD).
+While the URLs are different, the query parameters are the same for each endpoint. Both endpoints require authorization through Microsoft Entra ID.
 
 The API supports the `POST` and `GET` methods.
 

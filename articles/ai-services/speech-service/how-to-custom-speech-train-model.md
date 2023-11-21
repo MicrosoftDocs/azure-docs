@@ -2,11 +2,10 @@
 title: Train a Custom Speech model - Speech service
 titleSuffix: Azure AI services
 description: Learn how to train Custom Speech models. Training a speech to text model can improve recognition accuracy for the Microsoft base model or a custom model.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 09/15/2023
 ms.author: eur

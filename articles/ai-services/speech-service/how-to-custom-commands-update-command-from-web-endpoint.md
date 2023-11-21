@@ -2,11 +2,10 @@
 title: 'Update a command from a web endpoint'                             
 titleSuffix: Azure AI services
 description: Learn how to update the state of a command by using a call to a web endpoint.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.author: eur

@@ -39,12 +39,20 @@ items:
       href: ./concepts/content-filter.md
     - name: Embeddings
       href: ./concepts/understand-embeddings.md
+    - name: Fine-tuning
+      href: ./concepts/fine-tuning-considerations.md
     - name: Red teaming large language models (LLMs)
       href: ./concepts/red-teaming.md
+    - name: Image provenance
+      href: ./concepts/content-credentials.md
     - name: Intro to prompt engineering
       href: ./concepts/prompt-engineering.md
+    - name: Model versions
+      href: ./concepts/model-versions.md
     - name: Prompt engineering techniques
       href: ./concepts/advanced-prompt-engineering.md
+    - name: Provisioned throughput units (PTU)
+      href: ./concepts/provisioned-throughput.md
     - name: System message templates
       href: ./concepts/system-message.md
     - name: Using your data (preview)
@@ -60,12 +68,18 @@ items:
       href: ./how-to/function-calling.md
     - name: Completions
       href: ./how-to/completions.md
+    - name: JSON mode
+      href: ./how-to/json-mode.md
+    - name: Reproducible output
+      href: ./how-to/reproducible-output.md
     - name: Work with code
       href: ./how-to/work-with-code.md
     - name: Use with large datasets
       href: ./how-to/integrate-synapseml.md
   - name: Content filtering
     href: ./how-to/content-filters.md
+  - name: Use blocklists
+    href: ./how-to/use-blocklists.md
   - name: Embeddings
     items:
     - name: Embeddings basics
@@ -74,11 +88,15 @@ items:
       href: ./tutorials/embeddings.md
   - name: Fine-tuning
     items:
-      - name: Prepare dataset
-        href: ./how-to/prepare-dataset.md
       - name: Fine-tuning your model
         href: ./how-to/fine-tuning.md
-  - name: Networking & security
+  - name: Migrate to OpenAI Python v1.x
+    href: ./how-to/migration.md
+  - name: Models
+    items:
+      - name: Manage models
+        href: ./how-to/working-with-models.md
+  - name: Networking and security
     items:
       - name: Use virtual networks
         href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context
@@ -106,6 +124,8 @@ items:
   items:
     - name: Embeddings
       href: ./tutorials/embeddings.md
+    - name: Fine-tuning GPT-3.5-Turbo
+      href: ./tutorials/fine-tune.md
     - name: Speech to speech chat
       href: ../speech-service/openai-speech.md?context=%2fazure%2fcognitive-services%2fopenai%2fcontext%2fcontext
 - name: Responsible AI
@@ -138,9 +158,26 @@ items:
     - name: REST API (completions & embeddings)
       href: reference.md
     - name: REST API (fine-tuning)
-      href: /rest/api/cognitiveservices/azureopenaistable/fine-tunes
+      href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview&preserve-view=true 
     - name: REST API (resource creation & deployment)
       href: /rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP
+    - name: Templates
+      items: 
+        - name: Retrieval Augmented Generation (RAG) enterprise chat
+          displayName: RAG, rag
+          items:
+            - name: C#
+              href: /dotnet/azure/ai/get-started-app-chat-template
+              displayName: RAG, rag
+            - name: Java
+              href: /azure/developer/java/quickstarts/get-started-app-chat-template
+              displayName: RAG, rag
+            - name: JavaScript
+              href: /azure/developer/javascript/get-started-app-chat-template
+              displayName: RAG, rag
+            - name: Python
+              href: /azure/developer/python/get-started-app-chat-template
+              displayName: RAG, rag
 - name: Resources
   items: 
     - name: Support and help options

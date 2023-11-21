@@ -7,7 +7,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: how-to
-ms.date: 06/20/2023
+ms.date: 11/03/2023
 ---
 
 # Migrate IoT Hub resources to a new TLS certificate root
@@ -23,9 +23,11 @@ You should start planning now for the effects of migrating your IoT hubs to the 
 
 ## Timeline
 
-The IoT Hub team will begin migrating IoT hubs by region on **February 15, 2023** and completing by October 15, 2023. After all IoT hubs have migrated, then DPS will perform its migration between January 15 and February 15, 2024.
+The IoT Hub team began migrating IoT hubs in February, 2023 and the migration is complete except for hubs that have already been approved for a later migration. If your IoT hub is found to be using the Baltimore certificate without an agreement in place with the product team, your hub will be migrated without any further notice.
 
-For each IoT hub, you can expect the following:
+After all IoT hubs have migrated, DPS will perform its migration between January 15 and February 15, 2024.
+
+For each IoT hub with an extension agreement in place, you can expect the following:
 
 * **One to two weeks before migration**: The subscription owners of each IoT hub receive an email notification informing them of their migration date. This notification doesn't apply to hubs that are manually migrated.
 * **Day of the migration**: The IoT hub switches its TLS certificate to the DigiCert Global Root G2, which results in no downtime for the IoT hub. IoT Hub doesn't force device reconnections.
@@ -33,18 +35,11 @@ For each IoT hub, you can expect the following:
 
 ### Request an extension
 
-This TLS certificate migration is critical for the security of our customers and Microsoft's infrastructure, and is time-bound by the expiration of the Baltimore CyberTrust Root certificate. Therefore, there's little extra time that we can provide for customers that don't think their devices will be ready by the migration deadlines.
-
-As of June 2023 the extension request process is closed for IoT Hub customers.
-
-IoT Central applications are scheduled for migration between June 15th and October 15th, 2023. For IoT Central customers who absolutely can't have their devices ready for migration by June 2023, [fill out this form](https://aka.ms/BaltimoreAllowCentral) before August 15, 2023 with the details of your extension request, and then [email us](mailto:iot-ca-updates@microsoft.com?subject=Requesting%20extension%20for%20Baltimore%20migration) with a message that indicates you've completed the form, along with your company name. We can flag the specific IoT Central apps to be migrated on the requested extension date.
-
-> [!NOTE]
-> We are collecting this information to help with the Baltimore migration. We will hold onto this information until October 15th, 2023, when this migration is slated to complete. If you would like us to delete this information, please [email us](mailto:iot-ca-updates@microsoft.com) and we can assist you. For any additional questions about the Microsoft privacy policy, see the [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839).
+As of August, 2023 the extension request process is closed for IoT Hub and IoT Central. If your IoT hub is found to be using the Baltimore certificate without an extension agreement in place with the product team, your hub will be migrated without any further notice.
 
 ## Required steps
 
-To prepare for the migration, take the following steps before February 2023:
+To prepare for the migration, take the following steps:
 
 1. Keep the Baltimore CyberTrust Root in your devices' trusted root store. Add the DigiCert Global Root G2 and the Microsoft RSA Root Certificate Authority 2017 certificates to your devices. You can download all of these certificates from the [Azure Certificate Authority details](../security/fundamentals/azure-CA-details.md).
 
@@ -55,68 +50,6 @@ To prepare for the migration, take the following steps before February 2023:
    IoT Hub and DPS occasionally roll over their intermediate certificate authority (CA). In these instances, your devices will lose connectivity if they explicitly look for an intermediate CA or leaf certificate. However, devices that perform validation using the public roots will continue to connect regardless of any changes to the intermediate CA.
 
 For more information about how to test whether your devices are ready for the TLS certificate migration, see the blog post [Azure IoT TLS: Critical changes are almost here](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
-
-## Optional manual IoT hub migration
-
-If you've prepared your devices and are ready for the TLS certificate migration, you can manually migrate your IoT hub root certificates yourself.
-
-After you migrate to the new root certificate, it will take about 45 minutes for all devices to disconnect and reconnect with the new certificate. This timing is because the Azure IoT SDKs are programmed to reverify their connection every 45 minutes. If you've implemented a different pattern in your solution, then your experience may vary.
-
->[!NOTE]
->There is no manual migration option for Device Provisioning Service instances. That migration will happen automatically once all IoT hub instances have migrated. No additional action is required from you beyond having the new root certificate on your devices.
-
-# [Azure portal](#tab/portal)
-
-1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
-
-1. Select **Certificates** in the **Security settings** section of the navigation menu.
-
-1. Select the **TLS certificate** tab and select **Migrate to DigiCert Global G2**.
-
-   :::image type="content" source="./media/migrate-tls-certificate/migrate-to-digicert-global-g2.png" alt-text="Screenshot of the TLS certificate tab, select 'Migrate to DigiCert Global G2.'":::
-
-1. A series of checkboxes asks you to verify that you've prepared your devices for the migration. Check each box, confirming that your IoT solution is ready for the migration. Then, select **Update**.
-
-1. Use the **Connected Devices** metric to verify that your devices are successfully reconnecting with the new certificate.
-
-For more information about monitoring your devices, see [Monitoring IoT Hub](monitor-iot-hub.md).
-
-If you encounter any issues, you can undo the migration and revert to the Baltimore CyberTrust Root certificate.
-
-1. Select **Revert to Baltimore root** to undo the migration.
-
-1. Again, a series of checkboxes asks you to verify that you understand how reverting to the Baltimore CyberTrust Root will affect your devices. Check each box, then select **Update**.
-
-# [Azure CLI](#tab/cli)
-
-Use the [az extension update](/cli/azure/extension#az-extension-update) command to make sure you have the latest version of the `azure-iot` extension.
-
-```azurecli-interactive
-az extension update --name azure-iot
-```
-
-Use the [az iot hub certificate root-authority show](/cli/azure/iot/hub/certificate/root-authority#az-iot-hub-certificate-root-authority-show) command to view the current certificate root-authority for your IoT hub.
-
-```azurecli-interactive
-az iot hub certificate root-authority show --hub-name <iothub_name>
-```
-
->[!TIP]
->In the Azure CLI, the existing Baltimore CyberTrust Root certificate is referred to as `v1`, and the new DigiCert Global Root G2 certificate is referred to as `v2`.
-
-Use the [az iot hub certificate root-authority set](/cli/azure/iot/hub/certificate/root-authority#az-iot-hub-certificate-root-authority-set) command to migrate your IoT hub to the new DigiCert Global Root G2 certificate.
-
-```azurecli-interactive
-az iot hub certificate root-authority set --hub-name <iothub_name> --certificate-authority v2
-```
-
-Verify that your migration was successful. We recommend using the **connected devices** metric to view devices disconnecting and reconnecting post-migration.
-
-For more information about monitoring your devices, see [Monitoring IoT Hub](monitor-iot-hub.md).
-
-If you encounter any issues, you can undo the migration and revert to the Baltimore CyberTrust Root certificate by running the previous command again with `--certificate authority v1`.
-
----
 
 ## Check the migration status of an IoT hub
 
@@ -181,39 +114,15 @@ You can migrate your application from the Baltimore CyberTrust Root to the DigiC
 
 Several factors can affect device reconnection behavior.
 
-Devices are configured to reverify their connection at a specific interval. The default in the Azure IoT SDKs is to reverify every 45 minutes. If you've implemented a different pattern in your solution, then your experience may vary.
+Devices are configured to reverify their connection at a specific interval. The default in the Azure IoT SDKs is to reverify every 45 minutes. If you've implemented a different pattern in your solution, then your experience might vary.
 
-Also, as part of the migration, your IoT hub may get a new IP address. If your devices use a DNS server to connect to IoT hub, it can take up to an hour for DNS servers to refresh with the new address. For more information, see [IoT Hub IP addresses](iot-hub-understand-ip-address.md).
+Also, as part of the migration, your IoT hub might get a new IP address. If your devices use a DNS server to connect to IoT hub, it can take up to an hour for DNS servers to refresh with the new address. For more information, see [IoT Hub IP addresses](iot-hub-understand-ip-address.md).
 
 ### When can I remove the Baltimore Cybertrust Root from my devices?
 
 You can remove the Baltimore root certificate once all stages of the migration are complete. If you only use IoT Hub, then you can remove the old root certificate after the IoT Hub migration is scheduled to complete on October 15, 2023. If you use Device Provisioning Service or IoT Central, then you need to keep both root certificates on your device until the DPS migration is scheduled to complete on February 15, 2024.
 
 ## Troubleshoot
-
-### Troubleshoot the self-migration tool
-
-If you're using the CLI commands to migrate to a new root certificate and receive an error that `root-authority` isn't a valid command, make sure that you're running the latest version of the **azure-iot** extension.
-
-1. Use `az extension list` to verify that you have the correct extension installed.
-
-   ```azurecli
-   az extension list
-   ```
-
-   This article uses the newest version of the Azure IoT extension, called `azure-iot`. The legacy version is called `azure-cli-iot-ext`. You should only have one version installed at a time.
-
-   Use `az extension remove --name azure-cli-iot-ext` to remove the legacy version of the extension.
-
-   Use `az extension add --name azure-iot` to add the new version of the extension.
-
-1. Use `az extension update` to install the latest version of the **azure-iot** extension.
-
-   ```azurecli
-   az extension update --name azure-iot
-   ```
-
-### Troubleshoot device reconnection
 
 If you're experiencing general connectivity issues with IoT Hub, check out these troubleshooting resources:
 

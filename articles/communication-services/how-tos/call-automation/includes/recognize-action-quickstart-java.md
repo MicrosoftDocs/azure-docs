@@ -29,7 +29,7 @@ The following parameters are available to customize the Recognize function:
 | Parameter | Type|Default (if not specified) | Description | Required or Optional |
 | ------- |--| ------------------------ | --------- | ------------------ |
 | Prompt <br/><br/> *(for details on Play action, refer to [this how-to guide](../play-ai-action.md))* | FileSource, TextSource | Not set |This is the message you wish to play before recognizing input. | Optional |
-| InterToneTimeout | TimeSpan | 2 seconds <br/><br/>**Min:** 1 second <br/>**Max:** 60 seconds | Limit in seconds that ACS waits for the caller to press another digit (inter-digit timeout). | Optional |
+| InterToneTimeout | TimeSpan | 2 seconds <br/><br/>**Min:** 1 second <br/>**Max:** 60 seconds | Limit in seconds that Azure Communication Services waits for the caller to press another digit (inter-digit timeout). | Optional |
 | InitialSegmentationSilenceTimeoutInSeconds | Integer | 0.5 second | How long recognize action waits for input before considering it a timeout. [Read more here](../../../../../articles/cognitive-services/Speech-Service/how-to-recognize-speech.md). | Optional |
 | RecognizeInputsType | Enum | dtmf | Type of input that is recognized. Options are dtmf, choices, speech and speechordtmf. | Required |
 | InitialSilenceTimeout | TimeSpan | 5 seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds (DTMF) <br/>**Max:** 20 seconds (Choices) <br/>**Max:** 20 seconds (Speech)| Initial silence timeout adjusts how much nonspeech audio is allowed before a phrase before the recognition attempt ends in a "no match" result. [Read more here](../../../../../articles/cognitive-services/Speech-Service/how-to-recognize-speech.md). | Optional |
@@ -130,6 +130,7 @@ var recognizeResponse = callAutomationClient.getCallConnectionAsync(callConnecti
 
 log.info("Start recognizing result: " + recognizeResponse.getStatusCode()); 
 ```
+For speech-to-text flows, Call Automation recognize action also supports the use of custom speech models. Features like custom speech models can be useful when you're building an application that needs to listen for complex words which the default speech-to-text models may not be capable of understanding, a good example of this can be when you're building an application for the telemedical industry and your virtual agent needs to be able to recognize medical terms. You can learn more about creating and deploying custom speech models [here](../../../../ai-services/speech-service/how-to-custom-speech-create-project.md).
 
 ### Speech-to-Text Choices (Public Preview)
 ``` java
@@ -152,7 +153,9 @@ var recognizeOptions = new CallMediaRecognizeChoiceOptions(targetParticipant, ch
   .setInterruptPrompt(true)
   .setInitialSilenceTimeout(Duration.ofSeconds(30))
   .setPlayPrompt(playSource)
-  .setOperationContext("AppointmentReminderMenu");
+  .setOperationContext("AppointmentReminderMenu")
+  //Only add the SpeechRecognitionModelEndpointId if you have a custom speech model you would like to use
+  .setSpeechRecognitionModelEndpointId("YourCustomSpeechModelEndpointID"); 
 var recognizeResponse = callAutomationClient.getCallConnectionAsync(callConnectionId)
   .getCallMediaAsync()
   .startRecognizingWithResponse(recognizeOptions)
@@ -168,7 +171,9 @@ var playSource = new TextSource()
     .setVoiceName("en-US-ElizabethNeural"); 
 var recognizeOptions = new CallMediaRecognizeSpeechOptions(targetParticipant, Duration.ofMillis(1000)) 
     .setPlayPrompt(playSource) 
-    .setOperationContext("OpenQuestionSpeech"); 
+    .setOperationContext("OpenQuestionSpeech")
+    //Only add the SpeechRecognitionModelEndpointId if you have a custom speech model you would like to use
+    .setSpeechRecognitionModelEndpointId("YourCustomSpeechModelEndpointID");  
 var recognizeResponse = callAutomationClient.getCallConnectionAsync(callConnectionId) 
     .getCallMediaAsync() 
     .startRecognizingWithResponse(recognizeOptions) 
@@ -187,7 +192,9 @@ var recognizeOptions = new CallMediaRecognizeSpeechOrDtmfOptions(targetParticipa
     .setPlayPrompt(playSource) 
     .setInitialSilenceTimeout(Duration.ofSeconds(30)) 
     .setInterruptPrompt(true) 
-    .setOperationContext("OpenQuestionSpeechOrDtmf"); 
+    .setOperationContext("OpenQuestionSpeechOrDtmf")
+    //Only add the SpeechRecognitionModelEndpointId if you have a custom speech model you would like to use
+    .setSpeechRecognitionModelEndpointId("YourCustomSpeechModelEndpointID");  
 var recognizeResponse = callAutomationClient.getCallConnectionAsync(callConnectionId) 
     .getCallMediaAsync() 
     .startRecognizingWithResponse(recognizeOptions) 

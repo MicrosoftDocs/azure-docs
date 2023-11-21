@@ -38,6 +38,8 @@
     href: chaos-studio-faults-actions.md
   - name: Targets and capabilities
     href: chaos-studio-targets-capabilities.md
+  - name: Target selection
+    href: chaos-studio-target-selection.md
   - name: Permissions and security
     href: chaos-studio-permissions-security.md
   - name: Private networking
@@ -70,6 +72,20 @@
       href: chaos-studio-tutorial-dynamic-target-portal.md
     - name: CLI 
       href: chaos-studio-tutorial-dynamic-target-cli.md
+  - name: Experiment templates
+    items: 
+    - name: Use a chaos experiment template to induce an outage on an Azure Active Directory instance
+      href: chaos-studio-tutorial-aad-outage-portal.md
+    - name: Use a chaos experiment template to take down Virtual Machine Scale Set availability zones with autoscale disabled
+      href: chaos-studio-tutorial-availability-zone-down-portal.md
+  - name: Telemetry
+    items:
+    - name: Set up your Chaos Experiment to emit telemetry to Azure Monitor
+      href: chaos-studio-set-up-azure-monitor.md
+    - name: Set up your Agent-Based Chaos Experiment to emit telemetry to App Insights
+      href: chaos-studio-set-up-app-insights.md
+  - name: Configure an experiment using customer-managed keys (CMK)
+    href: chaos-studio-configure-customer-managed-keys.md
   - name: Troubleshoot common issues
     href: troubleshooting.md
 - name: Reference
@@ -78,7 +94,7 @@
     href: chaos-studio-fault-library.md
   - name: Fault providers
     href: chaos-studio-fault-providers.md
-  - name: Preview limitations and known issues
+  - name: Limitations and known issues
     href: chaos-studio-limitations.md
   - name: Service limits
     href: chaos-studio-service-limits.md

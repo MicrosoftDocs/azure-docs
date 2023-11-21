@@ -4,13 +4,14 @@ description: Service configuration includes how the service treats rewards, how 
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: how-to
 ms.date: 04/29/2020
 ---
 
 # Configure Personalizer learning loop
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
 

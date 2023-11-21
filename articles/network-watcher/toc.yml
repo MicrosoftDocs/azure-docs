@@ -30,17 +30,19 @@
   - name: Diagnose a communication problem between networks
     href: diagnose-communication-problem-between-networks.md
   - name: Log VM network traffic
-    href: network-watcher-nsg-flow-logging-portal.md
+    href: nsg-flow-logs-tutorial.md
 - name: Concepts
   items:
   - name: Network Watcher FAQ
     href: frequently-asked-questions.yml
+  - name: Topology
+    href: network-insights-topology.md
   - name: Connection monitor
     href: connection-monitor-overview.md
   - name: Connection monitor schema
     href: connection-monitor-schema.md
   - name: IP flow verify
-    href: network-watcher-ip-flow-verify-overview.md
+    href: ip-flow-verify-overview.md
   - name: NSG diagnostics
     href: network-watcher-network-configuration-diagnostics-overview.md
   - name: Next hop
@@ -155,10 +157,6 @@
         href: network-watcher-packet-capture-manage-powershell-vmss.md
       - name: Virtual machine - Azure CLI
         href: network-watcher-packet-capture-manage-cli.md
-      - name: Virtual machine - REST
-        href: network-watcher-packet-capture-manage-rest.md
-      - name: Virtual Machine Scale Set - REST
-        href: network-watcher-packet-capture-manage-rest-vmss.md
     - name: Analyze a packet capture
       items:
       - name: Find anomalies

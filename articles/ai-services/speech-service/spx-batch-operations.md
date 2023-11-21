@@ -2,11 +2,10 @@
 title: "Run batch operations with the Speech CLI - Speech service"
 titleSuffix: Azure AI services
 description: Learn how to do batch speech to text (speech recognition), batch text to speech (speech synthesis) with the Speech CLI.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: reference
 ms.date: 09/16/2022
 ms.author: eur

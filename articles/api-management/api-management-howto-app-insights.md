@@ -8,7 +8,7 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 08/25/2023
 ms.author: danlep
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-arm-template, devx-track-bicep
 ---
 
 # How to integrate Azure API Management with Azure Application Insights

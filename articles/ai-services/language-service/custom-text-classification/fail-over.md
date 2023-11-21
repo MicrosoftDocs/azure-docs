@@ -2,11 +2,10 @@
 title: Back up and recover your custom text classification models
 titleSuffix: Azure AI services
 description: Learn how to save and recover your custom text classification models.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 04/22/2022
 ms.author: aahi

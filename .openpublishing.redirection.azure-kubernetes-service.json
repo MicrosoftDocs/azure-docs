@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/aks/managed-azure-ad.md",
+            "redirect_url": "/azure/aks/enable-authentication-microsoft-entra-id.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/aks/stop-api-upgrade.md",
             "redirect_url": "/azure/aks/upgrade-cluster",
             "redirect_document_id": false
@@ -8,6 +13,11 @@
         {
             "source_path_from_root": "/articles/aks/cilium-enterprise-marketplace.md",
             "redirect_url": "/azure/aks/azure-cni-powered-by-cilium",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/app-routing-configuration.md",
+            "redirect_url": "/azure/aks/app-routing-dns-ssl",
             "redirect_document_id": false
         },
         {
@@ -23,6 +33,11 @@
         {
             "source_path_from_root": "/articles/aks/create-k8s-cluster-with-aks-application-gateway-ingress.md",
             "redirect_url": "/azure/application-gateway/for-containers/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/out-of-tree.md",
+            "redirect_url": "/azure/aks",
             "redirect_document_id": false
         }
     ]

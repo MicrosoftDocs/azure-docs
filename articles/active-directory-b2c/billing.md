@@ -85,8 +85,7 @@ A subscription linked to an Azure AD B2C tenant can be used for the billing of A
 ### Create the link
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that has your Microsoft Entra subscription, and not the directory containing your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Select **Create a resource**, and then, in the **Search services and Marketplace** field, search for and select **Azure Active Directory B2C**.
 1. Select **Create**.
 1. Select **Link an existing Azure AD B2C Tenant to my Azure subscription**.
@@ -112,10 +111,7 @@ To change your pricing tier, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Make sure you're using the Microsoft Entra directory that contains the subscription your Azure B2C tenant and not the Azure AD B2C tenant itself:
-    1. In the Azure portal toolbar, select the **Directories + subscriptions** (:::image type="icon" source="./../active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false":::) icon.
-
-    1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the **Directory name** list, and then select **Switch** button next to it.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
 
 1. In the search box at the top of the portal, enter the name of your Azure AD B2C tenant. Then select the tenant in the search results under **Resources**.
     
@@ -129,7 +125,7 @@ To change your pricing tier, follow these steps:
 
    ![Screenshot that shows how to select the pricing tier.](media/billing/select-tier.png)
 
-Learn about the [Microsoft Entra features, which are supported in Azure AD B2C](supported-azure-ad-features.md). 
+Learn about the [Microsoft Entra ID features, which are supported in Azure AD B2C](supported-azure-ad-features.md). 
  
 
 ## Switch to MAU billing (pre-November 2019 Azure AD B2C tenants)
@@ -141,8 +137,7 @@ The switch to monthly active users (MAU) billing is **irreversible**. Once you c
 Here's how to make the switch to MAU billing for an existing Azure AD B2C resource:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the subscription owner with administrative access to the Azure AD B2C resource.
-1. To select the Azure AD B2C directory that you want to upgrade to MAU billing, select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. On the **Overview** page of the Azure AD B2C tenant, select the link under **Resource name**. You're directed to the Azure AD B2C resource in your Microsoft Entra tenant.<br/>
 

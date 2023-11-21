@@ -40,7 +40,7 @@ Container Apps has two different [environment types](environment.md#types), whic
 | Environment type | Description | Supported plan types |
 |---|---|---|
 | Workload profiles | Supports user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is `/27`. | Consumption, Dedicated |
-| Consumption only | Doesn't support user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is `/23`. | Consumption |
+| Consumption only | Doesn't support user defined routes (UDR), egress through NAT Gateway, peering through a remote gateway, or other custom egress. The minimum required subnet size is `/23`. | Consumption |
 
 ## Accessibility levels
 
@@ -125,27 +125,37 @@ Virtual network integration depends on a dedicated subnet. How IP addresses are 
 
 Select your subnet size carefully. Subnet sizes can't be modified after you create a Container Apps environment.
 
-As a Container Apps environment is created, you provide resource IDs for a single subnet.
-
-If you're using the CLI, the parameter to define the subnet resource ID is `infrastructure-subnet-resource-id`. The subnet hosts infrastructure components and user app containers.
-
-If you're using the Azure CLI with a Consumption only environment and the [platformReservedCidr](vnet-custom-internal.md#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
-
 Different environment types have different subnet requirements:
 
-### Workload profiles environment
+# [Workload profiles environment](#tab/workload-profiles-env)
 
 - `/27` is the minimum subnet size required for virtual network integration.
 
 - Your subnet must be delegated to `Microsoft.App/environments`.
 
-- Container Apps automatically reserves 11 IP addresses for integration with the subnet. When your apps are running in a workload profiles environment, the number of IP addresses required for infrastructure integration doesn't vary based on the scale demands of the environment. Additional IP addresses are allocated according to the following rules depending on the type of workload profile you are using more IP addresses are allocated depending on your environment's workload profile:
+- When using an external environment with external ingress, inbound traffic routes through the infrastructure’s public IP rather than through your subnet.
 
-  - When you're using the [Dedicated workload profile](workload-profiles-overview.md#profile-types) for your container app, each node has one IP address assigned.
+- Container Apps automatically reserves 11 IP addresses for integration with the subnet. The number of IP addresses required for infrastructure integration doesn't vary based on the scale demands of the environment. Additional IP addresses are allocated according to the following rules depending on the type of workload profile you are using more IP addresses are allocated depending on your environment's workload profile:
 
-  - When you're using the [Consumption workload profile](workload-profiles-overview.md#profile-types), the IP address assignment behaves the same as when running on the [Consumption only environment](environment.md#types). As your app scales, a new IP address is allocated for each new replica.
+  - When you're using the [Dedicated workload profile](workload-profiles-overview.md#profile-types) and your container app scales out, each node has one IP address assigned.
 
-### Consumption only environment
+  - When you're using the [Consumption workload profile](workload-profiles-overview.md#profile-types), the IP address assignment behaves the same as when running on the [Consumption only environment](environment.md#types). As your app scales, one IP address may be assigned to multiple replicas. However, when determining how many IP addresses are required for your app, account for 1 IP address per replica.
+
+- When you make a [change to a revision](revisions.md#revision-scope-changes) in single revision mode, the required address space is doubled for a short period of time in order to support zero downtime deployments. This affects the real, available supported replicas or nodes for a given subnet size. The following table shows both the maximum available addresses per CIDR block and the effect on horizontal scale.
+
+    | Subnet Size | Available IP Addresses<sup>1</sup> | Max horizontal scale (single revision mode)<sup>2</sup>|
+    |--|--|--|
+    | /23 | 501 | 250<sup>3</sup> |
+    | /24 | 245 | 122<sup>3</sup> |
+    | /25 | 117 | 58 |
+    | /26 | 53 | 26 |
+    | /27 | 21 | 10 |
+    
+    <sup>1</sup> The available IP addresses is the size of the subnet minus the 11 IP addresses required for Azure Container Apps infrastructure.  
+    <sup>2</sup> This is accounting for 1 IP address per node/replica on scale out.  
+    <sup>3</sup> The quota is 100 for nodes/replicas in workload profiles. If additional quota is needed, please follow steps in [Quotas for Azure Container Apps](./quotas.md).
+
+# [Consumption only environment](#tab/consumption-only-env)
 
 - `/23` is the minimum subnet size required for virtual network integration.
 
@@ -153,7 +163,14 @@ Different environment types have different subnet requirements:
 
 - As your apps scale, a new IP address is allocated for each new replica.
 
+- When you make a [change to a revision](revisions.md#revision-scope-changes) in single revision mode, the required address space is doubled for a short period of time in order to support zero downtime deployments. This affects the real, available supported replicas for a given subnet size.
+
+---
+
+
 ### Subnet address range restrictions
+
+# [Workload profiles environment](#tab/workload-profiles-env)
 
 Subnet address ranges can't overlap with the following ranges reserved by Azure Kubernetes Services:
 
@@ -169,6 +186,25 @@ In addition, a workload profiles environment reserves the following addresses:
 - 100.100.160.0/19
 - 100.100.192.0/19
 
+# [Consumption only environment](#tab/consumption-only-env)
+
+Subnet address ranges can't overlap with the following ranges reserved by Azure Kubernetes Services:
+
+- 169.254.0.0/16
+- 172.30.0.0/16
+- 172.31.0.0/16
+- 192.0.2.0/24
+
+---
+
+### Subnet configuration with CLI
+
+As a Container Apps environment is created, you provide resource IDs for a single subnet.
+
+If you're using the CLI, the parameter to define the subnet resource ID is `infrastructure-subnet-resource-id`. The subnet hosts infrastructure components and user app containers.
+
+If you're using the Azure CLI with a Consumption only environment and the [platformReservedCidr](vnet-custom-internal.md#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
+
 ## Routes
 
 <a name="udr"></a>
@@ -183,8 +219,6 @@ User Defined Routes (UDR) and controlled egress through NAT Gateway are supporte
 - You can use UDR with workload profiles environments to restrict outbound traffic from your container app through Azure Firewall or other network appliances.
 
 - Configuring UDR is done outside of the Container Apps environment scope.
-
-- UDR isn't supported for external environments.
 
 :::image type="content" source="media/networking/udr-architecture.png" alt-text="Diagram of how UDR is implemented for Container Apps.":::
 

@@ -3,7 +3,7 @@ title: Install and use Azure IoT explorer | Microsoft Docs
 description: Install the Azure IoT explorer tool and use it to interact with IoT Plug and Play devices connected to IoT hub. Although this article focuses on working with IoT Plug and Play devices, you can use the tool with any device connected to your hub.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/14/2022
+ms.date: 09/29/2023
 ms.topic: how-to
 ms.service: iot-develop
 services: iot-develop
@@ -100,7 +100,7 @@ On the **Component** page, you can view the read-only properties, update writabl
 You can view the read-only properties defined in an interface on the **Properties (read-only)** tab. You can update the writable properties defined in an interface on the **Properties (writable)** tab:
 
 1. Go to the **Properties (writable)** tab.
-1. Click the property you'd like to update.
+1. Select the property you'd like to update.
 1. Enter the new value for the property.
 1. Preview the payload to be sent to the device.
 1. Submit the change.

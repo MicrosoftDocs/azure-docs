@@ -2,12 +2,12 @@
 title: Map a custom domain to an Azure Blob Storage endpoint
 titleSuffix: Azure Storage
 description: Map a custom domain to a Blob Storage or web endpoint in an Azure storage account.
-author: jimmart-dev
+author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.author: jammart
+ms.author: shaas
 ms.reviewer: dineshm
 ---
 
@@ -408,11 +408,7 @@ The approach involves using [Azure Front Door (preferred)](../../frontdoor/front
 
 ### Using Azure CDN
 
-1. Enable [Azure CDN](../../cdn/cdn-overview.md) on your blob or web endpoint.
-
-   For a Blob Storage endpoint, see [Integrate an Azure storage account with Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
-
-   For a static website endpoint, see [Integrate a static website with Azure CDN](static-website-content-delivery-network.md).
+1. Enable [Azure CDN](../../cdn/cdn-overview.md) on your blob or web endpoint. For step-by-step guidance, see [Integrate an Azure storage account with Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
 2. [Map Azure CDN content to a custom domain](../../cdn/cdn-map-content-to-custom-domain.md).
 

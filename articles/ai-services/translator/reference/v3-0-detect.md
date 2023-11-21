@@ -2,12 +2,11 @@
 title: Translator Detect Method
 titleSuffix: Azure AI services
 description: Identify the language of a piece of text with the Azure AI Translator Detect method.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: reference
 ms.date: 09/19/2023
 ms.author: lajanuar

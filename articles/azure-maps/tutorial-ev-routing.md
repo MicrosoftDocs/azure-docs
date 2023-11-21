@@ -33,7 +33,7 @@ In this tutorial, you will:
 
 * An [Azure Maps account]
 * A [subscription key]
-- An [Azure storage account]
+* An [Azure storage account]
 
 > [!NOTE]
 > For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
@@ -166,8 +166,9 @@ for loc in range(len(searchPolyResponse["results"])):
 
 ## Upload the reachable range and charging points
 
-It's helpful to visualize the charging stations and the boundary for the maximum reachable range of the electric vehicle on a map. Follow the steps outlined in the [How to create data registry] article to upload the boundary data and charging stations data as geojson objects to your [Azure storage account] then register them in your Azure Maps account. Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is is how you reference the geojson objects you uploaded into your Azure storage account from your source code.
+It's helpful to visualize the charging stations and the boundary for the maximum reachable range of the electric vehicle on a map. Follow the steps outlined in the [How to create data registry] article to upload the boundary data and charging stations data as geojson objects to your [Azure storage account] then register them in your Azure Maps account. Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is how you reference the geojson objects you uploaded into your Azure storage account from your source code.
 
+<!---------------------------------------------------------------------------
 To upload the boundary and charging point data to Azure Maps Data service, run the following two cells:
 
 ```python
@@ -229,6 +230,7 @@ while True:
         time.sleep(0.2)
 poiUdid = getPoiUdid["udid"]
 ```
+------------------------------------------------------------>
 
 ## Render the charging stations and reachable range on a map
 
@@ -328,7 +330,7 @@ routeData = {
 
 ## Visualize the route
 
-To help visualize the route, follow the steps outlined in the [How to create data registry] article to upload the route data as a geojson object to your [Azure storage account] then register it in your Azure Maps account. Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is is how you reference the geojson objects you uploaded into your Azure storage account from your source code. Then, call the rendering service, [Get Map Image API], to render the route on the map, and visualize it.
+To help visualize the route, follow the steps outlined in the [How to create data registry] article to upload the route data as a geojson object to your [Azure storage account] then register it in your Azure Maps account. Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is how you reference the geojson objects you uploaded into your Azure storage account from your source code. Then, call the rendering service, [Get Map Image API], to render the route on the map, and visualize it.
 
 To get an image for the rendered route on the map, run the following script:
 
@@ -405,14 +407,14 @@ To learn more about Azure Notebooks, see
 [Azure Maps Jupyter Notebook repository]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook
 [Azure Maps REST APIs]: /rest/api/maps
 [Azure Notebooks]: https://notebooks.azure.com
-[Data Upload API]: /rest/api/maps/data-v2/upload
-[Data Upload]: /rest/api/maps/data-v2/upload
+[Azure storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
 [Get Map Image API]: /rest/api/maps/render-v2/get-map-static-image
 [Get Map Image service]: /rest/api/maps/render-v2/get-map-static-image
 [Get Route Directions API]: /rest/api/maps/route/getroutedirections
 [Get Route Directions]: /rest/api/maps/route/getroutedirections
 [Get Route Range API]: /rest/api/maps/route/getrouterange
 [Get Route Range]: /rest/api/maps/route/getrouterange
+[How to create data registry]: how-to-create-data-registries.md
 [Jupyter Notebook document file]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Matrix Routing API]: /rest/api/maps/route/postroutematrix

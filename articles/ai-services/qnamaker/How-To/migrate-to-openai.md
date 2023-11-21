@@ -2,8 +2,7 @@
 title: Migrate QnA Maker to Azure OpenAI on your data 
 titleSuffix: Azure AI services
 description: Learn how to migrate your QnA Maker projects to Azure OpenAI.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 author: aahill
 ms.author: aahi
 ms.topic: how-to
@@ -18,7 +17,7 @@ QnA Maker was designed to be a cloud-based Natural Language Processing (NLP) ser
 ## Prerequisites
 
 * A QnA Maker project. 
-* An existing Azure Open AI resource. If you don't already have an Azure Open AI resource, then [create one and deploy a model](../../openai/how-to/create-resource.md).
+* An existing Azure OpenAI resource. If you don't already have an Azure OpenAI resource, then [create one and deploy a model](../../openai/how-to/create-resource.md).
     * Azure OpenAI requires registration and is currently only available to approved enterprise customers and partners. See [Limited access to Azure OpenAI Service](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context) for more information. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue.
     * Be sure that you are assigned at least the [Cognitive Services OpenAI Contributor role](/azure/role-based-access-control/built-in-roles#cognitive-services-openai-contributor) for the Azure OpenAI resource.
 
@@ -34,7 +33,7 @@ QnA Maker was designed to be a cloud-based Natural Language Processing (NLP) ser
 
     :::image type="content" source="../media/openai/search-service.png" alt-text="A screenshot showing a QnA Maker project's search service in the Azure portal." lightbox="../media/openai/search-service.png":::
 
-1. Select the search service and open its **Overview** section. Note down the details, such as the Azure Search resource name, subscription, and location. You will need this information when you migrate to Azure Open AI.
+1. Select the search service and open its **Overview** section. Note down the details, such as the Azure Search resource name, subscription, and location. You will need this information when you migrate to Azure OpenAI.
 
     :::image type="content" source="../media/openai/search-service-details.png" alt-text="A screenshot showing a QnA Maker project's search service details in the Azure portal." lightbox="../media/openai/search-service-details.png":::
 
@@ -51,17 +50,17 @@ QnA Maker was designed to be a cloud-based Natural Language Processing (NLP) ser
     :::image type="content" source="../media/openai/chat-playground.png" alt-text="A screenshot showing the chat playground in Azure OPenAI studio." lightbox="../media/openai/chat-playground.png":::
 
 
-1. In the pane that appears, select **Azure Cognitive Search** under **Select or add data source**. This will update the screen with **Data field mapping** options depending on your data source. Select the subscription, Azure Cognitive Search service and Azure Cognitive Search Index associated with your QnA maker project. Select the acknowledgment that connecting it will incur usage on your account. Then select **Next**.
+1. In the pane that appears, select **Azure Cognitive Search** under **Select or add data source**. This will update the screen with **Data field mapping** options depending on your data source. Select the subscription, Azure AI Search service and Azure AI Search Index associated with your QnA maker project. Select the acknowledgment that connecting it will incur usage on your account. Then select **Next**.
 
     :::image type="content" source="../media/openai/azure-search-data-source.png" alt-text="A screenshot showing the data source selections in Azure OpenAI Studio." lightbox="../media/openai/azure-search-data-source.png":::
 
 1. On the **Index data field mapping** screen, select *answer* for **Content data** field. The other fields such as **File name**, **Title** and **URL** are optional depending on the nature of your data source.
 
-    :::image type="content" source="../media/openai/data-field-mapping.png" alt-text="A screenshot showing index field mapping information for Azure Cognitive Search in Azure OpenAI Studio." lightbox="../media/openai/data-field-mapping.png":::
+    :::image type="content" source="../media/openai/data-field-mapping.png" alt-text="A screenshot showing index field mapping information for Azure AI Search in Azure OpenAI Studio." lightbox="../media/openai/data-field-mapping.png":::
 
 1. Select **Next**. Select a search type from the dropdown menu. You can choose **Keyword** or **Semantic**. semantic” search requires an existing semantic search configuration, which may or may not be available for your project.  
     
-    :::image type="content" source="../media/openai/data-management.png" alt-text="A screenshot showing the data management options for Azure Cognitive Search indexes." lightbox="../media/openai/data-management.png":::
+    :::image type="content" source="../media/openai/data-management.png" alt-text="A screenshot showing the data management options for Azure AI Search indexes." lightbox="../media/openai/data-management.png":::
     
 1. Review the information you provided, and select **Save and close**. 
 

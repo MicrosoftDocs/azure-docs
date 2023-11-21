@@ -2,12 +2,11 @@
 title: "Quickstart: Optical character recognition using Vision Studio"
 titleSuffix: "Azure AI services"
 description: In this quickstart, get started with the OCR service using Vision Studio.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: include
 ms.date: 08/07/2023
 ms.author: pafarley

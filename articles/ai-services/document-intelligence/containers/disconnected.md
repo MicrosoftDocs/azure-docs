@@ -2,25 +2,33 @@
 title: Use Document Intelligence (formerly Form Recognizer) containers in disconnected environments
 titleSuffix: Azure AI services
 description: Learn how to run Cognitive Services Docker containers disconnected from the internet.
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 author: laujan
 manager: nitinme
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
 # Containers in disconnected environments
 
-::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](../includes/applies-to-v3-1-v3-0-v2-1.md)]
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [applies to v4.0](../includes/applies-to-v40.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](../includes/applies-to-v31.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+[!INCLUDE [applies to v3.0](../includes/applies-to-v30.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
 ::: moniker-end
 
 ## What are disconnected containers?
@@ -51,6 +59,17 @@ Start by provisioning a new resource in the portal.
 
   :::image type="content" source="../media/containers/disconnected.png" alt-text="Screenshot of disconnected tier configuration in the Azure portal.":::
 
+| Container | Minimum | Recommended | Commitment plan |
+|-----------|---------|-------------|-------------|
+| `Read` | `8` cores, 10-GB memory | `8` cores, 24-GB memory| OCR (Read) |
+| `Layout` | `8` cores, 16-GB memory | `8` cores, 24-GB memory | Prebuilt |
+| `Business Card` | `8` cores, 16-GB memory | `8` cores, 24-GB memory | Prebuilt |
+| `General Document` | `8` cores, 12-GB memory | `8` cores, 24-GB memory| Prebuilt |
+| `ID Document` | `8` cores, 8-GB memory | `8` cores, 24-GB memory | Prebuilt |
+| `Invoice` | `8` cores, 16-GB memory | `8` cores, 24-GB memory| Prebuilt |
+| `Receipt` | `8` cores, 11-GB memory | `8` cores, 24-GB memory | Prebuilt |
+| `Custom Template` | `8` cores, 16-GB memory | `8` cores, 24-GB memory| Custom API |
+
 ## Gather required parameters
 
 There are three required parameters for all Azure AI services' containers:
@@ -68,13 +87,13 @@ Both the endpoint URL and API key are needed when you first run the container to
 
 ## Download a Docker container with `docker pull`
 
-Download the Docker container that has been approved to run in a disconnected environment. For example:
+Download the Docker container that is approved to run in a disconnected environment. For example:
 
 ::: moniker range=">=doc-intel-3.0.0"
 
 |Docker pull command | Value |Format|
 |----------|-------|------|
-|&#9679; **`docker pull [image]`**</br></br> &#9679; **`docker pull [image]:latest`**|The latest container image.|&#9679; mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest</br>  </br>&#9679; mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice-3.0: latest |
+|&#9679; **`docker pull [image]`**</br></br> &#9679; **`docker pull [image]latest`**|The latest container image.|&#9679; `mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest`</br>  </br>&#9679; `mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice-3.0:latest` |
 
 ::: moniker-end
 
@@ -82,7 +101,7 @@ Download the Docker container that has been approved to run in a disconnected en
 
 |Docker pull command | Value |Format|
 |----------|-------|------|
-|&bullet; **`docker pull [image]`**</br>&bullet; **`docker pull [image]:latest`**|The latest container image.|&bullet; mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout</br>  </br>&bullet; mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice: latest |
+|&bullet; **`docker pull [image]`**</br>&bullet; **`docker pull [image]:latest`**|The latest container image.|&bullet; mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout</br>  </br>&bullet; `mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice:latest` |
 |||
 |&bullet; **`docker pull [image]:[version]`** | A specific container image |dockers pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt:2.1-preview |
 
@@ -98,7 +117,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice:l
 
 Disconnected container images are the same as connected containers. The key difference being that the disconnected containers require a license file. This license file is downloaded by starting the container in a connected mode with the downloadLicense parameter set to true.
 
-Now that you've downloaded your container, you need to execute the `docker run` command with the following parameter:
+Now that your container is downloaded, you need to execute the `docker run` command with the following parameter:
 
 * **`DownloadLicense=True`**. This parameter downloads a license file that enables your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file is invalid to run the container. You can only use the license file in corresponding approved container.
 
@@ -136,20 +155,19 @@ DownloadLicense=True \
 Mounts:License={CONTAINER_LICENSE_DIRECTORY}
 ```
 
-In the following command, replace the placeholders for the folder path, billing endpoint, and api key to download a license file for the layout container.
+In the following command, replace the placeholders for the folder path, billing endpoint, and API key to download a license file for the layout container.
 
 ```docker run -v {folder path}:/license --env Mounts:License=/license --env DownloadLicense=True --env Eula=accept --env Billing={billing endpoint} --env ApiKey={api key} mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest```
 
-
-After you've configured the container, use the next section to run the container in your environment with the license, and appropriate memory and CPU allocations.
+After the container is configured, use the next section to run the container in your environment with the license, and appropriate memory and CPU allocations.
 
 ## Document Intelligence container models and configuration
 
-After you've [configured the container](#configure-the-container-to-be-run-in-a-disconnected-environment), the values for the downloaded Document Intelligence models and container configuration will be generated and displayed in the container output.
+After you [configured the container](#configure-the-container-to-be-run-in-a-disconnected-environment), the values for the downloaded Document Intelligence models and container configuration will be generated and displayed in the container output.
 
 ## Run the container in a disconnected environment
 
-Once the license file has been downloaded, you can run the container in a disconnected environment with your license, appropriate memory, and suitable CPU allocations. The following example shows the formatting of the `docker run` command with placeholder values. Replace these placeholders values with your own values.
+Once you download the license file, you can run the container in a disconnected environment with your license, appropriate memory, and suitable CPU allocations. The following example shows the formatting of the `docker run` command with placeholder values. Replace these placeholders values with your own values.
 
 Whenever the container is run, the license file must be mounted to the container and the location of the license folder on the container's local filesystem must be specified with `Mounts:License=`. In addition, an output mount must be specified so that billing usage records can be written.
 
@@ -183,7 +201,7 @@ Mounts:Output={CONTAINER_OUTPUT_DIRECTORY}
 
 ::: moniker range=">=doc-intel-3.0.0"
 
-Starting a disconnected container is similar to [starting a connected container](install-run.md). Disconnected containers require an added license parameter. Here's a sample docker-compose.yml file for starting a custom container in disconnected mode. Add the CUSTOM_LICENSE_MOUNT_PATH environment variable with a value set to the folder containing the downloaded license file.
+Starting a disconnected container is similar to [starting a connected container](install-run.md). Disconnected containers require an added license parameter. Here's a sample docker-compose.yml file for starting a custom container in disconnected mode. Add the CUSTOM_LICENSE_MOUNT_PATH environment variable with a value set to the folder containing the downloaded license file, and the `OUTPUT_MOUNT_PATH` environment variable with a value set to the folder that holds the usage logs.
 
 ```yml
 version: '3.3'
@@ -271,7 +289,7 @@ services:
 
 ## Other parameters and commands
 
-Here are a few more parameters and commands you may need to run the container.
+Here are a few more parameters and commands you need to run the container.
 
 #### Usage records
 
@@ -349,4 +367,4 @@ Run the container with an output mount and logging enabled. These settings enabl
 ## Next steps
 
 * [Deploy the Sample Labeling tool to an Azure Container Instance (ACI)](../deploy-label-tool.md#deploy-with-azure-container-instances-aci)
-* [Change or end a commitment plan](../../../ai-services/containers/disconnected-containers.md#purchase-a-different-commitment-plan-for-disconnected-containers)
+* [Change or end a commitment plan](../../../ai-services/containers/disconnected-containers.md#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments)

@@ -3,12 +3,12 @@ title: Enable infrastructure encryption for double encryption of data
 titleSuffix: Azure Storage
 description: Customers who require higher levels of assurance that their data is secure can also enable 256-bit AES encryption at the Azure Storage infrastructure level. When infrastructure encryption is enabled, data in a storage account or encryption scope is encrypted twice with two different encryption algorithms and two different keys.
 services: storage
-author: akashdubey-ms
+author: normesta
 
 ms.service: azure-storage
-ms.date: 10/19/2022
+ms.date: 11/06/2023
 ms.topic: conceptual
-ms.author: akashdubey
+ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Enable infrastructure encryption for double encryption of data
 
-Azure Storage automatically encrypts all data in a storage account at the service level using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant. Customers who require higher levels of assurance that their data is secure can also enable 256-bit AES encryption at the Azure Storage infrastructure level for double encryption. Double encryption of Azure Storage data protects against a scenario where one of the encryption algorithms or keys may be compromised. In this scenario, the additional layer of encryption continues to protect your data.
+Azure Storage automatically encrypts all data in a storage account at the service level using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant. Customers who require higher levels of assurance that their data is secure can also enable 256-bit AES encryption at the Azure Storage infrastructure level for double encryption. Double encryption of Azure Storage data protects against a scenario where one of the encryption algorithms or keys might be compromised. In this scenario, the additional layer of encryption continues to protect your data.
 
 Infrastructure encryption can be enabled for the entire storage account, or for an encryption scope within an account. When infrastructure encryption is enabled for a storage account or an encryption scope, data is encrypted twice &mdash; once at the service level and once at the infrastructure level &mdash; with two different encryption algorithms and two different keys.
 
@@ -40,14 +40,14 @@ To use the Azure portal to create a storage account with infrastructure encrypti
 1. On the **Encryption** tab, locate **Enable infrastructure encryption**, and select **Enabled**.
 1. Select **Review + create** to finish creating the storage account.
 
-    :::image type="content" source="media/infrastructure-encryption-enable/create-account-infrastructure-encryption-portal.png" alt-text="Screenshot showing how to enable infrastructure encryption when creating account":::
+    :::image type="content" source="media/infrastructure-encryption-enable/create-account-infrastructure-encryption-portal.png" alt-text="Screenshot showing how to enable infrastructure encryption when creating account.":::
 
 To verify that infrastructure encryption is enabled for a storage account with the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
-1. Under **Settings**, choose **Encryption**.
+1. Under **Security + networking**, choose **Encryption**.
 
-    :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="Screenshot showing how to verify that infrastructure encryption is enabled for account":::
+    :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="Screenshot showing how to verify that infrastructure encryption is enabled for account.":::
 
 # [PowerShell](#tab/powershell)
 
@@ -63,6 +63,7 @@ New-AzStorageAccount -ResourceGroupName <resource_group> `
     -Location <location> `
     -SkuName "Standard_RAGRS" `
     -Kind StorageV2 `
+    -AllowBlobPublicAccess $false `
     -RequireInfrastructureEncryption
 ```
 
@@ -91,6 +92,7 @@ az storage account create \
     --location <location> \
     --sku Standard_RAGRS \
     --kind StorageV2 \
+    --allow-blob-public-access false \
     --require-infrastructure-encryption
 ```
 
