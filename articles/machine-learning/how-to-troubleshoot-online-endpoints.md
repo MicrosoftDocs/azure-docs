@@ -514,7 +514,7 @@ Retrying the operation might allow it to be performed without cancellation.
 
 #### Operation canceled waiting for lock confirmation
 
-Azure operations have a brief waiting period after being submitted during which they retrieve a lock to ensure that we don't run into race conditions. This error happens when the operation you submitted is the same as another operation. And the other operation is currently waiting for confirmation that it has received the lock to proceed. It might indicate that you've submitted a similar request too soon after the initial request.
+Azure operations have a brief waiting period after being submitted during which they retrieve a lock to ensure that we don't run into race conditions. This error happens when the operation you submitted is the same as another operation, and the other operation is currently waiting for confirmation that it has received the lock to proceed. It might indicate that you've submitted a similar request too soon after the initial request.
 
 Retrying the operation after waiting several seconds up to a minute might allow it to be performed without cancellation.
 
@@ -588,7 +588,7 @@ You can follow the troubleshooting steps in [GetAADTokenFailed](#error-getaadtok
 
 ### ERROR: ACRTokenExchangeFailed
 
-This error is because the Kubernetes cluster exchange ACR token failed because Azure AD token is unauthorized yet. Since the role assignment takes some time, so you can wait a moment then try again.
+This error is because the Kubernetes cluster exchange ACR token failed because Azure AD token is not yet authorized. Since the role assignment takes some time, so you can wait a moment then try again.
 
 This failure might also be due to too many requests to the ACR service at that time, it should be a transient error, you can try again later.
 
