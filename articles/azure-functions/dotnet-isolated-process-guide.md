@@ -79,20 +79,30 @@ You'll find these extension packages under [Microsoft.Azure.Functions.Worker.Ext
 
 ## Start-up and configuration 
 
-When using .NET isolated functions, you have access to the start-up of your function app, which is usually in Program.cs. You're responsible for creating and starting your own host instance. As such, you also have direct access to the configuration pipeline for your app. With .NET Functions isolated worker process, you can much more easily add configurations, inject dependencies, and run your own middleware. 
+When using .NET isolated functions, you have access to the start-up of your function app, which is usually in `Program.cs`. You're responsible for creating and starting your own host instance. As such, you also have direct access to the configuration pipeline for your app. With .NET Functions isolated worker process, you can much more easily add configurations, inject dependencies, and run your own middleware. 
 
 The following code shows an example of a [HostBuilder] pipeline:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_startup":::
 
-This code requires `using Microsoft.Extensions.DependencyInjection;`. 
+This code requires `using Microsoft.Extensions.DependencyInjection;`.
 
-A [HostBuilder] is used to build and return a fully initialized [`IHost`][IHost] instance, which you run asynchronously to start your function app. 
+Before calling `Build()` on the `HostBuilder`, you should:
+
+- Call either `ConfigureFunctionsWebApplication()` if using [ASP.NET Core integration](#aspnet-core-integration) or `ConfigureFunctionsWorkerDefaults()` otherwise. See [HTTP trigger](#http-trigger) for details on these options.
+    - If you're writing your application using F#, some trigger and binding extensions require extra configuration here. See the setup documentation for the [Blobs extension][fsharp-blobs], the [Tables extension][fsharp-tables], and the [Cosmos DB extension][fsharp-cosmos] if you plan to use this in your app.
+- Configure any services or app configuration your project requires. See [Configuration] for details.
+    - If you are planning to use Application Insights, you need to call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` in the `ConfigureServices()` delegate. See [Application Insights](#application-insights) for details.
+
+If your project targets .NET Framework 4.8, you also need to add `FunctionsDebugger.Enable();` before creating the HostBuilder. It should be the first line of your `Main()` method. For more information, see [Debugging when targeting .NET Framework](#debugging-when-targeting-net-framework).
+
+The [HostBuilder] is used to build and return a fully initialized [`IHost`][IHost] instance, which you run asynchronously to start your function app. 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
 
-> [!IMPORTANT]
-> If your project targets .NET Framework 4.8, you also need to add `FunctionsDebugger.Enable();` before creating the HostBuilder. It should be the first line of your `Main()` method. For more information, see [Debugging when targeting .NET Framework](#debugging-when-targeting-net-framework).
+[fsharp-blobs]: ./functions-bindings-storage-blob.md#install-extension
+[fsharp-tables]: ./functions-bindings-storage-table.md#install-extension
+[fsharp-cosmos]: ./functions-bindings-cosmosdb-v2.md#install-extension
 
 ### Configuration
 

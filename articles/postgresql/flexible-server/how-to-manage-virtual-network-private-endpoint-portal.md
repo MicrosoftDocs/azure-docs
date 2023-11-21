@@ -58,6 +58,7 @@ To create an Azure Database for PostgreSQL server, take the following steps:
 5. Select **Next:Networking**
 6. Choose **"Public access (allowed IP addresses) and Private endpoint"** checkbox checked as Connectivity method.
 7. Select **"Add Private Endpoint"** in Private Endpoint section
+    :::image type="content" source="./media/how-to-manage-virtual-network-private-endpoint-portal/private-endpoint-selection.png" alt-text="Screenshot of Add Private Endpoint button in Private Endpoint Section in Networking blade of Azure Portal" :::
 8. In Create Private Endpoint Screen enter following:
 
 | **Setting** | **Value**|

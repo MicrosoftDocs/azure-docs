@@ -2,12 +2,9 @@
 title: Secure APIs used for API connectors in Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Secure your custom RESTful APIs used for API connectors in Azure AD B2C.
-services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
 ms.date: 11/20/2023
 ms.author: kengaderdus

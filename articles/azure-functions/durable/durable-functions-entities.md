@@ -259,6 +259,9 @@ module.exports = df.entity(function(context) {
 
 ::: zone-end
 ::: zone pivot="python"
+> [!NOTE]
+> Refer to the [Azure Functions Python developer guide](../functions-reference-python.md) for more details about how the V2 model works.
+
 The following code is the `Counter` entity implemented as a durable function written in Python.
 
 # [v2](#tab/python-v2)
