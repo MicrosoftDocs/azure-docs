@@ -1,7 +1,7 @@
 ---
 title: Get started with Document Translation
 description: "How to create a Document Translation service using C#, Go, Java, Node.js, or Python programming languages and the REST API"
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator

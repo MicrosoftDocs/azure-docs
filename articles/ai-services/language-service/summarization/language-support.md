@@ -2,7 +2,7 @@
 title: Summarization language support
 titleSuffix: Azure AI services
 description: Learn about which languages are supported by document summarization.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
@@ -48,11 +48,9 @@ Conversation summarization supports the following languages:
 | English               | `en`          |                     |
 | French                | `fr`          |                     |
 | German                | `de`          |                     |
-| Hebrew                | `he`          |                     |
 | Italian               | `it`          |                     |
 | Japanese              | `ja`          |                     |
 | Korean                | `ko`          |                     |
-| Polish                | `pl`          |                     |
 | Portuguese            | `pt`          |                     |
 | Spanish               | `es`          |                     |
 

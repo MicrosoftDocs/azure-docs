@@ -8,7 +8,7 @@ ms.custom:
   - references_regions
   - devx-track-dotnet
   - ignite-2023
-ms.date: 07/26/2023
+ms.date: 11/15/2023
 ---
 
 

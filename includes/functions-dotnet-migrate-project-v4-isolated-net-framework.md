@@ -26,7 +26,7 @@ The following changes are required in the `.csproj` XML project file:
 
     ```xml
       <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
-      <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.0" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.2" />
       <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.0.13" />
       <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.21.0" />
       <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="1.0.0" />
@@ -54,7 +54,7 @@ After you make these changes, your updated project should look like the followin
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.2" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.0.13" />
     <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.21.0" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="1.0.0" />

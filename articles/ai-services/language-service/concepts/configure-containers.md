@@ -2,7 +2,7 @@
 title: Configure containers - Language service
 titleSuffix: Azure AI services
 description: Language service provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.custom:
