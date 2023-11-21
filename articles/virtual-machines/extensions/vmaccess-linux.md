@@ -39,7 +39,7 @@ This article describes how to run the VMAccess Extension from the Azure CLI and 
 | Ubuntu |	18.04+, 20.04+, 22.04+ |	20.04+, 22.04+ |
 
 ### Tips
-* VMAccess was designed for the purpose of regaining access to a VM in the event that access is lost. Based on this principal, it will grant sudo permission to account specified in the username field. Do not specify a user in the username field if you do not wish that user to regain sudo permissions - instead, login to the VM and use built-in tools (e.g. usermod, chage, etc.) to manage unprivileged users.
+* VMAccess was designed for the purpose of regaining access to a VM in the event that access is lost. Based on this principle, it will grant sudo permission to account specified in the username field. If you don't wish a user to gain sudo permissions, login to the VM and use built-in tools (e.g. usermod, chage, etc.) to manage unprivileged users.
 * You can only have one version of the extension applied to a VM. To run a second action, update the existing extension with a new configuration.
 * During a user update, VMAccess alters the `sshd_config` file and takes a backup of it beforehand. To restore the original backed-up SSH configuration, run VMAccess with `restore_backup_ssh` set to `True`.
 
@@ -100,7 +100,7 @@ The VMAccess Extension configuration includes settings for username, passwords, 
 | password | string | The password to set for the user account. |
 | ssh_key | string | The SSH public key to add for the user account. The SSH key can be in `ssh-rsa`, `ssh-ed25519`, or `.pem` format. |
 | reset_ssh | boolean | Whether or not to reset the SSH. If `true`, it will replace the sshd_config file with an internal resource file corresponding to the default SSH config for that distro. |
-| remove_user | string | The name of the user to remove. Cannot be used with `reset_ssh`, `restore_backup_ssh`, and `password`. |
+| remove_user | string | The name of the user to remove. Can't be used with `reset_ssh`, `restore_backup_ssh`, and `password`. |
 | expiration | string | Expiration to set to for the account. Defaults to never. |
 | remove_prior_keys | boolean | Whether or not to remove old SSH keys when adding a new one. Must be used with `ssh_key`. |
 | restore_backup_ssh | boolean | Whether or not to restore the original backed-up sshd_config. |
