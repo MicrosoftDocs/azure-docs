@@ -598,7 +598,7 @@ When you chat with a model, providing a history of the chat will help the model 
 
 **model**
 
-This determines the maximum number of tokens available to be used (`T`), the maximum number of tokens that can be used for the system message (`SM`) and that for the model response (`MR`). Please refer to the table above.  If the system message is more than the max tokens allowed for system messages, the rest of the tokens beyond the maximum will be ignored. This limitation only applies to Azure OpenAI on your data.
+This determines the maximum number of tokens available to be used (`T`), the maximum number of tokens that can be used for the system message (`SM`) and that for the model response (`MR`).  If the system message is more than the max tokens allowed for system messages, the rest of the tokens beyond the maximum will be ignored. This limitation only applies to Azure OpenAI on your data.
 
 **Meta prompt (`MP`)** 
 
