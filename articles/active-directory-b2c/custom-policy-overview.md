@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: overview
-ms.date: 11/06/2023
+ms.date: 11/20/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -16,20 +16,20 @@ ms.custom: "b2c-support"
 
 # Azure AD B2C custom policy overview
 
-Custom policies are configuration files that define the behavior of your Azure Active Directory B2C (Azure AD B2C) tenant. While [user flows](user-flow-overview.md) are predefined in the Azure AD B2C portal for the most common identity tasks, custom policies can be fully edited by an identity developer to complete many different tasks.
+Custom policies are configuration files that define the behavior of your Azure Active Directory B2C (Azure AD B2C) tenant. While [user flows](user-flow-overview.md) are predefined in the Azure AD B2C portal for the most common identity tasks, an identity developer can edit custom policies to complete many different tasks.
 
-A custom policy is fully configurable and policy-driven. A custom policy orchestrates trust between entities in standard protocols. For example, OpenID Connect, OAuth, SAML, and a few non-standard ones, for example REST API-based system-to-system claims exchanges. The framework creates user-friendly, white-labeled experiences.
+A custom policy is fully configurable and policy-driven. A custom policy orchestrates trust between entities in standard protocols. For example, OpenID Connect, OAuth, SAML, and a few nonstandard ones, for example REST API-based system-to-system claims exchanges. The framework creates user-friendly, white-labeled experiences.
 
 A custom policy is represented as one or more XML-formatted files, which refer to each other in a hierarchical chain. The XML elements define the building blocks, the interaction with the user, and other parties, and the business logic. 
 
 ## Custom policy starter pack
 
-Azure AD B2C custom policy [starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#get-the-starter-pack) comes with several pre-built policies to get you started quickly. Each of these starter packs contains the smallest number of technical profiles and user journeys needed to achieve the scenarios described:
+Azure AD B2C custom policy [starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#get-the-starter-pack) comes with several prebuilt policies to get you started quickly. Each of these starter packs contains the smallest number of technical profiles and user journeys needed to achieve the scenarios described:
 
 - **LocalAccounts** - Enables the use of local accounts only.
 - **SocialAccounts** - Enables the use of social (or federated) accounts only.
 - **SocialAndLocalAccounts** - Enables the use of both local and social accounts. Most of our samples refer to this policy.
-- **SocialAndLocalAccountsWithMFA** - Enables social, local, and multi-factor authentication options.
+- **SocialAndLocalAccountsWithMFA** - Enables social, local, and multifactor authentication options.
 
 In the [Azure AD B2C samples GitHub repository](https://github.com/azure-ad-b2c/samples), you find samples for several enhanced Azure AD B2C custom CIAM user journeys and scenarios. For example, local account policy enhancements, social account policy enhancements, MFA enhancements, user interface enhancements, generic enhancements, app migration, user migration, conditional access, web test, and CI/CD.
  
@@ -64,11 +64,11 @@ A relying party application, which in the SAML protocol is known as a service pr
 
 ![Diagram showing the policy execution flow](./media/custom-policy-overview/custom-policy-execution.png)
 
-All relying party applications that use the same policy will receive the same token claims, and the user goes through the same user journey.
+All relying party applications that use the same policy receives the same token claims, and the user goes through the same user journey.
 
 ### User journeys
 
-[User journeys](userjourneys.md) allows you to define the business logic with path through which user will follow to gain access to your application. The user is taken through the user journey to retrieve the claims that are to be presented to your application. A user journey is built from a sequence of [orchestration steps](userjourneys.md#orchestrationsteps). A user must reach the last step to acquire a token. 
+[User journeys](userjourneys.md) allows you to define the business logic with path through which user follows to gain access to your application. The user is taken through the user journey to retrieve the claims that are to be presented to your application. A user journey is built from a sequence of [orchestration steps](userjourneys.md#orchestrationsteps). A user must reach the last step to acquire a token. 
 
 The following instructions describe how you can add orchestration steps to the [social and local account starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts) policy. Here's an example of a REST API call that has been added.
 
@@ -127,9 +127,9 @@ The following diagram shows the relationship between the policy files and the re
 
 ### Best practices
 
-Within an Azure AD B2C custom policy, you can integrate your own business logic to build the user experiences you require and extend functionality of the service. We've a set of best practices and recommendations to get started.
+Within an Azure AD B2C custom policy, you can integrate your own business logic to build the user experiences you require and extend functionality of the service. We have a set of best practices and recommendations to get started.
 
-- Create your logic within the **extension policy**, or **relying party policy**. You can add new elements, which will override the base policy by referencing the same ID. This approach will allow you to scale out your project while making it easier to upgrade base policy later on if Microsoft releases new starter packs.
+- Create your logic within the **extension policy**, or **relying party policy**. You can add new elements, which overrides the base policy by referencing the same ID. This approach allows you to scale out your project while making it easier to upgrade base policy later on if Microsoft releases new starter packs.
 - Within the **base policy**, we highly recommend avoiding making any changes. When necessary, make comments where the changes are made.
 - When you're overriding an element, such as technical profile metadata, avoid copying the entire technical profile from the base policy. Instead, copy only the required section of the element. See [Disable email verification](./disable-email-verification.md) for an example of how to make the change.
 - To reduce duplication of technical profiles, where core functionality is shared, use [technical profile inclusion](technicalprofiles.md#include-technical-profile).
@@ -171,3 +171,4 @@ After you set up and test your Azure AD B2C policy, you can start customizing yo
 - During your policy development and testing, you can [disable email verification](./disable-email-verification.md). Learn how to overwrite a technical profile metadata.
 - [Set up sign-in with a Google account](./identity-provider-google.md) using custom policies. Learn how to create a new claims provider with OAuth2 technical profile. Then customize the user journey to include the Google sign-in option.
 - To diagnose problems with your custom policies, you can [Collect Azure Active Directory B2C logs with Application Insights](troubleshoot-with-application-insights.md). Learn how to add new technical profiles, and configure your relying party policy.
+- If you want to understand how custom policy is built from scratch, learn how to [Create and run your own custom policies in Azure Active Directory B2C how-to guide series](custom-policies-series-overview.md).

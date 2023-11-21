@@ -257,7 +257,7 @@ The `RunAsync` method in the _Program.cs_ file:
 
 :::code language="csharp" source="~/ms-identity-dotnetcore-b2c-account-management/src/Program.cs" id="ms_docref_set_auth_provider":::
 
-The initialized *GraphServiceClient* is then used in _UserService.cs_ to perform the user management operations. For example, getting a list of the user accounts in the tenant:
+The initialized _GraphServiceClient_ is then used in _UserService.cs_ to perform the user management operations. For example, getting a list of the user accounts in the tenant:
 
 :::code language="csharp" source="~/ms-identity-dotnetcore-b2c-account-management/src/Services/UserService.cs" id="ms_docref_get_list_of_user_accounts":::
 
@@ -265,7 +265,8 @@ The initialized *GraphServiceClient* is then used in _UserService.cs_ to perform
 
 ## Next steps
 
-For code samples in JavaScript and Node.js, please see: [Manage B2C user accounts with MSAL.js and Microsoft Graph SDK](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management) 
+- For code samples in JavaScript and Node.js, please see: [Manage B2C user accounts with MSAL.js and Microsoft Graph SDK](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management) 
+- Explore [Graph Explorer](https://aka.ms/ge) that lets you try Microsoft Graph APIs and learn about them.
 
 <!-- LINK -->
 

@@ -81,9 +81,9 @@ There are multiple ways to turn off default outbound access. The following secti
  
 :::image type="content" source="./media/default-outbound-access/private-subnet-portal.png"  alt-text="Screenshot of Azure portal showing Private subnet option.":::
  
-* Using CLI, when creating a subnet with [az network vnet subnet create](https://learn.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create), use the **`--default-outbound**` option and choose "false"
+* Using CLI, when creating a subnet with [az network vnet subnet create](https://learn.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create), use the `--default-outbound` option and choose "false"
  
-* Using an Azure Resource Manager template, set the value of **`defaultOutboundAccess**` parameter to be "false"
+* Using an Azure Resource Manager template, set the value of `defaultOutboundAccess` parameter to be "false"
  
 ### Add an explicit outbound connectivity method
  
