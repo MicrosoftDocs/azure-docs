@@ -61,7 +61,7 @@ Here are the limitations of this feature:
 
 + SharePoint supports a granular authorization model that determines per-user access at the document level. The indexer doesn't pull these permissions into the index, and Azure AI Search doesn't support document-level authorization. When a document is indexed from SharePoint into a search service, the content is available to anyone who has read access to the index. If you require document-level permissions, you should consider [security filters to trim results](search-security-trimming-for-azure-search-with-aad.md) and automate copying the permissions at a file level to a field in the index.
 
-+ (Known issue) Delegated permissions are currently not viable. A fix is under evaluation but for now, use app-based permissions as a workaround. Moreover, once user-delegated permissions do become operational, the new behavior is token expiration every 75 minutes, per the libraries used in the delegated permissions implementation. An expired token requires manual intervention for indexers using [Run Indexer (preview)](/rest/api/searchservice/indexers/run?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true). For this reason, you might want to switch to app-based permissions as a permanent solution.
++ (Known issue) Support for delegated permissions is currently broken. For now, use app-based permissions as a workaround. However, once user-delegated permissions do become operational, the new behavior enforces token expiration every 75 minutes, per the libraries used to implement delegated permissions. An expired token requires manual intervention for indexers using [Run Indexer (preview)](/rest/api/searchservice/indexers/run?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true). For this reason, you might want app-based permissions as a permanent solution.
 
 Here are the considerations when using this feature:
 
@@ -85,11 +85,11 @@ Enable a [system-assigned managed identity](search-howto-managed-identities-data
 
 Perform this step if the SharePoint site is in the same tenant as the search service. Skip this step if the SharePoint site is in a different tenant. The identity isn't used for indexing, just tenant detection. You can also skip this step if you want to put the tenant ID in the [connection string](#connection-string-format).
 
-:::image type="content" source="media/search-howto-index-sharepoint-online/enable-managed-identity.png" alt-text="Enable system assigned managed identity":::
+:::image type="content" source="media/search-howto-index-sharepoint-online/enable-managed-identity.png" alt-text="Screenshot showing how to enable system assigned managed identity.":::
 
 After selecting **Save**, you get an Object ID that has been assigned to your search service.
 
-:::image type="content" source="media/search-howto-index-sharepoint-online/system-assigned-managed-identity.png" alt-text="System assigned managed identity":::
+:::image type="content" source="media/search-howto-index-sharepoint-online/system-assigned-managed-identity.png" alt-text="Screenshot the object identifier.":::
 
 ### Step 2: Decide which permissions the indexer requires
 
@@ -126,7 +126,7 @@ The SharePoint indexer uses this Microsoft Entra application for authentication.
         + **Application - Files.Read.All**
         + **Application - Sites.Read.All**
         
-        :::image type="content" source="media/search-howto-index-sharepoint-online/application-api-permissions.png" alt-text="Application API permissions":::
+        :::image type="content" source="media/search-howto-index-sharepoint-online/application-api-permissions.png" alt-text="Screenshot of application API permissions.":::
         
         Using application permissions means that the indexer accesses the SharePoint site in a service context. So when you run the indexer it will have access to all content in the SharePoint tenant, which requires tenant admin approval. A client secret is also required for authentication. Setting up the client secret is described later in this article.
 
@@ -136,7 +136,7 @@ The SharePoint indexer uses this Microsoft Entra application for authentication.
         + **Delegated - Sites.Read.All**
         + **Delegated - User.Read**
         
-        :::image type="content" source="media/search-howto-index-sharepoint-online/delegated-api-permissions.png" alt-text="Delegated API permissions":::
+        :::image type="content" source="media/search-howto-index-sharepoint-online/delegated-api-permissions.png" alt-text="Screenshot showing delegated API permissions.":::
         
         Delegated permissions allow the search client to connect to SharePoint under the security identity of the current user.
 
@@ -144,7 +144,7 @@ The SharePoint indexer uses this Microsoft Entra application for authentication.
 
     Tenant admin consent is required when using application API permissions. Some tenants are locked down in such a way that tenant admin consent is required for delegated API permissions as well. If either of these conditions apply, you’ll need to have a tenant admin grant consent for this Microsoft Entra application before creating the indexer.
 
-    :::image type="content" source="media/search-howto-index-sharepoint-online/aad-app-grant-admin-consent.png" alt-text="Microsoft Entra app grant admin consent":::
+    :::image type="content" source="media/search-howto-index-sharepoint-online/aad-app-grant-admin-consent.png" alt-text="Screenshot showing Microsoft Entra app grant admin consent.":::
 
 1. Select the **Authentication** tab. 
 
@@ -152,21 +152,21 @@ The SharePoint indexer uses this Microsoft Entra application for authentication.
 
 1. Select **+ Add a platform**, then **Mobile and desktop applications**, then check `https://login.microsoftonline.com/common/oauth2/nativeclient`, then **Configure**.
 
-    :::image type="content" source="media/search-howto-index-sharepoint-online/aad-app-authentication-configuration.png" alt-text="Microsoft Entra app authentication configuration":::
+    :::image type="content" source="media/search-howto-index-sharepoint-online/aad-app-authentication-configuration.png" alt-text="Screenshot showing Microsoft Entra app authentication configuration.":::
 
 1. (Application API Permissions only) To authenticate to the Microsoft Entra application using application permissions, the indexer requires a client secret.
 
     + Select **Certificates & Secrets** from the menu on the left, then **Client secrets**, then **New client secret**.
     
-        :::image type="content" source="media/search-howto-index-sharepoint-online/application-client-secret.png" alt-text="New client secret":::
+        :::image type="content" source="media/search-howto-index-sharepoint-online/application-client-secret.png" alt-text="Screenshot showing new client secret.":::
     
     + In the menu that pops up, enter a description for the new client secret. Adjust the expiration date if necessary. If the secret expires, it needs to be recreated and the indexer needs to be updated with the new secret.
     
-        :::image type="content" source="media/search-howto-index-sharepoint-online/application-client-secret-setup.png" alt-text="Setup client secret":::
+        :::image type="content" source="media/search-howto-index-sharepoint-online/application-client-secret-setup.png" alt-text="Screenshot showing how to set up a client secret.":::
     
     + The new client secret appears in the secret list. Once you navigate away from the page, the secret is no longer be visible, so copy it using the copy button and save it in a secure location.
     
-        :::image type="content" source="media/search-howto-index-sharepoint-online/application-client-secret-copy.png" alt-text="Copy client secret":::
+        :::image type="content" source="media/search-howto-index-sharepoint-online/application-client-secret-copy.png" alt-text="Screenshot showing where to copy a client secret.":::
 
 <a name="create-data-source"></a>
 
@@ -308,7 +308,7 @@ There are a few steps to creating the indexer:
     ```
 1. Provide the code that was included in the error message.
 
-    :::image type="content" source="media/search-howto-index-sharepoint-online/enter-device-code.png" alt-text="Enter device code":::
+    :::image type="content" source="media/search-howto-index-sharepoint-online/enter-device-code.png" alt-text="Screenshot showing how to enter a device code.":::
 
 1. The SharePoint indexer will access the SharePoint content as the signed-in user. The user that logs in during this step will be that signed-in user. So, if you sign in with a user account that doesn’t have access to a document in the Document Library that you want to index, the indexer won’t have access to that document.
 
@@ -316,13 +316,13 @@ There are a few steps to creating the indexer:
 
 1. Approve the permissions that are being requested.
 
-    :::image type="content" source="media/search-howto-index-sharepoint-online/aad-app-approve-api-permissions.png" alt-text="Approve API permissions":::
+    :::image type="content" source="media/search-howto-index-sharepoint-online/aad-app-approve-api-permissions.png" alt-text="Screenshot showing how to approve API permissions.":::
 
 1. The [Create Indexer (preview)](/rest/api/searchservice/indexers/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) initial request completes if all the permissions provided above are correct and within the 10 minute timeframe.
 
 > [!NOTE]
 > If the Microsoft Entra application requires admin approval and was not approved before logging in, you may see the following screen. [Admin approval](../active-directory/manage-apps/grant-admin-consent.md) is required to continue.
-:::image type="content" source="media/search-howto-index-sharepoint-online/no-admin-approval-error.png" alt-text="Admin approval required":::
+:::image type="content" source="media/search-howto-index-sharepoint-online/no-admin-approval-error.png" alt-text="Screenshot showing admin approval required.":::
 
 ### Step 7: Check the indexer status
 
