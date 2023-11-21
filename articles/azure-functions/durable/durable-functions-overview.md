@@ -33,6 +33,10 @@ Durable Functions is designed to work with all Azure Functions programming langu
 [!INCLUDE [functions-nodejs-model-tabs-description](../../../includes/functions-nodejs-model-tabs-description.md)]
 ::: zone-end
 
+::: zone pivot="python"
+[!INCLUDE [functions-python-model-tabs-description](../../../includes/functions-python-model-tabs-description.md)]
+::: zone-end
+
 Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 
 ## Application patterns
@@ -154,7 +158,6 @@ You can use the `context.df` object to invoke other functions by name, pass para
 
 ::: zone-end
 ::: zone pivot="python"
-
 # [Python](#tab/v1-model)
 
 ```python

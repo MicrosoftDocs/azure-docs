@@ -1,30 +1,32 @@
 ---
-title: AKS-managed Microsoft Entra integration
-description: Learn how to configure Microsoft Entra ID for your Azure Kubernetes Service (AKS) clusters.
+title: Enable Managed Identity Authentication
+description: Learn how to enable Microsoft Entra ID on AKS with kubelogin. Connect your clusters to authenticate Azure users with credentials or managed roles.
 ms.topic: article
-ms.date: 07/28/2023
+ms.date: 11/13/2023
 ms.custom: devx-track-azurecli
 ms.author: miwithro
 ---
 
-# AKS-managed Microsoft Entra integration
+# Enable Azure Managed Identity authentication for Kubernetes clusters with kubelogin
 
-AKS-managed Microsoft Entra integration simplifies the Microsoft Entra integration process. Previously, you were required to create a client and server app, and the Microsoft Entra tenant had to grant Directory Read permissions. Now, the AKS resource provider manages the client and server apps for you.
+The AKS-managed Microsoft Entra integration simplifies the Microsoft Entra integration process. Previously, you were required to create a client and server app, and the Microsoft Entra tenant had to grant Directory Read permissions. Now, the AKS resource provider manages the client and server apps for you.
 
 Cluster administrators can configure Kubernetes role-based access control (Kubernetes RBAC) based on a user's identity or directory group membership. Microsoft Entra authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. For more information on OpenID Connect, see the [OpenID Connect documentation][open-id-connect].
 
 Learn more about the Microsoft Entra integration flow in the [Microsoft Entra documentation](concepts-identity.md#azure-ad-integration).
 
-## Limitations
+## Limitations of integration
 
-* AKS-managed Microsoft Entra integration can't be disabled.
-* Changing an AKS-managed Microsoft Entra integrated cluster to legacy Microsoft Entra ID isn't supported.
-* Clusters without Kubernetes RBAC enabled aren't supported with AKS-managed Microsoft Entra integration.
+Azure Managed ID on AKS has certain limits to account for before you make a decision.
+* The integration can't be disabled once added.
+* Downgrades from an integrated cluster to the legacy Microsoft Entra ID clusters aren't supported.
+* Clusters without Kubernetes RBAC support are unable to add the integration.
 
 ## Before you begin
 
-* Make sure you have Azure CLI version 2.29.0 or later is installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-* You need `kubectl` with a minimum version of [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) or [`kubelogin`][kubelogin]. With the Azure CLI and the Azure PowerShell module, these two commands are included and automatically managed. Meaning, they are upgraded by default and running `az aks install-cli` isn't required or recommended. If you are using an automated pipeline, you need to manage upgrading to the correct or latest version. The difference between the minor versions of Kubernetes and `kubectl` shouldn't be more than *one* version. Otherwise, you'll experience authentication issues if you don't use the correct version.
+There are a few requirements to properly install the aks addon for managed identity.
+* You have Azure CLI version 2.29.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+* You need `kubectl` with a minimum version of [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) or [`kubelogin`][kubelogin]. With the Azure CLI and the Azure PowerShell module, these two commands are included and automatically managed. Meaning, they're upgraded by default and running `az aks install-cli` isn't required or recommended. If you're using an automated pipeline, you need to manage upgrades for the correct or latest version. The difference between the minor versions of Kubernetes and `kubectl` shouldn't be more than *one* version. Otherwise,  authentication issues occur on the wrong version.
 * If you're using [helm](https://github.com/helm/helm), you need a minimum version of helm 3.3.
 * This configuration requires you have a Microsoft Entra group for your cluster. This group is registered as an admin group on the cluster to grant admin permissions. If you don't have an existing Microsoft Entra group, you can create one using the [`az ad group create`](/cli/azure/ad/group#az_ad_group_create) command.
 
@@ -32,9 +34,9 @@ Learn more about the Microsoft Entra integration flow in the [Microsoft Entra do
 > Microsoft Entra integrated clusters using a Kubernetes version newer than version 1.24 automatically use the `kubelogin` format. Starting with Kubernetes version 1.24, the default format of the clusterUser credential for Microsoft Entra ID clusters is `exec`, which requires [`kubelogin`][kubelogin] binary in the execution PATH. There is no behavior change for non-Microsoft Entra clusters, or Microsoft Entra ID clusters running a version older than 1.24.
 > Existing downloaded `kubeconfig` continues to work. An optional query parameter **format** is included when getting clusterUser credential to overwrite the default behavior change. You can explicitly specify format to **azure** if you need to maintain the old `kubeconfig` format .
 
-<a name='enable-aks-managed-azure-ad-integration-on-your-aks-cluster'></a>
+<a name='enable-the-integration-on-your-aks-cluster'></a>
 
-## Enable AKS-managed Microsoft Entra integration on your AKS cluster
+## Enable the integration on your AKS cluster
 
 ### Create a new cluster
 
@@ -88,11 +90,11 @@ A successful activation of an AKS-managed Microsoft Entra ID cluster has the fol
     }
 ```
 
-<a name='upgrade-a-legacy-azure-ad-cluster-to-aks-managed-azure-ad-integration'></a>
+<a name='migrate-a-legacy-azure-ad-cluster-to-integration'></a>
 
-### Upgrade a legacy Microsoft Entra ID cluster to AKS-managed Microsoft Entra integration
+### Migrate legacy cluster to integration
 
-If your cluster uses legacy Microsoft Entra integration, you can upgrade to AKS-managed Microsoft Entra integration using the [`az aks update`][az-aks-update] command.
+If your cluster uses legacy Microsoft Entra integration, you can upgrade to AKS-managed Microsoft Entra integration through the [`az aks update`][az-aks-update] command.
 
 > [!WARNING]
 > Free tier clusters may experience API server downtime during the upgrade. We recommend upgrading during your nonbusiness hours. 
@@ -117,9 +119,9 @@ A successful migration of an AKS-managed Microsoft Entra ID cluster has the foll
     }
 ```
 
-<a name='access-your-aks-managed-azure-ad-enabled-cluster'></a>
+<a name='access-your-enabled-cluster'></a>
 
-## Access your AKS-managed Microsoft Entra ID enabled cluster
+## Access your enabled cluster
 
 1. Get the user credentials to access your cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
@@ -127,9 +129,15 @@ A successful migration of an AKS-managed Microsoft Entra ID cluster has the foll
     az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
     ```
 
-2. Follow the instructions to sign in.
+2. Follow your instructions to sign in.
 
-3. View the nodes in the cluster using the `kubectl get nodes` command.
+3. Set `kubelogin` to use the Azure CLI.
+
+    ```azurecli-interactive
+    kubelogin convert-kubeconfig -l azurecli
+    ```
+
+4. View the nodes in the cluster with the `kubectl get nodes` command.
 
     ```azurecli-interactive
     kubectl get nodes
@@ -137,7 +145,7 @@ A successful migration of an AKS-managed Microsoft Entra ID cluster has the foll
 
 ## Non-interactive sign-in with kubelogin
 
-There are some non-interactive scenarios, such as continuous integration pipelines, that aren't currently available with `kubectl`. You can use [`kubelogin`][kubelogin] to connect to the cluster with a non-interactive service principal credential.
+There are some non-interactive scenarios that don't support `kubectl`. In these cases, use [`kubelogin`][kubelogin] to connect to the cluster with a non-interactive service principal credential to perform continuous integration pipelines.
 
 > [!NOTE]
 > Microsoft Entra integrated clusters using a Kubernetes version newer than version 1.24 automatically use the `kubelogin` format. Starting with Kubernetes version 1.24, the default format of the clusterUser credential for Microsoft Entra ID clusters is `exec`, which requires [`kubelogin`][kubelogin] binary in the execution PATH. There is no behavior change for non-Microsoft Entra clusters, or Microsoft Entra ID clusters running a version older than 1.24.
@@ -161,14 +169,14 @@ There are some non-interactive scenarios, such as continuous integration pipelin
 >
 > For more information, you can refer to [Azure Kubelogin Known Issues][azure-kubelogin-known-issues].
 
-<a name='troubleshoot-access-issues-with-aks-managed-azure-ad'></a>
+<a name='troubleshoot-access-issues'></a>
 
-## Troubleshoot access issues with AKS-managed Microsoft Entra ID
+## Troubleshoot access issues
 
 > [!IMPORTANT]
 > The steps described in this section bypass the normal Microsoft Entra group authentication. Use them only in an emergency.
 
-If you're permanently blocked by not having access to a valid Microsoft Entra group with access to your cluster, you can still get admin credentials to directly access the cluster. You need to have access to the [Azure Kubernetes Service Cluster Admin](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) built-in role.
+If you lack admin access to a valid Microsoft Entra group, you can follow this workaround. Sign in through the [Azure Kubernetes Service Cluster Admin](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) role and grant your group or tenant admin credentials to access your cluster.
 
 ## Next steps
 

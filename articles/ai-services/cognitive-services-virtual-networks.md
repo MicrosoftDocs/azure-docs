@@ -569,7 +569,7 @@ You can grant a subset of trusted Azure services access to Azure OpenAI, while m
 |---------|---------|
 |Azure AI Services     | `Microsoft.CognitiveServices`   |
 |Azure Machine Learning     |`Microsoft.MachineLearningServices`         |
-|Azure Cognitive Search     | `Microsoft.Search`         |
+|Azure AI Search     | `Microsoft.Search`         |
 
 
 You can grant networking access to trusted Azure services by creating a network rule exception using the REST API:
