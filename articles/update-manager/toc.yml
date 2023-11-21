@@ -50,13 +50,13 @@
       href: configure-wu-agent.md
   - name: Manage
     items:
-    - name: SQL Server Patching
+    - name: SQL Server patching
       items:
       - name: Overview
         href: guidance-patching-sql-server-azure-vm.md
       - name: Guidance on patching for SQL Server on Azure VMs
         href: /azure/azure-sql/virtual-machines/azure-update-manager-sql-vm?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json
-    - name: Azure Stack HCI Patching
+    - name: Azure Stack HCI patching
       href: /azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json
     - name: Create alerts (preview)
       href: manage-alerts.md
