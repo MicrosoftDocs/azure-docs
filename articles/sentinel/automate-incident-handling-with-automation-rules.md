@@ -185,7 +185,7 @@ Microsoft security alerts include the following:
 - Microsoft Defender for Office 365
 - Microsoft Defender for Endpoint
 - Microsoft Defender for Identity
-- Defender for IoT
+- Microsoft Defender for IoT
 
 ### Multiple sequenced playbooks/actions in a single rule
 
