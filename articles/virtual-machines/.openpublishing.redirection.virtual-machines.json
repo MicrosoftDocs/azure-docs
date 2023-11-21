@@ -1306,12 +1306,17 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/linux/using-vmaccess-extension.md",
+            "source_path_from_root": "/articles/virtual-machines/extensions/vmaccess.md",
             "redirect_url": "/azure/virtual-machines/extensions/vmaccess-linux",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/using-vmaccess-extension-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/extensions/vmaccess-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/vmaccess.md",
             "redirect_url": "/azure/virtual-machines/extensions/vmaccess-linux",
             "redirect_document_id": false
         },
