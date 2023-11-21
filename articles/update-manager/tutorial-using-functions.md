@@ -53,7 +53,7 @@ In this tutorial, you learn how to:
         ```
     1. Select **Save**.
        
-1. To query ARG through your function app, follow the steps mentioned in [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md) to enable system-assigned identity and user-assigned identity and assign the right permissions on the subscriptions.
+1. To query ARG through your function app, enable system-assigned identity and user-assigned identity for the function app and assign the right permissions on the subscriptions by following the steps mentioned in [how to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md).
 1. Restart the function app from the **Overview** tab to load the dependencies that are mentioned in the **requirments.psd1** file.
 
 ## Create a function

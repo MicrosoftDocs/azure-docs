@@ -31,6 +31,9 @@ In this tutorial, you learn how to:
 1. [Create](../automation/manage-runbooks.md#create-a-runbook) and [Publish](../automation/manage-runbooks.md#publish-a-runbook) an Automation runbook. 
 1. To customize, you can use either your existing script or use the following two sample scripts.
 
+> [!NOTE]
+> We recommend that you use PowerShell 5.1 runbook and ensure to create system assigned managed identity and provide access to start/stop machine. You can also use user assigned identities as well. Follow the instructions listed in [Send an email from an Automation runbook](../automation/automation-send-email.md#assign-permissions-to-managed-identities) and change the role from reader to contributor.
+
 ### Sample scripts
 
 #### [Start VMs](#tab/script-on)
@@ -224,6 +227,10 @@ foreach($id in $jobsList)
 }
 ```
 ---
+### Import the module
+1. To import the `Az.ResourceGraph` module, ensure the module is updated to ThreadJob with the module version 2.0.3.
+1. Update the runbook code to verify if the Az.Resource Graph module is missing and send customer friendly message on how to resolve it.
+
 
 ## Add webhooks
 

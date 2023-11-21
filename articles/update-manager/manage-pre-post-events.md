@@ -2,7 +2,7 @@
 title: Manage the pre and post maintenance configuration events (preview) in Azure Update Manager
 description: The article provides the steps to manage the pre and post maintenance events in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 10/29/2023
+ms.date: 11/20/2023
 ms.topic: how-to
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -18,11 +18,11 @@ Pre and post events allows you to execute user-defined actions before and after 
 
 We recommend you to go through the following table to understand the timeline of the schedule for pre and post events.
 
-For example, if a maintenance schedule is set to start at **3:00 p.m. IST**: 
+For example, if a maintenance schedule is set to start at **3:00 p.m.**: 
 
 | **Time**| **Details** |
 |----------|-------------|
-|2:19 p.m. | You can modify the machines or dynamic scopes within the schedule's scope until this time. After this time, the resources will be included in the subsequent schedule run and not the current run. </br> **Note**</br> If you're creating a new schedule or editing an existing schedule with a pre event, you need at least 40 minutes prior to the maintenance window for the pre-event to run. |
+|2:19 p.m. | You can edit the machines and/or dynamically scope the machines up to 40 minutes before a scheduled patch run with an associated Pre Event. After this time, the resources will be included in the subsequent schedule run and not the current run. </br> **Note**</br> If you're creating a new schedule or editing an existing schedule with a pre event, you need at least 40 minutes prior to the maintenance window for the pre-event to run. |
 |2:30 p.m. | The pre event is initiated.|
 |2:50 p.m. | The pre event would complete all the tasks for a successful schedule run. </br> **Note** </br> - The pre event runs for 20 mins and if the pre event keeps running even after 2:50 p.m., the patch installation will go ahead irrespective of the pre event run status. </br> - If you choose to cancel the current run, the latest by when you can call the cancelation API is by 2:50 p.m. </br> You can cancel the current run by calling the cancelation API from your script or Azure function code. If cancelation API fails to get invoked or hasn't been set up, the patch installation proceeds to run. |
 |3:00 p.m.| The schedule gets triggered. | 
@@ -67,14 +67,12 @@ To view the pre and post events, follow these steps:
 1. Under **Manage**, select **Machines**, **Maintenance Configurations**.
 1. On the **Maintenance Configuration** page, select the maintenance configuration to which you want to add a pre and post event.
 1. Select **Overview** and check the **Maintenance events**.
-    - If you see **Configure**, it implies that there's no pre and post event currently set up. Select **Configure** to set up one.
-    - If the setup is already done, you can see the count of the pre and post events associated to the configuration.
-   
+    - Select **Configure** to set up one.
       :::image type="content" source="./media/manage-pre-post-events/view-configure-events-inline.png" alt-text="Screenshot that shows how to view and configure a pre and post event." lightbox="./media/manage-pre-post-events/view-configure-events-expanded.png":::
 
-You can view the list of pre and post events that you configured in the **Events** page.
+    - If the setup is already done, you can see the count of the pre and post events associated to the configuration in the **Events** page.
 
-  :::image type="content" source="./media/manage-pre-post-events/view-events-inline.png" alt-text="Screenshot that shows how to view the pre and post events." lightbox="./media/manage-pre-post-events/view-events-expanded.png":::
+      :::image type="content" source="./media/manage-pre-post-events/view-events-inline.png" alt-text="Screenshot that shows how to view the pre and post events." lightbox="./media/manage-pre-post-events/view-events-expanded.png":::
 
 ## Delete pre and post event
 
