@@ -146,29 +146,29 @@ You can configure more granular details of the cluster autoscaler by changing th
 
 The following table lists the available settings for the cluster autoscaler profile:
 
-| Setting                          | Description                                                                              | Default value |
-|----------------------------------|------------------------------------------------------------------------------------------|---------------|
-| `scan-interval`                    | How often the cluster is reevaluated for scale up or down.                                    | 10 seconds    |
-| `scale-down-delay-after-add`       | How long after scale up that scale down evaluation resumes.                               | 10 minutes    |
-| `scale-down-delay-after-delete`    | How long after node deletion that scale down evaluation resumes.                          | `scan-interval` |
-| `scale-down-delay-after-failure`   | How long after scale down failure that scale down evaluation resumes.                     | Three minutes     |
-| `scale-down-unneeded-time`         | How long a node should be unneeded before it's eligible for scale down.                  | 10 minutes    |
-| `scale-down-unready-time`          | How long an unready node should be unneeded before it's eligible for scale down.         | 20 minutes    |
-| `ignore-daemonsets-utilization` (Preview)     | Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. | `false` |
+|Setting |Description |Default value |
+|--------|------------|--------------|
+| `scan-interval` | How often the cluster is reevaluated for scale up or down. | 10 seconds |
+| `scale-down-delay-after-add` | How long after scale up that scale down evaluation resumes. | 10 minutes |
+| `scale-down-delay-after-delete` | How long after node deletion that scale down evaluation resumes. | `scan-interval` |
+| `scale-down-delay-after-failure` | How long after scale down failure that scale down evaluation resumes. | Three minutes |
+| `scale-down-unneeded-time` | How long a node should be unneeded before it's eligible for scale down. | 10 minutes |
+| `scale-down-unready-time` | How long an unready node should be unneeded before it's eligible for scale down. | 20 minutes |
+| `ignore-daemonsets-utilization` (Preview) | Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. | `false` |
 | `daemonset-eviction-for-empty-nodes` (Preview) | Whether DaemonSet pods will be gracefully terminated from empty nodes. | `false` |
 | `daemonset-eviction-for-occupied-nodes` (Preview) | Whether DaemonSet pods will be gracefully terminated from non-empty nodes. | `true` |
 | `scale-down-utilization-threshold` | Node utilization level, defined as sum of requested resources divided by capacity, in which a node can be considered for scale down. | 0.5 |
-| `max-graceful-termination-sec`     | Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. | 600 seconds   |
+| `max-graceful-termination-sec` | Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. | 600 seconds |
 | `balance-similar-node-groups` | Detects similar node pools and balances the number of nodes between them. | `false` |
-| `balance-similar-node-groups`      | Detects similar node pools and balances the number of nodes between them.                 | `false`         |
-| `expander                         | Type of node pool [expander](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) to use in scale up. Possible values include `most-pods`, `random`, `least-waste`, and `priority`. |  |
-| `skip-nodes-with-local-storage`    | If `true`, cluster autoscaler doesn't delete nodes with pods with local storage, for example, EmptyDir or HostPath. | `true` |
-| `skip-nodes-with-system-pods`      | If `true`, cluster autoscaler doesn't delete nodes with pods from kube-system (except for DaemonSet or mirror pods). | `true` |
-| `max-empty-bulk-delete`            | Maximum number of empty nodes that can be deleted at the same time.                       | 10 nodes      |
-| `new-pod-scale-up-delay`           | For scenarios such as burst/batch scale where you don't want CA to act before the Kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they reach a certain age.                                                                                                                | 0 seconds    |
-| `max-total-unready-percentage`     | Maximum percentage of unready nodes in the cluster. After this percentage is exceeded, CA halts operations. | 45% |
-| `max-node-provision-time`          | Maximum time the autoscaler waits for a node to be provisioned.                           | 15 minutes    |
-| `ok-total-unready-count`           | Number of allowed unready nodes, irrespective of max-total-unready-percentage.            | Three nodes       |
+| `balance-similar-node-groups` | Detects similar node pools and balances the number of nodes between them. | `false` |
+| `expander` | Type of node pool [expander](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) uses in scale up. Possible values include `most-pods`, `random`, `least-waste`, and `priority`. |  |
+| `skip-nodes-with-local-storage` | If `true`, cluster autoscaler doesn't delete nodes with pods with local storage, for example, EmptyDir or HostPath. | `true` |
+| `skip-nodes-with-system-pods` | If `true`, cluster autoscaler doesn't delete nodes with pods from kube-system (except for DaemonSet or mirror pods). | `true` |
+| `max-empty-bulk-delete` | Maximum number of empty nodes that can be deleted at the same time. | 10 nodes |
+| `new-pod-scale-up-delay` | For scenarios such as burst/batch scale where you don't want CA to act before the Kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they reach a certain age. | 0 seconds |
+| `max-total-unready-percentage` | Maximum percentage of unready nodes in the cluster. After this percentage is exceeded, CA halts operations. | 45% |
+| `max-node-provision-time` | Maximum time the autoscaler waits for a node to be provisioned. | 15 minutes |
+| `ok-total-unready-count` | Number of allowed unready nodes, irrespective of max-total-unready-percentage. | Three nodes |
 
 ### Set the cluster autoscaler profile on a new cluster
 
