@@ -53,7 +53,7 @@ For custom domain verification to work with Static Web Apps, the DNS must be pub
 
 You may want to migrate a custom domain currently serving a production website to your Static Web Apps with zero downtime. When doing so, you may observe that your DNS provider does not accept multiple records for the same name/host. To work around this, you can separately perform the domain ownership validation and the traffic routing to your Static Web Apps.
 
-1. Following the steps listed in the Portal, add a TXT record for your custom domain. Instead of entering the `Host` value as displayed, enter the `Host` in your DNS provider as follows:
+1. Following the steps listed in the Portal, add a TXT record for your custom domain (APEX or subdomain). Instead of entering the `Host` value as displayed, enter the `Host` in your DNS provider as follows:
    * For APEX domains, enter `_dnsauth.www.<YOUR-DOMAIN.COM>`
    * For subdomains, enter `_dnsauth.<SUBDOMAIN>.<YOUR-DOMAIN.COM>`
 2. Once your domain is validated, you can migrate your traffic to Static Web Apps. You can update your CNAME, ALIAS or A record to point to your Static Web Apps' default host name [as documented](./apex-domain-external.md)
