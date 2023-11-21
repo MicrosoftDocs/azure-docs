@@ -75,6 +75,7 @@ Artifact Cache currently supports the following upstream registries:
 | Nvidia                   | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
 | Quay                        | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
 | registry.k8s.io             | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
+|Google Container Registry|Supports both authenticated pulls and unauthenticated pulls.|Azure CLI|
 
 ## Wildcards
 
@@ -139,3 +140,4 @@ The addition of the new cache rule is allowed because `contoso.azurecr.io/librar
 <!-- LINKS - External -->
 
 [docker-rate-limit]:https://aka.ms/docker-rate-limit
+

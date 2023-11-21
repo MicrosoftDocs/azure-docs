@@ -20,6 +20,8 @@
   items:
   - name: Deploy a chat web app
     href: tutorials/deploy-chat-web-app.md
+  - name: Build your own copilot using prompt flow
+    href: tutorials/deploy-copilot-ai-studio.md
   - name: Using Azure AI Studio with a screen reader
     href: tutorials/screen-reader.md
 - name: How-to

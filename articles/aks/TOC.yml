@@ -465,7 +465,7 @@
               href: use-psa.md
             - name: Secrets Store CSI Driver
               items:
-                - name: Configure TLS for NGINX ingress controller
+                - name: Configure TLS for NGINX Ingress controller
                   href: csi-secrets-store-nginx-tls.md
                 - name: Azure Key Vault provider with Secrets Store CSI Driver
                   items:
@@ -523,7 +523,7 @@
               items:
                 - name: Application routing add-on overview
                   href: app-routing.md
-                - name: Custom hostname and secure ingress configuration
+                - name: Advanced application routing add-on configurations
                   href: app-routing-dns-ssl.md
                 - name: Monitor using Prometheus and Grafana
                   href: app-routing-nginx-prometheus.md
@@ -537,7 +537,7 @@
               href: http-application-routing.md
             - name: Use unmanaged ingress-nginx
               items:
-                - name: Create an ingress controller
+                - name: Create an Ingress controller
                   href: ingress-basic.md
                 - name: Use TLS with an ingress controller
                   href: ingress-tls.md
