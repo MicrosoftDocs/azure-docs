@@ -109,7 +109,7 @@ Data Factory pipelines are a collection of _activities_ that perform a task, lik
 
 If you created the DICOM service with Azure Data Lake Storage (Preview), you need to use a custom template to include a new `fileName` parameter in the metadata pipeline.  Instead of using the template from the template gallery, follow these steps to configure the pipeline.
 
-1. Download the [preview template](https://github.com/microsoft/dicom-server/blob/main/samples/templates/Copy%20DICOM%20Metadata%20Changes%20to%20ADLS%20Gen2%20in%20Delta%20Format.zip) from GitHub. The template file is a compressed (zipped) folder You don't need to extract the files because they're already uploaded in compressed form.  
+1. Download the [preview template](https://github.com/microsoft/dicom-server/blob/main/samples/templates/Copy%20DICOM%20Metadata%20Changes%20to%20ADLS%20Gen2%20in%20Delta%20Format.zip) from GitHub. The template file is a compressed (zipped) folder. You don't need to extract the files because they're already uploaded in compressed form.  
 
 1. In Azure Data Factory, select **Author** from the left menu. On the **Factory Resources** pane, select the plus sign (+) to add a new resource. Select **Pipeline** and then select **Import from pipeline template**.
 
@@ -289,7 +289,7 @@ After a few seconds, the results of the query appear in a table underneath the c
 
 #### Access DICOM file data in notebooks
 
-If you've used the preview template to create the pipeline and created a shortcut to the DICOM file data, you can use the `filePath` column in the `instance` table to correlate instance metadata to file data.  
+If you used the preview template to create the pipeline and created a shortcut to the DICOM file data, you can use the `filePath` column in the `instance` table to correlate instance metadata to file data.  
 
 ``` SQL
 SELECT sopInstanceUid, filePath from instance
