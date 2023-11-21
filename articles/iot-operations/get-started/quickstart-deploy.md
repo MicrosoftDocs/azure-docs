@@ -5,8 +5,7 @@ author: kgremban
 ms.author: kgremban
 # ms.subservice: orchestrator
 ms.topic: quickstart
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 11/15/2023
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.

@@ -2,15 +2,15 @@
 title: Set up a password reset flow
 titleSuffix: Azure AD B2C
 description: Learn how to set up a password reset flow in Azure Active Directory B2C (Azure AD B2C).
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 10/25/2022
-ms.custom: project-no-code, engagement-fy23, build-2023
+ms.custom:  
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
