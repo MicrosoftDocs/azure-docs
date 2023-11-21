@@ -9,7 +9,7 @@ ms.author: yungezz
 
 ### [.NET](#tab/dotnet)
 
-You can use [`azure-identity`](https://www.nuget.org/packages/Azure.Identity/) to authenticate via managed identity or service principal. Get blob storage endpoint url from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+You can use [`azure-identity`](https://www.nuget.org/packages/Azure.Identity/) to authenticate via managed identity or service principal. Get the Azure Blob Storage endpoint url from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
 Install dependencies
 ```bash
@@ -22,7 +22,7 @@ Here's sample code to connect to Blob storage using managed identity or service 
 using Azure.Identity;
 using Azure.Storage.Blobs;
 
-// get blob endpoint
+// get Blob endpoint
 var blobEndpoint = Environment.GetEnvironmentVariable("AZURE_STORAGEBLOB_RESOURCEENDPOINT");
 
 // Uncomment the following lines according to the authentication type.
@@ -165,7 +165,7 @@ var blobServiceClient = new BlobServiceClient(
    go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
    go get "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
    ```
-2. In code, authenticate via `azidentity` library. Get blob storage endpoint url from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+2. In code, authenticate via `azidentity` library. Get the Azure Blob Storage endpoint url from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
       ```go
       import (
@@ -210,7 +210,7 @@ var blobServiceClient = new BlobServiceClient(
    npm install --save @azure/identity
    npm install @azure/storage-blob
    ```
-2. Get blob storage endpoint url from the environment variable added by Service Connector. Authenticate via `@azure/identity` library. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+2. Get the Azure Blob Storage endpoint url from the environment variable added by Service Connector. Authenticate via `@azure/identity` library. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
    ```javascript
    import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
@@ -238,5 +238,5 @@ var blobServiceClient = new BlobServiceClient(
    const blobServiceClient = new BlobServiceClient(account_url, credential);
    ```
 
-### [Other](#tab/other)
-For other languages, you can use the blob storage account url and other properties that Service Connector set to the environment variables to connect the blob storage. For environment variable details, see [Integrate Azure Blob Storage with Service Connector](../how-to-integrate-storage-blob.md).
+### [Other](#tab/none)
+For other languages, you can use the Azure Blob Storage account url and other properties that Service Connector sets to the environment variables to connect to Azure Blob storage. For environment variable details, see [Integrate Azure Blob Storage with Service Connector](../how-to-integrate-storage-blob.md).

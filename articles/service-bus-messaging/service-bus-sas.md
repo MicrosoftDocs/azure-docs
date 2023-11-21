@@ -45,7 +45,7 @@ The rights conferred by the policy rule can be a combination of:
 * 'Listen' - Confers the right to receive (queue, subscriptions) and all related message handling
 * 'Manage' - Confers the right to manage the topology of the namespace, including creating and deleting entities
 
-The 'Manage' right includes the 'Send' and 'Receive' rights.
+The 'Manage' right includes the 'Send' and 'Listen' rights.
 
 A namespace or entity policy can hold up to 12 Shared Access Authorization rules, providing room for three sets of rules, each covering the basic rights and the combination of Send and Listen. This limit is per entity, meaning the namespace and each entity can have up to 12 Shared Access Authorization rules. This limit underlines that the SAS policy store isn't intended to be a user or service account store. If your application needs to grant access to Service Bus based on user or service identities, it should implement a security token service that issues SAS tokens after an authentication and access check.
 
