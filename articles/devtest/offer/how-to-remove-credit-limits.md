@@ -1,8 +1,8 @@
 ---
 title: Removing credit limits and changing Azure Dev/Test offers
 description: How to remove credit limits and change Azure Dev/Test offers. Switch from pay-as-you-go to another offer.
-author: jenp
-ms.author: jenp
+author: ntrogh
+ms.author: nicktrog
 ms.prod: visual-studio-family
 ms.technology: vs-subscriptions
 ms.topic: how-to

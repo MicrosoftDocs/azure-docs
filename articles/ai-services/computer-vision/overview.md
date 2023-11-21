@@ -1,8 +1,8 @@
 ---
 title: What is Azure AI Vision?
 titleSuffix: Azure AI services
-description: The Azure AI Vision service provides you with access to advanced algorithms for processing images and returning information. 
-services: cognitive-services 
+description: The Azure AI Vision service provides you with access to advanced algorithms for processing images and returning information.
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
@@ -10,7 +10,11 @@ ms.service: azure-ai-vision
 ms.topic: overview
 ms.date: 07/04/2023
 ms.author: pafarley
-ms.custom: [seodec18, cog-serv-seo-aug-2020, contperf-fy21q2]
+ms.custom:
+  - seodec18
+  - cog-serv-seo-aug-2020
+  - contperf-fy21q2
+  - ignite-2023
 keywords: Azure AI Vision, Azure AI Vision applications, Azure AI Vision service
 #Customer intent: As a developer, I want to evaluate image processing functionality, so that I can determine if it will work for my information extraction or object detection scenarios.
 ---
@@ -25,12 +29,12 @@ Azure's Azure AI Vision service gives you access to advanced algorithms that pro
 |---|---|
 | [Optical Character Recognition (OCR)](overview-ocr.md)|The Optical Character Recognition (OCR) service extracts text from images. You can use the new Read API to extract printed and handwritten text from photos and documents. It uses deep-learning-based models and works with text on various surfaces and backgrounds. These include business documents, invoices, receipts, posters, business cards, letters, and whiteboards. The OCR APIs support extracting printed text in [several languages](./language-support.md). Follow the [OCR quickstart](quickstarts-sdk/client-library.md) to get started.|
 |[Image Analysis](overview-image-analysis.md)| The Image Analysis service extracts many visual features from images, such as objects, faces, adult content, and auto-generated text descriptions. Follow the [Image Analysis quickstart](quickstarts-sdk/image-analysis-client-library-40.md) to get started.|
-| [Face](overview-identity.md) | The Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identity verification, touchless access control, and face blurring for privacy. Follow the [Face quickstart](quickstarts-sdk/identity-client-library.md) to get started. |
+| [Face](overview-identity.md) | The Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identification, touchless access control, and face blurring for privacy. Follow the [Face quickstart](quickstarts-sdk/identity-client-library.md) to get started. |
 | [Spatial Analysis](intro-to-spatial-analysis-public-preview.md)| The Spatial Analysis service analyzes the presence and movement of people on a video feed and produces events that other systems can respond to. Install the [Spatial Analysis container](spatial-analysis-container.md) to get started.|
 
 ## Azure AI Vision for digital asset management
 
-Azure AI Vision can power many digital asset management (DAM) scenarios. DAM is the business process of organizing, storing, and retrieving rich media assets and managing digital rights and permissions. For example, a company may want to group and identify images based on visible logos, faces, objects, colors, and so on. Or, you might want to automatically [generate captions for images](./Tutorials/storage-lab-tutorial.md) and attach keywords so they're searchable. For an all-in-one DAM solution using Azure AI services, Azure Cognitive Search, and intelligent reporting, see the [Knowledge Mining Solution Accelerator Guide](https://github.com/Azure-Samples/azure-search-knowledge-mining) on GitHub. For other DAM examples, see the [Azure AI Vision Solution Templates](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) repository.
+Azure AI Vision can power many digital asset management (DAM) scenarios. DAM is the business process of organizing, storing, and retrieving rich media assets and managing digital rights and permissions. For example, a company may want to group and identify images based on visible logos, faces, objects, colors, and so on. Or, you might want to automatically [generate captions for images](./Tutorials/storage-lab-tutorial.md) and attach keywords so they're searchable. For an all-in-one DAM solution using Azure AI services, Azure AI Search, and intelligent reporting, see the [Knowledge Mining Solution Accelerator Guide](https://github.com/Azure-Samples/azure-search-knowledge-mining) on GitHub. For other DAM examples, see the [Azure AI Vision Solution Templates](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) repository.
 
 ## Getting started
 

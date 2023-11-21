@@ -3,6 +3,8 @@ title:  Managing the Azure Connected Machine agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
 ms.date: 05/04/2023
 ms.topic: conceptual
+ms.custom:
+  - ignite-2023
 ---
 
 # Managing and maintaining the Connected Machine agent
@@ -79,7 +81,6 @@ Links to the current and previous releases of the Windows agents are available b
    ```bash
    sudo zypper install -f azcmagent-1.28.02260-755
    ```
-
 
 ---
 
@@ -416,11 +417,16 @@ Starting with agent version 1.15, you can also specify services which should **n
 
 The proxy bypass feature does not require you to enter specific URLs to bypass. Instead, you provide the name of the service(s) that should not use the proxy server. The location parameter refers to the Azure region of the Arc Server(s).
 
+Proxy bypass value when set to `ArcData` only bypasses the traffic of the Azure extension for SQL Server and not the Arc agent.
+
 | Proxy bypass value | Affected endpoints |
 | --------------------- | ------------------ |
-| `AAD` | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
+| `AAD` | `login.windows.net`</br>`login.microsoftonline.com`</br> `pas.windows.net` |
 | `ARM` | `management.azure.com` |
-| `Arc` | `his.arc.azure.com`, `guestconfiguration.azure.com` , `san-af-<location>-prod.azurewebsites.net`|
+| `Arc` | `his.arc.azure.com`</br>`guestconfiguration.azure.com`</br> `san-af-<location>-prod.azurewebsites.net`</br>`telemetry.<location>.arcdataservices.com`|
+| `ArcData` <sup>1</sup> | `san-af-<region>-prod.azurewebsites.net`</br>`telemetry.<location>.arcdataservices.com` |
+
+<sup>1</sup> The proxy bypass value `ArcData` is available starting with Azure Connected Machine agent version 1.36 and Azure Extension for SQL Server version 1.1.2504.99. Earlier versions include the Azure Arc-enabled SQL Server endpoints in the "Arc" proxy bypass value.
 
 To send Microsoft Entra ID and Azure Resource Manager traffic through a proxy server but skip the proxy for Azure Arc traffic, run the following command:
 

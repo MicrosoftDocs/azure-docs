@@ -4,7 +4,10 @@ description: Describes how to partition Service Bus queues and topics by using m
 ms.topic: article
 ms.date: 10/12/2022
 ms.devlang: csharp
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom:
+  - devx-track-csharp
+  - ignite-2022
+  - ignite-2023
 ---
 
 # Partitioned queues and topics
@@ -117,6 +120,3 @@ Currently Service Bus imposes the following limitations on partitioned queues an
 You can enable partitioning by using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable partitioning (Basic / Standard)](enable-partitions-basic-standard.md).
 
 Read about the core concepts of the AMQP 1.0 messaging specification in the [AMQP 1.0 protocol guide](service-bus-amqp-protocol-guide.md).
-
-[Azure portal]: https://portal.azure.com
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-amqp-protocol-guide.md
