@@ -225,7 +225,7 @@ When the application runs, a Kubernetes service exposes the application frontend
     azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
     ```
 
-3. See the Azure Vote app in action by open a web browser to the external IP address of your service.
+3. Open a web browser to the external IP address of your service to see the application in action.
 
     :::image type="content" source="./media/azure-voting-application.png" alt-text="Screenshot of browsing to Azure Vote sample application.":::
 
