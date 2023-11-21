@@ -29,11 +29,11 @@ Azure Arc-enabled SCVMM requires the Arc resource bridge to connect your SCVMM e
 
 To upgrade to the latest version of the resource bridge, perform the following steps:
 
-1. Copy the Azure region and resource IDs of the Arc resource bridge, custom location and vCenter Azure resources
+1. Copy the Azure region and resource IDs of the Arc resource bridge, custom location and vCenter Azure resources.
 
-2. Find and delete the old Arc resource bridge **template** from your vCenter
+2. Find and delete the old Arc resource bridge **template** from your vCenter.
 
-3. Download the script from the portal and update the following section in the script
+3. Download the script from the portal and update the following section in the script.
 
     ```powershell
     $location = <Azure region of the resources>
@@ -51,7 +51,7 @@ To upgrade to the latest version of the resource bridge, perform the following s
     $vCenterName = <vcenter-name-in-azure>
     ```
 
-4. [Run the onboarding script](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md#run-the-script) again with the `--force` parameter
+4. [Run the onboarding script](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md#run-the-script) again with the `--force` parameter.
 
     ``` powershell-interactive
     ./resource-bridge-onboarding-script.ps1 --force
