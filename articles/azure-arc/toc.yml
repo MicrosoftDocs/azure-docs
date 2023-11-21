@@ -30,6 +30,9 @@
   - name: Deployment overview
     displayName: resource bridge, arcappliance
     href: ./resource-bridge/deploy-cli.md
+  - name: Upgrade
+    displayName: update, resource bridge
+    href: ./resource-bridge/upgrade.md
   - name: Maintenance
     displayName: resource bridge, appliance
     href: ./resource-bridge/maintenance.md
@@ -44,10 +47,11 @@
   href: ./data/overview.md
 - name: Azure Arc-enabled VMware vSphere >
   href: ./vmware-vsphere/overview.md
-- name: Azure Arc-enabled System Center Virtual Machine Manager (preview)  >
+- name: Azure Arc-enabled System Center Virtual Machine Manager >
   href: ./system-center-virtual-machine-manager/overview.md
-- name: Azure Arc-enabled VMs on Azure Stack HCI >
-  href: /azure-stack/hci/manage/azure-arc-enabled-virtual-machines
+- name: Azure Arc VM management on Azure Stack HCI >
+  href: /azure-stack/hci/manage/azure-arc-vm-management-overview
+  displayName: stack, hci
 - name: Azure Arc-enabled SQL Server >
   href: /sql/sql-server/azure-arc/overview
 - name: Arc validation program
@@ -72,7 +76,7 @@
 - name: Resources
   items:
   - name: Azure Arc Jumpstart
-    href: https://azurearcjumpstart.io
+    href: https://aka.ms/AzureArcJumpstart
   - name: Microsoft Q&A for Azure Arc
     href: /answers/tags/146/azure-arc
   - name: Azure updates

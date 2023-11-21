@@ -15,12 +15,9 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
-> [!NOTE]
-
-
-## Overview
-
 Azure Database for PostgreSQL Flexible Server supports PostgreSQL versions 11, 12, 13, 14 and 15. Postgres community releases a new major version containing new features about once a year. Additionally, major version receives periodic bug fixes in the form of minor releases. Minor version upgrades include changes that are backward-compatible with existing applications. Azure Database for PostgreSQL Flexible Server periodically updates the minor versions during customer’s maintenance window. Major version upgrades are more complicated than minor version upgrades as they can include internal changes and new features that may not be backward-compatible with existing applications. 
+
+## Overview 
 
 Azure Database for PostgreSQL Flexible Server Postgres has now introduced in-place major version upgrade feature that performs an in-place upgrade of the server with just a click. In-place major version upgrade simplifies the upgrade process minimizing the disruption to users and applications accessing the server. In-place upgrades are a simpler way to upgrade the major version of the instance, as they retain the server name and other settings of the current server after the upgrade, and don't require data migration or changes to the application connection strings. In-place upgrades are faster and involve shorter downtime than data migration. 
 
@@ -49,7 +46,7 @@ Here are some of the important considerations with in-place major version upgrad
 
 -	Once the in-place major version upgrade is successful, there are no automated ways to revert to the earlier version. However, you can perform a Point-In-Time Recovery (PITR) to a time prior to the upgrade to restore the previous version of the database instance.
 
-## Limitations:  
+## Limitations  
 
 If in-place major version upgrade pre-check operations fail then it aborts with a detailed error message for all the below limitations.
 
@@ -57,15 +54,12 @@ If in-place major version upgrade pre-check operations fail then it aborts with 
 
 - In-place major version upgrade doesn't support certain extensions and there are some limitations to upgrading certain extensions. The extensions **Timescaledb**, **pgaudit**, **dblink**, **orafce** and **postgres_fdw** are unsupported for all PostgreSQL versions. 
 
--	Please ensure that the **PostGIS** extensions, installed within a specific schema, are included in your search_path server parameter. It is necessary to update this server parameter to encompass those schemas before proceeding with major version upgrade.
+-	When upgrading servers with PostGIS extension installed, set the `search_path` server parameter to explicitly include the schemas of the PostGIS extension, extensions that depend on PostGIS, and extensions that serve as dependencies for the below extensions.
+  **e.g postgis,postgis_raster,postgis_sfcgal,postgis_tiger_geocoder,postgis_topology,address_standardizer,address_standardizer_data_us,fuzzystrmatch (required for postgis_tiger_geocoder).**
 
 -	Servers configured with logical replication slots aren't supported. 
 
-
-
-
-
-## How to Perform in-place major version upgrade: 
+## How to perform in-place major version upgrade: 
 
 It's recommended to perform a dry run of the in-place major version upgrade in a non-production environment before upgrading the production server. It allows you to identify any application incompatibilities and validate that the upgrade completes successfully before upgrading the production environment. You can perform a Point-In-Time Recovery (PITR) of your production server and test the upgrade in the non-production environment. Addressing these issues before the production upgrade minimizes downtime and ensures a smooth upgrade process. 
 
@@ -73,65 +67,32 @@ It's recommended to perform a dry run of the in-place major version upgrade in a
 
 1. You can perform in-place major version upgrade using Azure portal or CLI (command-line interface).  Click the **Upgrade** button in Overview blade.
 
-
-
-
-  :::image type="content" source="media/concepts-major-version-upgrade/upgrade-tab.png" alt-text="Diagram of Upgrade tab to perform in-place major version upgrade.":::
-
-
-
+   :::image type="content" source="media/concepts-major-version-upgrade/upgrade-tab.png" alt-text="Diagram of Upgrade tab to perform in-place major version upgrade.":::
 
 2. You'll see an option to select the major version of your choice, you have an option to skip versions to directly upgrade to higher versions. Choose the version and click **Upgrade**. 
 
-
-
-
-:::image type="content" source="media/concepts-major-version-upgrade/set-postgresql-version.png" alt-text="Diagram of PostgreSQL version to Upgrade.":::
-
-
-
+   :::image type="content" source="media/concepts-major-version-upgrade/set-postgresql-version.png" alt-text="Diagram of PostgreSQL version to Upgrade.":::
 
 3. During upgrade, users have to wait for the process to complete. You can resume accessing the server once the server is back online. 
 
-
-
-
-:::image type="content" source="media/concepts-major-version-upgrade/deployment-progress.png" alt-text="Diagram of deployment progress for major version upgrade.":::
-
-
-
-
-
+   :::image type="content" source="media/concepts-major-version-upgrade/deployment-progress.png" alt-text="Diagram of deployment progress for major version upgrade.":::
 
 4. Once the upgrade is successful,you can expand the **Deployment details** tab and click **Operation details**  to see more information about upgrade process like duration, provisioning state etc. 
 
-
-
-
-
-
-:::image type="content" source="media/concepts-major-version-upgrade/deployment-success.png" alt-text="Diagram of successful deployment of for major version upgrade.":::
-
-
-
-
+   :::image type="content" source="media/concepts-major-version-upgrade/deployment-success.png" alt-text="Diagram of successful deployment of for major version upgrade.":::
 
 5. You can click on the **Go to resource** tab to validate your upgrade. You notice that server name remained unchanged and PostgreSQL version upgraded to desired higher version with the latest minor version. 
 
+   :::image type="content" source="media/concepts-major-version-upgrade/upgrade-verification.png" alt-text="Diagram of Upgraded version to Flexible Server after major version upgrade.":::
 
 
+## Post upgrade
 
-
-:::image type="content" source="media/concepts-major-version-upgrade/upgrade-verification.png" alt-text="Diagram of Upgraded version to Flexible Server after major version upgrade.":::
-
-
-## Post Upgrade
-
-Run the **ANALYZE** operation to refresh the pg_statistic table. You should do this for every database on all your Flexible Server. Optimizer statistics aren't transferred during a major version upgrade, so you need to regenerate all statistics to avoid performance issues. Run the command without any parameters to generate statistics for all regular tables in the current database, as follows
+Run the **ANALYZE** operation to refresh the `pg_statistic` table. You should do this for every database on all your Flexible Server. Optimizer statistics aren't transferred during a major version upgrade, so you need to regenerate all statistics to avoid performance issues. Run the command without any parameters to generate statistics for all regular tables in the current database, as follows:
 
 
 ```
-ANALYZE VERBOSE
+VACUUM ANALYZE VERBOSE;
 ```
 > [!NOTE]   
 >

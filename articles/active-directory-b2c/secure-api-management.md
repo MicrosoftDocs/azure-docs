@@ -25,7 +25,7 @@ Before you begin, make sure that you have the following resources in place:
 * An [application that's registered in your tenant](tutorial-register-applications.md)
 * [User flows that are created in your tenant](tutorial-create-user-flows.md)
 * A [published API](../api-management/import-and-publish.md) in Azure API Management
-* (Optional) A [Postman platform](https://www.getpostman.com/) to test secured access
+* (Optional) A [Postman platform](https://www.postman.com/) to test secured access
 
 ## Get Azure AD B2C application ID
 
@@ -36,8 +36,7 @@ To register an application in your Azure AD B2C tenant, you can use our new, uni
 # [App registrations](#tab/app-reg-ga/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. On the left pane, select **Azure AD B2C**. Alternatively, you can select **All services** and then search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select the **Owned applications** tab.
 1. Record the value in the **Application (client) ID** column for *webapp1* or for another application you've previously created.
@@ -45,8 +44,7 @@ To register an application in your Azure AD B2C tenant, you can use our new, uni
 # [Applications (Legacy)](#tab/applications-legacy/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. On the left pane, select **Azure AD B2C**. Alternatively, you can select **All services** and then search for and select **Azure AD B2C**.
 1. Under **Manage**, select **Applications (Legacy)**.
 1. Record the value in the **Application ID** column for *webapp1* or for another application you've previously created.
@@ -115,7 +113,7 @@ You're now ready to add the inbound policy in Azure API Management that validate
 
 ## Validate secure API access
 
-To ensure that only authenticated callers can access your API, you can validate your Azure API Management configuration by calling the API with [Postman](https://www.getpostman.com/).
+To ensure that only authenticated callers can access your API, you can validate your Azure API Management configuration by calling the API with [Postman](https://www.postman.com/).
 
 To call the API, you need both an access token that's issued by Azure AD B2C and an Azure API Management subscription key.
 
@@ -152,7 +150,7 @@ A client application (in this case, Postman) that calls a published API must inc
 
 With the access token and Azure API Management subscription key recorded, you're now ready to test whether you've correctly configured secure access to the API.
 
-1. Create a new `GET` request in [Postman](https://www.getpostman.com/). For the request URL, specify the speakers list endpoint of the API you published as one of the prerequisites. For example:
+1. Create a new `GET` request in [Postman](https://www.postman.com/). For the request URL, specify the speakers list endpoint of the API you published as one of the prerequisites. For example:
 
     `https://contosoapim.azure-api.net/conference/speakers`
 

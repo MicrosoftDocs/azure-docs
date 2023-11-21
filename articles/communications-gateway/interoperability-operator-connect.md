@@ -1,11 +1,11 @@
 ---
-title: Overview of Operator Connect and Teams Phone Mobile interoperating with Azure Communications Gateway
+title: Overview of Operator Connect and Teams Phone Mobile with Azure Communications Gateway
 description: Understand how Azure Communications Gateway fits into your fixed and mobile networks and into the Operator Connect and Teams Phone Mobile environments
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: conceptual
-ms.date: 08/01/2023
+ms.date: 09/01/2023
 ms.custom: template-concept
 ---
 
@@ -20,17 +20,17 @@ Azure Communications Gateway can manipulate signaling and media to meet the requ
 
 Azure Communications Gateway sits at the edge of your fixed line and mobile networks. It connects these networks to the Microsoft Phone System, allowing you to support Operator Connect (for fixed line networks) and Teams Phone Mobile (for mobile networks). The following diagram shows where Azure Communications Gateway sits in your network.
 
-:::image type="complex" source="media/azure-communications-gateway-architecture.png" alt-text="Architecture diagram for Azure Communications Gateway connecting to fixed and mobile networks":::
-    Architecture diagram showing Azure Communications Gateway connecting to the Microsoft Phone System, a softswitch in a fixed line deployment and a mobile IMS core. Azure Communications Gateway contains certified SBC function and the MCP application server for anchoring mobile calls.
+:::image type="complex" source="media/azure-communications-gateway-architecture-operator-connect.svg" alt-text="Architecture diagram for Azure Communications Gateway connecting to fixed and mobile networks" lightbox="media/azure-communications-gateway-architecture-operator-connect.svg":::
+    Architecture diagram showing Azure Communications Gateway connecting to the Microsoft Phone System, a fixed line deployment and a mobile IMS core. Azure Communications Gateway contains SBC function, the MCP application server for anchoring Teams Phone Mobile calls and a provisioning API.
 :::image-end:::
 
-Calls flow from endpoints in your networks through Azure Communications Gateway and the Microsoft Phone System into Microsoft Teams clients.
+Calls flow from Microsoft Teams clients through the Microsoft Phone System and Azure Communications Gateway into your network.
 
-### Compliance with Certified SBC specifications
+## Compliance with Certified SBC specifications
 
 Azure Communications Gateway supports the Microsoft specifications for Certified SBCs for Operator Connect and Teams Phone Mobile. For more information about certification and these specifications, see [Session Border Controllers certified for Direct Routing](/microsoftteams/direct-routing-border-controllers) and the Operator Connect or Teams Phone Mobile documentation provided by your Microsoft representative.
 
-### Call control integration for Teams Phone Mobile
+## Call control integration for Teams Phone Mobile
 
 [Teams Phone Mobile](/microsoftteams/operator-connect-mobile-plan) allows you to offer Microsoft Teams call services for calls made from the native dialer on mobile handsets, for example presence and call history. These features require anchoring the calls in Microsoft's Intelligent Conversation and Communications Cloud (IC3), part of the Microsoft Phone System.
 
@@ -67,9 +67,9 @@ You can arrange more interworking function as part of your initial network desig
 - Interworking away from inband DTMF tones
 - Placing the unique tenant ID elsewhere in SIP messages to make it easier for your network to consume, for example in `tgrp` parameters
 
-The Microsoft Phone System requires calling (A-) and called (B-)  telephone numbers to be in E.164 format. This requirement applies to both SIP and TEL numbers. We recommend that you configure your network to use the E.164 format for all numbers. If your network can't convert numbers to the E.164 format, contact your onboarding team or raise a support request to discuss your requirements for number conversion.
+[!INCLUDE [microsoft-phone-system-requires-e164-numbers](includes/communications-gateway-e164-for-phone-system.md)]
 
-[!INCLUDE [communications-gateway-multitenant](includes/communications-gateway-multitenant.md)]
+[!INCLUDE [communications-gateway-multitenant](includes/communications-gateway-multitenant.md)] By default, traffic for Operator Connect or Teams Phone Mobile contains an X-MS-TenantID header. This header identifies the enterprise that is sending the traffic and can be used by your billing systems.
 
 ## RTP and SRTP media
 
@@ -77,7 +77,7 @@ The Microsoft Phone System typically requires SRTP for media. Azure Communicatio
 
 ### Media handling for calls
 
-You must select the codecs that you want to support when you deploy Azure Communications Gateway. If the Microsoft Phone System doesn't support these codecs, Azure Communications Gateway can perform transcoding (converting between codecs) on your behalf.
+You must select the codecs that you want to support when you deploy Azure Communications Gateway.
 
 Operator Connect and Teams Phone Mobile require core networks to support ringback tones (ringing tones) during call transfer. Core networks must also support comfort noise. If your core networks can't meet these requirements, Azure Communications Gateway can inject media into calls.
 
@@ -102,7 +102,7 @@ For more information, see [Manage an enterprise with Azure Communications Gatewa
 > [!TIP]
 > The Number Management Portal does not allow your enterprise customers to manage Teams Calling. For example, it does not provide self-service portals.
 
-### Providing call duration data to Microsoft Teams
+## Providing call duration data to Microsoft Teams
 
 Azure Communications Gateway can use the Operator Connect APIs to upload information about the duration of individual calls (CallDuration information) into the Microsoft Teams environment. This information allows Microsoft Teams clients to display the call duration recorded by your network, instead of the call duration recorded by Microsoft Teams. Providing this information to Microsoft Teams is a requirement of the Operator Connect program that Azure Communications Gateway performs on your behalf.
 

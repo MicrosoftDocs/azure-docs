@@ -4,12 +4,42 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 8/30/2023
+ms.date: 11/12/2023
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft will regularly apply important updates to the Azure VMware Solution for new features and software lifecycle management. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
+
+## November 2023
+
+**VMware vSphere 8.0**
+
+VMware vSphere 8.0 will be rolled out to the Azure VMware Solution starting at the end of November.
+
+**AV64 SKU**
+
+Azure VMware Solution AV64 node size is now available in specific regions. The AV64 node is built on Intel Xeon Platinum 8370C CPUs with a total of 64 physical cores, 1 TB of memory and 15.4 TB of total storage. The AV64 SKU can be used for extending existing Azure VMware Solution private clouds built on AV36, AV36P, or AV52 node sizes. [Learn more](introduction.md#azure-vmware-solution-private-cloud-extension-with-av64-node-size)
+
+**Azure Elastic SAN (preview)**
+
+Azure Elastic SAN is a cloud-native managed SAN offering scalability, cost-efficiency, high performance, and security. It now supports snapshots, enhanced security, and integrates with Azure VMware Solution. Furthermore, as a VMware Certified datastore, Elastic SAN allows you to independently scale your storage and performance, optimizing your total cost of ownership and scalability. [Learn more](https://aka.ms/Elastic-san-preview-refresh-updates-blog)
+
+**Azure VMware Solution in Microsoft Azure Government**
+
+Azure VMware Solution was approved to be added as a service within the Azure Government Federal Risk and Authorization Management Program (FedRAMP) High Provisional Authorization to Operate (P-ATO). Azure VMware Solution is already available in Azure Commercial and included in the Azure Commercial FedRAMP High P-ATO. With this latest approval, customers and their partners who require the data sovereignty that Azure Government provides can now meet FedRAMP requirements with Azure VMware Solution in Azure Government. [Learn more](https://techcommunity.microsoft.com/t5/azure-migration-and/azure-vmware-solution-was-approved-and-added-to-the-fedramp-high/ba-p/3968157)
+
+**Azure NetApp Files for Microsoft Azure Government**
+
+All Azure NetApp Files features available on Azure public cloud are also available on supported Azure Government regions. For Azure Government regions supported by Azure NetApp Files, see [Products Available by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
+
+**Azure Arc-enabled VMware vSphere**
+
+Customers can start their onboarding with Azure Arc-enabled VMware vSphere, install agents at-scale, and enable Azure management, observability, and security solutions, while benefitting from the existing lifecycle management capabilities. Azure Arc-enabled VMware vSphere VMs will now show up alongside other Azure Arc-enabled servers under ‘Machines’ view in the Azure portal. [Learn more](https://aka.ms/vSphereGAblog)
+
+**Five-year Reserved Instance**
+
+A Five-year Reserved Instance promotion is available for Azure VMware Solution until March 31, 2024 for customers looking to lock-in their VMware solution costs for multiple years. [Visit our pricing page](https://azure.microsoft.com/pricing/details/azure-vmware/).
 
 ## August 2023
 
@@ -23,15 +53,11 @@ Pure Cloud Block Store for Azure VMware Solution is now in public preview. Now c
 
 **Azure Arc-enabled VMware vSphere (preview)**
 
-Azure Arc-enabled VMware vSphere has a new refresh for the public preview. Now customers can start their onboarding with Azure Arc-enabled VMware vSphere, install agents at-scale, and enable Azure management, observability, and security solutions, while benefitting from the existing lifecycle management capabilities. Azure Arc-enabled VMware vSphere VMs will now show up alongside other Azure Arc-enabled servers under ‘Machines’ view in the Azure portal. [Learn more](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/overview)
+Azure Arc-enabled VMware vSphere has a new refresh for the public preview. Now customers can start their onboarding with Azure Arc-enabled VMware vSphere, install agents at-scale, and enable Azure management, observability, and security solutions, while benefitting from the existing lifecycle management capabilities. Azure Arc-enabled VMware vSphere VMs will now show up alongside other Azure Arc-enabled servers under ‘Machines’ view in the Azure portal. [Learn more](/azure/azure-arc/vmware-vsphere/overview)
 
 **VMware Cloud Director Service**
 
 VMware Cloud Director service for Azure VMware Solution is now available for enterprise. VMware Cloud Director service provides a multi-cloud control plane for managing multi-tenancy on infrastructure ranging from on-premises customer data centers, managed service provider facilities, and in the cloud. [Learn more](https://blogs.vmware.com/cloud/2023/08/15/cloud-director-service-ga-for-avs/)
-
-**Stretched Clusters Generally Available**
-
-Stretched Clusters for Azure VMware Solution is now available and provides 99.99 percent uptime for mission critical applications that require the highest availability. In times of availability zone failure, your virtual machines (VMs) and applications automatically failover to an unaffected availability zone with no application impact. [Learn more](deploy-vsan-stretched-clusters.md)
 
 **Well-Architected Assessment Tool**
 
@@ -45,11 +71,18 @@ VMware Cloud Universal now includes Azure VMware Solution. [Learn more](https://
 
 Customers using the cloudadmin@vsphere.local credentials with the vSphere Client now have read-only access to the Management Resource Pool that contains the management and control plane of Azure VMware Solution (vCenter Server, NSX-T Data Center, HCX Manager, SRM Manager).
 
+## June 2023
+
+**Stretched Clusters Generally Available**
+
+Stretched Clusters for Azure VMware Solution is now available and provides 99.99 percent uptime for mission critical applications that require the highest availability. In times of availability zone failure, your virtual machines (VMs) and applications automatically fail over to an unaffected availability zone with no application impact. [Learn more](deploy-vsan-stretched-clusters.md)
+
+
 ## May 2023
 
 **Azure VMware Solution in Azure Gov**
  
-Azure VMware Service will become generally available on May 17, 2023, to US Federal and State and Local Government (US) customers and their partners, in the regions of Arizona and Virgina. With this release, we are combining world-class Azure infrastructure together with VMware technologies by offering Azure VMware Solutions on Azure Government, which is designed, built, and supported by Microsoft. 
+Azure VMware Service will become generally available on May 17, 2023, to US Federal and State and Local Government (US) customers and their partners, in the regions of Arizona and Virginia. With this release, we are combining world-class Azure infrastructure together with VMware technologies by offering Azure VMware Solutions on Azure Government, which is designed, built, and supported by Microsoft. 
 
 **New Azure VMware Solution Region: Qatar**
 
@@ -214,3 +247,4 @@ Documented workarounds for the vSphere stack, as per [VMSA-2021-0002](https://ww
 
 ## Post update
 Once complete, newer versions of VMware solution components will appear. If you notice any issues or have any questions, contact our support team by opening a support ticket.
+

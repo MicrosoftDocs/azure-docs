@@ -1,10 +1,81 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 01/09/2023
+ms.date: 09/29/2023
 ms.author: eur
 ---
+
+### November 2023 release
+
+#### Speech To text models update
+
+We're excited to introduce a significant update to our speech models, promising enhanced accuracy, improved readability, and refined entity recognition. This upgrade comes with a robust new structure, bolstered by an expanded training dataset, ensuring a marked advancement in overall performance. It includes newly released models for en-US, zh-CN, ja-JP, it-IT, pt-BR, es-MX, es-ES, fr-FR, de-DE, ko-KR, tr-TR, sv-SE, and he-IL.
+
+Highlights:
+- Better accuracy with new model structure: The redefined model structure, coupled with a richer training dataset, elevates accuracy levels, promising more precise speech output.
+- Readability improvement: Our latest model brings a substantial boost to readability, enhancing the coherence and clarity of spoken content.
+- Advanced entity recognition: Entity recognition receives a substantial upgrade, resulting in more accurate and nuanced results.
+
+Potential impacts: Despite these advancements, it's crucial to be mindful of potential impacts:
+- Custom Silence Timeout Feature: Users employing custom silence timeout, especially with low settings, might encounter over-segmentation and potential omissions of single-word phrases.
+- The new model might exhibit compatibility issues with the Keyword prefix feature, and users are advised to assess its performance in their specific applications.
+- Reduced disfluency words or phrases: Users might notice a reduction in disfluency words or phrases like "um" or "uh" in the speech output.
+- Inaccuracies in word timestamp duration: Some disfluency words might display inaccuracies in timestamp duration, requiring attention in applications dependent on precise timing.
+- Confidence score distribution variance: Users relying on confidence scores and associated thresholds should be aware of potential variations in distribution, necessitating adjustments for optimal performance.
+- The accuracy enhancement of the phrase list feature might be affected by the misrecognition of certain phrases.
+
+We encourage you to explore these improvements and consider potential issues for a seamless transition, and as always, your feedback is instrumental in refining and advancing our services.
+
+#### Pronunciation Assessment
+
+- Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 18 languages generally available, with six more languages available in public preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
+
+  | Language | Locale (BCP-47) | 
+  |--|--|
+  |Arabic (Saudi Arabia)|`ar-SA` |
+  |Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
+  |Chinese (Mandarin, Simplified)|`zh-CN`|
+  |English (Australia)|`en-AU`|
+  |English (Canada)|`en-CA` |
+  |English (India)|`en-IN` |
+  |English (United Kingdom)|`en-GB`|
+  |English (United States)|`en-US`|  
+  |French (Canada)|`fr-CA`| 
+  |French (France)|`fr-FR`|  
+  |German (Germany)|`de-DE`|
+  |Hindi (India)|`hi-IN`<sup>1</sup>|
+  |Italian (Italy)|`it-IT`|
+  |Japanese (Japan)|`ja-JP`|
+  |Korean (Korea)|`ko-KR`|
+  |Malay (Malaysia)|`ms-MY`|
+  |Norwegian Bokmål (Norway)|`nb-NO`|
+  |Portuguese (Brazil)|`pt-BR`|
+  |Russian (Russia)|`ru-RU`<sup>1</sup>|
+  |Spanish (Mexico)|`es-MX` | 
+  |Spanish (Spain)|`es-ES` | 
+  |Swedish (Sweden)|`sv-SE`<sup>1</sup>|
+  |Tamil (India)|`ta-IN`<sup>1</sup> | 
+  |Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
+
+  <sup>1</sup> The language is in public preview for pronunciation assessment.
+
+- We're excited to announce that Pronunciation Assessment is introducing new features starting November 1, 2023: Prosody, Grammar, Vocabulary, and Topic. These enhancements aim to provide an even more comprehensive language learning experience for both reading and speaking assessments. Explore further details in the [How to use pronunciation assessment](../../how-to-pronunciation-assessment.md) and [Pronunciation assessment in Speech Studio](../../pronunciation-assessment-tool.md).
+
+### September 2023 release
+
+#### Whisper public preview
+
+Azure AI Speech now supports OpenAI's Whisper model via the batch transcription API. To learn more, check out the [Create a batch transcription](../../batch-transcription-create.md#using-whisper-models) guide. 
+
+> [!NOTE]
+> Azure OpenAI Service also supports OpenAI's Whisper model for speech to text with a synchronous REST API. To learn more, check out the [quickstart](../../../openai/whisper-quickstart.md). 
+
+Check out [What is the Whisper model?](../../whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
+
+#### Speech to text REST API v3.2 public preview
+
+Speech to text REST API v3.2 is available in preview. [Speech to text REST API](../../rest-speech-to-text.md) v3.1 is generally available. Speech to text REST API v3.0 will be retired on April 1st, 2026. For more information, see the Speech to text REST API [v3.0 to v3.1](../../migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](../../migrate-v3-1-to-v3-2.md) migration guides.
 
 ### August 2023 release
 

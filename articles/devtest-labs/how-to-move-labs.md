@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 08/28/2023
+ms.date: 09/30/2023
 ---
 
 # Move DevTest Labs and schedules to another region

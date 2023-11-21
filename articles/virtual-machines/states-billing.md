@@ -6,9 +6,9 @@ author: mimckitt
 ms.service: virtual-machines
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/08/2022
+ms.date: 10/31/2023
 ms.author: mimckitt
-ms.reviewer: cynthn
+ms.reviewer: cynthn, mattmcinnes
 ms.custom: kr2b-contr-experiment
 ---
 
@@ -45,20 +45,20 @@ The following table provides a description of each instance state and indicates 
 | Starting| Virtual machine is powering up. | Billed |
 | Running | Virtual machine is fully up. This state is the standard working state. | Billed |
 | Stopping | This state is transitional between running and stopped. | Billed |
-| Stopped | The virtual machine is allocated on a host but not running. Also called *PoweredOff* state or *Stopped (Allocated)*. This state can be result of invoking the `PowerOff` API operation or invoking shutdown from within the guest OS. The *Stopped* state may also be observed briefly during VM creation or while starting a VM from *Deallocated* state.  | Billed |
+| Stopped | The virtual machine is allocated on a host but not running. Also called *PoweredOff* state or *Stopped (Allocated)*. This state can be result of invoking the `PowerOff` API operation or invoking shutdown from within the guest OS. The *Stopped* state might also be observed briefly during VM creation or while starting a VM from *Stopped (Deallocated)* state.  | Billed |
 | Deallocating | This state is transitional between *Running* and *Deallocated*. | Not billed* |
-| Deallocated | The virtual machine has released the lease on the underlying hardware and is powered off. This state is also referred to as *Stopped (Deallocated)*. | Not billed* |
+| Deallocated | The virtual machine has released the lease on the underlying hardware. If the machine is powered off it is shown as *Stopped (Deallocated)*. If it has entered [hibernation](./hibernate-resume.md) it is shown as *Hibernated (Deallocated)* | Not billed* |
 
 \* Some Azure resources, such as [Disks](https://azure.microsoft.com/pricing/details/managed-disks) and [Networking](https://azure.microsoft.com/pricing/details/bandwidth/) continue to incur charges.
 
 Example of PowerState in JSON:
 
 ```json
-        {
-          "code": "PowerState/running",
-          "level": "Info",
-          "displayStatus": "VM running"
-        }
+{
+  "code": "PowerState/running",
+  "level": "Info",
+  "displayStatus": "VM running"
+}
 ```
 
 ## Provisioning states
@@ -90,6 +90,8 @@ OS Provisioning states only apply to virtual machines created with a [generalize
 ## Troubleshooting VM states
 
 To troubleshoot specific VM state issues, see [Troubleshoot Windows VM deployments](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) and [Troubleshoot Linux VM deployments](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux).
+
+To troubleshoot hibernation, see [Troubleshoot VM hibernation](/hibernate-resume-troubleshooting.md).
 
 For other troubleshooting help visit [Azure Virtual Machines troubleshooting documentation](/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
 

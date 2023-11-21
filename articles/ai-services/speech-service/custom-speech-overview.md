@@ -2,13 +2,12 @@
 title: Custom Speech overview - Speech service
 titleSuffix: Azure AI services
 description: Custom Speech is a set of online tools that allows you to evaluate and improve the speech to text accuracy for your applications, tools, and products. 
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 05/08/2022
+ms.date: 09/15/2023
 ms.author: eur
 ms.custom: contperf-fy21q2, references_regions
 ---
@@ -35,7 +34,7 @@ Here's more information about the sequence of steps shown in the previous diagra
 1. [Test model quantitatively](how-to-custom-speech-evaluate-data.md). Evaluate and improve the accuracy of the speech to text model. The Speech service provides a quantitative word error rate (WER), which you can use to determine if more training is required. 
 1. [Train a model](how-to-custom-speech-train-model.md). Provide written transcripts and related text, along with the corresponding audio data. Testing a model before and after training is optional but recommended.
     > [!NOTE]
-    > You pay for Custom Speech model usage and endpoint hosting, but you are not charged for training a model.
+    > You pay for Custom Speech model usage and [endpoint hosting](how-to-custom-speech-deploy-model.md). You'll also be charged for custom speech model training if the base model was created on October 1, 2023 and later. You are not charged for training if the base model was created prior to October 2023. For more information, see  [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) and the [Charge for adaptation section in the speech to text 3.2 migration guide](./migrate-v3-1-to-v3-2.md#charge-for-adaptation).
 1. [Deploy a model](how-to-custom-speech-deploy-model.md). Once you're satisfied with the test results, deploy the model to a custom endpoint. Except for [batch transcription](batch-transcription.md), you must deploy a custom endpoint to use a Custom Speech model.
     > [!TIP]
     > A hosted deployment endpoint isn't required to use Custom Speech with the [Batch transcription API](batch-transcription.md). You can conserve resources if the custom speech model is only used for batch transcription. For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).

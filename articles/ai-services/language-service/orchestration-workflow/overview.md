@@ -2,11 +2,10 @@
 title: Orchestration workflows - Azure AI services
 titleSuffix: Azure AI services
 description: Customize an AI model to connect your Conversational Language Understanding, question answering and LUIS applications.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: overview
 ms.date: 08/10/2022
 ms.author: aahi

@@ -2,11 +2,10 @@
 title: How to log audio and transcriptions for speech recognition
 titleSuffix: Azure AI services
 description: Learn how to use audio and transcription logging for speech to text and speech translation.
-services: cognitive-services
+#services: cognitive-services
 author: alexeyo26
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 03/28/2023
@@ -23,7 +22,9 @@ Audio and transcription logs can be used as input for [Custom Speech](custom-spe
 > [!WARNING]
 > Don't depend on audio and transcription logs when the exact record of input audio is required. In the periods of peak load, the service prioritizes hardware resources for transcription tasks. This may result in minor parts of the audio not being logged. Such occasions are rare, but nevertheless possible. 
 
-Logging is done asynchronously for both base and custom model endpoints. Audio and transcription logs are stored by the Speech service and not written locally. The logs are retained for 30 days. After this period, the logs are automatically deleted. However you can [delete](#delete-audio-and-transcription-logs) specific logs or a range of available logs at any time.
+Logging is done asynchronously for both base and custom model endpoints. Audio and transcription logs are stored by the Speech service in its internal storage and not written locally. The logs are retained for 30 days. After this period, the logs are automatically deleted. However you can [delete](#delete-audio-and-transcription-logs) specific logs or a range of available logs at any time.
+
+You can also store audio and transcription logs within an Azure Storage account you own and control instead of Speech service premises using [Bring-your-own-storage (BYOS)](bring-your-own-storage-speech-resource.md) technology. See details on how to use BYOS-enabled Speech resource in [this article](bring-your-own-storage-speech-resource-speech-to-text.md).
 
 ## Enable audio and transcription logging
 
@@ -393,7 +394,7 @@ Here's a sample output of [Endpoints_ListLogs](https://eastus.dev.cognitive.micr
       },
       "createdDateTime": "2023-03-13T16:37:15Z",
       "links": {
-        "contentUrl": "<Link to to download log file>"
+        "contentUrl": "<Link to download log file>"
       }
     }
   ]

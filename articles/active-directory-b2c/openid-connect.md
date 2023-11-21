@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 11/22/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -16,14 +16,14 @@ ms.custom: fasttrack-edit
 
 # Web sign in with OpenID Connect in Azure Active Directory B2C
 
-OpenID Connect is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in to web applications. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OpenID Connect, you can outsource sign-up, sign in, and other identity management experiences in your web applications to Azure Active Directory (Azure AD). This guide shows you how to do so in a language-independent manner. It describes how to send and receive HTTP messages without using any of our open-source libraries.
+OpenID Connect is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in to web applications. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OpenID Connect, you can outsource sign-up, sign in, and other identity management experiences in your web applications to Microsoft Entra ID. This guide shows you how to do so in a language-independent manner. It describes how to send and receive HTTP messages without using any of our open-source libraries.
 
 > [!NOTE]
 > Most of the open-source authentication libraries acquire and validate the JWT tokens for your application. We recommend exploring those options, rather than implementing your own code. For more information, see [Overview of the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md), and [Microsoft Identity Web authentication library](../active-directory/develop/microsoft-identity-web.md).
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol. This authentication protocol allows you to perform single sign-on. It introduces the concept of an *ID token*, which allows the client to verify the identity of the user and obtain basic profile information about the user.
 
-Because it extends OAuth 2.0, it also enables applications to securely acquire *access tokens*. You can use access tokens to access resources that are secured by an [authorization server](protocols-overview.md). OpenID Connect is recommended if you're building a web application that's hosted on a server and accessed through a browser. For more information about tokens, see the [Overview of tokens in Azure Active Directory B2C](tokens-overview.md)
+OpenID Connect also enables applications to securely acquire *access tokens*. You can use access tokens to access resources that the  [authorization server](protocols-overview.md) secures. We recommend OpenID Connect if you're building a web application that you host on a server and accessed through a browser. For more information about tokens, see the [Overview of tokens in Azure Active Directory B2C](tokens-overview.md)
 
 Azure AD B2C extends the standard OpenID Connect protocol to do more than simple authentication and authorization. It introduces the [user flow parameter](user-flow-overview.md), which enables you to use OpenID Connect to add user experiences to your application, such as sign up, sign in, and profile management.
 
@@ -33,12 +33,14 @@ When your web application needs to authenticate the user and run a user flow, it
 
 In this request, the client indicates the permissions that it needs to acquire from the user in the `scope` parameter, and specifies the user flow to run. To get a feel of how the request works, paste the request into your browser and run it. Replace:
 - `{tenant}` with the name of your tenant.
-- `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` with the app ID of an [application you've previously registered in your tenant](tutorial-register-applications.md).  
-- `{application-id-uri}/{scope-name}` with the Application ID URI and Scope of an application that you've previously registered in your tenant
+- `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` with the app ID of an [application you registered in your tenant](tutorial-register-applications.md).  
+- `{application-id-uri}/{scope-name}` with the Application ID URI and scope of an application that you registered in your tenant.
 - `{policy}` with the policy name that you have in your tenant, for example `b2c_1_sign_in`.
 
 ```http
-GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
+GET /{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
+Host: {tenant}.b2clogin.com
+
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Fjwt.ms%2F
@@ -51,22 +53,22 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Parameter | Required | Description |
 | --------- | -------- | ----------- |
 | {tenant} | Yes | Name of your [Azure AD B2C tenant]( tenant-management-read-tenant-name.md#get-your-tenant-name). If you're using a [custom domain](custom-domain.md), replace `tenant.b2clogin.com` with your domain, such as `fabrikam.com`.  |
-| {policy} | Yes | The user flow or policy to be run. Specify the name of a user flow you've created in your Azure AD B2C tenant. For example: `b2c_1_sign_in`, `b2c_1_sign_up`, or `b2c_1_edit_profile`. |
+| {policy} | Yes | The user flow or policy that the app runs. Specify the name of a user flow that you create in your Azure AD B2C tenant. For example: `b2c_1_sign_in`, `b2c_1_sign_up`, or `b2c_1_edit_profile`. |
 | client_id | Yes | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application. |
 | nonce | Yes | A value included in the request (generated by the application) that is included in the resulting ID token as a claim. The application can then verify this value to mitigate token replay attacks. The value is typically a randomized unique string that can be used to identify the origin of the request. |
 | response_type | Yes | Must include an ID token for OpenID Connect. If your web application also needs tokens for calling a web API, you can use `code+id_token`.|
-| scope | Yes | A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. The `offline_access` scope is optional for web applications. It indicates that your application will need a *refresh token* for extended access to resources. The `https://{tenant-name}/{app-id-uri}/{scope}` indicates a permission to protected resources, such as a web API. For more information, see [Request an access token](access-tokens.md#scopes). |
-| prompt | No | The type of user interaction that's required. The only valid value at this time is `login`, which forces the user to enter their credentials on that request. |
-| redirect_uri | Yes | The `redirect_uri` parameter of your application, where authentication responses can be sent and received by your application. It must exactly match one of the `redirect_uri` parameters that you registered in the Azure portal, except that it must be URL-encoded. |
-| response_mode | No | The method that is used to send the resulting authorization code back to your application. It can be either `query`, `form_post`, or `fragment`.  The `form_post` response mode is recommended for best security. |
-| state | No | A value included in the request that's also returned in the token response. It can be a string of any content that you want. A randomly generated unique value is typically used for preventing cross-site request forgery attacks. The state is also used to encode information about the user's state in the application before the authentication request occurred, such as the page they were on. If you don't want to register multiple redirect URLs in your Azure portal, you can use the `state` parameter to differentiate responses in your application from Azure AD B2C service due to different requests.|
-| login_hint | No| Can be used to pre-fill the sign-in name field of the sign-in page. For more information, see [Prepopulate the sign-in name](direct-signin.md#prepopulate-the-sign-in-name).  |
+| scope | Yes | A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. The `offline_access` scope is optional for web applications. It indicates that your application need a *refresh token* for extended access to resources. The `https://{tenant-name}/{app-id-uri}/{scope}` indicates a permission to protected resources, such as a web API. For more information, see [Request an access token](access-tokens.md#scopes). |
+| prompt | No | The type of user interaction that you require. The only valid value at this time is `login`, which forces the user to enter their credentials on that request. |
+| redirect_uri | Yes | The `redirect_uri` parameter of your application, where the server sends authentication responses to your application. It must exactly match one of the `redirect_uri` parameters that you registered in the Azure portal, except that it must be URL-encoded. |
+| response_mode | No | The method that is used to send the resulting authorization code back to your application. It can be either `query`, `form_post`, or `fragment`.  We recommended you use the `form_post` response mode for best security. |
+| state | No | A value that you can include in the request that the authorization server returns in the token response. It can be a string of any content that you want. A randomly generated unique value is typically used for preventing cross-site request forgery attacks. The state is also used to encode information about the user's state in the application before the authentication request occurred, such as the page they were on. If you don't want to register multiple redirect URLs in your Azure portal, you can use the `state` parameter to differentiate responses in your application from Azure AD B2C service due to different requests.|
+| login_hint | No| Can be used to prefill the sign-in name field of the sign-in page. For more information, see [Prepopulate the sign-in name](direct-signin.md#prepopulate-the-sign-in-name).  |
 | domain_hint | No| Provides a hint to Azure AD B2C about the social identity provider that should be used for sign-in. If a valid value is included, the user goes directly to the identity provider sign-in page.  For more information, see [Redirect sign-in to a social provider](direct-signin.md#redirect-sign-in-to-a-social-provider). |
 | Custom parameters | No| Custom parameters that can be used with [custom policies](custom-policy-overview.md). For example, [dynamic custom page content URI](customize-ui-with-html.md?pivots=b2c-custom-policy#configure-dynamic-custom-page-content-uri), or [key-value claim resolvers](claim-resolver-overview.md#oauth2-key-value-parameters). |
 
 At this point, the user is asked to complete the workflow. The user might have to enter their username and password, sign in with a social identity, or sign up for the directory. There could be any other number of steps depending on how the user flow is defined.
 
-After the user completes the user flow, a response is returned to your application at the indicated `redirect_uri` parameter, by using the method that's specified in the `response_mode` parameter. The response is the same for each of the preceding cases, independent of the user flow.
+After the user completes the user flow, a response is returned to your application at the indicated `redirect_uri` parameter, by using the method that you specify in the `response_mode` parameter. The response is the same for each of the preceding cases, independent of the user flow.
 
 A successful response using `response_mode=fragment` would look like:
 
@@ -100,7 +102,7 @@ error=access_denied
 
 ## Validate the ID token
 
-Just receiving an ID token is not enough to authenticate the user. Validate the ID token's signature and verify the claims in the token per your application's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid. 
+Just receiving an ID token isn't enough to authenticate the user. Validate the ID token's signature and verify the claims in the token per your application's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they're valid. 
 
 > [!NOTE]
 > Most of the open-source authentication libraries validate the JWT tokens for your application. We recommend exploring those options, rather than implementing your own validation logic. For more information, see [Overview of the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md), and [Microsoft Identity Web authentication library](../active-directory/develop/microsoft-identity-web.md).
@@ -117,23 +119,23 @@ One of the properties of this configuration document is `jwks_uri`, whose value 
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
 ```
 
-To determine which user flow was used in signing an ID token (and from where to get the metadata), you have two options. First, the user flow name is included in the `acr` claim in the ID token, see [claim representing user flow](configure-tokens.md#token-compatibility-settings). Your other option is to encode the user flow in the value of the `state` parameter when you issue the request, and then decode it to determine which user flow was used. Either method is valid.
+To determine which user flow was used to sign an ID token, you have two options. First, the user flow name is included in the `acr` claim in the ID token, see [claim representing user flow](configure-tokens.md#token-compatibility-settings). Your other option is to encode the user flow in the value of the `state` parameter when you issue the request, and then decode it to determine which user flow was used. Either method is valid.
 
-After you've acquired the metadata document from the OpenID Connect metadata endpoint, you can use the RSA 256 public keys to validate the signature of the ID token. There might be multiple keys listed at this endpoint, each identified by a `kid` claim. The header of the ID token also contains a `kid` claim, which indicates which of these keys was used to sign the ID token.
+After you acquire the metadata document from the OpenID Connect metadata endpoint, you can use the RSA 256 public keys to validate the signature of the ID token. There might be multiple keys listed at this endpoint, each identified by a `kid` claim. The header of the ID token also contains a `kid` claim, which indicates which of these keys was used to sign the ID token.
 
-To verify the tokens from Azure AD B2C, you need to generate the public key using the exponent(e) and modulus(n). You need to determine how to do this in your respective programming language accordingly. The official documentation on Public Key generation with the RSA protocol can be found here: https://tools.ietf.org/html/rfc3447#section-3.1
+To verify the tokens from Azure AD B2C, you need to generate the public key using the exponent(e) and modulus(n). To do so, you need to learn how to generate the public key in a programming language of your choice. The official documentation on Public Key generation with the RSA protocol can be found here: https://tools.ietf.org/html/rfc3447#section-3.1
 
-After you've validated the signature of the ID token, there are several claims that you need to verify. For instance:
+After you validate the signature of the ID token, there are various claims that you need to verify. For instance:
 
 - Validate the `nonce` claim to prevent token replay attacks. Its value should be what you specified in the sign-in request.
 - Validate the `aud` claim to ensure that the ID token was issued for your application. Its value should be the application ID of your application.
 - Validate the `iat` and `exp` claims to make sure that the ID token hasn't expired.
 
-There are also several more validations that you should perform. The validations are described in detail in the [OpenID Connect Core Spec](https://openid.net/specs/openid-connect-core-1_0.html). You might also want to validate additional claims, depending on your scenario. Some common validations include:
+There are also several more validations that you should perform. The validations are described in detail in the [OpenID Connect Core Spec](https://openid.net/specs/openid-connect-core-1_0.html). You might also want to validate more claims, depending on your scenario. Some common validations include:
 
-- Ensuring that the user/organization has signed up for the application.
-- Ensuring that the user has proper authorization/privileges.
-- Ensuring that a certain strength of authentication has occurred, such as Azure AD Multi-Factor Authentication.
+- Ensure that the user/organization signed up for the application.
+- Ensure that the user has proper authorization/privileges.
+- Ensure that a certain strength of authentication has occurred, such as Microsoft Entra multifactor authentication.
 
 After the ID token is validated, you can begin a session with the user. You can use the claims in the ID token to obtain information about the user in your application. Uses for this information include display, records, and authorization.
 
@@ -143,14 +145,18 @@ If you need your web application to only run user flows, you can skip the next f
 
 You can redeem the authorization code that you acquired (by using `response_type=code+id_token`) for a token to the desired resource by sending a `POST` request to the `/token` endpoint. In Azure AD B2C, you can [request access tokens for other APIs](access-tokens.md#request-a-token) as usual by specifying their scope(s) in the request.
 
-You can also request an access token for your app's own back-end Web API by convention of using the app's client ID as the requested scope (which will result in an access token with that client ID as the "audience"):
+You can also request an access token for your app's own back-end Web API. In this case, you use the app's client ID as the requested scope, which results in an access token with that client ID as the "audience":
 
 ```http
 POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
 Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
+grant_type=authorization_code
+&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
+&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access
+&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
+&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
 | Parameter | Required | Description |
@@ -158,7 +164,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | {tenant} | Yes | Name of your Azure AD B2C tenant |
 | {policy} | Yes | The user flow that was used to acquire the authorization code. You can't use a different user flow in this request. Add this parameter to the query string, not to the POST body. |
 | client_id | Yes | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application. |
-| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, therefore not used on this flow. If using a client secret, please change it on a periodic basis. |
+| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets can't be securely stored, therefore not used on this flow. If using a client secret, change it on a periodic basis. |
 | code | Yes | The authorization code that you acquired in the beginning of the user flow. |
 | grant_type | Yes | The type of grant, which must be `authorization_code` for the authorization code flow. |
 | redirect_uri | No | The `redirect_uri` parameter of the application where you received the authorization code. |
@@ -180,13 +186,13 @@ A successful token response looks like:
 
 | Parameter | Description |
 | --------- | ----------- |
-| not_before | The time at which the token is considered valid, in epoch time. |
+| not_before | The epoch time at which the token becomes valid. |
 | token_type | The token type value. `Bearer` is the only type that is supported. |
 | access_token | The signed JWT token that you requested. |
-| scope | The scopes for which the token is valid. |
+| scope | The valid scopes for the token. |
 | expires_in | The length of time that the access token is valid (in seconds). |
-| expires_on | The time at which the access token expires, in epoch time. |
-| refresh_token | An OAuth 2.0 refresh token. The application can use this token to acquire additional tokens after the current token expires. Refresh tokens can be used to retain access to resources for extended periods of time. The scope `offline_access` must have been used in both the authorization and token requests in order to receive a refresh token. |
+| expires_on | The epoch time when the access token becomes invalid. |
+| refresh_token | An OAuth 2.0 refresh token. The application can use this token to acquire more tokens after the current token expires. Refresh tokens can be used to retain access to resources for extended periods of time. The scope `offline_access` must have been used in both the authorization and token requests in order to receive a refresh token. |
 
 Error responses look like:
 
@@ -204,7 +210,7 @@ Error responses look like:
 
 ## Use the token
 
-Now that you've successfully acquired an access token, you can use the token in requests to your back-end web APIs by including it in the `Authorization` header:
+After you successfully acquire an access token, you can use the token in requests to your back-end web APIs by including it in the `Authorization` header:
 
 ```http
 GET /tasks
@@ -214,7 +220,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ## Refresh the token
 
-Access tokens and ID tokens are short-lived. After they expire, you must refresh them to continue to access resources. When you refresh the access token, Azure AD B2C returns a new token. The refreshed access token will have updated `nbf` (not before), `iat` (issued at), and `exp` (expiration) claim values. All other claim values will be the same as the originally issued access token.
+Access tokens and ID tokens are short-lived. After they expire, you must refresh them to continue to access resources. When you refresh the access token, Azure AD B2C returns a new token. The refreshed access token will have updated `nbf` (not before), `iat` (issued at), and `exp` (expiration) claim values. All other claim values are similar to those in the previous access token.
 
 Refresh a token by submitting another `POST` request to the `/token` endpoint. This time, provide the `refresh_token` parameter instead of the `code` parameter:
 
@@ -223,7 +229,11 @@ POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0
 Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
+grant_type=refresh_token
+&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
+&scope=openid offline_access
+&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
+&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
 | Parameter | Required | Description |
@@ -231,7 +241,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | {tenant} | Yes | Name of your Azure AD B2C tenant |
 | {policy} | Yes | The user flow that was used to acquire the original refresh token. You can't use a different user flow in this request. Add this parameter to the query string, not to the POST body. |
 | client_id | Yes | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application. |
-| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, therefore not used on this call. If using a client secret, please change it on a periodic basis. |
+| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets can't be securely stored, therefore not used on this call. If using a client secret, please change it on a periodic basis. |
 | grant_type | Yes | The type of grant, which must be `refresh_token` for this part of the authorization code flow. |
 | refresh_token | Yes | The original refresh token that was acquired in the second part of the flow. The `offline_access` scope must be used in both the authorization and token requests in order to receive a refresh token. |
 | redirect_uri | No | The `redirect_uri` parameter of the application where you received the authorization code. |
@@ -253,10 +263,10 @@ A successful token response looks like:
 
 | Parameter | Description |
 | --------- | ----------- |
-| not_before | The time at which the token is considered valid, in epoch time. |
+| not_before | The epoch time at which the token becomes valid. |
 | token_type | The token type value. `Bearer` is the only type that is supported. |
 | access_token | The signed JWT token that was requested. |
-| scope | The scope for which the token is valid. |
+| scope | The valid scopes for the token. |
 | expires_in | The length of time that the access token is valid (in seconds). |
 | refresh_token | An OAuth 2.0 refresh token. The application can use this token to acquire additional tokens after the current token expires. Refresh tokens can be used to retain access to resources for extended periods of time. |
 | refresh_token_expires_in | The length of time that the refresh token is valid (in seconds). |
@@ -288,17 +298,17 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | Parameter | Required | Description |
 | --------- | -------- | ----------- |
 | {tenant} | Yes | Name of your Azure AD B2C tenant. If you're using a [custom domain](custom-domain.md), replace `tenant.b2clogin.com` with your domain, such as `fabrikam.com`. |
-| {policy} | Yes | The user flow that has been used in the authorization request. For example, if the user signed-in with the `b2c_1_sign_in` user flow, specify `b2c_1_sign_in` in the sign-out request. |
+| {policy} | Yes | The user flow that you specify in the authorization request. For example, if the user signed-in with the `b2c_1_sign_in` user flow, specify `b2c_1_sign_in` in the sign-out request. |
 | id_token_hint| No | A previously issued ID token to pass to the logout endpoint as a hint about the end user's current authenticated session with the client. The `id_token_hint` ensures that the `post_logout_redirect_uri` is a registered reply URL in your Azure AD B2C application settings. For more information, see [Secure your logout redirect](#secure-your-logout-redirect). |
 | client_id | No* | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application.<br><br>\**This is required when using `Application` isolation SSO configuration and _Require ID Token_ in logout request is set to `No`.* |
-| post_logout_redirect_uri | No | The URL that the user should be redirected to after successful sign out. If it isn't included, Azure AD B2C shows the user a generic message. Unless you provide an `id_token_hint`, you should not register this URL as a reply URL in your Azure AD B2C application settings. |
-| state | No | If a `state` parameter is included in the authorization request, the same value will be returned in the response to the `post_logout_redirect_uri`. The application should verify that the `state` values in the request and response are identical. |
+| post_logout_redirect_uri | No | The URL that the user should be redirected to after successful sign out. If it isn't included, Azure AD B2C shows the user a generic message. Unless you provide an `id_token_hint`, you shouldn't register this URL as a reply URL in your Azure AD B2C application settings. |
+| state | No | If you include a `state` parameter in the authorization request, the authorization server returns the same value in the response to the `post_logout_redirect_uri`. The application should verify that the `state` value in the request and response are identical. |
 
 Upon a sign-out request, Azure AD B2C invalidates the Azure AD B2C cookie-based session, and attempts to sign out from federated identity providers. For more information, see [Single sign-out](session-behavior.md?pivots=b2c-custom-policy#single-sign-out).
 
 ### Secure your logout redirect
 
-After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed, and the **Require ID Token in logout requests** is turned on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected.
+After logout, the user is redirected to the URI you specify in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that you specify for the application. However, if a valid `id_token_hint` is passed, and the **Require ID Token in logout requests** is turned on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user isn't redirected.
 
 To set the required ID Token in logout requests, see [Configure session behavior in Azure Active Directory B2C](session-behavior.md#secure-your-logout-redirect).
 

@@ -2,12 +2,11 @@
 title: 'Quickstart: Anomaly detection using the Anomaly Detector client library for multivariate anomaly detection'
 titleSuffix: Azure AI services
 description: The Anomaly Detector multivariate offers client libraries to detect abnormalities in your data series either as a batch or on streaming data.
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 zone_pivot_groups: anomaly-detector-quickstart-multivariate
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: quickstart
 ms.date: 10/27/2022
 ms.author: mbullwin
@@ -17,6 +16,8 @@ ms.custom: mode-api, devx-track-dotnet, devx-track-extended-java, devx-track-js,
 ---
 
 # Quickstart: Use the Multivariate Anomaly Detector client library
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 ::: zone pivot="programming-language-csharp"
 

@@ -2,13 +2,15 @@
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: include
-ms.date: 06/09/2023
+ms.date: 11/05/2023
 ---
 
-Build a console application using the [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library to add semantic search to an existing index. Alternatively, you can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/quickstart-semantic-search/SemanticSearchQuickstart) to start with a finished project or follow these steps to create your own.
+Build a console application using the [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library to add semantic ranking to an existing search index. 
 
-Semantic search is in public preview and available in beta versions of the Azure SDK for .NET (`11.5.0-beta.2`).
+Alternatively, you can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/quickstart-semantic-search/SemanticSearchQuickstart) to start with a finished project or follow these steps to create your own.
 
 #### Set up your environment
 
@@ -18,7 +20,7 @@ Semantic search is in public preview and available in beta versions of the Azure
 
 1. Select **Browse**.
 
-1. Search for [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) and select version `11.5.0-beta.2`.
+1. Search for [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) and select the latest stable version.
 
 1. Select **Install** to add the assembly to your project and solution.
 
@@ -109,20 +111,19 @@ SearchClient ingesterClient = adminClient.GetSearchClient(indexName);
 
 #### Load documents
 
-Azure Cognitive Search searches over content stored in the service. The code for uploading documents is identical to the [C# quickstart for full text search](../../search-get-started-text.md) so we don't need to duplicate it here. You should have four hotels with names, addresses, and descriptions. Your solution should have types for Hotels and Addresses.
+Azure AI Search searches over content stored in the service. The code for uploading documents is identical to the [C# quickstart for full text search](/azure/search/search-get-started-text) so we don't need to duplicate it here. You should have four hotels with names, addresses, and descriptions. Your solution should have types for Hotels and Addresses.
 
 #### Search an index
 
-Here's a query that invokes semantic search, with search options for specifying parameters:
+Here's a query that invokes semantic ranking, with search options for specifying parameters:
 
 ```csharp
 // Query 4
-Console.WriteLine("Query #3: Invoke semantic search");
+Console.WriteLine("Query #3: Invoke semantic ranking");
 
 options = new SearchOptions()
 {
     QueryType = Azure.Search.Documents.Models.SearchQueryType.Semantic,
-    QueryLanguage = QueryLanguage.EnUs,
     SemanticConfigurationName = "my-semantic-config",
     QueryCaption = QueryCaptionType.Extractive,
     QueryCaptionHighlightEnabled = true
@@ -142,7 +143,7 @@ For comparison, here are results from a query that uses the default BM25 ranking
 
 In contrast, when semantic ranking is applied to the same query ("what hotel has a good restaurant on site"), the results are reranked based on semantic relevance to the query. This time, the top result is the hotel with the restaurant, which aligns better to user expectations.
 
-:::image type="content" source="../../media/quickstart-semantic/semantic-ranking.png" alt-text="Screenshot showing matches ranked based on semantic search.":::
+:::image type="content" source="../../media/quickstart-semantic/semantic-ranking.png" alt-text="Screenshot showing matches ranked based on semantic ranking.":::
 
 #### Run the program
 

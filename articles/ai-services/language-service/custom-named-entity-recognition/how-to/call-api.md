@@ -2,11 +2,10 @@
 title: Send a Named Entity Recognition (NER) request to your custom model
 description: Learn how to send requests for custom NER.
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 05/11/2023
 ms.author: aahi

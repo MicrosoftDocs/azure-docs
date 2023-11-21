@@ -23,7 +23,7 @@ Select a different target Azure VM SKU that can attach more data disks and retry
 
 1. Clean up the migration:   
    1. Test Migration: Right-click the Azure VM in **Replications** and select **Clean up test migration**.  
-   1. Migration: Since the VM is already migrated to Azure, follow [these](https://learn.microsoft.com/azure/virtual-machines/windows-in-place-upgrade) steps here to upgrade the OS.
+   1. Migration: Since the VM is already migrated to Azure, follow [these](/azure/virtual-machines/windows-in-place-upgrade) steps here to upgrade the OS.
 
 2. Update the target VM SKU settings:    
    1. In the Azure portal, select the Azure Migrate project.    
@@ -32,7 +32,7 @@ Select a different target Azure VM SKU that can attach more data disks and retry
    4. Go to **Compute and network**.    
    5. In **Compute**, change the VM size to support more data disks.    
 
-3. Verify that the operating system disk has enough [free space](https://learn.microsoft.com/windows-server/get-started/hardware-requirements#storage-controller-and-disk-space-requirements) to perform the in-place upgrade. The minimum disk space requirement is 32 GB. If more space is needed, follow [these](https://learn.microsoft.com/azure/virtual-machines/windows/expand-os-disk) steps to expand the operating system disk attached to the VM for a successful OS upgrade.    
+3. Verify that the operating system disk has enough [free space](/windows-server/get-started/hardware-requirements#storage-controller-and-disk-space-requirements) to perform the in-place upgrade. The minimum disk space requirement is 32 GB. If more space is needed, follow [these](/azure/virtual-machines/windows/expand-os-disk) steps to expand the operating system disk attached to the VM for a successful OS upgrade.    
 
 ## Migration fails for Private endpoint enabled Azure Migrate projects  
 

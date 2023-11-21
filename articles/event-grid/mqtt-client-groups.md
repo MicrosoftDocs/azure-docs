@@ -2,8 +2,10 @@
 title: 'Azure Event Grid namespace MQTT client groups'
 description: 'Describes MQTT client group configuration.'
 ms.topic: conceptual
-ms.custom: build-2023
-ms.date: 05/23/2023
+ms.custom:
+  - build-2023
+  - ignite-2023
+ms.date: 11/15/2023
 author: veyaddan
 ms.author: veyaddan
 ---
@@ -11,7 +13,7 @@ ms.author: veyaddan
 # Client groups
 Client groups allow you to group a set of client together based on commonalities.  The main purpose of client groups is to make configuring authorization easy.  You can authorize a client group to publish or subscribe to a topic space.  All the clients in the client group are authorized to perform the publish or subscribe action on the topic space.
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 In a namespace, we provide a default client group named "$all".  The client group includes all the clients in the namespace.  For ease of testing, you can use $all to configure permissions.
 
@@ -60,16 +62,14 @@ In group queries, following operands are allowed:
 ### Azure portal configuration
 Use the following steps to create a client group:
 
-- Go to your namespace in the Azure portal
-- Under Client groups, select **+ Client group**.
+1. Go to your namespace in the Azure portal
+2. Under Client groups, select **+ Client group**.
 
-:::image type="content" source="./media/mqtt-client-groups/mqtt-add-new-client-group.png" alt-text="Screenshot of adding a client group.":::
+    :::image type="content" source="./media/mqtt-client-groups/mqtt-add-new-client-group.png" alt-text="Screenshot of adding a client group." lightbox="./media/mqtt-client-groups/mqtt-add-new-client-group.png":::
+1. Add client group query.
 
-- Add client group query.
-
-:::image type="content" source="./media/mqtt-client-groups/mqtt-client-group-metadata.png" alt-text="Screenshot of client group configuration.":::
-
-- Select **Create**
+    :::image type="content" source="./media/mqtt-client-groups/mqtt-client-group-metadata.png" alt-text="Screenshot of client group configuration." lightbox="./media/mqtt-client-groups/mqtt-client-group-metadata.png":::
+4. Select **Create**
 
 ### Azure CLI configuration
 Use the following commands to create/show/delete a client group

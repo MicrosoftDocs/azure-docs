@@ -1,6 +1,6 @@
 ---
-title: Use on-premises Active Directory Domain Services or Azure Active Directory Domain Services to authorize access to Azure Files over SMB for Linux clients using Kerberos authentication
-description: Learn how to enable identity-based Kerberos authentication for Linux clients over Server Message Block (SMB) for Azure Files using on-premises Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS)
+title: Use on-premises Active Directory Domain Services or Microsoft Entra Domain Services to authorize access to Azure Files over SMB for Linux clients using Kerberos authentication
+description: Learn how to enable identity-based Kerberos authentication for Linux clients over Server Message Block (SMB) for Azure Files using on-premises Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
@@ -15,9 +15,9 @@ For more information on supported options and considerations, see [Overview of A
 [Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) for Linux virtual machines (VMs) using the Kerberos authentication protocol through the following methods:
 
 - On-premises Windows Active Directory Domain Services (AD DS)
-- Azure Active Directory Domain Services (Azure AD DS)
+- Microsoft Entra Domain Services
 
-In order to use the first option (AD DS), you must sync your AD DS to Azure Active Directory (Azure AD) using Azure AD Connect.
+In order to use the first option (AD DS), you must sync your AD DS to Microsoft Entra ID using Microsoft Entra Connect.
 
 > [!Note]
 > This article uses Ubuntu for the example steps. Similar configurations will work for RHEL and SLES machines, allowing you to mount Azure file shares using Active Directory.
@@ -37,10 +37,10 @@ You can't use identity-based authentication to mount Azure File shares on Linux 
 
 Before you enable AD authentication over SMB for Azure file shares, make sure you've completed the following prerequisites.
 
-- A Linux VM (Ubuntu 18.04+ or an equivalent RHEL or SLES VM) running on Azure. The VM must have at least one network interface on the VNET containing the Azure AD DS, or an on-premises Linux VM with AD DS synced to Azure AD.
+- A Linux VM (Ubuntu 18.04+ or an equivalent RHEL or SLES VM) running on Azure. The VM must have at least one network interface on the VNET containing the Microsoft Entra Domain Services, or an on-premises Linux VM with AD DS synced to Microsoft Entra ID.
 - Root user or user credentials to a local user account that has full sudo rights (for this guide, localadmin).
 - The Linux VM must not have joined any AD domain. If it's already a part of a domain, it needs to first leave that domain before it can join this domain.
-- An Azure AD tenant [fully configured](../../active-directory-domain-services/tutorial-create-instance.md), with domain user already set up.
+- A Microsoft Entra tenant [fully configured](../../active-directory-domain-services/tutorial-create-instance.md), with domain user already set up.
 
 Installing the samba package isn't strictly necessary, but it gives you some useful tools and brings in other packages automatically, such as `samba-common` and `smbclient`. Run the following commands to install it. If you're asked for any input values during installation, leave them blank.
 
@@ -139,7 +139,7 @@ PING 10.0.2.5 (10.0.2.5) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.898/0.922/0.946/0.024 ms
 ```
 
-4. If the ping doesn't work, go back to [prerequisites](#prerequisites), and make sure that your VM is on a VNET that has access to the Azure AD tenant.
+4. If the ping doesn't work, go back to [prerequisites](#prerequisites), and make sure that your VM is on a VNET that has access to the Microsoft Entra tenant.
 
 5. If the IP addresses are pinging but the DNS servers aren't automatically discovered, you can add the DNS servers manually. Edit `/etc/netplan/50-cloud-init.yaml` with your favorite text editor.
 
@@ -195,7 +195,9 @@ then
 fi 
 ```
 
-### Connect to Azure AD DS and make sure the services are discoverable
+<a name='connect-to-azure-ad-ds-and-make-sure-the-services-are-discoverable'></a>
+
+### Connect to Microsoft Entra Domain Services and make sure the services are discoverable
 
 1. Make sure that you're able to ping the domain server by the domain name.
 
@@ -217,7 +219,7 @@ PING contosodomain.contoso.com (10.0.2.4) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.740/1.026/1.419/0.248 ms 
 ```
 
-2. Make sure you can discover the Azure AD services on the network.
+2. Make sure you can discover the Microsoft Entra services on the network.
 
 ```bash
 nslookup
@@ -302,7 +304,7 @@ sudo smbd -b | grep "CONFIGFILE"
 2. Change the SMB configuration to act as a domain member. For more information, see [Setting up samba as a domain member](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member). Here's a sample `smb.conf` file.
 
 > [!Note]
-> This example is for Azure AD DS, for which we recommend setting `backend = rid` when configuring idmap. On-premises AD DS users might prefer to [choose a different idmap backend](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member#Choosing_an_idmap_backend).
+> This example is for Microsoft Entra Domain Services, for which we recommend setting `backend = rid` when configuring idmap. On-premises AD DS users might prefer to [choose a different idmap backend](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member#Choosing_an_idmap_backend).
 
 ```plaintext
 [global]
@@ -346,7 +348,7 @@ sudo smbcontrol all reload-config
 
 ### Join the domain
 
-1. Use the `net ads join` command to join the host to the Azure AD DS domain. If the command throws an error, see [Troubleshooting samba domain members](https://wiki.samba.org/index.php/Troubleshooting_Samba_Domain_Members) to resolve the issue.
+1. Use the `net ads join` command to join the host to the Microsoft Entra Domain Services domain. If the command throws an error, see [Troubleshooting samba domain members](https://wiki.samba.org/index.php/Troubleshooting_Samba_Domain_Members) to resolve the issue.
 
 ```bash
 sudo net ads join -U contososmbadmin    # user  - garead
@@ -510,7 +512,7 @@ wbinfo -K 'contososmbadmin%SUPERSECRETPASSWORD'
 
 ## Mount the file share
 
-After you've enabled AD (or Azure AD) Kerberos authentication and domain-joined your Linux VM, you can mount the file share.
+After you've enabled AD (or Microsoft Entra ID) Kerberos authentication and domain-joined your Linux VM, you can mount the file share.
 
 For detailed mounting instructions, see [Mount the Azure file share on-demand with mount](storage-how-to-use-files-linux.md?tabs=smb311#mount-the-azure-file-share-on-demand-with-mount).
 

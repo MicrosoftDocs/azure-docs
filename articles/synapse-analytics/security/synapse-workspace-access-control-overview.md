@@ -39,7 +39,7 @@ Azure roles are used to control management of:
 
 To *create* these resources, you need to be an Azure Owner or Contributor on the resource group. To *manage* them once created, you need to be an Azure Owner or Contributor on either the resource group or the individual resources. 
 
-An Azure Owner or Contributor can enable or disable Azure AD-only authentication for Azure Synapse workspaces. For more information on Azure AD-only authentication, see [Disabling local authentication in Azure Synapse Analytics](../sql/active-directory-authentication.md).
+An Azure Owner or Contributor can enable or disable Microsoft Entra-only authentication for Azure Synapse workspaces. For more information on Microsoft Entra-only authentication, see [Disabling local authentication in Azure Synapse Analytics](../sql/active-directory-authentication.md).
 
 ### Develop and execute code in Azure Synapse 
 Synapse supports two development models.
@@ -73,7 +73,7 @@ When working with dedicated and serverless SQL pools, data plane access is contr
 
 The creator of a workspace is assigned as the Active Directory Admin on the workspace. After creation, this role can be assigned to a different user or to a security group in the Azure portal.
 
-**Serverless SQL pools**: Synapse Administrators are granted `db_owner` (`DBO`) permissions on the serverless SQL pool, 'Built-in'. To grant other users access to serverless SQL pools, Synapse administrators need to run SQL scripts on each serverless pool.  
+**Serverless SQL pools**: Synapse Administrators are granted `db_owner` (`DBO`) permissions on the serverless SQL pool, 'Built-in'. To grant other users access to the serverless SQL pool, Synapse administrators need to run SQL scripts on the serverless pool.  
 
 **Dedicated SQL pools**: Synapse Administrators have full access to data in dedicated SQL pools, and the ability to grant access to other users. Synapse Administrators can also perform configuration and maintenance activities on dedicated pools, except for dropping databases. Active Directory Admin permission is granted to the creator of the workspace and the workspace MSI.  Permission to access dedicated SQL pools isn't otherwise granted automatically. To grant other users or groups access to dedicated SQL pools, the Active Directory Admin or Synapse Administrator must run SQL scripts against each dedicated SQL pool.
 
@@ -93,7 +93,7 @@ Serverless SQL pools and Apache Spark tables store their data in an ADLS Gen2 co
 To simplify managing access control, you can use security groups to assign roles to individuals and groups. Security groups can be created to mirror personas or job functions in your organization that need access to Synapse resources or artifacts.  These persona-based security groups can then be assigned one or more Azure roles, Synapse roles, SQL permissions, or Git permissions. With well-chosen security groups, it's easy to assign a user the required permissions by adding them to the appropriate security group. 
 
 >[!Note]
->If using security groups to manage access, there is additional latency introduced by Azure Active Directory before changes take effect. 
+>If using security groups to manage access, there is additional latency introduced by Microsoft Entra ID before changes take effect. 
 
 ## Access control enforcement in Synapse Studio
 

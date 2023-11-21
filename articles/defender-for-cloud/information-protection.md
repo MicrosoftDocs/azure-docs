@@ -19,20 +19,20 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 
 - [Integrate Microsoft Purview with Microsoft Defender for Cloud](episode-two.md)
 
-> [!NOTE]
-> Microsoft Defender for Cloud also provides data sensitivity context by enabling the sensitive data discovery (preview). The integration between Microsoft Purview Data Catalog and Microsoft Defender for Cloud described in this page offers a complementary source of data context for resources **not** covered by the sensitive data discovery feature.
->
-> - Purview Catalog provides data context **only** for resources in subscriptions not onboarded to sensitive data discovery feature or resource types not supported by this feature.
-> - Data context provided by Purview Catalog is provided as is and does **not** consider the [data sensitivity settings](data-sensitivity-settings.md).
->
-> Learn more in [Data-aware security posture (preview)](concept-data-security-posture.md).
+Note that:
+
+- Microsoft Defender for Cloud also provides data sensitivity context by enabling the sensitive data discovery (preview).  Microsoft Purview Data Catalog and Microsoft Defender for Cloud integration offers a complementary source of data context for resources **not** covered by the sensitive data discovery feature.
+- Purview Catalog provides data context **only** for resources in subscriptions not onboarded to sensitive data discovery feature or resource types not supported by this feature.
+- Data context provided by Purview Catalog is provided as is and does **not** consider the [data sensitivity settings](data-sensitivity-settings.md).
+
+Learn more in [Data-aware security posture (preview)](concept-data-security-posture.md).
 
 ## Availability
 
 |Aspect|Details|
 |----|:----|
 |Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
-|Pricing:|You'll need a Microsoft Purview account to create the data sensitivity classifications and run the scans. The integration between Purview and Microsoft Defender for Cloud doesn't incur extra costs, but the data is shown in Microsoft Defender for Cloud only for enabled plans.|
+|Pricing:|You'll need a Microsoft Purview account to create the data sensitivity classifications and run the scans. There's no extra cost incurred for the integration between Purview and Microsoft Defender for Cloud, but the data is shown in Microsoft Defender for Cloud only for enabled plans.|
 |Required roles and permissions:|**Security admin** and **Security contributor**|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Regions: East US, East US 2, West US 2, West Central US, South Central US, Canada Central, Brazil South, North Europe, West Europe, UK South, Southeast Asia, Central India, Australia East) <br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet (**Partial**: Subset of alerts and vulnerability assessment for SQL servers. Behavioral threat protections aren't available.)|
 
@@ -42,7 +42,7 @@ Security teams regularly face the challenge of how to triage incoming issues.
 
 Defender for Cloud includes two mechanisms to help prioritize recommendations and security alerts:
 
-- For recommendations, we've provided **security controls** to help you understand how important each recommendation is to your overall security posture. Defender for Cloud includes a **secure score** value for each control to help you prioritize your security work. Learn more in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
+- For recommendations, we've provided **security controls** to help you understand how important each recommendation is to your overall security posture. Defender for Cloud includes a **secure score** value for each control to help you prioritize your security work. Learn more in [Security controls and their recommendations](secure-score-security-controls.md).
 
 - For alerts, we've assigned **severity labels** to each alert to help you prioritize the order in which you attend to each alert. Learn more in [How are alerts classified?](alerts-overview.md#how-are-alerts-classified).
 
@@ -90,11 +90,11 @@ When reviewing the health of a specific resource, you'll see the Purview Catalog
 
 ## Attack path
 
-Some of the attack paths consider resources that contain sensitive data, such as “AWS S3 Bucket with sensitive data is publicly accessible”, based on Purview Catalog scan results.
+Some of the attack paths consider resources that contain sensitive data, such as “AWS S3 Bucket with sensitive data is publicly accessible,” based on Purview Catalog scan results.
 
 ## Security explorer
 
-The Cloud Map shows resources that “contains sensitive data”, based on Purview scan results. You can use resources with this label to explore the map.
+The Cloud Map shows resources that “contains sensitive data,” based on Purview scan results. You can use resources with this label to explore the map.
 
 - To see the classification and labels of the resource, go to the [inventory](asset-inventory.md).
 - To see the list of classified files in the resource, go to the [Microsoft Purview compliance portal](../purview/overview.md).

@@ -11,6 +11,8 @@
       href: https://azure.microsoft.com/pricing/details/web-pubsub/
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
+    - name: What's new
+      href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -130,7 +132,7 @@
           href: howto-troubleshoot-common-issues.md
     - name: Move across regions
       href: howto-move-across-regions.md
-- name: Socket.IO (preview)
+- name: Socket.IO
   expanded: false
   items: 
     - name: Overview
@@ -146,6 +148,10 @@
       items:
         - name: Easily migrate a self-hosted Socket.IO app 
           href: socketio-migrate-from-self-hosted.md
+        - name: Integrate with Azure App Service
+          href: socket-io-howto-integrate-web-app.md
+        - name: Authentication
+          href: socketio-authentication.md
         - name: Troubleshoot
           items: 
             - name: Common issues
@@ -184,7 +190,7 @@
       href: concept-performance.md
     - name: Billing model
       href: concept-billing-model.md
-    - name: Microsoft Entra ID Authorization
+    - name: Microsoft Entra Authorization
       href: concept-azure-ad-authorization.md
     - name: Metrics
       href: concept-metrics.md

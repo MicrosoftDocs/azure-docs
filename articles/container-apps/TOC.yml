@@ -6,74 +6,80 @@
   items:
     - name: About Azure Container Apps
       href: overview.md
+    - name: Introduction to containers
+      href: start-containers.md
+    - name: Introduction to serverless containers
+      href: start-serverless-containers.md
+    - name: Quickstarts
+      items: 
+      - name: Deploy from an existing container image
+        items:
+        - name: Azure portal
+          href: quickstart-portal.md
+        - name: Command line
+          href: get-started.md
+      - name: Deploy from code
+        items:
+        - name: Command line
+          href: quickstart-code-to-cloud.md
+        - name: Visual Studio
+          href: deploy-visual-studio.md
+        - name: Visual Studio Code
+          href: deploy-visual-studio-code.md
+      - name: Deploy from artifact
+        items:
+        - name: Command line
+          href: deploy-artifact.md
+      - name: Run a job
+        items:
+        - name: Azure portal
+          href: jobs-get-started-portal.md
+        - name: Command line
+          href: jobs-get-started-cli.md
+- name: Key concepts
+  items:
     - name: Compare container options in Azure
       href: compare-options.md
-    - name: Code to cloud options
-      href: code-to-cloud-options.md
-    - name: Overview
-      items:
-        - name: Start here
-          href: start.md
-        - name: What's new
-          href: whats-new.md
-        - name: Plans
-          href: plans.md
-        - name: Environment
-          href: environment.md
-        - name: Containers
-          href: containers.md 
-        - name: Revisions
-          href: revisions.md
-        - name: Application lifecycle management
-          href: application-lifecycle-management.md
-        - name: Jobs
-          href: jobs.md
-        - name: Microservices
-          href: microservices.md
-        - name: Build and deliver apps with Container Apps (video)
-          href: https://www.youtube.com/watch?v=b3dopSTnSRg
-- name: Quickstarts
-  items: 
-  - name: Deploy from an existing container image
-    items:
-    - name: Azure portal
-      href: quickstart-portal.md
-    - name: Command line
-      href: get-started.md
-  - name: Deploy from code
-    items:
-    - name: Command line
-      href: quickstart-code-to-cloud.md
-    - name: Visual Studio
-      href: deploy-visual-studio.md
-    - name: Visual Studio Code
-      href: deploy-visual-studio-code.md
-  - name: Run a job
-    items:
-    - name: Azure portal
-      href: jobs-get-started-portal.md
-    - name: Command line
-      href: jobs-get-started-cli.md
-- name: Develop and deploy
+    - name: Plans
+      href: plans.md
+    - name: Environment
+      href: environment.md
+    - name: Containers
+      href: containers.md 
+    - name: Revisions
+      href: revisions.md
+    - name: Application lifecycle management
+      href: application-lifecycle-management.md
+    - name: Jobs
+      href: jobs.md
+    - name: Microservices
+      href: microservices.md
+    - name: Build and deliver apps with Container Apps (video)
+      href: https://www.youtube.com/watch?v=b3dopSTnSRg
+- name: Develop & deploy
   items:
+    - name: Deployment options
+      href: code-to-cloud-options.md
     - name: Deploy an app with containerapp up
       href: containerapp-up.md
-    - name: Scale a container app
-      href: tutorial-scaling.md
     - name: Create and deploy a container app using the CLI
       href: tutorial-deploy-first-app-cli.md
     - name: Connect to apps & services
       items:
         - name: Connect to services
           items:
-            - name: Connect to services
+            - name: Overview
               href: services.md
-            - name: Apache Kafka
-              href: tutorial-dev-services-kafka.md
-            - name: PostgreSQL
-              href: tutorial-dev-services-postgresql.md
-            - name: Redis
-              href: connect-services.md
+            - name: Tutorials
+              items:
+              - name: Apache Kafka
+                href: tutorial-dev-services-kafka.md
+              - name: PostgreSQL
+                href: tutorial-dev-services-postgresql.md
+              - name: Qdrant
+                href: add-ons-qdrant.md
+              - name: Redis
+                href: connect-services.md
         - name: Connect multiple apps
           href: connect-apps.md
         - name: Connect to a cloud service using Service Connector
@@ -117,8 +123,8 @@
         - name: With a job
           href: tutorial-event-driven-jobs.md
     - name: Reliability in Azure Container Apps
-      href: ../reliability/reliability-azure-container-apps.md
-- name: Logs and monitoring
+      href: ../reliability/reliability-azure-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
+- name: Observability
   items:
     - name: Overview
       href: observability.md
@@ -136,10 +142,12 @@
       href: log-monitoring.md
     - name: Alerts
       href: alerts.md
-- name: Scaling and performance
+- name: Scaling & performance
   items:
-    - name: Scale an app
+    - name: Overview
       href: scale-app.md
+    - name: Scale a container app
+      href: tutorial-scaling.md
 - name: Domains & certificates
   items:
     - name: Custom domains & certificates
@@ -157,7 +165,7 @@
       href: authentication.md
     - name: Enable authentication
       items:
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           href: authentication-azure-active-directory.md
         - name: Facebook
           href: authentication-facebook.md
@@ -179,6 +187,16 @@
           href: managed-identity.md
         - name: Azure Container Registry image pull with managed identity
           href: managed-identity-image-pull.md
+- name: Resiliency (preview)
+  items:
+    - name: Service discovery resiliency
+      href: service-discovery-resiliency.md
+    - name: Dapr component resiliency
+      href: dapr-component-resiliency.md
+- name: Reliability
+  items:
+  - name: Reliability in Azure Container Apps
+    href: ../reliability/reliability-azure-container-apps.md
 - name: Dedicated hardware
   items:
     - name: Workload profiles
@@ -199,6 +217,8 @@
       href: microservices-dapr-bindings.md
     - name: Microservices communication using Dapr Service Invocation
       href: microservices-dapr-service-invoke.md
+    - name: Dapr component resiliency (preview)
+      href: dapr-component-resiliency.md
     - name: Scale Dapr apps with KEDA using Bicep
       href: dapr-keda-scaling.md
     - name: Connect to Azure services via Dapr components
@@ -213,6 +233,8 @@
           href: microservices-dapr-azure-resource-manager.md
         - name: Deploy a Dapr application using GitHub Actions
           href: dapr-github-actions.md
+        - name: Deploy Azure Functions with the Dapr extension
+          href: dapr-functions-extension.md
 - name: Networking, ingress, and network security
   items:
     - name: Architecture overview
@@ -249,19 +271,23 @@
           href: waf-app-gateway.md
         - name: Enable User Defined Routes (UDR)
           href: user-defined-routes.md
-        - name: Securing a custom VNET
+        - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
     - name: Network proxying
       href: network-proxy.md
     - name: Use a custom VNET
       href: vnet-custom.md
-- name: Billing and quotas
+- name: Billing & quotas
   items:
     - name: Billing
       href: billing.md
     - name: Quotas
       href: quotas.md
-- name: API docs and reference
+- name: Product updates
+  items:
+    - name: What's new
+      href: whats-new.md
+- name: API docs & reference
   items:
     - name: ARM & YAML specifications
       href: azure-resource-manager-api-spec.md
@@ -275,6 +301,8 @@
       href: /rest/api/containerapps/
     - name: Supported regions
       href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-apps
+    - name: Hardware reference
+      href: hardware.md
     - name: Management SDKs
       items:
         - name: .NET
@@ -301,7 +329,7 @@
       href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
     - name: Azure, Dynamics 365, Microsoft 365, and Power Platform compliance offerings
       href: /azure/compliance/offerings/
-- name: Samples and FAQs
+- name: Samples & FAQs
   items:
     - name: Samples
       href: samples.md

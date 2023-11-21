@@ -1,16 +1,18 @@
 ---
 title: 'Access control for MQTT clients'
-description: 'Describes the main concepts for access control for MQTT clients in Azure Event Grid.'
+description: 'Describes the main concepts for access control for MQTT clients in Azure Event Grid’s MQTT broker feature.'
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.custom:
+  - ignite-2023
+ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
 ---
 # Access control for MQTT clients
 
-Access control enables you to manage the authorization of clients to publish or subscribe to topics, using a role-based access control model. Given the enormous scale of IoT environments, assigning permission for each client to each topic is incredibly tedious. Event Grid’s flexible access control tackles this scale challenge through grouping clients and topics into client groups and topic spaces. 
+Access control enables you to manage the authorization of clients to publish or subscribe to topics, using a role-based access control model. Given the enormous scale of IoT environments, assigning permission for each client to each topic is incredibly tedious. Azure Event Grid’s MQTT broker feature tackles this scale challenge through grouping clients and topics into client groups and topic spaces.
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 The main components of the access control model are:
 
@@ -94,7 +96,7 @@ Granular access control allows you to control the authorization of each client w
 
 Even though a client group can have access to a certain topic space with all its topic templates, variables within topic templates enable you to control the authorization of each client within that client group to publish or subscribe to its own topic. For example, if client group “machines” includes two clients:  “machine1” and “machine2”. By using variables, you can allow only machine1 to publish its telemetry only on the MQTT topic “machines/machine1/telemetry” and “machine2” to publish messages on MQTT topic “machines/machine2/telemetry”. 
 
-The variables represent either client authentication names or client attributes. During communication with Event Grid, each client would replace the variable in the MQTT topic with a substituted value. For example, the variable ${client.authenticationName} would be replaced with the authentication name of each client: machine1, machine2, etc. Event Grid would allow access only to the clients that have a substituted value that matches either their authentication name or the value of the specified attribute. 
+The variables represent either client authentication names or client attributes. During communication with MQTT broker, each client would replace the variable in the MQTT topic with a substituted value. For example, the variable ${client.authenticationName} would be replaced with the authentication name of each client: machine1, machine2, etc. MQTT broker would allow access only to the clients that have a substituted value that matches either their authentication name or the value of the specified attribute.
 
 For example, consider the following configuration:
 

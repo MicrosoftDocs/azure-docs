@@ -9,9 +9,9 @@ metadata:
   description: Expertise and custom technical guidance you can trust, directly from Azure engineers to help accelerate your Azure deployments securely.
   ms.prod: azure 
   ms.topic: hub-page
-  author: kmurphy1000
-  ms.author: kimberlm
-  ms.date: 04/22/2023
+  author: nwiddup
+  ms.author: kimberlm, nwiddup, alricha
+  ms.date: 10/31/2023
 
 # productDirectory section
 productDirectory:
@@ -40,54 +40,98 @@ conceptualContent:
     - title: Key Resources
       items:
         # Card
+        - title: Foundation
+          links:
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep03-azure-governance
+              itemType: video
+              text: Introduction to Azure Governance
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep10-azure-monitoring
+              itemType: video
+              text: Introduction to Azure Monitoring
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep05-modern-service-operations
+              itemType: video
+              text: Modern Service Operations
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep07-apply-well-architected-framework-to-your-solution-design
+              itemType: video
+              text: Apply Well-Architected Framework to your solution design
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep09-microsoft-identity-platform
+              itemType: video
+              text: Introduction to Microsoft Identity Platform
+        # Card
         - title: Infrastructure
           links:
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep05-learn-how-azure-migrate-can-help-migrate-your-servers-to-azure-part-1
               itemType: video
-              text: Learn how Azure Migrate can help migrate your servers to Azure - Part 1
+              text: Azure Migrate your servers to Azure - Part 1
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep06-learn-how-azure-migrate-can-help-migrate-servers-azure-part-2
               itemType: video
-              text: Learn how Azure Migrate can help migrate your servers to Azure - Part 2
-            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep07-apply-well-architected-framework-to-your-solution-design
-              itemType: video
-              text: Apply Well-Architected Framework to your solution design
+              text: Azure Migrate your servers to Azure - Part 2
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep08-how-to-get-started-fast-azure-virtual-desktop-for-beginners
               itemType: video
-              text: How To Get Started FAST Azure Virtual Desktop for Beginners 
+              text: How To Get Started FAST - Azure Virtual Desktop for Beginners
+            # Possible addition - Azure Networking Fundamentals (replace AVD)
         # Card
-        - title: "Data & AI"
+        - title: Cloud Native
           links:
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep17-azure-container-options-aks-vs-aca-vs-aci
+              itemType: video
+              text: Azure Container Options (AKS vs ACA vs ACI)
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep08-aks-operations-best-practices
+              itemType: video
+              text: AKS Operations Best Practices
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep01-aks-security-best-practices
+              itemType: video
+              text: AKS Security Best Practices
+        # Card
+        - title: Data
+          links:
+            - url: https://aka.ms/askfta-data
+              itemType: video
+              text: Ask an Azure Data SME
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-ep01-modern-data-warehouse-designing%2C-making-%26-operating
+              itemType: video
+              text: Designing, Building and Operating a Modern Data Warehouse
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep11-microsoft-purview-data-governance
+              itemType: video
+              text: Microsoft Purview Data Governance
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-3-ep04-azure-database-for-postgresql-single-server-to-flexible-server-migration
+              itemType: video
+              text: Azure Database for PostgreSQL Single to Flexible server migration
+        # Card
+        - title: "AI & ML"
+          links:
+            - url: https://aka.ms/askfta-ai
+              itemType: video
+              text: Ask an Azure AI SME
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep02-azure-openai-introduction-to-language-models-and-applications
               itemType: video
               text: "Azure OpenAI: Introduction to Language Models and Applications"
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep09-azure-ml-fundamentals
               itemType: video
-              text: Azure ML Fundamentals
+              text: Azure Machine Learning Fundamentals
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep03-azure-ml-developer-experience
               itemType: video
-              text: Azure ML Developer Experience
+              text: Azure Machine Learning Developer Experience
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep01-azure-ml-enterprise-deployment
               itemType: video
-              text: Azure ML Enterprise Deployment
+              text: Azure Machine Learning Enterprise Deployment
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep04-azure-ml-operations
               itemType: video
-              text: Azure ML Operations
+              text: Azure Machine Learning Operations    
         # Card
-        - title: Application Development
+        - title: Security
           links:
-            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep17-azure-container-options-aks-vs-aca-vs-aci
+            - url: https://developer.microsoft.com/reactor/series/S-1206/
               itemType: video
-              text: Azure Container Options (AKS vs ACA vs ACI)
-            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep01-aks-security-best-practices
+              text: Ask an Azure Security SME
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep15-microsoft-sentinel-fundamentals
               itemType: video
-              text: AKS Security Best Practices
-            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep08-aks-operations-best-practices
+              text: Microsoft Sentinel Fundamentals
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep16-introduction-to-kusto-query-language
               itemType: video
-              text: AKS Operations Best Practices
-            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep09-microsoft-identity-platform
-              itemType: video
-              text: Microsoft Identity Platform
-              
+              text: Introduction to Kusto Query Language (KQL)
+            # Possible additions - MDfC & MDfE
+            
 # additionalContent section
 # Card with summary style
 additionalContent:

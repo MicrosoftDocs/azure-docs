@@ -2,19 +2,21 @@
 title: 'MQTT Clients Life Cycle Events'
 description: 'An overview of the MQTT Client Life Cycle Events and how to configure them.'
 ms.topic: conceptual
-ms.custom: build-2023
-ms.date: 05/23/2023
+ms.custom:
+  - build-2023
+  - ignite-2023
+ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
 ---
 # MQTT Clients Life Cycle Events 
 
 Client Life Cycle events allow applications to react to events about the client connection status or the client resource operations. It allows you to:
-- Keep track of your client's connection status. For example, you can build an application that queries the connection status of each client before running a specific operation.
-- React with a mitigation action for client disconnections. For example, you can build an application that updates a database, creates a ticket, and delivers an email notification every time a client is disconnected for mitigating action.
-- Track the namespace that your clients are attached to during automated failovers.
+- Monitor your clients' connection status. For example, you can build an application that analyzes clients' connections to optimize behavior.
+- React with a mitigation action for client disconnections. For example, you can build an application that initiates an auto-mitigation flow or creates a support ticket every time a client is disconnected.
+- Track the namespace that your clients are attached to. For example, confirm that your clients are connected to the right namespace after you initiate a failover.  
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 ## Event types
 
@@ -254,7 +256,7 @@ az eventgrid system-topic create --resource-group <Resource Group > --name <Syst
 ```
 
 ## Behavior:
-- There's no latency guarantee for the client lifecycle events.
+- There's no latency guarantee for the client lifecycle events. The client connection status events indicate the last reported state of the client session's connection, not the real-time connection status. 
 - Duplicate client life cycle events may be published.
 - The client life cycle events' timestamp indicates when the service detected the events, which may differ from the actual time of the event.
 - The order of client life cycle events isn't guaranteed, events may arrive out of order. However, the sequence number on the connection status events can be used to determine the original order of the events.
@@ -263,6 +265,20 @@ az eventgrid system-topic create --resource-group <Resource Group > --name <Syst
     - Example 1: if a client gets created, then updated twice within 3 seconds, EG will emit only one MQTTClientCreatedOrUpdated event with the final values for the metadata of the client.
     - Example 2: if a client gets created, then deleted within 5 seconds, EG will emit only MQTTClientDeleted event. 
 
+### Order connection status events:
+The sequence number on the MQTTClientSessionConnected and MQTTClientSessionDisconnected events can be used to determine the last reported state of the client session's connection as the sequence number is incremented with every new event. The sequence number for the MQTTClientSessionDisconnected always matches the sequence number of the MQTTClientSessionConnected event for the same connection. For example, the list of events and sequence numbers below is a sample of events in the right order for the same client:
+- MQTTClientSessionConnected > "sequenceNumber": 1
+- MQTTClientSessionDisconnected > "sequenceNumber": 1
+- MQTTClientSessionConnected > "sequenceNumber": 2
+- MQTTClientSessionDisconnected > "sequenceNumber": 2
+
+Here is a sample logic to order the events:
+For each client:
+- Store the sequence number and the connection status from the first event.
+- For every new MQTTClientSessionConnected event:
+    - if the new sequence number is greater than the previous one, update the sequence number and the connection status to match the new event.
+- For every new MQTTClientSessionDisconnected event:
+    - if the new sequence number is equal than or greater than the previous one, update the sequence number and the connection status to match the new event.
 
 ## Next steps
 - To learn more about system topics, go to [System topics in Azure Event Grid](system-topics.md)

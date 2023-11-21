@@ -179,13 +179,13 @@ Automation rules provide a way to automate the handling of Microsoft security al
 
 Microsoft security alerts include the following:
 
-- Microsoft Defender for Cloud Apps (formerly Microsoft Cloud App Security)
-- Azure AD Identity Protection
-- Microsoft Defender for Cloud (formerly Azure Defender or Azure Security Center)
-- Defender for IoT (formerly Azure Security Center for IoT)
+- Microsoft Entra ID Protection
+- Microsoft Defender for Cloud
+- Microsoft Defender for Cloud Apps
 - Microsoft Defender for Office 365
 - Microsoft Defender for Endpoint
 - Microsoft Defender for Identity
+- Microsoft Defender for IoT
 
 ### Multiple sequenced playbooks/actions in a single rule
 

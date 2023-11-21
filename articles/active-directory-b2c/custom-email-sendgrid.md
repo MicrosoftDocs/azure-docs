@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/06/2022
+ms.date: 11/20/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -29,25 +29,24 @@ Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized
 
 ::: zone pivot="b2c-custom-policy"
 
-Custom email verification requires the use of a third-party email provider like [SendGrid](https://sendgrid.com), [Mailjet](https://Mailjet.com), or [SparkPost](https://sparkpost.com), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses SendGrid.
+Custom email verification requires the use of a third-party email provider like [SendGrid](https://sendgrid.com), [Mailjet](https://www.mailjet.com/), or [SparkPost](https://messagebird.com/email/cloud-sending?sp=true), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses SendGrid.
 
 ## Create a SendGrid account
 
 If you don't already have one, start by setting up a SendGrid account. For setup instructions, see the [Create a SendGrid Account](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-sendgrid-account) section of [How to send email using SendGrid with Azure](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account).
 
-Be sure to complete the section in which you [create a SendGrid API key](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#to-find-your-sendgrid-api-key). Record the API key for use in a later step.
+Make sure you complete the section in which you [create a SendGrid API key](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#to-find-your-sendgrid-api-key). Record the API key for use in a later step.
 
 > [!IMPORTANT]
-> SendGrid offers customers the ability to send emails from shared IP and [dedicated IP addresses](https://sendgrid.com/docs/ui/account-and-settings/dedicated-ip-addresses/). When using dedicated IP addresses, you need to build your own reputation properly with an IP address warm-up. For more information, see [Warming Up An Ip Address](https://sendgrid.com/docs/ui/sending-email/warming-up-an-ip-address/).
+> SendGrid offers customers the ability to send emails from shared IP and [dedicated IP addresses](https://docs.sendgrid.com/ui/account-and-settings/dedicated-ip-addresses). When using dedicated IP addresses, you need to build your own reputation properly with an IP address warm-up. For more information, see [Warming Up An Ip Address](https://docs.sendgrid.com/ui/sending-email/warming-up-an-ip-address).
 
 ## Create Azure AD B2C policy key
 
 Next, store the SendGrid API key in an Azure AD B2C policy key for your policies to reference.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
+1. In the top-left corner of the Azure portal, choose **All services**, and then search for and select **Azure AD B2C**.
 1. On the Overview page, select **Identity Experience Framework**.
 1. Select **Policy Keys** and then select **Add**.
 1. For **Options**, choose **Manual**.
@@ -58,13 +57,13 @@ Next, store the SendGrid API key in an Azure AD B2C policy key for your policies
 
 ## Create SendGrid template
 
-With a SendGrid account created and SendGrid API key stored in an Azure AD B2C policy key, create a SendGrid [dynamic transactional template](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
+With a SendGrid account created and SendGrid API key stored in an Azure AD B2C policy key, create a SendGrid [dynamic transactional template](https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-templates).
 
 1. On the SendGrid site, open the [transactional templates](https://sendgrid.com/dynamic_templates) page and select **Create a Dynamic Template**.
 1. Enter a unique template name like `Verification email` and then select **Create**.
-1. To begin editing your new template, select the template i.e. `Verification email`, then select **Add Version**.
+1. To begin editing your new template, select the template that is, `Verification email`, then select **Add Version**.
 1. Select **Blank Template** and then **Code Editor**.
-1. In the HTML editor, paste following HTML template or use your own. The `{{otp}}` and `{{email}}` parameters will be replaced dynamically with the one-time password value and the user email address.
+1. In the HTML editor, paste following HTML template or use your own. The `{{otp}}` and `{{email}}` parameters are replaced dynamically with the one-time password value and the user email address.
 
     ```html
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -158,9 +157,9 @@ With a SendGrid account created and SendGrid API key stored in an Azure AD B2C p
     </html>
     ```
 
-1. Expand **Settings** on the left, and for **Version Name**, enter a template version.
+1. Expand **Settings** menu, and for **Version Name**, enter a template version.
 1. For **Subject**, enter `{{subject}}`.
-1. A the top of the page, select **Save**.
+1. Select **Save**.
 1. Return to the **Transactional Templates** page by selecting the back arrow.
 1. Record the **ID** of template you created for use in a later step. For example, `d-989077fbba9746e89f3f6411f596fb96`. You specify this ID when you [add the claims transformation](#add-the-claims-transformation).
 
@@ -197,7 +196,7 @@ These claims types are necessary to generate and verify the email address using 
 
 ## Add the claims transformation
 
-Next, you need a claims transformation to output a JSON string claim that will be the body of the request sent to SendGrid.
+Next, you need a claims transformation to output a JSON string claim that forms the body of the request sent to SendGrid.
 
 The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties. For more information about JSON claims transformations, see [JSON claims transformations](json-transformations.md).
 
@@ -256,7 +255,7 @@ Below the claims transformations within `<BuildingBlocks>`, add the following [C
 
 ## Create a DisplayControl
 
-A verification display control is used to verify the email address with a verification code that's sent to the user.
+A verification display control is used to verify the email address with a verification code that the user receives.
 
 This example display control is configured to:
 
@@ -365,7 +364,7 @@ As with the OTP technical profiles, add the following technical profiles to the 
   <DisplayName>RestfulProvider</DisplayName>
   <TechnicalProfiles>
     <TechnicalProfile Id="SendOtp">
-      <DisplayName>Use SendGrid's email API to send the code the the user</DisplayName>
+      <DisplayName>Use SendGrid's email API to send the code to the user</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <Item Key="ServiceUrl">https://api.sendgrid.com/v3/mail/send</Item>
@@ -423,7 +422,7 @@ To localize the email, you must send localized strings to SendGrid, or your emai
 1. In your policy, define the following string claims: subject, message, codeIntro, and signature.
 1. Define a [GetLocalizedStringsTransformation](string-transformations.md) claims transformation to substitute localized string values into the claims from step 1.
 1. Change the `GenerateEmailRequestBody` claims transformation to use input claims with the following XML snippet.
-1. Update your SendGrid template to use dynamic parameters in place of all the strings that will be localized by Azure AD B2C.
+1. Update your SendGrid template to use dynamic parameters in place of all the strings that Azure AD B2C localizes.
 
     ```xml
     <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
@@ -557,7 +556,7 @@ The Localization element allows you to support multiple locales or languages in 
 
 ## Next steps
 
-- You can find an example of [Custom email verification - DisplayControls custom policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol/policy/SendGrid) on GitHub.
-- For information about using a custom REST API or any HTTP-based SMTP email provider, see [Define a RESTful technical profile in an Azure AD B2C custom policy](restful-technical-profile.md).
+- Find an example of [Custom email verification - DisplayControls custom policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol/policy/SendGrid) on GitHub.
+- Learn how to use a custom REST API or any HTTP-based SMTP email provider, see [Define a RESTful technical profile in an Azure AD B2C custom policy](restful-technical-profile.md).
 
 ::: zone-end

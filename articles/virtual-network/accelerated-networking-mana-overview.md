@@ -22,7 +22,7 @@ Azure MANA supports several VM operating systems. While your VM might be running
 MANA maintains feature-parity with previous Azure networking features. VMs run on hardware with both Mellanox and MANA NICs, so existing 'mlx4' and 'mlx5' support still need to be present.
 
 ### Supported Marketplace Images
-Several [Azure Marketplace](https://learn.microsoft.com/marketplace/azure-marketplace-overview) images have built-in support for Azure MANA's ethernet driver. 
+Several [Azure Marketplace](/marketplace/azure-marketplace-overview) images have built-in support for Azure MANA's ethernet driver. 
 
 #### Linux:
 - Ubuntu 20.04 LTS

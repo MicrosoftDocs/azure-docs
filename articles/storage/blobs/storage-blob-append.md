@@ -45,24 +45,18 @@ static async Task AppendToBlob(
 
     await appendBlobClient.CreateIfNotExistsAsync();
 
-    var maxBlockSize = appendBlobClient.AppendBlobMaxAppendBlockBytes;
-
-    if (logEntryStream.Length <= maxBlockSize)
+    int maxBlockSize = appendBlobClient.AppendBlobMaxAppendBlockBytes;
+    long bytesLeft = logEntryStream.Length;
+    byte[] buffer = new byte[maxBlockSize];
+    while (bytesLeft > 0)
     {
-        await appendBlobClient.AppendBlockAsync(logEntryStream);
-    }
-    else
-    {
-        var bytesLeft = logEntryStream.Length;
-
-        while (bytesLeft > 0)
+        int blockSize = (int)Math.Min(bytesLeft, maxBlockSize);
+        int bytesRead = await logEntryStream.ReadAsync(buffer.AsMemory(0, blockSize));
+        await using (MemoryStream memoryStream = new MemoryStream(buffer, 0, bytesRead))
         {
-            var blockSize = (int)Math.Min(bytesLeft, maxBlockSize);
-            var buffer = new byte[blockSize];
-            var bytesRead = await logEntryStream.ReadAsync(buffer, 0, blockSize);
-            await appendBlobClient.AppendBlockAsync(new MemoryStream(buffer));
-            bytesLeft -= bytesRead;
+            await appendBlobClient.AppendBlockAsync(memoryStream);
         }
+        bytesLeft -= bytesRead;
     }
 }
 ```

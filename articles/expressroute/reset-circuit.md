@@ -1,9 +1,10 @@
-﻿---
+---
 title: 'Reset a failed circuit - ExpressRoute | Microsoft Docs'
 description: This article helps you reset an ExpressRoute circuit that is in a failed state.
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau

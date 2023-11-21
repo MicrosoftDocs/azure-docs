@@ -6,7 +6,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 08/25/2023
+ms.date: 10/27/2023
+
 #CustomerIntent: As a administrator, I want learn about traffic analytics schema so I can easily use the queries and understand their output.
 ---
 
@@ -121,9 +122,9 @@ The following table lists the fields in the schema and what they signify for NSG
 | **NSGRule_s** | NSG_RULENAME | Network security group rule that allowed or denied this flow. |
 | **NSGRuleType_s**	| - User Defined <br> - Default | The type of network security group rule used by the flow. |
 | **MACAddress_s** | MAC Address | MAC address of the NIC at which the flow was captured. |
-| **Subscription_s** | Subscription of the Azure virtual network / network interface / virtual machine is populated in this field | Applicable only for FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow, and UnknownPrivate flow types (flow types where only one side is Azure). |
-| **Subscription1_s** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the source IP in the flow belongs to. |
-| **Subscription2_s** | Subscription ID | Subscription ID of virtual network/ network interface / virtual machine that the destination IP in the flow belongs to. |
+| **Subscription_g** | Subscription of the Azure virtual network / network interface / virtual machine is populated in this field | Applicable only for FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow, and UnknownPrivate flow types (flow types where only one side is Azure). |
+| **Subscription1_g** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the source IP in the flow belongs to. |
+| **Subscription2_g** | Subscription ID | Subscription ID of virtual network/ network interface / virtual machine that the destination IP in the flow belongs to. |
 | **Region_s** | Azure region of virtual network / network interface / virtual machine that the IP in the flow belongs to. | Applicable only for FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow, and UnknownPrivate flow types (flow types where only one side is Azure). |
 | **Region1_s** | Azure Region | Azure region of virtual network / network interface / virtual machine that the source IP in the flow belongs to. |
 | **Region2_s**	| Azure Region | Azure region of virtual network that the destination IP in the flow belongs to. |
@@ -169,7 +170,7 @@ The following table lists the fields in the schema and what they signify for NSG
 > The traffic analytics schema was updated on August 22, 2019. The new schema provides source and destination IPs separately, removing the need to parse the `FlowDirection` field so that queries are simpler. The updated schema had the following changes:
 > 
 > - `FASchemaVersion_s` updated from 1 to 2.
-> - Deprecated fields: `VMIP_s`, `Subscription_s`, `Region_s`, `NSGRules_s`, `Subnet_s`, `VM_s`, `NIC_s`, `PublicIPs_s`, `FlowCount_d`
+> - Deprecated fields: `VMIP_s`, `Subscription_g`, `Region_s`, `NSGRules_s`, `Subnet_s`, `VM_s`, `NIC_s`, `PublicIPs_s`, `FlowCount_d`
 > - New fields: `SrcPublicIPs_s`, `DestPublicIPs_s`, `NSGRule_s`
 
 ### VNet flow logs (preview)
@@ -319,7 +320,7 @@ List of threat types:
     - `UnknownPrivate`: One of the IP addresses belong to an Azure virtual network, while the other IP address belongs to the private IP range defined in RFC 1918 and couldn't be mapped by traffic analytics to a customer owned site or Azure virtual network.
     - `Unknown`: Unable to map either of the IP addresses in the flow with the customer topology in Azure and on-premises (site).
 
-## Next Steps
+## Related content
 
 - To learn more about traffic analytics, see [Traffic analytics overview](traffic-analytics.md).
 - See [Traffic analytics FAQ](traffic-analytics-faq.yml) for answers to traffic analytics most frequently asked questions.

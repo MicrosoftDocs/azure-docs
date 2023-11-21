@@ -2,11 +2,10 @@
 title: Use Virtual Network service endpoints with Speech service
 titleSuffix: Azure AI services
 description: This article describes how to use Speech service with an Azure Virtual Network service endpoint.
-services: cognitive-services
+#services: cognitive-services
 author: alexeyo26
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 03/19/2021
 ms.author: alexeyo

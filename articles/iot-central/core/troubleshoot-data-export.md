@@ -20,9 +20,27 @@ You're using a managed identity to authorize the connection to an export destina
 
 Before you configure or enable the export destination, make sure that you complete the following steps:
 
-- Enable the managed identity for the application.
-- Configure the permissions for the managed identity.
+- Enable the managed identity for the IoT Central application. To verify that the managed identity is enabled, go to the **Identity** page for your application in the Azure portal or use the following CLI command:
+
+    ```azurecli
+    az iot central app identity show --name {your app name} --resource-group {your resource group name}
+    ```
+
+- Configure the permissions for the managed identity. To view the assigned permissions, select **Azure role assignments** on the **Identity** page for your app in the Azure portal or use the `az role assignment list` CLI command. The required permissions are:
+
+    | Destination | Permission |
+    |-------------|------------|
+    | Azure Blob storage | Storage Blob Data Contributor |
+    | Azure Service Bus | Azure Service Bus Data Sender |
+    | Azure Event Hubs | Azure Event Hubs Data Sender |
+    | Azure Data Explorer | Admin |
+
+    If the permissions were not set correctly before you created the destination in your IoT Central application, try removing the destination and then adding it again.
+
 - Configure any virtual networks, private endpoints, and firewall policies.
+
+> [!NOTE]
+> If you're using a managed identity to authorize the connection to an export destination, IoT Central doesn't export data from simulated devices.
 
 To learn more, see [Export data](howto-export-data.md?tabs=managed-identity).
 

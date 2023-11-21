@@ -27,6 +27,9 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Python | 3.10         |
 | R (Preview) | 4.2.2        |
 
+[Synapse-Python310-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python310-CPU.yml) contains the list of libraries shipped in the default Python 3.10 environment in Azure Synapse Spark.
+
+
 >[!IMPORTANT]
 > .NET for Apache Spark
 > * The [.NET for Apache Spark](https://github.com/dotnet/spark) is an open-source project under the .NET Foundation that currently requires the .NET 3.1 library, which has reached the out-of-support status. We would like to inform users of Azure Synapse Spark of the removal of the .NET for Apache Spark library in the Azure Synapse Runtime for Apache Spark version 3.3. Users may refer to the [.NET Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) for more details on this matter.
@@ -38,122 +41,310 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 ## Libraries
 The following sections present the libraries included in Azure Synapse Runtime for Apache Spark 3.3.
 
-### Scala and Java libraries
-| Library                                         | Version                          |        Library                         | Version                         |        Library                                     | Version                               |
-|-------------------------------------------------|----------------------------------|----------------------------------------|---------------------------------|----------------------------------------------------|---------------------------------------|
-| activation                                      |     1.1.1                        | httpclient5                            |     5.1.3                       | opencsv                                            | 2.3                                   |
-| adal4j                                          |     1.6.3                        | httpcore                               |     4.4.14                      | opencv                                             | 3.2.0-1                               |
-| aircompressor                                   |     0.21                         | httpmime                               |     4.5.13                      | opentest4j                                         | 1.2.0                                 |
-| algebra_2.12                                    |     2.0.1                        | impulse-core_spark3.3_2.12             |     1.0.6                       | opentracing-api                                    | 0.33.0                                |
-| aliyun-java-sdk-core                            |     4.5.10                       | impulse-telemetry                      |     mds_spark3.3_2.12-1.0.6     | opentracing-noop                                   | 0.33.0                                |
-| aliyun-java-sdk-kms                             |     2.11.0                       | ini4j                                  |     0.5.4                       | opentracing-util                                   | 0.33.0                                |
-| aliyun-java-sdk-ram                             |     3.1.0                        | isolation                              |     forest_3.2.0_2.12-2.0.8     | orc-core                                           | 1.7.6                                 |
-| aliyun-sdk-oss                                  |     3.13.0                       | istack-commons-runtime                 |     3.0.8                       | orc-mapreduce                                      | 1.7.6                                 |
-| annotations                                     |     17.0.0                       | ivy                                    |     2.5.1                       | orc-shims                                          | 1.7.6                                 |
-| antlr-runtime                                   |     3.5.2                        | jackson-annotations                    |     2.13.4                      | oro                                                | 2.0.8                                 |
-| antlr4-runtime                                  |     4.8                          | jackson-core                           |     2.13.4                      | osgi-resource-locator                              | 1.0.3                                 |
-| aopalliance-repackaged                          |     2.6.1                        | jackson-core-asl                       |     1.9.13                      | paranamer                                          | 2.8                                   |
-| apiguardian-api                                 |     1.1.0                        | jackson-databind                       |     2.13.4.1                    | parquet-column                                     | 1.12.3                                |
-| arpack                                          |     2.2.1                        | jackson-dataformat-cbor                |     2.13.4                      | parquet-common                                     | 1.12.3                                |
-| arpack_combined_all                             |     0.1                          | jackson-mapper-asl                     |     1.9.13                      | parquet-encoding                                   | 1.12.3                                |
-| arrow-format                                    |     7.0.0                        | jackson-module-scala_2.12              |     2.13.4                      | parquet-format-structures                          | 1.12.3                                |
-| arrow-memory-core                               |     7.0.0                        | jakarta.annotation-api                 |     1.3.5                       | parquet-hadoop                                     | 1.12.3                                |
-| arrow-memory-netty                              |     7.0.0                        | jakarta.inject                         |     2.6.1                       | parquet-jackson                                    | 1.12.3                                |
-| arrow-vector                                    |     7.0.0                        | jakarta.servlet-api                    |     4.0.3                       | peregrine-spark_3.3.0                              | 0.10.3                                |
-| audience-annotations                            |     0.5.0                        | jakarta.validation-api                 |     2.0.2                       | pickle                                             | 1.2                                   |
-| autotune-client_2.12                            |     1.0.0-3.3                    | jakarta.ws.rs-api                      |     2.1.6                       | postgresql                                         | 42.2.9                                |
-| autotune-common_2.12                            |     1.0.0-3.3                    | jakarta.xml.bind-api                   |     2.3.2                       | protobuf-java                                      | 2.5.0                                 |
-| avro                                            |     1.11.0                       | janino                                 |     3.0.16                      | proton-j                                           | 0.33.8                                |
-| avro-ipc                                        |     1.11.0                       | javassist                              |     3.25.0-GA                   | py4j                                               | 0.10.9.5                              |
-| avro-mapred                                     |     1.11.0                       | javatuples                             |     1.2                         | qpid-proton-j-extensions                           | 1.2.4                                 |
-| aws-java-sdk-bundle                             |     1.11.1026                    | javax.jdo                              |     3.2.0-m3                    | RoaringBitmap                                      | 0.9.25                                |
-| azure-data-lake-store-sdk                       |     2.3.9                        | javolution                             |     5.5.1                       | rocksdbjni                                         | 6.20.3                                |
-| azure-eventhubs                                 |     3.3.0                        | jaxb-api                               |     2.2.11                      | scala-collection-compat_2.12                       | 2.1.1                                 |
-| azure-eventhubs                                 |     spark_2.12-2.3.22            | jaxb-runtime                           |     2.3.2                       | scala-compiler                                     | 2.12.15                               |
-| azure-keyvault-core                             |     1.0.0                        | jcl-over-slf4j                         |     1.7.32                      | scala-java8-compat_2.12                            | 0.9.0                                 |
-| azure-storage                                   |     7.0.1                        | jdo-api                                |     3.0.1                       | scala-library                                      | 2.12.15                               |
-| azure-synapse-ml-pandas_2.12                    |     0.1.1                        | jdom2                                  |     2.0.6                       | scala-parser-combinators_2.12                      | 1.1.2                                 |
-| azure-synapse-ml-predict_2.12                   |     1.0                          | jersey-client                          |     2.36                        | scala-reflect                                      | 2.12.15                               |
-| blas                                            |     2.2.1                        | jersey-common                          |     2.36                        | scala-xml_2.12                                     | 1.2.0                                 |
-| bonecp                                          |     0.8.0.RELEASE                | jersey-container-servlet               |     2.36                        | scalactic_2.12                                     | 3.2.14                                |
-| breeze_2.12                                     |     1.2                          | jersey-container-servlet-core          |     2.36                        | shapeless_2.12                                     | 2.3.7                                 |
-| breeze-macros_2.12                              |     1.2                          | jersey-hk2                             |     2.36                        | shims                                              | 0.9.25                                |
-| cats-kernel_2.12                                |     2.1.1                        | jersey-server                          |     2.36                        | slf4j-api                                          | 1.7.32                                |
-| chill_2.12                                      |     0.10.0                       | jettison                               |     1.1                         | snappy-java                                        | 1.1.8.4                               |
-| chill-java                                      |     0.10.0                       | jetty-util                             |     9.4.48.v20220622            | spark_diagnostic_cli                               | 2.0.1_spark-3.3.0                     |
-| client-jar-sdk                                  |     1.14.0                       | jetty-util-ajax                        |     9.4.48.v20220622            | spark-3.3-advisor-core_2.12                        | 1.0.14                                |
-| cntk                                            |     2.4                          | JLargeArrays                           |     1.5                         | spark-3.3-rpc-history-server-app-listener_2.12     | 1.0.0                                 |
-| commons                                         |     compiler-3.0.16              | jline                                  |     2.14.6                      | spark-3.3-rpc-history-server-core_2.12             | 1.0.0                                 |
-| commons-cli                                     |     1.5.0                        | joda-time                              |     2.10.13                     | spark-avro_2.12                                    | 3.3.1.5.2-82353445                    |
-| commons-codec                                   |     1.15                         | jodd-core                              |     3.5.2                       | spark-catalyst_2.12                                | 3.3.1.5.2-82353445                    |
-| commons-collections                             |     3.2.2                        | jpam                                   |     1.1                         | spark-cdm-connector-assembly-spark3.3              | 1.19.4                                |
-| commons-collections4                            |     4.4                          | jsch                                   |     0.1.54                      | spark-core_2.12                                    | 3.3.1.5.2-82353445                    |
-| commons-compress                                |     1.21                         | json                                   |     1.8                         | spark-enhancement_2.12                             | 3.3.1.5.2-82353445                    |
-| commons-crypto                                  |     1.1.0                        | json                                   | 20090211                        | spark-enhancementui_2.12                           | 3.0.0                                 |
-| commons-dbcp                                    |     1.4                          | json                                   | 20210307                        | spark-graphx_2.12                                  | 3.3.1.5.2-82353445                    |
-| commons-io                                      |     2.11.0                       | json                                   |     simple-1.1.1                | spark-hadoop-cloud_2.12                            | 3.3.1.5.2-82353445                    |
-| commons-lang                                    |     2.6                          | json                                   |     simple-1.1                  | spark-hive_2.12                                    | 3.3.1.5.2-82353445                    |
-| commons-lang3                                   |     3.12.0                       | json4s-ast_2.12                        |     3.7.0-M11                   | spark-hive-thriftserver_2.12                       | 3.3.1.5.2-82353445                    |
-| commons-logging                                 |     1.1.3                        | json4s-core_2.12                       |     3.7.0-M11                   | spark-kusto-synapse-connector_3.1_2.12             | 1.1.1                                 |
-| commons-math3                                   |     3.6.1                        | json4s-jackson_2.12                    |     3.7.0-M11                   | spark-kvstore_2.12                                 | 3.3.1.5.2-82353445                    |
-| commons-pool                                    |     1.5.4                        | json4s-scalap_2.12                     |     3.7.0-M11                   | spark-launcher_2.12                                | 3.3.1.5.2-82353445                    |
-| commons-pool2                                   |     2.11.1                       | jsr305                                 |     3.0.0                       | spark-lighter-contract_2.12                        | 2.0.0_spark-3.3.0                     |
-| commons-text                                    |     1.10.0                       | jta                                    |     1.1                         | spark-lighter-core_2.12                            | 2.0.0_spark-3.3.0                     |
-| compress-lzf                                    |     1.1                          | JTransforms                            |     3.1                         | spark-microsoft-tools_2.12                         | 3.3.1.5.2-82353445                    |
-| config                                          |     1.3.4                        | jul-to-slf4j                           |     1.7.32                      | spark-mllib_2.12                                   | 3.3.1.5.2-82353445                    |
-| core                                            |     1.1.2                        | junit-jupiter                          |     5.5.2                       | spark-mllib-local_2.12                             | 3.3.1.5.2-82353445                    |
-| cos_api-bundle                                  |     5.6.19                       | junit-jupiter-api                      |     5.5.2                       | spark-mssql-connector                              | 1.2.0 - Removed                                |
-| cosmos-analytics-spark-3.3.0-connector          |     1.6.4                        | junit-jupiter-engine                   |     5.5.2                       | spark-network-common_2.12                          | 3.3.1.5.2-82353445                    |
-| curator-client                                  |     2.13.0                       | junit-jupiter-params                   |     5.5.2                       | spark-network-shuffle_2.12                         | 3.3.1.5.2-82353445                    |
-| curator-framework                               |     2.13.0                       | junit-platform-commons                 |     1.5.2                       | spark-repl_2.12                                    | 3.3.1.5.2-82353445                    |
-| curator-recipes                                 |     2.13.0                       | junit-platform-engine                  |     1.5.2                       | spark-sketch_2.12                                  | 3.3.1.5.2-82353445                    |
-| datanucleus-api-jdo                             |     4.2.4                        | kafka-clients                          |     2.8.1                       | spark-sql_2.12                                     | 3.3.1.5.2-82353445                    |
-| datanucleus-core                                |     4.1.17                       | kryo-shaded                            |     4.0.2                       | spark-sql-kafka                                    | 0-10_2.12-3.3.1.5.2-82353445          |
-| datanucleus-rdbms                               |     4.1.19                       | kusto-data                             |     2.8.2                       | spark-streaming_2.12                               | 3.3.1.5.2-82353445                    |
-| delta-core_2.12                                 |     2.2.0.1                      | kusto-ingest                           |     2.8.2                       | spark-streaming-kafka                              | 0-10-assembly_2.12-3.3.1.5.2-82353445 |
-| delta-iceberg_2.12                              |     2.2.0.1                      | kusto-spark_synapse_3.0_2.12           |     2.9.3                       | spark-streaming-kafka                              | 0-10_2.12-3.3.1.5.2-82353445          |
-| delta-storage                                   |     2.2.0.1                      | lapack                                 |     2.2.1                       | spark-tags_2.12                                    | 3.3.1.5.2-82353445                    |
-| derby                                           |     10.14.2.0                    | leveldbjni-all                         |     1.8                         | spark-token-provider-kafka                         | 0-10_2.12-3.3.1.5.2-82353445          |
-| dropwizard-metrics-hadoop-metrics2-reporter     |     0.1.2                        | libfb303                               |     0.9.3                       | spark-unsafe_2.12                                  | 3.3.1.5.2-82353445                    |
-| flatbuffers-java                                |     1.12.0                       | libshufflejni.so N/A                   |                                 | spark-yarn_2.12                                    | 3.3.1.5.2-82353445                    |
-| fluent-logger-jar-with-dependencies             |     jdk8                         | libthrift                              |     0.12.0                      | SparkCustomEvents                                  | 3.2.0-1.0.5                           |
-| genesis-client_2.12                             |     0.21.0-jar-with-dependencies | libvegasjni.so                         |                                 | sparknativeparquetwriter_2.12                      | 0.6.0-spark-3.3                       |
-| gson                                            |     2.8.6                        | lightgbmlib                            |     3.2.110                     | spire_2.12                                         | 0.17.0                                |
-| guava                                           |     14.0.1                       | log4j-1.2-api                          |     2.17.2                      | spire-macros_2.12                                  | 0.17.0                                |
-| hadoop-aliyun                                   |     3.3.3.5.2-82353445           | log4j-api                              |     2.17.2                      | spire-platform_2.12                                | 0.17.0                                |
-| hadoop-annotations                              |     3.3.3.5.2-82353445           | log4j-core                             |     2.17.2                      | spire-util_2.12                                    | 0.17.0                                |
-| hadoop-aws                                      |     3.3.3.5.2-82353445           | log4j-slf4j-impl                       |     2.17.2                      | spray-json_2.12                                    | 1.3.5                                 |
-| hadoop-azure                                    |     3.3.3.5.2-82353445           | lz4-java                               |     1.8.0                       | sqlanalyticsconnector                              | 3.3.0-2.0.8                           |
-| hadoop-azure-datalake                           |     3.3.3.5.2-82353445           | mdsdclientdynamic                      |     2.0                         | ST4                                                | 4.0.4                                 |
-| hadoop-azure-trident                            |     1.0.8                        | metrics-core                           |     4.2.7                       | stax-api                                           | 1.0.1                                 |
-| hadoop-client-api                               |     3.3.3.5.2-82353445           | metrics-graphite                       |     4.2.7                       | stream                                             | 2.9.6                                 |
-| hadoop-client-runtime                           |     3.3.3.5.2-82353445           | metrics-jmx                            |     4.2.7                       | structuredstreamforspark_2.12                      | 3.2.0-2.3.0                           |
-| hadoop-cloud-storage                            |     3.3.3.5.2-82353445           | metrics-json                           |     4.2.7                       | super-csv                                          | 2.2.0                                 |
-| hadoop-cos                                      |     3.3.3.5.2-82353445           | metrics-jvm                            |     4.2.7                       | synapseml_2.12                                     | 0.10.1-69-84f5b579-SNAPSHOT           |
-| hadoop-openstack                                |     3.3.3.5.2-82353445           | microsoft-catalog-metastore-client     |     1.1.2                       | synapseml-cognitive_2.12                           | 0.10.1-69-84f5b579-SNAPSHOT           |
-| hadoop-shaded-guava                             |     1.1.1                        | microsoft-log4j-etwappender            |     1.0                         | synapseml-core_2.12                                | 0.10.1-69-84f5b579-SNAPSHOT           |
-| hadoop-yarn-server-web-proxy                    |     3.3.3.5.2-82353445           | minlog                                 |     1.3.0                       | synapseml-deep-learning_2.12                       | 0.10.1-69-84f5b579-SNAPSHOT           |
-| hdinsight-spark-metrics                         |     3.2.0-1.0.5                  | mssql-jdbc                             |     8.4.1.jre8                  | synapseml-internal_2.12                            | 0.0.0-105-28644623-SNAPSHOT           |
-| HikariCP                                        |     2.5.1                        | mysql-connector-java                   |     8.0.18                      | synapseml-lightgbm_2.12                            | 0.10.1-69-84f5b579-SNAPSHOT           |
-| hive-beeline                                    |     2.3.9                        | netty-all                              |     4.1.74.Final                | synapseml-opencv_2.12                              | 0.10.1-69-84f5b579-SNAPSHOT           |
-| hive-cli                                        |     2.3.9                        | netty-buffer                           |     4.1.74.Final                | synapseml-vw_2.12                                  | 0.10.1-69-84f5b579-SNAPSHOT           |
-| hive-common                                     |     2.3.9                        | netty-codec                            |     4.1.74.Final                | synfs                                              | 3.3.0-20230110.6                      |
-| hive-exec                                       |     2.3.9-core                   | netty-common                           |     4.1.74.Final                | threeten-extra                                     | 1.5.0                                 |
-| hive-jdbc                                       |     2.3.9                        | netty-handler                          |     4.1.74.Final                | tink                                               | 1.6.1                                 |
-| hive-llap-common                                |     2.3.9                        | netty-resolver                         |     4.1.74.Final                | TokenLibrary                                       | assembly-3.4.1                        |
-| hive-metastore                                  |     2.3.9                        | netty-tcnative-classes                 |     2.0.48.Final                | transaction-api                                    | 1.1                                   |
-| hive-serde                                      |     2.3.9                        | netty-transport                        |     4.1.74.Final                | trident-core                                       | 1.1.16                                |
-| hive-service-rpc                                |     3.1.2                        | netty-transport-classes-epoll          |     4.1.74.Final                | tridenttokenlibrary-assembly                       | 1.2.3                                 |
-| hive-shims                                      |     0.23-2.3.9                   | netty-transport-classes-kqueue         |     4.1.74.Final                | univocity-parsers                                  | 2.9.1                                 |
-| hive-shims                                      |     2.3.9                        | netty-transport-native-epoll           |     4.1.74.Final-linux-aarch_64 | VegasConnector                                     | 1.2.02_2.12_3.2                       |
-| hive-shims-common                               |     2.3.9                        | netty-transport-native-epoll           |     4.1.74.Final-linux-x86_64   | velocity                                           | 1.5                                   |
-| hive-shims-scheduler                            |     2.3.9                        | netty-transport-native-kqueue          |     4.1.74.Final-osx-aarch_64   | vw-jni                                             | 8.9.1                                 |
-| hive-storage-api                                |     2.7.2                        | netty-transport-native-kqueue          |     4.1.74.Final-osx-x86_64     | wildfly-openssl                                    | 1.0.7.Final                           |
-| hive-vector-code-gen                            |     2.3.9                        | netty-transport-native-unix-common     |     4.1.74.Final                | xbean-asm9-shaded                                  | 4.20                                  |
-| hk2-api                                         |     2.6.1                        | notebook-utils-3.3.0                   |     20230110.6                  | xz                                                 | 1.8                                   |
-| hk2-locator                                     |     2.6.1                        | objenesis                              |     3.2                         | zookeeper                                          | 3.6.2.5.2-82353445                    |
-| hk2-utils                                       |     2.6.1                        | onnx-protobuf_2.12                     |     0.9.1-assembly              | zookeeper-jute                                     | 3.6.2.5.2-82353445                    |
-| httpclient                                      |     4.5.13                       | onnxruntime_gpu                        |     1.8.1                       | zstd-jni                                           | 1.5.2-1                               |
+### Scala and Java default libraries
+
+| GroupID                                | ArtifactID                                  | Version                     |
+|----------------------------------------|---------------------------------------------|-----------------------------|
+| com.aliyun                             | aliyun-java-sdk-core                        | 4.5.10                      |
+| com.aliyun                             | aliyun-java-sdk-kms                         | 2.11.0                      |
+| com.aliyun                             | aliyun-java-sdk-ram                         | 3.1.0                       |
+| com.aliyun                             | aliyun-sdk-oss                              | 3.13.0                      |
+| com.amazonaws                          | aws-java-sdk-bundle                         | 1.12.1026                   |
+| com.chuusai                            | shapeless_2.12                              | 2.3.7                       |
+| com.clearspring.analytics              | stream                                      | 2.9.6                       |
+| com.esotericsoftware                   | kryo-shaded                                 | 4.0.2                       |
+| com.esotericsoftware                   | minlog                                      | 1.3.0                       |
+| com.fasterxml.jackson                  | jackson-annotations                         | 2.13.4                      |
+| com.fasterxml.jackson                  | jackson-core                                | 2.13.4                      |
+| com.fasterxml.jackson                  | jackson-core-asl                            | 1.9.13                      |
+| com.fasterxml.jackson                  | jackson-databind                            | 2.13.4.1                    |
+| com.fasterxml.jackson                  | jackson-dataformat-cbor                     | 2.13.4                      |
+| com.fasterxml.jackson                  | jackson-mapper-asl                          | 1.9.13                      |
+| com.fasterxml.jackson                  | jackson-module-scala_2.12                   | 2.13.4                      |
+| com.github.joshelser                   | dropwizard-metrics-hadoop-metrics2-reporter | 0.1.2                       |
+| com.github.luben                       | zstd-jni                                    | 1.5.2-1                     |
+| com.github.luben                       | zstd-jni                                    | 1.5.2-1                     |
+| com.github.vowpalwabbit                | vw-jni                                      | 9.3.0                       |
+| com.github.wendykierp                  | JTransforms                                 | 3.1                         |
+| com.google.code.findbugs               | jsr305                                      | 3.0.0                       |
+| com.google.code.gson                   | gson                                        | 2.8.6                       |
+| com.google.crypto.tink                 | tink                                        | 1.6.1                       |
+| com.google.flatbuffers                 | flatbuffers-java                            | 1.12.0                      |
+| com.google.guava                       | guava                                       | 14.0.1                      |
+| com.google.protobuf                    | protobuf-java                               | 2.5.0                       |
+| com.googlecode.json-simple             | json-simple                                 | 1.1.1                       |
+| com.jcraft                             | jsch                                        | 0.1.54                      |
+| com.jolbox                             | bonecp                                      | 0.8.0.RELEASE               |
+| com.linkedin.isolation-forest          | isolation-forest_3.2.0_2.12                 | 2.0.8                       |
+| com.microsoft.azure                    | azure-data-lake-store-sdk                   | 2.3.9                       |
+| com.microsoft.azure                    | azure-eventhubs                             | 3.3.0                       |
+| com.microsoft.azure                    | azure-eventhubs-spark_2.12                  | 2.3.22                      |
+| com.microsoft.azure                    | azure-keyvault-core                         | 1.0.0                       |
+| com.microsoft.azure                    | azure-storage                               | 7.0.1                       |
+| com.microsoft.azure                    | cosmos-analytics-spark-3.4.1-connector_2.12 | 1.8.10                      |
+| com.microsoft.azure                    | qpid-proton-j-extensions                    | 1.2.4                       |
+| com.microsoft.azure                    | synapseml_2.12                              | 0.11.3-spark3.3             |
+| com.microsoft.azure                    | synapseml-cognitive_2.12                    | 0.11.3-spark3.3             |
+| com.microsoft.azure                    | synapseml-core_2.12                         | 0.11.3-spark3.3             |
+| com.microsoft.azure                    | synapseml-deep-learning_2.12                | 0.11.3-spark3.3             |
+| com.microsoft.azure                    | synapseml-internal_2.12                     | 0.11.3-spark3.3             |
+| com.microsoft.azure                    | synapseml-lightgbm_2.12                     | 0.11.3-spark3.3             |
+| com.microsoft.azure                    | synapseml-opencv_2.12                       | 0.11.3-spark3.3             |
+| com.microsoft.azure                    | synapseml-vw_2.12                           | 0.11.3-spark3.3             |
+| com.microsoft.azure.kusto              | kusto-data                                  | 3.2.1                       |
+| com.microsoft.azure.kusto              | kusto-ingest                                | 3.2.1                       |
+| com.microsoft.azure.kusto              | kusto-spark_3.0_2.12                        | 3.1.16                      |
+| com.microsoft.azure.kusto              | spark-kusto-synapse-connector_3.1_2.12      | 1.3.3                       |
+| com.microsoft.cognitiveservices.speech | client-jar-sdk                              | 1.14.0                      |
+| com.microsoft.sqlserver                | msslq-jdbc                                  | 8.4.1.jre8                  |
+| com.ning                               | compress-lzf                                | 1.1                         |
+| com.sun.istack                         | istack-commons-runtime                      | 3.0.8                       |
+| com.tdunning                           | json                                        | 1.8                         |
+| com.thoughtworks.paranamer             | paranamer                                   | 2.8                         |
+| com.twitter                            | chill-java                                  | 0.10.0                      |
+| com.twitter                            | chill_2.12                                  | 0.10.0                      |
+| com.typesafe                           | config                                      | 1.3.4                       |
+| com.univocity                          | univocity-parsers                           | 2.9.1                       |
+| com.zaxxer                             | HikariCP                                    | 2.5.1                       |
+| commons-cli                            | commons-cli                                 | 1.5.0                       |
+| commons-codec                          | commons-codec                               | 1.15                        |
+| commons-collections                    | commons-collections                         | 3.2.2                       |
+| commons-dbcp                           | commons-dbcp                                | 1.4                         |
+| commons-io                             | commons-io                                  | 2.11.0                      |
+| commons-lang                           | commons-lang                                | 2.6                         |
+| commons-logging                        | commons-logging                             | 1.1.3                       |
+| commons-pool                           | commons-pool                                | 1.5.4                       |
+| dev.ludovic.netlib                     | arpack                                      | 2.2.1                       |
+| dev.ludovic.netlib                     | blas                                        | 2.2.1                       |
+| dev.ludovic.netlib                     | lapack                                      | 2.2.1                       |
+| io.airlift                             | aircompressor                               | 0.21                        |
+| io.delta                               | delta-core_2.12                             | 2.2.0.9                     |
+| io.delta                               | delta-storage                               | 2.2.0.9                     |
+| io.dropwizard.metrics                  | metrics-core                                | 4.2.7                       |
+| io.dropwizard.metrics                  | metrics-graphite                            | 4.2.7                       |
+| io.dropwizard.metrics                  | metrics-jmx                                 | 4.2.7                       |
+| io.dropwizard.metrics                  | metrics-json                                | 4.2.7                       |
+| io.dropwizard.metrics                  | metrics-jvm                                 | 4.2.7                       |
+| io.github.resilience4j                 | resilience4j-core                           | 1.7.1                       |
+| io.github.resilience4j                 | resilience4j-retry                          | 1.7.1                       |
+| io.netty                               | netty-all                                   | 4.1.74.Final                |
+| io.netty                               | netty-buffer                                | 4.1.74.Final                |
+| io.netty                               | netty-codec                                 | 4.1.74.Final                |
+| io.netty                               | netty-codec-http2                           | 4.1.74.Final                |
+| io.netty                               | netty-codec-http-4                          | 4.1.74.Final                |
+| io.netty                               | netty-codec-socks                           | 4.1.74.Final                |
+| io.netty                               | netty-common                                | 4.1.74.Final                |
+| io.netty                               | netty-handler                               | 4.1.74.Final                |
+| io.netty                               | netty-resolver                              | 4.1.74.Final                |
+| io.netty                               | netty-tcnative-classes                      | 2.0.48                      |
+| io.netty                               | netty-transport                             | 4.1.74.Final                |
+| io.netty                               | netty-transport-classes-epoll               | 4.1.87.Final                |
+| io.netty                               | netty-transport-classes-kqueue              | 4.1.87.Final                |
+| io.netty                               | netty-transport-native-epoll                | 4.1.87.Final-linux-aarch_64 |
+| io.netty                               | netty-transport-native-epoll                | 4.1.87.Final-linux-x86_64   |
+| io.netty                               | netty-transport-native-kqueue               | 4.1.87.Final-osx-aarch_64   |
+| io.netty                               | netty-transport-native-kqueue               | 4.1.87.Final-osx-x86_64     |
+| io.netty                               | netty-transport-native-unix-common          | 4.1.87.Final                |
+| io.opentracing                         | opentracing-api                             | 0.33.0                      |
+| io.opentracing                         | opentracing-noop                            | 0.33.0                      |
+| io.opentracing                         | opentracing-util                            | 0.33.0                      |
+| io.spray                               | spray-json_2.12                             | 1.3.5                       |
+| io.vavr                                | vavr                                        | 0.10.4                      |
+| io.vavr                                | vavr-match                                  | 0.10.4                      |
+| jakarta.annotation                     | jakarta.annotation-api                      | 1.3.5                       |
+| jakarta.inject                         | jakarta.inject                              | 2.6.1                       |
+| jakarta.servlet                        | jakarta.servlet-api                         | 4.0.3                       |
+| jakarta.validation-api                 |                                             | 2.0.2                       |
+| jakarta.ws.rs                          | jakarta.ws.rs-api                           | 2.1.6                       |
+| jakarta.xml.bind                       | jakarta.xml.bind-api                        | 2.3.2                       |
+| javax.activation                       | activation                                  | 1.1.1                       |
+| javax.jdo                              | jdo-api                                     | 3.0.1                       |
+| javax.transaction                      | jta                                         | 1.1                         |
+| javax.transaction                      | transaction-api                             | 1.1                         |
+| javax.xml.bind                         | jaxb-api                                    | 2.2.11                      |
+| javolution                             | javolution                                  | 5.5.1                       |
+| jline                                  | jline                                       | 2.14.6                      |
+| joda-time                              | joda-time                                   | 2.10.13                     |
+| mysql                                  | mysql-connector-java                        | 8.0.18                      |
+| net.razorvine                          | pickle                                      | 1.2                         |
+| net.sf.jpam                            | jpam                                        | 1.1                         |
+| net.sf.opencsv                         | opencsv                                     | 2.3                         |
+| net.sf.py4j                            | py4j                                        | 0.10.9.5                    |
+| net.sf.supercsv                        | super-csv                                   | 2.2.0                       |
+| net.sourceforge.f2j                    | arpack_combined_all                         | 0.1                         |
+| org.antlr                              | ST4                                         | 4.0.4                       |
+| org.antlr                              | antlr-runtime                               | 3.5.2                       |
+| org.antlr                              | antlr4-runtime                              | 4.8                         |
+| org.apache.arrow                       | arrow-format                                | 7.0.0                       |
+| org.apache.arrow                       | arrow-memory-core                           | 7.0.0                       |
+| org.apache.arrow                       | arrow-memory-netty                          | 7.0.0                       |
+| org.apache.arrow                       | arrow-vector                                | 7.0.0                       |
+| org.apache.avro                        | avro                                        | 1.11.0                      |
+| org.apache.avro                        | avro-ipc                                    | 1.11.0                      |
+| org.apache.avro                        | avro-mapred                                 | 1.11.0                      |
+| org.apache.commons                     | commons-collections4                        | 4.4                         |
+| org.apache.commons                     | commons-compress                            | 1.21                        |
+| org.apache.commons                     | commons-crypto                              | 1.1.0                       |
+| org.apache.commons                     | commons-lang3                               | 3.12.0                      |
+| org.apache.commons                     | commons-math3                               | 3.6.1                       |
+| org.apache.commons                     | commons-pool2                               | 2.11.1                      |
+| org.apache.commons                     | commons-text                                | 1.10.0                      |
+| org.apache.curator                     | curator-client                              | 2.13.0                      |
+| org.apache.curator                     | curator-framework                           | 2.13.0                      |
+| org.apache.curator                     | curator-recipes                             | 2.13.0                      |
+| org.apache.derby                       | derby                                       | 10.14.2.0                   |
+| org.apache.hadoop                      | hadoop-aliyun                               | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-annotations                          | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-aws                                  | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-azure                                | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-azure-datalake                       | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-client-api                           | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-client-runtime                       | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-cloud-storage                        | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-openstack                            | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-shaded-guava                         | 1.1.1                       |
+| org.apache.hadoop                      | hadoop-yarn-server-web-proxy                | 3.3.3.5.2-106693326         |
+| org.apache.hive                        | hive-beeline                                | 2.3.9                       |
+| org.apache.hive                        | hive-cli                                    | 2.3.9                       |
+| org.apache.hive                        | hive-common                                 | 2.3.9                       |
+| org.apache.hive                        | hive-exec                                   | 2.3.9                       |
+| org.apache.hive                        | hive-jdbc                                   | 2.3.9                       |
+| org.apache.hive                        | hive-llap-common                            | 2.3.9                       |
+| org.apache.hive                        | hive-metastore                              | 2.3.9                       |
+| org.apache.hive                        | hive-serde                                  | 2.3.9                       |
+| org.apache.hive                        | hive-service-rpc                            | 2.3.9                       |
+| org.apache.hive                        | hive-shims-0.23                             | 2.3.9                       |
+| org.apache.hive                        | hive-shims                                  | 2.3.9                       |
+| org.apache.hive                        | hive-shims-common                           | 2.3.9                       |
+| org.apache.hive                        | hive-shims-scheduler                        | 2.3.9                       |
+| org.apache.hive                        | hive-storage-api                            | 2.7.2                       |
+| org.apache.httpcomponents              | httpclient                                  | 4.5.13                      |
+| org.apache.httpcomponents              | httpcore                                    | 4.4.14                      |
+| org.apache.httpcomponents              | httpmime                                    | 4.5.13                      |
+| org.apache.httpcomponents.client5      | httpclient5                                 | 5.1.3                       |
+| org.apache.iceberg                     | delta-iceberg                               | 2.2.0.9                     |
+| org.apache.ivy                         | ivy                                         | 2.5.1                       |
+| org.apache.kafka                       | kafka-clients                               | 2.8.1                       |
+| org.apache.logging.log4j               | log4j-1.2-api                               | 2.17.2                      |
+| org.apache.logging.log4j               | log4j-api                                   | 2.17.2                      |
+| org.apache.logging.log4j               | log4j-core                                  | 2.17.2                      |
+| org.apache.logging.log4j               | log4j-slf4j-impl                            | 2.17.2                      |
+| org.apache.orc                         | orc-core                                    | 1.7.6                       |
+| org.apache.orc                         | orc-mapreduce                               | 1.7.6                       |
+| org.apache.orc                         | orc-shims                                   | 1.7.6                       |
+| org.apache.parquet                     | parquet-column                              | 1.12.3                      |
+| org.apache.parquet                     | parquet-common                              | 1.12.3                      |
+| org.apache.parquet                     | parquet-encoding                            | 1.12.3                      |
+| org.apache.parquet                     | parquet-format-structures                   | 1.12.3                      |
+| org.apache.parquet                     | parquet-hadoop                              | 1.12.3                      |
+| org.apache.parquet                     | parquet-jackson                             | 1.12.3                      |
+| org.apache.qpid                        | proton-j                                    | 0.33.8                      |
+| org.apache.spark                       | spark-avro_2.12                             | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-catalyst_2.12                         | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-core_2.12                             | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-graphx_2.12                           | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-hadoop-cloud_2.12                     | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-hive_2.12                             | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-kvstore_2.12                          | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-launcher_2.12                         | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-mllib_2.12                            | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-mllib-local_2.12                      | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-network-common_2.12                   | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-network-shuffle_2.12                  | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-repl_2.12                             | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-sketch_2.12                           | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-sql_2.12                              | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-sql-kafka-0-10_2.12                   | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-streaming_2.12                        | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-streaming-kafka-0-10-assembly_2.12    | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-tags_2.12                             | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-token-provider-kafka-0-10_2.12        | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-unsafe_2.12                           | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-yarn_2.12                             | 3.3.1.5.2-106693326         |
+| org.apache.thrift                      | libfb303                                    | 0.9.3                       |
+| org.apache.thrift                      | libthrift                                   | 0.12.0                      |
+| org.apache.velocity                    | velocity                                    | 1.5                         |
+| org.apache.xbean                       | xbean-asm9-shaded                           | 4.2                         |
+| org.apache.yetus                       | audience-annotations                        | 0.5.0                       |
+| org.apache.zookeeper                   | zookeeper                                   | 3.6.2.5.2-106693326         |
+| org.apache.zookeeper                   | zookeeper-jute                              | 3.6.2.5.2-106693326         |
+| org.apache.zookeeper                   | zookeeper                                   | 3.6.2.5.2-106693326         |
+| org.apache.zookeeper                   | zookeeper-jute                              | 3.6.2.5.2-106693326         |
+| org.apiguardian                        | apiguardian-api                             | 1.1.0                       |
+| org.codehaus.janino                    | commons-compiler                            | 3.0.16                      |
+| org.codehaus.janino                    | janino                                      | 3.0.16                      |
+| org.codehaus.jettison                  | jettison                                    | 1.1                         |
+| org.datanucleus                        | datanucleus-api-jdo                         | 4.2.4                       |
+| org.datanucleus                        | datanucleus-core                            | 4.1.17                      |
+| org.datanucleus                        | datanucleus-rdbms                           | 4.1.19                      |
+| org.datanucleusjavax.jdo               |                                             | 3.2.0-m3                    |
+| org.eclipse.jetty                      | jetty-util                                  | 9.4.48.v20220622            |
+| org.eclipse.jetty                      | jetty-util-ajax                             | 9.4.48.v20220622            |
+| org.fusesource.leveldbjni              | leveldbjni-all                              | 1.8                         |
+| org.glassfish.hk2                      | hk2-api                                     | 2.6.1                       |
+| org.glassfish.hk2                      | hk2-locator                                 | 2.6.1                       |
+| org.glassfish.hk2                      | hk2-utils                                   | 2.6.1                       |
+| org.glassfish.hk2                      | osgi-resource-locator                       | 1.0.3                       |
+| org.glassfish.hk2.external             | aopalliance-repackaged                      | 2.6.1                       |
+| org.glassfish.jaxb                     | jaxb-runtime                                | 2.3.2                       |
+| org.glassfish.jersey.containers        | jersey-container-servlet                    | 2.36                        |
+| org.glassfish.jersey.containers        | jersey-container-servlet-core               | 2.36                        |
+| org.glassfish.jersey.core              | jersey-client                               | 2.36                        |
+| org.glassfish.jersey.core              | jersey-common                               | 2.36                        |
+| org.glassfish.jersey.core              | jersey-server                               | 2.36                        |
+| org.glassfish.jersey.inject            | jersey-hk2                                  | 2.36                        |
+| org.ini4j                              | ini4j                                       | 0.5.4                       |
+| org.javassist                          | javassist                                   | 3.25.0-GA                   |
+| org.javatuples                         | javatuples                                  | 1.2                         |
+| org.jdom                               | jdom2                                       | 2.0.6                       |
+| org.jetbrains                          | annotations                                 | 17.0.0                      |
+| org.jodd                               | jodd-core                                   | 3.5.2                       |
+| org.json                               | json                                        | 20210307                    |
+| org.json4s                             | json4s-ast_2.12                             | 3.7.0-M11                   |
+| org.json4s                             | json4s-core_2.12                            | 3.7.0-M11                   |
+| org.json4s                             | json4s-jackson_2.12                         | 3.7.0-M11                   |
+| org.json4s                             | json4s-scalap_2.12                          | 3.7.0-M11                   |
+| org.junit.jupiter                      | junit-jupiter                               | 5.5.2                       |
+| org.junit.jupiter                      | junit-jupiter-api                           | 5.5.2                       |
+| org.junit.jupiter                      | junit-jupiter-engine                        | 5.5.2                       |
+| org.junit.jupiter                      | junit-jupiter-params                        | 5.5.2                       |
+| org.junit.platform                     | junit-platform-commons                      | 1.5.2                       |
+| org.junit.platform                     | junit-platform-engine                       | 1.5.2                       |
+| org.lz4                                | lz4-java                                    | 1.8.0                       |
+| org.mlflow                             | mlfow-spark                                 | 2.1.1                       |
+| org.objenesis                          | objenesis                                   | 3.2                         |
+| org.openpnp                            | opencv                                      | 3.2.0-1                     |
+| org.opentest4j                         | opentest4j                                  | 1.2.0                       |
+| org.postgresql                         | postgresql                                  | 42.2.9                      |
+| org.roaringbitmap                      | RoaringBitmap                               | 0.9.25                      |
+| org.roaringbitmap                      | shims                                       | 0.9.25                      |
+| org.rocksdb                            | rocksdbjni                                  | 6.20.3                      |
+| org.scalactic                          | scalactic_2.12                              | 3.2.14                      |
+| org.scala-lang                         | scala-compiler                              | 2.12.15                     |
+| org.scala-lang                         | scala-library                               | 2.12.15                     |
+| org.scala-lang                         | scala-reflect                               | 2.12.15                     |
+| org.scala-lang.modules                 | scala-collection-compat_2.12                | 2.1.1                       |
+| org.scala-lang.modules                 | scala-java8-compat_2.12                     | 0.9.0                       |
+| org.scala-lang.modules                 | scala-parser-combinators_2.12               | 1.1.2                       |
+| org.scala-lang.modules                 | scala-xml_2.12                              | 1.2.0                       |
+| org.scalanlp                           | breeze-macros_2.12                          | 1.2                         |
+| org.scalanlp                           | breeze_2.12                                 | 1.2                         |
+| org.slf4j                              | jcl-over-slf4j                              | 1.7.32                      |
+| org.slf4j                              | jul-to-slf4j                                | 1.7.32                      |
+| org.slf4j                              | slf4j-api                                   | 1.7.32                      |
+| org.threeten                           | threeten-extra                              | 1.5.0                       |
+| org.tukaani                            | xz                                          | 1.8                         |
+| org.typelevel                          | algebra_2.12                                | 2.0.1                       |
+| org.typelevel                          | cats-kernel_2.12                            | 2.1.1                       |
+| org.typelevel                          | spire_2.12                                  | 0.17.0                      |
+| org.typelevel                          | spire-macros_2.12                           | 0.17.0                      |
+| org.typelevel                          | spire-platform_2.12                         | 0.17.0                      |
+| org.typelevel                          | spire-util_2.12                             | 0.17.0                      |
+| org.wildfly.openssl                    | wildfly-openssl                             | 1.0.7.Final                 |
+| org.xerial.snappy                      | snappy-java                                 | 1.1.8.4                     |
+| oro                                    | oro                                         | 2.0.8                       |
+| pl.edu.icm                             | JLargeArrays                                | 1.5                         |
+| stax                                   | stax-api                                    | 1.0.1                       |
 
 ### Python libraries (Normal VMs)
 | Library                            | Version                           |        Library            | Version                         |        Library                    | Version                         |

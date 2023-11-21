@@ -4,24 +4,34 @@ titleSuffix: Azure AI services
 description: Use machine learning powered receipt data extraction model to digitize receipts.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
 ---
 
 <!-- markdownlint-disable MD033 -->
 
 # Document Intelligence receipt model
 
-::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [preview-version-notice](includes/preview-notice.md)]
+
+[!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](includes/applies-to-v31.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+[!INCLUDE [applies to v3.0](includes/applies-to-v30.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 ::: moniker-end
 
 The Document Intelligence receipt model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from sales receipts. Receipts can be of various formats and quality including printed and handwritten receipts. The API extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total and returns structured JSON data.
@@ -48,24 +58,40 @@ Receipt digitization encompasses the transformation of various types of receipts
 
 ## Development options
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v3.0 and later versions support the following tools:
+Document Intelligence v4.0 (2023-10-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Receipt model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</li></ul>|**prebuilt-receipt**|
+|**Receipt model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-receipt**|
+::: moniker-end
 
+::: moniker range="doc-intel-3.1.0"
+
+Document Intelligence v3.1 supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Receipt model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)|**prebuilt-receipt**|
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+
+Document Intelligence v3.0 supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Receipt model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-receipt**|
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
 
-Document Intelligence v2.1 supports the following tools:
+Document Intelligence v2.1 supports the following tools, applications, and libraries:
 
 | Feature | Resources |
 |----------|-------------------------|
-|**Receipt model**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=windows&view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/install-run.md?tabs=receipt#run-the-container-with-the-docker-compose-up-command)</li></ul>|
-
+|**Receipt model**|&bullet; [**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</br>&bullet;  [**REST API**](how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&view=doc-intel-2.1.0&preserve-view=true&tabs=windows)</br>&bullet;  [**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</br>&bullet;  [**Document Intelligence Docker container**](containers/install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)|
 ::: moniker-end
 
 ## Input requirements
@@ -90,7 +116,7 @@ See how Document Intelligence extracts data, including time and date of transact
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
@@ -101,11 +127,11 @@ See how Document Intelligence extracts data, including time and date of transact
 
 1. On the Document Intelligence Studio home page, select **Receipts**
 
-1. You can analyze the sample receipt or select the **+ Add** button to upload your own sample.
+1. You can analyze the sample receipt or upload your own files.
 
-1. Select the **Analyze** button:
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
 
-    :::image type="content" source="media/studio/receipt-analyze.png" alt-text="Screenshot of analyze receipt menu.":::
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
     > [!div class="nextstepaction"]
     > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
@@ -152,103 +178,9 @@ See how Document Intelligence extracts data, including time and date of transact
 
 ::: moniker-end
 
-::: moniker range=">=doc-intel-3.0.0"
-
 ## Supported languages and locales
 
->[!NOTE]
-> Document Intelligence auto-detects language and locale data.
-
-### Supported languages
-
-#### Thermal receipts (retail, meal, parking, etc.)
-
-| Language name | Language code | Language name | Language code |
-|:--------------|:-------------:|:--------------|:-------------:|
-|English|``en``|Lithuanian|`lt`|
-|Afrikaans|``af``|Luxembourgish|`lb`|
-|Akan|``ak``|Macedonian|`mk`|
-|Albanian|``sq``|Malagasy|`mg`|
-|Arabic|``ar``|Malay|`ms`|
-|Azerbaijani|``az``|Maltese|`mt`|
-|Bamanankan|``bm``|Maori|`mi`|
-|Basque|``eu``|Marathi|`mr`|
-|Belarusian|``be``|Maya, Yucatán|`yua`|
-|Bhojpuri|``bho``|Mongolian|`mn`|
-|Bosnian|``bs``|Nepali|`ne`|
-|Bulgarian|``bg``|Norwegian|`no`|
-|Catalan|``ca``|Nyanja|`ny`|
-|Cebuano|``ceb``|Oromo|`om`|
-|Corsican|``co``|Pashto|`ps`|
-|Croatian|``hr``|Persian|`fa`|
-|Czech|``cs``|Persian (Dari)|`prs`|
-|Danish|``da``|Polish|`pl`|
-|Dutch|``nl``|Portuguese|`pt`|
-|Estonian|``et``|Punjabi|`pa`|
-|Faroese|``fo``|Quechua|`qu`|
-|Fijian|``fj``|Romanian|`ro`|
-|Filipino|``fil``|Russian|`ru`|
-|Finnish|``fi``|Samoan|`sm`|
-|French|``fr``|Sanskrit|`sa`|
-|Galician|``gl``|Scottish Gaelic|`gd`|
-|Ganda|``lg``|Serbian (Cyrillic)|`sr-cyrl`|
-|German|``de``|Serbian (Latin)|`sr-latn`|
-|Greek|``el``|Sesotho|`st`|
-|Guarani|``gn``|Sesotho sa Leboa|`nso`|
-|Haitian Creole|``ht``|Shona|`sn`|
-|Hawaiian|``haw``|Slovak|`sk`|
-|Hebrew|``he``|Slovenian|`sl`|
-|Hindi|``hi``|Somali (Latin)|`so-latn`|
-|Hmong Daw|``mww``|Spanish|`es`|
-|Hungarian|``hu``|Sundanese|`su`|
-|Icelandic|``is``|Swedish|`sv`|
-|Igbo|``ig``|Tahitian|`ty`|
-|Iloko|``ilo``|Tajik|`tg`|
-|Indonesian|``id``|Tamil|`ta`|
-|Irish|``ga``|Tatar|`tt`|
-|isiXhosa|``xh``|Tatar (Latin)|`tt-latn`|
-|isiZulu|``zu``|Thai|`th`|
-|Italian|``it``|Tongan|`to`|
-|Japanese|``ja``|Turkish|`tr`|
-|Javanese|``jv``|Turkmen|`tk`|
-|Kazakh|``kk``|Ukrainian|`uk`|
-|Kazakh (Latin)|``kk-latn``|Upper Sorbian|`hsb`|
-|Kinyarwanda|``rw``|Uyghur|`ug`|
-|Kiswahili|``sw``|Uyghur (Arabic)|`ug-arab`|
-|Korean|``ko``|Uzbek|`uz`|
-|Kurdish|``ku``|Uzbek (Latin)|`uz-latn`|
-|Kurdish (Latin)|``ku-latn``|Vietnamese|`vi`|
-|Kyrgyz|``ky``|Welsh|`cy`|
-|Latin|``la``|Western Frisian|`fy`|
-|Latvian|``lv``|Xitsonga|`ts`|
-|Lingala|``ln``|||
-
-#### Hotel receipts
-
-| Supported Languages | Details |
-|:--------------------|:-------:|
-|English|United States (`en-US`)|
-|French|France (`fr-FR`)|
-|German|Germany (`de-DE`)|
-|Italian|Italy (`it-IT`)|
-|Japanese|Japan (`ja-JP`)|
-|Portuguese|Portugal (`pt-PT`)|
-|Spanish|Spain (`es-ES`)|
-
-::: moniker-end
-
-::: moniker range="doc-intel-2.1.0"
-
-## Supported languages and locales v2.1
-
->[!NOTE]
- > It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
-
-| Model | Language—Locale code | Default |
-|--------|:----------------------|:---------|
-|Receipt| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li></ul>  | Autodetected |
-
-::: moniker-end
+*See* our [Language Support—prebuilt models](language-support-prebuilt.md) page for a complete list of supported languages.
 
 ## Field extraction
 
@@ -264,7 +196,7 @@ See how Document Intelligence extracts data, including time and date of transact
 | TransactionTime | Time | Time the receipt was issued | hh-mm-ss (24-hour)  |
 | Total | Number (USD)| Full transaction total of receipt | Two-decimal float|
 | Subtotal | Number (USD) | Subtotal of receipt, often before taxes are applied | Two-decimal float|
- | Tax | Number (USD) | Total tax on receipt (often sales tax or equivalent). **Renamed to "TotalTax" in 2022-06-30 version**. | Two-decimal float |
+| Tax | Number (USD) | Total tax on receipt (often sales tax or equivalent). **Renamed to "TotalTax" in 2022-06-30 version**. | Two-decimal float |
 | Tip | Number (USD) | Tip included by buyer | Two-decimal float|
 | Items | Array of objects | Extracted line items, with name, quantity, unit price, and total price extracted | |
 | Name | String | Item description. **Renamed to "Description" in 2022-06-30 version**. | |
@@ -276,7 +208,9 @@ See how Document Intelligence extracts data, including time and date of transact
 
 ::: moniker range=">=doc-intel-3.0.0"
 
- Document Intelligence v3.0 and later versions introduce several new features and capabilities. In addition to thermal receipts, the **Receipt** model supports single-page hotel receipt processing and tax detail extraction for all receipt types.
+ Document Intelligence v3.0 and later versions introduce several new features and capabilities. In addition to thermal receipts, the **Receipt** model supports single-page hotel receipt processing and tax detail extraction for all receipt types. 
+ 
+ Document Intelligence v4.0 and later versions introduces support for currency for all price-related fields for thermal and hotel reciepts. 
 
 ### receipt
 
