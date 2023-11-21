@@ -24,29 +24,60 @@ Ensure that the alert rule is a managed identity with an assigned role as reader
 
 ## Enable alerts (Preview) with Azure Update Manager
 
-To enable alerts (preview) with Azure Update Manager through Azure portal, follow these steps:
+To enable alerts (Preview) with Azure Update Manager through Azure portal, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
-1. Under **Monitoring**, select **New alerts rule (Preview)** to create an alert rule.
+1. Under **Monitoring**, select **New alerts rule (Preview)** to create a new alert rule.
    
    :::image type="content" source="./media/manage-alerts/access-alerts-inline.png" alt-text="Screenshot that shows how to access alerts feature." lightbox="./media/manage-alerts/access-alerts-expanded.png":::
-
-1. On **Azure Update Manager | Alerts (Preview)** page, provide the following details:
+ 
+1. On **Azure Update Manager | New alerts rule (Preview)** page, provide the following details:
     1. Select a **Subscription** from the dropdown that will be the scope of the alert rule.
-    1. From the **Azure Resource Group query** dropdown, select a predefined alerting query option. You can select **Custom query** option to edit or write a custom query.
+    1. From the **Azure Resource Group query** dropdown, select a predefined alerting query option. 
+    1. You can select **Custom query** option to edit or write a custom query.
     
       :::image type="content" source="./media/manage-alerts/create-alert-rule-inline.png" alt-text="Screenshot that shows how to create alert rule." lightbox="./media/manage-alerts/create-alert-rule-expanded.png":::
     
     1. Select **View result and edit query in Logs** to run a selected alerting query option or to edit a query.
     
       :::image type="content" source="./media/manage-alerts/edit-query-inline.png" alt-text="Screenshot that shows how to edit query in logs." lightbox="./media/manage-alerts/edit-query-expanded.png":::
+    
+    1. Select **Run** to run the query to enable **Continue Editing Alert**.
+    
+      :::image type="content" source="./media/manage-alerts/run-query-inline.png" alt-text="Screenshot that shows how to run the query." lightbox="./media/manage-alerts/run-query-expanded.png":::
       
-   1. 
-1. Select **New alert rule** and in the **Create an alert rule** page, to move to the alert rule create flow where you can set up the advanced alert rule configuration. For more information, see [Create Azure Monitor alert rules](../azure-monitor/alerts/alerts-create-new-alert-rule.md#set-the-alert-rule-conditions).
+1.  If you don't want to run a selected query or edit a query, select **Continue to create a new alert rule** to move to the alert rule create flow where you can set up the advanced alert rule configuration. 
    
     :::image type="content" source="./media/manage-alerts/advance-alert-rule-configuration-inline.png" alt-text="Screenshot that shows how to configure advanced alert rule." lightbox="./media/manage-alerts/advance-alert-rule-configuration-expanded.png":::
 
-1. Select **Review + create** to create alert.
+1. Select **Review + create** to create alert. For more information, see [Create Azure Monitor alert rules](../azure-monitor/alerts/alerts-create-new-alert-rule.md#set-the-alert-rule-conditions).
+
+## View alerts
+
+To view the alerts, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
+1. Under **Monitoring**, select **New alerts rule (Preview)**.
+1. Select **Go to alerts**.
+
+   :::image type="content" source="./media/manage-alerts/view-alerts-inline.png" alt-text="Screenshot that shows how to view alerts." lightbox="./media/manage-alerts/view-alerts-expanded.png":::
+    
+1. In the **Monitor|Alerts** page, you can view all the alerts.
+
+   :::image type="content" source="./media/manage-alerts/display-view-alerts-inline.png" alt-text="Screenshot that displays the list of alerts." lightbox="./media/manage-alerts/display-view-alerts-expanded.png":::
+
+
+## Create unique alert names
+
+To identify Azure Update manager alerts, you can create unique alert rule name by following these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
+1. Under **Monitoring**, select **New alerts rule (Preview)** to create an alert rule.
+1. Select **Go to alerts**.
+1. On the **Monitor | Alerts** page, select **Create**, **Alert rule**.
+1. On the **Create an alert rule** page, go to **Details** tab and in the **Alert rule name**, provide the unique name.
+
+   :::image type="content" source="./media/manage-alerts/unique-alert-name-inline.png" alt-text="Screenshot that shows how to create unique alert name." lightbox="./media/manage-alerts/unique-alert-name-expanded.png":::
 
 
 > [!NOTE]
