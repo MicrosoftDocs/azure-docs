@@ -15,8 +15,12 @@ items:
   items: 
     - name: Get started with the DICOM service
       href: get-started-with-dicom.md
+    - name: Azure Data Lake Storage integration for the DICOM service (Preview)
+      href: dicom-data-lake.md
     - name: Deploy the DICOM service
       href: deploy-dicom-services-in-azure.md
+    - name: Deploy the DICOM service with Data Lake Storage (Preview)
+      href: deploy-dicom-services-in-azure-data-lake.md
     - name: Get an access token
       href: get-access-token.md
     - name: Register a client application
