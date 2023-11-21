@@ -9,7 +9,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: ynpandey
 ms.author: yogipandey
-ms.date: 10/27/2023
+ms.date: 11/21/2023
 ms.reviewer: franksolomon
 ms.custom:
   - sdkv2
