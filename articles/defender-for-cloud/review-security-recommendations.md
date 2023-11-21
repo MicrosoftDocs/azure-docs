@@ -2,7 +2,7 @@
 title: Review security recommendations in Microsoft Defender for Cloud
 description: Learn how to review security recommendations in Microsoft Defender for Cloud
 ms.topic: how-to
-ms.date: 11/08/2023
+ms.date: 11/21/2023
 ---
 
 # Review security recommendations
@@ -13,17 +13,19 @@ This article describes how to review security recommendations in your Defender f
 
 ## Get an overview
 
-In the Defender for Cloud portal > **Overview** dashboard, get a holistic look at your environment, including security recommendations.
+In Defender for Cloud, navigate to the **Overview** dashboard to get a holistic look at your environments, including:
 
 - **Active recommendations**:  Recommendations that are active in your environment.
 - **Unassigned recommendations**: See which recommendations don't have owners assigned to them.
 - **Overdue recommendations**: Recommendations that have an expired due date.
 - **Attack paths**: See the number of attack paths.
 
-
 ## Review recommendations
 
-1. In Defender for Cloud, open the **Recommendations** page.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Navigate to **Defender for Cloud** > **Recommendations**.
+
 1. For each recommendation, review:
 
     - **Risk level** - Specifies whether the recommendation risk is Critical, High, Medium or Low.
@@ -33,7 +35,6 @@ In the Defender for Cloud portal > **Overview** dashboard, get a holistic look a
     - **Owner** - The person assigned to this recommendation.
     - **Due date** - Indicates the due date for fixing the recommendation.
     - **Recommendation status** indicates whether the recommendation has been assigned, and whether the due date for fixing the recommendation has passed.
-    
 
 ## Review recommendation details
 
@@ -53,7 +54,7 @@ In the Defender for Cloud portal > **Overview** dashboard, get a holistic look a
 
 ## Explore a recommendation
 
-You can perform a number of actions to interact with recommendations. If an option isn't available, it isn't relevant for the recommendation.
+You can perform many actions to interact with recommendations. If an option isn't available, it isn't relevant for the recommendation.
 
 1. In the **Recommendations** page, select a recommendation.
 1. Select **Open query** to view detailed information about the affected resources using an Azure Resource Graph Explorer query
@@ -106,9 +107,12 @@ Manage recommendations assigned to you as follows:
 
 You can use [Azure Resource Graph](../governance/resource-graph/index.yml) to query Defender for Cloud security posture data across multiple subscriptions. Azure Resource Graph provides an efficient way to query at scale across cloud environments by viewing, filtering, grouping, and sorting data.
 
-1. In the Defender for Cloud portal > **Recommendations** page > select **Open query**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Navigate to **Defender for Cloud** > **Recommendations** > **Open query**.
 
 1. In [Azure Resource Graph](../governance/resource-graph/index.yml), write a [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/).
+
 1. You can open the query in one of two ways:
 
    - **Query returning affected resource** - Returns a list of all of the resources affected by this recommendation.
