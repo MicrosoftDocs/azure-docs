@@ -23,7 +23,7 @@ In this guide, we'll introduce the factors that affect Web PubSub upstream appli
    It shows the computing pressure of your Azure Web PubSub service. You could test on your own scenario and check this metrics to decide whether to scale up. The latency inside Azure Web PubSub service would remain low if the Server Load is below 70%. 
    
 > [!NOTE]
-> If you are using unit 50 or unit 100 **and** your scenario is mainly sending to small groups (group size <100), you need to check [sending to small group](#small-group) for reference. In those scenarios there is large routing cost which is not included in the Server Load.
+> If you are using unit 50 or unit 100 **and** your scenario is mainly sending to small groups (group size <20), you need to check [sending to small group](#small-group) for reference. In those scenarios there is large routing cost which is not included in the Server Load.
    
    Below are detailed concepts for evaluating performance.
 ## Term definitions
@@ -144,6 +144,9 @@ The routing cost is significant for sending message to many small groups. Curren
 | Inbound bandwidth  | 800 KBps | 1.6 MBps | 4 MBps    | 8 MBps    | 16 MBps   | 30 MBps  | 30 MBps   |
 | Outbound messages per second | 4,000 | 8,000 | 20,000 | 40,000 | 80,000 | 150,000 | 150,000 |
 | Outbound bandwidth | **8 MBps** | **16 MBps** | **40 MBps** | **80 MBps** | **160 MBps** | **300 MBps** | **300 MBps** |
+
+> [!NOTE]
+> The group count, group member count listed in the table are **not hard limits**. Those parameters are chosen to set a stable benchmark scenario. For example, it is OK to assign each conneciton to a distinct group. In this scenario, the performance is close to [send to connection](#send-to-connection).
 
 ### Triggering Cloud Event 
 Service delivers client events to the upstream webhook using the [CloudEvents HTTP protocol](./reference-cloud-events.md).
