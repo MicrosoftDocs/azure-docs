@@ -81,13 +81,13 @@ This section provides the steps. You can also watch the following video.
 
 ### Step 1 (Optional): Enable system assigned managed identity
 
-When a system-assigned managed identity is enabled, Azure creates an identity for your search service that's used by the indexer. This identity is used to automatically detect the tenant the search service is provisioned in.
+Enable a [system-assigned managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity) to automatically detect the tenant the search service is provisioned in. 
 
-If the SharePoint site is in the same tenant as the search service, you need to enable the system-assigned managed identity for the search service in the Azure portal. If the SharePoint site is in a different tenant from the search service, skip this step.
+Perform this step if the SharePoint site is in the same tenant as the search service. Skip this step if the SharePoint site is in a different tenant. The identity isn't used for indexing, just tenant detection. You can also skip this step if you want to put the tenant ID in the [connection string](#connection-string-format).
 
 :::image type="content" source="media/search-howto-index-sharepoint-online/enable-managed-identity.png" alt-text="Enable system assigned managed identity":::
 
-After selecting **Save**, you'll see an Object ID that has been assigned to your search service.
+After selecting **Save**, you get an Object ID that has been assigned to your search service.
 
 :::image type="content" source="media/search-howto-index-sharepoint-online/system-assigned-managed-identity.png" alt-text="System assigned managed identity":::
 
@@ -97,9 +97,9 @@ The SharePoint indexer supports both [delegated and application](/graph/auth/aut
 
 We recommend app-based permissions. See [limitations](#limitations-and-considerations) for known issues related to delegated permissions.
 
-+ Delegated permissions, where the indexer runs under the identity of the user or app sending the request. Data access is limited to the sites and files to which the caller has access. To support delegated permissions, the indexer requires a [device code prompt](../active-directory/develop/v2-oauth2-device-code.md) to sign in on behalf of the user.
++ Application permissions (recommended), where the indexer runs under the [identity of the SharePoint tenant](/sharepoint/dev/solution-guidance/security-apponly-azureacs) with access to all sites and files. The indexer requires a [client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). The indexer will also require [tenant admin approval](../active-directory/manage-apps/grant-admin-consent.md) before it can index any content.
 
-+ Application permissions, where the indexer runs under the [identity of the SharePoint tenant](/sharepoint/dev/solution-guidance/security-apponly-azureacs) with access to all sites and files. The indexer requires a [client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). The indexer will also require [tenant admin approval](../active-directory/manage-apps/grant-admin-consent.md) before it can index any content.
++ Delegated permissions, where the indexer runs under the identity of the user or app sending the request. Data access is limited to the sites and files to which the caller has access. To support delegated permissions, the indexer requires a [device code prompt](../active-directory/develop/v2-oauth2-device-code.md) to sign in on behalf of the user.
 
 If your Microsoft Entra organization has [conditional access enabled](../active-directory/conditional-access/overview.md) and your administrator isn't able to grant any device access for delegated permissions, you should consider app-based permissions instead. For more information, see [Microsoft Entra Conditional Access policies](./search-indexer-troubleshooting.md#azure-active-directory-conditional-access-policies).
 
@@ -121,6 +121,15 @@ The SharePoint indexer uses this Microsoft Entra application for authentication.
 
 1. On the left, select **API permissions**, then **Add a permission**, then **Microsoft Graph**.
 
+    + If the indexer is using application API permissions, then select **Application permissions** and add the following:
+
+        + **Application - Files.Read.All**
+        + **Application - Sites.Read.All**
+        
+        :::image type="content" source="media/search-howto-index-sharepoint-online/application-api-permissions.png" alt-text="Application API permissions":::
+        
+        Using application permissions means that the indexer accesses the SharePoint site in a service context. So when you run the indexer it will have access to all content in the SharePoint tenant, which requires tenant admin approval. A client secret is also required for authentication. Setting up the client secret is described later in this article.
+
     + If the indexer is using delegated API permissions, select **Delegated permissions** and add the following:
 
         + **Delegated - Files.Read.All**
@@ -130,15 +139,6 @@ The SharePoint indexer uses this Microsoft Entra application for authentication.
         :::image type="content" source="media/search-howto-index-sharepoint-online/delegated-api-permissions.png" alt-text="Delegated API permissions":::
         
         Delegated permissions allow the search client to connect to SharePoint under the security identity of the current user.
-
-    + If the indexer is using application API permissions, then select **Application permissions** and add the following:
-
-        + **Application - Files.Read.All**
-        + **Application - Sites.Read.All**
-        
-        :::image type="content" source="media/search-howto-index-sharepoint-online/application-api-permissions.png" alt-text="Application API permissions":::
-        
-        Using application permissions means that the indexer accesses the SharePoint site in a service context. So when you run the indexer it will have access to all content in the SharePoint tenant, which requires tenant admin approval. A client secret is also required for authentication. Setting up the client secret is described later in this article.
 
 1. Give admin consent.
 
@@ -173,16 +173,16 @@ The SharePoint indexer uses this Microsoft Entra application for authentication.
 ### Step 4: Create data source
 
 > [!IMPORTANT] 
-> Starting in this section you need to use the preview REST API for the remaining steps. We recommend the latest preview API, [2023-10-01-preview](/rest/api/searchservice/data-sources/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true). If you’re not familiar with the Azure AI Search REST API, we suggest taking a look at this [Quickstart](search-get-started-rest.md).
+> Starting in this section, use the preview REST API for the remaining steps. We recommend the latest preview API, [2023-10-01-preview](/rest/api/searchservice/data-sources/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true). If you’re not familiar with the Azure AI Search REST API, we suggest taking a look at this [Quickstart](search-get-started-rest.md).
 
-A data source specifies which data to index, credentials needed to access the data, and policies to efficiently identify changes in the data (new, modified, or deleted rows). A data source can be used by multiple indexers in the same search service.
+A data source specifies which data to index, credentials, and policies to efficiently identify changes in the data (new, modified, or deleted rows). A data source can be used by multiple indexers in the same search service.
 
 For SharePoint indexing, the data source must have the following required properties:
 
 + **name** is the unique name of the data source within your search service.
 + **type** must be "sharepoint". This value is case-sensitive.
 + **credentials** provide the SharePoint endpoint and the Microsoft Entra application (client) ID. An example SharePoint endpoint is `https://microsoft.sharepoint.com/teams/MySharePointSite`. You can get the endpoint by navigating to the home page of your SharePoint site and copying the URL from the browser.
-+ **container** specifies which document library to index. More information on creating the container can be found in the [Controlling which documents are indexed](#controlling-which-documents-are-indexed) section of this document.
++ **container** specifies which document library to index. Properties [control which documents are indexed](#controlling-which-documents-are-indexed).
 
 To create a data source, call [Create Data Source (preview)](/rest/api/searchservice/data-sources/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true).
 
@@ -412,7 +412,7 @@ PUT /indexers/[indexer name]?api-version=2020-06-30
 ## Controlling which documents are indexed
 
 A single SharePoint indexer can index content from one or more document libraries. Use the "container" parameter on the data source definition to indicate which sites and document libraries to index from.
-T
+
 The [data source "container" section](#create-data-source) has two properties for this task: "name" and "query".
 
 ### Name
