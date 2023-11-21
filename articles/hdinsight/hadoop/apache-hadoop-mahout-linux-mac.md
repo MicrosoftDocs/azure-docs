@@ -4,7 +4,7 @@ description: Learn how to use the Apache Mahout machine learning library to gene
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 10/25/2022
+ms.date: 11/21/2023
 ---
 
 # Generate recommendations using Apache Mahout in Azure HDInsight
