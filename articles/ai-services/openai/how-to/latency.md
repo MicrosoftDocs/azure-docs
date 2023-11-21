@@ -48,7 +48,7 @@ There are many use cases where you are performing some bulk task where you only 
 
 ### Content filtering
 
-Azure OpenAI includes a [content filtering system](./content-filters.md) that works alongside core models. This system works by running both the prompt and completion through an ensemble of classification models aimed at detecting and preventing the output of harmful content.
+Azure OpenAI includes a [content filtering system](./content-filters.md) that works alongside the core models. This system works by running both the prompt and completion through an ensemble of classification models aimed at detecting and preventing the output of harmful content.
 
 The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
