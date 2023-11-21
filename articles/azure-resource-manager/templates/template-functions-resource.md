@@ -220,7 +220,6 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.ServiceBus/namespaces/authorizationRules | [listKeys](/rest/api/servicebus/controlplane-stable/namespaces-authorization-rules/list-keys) |
 | Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listKeys](/rest/api/servicebus/controlplane-stable/disaster-recovery-configs/list-keys) |
 | Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listKeys](/rest/api/servicebus/controlplane-stable/queues-authorization-rules/list-keys) |
-| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listKeys](/rest/api/servicebus/controlplane-stable/topics%20–%20authorization%20rules/list-keys) |
 | Microsoft.SignalRService/SignalR | [listKeys](/rest/api/signalr/signalr/listkeys) |
 | Microsoft.Storage/storageAccounts | [listAccountSas](/rest/api/storagerp/storageaccounts/listaccountsas) |
 | Microsoft.Storage/storageAccounts | [listKeys](/rest/api/storagerp/storageaccounts/listkeys) |
