@@ -1,6 +1,6 @@
 ---
-title: How to configure the MedTech service metrics - Azure Health Data Services
-description: Learn how to configure MedTech service metrics in the Azure portal and pin them to a dashboard. Find out how to use the metrics to monitor and troubleshoot MedTech service issues.
+title: Configure service metrics for the MedTech service in Azure Health Data Services
+description: Learn how to configure MedTech service metrics in the Azure portal. Find out how to use the metrics to monitor and troubleshoot MedTech service issues.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -29,11 +29,11 @@ Metric category|Metric name|Metric description|
 |Traffic|Number of Message Groups|The number of groups that have messages aggregated in the designated time window.|
 |Traffic|Number of Normalized Messages|The number of normalized messages.|
 
-## Configure the MedTech service metrics
+## Configure service metrics
 
-1. In your organization's Azure Health Data Services workspace, select **MedTech service** under **Services**.
+1. In the Azure portal, go to your Azure Health Data Services workspace. Select  and select **Services** > **MedTech service**.
 
-   :::image type="content" source="media\configure-metrics\workspace-displayed-with-connectors-button.png" alt-text="Screenshot showing the selection of the MedTech service within the workspace." lightbox="media\configure-metrics\workspace-displayed-with-connectors-button.png":::
+   :::image type="content" source="media\configure-metrics\select-medtech-service-crop.png" alt-text="Screenshot showing how to open the MedTech service in a workspace." lightbox="media\configure-metrics\select-medtech-service-crop.png":::
 
 2. Select the MedTech service that you want to display metrics for. In this example, we select a MedTech service named **mt-azuredocsdemo**. You need to select a MedTech service within your organization's Azure Health Data Services workspace.
 
