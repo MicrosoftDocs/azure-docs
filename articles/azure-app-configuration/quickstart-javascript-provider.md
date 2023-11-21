@@ -13,7 +13,7 @@ ms.author: yanzh
 ---
 # Quickstart: Create a JavaScript app with Azure App Configuration
 
-In this quickstart, you will use Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration JavaScript provider client library](https://github.com/Azure/AppConfiguration-JavaScriptProvider).
+In this quickstart, you'll use Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration JavaScript provider client library](https://github.com/Azure/AppConfiguration-JavaScriptProvider).
 
 App Configuration provider for JavaScript is built on top of the [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration) and is designed to be easier to use with richer features.
 It enables access to key-values in App Configuration as a `Map` object.
@@ -137,7 +137,7 @@ In this tutorial, you'll create a Node.js console app and load data from your Ap
     export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
    ```
 
-1. Print out the value of the environment variable to validate that it is set properly with the command below.
+1. Print the value of the environment variable to validate that it's set properly with the command below.
 
     ### [Windows command prompt](#tab/windowscommandprompt)
 
@@ -194,9 +194,9 @@ In this tutorial, you'll create a Node.js console app and load data from your Ap
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and learned how to access key-values using the App Configuration Javascript provider in a Node.js app.
+In this quickstart, you created a new App Configuration store and learned how to access key-values using the App Configuration JavaScript provider in a Node.js app.
 
-For additional code samples, visit:
+For more code samples, visit:
 
 > [!div class="nextstepaction"]
 > [Azure App Configuration JavaScript provider](https://github.com/Azure/AppConfiguration-JavaScriptProvider/tree/main/examples)
