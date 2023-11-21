@@ -70,7 +70,7 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
     * Change the workloads/application:
         Consider repurposing the volume and delegating a different volume with a larger size and/or in a higher service level to meet your application requirements. If it's an NFS volume, consider changing mount options to reduce data flow if your application supports those changes.
 
-    :::image type="content" source="../media/azure-netapp-files/throughput-limited-reached.png" alt-text="Screenshot that shows Azure NetApp Files metrics a line graph demonstrating throughput limit reached." lightbox="../media/azure-netapp-files/throughput-limit-reached.png":::
+    :::image type="content" source="../media/azure-netapp-files/throughput-limit-reached.png" alt-text="Screenshot that shows Azure NetApp Files metrics a line graph demonstrating throughput limit reached." lightbox="../media/azure-netapp-files/throughput-limit-reached.png":::
 
 
 ## Performance metrics for volumes
