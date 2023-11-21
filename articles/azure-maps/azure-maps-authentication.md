@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Authentication with Azure Maps
 
-Azure Maps supports three ways to authenticate requests: Shared Key authentication, [Microsoft Entra ID] authentication, and Shared Access Signature (SAS) Token authentication. This article explains authentication methods to help guide your implementation of Azure Maps services. The article also describes other account controls such as disabling local authentication for Azure Policy and Cross-Origin Resource Sharing (CORS).
+Azure Maps supports three ways to authenticate requests: Shared Key authentication, Microsoft Entra ID authentication, and Shared Access Signature (SAS) Token authentication. This article explains authentication methods to help guide your implementation of Azure Maps services. The article also describes other account controls such as disabling local authentication for Azure Policy and Cross-Origin Resource Sharing (CORS).
 
 > [!NOTE]
 > To improve secure communication with Azure Maps, we now support Transport Layer Security (TLS) 1.2, and we're retiring support for TLS 1.0 and 1.1. If you currently use TLS 1.x, evaluate your TLS 1.2 readiness and develop a migration plan with the testing described in [Solving the TLS 1.0 Problem].
@@ -426,7 +426,6 @@ To learn more about authenticating the Azure Maps Control with Microsoft Entra I
 > [!div class="nextstepaction"]
 > [Use the Azure Maps Map Control]
 
-[Azure Active Directory (Azure AD)]: ../active-directory/fundamentals/active-directory-whatis.md
 [Solving the TLS 1.0 Problem]: /security/solving-tls1-problem
 [View authentication details]: how-to-manage-authentication.md#view-authentication-details
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
@@ -447,7 +446,7 @@ To learn more about authenticating the Azure Maps Control with Microsoft Entra I
 [Azure custom roles]: ../role-based-access-control/custom-roles.md
 [management group]: ../governance/management-groups/overview.md
 [Management API]: /rest/api/maps-management/
-[Azure AD authentication]: #azure-ad-authentication
+[Microsoft Entra authentication]: #microsoft-entra-authentication
 [What is Azure Policy?]: ../governance/policy/overview.md
 [user-assigned managed identity]: ../active-directory/managed-identities-azure-resources/overview.md
 [understanding access control]: #understand-sas-token-access-control

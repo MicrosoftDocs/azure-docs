@@ -2,7 +2,7 @@
 title: "Training and testing datasets - Speech service"
 titleSuffix: Azure AI services
 description: Learn about types of training and testing data for a Custom Speech project, along with how to use and manage that data.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -98,6 +98,9 @@ Audio files can have silence at the beginning and end of the recording. If possi
 > For more information about the best practices of preparing human-labeled transcripts, see [Human-labeled transcripts with audio](how-to-custom-speech-human-labeled-transcriptions.md). 
 
 Custom Speech projects require audio files with these properties:
+
+> [!IMPORTANT]
+> These are requirements for Audio + human-labeled transcript training and testing. They differ from the ones for Audio only training and testing. If you want to use Audio only training and testing, [see this section](#audio-data-for-training-or-testing).
 
 | Property                 | Value                               |
 |--------------------------|-------------------------------------|
@@ -241,6 +244,9 @@ Audio data is optimal for testing the accuracy of Microsoft's baseline speech to
 > Audio only data for training is available in preview for the `en-US` locale. For other locales, to train with audio data you must also provide [human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing).
 
 Custom Speech projects require audio files with these properties:
+
+> [!IMPORTANT]
+> These are requirements for Audio only training and testing. They differ from the ones for Audio + human-labeled transcript training and testing. If you want to use Audio + human-labeled transcript training and testing, [see this section](#audio--human-labeled-transcript-data-for-training-or-testing).
 
 | Property                 | Value                 |
 |--------------------------|-----------------------|

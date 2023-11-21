@@ -85,6 +85,9 @@ public class MyOrchestration : TaskOrchestrator<string, string>
 }
 ```
 
+## Durable entities
+Durable entities are supported in the .NET isolated worker. See [developer's guide](./durable-functions-dotnet-entities.md).
+
 ## Migration guide
 
 This guide assumes you're starting with a .NET Durable Functions 2.x project.
@@ -105,7 +108,7 @@ New:
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask" Version="1.0.0" />
+  <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask" Version="1.1.0" />
 </ItemGroup>
 ```
 
@@ -117,7 +120,7 @@ Durable Functions for .NET isolated worker is an entirely new package with diffe
 
 The schema for Durable Functions .NET isolated worker and Durable Functions 2.x has remained the same, no changes should be needed.
 
-#### Public interface changes
+#### Public API changes
 
 This table isn't an exhaustive list of changes.
 
@@ -125,14 +128,38 @@ This table isn't an exhaustive list of changes.
 | ---- | ---- |
 | `IDurableOrchestrationClient` | `DurableTaskClient` |
 | `IDurableOrchestrationClient.StartNewAsync` | `DurableTaskClient.ScheduleNewOrchestrationInstanceAsync` |
+| `IDurableEntityClient.SignalEntityAsync` | `DurableTaskClient.Entities.SignalEntityAsync` |
+| `IDurableEntityClient.ReadEntityStateAsync` | `DurableTaskClient.Entities.GetEntityAsync` |
+| `IDurableEntityClient.ListEntitiesAsync` | `DurableTaskClient.Entities.GetAllEntitiesAsync` |
+| `IDurableEntityClient.CleanEntityStorageAsync` | `DurableTaskClient.Entities.CleanEntityStorageAsync` |
 | `IDurableOrchestrationContext` | `TaskOrchestrationContext` |
 | `IDurableOrchestrationContext.GetInput<T>()` | `TaskOrchestrationContext.GetInput<T>()` or inject input as a parameter: `MyOrchestration([OrchestrationTrigger] TaskOrchestrationContext context, T input)` |
 | `DurableActivityContext` | No equivalent |
 | `DurableActivityContext.GetInput<T>()` | Inject input as a parameter `MyActivity([ActivityTrigger] T input)` |
-| `CallActivityWithRetryAsync` | `CallActivityAsync`, include `TaskOptions` parameter with retry details. |
-| `CallSubOrchestratorWithRetryAsync` | `CallSubOrchestratorAsync`, include `TaskOptions` parameter with retry details. |
-| `CallHttpAsync` | No equivalent. Instead, write an activity that invokes your desired HTTP API. |
-| `CreateReplaySafeLogger(ILogger)` | `CreateReplaySafeLogger<T>()` or `CreateReplaySafeLogger(string)` |
+| `IDurableOrchestrationContext.CallActivityWithRetryAsync` | `TaskOrchestrationContext.CallActivityAsync`, include `TaskOptions` parameter with retry details. |
+| `IDurableOrchestrationContext.CallSubOrchestratorWithRetryAsync` | `TaskOrchestrationContext.CallSubOrchestratorAsync`, include `TaskOptions` parameter with retry details. |
+| `IDurableOrchestrationContext.CallHttpAsync` | `TaskOrchestrationContext.CallHttpAsync` |
+| `IDurableOrchestrationContext.CreateReplaySafeLogger(ILogger)` | `TaskOrchestrationContext.CreateReplaySafeLogger<T>()` or `TaskOrchestrationContext.CreateReplaySafeLogger(string)` |
+| `IDurableOrchestrationContext.CallEntityAsync` | `TaskOrchestrationContext.Entities.CallEntityAsync` |
+| `IDurableOrchestrationContext.SignalEntity` | `TaskOrchestrationContext.Entities.SignalEntityAsync` |
+| `IDurableOrchestrationContext.LockAsync` | `TaskOrchestrationContext.Entities.LockEntitiesAsync` |
+| `IDurableOrchestrationContext.IsLocked` | `TaskOrchestrationContext.Entities.InCriticalSection` |
+| `IDurableEntityContext` | `TaskEntityContext`. |
+| `IDurableEntityContext.EntityName` | `TaskEntityContext.Id.Name` |
+| `IDurableEntityContext.EntityKey` | `TaskEntityContext.Id.Key` |
+| `IDurableEntityContext.OperationName` | `TaskEntityOperation.Name` |
+| `IDurableEntityContext.FunctionBindingContext` | Removed, add `FunctionContext` as an input parameter |
+| `IDurableEntityContext.HasState` | `TaskEntityOperation.State.HasState` |
+| `IDurableEntityContext.BatchSize` | Removed |
+| `IDurableEntityContext.BatchPosition` | Removed |
+| `IDurableEntityContext.GetState` | `TaskEntityOperation.State.GetState` |
+| `IDurableEntityContext.SetState` | `TaskEntityOperation.State.SetState` |
+| `IDurableEntityContext.DeleteState` | `TaskEntityOperation.State.SetState(null)` |
+| `IDurableEntityContext.GetInput` | `TaskEntityOperation.GetInput` |
+| `IDurableEntityContext.Return` | Removed. Method return value used instead. |
+| `IDurableEntityContext.SignalEntity` | `TaskEntityContext.SignalEntity` |
+| `IDurableEntityContext.StartNewOrchestration` | `TaskEntityContext.ScheduleNewOrchestration` |
+| `IDurableEntityContext.DispatchAsync` | `TaskEntityDispatcher.DispatchAsync`. Constructor params removed. |
 
 #### Behavioral changes
 

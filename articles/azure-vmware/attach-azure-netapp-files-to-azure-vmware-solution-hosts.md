@@ -69,6 +69,8 @@ Azure NetApp Files datastores for Azure VMware Solution are currently supported 
 * Switzerland West
 * UK South
 * UK West
+* US Gov Arizona
+* US Gov Virginia
 * West Europe 
 * West US
 * West US 2
@@ -260,4 +262,4 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **Can a single Azure NetApp Files datastore be added to multiple clusters within different Azure VMware Solution SDDCs?**
 
-    Yes, you can connect an Azure NetApp Files volume as a datastore to multiple clusters in different SDDCs. Each SDDC will need connectivity via the ExpressRoute gateway in the Azure NetApp Files virtual network.
+    Yes, you can connect an Azure NetApp Files volume as a datastore to multiple clusters in different SDDCs. Each SDDC will need connectivity via the ExpressRoute gateway in the Azure NetApp Files virtual network. Latency considerations apply.

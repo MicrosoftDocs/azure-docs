@@ -28,6 +28,10 @@ landingContent:
         links:        
         - text: Create a virtual machine on VMware vCenter using Azure Arc
           url: quick-start-create-a-vm.md
+      - linkListType: concept
+        links:
+        - text: Azure Arc agent
+          url: azure-arc-agent.md
   - title: Use Azure to manage VMware VMs
     linkLists:
       - linkListType: how-to-guide
@@ -53,7 +57,7 @@ landingContent:
      - linkListType: sample
        links:
         - text: Jumpstart for Azure Arc-enabled VMware vSphere
-          url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
+          url: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_vsphere
   - title: Administer Arc-enabled VMware
     linkLists:
       - linkListType: how-to-guide

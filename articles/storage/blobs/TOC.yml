@@ -48,6 +48,8 @@ items:
         href: quickstart-blobs-c-plus-plus.md
       - name: Go
         href: storage-quickstart-blobs-go.md
+      - name: Terraform
+        href: storage-quickstart-static-website-terraform.md
   - name: Tutorials
     items:
     - name: Upload and process image files
@@ -457,6 +459,8 @@ items:
               href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
             - name: Configure TLS version for a client application
               href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+            - name: Migrate to TLS 1.2 for Azure Blob storage
+              href: ../common/transport-layer-security-configure-migrate-to-TLS2.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Configure network routing preference
             href: ../common/configure-network-routing-preference.md?toc=/azure/storage/blobs/toc.json
           - name: Restrict scope of copy operations
@@ -521,8 +525,6 @@ items:
         items:
         - name: Host a static website
           href: storage-blob-static-website-how-to.md
-        - name: Integrate with Azure CDN
-          href: static-website-content-delivery-network.md
         - name: Use GitHub Actions to deploy a static site to Azure Storage
           href: storage-blobs-static-site-github-actions.md
       - name: Use a custom domain

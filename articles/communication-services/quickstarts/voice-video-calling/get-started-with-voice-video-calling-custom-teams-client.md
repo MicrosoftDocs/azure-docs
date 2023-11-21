@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.custom: mode-other, devx-track-js
+ms.custom: mode-other, devx-track-js, devx-track-extended-java
 ---
 
 # QuickStart: Add 1:1 video calling as a Teams user to your application

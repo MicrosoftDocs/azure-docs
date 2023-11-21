@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/06/2023
+ms.date: 11/07/2023
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-python
 ---
@@ -71,9 +71,30 @@ The following are the current limitations and known issues with PowerShell runbo
 
 **Known issues**
 
-* Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required directory. 
+* Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required module information. 
+  
+  **Sample script**
+  ```powershell-interactive
+
+  # Get information about module "Microsoft.Graph.Authentication"
+  $ModuleName = "Microsoft.Graph.Authentication"
+    
+  $NewPath = "C:\usr\src\PSModules\$ModuleName"
+  $OldPath = "C:\Modules\User\$ModuleName"
+    
+  if (Test-Path -Path $NewPath -PathType Container) {
+      Get-ChildItem -Path $NewPath
+  } elseif (Test-Path -Path $OldPath -PathType Container) {
+      Get-ChildItem -Path $OldPath
+  } else {
+      Write-Output "Module $ModuleName not present."
+  }
+  # Getting the path to the Temp folder, if needed.
+  $tmp = $env:TEMP
+  
+  ```
+
 * `Get-AzStorageAccount` cmdlet might fail with an error: *The `Get-AzStorageAccount` command was found in the module `Az.Storage`, but the module could not be loaded*.
-* Completed jobs might show a warning message: *Both Az and AzureRM modules were detected on this machine. Az and AzureRM modules cannot be imported in the same session or used in the same script or runbook*. This is just a warning message and does not impact job execution.
 * PowerShell runbooks can't retrieve an unencrypted [variable asset](./shared-resources/variables.md) with a null value.
 * PowerShell runbooks can't retrieve a variable asset with `*~*` in the name.
 * A [Get-Process](/powershell/module/microsoft.powershell.management/get-process) operation in a loop in a PowerShell runbook can crash after about 80 iterations.
@@ -99,7 +120,28 @@ The following are the current limitations and known issues with PowerShell runbo
 
 **Known issues**
 
-- Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required directory.
+- Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required module information.
+   
+  **Sample script**
+  ```powershell-interactive
+
+  # Get information about module "Microsoft.Graph.Authentication"
+  $ModuleName = "Microsoft.Graph.Authentication"
+    
+  $NewPath = "C:\usr\src\PSModules\$ModuleName"
+  $OldPath = "C:\Modules\User\$ModuleName"
+    
+  if (Test-Path -Path $NewPath -PathType Container) {
+      Get-ChildItem -Path $NewPath
+  } elseif (Test-Path -Path $OldPath -PathType Container) {
+      Get-ChildItem -Path $OldPath
+  } else {
+      Write-Output "Module $ModuleName not present."
+  }
+  # Getting the path to the Temp folder, if needed.
+  $tmp = $env:TEMP
+  
+  ```
 - `Get-AzStorageAccount` cmdlet might fail with an error: *The `Get-AzStorageAccount` command was found in the module `Az.Storage`, but the module could not be loaded*.
 - Executing child scripts using `.\child-runbook.ps1` isn't supported in this preview.
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from `Az.Automation` module) to start another runbook from parent runbook.
@@ -126,29 +168,21 @@ The following are the current limitations and known issues with PowerShell runbo
 > Currently, PowerShell 7.2 (preview) runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Australia Central2, Korea South, Sweden South, Jio India Central, Brazil Southeast, Central India, West India, UAE Central, and Gov clouds.
 
 - For the PowerShell 7 runtime version, the module activities aren't extracted for the imported modules.
-- *PSCredential* runbook parameter type isn't supported in PowerShell 7 runtime version.
 - PowerShell 7.x doesn't support workflows. For more information, see [PowerShell workflow](/powershell/scripting/whats-new/differences-from-windows-powershell#powershell-workflow) for more details.
 - PowerShell 7.x currently doesn't support signed runbooks.
 - Source control integration doesn't support PowerShell 7.2 (preview). Also, PowerShell 7.2 (preview) runbooks in source control get created in Automation account as Runtime 5.1.
 - Currently, PowerShell 7.2 (preview) runbooks are only supported from Azure portal. Rest API and PowerShell aren't supported.
-- Az module 8.3.0 is installed by default and can't be managed at the automation account level. Use custom modules to override the Az module to the desired version.
+- Az module 8.3.0 is installed by default and can't be managed at the automation account level for PowerShell 7.2 (preview). Use custom modules to override the Az module to the desired version.
 - The imported PowerShell 7.2 (preview) module would be validated during job execution. Ensure that all dependencies for the selected module are also imported for successful job execution.
 - PowerShell 7.2 module management is not supported through `Get-AzAutomationModule` cmdlets.
 - Azure runbook doesn't support `Start-Job` with `-credential`. 
 - Azure doesn't support all PowerShell input parameters. [Learn more](runbook-input-parameters.md).
 
 **Known issues**
-- Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required directory.
+- Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required module information.
 - `Get-AzStorageAccount` cmdlet might fail with an error: *The `Get-AzStorageAccount` command was found in the module `Az.Storage`, but the module could not be loaded*.
 - Executing child scripts using `.\child-runbook.ps1` is not supported in this preview.
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
-- Runbook properties defining logging preference isn't supported in PowerShell 7 runtime.
-  **Workaround**: Explicitly set the preference at the start of the runbook as following -
-  ```
-      $VerbosePreference = "Continue"
-
-      $ProgressPreference = "Continue"
-  ```
 - When you use [ExchangeOnlineManagement](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true) module version: 3.0.0 or higher, you can experience errors. To resolve the issue, ensure that you explicitly upload [PowerShellGet](/powershell/module/powershellget/) and [PackageManagement](/powershell/module/packagemanagement/) modules.
 ---
 

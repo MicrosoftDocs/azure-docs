@@ -12,13 +12,17 @@ metadata:
   ms.author: v-gjeronika
 
 landingContent:
-  - title: About Azure Arc-enabled System Center Virtual Machine Manager (preview)
+  - title: About Azure Arc-enabled System Center Virtual Machine Manager
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Arc-enabled System Center Virtual Machine Manager?
             url: overview.md
-          
+      - linkListType: concept
+        links:
+          - text: Azure Arc agent
+            url: agent-overview-scvmm.md  
+                
   - title: Get started with Arc-enabled SCVMM
     linkLists:
       - linkListType: quickstart

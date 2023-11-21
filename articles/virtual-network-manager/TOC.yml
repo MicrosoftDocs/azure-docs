@@ -63,6 +63,8 @@
       href: concept-event-logs.md
     - name: Monitoring security admin rules with Virtual Network Flow Logs
       href: concept-virtual-network-flow-logs.md
+    - name: Query Azure Virtual Network Manager using Azure Resource Graph (ARG)
+      href: query-azure-resource-graph.md
 - name: Samples
   items:
     - name: Resource Manager Templates

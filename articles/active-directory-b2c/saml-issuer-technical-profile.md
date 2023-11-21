@@ -2,12 +2,12 @@
 title: Define a technical profile for a SAML issuer in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a technical profile for a Security Assertion Markup Language token (SAML) issuer in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 04/08/2022
 ms.author: kengaderdus

@@ -19,7 +19,7 @@ ms.author: kpunjabi
 - For Translated captions, you need to have a [Teams premium](/MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings) license.  
 
 >[!NOTE]
->Please note that you will need to have a voice calling app using ACS calling SDKs to access the closed captions feature that is described in this guide.
+>Please note that you will need to have a voice calling app using Azure Communication Services calling SDKs to access the closed captions feature that is described in this guide.
 
 ## Models
 | Name | Description |
@@ -33,7 +33,7 @@ ms.author: kpunjabi
 
 ### External Identity users and Microsoft 365 users
 
-If you're building an application that allows ACS users to join a Teams meeting 
+If you're building an application that allows Azure Communication Services users to join a Teams meeting 
 
 ``` cs
 CaptionsCallFeature captionsCallFeature = call.Features.Captions;
@@ -116,7 +116,7 @@ private async void StartCaptions()
 {
     var options = new StartCaptionsOptions
     {
-        SpokenLanguage = "en-US"
+        SpokenLanguage = "en-us"
     };
     try
     {
@@ -178,7 +178,7 @@ public async void SetSpokenLanguage()
 
 ### Get supported caption language 
 
-If your organization has an active Teams premium license, then your ACS users can enable translated captions as long as the organizer of the meeting has a Teams premium license. As for users with Microsoft 365 identities this check is done against their own user account if they meeting organizer doesn't have a Teams premium license.
+If your organization has an active Teams premium license, then your Azure Communication Services users can enable translated captions as long as the organizer of the meeting has a Teams premium license. As for users with Microsoft 365 identities this check is done against their own user account if they meeting organizer doesn't have a Teams premium license.
 
 ``` cs
 // ISO 639-1 formatted language code
