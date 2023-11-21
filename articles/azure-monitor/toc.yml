@@ -440,13 +440,13 @@ items:
         href: insights/scom-assessment.md
     - name: Tutorials
       items:
-      - name: Enable recommended alerts
+      - name: Enable recommended alerts for VMs
         href: vm/tutorial-monitor-vm-alert-recommended.md
-      - name: Create availability alert
+      - name: Create an availability alert for VMs
         href: vm/tutorial-monitor-vm-alert-availability.md
       - name: Enable VM insights
         href: vm/tutorial-monitor-vm-enable-insights.md
-      - name: Collect guest logs and metrics
+      - name: Collect VM guest logs and metrics
         href: vm/tutorial-monitor-vm-guest.md
   - name: Monitor containers
     items:

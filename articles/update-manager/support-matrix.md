@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/18/2023
+ms.date: 11/13/2023
 ms.topic: overview
 ms.custom: references_regions 
 ---
@@ -107,9 +107,6 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 All operating systems are assumed to be x64. For this reason, x86 isn't supported for any operating system.
 Update Manager doesn't support CIS-hardened images.
 
-> [!NOTE]
-> Currently, schedule patching and periodic assessment on [specialized images](../virtual-machines/linux/imaging.md) and **VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery** are supported in preview.
-
 # [Azure VMs](#tab/azurevm-os)
 
 ### Azure Marketplace/PIR images
@@ -121,7 +118,7 @@ The Azure Marketplace image has the following attributes:
 - **SKU**: An instance of an offer, such as a major release of a distribution. Examples are `18.04LTS` and `2019-Datacenter`.
 - **Version**: The version number of an image SKU.
 
-Update Manager supports the following operating system versions. You might experience failures if there are any configuration changes on the VMs, such as package or repository.
+Update Manager supports the following operating system versions on VMs. You might experience failures if there are any configuration changes on the VMs, such as package or repository.
 
 #### Windows operating systems
 
@@ -170,9 +167,10 @@ The following table lists the operating systems for Azure Marketplace images tha
 
 ### Custom images
 
-We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. Currently, scheduled patching and periodic assessment on [specialized images](../virtual-machines/linux/imaging.md#specialized-images) and VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery are supported in preview. 
+We support VMs created from customized images and the following table lists the operating systems that we support for the same. For instructions on how to use Update Manager to manage updates on custom images, see [Manage updates for custom images](manage-updates-customized-images.md).
 
-The following table lists the operating systems that we support for customized images. For instructions on how to use Update Manager to manage updates on custom images, see [Custom images (preview)](manage-updates-customized-images.md).
+> [!NOTE]
+> Automatic VM guest patching doesn't work on customized images even if the Patch orchestration mode is set to `Azure orchestrated/AutomaticByPlatform`. You can use scheduled patching to patch the machines by defining your own schedules or install updates on-demand.
 
    |**Windows operating system**|
    |---|
@@ -211,17 +209,17 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
 
 ---
 
-## Unsupported operating systems
+## Unsupported workloads
 
-The following table lists the operating systems that aren't supported.
+The following table lists the workloads that aren't supported.
 
-   | **Operating system**| **Notes**
+   | **Workloads**| **Notes**
    |----------|-------------|
    | Windows client | For client operating systems such as Windows 10 and Windows 11, we recommend [Microsoft Intune](/mem/intune/) to manage updates.|
-   | Virtual machine scale sets| We recommend that you use [Automatic upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) to patch the virtual machine scale sets.|
+   | Virtual Machine Scale Sets| We recommend that you use [Automatic upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) to patch the Virtual Machine Scale Sets.|
    | Azure Kubernetes Service nodes| We recommend the patching described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](/azure/aks/node-updates-kured).|
 
-Because Update Manager depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client is enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [Configure Windows Update settings](configure-wu-agent.md).
+As Update Manager depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client is enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [Configure Windows Update settings](configure-wu-agent.md).
 
 ## Next steps
 
