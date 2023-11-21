@@ -1,28 +1,28 @@
 ---
-title: Calculate size of a blob container with PowerShell
+title: Calculate the size of blob containers with PowerShell
 titleSuffix: Azure Storage
-description: Calculate the size of a container in Azure Blob Storage by totaling the size of each of its blobs.
+description: Calculate the size of all Azure Blob Storage containers in a storage account.
 services: storage
-author: stevenmatthew
+author: normesta
 
 ms.service: azure-storage
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 12/04/2019
-ms.author: shaas 
+ms.date: 11/21/2023
+ms.author: normesta 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Calculate the size of a blob container with PowerShell
+# Calculate the size of blob containers with PowerShell
 
-This script calculates the size of a container in Azure Blob Storage. It first displays the total number of bytes used by the blobs within the container, then displays their individual names and lengths.
+This script calculates the size of all Azure Blob Storage containers in a storage account. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
-> This PowerShell script provides an estimated size for the container and should not be used for billing calculations. For a script that calculates container size for billing purposes, see [Calculate the size of a Blob storage container for billing purposes](../scripts/storage-blobs-container-calculate-billing-size-powershell.md).
+> This PowerShell script provides an estimated size for the containers in an account and should not be used for billing calculations. For a script that calculates container size for billing purposes, see [Calculate the size of a Blob storage container for billing purposes](../scripts/storage-blobs-container-calculate-billing-size-powershell.md).
 
 ## Sample script
 
@@ -43,6 +43,7 @@ This script uses the following commands to calculate the size of the Blob storag
 | Command | Notes |
 |---|---|
 | [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Gets a specified Storage account or all of the Storage accounts in a resource group or the subscription. |
+| [Get-AzStorageContainer](/powershell/module/az.storage/get-azstoragecontainer) | Lists the storage containers. |
 | [Get-AzStorageBlob](/powershell/module/az.storage/Get-AzStorageBlob) | Lists blobs in a container. |
 
 ## Next steps
