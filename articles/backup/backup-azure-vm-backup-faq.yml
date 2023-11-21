@@ -236,7 +236,7 @@ sections:
 
           >[!Note]
           >- Azure Backup currently doesn't support taking different SAs as inputs for different disks.
-          >- **Restore to orginal disks SA** is only available for snapshot tier, and it increases restore performance because data is copied much faster to the same SA than to a different SA. It's not intended to support disk type, but can be used to retain it.
+          >- **Restore to original disks SA** is only available for snapshot tier, and it increases restore performance because data is copied much faster to the same SA than to a different SA. It's not intended to support disk type, but can be used to retain it.
 
       - question: Can I delete JSON template and VHD files after the restore process is complete?
         answer: |
