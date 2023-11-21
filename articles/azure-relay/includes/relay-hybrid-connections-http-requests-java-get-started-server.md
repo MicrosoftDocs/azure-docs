@@ -24,12 +24,12 @@ a Hybrid Connections URL with client authorization utilizing the Azure Relay lib
 ### Add the Relay MVN package
 
 Modify your pom.xml file in your maven application package to include the following: 
-  ```bash
-   	    <dependency>
-		    <groupId>com.microsoft.azure</groupId>
-		    <artifactId>azure-relay</artifactId>
-		    <version>0.0.6</version>
-	          </dependency>
+  ```java
+   	      <dependency>
+		      <groupId>com.microsoft.azure</groupId>
+		      <artifactId>azure-relay</artifactId>
+		      <version>0.0.6</version>
+	            </dependency>
    ```
 Run `mvn dependency:copy-dependencies -DoutputDirectory=lib` in your mvn project to add the 
 dependency jar file in the lib directory of your project. This will also import all dependencies
@@ -37,30 +37,32 @@ of the `azure-relay` mvn package. This package provides functions to construct R
 
 ### Write some code to send messages
 
-1. Add the dependency jar files to the ClassPath of your `Sender.java` file.
+1. Add the dependency jar files to the ClassPath of your `Listener.java` file.
 
-    ```bash
-	javac -cp lib/* src/main/java/com/example/sender/Sender.Java
+   ```bash
+	javac -cp lib/* src/main/java/com/example/listener/Listener.Java
 	```
-2. Import the dependencies into your `Sender.java` class.
+
+2. Import the dependencies into your `Listener.java` class.
+
     ```java
-	import java.io.BufferedReader;
-	import java.io.IOException;
-	import java.io.InputStream;
-	import java.io.InputStreamReader;
-	import java.io.OutputStreamWriter;
-	import java.net.HttpURLConnection;
-	import java.net.MalformedURLException;
-	import java.net.URL;
-	import java.time.Duration;
-	import java.util.Scanner;
-	import com.microsoft.azure.relay.RelayConnectionStringBuilder;
-	import com.microsoft.azure.relay.TokenProvider;
+	  import java.io.BufferedReader;
+	  import java.io.IOException;
+	  import java.io.InputStream;
+	  import java.io.InputStreamReader;
+	  import java.io.OutputStreamWriter;
+	  import java.net.HttpURLConnection;
+	  import java.net.MalformedURLException;
+	  import java.net.URL;
+	  import java.time.Duration;
+      import java.util.Scanner;
+      import com.microsoft.azure.relay.RelayConnectionStringBuilder;
+      import com.microsoft.azure.relay.TokenProvider;
 	```
 
-4. Add the following `constants` to the top of the `Sender.java` file to a `createConnectionString` 
+3. Add the following `constants` to the top of the `Listener.java` file to a `createConnectionString` 
    java function for the hybrid connection details.
-
+   
     ```java
     public static String createConnectionString(){
         StringBuilder connectionString = new StringBuilder();
@@ -81,95 +83,77 @@ of the `azure-relay` mvn package. This package provides functions to construct R
     3. `keyrule` - The name of the SAS key.
     4. `key` - The SAS key value.
 
-5. Add the following code to the `Sender.java` file, below is the expected main function for your java class: 
-
-    ```java
-    public static void main(String[] args) throws IOException {
-		String CONNECTION_STRING_ENV_VARIABLE_NAME = createConnectionString();
-		if (CONNECTION_STRING_ENV_VARIABLE_NAME == null || CONNECTION_STRING_ENV_VARIABLE_NAME.isEmpty()){
-			System.err.println("Connection string is null or empty. Please check your createConnectionString method.");
-			return;
-		}
-		RelayConnectionStringBuilder connectionParams = new RelayConnectionStringBuilder(CONNECTION_STRING_ENV_VARIABLE_NAME);
-		TokenProvider tokenProvider = TokenProvider.createSharedAccessSignatureTokenProvider(
-				connectionParams.getSharedAccessKeyName(), 
-				connectionParams.getSharedAccessKey());
-		URL url = buildHttpConnectionURL(connectionParams.getEndpoint().toString(), connectionParams.getEntityPath());
-		String tokenString = tokenProvider.getTokenAsync(url.toString(), Duration.ofHours(1)).join().getToken();
-		Scanner in = new Scanner(System.in);
-		while (true) {
-			System.out.println("Press ENTER to terminate this program.");
-			String message = in.nextLine();
-			int value = System.in.read();
-            if (value == '\n' || value == '\r') {
-				System.out.println("Terminating the program...");
-				break;}
-			// Starting a HTTP connection to the listener
-			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-			// Sending an HTTP request to the listener
-			// To send a message body, use POST
-			conn.setRequestMethod((message == null || message.length() == 0) ? "GET" : "POST");
-			conn.setRequestProperty("ServiceBusAuthorization", tokenString);
-			conn.setDoOutput(true);
-			OutputStreamWriter out = new OutputStreamWriter(conn.getOutputStream());
-			out.write(message, 0, message.length());
-			out.flush();
-			out.close();
-			// Reading the HTTP response
-			String inputLine;
-			BufferedReader reader = null;
-			StringBuilder responseBuilder = new StringBuilder();
-			try {
-				InputStream inputStream = conn.getInputStream();
-				reader = new BufferedReader(new InputStreamReader(inputStream));
-				System.out.println("status code: " + conn.getResponseCode());
-				while ((inputLine = reader.readLine()) != null) {
-					responseBuilder.append(inputLine);
-				}
-				System.out.println("received back " + responseBuilder.toString());
-			} catch (IOException e) {
-				System.out.println("The listener is offline or could not be reached.");
-				break;
-			} finally {
-				if (reader != null) {
-					reader.close();
-				}
-			}
-		}
-		in.close();
-	}
-	
-	static URL buildHttpConnectionURL(String endpoint, String entity) throws MalformedURLException {
-		StringBuilder urlBuilder = new StringBuilder(endpoint + entity);
-		
-		// For HTTP connections, the scheme must be https://
-		int schemeIndex = urlBuilder.indexOf("://");
-		if (schemeIndex < 0) {
-			throw new IllegalArgumentException("Invalid scheme from the given endpoint.");
-		}
-		urlBuilder.replace(0, schemeIndex, "https");
-		return new URL(urlBuilder.toString());
-	}
-   ```
-    Here is what your `Sender.java` file should look like:
+4. Add the following code to the `Listener.java` file, below is the expected main function for your java class: 
    
     ```java
-	package com.example.sender;
+    public static void main( String[] args ) throws URISyntaxException
+    {
+    String CONNECTION_STRING_ENV_VARIABLE_NAME = createConnectionString();
+    RelayConnectionStringBuilder connectionParams = new RelayConnectionStringBuilder(CONNECTION_STRING_ENV_VARIABLE_NAME);
+        TokenProvider tokenProvider = TokenProvider.createSharedAccessSignatureTokenProvider(
+                    connectionParams.getSharedAccessKeyName(),
+                    connectionParams.getSharedAccessKey());
+            HybridConnectionListener listener = new HybridConnectionListener(new URI(connectionParams.getEndpoint().toString() + connectionParams.getEntityPath()),
+                    tokenProvider);
+    
+            // The "context" object encapsulates both the incoming request and the outgoing response
+            listener.setRequestHandler((context) -> {
+                String receivedText = "";
+                if (context.getRequest().getInputStream() != null) {
+                    try (BufferedReader reader = new BufferedReader(new InputStreamReader(context.getRequest().getInputStream(), "UTF8"))) {
+                        StringBuilder builder = new StringBuilder();
+                        String inputLine;
+                        while ((inputLine = reader.readLine()) != null) {
+                            builder.append(inputLine);
+                        }
+                        receivedText = builder.toString();
+                    } catch (IOException e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                System.out.println("requestHandler received " + receivedText);
+    
+                RelayedHttpListenerResponse response = context.getResponse();
+                response.setStatusCode(202);
+                response.setStatusDescription("OK");
+    
+                try {
+                    response.getOutputStream().write(("Echo: " + receivedText).getBytes());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+    
+                // The context MUST be closed for the message to be sent
+                response.close();
+            });
+    
+            listener.openAsync().join();
+    
+            Scanner in = new Scanner(System.in);
+            System.out.println("Press ENTER to terminate this program.");
+            in.nextLine();
+    
+            listener.close();
+            in.close();
+        }
+    ```
+    Here is what your `Listener.java` file should look like:
+   
+    ```java
+	package com.example.listener;
 	import java.io.BufferedReader;
 	import java.io.IOException;
-	import java.io.InputStream;
 	import java.io.InputStreamReader;
-	import java.io.OutputStreamWriter;
-	import java.net.HttpURLConnection;
-	import java.net.MalformedURLException;
-	import java.net.URL;
-	import java.time.Duration;
+	import java.net.URI;
+	import java.net.URISyntaxException;
 	import java.util.Scanner;
+	import com.microsoft.azure.relay.HybridConnectionListener;
 	import com.microsoft.azure.relay.RelayConnectionStringBuilder;
+	import com.microsoft.azure.relay.RelayedHttpListenerResponse;
 	import com.microsoft.azure.relay.TokenProvider;
-	public class Sender
-	{
-   
+	
+	public class Listener
+	{ 
 		public static String createConnectionString(){
 			StringBuilder connectionString = new StringBuilder();
 			connectionString.append("Endpoint=sb://");
@@ -182,71 +166,57 @@ of the `azure-relay` mvn package. This package provides functions to construct R
 			connectionString.append("{path}");
 			return connectionString.toString();
 			}
-		public static void main(String[] args) throws IOException {
-			String CONNECTION_STRING_ENV_VARIABLE_NAME = createConnectionString();
-			if (CONNECTION_STRING_ENV_VARIABLE_NAME == null || CONNECTION_STRING_ENV_VARIABLE_NAME.isEmpty()){
-				System.err.println("Connection string is null or empty. Please check your createConnectionString method.");
-				return;
-			}
-			RelayConnectionStringBuilder connectionParams = new RelayConnectionStringBuilder(CONNECTION_STRING_ENV_VARIABLE_NAME);
+        
+		public static void main( String[] args ) throws URISyntaxException
+		{
+		String CONNECTION_STRING_ENV_VARIABLE_NAME = createConnectionString();
+		RelayConnectionStringBuilder connectionParams = new RelayConnectionStringBuilder(CONNECTION_STRING_ENV_VARIABLE_NAME);
 			TokenProvider tokenProvider = TokenProvider.createSharedAccessSignatureTokenProvider(
-					connectionParams.getSharedAccessKeyName(), 
-					connectionParams.getSharedAccessKey());
-			URL url = buildHttpConnectionURL(connectionParams.getEndpoint().toString(), connectionParams.getEntityPath());
-			String tokenString = tokenProvider.getTokenAsync(url.toString(), Duration.ofHours(1)).join().getToken();
-			Scanner in = new Scanner(System.in);
-			while (true) {
+						connectionParams.getSharedAccessKeyName(),
+						connectionParams.getSharedAccessKey());
+				HybridConnectionListener listener = new HybridConnectionListener(new URI(connectionParams.getEndpoint().toString() + connectionParams.getEntityPath()),
+						tokenProvider);
+    
+				// The "context" object encapsulates both the incoming request and the outgoing response
+				listener.setRequestHandler((context) -> {
+					String receivedText = "";
+					if (context.getRequest().getInputStream() != null) {
+						try (BufferedReader reader = new BufferedReader(new InputStreamReader(context.getRequest().getInputStream(), "UTF8"))) {
+							StringBuilder builder = new StringBuilder();
+							String inputLine;
+							while ((inputLine = reader.readLine()) != null) {
+								builder.append(inputLine);
+							}
+							receivedText = builder.toString();
+						} catch (IOException e) {
+							System.out.println(e.getMessage());
+						}
+					}
+					System.out.println("requestHandler received " + receivedText);
+    
+					RelayedHttpListenerResponse response = context.getResponse();
+					response.setStatusCode(202);
+					response.setStatusDescription("OK");
+    
+					try {
+						response.getOutputStream().write(("Echo: " + receivedText).getBytes());
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+    
+					// The context MUST be closed for the message to be sent
+					response.close();
+				});
+    
+				listener.openAsync().join();
+    
+				Scanner in = new Scanner(System.in);
 				System.out.println("Press ENTER to terminate this program.");
-				String message = in.nextLine();
-				int value = System.in.read();
-				if (value == '\n' || value == '\r') {
-					System.out.println("Terminating the program...");
-					break;}
-				// Starting a HTTP connection to the listener
-				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-				// Sending an HTTP request to the listener
-				// To send a message body, use POST
-				conn.setRequestMethod((message == null || message.length() == 0) ? "GET" : "POST");
-				conn.setRequestProperty("ServiceBusAuthorization", tokenString);
-				conn.setDoOutput(true);
-				OutputStreamWriter out = new OutputStreamWriter(conn.getOutputStream());
-				out.write(message, 0, message.length());
-				out.flush();
-				out.close();
-				// Reading the HTTP response
-				String inputLine;
-				BufferedReader reader = null;
-				StringBuilder responseBuilder = new StringBuilder();
-				try {
-					InputStream inputStream = conn.getInputStream();
-					reader = new BufferedReader(new InputStreamReader(inputStream));
-					System.out.println("status code: " + conn.getResponseCode());
-					while ((inputLine = reader.readLine()) != null) {
-						responseBuilder.append(inputLine);
-					}
-					System.out.println("received back " + responseBuilder.toString());
-				} catch (IOException e) {
-					System.out.println("The listener is offline or could not be reached.");
-					break;
-				} finally {
-					if (reader != null) {
-						reader.close();
-					}
-				}
+				in.nextLine();
+    
+				listener.close();
+				in.close();
 			}
-			in.close();
 		}
-	
-		static URL buildHttpConnectionURL(String endpoint, String entity) throws MalformedURLException {
-			StringBuilder urlBuilder = new StringBuilder(endpoint + entity);
-		
-			// For HTTP connections, the scheme must be https://
-			int schemeIndex = urlBuilder.indexOf("://");
-			if (schemeIndex < 0) {
-				throw new IllegalArgumentException("Invalid scheme from the given endpoint.");
-			}
-			urlBuilder.replace(0, schemeIndex, "https");
-			return new URL(urlBuilder.toString());
-		}
-	}
+
     ```
