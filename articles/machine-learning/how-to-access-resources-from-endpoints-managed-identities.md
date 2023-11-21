@@ -8,7 +8,7 @@ ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 10/24/2023
+ms.date: 04/07/2022
 ms.topic: how-to
 ms.custom: devplatv2, cliv2, event-tier1-build-2022, ignite-2022
 #Customer intent: As a data scientist, I want to securely access Azure resources for my machine learning model deployment with an online endpoint and managed identity.

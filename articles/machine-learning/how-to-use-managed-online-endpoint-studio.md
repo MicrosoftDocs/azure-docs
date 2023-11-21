@@ -10,7 +10,7 @@ ms.custom: how-to, managed online endpoints, devplatv2, studio, event-tier1-buil
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 10/24/2023
+ms.date: 09/07/2022
 ---
 
 # Create and use managed online endpoints in the studio
