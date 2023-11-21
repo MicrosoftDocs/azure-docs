@@ -39,7 +39,7 @@ Create the VMs using CLI. (Azure AMD GPU driver extensions don't support NGads  
 
 ### Verify driver installation
 1.	You can verify driver installation in Device Manager. The following example shows successful configuration of the Radeon Pro V620 card on an Azure NGads V620 VM. The exact driver date and version will depend on the driver package released.<br><br>
-![NGads driver device manager](https://github.com/isgonzalez-MSFT/azure-docs-pr/assets/135761331/abc86bb4-5d3d-416f-bb7b-822461fd5c37)
+![NGads driver device manager](https://github-production-user-asset-6210df.s3.amazonaws.com/135761331/273059210-abc86bb4-5d3d-416f-bb7b-822461fd5c37.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231117%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231117T185903Z&X-Amz-Expires=300&X-Amz-Signature=e62afef456b2064fbb1bdb60866382ff61e267e2b0211f6c2037972e3f8bfe4b&X-Amz-SignedHeaders=host&actor_id=5713373&key_id=0&repo_id=651578230)
 
 
 ## NVv4 Series ##
