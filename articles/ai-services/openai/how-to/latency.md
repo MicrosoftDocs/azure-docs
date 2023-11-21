@@ -111,7 +111,7 @@ Azure OpenAI models are available in datacenters around the world. While the geo
 
 * **Lower total tokens generated**: The fewer tokens generated the faster the overall response will be. Remember this is like having a for loop with `n tokens = n iterations`. Lower the number of tokens generated and overall response time will improve accordingly.
 
-* **Streaming**: Enabling streaming can be useful in managing user expectations in certain situations by allowing the user to see the model response as it is being generated rather than having to wait until the last token is ready. While the last token will still take just as long to be generated.
+* **Streaming**: Enabling streaming can be useful in managing user expectations in certain situations by allowing the user to see the model response as it is being generated rather than having to wait until the last token is ready.
 
 * **Regional availability**: Azure OpenAI is available in multiple regions globally. Evaluate which regions best fit your needs based both on [region specific default TPM/RPM limits](../quotas-limits.md) as well as the round trip latency between your client traffic and a given endpoint.  
 
