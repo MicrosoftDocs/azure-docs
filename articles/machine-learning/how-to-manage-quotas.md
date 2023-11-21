@@ -129,7 +129,7 @@ Use of the shared quota pool is available for running Spark jobs and for testing
 
 ### Azure Machine Learning online endpoints and batch endpoints
 
-Azure Machine Learning online endpoints and batch endpoints have limits described in the following table.
+Azure Machine Learning online endpoints and batch endpoints have resource limits described in the following table.
 
 > [!IMPORTANT]
 > These limits are _regional_, meaning that you can use up to these limits per each region you're using. For example, if your current limit for number of endpoints per subscription is 100, you can create 100 endpoints in the East US region, 100 endpoints in the West US region, and 100 endpoints in each of the other supported regions in a single subscription. Same principle applies to all the other limits.
@@ -245,9 +245,9 @@ You manage the Azure Machine Learning compute quota on your subscription separat
 
 4. You can switch between a subscription-level view and a workspace-level view.
 
-## Request quota increases
+## Request quota and limit increases
 
-VM quota increase is to increase the number of cores per VM family per region. Endpoint quota increase is to increase the endpoint specific limits per subscription per region. Make sure to choose the right category when you are submitting the quota increase request as described below.
+VM quota increase is to increase the number of cores per VM family per region. Endpoint limit increase is to increase the endpoint-specific limits per subscription per region. Make sure to choose the right category when you are submitting the quota increase request, as described in the next section.
 
 ### VM quota increases
 
@@ -268,13 +268,14 @@ To raise endpoint quota, [open an online customer support request](https://porta
 1. When opening the support request, select __Service and subscription limits (quotas)__ as the __Issue type__.
 2. Select the subscription of your choice
 3. Select __Machine Learning Service: Endpoint Limits__ as the __Quota type__.
-1. On the __Additional details__ tab, select __Enter details__ and then provide the quota you'd like to increase and the new value for each quota, the reason for the quota increase request, and __location(s)__ where you need the quota increase. Ensure adding below info into the reason for quota increase:
-    1. Description of your scenario and workload (text, image etc)
-    1. Rationale for requested increase
+1. On the __Additional details__ tab, you need to provide detailed reasons for the quota increase in order for your request to be processed. Select __Enter details__ and then provide the quota you'd like to increase and the new value for each quota, the reason for the quota increase request, and __location(s)__ where you need the quota increase. 
+Be sure to add the following information into the reason for quota increase:
+    1. Description of your scenario and workload (such as text, image, and so on).
+    1. Rationale for the requested increase.
         1. Provide the target throughput and its pattern (average/peak QPS, concurrent users).
-        1. Provide the target latency at scale, and current latency you observe with a single instance.
-        1. Provide what VM SKU and number of instances in total to support the target throughput and latency. Provide how many endpoints/deployments/instances you plan to use in each region.
-        1. Confirm if you have a benchmark test that indicates the selected VM SKU and number of instances would meet your throughput and latency requirement.
+        1. Provide the target latency at scale and the current latency you observe with a single instance.
+        1. Provide the VM SKU and number of instances in total to support the target throughput and latency. Provide how many endpoints/deployments/instances you plan to use in each region.
+        1. Confirm if you have a benchmark test that indicates the selected VM SKU and the number of instances that would meet your throughput and latency requirement.
         1. Provide the type of the payload and size of a single payload. Network bandwidth should align with the payload size and requests per second.
         1. Provide planned time plan (by when you need increased limits - provide staged plan if possible) and confirm if (1) the cost of running it at that scale is reflected in your budget and (2) the target VM SKUs are approved.
 1. Finally, select __Save and continue__ to continue.
@@ -282,8 +283,7 @@ To raise endpoint quota, [open an online customer support request](https://porta
 [![Screenshot of the endpoint quota details form.](./media/how-to-manage-quotas/quota-details.png)](./media/how-to-manage-quotas/quota-details.png)
 
 > [!NOTE]
-> - Above detail reason for quota increase is required to process your request.
-> - This endpoint quota increase request is different from VM quota increase request. If your request is related to VM quota increase, please follow the instructions in the [VM quota increases](#vm-quota-increases) section.
+> This endpoint limit increase request is different from VM quota increase request. If your request is related to VM quota increase, follow the instructions in the [VM quota increases](#vm-quota-increases) section.
 
 ## Next steps
 

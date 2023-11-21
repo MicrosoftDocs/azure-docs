@@ -283,7 +283,7 @@ Select **Metrics** tab in the left navigation. Select **promptflow standard metr
 
 ### Model response taking too long
 
-Sometimes you might notice that the deployment is taking too long to respond. There are several potential factors for this to occur. 
+Sometimes, you might notice that the deployment is taking too long to respond. There are several potential factors for this to occur. 
 
 - Model is not powerful enough (ex. use gpt over text-ada)
 - Index query is not optimized and taking too long
