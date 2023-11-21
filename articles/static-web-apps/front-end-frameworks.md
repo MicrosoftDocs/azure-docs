@@ -29,7 +29,7 @@ The intent of the table columns is explained by the following items:
 | Framework | Output location (App artifact location) | API artifact location | Custom build command |
 |--|--|--|--|
 | [Alpine.js](https://github.com/alpinejs/alpine/) | `/`  | n/a | n/a <sup>2</sup> |
-| [Angular](https://angular.io/) | `dist/<APP_NAME>` <br><br>If you do not include an `<APP_NAME>`, remove the trailing slash. |  n/a | `npm run build -- --configuration production` |
+| [Angular](https://angular.dev/) | `dist/<APP_NAME>` <br><br>If you do not include an `<APP_NAME>`, remove the trailing slash. |  n/a | `npm run build -- --configuration production` |
 | [Angular Universal](https://angular.io/guide/universal) | `dist/<APP_NAME>/browser` | n/a |  `npm run prerender` |
 | [Astro](https://astro.build) | `dist` | n/a  | n/a |
 | [Aurelia](https://aurelia.io/) | `dist` | n/a |  n/a |
