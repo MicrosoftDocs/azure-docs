@@ -64,7 +64,7 @@ If you assign a throughput of 18,000 request units per second (RU/s), then each 
 
 Azure Cosmos DB transparently and automatically manages the placement of logical partitions on physical partitions to efficiently satisfy the scalability and performance needs of the container. As the throughput and storage requirements of an application increase, Azure Cosmos DB moves logical partitions to automatically spread the load across a greater number of physical partitions. You can learn more about [physical partitions](partitioning-overview.md#physical-partitions).
 
-Azure Cosmos DB uses hash-based partitioning to spread logical partitions across physical partitions. Azure Cosmos DB hashes the partition key value of an item. The hashed result determines the physical partition. Then, Azure Cosmos DB allocates the key space of partition key hashes evenly across the physical partitions.
+Azure Cosmos DB uses hash-based partitioning to spread logical partitions across physical partitions. Azure Cosmos DB hashes the partition key value of an item. The hashed result determines the logical partition. Then, Azure Cosmos DB allocates the key space of partition key hashes evenly across the physical partitions.
 
 Transactions (in stored procedures or triggers) are allowed only against items in a single logical partition.
 
