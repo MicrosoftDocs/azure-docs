@@ -34,13 +34,13 @@ To enable the server logs feature, perform the following steps.
 
 2. On the left pane, under **Monitoring**, select **Server logs**.
 
-    :::image type="content" source="./media/how-to-server-logs-portal/1-how-to-serverlog.png" alt-text="Screenshot showing Azure Database for PostgreSQL - Server Logs.":::
+    :::image type="content" source="./media/how-to-server-logs-portal/1-how-to-server-log.png" alt-text="Screenshot showing Azure Database for PostgreSQL - Server Logs.":::
 
 3. To enable server logs, under **Server logs**, select **Enable**.
 
-    :::image type="content" source="./media/how-to-server-logs-portal/2-how-to-serverlog.png" alt-text="Screenshot showing Enable Server Logs.":::
+    :::image type="content" source="./media/how-to-server-logs-portal/2-how-to-server-log.png" alt-text="Screenshot showing Enable Server Logs.":::
 
-4. To configure retention period (in days), choose the slider. Minimum retention 1 days and Maximum retention is 7 days
+4. To configure retention period (in days), choose the slider. Minimum retention 1 days and Maximum retention is 7 days.
 
 
 ## Download Server logs
@@ -52,11 +52,11 @@ To download server logs, perform the following steps.
 
 1. Under **Name**, select the log file you want to download, and then, under **Action**, select **Download**.
 
-    :::image type="content" source="./media/how-to-server-logs-portal/3-how-to-serverlog.png" alt-text="Screenshot showing Server Logs - Download.":::
+    :::image type="content" source="./media/how-to-server-logs-portal/3-how-to-server-log.png" alt-text="Screenshot showing Server Logs - Download.":::
 
 2. To download multiple log files at one time, under **Name**, select the files you want to download, and then above **Name**, select **Download**.
 
-    :::image type="content" source="./media/how-to-server-logs-portal/4-how-to-serverlog.png" alt-text="Screenshot showing server Logs - Download all.":::
+    :::image type="content" source="./media/how-to-server-logs-portal/4-how-to-server-log.png" alt-text="Screenshot showing server Logs - Download all.":::
 
 
 ## Disable Server Logs
@@ -65,6 +65,6 @@ To download server logs, perform the following steps.
 
 2. For disabling Server logs to file, Uncheck Enable. (The setting will disable logging for all the log_types available)
 
-    :::image type="content" source="./media/how-to-server-logs-portal/5-how-to-serverlog.png" alt-text="Screenshot showing server Logs - Disable.":::
+    :::image type="content" source="./media/how-to-server-logs-portal/5-how-to-server-log.png" alt-text="Screenshot showing server Logs - Disable.":::
 
-3. Select Save
+3. Select Save.
