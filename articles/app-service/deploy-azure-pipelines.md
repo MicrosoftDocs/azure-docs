@@ -455,7 +455,7 @@ pool:
 
 #### Web Deploy doesn't work when I disable basic authentication
 
-For troubleshooting information on getting Entra ID authentication to work with the `AzureRmWebAppDeployment` task, see [I can't Web Deploy to my Azure App Service using Microsoft Entra ID authentication from my Windows agent](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4#i-cant-web-deploy-to-my-azure-app-service-using-microsoft-entra-id-authentication-from-my-windows-agent)
+For troubleshooting information on getting Microsoft Entra ID authentication to work with the `AzureRmWebAppDeployment` task, see [I can't Web Deploy to my Azure App Service using Microsoft Entra ID authentication from my Windows agent](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4#i-cant-web-deploy-to-my-azure-app-service-using-microsoft-entra-id-authentication-from-my-windows-agent)
 
 ## Next steps
 
