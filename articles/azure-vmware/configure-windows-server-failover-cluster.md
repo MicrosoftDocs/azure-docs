@@ -3,7 +3,7 @@ title: Configure Windows Server Failover Cluster on Azure VMware Solution vSAN
 description: Learn how to configure Windows Server Failover Cluster (WSFC) on Azure VMware Solution vSAN with native shared disks.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/07/2022
+ms.date: 11/17/2023
 ---
 
 # Configure Windows Server Failover Cluster on Azure VMware Solution vSAN
@@ -12,7 +12,7 @@ In this article, you'll learn how to configure [Failover Clustering in Windows S
 
 Windows Server Failover Cluster, previously known as Microsoft Service Cluster Service (MSCS), is a Windows Server Operating System (OS) feature. WSFC is a business-critical feature, and for many applications is required. For example, WSFC is required for the following configurations:
 
-- SQL server configured as:
+- SQL Server configured as:
   - Always On Failover Cluster Instance (FCI), for instance-level high availability.
   - Always On Availability Group (AG), for database-level high availability.
 - Windows File Services:

@@ -4,8 +4,9 @@ description: Learn about how to set up an Azure Stream Analytics job as a produc
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
+ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 11/09/2023
 ---
 
 # Stream data from Azure Stream Analytics into confluent cloud
@@ -132,12 +133,15 @@ Use the following steps to grant special permissions to your stream analytics jo
 
 1. Use the following configuration:
 
+> [!NOTE]
+> For SASL_SSL and SASL_PLAINTEXT, Azure Stream Analytics supports only PLAIN SASL mechanism.
+
 | Property name                | Description                                                                                                             |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Output Alias            | A friendly name used in queries to reference your input |
 | Bootstrap server addresses   | A list of host/port pairs to establish the connection to your confluent cloud kafka cluster. Example: pkc-56d1g.eastus.azure.confluent.cloud:9092 |
 | Kafka topic                  | The name of your kafka topic in your confluent cloud kafka cluster.|
-| Security Protocol            | Select **SASL_SSL**. The mechanism supported is PLAIN. The SASL_SSL protocol doesn't support SCRAM.  |
+| Security Protocol            | Select **SASL_SSL**. The mechanism supported is PLAIN. |
 | Event Serialization format   | The serialization format (JSON, CSV, Avro, Parquet, Protobuf) of the incoming data stream. |
 | Partition key                | Azure Stream Analytics assigns partitions using round partitioning. Keep blank if a key doesn't partition your input |
 | Kafka event compression type | The compression type used for outgoing data streams, such as Gzip, Snappy, Lz4, Zstd, or None.                            | 

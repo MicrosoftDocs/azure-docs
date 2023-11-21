@@ -61,7 +61,7 @@ In the Azure portal, you can reference secrets that are stored in Azure Key Vaul
 
 1. Select your test from the list, and then select **Edit** to edit the load test configuration.
 
-    :::image type="content" source="./media/how-to-test-secured-endpoints/edit-load-test.png" alt-text="Screenshot that shows how to edit a load test in the Azure portal.":::
+    :::image type="content" source="./media/how-to-test-secured-endpoints/edit-load-test.png" alt-text="Screenshot that shows how to edit a load test in the Azure portal." lightbox="./media/how-to-test-secured-endpoints/edit-load-test.png":::
 
 1. On the **Parameters** tab, enter the details of the secret.
 
@@ -70,7 +70,7 @@ In the Azure portal, you can reference secrets that are stored in Azure Key Vaul
     | **Name** | Name of the secret. You provide this name to the `GetSecret` function to retrieve the secret value in the JMeter script. |
     | **Value** | Matches the Azure Key Vault **Secret identifier**. |
 
-    :::image type="content" source="media/how-to-test-secured-endpoints/load-test-secrets.png" alt-text="Screenshot that shows how to add secrets to a load test in the Azure portal.":::
+    :::image type="content" source="media/how-to-test-secured-endpoints/load-test-secrets.png" alt-text="Screenshot that shows how to add secrets to a load test in the Azure portal." lightbox="media/how-to-test-secured-endpoints/load-test-secrets.png":::
 
 1. Select **Apply**, to save the load test configuration changes.
     
@@ -137,13 +137,13 @@ You can now retrieve the secret value in the JMeter script by using the `GetSecr
 
     The `GetSecret` function abstracts retrieving the value from either Azure Key Vault or the CI/CD secrets store.
 
-    :::image type="content" source="./media/how-to-test-secured-endpoints/jmeter-user-defined-variables.png" alt-text="Screenshot that shows how to add a user-defined variable that uses the GetSecret function in JMeter.":::
+    :::image type="content" source="./media/how-to-test-secured-endpoints/jmeter-user-defined-variables.png" alt-text="Screenshot that shows how to add a user-defined variable that uses the GetSecret function in JMeter." lightbox="./media/how-to-test-secured-endpoints/jmeter-user-defined-variables.png":::
 
 1. Update the JMeter sampler component to pass the secret in the request.
 
-    For example, to provide an OAuth2 access token, you configure the `Authorization` HTTP header:
+    For example, to provide an OAuth2 access token, you configure the `Authorization` HTTP header by adding an `HTTP Header Manager`:
 
-    :::image type="content" source="./media/how-to-test-secured-endpoints/jmeter-add-http-header.png" alt-text="Screenshot that shows how to add an authorization header to a request in JMeter.":::
+    :::image type="content" source="./media/how-to-test-secured-endpoints/jmeter-add-http-header.png" alt-text="Screenshot that shows how to add an authorization header to a request in JMeter." lightbox="./media/how-to-test-secured-endpoints/jmeter-add-http-header.png":::
 
 ## Authenticate with client certificates
 
@@ -184,7 +184,7 @@ To add a client certificate to your load test in the Azure portal:
 1. On the left pane, select **Tests** to view the list of load tests.
 1. Select your test from the list, and then select **Edit**, to edit the load test configuration.
 
-    :::image type="content" source="./media/how-to-test-secured-endpoints/edit-load-test.png" alt-text="Screenshot that shows how to edit a load test in the Azure portal.":::
+    :::image type="content" source="./media/how-to-test-secured-endpoints/edit-load-test.png" alt-text="Screenshot that shows how to edit a load test in the Azure portal." lightbox="./media/how-to-test-secured-endpoints/edit-load-test.png":::
 
 1. On the **Parameters** tab, enter the details of the certificate.
 
@@ -193,7 +193,7 @@ To add a client certificate to your load test in the Azure portal:
     | **Name** | Name of the certificate. |
     | **Value** | Matches the Azure Key Vault **Secret identifier** of the certificate. |
 
-    :::image type="content" source="media/how-to-test-secured-endpoints/load-test-certificates.png" alt-text="Screenshot that shows how to add a certificate to a load test in the Azure portal.":::
+    :::image type="content" source="media/how-to-test-secured-endpoints/load-test-certificates.png" alt-text="Screenshot that shows how to add a certificate to a load test in the Azure portal." lightbox="media/how-to-test-secured-endpoints/load-test-certificates.png":::
 
 1. Select **Apply**, to save the load test configuration changes.
 
