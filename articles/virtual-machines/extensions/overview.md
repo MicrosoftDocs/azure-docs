@@ -65,7 +65,7 @@ Otherwise, specific troubleshooting information for each extension can be found 
 | microsoft.enterprisecloud.monitoring.omsagentforlinux | [Azure Monitor for Linux](oms-linux.md#troubleshoot-and-support)
 | microsoft.enterprisecloud.monitoring.microsoftmonitoringagent | [Azure Monitor for Windows](oms-windows.md#troubleshoot-and-support) |
 | stackify.linuxagent.extension.stackifylinuxagentextension | [Stackify Retrace for Linux](stackify-retrace-linux.md#troubleshoot-and-support) |
-| vmaccessforlinux.microsoft.ostcextensions | [Reset password for Linux](vmaccess.md#troubleshoot-and-support) |
+| vmaccessforlinux.microsoft.ostcextensions | [Reset password for Linux](vmaccess-linux.md#troubleshoot-and-support) |
 | microsoft.recoveryservices.vmsnapshot | [Snapshot for Linux](vmsnapshot-linux.md#troubleshoot-and-support) |
 | microsoft.recoveryservices.vmsnapshot | [Snapshot for Windows](vmsnapshot-windows.md#troubleshoot-and-support) |
 

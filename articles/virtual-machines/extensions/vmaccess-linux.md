@@ -11,27 +11,23 @@ ms.date: 04/12/2023
 ms.custom: GGAL-freshness822, devx-track-azurecli
 ---
 
-# Manage administrative users, SSH, and check or repair disks on Linux VMs by using the VMAccess extension with the Azure CLI
+<!-- # Manage administrative users, SSH, and check or repair disks on Linux VMs by using the VMAccess extension with the Azure CLI -->
+# VMAccess Extension for Linux
 
-The VMAccess extension with the Azure CLI allows you to manage administrative users and reset access on Linux VMs.
+<!-- The VMAccess extension with the Azure CLI allows you to manage administrative users and reset access on Linux VMs. -->
 
-This article shows you how to:
+The VMAccess Extension is used to manage administrative users, configure SSH, and check or repair disks on Azure Linux virtual machines (VMs). The extension integrates with Azure Resource Manager templates. It can also be invoked using Azure CLI, Azure Powershell, the Azure portal, and the Azure Virtual Machines REST API.
 
-* Use the Azure VMAccess extension to check or repair a disk.
-* Reset user access.
-* Manage administrative user accounts
-* Update the SSH configuration on Linux computers that run as Azure Resource Manager virtual machines.
+This article describes how to run the VMAccess Extension from the Azure CLI and through an Azure Resource Manager template. This article also provides troubleshooting steps for Linux systems.
 
-If you need to manage Classic virtual machines, see [Using the VMAccess extension](/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic).
+<!-- If you need to manage Classic virtual machines, see [Using the VMAccess extension](/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic). -->
 
 > [!NOTE]
 > If you use the VMAccess extension to reset the password of your VM after you install the Microsoft Entra Login extension, rerun the Microsoft Entra Login extension to re-enable Microsoft Entra Login for your VM.
 
 ## Prerequisites
 
-The VMAccess extension can be run on these Linux distributions:
-
-### Linux Distro’s Supported
+### Supported Linux distributions
 
 | **Linux Distro** | **x64** | **ARM64** |
 |:-----|:-----:|:-----:|
@@ -46,6 +42,45 @@ The VMAccess extension can be run on these Linux distributions:
 | Rocky Linux |	9.x+ |	9.x+ |
 | SLES |	12.x+, 15.x+ |	15.x SP4+ |
 | Ubuntu |	18.04+, 20.04+, 22.04+ |	20.04+, 22.04+ |
+
+### Tips
+* VMAccess was designed for the purpose of regaining access to a VM in the event that access is lost. Based on this principal, it will grant sudo permission to account specified in the username field. Do not specify a user in the username field if you do not wish that user to regain sudo permissions - instead, login to the VM and use built-in tools (e.g. usermod, chage, etc.) to manage unprivileged users.
+* You can only have one version of the extension applied to a VM. To run a second action, update the existing extension with a new configuration.
+* During a user update, VMAccess alters the `sshd_config` file and takes a backup of it beforehand. To restore the original backed-up SSH configuration, run VMAccess with `restore_backup_ssh` set to `True`.
+
+## Extension schema
+
+The VMAccess Extension configuration includes settings for username, passwords, SSH keys, etc. You can store this information in configuration files, specify it on the command line, or include it in an Azure Resource Manager (ARM) template. The following schema contains all the properties available to use in public and protected settings.
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2020-06-01",
+  "location": "[location]",
+  "properties": {
+    "publisher": "Microsoft.OSTCExtensions",
+    "type": "VMAccessForLinux",
+    "typeHandlerVersion": "1.5",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+      "check_disk": true,
+      "repair_disk": true,
+      "disk_name": "[disk_name]",
+    },
+    "protectedSettings": {
+      "username": "[username]",
+      "password": "[password]",
+      "ssh_key": "[ssh_key]",
+      "reset_ssh": true,
+      "remove_user": "[remove_user]",
+      "expiration": "[expiration]",
+      "remove_prior_keys": true,
+      "restore_backup_ssh": true
+    } 
+  }
+}
+```
 
 ## Ways to use the VMAccess extension
 
