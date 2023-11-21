@@ -1660,9 +1660,7 @@
       href: ./windows/multiple-nics.md
   - name: Assign public DNS name
     href: create-fqdn.md
-  - name: Assign public DNS name
-    href: create-fqdn.md
-  - name: DNS resolution
+  - name: DNS resolution for Linux Azure VMs
     href: ./linux/azure-dns.md
   - name: Use internal DNS
     href: ./linux/static-dns-name-resolution-for-linux-on-azure.md
