@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 06/12/2023
 ---
 
-# Oracle on Azure offerings
+# Oracle on Azure
 
 There are multiple Microsoft Azure offerings for running and managing your Oracle systems. These offerings range from traditional Azure Virtual Machines, top-level Azure services, to tools that integrate with other Azure services or external products. 
 
