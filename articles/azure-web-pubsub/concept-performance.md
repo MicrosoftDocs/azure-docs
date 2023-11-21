@@ -146,7 +146,7 @@ The routing cost is significant for sending message to many small groups. Curren
 | Outbound bandwidth | **8 MBps** | **16 MBps** | **40 MBps** | **80 MBps** | **160 MBps** | **300 MBps** | **300 MBps** |
 
 > [!NOTE]
-> The group count, group member count listed in the table are **not hard limits**. Those parameters are chosen to set a stable benchmark scenario. For example, it is OK to assign each conneciton to a distinct group. In this scenario, the performance is close to [send to connection](#send-to-connection).
+> The group count, group member count listed in the table are **not hard limits**. These parameter values are selected to establish a stable benchmark scenario. 
 
 ### Triggering Cloud Event 
 Service delivers client events to the upstream webhook using the [CloudEvents HTTP protocol](./reference-cloud-events.md).
