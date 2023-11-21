@@ -32,6 +32,7 @@ You can use four types of security protocols to connect to your Kafka clusters:
 
 > [!NOTE]
 > For SASL_SSL and SASL_PLAINTEXT, Azure Stream Analytics supports only PLAIN SASL mechanism.
+> You must upload certificates as secrets to key vault using Azure CLI.
 
 |Property name   |Description   |
 |----------|-----------|
@@ -42,37 +43,10 @@ You can use four types of security protocols to connect to your Kafka clusters:
 
 
 > [!IMPORTANT]
-> Confluent Cloud supports authentication using API Keys, OAuth, or SAML single sign-on (SSO). Azure Stream Analytics doesn't support authentication using OAuth or SAML single sign-on (SSO).
-> You can connect to confluent cloud using an API Key that has topic-level access via the SASL_SSL security protocol.
+> Confluent Cloud supports authentication using API Keys, OAuth, or SAML single sign-on (SSO). Azure Stream Analytics doesn't support OAuth or SAML single sign-on (SSO) authentication.
+> You can connect to the confluent cloud using an API Key with topic-level access via the SASL_SSL security protocol.
 
-### Connect to Confluent Cloud using API key
-
-Azure stream analytics is a librdkafka-based client, and to connect to confluent cloud, you need TLS certificates that confluent cloud uses for server authentication. Confluent cloud uses TLS certificates from Let’s Encrypt, an open certificate authority (CA). 
-
-Download the ISRG Root X1 certificate in **PEM** format on the site of [LetsEncrypt](https://letsencrypt.org/certificates/).
-
-:::image type="content" source="./media/kafka/kafka-output.png" alt-text="Screenshot showing how to configure kafka output for a stream analytics job." lightbox="./media/kafka/kafka-output.png" :::
-
-> [!IMPORTANT]
->  You must use Azure CLI to upload the certificate as a secret to your key vault. You cannot use Azure Portal to upload a certificate that has multiline secrets to key vault.
-> The default timestamp type for a topic in a confluent cloud kafka cluster is **CreateTime**, make sure you update it to **LogAppendTime**.
-> Azure Stream Analytics supports only numerical decimal format.
-
-To authenticate using the API Key confluent offers, you must use the SASL_SSL protocol and complete the configuration as follows:
-
-| Setting | Value |
- | --- | --- |
- | Username | confluent cloud API key |
- | Password | confluent cloud API secret |
- | Key vault name | name of Azure Key vault with uploaded certificate |
- | Truststore certificates | name of the Key Vault Secret that holds the ISRG Root X1 certificate |
-
- :::image type="content" source="./media/kafka/kafka-input.png" alt-text="Screenshot showing how to configure kafka input for a stream analytics job." lightbox="./media/kafka/kafka-input.png" :::
-
-> [!NOTE]
-> Depending on how your confluent cloud kafka cluster is configured, you may need a certificate different from the standard certificate confluent cloud uses for server authentication. Confirm with the admin of the confluent cloud kafka cluster to verify what certificate to use.
-
-For step-by-step tutorial on connecting to confluent cloud kakfa, visit the documentation: 
+For a step-by-step tutorial on connecting to confluent cloud kakfa, visit the documentation: 
 
 * Confluent cloud kafka input: [Stream data from confluent cloud Kafka with Azure Stream Analytics](confluent-kafka-input.md)
 * Confluent cloud kafka output: [Stream data from Azure Stream Analytics into confluent cloud](confluent-kafka-output.md)
