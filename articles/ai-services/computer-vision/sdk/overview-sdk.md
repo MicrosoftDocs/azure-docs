@@ -2,7 +2,7 @@
 title: Vision SDK Overview
 titleSuffix: Azure AI services
 description: This page gives you an overview of the Azure AI Vision SDK for Image Analysis.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision

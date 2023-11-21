@@ -2,7 +2,7 @@
 title: Orchestration workflow none intent
 titleSuffix: Azure AI services
 description: Learn about the default None intent in orchestration workflow.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

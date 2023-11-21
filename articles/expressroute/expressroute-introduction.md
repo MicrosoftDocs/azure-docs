@@ -103,7 +103,7 @@ For more information, see [About ExpressRoute Direct](./expressroute-erdirect-ab
 
 ### Bandwidth options
 
-You can purchase ExpressRoute circuits for a wide range of bandwidths. The supported bandwidths are listed as followed. Be sure to check with your connectivity provider to determine the bandwidths they support.
+You can purchase ExpressRoute circuits for a wide range of bandwidths. The supported bandwidths are listed as follows. Be sure to check with your connectivity provider to determine the bandwidths they support.
 
 * 50 Mbps
 * 100 Mbps

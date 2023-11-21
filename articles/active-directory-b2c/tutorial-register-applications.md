@@ -2,15 +2,15 @@
 title: "Tutorial: Register a web application in Azure Active Directory B2C"
 titleSuffix: Azure AD B2C
 description: Follow this tutorial to learn how to register a web application in Azure Active Directory B2C using the Azure portal.
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: tutorial
 ms.date: 10/26/2022
-ms.custom: project-no-code
+ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
 ---
@@ -121,7 +121,4 @@ In this article, you learned how to:
 > * Register a web application
 > * Create a client secret
 
-Next, learn how to create user flows to enable your users to sign up, sign in, and manage their profiles.
-
-> [!div class="nextstepaction"]
-> [Create user flows in Azure Active Directory B2C >](tutorial-create-user-flows.md)
+Learn how to [Create user flows in Azure Active Directory B2C](tutorial-create-user-flows.md)
