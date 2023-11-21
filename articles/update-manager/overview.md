@@ -19,7 +19,7 @@ You can use Update Manager in Azure to:
 
 - Oversee update compliance for your entire fleet of machines in Azure, on-premises, and in other cloud environments.
 - Instantly deploy critical updates to help secure your machines.
-- Use flexible patching options such as [automatic virtual machine (VM) guest patching](../virtual-machines/automatic-vm-guest-patching.md) in Azure, [hot patching](../automanage/automanage-hotpatch.md), and customer-defined maintenance schedules.
+- Use flexible patching options such as [automatic virtual machine (VM) guest patching](../virtual-machines/automatic-vm-guest-patching.md) in Azure, [hotpatching](../automanage/automanage-hotpatch.md), and customer-defined maintenance schedules.
 
 We also offer other capabilities to help you manage updates for your Azure VMs that you should consider as part of your overall update management strategy. To learn more about the options that are available, see the Azure VM [update options](../virtual-machines/updates-maintenance-overview.md).
 
