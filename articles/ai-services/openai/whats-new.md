@@ -20,7 +20,10 @@ keywords:
 
 ### Responsible AI
 
-- **Expanded customer configurability**: All Azure OpenAI customers can now configure all severity levels (safe, low, medium, high) for the content filtering categories hate, violence, sexual and self-harm, including filtering only high severity content. [Configure content filters](./how-to/content-filters.md)
+- **Expanded customer configurability**: All Azure OpenAI customers can now configure all severity levels (low, medium, high) for the content filtering categories hate, violence, sexual and self-harm, including filtering only high severity content. [Configure content filters](./how-to/content-filters.md)
+
+- **Content Credentials in all DALL-E models**: AI-generated images from all DALL-E models now include a digital credential that discloses the content as AI-generated. Applications that display image assets can leverage the open source [Content Authenticity Initiative SDK](https://opensource.contentauthenticity.org/docs/js-sdk/getting-started/quick-start/) to display credentials in their AI generated images. [Content Credentials in Azure OpenAI](/azure/ai-services/openai/concepts/content-credentials)
+
 
 - **New RAI models**
     
