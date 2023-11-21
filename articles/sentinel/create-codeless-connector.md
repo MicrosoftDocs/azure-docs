@@ -16,7 +16,7 @@ Connectors created using the CCP are fully SaaS, with no requirements for servic
 > The Codeless Connector Platform (CCP) is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-**Use the following steps to create your CCP connector and connect your data source from Microsoft Sentinel**
+**Use the following steps to create your CCP connector and connect your data source to Microsoft Sentinel**
 
 > [!div class="checklist"]
 > * Build the data connector
@@ -28,9 +28,10 @@ This article will show you how to complete each step and provide an [example cod
 
 ## How is this CCP different from the previous version?
 
-The initial version of the CCP was [announced](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-codeless-connector-platform/ba-p/3095455) in January of 2022. Since then, we've improved upon the platform and the [previous release](create-codeless-connector-legacy.md) is now deprecated. Reference this new article for the most recent version of the CCP which has these key improvements:
+The initial version of the CCP was [announced](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-codeless-connector-platform/ba-p/3095455) in January of 2022. Since then, we've improved upon the platform and the [legacy release](create-codeless-connector-legacy.md) is no longer recommended. This new version of the CCP has the following key improvements:
 
 1. Better support for various authentication and pagination types.
+1. Supports standard DCRs.
 1. The user interface and connection configuration portions of the codeless connector are separate now. This allows the creation of connectors with multiple connections which wasn't possible previously.
 
 ## Prerequisites
@@ -55,12 +56,14 @@ We also recommend a tool like Postman to validate the data connector components.
 
 ## Build the data connector
 
-There are 4 components you must build for the CCP data connector.
+There are 4 components to build for the CCP data connector.
 
 1. [Output table definition](#output-table-definition)
 1. [Data Collection Rule (DCR)](#data-collection-rule)
 1. [Data connector user interface](#data-connector-user-interface)
 1. [Data connector connection rules](#data-connection-rules)
+
+Each component has a section detailing the process to create and validate. Take the JSON 
 
 ### Output table definition
 
@@ -77,6 +80,8 @@ Use the Log Analytics UI for a straight forward method to create a custom table 
 For more information on splitting your data to more than one table, see the [example section](#example-custom-table).
 
 ### Data collection rule 
+
+You must create the DCR and have a corresponding DCE in the region you create the CCP data connector. You need the DCR immutable ID for the [Data connection rules](#data-connection-rules) creation.
 
 Reference the latest information on DCRs in these articles:
 - [Data collection rules overview](../azure-monitor/essentials/data-collection-rule-overview.md)

@@ -1,13 +1,13 @@
 ---
-title: Deprecated codeless connector for Microsoft Sentinel
-description: Deprecated codeless connector instructions in Microsoft Sentinel using the Codeless Connector Platform (CCP).
-author: yelevin
-ms.author: yelevin
+title: Legacy codeless connector for Microsoft Sentinel
+description: Legacy codeless connector instructions in Microsoft Sentinel using the Codeless Connector Platform (CCP).
+author: austinmccollum
+ms.author: austinmc
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 04/11/2023
+ms.date: 11/22/2023
 ---
-# Create a codeless connector for Microsoft Sentinel (deprecated)
+# Create a legacy codeless connector for Microsoft Sentinel
 
 The Codeless Connector Platform (CCP) provides partners, advanced users, and developers with the ability to create custom connectors, connect them, and ingest data to Microsoft Sentinel. Connectors created via the CCP can be deployed via API, an ARM template, or as a solution in the Microsoft Sentinel [content hub](sentinel-solutions.md).
 
@@ -16,8 +16,10 @@ Connectors created using CCP are fully SaaS, without any requirements for servic
 Create your data connector by defining JSON configurations, with settings for how the data connector page in Microsoft Sentinel looks along with polling settings that define how the connection functions.
 
 > [!IMPORTANT]
-> This version of Codeless Connector Platform (CCP) was in PREVIEW, but has now been DEPRECATED. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> This version of Codeless Connector Platform (CCP) was in PREVIEW, but is now considered LEGACY. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+
+For more information on the **new CCP**, see [Create a codeless connector](create-codeless-connector.md).
 
 **Use the following steps to create your CCP connector and connect to your data source from Microsoft Sentinel**:
 
@@ -53,7 +55,7 @@ This section describes the configuration options available to customize the user
 
 The following image shows a sample data connector page, highlighted with numbers that correspond to notable areas of the user interface:
 
-:::image type="content" source="media/create-codeless-connector/sample-data-connector-page.png" alt-text="Screenshot of a sample data connector page.":::
+:::image type="content" source="media/create-codeless-connector-legacy/sample-data-connector-page.png" alt-text="Screenshot of a sample data connector page.":::
 
 1. **Title**.  The title displayed for your data connector.
 1. **Logo**.   The icon displayed for your data connector. Customizing this is only possible when deploying as part of a solution. 
@@ -162,7 +164,7 @@ The `userRequestPlaceHoldersInput` parameter includes the following attributes:
 
  Example:
 
-:::image type="content" source="media/create-codeless-connector/copy-field-value.png" alt-text="Screenshot of a copy value button in a field.":::
+:::image type="content" source="media/create-codeless-connector-legacy/copy-field-value.png" alt-text="Screenshot of a copy value button in a field.":::
 
 **Sample code**:
 
@@ -192,11 +194,11 @@ The `userRequestPlaceHoldersInput` parameter includes the following attributes:
 
 Here's an example of an inline information message:
 
-:::image type="content" source="media/create-codeless-connector/inline-information-message.png" alt-text="Screenshot of an inline information message.":::
+:::image type="content" source="media/create-codeless-connector-legacy/inline-information-message.png" alt-text="Screenshot of an inline information message.":::
 
 In contrast, the following image shows a *non*-inline information message:
 
-:::image type="content" source="media/create-codeless-connector/non-inline-information-message.png" alt-text="Screenshot of a non-inline information message.":::
+:::image type="content" source="media/create-codeless-connector-legacy/non-inline-information-message.png" alt-text="Screenshot of a non-inline information message.":::
 
 
 |Array Value  |Type  |Description  |
@@ -209,7 +211,7 @@ In contrast, the following image shows a *non*-inline information message:
 
 Here's an example of an expandable instruction group:
 
-:::image type="content" source="media/create-codeless-connector/accordion-instruction-area.png" alt-text="Screenshot of an expandable, extra instruction group.":::
+:::image type="content" source="media/create-codeless-connector-legacy/accordion-instruction-area.png" alt-text="Screenshot of an expandable, extra instruction group.":::
 
 |Array Value  |Type  |Description  |
 |---------|---------|---------|
@@ -224,9 +226,9 @@ For a detailed example, see the configuration JSON for the [Windows DNS connecto
 
 Some **InstallAgent** types appear as a button, others will appear as a link. Here are examples of both:
 
-:::image type="content" source="media/create-codeless-connector/link-by-button.png" alt-text="Screenshot of a link added as a button.":::
+:::image type="content" source="media/create-codeless-connector-legacy/link-by-button.png" alt-text="Screenshot of a link added as a button.":::
 
-:::image type="content" source="media/create-codeless-connector/link-by-text.png" alt-text="Screenshot of a link added as inline text.":::
+:::image type="content" source="media/create-codeless-connector-legacy/link-by-text.png" alt-text="Screenshot of a link added as inline text.":::
 
 |Array Values  |Type  |Description  |
 |---------|---------|---------|

@@ -170,6 +170,8 @@ Displays a group of instructions, with various parameters and the ability to nes
 ```
 #### Textbox
 
+Here are some examples of the `Textbox` type. These examples correspond to the parameters used in the example `auth` section in [Data connectors reference for the Codeless Connector Platform](restapipoller-data-connector-reference.md#authentication-configuration).
+
 ```json
 "instructions": [
 {
@@ -224,7 +226,7 @@ To create placeholder parameters, define another array named `userRequestPlaceHo
       {
         "displayText": "Organization Name",
         "requestObjectKey": "apiEndpoint",
-        "placeHolderName": "{{placeHolder}}",
+        "placeHolderName": "apikey",
         "placeHolderValue": ""
       }
     ]
@@ -236,10 +238,10 @@ The `userRequestPlaceHoldersInput` parameter includes the following attributes:
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|**DisplayText**     |  String       | Defines the text box display value, which is displayed to the user when connecting.       |
+|**DisplayText**     |  String       | Defines the text box display value, which is displayed to the user when connecting. |
 |**RequestObjectKey** |String | Defines the ID in the request section of the **pollingConfig** to substitute the placeholder value with the user provided value. <br><br>If you don't use this attribute, use the `PollingKeyPaths` attribute instead. |
-|**PollingKeyPaths** |String |Defines an array of [JsonPath](https://www.npmjs.com/package/JSONPath) objects that directs the API call to anywhere in the template, to replace a placeholder value with a user value.<br><br>**Example**: `"pollingKeyPaths":["$.request.queryParameters.test1"]` <br><br>If you don't use this attribute, use the `RequestObjectKey` attribute instead.  |
-|**PlaceHolderName** |String |Defines the name of the placeholder parameter in the JSON template file as a unique value, such as `{{placeHolder}}`. |
+|**PollingKeyPaths** |String | Defines an array of [JsonPath](https://www.npmjs.com/package/JSONPath) objects that directs the API call to anywhere in the template, to replace a placeholder value with a user value.<br><br>**Example**: `"pollingKeyPaths":["$.request.queryParameters.test1"]` <br><br>If you don't use this attribute, use the `RequestObjectKey` attribute instead. |
+|**PlaceHolderName** |String | Defines the name of the placeholder parameter in the JSON template file as a unique value, such as `apikey`. |
 
 #### CopyableLabel
 
@@ -383,7 +385,7 @@ For more examples of the `connectorUiConfig` review [other CCP data connectors](
     "kind": "Customizable",
     "properties": {
         "connectorUiConfig": {
-          "title": "Data Connector Name",
+          "title": "Example CCP Data Connector",
           "publisher": "My Company",
           "descriptionMarkdown": "This is an example of data connector",
           "graphQueriesTableName": "ExampleConnectorAlerts_CL",

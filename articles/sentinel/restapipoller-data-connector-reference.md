@@ -53,9 +53,9 @@ The request body for the CCP data connector has the following structure:
    "name": "{{dataConnectorId}}",
    "kind": "RestApiPoller",
    "etag": "",
+   "DataType": ""
    "properties": {
         "connectorDefinitionName": "",
-        "dataType": "",
         "auth": {},
         "request": {},
         "response": {},
@@ -74,7 +74,6 @@ The request body for the CCP data connector has the following structure:
 | **kind** | True | string | Must be `RestApiPoller` |
 | **etag** |  | GUID | Leave empty for creation of new connectors. For update operations, the etag must match the existing connector's etag (GUID). |
 | properties.connectorDefinitionName |  | string | The name of the DataConnectorDefinition resource that defines the UI configuration of the data connector. For more information, see [Data Connector Definition](create-codeless-connector.md#data-connector-user-interface). |
-| **dataType** | ? | string | ?? |
 | properties.**auth**	| True | Nested JSON | Describes the authentication properties for polling the data. For more information, see [authentication configuration](#authentication-configuration). |
 | properties.**request** | True | Nested JSON | Describes the request payload for polling the data, such as the API endpoint. For more information, see [request configuration](#request-configuration). |
 | properties.**response** | True | Nested JSON | Describes the response object and nested message returned from the API when polling the data. For more information, see [response configuration](#response-configuration). |
@@ -86,9 +85,12 @@ The request body for the CCP data connector has the following structure:
 The CCP supports the following authentication types:
 - [Basic](#basic-auth)
 - [APIKey](#apikey)
-- [OAuth2](#oauth2) 
+- [OAuth2](#oauth2)
 
-CCP OAuth2 implementation does not support certificate credentials.
+> [!NOTE]
+> CCP OAuth2 implementation does not support certificate credentials.
+
+ As a best practice, use parameters in the auth section instead of hard-coding credentials. To enable the credentials to be entered from the UI, the `connectorUIConfig` section requires `instructions` with the desired parameters. For more information, see [Data connector definitions reference for the Codeless Connector Platform](connectorUIConfig-supplemental-reference.md#instructions).
 
 #### Basic auth
 
@@ -97,12 +99,12 @@ CCP OAuth2 implementation does not support certificate credentials.
 | UserName | True | string |
 | Password | True | string |
 
-Example Basic auth:
+Example Basic auth using parameters defined in `connectorUIconfig`:
 ```json
 "auth": {
     "type": "Basic",
-    "UserName": "usernameXYZ",
-    "Password": "password123"
+    "UserName": "[parameters('username')]",
+    "Password": "[parameters('password')]"
 }
 ```
 
@@ -119,12 +121,12 @@ APIKey auth examples:
 ```json
 "auth": {
     "type": "APIKey",
-    "ApiKey": "123123123",
+    "ApiKey": "[parameters('apikey')]",
     "ApiKeyName": "X-MyApp-Auth-Header",
     "ApiKeyIdentifier": "Bearer"
 }
 ``` 
-This example results in the secret sent in the following header: **X-MyApp-Auth-Header: Bearer 123123123**
+This example results in the secret defined from user input sent in the following header: **X-MyApp-Auth-Header: Bearer <apikey>**
 
 ```json
 "auth": { 
@@ -163,14 +165,18 @@ After the user returns to the client via the redirect URL, the application will 
 | **AuthorizationEndpointHeaders** |	 | Object | An optional key value object to send custom headers to auth server |
 | **AuthorizationEndpointQueryParameters**	|  | Object | An optional key value pair used in OAuth2 authorization code flow request |
 
+Auth code flow is for fetching data on behalf of a user's permissions and client credentials is for fetching data with application permissions. The data server grants access to the application. Since there is no user in client credentials flow, no authorization endpoint is needed, only a token endpoint.
+
 Example:
 OAuth2 auth code grant
 
 ```json
 "auth": {
     "type": "OAuth2",
-    "tokenEndpoint": "https://login.microsoftonline.com/<tenant_id>/oauth2/v2.0/token",
-    "authorizationEndpoint": "https://login.microsoftonline.com/<tenant_id>/oauth2/v2.0/authorize",
+    "ClientId": "[parameters('appId')]",
+    "ClientSecret": "[parameters('appSecret')]",
+    "tokenEndpoint": "https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token",
+    "authorizationEndpoint": "https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/authorize",
     "authorizationEndpointHeaders": {},
     "authorizationEndpointQueryParameters": {
         "prompt": "consent"
@@ -189,7 +195,9 @@ Example:
 ```json
 "auth": {
     "type": "OAuth2",
-    "tokenEndpoint": "https://login.microsoftonline.com/<tenant_id>/oauth2/v2.0/token",
+    "ClientId": "[parameters('appId')]",
+    "ClientSecret": "[parameters('appSecret')]",
+    "tokenEndpoint": "https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token",
     "tokenEndpointHeaders": {
         "Accept": "application/json",
         "Content-Type": "application/x-www-form-urlencoded"
@@ -199,7 +207,6 @@ Example:
     "grantType": "client_credentials"
 }
 ```
-Auth code flow is for fetching data on behalf of a user's permissions and client credentials is for fetching data with application permissions. The data server grants access to the application. Since there is no user in client credentials flow, no authorization endpoint is needed, only a token endpoint.
 
 ## Request configuration
 
@@ -262,13 +269,14 @@ This example queries messages with a filter query parameter. For more informatio
   "rateLimitQPS": 20,
   "headers": {
     "Accept": "application/json",
+    "User-Agent": "Example-app-agent"
   },
   "QueryTimeIntervalAttributeName": "filter",
-  "QueryTimeIntervalPrepend": "TimeStamp gt ",
-  "QueryTimeIntervalDelimiter": " and Timestamp lt "
+  "QueryTimeIntervalPrepend": "receivedDateTime gt ",
+  "QueryTimeIntervalDelimiter": " and receivedDateTime lt "
 }
 ```
-The previous example sends a `GET` request to `https://graph.microsoft.com/v1.0/me/messages?filter=TimeStamp gt 2019-09-01T09:00:00.0000000 and Timestamp lt 2019-09-01T17:00:00.0000000`. The time stamp updates for each `queryWindowInMin` time.
+The previous example sends a `GET` request to `https://graph.microsoft.com/v1.0/me/messages?filter=receivedDateTime gt 2019-09-01T09:00:00.0000000 and receivedDateTime lt 2019-09-01T17:00:00.0000000`. The time stamp updates for each `queryWindowInMin` time.
 
 The same results are achieved with this example:
 
@@ -284,7 +292,7 @@ The same results are achieved with this example:
     "Accept": "application/json",
   },
   "queryParameters": {
-    "filter": "TimeStamp gt {_QueryWindowStartTime} and Timestamp lt {_QueryWindowEndTime}"
+    "filter": "receivedDateTime gt {_QueryWindowStartTime} and receivedDateTime lt {_QueryWindowEndTime}"
   }
 }
 ```
@@ -295,7 +303,7 @@ Example:
 
 ```json
 "request": {
-  "apiEndpoint": "https://graph.microsoft.com/v1.0/me/messages",
+  "apiEndpoint": "https://graph.microsoft.com/v1.0/me/calendar",
   "httpMethod": "Get",
   "queryTimeFormat": "yyyy-MM-ddTHH:mm:ssZ",
   "queryWindowInMin": 10,
@@ -502,13 +510,12 @@ Paging: {
  }
 ```
 
-
 ## DCR configuration
 
 | Field | Required | Type | Description |
 |----|----|----|----|
 | **DataCollectionEndpoint** | True | String | DCE (Data Collection Endpoint) for example: `https://example.ingest.monitor.azure.com`. |
-| **DataCollectionRuleImmutableId** | True | String | Lookup a DCE immutable ID by viewing the DCR creation response or using the [DCE API]() |
+| **DataCollectionRuleImmutableId** | True | String | The DCR immutable ID. Find it by viewing the DCR creation response or using the [DCR API](/rest/api/monitor/data-collection-rules/get) |
 | **StreamName** | True | string | This value is the `streamDeclaration` defined in the DCR (prefix must begin with *Custom-*) |
 
 ## Example CCP data connector
@@ -517,25 +524,22 @@ Here's an example of all the components of the CCP data connector JSON together.
 
 ```json
 {
-   "id": "/subscriptions/{{subscriptionId}}/resourceGroups/{resourceGroupName}}/providers/Microsoft.OperationalInsights/workspaces/{{workspaceName}}/providers/Microsoft.SecurityInsights/dataConnectors/{{dataconnectorName}}",
-   "name": "DataConnectorExample",
-   "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
    "kind": "RestApiPoller",
    "properties": {
       "connectorDefinitionName": "ConnectorDefinitionExample",
       "dcrConfig": {
            "streamName": "Custom-ExampleConnectorInput",
-           "dataCollectionEndpoint": "https://austinmc-fte-central-dce-sbsr.eastus-1.ingest.monitor.azure.com",
-           "dataCollectionRuleImmutableId": "{dcr-immutable id}" 
+           "dataCollectionEndpoint": "https://example-dce-sbsr.location.ingest.monitor.azure.com",
+           "dataCollectionRuleImmutableId": "dcr-32_character_hexadecimal_id"
             },
       "dataType": "ExampleLogs",
       "auth": {
          "type": "Basic",
-         "password": "xxxxx",
-         "userName": "user1"
+         "password": "[parameters('username')]",
+         "userName": "[parameters('password')]"
       },
       "request": {
-         "apiEndpoint": "{endpoint url (https://...)} ",
+         "apiEndpoint": "https://rest.contoso.com/example",
          "rateLimitQPS": 10,
          "queryWindowInMin": 5,
          "httpMethod": "GET",
@@ -546,7 +550,7 @@ Here's an example of all the components of the CCP data connector JSON together.
          "timeoutInSeconds": 60,
          "headers": {
             "Accept": "application/json",
-            "User-Agent": "Scuba"
+            "User-Agent": "Example-app-agent"
          } 
       },
       "paging": {
