@@ -57,7 +57,7 @@ The request body for creating a CCP data connector definition with the API has t
 | ---- | ---- | ---- | ---- |
 | **Kind** | True | String	|`Customizable` for API polling data connector or `Static` otherwise| 
 |properties.**connectorUiConfig**	| True	|Nested JSON<br>[connectorUiConfig](#configure-your-connectors-user-interface) |The UI configuration properties of the data connector|
-|properties.**connectionsConfig**	| Optional for `Customizable`	| Nested JSON<br>[connectionsConfig](#connections-configure-template-spec) |The template spec of the data connector|
+|properties.**connectionsConfig**	| Optional for `Customizable`	| Nested JSON<br>[connectionsConfig](#connections-configuration-template-spec) |The template spec of the data connector|
 
 ## Configure your connector's user interface
 
@@ -365,7 +365,7 @@ To define a link as an ARM template, use the following example as a guide:
 }
 ```
 
-## Connections configure template spec
+## Connections configuration template spec
 
 This object includes the template spec name and version of the different connections of the data connector.
 
