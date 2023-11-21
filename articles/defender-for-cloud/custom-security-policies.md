@@ -3,7 +3,7 @@ title: Create custom security standards for Azure resources in Microsoft Defende
 description: Learn how to create custom security standards for Azure resources in Microsoft Defender for Cloud
 ms.topic: how-to
 ms.custom: ignite-2023
-ms.date: 10/30/2023
+ms.date: 11/21/2023
 zone_pivot_groups: manage-asc-initiatives
 ---
 
@@ -34,7 +34,10 @@ Security recommendations in Microsoft Defender for Cloud help you to improve and
 
     :::image type="content" source="media/custom-security-policies/create-custom-standard.png" alt-text="Screenshot that shows how to create a custom security standard." lightbox="media/custom-security-policies/create-custom-standard.png":::
 
-1. In **Create a new standard** > **Basics**, enter a name and description. Make sure the name is unique. If you create a custom standard with the same name as an existing standard, it causes a conflict in the information displayed in the dashboard.
+1. Enter a name and description. 
+
+    > [!IMPORTANT]
+    > Make sure the name is unique. If you create a custom standard with the same name as an existing standard, it causes a conflict in the information displayed in the dashboard.
 
 1. Select **Next**.
 
@@ -42,18 +45,16 @@ Security recommendations in Microsoft Defender for Cloud help you to improve and
 
     :::image type="content" source="media/custom-security-policies/select-recommendations.png" alt-text="Screenshot that shows the list of all of the recommendations that are available to select for the custom standard." lightbox="media/custom-security-policies/select-recommendations.png":::
 
-1. (Optional) Select **...** > **Manage effect and parameters** to manage the effects and parameters of each recommendation, and save the setting.
+1. (Optional) Select the three dot button (**...**) > **Manage effect and parameters** to manage the effects and parameters of each recommendation, and save the setting.
 
 1. Select **Next**.
 
 1. In **Review + create**, select **Create**.
 
-Your new standard takes effect after you create it. Here's what you'll see:
+Your new standard takes effect after you create it. You can see the effects of your new standard:
 
-- In Defender for Cloud > **Regulatory compliance**, the compliance dashboard shows the new custom standard alongside existing standards.
+- On the Regulatory compliance page, you will see the new custom standard alongside existing standards.
 - If your environment doesn't align with the custom standard, you begin to receive recommendations to fix issues found in the **Recommendations** page.
-
-
 
 ## Create a custom recommendation
 
