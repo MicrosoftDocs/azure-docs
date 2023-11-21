@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 11/20/2023
 ms.custom: 
 ms.author: kengaderdus
 ms.subservice: B2C
