@@ -310,6 +310,10 @@
           href: flexible-server/how-to-stop-start-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-stop-start-server-cli.md
+      - name: Configure Server Logs
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-server-logs-portal
     - name: Encryption with CMK
       items:
       - name: Azure CLI
