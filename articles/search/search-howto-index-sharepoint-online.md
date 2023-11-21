@@ -29,8 +29,8 @@ This article explains how to configure a [search indexer](search-indexer-overvie
 An indexer in Azure AI Search is a crawler that extracts searchable data and metadata from a data source. The SharePoint indexer connects to your SharePoint site and indexes documents from one or more document libraries. The indexer provides the following functionality:
 
 + Index files and metadata from one or more document libraries.
-+ Index incrementally, new and changed files and metadata only. 
-+ Deletion detection is built in. Deletion in a document library is picked up on next indexer run and the document is removed from the index.
++ Index incrementally, picking up just the new and changed files and metadata. 
++ Deletion detection is built in. Deletion in a document library is picked up on the next indexer run, and the document is removed from the index.
 + Text and normalized images are extracted by default from the documents that are indexed. Optionally, you can add a [skillset](cognitive-search-working-with-skillsets.md) for deeper [AI enrichment](cognitive-search-concept-intro.md), like OCR or text translation. 
 
 ## Prerequisites
@@ -184,7 +184,7 @@ For SharePoint indexing, the data source must have the following required proper
 + **credentials** provide the SharePoint endpoint and the Microsoft Entra application (client) ID. An example SharePoint endpoint is `https://microsoft.sharepoint.com/teams/MySharePointSite`. You can get the endpoint by navigating to the home page of your SharePoint site and copying the URL from the browser.
 + **container** specifies which document library to index. More information on creating the container can be found in the [Controlling which documents are indexed](#controlling-which-documents-are-indexed) section of this document.
 
-To create a data source, call [Create Data Source (preview)](rest/api/searchservice/data-sources/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true).
+To create a data source, call [Create Data Source (preview)](/rest/api/searchservice/data-sources/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true).
 
 ```http
 POST https://[service name].search.windows.net/datasources?api-version=2023-10-01-Preview
@@ -296,7 +296,7 @@ There are a few steps to creating the indexer:
 
     If you don’t run the [Get Indexer Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) within 10 minutes, the code expires and you’ll need to recreate the [data source](#create-data-source).
 
- 1. Copy the device login code from the [Get Indexer Status](rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) response. The device login can be found in the "errorMessage".
+ 1. Copy the device login code from the [Get Indexer Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) response. The device login can be found in the "errorMessage".
 
     ```http
     {
@@ -326,7 +326,7 @@ There are a few steps to creating the indexer:
 
 ### Step 7: Check the indexer status
 
-After the indexer has been created, you can call [Get Indexer Status](rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true):
+After the indexer has been created, you can call [Get Indexer Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true):
 
 ```http
 GET https://[service name].search.windows.net/indexers/sharepoint-indexer/status?api-version=2023-10-01-Preview
