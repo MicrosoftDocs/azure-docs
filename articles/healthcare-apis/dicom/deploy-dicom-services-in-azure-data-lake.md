@@ -53,9 +53,6 @@ After deployment completes, you can use the Azure portal to see the details abou
 
 1. Select **Review + create** to deploy the DICOM service.  
 
-    > [!NOTE]
-    > Configuration of customer-managed keys isn't supported during the creation of a DICOM service when you opt to use external storage.  Customer-managed keys can be configured after the DICOM service has been created.  
-
 1. When the system displays a green validation check mark, select **Create** to deploy the DICOM service.
 
 1. After the deployment process completes, select **Go to resource**.
