@@ -48,10 +48,10 @@ Organized by subject area.
 | [Data collection rule associations](/rest/api/monitor/data-collection-rule-associations) | Create and manage a data collection rule association and retrieve the data collection rule associations for a data collection endpoint, resource, or data collection rule. |
 | [Data collection rules](/rest/api/monitor/data-collection-rules) | Create and manage a data collection rule and retrieve the data collection rules within a resource group or subscription. |
 | ***Diagnostic Settings*** |  |
-| [Diagnostic settings](/rest/api/monitor/diagnostic-settings) | COMING SOON |
-| [Diagnostic settings category](/rest/api/monitor/diagnostic-settings-category) | COMING SOON |
-| [Management group diagnostic settings](/rest/api/monitor/management-group-diagnostic-settings) | COMING SOON |
-| [Subscription diagnostic settings](/rest/api/monitor/subscription-diagnostic-settings) | COMING SOON |
+| [Diagnostic settings](/rest/api/monitor/diagnostic-settings) | Operations to create, update, and retrieve the [diagnostic settings](./essentials/platform-logs-overview.md) for a resource. Controls the routing of metric data and diagnostic logs. |
+| [Diagnostic settings category](/rest/api/monitor/diagnostic-settings-category) | Relates to the [possible categories](./essentials/resource-logs-schema.md) for a given resource. |
+| [Management group diagnostic settings](/rest/api/monitor/management-group-diagnostic-settings) | Manage the management group diagnostic settings for a resource and retrieve the management group diagnostic settings list for a management group. |
+| [Subscription diagnostic settings](/rest/api/monitor/subscription-diagnostic-settings) | Manage the subscription diagnostic settings for a resource and retrieve the subscription diagnostic settings list for a subscriptionId. |
 | ***Manage Log Analytics workspaces and related resources*** |  |
 | [Available service tiers](/rest/api/loganalytics/available-service-tiers) | Retrieve the available service tiers for a Log Analytics workspace. |
 | [Clusters](/rest/api/loganalytics/clusters) | Manage Log Analytics clusters. |
