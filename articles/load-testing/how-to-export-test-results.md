@@ -40,7 +40,7 @@ timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success
 
 ## Access and download load test results
 >[!IMPORTANT]
->For load tests with more than 45 engine instances or a greater than 3-hour test run duration, the results file will not be available for download. You can configure a [JMeter Backend Listener](#export-test-results-using-jmeter-backend-listeners) to export the results to a data store of your choice or [copy the results from a storage account container](copy-test-artifacts-from-a-storage-account-container). 
+>For load tests with more than 45 engine instances or a greater than 3-hour test run duration, the results file is not available for download. You can [configure a JMeter Backend Listener to export the results](#export-test-results-using-jmeter-backend-listeners) to a data store of your choice or [copy the results from a storage account container](#copy-test-artifacts-from-a-storage-account-container). 
 # [Azure portal](#tab/portal)
 
 To download the test results for a test run in the Azure portal:
@@ -147,15 +147,17 @@ The following code snippet shows an example of a backend listener, for Azure App
 ## Copy test artifacts from a storage account container
 
 >[!IMPORTANT]
->Copying test artifacts from a storage accoutn container is only enabled for load tests with more than 45 engine instances or a greater than 3-hour test run duration. 
+>Copying test artifacts from a storage account container is only enabled for load tests with more than 45 engine instances or with a test run duration greater than three hours. 
 
-To copy the test results and log files for a test run, from a storage account, in the Azure portal:
+To copy the test results and log files for a test run from a storage account, in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource.
 
-1. On the left pane, select **Tests** to view a list of tests, and then select your test. From the list of test runs, select your test run.
+1. On the left pane, select **Tests** to view a list of tests, and then select your test.
 
     :::image type="content" source="media/how-to-export-test-results/test-list.png" alt-text="Screenshot that shows the list of tests for an Azure Load Testing resource.":::
+1. From the list of test runs, select your test run.
+
     :::image type="content" source="media/how-to-export-test-results/test-runs-list.png" alt-text="Screenshot that shows the list of test runs for a test in an Azure Load Testing resource.":::
 
    >[!TIP]
@@ -166,9 +168,13 @@ To copy the test results and log files for a test run, from a storage account, i
      :::image type="content" source="media/how-to-export-test-results/test-run-page-copy-artifacts.png" alt-text="Screenshot that shows how to copy the test artifacts from the 'Test run details' pane.":::
 
      > [!NOTE]
-     > A load test run needs to have a *Done*, *Stopped*, or *Failed* status for the results file to be available for download.
+     > A load test run needs to be in the *Done*, *Stopped*, or *Failed* status for the results file to be available for download.
 
-1. Copy the SAS URL of the storage account container. You can copy the results CSV files and the log files for the test run to your storage account using [Azure Storage Explorer](https://learn.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#shared-access-signature-sas-url) or [AzCopy](https://learn.microsoft.com/azure/storage/common/storage-use-azcopy-blobs-copy#copy-a-container). The SAS URL is valid for 60 minutes from the time it gets generated. If the URL expires, select **Copy artifacts** to generate a new SAS URL. 
+1. Copy the SAS URL of the storage account container. 
+
+    You can use the SAS URL in the [Azure Storage Explorer](https://learn.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#shared-access-signature-sas-url) or [AzCopy](https://learn.microsoft.com/azure/storage/common/storage-use-azcopy-blobs-copy#copy-a-container) to copy the results CSV files and the log files for the test run to your storage account.
+    
+    The SAS URL is valid for 60 minutes from the time it gets generated. If the URL expires, select **Copy artifacts** to generate a new SAS URL. 
 
 ## Next steps
 
