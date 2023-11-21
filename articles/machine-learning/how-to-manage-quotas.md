@@ -29,7 +29,7 @@ Along with managing quotas and limits, you can learn how to [plan and manage cos
 
 + Quotas are applied to each subscription in your account. If you have multiple subscriptions, you must request a quota increase for each subscription.
 
-+ A quota is a *credit limit* on Azure resources, *not a capacity guarantee*. If you have large-scale capacity needs, [contact Azure support to increase your quota](#request-quota-increases).
++ A quota is a *credit limit* on Azure resources, *not a capacity guarantee*. If you have large-scale capacity needs, [contact Azure support to increase your quota](#request-quota-and-limit-increases).
 
 + A quota is shared across all the services in your subscriptions, including Azure Machine Learning. Calculate usage across all services when you're evaluating capacity.
  
@@ -74,7 +74,7 @@ In addition, the maximum **run time** is 30 days and the maximum number of **met
 > * The *quota on the number of cores* is split by each VM Family and cumulative total cores.
 > * The *quota on the number of unique compute resources* per region is separate from the VM core quota, as it applies only to the managed compute resources of Azure Machine Learning.
 
-To raise the limits for the following items, [Request a quota increase](#request-quota-increases):
+To raise the limits for the following items, [Request a quota increase](#request-quota-and-limit-increases):
 
 * VM family core quotas. To learn more about which VM family to request a quota increase for, see [virtual machine sizes in Azure](../virtual-machines/sizes.md). For example, GPU VM families start with an "N" in their family name (such as the NCv3 series).
 * Total subscription core quotas
@@ -170,7 +170,7 @@ To request an exception from the Azure Machine Learning product team, use the st
 
 ### Azure Machine Learning integration with Synapse
 
-Azure Machine Learning serverless Spark provides easy access to distributed computing capability for scaling Apache Spark jobs. Serverless Spark utilizes the same dedicated quota as Azure Machine Learning Compute. Quota limits can be increased by submitting a support ticket and [requesting for quota increase](#request-quota-increases) for ESv3 series under the "Machine Learning Service: Virtual Machine Quota" category.
+Azure Machine Learning serverless Spark provides easy access to distributed computing capability for scaling Apache Spark jobs. Serverless Spark utilizes the same dedicated quota as Azure Machine Learning Compute. Quota limits can be increased by submitting a support ticket and [requesting for quota and limit increase](#request-quota-and-limit-increases) for ESv3 series under the "Machine Learning Service: Virtual Machine Quota" category.
  
  To view quota usage, navigate to Machine Learning studio and select the subscription name that you would like to see usage for. Select "Quota" in the left panel.
 
