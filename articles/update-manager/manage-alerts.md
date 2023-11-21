@@ -36,11 +36,11 @@ To enable alerts (Preview) with Azure Update Manager through Azure portal, follo
     1. From the **Azure Resource Group query** dropdown, select a predefined alerting query option. 
     1. You can select **Custom query** option to edit or write a custom query.
     
-      :::image type="content" source="./media/manage-alerts/create-alert-rule-inline.png" alt-text="Screenshot that shows how to create alert rule." lightbox="./media/manage-alerts/create-alert-rule-expanded.png":::
+       :::image type="content" source="./media/manage-alerts/create-alert-rule-inline.png" alt-text="Screenshot that shows how to create alert rule." lightbox="./media/manage-alerts/create-alert-rule-expanded.png":::
     
     1. Select **View result and edit query in Logs** to run a selected alerting query option or to edit a query.
     
-      :::image type="content" source="./media/manage-alerts/edit-query-inline.png" alt-text="Screenshot that shows how to edit query in logs." lightbox="./media/manage-alerts/edit-query-expanded.png":::
+       :::image type="content" source="./media/manage-alerts/edit-query-inline.png" alt-text="Screenshot that shows how to edit query in logs." lightbox="./media/manage-alerts/edit-query-expanded.png":::
     
     1. Select **Run** to run the query to enable **Continue Editing Alert**.
     
