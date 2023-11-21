@@ -338,7 +338,7 @@ As a best practice, entities help enforce use of the same join key definition ac
 
 1. Initialize the feature store CRUD client.
 
-   As explained earlier in this tutorial, `MLClient` is used for creating, reading, updating, and deleting a feature store asset. The notebook code cell sample shown here searches for the feature store that you created in an earlier step. Here, you can't reuse the same `ml_client` value that you used earlier in this tutorial, because it is scoped at the resource group level. Proper scoping is a prerequisite for feature store creation.
+   As explained earlier in this tutorial, `MLClient` is used for creating, reading, updating, and deleting a feature store asset. The notebook code cell sample shown here searches for the feature store that you created in an earlier step. Here, you can't reuse the same `ml_client` value that you used earlier in this tutorial, because it's scoped at the resource group level. Proper scoping is a prerequisite for feature store creation.
 
    In this code sample, the client is scoped at feature store level.
 
@@ -526,7 +526,7 @@ You can explore feature materialization status for a feature set in the **Materi
 - The data can have a maximum of 2,000 *data intervals*. If your data contains more than 2,000 *data intervals*, create a new feature set version.
 - You can provide a list of more than one data statuses (for example, `["None", "Incomplete"]`) in a single backfill job.
 - During backfill, a new materialization job is submitted for each *data interval* that falls within the defined feature window.
-- If a materialization job is pending, or it is running for a *data interval* that hasn't yet been backfilled, a new job isn't submitted for that *data interval*.
+- If a materialization job is pending, or that job is running for a *data interval* that hasn't yet been backfilled, a new job isn't submitted for that *data interval*.
 - You can retry a failed materialization job.
 
    > [!NOTE]
