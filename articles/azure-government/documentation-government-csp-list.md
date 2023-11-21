@@ -134,7 +134,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Cyber Advisors](https://cyberadvisors.com)|
 |[Cyber Cloud Technologies](https://www.cyber-cloud.com)|
 |[Cyber Korp Inc.](https://cyberkorp.com/)|
-|[Cybercore Solutions LLC](https://cybercoresolutions.com/)|
 |[Dalecheck Technology Group](https://www.dalechek.com/)|
 |[Dasher Technologies, Inc.](https://www.dasher.com)|
 |[Data Center Services Inc](https://www.d8acenter.com)|
@@ -284,7 +283,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[MetroStar Systems Inc.](https://www.metrostarsystems.com)|
 |[Mibura Inc.](https://www.mibura.com/)|
 |[Microtechnologies, LLC](https://www.microtech.net/)|
-|[Miken Technologies](https://www.miken.net)|
 |[mindSHIFT Technologies, Inc.](https://www.mindshift.com/)|
 |[MIS Sciences Corp](https://www.mis-sciences.com/)|
 |[Mission Cyber LLC](https://missioncyber.com/b/)|
