@@ -88,12 +88,15 @@ The following table shows the available models for each current preview and stab
 | [Custom classification model](#custom-classifier)| The **Custom classification model** can classify each page in an input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
 | [Composed models](#composed-models) | Combine several custom models into a single model to automate processing of diverse document types with a single composed model.
 
-For all models, except Business card model, Document Intelligence now supports add-on capabilities to allow for more sophisticated analysis. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are four add-on capabilities available for the `2023-07-31` (GA) and later API version:
+For all models, except Business card model, Document Intelligence now supports add-on capabilities to allow for more sophisticated analysis. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are six add-on capabilities available for the `2023-07-31` (GA) and later API version:
 
-* [`ocr.highResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
-* [`ocr.formula`](concept-add-on-capabilities.md#formula-extraction)
-* [`ocr.font`](concept-add-on-capabilities.md#font-property-extraction)
-* [`ocr.barcode`](concept-add-on-capabilities.md#barcode-property-extraction)
+* [`ocrHighResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
+* [`formulas`](concept-add-on-capabilities.md#formula-extraction)
+* [`styleFont`](concept-add-on-capabilities.md#font-property-extraction)
+* [`barcodes`](concept-add-on-capabilities.md#barcode-property-extraction)
+* [`languages`](concept-add-on-capabilities.md#language-detection)
+* [`keyValuePairs`](concept-add-on-capabilities.md#key-value-pairs) (2023-10-31-preview)
+* [`queryFields`](concept-add-on-capabilities.md#query-fields) (2023-31-preview)
 
 ## Analysis features
 
