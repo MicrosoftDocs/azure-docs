@@ -323,6 +323,7 @@ Many client connections are calling the hub, so the app server number is also cr
 
 > [!NOTE]
 > The client connection number, message size, message sending rate, routing cost, SKU tier, and CPU/memory of the app server affect the overall performance of **send to small group**.
+>
 > The group count, group member count listed in the table are **not hard limits**. Those parameters are chosen to set a stable benchmark scenario. For example, it is OK to assign each conneciton to a distinct group. In this scenario, the performance is close to [send to connection](#send-to-connection).
 
 ##### Big group
