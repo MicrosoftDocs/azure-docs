@@ -45,7 +45,7 @@ Before you proceed with this tutorial, be sure to cover these prerequisites:
 
 * An Azure Machine Learning workspace. For more information about workspace creation, see [Quickstart: Create workspace resources](./quickstart-create-resources.md).
 
-* On your user account, the Owner or Contributor role for the resource group where the feature store is created.
+* On your user account, the Owner role for the resource group where the feature store is created.
 
    If you choose to use a new resource group for this tutorial, you can easily delete all the resources by deleting the resource group.
 
@@ -59,17 +59,24 @@ This tutorial uses an Azure Machine Learning Spark notebook for development.
 
    :::image type="content" source="media/tutorial-get-started-with-feature-store/clone-featurestore-example-notebooks.png" lightbox="media/tutorial-get-started-with-feature-store/clone-featurestore-example-notebooks.png" alt-text="Screenshot that shows selection of the sample directory in Azure Machine Learning studio.":::
 
-1. The **Select target directory** panel opens. Select the user directory (in this case, **testUser**), and then select **Clone**.
+1. The **Select target directory** panel opens. Select the **Users** directory, then select _your user name_, and finally select **Clone**.
 
    :::image type="content" source="media/tutorial-get-started-with-feature-store/select-target-directory.png" lightbox="media/tutorial-get-started-with-feature-store/select-target-directory.png" alt-text="Screenshot showing selection of the target directory location in Azure Machine Learning studio for the sample resource.":::
 
 1. To configure the notebook environment, you must upload the *conda.yml* file:
 
    1. Select **Notebooks** on the left pane, and then select the **Files** tab.
-   1. Browse to the *env* directory (select **Users** > **testUser** > **featurestore_sample** > **project** > **env**), and then select the *conda.yml* file. In this path, *testUser* is the user directory.
+   1. Browse to the *env* directory (select **Users** > **your_user_name** > **featurestore_sample** > **project** > **env**), and then select the *conda.yml* file.
    1. Select **Download**.
 
    :::image type="content" source="media/tutorial-get-started-with-feature-store/download-conda-file.png" lightbox="media/tutorial-get-started-with-feature-store/download-conda-file.png" alt-text="Screenshot that shows selection of the Conda YAML file in Azure Machine Learning studio.":::
+
+   1. Select **Serverless Spark Compute** in the top navigation **Compute** dropdown. This operation might take one to two minutes. Wait for a status bar in the top to display **Configure session**.
+   1. Select **Configure session** in the top status bar.
+   1. Select **Python packages**.
+   1. Select **Upload conda files**.
+   1. Select the `conda.yml` file you downloaded on your local device.
+   1. (Optional) Increase the session time-out (idle time in minutes) to reduce the serverless spark cluster startup time.
 
 1. In the Azure Machine Learning environment, open the notebook, and then select **Configure session**.
 
@@ -104,7 +111,7 @@ Not applicable.
 
 ### [SDK and CLI track](#tab/SDK-and-CLI-track)
 
-1. Install the Azure Machine Learning extension.
+1. Install the Azure Machine Learning CLI extension.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=install-ml-ext-cli)]
 
@@ -433,9 +440,25 @@ The Storage Blob Data Reader role must be assigned to your user account on the o
 
 ### [SDK track](#tab/SDK-track)
 
+#### Set spark.sql.shuffle.partitions in the yaml file according to the feature data size
+
+   The spark configuration `spark.sql.shuffle.partitions` is an OPTIONAL parameter that can affect the number of parquet files generated (per day) when the feature set is materialized into the offline store. The default value of this parameter is 200. As best practice, avoid generation of many small parquet files. If offline feature retrieval becomes slow after feature set materialization, go to the corresponding folder in the offline store to check whether the issue involves too many small parquet files (per day), and adjust the value of this parameter accordingly.
+
+   > [!NOTE]
+   > The sample data used in this notebook is small. Therefore, this parameter is set to 1 in the
+   > featureset_asset_offline_enabled.yaml file.
+
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb?name=enable-offline-mat-txns-fset)]
 
 ### [SDK and CLI track](#tab/SDK-and-CLI-track)
+
+#### Set spark.sql.shuffle.partitions in the yaml file according to the feature data size
+
+   The spark configuration `spark.sql.shuffle.partitions` is an OPTIONAL parameter that can affect the number of parquet files generated (per day) when the feature set is materialized into the offline store. The default value of this parameter is 200. As best practice, avoid generation of many small parquet files. If offline feature retrieval becomes slow after feature set materialization, go to the corresponding folder in the offline store to check whether the issue involves too many small parquet files (per day), and adjust the value of this parameter accordingly.
+
+   > [!NOTE]
+   > The sample data used in this notebook is small. Therefore, this parameter is set to 1 in the
+   > featureset_asset_offline_enabled.yaml file.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb?name=enable-offline-mat-txns-fset-cli)]
 

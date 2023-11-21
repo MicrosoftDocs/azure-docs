@@ -37,14 +37,15 @@ Before you proceed with this tutorial, be sure to complete the first and second 
 
    To run this tutorial, you can create a new notebook and execute the instructions step by step. You can also open and run the existing notebook named *3. Enable recurrent materialization and run batch inference*. You can find that notebook, and all the notebooks in this series, in the *featurestore_sample/notebooks* directory. You can choose *sdk_only* or *sdk_and_cli*. Keep this tutorial open and refer to it for documentation links and more explanation.
 
-   1. On the top menu, in the **Compute** dropdown list, select **Serverless Spark Compute** under **Azure Machine Learning Serverless Spark**.
+   1. In the **Compute** dropdown list in the top nav, select **Serverless Spark Compute** under **Azure Machine Learning Serverless Spark**.
 
    2. Configure the session:
 
-      1. When the toolbar displays **Configure session**, select it.
-      2. On the **Python packages** tab, select **Upload conda file**.
-      3. Upload the *conda.yml* file that you [uploaded in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment).
-      4. Optionally, increase the session time-out (idle time) to avoid frequent prerequisite reruns.
+      1. Select **Configure session** in the top status bar.
+      2. Select the **Python packages** tab.
+      3. Select **Upload conda file**.
+      4. Select the `azureml-examples/sdk/python/featurestore-sample/project/env/online.yml` file from your local machine.
+      5. Optionally, increase the session time-out (idle time) to avoid frequent prerequisite reruns.
 
 2. Start the Spark session.
 

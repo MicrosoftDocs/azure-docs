@@ -46,14 +46,14 @@ You don't need to explicitly install these resources for this tutorial, because 
 
    You can create a new notebook and execute the instructions in this tutorial step by step. You can also open and run the existing notebook *featurestore_sample/notebooks/sdk_only/4. Enable online store and run online inference.ipynb*. Keep this tutorial open and refer to it for documentation links and more explanation.
 
-   1. On the top menu, in the **Compute** dropdown list, select **Serverless Spark Compute** under **Azure Machine Learning Serverless Spark**.
+   1. In the **Compute** dropdown list in the top nav, select **Serverless Spark Compute**.
 
    2. Configure the session:
 
-      1. Download *featurestore-sample/project/env/online.yml* file to your local machine.
-      2. When the toolbar displays **Configure session**, select it.
-      3. On the **Python packages** tab, select **Upload Conda file**.
-      4. Upload the *online.yml* file in the same way as described in [uploading *conda.yml* file in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment).
+      1. Download *azureml-examples/sdk/python/featurestore-sample/project/env/online.yml* file to your local machine.
+      2. In **configure session** in the top nav, select **Python packages**
+      3. Select **Upload Conda file**
+      4. Upload the *online.yml* file from your local machine, with the same steps as described in [uploading *conda.yml* file in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment).
       5. Optionally, increase the session time-out (idle time) to avoid frequent prerequisite reruns.
 
 2. This code cell starts the Spark session. It needs about 10 minutes to install all dependencies and start the Spark session.
