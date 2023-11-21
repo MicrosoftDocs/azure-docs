@@ -11,16 +11,11 @@ ms.date: 04/12/2023
 ms.custom: GGAL-freshness822, devx-track-azurecli
 ---
 
-<!-- # Manage administrative users, SSH, and check or repair disks on Linux VMs by using the VMAccess extension with the Azure CLI -->
 # VMAccess Extension for Linux
-
-<!-- The VMAccess extension with the Azure CLI allows you to manage administrative users and reset access on Linux VMs. -->
 
 The VMAccess Extension is used to manage administrative users, configure SSH, and check or repair disks on Azure Linux virtual machines (VMs). The extension integrates with Azure Resource Manager templates. It can also be invoked using Azure CLI, Azure Powershell, the Azure portal, and the Azure Virtual Machines REST API.
 
 This article describes how to run the VMAccess Extension from the Azure CLI and through an Azure Resource Manager template. This article also provides troubleshooting steps for Linux systems.
-
-<!-- If you need to manage Classic virtual machines, see [Using the VMAccess extension](/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic). -->
 
 > [!NOTE]
 > If you use the VMAccess extension to reset the password of your VM after you install the Microsoft Entra Login extension, rerun the Microsoft Entra Login extension to re-enable Microsoft Entra Login for your VM.
@@ -50,14 +45,17 @@ This article describes how to run the VMAccess Extension from the Azure CLI and 
 
 ## Extension schema
 
-The VMAccess Extension configuration includes settings for username, passwords, SSH keys, etc. You can store this information in configuration files, specify it on the command line, or include it in an Azure Resource Manager (ARM) template. The following schema contains all the properties available to use in public and protected settings.
+The VMAccess Extension configuration includes settings for username, passwords, SSH keys, etc. You can store this information in configuration files, specify it on the command line, or include it in an Azure Resource Manager (ARM) template. The following JSON schema contains all the properties available to use in public and protected settings.
 
 ```json
 {
-  "type": "extensions",
-  "name": "[name]",
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "name": "<name>",
   "apiVersion": "2020-06-01",
-  "location": "[location]",
+  "location": "<location>",
+  "dependsOn": [
+          "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
+  ],
   "properties": {
     "publisher": "Microsoft.OSTCExtensions",
     "type": "VMAccessForLinux",
@@ -65,60 +63,89 @@ The VMAccess Extension configuration includes settings for username, passwords, 
     "autoUpgradeMinorVersion": true,
     "settings": {
       "check_disk": true,
-      "repair_disk": true,
-      "disk_name": "[disk_name]",
+      "repair_disk": false,
+      "disk_name": "diskName",
     },
     "protectedSettings": {
-      "username": "[username]",
-      "password": "[password]",
-      "ssh_key": "[ssh_key]",
-      "reset_ssh": true,
-      "remove_user": "[remove_user]",
-      "expiration": "[expiration]",
-      "remove_prior_keys": true,
+      "username": "adminuser1",
+      "password": "adminpassword",
+      "ssh_key": "ssh-rsa XXXXXX",
+      "reset_ssh": false,
+      "remove_user": "adminuser2",
+      "expiration": "2024-01-01",
+      "remove_prior_keys": false,
       "restore_backup_ssh": true
     } 
   }
 }
 ```
 
-## Ways to use the VMAccess extension
+### Property values
 
-You can use the VMAccess extension on your Linux VMs in two ways:
+| Name | Value / Example | Data Type |
+| ---- | ---- | ---- |
+| apiVersion | 2020-06-01 | date |
+| publisher | Microsoft.OSTCExtensions | string |
+| type | VMAccessForLinux | string |
+| typeHandlerVersion | 1.5 | int |
 
-* Use the Azure CLI and the required parameters.
-* [Use JSON files with the VMAccess extension](#use-json-files-and-the-vmaccess-extension).
+### Settings property values
+ 
+| Name | Data Type | Description |
+| ---- | ---- | ---- |
+| check_disk | boolean | Whether or not to check disk (optional). Only one between `check_disk` and `repair_disk` can be set to true. |
+| repair_disk | boolean | Whether or not to check disk (optional). Only one between `check_disk` and `repair_disk` can be set to true. |
+| disk_name | string | Name of disk to repair (required when `repair_disk` is true). |
+| username | string | The name of the user to manage (required for all actions on a user account). |
+| password | string | The password to set for the user account. |
+| ssh_key | string | The SSH public key to add for the user account. The SSH key can be in `ssh-rsa`, `ssh-ed25519`, or `.pem` format. |
+| reset_ssh | boolean | Whether or not to reset the SSH. If `true`, it will replace the sshd_config file with an internal resource file corresponding to the default SSH config for that distro. |
+| remove_user | string | The name of the user to remove. Cannot be used with `reset_ssh`, `restore_backup_ssh`, and `password`. |
+| expiration | string | Expiration to set to for the account. Defaults to never. |
+| remove_prior_keys | boolean | Whether or not to remove old SSH keys when adding a new one. Must be used with `ssh_key`. |
+| restore_backup_ssh | boolean | Whether or not to restore the original backed-up sshd_config. |
 
-The following examples use [az vm user](/cli/azure/vm/user) commands. To perform these steps, you need to [install the latest Azure CLI](/cli/azure/install-az-cli2) and sign in to an Azure account by using [az login](/cli/azure/reference-index).
+## Template deployment
 
-## Update SSH key
+Azure VM Extensions can be deployed with Azure Resource Manager (ARM) templates. The JSON schema detailed in the previous section can be used in an ARM template to run the VMAccess Extension during the template's deployment. You can find a sample template that includes the VMAccess extension on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/demos/vmaccess-on-ubuntu/azuredeploy.json).
 
-The following example updates the SSH key for the user `azureuser` on the VM named `myVM`:
+The JSON configuration for a virtual machine extension must be nested inside the virtual machine resource fragment of the template, specifically `"resources": []` object for the virtual machine template and for a virtual machine scale set under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` object.
+
+## Azure CLI deployment
+
+### Using Azure CLI VM user commands
+
+The following CLI commands under [az vm user](/cli/azure/vm/user) use the VMAccess Extension. To use these commands, you need to [install the latest Azure CLI](/cli/azure/install-az-cli2) and sign in to an Azure account by using [az login](/cli/azure/reference-index).
+
+#### Update SSH key
+
+The following example updates the SSH key for the user `azureUser` on the VM named `myVM`:
 
 ```azurecli-interactive
 az vm user update \
   --resource-group myResourceGroup \
   --name myVM \
-  --username azureuser \
+  --username azureUser \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 > [!NOTE]
-> The [`az vm user update` command](/cli/azure/vm) appends the new public key text to the `~/.ssh/authorized_keys` file for the admin user on the VM. This command doesn't replace or remove any existing SSH keys. This command doesn't remove prior keys set at deployment time or subsequent updates by using the VMAccess extension.
+> The [`az vm user update` command](/cli/azure/vm) appends the new public key text to the `~/.ssh/authorized_keys` file for the admin user on the VM. This command doesn't replace or remove any existing SSH keys. This command doesn't remove prior keys set at deployment time or subsequent updates by using the VMAccess Extension.
 
-## Reset password
 
-The following example resets the password for the user `azureuser` on the VM named `myVM`:
+#### Reset password
+
+The following example resets the password for the user `azureUser` on the VM named `myVM`:
 
 ```azurecli-interactive
 az vm user update \
   --resource-group myResourceGroup \
   --name myVM \
-  --username azureuser \
+  --username azureUser \
   --password myNewPassword
 ```
 
-## Restart SSH
+#### Restart SSH
 
 The following example restarts the SSH daemon and resets the SSH configuration to default values on a VM named `myVM`:
 
@@ -128,7 +155,10 @@ az vm user reset-ssh \
   --name myVM
 ```
 
-## Create an administrative/sudo user
+> [!NOTE]
+> The [`az vm user reset-ssh` command](/cli/azure/vm) replaces the sshd_config file with a default config file from the internal resources directory. This command doesn't restore the original SSH configuration found on the virtual machine.
+
+#### Create an administrative/sudo user
 
 The following example creates a user named `myNewUser` with sudo permissions. The account uses an SSH key for authentication on the VM named `myVM`. This method helps you regain access to a VM when current credentials are lost or forgotten. As a best practice, accounts with sudo permissions should be limited.
 
@@ -140,7 +170,7 @@ az vm user update \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-## Delete a user
+#### Delete a user
 
 The following example deletes a user named `myNewUser` on the VM named `myVM`:
 
@@ -151,15 +181,22 @@ az vm user delete \
   --username myNewUser
 ```
 
-## Use JSON files and the VMAccess extension
+### Using Azure CLI VM/VMSS extension commands
 
-The following examples use raw JSON files. Use the [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) command to then call your JSON files. Azure templates can also call these JSON files.
+You can also use the [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) and [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) commands to run the VMAccess Extension with the specified configuration.
 
-### Reset user access
+```azurecli-interactive
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name VMAccessForLinux \
+  --publisher Microsoft.OSTCExtensions \
+  --version 1.5 \
+  --settings '{"check_disk":true}'
+  --protected-settings '{"username":"user1","password":"userPassword"}'
+```
 
-If you've lost access to root on your Linux VM, you can launch a VMAccess script to update a user's SSH key or password.
-
-To update the SSH public key of a user, create a file named `update_ssh_key.json` and add settings in the following format. Replace `username` and `ssh_key` with your own information:
+The `--settings` and `--protected-settings` parameters also accept JSON file paths. For example, to update the SSH public key of a user, create a JSON file named `update_ssh_key.json` and add settings in the following format. Replace the values within the file with your own information:
 
 ```json
 {
@@ -168,7 +205,7 @@ To update the SSH public key of a user, create a file named `update_ssh_key.json
 }
 ```
 
-Execute the VMAccess script by running this command:
+Run the VMAccess Extension through the following command:
 
 ```azurecli-interactive
 az vm extension set \
@@ -176,120 +213,85 @@ az vm extension set \
   --vm-name myVM \
   --name VMAccessForLinux \
   --publisher Microsoft.OSTCExtensions \
-  --version 1.4 \
+  --version 1.5 \
   --protected-settings update_ssh_key.json
 ```
 
-To reset a user password, create a file named `reset_user_password.json` and add settings in the following format. Replace `username` and `password` with your own information:
+## Azure PowerShell deployment
 
-```json
-{
-  "username":"azureuser",
-  "password":"myNewPassword" 
+Azure PowerShell can be used to deploy the VMAccess Extension to an existing virtual machine or virtual machine scale set. You can deploy the extension to a VM by running:
+
+```azurepowershell-interactive
+$username = "<username>"
+$sshKey = "<cert-contents>"
+
+$settings = @{"check_disk" = $true};
+$protectedSettings = @{"username" = $username; "ssh_key" = $sshKey};
+
+Set-AzVMExtension -ResourceGroupName "<resource-group>" `
+    -VMName "<vm-name>" `
+    -Location "<location>" `
+    -Publisher "Microsoft.OSTCExtensions" `
+    -ExtensionType "VMAccessForLinux" `
+    -Name "VMAccessForLinux" `
+    -TypeHandlerVersion "1.5" `
+    -Settings $settings `
+    -ProtectedSettings $protectedSettings
+```
+
+You can also provide and modify extension settings through the use of strings:
+
+```azurepowershell-interactive
+$username = "<username>"
+$sshKey = "<cert-contents>"
+
+$settingsString = '{"check_disk":true}';
+$protectedSettingsString = '{"username":"' + $username + '","ssh_key":"' + $sshKey + '"}';
+
+Set-AzVMExtension -ResourceGroupName "<resource-group>" `
+    -VMName "<vm-name>" `
+    -Location "<location>" `
+    -Publisher "Microsoft.OSTCExtensions" `
+    -ExtensionType "VMAccessForLinux" `
+    -Name "VMAccessForLinux" `
+    -TypeHandlerVersion "1.5" `
+    -SettingString $settingsString `
+    -ProtectedSettingString $protectedSettingsString
+```
+
+To deploy to a VMSS, run the following command:
+
+```azurepowershell-interactive
+$resourceGroupName = "<resource-group>"
+$vmssName = "<vmss-name>"
+
+$protectedSettings = @{
+  "username" = "azureUser"
+  "password" = "userPassword"
 }
-```
 
-Execute the VMAccess script by running this command:
-
-```azurecli-interactive
-az vm extension set \
-  --resource-group myResourceGroup \
-  --vm-name myVM \
-  --name VMAccessForLinux \
-  --publisher Microsoft.OSTCExtensions \
-  --version 1.4 \
-  --protected-settings reset_user_password.json
-```
-
-### Restart the SSH
-
-To restart the SSH daemon and reset the SSH configuration to default values, create a file named `reset_sshd.json`. Add the following text:
-
-```json
-{
-  "reset_ssh": true
+$publicSettings = @{
+  "repair_disk" = $true
+  "disk_name" = "<disk_name>"
 }
-```
 
-Execute the VMAccess script with:
+$vmss = Get-AzVmss `
+            -ResourceGroupName $resourceGroupName `
+            -VMScaleSetName $vmssName
 
-```azurecli-interactive
-az vm extension set \
-  --resource-group myResourceGroup \
-  --vm-name myVM \
-  --name VMAccessForLinux \
-  --publisher Microsoft.OSTCExtensions \
-  --version 1.4 \
-  --protected-settings reset_sshd.json
-```
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
+    -Name "<extension-name>" `
+    -Publisher "Microsoft.OSTCExtensions" `
+    -Type "VMAccessForLinux" `
+    -TypeHandlerVersion "1.5"" `
+    -AutoUpgradeMinorVersion $true `
+    -Setting $publicSettings `
+    -ProtectedSetting $protectedSettings
 
-### Manage administrative users
-
-To create a user with sudo permissions that uses an SSH key for authentication, create a file named `create_new_user.json` and add settings in the following format. Substitute your own values for the `username` and `ssh_key` parameters. This method helps you regain access to a VM when current credentials are lost or forgotten. As a best practice, limit accounts with sudo permissions.
-
-```json
-{
-  "username":"myNewUser",
-  "ssh_key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCZ3S7gGp3rcbKmG2Y4vGZFMuMZCwoUzZNG1vHY7P2XV2x9FfAhy8iGD+lF8UdjFX3t5ebMm6BnnMh8fHwkTRdOt3LDQq8o8ElTBrZaKPxZN2thMZnODs5Hlemb2UX0oRIGRcvWqsd4oJmxsXa/Si98Wa6RHWbc9QZhw80KAcOVhmndZAZAGR+Wq6yslNo5TMOr1/ZyQAook5C4FtcSGn3Y+WczaoGWIxG4ZaWk128g79VIeJcIQqOjPodHvQAhll7qDlItVvBfMOben3GyhYTm7k4YwlEdkONm4yV/UIW0la1rmyztSBQIm9sZmSq44XXgjVmDHNF8UfCZ1ToE4r2SdwTmZv00T2i5faeYnHzxiLPA3Enub7iUo5IdwFArnqad7MO1SY1kLemhX9eFjLWN4mJe56Fu4NiWJkR9APSZQrYeKaqru4KUC68QpVasNJHbuxPSf/PcjF3cjO1+X+4x6L1H5HTPuqUkyZGgDO4ynUHbko4dhlanALcriF7tIfQR9i2r2xOyv5gxJEW/zztGqWma/d4rBoPjnf6tO7rLFHXMt/DVTkAfn5woYtLDwkn5FMyvThRmex3BDf0gujoI1y6cOWLe9Y5geNX0oj+MXg/W0cXAtzSFocstV1PoVqy883hNoeQZ3mIGB3Q0rIUm5d9MA2bMMt31m1g3Sin6EQ== myNewUser@myVM",
-  "password":"myNewUserPassword"
-}
-```
-
-Execute the VMAccess script with:
-
-```azurecli-interactive
-az vm extension set \
-  --resource-group myResourceGroup \
-  --vm-name myVM \
-  --name VMAccessForLinux \
-  --publisher Microsoft.OSTCExtensions \
-  --version 1.4 \
-  --protected-settings create_new_user.json
-```
-
-To delete a user, create a file named `delete_user.json` and add the following content. Change the data for `remove_user` to the user you're trying to delete:
-
-```json
-{
-  "remove_user":"myNewUser"
-}
-```
-
-Execute the VMAccess script with:
-
-```azurecli-interactive
-az vm extension set \
-  --resource-group myResourceGroup \
-  --vm-name myVM \
-  --name VMAccessForLinux \
-  --publisher Microsoft.OSTCExtensions \
-  --version 1.4 \
-  --protected-settings delete_user.json
-```
-
-### Check or repair the disk
-
-By using VMAccess, you can check and repair a disk that you added to the Linux VM.
-
-To check and then repair the disk, create a file named `disk_check_repair.json` and add settings in the following format. Change the data for `repair_disk` to the disk you're trying to repair:
-
-```json
-{
-  "check_disk": "true",
-  "repair_disk": "true, mydiskname"
-}
-```
-
-Execute the VMAccess script with:
-
-```azurecli-interactive
-az vm extension set \
-  --resource-group myResourceGroup \
-  --vm-name myVM \
-  --name VMAccessForLinux \
-  --publisher Microsoft.OSTCExtensions \
-  --version 1.4 \
-  --protected-settings disk_check_repair.json
+Update-AzVmss `
+    -ResourceGroupName $resourceGroupName `
+    -Name $vmssName `
+    -VirtualMachineScaleSet $vmss
 ```
 
 ## Troubleshoot and support
