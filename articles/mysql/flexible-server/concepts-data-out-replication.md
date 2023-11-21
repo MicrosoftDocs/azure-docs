@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Data-out replication allows you to synchronize data out of a Azure Database for MySQL flexible server to another MySQL server using MySQL native replication. The MySQL server (replica) can be on-premises, in virtual machines, or a database service hosted by other cloud providers. While [Data-in replication](concepts-data-in-replication.md) helps to move data into an Azure Database for MySQL flexible server (replica), Data-out replication would allow you to transfer data out of an Azure Database for MySQL flexible server (Primary). With Data-out replication, the binary log (binlog) is made community consumable allowing the an Azure Database for MySQL flexible server to act as a Primary server for the external replicas. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+Data-out replication allows you to synchronize data out of an Azure Database for MySQL flexible server to another MySQL server using MySQL native replication. The MySQL server (replica) can be on-premises, in virtual machines, or a database service hosted by other cloud providers. While [Data-in replication](concepts-data-in-replication.md) helps to move data into an Azure Database for MySQL flexible server (replica), Data-out replication would allow you to transfer data out of an Azure Database for MySQL flexible server (Primary). With Data-out replication, the binary log (binlog) is made community consumable allowing the an Azure Database for MySQL flexible server to act as a Primary server for the external replicas. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 > [!NOTE]  
 > Data-out replication is not supported on Azure Database for MySQL - Flexible Server, which has Azure authentication configured.
@@ -29,9 +29,11 @@ The main scenarios to consider about using Data-out replication are:
 
 ## Limitations and considerations
 
-### Azure AD isn't supported
+<a name='azure-ad-isnt-supported'></a>
 
-Data-out replication isn't supported on Azure Database for MySQL - Flexible Server, which has Azure authentication configured. Any Azure AD transaction (Azure AD user create/update) on the source server will break data-out replication.
+### Microsoft Entra ID isn't supported
+
+Data-out replication isn't supported on Azure Database for MySQL - Flexible Server, which has Azure authentication configured. Any Microsoft Entra transaction (Microsoft Entra user create/update) on the source server will break data-out replication.
 
 > [!TIP]  
 > Use guidance published here - MySQL :: MySQL Replication :: 2.7.3 Skipping Transactions to skip past an event or events by issuing a CHANGE MASTER TO statement to move the source's binary log position forward. Restart replication posts the action.

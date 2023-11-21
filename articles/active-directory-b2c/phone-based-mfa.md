@@ -1,7 +1,7 @@
 ---
 title: Securing phone-based MFA in Azure AD B2C
 titleSuffix: Azure AD B2C
-description: Learn tips for securing phone-based multi-factor authentication (MFA) in your Azure AD B2C tenant by using Azure Monitor Log Analytics reports and alerts. Use our workbook to identify fraudulent phone authentications and mitigate fraudulent sign-ups. =
+description: Learn tips for securing phone-based multifactor authentication in your Azure AD B2C tenant by using Azure Monitor Log Analytics reports and alerts. Use our workbook to identify fraudulent phone authentications and mitigate fraudulent sign-ups. =
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -14,12 +14,12 @@ ms.author: kengaderdus
 ms.subservice: B2C
 
 ---
-# Securing phone-based multi-factor authentication (MFA)
+# Securing phone-based multifactor authentication
 
-With Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA), users can choose to receive an automated voice call at a phone number they register for verification. Malicious users could take advantage of this method by creating multiple accounts and placing phone calls without completing the MFA registration process. These numerous failed sign-ups could exhaust the allowed sign-up attempts, preventing other users from signing up for new accounts in your Azure AD B2C tenant. To help protect against these attacks, you can use Azure Monitor to monitor phone authentication failures and mitigate fraudulent sign-ups.
+With Microsoft Entra multifactor authentication, users can choose to receive an automated voice call at a phone number they register for verification. Malicious users could take advantage of this method by creating multiple accounts and placing phone calls without completing the MFA registration process. These numerous failed sign-ups could exhaust the allowed sign-up attempts, preventing other users from signing up for new accounts in your Azure AD B2C tenant. To help protect against these attacks, you can use Azure Monitor to monitor phone authentication failures and mitigate fraudulent sign-ups.
 
 > [!IMPORTANT]
-> Authenticator app (TOTP) provides stronger security than SMS/Phone multi-factor authentication. To set this up please read our instructions for [enabling multi-factor authentication in Azure Active Directory B2C](multi-factor-authentication.md).
+> Authenticator app (TOTP) provides stronger security than SMS/Phone multifactor authentication. To set this up please read our instructions for [enabling multifactor authentication in Azure Active Directory B2C](multi-factor-authentication.md).
 
 ## Prerequisites
 
@@ -92,8 +92,7 @@ Take the following actions to help mitigate fraudulent sign-ups.
 - Remove country codes that aren't relevant to your organization from the drop-down menu where the user verifies their phone number (this change will apply to future sign-ups):
     
    1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of your Azure AD B2C tenant.
-   1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-   1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+   1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
    1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
    1. Select the user flow, and then select **Languages**. Select the language for your organization's geographic location to open the language details panel. (For this example, we'll select **English en** for the United States). Select **Multifactor authentication page**, and then select **Download defaults (en)**.
  

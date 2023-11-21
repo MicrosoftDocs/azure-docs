@@ -4,10 +4,11 @@ titleSuffix: Azure AI services
 description: In this how-to guide, learn the differences between Document Intelligence API v3.0 and v3.1 and how to move to the newer version of the API.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
 monikerRange: '<=doc-intel-3.1.0'
 ---
@@ -16,7 +17,7 @@ monikerRange: '<=doc-intel-3.1.0'
 # Document Intelligence v3.1 migration
 
 ::: moniker range="<=doc-intel-3.1.0"
-[!INCLUDE [applies to v3.1, v3.0, and v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
+[!INCLUDE [applies to v3.1, v3.0, and v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 ::: moniker-end
 
 > [!IMPORTANT]
@@ -63,7 +64,7 @@ Formulas/StyleFont/OCR High Resolution* - Premium features incur added costs
 
 Compared with v3.0, Document Intelligence v3.1 introduces several new features and capabilities:
 
-* [Barcode](concept-read.md#barcode-extraction) extraction.
+* [Barcode](concept-add-on-capabilities.md#barcode-property-extraction) extraction.
 * [Add-on capabilities](concept-add-on-capabilities.md) including high resolution, formula, and font properties extraction.
 * [Custom classification model](concept-custom-classifier.md) for document splitting and classification.
 * Language expansion and new fields support in [Invoice](concept-invoice.md) and [Receipt](concept-receipt.md) model.
@@ -97,8 +98,8 @@ GET /documentModels/{customModelId}?api-version={apiVersion}
 }
 ```
 
-* An optional `features` query parameter to Analyze operations can optionally enable specific features.  Some premium features may incur added billing. Refer to [Analyze feature list](#analysis-features) for details.
-* Extend extracted currency field objects to output a normalized currency code field when possible.  Currently, current fields may return amount (ex. 123.45) and currencySymbol (ex. $).  This feature maps the currency symbol to a canonical ISO 4217 code (ex. USD).  The model may optionally utilize the global document content to disambiguate or infer the currency code.
+* An optional `features` query parameter to Analyze operations can optionally enable specific features.  Some premium features can incur added billing. Refer to [Analyze feature list](#analysis-features) for details.
+* Extend extracted currency field objects to output a normalized currency code field when possible.  Currently, current fields can return amount (ex. 123.45) and currencySymbol (ex. $).  This feature maps the currency symbol to a canonical ISO 4217 code (ex. USD).  The model can optionally utilize the global document content to disambiguate or infer the currency code.
 
 ```http
 {
@@ -123,7 +124,7 @@ Besides model quality improvement, you're highly recommended to update your appl
 
 Document Intelligence v3.1 is the latest GA version with the richest features, most languages and document types coverage, and improved model quality. Refer to [model overview](overview.md) for the features and capabilities available in v3.1.
 
-Starting from v3.0, [Document Intelligence REST API](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true) has been redesigned for better usability. In this section, learn the differences between Document Intelligence v2.0, v2.1 and v3.1 and how to move to the newer version of the API.
+Starting from v3.0, [Document Intelligence REST API](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true) is redesigned for better usability. In this section, learn the differences between Document Intelligence v2.0, v2.1 and v3.1 and how to move to the newer version of the API.
 
 > [!CAUTION]
 >
@@ -193,7 +194,7 @@ Base 64 encoding is also supported in Document Intelligence v3.0:
 Parameters that continue to be supported:
 
 * `pages` : Analyze only a specific subset of pages in the document. List of page numbers indexed from the number `1` to analyze. Ex. "1-3,5,7-9"
-* `locale` : Locale hint for text recognition and document analysis. Value may contain only the language code (ex. `en`, `fr`) or BCP 47 language tag (ex. "en-US").
+* `locale` : Locale hint for text recognition and document analysis. Value can contain only the language code (ex. `en`, `fr`) or BCP 47 language tag (ex. "en-US").
 
 Parameters no longer supported:
 
@@ -203,7 +204,7 @@ The new response format is more compact and the full output is always returned.
 
 ## Changes to analyze result
 
-Analyze response has been refactored to the following top-level results to support multi-page elements.
+Analyze response is refactored to the following top-level results to support multi-page elements.
 
 * `pages`
 * `tables`
@@ -340,7 +341,7 @@ Analyze response has been refactored to the following top-level results to suppo
 The model object has three updates in the new API
 
 * ```modelId``` is now a property that can be set on a model for a human readable name.
-* ```modelName``` has been renamed to ```description```
+* ```modelName``` is renamed to ```description```
 * ```buildMode``` is a new property with values of  ```template``` for custom form models or ```neural``` for custom neural models.
 
 The ```build``` operation is invoked to train a model. The request payload and call pattern remain unchanged. The build operation specifies the model and training dataset, it returns the result via the Operation-Location header in the response. Poll this model operation URL, via a GET request to check the status of the build operation (minimum recommended interval between requests is 1 second). Unlike v2.1, this URL isn't the resource location of the model. Instead, the model URL can be constructed from the given modelId, also retrieved from the resourceLocation property in the response. Upon success, status is set to ```succeeded``` and result contains the custom model info. If errors are encountered, status is set to ```failed```, and the error is returned.
@@ -417,7 +418,7 @@ POST https://{sourceHost}/formrecognizer/documentModels/{sourceModelId}:copyTo?a
 
 ## Changes to list models
 
-List models have been extended to now return prebuilt and custom models. All prebuilt model names start with ```prebuilt-```. Only models with a status of succeeded are returned. To list models that either failed or are in progress, see [List Operations](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels).
+List models are extended to now return prebuilt and custom models. All prebuilt model names start with ```prebuilt-```. Only models with a status of succeeded are returned. To list models that either failed or are in progress, see [List Operations](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels).
 
 ***Sample list models request***
 

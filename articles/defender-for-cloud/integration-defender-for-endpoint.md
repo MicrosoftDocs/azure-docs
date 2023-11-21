@@ -60,7 +60,7 @@ When you integrate Defender for Endpoint with Defender for Cloud, you gain acces
 
 A Defender for Endpoint tenant is automatically created, when you use Defender for Cloud to monitor your machines.
 
-- **Location:** Data collected by Defender for Endpoint is stored in the geo-location of the tenant as identified during provisioning. Customer data - in pseudonymized form - may also be stored in the central storage and processing systems in the United States. After you've configured the location, you can't change it. If you have your own license for Microsoft Defender for Endpoint and need to move your data to another location, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to reset the tenant.
+- **Location:** Data collected by Defender for Endpoint is stored in the geo-location of the tenant as identified during provisioning. Customer data - in pseudonymized form - might also be stored in the central storage and processing systems in the United States. After you've configured the location, you can't change it. If you have your own license for Microsoft Defender for Endpoint and need to move your data to another location, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to reset the tenant.
 
 - **Moving subscriptions:** If you've moved your Azure subscription between Azure tenants, some manual preparatory steps are required before Defender for Cloud will deploy Defender for Endpoint. For full details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
@@ -95,7 +95,7 @@ Before you can enable the Microsoft Defender for Endpoint integration with Defen
 
 #### Windows
 
-[The MDE unified solution](/microsoft-365/security/defender-endpoint/configure-server-endpoints#new-windows-server-2012-r2-and-2016-functionality-in-the-modern-unified-solution) doesn't use or require installation of the Log Analytics agent. The unified solution is automatically deployed for Azure Windows 2012 R2 and 2016 servers, Windows servers connected through Azure Arc, and Windows multicloud servers connected through the multicloud connectors.
+[The Defender for Endpoint unified solution](/microsoft-365/security/defender-endpoint/configure-server-endpoints#new-windows-server-2012-r2-and-2016-functionality-in-the-modern-unified-solution) doesn't use or require installation of the Log Analytics agent. The unified solution is automatically deployed for Azure Windows 2012 R2 and 2016 servers, Windows servers connected through Azure Arc, and Windows multicloud servers connected through the multicloud connectors.
 
 You'll deploy Defender for Endpoint to your Windows machines in one of two ways - depending on whether you've already deployed it to your Windows machines:
 
@@ -104,9 +104,9 @@ You'll deploy Defender for Endpoint to your Windows machines in one of two ways 
 
 ##### Users with Defender for Servers enabled and Microsoft Defender for Endpoint deployed
 
-If you've already enabled the integration with **Defender for Endpoint**, you have complete control over when and whether to deploy the MDE unified solution to your **Windows** machines.
+If you've already enabled the integration with **Defender for Endpoint**, you have complete control over when and whether to deploy the Defender for Endpoint unified solution to your **Windows** machines.
 
-To deploy the MDE unified solution, you need to use the [REST API call](#enable-the-mde-unified-solution-at-scale) or the Azure portal:
+To deploy the Defender for Endpoint unified solution, you need to use the [REST API call](#enable-the-mde-unified-solution-at-scale) or the Azure portal:
 
 1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the Windows machines that you want to receive Defender for Endpoint.
 
@@ -123,25 +123,25 @@ To deploy the MDE unified solution, you need to use the [REST API call](#enable-
 
 1. To enable the Unified solution for Windows Server 2012 R2 and 2016 machines, select **Enable**.
 
-    :::image type="content" source="./media/integration-defender-for-endpoint/enable-defender-for-endpoint-unified.png" alt-text="Screenshot of enabling the use of the MDE unified solution for Windows Server 2012 R2 and 2016 machines.":::
+    :::image type="content" source="./media/integration-defender-for-endpoint/enable-defender-for-endpoint-unified.png" alt-text="Screenshot of enabling the use of the Defender for Endpoint unified solution for Windows Server 2012 R2 and 2016 machines.":::
 
 1. To save the changes, select **Save** at the top of the page and then select **Continue** in the Settings and monitoring page.
 
 Microsoft Defender for Cloud will:
 
-- Stop the existing MDE process in the Log Analytics agent that collects data for Defender for Servers.
-- Install the MDE unified solution for all existing and new Windows Server 2012 R2 and 2016 machines.
+- Stop the existing Defender for Endpoint process in the Log Analytics agent that collects data for Defender for Servers.
+- Install the Defender for Endpoint unified solution for all existing and new Windows Server 2012 R2 and 2016 machines.
 
 Microsoft Defender for Cloud will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 12 hours. For new machines created after the integration has been enabled, onboarding takes up to an hour.
 
 > [!NOTE]
-> If you choose not to deploy the MDE unified solution to your Windows 2012 R2 and 2016 servers in Defender for Servers Plan 2 and then downgrade Defender for Servers to Plan 1, the MDE unified solution is not deployed to those servers so that your existing deployment is not changed without your explicit consent.
+> If you choose not to deploy the Defender for Endpoint unified solution to your Windows 2012 R2 and 2016 servers in Defender for Servers Plan 2 and then downgrade Defender for Servers to Plan 1, the Defender for Endpoint unified solution is not deployed to those servers so that your existing deployment is not changed without your explicit consent.
 
 ##### Users who never enabled the integration with Microsoft Defender for Endpoint for Windows
 
 If you've never enabled the integration for Windows, Endpoint protection enables Defender for Cloud to deploy Defender for Endpoint to *both* your Windows and Linux machines.
 
-To deploy the MDE unified solution, you'll need to use the [REST API call](#enable-the-mde-unified-solution-at-scale) or the Azure portal:
+To deploy the Defender for Endpoint unified solution, you'll need to use the [REST API call](#enable-the-mde-unified-solution-at-scale) or the Azure portal:
 
 1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the machines that you want to receive Defender for Endpoint.
 
@@ -149,7 +149,7 @@ To deploy the MDE unified solution, you'll need to use the [REST API call](#enab
 
     :::image type="content" source="media/integration-defender-for-endpoint/enable-defender-for-endpoint.png" alt-text="Screenshot of Status toggle that enables Microsoft Defender for Endpoint." lightbox="media/integration-defender-for-endpoint/enable-defender-for-endpoint.png":::
 
-The MDE agent unified solution is deployed to all of the machines in the selected subscription.
+The Defender for Endpoint agent unified solution is deployed to all of the machines in the selected subscription.
 
 #### Linux
 
@@ -162,7 +162,7 @@ You'll deploy Defender for Endpoint to your Linux machines in one of these ways,
 - Enable for multiple subscriptions with a PowerShell script
 
 > [!NOTE]
-> When you enable automatic deployment, Defender for Endpoint for Linux installation will abort on machines with pre-existing running services using [fanotify](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements) and other services that can also cause MDE to malfunction or may be affected by MDE, such as security services.
+> When you enable automatic deployment, Defender for Endpoint for Linux installation will abort on machines with pre-existing running services using [fanotify](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements) and other services that can also cause Defender for Endpoint to malfunction or might be affected by Defender for Endpoint, such as security services.
 > After you validate potential compatibility issues, we recommend that you manually install Defender for Endpoint on these servers.
 
 ##### Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows
@@ -269,15 +269,15 @@ This configuration is supported for Azure VMs and Azure Arc machines, where the 
 
 ### Enable the MDE unified solution at scale
 
-You can also enable the MDE unified solution at scale through the supplied REST API version 2022-05-01. For full details, see the [API documentation](/rest/api/defenderforcloud/settings/update?tabs=HTTP).
+You can also enable the Defender for Endpoint unified solution at scale through the supplied REST API version 2022-05-01. For full details, see the [API documentation](/rest/api/defenderforcloud/settings/update?tabs=HTTP).
 
-Here's an example request body for the PUT request to enable the MDE unified solution:
+Here's an example request body for the PUT request to enable the Defender for Endpoint unified solution:
 
-URI: `https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Security/settings/WDATP_UNIFIED_SOLUTION?api-version=2022-05-01`
+URI: `https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Security/settings/WDATP?api-version=2022-05-01`
 
 ```json
 {
-    "name": "WDATP_UNIFIED_SOLUTION",
+    "name": "WDATP",
     "type": "Microsoft.Security/settings",
     "kind": "DataExportSettings",
     "properties": {
@@ -288,7 +288,7 @@ URI: `https://management.azure.com/subscriptions/<subscriptionId>/providers/Micr
 
 ## Track MDE deployment status
 
-You can use the [Defender for Endpoint deployment status workbook](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workbooks/Defender%20for%20Endpoint%20Deployment%20Status) to track the MDE deployment status on your Azure VMs and non-Azure machines that are connected via Azure Arc. The interactive workbook provides an overview of machines in your environment showing their Microsoft Defender for Endpoint extension deployment status.
+You can use the [Defender for Endpoint deployment status workbook](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workbooks/Defender%20for%20Endpoint%20Deployment%20Status) to track the Defender for Endpoint deployment status on your Azure VMs and non-Azure machines that are connected via Azure Arc. The interactive workbook provides an overview of machines in your environment showing their Microsoft Defender for Endpoint extension deployment status.
 
 ## Access the Microsoft Defender for Endpoint portal
 

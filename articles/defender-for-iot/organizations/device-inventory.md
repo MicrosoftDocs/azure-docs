@@ -41,34 +41,28 @@ A *transient* device type indicates a device that was detected for only a short 
 
 ## Device management options
 
-The Defender for IoT device inventory is available in the Azure portal, OT network sensor consoles, and the on-premises management console.
-
-While you can view device details from any of these locations, each location also offers extra device inventory support. The following table describes the device inventory support for each location and the extra actions available from that location only:
+Defender for IoT device inventory is available in the following locations:
 
 |Location  |Description   | Extra inventory support |
 |---------|---------|---------|
-|**Azure portal**     | Devices detected from all cloud-connected OT sensors and Enterprise IoT sensors. <br><br>      |     - If you have an [Enterprise IoT plan](eiot-defender-for-endpoint.md) on your Azure subscription, the device inventory also includes devices detected by Microsoft Defender for Endpoint agents.  <br><br>- If you also use [Microsoft Sentinel](iot-solution.md), incidents in Microsoft Sentinel are linked to related devices in Defender for IoT. <br><br>- Use Defender for IoT [workbooks](workbooks.md) for visibility into all cloud-connected device inventory, including related alerts and vulnerabilities.     |
+|**Azure portal**     | OT devices detected from all cloud-connected OT sensors.      |     - If you also use [Microsoft Sentinel](iot-solution.md), incidents in Microsoft Sentinel are linked to related devices in Defender for IoT. <br><br>- Use Defender for IoT [workbooks](workbooks.md) for visibility into all cloud-connected device inventory, including related alerts and vulnerabilities.    <br><br>- If you have a [legacy Enterprise IoT plan](whats-new.md#enterprise-iot-protection-now-included-in-microsoft-365-e5-and-e5-security-licenses) on your Azure subscription, the Azure portal also includes devices detected by Microsoft Defender for Endpoint agents. If you have an [Enterprise IoT sensor](eiot-sensor.md), the Azure portal also includes devices detected by the Enterprise IoT sensor.   |
+| **Microsoft 365 Defender** | Enterprise IoT devices detected by Microsoft Defender for Endpoint agents | Correlate devices across Microsoft 365 Defender in purpose-built alerts, vulnerabilities, and recommendations. |
 |**OT network sensor consoles**     |   Devices detected by that OT sensor      |    - View all detected devices across a network device map<br><br>- View related events on the **Event timeline** |
 |**An on-premises management console**     |  Devices detected across all connected OT sensors          | Enhance device data by importing data manually or via script  |
+| 
 
 For more information, see:
 
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
+- [Defender for Endpoint device discovery](/microsoft-365/security/defender-endpoint/device-discovery)
 - [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 - [Manage your OT device inventory from an on-premises management console](legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
-
-> [!NOTE]
-> If you have an [Enterprise IoT plan](eiot-defender-for-endpoint.md) to [integrate with Microsoft Defender for Endpoint](concept-enterprise.md), devices detected by an Enterprise IoT sensor are also listed in Defender for Endpoint. For more information, see:
-> 
-> - [Defender for Endpoint device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview)
-> - [Defender for Endpoint device discovery](/microsoft-365/security/defender-endpoint/device-discovery)
->
 
 ## Automatically consolidated devices
 
 When you've deployed Defender for IoT at scale, with several OT sensors, each sensor might detect different aspects of the same device. To prevent duplicated devices in your device inventory, Defender for IoT assumes that any devices found in the same zone, with a logical combination of similar characteristics, is the same device. Defender for IoT automatically consolidates these devices and lists them only once in the device inventory.
 
-For example, any devices with the same IP and MAC address detected in the same zone are consolidated and identified as a single device in the device inventory. If you have separate devices from recurring IP addresses that are detected by multiple sensors, you'll want each of these devices to be identified separately. In such cases, [onboard your OT sensors](onboard-sensors.md) to different zones so that each device is identified as a separate and unique device, even if they have the same IP address. Devices that have the same MAC addresses, but different IP addresses are not merged, and continue to be listed as unique devices.
+For example, any devices with the same IP and MAC address detected in the same zone are consolidated and identified as a single device in the device inventory. If you have separate devices from recurring IP addresses that are detected by multiple sensors, you want each of these devices to be identified separately. In such cases, [onboard your OT sensors](onboard-sensors.md) to different zones so that each device is identified as a separate and unique device, even if they have the same IP address. Devices that have the same MAC addresses, but different IP addresses aren't merged, and continue to be listed as unique devices.
 
 A *transient* device type indicates a device that was detected for only a short time. We recommend investigating these devices carefully to understand their impact on your network.
 
@@ -109,7 +103,7 @@ The following table lists the columns available in the Defender for IoT device i
 
 |Name  |Description
 |---------|---------|
-|**Authorization** *   |Editable. Determines whether or not the device is marked as *authorized*. This value may need to change as the device security changes.  |
+|**Authorization** *   |Editable. Determines whether or not the device is marked as *authorized*. This value might need to change as the device security changes.  |
 |**Business Function**     | Editable. Describes the device's business function. |
 | **Class** | Editable. The device's class. <br>Default: `IoT` |
 |**Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent`|

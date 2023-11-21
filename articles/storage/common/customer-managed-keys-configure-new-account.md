@@ -3,12 +3,12 @@ title: Configure customer-managed keys in the same tenant for a new storage acco
 titleSuffix: Azure Storage
 description: Learn how to configure Azure Storage encryption with customer-managed keys for a new storage account by using the Azure portal, PowerShell, or Azure CLI. Customer-managed keys are stored in an Azure key vault.
 services: storage
-author: akashdubey-ms
+author: normesta
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 03/23/2023
-ms.author: akashdubey
+ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -75,6 +75,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
     -Kind StorageV2 `
     -SkuName Standard_LRS `
     -Location $location `
+    -AllowBlobPublicAccess $false `
     -IdentityType SystemAssignedUserAssigned `
     -UserAssignedIdentityId $userIdentity.Id `
     -KeyVaultUri $keyVault.VaultUri `
@@ -146,6 +147,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
     -Kind StorageV2 `
     -SkuName Standard_LRS `
     -Location $location `
+    -AllowBlobPublicAccess $false `
     -IdentityType SystemAssignedUserAssigned `
     -UserAssignedIdentityId $userIdentity.Id `
     -KeyVaultUri $keyVault.VaultUri `
@@ -183,6 +185,7 @@ az storage account create \
     --location $location \
     --sku Standard_LRS \
     --kind StorageV2 \
+    --allow-blob-public-access false \
     --identity-type SystemAssigned,UserAssigned \
     --user-identity-id $identityResourceId \
     --encryption-key-vault $keyVaultUri \

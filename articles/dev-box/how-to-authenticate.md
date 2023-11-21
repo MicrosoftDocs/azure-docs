@@ -14,19 +14,21 @@ ms.date: 09/07/2023
 > Before authenticating, ensure that the user or identity has the appropriate permissions to perform the desired action. For more information, see [configuring project admins](./how-to-project-admin.md) and [configuring Dev Box users](./how-to-dev-box-user.md).
 
 
-## Using Azure AD authentication for REST APIs
+<a name='using-azure-ad-authentication-for-rest-apis'></a>
 
-Use the following procedures to authenticate with Azure AD. You can follow along in [Azure Cloud Shell](../../articles/cloud-shell/quickstart.md), on an Azure virtual machine, or on your local machine.
+## Using Microsoft Entra authentication for REST APIs
+
+Use the following procedures to authenticate with Microsoft Entra ID. You can follow along in [Azure Cloud Shell](../cloud-shell/get-started.md), on an Azure virtual machine, or on your local machine.
 
 ### Sign in to the user's Azure subscription
 
-Start by authenticating with Azure AD by using the Azure CLI. This step isn't required in Azure Cloud Shell.
+Start by authenticating with Microsoft Entra ID by using the Azure CLI. This step isn't required in Azure Cloud Shell.
 
 ```azurecli
 az login
 ```
 
-The command opens a browser window to the Azure AD authentication page. It requires you to give your Azure AD user ID and password.
+The command opens a browser window to the Microsoft Entra authentication page. It requires you to give your Microsoft Entra user ID and password.
 
 Next, set the correct subscription context. If you authenticate from an incorrect subscription or tenant you may receive unexpected 403 Forbidden errors.
 
@@ -35,9 +37,11 @@ az account set --subscription <subscription_id>
 ```
 
 
-### Retrieve the Azure AD access token
+<a name='retrieve-the-azure-ad-access-token'></a>
 
-Use the Azure CLI to acquire an access token for the Azure AD authenticated user.
+### Retrieve the Microsoft Entra access token
+
+Use the Azure CLI to acquire an access token for the Microsoft Entra authenticated user.
 Note that the resource ID is different depending on if you are accessing administrator (control plane) APIs or developer (data plane) APIs.
 
 For administrator APIs, use the following command:
@@ -50,7 +54,7 @@ For developer APIs, use the following command:
 az account get-access-token --resource https://devcenter.azure.com
 ```
 
-After authentication is successful, Azure AD returns an access token for current Azure subscription:
+After authentication is successful, Microsoft Entra ID returns an access token for current Azure subscription:
 
 ```json
 {
@@ -72,4 +76,4 @@ The token is a Base64 string. The token is valid for at least 5 minutes with the
 To access REST APIs, you must set the Authorization header on your request. The header value should be the string `Bearer` followed by a space and the token you received in the previous step.
 
 ## Next steps
-- Review [Azure Active Directory fundamentals](../../articles/active-directory/fundamentals/whatis.md).
+- Review [Microsoft Entra fundamentals](../../articles/active-directory/fundamentals/whatis.md).

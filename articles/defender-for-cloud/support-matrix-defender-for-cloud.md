@@ -23,7 +23,7 @@ Defender for Cloud provides recommendations, security alerts, and vulnerability 
 |Azure Blob Storage|✔|✔|-|
 |Azure Cache for Redis|✔|-|-|
 |Azure Cloud Services|✔|-|-|
-|Azure Cognitive Search|✔|-|-|
+|Azure AI Search|✔|-|-|
 |Azure Container Registry|✔|✔|[Defender for Containers](defender-for-containers-introduction.md)|
 |Azure Cosmos DB*|✔|✔|-|
 |Azure Data Lake Analytics|✔|-|-|
@@ -47,7 +47,7 @@ Defender for Cloud provides recommendations, security alerts, and vulnerability 
 
 \* These features are currently supported in preview.
 
-\*\* Azure Active Directory (Azure AD) recommendations are available only for subscriptions with [enhanced security features enabled](enable-enhanced-security.md).
+\*\* Microsoft Entra recommendations are available only for subscriptions with [enhanced security features enabled](enable-enhanced-security.md).
 
 
 

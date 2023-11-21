@@ -1,11 +1,10 @@
 ---
 title: "Quickstart: Analyze image content with C#"
-description: In this quickstart, get started using the Content Safety .NET SDK to analyze image content for objectionable material.
-services: cognitive-services
+description: In this quickstart, get started using the Azure AI Content Safety .NET SDK to analyze image content for objectionable material.
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.custom:
 ms.topic: include
 ms.date: 07/04/2023

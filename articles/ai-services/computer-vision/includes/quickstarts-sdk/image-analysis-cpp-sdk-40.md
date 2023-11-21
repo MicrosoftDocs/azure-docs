@@ -1,11 +1,10 @@
 ---
 title: "Quickstart: Image Analysis 4.0 client SDK for .NET"
 description: In this quickstart, get started with the Image Analysis 4.0 client SDK for .NET.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.custom: ignite-2022
 ms.topic: include
 ms.date: 01/24/2023

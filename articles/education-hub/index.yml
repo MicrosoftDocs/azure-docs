@@ -17,19 +17,6 @@ metadata:
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # Card
-  - title: Education Hub
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: About the Education Hub
-            url: about-education-hub.md
-          - text: Allocate Credits to Educators
-            url: it-admin-allocate-credit.md
-      - linkListType: quickstart
-        links:
-          - text: Use the Education Hub
-            url: access-education-hub.md
 
   # Card
   - title: Azure Dev Tools for Teaching
@@ -52,27 +39,37 @@ landingContent:
             url: ./azure-dev-tools-teaching/download-software.md
 
   # Card
-  - title: Education Hub REST APIs
+  - title: Azure for Students
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure for Students?
+            url: about-azure-for-students.md
+      - linkListType: tutorial
+        links:
+          - text: Deploy Resources with Azure for Students
+            url: deploy-resources-azure-for-students.md
+      - linkListType: how-to-guide
+        links:
+          - text: How to Track Usage and Create Budgets in Azure for Students
+            url: navigate-costs.md
+
+  # Card
+  - title: Azure for Students Starter
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure for Student Starter?
+            url: about-azure-for-students-starter.md
+
+  # Card
+  - title: Azure Classroom
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to set up a custom tenant for Azure Classroom
+            url: custom-tenant-set-up-classroom.md
       - linkListType: tutorial
         links:
           - text: Find IDs
             url: find-ids.md
-      - linkListType: how-to-guide
-        links:
-          - text: How to use a script to automate lab functionality
-            url: full-api-script.md
-          - text: How to create a lab
-            url: create-lab-education-hub.md
-          - text: How to add a student to a lab
-            url: add-student-api.md
-          - text: How to delete a lab
-            url: delete-lab-education-hub-apis.md
-  
-  # Card
-  - title: Azure for Classroom
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: How to set-up a custom tenant for Azure Classroom
-            url: custom-tenant-set-up-classroom.md

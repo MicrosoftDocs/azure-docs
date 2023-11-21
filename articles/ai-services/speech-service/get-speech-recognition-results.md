@@ -2,11 +2,10 @@
 title: "Get speech recognition results - Speech service"
 titleSuffix: Azure AI services
 description: Learn how to get speech recognition results.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 06/13/2022
 ms.author: eur

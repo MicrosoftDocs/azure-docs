@@ -1,66 +1,97 @@
 ---
-title: Import Bicep namespaces
-description: Describes how to import Bicep namespaces.
+title: Imports in Bicep
+description: Describes how to import shared functionality and namespaces in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/14/2023
+ms.date: 11/03/2023
 ---
 
-# Import Bicep namespaces
+# Imports in Bicep
 
-This article describes the syntax you use to import user-defined data types and the Bicep namespaces including the Bicep extensibility providers.
+This article describes the syntax you use to export and import shared functionality, as well as namespaces for Bicep extensibility providers.
 
-## Import user-defined data types (Preview)
+## Exporting types, variables and functions (Preview)
 
-[Bicep version 0.21.1 or newer](./install.md) is required to use this feature. The experimental flag `compileTimeImports` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features).
+> [!NOTE]
+> [Bicep CLI version 0.23.X or higher](./install.md) is required to use this feature. The experimental feature `compileTimeImports` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features). For user-defined functions, the experimental feature `userDefinedFunctions` must also be enabled.
 
+The `@export()` decorator is used to indicate that a given statement can be imported by another file. This decorator is only valid on type, variable and function statements. Variable statements marked with `@export()` must be compile-time constants.
 
-The syntax for importing [user-defined data type](./user-defined-data-types.md) is:
-
-```bicep
-import {<user-defined-data-type-name>, <user-defined-data-type-name>, ...} from '<bicep-file-name>'
-```
-
-or with wildcard syntax:
+The syntax for exporting functionality for use in other Bicep files is:
 
 ```bicep
-import * as <namespace> from '<bicep-file-name>'
+@export()
+<statement_to_export>
 ```
 
-You can mix and match the two preceding syntaxes.
+## Import types, variables and functions (Preview)
 
-Only user-defined data types that bear the [@export() decorator](./user-defined-data-types.md#decorator) can be imported. Currently, this decorator can only be used on [`type`](./user-defined-data-types.md) statements.
+> [!NOTE]
+> [Bicep CLI version 0.23.X or higher](./install.md) is required to use this feature. The experimental feature `compileTimeImports` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features). For user-defined functions, the experimental feature `userDefinedFunctions` must also be enabled.
 
-Imported types can be used anywhere a user-defined type might be, for example, within the type clauses of type, param, and output statements.
+The syntax for importing functionality from another Bicep file is:
+
+```bicep
+import {<symbol_name>, <symbol_name>, ...} from '<bicep_file_name>'
+```
+
+With optional aliasing to rename symbols:
+
+```bicep
+import {<symbol_name> as <alias_name>, ...} from '<bicep_file_name>'
+```
+
+Using the wildcard import syntax:
+
+```bicep
+import * as <alias_name> from '<bicep_file_name>'
+```
+
+You can mix and match the preceding syntaxes. To access imported symbols using the wildcard syntax, you must use the `.` operator: `<alias_name>.<exported_symbol>`.
+
+Only statements that have been [exported](#exporting-types-variables-and-functions-preview) in the file being referenced are available to be imported.
+
+Functionality that has been imported from another file can be used without restrictions. For example, imported variables can be used anywhere a variable declared in-file would normally be valid.
 
 ### Example
 
-myTypes.bicep
+module.bicep
 
 ```bicep
 @export()
-type myString = string
+type myObjectType = {
+  foo: string
+  bar: int
+}
 
 @export()
-type myInt = int
+var myConstant = 'This is a constant value'
+
+@export()
+func sayHello(name string) string => 'Hello ${name}!'
 ```
 
 main.bicep
 
 ```bicep
-import * as myImports from 'myTypes.bicep'
-import {myInt} from 'myTypes.bicep'
+import * as myImports from 'exports.bicep'
+import {myObjectType, sayHello} from 'exports.bicep'
 
-param exampleString myImports.myString = 'Bicep'
-param exampleInt myInt = 3
+param exampleObject myObjectType = {
+  foo: myImports.myConstant
+  bar: 0
+}
 
-output outString myImports.myString = exampleString
-output outInt myInt = exampleInt
+output greeting string = sayHello('Bicep user')
+output exampleObject myImports.myObjectType = exampleObject
 ```
 
-## Import namespaces and extensibility providers
+## Import namespaces and extensibility providers (Preview)
 
-The syntax for importing the namespaces is:
+> [!NOTE]
+> The experimental feature `extensibility` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features) to use this feature.
+
+The syntax for importing namespaces is:
 
 ```bicep
 import 'az@1.0.0'
@@ -70,6 +101,12 @@ import 'sys@1.0.0'
 Both `az` and `sys` are Bicep built-in namespaces. They are imported by default. For more information about the data types and the functions defined in `az` and `sys`, see [Data types](./data-types.md) and  [Bicep functions](./bicep-functions.md).
 
 The syntax for importing Bicep extensibility providers is:
+
+```bicep
+import '<provider-name>@<provider-version>'
+```
+
+The syntax for importing Bicep extensibility providers which require configuration is:
 
 ```bicep
 import '<provider-name>@<provider-version>' with {

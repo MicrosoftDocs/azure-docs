@@ -27,7 +27,7 @@ Authentication considerations for built-in and Azure connectors differ based on 
 | Environment | Connector type | Authentication |
 |-------------|----------------|----------------|
 | Azure portal | Built-in | Connection strings, credentials, or connection parameters are stored in your logic app's configuration or app settings. |
-| Azure portal | Azure | Connections are authenticated using either a managed identity or [Azure Active Directory (Azure AD) app registration with access policies enabled on the Azure API connections](../logic-apps/azure-arc-enabled-logic-apps-create-deploy-workflows.md#set-up-connection-authentication). |
+| Azure portal | Azure | Connections are authenticated using either a managed identity or [Microsoft Entra app registration with access policies enabled on the Azure API connections](../logic-apps/azure-arc-enabled-logic-apps-create-deploy-workflows.md#set-up-connection-authentication). |
 | Visual Studio Code | Built-in | Connection strings or credentials are stored in the logic app project's **local.settings.json** file. |
 | Visual Studio Code | Azure | During workflow design, API connections are created and stored in the Azure cloud backend. To run these connections in your local environment, a bearer token is issued for seven days and is stored in your logic app project's **local.settings.json** file. |
 ||||

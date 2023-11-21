@@ -3,17 +3,22 @@ title: Azure SQL trigger for Functions
 description: Learn to use the Azure SQL trigger in Azure Functions.
 author: JetterMcTedder
 ms.topic: reference
-ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 8/04/2023
+ms.custom:
+  - build-2023
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - ignite-2023
+ms.date: 11/14/2023
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Azure SQL trigger for Functions (preview)
+# Azure SQL trigger for Functions
 
 > [!NOTE]
-> The Azure SQL trigger for Functions is currently in preview and requires that a preview extension library or extension bundle is used. In consumption plan functions, automatic scaling is not available for SQL trigger. Use premium or dedicated plans for [scaling benefits](functions-scale.md) with SQL trigger.
+> In consumption plan functions, automatic scaling is not available for SQL trigger. Use premium or dedicated plans for [scaling benefits](functions-scale.md) with SQL trigger.
 
 The Azure SQL trigger uses [SQL change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) functionality to monitor a SQL table for changes and trigger a function when a row is created, updated, or deleted. For configuration details for change tracking for use with the Azure SQL trigger, see [Set up change tracking](#set-up-change-tracking-required). For information on setup details of the Azure SQL extension for Azure Functions, see the [SQL binding overview](./functions-bindings-azure-sql.md).
 
@@ -46,62 +51,7 @@ For more information on change tracking and how it's used by applications such a
 <a id="example"></a>
 
 
-# [In-process](#tab/in-process)
-
-More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
-
-
-The example refers to a `ToDoItem` class and a corresponding database table:
-
-:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16":::
-
-:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
-
-[Change tracking](#set-up-change-tracking-required) is enabled on the database and on the table:
-
-```sql
-ALTER DATABASE [SampleDatabase]
-SET CHANGE_TRACKING = ON
-(CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON);
-
-ALTER TABLE [dbo].[ToDo]
-ENABLE CHANGE_TRACKING;
-```
-
-The SQL trigger binds to a `IReadOnlyList<SqlChange<T>>`, a list of `SqlChange` objects each with two properties:
-- **Item:** the item that was changed. The type of the item should follow the table schema as seen in the `ToDoItem` class.
-- **Operation:** a value from `SqlChangeOperation` enum. The possible values are `Insert`, `Update`, and `Delete`.
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that is invoked when there are changes to the `ToDo` table:
-
-```cs
-using System.Collections.Generic;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Extensions.Logging;
-using Microsoft.Azure.WebJobs.Extensions.Sql;
-
-namespace AzureSQL.ToDo
-{
-    public static class ToDoTrigger
-    {
-        [FunctionName("ToDoTrigger")]
-        public static void Run(
-            [SqlTrigger("[dbo].[ToDo]", "SqlConnectionString")]
-            IReadOnlyList<SqlChange<ToDoItem>> changes,
-            ILogger logger)
-        {
-            foreach (SqlChange<ToDoItem> change in changes)
-            {
-                ToDoItem toDoItem = change.Item;
-                logger.LogInformation($"Change operation: {change.Operation}");
-                logger.LogInformation($"Id: {toDoItem.Id}, Title: {toDoItem.title}, Url: {toDoItem.url}, Completed: {toDoItem.completed}");
-            }
-        }
-    }
-}
-```
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-outofproc).
 
@@ -161,9 +111,9 @@ namespace AzureSQL.ToDo
 ```
 
 
-# [C# Script](#tab/csharp-script)
+# [In-process model](#tab/in-process)
 
-More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csx).
+More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
 
 
 The example refers to a `ToDoItem` class and a corresponding database table:
@@ -187,44 +137,36 @@ The SQL trigger binds to a `IReadOnlyList<SqlChange<T>>`, a list of `SqlChange` 
 - **Item:** the item that was changed. The type of the item should follow the table schema as seen in the `ToDoItem` class.
 - **Operation:** a value from `SqlChangeOperation` enum. The possible values are `Insert`, `Update`, and `Delete`.
 
-The following example shows a SQL trigger in a function.json file and a [C# script function](functions-reference-csharp.md) that is invoked when there are changes to the `ToDo` table:
+The following example shows a [C# function](functions-dotnet-class-library.md) that is invoked when there are changes to the `ToDo` table:
 
-The following is binding data in the function.json file:
+```cs
+using System.Collections.Generic;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.WebJobs.Extensions.Sql;
 
-```json
+namespace AzureSQL.ToDo
 {
-    "name": "todoChanges",
-    "type": "sqlTrigger",
-    "direction": "in",
-    "tableName": "dbo.ToDo",
-    "connectionStringSetting": "SqlConnectionString"
-}
-```
-The following is the C# script function:
-
-```csharp
-#r "Newtonsoft.Json"
-
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
-using Newtonsoft.Json;
-
-public static void Run(IReadOnlyList<SqlChange<ToDoItem>> todoChanges, ILogger log)
-{
-    log.LogInformation($"C# SQL trigger function processed a request.");
-
-    foreach (SqlChange<ToDoItem> change in todoChanges)
+    public static class ToDoTrigger
     {
-        ToDoItem toDoItem = change.Item;
-        log.LogInformation($"Change operation: {change.Operation}");
-        log.LogInformation($"Id: {toDoItem.Id}, Title: {toDoItem.title}, Url: {toDoItem.url}, Completed: {toDoItem.completed}");
+        [FunctionName("ToDoTrigger")]
+        public static void Run(
+            [SqlTrigger("[dbo].[ToDo]", "SqlConnectionString")]
+            IReadOnlyList<SqlChange<ToDoItem>> changes,
+            ILogger logger)
+        {
+            foreach (SqlChange<ToDoItem> change in changes)
+            {
+                ToDoItem toDoItem = change.Item;
+                logger.LogInformation($"Change operation: {change.Operation}");
+                logger.LogInformation($"Id: {toDoItem.Id}, Title: {toDoItem.title}, Url: {toDoItem.url}, Completed: {toDoItem.completed}");
+            }
+        }
     }
 }
 ```
 
 ---
-
 
 ::: zone-end
 
@@ -402,13 +344,7 @@ param($todoChanges)
 $changesJson = $todoChanges | ConvertTo-Json -Compress
 Write-Host "SQL Changes: $changesJson"
 ```
-
-
 ::: zone-end
-
-
-
-
 ::: zone pivot="programming-language-javascript"
 ## Example usage
 <a id="example"></a>
@@ -581,14 +517,14 @@ In addition to the required ConnectionStringSetting [application setting](./func
 |---------|---------|
 |**Sql_Trigger_BatchSize** |The maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function. The default value is 100.|
 |**Sql_Trigger_PollingIntervalMs**|The delay in milliseconds between processing each batch of changes. The default value is 1000 (1 second).|
-|**Sql_Trigger_MaxChangesPerWorker**|The upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it may result in a scale-out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling). The default value is 1000.|
+|**Sql_Trigger_MaxChangesPerWorker**|The upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it might result in a scale-out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling). The default value is 1000.|
 
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## Set up change tracking (required)
 
-Setting up change tracking for use with the Azure SQL trigger requires two steps.  These steps can be completed from any SQL tool that supports running queries, including [Visual Studio Code](/sql/tools/visual-studio-code/mssql-extensions), [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+Setting up change tracking for use with the Azure SQL trigger requires two steps.  These steps can be completed from any SQL tool that supports running queries, including [Visual Studio Code](/sql/tools/visual-studio-code/mssql-extensions), [Azure Data Studio](/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Enable change tracking on the SQL database, substituting `your database name` with the name of the database where the table to be monitored is located:
 
@@ -598,7 +534,7 @@ Setting up change tracking for use with the Azure SQL trigger requires two steps
     (CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON);
     ```
 
-    The `CHANGE_RETENTION` option specifies the time period for which change tracking information (change history) is kept.  The retention of change history by the SQL database may affect the trigger functionality. For example, if the Azure Function is turned off for several days and then resumed, the database will contain the changes that occurred in past two days in the above setup example.
+    The `CHANGE_RETENTION` option specifies the time period for which change tracking information (change history) is kept.  The retention of change history by the SQL database might affect trigger functionality. For example, if the Azure Function is turned off for several days and then resumed, the database will contain the changes that occurred in past two days in the above setup example.
 
     The `AUTO_CLEANUP` option is used to enable or disable the clean-up task that removes old change tracking information. If a temporary problem that prevents the trigger from running, turning off auto cleanup can be useful to pause the removal of information older than the retention period until the problem is resolved.
 
@@ -635,7 +571,7 @@ Note that these retries are outside the built-in idle connection retry logic tha
 ### Function exception retries
 If an exception occurs in the user function when processing changes then the batch of rows currently being processed are retried again in 60 seconds. Other changes are processed as normal during this time, but the rows in the batch that caused the exception are ignored until the timeout period has elapsed.
 
-If the function execution fails five times in a row for a given row then that row is completely ignored for all future changes. Because the rows in a batch are not deterministic, rows in a failed batch may end up in different batches in subsequent invocations. This means that not all rows in the failed batch will necessarily be ignored. If other rows in the batch were the ones causing the exception, the "good" rows may end up in a different batch that doesn't fail in future invocations.
+If the function execution fails five times in a row for a given row then that row is completely ignored for all future changes. Because the rows in a batch are not deterministic, rows in a failed batch might end up in different batches in subsequent invocations. This means that not all rows in the failed batch will necessarily be ignored. If other rows in the batch were the ones causing the exception, the "good" rows might end up in a different batch that doesn't fail in future invocations.
 
 ## Next steps
 

@@ -69,6 +69,10 @@
             "redirect_url": "/azure/defender-for-iot/organizations/legacy-central-management/prepare-management-appliance",
             "redirect_document_id": false
         },
+            "source_path_from_root": "/articles/defender-for-iot/organizations/faqs-eiot.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/concept-enterprise#frequently-asked-questions",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/defender-for-iot/organizations/best-practices/plan-network-monitoring.md",
             "redirect_url": "/azure/defender-for-iot/organizations/best-practices/plan-prepare-deploy",

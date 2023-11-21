@@ -2,14 +2,14 @@
 title: Restore SAP HANA database instances on Azure VMs
 description: In this article, you'll learn how to restore SAP HANA database instances on Azure virtual machines.
 ms.topic: conceptual
-ms.date: 10/05/2022
+ms.date: 11/02/2023
 ms.service: backup
 ms.custom: ignite-2022
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Restore SAP HANA database instance snapshots on Azure VMs (preview)
+# Restore SAP HANA database instance snapshots on Azure VMs
 
 This article describes how to restore a backed-up SAP HANA database instance to another target virtual machine (VM) via snapshots.
 
@@ -21,7 +21,7 @@ You can restore the HANA snapshot and storage snapshot as disks by selecting **A
 Here are the two workflows:
 
 - [Restore the entire HANA system (the system database and all tenant databases) to a single snapshot-based restore point](#restore-the-entire-system-to-a-snapshot-restore-point).
-- [Restore the system database and all tenant databases to a different log point in time over a snapshot](#restore-the-database-to-a-different-log-point-in-time-over-a-snapshot).
+- [Restore the system database and all tenant databases to a different logpoint-in-time over a snapshot](#restore-the-database-to-a-different-logpoint-in-time-over-a-snapshot).
 
 >[!Note]
 >SAP HANA recommends that you recover the entire system during the snapshot restore. This means that you would also restore the system database. If the system database is restored, the users/access information is also overwritten or updated, and subsequent attempts at recovery of tenant databases might fail after the system database recovery. The two options to resolve this issue are:
@@ -49,68 +49,23 @@ After the restore is completed, you can revoke these permissions.
 >- The credentials that are used should have permissions to grant roles to other resources. The roles should be Owner or User Access Administrator, as mentioned in [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md#step-4-check-your-prerequisites).
 >- You can use the Azure portal to assign all the preceding permissions during the restore.
 
+Learn about the [SAP HANA instance snapshot restore architecture](azure-backup-architecture-for-sap-hana-backup.md#backup-architecture-for-database-instance-snapshot).
+
+### Establish network connectivity
+
+[Learn about](backup-azure-sap-hana-database.md#establish-network-connectivity) the network configurations required for HANA instance snapshot.
+
 ## Restore the entire system to a snapshot restore point
 
-In the following sections, you'll learn how to restore the system to the snapshot restore point.
+[!INCLUDE [How to restore the entire SAP HANA system to a snapshot restore point.](../../includes/backup-azure-restore-entire-sap-hana-system-to-snapshot-restore-point.md)]
 
-### Select and mount the snapshot
+## Restore the database to a different logpoint-in-time over a snapshot
 
-To select and mount the snapshot, do the following:
-
-1. In the Azure portal, go to the Recovery Services vault.
-
-1. On the left pane, select **Backup items**.
-
-1. Select **Primary Region**, and then select **SAP HANA in Azure VM**.
-
-   :::image type="content" source="./media/sap-hana-database-instances-restore/select-vm-in-primary-region.png" alt-text="Screenshot that shows where to select the primary region option for VM selection.":::
-
-1. On the **Backup Items** page, select **View details** corresponding to the SAP HANA snapshot instance.
-
-   :::image type="content" source="./media/sap-hana-database-instances-restore/select-view-details.png" alt-text="Screenshot that shows where to view the details of the HANA database snapshot.":::
- 
-1. Select **Restore**.
-
-   :::image type="content" source="./media/sap-hana-database-instances-restore/restore-hana-snapshot.png" alt-text="Screenshot that shows the 'Restore' option for the HANA database snapshot.":::
-
-1. On the **Restore** pane, select the target VM to which the disks should be attached, the required HANA instance, and the resource group.
-
-1. On the **Restore Point** pane, choose **Select**.
-
-   :::image type="content" source="./media/sap-hana-database-instances-restore/restore-system-database-restore-point.png" alt-text="Screenshot showing to select HANA snapshot recovery point.":::
-
-1. On the **Select restore point** pane, select a recovery point, and then select **OK**.
-
-1. Select the corresponding resource group and the *managed identity* to which all permissions are assigned for restore.
-
-1. Select **Validate** to check to ensure that all the permissions are assigned to the managed identity for the relevant scopes.
-
-1. If the permissions aren't assigned, select **Assign missing roles/identity**.
-
-   After the roles are assigned, the Azure portal automatically re-validates the permission updates.
-
-1. Select **Attach and mount snapshot** to attach the disks to the VM.
-
-1. Select **OK** to create disks from snapshots, attach them to the target VM, and mount them.
-
-### Restore the system database
-
-Recover the system database from the data snapshot by using HANA Studio. For more information, see the [SAP documentation](https://help.sap.com/docs/SAP_HANA_COCKPIT/afa922439b204e9caf22c78b6b69e4f2/9fd053d58cb94ac69655b4ebc41d7b05.html).
-
->[!Note]
->After you've restored the system database, you need to run the preregistration script on the target VM to update the user credentials.
-
-### Restore tenant databases
-
-When the system database is restored, recover all tenant databases from a data snapshot by using HANA Studio. For more information, see the [HANA documentation](https://help.sap.com/docs/SAP_HANA_COCKPIT/afa922439b204e9caf22c78b6b69e4f2/b2c283094b9041e7bdc0830c06b77bf8.html).
-
-## Restore the database to a different log point in time over a snapshot
-
-To restore the database to a different log point in time, do the following.
+To restore the database to a different logpoint-in-time, do the following.
 
 ### Select and mount the nearest snapshot
 
-First, identify the snapshot that's nearest to the required log point in time. Then [attach and mount that snapshot](#select-and-mount-the-snapshot) to the target VM.
+First, identify the snapshot that's nearest to the required logpoint-in-time. Then [attach and mount that snapshot](#select-and-mount-the-snapshot) to the target VM.
 
 ### Restore system database
 
@@ -134,7 +89,7 @@ To select and restore the required point in time for the system database, follow
 
 1. Below the **Restore Point** box, select the **Select** link.
 
-   :::image type="content" source="./media/sap-hana-database-instances-restore/restore-logs-over-snapshot-restore-point.png" alt-text="Screenshot that shows how to select the log restore points of the system database instance for restore.":::
+   :::image type="content" source="./media/sap-hana-database-instances-restore/restore-over-snapshot.png" alt-text="Screenshot that shows how to select the log restore points of the system database instance for restore.":::
 
 1. On the **Select restore point** pane, select the restore point, and then select **OK**.
 
@@ -166,7 +121,7 @@ To restore the tenant database, do the following:
 
 1. On the **Restore** pane, select the target VM to which the disks should be attached, the required HANA instance, and the resource group.
 
-   :::image type="content" source="./media/sap-hana-database-instances-restore/log-over-snapshots-for-tenant-database-restore-point.png" alt-text="Screenshot that shows where to select the restore point of the log over snapshots for the tenant database.":::
+   :::image type="content" source="./media/sap-hana-database-instances-restore/restore-over-snapshot.png" alt-text="Screenshot that shows where to select the restore point of the log over snapshots for the tenant database.":::
 
    Ensure that the target VM and target disk resource group have relevant permissions by using the PowerShell or CLI script.
 
@@ -189,4 +144,4 @@ The managed disk snapshots don't get transferred to the Recovery Services vault.
 ## Next steps
 
 - [About SAP HANA database backup on Azure VMs](sap-hana-db-about.md).
-- [Manage SAP HANA database instances on Azure VMs (preview)](sap-hana-database-manage.md).
+- [Manage SAP HANA database instances on Azure VMs](sap-hana-database-manage.md).

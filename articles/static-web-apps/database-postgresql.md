@@ -34,7 +34,7 @@ To complete this tutorial, you need to have an existing Azure Database for Postg
 |---|---|
 | [Azure Database for PostgreSQL Flexible Server](/azure/postgresql/flexible-server/quickstart-create-server-portal) or [Azure Database for PostgreSQL Single Server Database](/azure/postgresql/single-server/quickstart-create-server-database-portal) | If you don't already have one, follow the steps in the [create an Azure Database for PostgreSQL Flexible Server database](/azure/postgresql/flexible-server/quickstart-create-server-portal) guide, or in the [create an Azure Database for PostgeSQL Single Server database](/azure/postgresql/single-server/quickstart-create-server-database-portal) guide. If you plan to use a connection string authentication for Static Web Apps' database connections, ensure that you create your Azure Database for PostgreSQL Server with PostgreSQL authentication. You can change this value if you want to use managed identity later on. |
 | [Existing static web app](getting-started.md) | If you don't already have one, follow the steps in the [getting started](getting-started.md) guide to create a *No Framework* static web app. |
-| [Azure Data Studio, with the PostgreSQL extension](/sql/azure-data-studio/quickstart-postgres) | If you don't already have Azure Data Studio installed, follow the guide to install [Azure Data Studio, with the PostgreSQL extension](/sql/azure-data-studio/quickstart-postgres). Alternatively, you may use any other tool to query your PostgreSQL database, such as PgAdmin. |
+| [Azure Data Studio, with the PostgreSQL extension](/azure-data-studio/quickstart-postgres) | If you don't already have Azure Data Studio installed, follow the guide to install [Azure Data Studio, with the PostgreSQL extension](/azure-data-studio/quickstart-postgres). Alternatively, you may use any other tool to query your PostgreSQL database, such as PgAdmin. |
 
 Begin by configuring your database to work with the Azure Static Web Apps database connection feature.
 
@@ -70,9 +70,9 @@ To use your Azure database for local development, you need to retrieve the conne
 
 ## Create sample data
 
-Create a sample table and seed it with sample data to match the tutorial. This tutorial uses [Azure Data Studio](/sql/azure-data-studio/quickstart-postgres), but you may use PgAdmin or any other tool. 
+Create a sample table and seed it with sample data to match the tutorial. This tutorial uses [Azure Data Studio](/azure-data-studio/quickstart-postgres), but you may use PgAdmin or any other tool. 
 
-1. In Azure Data Studio, [create a connection to your Azure Database for PostgreSQL Server](/sql/azure-data-studio/quickstart-postgres#connect-to-postgresql)
+1. In Azure Data Studio, [create a connection to your Azure Database for PostgreSQL Server](/azure-data-studio/quickstart-postgres#connect-to-postgresql)
 
 1. Right-click your server, and select **New Query**. Run the following querying to create a database named `MyTestPersonDatabase`.
 

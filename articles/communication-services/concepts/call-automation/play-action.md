@@ -12,13 +12,13 @@ ms.author: kpunjabi
 # Playing audio in call
 
 The play action provided through the Azure Communication Services Call Automation SDK allows you to play audio prompts to participants in the call. This action can be accessed through the server-side implementation of your application. You can play audio to call participants through one of two methods;
-- Providing Azure Communication Services access to prerecorded audio files of WAV format, that ACS can access with support for authentication
+- Providing Azure Communication Services access to prerecorded audio files of WAV format, that Azure Communication Services can access with support for authentication
 - Regular text that can be converted into speech output through the integration with Azure AI services.
 
 You can use the newly announced integration between [Azure Communication Services and Azure AI services](./azure-communication-services-azure-cognitive-services-integration.md) to play personalized responses using Azure [Text-To-Speech](../../../../articles/cognitive-services/Speech-Service/text-to-speech.md). You can use human like prebuilt neural voices out of the box or create custom neural voices that are unique to your product or brand. For more information on supported voices, languages and locales see [Language and voice support for the Speech service](../../../../articles/cognitive-services/Speech-Service/language-support.md). (Supported in public preview)
 
 > [!NOTE]
-> Azure Communication Services currently only supports WAV files formatted as mono channel audio recorded at 16KHz. You can create your own audio files using [Speech synthesis with Audio Content Creation tool](../../../ai-services/Speech-Service/how-to-audio-content-creation.md). 
+> Azure Communication Services currently supports two file formats, MP3 files and WAV files formatted as 16-bit PCM mono channel audio recorded at 16KHz. You can create your own audio files using [Speech synthesis with Audio Content Creation tool](../../../ai-services/Speech-Service/how-to-audio-content-creation.md). 
 
 ## Prebuilt Neural Text to Speech voices
 Microsoft uses deep neural networks to overcome the limits of traditional speech synthesis with regard to stress and intonation in spoken language. Prosody prediction and voice synthesis occur simultaneously, resulting in a more fluid and natural sounding output. You can use these neural voices to make interactions with your chatbots and voice assistants more natural and engaging. There are over 100 prebuilt voices to choose from. Learn more about [Azure Text-to-Speech voices](../../../../articles/cognitive-services/Speech-Service/language-support.md).

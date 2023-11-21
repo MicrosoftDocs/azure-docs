@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: concepts
 ms.topic: overview
 ms.custom: references_regions
-ms.date: 10/10/2022
+ms.date: 10/11/2023
 ---
 
 # What's new in Azure Data Factory
@@ -23,6 +23,23 @@ Azure Data Factory is improved on an ongoing basis. To stay up to date with the 
 This page is updated monthly, so revisit it regularly.  For older months' updates, refer to the [What's new archive](whats-new-archive.md).
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update videos.
+
+## October 2023
+
+### Data movement
+
+General Availability of Time to Live (TTL) for Managed Virtual Network [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/general-availability-of-time-to-live-ttl-for-managed-virtual/ba-p/3922218)
+
+### Region expanstion
+
+Azure Data Factory is generally available in Poland Central [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/continued-region-expansion-azure-data-factory-is-generally/ba-p/3965769)
+
+
+## September 2023
+
+### Pipelines
+
+Added support for metadata driven pipelines for dynamic full and incremental processing in Azure SQL [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/metadata-driven-pipelines-for-dynamic-full-and-incremental/ba-p/3925362)
 
 ## August 2023
 
@@ -106,32 +123,6 @@ You can customize the commit message in Git mode now. Type in a detailed descrip
 ### Connectors
 
 The Azure Blob Storage connector now supports anonymous authentication. [Learn more](connector-azure-blob-storage.md#anonymous-authentication)
-
-## March 2023
-
-### Connectors
-
-Azure Data Lake Storage Gen2 connector now supports shared access signature authentication. [Learn more](connector-azure-data-lake-storage.md#shared-access-signature-authentication)
-
-## February 2023
-
-### Data movement
-
-- Anonymous authentication type supported for Azure Blob storage [Learn more](connector-azure-blob-storage.md?tabs=data-factory#anonymous-authentication)
-- Updated SAP template to easily move SAP data to ADLSGen2 in Delta format [Learn more](industry-sap-templates.md)
-
-### Monitoring
-
-Container monitoring view available in default ADF studio [Learn more](how-to-manage-studio-preview-exp.md#container-view)
-
-### Orchestration
-
-- Set pipeline output value (Public preview) [Learn more](tutorial-pipeline-return-value.md)
-- Managed Airflow (Public preview) [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-managed-airflow-in-azure-data-factory/ba-p/3730151)
-
-### Developer productivity
-
-Dark theme support added (Public preview) [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-dark-mode-for-adf-studio/ba-p/3757961)
 
 ## More information
 

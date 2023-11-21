@@ -4,22 +4,37 @@ titleSuffix: Azure AI services
 description: Learn how to use Document Intelligence SDKs or REST API and create apps to extract key data from documents.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - devx-track-dotnet
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - ignite-2023
 ms.topic: how-to
 ms.date: 08/21/2023
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
-monikerRange: '<=doc-intel-3.1.0'
 ---
 
 <!-- markdownlint-disable MD051 -->
 
 # Use Document Intelligence models
 
-::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [applies to v4.0](../includes/applies-to-v40.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](../includes/applies-to-v31.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+[!INCLUDE [applies to v3.0](../includes/applies-to-v30.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-2.1.0"
+[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
 ::: moniker-end
 
 ::: moniker range=">=doc-intel-3.0.0"
@@ -33,9 +48,9 @@ Choose from the following Document Intelligence models to analyze and extract da
 >
 > - The [prebuilt-read](../concept-read.md) model is at the core of all Document Intelligence models and can detect lines, words, locations, and languages. Layout, general document, prebuilt, and custom models all use the read model as a foundation for extracting texts from documents.
 >
-> - The [prebuilt-layout](../concept-layout.md) model extracts text and text locations, tables, selection marks, and structure information from documents and images.
+> - The [prebuilt-layout](../concept-layout.md) model extracts text and text locations, tables, selection marks, and structure information from documents and images. You can extract key/value pairs using the layout model with the optional query string parameter **`features=keyValuePairs`** enabled.
 >
-> - The [prebuilt-document](../concept-general-document.md) model extracts key-value pairs, tables, and selection marks from documents. You can use this model as an alternative to training a custom model without labels.
+> - The [prebuilt-contract](../concept-contract.md) model extracts key information from contractual agreements.
 >
 > - The [prebuilt-healthInsuranceCard.us](../concept-health-insurance-card.md) model extracts key information from US health insurance cards.
 >
@@ -47,13 +62,13 @@ Choose from the following Document Intelligence models to analyze and extract da
 >
 > - The [prebuilt-tax.us.1098T](../concept-tax-document.md) model extracts information reported on US 1098-T tax forms.
 >
+> - The [prebuilt-tax.us.1099(variations)](../concept-tax-document.md) model extracts information reported on US 1099 tax forms.
+>
 > - The [prebuilt-invoice](../concept-invoice.md) model extracts key fields and line items from sales invoices in various formats and quality. Fields include phone-captured images, scanned documents, and digital PDFs.
 >
 > - The [prebuilt-receipt](../concept-receipt.md) model extracts key information from printed and handwritten sales receipts.
 >
 > - The [prebuilt-idDocument](../concept-id-document.md) model extracts key information from US drivers licenses, international passport biographical pages, US state IDs, social security cards, and permanent resident cards or *green cards*.
->
-> - The [prebuilt-businessCard](../concept-business-card.md) model extracts key information from business cards.
 
 ::: moniker-end
 
@@ -111,7 +126,7 @@ Congratulations! You've learned to use Document Intelligence models to analyze v
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"

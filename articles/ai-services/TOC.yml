@@ -25,10 +25,8 @@
     href: create-account-terraform.md
 - name: Concepts
   items:
-  - name: Azure AI services development options
-    href: cognitive-services-development-options.md
-  - name: Azure AI services and Machine learning
-    href: cognitive-services-and-machine-learning.md 
+  - name: Azure AI services and the ecosystem
+    href: ai-services-and-ecosystem.md 
   - name: Custom subdomains for Azure AI services
     href: cognitive-services-custom-subdomains.md
 - name: How-to
@@ -41,12 +39,10 @@
     href: commitment-tier.md
   - name: Diagnostic logging
     href: diagnostic-logging.md
-  - name: Manage resources
-    href: manage-resources.md
+  - name: Recover or purge deleted resources
+    href: recover-purge-resources.md
   - name: Deploy containers
     items:
-    - name: Azure AI containers documentation
-      href: containers/index.yml
     - name: Azure AI containers overview
       href: cognitive-services-container-support.md
     - name: General container FAQ
@@ -79,6 +75,8 @@
       href: security-features.md
     - name: Authenticate requests
       href: authentication.md
+    - name: Disable local authentication
+      href: disable-local-auth.md
     - name: Rotate keys
       href: rotate-keys.md
     - name: Use environment variables

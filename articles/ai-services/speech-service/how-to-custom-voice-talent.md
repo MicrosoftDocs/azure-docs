@@ -2,11 +2,10 @@
 title: "Set up voice talent for custom neural voice - Speech service"
 titleSuffix: Azure AI services
 description: Create a voice talent profile with an audio file recorded by the voice talent, consenting to the usage of their speech data to train a custom voice model.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 10/27/2022
 ms.author: eur

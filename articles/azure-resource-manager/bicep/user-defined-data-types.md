@@ -3,14 +3,14 @@ title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/14/2023
+ms.date: 11/03/2023
 ---
 
 # User-defined data types in Bicep
 
 Learn how to use user-defined data types in Bicep.
 
-[Bicep version 0.12.1 or newer](./install.md) is required to use this feature.
+[Bicep CLI version 0.12.X or higher](./install.md) is required to use this feature.
 
 ## User-defined data type syntax
 
@@ -111,7 +111,7 @@ The valid type expressions include:
         level2: {
           level3: {
             level4: {
-              level5: invalidRecursiveObject
+              level5: invalidRecursiveObjectType
             }
           }
         }
@@ -169,8 +169,6 @@ In addition to be used in the `type` statement, type expressions can also be use
     param mixedTypeArray ('fizz' | 42 | {an: 'object'} | null)[]
     ```
 
-## An example
-
 A typical Bicep file to create a storage account looks like:
 
 ```bicep
@@ -217,9 +215,42 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 }
 ```
 
-## Decorator
+## Declare tagged union type
 
-[Bicep version 0.21.1 or newer](./install.md) is required to use this feature. The experimental flag `compileTimeImports` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features).
+To declare a custom tagged union data type within a Bicep file, you can place a discriminator decorator above a user-defined type declartion. [Bicep CLI version 0.21.X or higher](./install.md) is required to use this decorator. The syntax is:
+
+```bicep
+@discriminator('<propertyName>')
+```
+
+The discriminator decorator takes a single parameter, which represents a shared property name among all union members. This property name must be a required string literal on all members and is case-sensitive. The values of the discriminated property on the union members must be unique in a case-insensitive manner.
+
+The following example shows how to declare a tagged union type:
+
+```bicep
+type FooConfig = {
+  type: 'foo'
+  value: int
+}
+
+type BarConfig = {
+  type: 'bar'
+  value: bool
+}
+
+@discriminator('type')
+type ServiceConfig = FooConfig | BarConfig | { type: 'baz', *: string }
+
+param serviceConfig ServiceConfig = { type: 'bar', value: true }
+
+output config object = serviceConfig
+```
+
+The parameter value is validated based on the discriminated property value.  In the preceeding example, if the *serviceConfig* parameter value is of type *foo*, it undergoes validation using the *FooConfig*type. Likewise, if the parameter value is of type *bar*, validation is performed using the *BarConfig* type, and this pattern continues for other types as well.
+
+## Import types between Bicep files (Preview)
+
+[Bicep CLI version 0.21.X or higher](./install.md) is required to use this compile-time import feature. The experimental flag `compileTimeImports` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features).
 
 Only user-defined data types that bear the `@export()` decorator can be imported to other templates. Currently, this decorator can only be used on `type` statements.
 

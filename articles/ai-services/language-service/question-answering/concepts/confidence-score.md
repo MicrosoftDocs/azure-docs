@@ -2,12 +2,11 @@
 title: Confidence score - question answering
 titleSuffix: Azure AI services
 description: When a user query is matched against a knowledge base, question answering returns relevant answers, along with a confidence score.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: jboback
 ms.author: jboback
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
@@ -54,17 +53,17 @@ When multiple responses have a similar confidence score, it is likely that the q
 
 ## Confidence score differences between test and production
 
-The confidence score of an answer may change negligibly between the test and deployed version of the project even if the content is the same. This is because the content of the test and the deployed project are located in different Azure Cognitive Search indexes.
+The confidence score of an answer may change negligibly between the test and deployed version of the project even if the content is the same. This is because the content of the test and the deployed project are located in different Azure AI Search indexes.
 
 The test index holds all the question and answer pairs of your project. When querying the test index, the query applies to the entire index then results are restricted to the partition for that specific project. If the test query results are negatively impacting your ability to validate the project, you can:
 * Organize your project using one of the following:
-    * One resource restricted to one project: restrict your single language resource (and the resulting Azure Cognitive Search test index) to a project.
+    * One resource restricted to one project: restrict your single language resource (and the resulting Azure AI Search test index) to a project.
     * Two resources - one for test, one for production: have two language resources, using one for testing (with its own test and  production indexes) and one for production (also having its own test and production indexes)
 * Always use the same parameters when querying both your test and production projects.
 
 When you deploy a project, the question and answer contents of your project moves from the test index to a production index in Azure search.
 
-If you have a project in different regions, each region uses its own Azure Cognitive Search index. Because different indexes are used, the scores will not be exactly the same.
+If you have a project in different regions, each region uses its own Azure AI Search index. Because different indexes are used, the scores will not be exactly the same.
 
 ## No match found
 

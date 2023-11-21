@@ -7,7 +7,7 @@ ms.subservice: single-server
 author: SudheeshGH
 ms.author: sunaray
 ms.custom: subject-policy-compliancecontrols
-ms.date: 09/14/2023
+ms.date: 11/06/2023
 ---
 
 # Azure Policy Regulatory Compliance controls for Azure Database for MySQL

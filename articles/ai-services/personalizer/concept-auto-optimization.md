@@ -4,14 +4,14 @@ description: This article provides a conceptual overview of the auto-optimize fe
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: conceptual
 ms.date: 03/08/2021
 ---
 
 # Personalizer Auto-Optimize (Preview)
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 ## Introduction
 Personalizer automatic optimization saves you manual effort in keeping a Personalizer loop at its best machine learning performance, by automatically searching for improved Learning Settings used to train your models and applying them. Personalizer has strict criteria to apply new Learning Settings to insure improvements are unlikely to introduce loss in rewards.

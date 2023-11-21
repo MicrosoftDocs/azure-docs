@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/09/2023
+ms.date: 11/06/2023
 ms.author: rolyon
 ---
 
@@ -21,10 +21,10 @@ You first need to determine who needs access. You can assign a role to a user, g
 
 ![Security principal for a role assignment](./media/shared/rbac-security-principal.png)
 
-- User - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md).
-- Group - A set of users created in Azure Active Directory. When you assign a role to a group, all users within that group have that role. 
+- User - An individual who has a profile in Microsoft Entra ID. You can also assign roles to users in other tenants. For information about users in other organizations, see [Microsoft Entra B2B](../active-directory/external-identities/what-is-b2b.md).
+- Group - A set of users created in Microsoft Entra ID. When you assign a role to a group, all users within that group have that role. 
 - Service principal - A security identity used by applications or services to access specific Azure resources. You can think of it as a *user identity* (username and password or certificate) for an application.
-- Managed identity - An identity in Azure Active Directory that is automatically managed by Azure. You typically use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) when developing cloud applications to manage the credentials for authenticating to Azure services.
+- Managed identity - An identity in Microsoft Entra ID that is automatically managed by Azure. You typically use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) when developing cloud applications to manage the credentials for authenticating to Azure services.
 
 ## Step 2: Select the appropriate role
 
@@ -56,9 +56,10 @@ Privileged administrator roles are roles that grant privileged administrator acc
 | --- | --- |
 | [Owner](built-in-roles.md#owner) | <ul><li>Grants full access to manage all resources</li><li>Assign roles in Azure RBAC</li></ul> |
 | [Contributor](built-in-roles.md#contributor) | <ul><li>Grants full access to manage all resources</li><li>Can't assign roles in Azure RBAC</li><li>Can't manage assignments in Azure Blueprints or share image galleries</li></ul> |
+| [Role Based Access Administrator (Preview)](built-in-roles.md#role-based-access-control-administrator-preview) | <ul><li>Manage user access to Azure resources</li><li>Assign roles in Azure RBAC</li><li>Assign themselves or others the Owner role</li><li>Can't manage access using other ways, such as Azure Policy</li></ul> |
 | [User Access Administrator](built-in-roles.md#user-access-administrator) | <ul><li>Manage user access to Azure resources</li><li>Assign roles in Azure RBAC</li><li>Assign themselves or others the Owner role</li></ul> |
 
-It's a best practice to grant users the least privilege to get their work done. You should avoid assigning a privileged administrator role when a job function role can be assigned instead. If you must assign a privileged administrator role, use a narrow scope, such as resource group or resource, instead of a broader scope, such as management group or subscription.
+For best practices when using privileged administrator role assignments, see [Best practices for Azure RBAC](best-practices.md#limit-privileged-administrator-role-assignments). For more information, see [Privileged administrator role definition](./role-definitions.md#privileged-administrator-role-definition).
 
 ## Step 3: Identify the needed scope
 
@@ -83,7 +84,7 @@ To assign roles, you must be signed in with a user that is assigned a role that 
 
 If your user account doesn't have permission to assign a role within your subscription, you see an error message that your account "does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write'." In this case, contact the administrators of your subscription as they can assign the permissions on your behalf.
 
-If you are using a service principal to assign roles, you might get the error "Insufficient privileges to complete the operation." This error is likely because Azure is attempting to look up the assignee identity in Azure Active Directory (Azure AD) and the service principal cannot read Azure AD by default. In this case, you need to grant the service principal permissions to read data in the directory. Alternatively, if you are using Azure CLI, you can create the role assignment by using the assignee object ID to skip the Azure AD lookup. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md).
+If you are using a service principal to assign roles, you might get the error "Insufficient privileges to complete the operation." This error is likely because Azure is attempting to look up the assignee identity in Microsoft Entra ID and the service principal cannot read Microsoft Entra ID by default. In this case, you need to grant the service principal permissions to read data in the directory. Alternatively, if you are using Azure CLI, you can create the role assignment by using the assignee object ID to skip the Microsoft Entra lookup. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md).
 
 ## Step 5: Assign role
 

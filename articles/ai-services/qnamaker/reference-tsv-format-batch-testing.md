@@ -2,12 +2,12 @@
 title: Batch test TSV format - QnA Maker
 titleSuffix: Azure AI services
 description: Understand the TSV format for batch testing
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 ms.topic: reference
 ms.date: 10/24/2019
 ---
