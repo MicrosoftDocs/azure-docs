@@ -64,15 +64,15 @@ The VMAccess Extension configuration includes settings for username, passwords, 
     "settings": {
       "check_disk": true,
       "repair_disk": false,
-      "disk_name": "diskName",
+      "disk_name": "<disk-name>",
     },
     "protectedSettings": {
-      "username": "adminuser1",
-      "password": "adminpassword",
-      "ssh_key": "ssh-rsa XXXXXX",
+      "username": "<username>",
+      "password": "<password>",
+      "ssh_key": "<ssh-key>",
       "reset_ssh": false,
-      "remove_user": "adminuser2",
-      "expiration": "2024-01-01",
+      "remove_user": "<username>",
+      "expiration": "<expiration>",
       "remove_prior_keys": false,
       "restore_backup_ssh": true
     } 
