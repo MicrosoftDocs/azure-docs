@@ -23,7 +23,7 @@ Using Azure NetApp Files standard storage with cool access, you can configure in
 
 Most cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. 
 
-Azure NetApp Files supports three [service levels](azure-netapp-files-service-levels.md) that can be configured at capacity pool level (Standard, Premium and Ultra). Cool access is an additional service only on the Standard service level.
+Azure NetApp Files supports three [service levels](azure-netapp-files-service-levels.md) that can be configured at capacity pool level (Standard, Premium and Ultra). Cool access is an additional service only on the Standard service level. Standard storage with cool access is supported only on capacity pools of the **auto** QoS type.  
 
 You can configure the standard storage with cool access on a volume by specifying the number of days (the coolness period, ranging from 7 to 183 days) for inactive data to be considered "cool". When the data has remained inactive for the specified coolness period, the tiering process begins, and the data is moved to the cool tier (the Azure storage account). This move to the cool tier can take a few days. For example, if you specify 31 days as the coolness period, then 31 days after a data block is last accessed (read or write), it's qualified for movement to the cool tier.  
 
