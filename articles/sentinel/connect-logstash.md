@@ -37,7 +37,7 @@ The Logstash engine is comprised of three components:
 >
 > - Microsoft does not support third-party Logstash output plugins for Microsoft Sentinel, or any other Logstash plugin or component of any type.
 >
-> - Microsoft Sentinel's Logstash output plugin supports only **Logstash versions 7.0 to 7.17.10, and versions 8.0 to 8.8.1**.
+> - Microsoft Sentinel's Logstash output plugin supports only **Logstash versions 7.0 to 7.17.10, and versions 8.0 to 8.9 and 8.10**.
 > If you use Logstash 8, we recommended that you [disable ECS in the pipeline](https://www.elastic.co/guide/en/logstash/8.4/ecs-ls.html).
 
 The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics HTTP Data Collector REST API. The data is ingested into custom logs.
