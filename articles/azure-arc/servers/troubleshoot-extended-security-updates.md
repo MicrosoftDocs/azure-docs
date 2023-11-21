@@ -40,7 +40,10 @@ Ensure that both the licensing package and SSU are downloaded for the Azure Arc-
 If installing the Extended Security Update enabled by Azure Arc fails with errors such as "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12029)" or "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12002)", there is a known remediation approach:
 
 1. Download this [intermediate CA published by Microsoft](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2001%20-%20xsign.crt).
-1. Install the downloaded certificate as Local Computer under `Intermediate Certificate Authorities\Certificates`. Use the following command to install the certificate correctly: `certutil -addstore CA 'Microsoft Azure TLS Issuing CA 01 - xsign.crt'`
+1. Install the downloaded certificate as Local Computer under `Intermediate Certificate Authorities\Certificates`. Use the following command to install the certificate correctly:
+
+   `certutil -addstore CA 'Microsoft Azure TLS Issuing CA 01 - xsign.crt'`
+
 1. Install security updates. If it fails, reboot the machine and install security updates again.
 
 If you have other issues receiving ESUs after successfully enrolling the server through Arc-enabled servers, or you need additional information related to issues affecting ESU deployment, see [Troubleshoot issues in ESU](/troubleshoot/windows-client/windows-7-eos-faq/troubleshoot-extended-security-updates-issues).
