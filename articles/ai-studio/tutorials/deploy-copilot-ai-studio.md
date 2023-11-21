@@ -92,7 +92,7 @@ Follow these steps to deploy an Azure OpenAI chat model for your copilot.
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/deploy-gpt-35-turbo-16k.png" alt-text="Screenshot of the model selection page." lightbox="../media/tutorials/copilot-deploy-flow/deploy-gpt-35-turbo-16k.png":::
 
 1. On the **Deploy model** page, enter a name for your deployment, and then select **Deploy**. After the deployment is created, you see the deployment details page. Details include the date you created the deployment and the created date and version of the model you deployed.
-1. On the deployment details page from the previous step, select **Test in playground**.
+1. On the deployment details page from the previous step, select **Open in playground**.
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/deploy-gpt-35-turbo-16k-details.png" alt-text="Screenshot of the GPT chat deployment details." lightbox="../media/tutorials/copilot-deploy-flow/deploy-gpt-35-turbo-16k-details.png":::
 
@@ -267,7 +267,7 @@ Follow these instructions on how to create a new index:
 
 1. Enter **customer-info** for the index name. Then select **Next**.
 
-    :::image type="content" source="../media/tutorials/copilot-deploy-flow/add-index-settings.png" alt-text="Screenshot of the index name and virtual machine options" lightbox="../media/tutorials/copilot-deploy-flow/add-index-settings.png":::
+    :::image type="content" source="../media/tutorials/copilot-deploy-flow/add-index-settings.png" alt-text="Screenshot of the index name and virtual machine options." lightbox="../media/tutorials/copilot-deploy-flow/add-index-settings.png":::
 
 1. Review the details you entered, and select **Create**. 
 
@@ -282,7 +282,7 @@ Follow these instructions on how to create a new index:
 
 For more information on how to create an index, see [Create an index](../how-to/index-add.md).
 
-### Add customer info to the flow
+### Add customer information to the flow
 
 After you're done creating your index, return to your prompt flow and follow these steps to add the customer info to the flow:
 
@@ -305,7 +305,7 @@ After you're done creating your index, return to your prompt flow and follow the
    :::image type="content" source="../media/tutorials/copilot-deploy-flow/customer-info-edit-inputs.png" alt-text="Screenshot of inputs to edit in the retrieve customer info node." lightbox="../media/tutorials/copilot-deploy-flow/customer-info-edit-inputs.png":::
 
     > [!NOTE]
-    > The graph is updated immediately after you set the **queries** input value to **ExtractIntent.output.search_intents**. In the graph you can see that **RetrieveCustomerInfo** get inputs from **ExtractIntent** 
+    > The graph is updated immediately after you set the **queries** input value to **ExtractIntent.output.search_intents**. In the graph you can see that **RetrieveCustomerInfo** gets inputs from **ExtractIntent**.
 
     The inputs are case sensitive, so be sure they match these values exactly:
     
@@ -408,7 +408,7 @@ You need a question and answer evaluation dataset that contains questions and an
 ```json
 {"question": "What color is the CozyNights Sleeping Bag?", "truth": "Red"}
 {"question": "When did Daniel Wilson order the BaseCamp Folding Table?", "truth": "May 7th, 2023"}
-{"question": "How much does TrailWalker Hiking Shoes cost? ", "truth": "$110"}
+{"question": "How much do TrailWalker Hiking Shoes cost? ", "truth": "$110"}
 {"question": "What kind of tent did Sarah Lee buy?", "truth": "SkyView 2 person tent"}
 {"question": "What is Melissa Davis's phone number?", "truth": "555-333-4444"}
 {"question": "What is the proper care for trailwalker hiking shoes?", "truth": "After each use, remove any dirt or debris by brushing or wiping the shoes with a damp cloth."}
