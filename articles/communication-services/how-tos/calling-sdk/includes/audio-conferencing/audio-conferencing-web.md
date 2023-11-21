@@ -1,4 +1,4 @@
-author: cnwankwo
+ms.author: cnwankwo
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/28/2023
