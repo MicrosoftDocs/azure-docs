@@ -23,7 +23,7 @@ VM Applications are a resource type in Azure Compute Gallery (formerly known as 
 Before you get started, make sure you have the following:
 
 
-This article assumes you already have an Azure Compute Gallery. If you don't already have a gallery, create one first. To learn more, see [Create a gallery for storing and sharing resources](create-gallery.md)..
+This article assumes you already have an Azure Compute Gallery. If you don't already have a gallery, create one first. To learn more, see [Create a gallery for storing and sharing resources](create-gallery.md).
 
 You should have uploaded your application to a container in an [Azure storage account](../storage/common/storage-account-create.md). Your application can be stored in a block or page blob. If you choose to use a page blob, you need to byte align the files before you upload them. Here's a sample that will byte align your file:
 
@@ -151,8 +151,8 @@ Set a VM application to an existing VM using [az vm application set](/cli/azure/
 az vm application set \
 	--resource-group myResourceGroup \
 	--name myVM \
-  --app-version-ids /subscriptions/{subID}/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 \
-  --treat-deployment-as-failure true
+  	--app-version-ids /subscriptions/{subID}/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 \
+  	--treat-deployment-as-failure true
 ```
 For setting multiple applications on a VM:
 
@@ -165,14 +165,20 @@ az vm application set \
 ```
 To add an application to a VMSS, use [az vmss application set](/cli/azure/vmss/application#az-vmss-application-set):
 
-```azurepowershell-interactive
-az vmss application set -g myResourceGroup -n myVmss --app-version-ids /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0
---treat-deployment-as-failure true
+```azurecli-interactive
+az vmss application set \
+	--resource-group myResourceGroup \
+	--name myVmss \
+	--app-version-ids /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 \
+	--treat-deployment-as-failure true
 ```
 To add multiple applications to a VMSS:
 ```azurecli-interactive
-az vmss application set -g myResourceGroup -n myVmss --app-version-ids /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp2/versions/1.0.0
---treat-deployment-as-failure true
+az vmss application set \
+	--resource-group myResourceGroup \
+	--name myVmss
+	--app-version-ids /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp2/versions/1.0.0 \
+	--treat-deployment-as-failure true
 ```
 
 To verify application VM deployment status, use [az vm get-instance-view](/cli/azure/vm/#az-vm-get-instance-view):
@@ -182,14 +188,14 @@ az vm get-instance-view -g myResourceGroup -n myVM --query "instanceView.extensi
 ```
 To verify application VMSS deployment status, use [az vmss get-instance-view](/cli/azure/vmss/#az-vmss-get-instance-view):
 
-```azurepowershell-interactive
+```azurecli-interactive
 az vmss get-instance-view --ids (az vmss list-instances -g myResourceGroup -n myVmss --query "[*].id" -o tsv) --query "[*].extensions[?name == 'VMAppExtension']"
 ```
 > [!NOTE]
 > The above VMSS deployment status command does not list the instance ID with the result. To show the instance ID with the status of the extension in each instance, some additional scripting is required. Refer to the below VMSS CLI example that contains PowerShell syntax:
 
-```azurecli-interactive
-$ids = az vmss list-instances -g myResourceGroup -n myVMss --query "[*].{id: id, instanceId: instanceId}" | ConvertFrom-Json
+```azurepowershell-interactive
+$ids = az vmss list-instances -g myResourceGroup -n myVmss --query "[*].{id: id, instanceId: instanceId}" | ConvertFrom-Json
 $ids | Foreach-Object {
     $iid = $_.instanceId
     Write-Output "instanceId: $iid" 
@@ -247,28 +253,28 @@ $applicationName = "myApp"
 $version = "1.0.0"
 $vmName = "myVM"
 $vm = Get-AzVM -ResourceGroupName $rgname -Name $vmName
-$appversion = Get-AzGalleryApplicationVersion `
+$appVersion = Get-AzGalleryApplicationVersion `
    -GalleryApplicationName $applicationName `
    -GalleryName $galleryName `
    -Name $version `
    -ResourceGroupName $rgName
-$packageid = $appversion.Id
-$app = New-AzVmGalleryApplication -PackageReferenceId $packageid
+$packageId = $appVersion.Id
+$app = New-AzVmGalleryApplication -PackageReferenceId $packageId
 Add-AzVmGalleryApplication -VM $vm -GalleryApplication $app -TreatFailureAsDeploymentFailure true
 Update-AzVM -ResourceGroupName $rgName -VM $vm
 ```
 To add the application to a VMSS:
-```azurecli-interactive
+```azurepowershell-interactive
 $vmss = Get-AzVmss -ResourceGroupName $rgname -Name $vmssName
-$appversion = Get-AzGalleryApplicationVersion `
+$appVersion = Get-AzGalleryApplicationVersion `
    -GalleryApplicationName $applicationName `
    -GalleryName $galleryName `
    -Name $version `
    -ResourceGroupName $rgName
-$packageid = $appversion.Id
-$app = New-AzVmssGalleryApplication -PackageReferenceId $packageid
+$packageId = $appVersion.Id
+$app = New-AzVmssGalleryApplication -PackageReferenceId $packageId
 Add-AzVmssGalleryApplication -VirtualMachineScaleSetVM $vmss.VirtualMachineProfile -GalleryApplication $app
-Update-AzVMss -ResourceGroupName $rgName -VirtualMachineScaleSet $vmss -VMScaleSetName $vmssName
+Update-AzVmss -ResourceGroupName $rgName -VirtualMachineScaleSet $vmss -VMScaleSetName $vmssName
 ```
 
 
@@ -281,7 +287,7 @@ $result = Get-AzVM -ResourceGroupName $rgName -VMName $vmName -Status
 $result.Extensions | Where-Object {$_.Name -eq "VMAppExtension"} | ConvertTo-Json
 ```
 To verify for VMSS:
-```powershell-interactive
+```azurepowershell-interactive
 $rgName = "myResourceGroup"
 $vmssName = "myVMss"
 $result = Get-AzVmssVM -ResourceGroupName $rgName -VMScaleSetName $vmssName -InstanceView
@@ -290,7 +296,7 @@ $result | ForEach-Object {
     $res = @{ instanceId = $_.InstanceId; vmappStatus = $_.InstanceView.Extensions | Where-Object {$_.Name -eq "VMAppExtension"}}
     $resultSummary.Add($res) | Out-Null
 }
-$resultSummary | convertto-json -depth 5
+$resultSummary | ConvertTo-Json -Depth 5
 ```
 
 ### [REST](#tab/rest2)

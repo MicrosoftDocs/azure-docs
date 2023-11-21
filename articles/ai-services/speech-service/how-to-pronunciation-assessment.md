@@ -148,8 +148,8 @@ var pronunciationAssessmentConfig = new sdk.PronunciationAssessmentConfig(
     gradingSystem: sdk.PronunciationAssessmentGradingSystem.HundredMark,  
     granularity: sdk.PronunciationAssessmentGranularity.Phoneme,  
     enableMiscue: false); 
-pronunciationAssessmentConfig.EnableProsodyAssessment(); 
-pronunciationAssessmentConfig.EnableContentAssessmentWithTopic("greeting");  
+pronunciationAssessmentConfig.enableProsodyAssessment(); 
+pronunciationAssessmentConfig.enableContentAssessmentWithTopic("greeting");  
 ```
 
 ::: zone-end
