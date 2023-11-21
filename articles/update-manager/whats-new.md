@@ -15,7 +15,7 @@ ms.date: 11/13/2023
 ## November 2023
 
 ## Alerting (preview)
-Azure Update Manager allows you enable alerts to address events as captured in updates data.
+Azure Update Manager allows you to enable alerts to address events as captured in updates data.
 
 ## Azure Stack HCI patching (preview)
 
