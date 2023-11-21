@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 10/12/2021
-ms.custom: devx-track-java, devx-track-extended-java, mode-other, event-tier1-build-2022
+ms.custom: devx-track-java, mode-other, event-tier1-build-2022
 ---
 
 # Introduction to the sample app

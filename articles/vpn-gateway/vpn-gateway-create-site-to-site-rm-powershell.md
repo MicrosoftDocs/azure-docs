@@ -100,7 +100,7 @@ Create your virtual network.
    -Location 'East US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet1, $subnet2
    ```
 
-### <a name="gatewaysubnet"></a>To add a gateway subnet to a virtual network you have already created
+#### <a name="gatewaysubnet"></a>To add a gateway subnet to a virtual network you have already created
 
 Use the steps in this section if you already have a virtual network, but need to add a gateway subnet.
 
@@ -167,9 +167,7 @@ $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $s
 
 ## <a name="CreateGateway"></a>5. Create the VPN gateway
 
-Create the virtual network VPN gateway.
-
-Use the following values:
+Create the virtual network VPN gateway. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. The following values are used in the example:
 
 * The *-GatewayType* for a site-to-site configuration is *Vpn*. The gateway type is always specific to the configuration that you're implementing. For example, other gateway configurations might require -GatewayType ExpressRoute.
 * The *-VpnType* can be *RouteBased* (referred to as a Dynamic Gateway in some documentation), or *PolicyBased* (referred to as a Static Gateway in some documentation). For more information about VPN gateway types, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
@@ -180,8 +178,6 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased -GatewaySku VpnGw2
 ```
-
-Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
 ## <a name="ConfigureVPNDevice"></a>6. Configure your VPN device
 

@@ -1,13 +1,13 @@
 ---
 title: Add an identity provider - Azure Active Directory B2C  
 description: Learn how to add an identity provider to your Active Directory B2C tenant.
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.author: godonnell
 ms.date: 02/08/2023
-ms.custom: mvc, build-2023
+ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
