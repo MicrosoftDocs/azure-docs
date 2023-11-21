@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 02/07/2023
 ms.author: godonnell
 ms.subservice: B2C
-ms.custom: fasttrack-edit, project-no-code
+ms.custom: fasttrack-edit, 
 zone_pivot_groups: b2c-policy-type
 ---
 

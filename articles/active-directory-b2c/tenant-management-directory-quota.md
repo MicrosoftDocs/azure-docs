@@ -10,7 +10,7 @@ ms.service: active-directory
 
 ms.topic: tutorial
 ms.date: 06/15/2023
-ms.custom: project-no-code, b2c-docs-improvements
+ms.custom: b2c-docs-improvements
 ms.reviewer: kengaderdus
 ms.author: falves
 ms.subservice: B2C

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: tutorial
-ms.custom: project-no-code, b2c-docs-improvements
+ms.custom: b2c-docs-improvements
 ms.date: 01/30/2023
 ms.reviewer: yoelh
 ms.author: kengaderdus

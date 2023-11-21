@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.custom: project-no-code
+ms.custom: 
 ms.date: 09/16/2021
 ms.author: godonnell
 ms.subservice: B2C

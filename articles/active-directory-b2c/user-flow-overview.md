@@ -10,7 +10,7 @@ ms.service: active-directory
 
 ms.topic: conceptual
 ms.date: 10/24/2022
-ms.custom: project-no-code, engagement-fy23
+ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
 ---

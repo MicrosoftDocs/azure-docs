@@ -9,7 +9,7 @@ ms.service: active-directory
 
 ms.topic: overview
 ms.date: 10/26/2022
-ms.custom: engagement-fy23
+ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
 ---

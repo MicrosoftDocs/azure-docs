@@ -10,7 +10,7 @@ ms.service: active-directory
 
 ms.topic: troubleshooting
 ms.date: 08/04/2022
-ms.custom: project-no-code
+ms.custom: 
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type

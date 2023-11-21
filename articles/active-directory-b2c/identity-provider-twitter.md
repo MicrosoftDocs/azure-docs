@@ -10,7 +10,7 @@ ms.service: active-directory
 
 ms.topic: how-to
 ms.date: 07/20/2022
-ms.custom: project-no-code
+ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type

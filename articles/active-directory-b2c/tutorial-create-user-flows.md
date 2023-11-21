@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: tutorial
 ms.date: 10/26/2022
 ms.author: godonnell
-ms.custom: engagement-fy23
+ms.custom: 
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---

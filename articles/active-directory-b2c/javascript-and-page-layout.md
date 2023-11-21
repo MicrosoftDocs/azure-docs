@@ -10,7 +10,7 @@ ms.service: active-directory
 
 ms.topic: how-to
 ms.date: 10/17/2023
-ms.custom: project-no-code, devx-track-js, engagement-fy23
+ms.custom: devx-track-js
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type

@@ -10,7 +10,7 @@ ms.service: active-directory
 
 ms.topic: tutorial
 ms.date: 10/26/2022
-ms.custom: project-no-code
+ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
 ---
