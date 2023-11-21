@@ -39,13 +39,13 @@
       expanded: false
       items:
         - name: Connect your Azure subscriptions
-          displayName: enable, defender for cloud, activate, turn on
+          displayName: enable, defender for cloud, activate, turn on, Microsoft 365 Defender, alerts, integration, m365, m365d, m365 defender
           href: connect-azure-subscription.md
         - name: Connect your AWS accounts
-          displayName: hybrid, multicloud, multicloud, amazon, arc, AWS, accounts
+          displayName: hybrid, multicloud, multicloud, amazon, arc, AWS, accounts, Microsoft 365 Defender, alerts, integration, m365, m365d, m365 defender
           href: quickstart-onboard-aws.md
         - name: Connect your GCP projects
-          displayName: hybrid, multicloud, multicloud, google, gcp
+          displayName: hybrid, multicloud, multicloud, google, gcp, Microsoft 365 Defender, alerts, integration, m365, m365d, m365 defender
           href: quickstart-onboard-gcp.md
         - name: Connect individual non-Azure machines
           items:
@@ -53,7 +53,7 @@
               displayName: azure stack, ash, windows, linux, hybrid, defender for endpoint
               href: onboard-machines-with-defender-for-endpoint.md
             - name: Connect machines with Azure Arc
-              displayName: azure stack, ash, windows, linux, hybrid, arc, on-premises
+              displayName: azure stack, ash, windows, linux, hybrid, arc, on-premises, Microsoft 365 Defender, alerts, integration, m365, m365d, m365 defender
               href: quickstart-onboard-machines.md
     - name: Enable specific Defender plans
       expanded: false
@@ -104,15 +104,12 @@
     - name: Planning and operations guide
       displayName: guide, planning, roles, policies, recommendations
       href: defender-for-cloud-planning-and-operations-guide.md
-    - name: Protect your VMs
+    - name: Protect VMs
       displayName: manage, access, harden
       href: tutorial-protect-resources.md
     - name: Investigate and respond to security alerts
       displayName: triage, security, alerts, investigate,
       href: tutorial-security-incident.md
-    - name: Manage security policies
-      displayName: security, policies, edit, disable
-      href: tutorial-security-policy.md
     - name: Investigate the health of your resources
       displayName: health, resources, outstanding, security, issues,
       href: investigate-resource-health.md
@@ -253,15 +250,15 @@
         - name: Reference list of DevOps recommendations
           displayName: devops, recommendations
           href: recommendations-reference-devops.md
-        - name: Reference list of attack paths and cloud security graph components
-          displayName: attack, paths, security, graph, components
-          href: attack-path-reference.md
     - name: Security alerts and incidents
       items:
         - name: About security alerts and incidents
           displayName: security, alerts, classification, incident, threat, detection,
             analytics,
           href: alerts-overview.md
+        - name: Alerts and incidents in Microsoft 365 Defender
+          displayName: Microsoft 365 Defender, alerts, integration, m365, m365d, m365 defender
+          href: concept-integration-365.md
         - name: Security alerts
           items:
             - name: Security alerts reference list
@@ -291,23 +288,9 @@
         - name: Track secure score
           displayName: secure score, rest api, resource graph
           href: secure-score-access-and-track.md
-        - name: View recommendations and alerts in Windows Admin Center
-          displayName: windows, admin, center
-          href: windows-admin-center-integration.md
         - name: Integrate security solutions
           displayName: security, solutions, integrate, integrated, data sources
           href: partner-integration.md
-        - name: Security graph
-          items:
-            - name: Identify and remediate attack paths
-              displayName: attack paths, paths, investigate, easm,
-              href: how-to-manage-attack-path.md
-            - name: Build queries with cloud security explorer
-              displayName: queries, security explorer, explorer, templates, query
-              href: how-to-manage-cloud-security-explorer.md
-            - name: Testing the attack path and security explorer
-              displayName: attack paths, paths, security explorer, test
-              href: how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md
     - name: Data-aware security posture
       items:
         - name: Enable data-aware security posture
@@ -334,37 +317,42 @@
       - name: Exempt resources from recommendations
         displayName: disable, resource, exempt, recommendation
         href: exempt-resource.md
-      - name: Manage AWS assessments and standards
-        displayName: aws, assessments, standards, custom, standard, built-in, query
-        href: how-to-manage-aws-assessments-standards.md
-      - name: Manage GCP assessments and standards
-        displayName: gcp, assessment, standards, built-in, compliance, standard, custom,
-            assessment, query
-        href: how-to-manage-gcp-assessments-standards.md
-      - name: Prevent misconfigurations with Enforce/Deny
-        displayName: recommendations, enforce, deny
-        href: prevent-misconfigurations.md
-      - name: Disable a recommendation
-        displayName: recommendation, disable, security, policy,
-        href: tutorial-security-policy.md#disable-a-security-recommendation
     - name: Investigate and remediate security posture
       items:
-      - name: Review security recommendations
-        displayName: security, recommendations, owner, azure, resource, graph, azure
+      - name: Investigate security recommendations
+        items:
+        - name: Review security recommendations
+          displayName: security, recommendations, owner, azure, resource, graph, azure
             resource graph, csv report
-        href: review-security-recommendations.md
-      - name: Review exempted resources
-        href: review-exemptions.md
-      - name: Remediate recommendations
-        displayName: remediation, steps, recommendations, fix, actions, activity log
-        href: implement-security-recommendations.md
-      - name: Drive remediation with governance rules
-        displayName: security, posture, recommendation, governance, automated, rules,
+          href: review-security-recommendations.md
+        - name: Review exempted resources
+          href: review-exemptions.md
+        - name: Remediate recommendations
+          displayName: remediation, steps, recommendations, fix, actions, activity log
+          href: implement-security-recommendations.md
+        - name: Drive remediation with governance rules
+          displayName: security, posture, recommendation, governance, automated, rules,
             owners, status, progress
-        href: governance-rules.md
-      - name: Automate remediation responses
-        displayName: workflow, triggers, logic app, automation, policies, breaking change
-        href: workflow-automation.md
+          href: governance-rules.md
+        - name: Automate remediation responses
+          displayName: workflow, triggers, logic app, automation, policies, breaking change
+          href: workflow-automation.md
+        - name: View recommendations and alerts in Windows Admin Center
+          displayName: windows, admin, center
+          href: windows-admin-center-integration.md
+      - name: Improve regulatory compliance
+        href: regulatory-compliance-dashboard.md
+      - name: Investigate with security explorer and attack path
+        items:
+        - name: Identify and remediate attack paths
+          displayName: attack paths, paths, investigate, easm,
+          href: how-to-manage-attack-path.md
+        - name: Build queries with cloud security explorer
+          displayName: queries, security explorer, explorer, templates, query
+          href: how-to-manage-cloud-security-explorer.md
+        - name: Test attack paths and security explorer
+          displayName: attack paths, paths, security explorer, test
+          href: how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md
     - name: Built-in security protections
       items:
         - name: Leverage Purview to protect sensitive data

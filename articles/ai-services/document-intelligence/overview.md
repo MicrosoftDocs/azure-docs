@@ -107,7 +107,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-insurance-card.png" link="#health-insurance-card":::</br>
-    [**Health Insurance card**](#health-insurance-card) | Extract health insurance details.
+    [**Health Insurance card**](#health-insurance-card) | Extract health </br>insurance details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::</br>
@@ -116,8 +116,8 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row-end:::
 :::row:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-form":::</br>
-    [**US Tax W-2 form**](#us-tax-w-2-form) | Extract taxable </br>compensation details.
+      :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-model":::</br>
+    [**US Tax W-2 form**](#us-tax-w-2-model) | Extract taxable </br>compensation details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form":::</br>
@@ -137,7 +137,6 @@ Prebuilt models enable you to add intelligent document processing to your apps a
    :::column-end:::
 :::row-end:::
 :::moniker-end
-
 
 :::moniker range="<=doc-intel-3.1.0"
 :::row:::
@@ -170,8 +169,8 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row-end:::
 :::row:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-form":::</br>
-    [**US Tax W-2 form**](#us-tax-w-2-form) | Extract taxable </br>compensation details.
+      :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-model":::</br>
+    [**US Tax W-2 form**](#us-tax-w-2-model) | Extract taxable </br>compensation details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form":::</br>
@@ -190,12 +189,13 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 
 ## Custom models
 
-Custom models are trained using your labeled datasets to extract distinct data from forms and documents, specific to your use cases. Standalone custom models can be combined to create composed models.
+* Custom models are trained using your labeled datasets to extract distinct data from forms and documents, specific to your use cases.
+* Standalone custom models can be combined to create composed models.
 
 :::row:::
     :::column:::
-        **Extraction models**</br>
-        Custom extraction models are trained to extract labeled fields from documents.
+        * **Extraction models**</br>
+        ✔️ Custom extraction models are trained to extract labeled fields from documents.
     :::column-end:::
 :::row-end:::
 
@@ -216,15 +216,15 @@ Custom models are trained using your labeled datasets to extract distinct data f
 
 :::row:::
     :::column:::
-        **Classification model**</br>
-         Custom classifiers analyze input documents to identify document types prior to invoking an extraction model.
+        * **Classification model**</br>
+         ✔️ Custom classifiers identify document types prior to invoking an extraction model.
     :::column-end:::
 :::row-end:::
 
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-custom-classifier.png" link="#custom-classification-model":::</br>
-    [**Custom classifier**](#custom-classification-model) | Identify designated document types (classes) prior to invoking an extraction model.
+    [**Custom classifier**](#custom-classification-model) | Identify designated document types (classes) </br>prior to invoking an extraction model.
    :::column-end:::
 :::row-end:::
 
@@ -261,8 +261,8 @@ Document Intelligence supports optional features that can be enabled and disable
 |prebuilt-tax.us.1099(Variations)|✓| | |✓| | |O|O|✓|O|O|O|✓|
 |prebuilt-contract|✓|✓|✓|✓| | |O|O|✓|O|O|O|✓|
 |{ customModelName }|✓|✓|✓|✓|✓| |O|O|✓|O|O|O|✓|
-|prebuilt-document (deprecated 2023-10-31-preview)|✓|✓|✓|✓|✓|✓|O|O| |O|O|O| |
-|prebuilt-businessCard (deprecated 2023-10-31-preview)|✓| | | | | | | |✓| | | | |
+|prebuilt-document (**deprecated </br>2023-10-31-preview**)|✓|✓|✓|✓|✓|✓|O|O| |O|O|O| |
+|prebuilt-businessCard (**deprecated </br>2023-10-31-preview**)|✓| | | | | | | |✓| | | | |
 
 ✓ - Enabled</br>
 O - Optional</br>
@@ -281,7 +281,7 @@ You can use Document Intelligence to automate document processing in application
 
 |Model ID| Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
-|[**prebuilt-read**](concept-read.md)|&#9679; Extract **text** from documents.</br>&#9679; [Data and field extraction](concept-read.md#data-detection-and-extraction)| &#9679; Contract processing. </br>&#9679; Financial or medical report processing.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/read)</br>&#9679; [**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-rest-api)</br>&#9679; [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-csharp)</br>&#9679; [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-python)</br>&#9679; [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-java)</br>&#9679; [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-javascript) |
+|[**prebuilt-read**](concept-read.md)|&#9679; Extract **text** from documents.</br>&#9679; [Data and field extraction](concept-read.md#read-model-data-extraction)| &#9679; Contract processing. </br>&#9679; Financial or medical report processing.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/read)</br>&#9679; [**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-rest-api)</br>&#9679; [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-csharp)</br>&#9679; [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-python)</br>&#9679; [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-java)</br>&#9679; [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-javascript) |
 
 > [!div class="nextstepaction"]
 > [Return to model types](#document-analysis-models)
@@ -365,7 +365,7 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
 
-### US Tax W-2 form
+### US Tax W-2 model
 
 :::image type="content" source="media/overview/analyze-w2.png" alt-text="Screenshot of W-2 model analysis using Document Intelligence Studio.":::
 

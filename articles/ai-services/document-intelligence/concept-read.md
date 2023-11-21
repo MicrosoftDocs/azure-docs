@@ -101,25 +101,9 @@ Try extracting text from forms and documents using the Document Intelligence Stu
    > [!div class="nextstepaction"]
    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
 
-## Supported document types
-
-> [!NOTE]
->
-> * For the preview of Office and HTML file formats, Read API ignores the pages parameter and extracts all pages by default. Each embedded image counts as 1 page unit and each worksheet, slide, and page (up to 3000 characters) count as 1 page.
-
-| **Model**   | **Images**   | **PDF**  | **TIFF** | **Word**   | **Excel**  | **PowerPoint** | **HTML** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| **prebuilt-read**  | GA</br> (2023-07-31 and 2022-08-31)| GA</br> (2023-07-31 and 2022-08-31)  | GA</br> (2023-07-31 and 2022-08-31)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview) | Preview</br>(2022-06-30-preview) |
-
 ## Supported extracted languages and locales
 
 *See* our [Language Support—document analysis models](language-support-ocr.md) page for a complete list of supported languages.
-
-## Data detection and extraction
-
- | **Model**   | **Text**   | *[**Language extraction**](#supported-extracted-languages-and-locales) </br>* [**Language detection**](#language-detection) |
-| --- | --- | --- |
-**prebuilt-read**  | ✓  |✓  |
 
 ### Microsoft Office and HTML text extraction
 
@@ -140,38 +124,6 @@ The page units in the model output are computed as shown:
 |PowerPoint |  Each slide = 1 page unit, embedded or linked images not supported | Total slides
 |HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 
-### Barcode extraction
-
-The Read OCR model extracts all identified barcodes in the `barcodes` collection as a top level object under `content`. Inside the `content`, detected barcodes are represented as `:barcode:`. Each entry in this collection represents a barcode and includes the barcode type as `kind` and the embedded barcode content as `value` along with its `polygon` coordinates. Initially, barcodes appear at the end of each page. Here, the `confidence` is hard-coded for the public preview (`2023-02-28`) release.
-
-#### Supported barcode types
-
-| **Barcode Type**   | **Example**   |
-| --- | --- |
-| QR Code |:::image type="content" source="media/barcodes/qr-code.png" alt-text="Screenshot of the QR Code.":::|
-| Code 39 |:::image type="content" source="media/barcodes/code-39.png" alt-text="Screenshot of the Code 39.":::|
-| Code 128 |:::image type="content" source="media/barcodes/code-128.png" alt-text="Screenshot of the Code 128.":::|
-| UPC (UPC-A & UPC-E) |:::image type="content" source="media/barcodes/upc.png" alt-text="Screenshot of the UPC.":::|
-| PDF417 |:::image type="content" source="media/barcodes/pdf-417.png" alt-text="Screenshot of the PDF417.":::|
-
-```json
-"content": ":barcode:",
-  "pages": [
-    {
-      "pageNumber": 1,
-      "barcodes": [
-        {
-          "kind": "QRCode",
-          "value": "http://test.com/",
-          "span": { ... },
-          "polygon": [...],
-          "confidence": 1
-        }
-      ]
-    }
-  ]
-```
-
 ### Paragraphs extraction
 
 The Read OCR model in Document Intelligence extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top-level `content` property that contains the full text from the document.
@@ -185,27 +137,6 @@ The Read OCR model in Document Intelligence extracts all identified blocks of te
     }
 ]
 ```
-
-### Language detection
-
-The Read OCR model in Document Intelligence adds [language detection](#language-detection) as a new feature for text lines. Read predicts the detected primary language for each text line along with the `confidence` in the `languages` collection under `analyzeResult`.
-
-```json
-"languages": [
-    {
-        "spans": [
-            {
-                "offset": 0,
-                "length": 131
-            }
-        ],
-        "locale": "en",
-        "confidence": 0.7
-    },
-]
-```
-
-### Extract pages from documents
 
 The page units in the model output are computed as shown:
 
@@ -231,7 +162,7 @@ The page units in the model output are computed as shown:
 ]
 ```
 
-### Extract text lines and words
+### Text lines and words extraction
 
 The Read OCR model extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
 

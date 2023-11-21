@@ -5,8 +5,6 @@
   items:
   - name: What is Azure AI Studio?
     href: what-is-ai-studio.md
-  - name: Azure AI services
-    href: ../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context
     displayName: applied, cognitive, form recognizer
   - name: Azure AI FAQ
     href: faq.yml
@@ -181,6 +179,8 @@
       href: ../ai-services/openai/concepts/system-message.md?context=/azure/ai-studio/context/context
 - name: Reference
   items:
+  - name: Azure AI SDK for Python
+    href: /python/api/overview/azure/ai
   - name: Azure CLI
     href: /cli/azure/cognitiveservices
   - name: Azure PowerShell

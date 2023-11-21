@@ -1,7 +1,7 @@
 ---
 
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 ms.service: azure-ai-services
 ms.topic: include
