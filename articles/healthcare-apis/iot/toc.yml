@@ -63,7 +63,7 @@ items:
     - name: Use the monitoring and health checks tabs
       href: how-to-use-monitoring-and-health-checks-tabs.md
     - name: Configure metrics
-      href: how-to-configure-metrics.md
+      href: configure-metrics.md
     - name: Enable diagnostic settings
       href: how-to-enable-diagnostic-settings.md
   - name: Troubleshoot
