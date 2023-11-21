@@ -30,7 +30,6 @@ The intent of the table columns is explained by the following items:
 |--|--|--|--|
 | [Alpine.js](https://github.com/alpinejs/alpine/) | `/`  | n/a | n/a <sup>2</sup> |
 | [Angular](https://angular.dev/) | `dist/<APP_NAME>/browser` |  n/a | n/a |
-| [Angular Universal](https://angular.io/guide/universal) | `dist/<APP_NAME>/browser` | n/a |  `npm run prerender` |
 | [Astro](https://astro.build) | `dist` | n/a  | n/a |
 | [Aurelia](https://aurelia.io/) | `dist` | n/a |  n/a |
 | [Backbone.js](https://backbonejs.org/) | `/` | n/a | n/a |
