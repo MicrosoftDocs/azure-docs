@@ -7,9 +7,9 @@ ms.topic: how-to
 
 # Configure OT sensor settings from the Azure portal (Public preview)
 
-After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defender for IoT, you may want to define several settings directly on the OT sensor console, such as [adding local users](manage-users-sensor.md) or [connecting to an on-premises management console](ot-deploy/connect-sensors-to-management.md).
+After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defender for IoT, you might want to define several settings directly on the OT sensor console, such as [adding local users](manage-users-sensor.md) or [connecting to an on-premises management console](ot-deploy/connect-sensors-to-management.md).
 
-Selected OT sensor settings, listed below, are also available directly from the Azure portal, and can be applied in bulk across multiple cloud-connected OT sensors at a time, or across all OT sensors in a specific site or zone. This article describes how to view and configure view OT network sensor settings from the Azure portal.
+Selected OT sensor settings, listed in **Prerequisites**, are also available directly from the Azure portal, and can be applied in bulk across multiple cloud-connected OT sensors at a time, or across all OT sensors in a specific site or zone. This article describes how to view and configure view OT network sensor settings from the Azure portal.
 
 > [!NOTE]
 > The **Sensor settings** page in Defender for IoT is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -33,7 +33,7 @@ To define OT sensor settings, make sure that you have the following:
 
 ## Define a new sensor setting
 
-Define a new setting whenever you want to define a specific configuration for one or more OT network sensors. For example, you might want to define bandwidth caps for all OT sensors in a specific site or zone, or for a single OT sensor at a specific location in your network.
+Define a new setting whenever you want to define a specific configuration for one or more OT network sensors. For example, if you want to define bandwidth caps for all OT sensors in a specific site or zone, or define them for a single OT sensor at a specific location in your network.
 
 **To define a new setting**:
 
@@ -44,9 +44,9 @@ Define a new setting whenever you want to define a specific configuration for on
     |Tab name  |Description  |
     |---------|---------|
     |**Basics**     | Select the subscription where you want to apply your setting, and your [setting type](#sensor-setting-reference). <br><br>Enter a meaningful name and an optional description for your setting.        |
-    |**Setting**     |    Define the values for your selected setting type.<br>For details about the options available for each setting type, find your selected setting type in the [Sensor setting reference](#sensor-setting-reference) below.     |
+    |**Setting**     | Define the values for your selected setting type.<br>For details about the options available for each setting type, find your selected setting type in the [Sensor setting reference](#sensor-setting-reference) below.     |
     |**Apply**     | Use the **Select sites**, **Select zones**, and **Select sensors** dropdown menus to define where you want to apply your setting.   <br><br>**Important**:  Selecting a site or zone applies the setting to all connected OT sensors, including any OT sensors added to the site or zone later on. <br>If you select to apply your settings to an entire site, you don't also need to select its zones or sensors. |
-    |**Review and create**     | Check the selections you've made for your setting. <br><br>If your new setting replaces an existing setting, a :::image type="icon" source="media/how-to-manage-individual-sensors/warning-icon.png" border="false"::: warning is shown to indicate the existing setting.<br><br>When you're satisfied with the setting's configuration, select **Create**.     |
+    |**Review and create**     | Check the selections made for your setting. <br><br>If your new setting replaces an existing setting, a :::image type="icon" source="media/how-to-manage-individual-sensors/warning-icon.png" border="false"::: warning is shown to indicate the existing setting.<br><br>When you're satisfied with the setting's configuration, select **Create**.     |
 
 Your new setting is now listed on the **Sensor settings (Preview)** page under its setting type, and on the sensor details page for any related OT sensor. Sensor settings are shown as read-only on the sensor details page. For example:
 
@@ -87,9 +87,9 @@ For example:
 
 This procedure describes how to edit OT sensor settings if your OT sensor is currently disconnected from Azure, such as during an ongoing security incident.
 
-By default, if you've configured any settings from the Azure portal, all settings that are configurable from both the Azure portal and the OT sensor are set to read-only on the OT sensor itself. For example, if you've configured a VLAN from the Azure portal, then bandwidth cap, subnet, and VLAN settings are *all* set to read-only, and blocked from modifications on the OT sensor.
+By default, if you configure any settings from the Azure portal, all settings that are configurable from both the Azure portal and the OT sensor are set to read-only on the OT sensor itself. For example, if you configure a VLAN from the Azure portal, then bandwidth cap, subnet, and VLAN settings are *all* set to read-only, and blocked from modifications on the OT sensor.
 
-If you're in a situation where the OT sensor is disconnected from Azure, and you need to modify one of these settings, you'll first need to gain write access to those settings.
+If you're in a situation where the OT sensor is disconnected from Azure, and you need to modify one of these settings, you must first gain write access to those settings.
 
 **To gain write access to blocked OT sensor settings**:
 
@@ -121,7 +121,7 @@ To configure Active Directory settings from the Azure portal, define values for 
 |**Domain Controller FQDN**     | The fully qualified domain name (FQDN), exactly as it appears on your LDAP server. For example, enter `host1.subdomain.contoso.com`. <br><br> If you encounter an issue with the integration using the FQDN, check your DNS configuration. You can also enter the explicit IP of the LDAP server instead of the FQDN when setting up the integration.        |
 |**Domain Controller Port**     | The port where your LDAP is configured. For example, use port 636 for LDAPS (SSL) connections.        |
 |**Primary Domain**     | The domain name, such as `subdomain.contoso.com`, and then select the connection type for your LDAP configuration. <br><br>Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**        |
-|**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>        When you enter a group name, make sure that you enter the group name exactly as it's defined in your Active Directory configuration on the LDAP server. You'll use these group names when adding new sensor users with Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.        |
+|**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>        When you enter a group name, make sure that you enter the group name exactly as defined in your Active Directory configuration on the LDAP server. You use these group names when adding new sensor users with Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.        |
 
 > [!IMPORTANT]
 > When entering LDAP parameters:
@@ -139,7 +139,7 @@ For a bandwidth cap, define the maximum bandwidth you want the sensor to use for
 
 **Default**: 1500 Kbps
 
-**Minimum required for a stable connection to Azure**: 350 Kbps. At this minimum setting, connections to the sensor console may be slower than usual.
+**Minimum required for a stable connection to Azure**: 350 Kbps. At this minimum setting, connections to the sensor console might be slower than usual.
 
 ### NTP
 
@@ -147,7 +147,7 @@ To configure an NTP server for your sensor from the Azure portal, define an IP/D
 
 ### Subnet
 
-To focus the Azure device inventory on devices that are in your IoT/OT scope, you will need to manually edit the subnet list to include only the locally monitored subnets that are in your IoT/OT scope. Once the subnets have been configured, the network location of the devices is shown in the *Network location* (Public preview) column in the Azure device inventory. All of the devices associated with the listed subnets will be displayed as *local*, while devices associated with detected subnets not included in the list will be displayed as *routed*.
+To focus the Azure device inventory on devices that are in your IoT/OT scope, you need to manually edit the subnet list to include only the locally monitored subnets that are in your IoT/OT scope. Once the subnets are configured, the network location of the devices is shown in the *Network location* (Public preview) column in the Azure device inventory. All of the devices associated with the listed subnets are displayed as *local*, while devices associated with detected subnets not included in the list are displayed as *routed*.
 
 **To configure your subnets in the Azure portal**:
 
