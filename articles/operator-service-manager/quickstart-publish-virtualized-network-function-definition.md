@@ -80,7 +80,7 @@ Here's sample input-vnf-nfd.json file:
 |  |*image_hyper_v_generation*: Optional. Specifies the HyperVGenerationType of the VirtualMachine created from the image. Valid values are V1 and V2. V1 is the default if not specified. Delete if not required.
 |  |*image_api_version*: Optional. The ARM API version used to create the Microsoft.Compute/images resource. Delete if not required.
     
-> {!Note]
+> [!Note]
 > When utilizing the file_path option, it's essential to have a reliable internet connection with sufficient bandwidth, as the upload duration may vary depending on the file size.
 
 > [!IMPORTANT]
