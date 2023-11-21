@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/09/2023
+ms.date: 11/21/2023
 ---
 
 # Kafka output from Azure Stream Analytics (Preview)
