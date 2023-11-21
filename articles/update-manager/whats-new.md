@@ -12,6 +12,15 @@ ms.date: 09/18/2023
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
 
+## November 2023
+
+## Azure Stack HCI patching (preview)
+
+Azure Update Manager allows you to patch Azure Stack HCI cluster. [Learn more](/azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json)
+
+## Alerting 
+Azure Update Manager allows you enable alerts to address events as captured in updates data.
+
 ## October 2023
 
 ### Azure Migrate, Azure Backup, Azure Site Recovery VMs support (preview)
