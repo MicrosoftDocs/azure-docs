@@ -263,13 +263,13 @@ Additionally, the following list is of common resources that might run out of qu
 
 Before deploying a model, you need to have enough compute quota. This quota defines how much virtual cores are available per subscription, per workspace, per SKU, and per region. Each deployment subtracts from available quota and adds it back after deletion, based on type of the SKU.
 
-A possible mitigation is to check if there are unused deployments that you can delete. Or you can submit a [request for a quota increase](how-to-manage-quotas.md#request-quota-increases).
+A possible mitigation is to check if there are unused deployments that you can delete. Or you can submit a [request for a quota increase](how-to-manage-quotas.md#request-quota-and-limit-increases).
 
 #### Cluster quota
 
 This issue occurs when you don't have enough Azure Machine Learning Compute cluster quota. This quota defines the total number of clusters that might be in use at one time per subscription to deploy CPU or GPU nodes in Azure Cloud.
 
-A possible mitigation is to check if there are unused deployments that you can delete. Or you can submit a [request for a quota increase](how-to-manage-quotas.md#request-quota-increases). Make sure to select `Machine Learning Service: Cluster Quota` as the quota type for this quota increase request.
+A possible mitigation is to check if there are unused deployments that you can delete. Or you can submit a [request for a quota increase](how-to-manage-quotas.md#request-quota-and-limit-increases). Make sure to select `Machine Learning Service: Cluster Quota` as the quota type for this quota increase request.
 
 #### Disk quota
 
@@ -284,7 +284,7 @@ When you're creating a managed online endpoint, role assignment is required for 
 
 #### Endpoint quota
 
-Try to delete some unused endpoints in this subscription. If all of your endpoints are actively in use, you can try [requesting an endpoint quota increase](how-to-manage-quotas.md#endpoint-quota-increases). To learn more about the endpoint quota, see [Endpoint quota with Azure Machine Learning online endpoints and batch endpoints](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).  
+Try to delete some unused endpoints in this subscription. If all of your endpoints are actively in use, you can try [requesting an endpoint limit increase](how-to-manage-quotas.md#endpoint-limit-increases). To learn more about the endpoint limit, see [Endpoint quota with Azure Machine Learning online endpoints and batch endpoints](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
 
 #### Kubernetes quota
 
