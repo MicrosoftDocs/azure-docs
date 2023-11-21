@@ -25,7 +25,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 | Date | Update |
 |--|--|
 | November 27 | [General availability of agentless secret scanning in Defender for Servers and Defender CSPM](#general-availability-of-agentless-secret-scanning-in-defender-for-servers-and-defender-cspm) |
-| November 20 | [General availability of the new autoprovisioning process for SQL Servers on machines plan](#general-availability-of-new-autoprovisioning-process-for-sql-servers-on-machines-plan) |
+| November 20 | [General availability of the new autoprovisioning process for SQL Servers on machines plan](#general-availability-of-the-new-autoprovisioning-process-for-sql-servers-on-machines-plan) |
 | November 15 | [Defender for Cloud is now integrated with Microsoft 365 Defender](#defender-for-cloud-is-now-integrated-with-microsoft-365-defender) |
 | November 15 | [General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries](#general-availability-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries) |
 | November 15 | [Change to Container Vulnerability Assessments recommendation names](#change-to-container-vulnerability-assessments-recommendation-names) |
