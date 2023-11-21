@@ -1,6 +1,6 @@
 ---
 title: 'Azure premium storage: Design for high performance'
-description: Design high-performance apps by using Azure premium SSD managed disks. Premium storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure VMs.
+description: Design high-performance apps by using Azure premium SSD managed disks. Azure premium storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure VMs.
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: conceptual
@@ -73,7 +73,7 @@ It's important to determine the optimal throughput and IOPS values that your app
 
 ## Latency
 
-Latency is the time it takes an application to receive a single request, send it to storage disks, and send the response to the client. Latency is a critical measure of an application's performance in addition to IOPS and throughput. The latency of a premium storage disk is the time it takes to retrieve the information for a request and communicate it back to your application. Premium storage provides consistently low latencies. Premium Disks are designed to provide single-digit millisecond latencies for most I/O operations. If you enable **ReadOnly** host caching on premium storage disks, you can get much lower read latency. For more information on disk caching, see [Disk caching](#disk-caching).
+Latency is the time it takes an application to receive a single request, send it to storage disks, and send the response to the client. Latency is a critical measure of an application's performance in addition to IOPS and throughput. The latency of a premium storage disk is the time it takes to retrieve the information for a request and communicate it back to your application. Premium storage provides consistently low latencies. Premium disks are designed to provide single-digit millisecond latencies for most I/O operations. If you enable **ReadOnly** host caching on premium storage disks, you can get much lower read latency. For more information on disk caching, see [Disk caching](#disk-caching).
 
 When you optimize your application to get higher IOPS and throughput, it affects the latency of your application. After you tune the application performance, always evaluate the latency of the application to avoid unexpected high latency behavior.
 
@@ -237,9 +237,17 @@ As an example, suppose an application requirement is a maximum of 4,000 IOPS. To
 
 In many cases, it's possible that your overall cost of operation using premium storage is lower than using standard storage.
 
-For example, consider an application requiring 16,000 IOPS. To achieve this performance, you need a Standard\_D14 Azure IaaS VM, which can give a maximum IOPS of 16,000 by using 32 standard storage 1-TB disks. Each 1-TB standard storage disk can achieve a maximum of 500 IOPS. The estimated cost of this VM per month is $1,570. The monthly cost of 32 standard storage disks is $1,638. The estimated total monthly cost is $3,208.
+For example, consider an application requiring 16,000 IOPS. To achieve this performance, you need a Standard\_D14 Azure IaaS VM, which can give a maximum IOPS of 16,000 by using 32 standard storage 1-TB disks. Each 1-TB standard storage disk can achieve a maximum of 500 IOPS.
 
-If you hosted the same application on premium storage, you need a smaller VM size and fewer premium storage disks, reducing the overall cost. A Standard\_DS13 VM can meet the 16,000 IOPS requirement by using four P30 disks. The DS13 VM has a maximum IOPS of 25,600, and each P30 disk has a maximum IOPS of 5,000. Overall, this configuration can achieve 5,000 x 4 = 20,000 IOPS. The estimated cost of this VM per month is $1,003. The monthly cost of four P30 premium storage disks is $544.34. The estimated total monthly cost is $1,544.
+- The estimated cost of this VM per month is $1,570.
+- The monthly cost of 32 standard storage disks is $1,638.
+- The estimated total monthly cost is $3,208.
+
+If you hosted the same application on premium storage, you need a smaller VM size and fewer premium storage disks, reducing the overall cost. A Standard\_DS13 VM can meet the 16,000 IOPS requirement by using four P30 disks. The DS13 VM has a maximum IOPS of 25,600, and each P30 disk has a maximum IOPS of 5,000. Overall, this configuration can achieve 5,000 x 4 = 20,000 IOPS.
+
+- The estimated cost of this VM per month is $1,003.
+- The monthly cost of four P30 premium storage disks is $544.34.
+- The estimated total monthly cost is $1,544.
 
 The following table summarizes the cost breakdown of this scenario for standard and premium storage.
 
