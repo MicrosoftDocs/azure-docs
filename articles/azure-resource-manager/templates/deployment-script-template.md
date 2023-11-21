@@ -257,7 +257,7 @@ Supporting script files can be called from both inline scripts and primary scrip
 
 The supporting files are copied to `azscripts/azscriptinput` at the runtime. Use relative path to reference the supporting files from inline scripts and primary script files.
 
-## Work with outputs from PowerShell script
+## Work with outputs from PowerShell scripts
 
 The following template shows how to pass values between two `deploymentScripts` resources:
 
@@ -269,11 +269,9 @@ In the first resource, you define a variable called `$DeploymentScriptOutputs`, 
 reference('<ResourceName>').outputs.text
 ```
 
-## Work with outputs from CLI script
+## Work with outputs from CLI scripts
 
-Different from the PowerShell deployment script, CLI/bash support doesn't expose a common variable to store script outputs, instead, there's an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` that stores the location where the script outputs file resides. If a deployment script is run from a Resource Manager template, this environment variable is set automatically for you by the Bash shell. The value of `AZ_SCRIPTS_OUTPUT_PATH` is */mnt/azscripts/azscriptoutput/scriptoutputs.json*.
-
-Deployment script outputs must be saved in the `AZ_SCRIPTS_OUTPUT_PATH` location, and the outputs must be a valid JSON string object. The contents of the file must be saved as a key-value pair. For example, an array of strings is stored as `{ "MyResult": [ "foo", "bar"] }`.  Storing just the array results, for example `[ "foo", "bar" ]`, is invalid.
+In contrast to the Azure PowerShell deployment scripts, CLI/bash doesn't expose a common variable for storing script outputs. Instead, it utilizes an environment variable named `AZ_SCRIPTS_OUTPUT_PATH` to indicate the location of the script outputs file. When executing a deployment script within a Bicep file, the Bash shell automatically configures this environment variable for you. Its predefined value is set as */mnt/azscripts/azscriptoutput/scriptoutputs.json*. The outputs are required to conform to a valid JSON string object structure. The file's contents should be formatted as a key-value pair. For instance, an array of strings should be saved as { "MyResult": [ "foo", "bar"] }. Storing only the array results, such as [ "foo", "bar" ], is considered invalid.
 
 :::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json" range="1-44" highlight="32":::
 
@@ -350,7 +348,7 @@ Deployment script uses these environment variables:
 |AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME|executionresult.json|Y|
 |AZ_SCRIPTS_USER_ASSIGNED_IDENTITY|/subscriptions/|N|
 
-For more information about using `AZ_SCRIPTS_OUTPUT_PATH`, see [Work with outputs from CLI script](#work-with-outputs-from-cli-script).
+For more information about using `AZ_SCRIPTS_OUTPUT_PATH`, see [Work with outputs from CLI script](#work-with-outputs-from-cli-scripts).
 
 ### Pass secured strings to deployment script
 
@@ -428,56 +426,64 @@ The list command output is similar to:
 ```json
 [
   {
-    "arguments": "-name \\\"John Dole\\\"",
-    "azPowerShellVersion": "9.7",
-    "cleanupPreference": "OnSuccess",
+    "arguments": "'foo' 'bar'",
+    "azCliVersion": "2.40.0",
+    "cleanupPreference": "OnExpiration",
     "containerSettings": {
       "containerGroupName": null
     },
     "environmentVariables": null,
-    "forceUpdateTag": "20230511T025902Z",
-    "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
+    "forceUpdateTag": "20231101T163748Z",
+    "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runBashWithOutputs",
     "identity": {
       "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
       "type": "userAssigned",
       "userAssignedIdentities": {
-        "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
+        "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myidentity/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
           "clientId": "01234567-89AB-CDEF-0123-456789ABCDEF",
           "principalId": "01234567-89AB-CDEF-0123-456789ABCDEF"
         }
       }
     },
-    "kind": "AzurePowerShell",
+    "kind": "AzureCLI",
     "location": "centralus",
-    "name": "runPowerShellInlineWithOutput",
+    "name": "runBashWithOutputs",
     "outputs": {
-      "text": "Hello John Dole"
+      "Result": [
+        {
+          "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/mytest/providers/Microsoft.KeyVault/vaults/mykv1027",
+          "resourceGroup": "mytest"
+        }
+      ]
     },
     "primaryScriptUri": null,
     "provisioningState": "Succeeded",
-    "resourceGroup": "myds0624rg",
+    "resourceGroup": "mytest",
     "retentionInterval": "1 day, 0:00:00",
-    "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
+    "scriptContent": "result=$(az keyvault list); echo \"arg1 is: $1\"; echo $result | jq -c '{Result: map({id: .id})}' > $AZ_SCRIPTS_OUTPUT_PATH",
     "status": {
-      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
-      "endTime": "2023-05-11T03:00:16.796923+00:00",
+      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/mytest/providers/Microsoft.ContainerInstance/containerGroups/eg6n7wvuyxn7iazscripts",
+      "endTime": "2023-11-01T16:39:12.080950+00:00",
       "error": null,
-      "expirationTime": "2023-05-12T03:00:16.796923+00:00",
-      "startTime": "2023-05-11T02:59:07.595140+00:00",
-      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts"
+      "expirationTime": "2023-11-02T16:39:12.080950+00:00",
+      "startTime": "2023-11-01T16:37:53.139700+00:00",
+      "storageAccountId": null
     },
-    "storageAccountSettings": null,
+    "storageAccountSettings": {
+      "storageAccountKey": null,
+      "storageAccountName": "dsfruro267qwb4i"
+    },
     "supportingScriptUris": null,
     "systemData": {
-      "createdAt": "2023-05-11T02:59:04.750195+00:00",
+      "createdAt": "2023-10-31T19:06:57.060909+00:00",
       "createdBy": "someone@contoso.com",
       "createdByType": "User",
-      "lastModifiedAt": "2023-05-11T02:59:04.750195+00:00",
+      "lastModifiedAt": "2023-11-01T16:37:51.859570+00:00",
       "lastModifiedBy": "someone@contoso.com",
       "lastModifiedByType": "User"
     },
     "tags": null,
-    "timeout": "1:00:00",
+    "timeout": "0:30:00",
     "type": "Microsoft.Resources/deploymentScripts"
   }
 ]
@@ -572,7 +578,7 @@ The two automatically created supporting resources can never outlive the `deploy
 
 - `cleanupPreference`: Specify the clean-up preference of the two supporting resources when the script execution gets in a terminal state. The supported values are:
 
-  - **Always**: Delete the two supporting resources once script execution gets in a terminal state. If an existing storage account is used, the script service deletes the file share created by the service. Because the `deploymentScripts` resource may still be present after the supporting resources are cleaned up, the script service persists the script execution results, for example, stdout, outputs, and return value before the resources are deleted.
+  - **Always**: Delete the two supporting resources once script execution gets in a terminal state. If an existing storage account is used, the script service deletes the file share created by the service. Because the `deploymentScripts` resource might still be present after the supporting resources are cleaned up, the script service persists the script execution results, for example, stdout, outputs, and return value before the resources are deleted.
   - **OnSuccess**: Delete the two supporting resources only when the script execution is successful. If an existing storage account is used, the script service removes the file share only when the script execution is successful.
 
     If the script execution isn't successful, the script service waits until the `retentionInterval` expires before it cleans up the supporting resources and then the deployment script resource.

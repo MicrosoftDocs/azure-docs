@@ -6385,8 +6385,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/sampling.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/sampling",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/tutorial-asp-net-core.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/app/tutorial-asp-net-core",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/search-and-transaction-diagnostics.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/search-and-transaction-diagnostics-redirect",
             "redirect_document_id": false
         },
         {
@@ -6397,6 +6407,31 @@
         {
             "source_path_from_root": "/articles/azure-monitor/app/data-retention-privacy.md",
             "redirect_url": "/azure/azure-monitor/app/app-insights-overview#how-does-application-insights-handle-data-collection-retention-storage-and-privacy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/usage-estimated-costs.md",
+            "redirect_url": "/azure/azure-monitor/cost-usage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/metrics-getting-started.md",
+            "redirect_url": "/azure/azure-monitor/essentials/analyze-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/metrics-dynamic-scope.md",
+            "redirect_url": "/azure/azure-monitor/essentials/analyze-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/metrics-charts.md",
+            "redirect_url": "/azure/azure-monitor/essentials/analyze-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/faq.yml",
+            "redirect_url": "/azure/azure-monitor/overview#frequently-asked-questions",
             "redirect_document_id": false
         }
     ]

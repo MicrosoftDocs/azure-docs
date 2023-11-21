@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: conceptual
 ms.service: azure-functions
 ms.custom: references_regions, subject-reliability
-ms.date: 08/24/2023
+ms.date: 11/14/2023
 #Customer intent: I want to understand reliability support in Azure Functions so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
 
@@ -54,17 +54,17 @@ Zone-redundant Premium plans are available in the following regions:
 Availability zone support is a property of the Premium plan. The following are the current requirements/limitations for enabling availability zones:
 
 - You can only enable availability zones when creating a Premium plan for your function app. You can't convert an existing Premium plan to use availability zones.
-- You must use a [zone redundant storage account (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) for your function app's [storage account](../azure-functions/storage-considerations.md#storage-account-requirements). If you use a different type of storage account, Functions may show unexpected behavior during a zonal outage.
+- You must use a [zone redundant storage account (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) for your function app's [storage account](../azure-functions/storage-considerations.md#storage-account-requirements). If you use a different type of storage account, Functions can show unexpected behavior during a zonal outage.
 - Both Windows and Linux are supported.
 - Must be hosted on an [Elastic Premium](../azure-functions/functions-premium-plan.md) or Dedicated hosting plan. To learn how to use zone redundancy with a Dedicated plan, see [Migrate App Service to availability zone support](../availability-zones/migrate-app-service.md).
   - Availability zone support isn't currently available for function apps on [Consumption](../azure-functions/consumption-plan.md) plans.
 - Function apps hosted on a Premium plan must have a minimum [always ready instances](../azure-functions/functions-premium-plan.md#always-ready-instances) count of three.
-  - The platform will enforce this minimum count behind the scenes if you specify an instance count fewer than three.
+  - The platform enforces this minimum count behind the scenes if you specify an instance count fewer than three.
 - If you aren't using Premium plan or a scale unit that supports availability zones, are in an unsupported region, or are unsure, see the [migration guidance](../reliability/migrate-functions.md).
 
 ### Pricing
 
-There's no additional cost associated with enabling availability zones. Pricing for a zone redundant Premium plan is the same as a single zone Premium plan. You'll be charged based on your Premium plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three, the platform will enforce a minimum instance count of three and charge you for those three instances.
+There's no extra cost associated with enabling availability zones. Pricing for a zone redundant Premium App Service plan is the same as a single zone Premium plan. For each App Service plan you use, you're charged based on the SKU you choose, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three for an App Service plan, the platform enforces a minimum instance count of three for that App Service plan and charges you for those three instances.
 
 ### Create a zone-redundant Premium plan and function app
 
@@ -96,7 +96,7 @@ There are currently two ways to deploy a zone-redundant Premium plan and functio
 
 # [ARM template](#tab/arm-template)
 
-You can use an [ARM template](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md) to deploy to a zone-redundant Premium plan. A guide to hosting Functions on Premium plans can be found [here](../azure-functions/functions-infrastructure-as-code.md#deploy-on-premium-plan).
+You can use an [ARM template](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md) to deploy to a zone-redundant Premium plan. To learn how to deploy function apps to a Premium plan, see [Automate resource deployment in Azure Functions](../azure-functions/functions-infrastructure-as-code.md?pivots=premium-plan).
 
 The only properties to be aware of while creating a zone-redundant hosting plan are the new `zoneRedundant` property and the plan's instance count (`capacity`) fields. The `zoneRedundant` property must be set to `true` and the `capacity` property should be set based on the workload requirement, but not less than `3`. Choosing the right capacity varies based on several factors and high availability/fault tolerance strategies. A good rule of thumb is to ensure sufficient instances for the application such that losing one zone of instances leaves sufficient capacity to handle expected load.
 
@@ -144,7 +144,7 @@ After the zone-redundant plan is created and deployed, any function app hosted o
 
 ### Migrate your function app to a zone-redundant plan
 
-Azure Function Apps currently doesn't support in-place migration of existing function apps instances. For information on how to migrate the public multi-tenant Premium plan from non-availability zone to availability zone support, see [Migrate App Service to availability zone support](../reliability/migrate-functions.md).
+Azure Function Apps currently doesn't support in-place migration of existing function apps instances. For information on how to migrate the public multitenant Premium plan from non-availability zone to availability zone support, see [Migrate App Service to availability zone support](../reliability/migrate-functions.md).
 
 ### Zone down experience
 
@@ -167,7 +167,7 @@ When you run the same function code in multiple regions, there are two patterns 
 
 #### Active-active pattern for HTTP trigger functions
 
-With an active-active pattern, functions in both regions are actively running and processing events, either in a duplicate manner or in rotation. It's recommended that you use an active-active pattern in combination with [Azure Front Door](../frontdoor/front-door-overview.md) for your critical HTTP triggered functions, which can route and round-robin HTTP requests between functions running in multiple regions. Front door can also periodically checks the health of each endpoint. When a function in one region stops responding to health checks, Azure Front Door takes it out of rotation, and only forwards traffic to the remaining healthy functions.  
+With an active-active pattern, functions in both regions are actively running and processing events, either in a duplicate manner or in rotation. It's recommended that you use an active-active pattern in combination with [Azure Front Door](../frontdoor/front-door-overview.md) for your critical HTTP triggered functions, which can route and round-robin HTTP requests between functions running in multiple regions. Front door can also periodically check the health of each endpoint. When a function in one region stops responding to health checks, Azure Front Door takes it out of rotation, and only forwards traffic to the remaining healthy functions.  
 
 ![Architecture for Azure Front Door and Function](../azure-functions/media/functions-geo-dr/front-door.png)  
 

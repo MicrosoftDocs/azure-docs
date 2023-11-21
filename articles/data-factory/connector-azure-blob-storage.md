@@ -32,7 +32,7 @@ This Azure Blob Storage connector is supported for the following capabilities:
 |[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
 |[Delete activity](delete-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For the Copy activity, this Blob storage connector supports:
 

@@ -38,7 +38,7 @@ In preview, create and use an API Center in the Azure portal for the following:
 
 For more information about the information you can manage and the capabilities in API Center, see [Key concepts](key-concepts.md).
 
-## Preview limitations
+## Available regions
 
 * In preview, API Center is available in the following Azure regions:
    * Australia East

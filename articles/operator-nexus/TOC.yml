@@ -40,9 +40,13 @@
       expanded: true
       items:
         - name: Use the Azure CLI
-          href: quickstarts-tenant-workload-deployment.md
+          href: quickstarts-virtual-machine-deployment-cli.md
+        - name: Use ARM template
+          href: quickstarts-virtual-machine-deployment-arm.md
+        - name: Use Bicep file
+          href: quickstarts-virtual-machine-deployment-bicep.md
         - name: Use Azure PowerShell
-          href: quickstarts-tenant-workload-deployment-ps.md 
+          href: quickstarts-virtual-machine-deployment-ps.md 
 - name: How-To Guides
   items:
     - name: Operator Nexus Instance Deployment and Upgrade
@@ -80,6 +84,8 @@
             href: howto-configure-isolation-domain.md
           - name: Network Fabric Route Policy
             href: how-to-route-policy.md  
+          - name: Network Packet Broker
+            href: howto-configure-network-packet-broker.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
@@ -97,6 +103,10 @@
           href: howto-kubernetes-service-load-balancer.md
         - name: Disable cgroupsv2 in Nexus Kubernetes 1.27+
           href: howto-disable-cgroupsv2.md
+        - name: Restart cluster node
+          href: howto-kubernetes-cluster-action-restart.md
+        - name: Customize cluster DNS
+          href: how-to-customize-kubernetes-cluster-dns.md
     - name: Nexus Virtual Machine
       expanded: false
       items:

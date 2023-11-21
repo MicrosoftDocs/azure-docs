@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 10/03/2023
+ms.date: 10/27/2023
 ms.custom: references_regions
 ---
 
@@ -22,6 +22,17 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
 ## October 2023
+
+
+## General Availability: Automation extension for Visual Studio Code
+
+ Azure Automation now provides an advanced editing experience for PowerShell and Python scripts along with [runbook management operations](how-to/runbook-authoring-extension-for-vscode.md). For more information, see the [Key features and limitations](automation-runbook-authoring.md).
+
+
+### General Availability: Change Tracking using Azure Monitoring Agent
+
+Azure Automation announces General Availability of Change Tracking using Azure Monitoring Agent. [Learn more](change-tracking/guidance-migration-log-analytics-monitoring-agent.md).
+
 
 ### Retirement of Run As accounts
 

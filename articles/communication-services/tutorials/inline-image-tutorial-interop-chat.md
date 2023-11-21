@@ -85,13 +85,13 @@ And this is all you need! And there's no other setup needed to enable inline ima
 
 Let's run `npm run start` then you should be able to access our sample app via `localhost:3000` like the following screenshot: 
 
-![ACS UI library](./media/inline-image-tutorial-interop-chat-0.png "Screenshot of a ACS UI library.")
+![ACS UI library](./media/inline-image-tutorial-interop-chat-0.png "Screenshot of a Azure Communication Services UI library.")
 
 Simply click on the chat button located in the bottom to reveal the chat panel and now if Teams user sends an image, you should see something like the following screenshot:
 
 ![Teams sending two images](./media/inline-image-tutorial-interop-chat-1.png "Screenshot of a Teams client sending 2 inline images.")
 
-![ACS getting two images](./media/inline-image-tutorial-interop-chat-2.png "Screenshot of ACS UI library receiving 2 inline images.")
+![ACS getting two images](./media/inline-image-tutorial-interop-chat-2.png "Screenshot of Azure Communication Services UI library receiving 2 inline images.")
 
 Note that in a Teams Interop Chat, we currently only support Azure Communication Service end user to receive inline images sent by the Teams user. To learn more about what features are supported, refer to the [UI Library use cases](../concepts/ui-library/ui-library-use-cases.md)
 

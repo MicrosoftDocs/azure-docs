@@ -26,7 +26,7 @@ highlightedContent:
     - title: What is Azure AD B2C?
       itemType: overview # controls the icon image and super-title text
       url: overview.md
-    - title: Microsoft Entra features supported in Azure AD B2C
+    - title: Microsoft Entra ID features supported in Azure AD B2C
       url: supported-azure-ad-features.md
       itemType: overview
     - title: Get started with Azure AD B2C
@@ -116,12 +116,6 @@ conceptualContent:
             url: session-behavior.md
             itemType: how-to-guide
 
-          - text: Authenticate users in a Node.js web app(Quick course)
-            url: /training/modules/authenticate-users-node-web-app-use-azure-active-directory-b2c/
-            itemType: learn
-          # - text: 'Quickstart: Single-page app'
-            # url: configure-authentication-sample-spa-app.md
-            # itemType: quickstart
       ## CARD 4 ######################
     - title: 'Authorize: Call and secure your APIs'
       links:

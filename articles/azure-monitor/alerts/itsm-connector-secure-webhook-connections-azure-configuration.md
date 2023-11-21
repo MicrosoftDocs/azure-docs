@@ -21,7 +21,7 @@ To register the application with Microsoft Entra ID:
 1. In Microsoft Entra ID, select **Expose application**.
 1. Select **Add** for **Application ID URI**.
 
-   [![Screenshot that shows the option for setting the U R I of the application I D.](media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad.png)](media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad-expand.png#lightbox)
+   :::image type="content" source="media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad.png" lightbox="media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad.png" alt-text="Screenshot that shows the option for setting the U R I of the application I D.":::
 1. Select **Save**.
 
 ## Define a service principal
@@ -61,7 +61,7 @@ To add a webhook to an action, follow these instructions for Secure Webhook:
 
    The following image shows the configuration of a sample Secure Webhook action:
 
-   ![Screenshot that shows a Secure Webhook action.](media/itsm-connector-secure-webhook-connections-azure-configuration/secure-webhook.png)
+   :::image type="content" source="media/itsm-connector-secure-webhook-connections-azure-configuration/secure-webhook.png" lightbox="media/itsm-connector-secure-webhook-connections-azure-configuration/secure-webhook.png" alt-text="Screenshot that shows a Secure Webhook action.":::
 
 ## Configure the ITSM tool environment
 Secure Webhook supports connections with the following ITSM tools:

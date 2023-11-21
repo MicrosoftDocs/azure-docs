@@ -1,3 +1,4 @@
+items:
 - name: Azure Logic Apps documentation
   href: index.yml
 - name: Overview
@@ -67,6 +68,8 @@
     href: logic-apps-serverless-overview.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
+  - name: Mainframe modernization
+    href: mainframe-modernization-overview.md
   - name: Business continuity and disaster recovery
     href: business-continuity-disaster-recovery-guidance.md
   - name: Security
@@ -86,6 +89,8 @@
       href: designer-overview.md
     - name: Create single-tenant workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
+    - name: Get AI-powered help from the workflow assistant
+      href: workflow-assistant-standard.md
     - name: Create single-tenant workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
     - name: Set up SQL storage for single-tenant workflows
@@ -329,9 +334,15 @@
     - name: HTTP Webhook
       href: ../connectors/connectors-native-webhook.md
     - name: IBM 3270
-      href: ../connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270.md
+      href: ../connectors/integrate-3270-apps-ibm-mainframe.md
+    - name: IBM CICS
+      href: ../connectors/integrate-cics-apps-ibm-mainframe.md
     - name: IBM DB2
       href: ../connectors/connectors-create-api-db2.md
+    - name: IBM Host File
+      href: ../connectors/integrate-host-files-ibm-mainframe.md
+    - name: IBM IMS
+      href: ../connectors/integrate-ims-apps-ibm-mainframe.md
     - name: IBM Informix
       href: ../connectors/connectors-create-api-informix.md
     - name: IBM MQ

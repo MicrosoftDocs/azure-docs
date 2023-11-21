@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 10/24/2023
+ms.date: 11/17/2023
 ms.author: banders
 ---
 
@@ -38,7 +38,7 @@ For more information about how savings plan scope works, see [Saving plan scopes
 
 Usage from [savings plan-eligible resources](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#how-it-works) is eligible for savings plan benefits.
 
-In addition, virtual machines used with the [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service/) and [Azure Virtual Desktop (AVD)](https://azure.microsoft.com/products/virtual-desktop/) are eligible for the savings plan.
+In addition, virtual machines used with the [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service/), [Azure Virtual Desktop (AVD)](https://azure.microsoft.com/products/virtual-desktop/), and [Azure Red Hat OpenShift (ARO)](https://azure.microsoft.com/products/openshift/) are eligible for the savings plan.
 
 It's important to consider your hourly spend when you determine your hourly commitment. Azure provides commitment recommendations based on usage from your last 30 days. The recommendations are found in:
 

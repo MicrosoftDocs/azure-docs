@@ -58,10 +58,10 @@ The following table lists optional URLs that your session host virtual machines 
 |--|--|--|
 | `login.windows.net` | 443 | Sign in to Microsoft Online Services and Microsoft 365 |
 | `*.events.data.microsoft.com` | 443 | Telemetry Service |
-| `www.msftconnecttest.com` | 443 | Detects if the session host is connected to the internet |
+| `www.msftconnecttest.com` | 80 | Detects if the session host is connected to the internet |
 | `*.prod.do.dsp.mp.microsoft.com` | 443 | Windows Update |
 | `*.sfx.ms` | 443 | Updates for OneDrive client software |
-| `*.digicert.com` | 443 | Certificate revocation check |
+| `*.digicert.com` | 80 | Certificate revocation check |
 | `*.azure-dns.com` | 443 | Azure DNS resolution |
 | `*.azure-dns.net` | 443 | Azure DNS resolution |
 
@@ -96,10 +96,10 @@ The following table lists optional URLs that your session host virtual machines 
 | Address | Outbound TCP port | Purpose |
 |--|--|--|
 | `*.events.data.microsoft.com` | 443 | Telemetry Service |
-| `www.msftconnecttest.com` | 443 | Detects if the session host is connected to the internet |
+| `www.msftconnecttest.com` | 80 | Detects if the session host is connected to the internet |
 | `*.prod.do.dsp.mp.microsoft.com` | 443 | Windows Update |
 | `oneclient.sfx.ms` | 443 | Updates for OneDrive client software |
-| `*.digicert.com` | 443 | Certificate revocation check |
+| `*.digicert.com` | 80 | Certificate revocation check |
 | `*.azure-dns.com` | 443 | Azure DNS resolution |
 | `*.azure-dns.net` | 443 | Azure DNS resolution |
 

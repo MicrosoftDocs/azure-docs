@@ -8,7 +8,7 @@ ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 10/24/2023
+ms.date: 11/15/2023
 reviewer: msakande
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, sdkv2
@@ -497,14 +497,120 @@ For supported general-purpose and GPU instance types, see [Managed online endpoi
 
 ---
 
-### Use more than one model in a deployment
+### Identify model path with respect to `AZUREML_MODEL_DIR`
 
-Currently, you can specify only one model per deployment in the deployment definition when you use the Azure CLI, Python SDK, or any of the other client tools.
+When deploying your model to Azure Machine Learning, you need to specify the location of the model you wish to deploy as part of your deployment configuration. In Azure Machine Learning, the path to your model is tracked with the `AZUREML_MODEL_DIR` environment variable. By identifying the model path with respect to `AZUREML_MODEL_DIR`, you can deploy one or more models that are stored locally on your machine or deploy a model that is registered in your Azure Machine Learning workspace.
 
-To use more than one model in a deployment, register a model folder that contains all the models as files or subdirectories. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure will be retained. For an example of deploying multiple models to one deployment, see [Deploy multiple models to one deployment (CLI example)](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/multimodel) and [Deploy multiple models to one deployment (SDK example)](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/custom-container/online-endpoints-custom-container-multimodel.ipynb).
+For illustration, we reference the following local folder structure for the first two cases where you deploy a single model or deploy multiple models that are stored locally:
+
+:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-1.png" alt-text="A screenshot showing a folder structure containing multiple models." lightbox="media/how-to-deploy-online-endpoints/multi-models-1.png":::
+
+#### Use a single local model in a deployment
+
+To use a single model that you have on your local machine in a deployment, specify the `path` to the `model` in your deployment YAML. Here's an example of the deployment YAML with the path `/Downloads/multi-models-sample/models/model_1/v1/sample_m1.pkl`:
+
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json 
+name: blue 
+endpoint_name: my-endpoint 
+model: 
+  path: /Downloads/multi-models-sample/models/model_1/v1/sample_m1.pkl 
+code_configuration: 
+  code: ../../model-1/onlinescoring/ 
+  scoring_script: score.py 
+environment:  
+  conda_file: ../../model-1/environment/conda.yml 
+  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest 
+instance_type: Standard_DS3_v2 
+instance_count: 1 
+```
+
+After you create your deployment, the environment variable `AZUREML_MODEL_DIR` will point to the storage location within Azure where your model is stored. For example, `/var/azureml-app/azureml-models/81b3c48bbf62360c7edbbe9b280b9025/1` will contain the model `sample_m1.pkl`. 
+
+Within your scoring script (`score.py`), you can load your model (in this example, `sample_m1.pkl`) in the `init()` function:
+
+```python
+def init(): 
+    model_path = os.path.join(str(os.getenv("AZUREML_MODEL_DIR")), "sample_m1.pkl") 
+    model = joblib.load(model_path) 
+```
+
+#### Use multiple local models in a deployment
+
+Although the Azure CLI, Python SDK, and other client tools allow you to specify only one model per deployment in the deployment definition, you can still use multiple models in a deployment by registering a model folder that contains all the models as files or subdirectories.
+
+In the previous example folder structure, you notice that there are multiple models in the `models` folder. In your deployment YAML, you can specify the path to the `models` folder as follows:
+
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json 
+name: blue 
+endpoint_name: my-endpoint 
+model: 
+  path: /Downloads/multi-models-sample/models/ 
+code_configuration: 
+  code: ../../model-1/onlinescoring/ 
+  scoring_script: score.py 
+environment:  
+  conda_file: ../../model-1/environment/conda.yml 
+  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest 
+instance_type: Standard_DS3_v2 
+instance_count: 1 
+```
+
+After you create your deployment, the environment variable `AZUREML_MODEL_DIR` will point to the storage location within Azure where your models are stored. For example, `/var/azureml-app/azureml-models/81b3c48bbf62360c7edbbe9b280b9025/1` will contain the models and the file structure. 
+
+For this example, the contents of the `AZUREML_MODEL_DIR` folder will look like this:
+
+:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-2.png" alt-text="A screenshot of the folder structure of the storage location for multiple models." lightbox="media/how-to-deploy-online-endpoints/multi-models-2.png":::
+
+Within your scoring script (`score.py`), you can load your models in the `init()` function. The following code loads the `sample_m1.pkl` model:
+
+```python
+def init(): 
+    model_path = os.path.join(str(os.getenv("AZUREML_MODEL_DIR")), "models","model_1","v1", "sample_m1.pkl ") 
+    model = joblib.load(model_path) 
+```
+
+For an example of how to deploy multiple models to one deployment, see [Deploy multiple models to one deployment (CLI example)](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/multimodel) and [Deploy multiple models to one deployment (SDK example)](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/custom-container/online-endpoints-custom-container-multimodel.ipynb).
 
 > [!TIP]
-> If you have more than 1500 files to register, you may consider compressing the files or subdirectories as .tar.gz when registering the model. To consume the models, you can uncompress the files or subdirectories in the init() function from the scoring script. Alternatively, when you register the model, set the `azureml.unpack` property to `True`, which will allow automatic uncompression. In either case, uncompression happens once in the initialization stage.
+> If you have more than 1500 files to register, consider compressing the files or subdirectories as .tar.gz when registering the models. To consume the models, you can uncompress the files or subdirectories in the `init()` function from the scoring script. Alternatively, when you register the models, set the `azureml.unpack` property to `True`, to automatically uncompress the files or subdirectories. In either case, uncompression happens once in the initialization stage.
+
+#### Use models registered in your Azure Machine Learning workspace in a deployment
+
+To use one or more models, which are registered in your Azure Machine Learning workspace, in your deployment, specify the name of the registered model(s) in your deployment YAML. For example, the following deployment YAML configuration specifies the registered `model` name as `azureml:local-multimodel:3`:
+
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json 
+name: blue 
+endpoint_name: my-endpoint 
+model: azureml:local-multimodel:3 
+code_configuration: 
+  code: ../../model-1/onlinescoring/ 
+  scoring_script: score.py 
+environment:  
+  conda_file: ../../model-1/environment/conda.yml 
+  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest 
+instance_type: Standard_DS3_v2 
+instance_count: 1 
+```
+
+For this example, consider that `local-multimodel:3` contains the following model artifacts, which can be viewed from the **Models** tab in the Azure Machine Learning studio:
+
+:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-3.png" alt-text="A screenshot of the folder structure showing the model artifacts of the registered model." lightbox="media/how-to-deploy-online-endpoints/multi-models-3.png":::
+
+After you create your deployment, the environment variable `AZUREML_MODEL_DIR` will point to the storage location within Azure where your models are stored. For example, `/var/azureml-app/azureml-models/local-multimodel/3` will contain the models and the file structure. `AZUREML_MODEL_DIR` will point to the folder containing the root of the model artifacts. 
+Based on this example, the contents of the `AZUREML_MODEL_DIR` folder will look like this:
+
+:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-4.png" alt-text="A screenshot of the folder structure showing multiple models." lightbox="media/how-to-deploy-online-endpoints/multi-models-4.png":::
+
+Within your scoring script (`score.py`), you can load your models in the `init()` function. For example, load the `diabetes.sav` model:
+
+```python
+def init(): 
+    model_path = os.path.join(str(os.getenv("AZUREML_MODEL_DIR"), "models", "diabetes", "1", "diabetes.sav") 
+    model = joblib.load(model_path) 
+```
 
 ---
 
@@ -555,10 +661,11 @@ To deploy locally, [Docker Engine](https://docs.docker.com/engine/install/) must
 > [!TIP]
 > You can use [Azure Machine Learning inference HTTP server Python package](how-to-inference-server-http.md) to debug your scoring script locally **without Docker Engine**. Debugging with the inference server helps you to debug the scoring script before deploying to local endpoints so that you can debug without being affected by the deployment container configurations.
 
-Local endpoints have the following limitations:
-- They do *not* support traffic rules, authentication, or probe settings. 
-- They support only one deployment per endpoint.
-- They support local model files only. If you want to test registered models, first download them using [CLI](/cli/azure/ml/model#az-ml-model-download) or [SDK](/python/api/azure-ai-ml/azure.ai.ml.operations.modeloperations#azure-ai-ml-operations-modeloperations-download), then use `path` in the deployment definition to refer to the parent folder.
+> [!NOTE]
+> Local endpoints have the following limitations:
+> - They do *not* support traffic rules, authentication, or probe settings.
+> - They support only one deployment per endpoint.
+> - They support local model files and environment with local conda file only. If you want to test registered models, first download them using [CLI](/cli/azure/ml/model#az-ml-model-download) or [SDK](/python/api/azure-ai-ml/azure.ai.ml.operations.modeloperations#azure-ai-ml-operations-modeloperations-download), then use `path` in the deployment definition to refer to the parent folder. If you want to test registered environments, check the context of the environment in Azure Machine Learning studio and prepare local conda file to use. Example in this article demonstrates using local model and environment with local conda file, which supports local deployment. 
 
 For more information on debugging online endpoints locally before deploying to Azure, see [Debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 

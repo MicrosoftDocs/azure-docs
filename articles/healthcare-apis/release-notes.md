@@ -20,7 +20,25 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 This article provides details about the features and enhancements made to Azure Health Data Services, including the different services (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
+## November 2023
+
+### FHIR service
+
+**Bulk delete capability now available**
+`$bulk-delete' allows you to delete resources from FHIR server asynchronously. Bulk delete operation can be executed at system level or for individual resource type. For more information, see [bulk-delete operation](./../healthcare-apis/fhir/fhir-bulk-delete.md)
+
+Bulk delete operation is currently in public preview. Review disclaimer for details. [!INCLUDE public preview disclaimer]
+
+## October 2023
+
+### DICOM Service
+**Bulk import is available for public preview**
+
+Bulk import simplifies the process of adding data to the DICOM service. When enabled, the capability creates a storage container and .dcm files that are copied to the container are automatically added to the DICOM service. For more information, see [Import DICOM files (preview)](./../healthcare-apis/dicom/import-files.md).  
+
 ## September 2023
+
+### FHIR service
 
 **Retirement announcement for Azure API for FHIR**
 
@@ -48,8 +66,9 @@ For details on Incremental Import, visit [Import Documentation](./../healthcare-
 **Batch-Bundle parallelization capability available in Public Preview**
 
 Batch bundles are executed serially in FHIR service by default. To improve throughput with bundle calls, we're enabling parallel processing of batch bundles.For details, visit [Batch Bundle Parellization](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
-> [!IMPORTANT]
-> Bundle parallel processing is currently in public preview. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review Supplemental Terms of Use for Microsoft Azure Previews 
+
+Batch-bundle parallelization capability is in public preview. Review disclaimer for more details. 
+[!INCLUDE [public preview disclaimer](./../healthcare-apis/includes/common-publicpreview-disclaimer.md)]
 
 **Decimal value precision in FHIR service is updated per FHIR specification**
 
