@@ -73,7 +73,7 @@ During public preview, the DICOM service with data lake storage has these limita
 
 ## Next steps
 
-[Deploy the DICOM service with Data Lake Storage (Preview)](deploy-dicom-services-in-azure-data-lake.md)
+[Deploy the DICOM service with Azure Data Lake Storage (Preview)](deploy-dicom-services-in-azure-data-lake.md)
 
 [Get started using DICOM data in analytics workloads](get-started-with-analytics-dicom.md)
 

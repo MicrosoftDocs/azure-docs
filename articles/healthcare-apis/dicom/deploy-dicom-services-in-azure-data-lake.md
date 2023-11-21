@@ -1,20 +1,20 @@
 ---
-title: Deploy the DICOM service with a data lake by using the Azure portal - Azure Health Data Services
+title: Learn how to deploy the DICOM service and store all your DICOM data in its native format with a data lake in Azure Health Data Services.
 description: This article describes how to deploy the DICOM service with a data lake in the Azure portal.
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: dicom
 ms.topic: how-to
-ms.date: 11/07/2023
+ms.date: 11/21/2023
 ms.author: mmitrik
 ms.custom: mode-api
 ---
 
 # Deploy the DICOM service with Data Lake Storage (Preview)
 
-In this quickstart, you learn how to deploy the [DICOM&reg; service with Data Lake Storage](dicom-data-lake.md) by using the Azure portal.
+Deploying the [DICOM&reg; service with Azure Data Lake Storage](dicom-data-lake.md) enables organizations to store and process imaging data in a standardized, secure, and scalable way.
 
-After deployment is finished, you can use the Azure portal to go to the newly created DICOM service to see the details, including your service URL. The service URL to access your DICOM service is ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the API version as part of the URL when you make requests. For more information, see [API versioning for the DICOM service](api-versioning-dicom-service.md).
+After deployment completes, you can use the Azure portal to see the details about the DICOM service, including the service URL. The service URL to access your DICOM service is ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the API version as part of the URL when you make requests. For more information, see [API versioning for the DICOM service](api-versioning-dicom-service.md).
 
 ## Prerequisites
 
@@ -23,27 +23,27 @@ After deployment is finished, you can use the Azure portal to go to the newly cr
 - **Create a blob container in the storage account**.  The container is used by the DICOM service to store DICOM files.  For more information, see [Manage blob containers using the Azure portal](/azure/storage/blobs/blob-containers-portal)
 
 > [!NOTE]
-> The Azure Data Lake Storage option is currently only available for newly created instances of the DICOM service.  After the option becomes generally available, we plan to offer a migration path for existing DICOM service instances.
+> The Azure Data Lake Storage option is only available for new instances of the DICOM service. After the option becomes generally available, we plan to offer a migration path for existing DICOM service instances.
 
 ## Deploy the DICOM service with Data Lake Storage using the Azure portal
 
-1. On the **Resource group** page of the Azure portal, select the name of your **Azure Health Data Services workspace**.
+1. On the **Resource group** page of the Azure portal, select the name of the **Azure Health Data Services workspace**.
 
-   :::image type="content" source="media/deploy-data-lake/resource-group.png" alt-text="Screenshot that shows a Health Data Services Workspace in the resource group view in the Azure portal." lightbox="media/deploy-data-lake/resource-group.png":::
+   :::image type="content" source="media/deploy-data-lake/resource-group.png" alt-text="Screenshot showing a Health Data Services Workspace in the resource group view in the Azure portal." lightbox="media/deploy-data-lake/resource-group.png":::
 
 1. Select **Deploy DICOM service**.
 
-   :::image type="content" source="media/deploy-data-lake/workspace-deploy-dicom.png" alt-text="Screenshot that shows the Deploy DICOM service button in the workspace view in the Azure portal." lightbox="media/deploy-data-lake/workspace-deploy-dicom.png":::
+   :::image type="content" source="media/deploy-data-lake/workspace-deploy-dicom.png" alt-text="Screenshot showing the Deploy DICOM service button in the workspace view in the Azure portal." lightbox="media/deploy-data-lake/workspace-deploy-dicom.png":::
 
 1. Select **Add DICOM service**.
 
-   :::image type="content" source="media/deploy-data-lake/add-dicom-service.png" alt-text="Screenshot that shows the Add DICOM Service button in the Azure portal." lightbox="media/deploy-data-lake/add-dicom-service.png":::
+   :::image type="content" source="media/deploy-data-lake/add-dicom-service.png" alt-text="Screenshot showing the Add DICOM Service button in the Azure portal." lightbox="media/deploy-data-lake/add-dicom-service.png":::
 
 1. Enter a name for the DICOM service.
 
 1. Select **External (preview)** for the Storage Location.  
 
-    :::image type="content" source="media/deploy-data-lake/dicom-deploy-options.png" alt-text="Screenshot that shows the options in the Create DICOM service view." lightbox="media/deploy-data-lake/dicom-deploy-options.png":::
+    :::image type="content" source="media/deploy-data-lake/dicom-deploy-options.png" alt-text="Screenshot showing the options in the Create DICOM service view." lightbox="media/deploy-data-lake/dicom-deploy-options.png":::
 
 1. Select the **subscription** and **resource group** that contains the storage account.
 
@@ -60,15 +60,15 @@ After deployment is finished, you can use the Azure portal to go to the newly cr
 
 1. After the deployment process completes, select **Go to resource**.
 
-   :::image type="content" source="media/deploy-data-lake/dicom-deploy-complete.png" alt-text="Screenshot that shows the completed deployment of the DICOM service." lightbox="media/deploy-data-lake/dicom-deploy-complete.png":::
+   :::image type="content" source="media/deploy-data-lake/dicom-deploy-complete.png" alt-text="Screenshot showing the completed deployment of the DICOM service." lightbox="media/deploy-data-lake/dicom-deploy-complete.png":::
 
    The DICOM service overview screen shows the new service and lists the storage account.  
 
    :::image type="content" source="media/deploy-data-lake/dicom-service-overview.png" alt-text="Screenshot that shows the DICOM service overview." lightbox="media/deploy-data-lake/dicom-service-overview.png":::
 
-## Deploy the DICOM service with Data Lake Storage using an ARM template
+## Deploy the DICOM service with Data Lake Storage by using an ARM template
 
-Use the Azure portal to **Deploy a custom template** and use the sample ARM template to deploy the DICOM service with Data Lake Storage. For more information, see [Create and deploy ARM templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+Use the Azure portal to **Deploy a custom template** and then use the sample ARM template to deploy the DICOM service with Azure Data Lake Storage. For more information, see [Create and deploy ARM templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ```json
 {
