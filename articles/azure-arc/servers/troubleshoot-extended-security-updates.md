@@ -59,6 +59,7 @@ If you're working with Azure Government Cloud, use the following instructions in
 If you encounter the error "ESU: not eligible HRESULT_FROM_WIN32(1633)", follow these steps:
 
 `Remove-Item “$env:ProgramData\AzureConnectedMachineAgent\Certs\license.json” -Force`
+
 `Restart-Service himds`
 
 If you have other issues receiving ESUs after successfully enrolling the server through Arc-enabled servers, or you need additional information related to issues affecting ESU deployment, see [Troubleshoot issues in ESU](/troubleshoot/windows-client/windows-7-eos-faq/troubleshoot-extended-security-updates-issues).
