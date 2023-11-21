@@ -34,7 +34,7 @@ To view in-depth examples of reacting to Blob storage events by using Azure func
 
 > [!NOTE]
 > **Storage (general purpose v1)** does *not* support integration with Event Grid.
-
+++Storage accounts with CORS setting enabled should have the allowed orgins as * or Wildcard origin could only be at top level with http(s):// prefix, or simply * other wise the event subscription would fail to create.
 ## The event model
 
 Event Grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. This image illustrates the relationship between event publishers, event subscriptions, and event handlers.
