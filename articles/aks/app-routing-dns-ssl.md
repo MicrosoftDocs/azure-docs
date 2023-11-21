@@ -1,6 +1,6 @@
 ---
 title: Set up advanced Ingress configurations on Azure Kubernetes Service 
-description: Understand the adavanced configuration options that are supported with the application routing add-on for Azure Kubernetes Service. 
+description: Understand the advanced configuration options that are supported with the application routing add-on for Azure Kubernetes Service. 
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.topic: how-to
