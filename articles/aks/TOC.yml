@@ -160,6 +160,20 @@
       href: best-practices.md
     - name: Baseline architecture for an AKS cluster
       href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+    - name: High availability disaster recovery
+      items:
+        - name: Overview
+          href: ha-dr-overview.md
+          required: yes
+          limit: 1
+        - name: Recommended solutions
+          items:
+            - name: Active-active
+              href: active-active-solution.md
+            - name: Active-passive
+              href: active-passive-solution.md
+            - name: Passive-cold
+              href: passive-cold-solution.md
     - name: Security
       items:
         - name: Authentication and authorization
@@ -182,8 +196,6 @@
           href: operator-best-practices-network.md
         - name: Storage
           href: operator-best-practices-storage.md
-        - name: Business continuity (BC) and disaster recovery (DR)
-          href: operator-best-practices-multi-region.md
     - name: Performance and scaling
       items:
         - name: For small to medium workloads
