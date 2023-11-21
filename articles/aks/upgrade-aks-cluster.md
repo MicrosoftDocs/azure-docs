@@ -134,6 +134,7 @@ During the cluster upgrade process, AKS performs the following operations:
 * [Cordon and drain][kubernetes-drain] one of the old nodes to minimize disruption to running applications. If you're using max surge, it [cordons and drains][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified.
 * For long running pods, you can configure the node drain timeout, which allows for custom wait time on the eviction of pods and graceful termination per node. If not specified, the default is 30 minutes.
 * When the old node is fully drained, it's reimaged to receive the new version and becomes the buffer node for the following node to be upgraded.
+* You have the option to set a node soak time to wait between draining a node, proceeding to reimage it, and moving onto the next node. The recommended node soak time is close to 0 minutes, with a maximum of 30 minutes. If not specified, the default is 0 minutes.
 * This process repeats until all nodes in the cluster have been upgraded.
 * At the end of the process, the last buffer node is deleted, maintaining the existing agent node count and zone balance.
 
@@ -232,21 +233,36 @@ AKS accepts both integer values and a percentage value for max surge. An integer
 
 #### Set node drain timeout value
 
-When you have a long running workload on a certain pod, it may result in one of the following cases:
-- Your pod takes a long time to come up, such as when restoring a database.
-- Your pod uses graceful termination to take a long time to shut down.
+When you have a long running workload on a certain pod and it cannot be rescheduled to another node during runtime, for example, a memory intensive stateful workload that must finish running, you can configure a node drain timeout that AKS will respect in the upgrade workflow. If no node drain timeout value is specified, the default is 30 minutes.
 
-In these scenarios, you can configure a node drain timeout that AKS will respect in the upgrade workflow. If you prefer your upgrades to be fast and are confident in your pod startup/terminate times being fast, you may want to set a low drain timeout. Otherwise, higher drain timeouts will affect how long you wait before discovering an issue. If no node drain timeout value is specified, the default is 30 minutes.
 
-To set a node drain timeout for new or existing node pools using the [`az aks nodepool add`][az-aks-nodepool-add] or [`az aks nodepool update`][az-aks-nodepool-update] command:
+* Set node drain timeout for new or existing node pools using the [`az aks nodepool add`][az-aks-nodepool-add] or [`az aks nodepool update`][az-aks-nodepool-update] command.
 
-```azurecli-interactive
-# Set drain timeout for a new node pool
-az aks nodepool add -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster  --drainTimeoutInMinutes 100
-    
-# Update drain timeout for an existing node pool
-az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --drainTimeoutInMinutes 45
-```
+    ```azurecli-interactive
+    # Set drain timeout for a new node pool
+    az aks nodepool add -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster   --drainTimeoutInMinutes 100
+
+    # Update drain timeout for an existing node pool
+    az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --drainTimeoutInMinutes 45
+    ```
+
+#### Set node soak time value
+
+To stagger any type of node upgrade in a controlled manner, and minimize application downtime during upgrade, you can set the node soak time to a value between 0 and 30 minutes. These short time intervals allow you to complete other tasks, like checking application health on Grafana dashboards, throughout the upgrade process. We recommend a small value, close to 0 minutes, and a maximum of 30 minutes to minimize disruptions.
+
+* Set node soak time for new or existing node pools using the [`az aks nodepool add`][az-aks-nodepool-add], [`az aks nodepool update`][az-aks-nodepool-update], or [`az aks nodepool upgrade`][az-aks-nodepool-upgrade] command.
+
+    ```azurecli-interactive
+    # Set node soak time for a new node pool
+    az aks nodepool add -n MyNodePool -g MyResourceGroup --cluster-name MyManagedCluster --node-soak-duration 10
+
+    # Update node soak time for an existing node pool
+    az aks nodepool update -n MyNodePool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 33% --node-soak-duration 5
+
+    # Set node soak time when upgrading an existing node pool
+    az aks nodepool upgrade -n MyNodePool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 33% --node-soak-duration 20
+    ```
+
 
 ## View upgrade events
 
@@ -284,6 +300,7 @@ To learn how to configure automatic upgrades, see [Configure automatic upgrades 
 [get-azaksversion]: /powershell/module/az.aks/get-azaksversion
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool#az_aks_nodepool_update
+[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az_aks_nodepool_upgrade
 [configure-automatic-aks-upgrades]: ./upgrade-cluster.md#configure-automatic-upgrades
 [release-tracker]: release-tracker.md
 
