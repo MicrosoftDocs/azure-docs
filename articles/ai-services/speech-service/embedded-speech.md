@@ -2,7 +2,7 @@
 title: Embedded Speech - Speech service
 titleSuffix: Azure AI services
 description: Embedded Speech is designed for on-device scenarios where cloud connectivity is intermittent or unavailable.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

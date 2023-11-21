@@ -44,7 +44,7 @@ The table below lists each product that offers migration guidance and/or informa
 | [Azure API Management](migrate-api-mgt.md)|
 | [Azure App Configuration](migrate-app-configuration.md)|
 | [Azure Cache for Redis](migrate-cache-redis.md)|
-| [Azure Cognitive Search](migrate-search-service.md)|
+| [Azure AI Search](migrate-search-service.md)|
 | [Azure Container Instances](migrate-container-instances.md)|
 | [Azure Database for MySQL - Flexible Server](migrate-database-mysql-flex.md)|
 | [Azure Monitor: Log Analytics](migrate-monitor-log-analytics.md)|

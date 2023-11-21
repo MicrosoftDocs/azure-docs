@@ -116,8 +116,8 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row-end:::
 :::row:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-form":::</br>
-    [**US Tax W-2 form**](#us-tax-w-2-form) | Extract taxable </br>compensation details.
+      :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-model":::</br>
+    [**US Tax W-2 form**](#us-tax-w-2-model) | Extract taxable </br>compensation details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form":::</br>
@@ -137,7 +137,6 @@ Prebuilt models enable you to add intelligent document processing to your apps a
    :::column-end:::
 :::row-end:::
 :::moniker-end
-
 
 :::moniker range="<=doc-intel-3.1.0"
 :::row:::
@@ -170,8 +169,8 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row-end:::
 :::row:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-form":::</br>
-    [**US Tax W-2 form**](#us-tax-w-2-form) | Extract taxable </br>compensation details.
+      :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-model":::</br>
+    [**US Tax W-2 form**](#us-tax-w-2-model) | Extract taxable </br>compensation details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form":::</br>
@@ -282,7 +281,7 @@ You can use Document Intelligence to automate document processing in application
 
 |Model ID| Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
-|[**prebuilt-read**](concept-read.md)|&#9679; Extract **text** from documents.</br>&#9679; [Data and field extraction](concept-read.md#data-detection-and-extraction)| &#9679; Contract processing. </br>&#9679; Financial or medical report processing.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/read)</br>&#9679; [**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-rest-api)</br>&#9679; [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-csharp)</br>&#9679; [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-python)</br>&#9679; [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-java)</br>&#9679; [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-javascript) |
+|[**prebuilt-read**](concept-read.md)|&#9679; Extract **text** from documents.</br>&#9679; [Data and field extraction](concept-read.md#read-model-data-extraction)| &#9679; Contract processing. </br>&#9679; Financial or medical report processing.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/read)</br>&#9679; [**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-rest-api)</br>&#9679; [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-csharp)</br>&#9679; [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-python)</br>&#9679; [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-java)</br>&#9679; [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-javascript) |
 
 > [!div class="nextstepaction"]
 > [Return to model types](#document-analysis-models)
@@ -366,7 +365,7 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
 
-### US Tax W-2 form
+### US Tax W-2 model
 
 :::image type="content" source="media/overview/analyze-w2.png" alt-text="Screenshot of W-2 model analysis using Document Intelligence Studio.":::
 

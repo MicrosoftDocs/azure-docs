@@ -1060,9 +1060,6 @@
     - name: PowerShell DSC
       href: ./extensions/dsc-overview.md
       items:
-      - name: DSC and Linux
-        displayName: Desired state configuration, dsc
-        href: ./extensions/dsc-linux.md
       - name: DSC and Windows
         displayName: Desired state configuration, dsc
         href: ./extensions/dsc-windows.md

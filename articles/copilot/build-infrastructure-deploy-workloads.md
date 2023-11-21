@@ -3,7 +3,7 @@ title: Build infrastructure and deploy workloads using Microsoft Copilot for Azu
 description: Learn how Microsoft Copilot for Azure (preview) can help you build custom infrastructure for your workloads and provide templates and scripts to help you deploy.
 ms.date: 11/15/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure

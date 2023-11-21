@@ -2,12 +2,12 @@
 title: Tutorial to configure Saviynt with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn to configure Azure AD B2C with Saviynt for cross-application integration for better security, governance, and compliance. 
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 05/23/2023
 ms.author: gasinh

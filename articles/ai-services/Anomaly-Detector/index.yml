@@ -8,7 +8,7 @@ metadata:
   title: Anomaly Detector API - Tutorials, quickstarts, API reference
   titleSuffix: Azure AI services
   description: Use the Azure AI Anomaly Detector univariate and multivariate APIs to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
-  services: cognitive-services
+  #services: cognitive-services
   author: mrbullwinkle
   manager: nitinme
   ms.service: azure-ai-anomaly-detector

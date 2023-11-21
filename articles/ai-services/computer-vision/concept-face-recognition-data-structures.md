@@ -2,7 +2,7 @@
 title: "Face recognition data structures - Face"
 titleSuffix: Azure AI services
 description: Learn about the Face recognition data structures, which hold data on faces and persons.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
