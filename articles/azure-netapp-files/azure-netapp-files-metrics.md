@@ -61,13 +61,19 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 - *Volume Snapshot Size*   
    The size of all snapshots in a volume.  
 - *Throughput limit reached*
-    **Throughput limit reached** is a boolean metric that denotes the volume is hitting its QoS limits. The value 1 means that the volume has reached its maximum throughput, and throughput for this volume will be throttled. The value 0 means this limit has not yet been reached. 
-    If the volume is hitting the throughput limit, it's not sized appropriately for the application's demands. Consider the following actions to resolve throughput issues:
-    * Resize the volume: 
+    
+    Throughput limit reached is a boolean metric that denotes the volume is hitting its QoS limits. The value 1 means that the volume has reached its maximum throughput, and throughput for this volume will be throttled. The value 0 means this limit has not yet been reached. 
+    
+    If the volume is hitting the throughput limit, it's not sized appropriately for the application's demands. To resolve throughput issues:
+
+    - Resize the volume: 
+
         Increase the volume size to allocate more throughput to the volume so it's not throttled.
-    * Modify the service level:
+    - Modify the service level:
+    
         The Premium and Ultra service levels in Azure NetApp Files cater to workloads with higher throughput requirements. [Moving the volume to a capacity pool in a higher service level](dynamic-change-volume-service-level.md) automatically increases these limits for the volume. 
-    * Change the workloads/application:
+    - Change the workloads/application:
+
         Consider repurposing the volume and delegating a different volume with a larger size and/or in a higher service level to meet your application requirements. If it's an NFS volume, consider changing mount options to reduce data flow if your application supports those changes.
 
     :::image type="content" source="../media/azure-netapp-files/throughput-limit-reached.png" alt-text="Screenshot that shows Azure NetApp Files metrics a line graph demonstrating throughput limit reached." lightbox="../media/azure-netapp-files/throughput-limit-reached.png":::
