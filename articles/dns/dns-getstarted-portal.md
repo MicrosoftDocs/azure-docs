@@ -87,7 +87,7 @@ Now that you have a test DNS zone with a test 'A' record, you can test the name 
 
 1. On the **contoso.xyz** DNS zone page, copy one of the name server names from the name server list. For example: ns1-32.azure-dns.com.
 
-   ![zone](./media/dns-getstarted-portal/view-zone.png)
+   [ ![A screenshot of the DNS zone contents.](./media/dns-getstarted-portal/view-zone.png) ](./media/dns-getstarted-portal/view-zone.png#lightbox)
 
 1. Open a command prompt, and run the following command:
 
