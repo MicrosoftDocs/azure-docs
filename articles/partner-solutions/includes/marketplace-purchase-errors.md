@@ -11,7 +11,9 @@ ms.author: priyverma
 
 - **Plan cannot be purchased on a free subscription, please upgrade your account.**
 
-  - You can't make marketplace purchases on a free Azure subscription. Refer to the [Azure free Account FAQ]( https://azure.microsoft.com/free/free-account-faq). For more information, see [purchase SaaS offer in the Azure portal](../../marketplace/purchase-saas-offer-in-azure-portal.md#common-error-messages-and-solutions).
+  - You can't make marketplace purchases on a free Azure subscription. Refer to the [Azure free Account FAQ]( https://azure.microsoft.com/free/free-account-faq). For more information, see [purchase SaaS offer in the Azure portal](../../../marketplace/purchase-saas-offer-in-azure-portal.md#common-error-messages-and-solutions) 
+  - 
+  - [sdf](https://learn.microsoft.com/marketplace/purchase-saas-offer-in-azure-portal#common-error-messages-and-solutions)
 
 - **Purchase has failed because we couldn't find a valid payment method associated with your Azure subscription.**
 
