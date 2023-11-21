@@ -62,7 +62,7 @@ This article summarizes support information for Container capabilities in Micros
 > [!NOTE]
 > For additional requirements for Kubernetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
-### Private link restrictions - Runtime threat protection
+### Private link restrictions 
 
 Defender for Containers relies on the [Defender agent](defender-for-cloud-glossary.md#defender-agent) for several features. The Defender agent doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that only machines that are configured to send traffic through Azure Monitor Private Link can send data to that workstation. You can configure a private link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
 

@@ -2,7 +2,7 @@
 title: What is Azure AI Content Safety? 
 titleSuffix: Azure AI services
 description: Learn how to use Content Safety to track, flag, assess, and filter inappropriate material in user-generated content.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
@@ -60,7 +60,7 @@ There are different types of analysis available from this service. The following
 
 Content Safety Studio not only contains out-of-the-box AI models but also includes Microsoft's built-in terms blocklists to flag profanities and stay up to date with new trends. You can also upload your own blocklists to enhance the coverage of harmful content that's specific to your use case. 
 
-Studio also lets you set up a moderation workflow, where you can continuously monitor and improve content moderation performance. It can help you meet content requirements from all kinds of industries like gaming, media, education, E-commerce, and more. Businesses can easily connect their services to the Studio and have their content moderated in real time, whether user-generated or AI-generated.
+Studio also lets you set up a moderation workflow, where you can continuously monitor and improve content moderation performance. It can help you meet content requirements from all kinds of industries like gaming, media, education, E-commerce, and more. Businesses can easily connect their services to the Studio and have their content moderated in real-time, whether user-generated or AI-generated.
 
 All of these capabilities are handled by the Studio and its backend; customers don’t need to worry about model development. You can onboard your data for quick validation and monitor your KPIs accordingly, like technical metrics (latency, accuracy, recall), or business metrics (block rate, block volume, category proportions, language proportions, and more). With simple operations and configurations, customers can test different solutions quickly and find the best fit, instead of spending time experimenting with custom models or doing moderation manually. 
 
@@ -129,21 +129,21 @@ To use the Azure AI Content Safety APIs, you must create your Content Safety res
 - West US 2
 - Sweden Central
 
-Feel free to [contact us](mailto:acm-team@microsoft.com) if you need other regions for your business.
+Feel free to [contact us](mailto:contentsafetysupport@microsoft.com) if you need other regions for your business.
 
 ### Query rates
 
-| Pricing Tier | Requests per second (RPS) |
+| Pricing Tier | Requests per 10 seconds (RPS) |
 | :----------- | :--------------------- |
-| F0           | 5                      |
-| S0           | 10                     |
+| F0           | 1000                     |
+| S0           | 1000                     |
 
-If you need a faster rate, please [contact us](mailto:acm-team@microsoft.com) to request.
+If you need a faster rate, please [contact us](mailto:contentsafetysupport@microsoft.com) to request.
 
 
 ## Contact us
 
-If you get stuck, [email us](mailto:acm-team@microsoft.com) or use the feedback widget on the upper right of any docs page.
+If you get stuck, [email us](mailto:contentsafetysupport@microsoft.com) or use the feedback widget on the upper right of any docs page.
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Alerts and incidents in Microsoft 365 Defender
 description: Learn about the benefits of receiving Microsoft Defender for Cloud's alerts in Microsoft 365 Defender 
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 11/16/2023
 ---
 
 # Alerts and incidents in Microsoft 365 Defender
@@ -25,7 +25,6 @@ The following table describes the detection and investigation experience in Micr
 | Alerts  | All Defender for Cloud alerts, including multicloud, internal and external providers’ alerts, are integrated to Microsoft 365 Defender. Defenders for Cloud alerts show on the Microsoft 365 Defender [alert queue](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response?view=o365-worldwide). <br> <br> The `cloud resource` asset shows up in the Asset tab of an alert. Resources are clearly identified as an Azure, Amazon, or a Google Cloud resource. <br> <br> Defenders for Cloud alerts are automatically be associated with a tenant. <br> <br> There are no duplications of alerts from other Defender workloads.| 
 | Alert and incident correlation | Alerts and incidents are automatically correlated, providing robust context to security operations teams to understand the complete attack story in their cloud environment. |
 | Threat detection | Accurate matching of virtual entities to device entities to ensure precision and effective threat detection. |
-| Advanced hunting  |  |
 | Unified API | Defender for Cloud alerts and incidents are now included in [Microsoft 365 Defender’s public API](/microsoft-365/security/defender/api-overview?view=o365-worldwide), allowing customers to export their security alerts data into other systems using one API. |
 
 Learn more about [handling alerts in Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-security-center-defender-cloud?view=o365-worldwide).

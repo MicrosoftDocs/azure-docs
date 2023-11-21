@@ -1,0 +1,40 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Resource Manager frequently asked questions
+  description: Answers to common questions about using Azure Resource Manager to manage resources.
+  ms.topic: faq
+  ms.date: 11/20/2023
+  content_well_notification: 
+    - AI-contribution
+
+title: Frequently asked questions for managing resources with Azure Resource Manager
+summary: |
+  This article provides answers to common questions about Azure Resource Manager and how you use it for manage resources.
+
+sections:
+  - name: Resource groups
+    questions:
+      - question: Can a resource group be renamed?
+        answer: |
+          No, you can't rename a resource group. You need to create a new resource group with the desired name and move the resources to 
+          the new resource group.
+          
+      - question: Are resource group names case sensitive?
+        answer: |
+          No, Azure resource group names aren't case sensitive. They're treated as case-insensitive, meaning "ResourceGroup1" and "resourcegroup1" are considered the same.
+
+          When using various APIs to retrieve the name for a resource or resource group, the returned value may have different casing than what you 
+          originally specified for the name.
+
+          For more information about resource group names, see [Naming rules and restrictions](resource-name-rules.md#microsoftresources).  
+
+      - question: What location should I choose for a resource group?  
+        answer: |
+          To ensure state consistency for the resource group, all control plane operations are routed through the resource group's location. When selecting a 
+          resource group location, we recommend that you select a location close to where your control operations originate. Typically, this location is the one closest to 
+          your current location.
+
+additionalContent: |
+    ## Related content
+
+    To learn more, see [What is Azure Resource Manager?](overview.md).

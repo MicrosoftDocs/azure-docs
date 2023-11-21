@@ -4,7 +4,7 @@ description: Learn how to remediate security recommendations in Microsoft Defend
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
-ms.date: 10/20/2022
+ms.date: 11/08/2023
 ---
 # Remediate security recommendations
 

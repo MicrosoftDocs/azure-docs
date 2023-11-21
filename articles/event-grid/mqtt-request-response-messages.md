@@ -4,7 +4,7 @@ description: 'Implementing Request-Response messaging pattern using MQTT broker,
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 10/29/2023
+ms.date: 11/15/2023
 author: veyaddan
 ms.author: veyaddan
 ---
@@ -14,7 +14,7 @@ ms.author: veyaddan
 In this guide, you learn how to use MQTT v5 Request-Response messaging pattern to implement command-response flow with MQTT broker.  Consider a sample scenario, in which a cloud application sends commands to devices and receives responses from the devices.
 
 ## Prerequisites
-- You have an Event Grid namespace created with MQTT enabled.  Refer to this [Quickstart - Publish and subscribe on an MQTT topic](mqtt-publish-and-subscribe-portal.md) to create the namespace, subresources, and to publish/subscribe on an MQTT topic.
+- You have an Event Grid namespace created with MQTT broker enabled.  Refer to this [Quickstart - Publish and subscribe on an MQTT topic](mqtt-publish-and-subscribe-portal.md) to create the namespace, subresources, and to publish/subscribe on an MQTT topic.
 
 ## Configuration needed in Event Grid namespace to implement Request-Response messaging pattern
 

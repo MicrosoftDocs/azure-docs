@@ -3,7 +3,7 @@ title: Author API Management policies using Microsoft Copilot for Azure (preview
 description: Learn about how Microsoft Copilot for Azure (preview) can generate Azure API Management policies based on your requirements.
 ms.date: 11/15/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure

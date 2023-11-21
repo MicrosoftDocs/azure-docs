@@ -250,9 +250,6 @@
         - name: Reference list of DevOps recommendations
           displayName: devops, recommendations
           href: recommendations-reference-devops.md
-        - name: Reference list of attack paths and cloud security graph components
-          displayName: attack, paths, security, graph, components
-          href: attack-path-reference.md
     - name: Security alerts and incidents
       items:
         - name: About security alerts and incidents
@@ -320,9 +317,6 @@
       - name: Exempt resources from recommendations
         displayName: disable, resource, exempt, recommendation
         href: exempt-resource.md
-      - name: Prevent misconfigurations with Enforce/Deny
-        displayName: recommendations, enforce, deny
-        href: prevent-misconfigurations.md
     - name: Investigate and remediate security posture
       items:
       - name: Investigate security recommendations
