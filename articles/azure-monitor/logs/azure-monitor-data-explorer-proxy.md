@@ -23,7 +23,7 @@ To run a cross-service query, you need:
 
 ## Function supportability
 
-Azure Monitor cross-service queries support functions for Application Insights, Log Analytics, Azure Data Explorer, and Azure Resource Graph.
+Azure Monitor cross-service queries support **only ".show"** functions for Application Insights, Log Analytics, Azure Data Explorer, and Azure Resource Graph.
 This capability enables cross-cluster queries to reference an Azure Monitor, Azure Data Explorer, or Azure Resource Graph tabular function directly.
 The following commands are supported with the cross-service query:
 
@@ -48,11 +48,11 @@ For example:
 union customEvents, adx('https://help.kusto.windows.net/Samples').StormEvents
 | take 10
 ```
+
 ```kusto
 let CL1 = adx('https://help.kusto.windows.net/Samples').StormEvents;
 union customEvents, CL1 | take 10
-
-```sql
+```
 
 > [!TIP]
 > Shorthand format is allowed: *ClusterName*/*InitialCatalog*. For example, `adx('help/Samples')` is translated to `adx('help.kusto.windows.net/Samples')`.
@@ -61,7 +61,7 @@ When you use the [`join` operator](/azure/data-explorer/kusto/query/joinoperator
 
 For example:
 
-kusto
+```kusto
 AzureDiagnostics
 | join hint.remote=left adx("cluster=ClusterURI").AzureDiagnostics on (ColumnName)
 ```
@@ -95,40 +95,39 @@ Here are some sample Azure Log Analytics queries that use the new Azure Resource
 
 - Filter a Log Analytics query based on the results of an Azure Resource Graph query:
 
-```kusto
-arg("").Resources 
-| where type == "microsoft.compute/virtualmachines" and properties.hardwareProfile.vmSize startswith "Standard_D"
-| join (
-    Heartbeat
-    | where TimeGenerated > ago(1d)
-    | distinct Computer
-    )
-    on $left.name == $right.Computer
-```
+    ```kusto
+    arg("").Resources 
+    | where type == "microsoft.compute/virtualmachines" and properties.hardwareProfile.vmSize startswith "Standard_D"
+    | join (
+        Heartbeat
+        | where TimeGenerated > ago(1d)
+        | distinct Computer
+        )
+        on $left.name == $right.Computer
+    ```
 
 - Create an alert rule that applies only to certain resources taken from an ARG query:
    - Exclude resources based on tags – for example, not to trigger alerts for VMs with a “Test” tag.
 
-```kusto
-arg("").Resources
-| where tags.environment=~'Test'
-| project name 
+       ```kusto
+       arg("").Resources
+       | where tags.environment=~'Test'
+       | project name 
+       ```
 
-```
-
-- Retrieve performance data related to CPU utilization and filter to resources with the “prod” tag.
-
-```kusto
-InsightsMetrics
-| where Name == "UtilizationPercentage"
-| lookup (
-    arg("").Resources 
-    | where type == 'microsoft.compute/virtualmachines' 
-    | project _ResourceId=tolower(id), tags
-    )
-    on _ResourceId
-| where tostring(tags.Env) == "Prod"
-```
+   - Retrieve performance data related to CPU utilization and filter to resources with the “prod” tag.
+    
+       ```kusto
+       InsightsMetrics
+       | where Name == "UtilizationPercentage"
+       | lookup (
+           arg("").Resources 
+           | where type == 'microsoft.compute/virtualmachines' 
+           | project _ResourceId=tolower(id), tags
+           )
+           on _ResourceId
+       | where tostring(tags.Env) == "Prod"
+       ```
 
 More use cases:
 -	Use a tag to determine whether VMs should be running 24x7 or should be shut down at night.
@@ -147,28 +146,34 @@ union AzureActivity, arg("").Resources
 ```kusto
 let CL1 = arg("").Resources ;
 union AzureActivity, CL1 | take 10
+```
 
-```sql
+When you use the [`join` operator](/azure/data-explorer/kusto/query/joinoperator) instead of union, you need to use a [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) to combine the data in Azure Resource Graph with data in the Log Analytics workspace. Use `Hint.remote={Direction of the Log Analytics Workspace}`. For example:
 
-When you use the [`join` operator](/azure/data-explorer/kusto/query/joinoperator) instead of union, you're required to use a [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) to combine the data in Azure Resource Graph with the Log Analytics workspace. Use `Hint.remote={Direction of the Log Analytics Workspace}`. For example:
-
-kusto
+```kusto
 Perf | where ObjectName == "Memory" and (CounterName == "Available MBytes Memory")
 | extend _ResourceId = replace_string(replace_string(replace_string(_ResourceId, 'microsoft.compute', 'Microsoft.Compute'), 'virtualmachines','virtualMachines'),"resourcegroups","resourceGroups")
 | join hint.remote=left (arg("").Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project _ResourceId=id, tags) on _ResourceId | project-away _ResourceId1 | where tostring(tags.env) == "prod"
-
 ```
 
 ## Create an alert based on a cross-service query
 
-To create a new alert rule based on a cross-service query, follow the steps in [Create a new alert rule](../alerts/alerts-create-new-alert-rule.md), selecting your Log Analytics workspace on the Scope tab.
+To create a new alert rule based on a cross-service query, follow the steps in [Create a new alert rule](../alerts/alerts-create-new-alert-rule.md), selecting your Log Analytics workspace on the **Scope** tab.
 
 ## Limitations
-
+### General cross-service query limitations
 * Database names are case sensitive.
-* Identifying the Timestamp column in the cluster isn't supported. The Log Analytics Query API won't pass along the time filter.
-* The cross-service query ability is used for data retrieval only. 
-* [Private Link](../logs/private-link-security.md) does not support cross-service queries.
+* Identifying the Timestamp column in the cluster isn't supported. The Log Analytics Query API won't pass the time filter.
+* Cross-service queries support data retrieval only. 
+* [Private Link](../logs/private-link-security.md) (private endpoints) and [IP restrictions](/azure/data-explorer/security-network-restrict-public-access) do not support cross-service queries.
+* `mv-expand` is limited to 2000 records.
+
+### Azure Resource Graph cross-service query limitations
+When you query Azure Resource Graph data from Azure Monitor:
+* The query returns the first 1000 records only.
+* Azure Monitor doesn't return Azure Resource Graph query errors.
+* The Log Analytics query editor marks valid Azure Resource Graph queries as syntax errors.
+* These operators aren't supported: `smv-apply()`, `rand()`, `arg_max()`, `arg_min()`, `avg()`, `avg_if()`, `countif()`, `sumif()`, `percentile()`, `percentiles()`, `percentilew()`, `percentilesw()`, `stdev()`, `stdevif()`, `stdevp()`, `variance()`, `variancep()`, `varianceif()`.
 
 ## Next steps
 * [Write queries](/azure/data-explorer/write-queries)

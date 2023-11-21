@@ -1,6 +1,6 @@
 ---
 author: PatrickFarley
-ms.service: cognitive-services
+ms.service: azure-ai-vision
 ms.topic: include
 ms.date: 08/01/2023
 ms.author: pafarley
@@ -8,7 +8,7 @@ ms.author: pafarley
 
 [Reference documentation](/python/api/azure-ai-vision) | [Package (PyPi)](https://pypi.org/project/azure-ai-vision/) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
-This guide shows how to install the Vision SDK for Python. 
+This guide shows how to install the Vision SDK for Python.
 
 ## Platform requirements
 
@@ -60,22 +60,19 @@ To install the Vision SDK for Python:
 
 1. Select **Terminal** > **New Terminal** to open a terminal within Visual Studio Code. 
 1. At the terminal prompt, run the following command to install the Vision SDK for Python package. 
-
     ```console
     python -m pip install azure-ai-vision
     ```
 
-To upgrade to the latest Vision SDK, run this command in a terminal:
+1. To upgrade to the latest Vision SDK, run this command in a terminal:
+    ```console
+    python -m pip install --upgrade azure-ai-vision
+    ```
 
-```console
-python -m pip install --upgrade azure-ai-vision
-```
-
-You can check which Vision SDK for Python version is currently installed by running this command:
-
-```console
-pip list
-```
+1. You can check which Vision SDK for Python version is currently installed by running this command:
+    ```console
+    pip list
+    ```
 
 For more information about Visual Studio Code and Python, see the [Visual Studio Code documentation](https://code.visualstudio.com/docs) and the [Visual Studio Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
 

@@ -2,11 +2,10 @@
 title: Find your Language resource endpoint and key - v3 client library
 titleSuffix: Azure AI services
 description: Learn how to create an Azure AI Language resource.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
 ms.date: 07/08/2022
 ms.author: aahi

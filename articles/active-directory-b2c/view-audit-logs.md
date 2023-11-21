@@ -2,13 +2,13 @@
 title: Access and review audit logs
 titleSuffix: Azure AD B2C
 description: How to access Azure AD B2C audit logs programmatically and in the Azure portal.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
 ms.topic: how-to
-ms.workload: identity
+
 ms.date: 06/08/2022
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -22,7 +22,7 @@ Azure Active Directory B2C (Azure AD B2C) emits audit logs containing activity i
 Audit log events are only retained for **seven days**. Plan to download and store your logs using one of the methods shown below if you require a longer retention period.
 
 > [!NOTE]
-> You can't see user sign-ins for individual Azure AD B2C applications under the **Users** section of the **Azure Active Directory** or **Azure AD B2C** pages in the Azure portal. The sign-in events there show user activity, but can't be correlated back to the B2C application that the user signed in to. You must use the audit logs for that, as explained further in this article.
+> You can't see user sign-ins for individual Azure AD B2C applications under the **Users** section of the **Microsoft Entra ID** or **Azure AD B2C** pages in the Azure portal. The sign-in events there show user activity, but can't be correlated back to the B2C application that the user signed in to. You must use the audit logs for that, as explained further in this article.
 
 ## Overview of activities available in the B2C category of audit logs
 
@@ -78,13 +78,15 @@ If you select a row in the list, the activity details for the event are displaye
 
 To download the list of activity events in a comma-separated values (CSV) file, select **Download**.
 
-## Get audit logs with the Azure AD reporting API
+<a name='get-audit-logs-with-the-azure-ad-reporting-api'></a>
 
-Audit logs are published to the same pipeline as other activities for Azure Active Directory, so they can be accessed through the [Azure Active Directory reporting API](/graph/api/directoryaudit-list). For more information, see [Get started with the Azure Active Directory reporting API](../active-directory/reports-monitoring/concept-reporting-api.md).
+## Get audit logs with the Microsoft Entra reporting API
+
+Audit logs are published to the same pipeline as other activities for Microsoft Entra ID, so they can be accessed through the [Microsoft Entra reporting API](/graph/api/directoryaudit-list). For more information, see [Get started with the Microsoft Entra reporting API](../active-directory/reports-monitoring/howto-configure-prerequisites-for-reporting-api.md).
 
 ### Enable reporting API access
 
-To allow script- or application-based access to the Azure AD reporting API, you need an application registered in your Azure AD B2C tenant with the following API permissions. You can enable these permissions on an existing application registration within your B2C tenant, or create a new one specifically for use with audit log automation.
+To allow script- or application-based access to the Microsoft Entra reporting API, you need an application registered in your Azure AD B2C tenant with the following API permissions. You can enable these permissions on an existing application registration within your B2C tenant, or create a new one specifically for use with audit log automation.
 
 * Microsoft Graph > Application permissions > AuditLog > AuditLog.Read.All
 
@@ -96,7 +98,7 @@ After you've registered an application with the appropriate permissions, see the
 
 ### Access the API
 
-To download Azure AD B2C audit log events via the API, filter the logs on the `B2C` category. To filter by category, use the `filter` query string parameter when you call the Azure AD reporting API endpoint.
+To download Azure AD B2C audit log events via the API, filter the logs on the `B2C` category. To filter by category, use the `filter` query string parameter when you call the Microsoft Entra reporting API endpoint.
 
 ```http
 https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
@@ -104,7 +106,7 @@ https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByServi
 
 ### PowerShell script
 
-The following PowerShell script shows an example of how to query the Azure AD reporting API. After querying the API, it prints the logged events to standard output, then writes the JSON output to a file.
+The following PowerShell script shows an example of how to query the Microsoft Entra reporting API. After querying the API, it prints the logged events to standard output, then writes the JSON output to a file.
 
 You can try this script in the [Azure Cloud Shell](overview.md). Be sure to update it with your application ID, client secret, and the name of your Azure AD B2C tenant.
 

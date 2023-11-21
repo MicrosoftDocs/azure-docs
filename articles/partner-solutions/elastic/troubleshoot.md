@@ -1,12 +1,10 @@
 ---
 title: Troubleshooting Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
 description: This article provides information about troubleshooting Elastic integration with Azure
-
 ms.topic: conceptual
-ms.date: 06/01/2023
+ms.date: 10/06/2023
 author: flang-msft
 ms.author: franlanglois
-
 ---
 
 # Troubleshooting Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
@@ -32,25 +30,27 @@ Only users who have *Owner* or *Contributor* access on the Azure subscription ca
 
 - Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings.
 
-## Purchase errors
+## Marketplace Purchase errors
 
-- Purchase fails because a valid credit card isn't connected to the Azure subscription or a payment method isn't associated with the subscription.
-
-  Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](../../cost-management-billing/manage/change-credit-card.md).
-
-- The EA subscription doesn't allow Marketplace purchases.
-
-  Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
+[!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
 ## Get support
 
 To contact support about the Elastic integration with Azure, select the **New Support request** in the left pane. Select **Open an Elastic Support ticket**.
 
-:::image type="content" source="media/troubleshoot/open-ticket.png" alt-text="Open support ticket":::
+:::image type="content" source="media/troubleshoot/open-ticket.png" alt-text="Screenshot of opening a support ticket for the Elastic integration with Azure.":::
 
 In the Elastic site, open a support request.
 
-:::image type="content" source="media/troubleshoot/elastic-support.png" alt-text="Open Elastic support":::
+:::image type="content" source="media/troubleshoot/elastic-support.png" alt-text="Screenshot of opening a support ticket on the Elastic site.":::
+
+## Suggest a feature
+
+To suggest a new feature for the Elastic integration with Azure, select the **Suggest a feature** link at the top of the resource overview page.
+
+:::image type="content" source="media/troubleshoot/suggest-a-feature.png" alt-text="Screenshot of suggesting a feature for the Elastic integration with Azure.":::
+
+This link takes you to the **Developer community forum** where you can suggest a new feature. You can also view, upvote, or comment on feature suggestions from other customers.
 
 ## Next steps
 

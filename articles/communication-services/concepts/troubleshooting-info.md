@@ -25,6 +25,7 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 * **Call ID**: This ID is used to identify Communication Services calls.
 * **SMS message ID**: This ID is used to identify SMS messages.
 * **Short Code Program Brief ID**: This ID is used to identify a short code program brief application.
+* **Toll-free verification campaign brief ID**: This ID is used to identify a toll-free verification campaign brief application.
 * **Email message ID**: This ID is used to identify Send Email requests.
 * **Correlation ID**: This ID is used to identify requests made using Call Automation. 
 * **Call logs**: These logs contain detailed information can be used to troubleshoot calling and network issues.
@@ -139,6 +140,12 @@ The program brief ID can be found on the [Azure portal](https://portal.azure.com
 :::image type="content" source="./media/short-code-trouble-shooting.png" alt-text="Screenshot showing a short code program brief ID.":::
 
 ---
+## Access your toll-free verification campaign brief ID
+The program brief ID can be found on the [Azure portal](https://portal.azure.com) in the Regulatory Documents blade. 
+
+:::image type="content" source="./media/toll-free-troubleshooting.png" alt-text="Screenshot showing a toll free verification campaign brief ID.":::
+
+---
 
 ## Access your email operation ID
 When troubleshooting send email or email message status requests, you may be asked to provide an `operation ID`. This value can be accessed in the response:
@@ -220,7 +227,9 @@ These are accessed by looking at where your app is keeping its local data. There
 6. Please attach all the `*.blog` and `*.etl` files to your Azure support request.
 
 
-## Finding Azure Active Directory information
+<a name='finding-azure-active-directory-information'></a>
+
+## Finding Microsoft Entra information
 
 * **Getting Directory ID**
 * **Getting Application ID**
@@ -230,20 +239,20 @@ These are accessed by looking at where your app is keeping its local data. There
 To find your Directory (tenant) ID, follow the steps listed below:
 
 1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
-1. From the left-pane, select Azure Active Directory.
-1. From **Overview** page in Azure AD, copy the Directory (tenant) ID and store it in your application code.
+1. From the left-pane, select Microsoft Entra ID.
+1. From **Overview** page in Microsoft Entra ID, copy the Directory (tenant) ID and store it in your application code.
 
-    ![Screenshot of how to copy Azure Active Directory tenant ID and store it.](./media/troubleshooting/copy-aad-directory-id.png)
+    ![Screenshot of how to copy Microsoft Entra tenant ID and store it.](./media/troubleshooting/copy-aad-directory-id.png)
 
 ## Getting Application ID 
 To find your Application ID, follow the steps listed below:
 
 1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
-1. From the left-pane, select Azure Active Directory.
-1. From **App registrations** in Azure AD, select your application.
+1. From the left-pane, select Microsoft Entra ID.
+1. From **App registrations** in Microsoft Entra ID, select your application.
 1. Copy the **Application ID** and store it in your application code.
 
-   ![Screenshot of how to copy Azure Active Directory application ID and store it.](./media/troubleshooting/copy-aad-application-id.png)
+   ![Screenshot of how to copy Microsoft Entra application ID and store it.](./media/troubleshooting/copy-aad-application-id.png)
 
    The directory (tenant) ID can also be found in the application overview page.
 
@@ -251,11 +260,11 @@ To find your Application ID, follow the steps listed below:
 To find your User ID, follow the steps listed below:
 
 1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
-1. From the left-pane, select Azure Active Directory.
-1. From **Users** in Azure AD, select your user.
-1. From **Profile** page in Azure AD Users, copy the **Object ID** and store it in your application code.
+1. From the left-pane, select Microsoft Entra ID.
+1. From **Users** in Microsoft Entra ID, select your user.
+1. From **Profile** page in Microsoft Entra users, copy the **Object ID** and store it in your application code.
 
-   ![Screenshot of how to copy Azure Active Directory user ID and store it.](./media/troubleshooting/copy-aad-user-id.png)
+   ![Screenshot of how to copy Microsoft Entra user ID and store it.](./media/troubleshooting/copy-aad-user-id.png)
 
 ## Getting immutable resource ID 
 Sometimes you also need to provide immutable resource ID of your Communication Service resource. To find it, follow the steps listed below:
@@ -398,11 +407,11 @@ The Azure Communication Services SMS SDK uses the following error codes to help 
 | 4006 | The Destination/To number isn't reachable| Try resending the message at a later time |
 | 4007 | The Destination/To number has opted out of receiving messages from you| Mark the Destination/To number as opted out so that no further message attempts are made to the number|
 | 4008 | You've exceeded the maximum number of messages allowed for your profile| Ensure you aren't exceeding the maximum number of messages allowed for your number or use queues to batch the messages |
-| 4009 | Message is rejected by Microsoft Entitlement System| Most often it happens if fraudulent activity is detected. Please contact support for more details |
+| 4009 | Message is rejected by Microsoft Entitlement System| Most often this happens if fraudulent activity is detected. Please contact support for more details |
 | 4010 | Message was blocked due to the toll-free number not being verified | [Review unverified sending limits](./sms/sms-faq.md#toll-free-verification) and submit toll-free verification as soon as possible |
 | 5000 | Message failed to deliver. Please reach out Microsoft support team for more details| File a support request through the Azure portal |
 | 5001 | Message failed to deliver due to temporary unavailability of application/system|  |
-| 5002 | Message Delivery Timeout|  Try resending the message |
+| 5002 | Carrier does not support delivery report | Most often this happens if a carrier does not support delivery reports. No action required as message may have been delivered already. |
 | 9999 | Message failed to deliver due to unknown error/failure| Try resending the message |
 
 
@@ -412,5 +421,3 @@ The Azure Communication Services SMS SDK uses the following error codes to help 
 - Log Filename APIs for Calling SDK
 - [Metrics](metrics.md)
 - [Service limits](service-limits.md)
-
-

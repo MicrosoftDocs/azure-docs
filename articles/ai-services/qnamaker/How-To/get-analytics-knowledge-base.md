@@ -2,13 +2,13 @@
 title: Analytics on knowledgebase - QnA Maker
 titleSuffix: Azure AI services
 description: QnA Maker stores all chat logs and other telemetry, if you have enabled App Insights during the creation of your QnA Maker service. Run the sample queries to get your chat logs from App Insights.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.author: jboback
 author: jboback
 displayName: chat history, history, chat logs, logs
-ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
 ms.date: 08/25/2021
 ms.custom: ignite-fall-2021

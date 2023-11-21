@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 04/02/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-extended-java, devx-track-js
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Event Grid trigger for Azure Functions
@@ -15,6 +15,9 @@ Use the function trigger to respond to an event sent by an [Event Grid source](.
 > [!NOTE]
 > Event Grid triggers aren't natively supported in an internal load balancer App Service Environment (ASE). The trigger uses an HTTP request that can't reach the function app without a gateway into the virtual network.
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
 ::: zone pivot="programming-language-python"
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
 
@@ -44,7 +47,17 @@ The type of the input parameter used with an Event Grid trigger depends on these
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+When running your C# function in an isolated worker process, you need to define a custom type for event properties. The following example defines a `MyEventType` class.
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49":::
+
+The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="11-33":::
+
+# [In-process model](#tab/in-process)
 
 The following example shows a Functions version 4.x function that uses a `CloudEvent`  binding parameter:
 
@@ -111,16 +124,6 @@ namespace Company.Function
     }
 }
 ```
-# [Isolated process](#tab/isolated-process)
-
-When running your C# function in an isolated worker process, you need to define a custom type for event properties. The following example defines a `MyEventType` class.
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49":::
-
-The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="11-33":::
-
 ---
 
 ::: zone-end
@@ -189,7 +192,31 @@ Upon arrival, the event's JSON payload is de-serialized into the ```EventSchema`
 
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `EventGridTrigger` annotation on parameters whose value would come from Event Grid. Parameters with these annotations cause the function to run when an event arrives.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 ::: zone-end  
+::: zone pivot="programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows an event grid trigger [TypeScript function](functions-reference-node.md?tabs=typescript).
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventGridTrigger1.ts" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end
 ::: zone pivot="programming-language-javascript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows an event grid trigger [JavaScript function](functions-reference-node.md).
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventGridTrigger1.js" :::
+
+# [Model v3](#tab/nodejs-v3)
+
 The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding.
 
 Here's the binding data in the *function.json* file:
@@ -217,6 +244,9 @@ module.exports = async function (context, eventGridEvent) {
     context.log("Data: " + JSON.stringify(eventGridEvent.data));
 };
 ```
+
+---
+
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 
@@ -315,7 +345,13 @@ def main(event: func.EventGridEvent):
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) attribute. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#event-grid-trigger).
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+Here's an `EventGridTrigger` attribute in a method signature:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="13-16":::
+
+# [In-process model](#tab/in-process)
 
 Here's an `EventGridTrigger` attribute in a method signature:
 
@@ -324,12 +360,6 @@ Here's an `EventGridTrigger` attribute in a method signature:
 public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILogger log)
 {
 ```
-# [Isolated process](#tab/isolated-process)
-
-Here's an `EventGridTrigger` attribute in a method signature:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="13-16":::
-
 ---
 
 ::: zone-end  
@@ -338,7 +368,27 @@ Here's an `EventGridTrigger` attribute in a method signature:
 
 The [EventGridTrigger](/java/api/com.microsoft.azure.functions.annotation.eventgridtrigger) annotation allows you to declaratively configure an Event Grid binding by providing configuration values. See the [example](#example) and [configuration](#configuration) sections for more detail.
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+## Configuration
+
+# [Model v4](#tab/nodejs-v4)
+
+The `options` object passed to the `app.eventGrid()` method currently doesn't support any properties for model v4.
+
+# [Model v3](#tab/nodejs-v3)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+| Property | Description |
+|---------|---------|
+| **type** | Required - must be set to `eventGridTrigger`. |
+| **direction** | Required - must be set to `in`. |
+| **name** | Required - the variable name used in function code for the parameter that receives the event data. |
+
+---
+
+::: zone-end  
+::: zone pivot="programming-language-powershell,programming-language-python"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file. There are no constructor parameters or properties to set in the `EventGridTrigger` attribute.
@@ -401,7 +451,7 @@ Functions version 1.x doesn't support the isolated worker process.
 ::: zone pivot="programming-language-java"
 The Event Grid event instance is available via the parameter associated to the `EventGridTrigger` attribute, typed as an `EventSchema`. 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell"  
+::: zone pivot="programming-language-powershell"  
 The Event Grid instance is available via the parameter configured in the *function.json* file's `name` property.
 ::: zone-end  
 ::: zone pivot="programming-language-python"  

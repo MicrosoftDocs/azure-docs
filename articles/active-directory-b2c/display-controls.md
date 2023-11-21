@@ -2,12 +2,12 @@
 title: Display control reference
 titleSuffix: Azure AD B2C
 description: Reference for Azure AD B2C display controls. Use display controls for customizing user journeys defined in your custom policies.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 12/9/2021
 ms.author: kengaderdus
@@ -158,7 +158,7 @@ The **Precondition** element contains following elements:
 | `Value` | 1:n | The data that is used by the check. If the type of this check is `ClaimsExist`, this field specifies a ClaimTypeReferenceId to query for. If the type of check is `ClaimEquals`, this field specifies a ClaimTypeReferenceId to query for. Specify the value to be checked in another value element.|
 | `Action` | 1:1 | The action that should be taken if the precondition check within an orchestration step is true. The value of the **Action** is set to `SkipThisValidationTechnicalProfile`, which specifies that the associated validation technical profile should not be executed. |
 
-The following example sends and verifies the email address using [Azure AD SSPR technical profile](aad-sspr-technical-profile.md).
+The following example sends and verifies the email address using [Microsoft Entra ID SSPR technical profile](aad-sspr-technical-profile.md).
 
 ```xml
 <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">

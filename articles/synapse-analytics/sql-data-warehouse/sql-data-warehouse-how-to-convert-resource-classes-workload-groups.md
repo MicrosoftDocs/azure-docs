@@ -1,13 +1,12 @@
 ---
-title: Convert resource class to a workload group 
+title: Convert resource class to a workload group
 description: Learn how to create a workload group that is similar to a resource class in a dedicated SQL pool.
 author: WilliamDAssafMSFT
-manager: craigg
-ms.service: synapse-analytics
-ms.subservice: sql-dw 
-ms.topic: conceptual
-ms.date: 08/13/2020
 ms.author: wiassaf
+ms.date: 08/13/2020
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: seo-lt-2019
 ---
 
@@ -20,7 +19,7 @@ Workload groups provide a mechanism to isolate and contain system resources.  Ad
 
 ## Understanding the existing resource class configuration
 
-Workload groups require a parameter called `REQUEST_MIN_RESOURCE_GRANT_PERCENT` that specifies the percentage of overall system resources allocated per request.  Resource allocation is done for [resource classes](resource-classes-for-workload-management.md#what-are-resource-classes) by allocating concurrency slots.  To determine the value to specify for `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, use the [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true) DMV.  For example, the below query query returns a value that can be used for the `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parameter to create a workload group similar to staticrc40.
+Workload groups require a parameter called `REQUEST_MIN_RESOURCE_GRANT_PERCENT` that specifies the percentage of overall system resources allocated per request.  Resource allocation is done for [resource classes](resource-classes-for-workload-management.md#what-are-resource-classes) by allocating concurrency slots.  To determine the value to specify for `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, use the [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true) DMV.  For example, the below query returns a value that can be used for the `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parameter to create a workload group similar to staticrc40.
 
 ```sql
 SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant_percent

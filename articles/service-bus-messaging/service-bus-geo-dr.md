@@ -20,7 +20,7 @@ The Geo-Disaster recovery feature ensures that the entire configuration of a nam
 ## Important points to consider
 
 - The feature enables instant continuity of operations with the same configuration, but **doesn't replicate the messages held in queues or topic subscriptions or dead-letter queues**. To preserve queue semantics, such a replication will require not only the replication of message data, but of every state change in the broker. For most Service Bus namespaces, the required replication traffic would far exceed the application traffic and with high-throughput queues, most messages would still replicate to the secondary while they're already being deleted from the primary, causing excessively wasteful traffic. For high-latency replication routes, which applies to many pairings you would choose for Geo-disaster recovery, it might also be impossible for the replication traffic to sustainably keep up with the application traffic due to latency-induced throttling effects.
-- Azure Active Directory (Azure AD) role-based access control (RBAC) assignments to Service Bus entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them. 
+- Microsoft Entra role-based access control (RBAC) assignments to Service Bus entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them. 
 - The following configurations aren't replicated. 
     - Virtual network configurations
     - Private endpoint connections
@@ -31,7 +31,7 @@ The Geo-Disaster recovery feature ensures that the entire configuration of a nam
     - Identities and encryption settings (customer-managed key encryption or bring your own key (BYOK) encryption)
     - Enable auto scale
     - Disable local authentication
-
+- Pairing a [partitioned namespace](enable-partitions-premium.md) with a non-partitioned namespace is not supported.
  
 > [!TIP]
 > For replicating the contents of queues and topic subscriptions and operating corresponding namespaces in active/active configurations to cope with outages and disasters, don't lean on this Geo-disaster recovery feature set, but follow the [replication guidance](service-bus-federation-overview.md).  
@@ -150,7 +150,7 @@ If you have a scenario in which you can't change the connections of producers an
 
 The [samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) show how to set up and initiate a failover. These samples demonstrate the following concepts:
 
-- A .NET sample and settings that are required in Azure Active Directory to use Azure Resource Manager with Service Bus, to set up, and enable Geo-disaster recovery.
+- A .NET sample and settings that are required in Microsoft Entra ID to use Azure Resource Manager with Service Bus, to set up, and enable Geo-disaster recovery.
 - Steps required to execute the sample code.
 - How to use an existing namespace as an alias.
 - Steps to alternatively enable Geo-disaster recovery via PowerShell or CLI.
@@ -218,7 +218,7 @@ Advantage of this approach is that failover can happen at the application layer 
 > For guidance on geo-disaster recovery of a virtual network, see [Virtual Network - Business Continuity](../virtual-network/virtual-network-disaster-recovery-guidance.md).
 
 ## Role-based access control
-Azure Active Directory (Azure AD) role-based access control (RBAC) assignments to Service Bus entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them. 
+Microsoft Entra role-based access control (RBAC) assignments to Service Bus entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them. 
 
 
 ## Next steps

@@ -75,9 +75,9 @@ If you don't recognize the user or application, or if you think the access shoul
     1. Open the key vault's access policy settings.
     1. Remove the corresponding security principal, or restrict the operations the security principal can perform.  
 
-- If the source of the alert has an Azure Active Directory role in your tenant:
+- If the source of the alert has a Microsoft Entra role in your tenant:
     1. Contact your administrator.
-    1. Determine whether there's a need to reduce or revoke Azure Active Directory permissions.
+    1. Determine whether there's a need to reduce or revoke Microsoft Entra permissions.
 
 ### Step 3: Measure the impact
 When the event has been mitigated, investigate the secrets in your key vault that were affected:

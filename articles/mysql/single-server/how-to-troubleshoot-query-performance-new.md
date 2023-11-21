@@ -6,7 +6,7 @@ ms.subservice: single-server
 author: SudheeshGH
 ms.author: sunaray
 ms.topic: troubleshooting
-ms.date: 06/20/2022
+ms.date: 10/20/2023
 ---
 
 # Troubleshoot query performance in Azure Database for MySQL
@@ -75,7 +75,7 @@ Usually, you should focus on queries with high values for Query_time and Rows_ex
 
 ## Profiling a query
 
-After you’ve identified a specific slow running query, you can use the EXPLAIN command and profiling to gather additional detail.
+After you’ve identified a specific slow running query, you can use the EXPLAIN command and profiling to gather more detail.
 
 To check the query plan, run the following command:
 
@@ -188,6 +188,33 @@ ORDER BY sum_timer_wait DESC LIMIT 10;
 > Use this query to benchmark the top executed queries in your database server and determine if there’s been a change in the top queries or if any existing queries in the initial benchmark have increased in run duration.
 >
 
+## Listing the 10 most expensive queries by total execution time
+
+The output from the following query provides information about the top 10 queries running against the database server and their number of executions on the database server. It also provides other useful information such as the query latencies, their lock times, the number of temp tables created as part of query runtime, etc. Use this query output to keep track of the top queries on the database and changes to factors such as latencies, which might indicate a chance to fine tune the query further to help avoid any future risks.
+
+```
+SELECT REPLACE(event_name, 'statement/sql/', '') AS statement, 
+ count_star AS all_occurrences , 
+ Concat(Round(sum_timer_wait / 1000000000000, 2), ' s') AS total_latency, 
+ Concat(Round(avg_timer_wait / 1000000000000, 2), ' s') AS avg_latency, 
+ Concat(Round(sum_lock_time / 1000000000000, 2), ' s') AS total_lock_time  , 
+ sum_rows_affected AS sum_rows_changed, 
+ sum_rows_sent AS  sum_rows_selected, 
+ sum_rows_examined AS  sum_rows_scanned, 
+ sum_created_tmp_tables,  sum_created_tmp_disk_tables, 
+ IF(sum_created_tmp_tables = 0, 0, Concat( Truncate(sum_created_tmp_disk_tables / 
+ sum_created_tmp_tables * 100, 0))) AS 
+ tmp_disk_tables_percent, 
+ sum_select_scan, 
+ sum_no_index_used, 
+ sum_no_good_index_used 
+FROM performance_schema.events_statements_summary_global_by_event_name 
+WHERE event_name LIKE 'statement/sql/%' 
+ AND count_star > 0 
+ORDER BY sum_timer_wait DESC 
+LIMIT 10;
+```
+
 ## Monitoring InnoDB garbage collection
 
 When InnoDB garbage collection is blocked or delayed, the database can develop a substantial purge lag that can negatively affect storage utilization and query performance.
@@ -242,8 +269,8 @@ When interpreting HLL values, consider the guidelines listed in the following ta
 | **Value** | **Notes** |
 |---|---|
 | Less than ~10,000 | Normal values, indicating that garbage collection isn't falling behind. |
-| Between ~10,000 and ~1,000,000 | These values indicate a minor lag in garbage collection. Such values may be acceptable if they remain steady and don't increase. |
-| Greater than ~1,000,000 | These values should be investigated and may require corrective actions |
+| Between ~10,000 and ~1,000,000 | These values indicate a minor lag in garbage collection. Such values might be acceptable if they remain steady and don't increase. |
+| Greater than ~1,000,000 | These values should be investigated and might require corrective actions |
 
 ### Addressing excessive HLL values
 
@@ -292,7 +319,7 @@ command: Query
 
 ## Recommendations
 
-* Ensure that your database has enough resources allocated to run your queries. At times, you may need to scale up the instance size to get more CPU cores and additional memory to accommodate your workload. 
+* Ensure that your database has enough resources allocated to run your queries. At times, you might need to scale up the instance size to get more CPU cores and additional memory to accommodate your workload.
 * Avoid large or long-running transactions by breaking them into smaller transactions.
 * Configure innodb_purge_threads as per your workload to improve efficiency for background purge operations.
   > [!NOTE]

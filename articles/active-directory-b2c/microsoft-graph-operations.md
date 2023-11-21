@@ -2,14 +2,14 @@
 title: Manage resources with Microsoft Graph
 titleSuffix: Azure AD B2C
 description: How to manage resources in an Azure AD B2C tenant by calling the Microsoft Graph API and using an application identity to automate the process.
-services: B2C
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 11/3/2022
-ms.custom: "project-no-code, ignite-fall-2021, b2c-support"
+ms.date: 11/20/2023
+ms.custom: "b2c-support"
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -41,7 +41,7 @@ Watch this video to learn about Azure AD B2C user migration using Microsoft Grap
 
 ## User phone number management
 
-A phone number that can be used by a user to sign-in using [SMS or voice calls](sign-in-options.md#phone-sign-in), or [multifactor authentication](multi-factor-authentication.md). For more information, see [Azure AD authentication methods API](/graph/api/resources/phoneauthenticationmethod).
+A phone number that can be used by a user to sign-in using [SMS or voice calls](sign-in-options.md#phone-sign-in), or [multifactor authentication](multi-factor-authentication.md). For more information, see [Microsoft Entra authentication methods API](/graph/api/resources/phoneauthenticationmethod).
 
 - [Add](/graph/api/authentication-post-phonemethods)
 - [List](/graph/api/authentication-list-phonemethods)
@@ -58,7 +58,7 @@ Note, the [list](/graph/api/authentication-list-phonemethods) operation returns 
 
 ## Self-service password reset email address
 
-An email address that can be used by a [username sign-in account](sign-in-options.md#username-sign-in) to reset the password. For more information, see [Azure AD authentication methods API](/graph/api/resources/emailauthenticationmethod).
+An email address that can be used by a [username sign-in account](sign-in-options.md#username-sign-in) to reset the password. For more information, see [Microsoft Entra authentication methods API](/graph/api/resources/emailauthenticationmethod).
 
 - [Add](/graph/api/authentication-post-emailmethods)
 - [List](/graph/api/authentication-list-emailmethods)
@@ -96,7 +96,7 @@ Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in,
 
 ## User flow authentication methods (beta)
 
-Choose a mechanism for letting users register via local accounts. Local accounts are the accounts where Azure AD does the identity assertion. For more information, see [b2cAuthenticationMethodsPolicy resource type](/graph/api/resources/b2cauthenticationmethodspolicy).
+Choose a mechanism for letting users register via local accounts. Local accounts are the accounts where Azure AD B2C does the identity assertion. For more information, see [b2cAuthenticationMethodsPolicy resource type](/graph/api/resources/b2cauthenticationmethodspolicy).
 
 - [Get](/graph/api/b2cauthenticationmethodspolicy-get)
 - [Update](/graph/api/b2cauthenticationmethodspolicy-update)
@@ -144,7 +144,7 @@ The top-level resource for policy keys in the Microsoft Graph API is the [Truste
 
 ## Application extension (directory extension) properties
 
-Application extension properties are also known as directory or Azure AD extensions. To manage them in Azure AD B2C, use the [identityUserFlowAttribute resource type](/graph/api/resources/identityuserflowattribute) and its associated methods.
+Application extension properties are also known as directory or Microsoft Entra extensions. To manage them in Azure AD B2C, use the [identityUserFlowAttribute resource type](/graph/api/resources/identityuserflowattribute) and its associated methods.
 
 - [Create user flow attribute](/graph/api/identityuserflowattribute-post)
 - [List user flow attributes](/graph/api/identityuserflowattribute-list)
@@ -160,7 +160,7 @@ You can store up to 100 directory extension values per user. To manage the direc
 For user flows, these extension properties are [managed by using the Azure portal](user-flow-custom-attributes.md). For custom policies, Azure AD B2C creates the property for you, the first time the policy writes a value to the extension property.
 
 > [!NOTE]
-> In Azure AD, directory extensions are managed through the [extensionProperty resource type](/graph/api/resources/extensionproperty) and its associated methods. However, because they are used in B2C through the `b2c-extensions-app` app which should not be updated, they are managed in Azure AD B2C using the [identityUserFlowAttribute resource type](/graph/api/resources/identityuserflowattribute) and its associated methods.
+> In Microsoft Entra ID, directory extensions are managed through the [extensionProperty resource type](/graph/api/resources/extensionproperty) and its associated methods. However, because they are used in B2C through the `b2c-extensions-app` app which should not be updated, they are managed in Azure AD B2C using the [identityUserFlowAttribute resource type](/graph/api/resources/identityuserflowattribute) and its associated methods.
 
 ## Tenant usage 
 
@@ -257,7 +257,7 @@ The `RunAsync` method in the _Program.cs_ file:
 
 :::code language="csharp" source="~/ms-identity-dotnetcore-b2c-account-management/src/Program.cs" id="ms_docref_set_auth_provider":::
 
-The initialized *GraphServiceClient* is then used in _UserService.cs_ to perform the user management operations. For example, getting a list of the user accounts in the tenant:
+The initialized _GraphServiceClient_ is then used in _UserService.cs_ to perform the user management operations. For example, getting a list of the user accounts in the tenant:
 
 :::code language="csharp" source="~/ms-identity-dotnetcore-b2c-account-management/src/Services/UserService.cs" id="ms_docref_get_list_of_user_accounts":::
 
@@ -265,7 +265,8 @@ The initialized *GraphServiceClient* is then used in _UserService.cs_ to perform
 
 ## Next steps
 
-For code samples in JavaScript and Node.js, please see: [Manage B2C user accounts with MSAL.js and Microsoft Graph SDK](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management) 
+- For code samples in JavaScript and Node.js, please see: [Manage B2C user accounts with MSAL.js and Microsoft Graph SDK](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management) 
+- Explore [Graph Explorer](https://aka.ms/ge) that lets you try Microsoft Graph APIs and learn about them.
 
 <!-- LINK -->
 

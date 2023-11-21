@@ -6,9 +6,11 @@ ms.topic: reference
 author: SudheeshGH
 ms.author: sunaray
 ms.custom: subject-policy-reference
-ms.date: 09/06/2023
+ms.date: 11/15/2023
 ---
 # Azure Policy built-in definitions for Azure Database for MariaDB
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Database for MariaDB. For additional Azure Policy built-ins for other

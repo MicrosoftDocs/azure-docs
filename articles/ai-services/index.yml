@@ -7,28 +7,28 @@ brand: azure
 metadata:
   title: Azure AI services documentation
   description: Azure AI services help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. 
-  ms.service: cognitive-services
+  ms.service: azure-ai-services
   ms.topic: hub-page
   author: eric-urban
   ms.author: eur
   manager: nitinme
-  ms.custom: build-2023, build-2023-dataai
-  ms.date: 7/18/2023
+  ms.custom: ignite-2023
+  ms.date: 11/15/2023
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
     - title: What are Azure AI services?
       itemType: overview # controls the icon image and super-title text
       url: ./what-are-ai-services.md
+    - title: What is Azure AI Studio?
+      itemType: overview
+      url: ../ai-studio/what-is-ai-studio.md
+    - title: Azure AI Studio quickstart
+      itemType: quickstart
+      url: ../ai-studio/quickstarts/playground-completions.md
     - title: Responsible use of AI
       itemType: concept
       url: responsible-use-of-ai-overview.md
-    - title: Development options
-      itemType: concept
-      url: ./cognitive-services-development-options.md
-    - title: Support and help options
-      itemType: reference
-      url: ./cognitive-services-support-options.md
     
 # productDirectory section 
 productDirectory:
@@ -38,7 +38,7 @@ productDirectory:
   items:
     # Card
     - title: Azure OpenAI
-      imageSrc: ./media/service-icons/azure.svg
+      imageSrc: ./media/service-icons/azure-openai.svg
       summary: Perform a wide variety of natural language tasks
       url: ./openai/index.yml
     # Card
@@ -72,20 +72,10 @@ productDirectory:
       summary: Detect and identify people and emotions in images
       url: ./computer-vision/overview-identity.md
     # Card
-    - title: Anomaly Detector
-      imageSrc: ./media/service-icons/anomaly-detector.svg
-      summary: Identify potential problems early on
-      url: ./anomaly-detector/index.yml
-    # Card
     - title: Content Safety
       imageSrc: ./media/service-icons/content-safety.svg
       summary: An AI service that detects unwanted contents
       url: ./content-safety/index.yml
-    # Card
-    - title: Personalizer
-      imageSrc: ./media/service-icons/personalizer.svg
-      summary: Create rich, personalized experiences for each user
-      url: ./personalizer/index.yml
     # Card
     - title: Bot Service
       imageSrc: ./media/service-icons/bot-services.svg
@@ -97,20 +87,15 @@ productDirectory:
       summary: Turn documents into usable data at a fraction of the time and cost
       url: ./document-intelligence/index.yml
     # Card
-    - title: Azure Cognitive Search
-      imageSrc: ./media/service-icons/cognitive-search.svg
+    - title: Azure AI Search
+      imageSrc: ./media/service-icons/search.svg
       summary: Bring AI-powered cloud search to your mobile and web apps
       url: ../search/index.yml
-    # Card
-    - title: Metrics Advisor
-      imageSrc: ./media/service-icons/metrics-advisor.svg
-      summary: Proactively monitor metrics and diagnose issues
-      url: ./metrics-advisor/index.yml
     # Card
     - title: Video Indexer
       imageSrc: ./media/service-icons/video-indexer.svg
       summary: Extract actionable insights from your videos
-      url: ../azure-video-indexer/index.yml
+      url: /azure/azure-video-indexer/
      # Card
     - title: Immersive Reader
       imageSrc: ./media/service-icons/immersive-reader.svg
@@ -123,6 +108,8 @@ additionalContent:
       items:
         - title: Demo & customization studios
           links:
+            - text: Azure AI Studio
+              url: https://ai.azure.com/
             - text: Azure OpenAI
               url: https://oai.azure.com/
             - text: Speech
@@ -173,4 +160,9 @@ additionalContent:
               url: ./luis/index.yml
             - text: QnA Maker
               url: ./qnamaker/index.yml
-
+            - text: Metrics Advisor
+              url: ./metrics-advisor/index.yml
+            - text: Anomaly Detector
+              url: ./anomaly-detector/index.yml
+            - text: Personalizer
+              url: ./personalizer/index.yml

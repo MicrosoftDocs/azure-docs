@@ -29,13 +29,15 @@ This section outlines variations and considerations when using Azure Bot Service
 | Azure AI Speech| See [Azure AI services: Azure in China - Speech service](../ai-services/speech-service/sovereign-clouds.md?tabs=c-sharp.md#microsoft-azure-operated-by-21vianet)  ||
 | Azure AI Speech|For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../ai-services/translator/sovereign-clouds.md?tabs=china).|
 
-### Azure AD External Identities
+<a name='azure-ad-external-identities'></a>
 
-This section outlines variations and considerations when using Azure AD External Identities B2B collaboration.  
+### Microsoft Entra External ID
+
+This section outlines variations and considerations when using Microsoft Entra External ID B2B collaboration.  
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-| Azure AD External Identities | For Azure AD External Identities B2B feature variations in Microsoft Azure for customers in China, see [Azure AD B2B in national clouds](../active-directory/external-identities/b2b-government-national-clouds.md) and [Microsoft cloud settings (Preview)](../active-directory/external-identities/cross-cloud-settings.md).  |
+| Microsoft Entra External ID | For Microsoft Entra External ID B2B feature variations in Microsoft Azure for customers in China, see [Microsoft Entra B2B in national clouds](../active-directory/external-identities/b2b-government-national-clouds.md) and [Microsoft cloud settings (Preview)](../active-directory/external-identities/cross-cloud-settings.md).  |
 
 ### Media
 
@@ -118,7 +120,7 @@ The table below lists ways to connect to your Azure account in Azure Global vs. 
 | Sign in description | Azure Global | Azure in China |
 |--------------|-----------|------| 
 | Sign into Azure with an authenticated account for use with Azure Resource Manager| Connect-AzureAccount | Connect-AzureAccount -Environment AzureChinaCloud|
-| Sign into Azure Active Directory with Microsoft Graph PowerShell | Connect-MgGraph | Connect-MgGraph -AzureEnvironment China|
+| Sign into Microsoft Entra ID with Microsoft Graph PowerShell | Connect-MgGraph | Connect-MgGraph -AzureEnvironment China|
 | Sign into your Azure classic portal account | Add-AzureAccount | Add-AzureAccount -Environment AzureChinaCloud |
 
 ## Azure in China REST endpoints
@@ -130,7 +132,7 @@ For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China
 | Service category | Azure Global | Azure in China |
 |-|-|-|
 | Azure (in general) | \*.windows.net | \*.chinacloudapi.cn |
-| Azure Active Directory	| `https://login.microsoftonline.com`	 | `https://login.chinacloudapi.cn` |
+| Microsoft Entra ID	| `https://login.microsoftonline.com`	 | `https://login.chinacloudapi.cn` |
 | Azure App Configuration | \*.azconfig.io | \*.azconfig.azure.cn |
 | Azure compute | \*.cloudapp.net | \*.chinacloudapp.cn |
 | Azure data  |	`https://{location}.experiments.azureml.net`	| `https://{location}.experiments.ml.azure`.cn |
@@ -150,8 +152,8 @@ For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China
 | MySQL PaaS | | \*.mysqldb.chinacloudapi.cn |
 | Azure Service Fabric cluster | \*.cloudapp.azure.com | \*.chinaeast.chinacloudapp.cn |
 | Azure Spring Cloud| \*.azuremicroservices.io | \*.microservices.azure.cn |
-| Azure Active Directory (Azure AD) | \*.onmicrosoft.com | \*.partner.onmschina.cn |
-| Azure AD logon | [https://login.microsoftonline.com](https://login.windows.net/) | [https://login.partner.microsoftonline.cn](https://login.chinacloudapi.cn/) |
+| Microsoft Entra ID | \*.onmicrosoft.com | \*.partner.onmschina.cn |
+| Microsoft Entra logon | [https://login.microsoftonline.com](https://login.windows.net/) | [https://login.partner.microsoftonline.cn](https://login.chinacloudapi.cn/) |
 | Microsoft Graph | [https://graph.microsoft.com](https://graph.microsoft.com/) | [https://microsoftgraph.chinacloudapi.cn](https://microsoftgraph.chinacloudapi.cn/) |
 | Azure AI services | `https://api.projectoxford.ai/face/v1.0` | `https://api.cognitive.azure.cn/face/v1.0` |
 | Azure Bot Services | <\*.botframework.com> | <\*.botframework.azure.cn> |

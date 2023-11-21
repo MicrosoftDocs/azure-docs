@@ -1,12 +1,12 @@
 ---
 title: Localization string IDs - Azure Active Directory B2C
 description: Specify the IDs for a content definition with an ID of api.signuporsignin in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 04/19/2022
 ms.author: kengaderdus
@@ -282,7 +282,7 @@ The Following are the IDs for a content definition with an ID of `api.phonefacto
 | --- | ------------- | ------ |
 | `button_verify` | Call Me | `All` |
 | `country_code_label` | Country Code | `All` |
-| `cancel_message` | The user has canceled multi-factor authentication | `All` |
+| `cancel_message` | The user has canceled multifactor authentication | `All` |
 | `text_button_send_second_code` | send a new code | `All` |
 | `code_pattern` | \\d{6} | `All` |
 | `intro_mixed` | We have the following number on record for you. We can send a code via SMS or phone to authenticate you. | `All` |
@@ -515,9 +515,11 @@ The following IDs are used for [Restful service technical profile](restful-techn
 </LocalizedResources>
 ```
 
-## Azure AD MFA error messages
+<a name='azure-ad-mfa-error-messages'></a>
 
-The following IDs are used for an [Azure AD MFA technical profile](multi-factor-auth-technical-profile.md) error message:
+## Microsoft Entra multifactor authentication error messages
+
+The following IDs are used for an [Microsoft Entra ID multifactor authentication technical profile](multi-factor-auth-technical-profile.md) error message:
 
 | ID | Default value |
 | --- | ------------- |
@@ -528,7 +530,9 @@ The following IDs are used for an [Azure AD MFA technical profile](multi-factor-
 | `UserMessageIfThrottled` | Your request has been throttled, please try again later.|
 | `UserMessageIfWrongCodeEntered` |Wrong code entered, please try again.|
 
-### Azure AD MFA example
+<a name='azure-ad-mfa-example'></a>
+
+### Microsoft Entra multifactor authentication example
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -543,9 +547,11 @@ The following IDs are used for an [Azure AD MFA technical profile](multi-factor-
 </LocalizedResources>
 ```
 
-## Azure AD SSPR
+<a name='azure-ad-sspr'></a>
 
-The following IDs are used for [Azure AD SSPR technical profile](aad-sspr-technical-profile.md) error messages:
+## Microsoft Entra SSPR
+
+The following IDs are used for [Microsoft Entra ID SSPR technical profile](aad-sspr-technical-profile.md) error messages:
 
 | ID | Default value |
 | --- | ------------- |
@@ -555,7 +561,9 @@ The following IDs are used for [Azure AD SSPR technical profile](aad-sspr-techni
 |`UserMessageIfVerificationFailedNoRetry` | You have exceeded maximum number of verification attempts.|
 |`UserMessageIfVerificationFailedRetryAllowed` | The verification has failed, please try again.|
 
-### Azure AD SSPR example
+<a name='azure-ad-sspr-example'></a>
+
+### Microsoft Entra SSPR example
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">

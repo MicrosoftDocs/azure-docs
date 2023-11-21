@@ -5,7 +5,7 @@ ms.service: azure-government
 ms.topic: article
 author: todorgb
 ms.author: todorb
-ms.date: 08/31/2023
+ms.date: 10/31/2023
 ---
 
 # Azure Government authorized reseller list
@@ -61,6 +61,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Arctic IT](https://arcticit.com/)|
 |[Ardalyst Federal LLC](https://ardalyst.com)|
 |[ArdentMC](https://www.ardentmc.com)|
+|[Ariento Inc.](https://www.ariento.com/)|
 |[Army of Quants](https://www.armyofquants.com/)|
 |[Ascent Innovations LLC](https://www.ascent365.com/)|
 |[ASM Research LLC](https://www.asmr.com)|
@@ -413,7 +414,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[StoneFly, Inc.](https://stonefly.com)|
 |[Strategic Communications](https://stratcomminc.com)|
 |[Stratus Solutions](https://stratussolutions.com)|
-|[Stratum Technology Manamgent, LLC](https://www.stratumtechnology.com)|
 |[Strongbridge LLC](https://www.sb-llc.com)|
 |[Summit 7 Systems, Inc.](https://www.summit7.us/)|
 |[Sumo Logic](https://www.sumologic.com/)|
@@ -499,7 +499,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |Partner name|
 |----------------------------|
 |[Arrow Enterprise Computing Solutions, Inc.](http://ecs.arrow.com/)|
-|[Crayon Software Experts LCC](https://www.crayon.com/en-US)|
+|[Crayon Software Experts LCC](https://www.crayon.com/)|
 |[Carahsoft Technology Corporation](https://www.carahsoft.com)|
 |[DLT Solutions](https://www.dlt.com)|
 |[Ingram Micro Inc.](https://usa.ingrammicro.com/)|
@@ -540,6 +540,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Catapult Systems, LLC](https://www.catapultsystems.com)|
 |[CGI Federal Inc.](https://www.cgi.com/us/en-us/federal)|
 |[Cloud Navigator, Inc - formerly ISC](https://cloudnav.com)|
+|[CloudFit Software LLC](https://cloudfitsoftware.com/)|
 |[Conquest Cyber](https://conquestcyber.com/)|
 |[Coretek](https://www.coretek.com/)|
 |[CyberSheath](https://cybersheath.com)|

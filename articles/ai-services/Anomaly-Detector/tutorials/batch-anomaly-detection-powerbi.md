@@ -2,17 +2,18 @@
 title: "Tutorial: Visualize anomalies using batch detection and Power BI"
 titleSuffix: Azure AI services
 description: Learn how to use the Anomaly Detector API and Power BI to visualize anomalies throughout your time series data.
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
 ---
 
 # Tutorial: Visualize anomalies using batch detection and Power BI (univariate)
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 Use this tutorial to find anomalies within a time series data set as a batch. Using Power BI desktop, you will take an Excel file, prepare the data for the Anomaly Detector API, and visualize statistical anomalies throughout it.
 

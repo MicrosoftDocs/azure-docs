@@ -5,7 +5,7 @@ description: Learn how to host a Kubernetes client application that uses Azure C
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 11/10/2023
 ms.author: franlanglois
 ---
 
@@ -29,16 +29,23 @@ A pod running the client application can be affected by other pods running on th
 
 If your Azure Cache for Redis client application runs on a Linux-based container, we recommend updating some TCP settings. These settings are detailed in [TCP settings for Linux-hosted client applications](cache-best-practices-connection.md#tcp-settings-for-linux-hosted-client-applications).
 
-## Potential connection collision with *Istio/Envoy*
+## Potential connection collision with _Istio/Envoy_
 
-Currently, Azure Cache for Redis uses ports 15000-15019 for clustered caches to expose cluster nodes to client applications. As documented [here](https://istio.io/latest/docs/ops/deployment/requirements/#ports-used-by-istio), the same ports are also used by *Istio.io* sidecar proxy called *Envoy* and could interfere with creating connections, especially on port 15006.
+Currently, Azure Cache for Redis uses ports 15000-15019 for clustered caches to expose cluster nodes to client applications. As documented [here](https://istio.io/latest/docs/ops/deployment/requirements/#ports-used-by-istio), the same ports are also used by _Istio.io_ sidecar proxy called _Envoy_ and could interfere with creating connections, especially on port 15006.
+
+When using _Istio_ with an Azure Cache for Redis cluster, consider excluding the potential collision ports with an [istio annotation](https://istio.io/latest/docs/reference/config/annotations/).
+
+```
+annotations:
+  traffic.sidecar.istio.io/excludeOutboundPorts: "15000,15001,15004,15006,15008,15009,15020"
+```
 
 To avoid connection interference, we recommend:
 
-- Consider using a non-clustered cache or an Enterprise tier cache instead
-- Avoid configuring *Istio* sidecars on pods running Azure Cache for Redis client code
+- Consider using a nonclustered cache or an Enterprise tier cache instead
+- Avoid configuring _Istio_ sidecars on pods running Azure Cache for Redis client code
 
-## Next steps
+## Related content
 
 - [Development](cache-best-practices-development.md)
 - [Azure Cache for Redis development FAQs](cache-development-faq.yml)

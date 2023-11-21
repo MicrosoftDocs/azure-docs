@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: infrastructure nodes, aro, deploy, openshift, red hat
 ms.topic: how-to
-ms.date: 08/30/2023
+ms.date: 10/26/2023
 ms.custom: template-how-to
 ---
 
@@ -43,6 +43,9 @@ In order for Azure VMs added to an ARO cluster to be recognized as infrastructur
     - Standard_E4s_v5
     - Standard_E8s_v5
     - Standard_E16s_v5
+    - Standard_E4as_v5
+    - Standard_E8as_v5
+    - Standard_E16as_v5
     
 - There can be no more than three nodes. Any additional nodes are charged an OpenShift fee.
 

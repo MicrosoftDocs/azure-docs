@@ -1,15 +1,15 @@
 ---
 title: Technical and feature overview - Azure Active Directory B2C
 description: An in-depth introduction to the features and technologies in Azure Active Directory B2C. Azure Active Directory B2C has high availability globally. 
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: overview
 ms.date: 10/26/2022
-ms.custom: engagement-fy23
+ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
 ---
@@ -20,7 +20,7 @@ A companion to [About Azure Active Directory B2C](overview.md), this article pro
 
 ## Azure AD B2C tenant
 
-In Azure Active Directory B2C (Azure AD B2C), a *tenant* represents your organization and is a directory of users. Each Azure AD B2C tenant is distinct and separate from other Azure AD B2C tenants. An Azure AD B2C tenant is different than an Azure Active Directory tenant, which you may already have.
+In Azure Active Directory B2C (Azure AD B2C), a *tenant* represents your organization and is a directory of users. Each Azure AD B2C tenant is distinct and separate from other Azure AD B2C tenants. An Azure AD B2C tenant is different than a Microsoft Entra tenant, which you may already have.
 
 The primary resources you work with in an Azure AD B2C tenant are:
 
@@ -42,7 +42,7 @@ An Azure AD B2C tenant is the first resource you need to create to get started w
 
 ## Accounts in Azure AD B2C
 
-Azure AD B2C defines several types of user accounts. Azure Active Directory, Azure Active Directory B2B, and Azure Active Directory B2C share these account types.
+Azure AD B2C defines several types of user accounts. Microsoft Entra ID, Microsoft Entra B2B, and Azure Active Directory B2C share these account types.
 
 * **Work account** - Users with work accounts can manage resources in a tenant, and with an administrator role, can also manage tenants. Users with work accounts can create new consumer accounts, reset passwords, block/unblock accounts, and set permissions or assign an account to a security group.
 * **Guest account** - External users you invite to your tenant as guests. A typical scenario for inviting a guest user to your Azure AD B2C tenant is to share administration responsibilities.
@@ -75,7 +75,7 @@ Learn more about [sign-in options](sign-in-options.md) or how to [set up the loc
 
 Azure AD B2C lets you manage common attributes of consumer account profiles. For example display name, surname, given name, city, and others.
 
-You can also extend the Azure AD schema to store additional information about your users. For example, their country/region of residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multifactor authentication. For more information, see:
+You can also extend the Microsoft Entra schema to store additional information about your users. For example, their country/region of residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multifactor authentication. For more information, see:
 
 * [User profile attributes](user-profile-attributes.md)
 * [Add user attributes and customize user input in](configure-user-input.md)
@@ -209,7 +209,7 @@ For more information, see [Enable multifactor authentication in Azure Active Dir
 
 ## Conditional Access
 
-Azure AD Identity Protection risk-detection features, including risky users and risky sign-ins, are automatically detected and displayed in your Azure AD B2C tenant. You can create Conditional Access policies that use these risk detections to determine remediation actions and enforce organizational policies. 
+Microsoft Entra ID Protection risk-detection features, including risky users and risky sign-ins, are automatically detected and displayed in your Azure AD B2C tenant. You can create Conditional Access policies that use these risk detections to determine remediation actions and enforce organizational policies. 
 
 :::image type="content" source="media/technical-overview/conditional-access-flow.png" alt-text="Diagram showing conditional access flow.":::
 
@@ -251,7 +251,7 @@ Sessions are modeled as encrypted data, with the decryption key known only to th
 
 ### Access to user data
 
-Azure AD B2C tenants share many characteristics with enterprise Azure Active Directory tenants used for employees and partners. Shared aspects include mechanisms for viewing administrative roles, assigning roles, and auditing activities. 
+Azure AD B2C tenants share many characteristics with enterprise Microsoft Entra tenants used for employees and partners. Shared aspects include mechanisms for viewing administrative roles, assigning roles, and auditing activities. 
 
 You can assign roles to control who can perform certain administrative actions in Azure AD B2C, including:
 
@@ -261,7 +261,7 @@ You can assign roles to control who can perform certain administrative actions i
 * Create and manage trust framework policies in the Identity Experience Framework (custom policies)
 * Manage secrets for federation and encryption in the Identity Experience Framework (custom policies)
 
-For more information about Azure AD roles, including Azure AD B2C administration role support, see [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md).
+For more information about Microsoft Entra roles, including Azure AD B2C administration role support, see [Administrator role permissions in Microsoft Entra ID](../active-directory/roles/permissions-reference.md).
 
 ## Auditing and logs
 

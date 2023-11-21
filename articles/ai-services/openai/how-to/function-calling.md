@@ -4,10 +4,9 @@ titleSuffix: Azure OpenAI Service
 description: Learn how to use function calling with the GPT-35-Turbo and GPT-4 models 
 author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 07/20/2023
+ms.date: 11/09/2023
 manager: nitinme
 ---
 
@@ -30,8 +29,10 @@ To use function calling with the Chat Completions API, you need to include two n
 
 When functions are provided, by default the `function_call` will be set to `"auto"` and the model will decide whether or not a function should be called. Alternatively, you can set the `function_call` parameter to `{"name": "<insert-function-name>"}` to force the API to call a specific function or you can set the parameter to `"none"` to prevent the model from calling any functions.
 
+# [OpenAI Python 0.28.1](#tab/python)
+
 ```python
-# Note: The openai-python library support for Azure OpenAI is in preview.
+
 import os
 import openai
 
@@ -70,7 +71,7 @@ functions= [
 ]  
 
 response = openai.ChatCompletion.create(
-    engine="gpt-35-turbo-0613",
+    engine="gpt-35-turbo-0613", # engine = "deployment_name"
     messages=messages,
     functions=functions,
     function_call="auto", 
@@ -93,6 +94,74 @@ The response from the API includes a `function_call` property if the model deter
 
 In some cases, the model may generate both `content` and a `function_call`. For example, for the prompt above the content could say something like "Sure, I can help you find some hotels in San Diego that match your criteria" along with the function_call.
 
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+import os
+from openai import AzureOpenAI
+
+client = AzureOpenAI(
+  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_version="2023-10-01-preview",
+  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+)
+
+messages= [
+    {"role": "user", "content": "Find beachfront hotels in San Diego for less than $300 a month with free breakfast."}
+]
+
+functions= [  
+    {
+        "name": "search_hotels",
+        "description": "Retrieves hotels from the search index based on the parameters provided",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "location": {
+                    "type": "string",
+                    "description": "The location of the hotel (i.e. Seattle, WA)"
+                },
+                "max_price": {
+                    "type": "number",
+                    "description": "The maximum price for the hotel"
+                },
+                "features": {
+                    "type": "string",
+                    "description": "A comma separated list of features (i.e. beachfront, free wifi, etc.)"
+                }
+            },
+            "required": ["location"]
+        }
+    }
+]  
+
+response = client.chat.completions.create(
+    model="gpt-35-turbo-0613", # model = "deployment_name"
+    messages= messages,
+    functions = functions,
+    function_call="auto",
+)
+
+print(response.choices[0].message.model_dump_json(indent=2))
+```
+
+The response from the API includes a `function_call` property if the model determines that a function should be called. The `function_call` property includes the name of the function to call and the arguments to pass to the function. The arguments are a JSON string that you can parse and use to call your function.
+
+```json
+{
+  "content": null,
+  "role": "assistant",
+  "function_call": {
+    "arguments": "{\n  \"location\": \"San Diego\",\n  \"max_price\": 300,\n  \"features\": \"beachfront, free breakfast\"\n}",
+    "name": "search_hotels"
+  }
+}
+```
+
+In some cases, the model may generate both `content` and a `function_call`. For example, for the prompt above the content could say something like "Sure, I can help you find some hotels in San Diego that match your criteria" along with the function_call.
+
+---
+
 ## Working with function calling
 
 The following section goes into additional detail on how to effectively use functions with the Chat Completions API.
@@ -108,6 +177,7 @@ If you want to describe a function that doesn't accept any parameters, use `{"ty
 ### Managing the flow with functions
 
 ```python
+
 response = openai.ChatCompletion.create(
     deployment_id="gpt-35-turbo-0613",
     messages=messages,

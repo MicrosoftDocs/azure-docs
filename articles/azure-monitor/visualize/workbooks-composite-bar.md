@@ -13,8 +13,8 @@ ms.date: 06/21/2023
 With Azure Workbooks, data can be rendered by using the composite bar. This bar is made up of multiple bars.
 
 The following image shows the composite bar for database status. It shows how many servers are online, offline, and in a recovering state.
-
-![Screenshot that shows the composite bar for database status.](./media/workbooks-composite-bar/database-status.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-composite-bar/database-status.png" lightbox="./media/workbooks-composite-bar/database-status.png" alt-text="Screenshot that shows the composite bar for database status." border="false":::
 
 The composite bar renderer is supported for grid, tile, and graph visualizations.
 
@@ -51,12 +51,12 @@ The composite bar renderer is supported for grid, tile, and graph visualizations
 1. Select **Apply**.
 
 The composite bar settings will look like the following screenshot:
-
-![Screenshot that shows composite bar column settings with the preceding settings.](./media/workbooks-composite-bar/composite-bar-settings.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-composite-bar/composite-bar-settings.png" lightbox="./media/workbooks-composite-bar/composite-bar-settings.png" alt-text="Screenshot that shows composite bar column settings with the preceding settings." border="false":::
 
 The composite bar with the preceding settings:
-
-![Screenshot that shows the composite bar.](./media/workbooks-composite-bar/composite-bar.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-composite-bar/composite-bar.png" lightbox="./media/workbooks-composite-bar/composite-bar.png" alt-text="Screenshot that shows the composite bar." border="false":::
 
 ## Composite bar settings
 
@@ -81,30 +81,30 @@ To add Group By settings:
 1. In column settings, go to the column you want to add settings to.
 1. In **Tree/Group By Settings**, under **Tree type**, select **Group By**.
 1. Select the field you want to group by.
-
-   ![Screenshot that shows Group By settings.](./media/workbooks-composite-bar/group-by-settings.png)
+   <!-- convertborder later -->
+   :::image type="content" source="./media/workbooks-composite-bar/group-by-settings.png" lightbox="./media/workbooks-composite-bar/group-by-settings.png" alt-text="Screenshot that shows Group By settings." border="false":::
 
 #### None
 
 The setting of **None** for aggregation means that no results are displayed for that column for the group rows.
-
-![Screenshot that shows the composite bar with the None setting for aggregation.](./media/workbooks-composite-bar/none.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-composite-bar/none.png" lightbox="./media/workbooks-composite-bar/none.png" alt-text="Screenshot that shows the composite bar with the None setting for aggregation." border="false":::
 
 #### Sum
 
 If aggregation is set as **Sum**, the column in the group row shows the composite bar by using the sum of the columns used to render it. The label will also use the sum of the columns referred to in it.
 
 In the following example, **online**, **offline**, and **recovering** all have max aggregation set to them and the aggregation for the total column is **Sum**.
-
-![Screenshot that shows the composite bar with the Sum setting for aggregation.](./media/workbooks-composite-bar/sum.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-composite-bar/sum.png" lightbox="./media/workbooks-composite-bar/sum.png" alt-text="Screenshot that shows the composite bar with the Sum setting for aggregation." border="false":::
 
 #### Inherit
 
 If aggregation is set as **Inherit**, the column in the group row shows the composite bar by using the aggregation set by users for the columns used to render it. The columns used in **Label** also use the aggregation set by the user. If the current column renderer is **Composite Bar** and is referred to in the label (like **total** in the preceding example), then **Sum** is used as the aggregation for that column.
 
 In the following example, **online**, **offline**, and **recovering** all have max aggregation set to them and the aggregation for total column is **Inherit**.
-
-![Screenshot that shows the composite bar with the inherit setting for aggregation.](./media/workbooks-composite-bar/inherit.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-composite-bar/inherit.png" lightbox="./media/workbooks-composite-bar/inherit.png" alt-text="Screenshot that shows the composite bar with the inherit setting for aggregation." border="false":::
 
 ## Sorting
 
@@ -139,12 +139,12 @@ To make a composite bar renderer for a tile visualization:
 1. Select **Apply**.
 
 Composite bar settings for tiles:
-
-![Screenshot that shows composite bar tile settings with the preceding settings.](./media/workbooks-composite-bar/tiles-settings.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-composite-bar/tiles-settings.png" lightbox="./media/workbooks-composite-bar/tiles-settings.png" alt-text="Screenshot that shows composite bar tile settings with the preceding settings." border="false":::
 
 The composite bar view for tiles with the preceding settings will look like this example:
-
-![Screenshot that shows composite bar tiles.](./media/workbooks-composite-bar/composite-bar-tiles.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-composite-bar/composite-bar-tiles.png" lightbox="./media/workbooks-composite-bar/composite-bar-tiles.png" alt-text="Screenshot that shows composite bar tiles." border="false":::
 
 ## Graph visualizations
 
@@ -178,12 +178,12 @@ To make a composite bar renderer for a graph visualization (type Hive Clusters):
 1. Select **Apply**.
 
 Composite bar settings for graphs:
-
-![Screenshot that shows composite bar graph settings with the preceding settings.](./media/workbooks-composite-bar/graphs-settings.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-composite-bar/graphs-settings.png" lightbox="./media/workbooks-composite-bar/graphs-settings.png" alt-text="Screenshot that shows composite bar graph settings with the preceding settings." border="false":::
 
 The composite bar view for a graph with the preceding settings will look like this example:
-
-![Screenshot that shows composite bar graphs with hive clusters.](./media/workbooks-composite-bar/composite-bar-graphs.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-composite-bar/composite-bar-graphs.png" lightbox="./media/workbooks-composite-bar/composite-bar-graphs.png" alt-text="Screenshot that shows composite bar graphs with hive clusters." border="false":::
 
 ## Next steps
 

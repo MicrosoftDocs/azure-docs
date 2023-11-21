@@ -1,6 +1,36 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-packet-capture-manage-rest.md",
+            "redirect_url": "/rest/api/network-watcher/packet-captures",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-packet-capture-manage-rest-vmss.md",
+            "redirect_url": "/rest/api/network-watcher/packet-captures",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-ip-flow-verify-overview.md",
+            "redirect_url": "/azure/network-watcher/ip-flow-verify-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-nsg-flow-logging-portal.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-tutorial",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/resource-move.md",
+            "redirect_url": "/azure/network-watcher/frequently-asked-questions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-security-group-view-overview.md",
+            "redirect_url": "/azure/network-watcher/effective-security-rules-overview",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/network-watcher/enable-network-watcher-flow-log-settings.md",
             "redirect_url": "/azure/network-watcher/network-watcher-create",
             "redirect_document_id": false
@@ -14,6 +44,141 @@
             "source_path_from_root": "/articles/network-watcher/network-watcher-security-group-view-rest.md",
             "redirect_url": "/rest/api/network-watcher/network-watchers/get-vm-security-rules",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-monitoring-overview.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-connectivity-overview.md",
+            "redirect_url": "/azure/network-watcher/connection-troubleshoot-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/connection-monitor-preview-create-using-portal.md",
+            "redirect_url": "/azure/network-watcher/connection-monitor-create-using-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/connection-monitor-preview-create-using-arm-client.md",
+            "redirect_url": "/azure/network-watcher/connection-monitor-create-using-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/connection-monitor-preview.md",
+            "redirect_url": "/azure/network-watcher/connection-monitor-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-check-next-hop-portal.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-check-next-hop-cli.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-check-next-hop-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-check-next-hop-powershell.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-check-ip-flow-verify-portal.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-check-ip-flow-verify-cli.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-check-ip-flow-verify-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-check-ip-flow-verify-powershell.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/migrate-to-connection-monitor-preview-from-connection-monitor.md",
+            "redirect_url": "/azure/network-watcher/migrate-to-connection-monitor-from-connection-monitor-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/migrate-to-connection-monitor-preview-from-network-performance-monitor.md",
+            "redirect_url": "/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-nsg-flow-logging-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-nsg-flow-logging-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/prepare-flow-log.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-nsg-flow-logging-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-packet-capture-manage-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-packet-capture-manage-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-security-group-view-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-security-group-view-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-troubleshoot-manage-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-troubleshoot-manage-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-topology-cli.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-topology-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-topology-overview.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-topology-powershell.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-topology-rest.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-check-next-hop-rest.md",
+            "redirect_url": "/rest/api/network-watcher/networkwatchers/getnexthop",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-check-ip-flow-verify-rest.md",
+            "redirect_url": "/rest/api/network-watcher/networkwatchers/verifyipflow",
+            "redirect_document_id": false
+        }        
     ]
 }

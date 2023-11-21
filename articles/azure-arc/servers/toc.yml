@@ -63,6 +63,8 @@
         href: onboard-powershell.md
       - name: Connect machines to Azure Arc with PowerShell DSC
         href: onboard-dsc.md
+      - name: Connect Windows Server machines through Azure Arc Setup
+        href: onboard-windows-server.md
     - name: Connect machines at scale
       items:
        - name: Connect machines using a service principal
@@ -133,6 +135,12 @@
       href: prepare-extended-security-updates.md
     - name: License provisioning for Extended Security Updates
       href: license-extended-security-updates.md
+    - name: Deliver Extended Security Updates
+      href: deliver-extended-security-updates.md
+    - name: Programmatically manage Extended Security Updates licenses
+      href: api-extended-security-updates.md
+    - name: Troubleshoot Extended Security Updates
+      href: troubleshoot-extended-security-updates.md
   - name: Troubleshooting
     items:
     - name: Agent connection issues
@@ -191,7 +199,7 @@
 - name: Resources
   items:
   - name: Azure Arc Jumpstart
-    href: https://azurearcjumpstart.io
+    href: https://aka.ms/AzureArcJumpstart
   - name: Microsoft Q&A for Azure Arc
     href: /answers/tags/146/azure-arc
   - name: Azure updates

@@ -2,7 +2,7 @@
 title: How an Azure reservation discount is applied
 description: This article helps you understand how reserved instance discounts are generally applied.
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: ignite-2022
@@ -26,6 +26,8 @@ If the virtual machines are running in different subscriptions within your enrol
 A reservation discount only applies to resources associated with Enterprise, Microsoft Customer Agreement, CSP, or subscriptions with pay-as-you go rates. Resources that run in a subscription with other offer types don't receive the reservation discount.
 
 The savings that are presented as part of [reservation recommendations](reserved-instance-purchase-recommendations.md) are the savings that are calculated in addition to your negotiated, or discounted (if applicable) prices.
+
+When you purchase a reservation, the benefit is applied at reservation prices. On very rare occasions, you may have some pay-as-you-go rates that are lower than the reservation rate. In these cases, Azure uses the reservation rate to apply benefit. When you purchase a reservation for an SKU where the reservation rate is lower than the pay-as-you-go rate, but because of instance size flexibility, the reservation is also applied to the SKU which had more Azure consumption discount (ACD) than the reservation. 
 
 ## When the reservation term expires
 
