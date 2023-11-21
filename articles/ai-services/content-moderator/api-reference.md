@@ -2,7 +2,7 @@
 title: API reference - Content Moderator
 titleSuffix: Azure AI services
 description: Learn about the content moderation APIs for Content Moderator.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-moderator

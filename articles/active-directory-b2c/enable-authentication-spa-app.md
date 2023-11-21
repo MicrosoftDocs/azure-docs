@@ -1,11 +1,11 @@
 ---
 title: Enable authentication in a SPA application by using Azure Active Directory B2C building blocks
 description:  This article discusses the building blocks of Azure Active Directory B2C for signing in and signing up users in a SPA application.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 03/24/2023
 ms.author: kengaderdus
