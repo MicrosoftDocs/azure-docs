@@ -105,6 +105,22 @@ Data Factory pipelines are a collection of _activities_ that perform a task, lik
 
 1. Select **Use this template** to create the new pipeline.
 
+### Create a pipeline for DICOM data (Preview)
+
+If you created the DICOM service with Data Lake Storage (Preview), you will want to use a custom template to include a new `fileName` parameter in the metadata pipeline.  Instead of using the template from the template gallery above, follow these steps to configure the pipeline.
+
+1. Download the [preview template](https://github.com/microsoft/dicom-server/blob/main/samples/templates/Copy%20DICOM%20Metadata%20Changes%20to%20ADLS%20Gen2%20in%20Delta%20Format.zip) from GitHub.  Note, the template file is a compressed (zipped) folder which will be uploaded in compressed form, so you do not need to extract the files.  
+
+1. In ADF, select **Author** from the menu on the left. In the **Factory Resources** pane, select the plus sign (+) to add a new resource. Select **Pipeline** and then select **Import from pipeline template** from the menu.
+
+1. In the **Open** dialog, locate the preview template that you downloaded and select **Open**.
+
+1. In the **Inputs** section, select the linked services previously created for the DICOM service and Data Lake Storage Gen2 account.
+
+   :::image type="content" source="media/data-factory-create-pipeline.png" alt-text="Screenshot that shows the Inputs section with linked services selected." lightbox="media/data-factory-create-pipeline.png":::
+
+1. Select **Use this template** to create the new pipeline.
+
 ## Schedule a pipeline
 
 Pipelines are scheduled by _triggers_. There are different types of triggers. _Schedule triggers_ allow pipelines to be triggered on a wall-clock schedule. _Manual triggers_ trigger pipelines on demand.
@@ -273,7 +289,7 @@ After a few seconds, the results of the query appear in a table underneath the c
 
 #### Access DICOM file data in notebooks
 
-If you've created a shortcut to the DICOM file data, you can use the `filePath` column in the `instance` table to correlate instance metadata to file data.  
+If you've used the preview template to create the pipeline and created a shortcut to the DICOM file data, you can use the `filePath` column in the `instance` table to correlate instance metadata to file data.  
 
 ``` SQL
 SELECT sopInstanceUid, filePath from instance
