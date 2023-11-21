@@ -22,7 +22,7 @@ ms.author: priyverma
 
   - The offer or the specific plan is not available to the billing account market connected to the Azure Subscription. 
 
-- **Enrollment for Azure Marketplace is set to Free/BYOL SKUs only, purchase for Azure product is not allowed. Please contact your enrolment administrator to change EA settings.**
+- **Enrollment for Azure Marketplace is set to Free/BYOL SKUs only, purchase for Azure product is not allowed. Please contact your enrollment administrator to change EA settings.**
 
   - Enterprise administrators can disable or enable Azure Marketplace purchases for all Azure subscriptions under their enrollment. For more information, see [Azure Marketplace - Microsoft Cost Management](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). More information on different listing options is present in [Introduction to listing options](https://learn.microsoft.com/partner-center/marketplace/determine-your-listing-type#Overview)
 
