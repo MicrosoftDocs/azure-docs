@@ -20,8 +20,7 @@ All events related to an incoming HTTP request are correlated for faster trouble
 
 You can use the TelemetryClient API to manually instrument and monitor more aspects of your app and system. We describe the TelemetryClient API in more detail later in this article.
 
-> [!NOTE]
-> An [OpenTelemetry-based Node.js offering](opentelemetry-enable.md?tabs=nodejs) is available. [Learn more](opentelemetry-overview.md).
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
 ## Get started
 
