@@ -31,7 +31,7 @@ To configure automatic upgrades, see the following articles:
 
 * [Automatically upgrade an AKS cluster](./auto-upgrade-cluster.md)
 * [Use Planned Maintenance to schedule and control upgrades for your AKS cluster](./planned-maintenance.md)
-* [Stop AKS cluster upgrades automatically on API breaking changes (Preview)](./stop-cluster-upgrade-api-breaking-changes.md)
+* [Stop AKS cluster upgrades automatically on API breaking changes](./stop-cluster-upgrade-api-breaking-changes.md)
 * [Automatically upgrade AKS cluster node operating system images](./auto-upgrade-node-image.md)
 * [Apply security updates to AKS nodes automatically using GitHub Actions](./node-upgrade-github-actions.md)
 
