@@ -81,7 +81,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > | [intagg](https://www.postgresql.org/docs/current/intagg.html) | Integer aggregator and enumerator (obsolete). | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 |
 > | [intarray](https://www.postgresql.org/docs/current/static/intarray.html) | Provides functions and operators for manipulating null-free arrays of integers. | 1.2 | 1.2 | 1.3 | 1.5 | 1.5 | 1.5 |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | Functions for tracking last modification time. | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 |
-> | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Manages partitioned tables by time or ID. | 4.7.4 | 4.7.4 | 4.7.4 | 4.7.4 | 4.7.4 | 4.7.4 |
+> | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Manages partitioned tables by time or ID. | 4.7.4 | 4.7.4 | 4.7.4 | 5.0.0 | 5.0.0 | 5.0.0 |
 > | [pg\_surgery](https://www.postgresql.org/docs/current/pgsurgery.html) | Functions to perform surgery on a damaged relation. |     |     |     | 1.0 | 1.0 | 1.0 |
 > | [pg\_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html) | Provides functions and operators for determining the similarity of alphanumeric text based on trigram matching. | 1.4 | 1.4 | 1.5 | 1.6 | 1.6 | 1.6 |
 > | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | Provides cryptographic functions. | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 |
