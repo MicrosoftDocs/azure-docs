@@ -1,25 +1,30 @@
 ---
-title: Cluster autoscaler best practices for Azure Kubernetes Service (AKS)
+title: Cluster autoscaling in Azure Kubernetes Service (AKS) overview
 titleSuffix: Azure Kubernetes Service
-description: Learn the AKS cluster autoscaler best practices and special considerations.
+description: Learn about cluster autoscaling in Azure Kubernetes Service (AKS) using the cluster autoscaler.
 ms.topic: conceptual
-ms.date: 11/20/2023
+ms.date: 11/21/2023
 ---
 
-# Cluster autoscaler best practices for Azure Kubernetes Service (AKS)
+# Cluster autoscaling in Azure Kubernetes Service (AKS) overview
 
-The cluster autoscaler is a Kubernetes component that automatically adjusts the size of a Kubernetes cluster so that all pods have a place to run and there are no unneeded nodes. The cluster autoscaler is enabled by default in AKS clusters. This article provides best practices and special considerations for using the cluster autoscaler with AKS.
+To keep up with application demands in Azure Kubernetes Service (AKS), you might need to adjust the number of nodes that run your workloads. The cluster autoscaler component watches for pods in your cluster that can't be scheduled because of resource constraints. When the cluster autoscaler detects issues, it scales up the number of nodes in the node pool to meet the application demand. It also regularly checks nodes for a lack of running pods and scales down the number of nodes as needed.
 
-In this article, you learn about:
+This article helps you understand how the cluster autoscaler works in AKS. It also provides guidance, best practices, and considerations when configuring the cluster autoscaler for your AKS workloads. If you want to enable, disable, or update the cluster autoscaler for your AKS workloads, see [Use the cluster autoscaler in AKS](./cluster-autoscaler.md).
 
-> [!div class="checklist"]
->
-> * Optimizing the cluster autoscaler profile to meet your workload needs.
-> * Common issues and mitigation recommendations.
-> * Using availability zones with the cluster autoscaler.
-> * Cluster autoscaler limitations.
+## About the cluster autoscaler
 
-## General best practices and considerations
+Clusters often need a way to scale automatically to adjust to changing application demands, such as between workdays and evenings or weekends. AKS clusters can scale in the following ways:
+
+* The **cluster autoscaler** periodically checks for pods that can't be scheduled on nodes because of resource constraints. The cluster then automatically increases the number of nodes. Manual scaling is disabled when you use the cluster autoscaler. For more information, see [How does scale up work?](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-scale-up-work).
+* The **[Horizontal Pod Autoscaler][horizontal-pod-autoscaler]** uses the Metrics Server in a Kubernetes cluster to monitor the resource demand of pods. If an application needs more resources, the number of pods is automatically increased to meet the demand.
+* The **[Vertical Pod Autoscaler][vertical-pod-autoscaler]** automatically sets resource requests and limits on containers per workload based on past usage to ensure pods are scheduled onto nodes that have the required CPU and memory resources.
+
+:::image type="content" source="media/cluster-autoscaler/cluster-autoscaler.png" alt-text="Screenshot of how the cluster autoscaler and horizontal pod autoscaler often work together to support the required application demands.":::
+
+It's a common practice to enable cluster autoscaler for nodes and either the Vertical Pod Autoscaler or Horizontal Pod Autoscaler for pods. When you enable the cluster autoscaler, it applies the specified scaling rules when the node pool size is lower than the minimum or greater than the maximum. The cluster autoscaler waits to take effect until a new node is needed in the node pool or until a node might be safely deleted from the current node pool. For more information, see [How does scale down work?](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-scale-down-work)
+
+## Best practices and considerations
 
 * When implementing **availability zones with the cluster autoscaler**, we recommend using a single node pool for each zone. You can set the `--balance-similar-node-groups` parameter to `True` to maintain a balanced distribution of nodes across zones for your workloads during scale up operations. When this approach isn't implemented, scale down operations can disrupt the balance of nodes across zones.
 * For **clusters with more than 400 nodes**, we recommend using Azure CNI or Azure CNI Overlay.
@@ -34,22 +39,23 @@ In this article, you learn about:
   * A pod uses node selectors or anti-affinity that can't be honored if scheduled on a different node.
     For more information, see [What types of pods can prevent the cluster autoscaler from removing a node?](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node).
 
-> [!NOTE]
-> Cluster autoscaler performance is directly tied to certain factors, such as the number of nodes, node pools, the cluster autoscaler profile, affinity rules, and PDBs. The effects on performance becomes more pronounced at higher scales.
+## Cluster autoscaler profile
 
-## Optimizing the cluster autoscaler profile
+The cluster autoscaler profile is a set of parameters that control the behavior of the cluster autoscaler. You can configure the cluster autoscaler profile when you create a cluster or update an existing cluster.
+
+### Optimizing the cluster autoscaler profile
 
 You should fine-tune the cluster autoscaler profile settings according to your specific workload scenarios while also considering tradeoffs between performance and cost. This section provides examples that demonstrate those tradeoffs.
 
 It's important to note that the cluster autoscaler profile settings are cluster-wide and applied to all autoscale-enabled node pools. Any scaling actions that take place in one node pool can affect the autoscaling behavior of other node pools, which can lead to unexpected results. Make sure you apply consistent and synchronized profile configurations across all relevant node pools to ensure you get your desired results.
 
-### Example 1: Optimizing for performance
+#### Example 1: Optimizing for performance
 
 For clusters that handle substantial and bursty workloads with a primary focus on performance, we recommend increasing the scan interval and decreasing the utilization threshold. These settings help batch multiple scaling operations into a single call, optimizing scaling time and the utilization of compute read/write quotas. It also helps mitigate the risk of swift scale down operations on underutilized nodes, enhancing the pod scheduling efficiency.
 
 For clusters with daemonset pods, we recommend setting `ignore-daemonset-utilization` to `true`, which effectively ignores node utilization by daemonset pods and minimizes unnecessary scale down operations.
 
-### Example 2: Optimizing for cost
+#### Example 2: Optimizing for cost
 
 If you want a cost-optimized profile, we recommend setting the following parameter configurations:
 
@@ -85,12 +91,12 @@ The following flags can impact cluster autoscaler scale down behavior:
 | `scan-interval` | The amount of time between scans for pending pods. | 10 seconds |
 | `scale-down-delay-after-add` | The amount of time to wait after a node is added before considering it for scale down. | 10 minutes |
 | `scale-down-delay-after-delete` | The amount of time to wait after a node is deleted before considering it for scale down. | 10 seconds |
-| `scale-down-delay-after-failure` | The amount of time to wait after a node fails to be deleted before considering it for scale down. | 3 minutes |
+| `scale-down-delay-after-failure` | The amount of time to wait after a node fails to be deleted before considering it for scale down. | Three minutes |
 | `scale-down-unneeded-time` | The amount of time a node should be unneeded before it's eligible for scale down. | 10 minutes |
 | `scale-down-unready-time` | The amount of time a node should be unready before it's eligible for scale down. | 20 minutes |
 | `max-graceful-termination-sec` | The maximum amount of time to wait for a pod to terminate gracefully. | 600 seconds |
-| `skip-nodes-with-local-storage` | When set to `true`, the cluster autoscaler skips nodes with local storage when scaling down. | `false` |
-| `skip-nodes-with-system-pods` | When set to `true`, the cluster autoscaler skips nodes with system pods when scaling down. | `false` |
+| `skip-nodes-with-local-storage` | If `true`, the cluster autoscaler skips nodes with local storage when scaling down. | `false` |
+| `skip-nodes-with-system-pods` | If `true`, the cluster autoscaler skips nodes with system pods when scaling down. | `false` |
 | `max-empty-bulk-delete` | The maximum number of nodes that can be deleted in a single call. | 10 |
 | `max-total-unready-percentage` | The maximum percentage of pods that can be unready before a node is considered for scale down. | 10 |
 | `ok-total-unready-count` | The maximum number of pods that can be unready before a node is considered for scale down. | 10 |
@@ -133,4 +139,11 @@ For more information, see [How does scale down work?](https://github.com/kuberne
 | Common causes | Mitigation recommendations |
 |--------------|--------------|
 | PriorityConfigMapNotMatchedGroup | Make sure that you [add all the node groups requiring autoscaling to the expander configuration file](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/expander/priority/readme.md#configuration). |
-| Node pool in backoff, which was introduced in version 0.6.2 and causes the cluster autoscaler to back off from scaling up a node group after a failure. Depending on how long the scale up operations have been experiencing failures, it may take wait up to 30 minutes before making another attempt. | Reset the node pool's backoff state by disabling and then re-enabling autoscaling. |
+
+### Node pool in backoff
+
+Node pool in backoff was introduced in version 0.6.2 and causes the cluster autoscaler to back off from scaling up a node group after a failure. Depending on how long the scale up operations have been experiencing failures, it may take wait up to 30 minutes before making another attempt. You can reset the node pool's backoff state by disabling and then re-enabling autoscaling.
+
+<!-- LINKS --->
+[vertical-pod-autoscaler]: vertical-pod-autoscaler.md
+[horizontal-pod-autoscaler]:concepts-scale.md#horizontal-pod-autoscaler
