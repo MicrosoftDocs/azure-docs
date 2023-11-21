@@ -45,3 +45,14 @@
       href: troubleshoot-mcc-edr-agent.md
     - name: MCC EDR Ingestion Agent Configuration Reference
       href: mcc-edr-agent-configuration.md
+  - name: Deploy Ingestion Agents for MCC CSV files
+    expanded: true
+    items:
+    - name: Create and configure MCC CSV Ingestion Agents
+      href: how-to-install-mcc-csv-agent.md
+    - name: Manage MCC CSV Ingestion Agents
+      href: how-to-manage-mcc-csv-agent.md
+    - name: Monitor and troubleshoot MCC CSV Ingestion Agents
+      href: troubleshoot-mcc-csv-agent.md
+    - name: MCC CSV Ingestion Agent Configuration Reference
+      href: mcc-csv-agent-configuration.md
