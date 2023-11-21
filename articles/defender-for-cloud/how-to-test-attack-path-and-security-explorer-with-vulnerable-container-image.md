@@ -3,15 +3,15 @@ title: Test attack paths and cloud security explorer in Microsoft Defender for C
 description: Learn how to test attack paths and cloud security explorer in Microsoft Defender for Cloud
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 07/17/2023
+ms.date: 11/08/2023
 ---
 
 # Test attack paths and cloud security explorer
 
 
-Attack path analysis is a graph-based algorithm that scans the cloud security graph. The scans expose exploitable paths that attackers might use to breach your environment to reach your high-impact assets. Attack path analysis exposes attack paths and suggests recommendations as to how best remediate issues that will break the attack path and prevent successful breach.
+Attack path analysis is a graph-based algorithm that scans the cloud security graph. The scans expose exploitable paths that attackers might use to breach your environment to reach your high-impact assets. Attack path analysis exposes attack paths and suggests recommendations as to how best remediate issues that break the attack path and prevent successful breach.
 
-Explore and investigate [attack paths](how-to-manage-attack-path.md) by sorting them based on name, environment, path count, and risk categories. Explore cloud security graph Insights on the resource. Examples of Insight types are:
+Explore and investigate [attack paths](how-to-manage-attack-path.md) by sorting them based on risk level, name, environment, and risk factors, entry point, target, affected resources and active recommendations. Explore cloud security graph Insights on the resource. Examples of Insight types are:
 
 -	Pod exposed to the internet 
 -	Privileged container 
@@ -73,14 +73,13 @@ You can build queries in one of the following ways:
 
 ### Find the security issue under attack paths
 
-1.Go to **Recommendations** in the Defender for Cloud menu.
-1. Select the **Attack Path** link to open the attack paths view.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-    :::image type="content" source="media/how-to-test-attack-path/attack-path.png" alt-text="Screenshot of showing where to select Attack Path." lightbox="media/how-to-test-attack-path/attack-path.png":::
+1. Navigate to **Attack path analysis**.
 
-1.	Locate the entry that details this security issue under “Internet exposed Kubernetes pod is running a container with high severity vulnerabilities.”
+1. Select an attack path.
 
-       :::image type="content" source="media/how-to-test-attack-path/attack-path-kubernetes-pods-vulnerabilities.png" alt-text="Screenshot showing the security issue details." lightbox="media/how-to-test-attack-path/attack-path-kubernetes-pods-vulnerabilities.png"::: 
+1.	Locate the entry that details this security issue under `Internet exposed Kubernetes pod is running a container with high severity vulnerabilities`.
 
 ###  Explore risks with cloud security explorer templates
 

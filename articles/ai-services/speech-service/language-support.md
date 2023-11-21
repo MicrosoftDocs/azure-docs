@@ -2,7 +2,7 @@
 title: Language support - Speech service
 titleSuffix: Azure AI services
 description: The Speech service supports numerous languages for speech to text and text to speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -89,7 +89,7 @@ Custom Neural Voice lets you create synthetic voices that are rich in speaking s
 
 Select the right locale that matches your training data to train a custom neural voice model. For example, if the recording data is spoken in English with a British accent, select `en-GB`. 
 
-With the cross-lingual feature, you can transfer your custom neural voice model to speak a second language. For example, with the `zh-CN` data, you can create a voice that speaks `en-AU` or any of the languages with Cross-lingual support.
+With the cross-lingual feature, you can transfer your custom neural voice model to speak a second language. For example, with the `zh-CN` data, you can create a voice that speaks `en-AU` or any of the languages with Cross-lingual support. For the cross-lingual feature, we categorize locales into two tiers: one includes source languages that support the cross-lingual feature, and the other tier comprises locales designated as target languages for cross-lingual transfer. Within the following table, distinguish locales that function as both cross-lingual sources and targets and locales eligible solely as the target locale for cross-lingual transfer. 
 
 [!INCLUDE [Language support include](includes/language-support/tts-cnv.md)]
 

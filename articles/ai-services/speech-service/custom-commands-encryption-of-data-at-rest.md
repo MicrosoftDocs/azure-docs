@@ -2,7 +2,7 @@
 title: Custom Commands service encryption of data at rest
 titleSuffix: Azure AI services
 description: Custom Commands encryption of data at rest.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

@@ -2,7 +2,7 @@
 title: Secure score in Microsoft Defender for Cloud
 description: Learn about the Microsoft Cloud Security Benchmark secure score in Microsoft Defender for Cloud
 ms.topic: conceptual
-ms.date: 06/19/2023
+ms.date: 11/16/2023
 ---
 
 # Secure score
@@ -15,7 +15,7 @@ When you turn on Defender for Cloud in a subscription, the [Microsoft cloud secu
 Recommendations are issued based on assessment findings. Only built-in recommendations from the MSCB impact the secure score.
 
 
-> [!Note]
+> [!NOTE]
 > Recommendations flagged as **Preview** aren't included in secure score calculations. They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score. Preview recommendations are marked with: :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false":::
 
 > [!NOTE]
@@ -52,7 +52,7 @@ On the **Recommendations** page > **Secure score recommendations** tab in Defend
 
 Each control is calculated every eight hours for each Azure subscription, or AWS/GCP cloud connector. 
 
-> [!Important]
+> [!IMPORTANT]
 > Recommendations within a control are updated more frequently than the control, and so there might be discrepancies between the resources count on the recommendations versus the one found on the control.
 
 ### Example scores for a control

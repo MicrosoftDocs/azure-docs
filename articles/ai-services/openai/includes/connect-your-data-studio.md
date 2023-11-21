@@ -1,6 +1,6 @@
 ---
 titleSuffix: Azure OpenAI
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include

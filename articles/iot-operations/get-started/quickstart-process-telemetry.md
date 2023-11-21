@@ -24,7 +24,12 @@ Before you begin this quickstart, you must complete the following quickstarts:
 - [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-add-assets.md)
 
-You also need a Microsoft Fabric subscription. You can sign up for a free [Microsoft Fabric (Preview) Trial](/fabric/get-started/fabric-trial).
+You also need a Microsoft Fabric subscription. You can sign up for a free [Microsoft Fabric (Preview) Trial](/fabric/get-started/fabric-trial). In your Microsoft Fabric subscription, ensure that the following settings are enabled for your tenant:
+
+- [Allow service principals to use Power BI APIs](/fabric/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis)
+- [Users can access data stored in OneLake with apps external to Fabric](/fabric/admin/service-admin-portal-onelake#users-can-access-data-stored-in-onelake-with-apps-external-to-fabric)
+
+To learn more, see [Microsoft Fabric > About tenant settings](/fabric/admin/tenant-settings-index).
 
 ## What problem will we solve?
 
@@ -97,21 +102,28 @@ az keyvault secret set --vault-name <your-key-vault-name> --name AIOFabricSecret
 
 To add the secret reference to your Kubernetes cluster, edit the **aio-default-spc** `secretproviderclass` resource:
 
-1. Enter the following command on the machine where your cluster is running to launch the `k9s` utility:
+1. Enter the following command on the machine where your cluster is running to edit the **aio-default-spc** `secretproviderclass` resource. The YAML configuration for the resource opens in your default editor:
 
     ```bash
-    k9s
+    kubectl edit secretproviderclass aio-default-spc -n azure-iot-operations
     ```
-
-1. In `k9s` type `:` to open the command bar.
-
-1. In the command bar, type `secretproviderclass` and then press _Enter_. Then select the `aio-default-spc` resource.
-
-1. Type `e` to edit the resource. The editor that opens is `vi`, use `i` to enter insert mode, _ESC_ to exit insert mode, and `:wq` to save and exit.
 
 1. Add a new entry to the array of secrets for your new Azure Key Vault secret. The `spec` section looks like the following example:
 
     ```yaml
+    # Please edit the object below. Lines beginning with a '#' will be ignored,
+    # and an empty file will abort the edit. If an error occurs while saving this file will be
+    # reopened with the relevant failures.
+    #
+    apiVersion: secrets-store.csi.x-k8s.io/v1
+    kind: SecretProviderClass
+    metadata:
+      creationTimestamp: "2023-11-16T11:43:31Z"
+      generation: 2
+      name: aio-default-spc
+      namespace: azure-iot-operations
+      resourceVersion: "89083"
+      uid: cda6add7-3931-47bd-b924-719cc862ca29
     spec:                                      
       parameters:                              
         keyvaultName: <this is the name of your key vault>         
@@ -132,7 +144,12 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
 
 1. Save the changes and exit from the editor.
 
-The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the polling interval is reached. To update the pod immediately, restart the pods for the component. For Data Processor, restart the `aio-dp-reader-worker-0` and `aio-dp-runner-worker-0` pods. In the `k9s` tool, hover over the pod, and press _ctrl-k_ to kill a pod, the pod restarts automatically
+The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the polling interval is reached. To update the pod immediately, restart the pods for the component. For Data Processor, run the following commands:
+
+```bash
+kubectl delete pod aio-dp-reader-worker-0 -n azure-iot-operations
+kubectl delete pod aio-dp-runner-worker-0 -n azure-iot-operations
+```
 
 ## Create a basic pipeline
 
@@ -140,7 +157,7 @@ Create a basic pipeline to pass through the data to a separate MQTT topic.
 
 In the following steps, leave all values at their default unless otherwise specified:
 
-1. In the [Azure IoT Operations portal](https://aka.ms/iot-operations-portal), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations portal](https://iotoperations.azure.com), navigate to **Data pipelines** in your cluster.  
 
 1. To create a new pipeline, select **+ Create pipeline**.
 
@@ -192,7 +209,7 @@ Create a reference data pipeline to temporarily store reference data in a refere
 
 In the following steps, leave all values at their default unless otherwise specified:
 
-1. In the [Azure IoT Operations portal](https://aka.ms/iot-operations-portal), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations portal](https://iotoperations.azure.com), navigate to **Data pipelines** in your cluster.  
 
 1. Select **+ Create pipeline** to create a new pipeline.
 
@@ -244,7 +261,7 @@ After you publish the message, the pipeline receives the message and stores the 
 
 Create a Data Processor pipeline to process and enrich your data before it sends it to your Microsoft Fabric lakehouse. This pipeline uses the data stored in the equipment data reference data set to enrich messages.
 
-1. In the [Azure IoT Operations portal](https://aka.ms/iot-operations-portal), navigate to **Data pipelines** in your cluster.  
+1. In the [Azure IoT Operations portal](https://iotoperations.azure.com), navigate to **Data pipelines** in your cluster.  
 
 1. Select **+ Create pipeline** to create a new pipeline.
 

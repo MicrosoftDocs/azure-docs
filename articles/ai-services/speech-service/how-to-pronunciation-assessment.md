@@ -2,7 +2,7 @@
 title: Use pronunciation assessment
 titleSuffix: Azure AI services
 description: Learn about pronunciation assessment features that are currently publicly available.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -148,8 +148,8 @@ var pronunciationAssessmentConfig = new sdk.PronunciationAssessmentConfig(
     gradingSystem: sdk.PronunciationAssessmentGradingSystem.HundredMark,  
     granularity: sdk.PronunciationAssessmentGranularity.Phoneme,  
     enableMiscue: false); 
-pronunciationAssessmentConfig.EnableProsodyAssessment(); 
-pronunciationAssessmentConfig.EnableContentAssessmentWithTopic("greeting");  
+pronunciationAssessmentConfig.enableProsodyAssessment(); 
+pronunciationAssessmentConfig.enableContentAssessmentWithTopic("greeting");  
 ```
 
 ::: zone-end

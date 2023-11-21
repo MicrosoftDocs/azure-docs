@@ -31,7 +31,7 @@ In the following example, we register a worker to:
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "worker-1", capacity: 2)
+var worker = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "worker-1", capacity: 2)
 {
     AvailableForOffers = true,
     Queues = { "queue1", "queue2" },
@@ -55,7 +55,7 @@ await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "worker-1", cap
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.path("/routing/workers/{workerId}", "worker-1").patch({
+const worker = await client.path("/routing/workers/{workerId}", "worker-1").patch({
     body: {
         availableForOffers: true,
         capacity: 2,
@@ -80,7 +80,7 @@ await client.path("/routing/workers/{workerId}", "worker-1").patch({
 ::: zone pivot="programming-language-python"
 
 ```python
-client.upsert_worker(
+worker = client.upsert_worker(
     worker_id = "worker-1",
     available_for_offers = True,
     capacity = 2,
@@ -103,7 +103,7 @@ client.upsert_worker(
 ::: zone pivot="programming-language-java"
 
 ```java
-client.createWorker(new CreateWorkerOptions("worker-1", 2)
+RouterWorker worker = client.createWorker(new CreateWorkerOptions("worker-1", 2)
     .setAvailableForOffers(true)
     .setQueues(List.of("queue1", "queue2"))
     .setChannels(List.of(
@@ -234,7 +234,8 @@ If a worker would like to stop receiving offers, it can be deregistered by setti
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await client.UpdateWorkerAsync(new RouterWorker(workerId: "worker-1") { AvailableForOffers = false });
+worker.AvailableForOffers = false;
+await client.UpdateWorkerAsync(worker);
 ```
 
 ::: zone-end
@@ -261,7 +262,7 @@ client.upsert_worker(worker_id = "worker-1", available_for_offers = False)
 ::: zone pivot="programming-language-java"
 
 ```java
-client.updateWorker(new RouterWorker("worker-1").setAvailableForOffers(false));
+client.updateWorkerWithResponse("worker-1", worker.setAvailableForOffers(false));
 ```
 
 ::: zone-end
