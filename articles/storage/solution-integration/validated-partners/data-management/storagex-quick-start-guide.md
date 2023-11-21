@@ -225,7 +225,7 @@ Go to the [Data Dynamics Support Portal](https://ddsupport.datadynamicsinc.com/)
 
 ## Next steps
 
-Various resources are available to learn more:	Various resources are available to learn more:
+Various resources are available to learn more:
 
 - [Storage migration overview](../../../common/storage-migration-overview.md)
 - Features supported by Data Dynamics StorageX in [migration tools comparison matrix](./migration-tools-comparison.md)
