@@ -11,7 +11,7 @@ ms.author: priyverma
 
 - **Plan cannot be purchased on a free subscription, please upgrade your account.**
 
-  - You can't make marketplace purchases on a free Azure subscription. Refer to the [Azure free Account FAQ]( https://azure.microsoft.com/free/free-account-faq). For more information, see [purchase SaaS offer in the Azure portal](/marketplace/purchase-saas-offer-in-azure-portal.md#common-error-messages-and-solutions).
+  - You can't make marketplace purchases on a free Azure subscription. Refer to the [Azure free Account FAQ]( https://azure.microsoft.com/free/free-account-faq). For more information, see [purchase SaaS offer in the Azure portal](../../../marketplace/purchase-saas-offer-in-azure-portal.md#common-error-messages-and-solutions).
 
 - **Purchase has failed because we couldn't find a valid payment method associated with your Azure subscription.**
 
@@ -23,7 +23,7 @@ ms.author: priyverma
 
 - **Enrollment for Azure Marketplace is set to Free/BYOL SKUs only, purchase for Azure product is not allowed. Please contact your enrollment administrator to change EA settings.**
 
-  - Enterprise administrators can disable or enable Azure Marketplace purchases for all Azure subscriptions under their enrollment. For more information, see [Azure Marketplace - Microsoft Cost Management](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). More information on different listing options is present in [Introduction to listing options](/marketplace/determine-your-listing-type.md#overview)
+  - Enterprise administrators can disable or enable Azure Marketplace purchases for all Azure subscriptions under their enrollment. For more information, see [Azure Marketplace - Microsoft Cost Management](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). More information on different listing options is present in [Introduction to listing options](../../marketplace/determine-your-listing-type.md#overview)
 
 - **Marketplace is not enabled for the Azure subscription.**
 
