@@ -40,7 +40,7 @@ The play action can also be used to play hold music for callers. This action can
 ### Playing compliance messages
 As part of compliance requirements in various industries, vendors are expected to play legal or compliance messages to callers, for example, “This call is recorded for quality purposes.”.
 
-## Sample architecture for playing audio in call using Text-To-Speech (Public preview)
+## Sample architecture for playing audio in call using Text-To-Speech
 
 ![Diagram showing sample architecture for Play with AI.](./media/play-ai.png)
 
