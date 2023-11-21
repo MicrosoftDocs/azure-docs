@@ -44,7 +44,7 @@ The transform stage JSON configuration defines the details of the stage. To auth
 | --- | --- | --- | --- |
 | Name  | A name to show in the Data Processor UI.  | Yes | `Transform1` |
 | Description | A user-friendly description of what the transform stage does.  | No | `Rename Tags` |
-| Query | The transformation [jq expression](concept-jq-expression.md).  | Yes | `.payload.values` `\|=` `(map({(.tag): (.numVal // .boolVal)})` `\|` `add)` |
+| Query | The transformation [jq expression](concept-jq-expression.md).  | Yes | `.payload.values |= (map({(.tag): (.numVal // .boolVal)}) | add)` |
 
 ## Sample configuration
 
