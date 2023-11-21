@@ -144,6 +144,8 @@ You can configure more granular details of the cluster autoscaler by changing th
 
 ### Cluster autoscaler profile settings
 
+The following table lists the available settings for the cluster autoscaler profile:
+
 | Setting                          | Description                                                                              | Default value |
 |----------------------------------|------------------------------------------------------------------------------------------|---------------|
 | `scan-interval`                    | How often the cluster is reevaluated for scale up or down.                                    | 10 seconds    |

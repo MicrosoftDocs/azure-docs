@@ -176,8 +176,6 @@
           href: operator-best-practices-scheduler.md
         - name: Run AKS clusters at scale
           href: operator-best-practices-run-at-scale.md
-        - name: Cluster autoscaler
-          href: cluster-autoscaler-best-practices.md
         - name: Advanced scheduler features
           href: operator-best-practices-advanced-scheduler.md
         - name: Networking
@@ -352,7 +350,11 @@
         - name: Proximity placement groups
           href: reduce-latency-ppg.md
         - name: Cluster Autoscaler
-          href: cluster-autoscaler.md
+          items:
+            - name: Cluster Autoscaler overview
+              href: cluster-autoscaler-overview.md
+            - name: Use the Cluster Autoscaler on AKS
+              href: cluster-autoscaler.md
         - name: Availability Zones
           href: availability-zones.md
     - name: Cluster management
