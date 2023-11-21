@@ -539,7 +539,7 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | workspaces | resource group | 3-33 | Alphanumerics and hyphens |
 > | workspaces / computes | workspace | 3-24 for compute instance<br>3-32 for AML compute<br>2-16 for other compute types | Alphanumerics and hyphens. |
-> | workspace / datastore | workspace | Maximum 255 characters for datastore name| Datastore name consists only of lowercase letters, digits, and underscores |
+> | workspaces / datastores | workspace | Maximum 255 characters for datastore name| Datastore name consists only of lowercase letters, digits, and underscores |
 
 ## Microsoft.ManagedIdentity
 
