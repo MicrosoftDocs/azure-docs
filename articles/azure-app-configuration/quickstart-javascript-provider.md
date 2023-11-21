@@ -1,5 +1,5 @@
 ---
-title: Quickstart for using Azure App Configuration with JavaScript apps | Microsoft Docs
+title: Quickstart for using Azure App Configuration with JavaScript apps
 description: In this quickstart, create a Node.js app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
 author: eskibear
@@ -15,7 +15,10 @@ ms.author: yanzh
 
 In this quickstart, you will use Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration JavaScript provider client library](https://github.com/Azure/AppConfiguration-JavaScriptProvider).
 
-The JavaScript App Configuration provider is a library running on top of the [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration), helping JavaScript developers easily consume the App Configuration service. It enables configuration settings to be used like a Map.
+App Configuration provider for JavaScript is built on top of the [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration) and is designed to be easier to use with richer features.
+It enables access to key-values in App Configuration as a `Map` object.
+It offers features like configuration composition from multiple labels, key prefix trimming, automatic resolution of Key Vault references, and many more.
+As an example, this tutorial shows how to use the JavaScript provider in a Node.js app.
 
 ## Prerequisites
 
@@ -23,7 +26,7 @@ The JavaScript App Configuration provider is a library running on top of the [Az
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule). For information about installing Node.js either directly on Windows or using the Windows Subsystem for Linux (WSL), see [Get started with Node.js](/windows/dev-environment/javascript/nodejs-overview)
 
-## Add a key-value
+## Add key-values
 
 Add the following key-values to the App Configuration store. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
@@ -35,7 +38,9 @@ Add the following key-values to the App Configuration store. For more informatio
 
 ## Setting up the Node.js app
 
-1. In this tutorial, you'll create a new directory for the project named *app-configuration-quickstart*.
+In this tutorial, you'll create a Node.js console app and load data from your App Configuration store.
+
+1. Create a new directory for the project named *app-configuration-quickstart*.
 
     ```console
     mkdir app-configuration-quickstart
@@ -105,7 +110,7 @@ Add the following key-values to the App Configuration store. For more informatio
     To run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
     ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "app-configuration-store-connection-string"
+    setx AZURE_APPCONFIG_CONNECTION_STRING "<app-configuration-store-connection-string>"
     ```
 
     ### [PowerShell](#tab/powershell)
