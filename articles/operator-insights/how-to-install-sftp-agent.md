@@ -1,6 +1,6 @@
 ---
-title: Create and configure MCC CSV Ingestion Agents
-description: Learn how to create and configure MCC CSV Ingestion Agents for Azure Operator Insights 
+title: Create and configure SFTP Ingestion Agents
+description: Learn how to create and configure SFTP Ingestion Agents for Azure Operator Insights 
 author: rcdun
 ms.author: rdunstan
 ms.service: operator-insights
@@ -8,7 +8,7 @@ ms.topic: how-to #Required; leave this attribute/value as-is
 ms.date: 12/06/2023
 ---
 
-# Create and configure MCC CSV Ingestion Agents for Azure Operator Insights
+# Create and configure SFTP Ingestion Agents for Azure Operator Insights
 
 The MCC EDR agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you. The agent receives EDRs from an Affirmed MCC, and forwards them to Azure Operator Insights.  
 

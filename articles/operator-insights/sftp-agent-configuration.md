@@ -1,13 +1,13 @@
 ---
-title: MCC CSV Ingestion Agents configuration reference for Azure Operator Insights
-description: This article documents the complete set of configuration for the MCC CSV ingestion agent, listing all fields with examples and explanatory comments.
+title: SFTP Ingestion Agents configuration reference for Azure Operator Insights
+description: This article documents the complete set of configuration for the SFTP ingestion agent, listing all fields with examples and explanatory comments.
 author: rcdun
 ms.author: rdunstan
 ms.service: operator-insights
 ms.topic: conceptual
 ms.date: 12/06/2023
 ---
-# MCC CSV Ingestion Agents configuration reference
+# SFTP Ingestion Agents configuration reference
 
 This reference provides the complete set of configuration for the agent, listing all fields with examples and explanatory comments.
 

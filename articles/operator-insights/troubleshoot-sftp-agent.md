@@ -1,6 +1,6 @@
 ---
-title: Monitor and troubleshoot MCC CSV Ingestion Agents for Azure Operator Insights
-description: Learn how to monitor MCC CSV Ingestion Agents and troubleshoot common issues 
+title: Monitor and troubleshoot SFTP Ingestion Agents for Azure Operator Insights
+description: Learn how to monitor SFTP Ingestion Agents and troubleshoot common issues 
 author: rcdun
 ms.author: rdunstan
 ms.service: operator-insights
@@ -8,7 +8,7 @@ ms.topic: troubleshooting-general
 ms.date: 10/30/2023
 ---
 
-# Monitor and troubleshoot MCC CSV Ingestion Agents for Azure Operator Insights
+# Monitor and troubleshoot SFTP Ingestion Agents for Azure Operator Insights
 
 ## Agent diagnostics overview
 

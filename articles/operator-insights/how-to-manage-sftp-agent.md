@@ -8,7 +8,7 @@ ms.topic: how-to #Required; leave this attribute/value as-is
 ms.date: 12/06/2023
 ---
 
-# Manage MCC CSV Ingestion Agents for Azure Operator Insights
+# Manage SFTP Ingestion Agents for Azure Operator Insights
 
 > [!WARNING]
 > When the agent is restarted, a small number of EDRs being handled may be dropped.  It is not possible to gracefully restart without dropping any data.  For safety, update agents one at a time, only updating the next when you are sure the previous was successful.
