@@ -52,6 +52,8 @@ The following are the Dynamic scope limits for **each dynamic scope**.
 > [!NOTE]
 > The above limits are for Dynamic scope in the Guest scope only.
 
+For more information, see [service limits for scheduled patching](scheduled-patching.md#service-limits).
+
 ## Next steps
 
  Learn about deploying updates to your machines to maintain security compliance by reading [deploy updates](deploy-updates.md)

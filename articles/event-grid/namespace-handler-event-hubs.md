@@ -7,11 +7,13 @@ ms.custom:
 ms.date: 11/15/2023
 ---
 
-# Azure Event hubs as a handler destination in subscriptions to Azure Event Grid namespace topics
+# Azure Event hubs as a handler destination in subscriptions to Azure Event Grid namespace topics (Preview)
 
 An event handler is the place where the event is sent. The handler takes an action to process the event. Currently, **Azure Event Hubs** is the only handler supported as a destination for subscriptions to namespace topics.
 
 Use **Event Hubs** when your solution gets events from Event Grid faster than it can process the events. Once the events are in an event hub, your application can process events from the event hub at its own schedule. You can scale your event processing to handle the incoming events.
+
+[!INCLUDE [simple-preview-note](./includes/simple-preview-note.md)]
 
 ## Message headers
 

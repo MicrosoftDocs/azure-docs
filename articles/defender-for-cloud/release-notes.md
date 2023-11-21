@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 11/14/2023
+ms.date: 11/20/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -124,8 +124,6 @@ We're releasing enhancements to the attack path analysis capabilities in Defende
   - **Cross-cloud attack paths** – detection of attack paths that are cross-clouds (paths that start in one cloud and end in another).
   - **MITRE** – Mapping all attack paths to the MITRE framework.
   - **Refreshed user experience** – refreshed experience with stronger capabilities: advanced filters, search, and grouping of attack paths to allow easier triage.
-  - **Export capabilities** – export capabilities of attack paths to CSV, LA workspace and Event Hubs.
-  - **Email notifications** – you can receive email notifications of new attack paths.
 
 Learn [how to identify and remediate attack paths](how-to-manage-attack-path.md).
 

@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/aks/managed-azure-ad.md",
+            "redirect_url": "/azure/aks/enable-authentication-microsoft-entra-id.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/aks/stop-api-upgrade.md",
             "redirect_url": "/azure/aks/upgrade-cluster",
             "redirect_document_id": false

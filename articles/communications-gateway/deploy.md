@@ -197,10 +197,10 @@ When your resource has been provisioned, you can connect Azure Communications Ga
             </ApplicationServer>
         </InitialFilterCriteria>
         ```
-1. Configure your routers and peering connection to ensure all traffic to Azure Communications Gateway is through Azure Internet Peering for Communications Services (also known as MAPS for Voice) or ExpressRoute Microsoft Peering.
+1. Configure your routers and peering connection to ensure all traffic to Azure Communications Gateway is through Azure Internet Peering for Communications Services (also known as Microsoft Azure Peering Service for Voice and MAPS Voice) or ExpressRoute Microsoft Peering.
 1. Enable Bidirectional Forwarding Detection (BFD) on your on-premises edge routers to speed up link failure detection.
     - The interval must be 150 ms (or 300 ms if you can't use 150 ms).
-    - With MAPS, BFD must bring up the BGP peer for each Private Network Interface (PNI).
+    - With MAPS Voice, BFD must bring up the BGP peer for each Private Network Interface (PNI).
 1. Meet any other requirements for your communications platform (for example, the *Network Connectivity Specification* for Operator Connect or Teams Phone Mobile). If you need access to Operator Connect or Teams Phone Mobile specifications, contact your onboarding team.
 
 ## Configure domain delegation with Azure DNS
