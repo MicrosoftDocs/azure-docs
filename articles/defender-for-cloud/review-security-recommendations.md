@@ -38,6 +38,11 @@ In Defender for Cloud, navigate to the **Overview** dashboard to get a holistic 
 
 ## Review recommendation details
 
+> [!NOTE]
+> This page discusses how to use the new recommendations experience where you have the ability to prioritize your recommendations by their effective risk level. To view this experience you must select **Try it now**.
+>
+> :::image type="content" source="media/review-security-recommendations/try-it-now.png" alt-text="Screenshot that shows where the try it now button is located on the recommendation page." lightbox="media/review-security-recommendations/try-it-now.png":::
+
 1. In the **Recommendations** page, select the recommendation.
 1. In the recommendation page, review the details:
     - **Description** - A short description of the security issue.
