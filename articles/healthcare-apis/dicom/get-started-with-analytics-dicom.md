@@ -109,21 +109,21 @@ Data Factory pipelines are a collection of _activities_ that perform a task, lik
 
 If you created the DICOM service with Azure Data Lake Storage (Preview), you need to use a custom template to include a new `fileName` parameter in the metadata pipeline.  Instead of using the template from the template gallery, follow these steps to configure the pipeline.
 
-1. Download the [preview template](https://github.com/microsoft/dicom-server/blob/main/samples/templates/Copy%20DICOM%20Metadata%20Changes%20to%20ADLS%20Gen2%20in%20Delta%20Format.zip) from GitHub.  Note, the template file is a compressed (zipped) folder which will be uploaded in compressed form, so you do not need to extract the files.  
+1. Download the [preview template](https://github.com/microsoft/dicom-server/blob/main/samples/templates/Copy%20DICOM%20Metadata%20Changes%20to%20ADLS%20Gen2%20in%20Delta%20Format.zip) from GitHub. The template file is a compressed (zipped) folder You don't need to extract the files because they're already uploaded in compressed form.  
 
-1. In ADF, select **Author** from the menu on the left. In the **Factory Resources** pane, select the plus sign (+) to add a new resource. Select **Pipeline** and then select **Import from pipeline template** from the menu.
+1. In Azure Data Factory, select **Author** from the left menu. On the **Factory Resources** pane, select the plus sign (+) to add a new resource. Select **Pipeline** and then select **Import from pipeline template**.
 
-1. In the **Open** dialog, locate the preview template that you downloaded and select **Open**.
+1. In the **Open** window, select the preview template that you downloaded. Select **Open**.
 
-1. In the **Inputs** section, select the linked services previously created for the DICOM service and Data Lake Storage Gen2 account.
+1. In the **Inputs** section, select the linked services created for the DICOM service and Azure Data Lake Storage Gen2 account.
 
-   :::image type="content" source="media/data-factory-create-pipeline.png" alt-text="Screenshot that shows the Inputs section with linked services selected." lightbox="media/data-factory-create-pipeline.png":::
+   :::image type="content" source="media/data-factory-create-pipeline.png" alt-text="Screenshot showing the Inputs section with linked services selected." lightbox="media/data-factory-create-pipeline.png":::
 
 1. Select **Use this template** to create the new pipeline.
 
 ## Schedule a pipeline
 
-Pipelines are scheduled by _triggers_. There are different types of triggers. _Schedule triggers_ allow pipelines to be triggered on a wall-clock schedule. _Manual triggers_ trigger pipelines on demand.
+Pipelines are scheduled by _triggers_. There are different types of triggers. _Schedule triggers_ allow pipelines to be triggered on a wall-clock schedule, which means they run at specific times of the day, such as every hour or every day at midnight. _Manual triggers_ trigger pipelines on demand, which means they run whenever you want them to.
 
 In this example, a _tumbling window trigger_ is used to periodically run the pipeline given a starting point and regular time interval. For more information about triggers, see [Pipeline execution and triggers in Azure Data Factory or Azure Synapse Analytics](../../data-factory/concepts-pipeline-execution-triggers.md).
 
