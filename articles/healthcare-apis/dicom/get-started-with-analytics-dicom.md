@@ -107,7 +107,7 @@ Data Factory pipelines are a collection of _activities_ that perform a task, lik
 
 ### Create a pipeline for DICOM data (Preview)
 
-If you created the DICOM service with Data Lake Storage (Preview), you will want to use a custom template to include a new `fileName` parameter in the metadata pipeline.  Instead of using the template from the template gallery above, follow these steps to configure the pipeline.
+If you created the DICOM service with Azure Data Lake Storage (Preview), you need to use a custom template to include a new `fileName` parameter in the metadata pipeline.  Instead of using the template from the template gallery, follow these steps to configure the pipeline.
 
 1. Download the [preview template](https://github.com/microsoft/dicom-server/blob/main/samples/templates/Copy%20DICOM%20Metadata%20Changes%20to%20ADLS%20Gen2%20in%20Delta%20Format.zip) from GitHub.  Note, the template file is a compressed (zipped) folder which will be uploaded in compressed form, so you do not need to extract the files.  
 
