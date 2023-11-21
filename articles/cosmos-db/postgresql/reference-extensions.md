@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 11/20/2023
 ---
 # PostgreSQL extensions in Azure Cosmos DB for PostgreSQL
 
@@ -57,7 +57,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Large Object maintenance. | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Provides a data type for hierarchical tree-like structures. | 1.1 | 1.1 | 1.2 | 1.2 | 1.2 | 1.2 |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | Data type for representing line segments or floating-point intervals. | 1.3 | 1.3 | 1.3 | 1.4 | 1.4 | 1.4 |
-> | [tdigest](https://github.com/tvondra/tdigest) | Data type for on-line accumulation of rank-based statistics such as quantiles and trimmed means. | 1.4.0 | 1.4.0 | 1.4.0 | 1.4.0 | 1.4.0 | 1.4.0 |
+> | [tdigest](https://github.com/tvondra/tdigest) | Data type for on-line accumulation of rank-based statistics such as quantiles and trimmed means. | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 |
 > | [topn](https://github.com/citusdata/postgresql-topn/) | Type for top-n JSONB. | 2.6.0 | 2.6.0 | 2.6.0 | 2.6.0 | 2.6.0 | 2.6.0 |
 
 ### Full-text search extensions
