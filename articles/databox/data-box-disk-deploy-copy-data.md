@@ -9,21 +9,21 @@ ms.subservice: disk
 ms.topic: tutorial
 ms.date: 11/18/2022
 ms.author: shaas
+---
 
+<!--
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 
 # Doc scores:
 #    11/18/22: 75 (2456/62)
 #    09/01/23: 100 (2159/0)
----
 
-<!--
 ::: zone target="docs"
 -->
 
 # Tutorial: Copy data to Azure Data Box Disk and verify
 
-<!-->
+<!--
 ::: zone-end
 
 ::: zone target="chromeless"
@@ -243,9 +243,9 @@ The Data Box Split Copy tool helps split and copy data across two or more Azure 
 
       :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-5.png" alt-text="Split copy data 5":::
 
-   Save the file as `ConfigFile.json`.
+   - Save the file as `ConfigFile.json`.
 
-   :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-6-sml.png" alt-text="Split copy data 6" lightbox="media/data-box-disk-deploy-copy-data/split-copy-6.png":::
+      :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-6-sml.png" alt-text="Split copy data 6" lightbox="media/data-box-disk-deploy-copy-data/split-copy-6.png":::
 
 1. Open a Command Prompt window with elevated privileges and run the `DataBoxDiskSplitCopy.exe` using the following command.
 
