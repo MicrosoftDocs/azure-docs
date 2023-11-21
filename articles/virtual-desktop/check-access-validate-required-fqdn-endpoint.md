@@ -9,9 +9,9 @@ ms.author: daknappe
 
 # Check access to required FQDNs and endpoints for Azure Virtual Desktop
 
-In order to deploy and make Azure Virtual Desktop available to your users, you must allow specific FQDNs and endpoints that your session host virtual machines (VMs) can access them anytime. You can find the list of FQDNs and endpoints in [Required FQDNs and endpoints](required-fqdn-endpoint.md).
+In order to deploy Azure Virtual Desktop, you must allow specific FQDNs and endpoints. You can find the list of FQDNs and endpoints in [Required FQDNs and endpoints](required-fqdn-endpoint.md).
 
-Available as part of the Azure Virtual Desktop Agent (*RDAgent*) that is on each session host, the *Azure Virtual Desktop Agent URL Tool* enables you to quickly and easily validate whether your session hosts can access each FQDN and endpoint. If not it can't, the tool lists any required FQDNs and endpoints it can't access so you can unblock them and retest, if needed.
+Available as part of the Azure Virtual Desktop Agent (*RDAgent*) on each session host, the *Azure Virtual Desktop Agent URL Tool* enables you to quickly and easily validate whether your session hosts can access each FQDN and endpoint. If not it can't, the tool lists any required FQDNs and endpoints it can't access so you can unblock them and retest, if needed.
 
 > [!NOTE]
 > The Azure Virtual Desktop Agent URL Tool doesn't verify that you've allowed access to wildcard entries we specify for FQDNs, only specific entries within those wildcards that depend on the session host location, so make sure the wildcard entries are allowed before you run the tool.
@@ -49,13 +49,13 @@ To use the Azure Virtual Desktop Agent URL Tool:
    .\WVDAgentUrlTool.exe
    ```
  
-1. Once you run the file, you'll see a list of accessible and inaccessible FQDNs and endpoints.
+1. Once you run the file, you see a list of accessible and inaccessible FQDNs and endpoints.
 
-   For example, the following screenshot shows a scenario where you'd need to unblock two required non-wildcard FQDNs:
+   For example, the following screenshot shows a scenario where you'd need to unblock two required FQDNs:
 
    :::image type="content" source="media/check-access-validate-required-fqdn-endpoint/agent-url-tool-inaccessible.png" alt-text="A screenshot of the Azure Virtual Desktop Agent URL Tool showing that some FQDNs are inaccessible.":::
 
-   Here's what the output should look like once you've unblocked all required non-wildcard FQDNs and endpoints:
+   Here's what the output should look like when all required FQDNs and endpoints are accessible. The Azure Virtual Desktop Agent URL Tool doesn't verify that you allowed access to wildcard entries we specify for FQDNs. 
 
    :::image type="content" source="media/check-access-validate-required-fqdn-endpoint/agent-url-tool-accessible.png" alt-text="A screenshot of the Azure Virtual Desktop Agent URL Tool showing that all FQDNs and endpoints are accessible.":::
 

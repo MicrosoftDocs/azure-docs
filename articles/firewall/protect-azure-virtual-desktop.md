@@ -23,11 +23,11 @@ Follow the guidelines in this article to provide extra protection for your Azure
  - An Azure Firewall deployed with at least one Firewall Manager Policy.
  - DNS and DNS Proxy enabled in the Firewall Policy to use [FQDN in Network Rules](../firewall/fqdn-filtering-network-rules.md).
 
-To learn more about Azure Virtual Desktop terminology see [Azure Virtual Desktop terminology](../virtual-desktop/terminology.md).
+To learn more about Azure Virtual Desktop terminology, see [Azure Virtual Desktop terminology](../virtual-desktop/terminology.md).
 
 ## Host pool outbound access to Azure Virtual Desktop
 
-The Azure virtual machines you create for Azure Virtual Desktop must have access to several Fully Qualified Domain Names (FQDNs) to function properly. Azure Firewall uses an Azure Virtual Desktop FQDN tag `WindowsVirtualDesktop` to simplify this configuration. You'll need to create an Azure Firewall Policy and create Rule Collections for Network Rules and Applications Rules. Give the Rule Collection a priority and an *allow* or *deny* action.
+The Azure virtual machines you create for Azure Virtual Desktop must have access to several Fully Qualified Domain Names (FQDNs) to function properly. Azure Firewall uses the Azure Virtual Desktop FQDN tag `WindowsVirtualDesktop` to simplify this configuration. You need to create an Azure Firewall Policy and create Rule Collections for Network Rules and Applications Rules. Give the Rule Collection a priority and an *allow* or *deny* action.
 
 You need to create rules for each of the required FQDNs and endpoints. The list is available at [Required FQDNs and endpoints for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md). In order to identify a specific host pool as *Source*, you can create an [IP Group](../firewall/ip-groups.md) with each session host to represent it. 
 
@@ -36,8 +36,8 @@ You need to create rules for each of the required FQDNs and endpoints. The list 
 
 ## Azure Firewall Policy Sample
 
-All the mandatory and optional rules mentioned above can be easily deployed in a single Azure Firewall Policy using the template published at [https://github.com/Azure/RDS-Templates/tree/master/AzureFirewallPolicyForAVD](https://github.com/Azure/RDS-Templates/tree/master/AzureFirewallPolicyForAVD).
-Before deploying into production, it's highly recommended to review all the Network and Application rules defined, ensure alignment with Azure Virtual Desktop official documentation and security requirements. 
+All the mandatory and optional rules mentioned can be easily deployed in a single Azure Firewall Policy using the template published at [https://github.com/Azure/RDS-Templates/tree/master/AzureFirewallPolicyForAVD](https://github.com/Azure/RDS-Templates/tree/master/AzureFirewallPolicyForAVD).
+Before deploying into production, we recommended reviewing all the Network and Application rules defined, ensure alignment with Azure Virtual Desktop official documentation and security requirements. 
 
 ## Host pool outbound access to the Internet
 

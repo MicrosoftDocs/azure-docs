@@ -1,6 +1,6 @@
 ---
 title: Required FQDNs and endpoints for Azure Virtual Desktop
-description: A list of FQDNs and endpoints you must allow to ensure your Azure Virtual Desktop deployment works as intended.
+description: A list of FQDNs and endpoints you must allow, ensuring your Azure Virtual Desktop deployment works as intended.
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
@@ -9,11 +9,11 @@ ms.date: 11/21/2023
 
 # Required FQDNs and endpoints for Azure Virtual Desktop
 
-In order to deploy and make Azure Virtual Desktop available to your users, you must allow specific FQDNs and endpoints that your session host virtual machines (VMs) can access anytime. Users also need to be able to connect to certain FQDNs and endpoints to access their Azure Virtual Desktop resources. This article lists the required FQDNs and endpoints you need to allow for your session hosts and users.
+In order to deploy Azure Virtual Desktop and for your users to connect, you must allow specific FQDNs and endpoints. Users also need to be able to connect to certain FQDNs and endpoints to access their Azure Virtual Desktop resources. This article lists the required FQDNs and endpoints you need to allow for your session hosts and users.
 
 These FQDNs and endpoints could be blocked if you're using a firewall, such as [Azure Firewall](../firewall/protect-azure-virtual-desktop.md), or proxy service. For guidance on using a proxy service with Azure Virtual Desktop, see [Proxy service guidelines for Azure Virtual Desktop](proxy-server-support.md). This article doesn't include FQDNs and endpoints for other services such as Microsoft Entra ID, Office 365, custom DNS providers or time services. Microsoft Entra FQDNs and endpoints can be found under ID *56*, *59* and *125* in [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
 
-You can validate that your session host VMs can connect to these FQDNs and endpoints by following the steps to run the [Required URL Check tool](required-url-check-tool.md). The Required URL Check tool will validate each FQDN and endpoint and show whether your session host VMs can access them.
+You can check that your session host VMs can connect to these FQDNs and endpoints by following the steps to run the *Azure Virtual Desktop Agent URL Tool* in [Check access to required FQDNs and endpoints for Azure Virtual Desktop](check-access-validate-required-fqdn-endpoint.md). The Azure Virtual Desktop Agent URL Tool validates each FQDN and endpoint and show whether your session hosts can access them.
 
 > [!IMPORTANT]
 > Microsoft doesn't support Azure Virtual Desktop deployments where the FQDNs and endpoints listed in this article are blocked.
@@ -99,11 +99,11 @@ Azure Firewall supports Azure Virtual Desktop as a [FQDN tag](../firewall/fqdn-t
 
 We recommend you use FQDN tags or service tags to simplify configuration. The listed FQDNs and endpoints and tags only correspond to Azure Virtual Desktop sites and resources. They don't include FQDNs and endpoints for other services such as Microsoft Entra ID. For service tags for other services, see [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags).
 
-Azure Virtual Desktop doesn't have a list of IP address ranges that you can unblock instead of FQDNs to allow network traffic. If you're using a Next Generation Firewall (NGFW), you'll need to use a dynamic list specifically made for Azure IP addresses to make sure you can connect.
+Azure Virtual Desktop doesn't have a list of IP address ranges that you can unblock instead of FQDNs to allow network traffic. If you're using a Next Generation Firewall (NGFW), you need to use a dynamic list made for Azure IP addresses to make sure you can connect.
 
 ## End user devices
 
-Any device on which you use one of the [Remote Desktop clients](users/connect-windows.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) to connect to Azure Virtual Desktop must have access to the following FQDNs and endpoints. Allowing these FQDNs and endpoints is essential for a reliable client experience. Blocking access to these FQDNs and endpoints is unsupported and will affect service functionality.
+Any device on which you use one of the [Remote Desktop clients](users/connect-windows.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) to connect to Azure Virtual Desktop must have access to the following FQDNs and endpoints. Allowing these FQDNs and endpoints is essential for a reliable client experience. Blocking access to these FQDNs and endpoints is unsupported and affects service functionality.
 
 Select the relevant tab based on which cloud you're using.
 
