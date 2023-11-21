@@ -43,6 +43,7 @@ You can use four types of security protocols to connect to your Kafka clusters:
 
 > [!NOTE]
 > For SASL_SSL and SASL_PLAINTEXT, Azure Stream Analytics supports only PLAIN SASL mechanism.
+> > You must upload certificates as secrets to key vault using Azure CLI.
 
 |Property name   |Description   |
 |----------|-----------|
