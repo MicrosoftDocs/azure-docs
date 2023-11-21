@@ -3,7 +3,7 @@ title:  Pull DICOM changes using the Change Feed
 description: This how-to guide explains how to pull DICOM changes using DICOM Change Feed for Azure Health Data Services.
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: how-to
 ms.date: 10/13/2023
 ms.author: mmitrik

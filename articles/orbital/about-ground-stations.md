@@ -18,18 +18,23 @@ Microsoft owns and operates five ground stations around the world.
 
 :::image type="content" source="./media/ground-station-map.png" alt-text="Diagram shows a world map with the five Azure Orbital Ground Station sites labeled.":::
 
-Our antennas are 6.1 meters in diameter and support X-band and S-band.
+Our antennas are 6.1 meters in diameter and support the following frequency bands for commercial satellites:
 
-### X-bank
-| Downlink Frequencies (MHz) | G/T (dB/K) |
-|-------------------|------------|
-| 8000-8400 | 30.0 |
+| Ground Station             | X-band Downlink (MHz) | S-band Downlink (MHz) | S-band Uplink (MHz) | 
+|----------------------------|-----------------------|-----------------------|---------------------|
+| Quincy, WA, USA            | 8025-8400             |                       | 2025-2110           | 
+| Longovilo, Chile           | 8025-8400             | 2200-2290             | 2025-2110           |
+| Singapore                  | 8025-8400             | 2200-2290             | 2025-2110           |
+| Johannesburg, South Africa | 8025-8400             | 2200-2290             | 2025-2110           |
+| Gavle, Sweden              | 8025-8400             | 2200-2290             | 2025-2110           |
 
-### S-band
-| Uplink Frequencies (MHz) | EIRP (dBW) | Downlink Frequencies (MHz) | G/T (dB/K) |
-|--------------------------|------------|----------------------------|------------|
-| 2025-2120 | 52.0 | 2200-2300 | 15.0 |
+In addition, we support public satellites for downlink-only operations that utilize frequencies between 7800-8025 MHz.
 
 ## Partner ground stations
 
 Azure Orbital Ground Station offers a common data plane and API to access all antenna in the global network. An active contract with the partner network(s) you wish to integrate with Azure Orbital Ground Station is required to onboard with a partner.
+
+## Next steps
+
+- [Get started with Azure Orbital Ground Station](get-started.md)
+- [Support all mission phases](mission-phases.md)

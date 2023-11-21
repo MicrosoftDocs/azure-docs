@@ -2,12 +2,11 @@
 title: Enable Azure AD B2C custom domains
 titleSuffix: Azure AD B2C
 description: Learn how to enable custom domains in your redirect URLs for Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 11/3/2022
 ms.author: kengaderdus
@@ -23,6 +22,7 @@ zone_pivot_groups: b2c-policy-type
 This article describes how to enable custom domains in your redirect URLs for Azure Active Directory B2C (Azure AD B2C). By using a verified custom domain, you've benefits such as: 
 
 - It provides a more seamless user experience. From the user's perspective, they remain in your domain during the sign in process rather than redirecting to the Azure AD B2C default domain *&lt;tenant-name&gt;.b2clogin.com*.
+-  By staying in the same domain for your application during sign-in, you mitigate the impact of [third-party cookie blocking](/azure/active-directory/develop/reference-third-party-cookies-spas). 
 
 - You increase the number of objects (user accounts and applications) you can create in your Azure AD B2C tenant from the default 1.25 million to 5.25 million. 
 
@@ -103,11 +103,7 @@ Follow these steps to create an Azure Front Door:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. To choose the directory that contains the Azure subscription that you’d like to use for Azure Front Door and *not* the directory containing your Azure AD B2C tenant:
-    
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    
-    1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the **Directory name** list, and then select **Switch** button next to the directory. 
+1. To choose the directory that contains the Azure subscription that you’d like to use for Azure Front Door and *not* the directory containing your Azure AD B2C tenant select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
     
 1. Follow the steps in [Create Front Door profile - Quick Create](../frontdoor/create-front-door-portal.md#create-front-door-profile---quick-create) to create a Front Door for your Azure AD B2C tenant using the following settings: 
 
@@ -231,9 +227,7 @@ Configure Azure Blob storage for Cross-Origin Resource Sharing with the followin
 ## Test your custom domain
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant:
-    1.  Select the **Directories + subscriptions** icon in the portal toolbar.
-    2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch** button next to it.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **User flows (policies)**.
 1. Select a user flow, and then select **Run user flow**.
@@ -398,6 +392,9 @@ Copy the URL, change the domain name manually, and then paste it back to your br
 ### Which IP address is presented to Azure AD B2C? The user's IP address, or the Azure Front Door IP address?
 
 Azure Front Door passes the user's original IP address. It's the IP address that you'll see in the audit reporting or your custom policy.
+
+> [!IMPORTANT]
+> If the client sends an `x-forwarded-for` header to Azure Front Door, Azure AD B2C will use the originator's `x-forwarded-for` as the user's IP address for [Conditional Access Evaluation](./conditional-access-identity-protection-overview.md) and the `{Context:IPAddress}` [claims resolver](./claim-resolver-overview.md).
 
 ### Can I use a third-party Web Application Firewall (WAF) with B2C?
 

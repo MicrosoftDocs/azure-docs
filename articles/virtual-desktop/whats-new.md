@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 10/09/2023
+ms.date: 11/15/2023
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -22,6 +22,86 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## November 2023
+
+Here's what changed in November 2023:
+
+- Autoscale for personal host pools is now generally available. Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs. It also now supports hibernate (preview), that pauses virtual machines that aren't being used. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
+
+- We've updated the preview of Azure Virtual Desktop on Azure Stack HCI. You can now deploy Azure Virtual Desktop with your session hosts on Azure Stack HCI as an integrated experience with Azure Virtual Desktop in the Azure portal. For more information, see [Azure Virtual Desktop on Azure Stack HCI](azure-stack-hci-overview.md) and [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md).
+
+- Single sign-on using Microsoft Entra authentication is now generally available. Single sign-on enables users to automatically sign the user into Windows, without prompting them for their credentials for every connection. For more information, see [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication](configure-single-sign-on.md).
+
+- In-session passwordless authentication is now generally available. Azure Virtual Desktop supports in-session passwordless authentication using Windows Hello for Business or security devices like FIDO keys. For more information, see [In-session passwordless authentication](authentication.md#in-session-authentication).
+
+- Windows App is available in preview for Windows, macOS, iOS and iPadOS, and in a web browser. You can use it to connect to Azure Virtual Desktop, Windows 365, Microsoft Dev Box, Remote Desktop Services, and remote PCs, securely connecting you to Windows devices and apps. For more information, see [Windows App](/windows-app/overview).
+
+## October 2023
+
+Here's what changed in October 2023:
+
+### New article about Azure Virtual Desktop service architecture and resilience
+
+We've published a new article about the service architecture for Azure Virtual Desktop and how it provides a resilient, reliable, and secure service for organizations and users. Most components are Microsoft-managed, but some are customer-managed.
+
+You can learn more at [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
+
+### OneDrive with RemoteApp in preview
+
+You can now use Microsoft OneDrive alongside a RemoteApp in preview. You can use this feature to access and synchronize your files while using a RemoteApp. When you connect to a RemoteApp, OneDrive can automatically launch as a companion to the RemoteApp.
+
+For more information about prerequisites and configuration, see [Use Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop (preview)](onedrive-remoteapp.md). 
+
+### Administrative template for FSLogix now available in Intune settings catalog
+
+The [administrative template for FSLogix](/fslogix/how-to-use-group-policy-templates) is now available in the [Intune settings catalog](/mem/intune/configuration/administrative-templates-windows). This template enables you to configure FSLogix settings centrally for [session hosts that are enrolled in Intune](management.md#microsoft-intune).
+
+## September 2023
+
+Here's what changed in September 2023:
+
+### Azure Virtual Desktop (classic) deprecation 
+
+Azure Virtual Desktop (classic) now blocks users from creating new tenants. Customers should be deploying the current version of Azure Virtual Desktop for any new workloads. However, while Azure Virtual Desktop (classic) blocks new tenants, you can still access all other ongoing operation and management processes. We will no longer support Azure Virtual Desktop (classic) in September 2026, so we highly recommend you migrate from classic to Azure Virtual Desktop before then.
+
+For more information about the Azure Virtual Desktop (classic) retirement, see [Azure Virtual Desktop (classic) retirement](./virtual-desktop-fall-2019/classic-retirement.md).
+
+### Updates to Azure Virtual Desktop overview page in the Azure portal 
+
+We've updated the overview page in the Azure Virtual Desktop administrator portal to include new visuals and tile links. These updates make it easier to navigate to documentation, find the forums for collaboration and discussion, submit feedback, and locate release notes for Azure Virtual Desktop.
+
+### The latest version of FSLogix is now included in Windows Enterprise multi-session images
+
+We added the latest version of FSLogix to Windows 10 and 11 Enterprise multi-session images in the Azure Marketplace. As of September 12, 2023, all images come preinstalled with the latest version of FSLogix.
+
+For more information about what's new in FSLogix, see the [FSLogix Release Notes](/fslogix/overview-release-notes?context=%2Fazure%2Fvirtual-desktop%2Fcontext%2Fcontext).
+
+### Azure Virtual Desktop Insights support for the Azure Monitor Agent is now generally available 
+
+Azure Virtual Desktop Insights is a dashboard built on Azure Monitor workbooks that helps you understand your Azure Virtual Desktop environments. Azure Virtual Desktop Insights support for the Azure Monitor agent is now generally available. For more information, see [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md?tabs=monitor).
+
+The Log Analytics agent for Azure Monitor is deprecating on August 31, 2024. We recommend you migrate monitoring your virtual machines (VMs) and servers to Azure Monitor Agent before that date. For more information about how to migrate, see [Migrate to Azure Monitor Agent from Log Analytics agent](../azure-monitor/agents/azure-monitor-agent-migration.md).
+
+### Custom Image Template feature is now generally available
+
+Azure Virtual Desktop just made it easier for you to create your golden image with the new Custom Image Template feature. You can use this new management option in the Azure portal to include built-in or custom scripts in your template that you can reuse. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-azure-virtual-desktop-custom/ba-p/3909907).
+
+## August 2023
+
+Here's what changed in August 2023:
+
+### Updated Group Policy templates for FSLogix 
+
+The [FSLogix 2210 hotfix 2](/fslogix/overview-release-notes#fslogix-2210-hotfix-2-29861260056) release includes updates to the Group Policy templates. Before this release, the Group Policy template files had some unique behaviors that made it difficult to find the correct policy name based on the list of configuration settings for Profiles, Office Data File Containers (ODFC), and Cloud Cache. 
+
+For more information about FSLogix Group Policy Template Files, see [How to Use FSLogix Group Policy Template Files for FSLogix](/fslogix/how-to-use-group-policy-templates). 
+
+### Improvements in custom image templates
+
+We've updated the text, tooltips, and links for custom image templates in the Azure portal to make them easier to use. You can also now go to the built-in customization settings and remove Clipchamp in the Remove AppX package list.
+
+We built the custom image templates feature using [Azure Image Builder](../virtual-machines/image-builder-overview.md) for you to use with Azure Virtual Desktop. For more information, see [Custom image templates](custom-image-templates.md).
 
 ## July 2023
 

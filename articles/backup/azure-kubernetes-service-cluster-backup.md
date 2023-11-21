@@ -1,14 +1,16 @@
 ---
-title: Back up Azure Kubernetes Service (AKS) using Azure Backup 
+title: Back up Azure Kubernetes Service (AKS) using Azure Backup
 description: This article explains how to back up Azure Kubernetes Service (AKS) using Azure Backup.
 ms.topic: how-to
 ms.service: backup
-ms.date: 05/25/2023
+ms.custom:
+  - ignite-2023
+ms.date: 11/14/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Back up Azure Kubernetes Service using Azure Backup (preview) 
+# Back up Azure Kubernetes Service using Azure Backup 
 
 This article describes how to configure and back up Azure Kubernetes Service (AKS).
 
@@ -87,9 +89,7 @@ AKS backup allows you to back up an entire cluster or specific cluster resources
 
 To configure backups for AKS cluster, follow these steps:
 
-1. In the Azure portal, go to the **AKS Cluster** you want to back up, and then under **Settings**, select the **Backup** tab.
-
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/view-azure-kubernetes-cluster.png" alt-text="Screenshot shows viewing AKS cluster for backup.":::
+1. In the Azure portal, go to the **AKS Cluster** you want to back up, and then under **Settings**, select **Backup**.
 
 1. To prepare AKS cluster for backup or restore, you need to install backup extension in the cluster by selecting **Install Extension**.
 
@@ -162,9 +162,11 @@ To configure backups for AKS cluster, follow these steps:
 
 1. Select **Configure backup**.
 
+1. Once the configuration is complete, select **Next**.
+
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/finish-backup-configuration.png" alt-text="Screenshot shows how to finish backup configuration.":::
 
-   Once the configuration is complete, the Backup Instance will be created.
+   The Backup Instance gets created after the backup configuration is complete.
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/list-of-backup-instances.png" alt-text="Screenshot shows the list of created backup instances.":::
 
@@ -187,8 +189,82 @@ As a part of AKS backup capability, you can back up all or specific cluster reso
 
 :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/various-backup-configurations.png" alt-text="Screenshot shows various backup configurations.":::
 
+
+## Use Hooks during AKS backup
+
+This section describes how to use Backup Hook to do Application Consistent Snapshots of the AKS cluster with MySQL deployed (Persistent Volume with containing the MySQL). 
+
+You  can now use the Custom Hooks capability available in Azure Backup for AKS that helps to do Application Consistent Snapshots of Volumes, which are used for databases deployed as containerized workloads.
+
+
+By using Backup Hook, you can define the commands to freeze and unfreeze a MySQL pod so that an application snapshot of the volume can be taken. The Backup Extension then orchestrates the steps of running the commands provided in Hooks and takes the Volume snapshot. 
+
+An application consistent snapshot of a Volume with MySQL deployed is taken by doing the following actions:
+
+1. The Pod running MySQL is frozen so that no new transaction is performed on the database.
+2. A snapshot is taken of the Volume as backup.
+3. The Pod running MySQL is unfrozen so that transactions can be done again on the database. 
+
+To enable a *Backup Hook* as part of the configure backup flow to back up MySQL, follow these steps:
+
+1. Write the Custom Resource for Backup Hook with commands to freeze and unfreeze a PostgreSQL Pod. You can also use the following sample YAML script  `"postgresbackuphook.yaml"` with pre-defined commands.
+
+
+      ```json
+      apiVersion: clusterbackup.dataprotection.microsoft.com/v1alpha1
+      kind: BackupHook
+      metadata:
+      # BackupHook CR Name and Namespace
+      name: bkphookname0
+      namespace: default
+      spec:
+      # BackupHook Name. This is the name of the hook that will be executed during backup.
+      # compulsory
+      name: hook1
+      # Namespaces where this hook will be executed.
+      includedNamespaces: 
+      - hrweb
+      excludedNamespaces:
+      labelSelector:
+      # PreHooks is a list of BackupResourceHooks to execute prior to backing up an item.
+      preHooks:
+         - exec:
+            command:
+            - /sbin/fsfreeze
+            - --freeze
+            - /var/lib/postgresql/data
+            container: webcontainer
+            onError: Continue
+      # PostHooks is a list of BackupResourceHooks to execute after backing up an item.
+      postHooks:
+         - exec:
+            container: webcontainer
+            command:
+               - /sbin/fsfreeze
+               - --unfreeze
+            onError: Fail
+            timeout: 10s
+
+
+      ```  
+
+2. Before you configure backup, the Backup Hook Custom Resource needs to be deployed in the AKS cluster. To deploy the script, run the following `kubectl` command:
+
+      ```dotnetcli
+      kubectl apply -f mysqlbackuphook.yaml
+
+      ```
+
+3. Once the deployment is complete, you can [configure backup for the AKS cluster](#configure-backups). 
+
+
+   >[!Note]
+   >As part of backup configuration, you have to provide the *Custom Resource name* and the *Namespace* its deployed in as input.
+   >
+   >    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/custom-resource-name-and-namespace.png" alt-text="Screenshot shows how to add namespace for the backup configuration." lightbox="./media/azure-kubernetes-service-cluster-backup/custom-resource-name-and-namespace.png":::
+
 ## Next steps
 
-- [Restore Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-restore.md)
-- [Manage Azure Kubernetes Service cluster backups (preview)](azure-kubernetes-service-cluster-manage-backups.md)
-- [About Azure Kubernetes Service cluster backup (preview)](azure-kubernetes-service-cluster-backup-concept.md)
+- [Restore Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-restore.md)
+- [Manage Azure Kubernetes Service cluster backups](azure-kubernetes-service-cluster-manage-backups.md)
+- [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-concept.md)

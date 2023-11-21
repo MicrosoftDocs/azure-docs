@@ -4,7 +4,7 @@ description: Learn how to create a Bicep file or ARM template JSON template to u
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 09/18/2023
+ms.date: 10/03/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -34,6 +34,7 @@ The basic format is:
   "properties": {
     "buildTimeoutInMinutes": <minutes>,
     "customize": [],
+    "errorHandling":[],
     "distribute": [],
     "optimize": [],
     "source": {},
@@ -791,6 +792,42 @@ To override the commands, use the PowerShell or Shell script provisioners to cre
 - Linux: /tmp/DeprovisioningScript.sh
 
 Image Builder reads these commands, these commands are written out to the AIB logs, `customization.log`. See [troubleshooting](image-builder-troubleshoot.md#customization-log) on how to collect logs.
+
+## Properties: errorHandling
+
+The `errorHandling` property allows you to configure how errors are handled during image creation.
+
+# [JSON](#tab/json)
+
+```json
+{
+  "errorHandling": {
+    "onCustomizerError": "abort",
+    "onValidationError": "cleanup"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+errorHandling: {
+  onCustomizerError: 'abort',
+  onValidationError: 'cleanup'
+}
+```
+
+---
+
+The `errorHandling` property allows you to configure how errors are handled during image creation. It has two properties:
+
+- **onCustomizerError** - Specifies the action to take when an error occurs during the customizer phase of image creation.
+- **onValidationError** - Specifies the action to take when an error occurs during validation of the image template.
+
+The `errorHandling` property also has two possible values for handling errors during image creation:
+
+- **cleanup** - Ensures that temporary resources created by Packer are cleaned up even if Packer or one of the customizations/validations encounters an error. This maintains backwards compatibility with existing behavior.
+- **abort** - In case Packer encounters an error, the Azure Image Builder (AIB) service skips the clean up of temporary resources. As the owner of the AIB template, you are responsible for cleaning up these resources from your subscription. These resources may contain useful information such as logs and files left behind in a temporary VM, which can aid in investigating the error encountered by Packer.
 
 ## Properties: distribute
 

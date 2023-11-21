@@ -15,7 +15,7 @@ ms.subservice: chat
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-In a Teams Interoperability Chat ("Interop Chat"), we can enable file sharing between Azure Communication Service end users and Teams users. Note, Interop Chat is different from the Azure Communication Service Chat ("ACS Chat"). If you want to enable file sharing in an ACS Chat, refer to [Add file sharing with UI Library in Azure Communication Service Chat](./file-sharing-tutorial-acs-chat.md). Currently, the Azure Communication Service end user is only able to receive file attachments from the Teams user. Please refer to [UI Library Use Cases](../concepts/ui-library/ui-library-use-cases.md) to learn more.
+In a Teams Interoperability Chat ("Interop Chat"), we can enable file sharing between Azure Communication Service end users and Teams users. Note, Interop Chat is different from the Azure Communication Service Chat ("ACS Chat"). If you want to enable file sharing in an Azure Communication Services Chat, refer to [Add file sharing with UI Library in Azure Communication Service Chat](./file-sharing-tutorial-acs-chat.md). Currently, the Azure Communication Service end user is only able to receive file attachments from the Teams user. Please refer to [UI Library Use Cases](../concepts/ui-library/ui-library-use-cases.md) to learn more.
 
 >[!IMPORTANT]
 >
@@ -99,13 +99,13 @@ Moreover, the Teams user's tenant admin might impose restrictions on file sharin
 
 Let's run `npm run start` then you should be able to access our sample app via `localhost:3000` like the following screenshot: 
 
-![ACS UI library](./media/inline-image-tutorial-interop-chat-0.png "Screenshot of a ACS UI library.")
+![ACS UI library](./media/inline-image-tutorial-interop-chat-0.png "Screenshot of a Azure Communication Services UI library.")
 
 Simply click on the chat button located in the bottom to reveal the chat panel and now if Teams user sends some files, you should see something like the following screenshot:
 
 ![Teams sending a file](./media/file-sharing-tutorial-interop-chat-1.png "Screenshot of a Teams client sending one file.")
 
-![ACS getting a file](./media/file-sharing-tutorial-interop-chat-2.png "Screenshot of ACS UI library receiving one file.")
+![ACS getting a file](./media/file-sharing-tutorial-interop-chat-2.png "Screenshot of Azure Communication Services UI library receiving one file.")
 
 And now if the user click on the file attachment card, a new tab would be opened like the following where the user can download the file:
 

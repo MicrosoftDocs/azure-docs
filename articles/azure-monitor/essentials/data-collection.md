@@ -51,6 +51,18 @@ The diagram below shows data collection for [resource logs](resource-logs.md) us
 
 See [Workspace transformation DCR](data-collection-transformations.md#workspace-transformation-dcr) for details about workspace transformation DCRs and links to walkthroughs for creating them.
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Is there a maximum amount of data that I can collect in Azure Monitor?
+
+There's no limit to the amount of metric data you can collect, but this data is stored for a maximum of 93 days. See [Retention of metrics](./data-platform-metrics.md#retention-of-metrics). There's no limit on the amount of log data that you can collect, but the pricing tier you choose for the Log Analytics workspace might affect the limit. See [Pricing details](https://azure.microsoft.com/pricing/details/monitor/).
+
+### How do I access data collected by Azure Monitor?
+
+Insights and solutions provide a custom experience for working with data stored in Azure Monitor. You can work directly with log data by using a log query written in Kusto Query Language (KQL). In the Azure portal, you can write and run queries and interactively analyze data by using Log Analytics. Analyze metrics in the Azure portal with the metrics explorer. See [Analyze log data in Azure Monitor](../logs/log-query-overview.md) and [Analyze metrics with Azure Monitor metrics explorer](./analyze-metrics.md).
+
 ## Next steps
 
 - Read more about [data collection rules](data-collection-rule-overview.md).

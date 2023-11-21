@@ -2,17 +2,17 @@
 title: Set up sign-in for a Microsoft Entra organization
 titleSuffix: Azure AD B2C
 description: Set up sign-in for a specific Microsoft Entra organization in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 02/07/2023
 ms.author: godonnell
 ms.subservice: B2C
-ms.custom: fasttrack-edit, project-no-code
+ms.custom: fasttrack-edit, 
 zone_pivot_groups: b2c-policy-type
 ---
 
@@ -47,9 +47,7 @@ As of November 2020, new application registrations show up as unverified in the 
 To enable sign-in for users with a Microsoft Entra account from a specific Microsoft Entra organization, in Azure Active Directory B2C (Azure AD B2C), you need to create an application in the [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your organizational Microsoft Entra tenant (for example, Contoso):
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    2. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Microsoft Entra ID**. 
 1. In the left menu, under **Manage**, select **App registrations**.
 1. Select **+ New registration**.
@@ -75,8 +73,7 @@ To enable sign-in for users with a Microsoft Entra account from a specific Micro
 
 ## Configure Microsoft Entra ID as an identity provider
 
-1. Make sure you're using the directory that contains Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity providers**, and then select **New OpenID Connect provider**.
 1. Enter a **Name**. For example, enter *Contoso Microsoft Entra ID*.
@@ -129,8 +126,7 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 You need to store the application key that you created in your Azure AD B2C tenant.
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Policy keys** and then select **Add**.

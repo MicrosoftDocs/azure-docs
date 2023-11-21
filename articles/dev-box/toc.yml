@@ -18,58 +18,67 @@ items:
     - name: Create a dev box
       href: quickstart-create-dev-box.md
 - name: Tutorials
-  expanded: true
+  expanded: false
   items:
     - name: Connect with Remote Desktop App 
       href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
     - name: Limit number of dev boxes per project
       href: tutorial-dev-box-limits.md  
 - name: Concepts
-  expanded: true
+  expanded: false
   items:
     - name: Key concepts
       href: concept-dev-box-concepts.md
 - name: How-to guides
   expanded: true
   items:
-    - name: Skip or delay an automatic shutdown
-      href: how-to-skip-delay-stop.md
-    - name: Provide access to project admins
-      href: how-to-project-admin.md
-    - name: Provide access to dev box users
-      href: how-to-dev-box-user.md
+    - name: Configure resources
+      expanded: false
+      items: 
+      - name: Manage a dev center
+        href: how-to-manage-dev-center.md
+      - name: Manage network connections
+        href: how-to-configure-network-connections.md  
+      - name: Manage a dev box project
+        href: how-to-manage-dev-box-projects.md
+      - name: Manage a dev box definition
+        href: how-to-manage-dev-box-definitions.md
+      - name: Manage a dev box pool
+        href: how-to-manage-dev-box-pools.md
+      - name: Provide access to project admins
+        href: how-to-project-admin.md
+      - name: Provide access to dev box users
+        href: how-to-dev-box-user.md        
+      - name: Manage a dev box through developer portal
+        href: how-to-create-dev-boxes-developer-portal.md
+    - name: Manage costs
+      expanded: false
+      items:
+      - name: Determine resource usage and quota
+        href: how-to-determine-your-quota-usage.md
+      - name: Request a quota limit increase
+        href: how-to-request-quota-increase.md
+      - name: Configure Dev Box Hibernation
+        href: how-to-configure-dev-box-hibernation.md
+      - name: Hibernate your Dev Box
+        href: how-to-hibernate-your-dev-box.md  
+      - name: Configure an auto-stop schedule
+        href: how-to-configure-stop-schedule.md
+      - name: Skip or delay an automatic shutdown
+        href: how-to-skip-delay-stop.md
+    - name: Prepare images
+      expanded: false
+      items:
+      - name: Configure an Azure compute gallery
+        href: how-to-configure-azure-compute-gallery.md
+      - name: Provision a Custom Image with Azure Image Builder
+        href: how-to-customize-devbox-azure-image-builder.md
     - name: Authenticate to REST APIs
       href: how-to-authenticate.md
-    - name: Configure an Azure compute gallery
-      href: how-to-configure-azure-compute-gallery.md
-    - name: Manage a dev center
-      href: how-to-manage-dev-center.md
-    - name: Manage a dev box pool
-      href: how-to-manage-dev-box-pools.md
-    - name: Manage a dev box definition
-      href: how-to-manage-dev-box-definitions.md
-    - name: Manage a dev box project
-      href: how-to-manage-dev-box-projects.md
-    - name: Manage network connections
-      href: how-to-configure-network-connections.md
-    - name: Configure an auto-stop schedule
-      href: how-to-configure-stop-schedule.md
     - name: Install Azure CLI devcenter extension
       href: how-to-install-dev-box-cli.md  
-    - name: Provision a Custom Image with Azure Image Builder
-      href: how-to-customize-devbox-azure-image-builder.md
     - name: Configure Visual Studio caches
       href: how-to-generate-visual-studio-caches.md
-    - name: Manage a dev box through developer portal
-      href: how-to-create-dev-boxes-developer-portal.md
-    - name: Configure Dev Box Hibernation
-      href: how-to-configure-dev-box-hibernation.md
-    - name: Hibernate your Dev Box
-      href: how-to-hibernate-your-dev-box.md
-    - name: Determine resource usage and quota
-      href: how-to-determine-your-quota-usage.md
-    - name: Request a quota limit increase
-      href: how-to-request-quota-increase.md   
     - name: Configure Azure Diagnostic Logs
       href: how-to-configure-dev-box-azure-diagnostic-logs.md
 - name: Troubleshooting and support
