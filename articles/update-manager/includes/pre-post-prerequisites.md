@@ -9,7 +9,7 @@ ms.date: 08/02/2023
 ## Prerequisites
 
 1. Ensure that you are using PowerShell **5.1** runbook.
-1. Assign permission to managed identities - You can assign permissions to the appropriate [managed identity](../../automation/automation-security-overview.md#managed-identities). The runbook can use either the Automation account system-assigned managed identity or a user-assigned managed identity. 
+2. Assign permission to managed identities - You can assign permissions to the appropriate [managed identity](../../automation/automation-security-overview.md#managed-identities). The runbook can use either the Automation account system-assigned managed identity or a user-assigned managed identity. 
 
    You can use either portal or PowerShell cmdlets to assign permissions to each identity:
   
@@ -42,5 +42,4 @@ ms.date: 08/02/2023
              $UAMI.ClientId
     ```
   ---
-
-1. Import the `Az.ResourceGraph` module, ensure the module is updated to ThreadJob with the module version 2.0.3.
+3. Import the `Az.ResourceGraph` module, ensure the module is updated to ThreadJob with the module version 2.0.3.
