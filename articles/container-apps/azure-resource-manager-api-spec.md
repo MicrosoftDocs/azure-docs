@@ -18,8 +18,8 @@ Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) 
 
 The latest management API versions for Azure Container Apps are:
 
-- [`2023-05-01`](/rest/api/containerapps/stable/container-apps?view=rest-containerapps-2023-05-01) (stable)
-- [`2023-08-01-preview`](/rest/api/containerapps/container-apps?view=rest-containerapps-2023-08-01-preview) (preview)
+- [`2023-05-01`](/rest/api/containerapps/stable/container-apps?view=rest-containerapps-2023-05-01&preserve-view=true) (stable)
+- [`2023-08-01-preview`](/rest/api/containerapps/container-apps?view=rest-containerapps-2023-08-01-preview&preserve-view=true) (preview)
 
 To learn more about the differences between API versions, see [Microsoft.App change log](/azure/templates/microsoft.app/change-log/summary).
 
