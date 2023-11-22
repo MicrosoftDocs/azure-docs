@@ -291,6 +291,19 @@ Rather than switchover to a replica, it's also possible to break the replication
 
 6.  Select **Promote**, the process begins. Once completed, the server will no longer be a replica of the primary.
 
+## Delete virtual endpoint (preview)
+
+#### [REST API](#tab/restapi)
+
+
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{serverName}/virtualendpoints/{virtualendpointName}?api-version=2023-06-01-preview
+```
+
+
+---
+
 ## Delete a replica
 
 You can delete a read replica similar to how you delete a standalone Azure Database for PostgreSQL - Flexible Server.
