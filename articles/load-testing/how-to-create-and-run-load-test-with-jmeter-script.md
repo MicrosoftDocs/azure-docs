@@ -4,6 +4,7 @@ titleSuffix: Azure Load Testing
 description: 'Learn how to load test a website by using an existing Apache JMeter script and Azure Load Testing.'
 services: load-testing
 ms.service: load-testing
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 author: ntrogh
 ms.author: nicktrog

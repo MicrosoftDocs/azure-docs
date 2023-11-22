@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Apache Kafka on Confluent Cloud - Azure Native ISV Service
+title: Apache Kafka on Confluent Cloud - An Azure Native ISV Service
 summary: Enables using Apache Kafka as a service.
 
 metadata:
@@ -16,11 +16,11 @@ metadata:
 
 landingContent:
   # Card (optional)
-  - title: About Apache Kafka on Confluent Cloud - Azure Native ISV Service
+  - title: About Apache Kafka on Confluent Cloud - An Azure Native ISV Service
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Apache Kafka on Confluent Cloud - Azure Native ISV Service?
+          - text: What is Apache Kafka on Confluent Cloud - An Azure Native ISV Service?
             url: overview.md
       - linkListType: how-to-guide
         links:
