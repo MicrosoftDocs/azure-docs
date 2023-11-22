@@ -212,9 +212,6 @@ call_connection_client.transfer_call_to_participant(target_participant = Microso
 
 -----
 
-### How to tell if your Tenant isn't enabled for this preview?
-![Screenshot showing the error during Step 1.](./media/teams-federation-error.png)
-
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../quickstarts/create-communication-resource.md#clean-up-resources).

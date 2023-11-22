@@ -1,9 +1,7 @@
 ---
 title: Troubleshooting for Datadog
 description: This article provides information about troubleshooting for Datadog on Azure.
-author: flang-msft
 
-ms.author: franlanglois
 ms.topic: conceptual
 ms.date: 01/06/2023
 ---
@@ -38,7 +36,7 @@ To set up the Azure Datadog integration, you must have **Owner** access on the A
         
     The following image shows the correct values.
   
-    :::image type="content" source="media/troubleshoot/troubleshooting.png" alt-text="Check SAML settings for the Datadog application in Azure A D." border="true":::
+    :::image type="content" source="media/troubleshoot/troubleshooting.png" alt-text="Check SAML settings for the Datadog application in Microsoft Entra ID." border="true":::
 
 - **Guest users invited to the tenant are unable to access Single sign-on** 
    - Some users have two email addresses in Azure portal. Typically, one email is the user principal name (UPN) and the other email is an alternative email.
@@ -73,9 +71,9 @@ To verify the resource has the correct role assignment, open the Azure portal an
 
 ## Datadog agent installation fails
 
-The Azure Datadog integration provides you the ability to install Datadog agent on a virtual machine or app service. The API key selected as **Default Key** in the API Keys screen is used to configure the Datadog agent. If a default key isn't selected, the Datadog agent installation fails.
+The Azure Datadog integration provides you with the ability to install Datadog agent on a virtual machine or app service. The API key selected as **Default Key** in the API Keys screen is used to configure the Datadog agent. If a default key isn't selected, the Datadog agent installation fails.
 
-If the Datadog agent has been configured with an incorrect key, navigate to the API keys screen and change the **Default Key**. You'll have to uninstall the Datadog agent and reinstall it to configure the virtual machine with the new API keys.
+If the Datadog agent is configured with an incorrect key, navigate to the API keys screen and change the **Default Key**. You must uninstall the Datadog agent and reinstall it to configure the virtual machine with the new API keys.
 
 ## Next steps
 
