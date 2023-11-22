@@ -68,7 +68,6 @@ As an example, the following JSON is an example of what `ChatAttachment` might l
         "id": "08a182fe-0b29-443e-8d7f-8896bc1908a2",
         "attachmentType": "file",
         "name": "business report.pdf",
-        "url": "",
         "previewUrl": "https://contoso.sharepoint.com/:u:/g/user/h8jTwB0Zl1AY"
     },
     {
