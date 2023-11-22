@@ -27,7 +27,7 @@ Watch this video to see how you can use Azure Workbooks to get insights and visu
 
 ## The gallery
 
-The gallery lists all the saved workbooks and templates for your workspace. You can easily organize, sort, and manage workbooks of all types.
+The gallery lists all the saved workbooks and templates in your current environment. Select “Browse across galleries” to see the workbooks for all your resources.
 
 :::image type="content" source="media/workbooks-overview/workbooks-gallery.png" alt-text="Screenshot that shows the Workbooks gallery.":::
 
