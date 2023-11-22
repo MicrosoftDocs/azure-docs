@@ -15,7 +15,7 @@ ms.date: 11/22/2023
 
 # Example Azure role assignment conditions for Queue Storage
 
-This article lists some examples of role assignment conditions for controlling access to Azure Queue Storage.
+This article lists some examples of role assignment conditions for controlling access to Azure Queue Storage resources.
 
 [!INCLUDE [storage-abac-preview](../../../includes/storage-abac-preview.md)]
 
