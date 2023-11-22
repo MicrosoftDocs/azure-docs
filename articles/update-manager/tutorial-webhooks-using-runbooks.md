@@ -2,7 +2,7 @@
 title: Create pre and post events using a webhook with Automation runbooks.
 description: In this tutorial, you learn how to create the pre and post events using webhook with Automation runbooks.
 ms.service: azure-update-manager
-ms.date: 11/12/2023
+ms.date: 11/21/2023
 ms.topic: tutorial 
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -20,9 +20,12 @@ This tutorial explains how to create pre and post events to start and stop a VM 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> - Prerequisites
 > - Create and publish Automation runbook
 > - Add webhooks
 > - Create an event subscription
+
+[!INCLUDE [pre-post-prerequisites.md](includes/pre-post-prerequisites.md)]
 
 
 ## Create and publish Automation runbook
@@ -30,9 +33,6 @@ In this tutorial, you learn how to:
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to your **Azure Automation** account.
 1. [Create](../automation/manage-runbooks.md#create-a-runbook) and [Publish](../automation/manage-runbooks.md#publish-a-runbook) an Automation runbook. 
 1. To customize, you can use either your existing script or use the following two sample scripts.
-
-> [!NOTE]
-> We recommend that you use PowerShell 5.1 runbook and ensure to create system assigned managed identity and provide access to start/stop machine. You can also use user assigned identities as well. Follow the instructions listed in [Send an email from an Automation runbook](../automation/automation-send-email.md#assign-permissions-to-managed-identities) and change the role from reader to contributor.
 
 ### Sample scripts
 
@@ -226,11 +226,20 @@ foreach($id in $jobsList)
     }
 }
 ```
----
-### Import the module
-1. To import the `Az.ResourceGraph` module, ensure the module is updated to ThreadJob with the module version 2.0.3.
-1. Update the runbook code to verify if the Az.Resource Graph module is missing and send customer friendly message on how to resolve it.
 
+#### [Cancel a schedule](#tab/script-cancel)
+```
+Invoke-AzRestMethod `
+-Path "<Correlation ID from EventGrid Payload>?api-version=2023-09-01-preview" `
+-Payload 
+'{
+    "properties": {
+       "status": "Cancel"
+    }
+      }' `
+-Method PUT
+```
+---
 
 ## Add webhooks
 
