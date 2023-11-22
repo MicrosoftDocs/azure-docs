@@ -48,7 +48,7 @@ Use the following steps to deploy a Defender for IoT system in an air-gapped or 
         - [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../iot-solution.md)
         - [Forward on-premises OT alert information](../how-to-forward-alert-information-to-partners.md)
 
-####  Transitioning from a legacy on-premises management console
+##  Transitioning from a legacy on-premises management console
 
 > [!IMPORTANT]
 > The [legacy on-premises management console](../legacy-central-management/legacy-air-gapped-deploy.md) won't be supported or available for download after January 1st, 2025. Until then, we recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs.
@@ -73,6 +73,18 @@ Transitioning to the updated architecture guidance helps gain improved security,
 1. Review and validate that all security use cases and procedures have transitioned to the new architecture.
 
 1. After your transition is complete, decommission the on-premises management console.
+
+### Deprecation timeline
+
+The on-premises management console deprecation includes the following details:
+
+- Sensor versions released after **January 1, 2024** won't be able to be managed by an on-premises management console.
+- Sensor software versions released between **January 1st, 2024 – January 1st, 2025** will continue to support an on-premises management console release.
+- Air-gapped sensors that cannot connect to the cloud can be managed directly via the sensor console or using REST APIs.
+
+Our support team is available to help with further guidance as customers begin planning for the transition to the new architecture guidance.
+
+For more information, see [Versioning and support for on-premises software versions](release-notes.md#versioning-and-support-for-on-premises-software-versions).
 
 ## Next steps
 
