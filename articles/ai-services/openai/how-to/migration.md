@@ -196,7 +196,7 @@ client = AzureOpenAI(
 
 response = client.embeddings.create(
     input = "Your text string goes here",
-    model= "text-embedding-ada-002"
+    model= "text-embedding-ada-002"  # model = "deployment_name".
 )
 
 print(response.model_dump_json(indent=2))
