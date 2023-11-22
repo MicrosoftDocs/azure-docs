@@ -30,6 +30,9 @@ The listed features were released in the last three months. For information abou
 
 Microsoft Sentinel’s [near-real-time analytics rules](detect-threats-built-in.md#nrt) are now generally available (GA). These highly responsive rules provide up-to-the-minute threat detection by running their queries at intervals just one minute apart.
 
+- [Learn more about near-real-time rules](near-real-time-rules.md).
+- [Create and work with near-real-time rules](create-nrt-rules.md).
+
 <a name="visualize-data-with-enrichment-widgets-preview"></a>
 ### Elevate your cybersecurity intelligence with enrichment widgets (Preview)
 
