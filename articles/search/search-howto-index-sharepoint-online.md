@@ -1,14 +1,16 @@
 ---
 title: SharePoint indexer (preview)
-titleSuffix: Azure Cognitive Search
-description: Set up a SharePoint indexer to automate indexing of document library content in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Set up a SharePoint indexer to automate indexing of document library content in Azure AI Search.
 author: gmndrg
 ms.author: gimondra
 manager: liamca
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 10/03/2023
+ms.date: 11/20/2023
 ---
 
 # Index data from SharePoint document libraries
@@ -16,18 +18,20 @@ ms.date: 10/03/2023
 > [!IMPORTANT]
 > SharePoint indexer support is in public preview. It's offered "as-is", under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Preview features aren't recommended for production workloads and aren't guaranteed to become generally available.
 >
->To use this preview, [request access](https://aka.ms/azure-cognitive-search/indexer-preview). Access will be automatically approved after the form is submitted. After access is enabled, use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to index your content. There is currently limited portal support and no .NET SDK support.
+> Be sure to visit the [known limitations](#limitations-and-considerations) section before you start.
+>
+>To use this preview, [request access](https://aka.ms/azure-cognitive-search/indexer-preview). Access is automatically approved after the form is submitted. After access is enabled, use a [preview REST API (2023-10-01-Preview or later)](search-api-preview.md) to index your content. 
 
-This article explains how to configure a [search indexer](search-indexer-overview.md) to index documents stored in SharePoint document libraries for full text search in Azure Cognitive Search. Configuration steps are followed by a deeper exploration of behaviors and scenarios you're likely to encounter.
+This article explains how to configure a [search indexer](search-indexer-overview.md) to index documents stored in SharePoint document libraries for full text search in Azure AI Search. Configuration steps are first, followed by behaviors and scenarios
 
 ## Functionality
 
-An indexer in Azure Cognitive Search is a crawler that extracts searchable data and metadata from a data source. The SharePoint indexer will connect to your SharePoint site and index documents from one or more document libraries. The indexer provides the following functionality:
+An indexer in Azure AI Search is a crawler that extracts searchable data and metadata from a data source. The SharePoint indexer connects to your SharePoint site and indexes documents from one or more document libraries. The indexer provides the following functionality:
 
-+ Index content and metadata from one or more document libraries.
-+ Incremental indexing, where the indexer identifies which file content or metadata have changed and indexes only the updated data. For example, if five PDFs are originally indexed and one is updated, only the updated PDF is indexed.
-+ Deletion detection is built in. If a document is deleted from a document library, the indexer will detect the delete on the next indexer run and remove the document from the index.
-+ Text and normalized images will be extracted by default from the documents that are indexed. Optionally a [skillset](cognitive-search-working-with-skillsets.md) can be added to the pipeline for [AI enrichment](cognitive-search-concept-intro.md). 
++ Index files and metadata from one or more document libraries.
++ Index incrementally, picking up just the new and changed files and metadata. 
++ Deletion detection is built in. Deletion in a document library is picked up on the next indexer run, and the document is removed from the index.
++ Text and normalized images are extracted by default from the documents that are indexed. Optionally, you can add a [skillset](cognitive-search-working-with-skillsets.md) for deeper [AI enrichment](cognitive-search-concept-intro.md), like OCR or text translation. 
 
 ## Prerequisites
 
@@ -41,41 +45,69 @@ The SharePoint indexer can extract text from the following document formats:
 
 [!INCLUDE [search-document-data-sources](../../includes/search-blob-data-sources.md)]
 
+## Limitations and considerations
+
+Here are the limitations of this feature:
+
++ Indexing [SharePoint Lists](https://support.microsoft.com/office/introduction-to-lists-0a1c3ace-def0-44af-b225-cfa8d92c52d7) isn't supported.
+
++ Indexing SharePoint .ASPX site content isn't supported.
+
++ OneNote notebook files aren't supported.
+
++ [Private endpoint](search-indexer-howto-access-private.md) isn't supported.
+
++ Renaming a SharePoint folder doesn't trigger incremental indexing. A renamed folder is treated as new content.
+
++ SharePoint supports a granular authorization model that determines per-user access at the document level. The indexer doesn't pull these permissions into the index, and Azure AI Search doesn't support document-level authorization. When a document is indexed from SharePoint into a search service, the content is available to anyone who has read access to the index. If you require document-level permissions, you should consider [security filters to trim results](search-security-trimming-for-azure-search-with-aad.md) and automate copying the permissions at a file level to a field in the index.
+
++ (Known issue) Support for delegated permissions is currently broken. For now, use app-based permissions as a workaround. However, once user-delegated permissions do become operational, the new behavior enforces token expiration every 75 minutes, per the libraries used to implement delegated permissions. An expired token requires manual intervention for indexers using [Run Indexer (preview)](/rest/api/searchservice/indexers/run?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true). For this reason, you might want app-based permissions as a permanent solution.
+
+Here are the considerations when using this feature:
+
++ If you need a SharePoint content indexing solution in a production environment, consider creating a custom connector with [SharePoint Webhooks](/sharepoint/dev/apis/webhooks/overview-sharepoint-webhooks), calling [Microsoft Graph API](/graph/use-the-api) to export the data to an Azure Blob container, and then use the [Azure Blob indexer](search-howto-indexing-azure-blob-storage.md) for incremental indexing.
+
+<!-- + There could be Microsoft 365 processes that update SharePoint file system-metadata (based on different configurations in SharePoint) and will cause the SharePoint indexer to trigger. Make sure that you test your setup and understand the document processing count prior to using any AI enrichment. Since this is a third-party connector to Azure (SharePoint is located in Microsoft 365), SharePoint configuration is not checked by the indexer. -->
+
++ If your SharePoint configuration allows Microsoft 365 processes to update SharePoint file system metadata, be aware that these updates can trigger the SharePoint indexer, causing the indexer to ingest documents multiple times. Because the SharePoint indexer is a third-party connector to Azure, the indexer can't read the configuration or vary its behavior. It responds to changes in new and changed content, regardless of how those updates are made. For this reason, make sure that you test your setup and understand the document processing count prior to using the indexer and any AI enrichment.
+
 ## Configure the SharePoint indexer
 
-To set up the SharePoint indexer, you'll need to perform some tasks in the Azure portal and others through the preview REST API.
+To set up the SharePoint indexer, use both the Azure portal and a preview REST API.
 
-The following video shows you how to set up the SharePoint indexer.
+This section provides the steps. You can also watch the following video.
  
 > [!VIDEO https://www.youtube.com/embed/QmG65Vgl0JI]
 
 ### Step 1 (Optional): Enable system assigned managed identity
 
-When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used by the indexer. This identity is used to automatically detect the tenant the search service is provisioned in.
+Enable a [system-assigned managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity) to automatically detect the tenant the search service is provisioned in. 
 
-If the SharePoint site is in the same tenant as the search service, you'll need to enable the system-assigned managed identity for the search service in the Azure portal. If the SharePoint site is in a different tenant from the search service, skip this step.
+Perform this step if the SharePoint site is in the same tenant as the search service. Skip this step if the SharePoint site is in a different tenant. The identity isn't used for indexing, just tenant detection. You can also skip this step if you want to put the tenant ID in the [connection string](#connection-string-format).
 
-:::image type="content" source="media/search-howto-index-sharepoint-online/enable-managed-identity.png" alt-text="Enable system assigned managed identity":::
+:::image type="content" source="media/search-howto-index-sharepoint-online/enable-managed-identity.png" alt-text="Screenshot showing how to enable system assigned managed identity.":::
 
-After selecting **Save** you'll see an Object ID that has been assigned to your search service.
+After selecting **Save**, you get an Object ID that has been assigned to your search service.
 
-:::image type="content" source="media/search-howto-index-sharepoint-online/system-assigned-managed-identity.png" alt-text="System assigned managed identity":::
+:::image type="content" source="media/search-howto-index-sharepoint-online/system-assigned-managed-identity.png" alt-text="Screenshot the object identifier.":::
 
 ### Step 2: Decide which permissions the indexer requires
 
-The SharePoint indexer supports both [delegated and application](/graph/auth/auth-concepts#delegated-and-application-permissions) permissions. Choose which permissions you want to use based on your scenario:
+The SharePoint indexer supports both [delegated and application](/graph/auth/auth-concepts#delegated-and-application-permissions) permissions. Choose which permissions you want to use based on your scenario.
 
-+ Delegated permissions, where the indexer runs under the identity of the user or app sending the request. Data access is limited to the sites and files to which the user has access. To support delegated permissions, the indexer requires a [device code prompt](../active-directory/develop/v2-oauth2-device-code.md) to sign in on behalf of the user.
+We recommend app-based permissions. See [limitations](#limitations-and-considerations) for known issues related to delegated permissions.
 
-+ Application permissions, where the indexer runs under the identity of the SharePoint tenant with access to all sites and files within the SharePoint tenant. The indexer requires a [client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to access the SharePoint tenant. The indexer will also require [tenant admin approval](../active-directory/manage-apps/grant-admin-consent.md) before it can index any content.
++ Application permissions (recommended), where the indexer runs under the [identity of the SharePoint tenant](/sharepoint/dev/solution-guidance/security-apponly-azureacs) with access to all sites and files. The indexer requires a [client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). The indexer will also require [tenant admin approval](../active-directory/manage-apps/grant-admin-consent.md) before it can index any content.
 
-If your Microsoft Entra organization has [Conditional Access enabled](../active-directory/conditional-access/overview.md) and your administrator isn't able to grant any device access for Delegated permissions, you should consider Application permissions instead. For more information, see [Microsoft Entra Conditional Access policies](./search-indexer-troubleshooting.md#azure-active-directory-conditional-access-policies).
++ Delegated permissions, where the indexer runs under the identity of the user or app sending the request. Data access is limited to the sites and files to which the caller has access. To support delegated permissions, the indexer requires a [device code prompt](../active-directory/develop/v2-oauth2-device-code.md) to sign in on behalf of the user.
+
+If your Microsoft Entra organization has [conditional access enabled](../active-directory/conditional-access/overview.md) and your administrator isn't able to grant any device access for delegated permissions, you should consider app-based permissions instead. For more information, see [Microsoft Entra Conditional Access policies](./search-indexer-troubleshooting.md#azure-active-directory-conditional-access-policies).
 
 <a name='step-3-create-an-azure-ad-application'></a>
 
-### Step 3: Create a Microsoft Entra application
+### Step 3: Create a Microsoft Entra application registration
 
-The SharePoint indexer will use this Microsoft Entra application for authentication.
+The SharePoint indexer uses this Microsoft Entra application for authentication.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -89,30 +121,30 @@ The SharePoint indexer will use this Microsoft Entra application for authenticat
 
 1. On the left, select **API permissions**, then **Add a permission**, then **Microsoft Graph**.
 
+    + If the indexer is using application API permissions, then select **Application permissions** and add the following:
+
+        + **Application - Files.Read.All**
+        + **Application - Sites.Read.All**
+        
+        :::image type="content" source="media/search-howto-index-sharepoint-online/application-api-permissions.png" alt-text="Screenshot of application API permissions.":::
+        
+        Using application permissions means that the indexer accesses the SharePoint site in a service context. So when you run the indexer it will have access to all content in the SharePoint tenant, which requires tenant admin approval. A client secret is also required for authentication. Setting up the client secret is described later in this article.
+
     + If the indexer is using delegated API permissions, select **Delegated permissions** and add the following:
 
         + **Delegated - Files.Read.All**
         + **Delegated - Sites.Read.All**
         + **Delegated - User.Read**
         
-        :::image type="content" source="media/search-howto-index-sharepoint-online/delegated-api-permissions.png" alt-text="Delegated API permissions":::
+        :::image type="content" source="media/search-howto-index-sharepoint-online/delegated-api-permissions.png" alt-text="Screenshot showing delegated API permissions.":::
         
         Delegated permissions allow the search client to connect to SharePoint under the security identity of the current user.
-
-    + If the indexer is using application API permissions, then select **Application permissions** and add the following:
-
-        + **Application - Files.Read.All**
-        + **Application - Sites.Read.All**
-        
-        :::image type="content" source="media/search-howto-index-sharepoint-online/application-api-permissions.png" alt-text="Application API permissions":::
-        
-        Using application permissions means that the indexer will access the SharePoint site in a service context. So when you run the indexer it will have access to all content in the SharePoint tenant, which requires tenant admin approval. A client secret is also required for authentication. Setting up the client secret is described later in this article.
 
 1. Give admin consent.
 
     Tenant admin consent is required when using application API permissions. Some tenants are locked down in such a way that tenant admin consent is required for delegated API permissions as well. If either of these conditions apply, you’ll need to have a tenant admin grant consent for this Microsoft Entra application before creating the indexer.
 
-    :::image type="content" source="media/search-howto-index-sharepoint-online/aad-app-grant-admin-consent.png" alt-text="Microsoft Entra app grant admin consent":::
+    :::image type="content" source="media/search-howto-index-sharepoint-online/aad-app-grant-admin-consent.png" alt-text="Screenshot showing Microsoft Entra app grant admin consent.":::
 
 1. Select the **Authentication** tab. 
 
@@ -120,42 +152,42 @@ The SharePoint indexer will use this Microsoft Entra application for authenticat
 
 1. Select **+ Add a platform**, then **Mobile and desktop applications**, then check `https://login.microsoftonline.com/common/oauth2/nativeclient`, then **Configure**.
 
-    :::image type="content" source="media/search-howto-index-sharepoint-online/aad-app-authentication-configuration.png" alt-text="Microsoft Entra app authentication configuration":::
+    :::image type="content" source="media/search-howto-index-sharepoint-online/aad-app-authentication-configuration.png" alt-text="Screenshot showing Microsoft Entra app authentication configuration.":::
 
 1. (Application API Permissions only) To authenticate to the Microsoft Entra application using application permissions, the indexer requires a client secret.
 
     + Select **Certificates & Secrets** from the menu on the left, then **Client secrets**, then **New client secret**.
     
-        :::image type="content" source="media/search-howto-index-sharepoint-online/application-client-secret.png" alt-text="New client secret":::
+        :::image type="content" source="media/search-howto-index-sharepoint-online/application-client-secret.png" alt-text="Screenshot showing new client secret.":::
     
-    + In the menu that pops up, enter a description for the new client secret. Adjust the expiration date if necessary. If the secret expires, it will need to be recreated and the indexer needs to be updated with the new secret.
+    + In the menu that pops up, enter a description for the new client secret. Adjust the expiration date if necessary. If the secret expires, it needs to be recreated and the indexer needs to be updated with the new secret.
     
-        :::image type="content" source="media/search-howto-index-sharepoint-online/application-client-secret-setup.png" alt-text="Setup client secret":::
+        :::image type="content" source="media/search-howto-index-sharepoint-online/application-client-secret-setup.png" alt-text="Screenshot showing how to set up a client secret.":::
     
-    + The new client secret will appear in the secret list. Once you navigate away from the page the secret will no longer be visible, so copy it using the copy button and save it in a secure location.
+    + The new client secret appears in the secret list. Once you navigate away from the page, the secret is no longer be visible, so copy it using the copy button and save it in a secure location.
     
-        :::image type="content" source="media/search-howto-index-sharepoint-online/application-client-secret-copy.png" alt-text="Copy client secret":::
+        :::image type="content" source="media/search-howto-index-sharepoint-online/application-client-secret-copy.png" alt-text="Screenshot showing where to copy a client secret.":::
 
 <a name="create-data-source"></a>
 
 ### Step 4: Create data source
 
 > [!IMPORTANT] 
-> Starting in this section you need to use the preview REST API for the remaining steps. If you’re not familiar with the Azure Cognitive Search REST API, we suggest taking a look at this [Quickstart](search-get-started-rest.md).
+> Starting in this section, use the preview REST API for the remaining steps. We recommend the latest preview API, [2023-10-01-preview](/rest/api/searchservice/data-sources/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true). If you’re not familiar with the Azure AI Search REST API, we suggest taking a look at this [Quickstart](search-get-started-rest.md).
 
-A data source specifies which data to index, credentials needed to access the data, and policies to efficiently identify changes in the data (new, modified, or deleted rows). A data source can be used by multiple indexers in the same search service.
+A data source specifies which data to index, credentials, and policies to efficiently identify changes in the data (new, modified, or deleted rows). A data source can be used by multiple indexers in the same search service.
 
 For SharePoint indexing, the data source must have the following required properties:
 
 + **name** is the unique name of the data source within your search service.
 + **type** must be "sharepoint". This value is case-sensitive.
 + **credentials** provide the SharePoint endpoint and the Microsoft Entra application (client) ID. An example SharePoint endpoint is `https://microsoft.sharepoint.com/teams/MySharePointSite`. You can get the endpoint by navigating to the home page of your SharePoint site and copying the URL from the browser.
-+ **container** specifies which document library to index. More information on creating the container can be found in the [Controlling which documents are indexed](#controlling-which-documents-are-indexed) section of this document.
++ **container** specifies which document library to index. Properties [control which documents are indexed](#controlling-which-documents-are-indexed).
 
-To create a data source, call [Create Data Source](/rest/api/searchservice/preview-api/create-or-update-data-source) using preview API version `2020-06-30-Preview` or later.
+To create a data source, call [Create Data Source (preview)](/rest/api/searchservice/data-sources/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true).
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2020-06-30-Preview
+POST https://[service name].search.windows.net/datasources?api-version=2023-10-01-Preview
 Content-Type: application/json
 api-key: [admin key]
 
@@ -186,10 +218,10 @@ The format of the connection string changes based on whether the indexer is usin
 
 The index specifies the fields in a document, attributes, and other constructs that shape the search experience.
 
-To create an index, call [Create Index](/rest/api/searchservice/create-index):
+To create an index, call [Create Index (preview)](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true):
 
 ```http
-POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexes?api-version=2023-10-01-Preview
 Content-Type: application/json
 api-key: [admin key]
 
@@ -213,16 +245,16 @@ api-key: [admin key]
 
 ### Step 6: Create an indexer
 
-An indexer connects a data source with a target search index and provides a schedule to automate the data refresh. Once the index and data source have been created, you're ready to create the indexer.
+An indexer connects a data source with a target search index and provides a schedule to automate the data refresh. Once the index and data source are created, you can create the indexer.
 
-During this section you’ll be asked to sign in with your organization credentials that have access to the SharePoint site. If possible, we recommend creating a new organizational user account and giving that new user the exact permissions that you want the indexer to have. 
+During this step, you’re asked to sign in with organization credentials that have access to the SharePoint site. If possible, we recommend creating a new organizational user account and giving that new user the exact permissions that you want the indexer to have. 
 
 There are a few steps to creating the indexer:
 
-1. Send a [Create Indexer](/rest/api/searchservice/preview-api/create-or-update-indexer) request:
+1. Send a [Create Indexer (preview)](/rest/api/searchservice/indexers/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) request:
 
     ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2023-10-01-Preview
     Content-Type: application/json
     api-key: [admin key]
     
@@ -254,17 +286,17 @@ There are a few steps to creating the indexer:
     }
     ```
 
-1. When creating the indexer for the first time, the [Create Indexer](/rest/api/searchservice/preview-api/create-or-update-indexer) request will remain waiting until your complete the next steps. You must call [Get Indexer Status](/rest/api/searchservice/get-indexer-status) to get the link and enter your new device code. 
+1. When you create the indexer for the first time, the [Create Indexer (preview)](/rest/api/searchservice/indexers/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) request waits until you complete the next step. You must call [Get Indexer Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) to get the link and enter your new device code. 
 
     ```http
-    GET https://[service name].search.windows.net/indexers/sharepoint-indexer/status?api-version=2020-06-30-Preview
+    GET https://[service name].search.windows.net/indexers/sharepoint-indexer/status?api-version=2023-10-01-Preview
     Content-Type: application/json
     api-key: [admin key]
     ```
 
-    Note that if you don’t run the [Get Indexer Status](/rest/api/searchservice/get-indexer-status) within 10 minutes the code will expire and you’ll need to recreate the [data source](#create-data-source).
+    If you don’t run the [Get Indexer Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) within 10 minutes, the code expires and you’ll need to recreate the [data source](#create-data-source).
 
- 1. The link for the device login and the new device code will appear under [Get Indexer Status](/rest/api/searchservice/get-indexer-status) response "errorMessage".
+ 1. Copy the device login code from the [Get Indexer Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) response. The device login can be found in the "errorMessage".
 
     ```http
     {
@@ -276,7 +308,7 @@ There are a few steps to creating the indexer:
     ```
 1. Provide the code that was included in the error message.
 
-    :::image type="content" source="media/search-howto-index-sharepoint-online/enter-device-code.png" alt-text="Enter device code":::
+    :::image type="content" source="media/search-howto-index-sharepoint-online/enter-device-code.png" alt-text="Screenshot showing how to enter a device code.":::
 
 1. The SharePoint indexer will access the SharePoint content as the signed-in user. The user that logs in during this step will be that signed-in user. So, if you sign in with a user account that doesn’t have access to a document in the Document Library that you want to index, the indexer won’t have access to that document.
 
@@ -284,60 +316,63 @@ There are a few steps to creating the indexer:
 
 1. Approve the permissions that are being requested.
 
-    :::image type="content" source="media/search-howto-index-sharepoint-online/aad-app-approve-api-permissions.png" alt-text="Approve API permissions":::
+    :::image type="content" source="media/search-howto-index-sharepoint-online/aad-app-approve-api-permissions.png" alt-text="Screenshot showing how to approve API permissions.":::
 
-1. The [Create Indexer](/rest/api/searchservice/preview-api/create-or-update-indexer) initial request will complete if all the permissions provided above are correct and within the 10 minute timeframe.
-
+1. The [Create Indexer (preview)](/rest/api/searchservice/indexers/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) initial request completes if all the permissions provided above are correct and within the 10 minute timeframe.
 
 > [!NOTE]
 > If the Microsoft Entra application requires admin approval and was not approved before logging in, you may see the following screen. [Admin approval](../active-directory/manage-apps/grant-admin-consent.md) is required to continue.
-:::image type="content" source="media/search-howto-index-sharepoint-online/no-admin-approval-error.png" alt-text="Admin approval required":::
+:::image type="content" source="media/search-howto-index-sharepoint-online/no-admin-approval-error.png" alt-text="Screenshot showing admin approval required.":::
 
 ### Step 7: Check the indexer status
 
-After the indexer has been created, you can call [Get Indexer Status](/rest/api/searchservice/get-indexer-status):
+After the indexer has been created, you can call [Get Indexer Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true):
 
 ```http
-GET https://[service name].search.windows.net/indexers/sharepoint-indexer/status?api-version=2020-06-30-Preview
+GET https://[service name].search.windows.net/indexers/sharepoint-indexer/status?api-version=2023-10-01-Preview
 Content-Type: application/json
 api-key: [admin key]
 ```
 
 ## Updating the data source
 
-If there are no updates to the data source object, the indexer can run on a schedule without any user interaction. However, every time the Azure Cognitive Search data source object is updated or recreated when the device code expires you'll need to sign in again in order for the indexer to run. For example, if you change the data source query, sign in again using the `https://microsoft.com/devicelogin` and a new code.
+If there are no updates to the data source object, the indexer runs on a schedule without any user interaction. 
 
-Once the data source has been updated or recreated when the device code expires, follow the below steps:
+However, if you modify the data source object while the device code is expired, you must sign in again in order for the indexer to run. For example, if you change the data source query, sign in again using the `https://microsoft.com/devicelogin` and get the new device code.
 
-1. Call [Run Indexer](/rest/api/searchservice/run-indexer) to manually kick off [indexer execution](search-howto-run-reset-indexers.md).
+Here are the steps for updating a data source, assuming an expired device code:
+
+1. Call [Run Indexer (preview)](/rest/api/searchservice/indexers/run?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) to manually start [indexer execution](search-howto-run-reset-indexers.md).
 
     ```http
-    POST https://[service name].search.windows.net/indexers/sharepoint-indexer/run?api-version=2020-06-30-Preview  
+    POST https://[service name].search.windows.net/indexers/sharepoint-indexer/run?api-version=2023-10-01-Preview  
     Content-Type: application/json
     api-key: [admin key]
     ```
 
-1. Check the [indexer status](/rest/api/searchservice/get-indexer-status). If the last indexer run has an error telling you to go to `https://microsoft.com/devicelogin`, go to that page and provide the new code. 
+1. Check the [indexer status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true). 
 
     ```http
-    GET https://[service name].search.windows.net/indexers/sharepoint-indexer/status?api-version=2020-06-30-Preview
+    GET https://[service name].search.windows.net/indexers/sharepoint-indexer/status?api-version=2023-10-01-Preview
     Content-Type: application/json
     api-key: [admin key]
     ```
 
-1. Login.
+1. If you get an error asking you to visit `https://microsoft.com/devicelogin`, open the page and copy the new code. 
 
-1. Manually run the indexer again and check the indexer status. This time the indexer run should successfully start.
+1. Paste the code into the dialog box.
+
+1. Manually run the indexer again and check the indexer status. This time, the indexer run should successfully start.
 
 <a name="metadata"></a>
 
 ## Indexing document metadata
 
-If you have set the indexer to index document metadata (`"dataToExtract": "contentAndMetadata"`), the following metadata will be available to index.
+If you're indexing document metadata (`"dataToExtract": "contentAndMetadata"`), the following metadata will be available to index.
 
 | Identifier | Type | Description | 
 | ------------- | -------------- | ----------- |
-| metadata_spo_site_library_item_id | Edm.String | The combination key of site ID, library ID, and item ID which uniquely identifies an item in a document library for a site. |
+| metadata_spo_site_library_item_id | Edm.String | The combination key of site ID, library ID, and item ID, which uniquely identifies an item in a document library for a site. |
 | metadata_spo_site_id | Edm.String | The ID of the SharePoint site. |
 | metadata_spo_library_id | Edm.String | The ID of document library. |
 | metadata_spo_item_id | Edm.String | The ID of the (document) item in the library. |
@@ -349,7 +384,7 @@ If you have set the indexer to index document metadata (`"dataToExtract": "conte
 | metadata_spo_item_weburi | Edm.String | The URI of the item. |
 | metadata_spo_item_path | Edm.String | The combination of the parent path and item name. | 
 
-The SharePoint indexer also supports metadata specific to each document type. More information can be found in [Content metadata properties used in Azure Cognitive Search](search-blob-metadata-properties.md).
+The SharePoint indexer also supports metadata specific to each document type. More information can be found in [Content metadata properties used in Azure AI Search](search-blob-metadata-properties.md).
 
 > [!NOTE]
 > To index custom metadata, "additionalColumns" must be specified in the [query parameter of the data source](#query).
@@ -358,7 +393,7 @@ The SharePoint indexer also supports metadata specific to each document type. Mo
 
 You can control which files are indexed by setting inclusion and exclusion criteria in the "parameters" section of the indexer definition.
 
-Include specific file extensions by setting `"indexedFileNameExtensions"` to a comma-separated list of file extensions (with a leading dot). Exclude specific file extensions by setting `"excludedFileNameExtensions"` to the extensions that should be skipped. If the same extension is in both lists, it will be excluded from indexing.
+Include specific file extensions by setting `"indexedFileNameExtensions"` to a comma-separated list of file extensions (with a leading dot). Exclude specific file extensions by setting `"excludedFileNameExtensions"` to the extensions that should be skipped. If the same extension is in both lists, it's excluded from indexing.
 
 ```http
 PUT /indexers/[indexer name]?api-version=2020-06-30
@@ -377,7 +412,7 @@ PUT /indexers/[indexer name]?api-version=2020-06-30
 ## Controlling which documents are indexed
 
 A single SharePoint indexer can index content from one or more document libraries. Use the "container" parameter on the data source definition to indicate which sites and document libraries to index from.
-T
+
 The [data source "container" section](#create-data-source) has two properties for this task: "name" and "query".
 
 ### Name
@@ -409,10 +444,10 @@ The "query" parameter of the data source is made up of keyword/value pairs. The 
 
 ## Handling errors
 
-By default, the SharePoint indexer stops as soon as it encounters a document with an unsupported content type (for example, an image). You can use the `excludedFileNameExtensions` parameter to skip certain content types. However, you may need to index documents without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to false:
+By default, the SharePoint indexer stops as soon as it encounters a document with an unsupported content type (for example, an image). You can use the `excludedFileNameExtensions` parameter to skip certain content types. However, you might need to index documents without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to false:
 
 ```http
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30-Preview
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2023-10-01-Preview
 Content-Type: application/json
 api-key: [admin key]
 
@@ -422,13 +457,13 @@ api-key: [admin key]
 }
 ```
 
-For some documents, Azure Cognitive Search is unable to determine the content type, or unable to process a document of otherwise supported content type. To ignore this failure mode, set the `failOnUnprocessableDocument` configuration parameter to false:
+For some documents, Azure AI Search is unable to determine the content type, or unable to process a document of otherwise supported content type. To ignore this failure mode, set the `failOnUnprocessableDocument` configuration parameter to false:
 
 ```http
 "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 ```
 
-Azure Cognitive Search limits the size of documents that are indexed. These limits are documented in [Service Limits in Azure Cognitive Search](./search-limits-quotas-capacity.md). Oversized documents are treated as errors by default. However, you can still index storage metadata of oversized documents if you set `indexStorageMetadataOnlyForOversizedDocuments` configuration parameter to true:
+Azure AI Search limits the size of documents that are indexed. These limits are documented in [Service Limits in Azure AI Search](./search-limits-quotas-capacity.md). Oversized documents are treated as errors by default. However, you can still index storage metadata of oversized documents if you set `indexStorageMetadataOnlyForOversizedDocuments` configuration parameter to true:
 
 ```http
 "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
@@ -443,30 +478,7 @@ You can also continue indexing if errors happen at any point of processing, eith
 }
 ```
 
-## Limitations and considerations
-
-These are the limitations of this feature:
-
-+ Indexing [SharePoint Lists](https://support.microsoft.com/office/introduction-to-lists-0a1c3ace-def0-44af-b225-cfa8d92c52d7) is not supported.
-
-+ If a SharePoint file content and/or metadata has been indexed, renaming a SharePoint folder in its parent hierarchy is not a condition that will re-index the document.
-
-+ Indexing SharePoint .ASPX site content is not supported.
-
-+ [Private endpoint](search-indexer-howto-access-private.md) is not supported.
-
-+ SharePoint supports a granular authorization model that determines per-user access at the document level. The SharePoint indexer does not pull these permissions into the search index, and Cognitive Search does not support document-level authorization. When a document is indexed from SharePoint into a search service, the content is available to anyone who has read access to the index. If you require document-level permissions, you should investigate [security filters to trim results](search-security-trimming-for-azure-search-with-aad.md) of unauthorized content. 
-
-
-These are the considerations when using this feature:
-
-+ If there is a requirement to implement a SharePoint content indexing solution with Cognitive Search in a production environment, consider create a custom connector using [Microsoft Graph Data Connect](/graph/data-connect-concept-overview) with [Blob indexer](search-howto-indexing-azure-blob-storage.md) and [Microsoft Graph API](/graph/use-the-api) for incremental indexing.
-
-+ There could be Microsoft 365 processes that update SharePoint file system-metadata (based on different configurations in SharePoint) and will cause the SharePoint indexer to trigger. Make sure that you test your setup and understand the document processing count prior to using any AI enrichment. Since this is a third-party connector to Azure (since SharePoint is located in Microsoft 365), SharePoint configuration is not checked by the indexer.
-
-
-
 ## See also
 
-+ [Indexers in Azure Cognitive Search](search-indexer-overview.md)
-+ [Content metadata properties used in Azure Cognitive Search](search-blob-metadata-properties.md)
++ [Indexers in Azure AI Search](search-indexer-overview.md)
++ [Content metadata properties used in Azure AI Search](search-blob-metadata-properties.md)

@@ -4,7 +4,7 @@ description: Configure Azure Container Storage Preview for use with Ephemeral Di
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 11/16/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -199,6 +199,10 @@ If you want to delete a storage pool, run the following command. Replace `<stora
 ```azurecli-interactive
 kubectl delete sp -n acstor <storage-pool-name>
 ```
+
+## Use volume replication for storage pools (optional)
+
+Applications that require the extremely low latency or high performance of local NVMe can leverage storage replication for improved resiliency. [Sign up here](https://aka.ms/NVMeReplication).
 
 ## See also
 

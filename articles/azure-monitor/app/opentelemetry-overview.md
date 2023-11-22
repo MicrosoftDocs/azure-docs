@@ -61,17 +61,15 @@ A direct exporter sends telemetry in-process (from the application's code) direc
 
 *The currently available Application Insights SDKs and Azure Monitor OpenTelemetry Distros rely on a direct exporter*.
 
-Alternatively, sending application telemetry via an agent like OpenTelemetry-Collector can have some benefits including sampling, post-processing, and more. Azure Monitor is developing an agent and ingestion endpoint that supports [Open Telemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md), providing a path for any OpenTelemetry-supported programming language beyond our [supported languages](platforms.md) to use to Azure Monitor.
-
 > [!NOTE]
 > For Azure Monitor's position on the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md), see the [OpenTelemetry FAQ](./opentelemetry-enable.md#can-i-use-the-opentelemetry-collector).
 
 > [!TIP]
-> If you are planning to use OpenTelemetry-Collector for sampling or additional data processing, you may be able to get these same capabilities built-in to Azure Monitor. Customers who have migrated to [Workspace-based Appplication Insights](convert-classic-resource.md) can benefit from [Ingestion-time Transformations](../essentials/data-collection-transformations.md). To enable, follow the details in the [tutorial](../logs/tutorial-workspace-transformations-portal.md), skipping the step that shows how to set up a diagnostic setting since with Workspace-centric Application Insights this is already configured. If you’re filtering less than 50% of the overall volume, it’s no additional cost. After 50%, there is a cost but much less than the standard per GB charge.
+> If you are planning to use OpenTelemetry-Collector for sampling or additional data processing, you may be able to get these same capabilities built-in to Azure Monitor. Customers who have migrated to [Workspace-based Application Insights](convert-classic-resource.md) can benefit from [Ingestion-time Transformations](../essentials/data-collection-transformations.md). To enable, follow the details in the [tutorial](../logs/tutorial-workspace-transformations-portal.md), skipping the step that shows how to set up a diagnostic setting since with Workspace-centric Application Insights this is already configured. If you’re filtering less than 50% of the overall volume, it’s no additional cost. After 50%, there is a cost but much less than the standard per GB charge.
 
 ## OpenTelemetry
 
-Microsoft is excited to embrace [OpenTelemetry](https://opentelemetry.io/) as the future of telemetry instrumentation. You, our customers, have asked for vendor-neutral instrumentation, and we're pleased to partner with the OpenTelemetry community to create consistent APIs and SDKs across languages.
+Microsoft is excited to embrace [OpenTelemetry](https://opentelemetry.io/) as the future of telemetry instrumentation. You, our customers, asked for vendor-neutral instrumentation, and we're pleased to partner with the OpenTelemetry community to create consistent APIs and SDKs across languages.
 
 Microsoft worked with project stakeholders from two previously popular open-source telemetry projects, [OpenCensus](https://opencensus.io/) and [OpenTracing](https://opentracing.io/). Together, we helped to create a single project, OpenTelemetry. OpenTelemetry includes contributions from all major cloud and Application Performance Management (APM) vendors and lives within the [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/). Microsoft is a Platinum Member of the CNCF.
 

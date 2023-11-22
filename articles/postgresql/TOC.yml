@@ -79,7 +79,7 @@
         href: flexible-server/quickstart-create-server-bicep.md
     - name: Connect and query
       items:
-        - name: Connect to a server in VNET
+        - name: Connect to a server in virtual network
           href: flexible-server/quickstart-create-connect-server-vnet.md
         - name: Azure CLI
           href: flexible-server/connect-azure-cli.md
@@ -106,12 +106,33 @@
     - name: Prepay for reserved capacity
       href: concept-reserved-pricing.md
     - name: Networking
-      href: flexible-server/concepts-networking.md
-      displayName: virtual networks, vnet, IP address, public access
+      items:
+      - name: Networking with Public Access (allowed IP addresses)
+        href: flexible-server/concepts-networking-public.md
+      - name: Networking with Private Access (virtual network Integration)
+        href: flexible-server/concepts-networking-private.md
+      - name: Networking with Private Endpoint
+        href: flexible-server/concepts-networking-private-link.md
+      - name: Secure connectivity with SSL and TLS
+        href: flexible-server/concepts-networking-ssl-tls.md
     - name: Firewall rules
       href: flexible-server/concepts-firewall-rules.md
     - name: Security
       href: flexible-server/concepts-security.md
+    - name: Generative AI
+      items:
+      - name: Overview
+        href: flexible-server/generative-ai-overview.md
+      - name: Semantic Search
+        href: flexible-server/generative-ai-semantic-search.md
+      - name: Recommendation System
+        href: flexible-server/generative-ai-recommendation-system.md
+      - name: Integration
+        items:
+        - name: Integrate Azure AI capabilities
+          href: flexible-server/how-to-integrate-azure-ai.md
+    - name: Azure Storage Extension
+      href: flexible-server/concepts-storage-extension.md
     - name: Microsoft Entra authentication
       href: flexible-server/concepts-azure-ad-authentication.md
     - name: Major Version Upgrade 
@@ -120,8 +141,6 @@
       href: flexible-server/concepts-compliance.md
     - name: Limits
       href: flexible-server/concepts-limits.md
-    - name: Extensions
-      href: flexible-server/concepts-extensions.md
     - name: Encryption with Customer Managed Keys
       href: flexible-server/concepts-data-encryption.md
     - name: Scheduled maintenance
@@ -134,12 +153,14 @@
       href: flexible-server/concepts-troubleshooting-guides.md
     - name: Reliability
       items:
-      - name: High Availability (Reliability)
-        href: ../reliability/reliability-postgresql-flexible-server.md?toc=/azure/postgresql/toc.json&&bc=/azure/postgresql/breadcrumb/toc.json
-      - name: Business continuity overview
+      - name: Overview
         href: flexible-server/concepts-business-continuity.md
+      - name: High Availability
+        href: ../reliability/reliability-postgresql-flexible-server.md?toc=/azure/postgresql/toc.json&&bc=/azure/postgresql/breadcrumb/toc.json
       - name: Back up and restore
         href: flexible-server/concepts-backup-restore.md
+      - name: Geo-disaster recovery
+        href: flexible-server/concepts-geo-disaster-recovery.md
     - name: Monitor and tune
       items:
       - name: Monitor and tune overview
@@ -168,20 +189,20 @@
           href: flexible-server/concepts-intelligent-tuning.md
     - name: Replication
       items:
-        - name: Read replicas
-          href: flexible-server/concepts-read-replicas.md
-          displayName: replication, read replica
-        - name: Logical replication and logical decoding
-          href: flexible-server/concepts-logical.md
-          displayName: logical decoding, logical replication
+      - name: Read replicas
+        href: flexible-server/concepts-read-replicas.md
+        displayName: replication, read replica
+      - name: Logical replication and logical decoding
+        href: flexible-server/concepts-logical.md
+        displayName: logical decoding, logical replication
     - name: App Development
       items: 
-        - name: Connection libraries
-          href: flexible-server/concepts-connection-libraries.md
-        - name: Connection resilience
-          href: flexible-server/concepts-connectivity.md
-        - name: Connection Pooling Best Practices
-          href: flexible-server/concepts-connection-pooling-best-practices.md
+      - name: Connection libraries
+        href: flexible-server/concepts-connection-libraries.md
+      - name: Connection resilience
+        href: flexible-server/concepts-connectivity.md
+      - name: Connection Pooling Best Practices
+        href: flexible-server/concepts-connection-pooling-best-practices.md
     - name: Azure Advisor recommendations
       href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Integrations
@@ -289,6 +310,10 @@
           href: flexible-server/how-to-stop-start-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-stop-start-server-cli.md
+      - name: Configure Server Logs
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-server-logs-portal.md
     - name: Encryption with CMK
       items:
       - name: Azure CLI
@@ -303,12 +328,16 @@
         href: flexible-server/how-to-maintenance-portal.md
     - name: Networking
       items:
-      - name: Private access (VNet Integration)
+      - name: Private access with virtual network Integration
         items:
         - name: Azure portal
           href: flexible-server/how-to-manage-virtual-network-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-manage-virtual-network-cli.md
+      - name: Networking with Private Endpoint
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-manage-virtual-network-private-endpoint-portal.md
       - name: Public access (allowed IP addresses)
         items:
         - name: Azure portal
@@ -368,14 +397,26 @@
       - name: Azure REST API
         href: flexible-server/how-to-read-replicas-rest-api.md
         displayName: replica rest api
-    - name: Use vectors and embeddings
+  - name: Extensions
+    items:
+    - name: Overview
+      href: flexible-server/concepts-extensions.md
+    - name: Azure AI Extension
       items:
+      - name: Overview
+        href: flexible-server/generative-ai-azure-overview.md
+      - name: Azure OpenAI
+        href: flexible-server/generative-ai-azure-openai.md
+      - name: Azure Cognitive Services
+        href: flexible-server/generative-ai-azure-cognitive.md
+      - name: Vector similarity search (pgvector)
+        items:
         - name: Basics of pgvector
           href: flexible-server/how-to-use-pgvector.md
-          displayName: pgvector
         - name: Optimize performance when using pgvector
           href: flexible-server/howto-optimize-performance-pgvector.md
-          displayName: pgvector
+    - name: pg_azure_storage
+      href: flexible-server/reference-pg-azure-storage.md 
 - name: Single Server
   expanded: false
   items:
@@ -466,7 +507,7 @@
       href: single-server/concepts-servers.md
     - name: Supported versions
       href: single-server/concepts-supported-versions.md
-    - name: PostgreSQL extensions
+    - name: Single Server extensions
       href: single-server/concepts-extensions.md
     - name: Limits
       href: single-server/concepts-limits.md
@@ -522,7 +563,7 @@
         href: single-server/concepts-business-continuity.md
       - name: High availability
         href: single-server/concepts-high-availability.md
-      - name: Backup and restore
+      - name: Back up and restore
         href: single-server/concepts-backup.md
         displayName: backup ,restore, georestore, geo-restore, outage
     - name: Monitor and tune
@@ -756,7 +797,7 @@
         href: sample-scripts-azure-cli.md
       - name: Create a server and firewall rule
         href: ./scripts/sample-create-server-and-firewall-rule.md
-      - name: Create server with vNet rule
+      - name: Create server with virtual network rule
         href: ./scripts/sample-create-server-with-vnet-rule.md
       - name: Scale a server
         href: ./scripts/sample-scale-server-up-or-down.md

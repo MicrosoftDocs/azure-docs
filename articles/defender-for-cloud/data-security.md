@@ -4,7 +4,7 @@ description: Learn how data is managed and safeguarded in Microsoft Defender for
 ms.topic: overview
 ms.author: dacurwin
 author: dcurwin
-ms.date: 07/18/2023
+ms.date: 11/02/2023
 ---
 # Microsoft Defender for Cloud data security
 
@@ -77,9 +77,12 @@ Customers can access Defender for Cloud related data from the following data str
 | [Azure Monitor logs](../azure-monitor/data-platform.md)                      | All security alerts.                                                                                                                                                                                                |
 | [Azure Resource Graph](../governance/resource-graph/overview.md)                      | Security alerts, security recommendations, vulnerability assessment results, secure score information, status of compliance checks, and more.                                                                       |
 | [Microsoft Defender for Cloud REST API](/rest/api/defenderforcloud/) | Security alerts, security recommendations, and more.                                                                                                                                                                |
-
 > [!NOTE]
 > If there are no Defender plans enabled on the subscription, data will be removed from Azure Resource Graph after 30 days of inactivity in the Microsoft Defender for Cloud portal. After interaction with artifacts in the portal related to the subscription, the data should be visible again within 24 hours.
+
+## Defender for Cloud and Microsoft Defender 365 Defender integration
+
+When you enable any of Defender for Cloud's paid plans you automatically gain all of the benefits of Microsoft 365 Defender. Information from Defender for Cloud will be shared with Microsoft 365 Defender. This data may contain customer data and will be stored according to [Microsoft 365 data handling guidelines](/microsoft-365/security/defender/data-privacy?view=o365-worldwide).
 
 ## Next steps
 

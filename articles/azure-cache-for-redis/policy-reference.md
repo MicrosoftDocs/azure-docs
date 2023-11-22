@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Cache for Redis
 description: Lists Azure Policy built-in policy definitions for Azure Cache for Redis. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 11/06/2023
+ms.date: 11/21/2023
 ms.topic: reference
 author: flang-msft
 ms.author: franlanglois
