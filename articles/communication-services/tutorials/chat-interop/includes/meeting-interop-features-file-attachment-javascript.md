@@ -67,15 +67,13 @@ As an example, the following JSON is an example of what `ChatAttachment` might l
     {
         "id": "08a182fe-0b29-443e-8d7f-8896bc1908a2",
         "attachmentType": "file",
-        "extension": "pdf",
         "name": "business report.pdf",
         "url": "",
         "previewUrl": "https://contoso.sharepoint.com/:u:/g/user/h8jTwB0Zl1AY"
     },
     {
         "id": "9d89acb2-c4e4-4cab-b94a-7c12a61afe30",
-        "attachmentType": "image",
-        "extension": "png",
+        "attachmentType": "image", 
         "name": "Screenshot.png",
         "url": "https://contoso.communication.azure.com/chat/threads/19:9d89acb29d89acb2@thread.v2/messages/123/images/9d89acb2-c4e4-4cab-b94a-7c12a61afe30/views/original?api-version=2023-07-01-preview",
         "previewUrl": "https://contoso.communication.azure.com/chat/threads/19:9d89acb29d89acb2@thread.v2/messages/123/images/9d89acb2-c4e4-4cab-b94a-7c12a61afe30/views/small?api-version=2023-07-01-preview"
@@ -114,7 +112,6 @@ async function renderReceivedMessage(event) {
 
 function renderFileAttachments(attachment) {
     return '<div class="attachment-container">' +
-        '<p class="attachment-type">' + attachment.extension + '</p>' +
         '<img class="attachment-icon" alt="attachment file icon" />' +
         '<div>' +
         '<p>' + attachment.name + '</p>' +
