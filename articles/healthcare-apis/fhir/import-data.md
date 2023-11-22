@@ -22,8 +22,8 @@ There are two modes of $import supported today-
 1. Incremental mode is optimized to load data into FHIR server periodically and doesn't block writes via API.
 1. Incremental mode allows you to load lastUpdated and versionId from resource Meta (if present in resource JSON).
    Incase
-   * Import files do not have version and lastUpdated field values specified, there is no guarantee of importing resources in FHIR service.
-   * Import files have resources with duplicate version with lastUpdate field values, then only one resource is ingested in FHIR service.
+   * Import files don't have `version` and `lastUpdated` field values specified, there's no guarantee of importing resources in FHIR service.
+   * Import files have resources with duplicate `version` and `lastUpdated` field values, then only one resource is ingested in the FHIR service.
 1. Incremental mode allows you to ingest soft deleted resources. This capability is beneficial in case you would like to migrate from Azure API for FHIR to Azure Health Data Services, FHIR service.
 
 
@@ -62,7 +62,7 @@ Content-Type:application/fhir+json
 | Parameter Name      | Description | Card. |  Accepted values |
 | ----------- | ----------- | ----------- | ----------- |
 | inputFormat      | String representing the name of the data source format. Currently only FHIR NDJSON files are supported. | 1..1 | ```application/fhir+ndjson``` |
-| mode      | Import mode value | 1..1 | For initial import use ```InitialLoad``` mode value. For incremental import mode use ```IncrementalLoad``` mode value. If no mode value is provided, IncrementalLoad mode value is considered by default. |
+| mode      | Import mode value | 1..1 | For initial mode import,  use ```InitialLoad``` mode value. For incremental mode import, use ```IncrementalLoad``` mode value. If no mode value is provided, IncrementalLoad mode value is considered by default. |
 | input   | Details of the input files. | 1..* | A JSON array with three parts described in the table below. |
 
 | Input part name   | Description | Card. |  Accepted values |
