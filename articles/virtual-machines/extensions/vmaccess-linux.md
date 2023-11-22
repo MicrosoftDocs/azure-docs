@@ -51,7 +51,7 @@ The VMAccess Extension configuration includes settings for username, passwords, 
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "<name>",
-  "apiVersion": "2020-06-01",
+  "apiVersion": "2023-09-01",
   "location": "<location>",
   "dependsOn": [
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
@@ -84,7 +84,7 @@ The VMAccess Extension configuration includes settings for username, passwords, 
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
-| apiVersion | 2020-06-01 | date |
+| apiVersion | 2023-09-01 | date |
 | publisher | Microsoft.OSTCExtensions | string |
 | type | VMAccessForLinux | string |
 | typeHandlerVersion | 1.5 | int |
