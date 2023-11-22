@@ -49,7 +49,7 @@ Netskope
 To integrate with Netskope (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
-- **Netskope API Token**: A Netskope API Token is required. [See the documentation to learn more about Netskope API](https://innovatechcloud.goskope.com/docs/Netskope_Help/en/rest-api-v1-overview.html). **Note:** A Netskope account is required
+- **Netskope API Token**: A Netskope API Token is required. [See the documentation to learn more about Netskope API](https://www.netskope.com/resources). **Note:** A Netskope account is required
 
 
 ## Vendor installation instructions

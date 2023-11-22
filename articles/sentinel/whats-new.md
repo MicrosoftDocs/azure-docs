@@ -23,12 +23,20 @@ The listed features were released in the last three months. For information abou
 
 ## November 2023
 
+- [Near-real-time rules now generally available](#near-real-time-rules-now-generally-available)
 - [Elevate your cybersecurity intelligence with enrichment widgets (Preview)](#elevate-your-cybersecurity-intelligence-with-enrichment-widgets-preview)
+
+### Near-real-time rules now generally available
+
+Microsoft Sentinel’s [near-real-time analytics rules](detect-threats-built-in.md#nrt) are now generally available (GA). These highly responsive rules provide up-to-the-minute threat detection by running their queries at intervals just one minute apart.
+
+- [Learn more about near-real-time rules](near-real-time-rules.md).
+- [Create and work with near-real-time rules](create-nrt-rules.md).
 
 <a name="visualize-data-with-enrichment-widgets-preview"></a>
 ### Elevate your cybersecurity intelligence with enrichment widgets (Preview)
 
-Enrichment Widgets in Microsoft Sentinel are dynamic components designed to provide you with in-depth, actionable intelligence about entities. They integrate external and internal content and data from various sources, offering a comprehensive understanding of potential security threats. These widgets serve as a powerful enhancement to your cybersecurity toolkit, offering both depth and breadth in information analysis.
+Enrichment widgets in Microsoft Sentinel are dynamic components designed to provide you with in-depth, actionable intelligence about entities. They integrate external and internal content and data from various sources, offering a comprehensive understanding of potential security threats. These widgets serve as a powerful enhancement to your cybersecurity toolkit, offering both depth and breadth in information analysis.
 
 Widgets are already available in Microsoft Sentinel today (in Preview). They currently appear for IP entities, both on their full [entity pages](entity-pages.md) and on their [entity info panels](incident-investigation.md) that appear in Incident pages. These widgets show you valuable information about the entities, from both internal and third-party sources.
 
