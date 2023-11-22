@@ -31,7 +31,7 @@ The Document Intelligence contract model uses powerful Optical Character Recogni
 
 ## Automated contract processing
 
-Automated contract processing is the process of extracting key contract fields from documents. Historically, the contract analysis process has been done manually and, hence, very time consuming. Accurate extraction of key data from contracts is typically the first and one of the most critical steps in the contract automation process.
+Automated contract processing is the process of extracting key contract fields from documents. Historically, the contract analysis process is achieved manually and, hence, very time consuming. Accurate extraction of key data from contracts is typically the first and one of the most critical steps in the contract automation process.
 
 ## Development options
 

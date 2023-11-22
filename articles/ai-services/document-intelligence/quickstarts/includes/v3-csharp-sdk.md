@@ -230,7 +230,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 **Run your application**
 
-Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+Once you add a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
   :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot of run your Visual Studio program.":::
 
@@ -348,7 +348,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 **Run your application**
 
-Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+Once you add a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
   :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot of run your Visual Studio program.":::
 
@@ -505,7 +505,7 @@ for (int i = 0; i < result.Documents.Count; i++)
 
 **Run your application**
 
-Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+Once you add a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
   :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot of run your Visual Studio program.":::
 

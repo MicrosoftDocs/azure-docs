@@ -163,7 +163,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
     * Select the **Fetch** button.
 
-1. Select **Run Layout**. The Document Intelligence Sample Labeling tool calls the Analyze Layout API and analyze the document.
+1. Select **Run Layout**. The Document Intelligence Sample Labeling tool calls the `Analyze Layout` API and analyze the document.
 
     :::image type="content" source="media/fott-layout.png" alt-text="Screenshot of `Layout` dropdown window.":::
 
@@ -410,7 +410,7 @@ For large multi-page documents, use the `pages` query parameter to indicate spec
 
 ## The Get Analyze Layout Result operation
 
-The second step is to call the [Get Analyze Layout Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeLayoutResult) operation. This operation takes as input the Result ID the Analyze Layout operation created. It returns a JSON response that contains a **status** field with the following possible values.
+The second step is to call the [Get Analyze Layout Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeLayoutResult) operation. This operation takes as input the Result ID the `Analyze Layout` operation created. It returns a JSON response that contains a **status** field with the following possible values.
 
 |Field| Type | Possible values |
 |:-----|:----:|:----|

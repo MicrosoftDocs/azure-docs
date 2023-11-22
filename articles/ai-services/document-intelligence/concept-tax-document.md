@@ -160,13 +160,13 @@ The following are the fields extracted from a 1099-nec tax form in the JSON outp
 
 |Name| Type | Description | Example output |
 |:-----|:----|:----|:---:|
-| TaxYear | String | Tax Year extracted from Form 1099-NEC.| 2021 |
-| Payer | Object | An object that contains the payers's TIN, Name, Address, and PhoneNumber | |
-| Recipient | Object | An object that contains the recipient's TIN, Name, Address, and AccountNumber| |
-| Box1 |number|Box 1 extracted from Form 1099-NEC.| 123456 |
-| Box2 |boolean|Box 2 extracted from Form 1099-NEC.| true |
-| Box4 |number|Box 4 extracted from Form 1099-NEC.| 123456 |
-| StateTaxesWithheld |array| State Taxes Withheld extracted from Form 1099-NEC (boxes 5,6, and 7)| |
+| `TaxYear` | String | Tax Year extracted from Form 1099-NEC.| 2021 |
+| `Payer` | Object | An object that contains the payer's TIN, Name, Address, and PhoneNumber | |
+| `Recipient` | Object | An object that contains the recipient's TIN, Name, Address, and AccountNumber| |
+| `Box1` |number|Box 1 extracted from Form 1099-NEC.| 123456 |
+| `Box2` |boolean|Box 2 extracted from Form 1099-NEC.| true |
+| `Box4` |number|Box 4 extracted from Form 1099-NEC.| 123456 |
+| `StateTaxesWithheld` |array| State Taxes Withheld extracted from Form 1099-NEC (boxes 5, 6, and 7)| |
 
 The tax documents key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 

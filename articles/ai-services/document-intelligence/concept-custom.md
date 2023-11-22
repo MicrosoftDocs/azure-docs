@@ -62,7 +62,7 @@ The custom template or custom form model relies on a consistent visual template 
 
 Your training set consists of structured documents where the formatting and layout are static and constant from one document instance to the next. Custom template models support key-value pairs, selection marks, tables, signature fields, and regions. Template models and can be trained on documents in any of the [supported languages](language-support.md). For more information, *see* [custom template models](concept-custom-template.md).
 
-If the language of your documents and extraction scenarios supports custom neural models, it's recommended that you use custom neural models over template models for higher accuracy.
+If the language of your documents and extraction scenarios supports custom neural models, we recommend that you use custom neural models over template models for higher accuracy.
 
 > [!TIP]
 >
@@ -104,7 +104,7 @@ If the language of your documents and extraction scenarios supports custom neura
 
 ### Build mode
 
-The build custom model operation has added support for the *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
+The build custom model operation adds support for the *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
 
 * Template models only accept documents that have the same basic page structure—a uniform visual appearance—or the same relative positioning of elements within the document.
 

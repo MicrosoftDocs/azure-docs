@@ -152,7 +152,7 @@ landingContent:
             url: https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/process-large-scale-pdf-or-images-to-extract-information-forms/ba-p/3481533
           - text: Document Intelligence Solution Accelerator
             url: https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/form-recognizer-solution-accelerator/ba-p/3262782
-          - text: Extracting information from unstructured document (e.g., contracts) with Azure AI Document Intelligence
+          - text: Extracting information from unstructured document (for example, contracts) with Azure AI Document Intelligence
             url:  https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/extracting-information-from-unstructured-document-e-g-contracts/ba-p/3267207
           - text: Improve Customer Loyalty Program Automation with Azure AI Document Intelligence
             url:  https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/improve-customer-loyalty-program-automation-with-azure-form/ba-p/3069233
