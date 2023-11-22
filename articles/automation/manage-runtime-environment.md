@@ -3,7 +3,7 @@ title: Manage runbooks and runtime environment in Azure Automation Runtime envir
 description: This article tells how to manage runbooks in Azure Automation Runtime environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/06/2023
+ms.date: 11/22/2023
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
@@ -21,9 +21,8 @@ You can test the following scenarios through the Azure portal and REST API
 > [!NOTE]
 > Ensure that you are using a non-production Automation accounts to test this feature.
 
-## Runtime environment scenarios
 
-### Create runtime environment
+### Create Runtime environment
 
 #### [Azure portal](#tab/create-runtime-portal)
 1. Sign in to the Azure [portal](https://portal.azure.com) and select your Automation account.
@@ -33,30 +32,31 @@ You can test the following scenarios through the Azure portal and REST API
     1. From the **Language** drop-down, select the scripting language for Runtime environment.
     1. Choose the **PowerShell** for PowerShell scripting language or **Python** for Python scripting language.
     1. Select **Runtime version** for scripting language.
-        - For PowerShell - choose 5.1, 7.1(preview), 7.2(preview)
+        - For PowerShell - choose 5.1, 7.1(preview), 7.2
         - For Python - choose 2.7, 3.8, 3.10 (preview)
-    1. Provide the **Description**.
+    1. Provide appropriate **Description**.
     
        :::image type="content" source="./media/manage-runtime-environment/create-runtime-environment.png" alt-text="Screenshot shows the entries in basics tab of create runtime environment.":::
 
-1. Select **Next** and in the **Packages** tab, you can upload the packages required during the runbook execution. The *Az PowerShell package* is uploaded by default for all PowerShell Runtime environments, which includes all cmdlets for managing Azure resources. You can choose the version of Az package from the dropdown.
+1. Select **Next** and in the **Packages** tab to upload the packages required during the runbook execution. The *Az PowerShell package* is uploaded by default for all PowerShell Runtime environments, which includes all cmdlets for managing Azure resources. You can choose the version of Az package from the dropdown.
 
    :::image type="content" source="./media/manage-runtime-environment/packages-runtime-environment.png" alt-text="Screenshot shows the selections in packages tab of create runtime environment.":::
 
-    1. To upload more Packages required during runbook execution. Select **Add a file** to add the file(s) stored locally on your computer or select **Add from gallery** to upload packages from PowerShell gallery.
+  1. To upload more Packages required during runbook execution. Select **Add a file** to add the file(s) stored locally on your computer or select **Add from gallery** to upload packages from PowerShell gallery.
       
        :::image type="content" source="./media/manage-runtime-environment/packages-add-files-runtime-environment.png" alt-text="Screenshot shows how to add files from local computer or upload from gallery." lightbox="./media/manage-runtime-environment/packages-add-files-runtime-environment.png":::
         
-  > [!NOTE]
-  > - When you import a package, it might take several minutes. 100MB is the maximum total size of the files that you can import.
-  > - Use *.zip* files for PowerShell runbook types.
-  >   - For Python 2.7 packages, use .tar.gz or .whl files targeting cp24-amd64
-  >   - For Python 3.8 packages, use .tar.gz or .whl files targeting cp38-amd64.
-  >   - For Python 3.10 (preview) packages, use .whl files targeting cp310 Linux OS.
+      > [!NOTE]
+      > - When you import a package, it might take several minutes. 100MB is the maximum total size of the files that you can import.
+      > - Use *.zip* files for PowerShell runbook types.
+      >   - For Python 2.7 packages, use .tar.gz or .whl files targeting cp24-amd64
+      >   - For Python 3.8 packages, use .tar.gz or .whl files targeting cp38-amd64.
+      >   - For Python 3.10 (preview) packages, use .whl files targeting cp310    Linux OS.
   
+
 1. Select **Next** and in the **Review + Create** tab, verify that the settings are correct. When you select **Create**, Azure runs validation on Runtime environment settings that you have chosen. If the validation passes, you can proceed to create Runtime environment else, the portal indicates the settings that you need to modify.
 
-In the **Runtime Environments (preview)** page, you can view all Runtime environments for your Automation account. If you don't find the newly created Runtime environments in the list, select **Refresh**.
+In the **Runtime Environments (preview)** page, you can view the newly created  Runtime environments for your Automation account. If you don't find the newly created Runtime environments in the list, select **Refresh**.
 
 #### [REST API](#tab/create-runtime-rest)
 
@@ -101,7 +101,7 @@ GET
 https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Automation/automationAccounts/<accountName>/runtimeEnvironments/<runtimeEnvironmentName>?api-version=2023-05-15-preview 
 ```
 
-### List runtime environments
+### List Runtime environments
 
 To list all the Runtime environments from the Automation account:
 
@@ -119,7 +119,7 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 ```
 ---
 
-### Delete runtime environment
+### Delete Runtime environment
 
 To delete the Runtime environment from the Automation account, follow these steps:
 
@@ -139,7 +139,7 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 ```
 ---
 
-### Update runtime environment
+### Update Runtime environment
 
 Runtime language and Runtime version are immutable properties. However, you can update the version of modules and add or remove packages in the Runtime environment. Runbooks linked to the Runtime environment will automatically get updated with the new settings.
 
@@ -181,6 +181,7 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 } 
 ```
 ---
+## Manage Runbooks linked to Runtime environment
 
 ### Create Runbook
 
@@ -199,7 +200,7 @@ To create a new runbook linked to the Runtime environment, follow these steps:
    1. Provide a **Name** for the runbook. It must begin with a letter and can contain only letters, numbers, underscores and dashes.
    1. From the **Runbook type** dropdown, select the type of runbook that you want to create.
    1. Select **Runtime environment** to be configured for the runbook. You can either *Select from existing* Runtime environments or *Create new* Runtime environment and link it to the Runbook. The list of runtime environments is populated on the basis of the *Runbook type* selected in step b.
-   1. Provide the **Description**.
+   1. Provide appropriate **Description**.
   
       :::image type="content" source="./media/manage-runtime-environment/create-runbook.png" alt-text="Screenshot shows how to create runbook in runtime environment." lightbox="./media/manage-runtime-environment/create-runbook.png":::
 
@@ -312,20 +313,12 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 ---
 
 
-### Map existing runbooks to System-created Runtime environments
+### Existing runbooks linked to System-generated Runtime environments
 
-All existing runbooks would be automatically linked to System-generated Runtime environments. Following System-generated Runtime environments are generated by adding Modules/packages already present in the Automation account:  
+All existing runbooks in your Azure Automation account would be automatically linked to System-generated Runtime environments. These system-generated Runtime environments are created on the basis of Runtime language, version and Modules/Packages present in your respective Azure Automation account. [Learn more](runtime-environment-overview.md). To update existing runbooks, change the Runtime environment by following the steps mentioned here:
 
-- PowerShell-5.1 
-- PowerShell-7.1 
-- PowerShell-7.2 
-- Python-2.7 
-- Python-3.8 
-- Python-3.10 
+### Test update of Runbook linked to Runtime environment
 
-Existing runbooks are linked from the account to the Runtime environments based on Runtime version. These Runtime environments are non-editable. However, any changes in Modules/Packages blades for the Automation account would automatically get reflected in these Runtime environments. 
-
-:::image type="content" source="./media/manage-runtime-environment/mapping-runbooks.png" alt-text="Screenshot shows how mapping of existing runbooks to the system created runtime environment." lightbox="./media/manage-runtime-environment/mapping-runbooks.png":::
 
 ## Next steps
 
