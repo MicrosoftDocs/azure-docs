@@ -122,7 +122,7 @@ Congratulations! You've learned to use Document Intelligence models to analyze v
 > [Try the Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!div class="nextstepaction"]
-> [Explore the Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
+> [Explore the Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
