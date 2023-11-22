@@ -22,7 +22,6 @@ This tutorial shows how to deploy a data-driven Python [Django](https://www.djan
 In this tutorial, you use the Azure CLI to complete the following tasks:
 
 > [!div class="checklist"]
-
 > * Set up your initial environment with Python and the Azure CLI
 > * Create an Azure Database for PostgreSQL database
 > * Deploy code to Azure App Service and connect to PostgreSQL
@@ -39,7 +38,6 @@ This tutorial shows how to deploy a data-driven Python [Django](https://www.djan
 In this tutorial, you'll use the Azure CLI to complete the following tasks:
 
 > [!div class="checklist"]
-
 > * Set up your initial environment with Python and the Azure CLI
 > * Create an Azure Database for PostgreSQL Flexible server database
 > * Deploy code to Azure App Service and connect to PostgreSQL Flexible server
@@ -77,7 +75,7 @@ In this tutorial, you'll use the Azure CLI to complete the following tasks:
 
     ---
 
-1. Install the [Azure CLI](cli/azure/install-azure-cli.md) 2.30.0 or higher. To check if your Azure CLI version is 2.30.0 or higher, run the `az --version` command. If you need to upgrade, run `az upgrade` (requires version 2.30.0+).
+1. Install the [Azure CLI](/cli/azure/install-azure-cli) 2.30.0 or higher. To check if your Azure CLI version is 2.30.0 or higher, run the `az --version` command. If you need to upgrade, run `az upgrade` (requires version 2.30.0+).
 
 1. Sign in to Azure using the CLI with `az login`. This command opens a browser to gather your credentials. When the command finishes, it shows JSON output containing information about your subscriptions. Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.
 
@@ -85,43 +83,43 @@ In this tutorial, you'll use the Azure CLI to complete the following tasks:
 
 ### [Git clone](#tab/clone)
 
-1. Clone the sample repository:
+Clone the sample repository:
 
-    ```terminal
-    git clone https://github.com/Azure-Samples/serviceconnector-webapp-postgresql-django.git
-    ```
+```terminal
+git clone https://github.com/Azure-Samples/serviceconnector-webapp-postgresql-django.git
+```
 
-1. Navigate into the following folder:
+Navigate into the following folder:
 
-    ```terminal
-    cd serviceconnector-webapp-postgresql-django
-    ```
+```terminal
+cd serviceconnector-webapp-postgresql-django
+```
 
 ::: zone pivot="postgres-flexible-server"
 
-1. Use the flexible-server branch of the sample, which contains a few necessary changes, such as how the database server URL is set and adding `'OPTIONS': {'sslmode': 'require'}` to the Django database configuration as required by Azure PostgreSQL Flexible server.
+Use the flexible-server branch of the sample, which contains a few necessary changes, such as how the database server URL is set and adding `'OPTIONS': {'sslmode': 'require'}` to the Django database configuration as required by Azure PostgreSQL Flexible server.
 
-    ```terminal
-    git checkout flexible-server
-    ```
+```terminal
+git checkout flexible-server
+```
 
 ::: zone-end
 
 ### [Download](#tab/download)
 
-1. Visit [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp).
+Visit [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp).
 
 ::: zone pivot="postgres-flexible-server"
 
-1. For Flexible server, select the branches control that says "master" and then select the **flexible-server** branch.
+For Flexible server, select the branches control that says "master" and then select the **flexible-server** branch.
 
 ::: zone-end
 
-1. Select **Code**, and then select **Download ZIP**.
+Select **Code**, and then select **Download ZIP**.
 
-1. Unpack the ZIP file into a folder named *djangoapp*.
+Unpack the ZIP file into a folder named *djangoapp*.
 
-1. Open a terminal window in that *djangoapp* folder.
+Open a terminal window in that *djangoapp* folder.
 
 ---
 
@@ -295,7 +293,7 @@ In this section, you create app host in App Service app, connect this app to the
 
 ::: zone-end
 
-1. Upon successful deployment, the command generates JSON output like the following example:
+    Upon successful deployment, the command generates JSON output like the following example:
 
     ![Example az webapp up command output](../app-service/media/tutorial-python-postgresql-app/az-webapp-up-output.png)
 
