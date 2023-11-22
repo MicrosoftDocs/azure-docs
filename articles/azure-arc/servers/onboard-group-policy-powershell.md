@@ -12,6 +12,12 @@ You can onboard Active Directory–joined Windows machines to Azure Arc-enabled 
 
 You'll first need to set up a local remote share with the Connected Machine agent and modify a script specifying the Arc-enabled server's landing zone within Azure. You'll then run a script that generates a Group Policy Object (GPO) to onboard a group of machines to Azure Arc-enabled servers. This Group Policy Object can be applied to the site, domain, or organizational level. Assignment can also use Access Control List (ACL) and other security filtering native to Group Policy. Machines in the scope of the Group Policy will be onboarded to Azure Arc-enabled servers. Scope your GPO to only include machines that you want to onboard to Azure Arc.
 
+> [!IMPORTANT]
+> Please note that if you are enrolling Azure Arc agents across multiple Active Directory domains, you would need to setup a separate file share for each domain. Failing to do so may result in failure to decrypt a service principal secret fetched from an Azure Key Vault.
+>
+> The onboarding PowerShell script encrypts the `ServicePrincipalSecret` fetched from an Azure Key Vault. That secret can only be decrypted by the Domain Controllers and the Domain Computers security groups.
+> If you try and decrypt a secret on a machine that is not a member of those groups in the domain used during deployment, it will fail with the error `"The specified data could not be decrypted."` 
+
 Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
