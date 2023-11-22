@@ -23,7 +23,13 @@ There are two modes of $import supported today-
    Incase
    * Import files do not have version and lastUpdated field values specified, there is no guarantee of importing resources in FHIR service.
    * Import files have resources with duplicate version with lastUpdate field values, then only one resource is ingested in FHIR service.
-1. Incremental mode allows you to ingest soft deleted resources. This capability is beneficial in case you would like to migrate from Azure API for FHIR to Azure Health Data Services, FHIR service. 
+1. Incremental mode allows you to ingest soft deleted resources. This capability is beneficial in case you would like to migrate from Azure API for FHIR to Azure Health Data Services, FHIR service.
+
+
+Note: 
+* Import operation does not support conditional references in resources. 
+* During import operation, If multiple resources share the same resource ID, then only one of those resources is imported at random. There is an error logged for the resources sharing the same resource ID.
+
 
 In this document we go over the steps to configure import settings on the FHIR service:
 
