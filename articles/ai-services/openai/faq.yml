@@ -95,13 +95,13 @@ sections:
         answer:
           This is expected behavior. The models aren't able to answer questions about themselves. If you want to know when the knowledge cutoff for the model's training data is, consult the [models page](./concepts/models.md).
       - question: |
-          I asked the model a question it should know the answer to about something that happened recently based on the knowledge cutoff and it got the answer wrong. Why does this happen?
-        answer:
+          I asked the model a question about something that happened recently before the knowledge cutoff and it got the answer wrong. Why does this happen?
+        answer: |
           This is expected behavior. First there's no guarantee that every recent event that has occurred was part of the model's training data. And even when information was part of the training data, without using additional techniques like Retrieval Augmented Generation (RAG) to help ground the model's responses there's always a chance of ungrounded responses occurring. Both Azure OpenAI's [use your data feature](./concepts/use-your-data.md) and [Bing Chat](https://www.microsoft.com/edge/features/bing-chat?form=MT00D8) use Azure OpenAI models combined with Retrieval Augmented Generation to help further ground model responses. 
           
           The frequency that a given piece of information appeared in the training data can also impact the likelihood that the model will respond in a certain way. 
 
-          Asking the latest GPT-4 Turbo Preview model about something that changed more recently like "Who is the prime minister of New Zealand?", is likely to result in the fabricated response `Jacinda Ardern`. However, asking the model "When did `Jacinda Ardern` step down as prime minister?" Tends to yield a correct response which demonstrates training data knowledge going to at least January of 2023.   
+          Asking the latest GPT-4 Turbo Preview model about something that changed more recently like "Who is the prime minister of New Zealand?", is likely to result in the fabricated response `Jacinda Ardern`. However, asking the model "When did `Jacinda Ardern` step down as prime minister?" Tends to yield an accurate response which demonstrates training data knowledge going to at least January of 2023.   
                     
           So while it is possible to probe the model with questions to guess its training data knowledge cutoff, the [model's page](./concepts/models.md) is the best place to check a model's knowledge cutoff.       
       - question: |
