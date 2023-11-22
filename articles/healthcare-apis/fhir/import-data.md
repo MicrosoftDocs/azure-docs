@@ -171,11 +171,13 @@ Table below provides some of the important fields in the response body:
 }
 ```
 ### Ingestion of soft deleted resources
-Incremental mode import supports ingestion of soft deleted resources. You need to use the extension to ingest soft deleted resources in FHIR service 
+Incremental mode import supports ingestion of soft deleted resources. You need to use the extension to ingest soft deleted resources in FHIR service.
 
 **Sample body for import with soft deleted resources:**
 
-To validate soft deleted resources in FHIR service, you need to perform history search on the resource.
+
+**Validate ingestion of soft deleted resources:**
+After import operation is successfully completed, to validate soft deleted resources in FHIR service, you need to perform history search on the resource. 
 If the ID of the resource that was deleted is known, use the following URL pattern:
 
 ```json
