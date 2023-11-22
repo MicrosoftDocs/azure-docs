@@ -77,7 +77,7 @@ To enable the asset endpoint to use an untrusted certificate:
 > [!CAUTION]
 > Don't use untrusted certificates in production environments.
 
-1. Run the following command to apply the configuration to use an untrusted certificate:
+1. Run the following command on the machine where your cluster is running to apply the configuration to use an untrusted certificate:
 
     ```console
     kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/opc-ua-connector-0.yaml
@@ -166,7 +166,7 @@ To verify data is flowing from your assets by using the **mqttui** tool. In this
     > [!CAUTION]
     > This configuration isn't secure. Don't use this configuration in a production environment.
 
-1. Run the following command to create a shell environment in the **mqtt-client** pod you created:
+1. When the **mqtt-client** pod is running, run the following command to create a shell environment in the pod you created:
 
     ```console
     kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
@@ -225,8 +225,12 @@ In the previous section, you saw how to add assets manually. You can also use Az
 
 When you deploy Azure IoT Operations, the deployment includes the Akri discovery handler pods. To verify these pods are running, run the following command:
 
-```console
+```bash
 kubectl get pods -n azure-iot-operations | grep akri
+```
+
+```powershell
+kubectl get pods -n azure-iot-operations |  Select-String -Pattern "akri"
 ```
 
 The output from the previous command looks like the following example:
@@ -237,7 +241,7 @@ aio-akri-otel-collector-5c775f745b-g97qv       1/1     Running   3 (4h15m ago)  
 aio-akri-agent-daemonset-mp6v7                 1/1     Running   3 (4h15m ago)    2d23h
 ```
 
-On the machine where your Kubernetes cluster is running, run the following command to apply the configuration for a new configuration for the discovery handler:
+On the machine where your Kubernetes cluster is running, run the following command to apply a new configuration for the discovery handler:
 
 ```console
 kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/akri-opcua-asset.yaml
@@ -249,7 +253,7 @@ To verify the configuration, run the following command to view the Akri instance
 kubectl get akrii -n azure-iot-operations
 ```
 
-The output from the previous command looks like the following example:
+The output from the previous command looks like the following example. You may need to wait for a few seconds for the Akri instance to be created:
 
 ```console
 NAMESPACE              NAME                      CONFIG             SHARED   NODES            AGE

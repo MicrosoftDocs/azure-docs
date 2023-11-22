@@ -238,7 +238,7 @@ In the following steps, leave all values at their default unless otherwise speci
     | Name           | `equipment-data`                  |
     | Expiration time | `1h`                              |
 
-1. Select **Create dataset** to save the reference dataset destination details. It takes a few seconds to deploy the dataset to your cluster and become visible in the dataset list view.
+1. Select **Create** to save the reference dataset destination details. It takes a few seconds to deploy the dataset to your cluster and become visible in the dataset list view.
 
 1. Use the values in the following table to configure the destination stage. Then select **Apply**:
 
