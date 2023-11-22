@@ -43,7 +43,7 @@ ms.author: wchi
         .connectionString(CONNECTION_STRING).buildClient();
     ```
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 
  Refer to [Storage File Sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.1/storage/spring-cloud-azure-starter-storage-file-share/storage-file-sample) to set up your Spring application. Two sets of configuration properties are provided according to the version of Spring Cloud Azure (below 4.0 and above 4.0). For more information, check [Azure Storage File Share Properties](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#azure_storage_file_share_proeprties).
 
@@ -76,5 +76,5 @@ ms.author: wchi
     const shareServiceClient = ShareServiceClient.fromConnectionString(connection_string);
     ```
 
-### [Other](#tab/other)
-For other languages, you can use the connection information that Service Connector sets to the environment variables to connect Azure File Storage. For environment variable details, see [Integrate Azure Files with Service Connector](../how-to-integrate-storage-file.md).
+### [Other](#tab/none)
+For other languages, you can use the connection information that Service Connector sets to the environment variables to connect to Azure File Storage. For environment variable details, see [Integrate Azure Files with Service Connector](../how-to-integrate-storage-file.md).

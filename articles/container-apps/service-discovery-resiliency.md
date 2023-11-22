@@ -8,9 +8,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/06/2023
 ms.author: hannahhunter
-ms.custom:
-  - ignite-fall-2023
-  - ignite-2023
+ms.custom: ignite-fall-2023, ignite-2023, devx-track-azurecli
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
 
@@ -106,24 +104,30 @@ resource myPolicyDoc 'Microsoft.App/containerApps/resiliencyPolicies@2023-08-01-
 
 # [CLI](#tab/cli)
 
-To begin, log-in to the Azure CLI:
+### Before you begin
+
+Log-in to the Azure CLI:
 
 ```azurecli
 az login
 ```
 
-### Create policies with recommended settings
+Make sure you have the latest version of the Azure Container App extension.
 
-> [!NOTE]
-> If all properties within a policy are not set during create or update, the CLI automatically applies the recommended default settings. [Set specific policies using flags.](#create-specific-policies)
+```azurecli
+az extension show --name containerapp
+az extension update --name containerapp
+```
+
+### Create policies with recommended settings
 
 To create a resiliency policy with recommended settings for timeouts, retries, and circuit breakers, run the `resiliency create` command with the `--recommended` flag:
 
 ```azurecli
-az containerapp resiliency create -g MyResourceGroup -n MyResiliencyName --container-app-name MyContainerApp --recommended
+az containerapp resiliency create --group MyResourceGroup --name MyResiliencyName --container-app-name MyContainerApp --recommended
 ```
 
-This command passes the recommeded resiliency policy configurations, as shown in the following example:
+This command passes the recommended resiliency policy configurations, as shown in the following example:
 
 ```yaml
 httpRetryPolicy:
@@ -139,7 +143,7 @@ tcpRetryPolicy:
 timeoutPolicy:
   connectionTimeoutInSeconds: 5
   responseTimeoutInSeconds: 60
-ircuitBreakerPolicy:
+circuitBreakerPolicy:
   consecutiveErrors: 5
   intervalInSeconds: 10
   maxEjectionPercent: 100
@@ -147,10 +151,13 @@ ircuitBreakerPolicy:
 
 ### Create specific policies
 
+> [!NOTE]
+> If all properties within a policy are not set during create or update, the CLI automatically applies the recommended default settings. [Set specific policies using flags.](#create-specific-policies)
+
 Create resiliency policies by targeting an individual policy. For example, to create the `Timeout` policy, run the following command.
 
 ```azurecli
-az containerapp resiliency update -g MyResourceGroup -n MyResiliency --container-app-name MyContainerApp --timeout 20 --timeout-connect 5
+az containerapp resiliency update --group MyResourceGroup --name MyResiliency --container-app-name MyContainerApp --timeout 20 --timeout-connect 5
 ```
 
 [For a full list of parameters, see the CLI reference guide.](/cli/azure/containerapp/resiliency#az-containerapp-resiliency-create-optional-parameters)
@@ -160,7 +167,7 @@ az containerapp resiliency update -g MyResourceGroup -n MyResiliency --container
 To apply the resiliency policies from a YAML file, run the following command:
 
 ```azurecli
-az containerapp resiliency create -g MyResourceGroup –n MyResiliency --container-app-name MyContainerApp –yaml <MY_YAML_FILE>
+az containerapp resiliency create --group MyResourceGroup –n MyResiliency --container-app-name MyContainerApp –yaml <MY_YAML_FILE>
 ```
 
 This command passes the resiliency policy YAML file, which might look similar to the following example:
@@ -196,7 +203,7 @@ httpConnectionPool:
 Update your resiliency policies by targeting an individual policy. For example, to update the response timeout of the `Timeout` policy, run the following command.
 
 ```azurecli
-az containerapp resiliency update -g MyResourceGroup -n MyResiliency --container-app-name MyContainerApp --timeout 20
+az containerapp resiliency update --group MyResourceGroup --name MyResiliency --container-app-name MyContainerApp --timeout 20
 ```
 
 ### Update policies with resiliency YAML
@@ -204,7 +211,7 @@ az containerapp resiliency update -g MyResourceGroup -n MyResiliency --container
 You can also update existing resiliency policies by updating the resiliency YAML you created earlier.
 
 ```azurecli
-az containerapp resiliency update --name MyResiliency -g MyResourceGroup --container-app-name MyContainerApp --yaml <MY_YAML_FILE>
+az containerapp resiliency update --name MyResiliency --group MyResourceGroup --container-app-name MyContainerApp --yaml <MY_YAML_FILE>
 ```
 
 ### View policies
@@ -212,13 +219,13 @@ az containerapp resiliency update --name MyResiliency -g MyResourceGroup --conta
 Use the `resiliency list` command to list all the resiliency policies attached to a container app.
 
 ```azurecli
-az containerapp resiliency list -g MyResourceGroup --container-app-name MyContainerApp​
+az containerapp resiliency list --group MyResourceGroup --container-app-name MyContainerApp​
 ```
 
 Use `resiliency show` command to show a single policy by name.
 
 ```azurecli
-az containerapp resiliency show -g MyResourceGroup -n MyResiliency --container-app-name ​MyContainerApp
+az containerapp resiliency show --group MyResourceGroup --name MyResiliency --container-app-name ​MyContainerApp
 ```
 
 ### Delete policies
@@ -226,7 +233,7 @@ az containerapp resiliency show -g MyResourceGroup -n MyResiliency --container-a
 To delete resiliency policies, run the following command. 
 
 ```azurecli
-az containerapp resiliency delete -g MyResourceGroup -n MyResiliency --container-app-name ​MyContainerApp
+az containerapp resiliency delete --group MyResourceGroup --name MyResiliency --container-app-name ​MyContainerApp
 ```
 
 # [Azure portal](#tab/portal)

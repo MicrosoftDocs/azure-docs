@@ -2,7 +2,7 @@
 title: Domain-specific content - Azure AI Vision
 titleSuffix: Azure AI services
 description: Learn how to specify an image categorization domain to return more detailed information about an image.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 

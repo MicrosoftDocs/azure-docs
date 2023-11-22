@@ -20,8 +20,7 @@ All events related to an incoming HTTP request are correlated for faster trouble
 
 You can use the TelemetryClient API to manually instrument and monitor more aspects of your app and system. We describe the TelemetryClient API in more detail later in this article.
 
-> [!NOTE]
-> An [OpenTelemetry-based Node.js offering](opentelemetry-enable.md?tabs=nodejs) is available. [Learn more](opentelemetry-overview.md).
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
 ## Get started
 
@@ -89,7 +88,7 @@ Because the SDK batches data for submission, there might be a delay before items
 * Continue to use the application. Take more actions to generate more telemetry.
 * Select **Refresh** in the portal resource view. Charts periodically refresh on their own, but manually refreshing forces them to refresh immediately.
 * Verify that [required outgoing ports](./ip-addresses.md) are open.
-* Use [Search](./search-and-transaction-diagnostics.md?tabs=transaction-search) to look for specific events.
+* Use [Search](./transaction-search-and-diagnostics.md?tabs=transaction-search) to look for specific events.
 * Check the [FAQ][FAQ].
 
 ## Basic usage

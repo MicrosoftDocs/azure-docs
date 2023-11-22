@@ -324,10 +324,10 @@ items:
         href: identity-encrypt-data-at-rest.md
   - name: Tutorials
     items:
+    - name: Detect liveness in face
+      href: Tutorials/liveness.md
     - name: Add users to a Face identification app
       items:
-      - name: Detect liveness in face
-        href: Tutorials/liveness.md
       - name: Best practices for enrolling users
         href: enrollment-overview.md
       - name: Build a React Native app to enroll users
@@ -421,7 +421,7 @@ items:
   - name: Reference
     items:
     - name: Video Retrieval REST API
-      href: https://eastus.dev.cognitive.microsoft.com/docs/services/ingestion-api-private-preview-2023-05-01-preview/operations/645db36646346106fcc4779b
+      href: reference-video-search.md
 - name: How-to guides
   items:
   - name: Enterprise readiness

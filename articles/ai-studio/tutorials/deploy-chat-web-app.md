@@ -43,7 +43,7 @@ The steps in this tutorial are:
 
 Follow these steps to deploy a chat model and test it without your data. 
 
-1. Sign in to [Azure AI Studio](https://aka.ms/aistudio) with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource. You should be on the Azure AI Studio **Home** page.
+1. Sign in to [Azure AI Studio](https://ai.azure.com) with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource. You should be on the Azure AI Studio **Home** page.
 1. Select **Build** from the top menu and then select **Deployments** > **Create**.
     
     :::image type="content" source="../media/tutorials/chat-web-app/deploy-create.png" alt-text="Screenshot of the deployments page without deployments." lightbox="../media/tutorials/chat-web-app/deploy-create.png":::
@@ -53,7 +53,7 @@ Follow these steps to deploy a chat model and test it without your data.
     :::image type="content" source="../media/tutorials/chat-web-app/deploy-gpt-35-turbo-16k.png" alt-text="Screenshot of the model selection page." lightbox="../media/tutorials/chat-web-app/deploy-gpt-35-turbo-16k.png":::
 
 1. On the **Deploy model** page, enter a name for your deployment, and then select **Deploy**. After the deployment is created, you see the deployment details page. Details include the date you created the deployment and the created date and version of the model you deployed.
-1. On the deployment details page from the previous step, select **Test in playground**.
+1. On the deployment details page from the previous step, select **Open in playground**.
 
     :::image type="content" source="../media/tutorials/chat-web-app/deploy-gpt-35-turbo-16k-details.png" alt-text="Screenshot of the GPT chat deployment details." lightbox="../media/tutorials/chat-web-app/deploy-gpt-35-turbo-16k-details.png":::
 
@@ -221,12 +221,9 @@ You're almost there! Now you can test the web app.
 
 ## Clean up resources
 
-To avoid incurring unnecessary Azure costs, you should delete the resources you created in this tutorial if they're no longer needed. You can delete a resource group or individual resources Azure portal or Azure CLI. For more information, see:
-
-- [Azure portal](https://portal.azure.com?azure-portal=true)
-- [Azure CLI](/cli/azure)
+To avoid incurring unnecessary Azure costs, you should delete the resources you created in this quickstart if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true).
 
 ## Next steps
 
-* Learn more about what you can do in the [Azure AI Studio](../what-is-ai-studio.md).
-* Get answers to frequently asked questions in the [Azure AI FAQ article](../what-is-ai-studio.md).
+- [Create a project in Azure AI Studio](../how-to/create-projects.md).
+- Learn more about what you can do in the [Azure AI Studio](../what-is-ai-studio.md).

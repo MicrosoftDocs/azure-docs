@@ -3,7 +3,7 @@ title: Author API Management policies using Microsoft Copilot for Azure (preview
 description: Learn about how Microsoft Copilot for Azure (preview) can generate Azure API Management policies based on your requirements.
 ms.date: 11/15/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
@@ -21,9 +21,11 @@ When you're working with API Management policies, you can also select a portion 
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
+[!INCLUDE [preview-note](includes/preview-note.md)]
+
 ## Sample prompts
 
-Here are a few examples of the kinds of prompts you can use to get help authoring API Management policies. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of queries.
+Here are a few examples of the kinds of prompts you can use to get help authoring API Management policies. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of policies.
 
 - "Generate a policy to configure rate limiting with 5 requests per second"
 - "Generate a policy to remove a 'X-AspNet-Version' header from the response"
@@ -39,9 +41,13 @@ In this example, a policy is generated based on the prompt "Generate a policy to
 
 :::image type="content" source="media/author-api-management-policies/api-management-policy-remove-header.png" lightbox="media/author-api-management-policies/api-management-policy-remove-header.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) generating a policy to remove a header.":::
 
-When you have questions about a certain policy element, you can get more information by selecting a section of the policy, right-clicking, and selecting **Explain**. Alternately, you can type your question asking Microsoft Copilot for Azure (preview) to explain more. Microsoft Copilot for Azure (preview) explains how the code works, adding details when helpful about best practices and behaviors. You can ask about one element (such as in this example asking about `<on-error> <base /> </on-error>`) or about a larger, more complex section of your policy.
+When you have questions about a certain policy element, you can get more information by selecting a section of the policy, right-clicking, and selecting **Explain**.
 
-:::image type="content" source="media/author-api-management-policies/api-management-policy-explain.png" lightbox="media/author-api-management-policies/api-management-policy-explain.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing information about a specific API Management policy.":::
+:::image type="content" source="media/author-api-management-policies/api-management-policy-explain.png" lightbox="media/author-api-management-policies/api-management-policy-explain.png" alt-text="Screenshot of right-clicking a section of an API Management policy to get an explanation from Microsoft Copilot for Azure (preview).":::
+
+Microsoft Copilot for Azure (preview) explains how the code works, breaking down each specific section.
+
+:::image type="content" source="media/author-api-management-policies/api-management-policy-explanation.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing information about a specific API Management policy.":::
 
 ## Next steps
 

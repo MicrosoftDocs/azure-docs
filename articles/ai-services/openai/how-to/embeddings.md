@@ -2,7 +2,7 @@
 title: 'How to generate embeddings with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Learn how to generate embeddings with Azure OpenAI
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
@@ -80,11 +80,15 @@ AzureKeyCredential credentials = new (oaiKey);
 
 OpenAIClient openAIClient = new (oaiEndpoint, credentials);
 
-EmbeddingsOptions embeddingOptions = new ("Your text string goes here");
+EmbeddingsOptions embeddingOptions = new()
+{
+    DeploymentName = "text-embedding-ada-002",
+    Input = { "Your text string goes here" },
+};
 
-var returnValue = openAIClient.GetEmbeddings("YOUR_DEPLOYMENT_NAME", embeddingOptions);
+var returnValue = openAIClient.GetEmbeddings(embeddingOptions);
 
-foreach (float item in returnValue.Value.Data[0].Embedding)
+foreach (float item in returnValue.Value.Data[0].Embedding.ToArray())
 {
     Console.WriteLine(item);
 }
@@ -107,7 +111,7 @@ Our embedding models may be unreliable or pose social risks in certain cases, an
 * Learn more about using Azure OpenAI and embeddings to perform document search with our [embeddings tutorial](../tutorials/embeddings.md).
 * Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
 * Store your embeddings and perform vector (similarity) search using your choice of Azure service:
-  * [Azure Cognitive Search](../../../search/vector-search-overview.md)
+  * [Azure AI Search](../../../search/vector-search-overview.md)
   * [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md)
   * [Azure Cosmos DB for NoSQL](../../../cosmos-db/vector-search.md)
   * [Azure Cosmos DB for PostgreSQL](../../../cosmos-db/postgresql/howto-use-pgvector.md)

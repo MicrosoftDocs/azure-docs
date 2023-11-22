@@ -5,9 +5,7 @@
  ms.topic: include
  ms.date: 11/03/2023
  ms.author: kgremban
-ms.custom:
-  - include file
-  - ignite-2023
+ms.custom: include file, ignite-2023, devx-track-azurecli
 ---
 
 
@@ -15,7 +13,7 @@ To connect your cluster to Azure Arc:
 
 1. Sign in with Azure CLI.
 
-   ```bash
+   ```azurecli
    az login
    ```
 
@@ -35,13 +33,13 @@ To connect your cluster to Azure Arc:
 
 1. Set the Azure subscription context for all commands:
 
-   ```bash
+   ```azurecli
    az account set -s $SUBSCRIPTION_ID
    ```
 
 1. Register the required resource providers in your subscription:
 
-   ```bash
+   ```azurecli
    az provider register -n "Microsoft.ExtendedLocation"
    az provider register -n "Microsoft.Kubernetes"
    az provider register -n "Microsoft.KubernetesConfiguration"
@@ -53,24 +51,24 @@ To connect your cluster to Azure Arc:
 
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
 
-   ```bash
+   ```azurecli
    az group create --location $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
    ```
 
 1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it in the resource group you created in the previous step:
 
-   ```bash
+   ```azurecli
    az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
    ```
 
 1. Fetch the `objectId` or `id` of the Microsoft Entra ID application that the Azure Arc service uses.
 
-   ```bash
+   ```azurecli
    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
    ```
 
 1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s#az-connectedk8s-enable-features) command to enable custom location support on your cluster. Use the `objectId` or `id` value from the previous command to enable custom locations on the cluster:
 
-    ```bash
+    ```azurecli
     az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid <objectId/id> --features cluster-connect custom-locations
     ```

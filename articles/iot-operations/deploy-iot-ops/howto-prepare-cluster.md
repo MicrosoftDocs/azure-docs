@@ -5,8 +5,7 @@ author: dominicbetts
 ms.author: dobett
 # ms.subservice: orchestrator
 ms.topic: how-to
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 11/07/2023
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.
@@ -25,7 +24,6 @@ An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure Io
 To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- At least **Contributor** role permissions in your subscription plus the **Microsoft.Authorization/roleAssignments/write** permission.
 - [Azure CLI version 2.42.0 or newer installed](/cli/azure/install-azure-cli) on your development machine.
 - Hardware that meets the [system requirements](/azure/azure-arc/kubernetes/system-requirements).
 
@@ -35,7 +33,46 @@ This section provides steps to prepare and Arc-enable clusters in validated envi
 
 # [AKS Edge Essentials](#tab/aks-edge-essentials)
 
-[!INCLUDE [prepare-aks-ee](../includes/prepare-aks-ee.md)]
+[Azure Kubernetes Service Edge Essentials](/azure/aks/hybrid/aks-edge-overview) is an on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale. AKS Edge Essentials includes a Microsoft-supported Kubernetes platform that includes a lightweight Kubernetes distribution with a small footprint and simple installation experience, making it easy for you to deploy Kubernetes on PC-class or "light" edge hardware.
+
+>[!TIP]
+>You can use the [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1) script to automate the steps in this section and connect your cluster.
+>
+>In an elevated PowerShell window, run the following commands:
+>
+>```powershell
+>$url = "https://raw.githubusercontent.com/Azure/AKS-Edge/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1"
+>Invoke-WebRequest -Uri $url -OutFile .\AksEdgeQuickStartForAio.ps1
+>Unblock-File .\AksEdgeQuickStartForAio.ps1
+>Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+>.\AksEdgeQuickStartForAio.ps1 -SubscriptionId "<SUBSCRIPTION_ID>" -TenantId "<TENANT_ID>" -ResourceGroupName "<RESOURCE_GROUP_NAME>"  -Location "<LOCATION>"  -ClusterName "<CLUSTER_NAME>"
+>```
+>
+>Your machine might reboot as part of this process. If so, run the whole set of commands again.
+
+Prepare your machine for AKS Edge Essentials.
+
+1. Download the [installer for the validated AKS Edge Essentials](https://aka.ms/aks-edge/msi-k3s-1.2.414.0) version to your local machine.
+
+1. Complete the steps in [Prepare your machine for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine). Be sure to use the validated installer you downloaded in the previous step and not the most recent version.
+
+Set up an AKS Edge Essentials cluster on your machine.
+
+1. Complete the steps in [Create a single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment).
+
+    At the end of [Step 1: single machine configuration parameters](/azure/aks/hybrid/aks-edge-howto-single-node-deployment#step-1-single-machine-configuration-parameters), modify the following values in the _aksedge-config.json_ file as follows:
+
+    ```json
+    `Init.ServiceIPRangeSize` = 10
+    `LinuxNode.DataSizeInGB` = 30
+    `LinuxNode.MemoryInMB` = 8192
+    ```
+
+1. Install **local-path** storage in the cluster by running the following command:
+
+    ```cmd
+    kubectl apply -f https://raw.githubusercontent.com/Azure/AKS-Edge/main/samples/storage/local-path-provisioner/local-path-storage.yaml
+    ```
 
 # [Ubuntu](#tab/ubuntu)
 
@@ -84,8 +121,6 @@ To set up your WSL Ubuntu environment:
 
 ## Arc-enable your cluster
 
-If you used the setup script for creating an AKS Edge Essentials cluster, that takes care of connecting to Azure Arc. You can skip this section.
-
 [!INCLUDE [connect-cluster](../includes/connect-cluster.md)]
 
 ## Verify your cluster
@@ -125,6 +160,8 @@ pod/kube-aad-proxy-56d9f754d8-9gthm               2/2     Running   0           
 pod/resource-sync-agent-769bb66b79-z9n46          2/2     Running   0               10m
 pod/metrics-agent-6588f97dc-455j8                 2/2     Running   0               10m
 ```
+
+
 
 ## Next steps
 

@@ -32,7 +32,7 @@ sections:
 
           To track your compliance with any other standard, you'll need to explicitly add them to your dashboard.
           
-          For a list of available regulatory standards, see [What regulatory compliance standards are available in Defender for Cloud](update-regulatory-compliance-packages.md#what-regulatory-compliance-standards-are-available-in-defender-for-cloud).
+          For a list of available regulatory standards, see [What regulatory compliance standards are available in Defender for Cloud](update-regulatory-compliance-packages.md).
 
           **AWS**: When users onboard, every AWS account has the AWS Foundational Security Best Practices assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
 
@@ -68,7 +68,7 @@ sections:
       - question: |
           How can I remove a built-in standard, like PCI-DSS, ISO 27001, or SOC2 TSP from the dashboard?
         answer: |
-          To customize the regulatory compliance dashboard, and focus only on the standards that are applicable to you, you can remove any of the displayed regulatory standards that aren't relevant to your organization. To remove a standard, follow the instructions in [Remove a standard from your dashboard](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
+          To customize the regulatory compliance dashboard, and focus only on the standards that are applicable to you, you can remove any of the displayed regulatory standards that aren't relevant to your organization. To remove a standard, follow the instructions in [Remove a standard from your dashboard](update-regulatory-compliance-packages.md).
 
 
       - question: |
@@ -117,9 +117,9 @@ sections:
       - question: |
           How can I create exceptions for some of the policies in the regulatory compliance dashboard?
         answer: |
-          For policies are built into Defender for Cloud and included in the secure score, you can create exemptions for one or more resources directly in the portal as explained in [Exempting resources and recommendations from your secure score](exempt-resource.md).
+          For MCSB recommendations that are included in the secure score, you can create exemptions for one or more resources directly in the portal as explained in [Exempting resources and recommendations from your secure score](exempt-resource.md).
 
-          For other policies, you can create an exemption directly in the policy itself, by following the instructions in [Azure Policy exemption structure](../governance/policy/concepts/exemption-structure.md).
+          For other recommendations, you can create an exemption directly in the recommendation itself, by following the instructions in [Azure Policy exemption structure](../governance/policy/concepts/exemption-structure.md).
 
           
       - question: |

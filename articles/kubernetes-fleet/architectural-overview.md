@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 # Architectural overview of Azure Kubernetes Fleet Manager
 
-Azure Kubernetes Fleet Manager (Fleet) is meant to solve at-scale and multi-cluster problems of Azure Kubernetes Service (AKS) clusters. This document provides an architectural overview of topological relationship between a Fleet resource and AKS clusters. This document also provides a conceptual overview of scenarios available on top of Fleet resource like Kubernetes resource propagation and multi-cluster Layer-4 load balancing.
+Azure Kubernetes Fleet Manager (Fleet) solves at-scale and multi-cluster problems of Azure Kubernetes Service (AKS) clusters. This document provides an architectural overview of the relationship between a Fleet resource and AKS clusters. This document also provides a conceptual overview of scenarios available on top of Fleet resource, including update orchestration, Kubernetes resource propagation (preview) and multi-cluster Layer-4 load balancing (preview).
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
@@ -25,13 +25,28 @@ Fleet supports joining the following types of existing AKS clusters as member cl
 * AKS clusters across different subscriptions of the same Microsoft Entra tenant
 * AKS clusters from different regions but within the same tenant
 
-You can join up to 100 AKS clusters as member clusters to the same fleet resource.
+If you want to use fleet only for the update orchestration scenario, you can create a fleet resource without the hub cluster. The fleet resource is treated just as a grouping resource, and does not have its own data plane. This is the default behavior when creating a new fleet resource. In this case, you can join up to 100 AKS clusters as member clusters to the same fleet resource.
 
-If you want to use fleet only for the update orchestration scenario, you can create a fleet resource without the hub cluster. The fleet resource is treated just as a grouping resource, and does not have its own data plane. This is the default behavior when creating a new fleet resource.
+If you want to use fleet for Kubernetes object propagation (preview) and multi-cluster load balancing (preview) in addition to update orchestration, then you need to create the fleet resource with the hub cluster enabled. In this case, you can join up to 20 AKS clusters as member clusters to the same fleet resource.
 
-If you want to use fleet for Kubernetes object propagation and multi-cluster load balancing in addition to update orchestration, then you need to create the fleet resource with the hub cluster enabled. If you have a hub cluster data plane for the fleet, you can use it to check the member clusters joined.
+Note that once a fleet resource has been created, it is not possible to change the hub mode for the fleet resource.
 
-Once a cluster is joined to a fleet resource, a MemberCluster custom resource is created on the fleet. Note that once a fleet resource has been created, it is not possible to change the hub mode (with/without) for the fleet resource.
+## Update orchestration across multiple clusters
+
+Platform admins managing Kubernetes fleets with large number of clusters often have problems with staging their updates in a safe and predictable way across multiple clusters. To address this pain point, Kubernetes Fleet Manager (Fleet) allows you to orchestrate updates across multiple clusters using update runs, stages, groups, and strategies.
+
+:::image type="content" source="./media/conceptual-update-orchestration-inline.png" alt-text="A diagram showing an upgrade run containing two update stages, each containing two update groups with two member clusters." lightbox="./media/conceptual-update-orchestration.png":::
+
+* **Update run**: An update run represents an update being applied to a collection of AKS clusters. An update run updates clusters in a predictable fashion by defining update stages and update groups. An update run can be stopped and started.
+* **Update stage**: Update runs are divided into stages which are applied sequentially. For example, a first update stage might update test environment member clusters, and a second update stage would then subsequently update production environment member clusters. A wait time can be specified to delay between the application of subsequent update stages.
+* **Update group**: Each update stage contains one or more update groups, which are used to select the member clusters to be updated. Update groups are also used to order the application of updates to member clusters. Within an update stage, updates are applied to all the different update groups in parallel; within an update group, member clusters update sequentially. Each member cluster of the fleet can only be a part of one update group.
+* **Update strategy**: Update strategies allows you to store templates for your update runs instead of creating them individually for each update run.
+
+Currently, the supported update operations on the cluster are upgrades. Within upgrades, you can either upgrade both the Kubernetes control plane version and the node image, or you can choose to upgrade only the node image. The latest available node image for a given cluster may vary based on its region (check [release tracker](../aks/release-tracker.md) for more information). Node image upgrades currently support upgrading each cluster to the latest node image available in its region, or applying a consistent node image across all clusters of the update run, regardless of the cluster regions. In this case the update run picks the **latest common** image across all these regions to achieve consistency.
+
+## Member cluster representation on the hub
+
+ Once each cluster is joined to a fleet resource, a corresponding MemberCluster custom resource is created on the fleet hub.
 
 The member clusters can be viewed by running the following command:
 
@@ -51,40 +66,11 @@ The following labels are added automatically to all member clusters, which can t
 * `fleet.azure.com/resource-group`
 * `fleet.azure.com/subscription-id`
 
-## Update orchestration across multiple clusters
-
-Platform admins managing Kubernetes fleets with large number of clusters often have problems with staging their updates in a safe and predictable way across multiple clusters. To address this pain point, Fleet allows orchestrating updates across multiple clusters using update runs, stages, and groups.
-
-:::image type="content" source="./media/conceptual-update-orchestration-inline.png" alt-text="A diagram showing an upgrade run containing two update stages, each containing two update groups with two member clusters." lightbox="./media/conceptual-update-orchestration.png":::
-
-* **Update group**: A group of AKS clusters for which updates are done sequentially one after the other. Each member cluster of the fleet can only be a part of one update group.
-* **Update stage**: Update stages allow pooling together update groups for which the updates need to be run in parallel. It can be used to define wait time between two different collections of update groups.
-* **Update run**: An update being applied to a collection of AKS clusters in a sequential or stage-by-stage manner. An update run can be stopped and started. An update run can either upgrade clusters one-by-one or in a stage-by-stage fashion using update stages and update groups.
-* **Update strategy**: Update strategy allows you to store templates for your update runs instead of creating them individually for each update run.
-
-Currently, the only supported update operations on the cluster are upgrades. Within upgrades, you can either upgrade both the Kubernetes control plane version and the node image or you can choose to upgrade only the node image. Node image upgrades currently only allow upgrading to either the latest available node image for each cluster, or applying the same consistent node image across all clusters of the update run. As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](../aks/release-tracker.md) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
-
 ## Kubernetes resource propagation
 
-Fleet provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters. 
+Fleet provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters. For more details, see the [resource propagation documentation](resource-propagation.md).
 
 [ ![Diagram that shows how Kubernetes resource are propagated to member clusters.](./media/conceptual-resource-propagation.png) ](./media/conceptual-resource-propagation.png#lightbox)
-
-A `ClusterResourcePlacement` has two parts to it:
-
-* **Resource selection**: The `ClusterResourcePlacement` custom resource is used to select which cluster-scoped Kubernetes resource objects need to be propagated from the fleet cluster and to select which member clusters to propagate these objects to. It supports the following forms of resource selection:
-    * Select resources by specifying just the *<group, version, kind>*. This selection propagates all resources with matching *<group, version, kind>*.
-    * Select resources by specifying the *<group, version, kind>* and name. This selection propagates only one resource that matches the *<group, version, kind>* and name.
-    * Select resources by specifying the *<group, version, kind>* and a set of labels using `ClusterResourcePlacement` -> `LabelSelector`. This selection propagates all resources that match the *<group, version, kind>* and label specified.
-    
-    > [!NOTE]
-    > `ClusterResourcePlacement` can be used to select and propagate namespaces, which are cluster-scoped resources. When a namespace is selected, all the namespace-scoped objects under this namespace are propagated to the selected member clusters along with this namespace. 
-
-* **Target cluster selection**: The `ClusterResourcePlacement` custom resource can also be used to limit propagation of selected resources to a specific subset of member clusters. The following forms of target cluster selection are supported:
-
-    * Select all the clusters by specifying empty policy under `ClusterResourcePlacement`
-    * Select clusters by listing names of `MemberCluster` custom resources
-    * Select clusters using cluster selectors to match labels present on `MemberCluster` custom resources
 
 ## Multi-cluster load balancing
 

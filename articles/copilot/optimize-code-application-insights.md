@@ -1,9 +1,9 @@
 ---
 title: Discover performance recommendations with Code Optimizations using Microsoft Copilot for Azure (preview)
 description: Learn about scenarios where Microsoft Copilot for Azure (preview) can use Application Insight Code Optimizations to help optimize your apps.
-ms.date: 11/15/2023
+ms.date: 11/20/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
@@ -19,6 +19,8 @@ When you ask Microsoft Copilot for Azure (preview) to provide these recommendati
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
+[!INCLUDE [preview-note](includes/preview-note.md)]
+
 ## Sample prompts
 
 Here are a few examples of the kinds of prompts you can use with Code Optimizations. Modify these prompts based on your real-life scenarios, or try additional prompts about specific areas for optimization.
@@ -31,13 +33,11 @@ Here are a few examples of the kinds of prompts you can use with Code Optimizati
 
 ## Examples
 
-In this example, Microsoft Copilot for Azure (preview) responds to the prompt, "Show my code performance recommendations." The response notes that there are 18 recommendations, providing the option to view either the top recommendation or all recommendations at once.
+In this example, Microsoft Copilot for Azure (preview) responds to the prompt, "Any code performance optimizations?" The response notes that there are 6 recommendations, providing the option to view either the top recommendation or all recommendations at once.
 
 :::image type="content" source="media/optimize-code-application-insights/code-optimizations-show-recommendations.png" lightbox="media/optimize-code-application-insights/code-optimizations-show-recommendations.png" alt-text="Screenshot of Microsoft Copilot for Azure responding to a question about code optimizations.":::
 
 When the **Review all** option is selected, Microsoft Copilot for Azure (preview) displays all recommendations. You can then select any recommendation to see more details.
-
-:::image type="content" source="media/optimize-code-application-insights/code-optimizations-show-recommendations.png" lightbox="media/optimize-code-application-insights/code-optimizations-show-recommendations.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) showing code optimization recommendations.":::
 
 ## Next steps
 

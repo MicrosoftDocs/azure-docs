@@ -83,7 +83,7 @@ After you've chosen the account to create an enterprise Azure dev/test subscript
     1. You must have access and permissions associated with your identity.
     1. You must designate the Account as a dev/test account within the enrollment portal.
 
-### Next steps  
+## Related content  
 
 - [Azure EA portal administration](../../cost-management-billing/manage/ea-portal-administration.md)
 - [Get started with the Azure Enterprise portal](../../cost-management-billing/manage/ea-portal-get-started.md)

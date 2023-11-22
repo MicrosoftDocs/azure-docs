@@ -2,7 +2,7 @@
 title: 'Quickstart: Generate images with the Python SDK for Azure OpenAI Service'
 titleSuffix: Azure OpenAI Service
 description: Learn how to generate images with Azure OpenAI Service by using the Python SDK and the endpoint and access keys for your Azure OpenAI resource.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.custom:
@@ -105,9 +105,9 @@ from PIL import Image
 import json
 
 client = AzureOpenAI(
-    api_version="2023-12-01-preview",
-    api_base=os.environ['AZURE_OPENAI_ENDPOINT'],
-    api_key=os.environ["AZURE_OPENAI_API_KEY"],
+    api_version="2023-12-01-preview",  
+    api_key=os.environ["AZURE_OPENAI_API_KEY"],  
+    azure_endpoint=os.environ['AZURE_OPENAI_ENDPOINT']
 )
 
 result = client.images.generate(

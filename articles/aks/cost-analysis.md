@@ -4,8 +4,7 @@ description: Learn how to use cost analysis to surface granular cost allocation 
 author: nickomang
 ms.author: nickoman
 ms.service: azure-kubernetes-service
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/06/2023
 
@@ -32,6 +31,8 @@ To address this challenge, AKS has integrated with MCM to offer detailed cost dr
 
 The AKS cost analysis addon is built on top of [OpenCost](https://www.opencost.io/), an open-source Cloud Native Computing Foundation Sandbox project for usage data collection, which gets reconciled with your Azure invoice data. Post-processed data is visible directly in the [MCM Cost Analysis portal experience](/azure/cost-management-billing/costs/quick-acm-cost-analysis).
 
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 ## Prerequisites and limitations
 
 * Your cluster must be either `Standard` or `Premium` tier, not the `Free` tier.
@@ -45,6 +46,11 @@ The AKS cost analysis addon is built on top of [OpenCost](https://www.opencost.i
 * If using the Azure CLI, you must have version `2.44.0` or later installed, and the `aks-preview` Azure CLI extension version `0.5.155` or later installed.
 
 * The `ClusterCostAnalysis` feature flag must be registered on your subscription.
+
+* Kubernetes cost views are available only for the following Microsoft Azure Offer types. For more information on offer types, see [Supported Microsoft Azure offers](/azure/cost-management-billing/costs/understand-cost-mgt-data#supported-microsoft-azure-offers). 
+    * Enterprise Agreement
+    * Microsoft Customer Agreement
+
 
 ### Install or update the `aks-preview` Azure CLI extension
 
@@ -113,11 +119,17 @@ az aks update --name myAKSCluster --resource-group myResourceGroup –-disable-c
 
 ## View cost information
 
-You can view cost allocation data in the Azure portal. To learn more about how to navigate the cost analysis UI view, see the [Cost Management documentation](/azure/cost-management-billing/costs/).
+You can view cost allocation data in the Azure portal. To learn more about how to navigate the cost analysis UI view, see the [Cost Management documentation](/azure/cost-management-billing/costs/view-kubernetes-costs).
 
 > [!NOTE]
 > It might take up to one day for data to finalize
 
+## Troubleshooting
+
+See the following guide to troubleshoot [AKS cost analysis add-on issues](/troubleshoot/azure/azure-kubernetes/aks-cost-analysis-add-on-issues).
+
 <!-- LINKS -->
 [az-extension-add]: /cli/azure/extension#az-extension-add
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-show]: /cli/azure/feature#az_feature_show
 [az-extension-update]: /cli/azure/extension#az-extension-update

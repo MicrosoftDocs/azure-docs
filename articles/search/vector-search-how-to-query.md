@@ -101,7 +101,7 @@ Your application code is responsible for handling this response and providing th
 
 ## Vector query request
 
-This section shows you the basic structure of a vector query. You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs to query vectors.
+This section shows you the basic structure of a vector query. You can use the Azure portal, REST APIs, or the Azure SDKs to query vectors.
 
 ### [**2023-11-01**](#tab/query-2023-11-01)
 
@@ -236,13 +236,13 @@ Be sure to the **JSON view** and formulate the vector query in JSON. The search 
 
 ### [**.NET**](#tab/dotnet-vector-query)
 
-+ Use the [**Azure.Search.Documents 11.5.0-beta.5**](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.5) package for vector scenarios. 
++ Use the [**Azure.Search.Documents 11.5.0**](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0) package for vector scenarios. 
 
 + See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) GitHub repository for .NET code samples.
 
 ### [**Python**](#tab/python-vector-query)
 
-+ Use the [**Azure.Search.Documents /11.4.0b11**](https://pypi.org/project/azure-search-documents/11.4.0b11/) package for vector scenarios. 
++ Use the [**Azure.Search.Documents**](https://pypi.org/project/azure-search-documents) package for vector scenarios. 
 
 + See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
 
@@ -301,8 +301,10 @@ Here's a modified example so that you can see the basic structure of a response 
 
 **Key points:**
 
-+ `k` usually determines how many matches are returned. You can assume a `k` of three for this response.
++ `k` determines how many nearest neighbor results are returned. In the example above, a `k` value of three was used. Vector queries always return `k` results, assuming at least `k` documents exist, even if there are documents with poor similarity, because the algorithm is only identifying the `k` nearest neighbors to the query vector. As a result, note that both count and facet aggregations (facet counts) operate on this `k` recall set. 
+
 + The **`@search.score`** is determined by the [vector search algorithm](vector-search-ranking.md) (HNSW algorithm and a `cosine` similarity metric in this example). 
+
 + Fields include text and vector values. The content vector field consists of 1536 dimensions for each match, so it's truncated for brevity (normally, you might exclude vector fields from results). The text fields used in the response (`"select": "title, category"`) aren't used during query execution. The match is made on vector data alone. However, a response can include any "retrievable" field in an index. As such, the inclusion of text fields is helpful because its values are easily recognized by users.
 
 ## Vector query with filter

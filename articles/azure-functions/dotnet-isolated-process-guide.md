@@ -79,20 +79,30 @@ You'll find these extension packages under [Microsoft.Azure.Functions.Worker.Ext
 
 ## Start-up and configuration 
 
-When using .NET isolated functions, you have access to the start-up of your function app, which is usually in Program.cs. You're responsible for creating and starting your own host instance. As such, you also have direct access to the configuration pipeline for your app. With .NET Functions isolated worker process, you can much more easily add configurations, inject dependencies, and run your own middleware. 
+When using .NET isolated functions, you have access to the start-up of your function app, which is usually in `Program.cs`. You're responsible for creating and starting your own host instance. As such, you also have direct access to the configuration pipeline for your app. With .NET Functions isolated worker process, you can much more easily add configurations, inject dependencies, and run your own middleware. 
 
 The following code shows an example of a [HostBuilder] pipeline:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_startup":::
 
-This code requires `using Microsoft.Extensions.DependencyInjection;`. 
+This code requires `using Microsoft.Extensions.DependencyInjection;`.
 
-A [HostBuilder] is used to build and return a fully initialized [`IHost`][IHost] instance, which you run asynchronously to start your function app. 
+Before calling `Build()` on the `HostBuilder`, you should:
+
+- Call either `ConfigureFunctionsWebApplication()` if using [ASP.NET Core integration](#aspnet-core-integration) or `ConfigureFunctionsWorkerDefaults()` otherwise. See [HTTP trigger](#http-trigger) for details on these options.
+    - If you're writing your application using F#, some trigger and binding extensions require extra configuration here. See the setup documentation for the [Blobs extension][fsharp-blobs], the [Tables extension][fsharp-tables], and the [Cosmos DB extension][fsharp-cosmos] if you plan to use this in your app.
+- Configure any services or app configuration your project requires. See [Configuration] for details.
+    - If you are planning to use Application Insights, you need to call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` in the `ConfigureServices()` delegate. See [Application Insights](#application-insights) for details.
+
+If your project targets .NET Framework 4.8, you also need to add `FunctionsDebugger.Enable();` before creating the HostBuilder. It should be the first line of your `Main()` method. For more information, see [Debugging when targeting .NET Framework](#debugging-when-targeting-net-framework).
+
+The [HostBuilder] is used to build and return a fully initialized [`IHost`][IHost] instance, which you run asynchronously to start your function app. 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
 
-> [!IMPORTANT]
-> If your project targets .NET Framework 4.8, you also need to add `FunctionsDebugger.Enable();` before creating the HostBuilder. It should be the first line of your `Main()` method. For more information, see [Debugging when targeting .NET Framework](#debugging-when-targeting-net-framework).
+[fsharp-blobs]: ./functions-bindings-storage-blob.md#install-extension
+[fsharp-tables]: ./functions-bindings-storage-table.md#install-extension
+[fsharp-cosmos]: ./functions-bindings-cosmosdb-v2.md#install-extension
 
 ### Configuration
 
@@ -202,8 +212,8 @@ The following extension methods on [FunctionContext] make it easier to work with
 | **`GetHttpRequestDataAsync`** | Gets the `HttpRequestData` instance when called by an HTTP trigger. This method returns an instance of `ValueTask<HttpRequestData?>`, which is useful when you want to read message data, such as request headers and cookies. |
 | **`GetHttpResponseData`** | Gets the `HttpResponseData` instance when called by an HTTP trigger. |
 |  **`GetInvocationResult`** | Gets an instance of `InvocationResult`, which represents the result of the current function execution. Use the `Value` property to get or set the value as needed. |
-|  **` GetOutputBindings`** | Gets the output binding entries for the current function execution. Each entry in the result of this method is of type `OutputBindingData`. You can use the `Value` property to get or set the value as needed. | 
-|  **` BindInputAsync`** | Binds an input binding item for the requested `BindingMetadata` instance. For example, you can use this method when you have a function with a `BlobInput` input binding that needs to be accessed or updated by your middleware. |
+|  **`GetOutputBindings`** | Gets the output binding entries for the current function execution. Each entry in the result of this method is of type `OutputBindingData`. You can use the `Value` property to get or set the value as needed. | 
+|  **`BindInputAsync`** | Binds an input binding item for the requested `BindingMetadata` instance. For example, you can use this method when you have a function with a `BlobInput` input binding that needs to be accessed or updated by your middleware. |
 
 The following is an example of a middleware implementation that reads the `HttpRequestData` instance and updates the `HttpResponseData` instance during function execution. This middleware checks for the presence of a specific request header(x-correlationId), and when present uses the header value to stamp a response header. Otherwise, it generates a new GUID value and uses that for stamping the response header.
  
@@ -230,7 +240,7 @@ This section outlines options you can enable that improve performance around [co
 In general, your app should use the latest versions of its core dependencies. At a minimum, you should update your project as follows:
 
 - Upgrade [Microsoft.Azure.Functions.Worker] to version 1.19.0 or later.
-- Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.16.0 or later.
+- Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.16.2 or later.
 - Add a framework reference to `Microsoft.AspNetCore.App`, unless your app targets .NET Framework.
 
 The following example shows this configuration in the context of a project file:
@@ -239,7 +249,7 @@ The following example shows this configuration in the context of a project file:
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.2" />
   </ItemGroup>
 ```
 
@@ -265,7 +275,7 @@ az functionapp config set -g <groupName> -n <appName> --use-32bit-worker-process
 
 ### Optimized executor 
 
-The function executor is a component of the platform that causes invocations to run. An optimized version of this component is enabled by default starting with version 1.16.0 of the SDK. No additional configuration is required.
+The function executor is a component of the platform that causes invocations to run. An optimized version of this component is enabled by default starting with version 1.16.2 of the SDK. No additional configuration is required.
 
 ### ReadyToRun
 
@@ -337,7 +347,7 @@ A function can have zero or more input bindings that can pass data to a function
 
 ### Output bindings
 
-To write to an output binding, you must apply an output binding attribute to the function method, which defined how to write to the bound service. The value returned by the method is written to the output binding. For example, the following example writes a string value to a message queue named `output-queue` by using an output binding:
+To write to an output binding, you must apply an output binding attribute to the function method, which define how to write to the bound service. The value returned by the method is written to the output binding. For example, the following example writes a string value to a message queue named `output-queue` by using an output binding:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 
@@ -613,12 +623,11 @@ Because your isolated worker process app runs outside the Functions runtime, you
 
 ## Preview .NET versions
 
-Azure Functions currently can be used with the following preview versions of .NET:
+Before a generally available release, a .NET version might be released in a "Preview" or "Go-live" state. See the [.NET Official Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) for details on these states.
 
-| Operating system | .NET preview version |
-| - | - |
-| Windows | .NET 8 RC2 | 
-| Linux | .NET 8 RC2 |
+While it might be possible to target a given release from a local Functions project, function apps hosted in Azure might not have that release available. Azure Functions can only be used with "Preview" or "Go-live" releases noted in this section.
+
+Azure Functions does not currently work with any "Preview" or "Go-live" .NET releases. See [Supported versions][supported-versions] for a list of generally available releases that you can use.
 
 ### Using a preview .NET SDK
 
