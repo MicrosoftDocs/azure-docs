@@ -15,7 +15,7 @@ manager: nitinme
 
 While OpenAI and Azure OpenAI Service rely on a [common Python client library](https://github.com/openai/openai-python), there are small changes you need to make to your code in order to swap back and forth between endpoints. This article walks you through the common changes and differences you'll experience when working across OpenAI and Azure OpenAI.
 
-This article onlys shows examples with the new OpenAI Python 1.x API library. For information on migrating from `0.28.1` to `1.x` refer to our [migration guide](./migration.md).
+This article only shows examples with the new OpenAI Python 1.x API library. For information on migrating from `0.28.1` to `1.x` refer to our [migration guide](./migration.md).
 
 ## Authentication
 
