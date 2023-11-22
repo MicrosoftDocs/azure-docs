@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 11/21/2023
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.1.0'
 ---
@@ -36,23 +36,27 @@ monikerRange: '>=doc-intel-3.1.0'
 
 Document Intelligence supports more sophisticated and modular analysis capabilities. Use the add-on features to extend the results to include more features extracted from your documents. Some add-on features incur an extra cost. These optional features can be enabled and disabled depending on the scenario of the document extraction. The following add-on capabilities are available for `2023-07-31 (GA)` and later releases:
 
-* [`ocr.highResolution`](#high-resolution-extraction)
+* [`ocrHighResolution`](#high-resolution-extraction)
 
-* [`ocr.formula`](#formula-extraction)
+* [`formulas`](#formula-extraction)
 
-* [`ocr.font`](#font-property-extraction)
+* [`styleFont`](#font-property-extraction)
 
-* [`ocr.barcode`](#barcode-property-extraction)
+* [`barcodes`](#barcode-property-extraction)
+
+* [`languages`](#language-detection)
+
 :::moniker-end
 
 :::moniker range="doc-intel-4.0.0"
 
 > [!NOTE]
 >
-> Add-on capabilities are available within all models except for the [Read model](concept-read.md).
+> Not all add-on capabilities are supported by all models. For more information, *see* [model data extraction](concept-model-overview.md#model-data-extraction).
 
 The following add-on capability is available for `2023-10-31-preview` and later releases:
 
+* [`keyValuePairs`](#key-value-pairs)
 * [`queryFields`](#query-fields)
 
 > [!NOTE]
@@ -159,7 +163,32 @@ The `ocr.barcode` capability extracts all identified barcodes in the `barcodes` 
 | `ITF` |:::image type="content" source="media/barcodes/interleaved-two-five.png" alt-text="Screenshot of the interleaved-two-of-five barcode (ITF).":::|
 | `Data Matrix` |:::image type="content" source="media/barcodes/datamatrix.gif" alt-text="Screenshot of the Data Matrix.":::|
 
+## Language detection
+
+It predicts the detected primary language for each text line along with the `confidence` in the `languages` collection under `analyzeResult`.
+
+```json
+"languages": [
+    {
+        "spans": [
+            {
+                "offset": 0,
+                "length": 131
+            }
+        ],
+        "locale": "en",
+        "confidence": 0.7
+    },
+]
+```
+
 :::moniker range="doc-intel-4.0.0"
+
+## Key-value Pairs
+
+Key-value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form, these pairs could be the label and the value the user entered for that field. In an unstructured document, they could be the date a contract was executed on based on the text in a paragraph. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
+
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field can be left blank on a form in some instances. Key-value pairs are spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key is either customer or user (based on context).
 
 ## Query Fields
 
@@ -185,7 +214,7 @@ For query field extraction, specify the fields you want to extract and Document 
 
     :::image type="content" source="media/studio/query-fields.png" alt-text="Screenshot of the query fields button in Document Intelligence Studio.":::
 
-* You can pass a list of field labels like `Party1`, `Party2`, `TermsOfUse`, `PaymentTerms`, `PaymentDate`, and `TermEndDate`" as part of the analyze document request.
+* You can pass a list of field labels like `Party1`, `Party2`, `TermsOfUse`, `PaymentTerms`, `PaymentDate`, and `TermEndDate`" as part of the `analyze document` request.
 
    :::image type="content" source="media/studio/query-field-select.png" alt-text="Screenshot of query fields selection window in Document Intelligence Studio.":::
 
