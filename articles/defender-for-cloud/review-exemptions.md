@@ -1,22 +1,32 @@
 ---
-title: Exempt a recommendation in Microsoft Defender for Cloud.
+title: Exempt a recommendation in Microsoft Defender for Cloud
 description: Learn how to exempt recommendations so they're not taken into account in Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
-ms.date: 01/02/2022
+ms.date: 11/22/2023
 ---
 
 # Review resources exempted from recommendations 
 
-In Microsoft Defender for Cloud, you can exempt protected resources from Defender for Cloud security recommendations. [Learn more](exempt-resource.md). This article describes how to review and work with exempted resources.
+In Microsoft Defender for Cloud, you can [exempt protected resources from Defender for Cloud security recommendations](exempt-resource.md). This article describes how to review and work with exempted resources.
 
+> [!IMPORTANT]
+> This page discusses how to use the new recommendations experience where you have the ability to prioritize your recommendations by their effective risk level. To view this experience you must select **Try it now**.
+>
+> :::image type="content" source="media/review-security-recommendations/try-it-now.png" alt-text="Screenshot that shows where the try it now button is located on the recommendation page." lightbox="media/review-security-recommendations/try-it-now.png":::
 
 ## Review exempted resources in the portal
 
-1. In Defender for Cloud, open the **Recommendations** page.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Navigate to **Defender for Cloud** > **Recommendations**.
+
 1. Select **Add filter** > **Is exempt**.
-1. Select whether you want to see recommendations that have exempted resources, or those without exemptions.
+
+1. Select **All**, **Yes** or **No**. 
+
+1. Select **Apply**.
 
     :::image type="content" source="media/review-exemptions/filter-exemptions.png" alt-text="Steps to create an exemption rule to exempt a recommendation from your subscription or management group."  lightbox="media/review-exemptions/filter-exemptions.png":::
 
@@ -24,10 +34,23 @@ In Microsoft Defender for Cloud, you can exempt protected resources from Defende
 
 1. For each resource, the **Reason** column shows why the resource is exempted. To modify the exemption settings for a resource, select the ellipsis in the resource > **Manage exemption**.
 
-You can also review exempted resources on the Defender for Cloud > **Inventory** page. In the page, select **Add filter**. In the **Filter** dropdown list, select **Contains Exemptions** to find all resources that have been exempted from one or more recommendations.
+You can also find all resources that have been exempted from one or more recommendations on the Inventory page.
 
-:::image type="content" source="media/exempt-resource/inventory-filter-exemptions.png" alt-text="Defender for Cloud's asset inventory page and the filter to find resources with exemptions."  lightbox="media/exempt-resource/inventory-filter-exemptions.png":::
+**To review exempted resources on the Defender for Cloud's Inventory page**: 
 
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Navigate to **Defender for Cloud** > **Recommendations**.
+
+1. Select **Add filter**
+
+    :::image type="content" source="media/review-exemptions/inventory-exemptions.png" alt-text="Defender for Cloud's asset inventory page and the filter to find resources with exemptions."  lightbox="media/review-exemptions/inventory-exemptions.png":::
+
+1. Select **Contains Exemptions**.
+
+1. Select **Yes**.
+
+1. Select **OK**.
 
 ## Review exempted resources with Azure Resource Graph
 
