@@ -17,6 +17,10 @@ Whether you work with the results of your queries interactively or use them with
 > [!TIP]
 > This article describes Log Analytics and its features. If you want to jump right into a tutorial, see [Log Analytics tutorial](./log-analytics-tutorial.md).
 
+Here's a video version of this tutorial: 
+
+[!VIDEO https://www.youtube.com/embed/-aMecR2Nrfc]
+
 ## Start Log Analytics
 
 To start Log Analytics in the Azure portal, on the **Azure Monitor** menu select **Logs**. You'll also see this option on the menu for most Azure resources. No matter where you start Log Analytics, the tool is the same. But the menu you use to start Log Analytics determines the data that's available.
