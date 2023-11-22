@@ -127,7 +127,7 @@ Tabular fields are also useful when extracting repeating information within a do
 * View the REST APIs:
 
     > [!div class="nextstepaction"]
-    > [Document Intelligence API v4.0:2023-10-31-preview](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument)
+    > [Document Intelligence API v4.0:2023-10-31-preview](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)
 
     > [!div class="nextstepaction"]
-    > [Document Intelligence API v3.1:2023-07-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
+    > [Document Intelligence API v3.1:2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)

@@ -455,6 +455,6 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=202
 
 ## Next steps
 
-* [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
+* [Review the new REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)
 * [What is Document Intelligence?](overview.md)
 * [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md)
