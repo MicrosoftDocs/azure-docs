@@ -182,6 +182,7 @@ embedding = client.embeddings.create(
   model="text-embedding-ada-002"
 )
 
+
 ```
 
 </td>
