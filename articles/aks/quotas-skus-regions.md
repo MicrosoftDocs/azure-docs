@@ -4,8 +4,8 @@ titleSuffix: Azure Kubernetes Service
 description: Learn about the default quotas, restricted node VM SKU sizes, and region availability of the Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 03/07/2023
-
 ---
+
 # Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)
 
 All Azure services set default limits and quotas for resources and features, including usage restrictions for certain virtual machine (VM) SKUs.
@@ -58,6 +58,19 @@ When you create a cluster using the Azure portal, you can choose a preset config
 | Cost-optimized   | Best for reducing costs on production workloads that can tolerate interruptions. |
 | Batch processing | Best for machine learning, compute-intensive, and graphics-intensive workloads. Suited for applications requiring fast scale-up and scale-out of the cluster. |
 | Hardened access  | Best for large enterprises that need full control of security and stability. |
+
+
+|                              |Standard |Dev/Test|Cost-optimized|Batch processing|Hardened access|
+|------------------------------|---------|--------|--------|--------|--------|
+|**Description**               |Best if you're not sure what to choose. Works well with most applications.|Best for experimenting with AKS or deploying a test app.|Best for reducing costs on production workloads that can tolerate interruptions.|Best for machine learning, compute-intensive, and graphics-intensive workloads. Suited for apps requiring fast scale-up and scale-out.|Best for large enterprises that need full control of security and stability.|
+|**System node pool node size**|DS2_v2   |B4ms|B4ms|D4s_v3|D4s_v3|
+|**User node pool node size**|-   |-|B4ms|NC6s_v3|D4s_v3|
+|**Cluster autoscaling**|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
+|**Private cluster**|-|-|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
+|**Availability zones**|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|-|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
+|**Azure Policy**|-|-|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
+|**Azure Monitor**|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
+
 
 ## Next steps
 
