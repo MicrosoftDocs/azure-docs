@@ -297,17 +297,10 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     Add two properties:
 
-    | Parameter         | Value |
-    | ----------------- | ----- |
-    | Input path        | `.payload.payload["temperature"]` |
-    | Output path       | `.payload.payload.temperature_lkv` |
-    | Expiration time    | `01h` |
-
-    | Parameter         | Value |
-    | ----------------- | ----- |
-    | Input path        | `.payload.payload["Tag 10"]` |
-    | Output path       | `.payload.payload.tag1_lkv` |
-    | Expiration time    | `01h` |
+    | Input path        | Output path       | Expiration time    |
+    | ----------------- | ----------------- | ------------------ |
+    | `.payload.payload["temperature"]` | `.payload.payload.temperature_lkv` | `01h` |
+    | `.payload.payload["Tag 10"]` | `.payload.payload.tag1_lkv` | `01h` |
 
     This stage enriches the incoming messages with the latest `temperature` and `Tag 10` values if they're missing. The tracked latest values are retained for 1 hour. If the tracked properties appear in the message, the tracked latest value is updated to ensure that the values are always up to date.
 
@@ -327,7 +320,7 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     | Parameter     | Value       |
     | ------------- | ----------- |
-    | Display name  | construct full payload |
+    | Display name  | `construct full payload` |
 
     The following jq expression formats the payload property to include all telemetry values and all the contextual information as key value pairs:
 
@@ -383,6 +376,9 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 1. After a short time, the data from your pipeline begins to populate the table in your lakehouse.
 
 :::image type="content" source="media/quickstart-process-telemetry/lakehouse-preview.png" alt-text="Screenshot that shows data from the pipeline appearing in the lakehouse table.":::
+
+> [!TIP]
+> Make sure that no other processes write to the OPCUA table in your lakehouse. If you write to the table from multiple sources, you might see corrupted data in the table.
 
 ## How did we solve the problem?
 

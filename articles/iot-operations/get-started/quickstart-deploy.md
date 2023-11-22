@@ -202,41 +202,17 @@ On Ubuntu Linux, use K3s to create a Kubernetes cluster.
 
 Part of the deployment process is to configure your cluster so that it can communicate securely with your Azure IoT Operations components and key vault. The Azure CLI command `az iot ops init` does this for you. Once your cluster is configured, then you can deploy Azure IoT Operations.
 
-Use the Azure portal to create a key vault, build the `az iot ops init` command based on your resources, and then deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
+Use the Azure CLI to create a key vault, build the `az iot ops init` command based on your resources, and then deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
 
 ### Create a key vault
 
-You can use an existing key vault for your secrets, but verify that the **Permission model** is set to **Vault access policy**. You can check this setting in the **Access configuration** section of an existing key vault.
+You can use an existing key vault for your secrets, but verify that the **Permission model** is set to **Vault access policy**. You can check this setting in the Azure portal in the **Access configuration** section of an existing key vault. Or use the [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command to check that `enableRbacAuthorization` is false.
 
-1. Open the [Azure portal](https://portal.azure.com).
+To create a new key vault, use the following command:
 
-1. In the search bar, search for and select **Key vaults**.
-
-1. Select **Create**.
-
-1. On the **Basics** tab of the **Create a key vault** page, provide the following information:
-
-   | Field | Value |
-   | ----- | ----- |
-   | **Subscription** | Select the subscription that also contains your Arc-enabled Kubernetes cluster. |
-   | **Resource group** | Select the resource group that also contains your Arc-enabled Kubernetes cluster. |
-   | **Key vault name** | Provide a globally unique name for your key vault. |
-   | **Region** | Select a region close to you. |
-   | **Pricing tier** | The default **Standard** tier is suitable for this quickstart. |
-
-1. Select **Next**.
-
-1. On the **Access configuration** tab, provide the following information:
-
-   | Field | Value |
-   | ----- | ----- |
-   | **Permission model** | Select **Vault access policy**. |
-
-   :::image type="content" source="./media/quickstart-deploy/key-vault-access-policy.png" alt-text="Screenshot of selecting the vault access policy permission model in the Azure portal.":::
-
-1. Select **Review + create**.
-
-1. Select **Create**.
+```azurecli
+az keyvault create --enable-rbac-authorization false --name "<your unique key vault name>" --resource-group "<the name of the resource group that contains your Kubernetes cluster>"
+```
 
 ### Deploy Azure IoT Operations
 
