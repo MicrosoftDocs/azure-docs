@@ -99,7 +99,7 @@ When an Azure AD B2C application uses the TOTP option for MFA, end users need to
     1. In the Microsoft Authenticator app on your phone, select **OR ENTER CODE MANUALLY**.
     1. In the Azure AD B2C application, select **Still having trouble?**. This displays **Account Name** and **Secret**.
     1. Enter the **Account Name** and **Secret** in your Microsoft Authenticator app, and then select **FINISH**.
-1. In the application Azure AD B2C application, select **Continue**.
+1. In the Azure AD B2C application, select **Continue**.
 1. In **Enter your code**, enter the code that appears in your Microsoft Authenticator app.
 1. Select **Verify**.
 1. During subsequent sign-in to the application, type the code that appears in the Microsoft Authenticator app.

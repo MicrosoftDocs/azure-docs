@@ -44,7 +44,7 @@ The following diagram illustrates Azure Front Door integration:
 1. Azure Front Door invokes Azure AD B2C content using the Azure AD B2C `<tenant-name>.b2clogin.com` default domain. The request to the Azure AD B2C endpoint includes the original custom domain name.
 1. Azure AD B2C responds to the request by displaying the relevant content and the original custom domain.
 
-![Flow diagram showing the custom domain networking flow with steps numbered to correspond with the explanations above.](./media/custom-domain/custom-domain-network-flow.png)
+:::image type="content" source="./media/custom-domain/custom-domain-network-flow.png" alt-text="Flow diagram showing the custom domain networking flow with steps numbered to correspond with the explanations above.":::
 
 > [!IMPORTANT]
 > The connection from the browser to Azure Front Door should always use IPv4 instead of IPv6.
