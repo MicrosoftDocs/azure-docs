@@ -1,24 +1,23 @@
 ---
 title: Azure Synapse Runtime for Apache Spark 3.4 
-description: New runtime is GA and ready for production workloads. Spark 3.3.1, Python 3.10, Delta Lake 2.2.
+description: New runtime is in Public Preview. Try it and use Spark 3.4.1, Python 3.10, Delta Lake 2.4.
 author: winnyr
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
-ms.date: 11/17/2022 
+ms.date: 11/17/2023 
 ms.author: winnyr
-ms.custom: has-adal-ref, ignite-2022, devx-track-python
 ms.reviewer: ekote
 ---
 
 # Azure Synapse Runtime for Apache Spark 3.4 (Public Preview)
-Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.4 
+Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.4.
 
 ## Component versions
 
 |  Component   | Version      |  
 | ----- |--------------|
-| Apache Spark | 3.4    .1    |
+| Apache Spark | 3.4.1    |
 | Operating System | Mariner 2.0  |
 | Java | 11  |
 | Scala | 2.12.17      |
@@ -33,7 +32,7 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 > 
 
 ## Libraries
-The following sections present the libraries included in Azure Synapse Runtime for Apache Spark 3.4(Public Preview).
+The following sections present the libraries included in Azure Synapse Runtime for Apache Spark 3.4 (Public Preview).
 
 ### Scala and Java default libraries
 The following table lists all the default level packages for Java/Scala and their respective versions.
@@ -342,7 +341,7 @@ The following table lists all the default level packages for Java/Scala and thei
 | stax                                   | stax-api                                    | 1.0.1                       |
 
 ### Python libraries 
-As of now spark, 3.4 is in public preview. during this stage the Python libraries will undergo significant updates. At the same time please be informed that some of the ML capabilities are not yet supported: e.g., PREDICT method and Synapse ML.
+The Azure Synapse Runtime for Apache Spark 3.4 is currently in Public Preview. During this phase, the Python libraries will experience significant updates. Additionally, please note that some machine learning capabilities are not yet supported, such as the PREDICT method and Synapse ML.
 
 ### R libraries
 
@@ -479,10 +478,9 @@ The following table lists all the default level packages for R and their respect
 | r-callr                   | 3.7.3        | r-plyr          | 1.8.9      | zlib             | 1.2.13     |
 |                           |              |                 |            | zstd             | 1.5.5      |
 
+## Migration between Apache Spark versions - support :
 
-## Upgrade Guidelines / FAQ's :
+For guidance on migrating from older runtime versions to runtime 34 please refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).
 
-Question: If a customer is seeking advice on how to migrate from 2.4 to 3.X, what steps should be taken?
-Answer: Refer to the following migration guide: https://spark.apache.org/docs/latest/sql-migration-guide.html
 
 
