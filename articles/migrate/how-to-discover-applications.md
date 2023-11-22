@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 07/19/2023
+ms.date: 11/22/2023
 ms.custom: engagement-fy23
 ---
 
@@ -96,6 +96,12 @@ Once connected, the appliance gathers configuration and performance data of SQL 
 - Currently, Windows servers aren't supported for Spring Boot app discovery, only Linux servers are supported.
 - Learn more about appliance requirements on [Azure Migrate appliance requirements](migrate-appliance.md) and [discovery support](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
 
+## Discover File Server Instances  
+
+- Software inventory identifies File Server role installed on servers within VMware, Microsoft Hyper-V, and physical/bare-metal environments, along with IaaS services in various public cloud platforms.   
+- The File Server (FS-FileServer) role service in Windows Server is a part of the File and Storage Services role. Windows Server machines with File Server role enabled are determined to be used as file servers.  
+- Users can view the discovered file servers in the **Discovered servers** screen. The File server column in **Discovered servers** indicates whether a server is a file server or not.  
+- Currently, only Windows Server 2008 and later are supported. 
 
 ## Next steps
 
