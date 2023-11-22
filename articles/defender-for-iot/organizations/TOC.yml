@@ -295,6 +295,49 @@
           href: how-to-work-with-threat-intelligence-packages.md
         - name: Troubleshoot OT sensors
           href: how-to-troubleshoot-sensor.md
+      - name: Legacy on-premises management
+        items:
+        - name: Deploy air-gapped OT sensor management
+          items:
+          - name: Air-gapped management deployment path
+            href: ot-deploy/legacy-air-gapped-deploy.md
+          - name: Prepare an appliance
+            href: legacy-central-management/install-software-on-premises-management-console.md
+          - name: Install an on-premises management console
+            href: legacy-central-management/install-software-on-premises-management-console.md
+          - name: Activate and set up an on-premises management console
+            href: legacy-central-management/activate-deploy-management.md
+          - name: Connect OT sensors to an on-premises management console
+            href: legacy-central-management/connect-sensors-to-management.md
+          - name: Configure on-premises sites and zones
+            href: legacy-central-management/sites-and-zones-on-premises.md
+            displayName: site, zone, Zero Trust
+        - name: Manage devices from the on-premises management console
+          href: legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+          displayName: devices, assets, inventory, device
+        - name: Manage alerts from the on-premises management console
+          displayName: alert, alerts
+          href: legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md
+        - name: System maintenance with an on-premises management console
+          items:
+          - name: Manage users on the on-premises management console
+            href: legacy-central-management/install-software-on-premises-management-console.md
+            displayName: users, user
+          - name: Back up sensors from an on-premises management console
+            href: legacy-central-management/back-up-sensors-from-management.md
+            displayName: backup, back up
+          - name: Back up an on-premises management console
+            href: legacy-central-management/back-up-restore-management.md
+            displayName: backup, restore, back up
+          - name: Set up high availability
+            href: how-to-set-up-high-availability.md
+          - name: Manage sensors from the on-premises management console
+            href: legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md
+          - name: Maintain an on-premises management console
+            displayName: activation, SMTP, VLAN, hostname
+            href: legacy-central-management/how-to-manage-the-on-premises-management-console.md
+          - name: Troubleshoot on-premises management consoles
+            href: legacy-central-management/how-to-troubleshoot-on-premises-management-console.md
     - name: Maintain IoT on-premises resources
       items:
       - name: Discover Enterprise IoT devices
@@ -303,55 +346,6 @@
       - name: Extra deployment steps and samples
         href: extra-deploy-enterprise-iot.md
         displayName: Enterprise IoT sensor
-- name: Legacy on-premises management
-  items:
-  - name: Deploy air-gapped OT sensor management
-    items:
-    - name: Air-gapped management deployment path
-      href: ot-deploy/legacy-air-gapped-deploy.md
-    - name: Prepare an appliance
-      href: legacy-central-management/install-software-on-premises-management-console.md
-    - name: Install an on-premises management console
-      href: legacy-central-management/install-software-on-premises-management-console.md
-    - name: Activate and set up an on-premises management console
-      href: legacy-central-management/activate-deploy-management.md
-    - name: Connect OT sensors to an on-premises management console
-      href: legacy-central-management/connect-sensors-to-management.md
-    - name: Configure on-premises sites and zones
-      href: legacy-central-management/sites-and-zones-on-premises.md
-      displayName: site, zone, Zero Trust
-  - name: Manage devices from the on-premises management console
-    href: legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
-    displayName: devices, assets, inventory, device
-  - name: Manage alerts from the on-premises management console
-    displayName: alert, alerts
-    href: legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md
-  - name: Integrate with Aruba ClearPass
-    href: tutorial-clearpass.md
-  - name: Integrate with Splunk
-    href: tutorial-splunk.md
-  - name: Integrate with Palo Alto
-    href: tutorial-palo-alto.md
-  - name: System maintenance with an on-premises management console
-    items:
-    - name: Manage users on the on-premises management console
-      href: legacy-central-management/install-software-on-premises-management-console.md
-      displayName: users, user
-    - name: Back up sensors from an on-premises management console
-      href: legacy-central-management/back-up-sensors-from-management.md
-      displayName: backup, back up
-    - name: Back up an on-premises management console
-      href: legacy-central-management/back-up-restore-management.md
-      displayName: backup, restore, back up
-    - name: Set up high availability
-      href: how-to-set-up-high-availability.md
-    - name: Manage sensors from the on-premises management console
-      href: legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md
-    - name: Maintain an on-premises management console
-      displayName: activation, SMTP, VLAN, hostname
-      href: legacy-central-management/how-to-manage-the-on-premises-management-console.md
-    - name: Troubleshoot on-premises management consoles
-      href: legacy-central-management/how-to-troubleshoot-on-premises-management-console.md
 - name: Reference
   items:
   - name: Supported protocols
