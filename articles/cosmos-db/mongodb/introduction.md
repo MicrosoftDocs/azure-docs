@@ -26,7 +26,7 @@ Cosmos DB for MongoDB has numerous benefits compared to other MongoDB service of
 
 ### Request Unit (RU) architecture
 
-A fully managed MongoDB-compatible service with flexible scaling using [Request Units (RUs)](../request-units.md). Designed for cloud-native applications.
+[A fully managed MongoDB-compatible service](./ru/introduction.md) with flexible scaling using [Request Units (RUs)](../request-units.md). Designed for cloud-native applications.
 
 - **Instantaneous scalability**: With the [Autoscale](../provision-throughput-autoscale.md) feature, your database scales instantaneously with zero warmup period. Other MongoDB offerings such as MongoDB Atlas can take hours to scale up and up to days to scale down.
 
@@ -41,9 +41,12 @@ A fully managed MongoDB-compatible service with flexible scaling using [Request 
 
 - **Serverless deployments**: Cosmos DB for MongoDB offers a [serverless capacity mode](../serverless.md). With [Serverless](../serverless.md), you're only charged per operation, and don't pay for the database when you don't use it.
 
+> [!TIP]
+> Visit [Choose your model](./choose-model.md) for an in-depth comparison of each architecture to help you choose which one is right for you.
+
 ### vCore Architecture
 
-A fully managed MongoDB-compatible service with dedicated instances for new and existing MongoDB apps. This architecture offers a familiar vCore architecture for MongoDB users, efficient scaling, and seamless integration with Azure services.
+[A fully managed MongoDB-compatible service](./vcore/introduction.md) with dedicated instances for new and existing MongoDB apps. This architecture offers a familiar vCore architecture for MongoDB users, efficient scaling, and seamless integration with Azure services.
 
 - **Native Vector Search**: Seamlessly integrate your AI-based applications with your data that's stored in Azure Cosmos DB for MongoDB vCore. This integration is an all-in-one solution, unlike other vector search solutions that send your data between service integrations.  
 

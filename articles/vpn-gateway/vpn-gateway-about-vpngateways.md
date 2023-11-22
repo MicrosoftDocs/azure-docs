@@ -5,7 +5,7 @@ author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 08/11/2023
+ms.date: 09/26/2023
 ms.author: cherylmc
 ms.custom: contperf-fy21q1, e2e-hybrid
 ---
@@ -50,13 +50,9 @@ You can start out creating and configuring resources using one configuration too
 
 ## <a name="gwsku"></a>Gateway SKUs
 
-When you create a virtual network gateway, you specify the gateway SKU that you want to use. Select the SKU that satisfies your requirements based on the types of workloads, throughputs, features, and SLAs.
+When you create a virtual network gateway, you specify the gateway SKU that you want to use. Select the SKU that satisfies your requirements based on the types of workloads, throughputs, features, and SLAs. For more information about gateway SKUs, including supported features, performance, production and dev-test, and configuration steps, see the [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article.
 
-* For more information about gateway SKUs, including supported features, production and dev-test, and configuration steps, see the [VPN Gateway Settings - Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article.
-* For Legacy SKU information, see [Working with Legacy SKUs](vpn-gateway-about-skus-legacy.md).
-* The Basic SKU doesn't support IPv6.
-
-### <a name="benchmark"></a>Gateway SKUs by tunnel, connection, and throughput
+The following table shows gateway SKUs by tunnel, connection, and throughput. For additional tables and more information regarding this table, see the Gateway SKUs section of the [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article.
 
 [!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 

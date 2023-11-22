@@ -10,7 +10,7 @@ ms.topic: tutorial
 author: lebaro-msft
 ms.author: lebaro
 ms.reviewer: sgilley
-ms.date: 03/15/2023
+ms.date: 09/27/2023
 #Customer intent: As a data scientist, I want to know how to prototype and develop machine learning models on a cloud workstation.
 ---
 
@@ -46,7 +46,8 @@ In order for your script to run, you need to be working in an environment config
 
     Files you upload are stored in an Azure file share, and these files are mounted to each compute instance and shared within the workspace.
 
-    1. Download this conda environment file, [*workstation_env.yml*](https://azuremlexampledata.blob.core.windows.net/datasets/workstation_env.yml) to your computer.
+    1. Download this conda environment file, [*workstation_env.yml*](https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/workstation_env.yml) to your computer by using the **Download raw file** button at the top right.
+    <!-- use this link instead once it works again [*workstation_env.yml*](https://azuremlexampledata.blob.core.windows.net/datasets/workstation_env.yml) to your computer. -->
     1. Select **Add files**, then select **Upload files** to upload it to your workspace.
 
         :::image type="content" source="media/tutorial-cloud-workstation/upload-files.png" alt-text="Screenshot shows how to upload files to your workspace.":::
@@ -55,10 +56,9 @@ In order for your script to run, you need to be working in an environment config
     1. Select **workstation_env.yml** file you downloaded.
     1. Select **Upload**.
 
-    You'll see the *workstation_env.yml* file under your username folder in the **Files** tab. Select this file to preview it, and see what dependencies it specifies.
+    You'll see the *workstation_env.yml* file under your username folder in the **Files** tab. Select this file to preview it, and see what dependencies it specifies.  You'll see contents like this:
 
-    :::image type="content" source="media/tutorial-cloud-workstation/view-yml.png" alt-text="Screenshot shows the yml file that you uploaded.":::
-
+    ::: code language="yml" source="~/azureml-examples-main/tutorials/get-started-notebooks/workstation_env.yml" :::
 
 * **Create a kernel.**
 
@@ -122,7 +122,7 @@ You now have a new kernel.  Next you'll open a notebook and use this kernel.
 
     :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it's stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
 
-1. You'll see the notebook is connected to the default kernel in the top right. Switch to use the **Tutorial Workstation Env** kernel.
+1. You'll see the notebook is connected to the default kernel in the top right. Switch to use the **Tutorial Workstation Env** kernel if you created the kernel.
 
 ## Develop a training script
 
@@ -150,11 +150,17 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
 
     [!notebook-python[] (~/azureml-examples-main/tutorials/get-started-notebooks/cloud-workstation.ipynb?name=gbt)]
 
+    > [!NOTE]
+    > You can ignore the mlflow warnings.  You'll still get all the results you need tracked.
+
 ## Iterate 
 
 Now that you have model results, you may want to change something and try again.  For example, try a different classifier technique:
 
 [!notebook-python[] (~/azureml-examples-main/tutorials/get-started-notebooks/cloud-workstation.ipynb?name=ada)]
+
+> [!NOTE]
+> You can ignore the mlflow warnings.  You'll still get all the results you need tracked.
 
 ## Examine results
 
@@ -213,7 +219,7 @@ For now, you're running this code on your compute instance, which is your Azure 
     conda env list
     ```
 
-1. Activate your kernel:
+1. If you created a new kernel, activate it now:
 
     ```bash
     conda activate workstation_env
@@ -225,6 +231,9 @@ For now, you're running this code on your compute instance, which is your Azure 
     ```bash
     python train.py
     ```
+
+> [!NOTE]
+> You can ignore the mlflow warnings.  You'll still get all the metric and images from autologging.
 
 ## Examine script results
 

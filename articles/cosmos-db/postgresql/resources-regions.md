@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.custom: references_regions, ignite-2022
-ms.date: 08/29/2023
+ms.date: 11/14/2023
 ---
 
 # Regional availability for Azure Cosmos DB for PostgreSQL
@@ -37,6 +37,7 @@ Azure Cosmos DB for PostgreSQL is available in the following Azure regions:
 	* Japan East
 	* Japan West
 	* Korea Central
+    * South India
 	* Southeast Asia
 * Europe:
 	* France Central
@@ -50,7 +51,9 @@ Azure Cosmos DB for PostgreSQL is available in the following Azure regions:
 * Middle East:
 	* Qatar Central
 
-† This Azure region is a [restricted one](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). To use it, you need to request access to it by opening a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+† This Azure region is a [restricted one](../../availability-zones/cross-region-replication-azure.md#azure-paired-regions). To use it, you need to request access to it by opening a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 
 Some of these regions may not be activated on all Azure
 subscriptions. If you want to use a region from the list and don't see it

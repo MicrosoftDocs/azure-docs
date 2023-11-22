@@ -2,11 +2,10 @@
 title: How to create projects in Conversational Language Understanding
 titleSuffix: Azure AI services
 description: Use this article to learn how to create projects in Conversational Language Understanding.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 09/29/2022
 ms.author: aahi

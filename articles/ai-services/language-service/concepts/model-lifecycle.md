@@ -2,11 +2,10 @@
 title: Model Lifecycle of Language service models
 titleSuffix: Azure AI services
 description: This article describes the timelines for models and model versions used by Language service features.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 11/29/2022
@@ -19,7 +18,7 @@ Language service features utilize AI models. We update the language service with
 
 ## Prebuilt features
 
-Our standard (not customized) language service features are built on AI models that we call pre-trained models.
+Our standard (not customized) language service features are built on AI models that we call pre-trained or prebuilt models.
 
 We regularly update the language service with new model versions to improve model accuracy, support, and quality.
 
@@ -27,7 +26,7 @@ By default, all API requests will use the latest Generally Available (GA) model.
 
 #### Choose the model-version used on your data
 
-We strongly recommend using the `latest` model version to utilize the latest and highest quality models. As our models improve, it’s possible that some of your model results may change. Model versions may be deprecated, so don't recommend including specified versions in your implementation. 
+We recommend using the `latest` model version to utilize the latest and highest quality models. As our models improve, it’s possible that some of your model results may change. Model versions may be deprecated, so we no longer accept specified GA model versions in your implementation. 
 
 Preview models used for preview features do not maintain a minimum retirement period and may be deprecated at any time.
 
@@ -39,21 +38,21 @@ By default, API and SDK requests will use the latest Generally Available model. 
 
 Use the table below to find which model versions are supported by each feature:
 
-| Feature                                             | Supported versions                                                       |
-|-----------------------------------------------------|--------------------------------------------------------------------------|
-| Sentiment Analysis and opinion mining               | `2021-10-01`, `2022-06-01`,`2022-10-01`,`2022-11-01*`                    |
-| Language Detection                                  | `2021-11-20`, `2022-10-01*`                                              |
-| Entity Linking                                      | `2021-06-01*`                                                            |
-| Named Entity Recognition (NER)                      | `2021-06-01`, `2022-10-01-preview`, `2023-02-01-preview**`, `2023-04-15*`|
-| Personally Identifiable Information (PII) detection | `2021-01-15`, `2023-01-01-preview**`, `2023-04-15*`                      | 
-| PII detection for conversations (Preview)           | `2022-05-15-preview**`, `2023-04-15*`                                    |  
-| Question answering                                  | `2021-10-01*`                                                            |
-| Text Analytics for health                           | `2021-05-15`, `2022-03-01*`, `2022-08-15-preview`, `2023-01-01-preview**`|
-| Key phrase extraction                               | `2021-06-01`, `2022-07-01`,`2022-10-01*`                                 | 
-| Document summarization - extractive only (preview)  | `2022-08-31-preview**`                                                   |
+| Feature                                             | Supported generally available (GA) version     | Supported preview versions                  |
+|-----------------------------------------------------|------------------------------------------------|---------------------------------------------|
+| Sentiment Analysis and opinion mining               | `latest*`                                      |                                             |
+| Language Detection                                  | `latest*`                                      |                                             |
+| Entity Linking                                      | `latest*`                                      |                                             |
+| Named Entity Recognition (NER)                      | `latest*`                                      | `2023-04-15-preview**`                      |
+| Personally Identifiable Information (PII) detection | `latest*`                                      | `2023-04-15-preview**`                      | 
+| PII detection for conversations (Preview)           | `latest*`                                      | `2023-04-15-preview**`                      |
+| Question answering                                  | `latest*`                                      |                                             |
+| Text Analytics for health                           | `latest*`                                      | `2022-08-15-preview`, `2023-01-01-preview**`|
+| Key phrase extraction                               | `latest*`                                      |                                             | 
+| Document summarization - extractive only (preview)  |                                                |`2022-08-31-preview**`                       |
+
 
 \* Latest Generally Available (GA) model version
-
 \*\* Latest preview version
 
 
@@ -67,7 +66,7 @@ Use the table below to find which model versions are supported by each feature:
 
 | Feature                                     | Supported Training Config Versions         | Training Config Expiration         | Deployment Expiration  |
 |---------------------------------------------|--------------------------------------------|------------------------------------|------------------------|
-| Conversational language understanding       | `2022-05-01`                               | October 28, 2022                   | October 28, 2023       |
+| Conversational language understanding       | `2022-05-01`                               | October 28, 2022 (expired)         | October 28, 2023       |
 | Conversational language understanding       | `2022-09-01` (latest)**                    | February 28, 2024                  | February 27, 2025      |
 | Orchestration workflow                      | `2022-09-01` (latest)**                    | April 30, 2024                     | April 30, 2025         |
 | Custom named entity recognition             | `2022-05-01` (latest)**                    | April 30, 2024                     | April 30, 2025         |

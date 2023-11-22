@@ -2,13 +2,12 @@
 title: How to switch between OpenAI and Azure OpenAI Service endpoints with Python
 titleSuffix: Azure OpenAI Service
 description: Learn about the changes you need to make to your code to swap back and forth between OpenAI and Azure OpenAI endpoints.
-author: mrbullwinkle #dereklegenzoff
-ms.author: mbullwin #delegenz
-ms.service: cognitive-services
-ms.subservice: openai
+author: mrbullwinkle 
+ms.author: mbullwin 
+ms.service: azure-ai-openai
 ms.custom: devx-track-python
 ms.topic: how-to
-ms.date: 07/20/2023
+ms.date: 11/22/2023
 manager: nitinme
 ---
 
@@ -16,8 +15,7 @@ manager: nitinme
 
 While OpenAI and Azure OpenAI Service rely on a [common Python client library](https://github.com/openai/openai-python), there are small changes you need to make to your code in order to swap back and forth between endpoints. This article walks you through the common changes and differences you'll experience when working across OpenAI and Azure OpenAI.
 
-> [!NOTE]
-> This library is maintained by OpenAI and is currently in preview. Refer to the [release history](https://github.com/openai/openai-python/releases) or the [version.py commit history](https://github.com/openai/openai-python/commits/main/openai/version.py) to track the latest updates to the library.
+This article only shows examples with the new OpenAI Python 1.x API library. For information on migrating from `0.28.1` to `1.x` refer to our [migration guide](./migration.md).
 
 ## Authentication
 
@@ -33,10 +31,12 @@ We recommend using environment variables. If you haven't done this before our [P
 <td>
 
 ```python
-import openai
+from openai import OpenAI
 
-openai.api_key = "sk-..."
-openai.organization = "..."
+client = OpenAI(
+  api_key=os.environ['OPENAI_API_KEY']  
+)
+
 
 
 ```
@@ -45,19 +45,23 @@ openai.organization = "..."
 <td>
 
 ```python
-import openai
-
-openai.api_type = "azure"
-openai.api_key = "..."
-openai.api_base = "https://example-endpoint.openai.azure.com"
-openai.api_version = "2023-05-15"  # subject to change
+import os
+from openai import AzureOpenAI
+    
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_version="2023-10-01-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
 ```
 
 </td>
 </tr>
 </table>
 
-### Azure Active Directory authentication
+<a name='azure-active-directory-authentication'></a>
+
+### Microsoft Entra authentication
 
 <table>
 <tr>
@@ -67,10 +71,13 @@ openai.api_version = "2023-05-15"  # subject to change
 <td>
 
 ```python
-import openai
+from openai import OpenAI
 
-openai.api_key = "sk-..."
-openai.organization = "..."
+client = OpenAI(
+  api_key=os.environ['OPENAI_API_KEY']  
+)
+
+
 
 
 
@@ -83,16 +90,19 @@ openai.organization = "..."
 <td>
 
 ```python
-import openai
-from azure.identity import DefaultAzureCredential
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+from openai import AzureOpenAI
 
-credential = DefaultAzureCredential()
-token = credential.get_token("https://cognitiveservices.azure.com/.default")
+token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")
 
-openai.api_type = "azure_ad"
-openai.api_key = token.token
-openai.api_base = "https://example-endpoint.openai.azure.com"
-openai.api_version = "2023-05-15"  # subject to change
+api_version = "2023-12-01-preview"
+endpoint = "https://my-resource.openai.azure.com"
+
+client = AzureOpenAI(
+    api_version=api_version,
+    azure_endpoint=endpoint,
+    azure_ad_token_provider=token_provider,
+)
 ```
 
 </td>
@@ -101,7 +111,7 @@ openai.api_version = "2023-05-15"  # subject to change
 
 ## Keyword argument for model
 
-OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of [deployments](create-resource.md?pivots=web-portal#deploy-a-model) and uses the `deployment_id` keyword argument to describe which model deployment to use. Azure OpenAI also supports the use of `engine` interchangeably with `deployment_id`.
+OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of [deployments](create-resource.md?pivots=web-portal#deploy-a-model) and uses the `deployment_id` keyword argument to describe which model deployment to use. Azure OpenAI also supports the use of `engine` interchangeably with `deployment_id`. `deployment_id` corresponds to the custom name you chose for your model during model deployment. By convention in our docs, we often show `deployment_id`'s which match the underlying model name, but if you chose a different deployment name that doesn't match the model name you need to use that name when working with models in Azure OpenAI.
 
 For OpenAI `engine` still works in most instances, but it's deprecated and `model` is preferred.
 
@@ -113,47 +123,39 @@ For OpenAI `engine` still works in most instances, but it's deprecated and `mode
 <td>
 
 ```python
-completion = openai.Completion.create(
-    prompt="<prompt>",
-    model="text-davinci-003"
-)
-  
-chat_completion = openai.ChatCompletion.create(
-    messages="<messages>",
-    model="gpt-4"
+completion = client.completions.create(
+    model='gpt-3.5-turbo-instruct',
+    prompt="<prompt>)
 )
 
-embedding = openai.Embedding.create(
-  input="<input>",
-  model="text-embedding-ada-002"
+chat_completion = client.chat.completions.create(
+    model="gpt-4",
+    messages="<messages>"
 )
 
-
-
-
+embedding = client.embeddings.create(
+    input="<input>",
+    model="text-embedding-ada-002"
+)
 ```
 
 </td>
 <td>
 
 ```python
-completion = openai.Completion.create(
-    prompt="<prompt>",
-    deployment_id="text-davinci-003"
-    #engine="text-davinci-003" 
-)
-  
-chat_completion = openai.ChatCompletion.create(
-    messages="<messages>",
-    deployment_id="gpt-4"
-    #engine="gpt-4"
-
+completion = client.completions.create(
+    model=gpt-35-turbo-instruct, # This must match the custom deployment name you chose for your model.
+    prompt=<"prompt">
 )
 
-embedding = openai.Embedding.create(
-  input="<input>",
-  deployment_id="text-embedding-ada-002"
-  #engine="text-embedding-ada-002"
+chat_completion = client.chat.completions.create(
+    model="gpt-35-turbo", # model = "deployment_name".
+    messages=<"messages">
+)
+
+embedding = client.embeddings.create(
+    input = "<input>",
+    model= "text-embedding-ada-002" # model = "deployment_name".
 )
 ```
 
@@ -175,7 +177,7 @@ OpenAI currently allows a larger number of array inputs with text-embedding-ada-
 ```python
 inputs = ["A", "B", "C"] 
 
-embedding = openai.Embedding.create(
+embedding = client.embeddings.create(
   input=inputs,
   model="text-embedding-ada-002"
 )
@@ -189,11 +191,12 @@ embedding = openai.Embedding.create(
 ```python
 inputs = ["A", "B", "C"] #max array size=16
 
-embedding = openai.Embedding.create(
+embedding = client.embeddings.create(
   input=inputs,
-  deployment_id="text-embedding-ada-002"
+  model="text-embedding-ada-002" # This must match the custom deployment name you chose for your model.
   #engine="text-embedding-ada-002"
 )
+
 ```
 
 </td>

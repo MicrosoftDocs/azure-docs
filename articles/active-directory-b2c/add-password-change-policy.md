@@ -2,13 +2,13 @@
 title: Set up password change by using custom policies
 titleSuffix: Azure AD B2C
 description: Learn how to set up a custom policy so users can change their password in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
-ms.custom: build-2023
+
+ms.custom: 
 ms.topic: how-to
 ms.date: 08/24/2021
 ms.author: kengaderdus
@@ -147,8 +147,7 @@ The password change flow involves the following steps:
 ## Upload and test the policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity Experience Framework**.
 1. In **Custom Policies**, select **Upload Policy**.

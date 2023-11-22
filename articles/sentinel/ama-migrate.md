@@ -100,12 +100,12 @@ Each organization will have different metrics of success and internal migration 
 6. Uninstall the legacy agent. For more information, see [Manage the Azure Log Analytics agent ](../azure-monitor/agents/agent-manage.md#uninstall-agent).
 
 ## FAQs
-The following FAQs address issues specific to AMA migration with Microsoft Sentinel. For more information, see also the [Frequently asked questions for AMA migration](/azure/azure-monitor/faq#azure-monitor-agent) in the Azure Monitor documentation.
+The following FAQs address issues specific to AMA migration with Microsoft Sentinel. For more information, see also the [Frequently asked questions for AMA migration](../azure-monitor/agents/azure-monitor-agent-migration.md#frequently-asked-questions) and [Frequently asked questions for Azure Monitor Agent](../azure-monitor/agents/agents-overview.md#frequently-asked-questions) in the Azure Monitor documentation.
 
 ## What happens if I run both MMA/OMS and AMA in parallel in my Microsoft Sentinel deployment?
 Both the AMA and MMA/OMS agents can co-exist on the same machine. If they both send data, from the same data source to a Microsoft Sentinel workspace, at the same time, from a single host, duplicate events and double ingestion charges will occur.
 
-For your production rollout, we recommend that you configure either an MMA/OMS agent or the AMA for each data source. To address any issues for duplication, see the relevant FAQs in the [Azure Monitor documentation](/azure/azure-monitor/faq#azure-monitor-agent).
+For your production rollout, we recommend that you configure either an MMA/OMS agent or the AMA for each data source. To address any issues for duplication, see the relevant FAQs in the [Azure Monitor documentation](../azure-monitor/agents/agents-overview.md#frequently-asked-questions).
 
 ## The AMA doesn’t yet have the features my Microsoft Sentinel deployment needs to work. Should I migrate yet?
 The legacy Log Analytics agent will be retired on 31 August 2024.
@@ -120,7 +120,7 @@ While you can run the MMA and AMA simultaneously, you may want to migrate each c
 
 For more information, see:
 
-- [Frequently asked questions for AMA migration](/azure/azure-monitor/faq#azure-monitor-agent)
+- [Frequently asked questions for AMA migration](../azure-monitor/agents/azure-monitor-agent-migration.md#frequently-asked-questions)
 - [Overview of the Azure Monitor agents](../azure-monitor/agents/agents-overview.md)
 - [Migrate from Log Analytics agents](../azure-monitor/agents/azure-monitor-agent-migration.md)
 - [Windows Security Events via AMA](data-connectors/windows-security-events-via-ama.md)

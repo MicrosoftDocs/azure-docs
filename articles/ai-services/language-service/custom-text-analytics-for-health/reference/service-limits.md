@@ -2,11 +2,10 @@
 title: Custom Text Analytics for health service limits
 titleSuffix: Azure AI services
 description: Learn about the data and service limits when using Custom Text Analytics for health.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 08/23/2023
 ms.author: aahi

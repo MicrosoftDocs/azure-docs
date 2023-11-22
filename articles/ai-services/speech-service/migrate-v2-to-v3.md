@@ -2,27 +2,24 @@
 title: Migrate from v2 to v3 REST API - Speech service
 titleSuffix: Azure AI services
 description: This document helps developers migrate code from v2 to v3 of the Speech to text REST API.speech-to-text REST API.
-services: cognitive-services
+#services: cognitive-services
 author: bexxx
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 09/15/2023
 ms.author: rbeckers
 ms.custom: devx-track-csharp
 ---
 
 # Migrate code from v2.0 to v3.0 of the REST API
 
-Compared to v2, the v3 version of the Speech services REST API for speech to text is more reliable, easier to use, and more consistent with APIs for similar services. Most teams can migrate from v2 to v3 in a day or two.
-
 > [!IMPORTANT]
-> The Speech to text REST API v2.0 is deprecated and will be retired by February 29, 2024. Please migrate your applications to the Speech to text REST API v3.1. Complete the steps in this article and then see the [Migrate code from v3.0 to v3.1 of the REST API](migrate-v3-0-to-v3-1.md) guide for additional requirements.
+> The Speech to text REST API v2.0 is deprecated and will be retired by February 29, 2024. Please migrate your applications to the Speech to text REST API v3.2. Complete the steps in this article and then see the Speech to text REST API [v3.0 to v3.1](migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](migrate-v3-1-to-v3-2.md) migration guides for additional requirements.
 
 ## Forward compatibility
 
-All entities from v2 can also be found in the v3 API under the same identity. Where the schema of a result has changed, (for example, transcriptions), the result of a GET in the v3 version of the API uses the v3 schema. The result of a GET in the v2 version of the API uses the same v2 schema. Newly created entities on v3 aren't available in responses from v2 APIs. 
+All entities from v2.0 can also be found in the v3.0 API under the same identity. Where the schema of a result has changed, (for example, transcriptions), the result of a GET in the v3 version of the API uses the v3 schema. The result of a GET in the v2 version of the API uses the same v2 schema. Newly created entities on v3 aren't available in responses from v2 APIs.
 
 ## Migration steps
 

@@ -12,7 +12,12 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/cognitive-services-and-machine-learning.md",
-      "redirect_url": "/azure/ai-services/cognitive-services-and-machine-learning",
+      "redirect_url": "/azure/ai-services/ai-services-and-ecosystem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/cognitive-services-and-machine-learning.md",
+      "redirect_url": "/azure/ai-services/ai-services-and-ecosystem",
       "redirect_document_id": true
     },
     {
@@ -47,8 +52,13 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/cognitive-services-development-options.md",
-      "redirect_url": "/azure/ai-services/cognitive-services-development-options",
-      "redirect_document_id": true
+      "redirect_url": "/azure/ai-services/ai-services-and-ecosystem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/cognitive-services-development-options.md",
+      "redirect_url": "/azure/ai-services/ai-services-and-ecosystem",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/cognitive-services-environment-variables.md",
@@ -107,12 +117,22 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/manage-resources.md",
-      "redirect_url": "/azure/ai-services/manage-resources",
-      "redirect_document_id": true
+      "redirect_url": "/azure/ai-services/recover-purge-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/manage-resources.md",
+      "redirect_url": "/azure/ai-services/recover-purge-resources",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/plan-manage-costs.md",
-      "redirect_url": "/azure/ai-services/plan-manage-costs",
+      "redirect_url": "/azure/ai-studio/how-to/costs-plan-manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/plan-manage-costs.md",
+      "redirect_url": "/azure/ai-studio/how-to/costs-plan-manage",
       "redirect_document_id": true
     },
     {
@@ -522,8 +542,13 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/containers/index.md",
-      "redirect_url": "/azure/ai-services/containers/index",
-      "redirect_document_id": true
+      "redirect_url": "/azure/ai-services/cognitive-services-container-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/containers/index.yml",
+      "redirect_url": "/azure/ai-services/cognitive-services-container-support",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/content-moderator/api-reference.md",
@@ -2881,6 +2906,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/entitylinking.md",
+      "redirect_url": "/azure/ai-services/language-service/entity-linking/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/language-service/entity-linking/quickstart.md",
       "redirect_url": "/azure/ai-services/language-service/entity-linking/quickstart",
       "redirect_document_id": true
@@ -4443,6 +4473,11 @@
     {
       "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/how-to/enable-vnet-service-endpoint.md",
       "redirect_url": "/azure/ai-services/translator/custom-translator/how-to/enable-vnet-service-endpoint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/openai/how-to/prepare-dataset.md",
+      "redirect_url": "/azure/ai-services/openai/how-to/fine-tuning",
       "redirect_document_id": false
     }
   ]

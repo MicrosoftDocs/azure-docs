@@ -2,7 +2,7 @@
 title: Configure CI/CD with Azure Pipelines
 description: Learn how to deploy your code to Azure App Service from a CI/CD pipeline with Azure Pipelines.
 ms.topic: article
-ms.date: 09/13/2022
+ms.date: 12/13/2023
 ms.author: jukullam
 ms.manager: mijacobs
 ms.custom: "devops-pipelines-deploy"
@@ -18,7 +18,7 @@ Use [Azure Pipelines](/azure/devops/pipelines/) to automatically deploy your web
 
 YAML pipelines are defined using a YAML file in your repository. A step is the smallest building block of a pipeline and can be a script or task (prepackaged script). [Learn about the key concepts and components that make up a pipeline](/azure/devops/pipelines/get-started/key-pipelines-concepts).
 
-You'll use the [Azure Web App task](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app) to deploy to Azure App Service in your pipeline. For more complicated scenarios such as needing to use XML parameters in your deploy, you can use the [Azure App Service Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app).  
+You'll use the [Azure Web App task (`AzureWebApp`)](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app) to deploy to Azure App Service in your pipeline. For more complicated scenarios such as needing to use XML parameters in your deploy, you can use the [Azure App Service deploy task (AzureRmWebAppDeployment)](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment).
 
 ## Prerequisites
 
@@ -32,12 +32,11 @@ You'll use the [Azure Web App task](/azure/devops/pipelines/tasks/deploy/azure-r
     - Java: [Create a Java app on Azure App Service](quickstart-java.md)
     - Python: [Create a Python app in Azure App Service](quickstart-python.md)
 
-
-### Create your pipeline
+## 1. Create a pipeline for your stack
 
 The code examples in this section assume you're deploying an ASP.NET web app. You can adapt the instructions for other frameworks. 
 
-Learn more about [Azure Pipelines ecosystem support](/azure/devops/pipelines/ecosystems/ecosystems).  
+Learn more about [Azure Pipelines ecosystem support](/azure/devops/pipelines/ecosystems/ecosystems).
 
 # [YAML](#tab/yaml/)
 
@@ -57,15 +56,33 @@ Learn more about [Azure Pipelines ecosystem support](/azure/devops/pipelines/eco
 
 1. When your new pipeline appears, take a look at the YAML to see what it does. When you're ready, select **Save and run**.
 
-###  Add the Azure Web App task
+# [Classic](#tab/classic/)
+
+To get started: 
+
+1. Create a pipeline and select the **ASP.NET Core** template. This selection automatically adds the tasks required to build the code in the sample repository.
+
+2. Save the pipeline and queue a build to see it in action.
+
+    The **ASP.NET Core** pipeline template publishes the deployment ZIP file as an Azure artifact for the deployment task later.
+
+-----
+
+## 2. Add the deployment task
+
+# [YAML](#tab/yaml/)
+
+1. Click the end of the YAML file, then select **Show assistant**.'
 
 1. Use the Task assistant to add the [Azure Web App](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app) task. 
 
     :::image type="content" source="media/deploy-azure-pipelines/azure-web-app-task.png" alt-text="Screenshot of Azure web app task.":::
 
-1. Select **Azure Resource Manager** for the **Connection type** and choose your **Azure subscription**. Make sure to **Authorize** your connection.  
+    Alternatively, you can add the [Azure App Service deploy (AzureRmWebAppDeployment)](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) task.
 
-1. Select  **Web App on Linux** and enter your `azureSubscription`, `appName`, and `package`. Your complete YAML should look like this. 
+1. Choose your **Azure subscription**. Make sure to **Authorize** your connection. The authorization creates the required service connection.
+
+1. Select the **App type**, **App name**, and **Runtime stack** based on your App Service app. Your complete YAML should look similar to the following code. 
 
     ```yaml
     variables:
@@ -80,65 +97,41 @@ Learn more about [Azure Pipelines ecosystem support](/azure/devops/pipelines/eco
         publishWebProjects: true
     - task: AzureWebApp@1
       inputs:
-        azureSubscription: '<Azure service connection>'
+        azureSubscription: '<service-connection-name>'
         appType: 'webAppLinux'
-        appName: '<Name of web app>'
+        appName: '<app-name>'
         package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     ```
 
-    * **azureSubscription**: your Azure subscription.
-    * **appName**: the name of your existing app service.
-    * **package**: the file path to the package or a folder containing your app service contents. Wildcards are supported.
+    * **azureSubscription**: Name of the authorized service connection to your Azure subscription.
+    * **appName**: Name of your existing app.
+    * **package**: Fike path to the package or a folder containing your app service contents. Wildcards are supported.
 
 # [Classic](#tab/classic/)
 
 To get started: 
 
-1. Create a pipeline and select the **ASP.NET Core** template. This selection automatically adds the tasks required to build the code in the sample repository.
+1. Create a [release pipeline](/azure/devops/pipelines/release/) by selecting **Releases** from the left menu and select **New pipeline**. 
 
-2. Save the pipeline and queue a build to see it in action.
+1. Select the **Azure App Service deployment** template for your stage. This automatically adds the necessary tasks. 
 
-3. Create a release pipeline and select the **Azure App Service Deployment** template for your stage.
-   This automatically adds the necessary tasks. 
+    > [!NOTE]
+    > If you're deploying a Node.js app to App Service on Windows, select the **Deploy Node.js App to Azure App Service** template. The only difference between these templates is that Node.js template configures the task to generate a **web.config** file containing a parameter that starts the **iisnode** service.
 
-4. Link the build pipeline as an artifact for this release pipeline. Save the release pipeline and create a release to see it in action.
+1. To link this release pipeline to the Azure artifact from the previous step, select **Add an artifact** > **Build**. 
+
+1. In **Source (build pipeline)**, select the build pipeline you created in the previous section, then select **Add**.
+
+1. Save the release pipeline and create a release to see it in action.
 
 ---
 
-Now you're ready to read through the rest of this article to learn some of the more common changes that people make to customize an Azure Web App deployment.
-
-## Use the Azure Web App task
+### Example: Deploy a .NET app
 
 # [YAML](#tab/yaml/)
 
-The Azure Web App Deploy task is the simplest way to deploy to an Azure Web App. By default, your deployment happens to the root application in the Azure Web App.
+To deploy a .zip web package (for example, from an ASP.NET web app) to an Azure Web App, use the following snippet to deploy the build to an app. 
 
-The [Azure App Service Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) allows you to modify configuration settings inside web packages and XML parameters files. 
-
-### Deploy a Web Deploy package
-
-To deploy a .zip Web Deploy package (for example, from an ASP.NET web app) to an Azure Web App,
-add the following snippet to your *azure-pipelines.yml* file:
-
-```yaml
-- task: AzureWebApp@1
-  inputs:
-    azureSubscription: '<Azure service connection>'
-    appName: '<Name of web app>'
-    package: $(System.DefaultWorkingDirectory)/**/*.zip    
-```
-
-* **azureSubscription**: your Azure subscription.
-* **appName**: the name of your existing app service.
-* **package**: the file path to the package or a folder containing your app service contents. Wildcards are supported.
-
-The snippet assumes that the build steps in your YAML file produce the zip archive in the `$(System.DefaultWorkingDirectory)` folder on your agent.
-
-For information on Azure service connections, see the [following section](#endpoint).
-
-### Deploy a .NET app
-
-if you're building a [.NET Core app](/azure/devops/pipelines/ecosystems/dotnet-core), use the following snipped to deploy the build to an app. 
 
 ```yaml
 variables:
@@ -153,9 +146,9 @@ steps:
     publishWebProjects: true
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: '<Azure service connection>'
+    azureSubscription: '<service-connection-name>'
     appType: 'webAppLinux'
-    appName: '<Name of web app>'
+    appName: '<app-name>'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
 ```
 
@@ -164,45 +157,22 @@ steps:
 * **appName**: the name of your existing app service.
 * **package**: the file path to the package or a folder containing your app service contents. Wildcards are supported.
 
-
 # [Classic](#tab/classic/)
 
-The simplest way to deploy to an Azure Web App is to use the **Azure Web App** task.
-To deploy to any Azure App service (Web app for Windows, Linux, container, Function app or web jobs), use the **Azure App Service Deploy** task.
-This task is automatically added to the release pipeline when you select one of the prebuilt deployment templates for Azure App Service deployment.
-Templates exist for apps developed in various programming languages. If you can't find a template for your language, select the generic **Azure App Service Deployment** template.
+For classic pipelines, it's the easiest to define build and release stages in separate pages (**Pipelines** and **Releases**, respectively). In general, you:
 
-When you link the artifact in your release pipeline to a build that compiles and publishes the web package,
-it's automatically downloaded and placed into the `$(System.DefaultWorkingDirectory)` folder on the agent as part of the release.
-This is where the task picks up the web package for deployment.
+- In the **Pipelines** page, build and test your app by using the template of your choice, such as **ASP.NET Core**, **Node.js with Grunt**, **Maven**, or others, and publish an artifact.
+- In the **Release** page, use the generic **Azure App Service deployment** template to deploy the artifact. 
+
+There may be templates for specific programming languages to choose from.
 
 ---
 
-<a name="endpoint"></a>
-
-## Use a service connection
-
-To deploy to Azure App Service, you'll need to use an Azure Resource Manager [service connection](/azure/devops/pipelines/library/service-endpoints). The Azure service connection stores the credentials to connect from Azure Pipelines or Azure DevOps Server to Azure.
-
-Learn more about [Azure Resource Manager service connections](/azure/devops/pipelines/library/connect-to-azure). If your service connection isn't working as expected, see [Troubleshooting service connections](/azure/devops/pipelines/release/azure-rm-endpoint). 
+## Example: deploy to a virtual application
 
 # [YAML](#tab/yaml/)
 
-You'll need an Azure service connection for the `AzureWebApp` task. The Azure service connection stores the credentials to connect from Azure Pipelines to Azure. See [Create an Azure service connection](/azure/devops/pipelines/library/connect-to-azure).
-
-# [Classic](#tab/classic/)
-
-For Azure DevOps Services, the easiest way to get started with this task is to be signed in as a user who owns both the Azure DevOps Services organization and the Azure subscription. In this case, you won't have to manually create the service connection.
-
-Otherwise, to learn how to create an Azure service connection, see [Create an Azure service connection](/azure/devops/pipelines/library/connect-to-azure).
-
----
-
-## Deploy to a virtual application
-
-# [YAML](#tab/yaml/)
-
-By default, your deployment happens to the root application in the Azure Web App. You can deploy to a specific virtual application by using the `VirtualApplication` property of the `AzureRmWebAppDeployment` task:
+By default, your deployment happens to the root application in the Azure Web App. You can deploy to a specific virtual application by using the `VirtualApplication` property of the Azure App Service deploy (`AzureRmWebAppDeployment`) task:
 
 ```yaml
 - task: AzureRmWebAppDeployment@4
@@ -210,30 +180,27 @@ By default, your deployment happens to the root application in the Azure Web App
     VirtualApplication: '<name of virtual application>'
 ```
 
-* **VirtualApplication**: the name of the Virtual Application that has been configured in the Azure portal. For more information, see [Configure an App Service app in the Azure portal
+* **VirtualApplication**: the name of the Virtual Application that's configured in the Azure portal. For more information, see [Configure an App Service app in the Azure portal
 ](./configure-common.md).
 
 # [Classic](#tab/classic/)
 
-By default, your deployment happens to the root application in the Azure Web App. If you want to deploy to a specific virtual application,
-enter its name in the **Virtual Application** property of the **Azure App Service Deploy** task.
+By default, your deployment happens to the root application in the Azure Web App. If you want to deploy to a specific virtual application, enter its name in the **Virtual Application** property of the **Azure App Service deploy** task.
 
 ---
 
-## Deploy to a slot
+## Example: Deploy to a slot
 
 # [YAML](#tab/yaml/)
-
-You can configure the Azure Web App to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
 
 The following example shows how to deploy to a staging slot, and then swap to a production slot:
 
 ```yaml
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: '<Azure service connection>'
+    azureSubscription: '<service-connection-name>'
     appType: webAppLinux
-    appName: '<name of web app>'
+    appName: '<app-name>'
     deployToSlotOrASE: true
     resourceGroupName: '<name of resource group>'
     slotName: staging
@@ -241,9 +208,9 @@ The following example shows how to deploy to a staging slot, and then swap to a 
 
 - task: AzureAppServiceManage@0
   inputs:
-    azureSubscription: '<Azure service connection>'
+    azureSubscription: '<service-connection-name>'
     appType: webAppLinux
-    WebAppName: '<name of web app>'
+    WebAppName: '<app-name>'
     ResourceGroupName: '<name of resource group>'
     SourceSlot: staging
     SwapWithProduction: true
@@ -261,18 +228,15 @@ The following example shows how to deploy to a staging slot, and then swap to a 
 
 # [Classic](#tab/classic/)
 
-You can configure the Azure Web App to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
-
-Use the option **Deploy to Slot or App Service Environment** in the **Azure Web App** task to specify the slot to deploy to.
+Use the option **Deploy to Slot or App Service Environment** in the **Azure Web App** task to specify the slot to deploy to. To swap the slots, use the **Azure App Service manage** task.
 
 ---
 
-## Deploy to multiple web apps
+## Example: Deploy to multiple web apps
 
 # [YAML](#tab/yaml/)
 
-You can use [jobs](/azure/devops/pipelines/process/phases) in your YAML file to set up a pipeline of deployments.
-By using jobs, you can control the order of deployment to multiple web apps.
+You can use [jobs](/azure/devops/pipelines/process/phases) in your YAML file to set up a pipeline of deployments. By using jobs, you can control the order of deployment to multiple web apps.
 
 ```yaml
 jobs:
@@ -290,11 +254,11 @@ jobs:
   # deploy to Azure Web App staging
   - task: AzureWebApp@1
     inputs:
-      azureSubscription: '<Azure service connection>'
+      azureSubscription: '<service-connection-name>'
       appType: <app type>
-      appName: '<name of test stage web app>'
+      appName: '<staging-app-name>'
       deployToSlotOrASE: true
-      resourceGroupName: <resource group name>
+      resourceGroupName: <group-name>
       slotName: 'staging'
       package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
 
@@ -315,45 +279,28 @@ jobs:
 
   - task: AzureWebApp@1
     inputs:
-      azureSubscription: '<Azure service connection>'
+      azureSubscription: '<service-connection-name>'
       appType: <app type>
-      appName: '<name of test stage web app>'
-      resourceGroupName: <resource group name>
+      appName: '<production-app-name>'
+      resourceGroupName: <group-name>
       package: '$(Pipeline.Workspace)/**/*.zip'
 ```
 
 # [Classic](#tab/classic/)
 
-If you want to deploy to multiple web apps, add stages to your release pipeline.
-You can control the order of deployment. To learn more, see [Stages](/azure/devops/pipelines/process/stages).
+If you want to deploy to multiple web apps, add stages to your release pipeline. You can control the order of deployment. To learn more, see [Stages](/azure/devops/pipelines/process/stages).
 
 ---
 
-## Make configuration changes
+## Example: Make variable substitutions
 
-For most language stacks, [app settings](./configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) and [connection strings](./configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-connection-strings) can be set as environment variables at runtime. 
+For most language stacks, [app settings](./configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) and [connection strings](./configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-connection-strings) can be set as environment variables at runtime.
 
-App settings can also be resolved from Key Vault using [Key Vault references](./app-service-key-vault-references.md).
-
-For ASP.NET and ASP.NET Core developers, setting app settings in App Service are like setting them in `<appSettings>` in Web.config.
-You might want to apply a specific configuration for your web app target before deploying to it. 
-This is useful when you deploy the same build to multiple web apps in a pipeline.
-For example, if your Web.config file contains a connection string named `connectionString`,
-you can change its value before deploying to each web app. You can do this either by applying
-a Web.config transformation or by substituting variables in your Web.config file. 
-
-**Azure App Service Deploy task** allows users to modify configuration settings in configuration files (*.config files) inside web packages and XML parameters files (parameters.xml), based on the stage name specified.
-
-> [!NOTE]  
-> File transforms and variable substitution are also supported by the separate [File Transform task](/azure/devops/pipelines/tasks/utility/file-transform) for use in Azure Pipelines.
-You can use the File Transform task to apply file transformations and variable substitutions on any configuration and parameters files.
-
-
-### Variable substitution
+But there are other reasons you would want to make variable substitutions to your *Web.config*. In this example, your Web.config file contains a connection string named `connectionString`. You can change its value before deploying to each web app. You can do this either by applying a Web.config transformation or by substituting variables in your Web.config file. 
 
 # [YAML](#tab/yaml/)
 
-The following snippet shows an example of variable substitution:
+The following snippet shows an example of variable substitution by using the Azure App Service Deploy (`AzureRmWebAppDeployment`) task:
 
 ```yaml
 jobs:
@@ -390,11 +337,11 @@ To change `connectionString` by using variable substitution:
 
 ---
 
-## Deploying conditionally
+## Example: Deploy conditionally
 
 # [YAML](#tab/yaml/)
 
-To do this in YAML, you can use one of these techniques:
+To do this in YAML, you can use one of the following techniques:
 
 * Isolate the deployment steps into a separate job, and add a condition to that job.
 * Add a condition to the step.
@@ -405,8 +352,8 @@ The following example shows how to use step conditions to deploy only builds tha
 - task: AzureWebApp@1
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   inputs:
-    azureSubscription: '<Azure service connection>'
-    appName: '<name of web app>'
+    azureSubscription: '<service-connection-name>'
+    appName: '<app-name>'
 ```
 
 To learn more about conditions, see [Specify conditions](/azure/devops/pipelines/process/conditions).
@@ -424,64 +371,91 @@ To learn more, see [Release, branch, and stage triggers](/azure/devops/pipelines
 
 ---
 
-## (Classic) Deploy a release pipeline
+## Example: deploy using Web Deploy
 
-You can use a release pipeline to pick up the artifacts published by your build and then deploy them to your Azure web site.
+The Azure App Service deploy (`AzureRmWebAppDeployment`) task can deploy to App Service using Web Deploy.
 
-1. Do one of the following to start creating a release pipeline:
+# [YAML](#tab/yaml/)
 
-   * If you've just completed a CI build, choose the link (for example, _Build 20170815.1_)
-     to open the build summary. Then choose **Release** to start a new release pipeline that's automatically linked to the build pipeline.
+```yml
+trigger:
+- main
 
-   * Open the **Releases** tab in **Azure Pipelines**, open the **+** dropdown
-     in the list of release pipelines, and choose **Create release pipeline**.
+pool:
+  vmImage: windows-latest
 
-1. The easiest way to create a release pipeline is to use a template. If you're deploying a Node.js app, select the **Deploy Node.js App to Azure App Service** template.
-   Otherwise, select the **Azure App Service Deployment** template. Then choose **Apply**.
+variables:
+  buildConfiguration: 'Release'
 
-   > [!NOTE]
-   > The only difference between these templates is that Node.js template configures the task to generate a **web.config** file containing a parameter that starts the **iisnode** service.
+steps:
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    arguments: '--configuration $(buildConfiguration)'
+    zipAfterPublish: true
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: '<service-connection-name>'
+    appType: 'webApp'
+    WebAppName: '<app-name>'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    enableCustomDeployment: true
+    DeploymentType: 'webDeploy'
+```
 
-1. If you created your new release pipeline from a build summary, check that the build pipeline and artifact
-   is shown in the **Artifacts** section on the **Pipeline** tab. If you created a new release pipeline from
-   the **Releases** tab, choose the **+ Add** link and select your build artifact.
+# [Classic](#tab/classic/)
 
-1. Choose the **Continuous deployment** icon in the **Artifacts** section, check that the
-   continuous deployment trigger is enabled, and add a filter to include the **main** branch.
+In the release pipeline, assuming you're using the **Azure App Service deployment** template:
 
-   > [!NOTE]
-   > Continuous deployment isn't enabled by default when you create a new release pipeline from the **Releases** tab.
+1. Select the **Tasks** tab, then select **Deploy Azure App Service**. This is the `AzureRmWebAppDeployment` task.
 
-1. Open the **Tasks** tab and, with **Stage 1** selected, configure the task property variables as follows:
+1. In the dialog, make sure that **Connection type** is set to **Azure Resource Manager**.
 
-   * **Azure Subscription:** Select a connection from the list under **Available Azure Service Connections** or create a more restricted permissions connection to your Azure subscription.
-     If you're using Azure Pipelines and if you see an **Authorize** button next to the input, select it to authorize Azure Pipelines to connect to your Azure subscription. If you're using TFS or if you don't see the desired Azure subscription in the list of subscriptions, see [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure) to manually set up the connection.
-
-   * **App Service Name**: Select the name of the web app from your subscription.
-
-    > [!NOTE]
-    > Some settings for the tasks may have been automatically defined as
-    > [stage variables](/azure/devops/pipelines/release/variables#custom-variables)
-    > when you created a release pipeline from a template.
-    > These settings cannot be modified in the task settings; instead you must
-    > select the parent stage item in order to edit these settings.
-    
+1. In the dialog, expand **Additional Deployment Options** and select **Select deployment method**. Make sure that **Web Deploy** is selected as the deployment method.
 
 1. Save the release pipeline.
 
-### Create a release to deploy your app
+> [!NOTE] 
+> With the [`AzureRmWebAppDeployment@3`](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v3) and [`AzureRmWebAppDeployment@4`](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4) tasks, you should use the **Azure Resource Manager** connection type, or `AzureRM`, when deploying with Web Deploy. It uses publishing profiles for deployment when basic authentication is enabled for your app, but it uses the more secure Entra ID authentication when [basic authentication is disabled](configure-basic-auth-disable.md).
 
-You're now ready to create a release, which means to run the release pipeline with the artifacts produced by a specific build. This will result in deploying the build:
+---
 
-1. Choose **+ Release** and select **Create a release**.
+## Frequently asked questions
 
-1. In the **Create a new release** panel, check that the artifact version you want to use is selected and choose **Create**.
+#### What's the difference between the `AzureWebApp` and `AzureRmWebAppDeployment` tasks?
 
-1. Choose the release link in the information bar message. For example: "Release **Release-1** has been created".
+The Azure Web App task (`AzureWebApp`) is the simplest way to deploy to an Azure Web App. By default, your deployment happens to the root application in the Azure Web App.
 
-1. In the pipeline view, choose the status link in the stages of the pipeline to see the logs and agent output.
+The [Azure App Service Deploy task (`AzureRmWebAppDeployment`)](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) can handle more custom scenarios, such as:
 
-1. After the release is complete, navigate to your site running in Azure using the Web App URL `http://{web_app_name}.azurewebsites.net`, and verify its contents.
+- [Modify configuration settings](#example-make-variable-substitutions) inside web packages and XML parameters files. 
+- [Deploy with Web Deploy](#example-deploy-using-web-deploy), if you're used to the IIS deployment process.
+- [Deploy to virtual applications](#example-deploy-to-a-virtual-application).
+- Deploy to other app types, like Container apps, Function apps, WebJobs, or API and Mobile apps.
+
+> [!NOTE]  
+> File transforms and variable substitution are also supported by the separate [File Transform task](/azure/devops/pipelines/tasks/utility/file-transform) for use in Azure Pipelines. You can use the File Transform task to apply file transformations and variable substitutions on any configuration and parameters files.
+
+#### I get the message "Invalid App Service package or folder path provided."
+
+In YAML pipelines, depending on your pipeline, there may be a mismatch between where your built web package is saved and where the deploy task is looking for it. For example, the `AzureWebApp` task picks up the web package for deployment. For example, the AzureWebApp task looks in `$(System.DefaultWorkingDirectory)/**/*.zip`. If the web package is deposited elsewhere, modify the value of `package`.
+
+#### I get the message "Publish using webdeploy options are supported only when using Windows agent."
+
+This error occurs in the **AzureRmWebAppDeployment** task when you configure the task to deploy using Web Deploy, but your agent isn't running Windows. Verify that your YAML has something similar to the following code:
+
+```yml
+pool:
+  vmImage: windows-latest
+```
+
+#### Web Deploy doesn't work when I disable basic authentication
+
+For troubleshooting information on getting Microsoft Entra ID authentication to work with the `AzureRmWebAppDeployment` task, see [I can't Web Deploy to my Azure App Service using Microsoft Entra ID authentication from my Windows agent](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4#i-cant-web-deploy-to-my-azure-app-service-using-microsoft-entra-id-authentication-from-my-windows-agent)
 
 ## Next steps
 

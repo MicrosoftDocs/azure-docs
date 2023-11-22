@@ -2,12 +2,12 @@
 title: Tutorial to configure Azure Active Directory B2C with Microsoft Dynamics 365 Fraud Protection
 titleSuffix: Azure AD B2C
 description: Tutorial to configure Azure AD B2C with Microsoft Dynamics 365 Fraud Protection to identify risky and fraudulent accounts
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 02/27/2023
 ms.author: gasinh
@@ -40,7 +40,7 @@ Microsoft DFP integration includes the following components:
 - **Azure AD B2C tenant**: Authenticates the user and acts as a client of Microsoft DFP. Hosts a fingerprinting script collecting identification and diagnostic data of users who execute a target policy. It blocks or challenges sign-in or sign-up attempts based on the rule evaluation result returned by Microsoft DFP.
 - **Custom UI templates**: Customizes HTML content of the pages rendered by Azure AD B2C. These pages include the JavaScript snippet required for Microsoft DFP fingerprinting.
 - **Microsoft DFP fingerprinting service**: Dynamically embedded script that logs device telemetry and self-asserted user details to create a uniquely identifiable fingerprint for the user.
-- **Microsoft DFP API endpoints**: Provides the decision result and accepts a final status reflecting the operation undertaken by the client application. Azure AD B2C communicates with the Microsoft DFP endpoints using REST API connectors. API authentication occurs with a client_credentials grant to the Azure AD tenant in which Microsoft DFP is licensed and installed to obtain a bearer token.
+- **Microsoft DFP API endpoints**: Provides the decision result and accepts a final status reflecting the operation undertaken by the client application. Azure AD B2C communicates with the Microsoft DFP endpoints using REST API connectors. API authentication occurs with a client_credentials grant to the Microsoft Entra tenant in which Microsoft DFP is licensed and installed to obtain a bearer token.
 
 The following architecture diagram shows the implementation.
 
@@ -58,7 +58,7 @@ The following architecture diagram shows the implementation.
 
 ## Configure your application under Microsoft DFP
 
-[Set up your Azure AD tenant](/dynamics365/fraud-protection/integrate-real-time-api) to use Microsoft DFP.
+[Set up your Microsoft Entra tenant](/dynamics365/fraud-protection/integrate-real-time-api) to use Microsoft DFP.
 
 ## Set up your custom domain
 
@@ -92,7 +92,7 @@ Learn more: [UI customization documentation](./customize-ui-with-html.md?pivots=
 
 ### Add policy keys for your Microsoft DFP client app ID and secret
 
-1. In the Azure AD tenant where Microsoft DFP is set up, create an [Azure AD application and grant admin consent](/dynamics365/fraud-protection/integrate-real-time-api#create-azure-active-directory-applications).
+1. In the Microsoft Entra tenant where Microsoft DFP is set up, create an [Microsoft Entra application and grant admin consent](/dynamics365/fraud-protection/integrate-real-time-api#create-azure-active-directory-applications).
 2. Create a secret value for this application registration. Note the application client ID and client secret value.
 3. Save the client ID and client secret values as [policy keys in your Azure AD B2C tenant](./policy-keys-overview.md).
 
@@ -117,12 +117,12 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 |{Settings:ContentDefinitionBaseUri}|Endpoint in where you deployed the UI files|`https://<my-storage-account>.blob.core.windows.net/<my-storage-container>`|
 |{Settings:DfpApiBaseUrl}|The base path for your DFP API instance, found in the DFP portal| `https://tenantname-01234567-89ab-cdef-0123-456789abcdef.api.dfp.dynamics.com/v1.0/`|
 |{Settings:DfpApiAuthScope}|The client_credentials scope for the DFP API service|`https://api.dfp.dynamics-int.com/.default or https://api.dfp.dynamics.com/.default`|
-|{Settings:DfpTenantId}|The ID of the Azure AD tenant (not B2C) where DFP is licensed and installed|`01234567-89ab-cdef-0123-456789abcdef` or `consoto.onmicrosoft.com` |
+|{Settings:DfpTenantId}|The ID of the Microsoft Entra tenant (not B2C) where DFP is licensed and installed|`01234567-89ab-cdef-0123-456789abcdef` or `consoto.onmicrosoft.com` |
 |{Settings:DfpAppClientIdKeyContainer}|Name of the policy key-in which you save the DFP client ID|`B2C_1A_DFPClientId`|
 |{Settings:DfpAppClientSecretKeyContainer}|Name of the policy key-in which you save the DFP client secret |`B2C_1A_DFPClientSecret`|
 |{Settings:DfpEnvironment}| The ID of the DFP environment.|Environment ID is a global unique identifier of the DFP environment that you send the data to. Your custom policy should call the API endpoint, including the query string parameter `x-ms-dfpenvid=your-env-id>`|
 
-*You can set up application insights in an Azure AD tenant or subscription. This value is optional but [recommended to assist with debugging](./troubleshoot-with-application-insights.md).
+*You can set up application insights in a Microsoft Entra tenant or subscription. This value is optional but [recommended to assist with debugging](./troubleshoot-with-application-insights.md).
 
 >[!NOTE]
 >Add consent notification to the attribute collection page. Include notification that user telemetry and identity information is recorded for account protection.

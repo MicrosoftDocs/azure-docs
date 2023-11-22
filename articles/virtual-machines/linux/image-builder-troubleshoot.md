@@ -4,7 +4,7 @@ description: This article helps you troubleshoot common problems and errors you 
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 07/31/2023
+ms.date: 11/10/2023
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -21,13 +21,20 @@ Use this article to troubleshoot and resolve common issues that you might encoun
 
 When you're creating a build, do the following:
 
-- The VM Image Builder service communicates to the build VM by using WinRM or Secure Shell (SSH). Do *not* disable these settings as part of the build.
-- VM Image Builder creates resources as part of the build. Be sure to verify that Azure Policy doesn't prevent VM Image Builder from creating or using necessary resources.
+- The VM Image Builder service communicates to the build VM by using WinRM or Secure Shell (SSH). Don't* disable these settings as part of the build.
+- VM Image Builder creates resources in the staging resource group as part of the builds. Be sure to verify that Azure Policy doesn't prevent VM Image Builder from creating or using necessary resources.
   - Create an IT_ resource group.
   - Create a storage account without a firewall.
+  - Deploy [Azure Container Instances](../../container-instances/container-instances-overview.md).
+  - Deploy [Azure Virtual Network resources](../../virtual-network/virtual-networks-overview.md) (and subnets therein).
+  - Deploy [Azure Private Endpoint](../../private-link/private-endpoint-overview.md) resources.
+  - Deploy [Azure Files](../../storage/files/storage-files-introduction.md).
 - Verify that Azure Policy doesn't install unintended features on the build VM, such as Azure Extensions.
 - Ensure that VM Image Builder has the correct permissions to read/write images and to connect to the storage account. For more information, review the permissions documentation for the [Azure CLI](./image-builder-permissions-cli.md) or [Azure PowerShell](./image-builder-permissions-powershell.md).
-- VM Image Builder will fail the build if the scripts or inline commands fail with errors (non-zero exit codes). Ensure that you've tested the custom scripts and verified that they run without error (exit code 0) or require user input. For more information, see [Create an Azure Virtual Desktop image by using VM Image Builder and PowerShell](../windows/image-builder-virtual-desktop.md#tips-for-building-windows-images).
+- VM Image Builder fails the build if the scripts or inline commands fail with errors (nonzero exit codes). Ensure that you've tested the custom scripts and verified that they run without error (exit code 0) or require user input. For more information, see [Create an Azure Virtual Desktop image by using VM Image Builder and PowerShell](../windows/image-builder-virtual-desktop.md#tips-for-building-windows-images).
+- Ensure your subscription has sufficient [quota](../../container-instances/container-instances-resource-and-quota-limits.md) of Azure Container Instances.
+    - Each image build might deploy up to one temporary Azure Container Instance resource (of four standard cores) in the staging resource group. These resources are required for [Isolated image builds](../security-isolated-image-builds-image-builder.md).
+
 
 VM Image Builder failures can happen in two areas:
 
@@ -144,7 +151,7 @@ Microsoft.VirtualMachineImages/imageTemplates 'helloImageTemplateforSIG01' faile
 
 #### Cause
 
-In most cases, the resource deployment failure error occurs because of missing permissions. This error may also be caused by a conflict with the staging resource group.
+In most cases, the resource deployment failure error occurs because of missing permissions. This error might also be caused by a conflict with the staging resource group.
 
 #### Solution
 
@@ -604,21 +611,36 @@ Increase the build VM size.
 #### Warning
 
 ```text
-[a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT Build 'azure-arm' errored: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded
-[a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER ERR ==> Some builds didn't complete successfully and had errors:
-[a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT 
-[a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER ERR 2020/04/30 22:29:23 machine readable: azure-arm,error []string{"Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded"}
-[a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT ==> Some builds didn't complete successfully and had errors:
-[a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER ERR ==> Builds finished but no artifacts were created.
-[a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT --> azure-arm: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded
-[a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER ERR 2020/04/30 22:29:23 Cancelling builder after context cancellation context canceled
-[a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT 
-[a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER ERR 2020/04/30 22:29:23 [INFO] (telemetry) Finalizing.
-[a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT ==> Builds finished but no artifacts were created.
-[a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER ERR 2020/04/30 22:29:24 waiting for all plugin processes to complete...
-Done exporting Packer logs to Azure for Packer prefix: [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT
+[<log_id>] PACKER 2023/09/14 19:01:18 ui: Build 'azure-arm' finished after 3 minutes 13 seconds.
+[<log_id>] PACKER 2023/09/14 19:01:18 ui: 
+[<log_id>] PACKER ==> Wait completed after 3 minutes 13 seconds
+[<log_id>] PACKER 2023/09/14 19:01:18 ui: 
+[<log_id>] PACKER ==> Builds finished but no artifacts were created.
+[<log_id>] PACKER 2023/09/14 19:01:18 [INFO] (telemetry) Finalizing.
+[<log_id>] PACKER 2023/09/14 19:01:19 waiting for all plugin processes to complete...
+[<log_id>] PACKER 2023/09/14 19:01:19 /aib/packerInput/packer-plugin-azure: plugin process exited
+[<log_id>] PACKER 2023/09/14 19:01:19 /aib/packerInput/packer: plugin process exited
+[<log_id>] PACKER 2023/09/14 19:01:19 /aib/packerInput/packer: plugin process exited
+[<log_id>] PACKER 2023/09/14 19:01:19 /aib/packerInput/packer: plugin process exited
+[<log_id>] PACKER Done exporting Packer logs to Azure Storage.
 ```
 
+
+#### Solution
+
+The above warning can safely be ignored.
+
+### Skipping image creation
+
+#### Warning
+
+```text
+[<log_id>] PACKER 2023/09/14 19:00:18 ui: ==> azure-arm:  -> Snapshot ID : '/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.Compute/snapshots/<snapshot_name>'
+[<log_id>] PACKER 2023/09/14 19:00:18 ui: ==> azure-arm: Skipping image creation...
+[<log_id>] PACKER 2023/09/14 19:00:18 ui: ==> azure-arm: 
+[<log_id>] PACKER ==> azure-arm: Deleting individual resources ...
+[<log_id>] PACKER 2023/09/14 19:00:18 packer-plugin-azure plugin: 202
+```
 
 #### Solution
 
@@ -713,6 +735,77 @@ The cause might be a timing issue because of the D1_V2 VM size. If customization
 
 To avoid the timing issue, you can increase the VM size or you can add a 60-second PowerShell sleep customization.
 
+### Unregistered Azure Container Instances provider
+
+#### Error
+```text
+Azure Container Instances provider not registered for your subscription.
+```
+
+#### Cause
+Your template subscription doesn't have the Azure Container Instances provider registered.
+
+#### Solution
+Register the Azure Container Instances provider for your template subscription and add the Azure CLI or PowerShell commands:
+
+- Azure CLI: `az provider register -n Microsoft.ContainerInstance`
+- PowerShell: `Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance`
+
+
+
+### Azure Container Instances quota exceeded
+
+#### Error
+```text
+Azure Container Instances quota exceeded"
+```
+
+#### Cause
+Your subscription doesn't have enough Azure Container Instances (ACI) quota for Azure Image Builder to successfully build an image.
+
+#### Solution
+You can do the following to make ACI quota available for Azure Image Builder:
+- Lookup other usage of Azure Container Instances in your subscription and remove any unneeded instances to make quota available for Azure Image Builder.
+- Azure Image Builder deploys ACI only temporarily while a build is taking place. These instances are deleted once the build completes. If too many concurrent image builds are taking place in your subscription, then you can consider delaying some of the image builds. This reduces concurrent usage of ACI in your subscription. If your image templates are set up for automatic image builds using triggers, then such failed builds will automatically be retried by Azure Image Builder.
+- If the current ACI limits for your subscription are too low to support your image building scenarios, then you can request an increase in your [ACI quota](../../container-instances/container-instances-resource-and-quota-limits.md#next-steps).
+
+> [!NOTE]
+> ACI resources are required for [Isolated Image Builds](../security-isolated-image-builds-image-builder.md).
+
+### Too many Azure Container Instances deployed within a period of time
+
+#### Error
+"Too many Azure Container Instances deployed within a period of time"
+
+#### Cause
+Your subscription doesn't have enough Azure Container Instances (ACI) quota for Azure Image Builder to successfully build images concurrently.
+
+#### Solution
+You can do the following:
+- Retry your failed builds in a less concurrent manner.
+- If the current ACI limits for your subscription are too low to support your image building scenarios, then you can request an increase in your [ACI quota](../../container-instances/container-instances-resource-and-quota-limits.md#next-steps).
+
+### Isolated Image Build failure
+
+#### Error
+Azure Image Builder builds are failing due to Isolated Image Build.
+
+#### Cause
+Azure Image Builder builds can fail for reasons listed elsewhere in this document. However, there's a small chance that a build fails due to Isolated Image Builds depending on your scenario, subscription quotas, or some unforeseen service error. For more information, see [Isolated Image Builds](../security-isolated-image-builds-image-builder.md).
+
+#### Solution
+If you determine that a build is failing due to Isolated Image Builds, you can do the following:
+- Ensure there's no [Azure Policy](../../governance/policy/overview.md) blocking the deployment of resources mentioned in the Prerequisites section, specifically Azure Container Instances, Azure Virtual Networks, and Azure Private Endpoints.
+- Ensure your subscription has sufficient quota of Azure Container Instances to support all your concurrent image builds. For more information, see, Azure Container Instances [quota exceeded](./image-builder-troubleshoot.md#azure-container-instances-quota-exceeded).
+
+Azure Image Builder is currently in the process of deploying Isolated Image Builds. Specific image templates are not tied to Isolated Image Builds and the same image template might or might not utilize Isolated Image Builds during different builds. You can do the following to temporarily run your build without Isolated Image Builds.
+- Retry your build. Since Image Templates are not tied to the Isolated Image Builds feature, retrying a build has a high probability of rerunning without Isolated Image Builds.
+
+ If none of these solutions mitigate failing image builds, then you can contact Azure support to temporarily opt your subscription out of Isolated Image Builds. For more information, see [Create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+
+> [!NOTE]
+> Isolated Image Builds will eventually be enabled in all regions and templates. So, the above mitigations should be considered temporary and the underlying cause of build failures must be addressed.
+
 ### The build is canceled after the context cancelation context is canceled
 
 #### Error
@@ -783,7 +876,7 @@ Making these observations is especially important in build failures, where these
 
 #### Error
 
-When images are stuck in template deletion, the customization log may show the below error:
+When images are stuck in template deletion, the customization log might show the below error:
 
 ```output
 error deleting resource id /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/networkInterfaces/<networkInterfacName>: resources.Client#DeleteByID: Failure sending request: StatusCode=400 -- 

@@ -2,7 +2,7 @@
 title: "Quickstart: Set up sign-in for an ASP.NET web app"
 titleSuffix: Azure AD B2C
 description: In this Quickstart, run a sample ASP.NET web app that uses Azure Active Directory B2C to provide account sign-in.
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 ms.service: active-directory
@@ -83,7 +83,7 @@ Azure Active Directory B2C provides functionality to allow users to update their
 
     ![Screenshot of the sample web app in browser with To-Do List link and Add button highlighted.](./media/quickstart-web-app-dotnet/add-todo-item-web.png)
 
-    The ASP.NET web application includes an Azure AD access token in the request to the protected web API resource to perform operations on the user's to-do list items.
+    The ASP.NET web application includes a Microsoft Entra access token in the request to the protected web API resource to perform operations on the user's to-do list items.
 
 You've successfully used your Azure AD B2C user account to make an authorized call to an Azure AD B2C protected web API.
 

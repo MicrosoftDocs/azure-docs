@@ -4,7 +4,7 @@ description: Learn how to use Apache Maven to build a Java-based Apache HBase ap
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, seodec18, devx-track-java, devx-track-azurepowershell, devx-track-extended-java
-ms.date: 09/23/2022
+ms.date: 10/17/2023
 ---
 
 # Build Java applications for Apache HBase
@@ -23,7 +23,7 @@ The steps in this document use [Apache Maven](https://maven.apache.org/) to crea
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* If using PowerShell, you'll need the [AZ Module](/powershell/azure/).
+* If using PowerShell, you need the [AZ Module](/powershell/azure/).
 
 * A text editor. This article uses Microsoft Notepad.
 
@@ -31,7 +31,7 @@ The steps in this document use [Apache Maven](https://maven.apache.org/) to crea
 
 The environment used for this article was a computer running Windows 10.  The commands were executed in a command prompt, and the various files were edited with Notepad. Modify accordingly for your environment.
 
-From a command prompt, enter the commands below to create a working environment:
+From a command prompt, enter the following commands to create a working environment:
 
 ```cmd
 IF NOT EXIST C:\HDI MKDIR C:\HDI
@@ -49,13 +49,13 @@ cd C:\HDI
     mkdir conf
     ```
 
-    This command creates a directory named `hbaseapp` at the current location, which contains a basic Maven project. The second command changes the working directory to `hbaseapp`. The third command creates a new directory, `conf`, which will be used later. The `hbaseapp` directory contains the following items:
+    This command creates a directory named `hbaseapp` at the current location, which contains a basic Maven project. The second command changes the working directory to `hbaseapp`. The third command creates a new directory, `conf`, which can be used later. The `hbaseapp` directory contains the following items:
 
     * `pom.xml`:  The Project Object Model ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contains information and configuration details used to build the project.
     * `src\main\java\com\microsoft\examples`: Contains your application code.
     * `src\test\java\com\microsoft\examples`: Contains tests for your application.
 
-2. Remove the generated example code. Delete the generated test and application files `AppTest.java`, and `App.java` by entering the commands below:
+2. Remove the generated example code. Delete the generated test and application files `AppTest.java`, and `App.java` by entering the following commands:
 
     ```cmd
     DEL src\main\java\com\microsoft\examples\App.java
@@ -64,7 +64,7 @@ cd C:\HDI
 
 ## Update the Project Object Model
 
-For a full reference of the pom.xml file, see https://maven.apache.org/pom.html.  Open `pom.xml` by entering the command below:
+For a full reference of the pom.xml file, see https://maven.apache.org/pom.html.  Open `pom.xml` by entering the following command:
 
 ```cmd
 notepad pom.xml
@@ -171,13 +171,13 @@ scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./
 
 ### Implement a CreateTable class
 
-Enter the command below to create and open a new file `CreateTable.java`. Select **Yes** at the prompt to create a new file.
+Enter the following command to create and open a new file `CreateTable.java`. Select **Yes** at the prompt to create a new file.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\CreateTable.java
 ```
 
-Then copy and paste the Java code below into the new file. Then close the file.
+Then copy and paste the following Java code into the new file. Then close the file.
 
 ```java
 package com.microsoft.examples;
@@ -253,13 +253,13 @@ This code is the `CreateTable` class, which creates a table named `people` and p
 
 ### Implement a SearchByEmail class
 
-Enter the command below to create and open a new file `SearchByEmail.java`. Select **Yes** at the prompt to create a new file.
+Enter the following command to create and open a new file `SearchByEmail.java`. Select **Yes** at the prompt to create a new file.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\SearchByEmail.java
 ```
 
-Then copy and paste the Java code below into the new file. Then close the file.
+Then copy and paste the following Java code into the new file. Then close the file.
 
 ```java
 package com.microsoft.examples;
@@ -338,13 +338,13 @@ The `SearchByEmail` class can be used to query for rows by email address. Becaus
 
 ### Implement a DeleteTable class
 
-Enter the command below to create and open a new file `DeleteTable.java`. Select **Yes** at the prompt to create a new file.
+Enter the following command to create and open a new file `DeleteTable.java`. Select **Yes** at the prompt to create a new file.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\DeleteTable.java
 ```
 
-Then copy and paste the Java code below into the new file. Then close the file.
+Then copy and paste the following Java code into the new file. Then close the file.
 
 ```java
 package com.microsoft.examples;
@@ -642,7 +642,7 @@ The following steps use the Azure PowerShell [AZ module](/powershell/azure/new-a
 
 2. Save the `hbase-runner.psm1` file in the `hbaseapp` directory.
 
-3. Register the modules with Azure PowerShell. Open a new Azure PowerShell window and edit the command below by replacing `CLUSTERNAME` with the name of your cluster. Then enter the following commands:
+3. Register the modules with Azure PowerShell. Open a new Azure PowerShell window and edit the following command by replacing `CLUSTERNAME` with the name of your cluster. Then enter the following commands:
 
     ```powershell
     cd C:\HDI\hbaseapp

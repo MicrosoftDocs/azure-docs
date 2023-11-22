@@ -2,11 +2,10 @@
 title: Real-time meeting transcription quickstart - Speech service
 titleSuffix: Azure AI services
 description: In this quickstart, learn how to transcribe meetings. You can add, remove, and identify multiple participants by streaming audio to the Speech service.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: quickstart
 ms.date: 05/06/2023
 ms.author: eur

@@ -1,12 +1,12 @@
 ---
 title: portal consolidation include file
 description: portal consolidation include file
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: aahill
 ms.author: aahi
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.date: 01/21/2021
 ms.topic: include
 

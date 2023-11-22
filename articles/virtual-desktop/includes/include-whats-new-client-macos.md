@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 09/08/2023
+ms.date: 10/02/2023
 ---
 
 ## Latest client versions
@@ -11,8 +11,27 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.9.0         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
-| Beta    | 10.9.0         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+| Public  | 10.9.3         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
+| Beta    | 10.9.3         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+
+## Updates for version 10.9.3
+
+*Date published: October 2, 2023*
+
+In this release, we've made the following changes:
+
+- Fixed an issue where using workspace refresh deleted the workspace.
+- Resolved a RemoteApp issue where drag operations sometimes didn't work on certain apps.
+- Fixed an incorrect error message displayed for expired passwords.
+- Addressed a number of accessibility bugs.
+
+## Updates for version 10.9.2
+
+*Date published: September 11, 2023*
+
+In this release, we've made the following changes:
+
+- Addressed "Proof Key for Code Exchange is required" message users receive when refreshing AVD workspaces after upgrading from versions 10.9.0 and 10.9.1.
 
 ## Updates for version 10.9.1
 

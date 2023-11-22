@@ -2,12 +2,12 @@
 title: IDology integration with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to integrate a sample online payment app in Azure AD B2C with IDology. IDology is an identity verification and proofing provider with multiple solutions.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kengaderdus
@@ -22,7 +22,7 @@ In this sample tutorial, we provide guidance on how to integrate Azure AD B2C wi
 
 To get started, you'll need:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
 ## Scenario description
@@ -31,7 +31,7 @@ The IDology integration includes the following components:
 
 - Azure AD B2C – The authorization server responsible for verifying the user’s credentials. It's also known as the identity provider.
 - IDology – The IDology service takes input provided by the user and verifies the user’s identity.
-- Custom REST API – This API implements the integration between Azure AD and the IDology service.
+- Custom REST API – This API implements the integration between Microsoft Entra ID and the IDology service.
 
 The following architecture diagram shows the implementation.
 
@@ -65,7 +65,7 @@ The following architecture diagram shows the implementation.
 
 Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-aspnet-web-app).
 
-You'll need the URL of the deployed service to configure Azure AD with the required settings.
+You'll need the URL of the deployed service to configure Microsoft Entra ID with the required settings.
 
 ### Part 2 - Configure the API 
 

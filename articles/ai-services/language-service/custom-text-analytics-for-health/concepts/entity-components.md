@@ -2,11 +2,10 @@
 title: Entity components in custom Text Analytics for health
 titleSuffix: Azure AI services
 description: Learn how custom Text Analytics for health extracts entities from text
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 04/14/2023
 ms.author: aahi

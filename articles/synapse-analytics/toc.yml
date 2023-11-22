@@ -138,10 +138,10 @@ items:
           href: ./security/connect-to-a-secure-storage-account.md
       - name: Authentication and pass-through
         items:
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           href: ./sql/active-directory-authentication.md
           displayName: authentication
-        - name: Multi-factor authentication
+        - name: Multifactor authentication
           href: ./sql/mfa-authentication.md
         - name: SQL authorization
           href: ./sql/sql-authentication.md
@@ -646,7 +646,7 @@ items:
         href: data-explorer/ingest-data/data-explorer-ingest-data-one-click.md
       - name: Streaming ingestion
         href: data-explorer/ingest-data/data-explorer-ingest-data-streaming.md
-      - name: Event Hub
+      - name: Event Hubs
         items:
           - name: Event Hubs data connection
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-overview.md
@@ -738,7 +738,7 @@ items:
           href: ./spark/apache-spark-32-runtime.md
         - name: Azure Synapse Apache Spark 3.1 runtime (EOLA)
           href: ./spark/apache-spark-3-runtime.md
-        - name: Azure Synapse Apache Spark 2.4 runtime (EOLA)
+        - name: Azure Synapse Apache Spark 2.4 runtime (unsupported)
           href: ./spark/apache-spark-24-runtime.md
         - name: Lifecycle and Supportability
           href: ./spark/runtime-for-apache-spark-lifecycle-and-supportability.md
@@ -914,7 +914,7 @@ items:
           href: ./synapse-link/synapse-link-for-sql-known-issues.md
         - name: Failover of an Azure SQL Database
           href: ./synapse-link/troubleshoot/troubleshoot-sql-database-failover.md
-        - name: Azure AD user impersonation
+        - name: Microsoft Entra user impersonation
           href: ./synapse-link/troubleshoot/troubleshoot-sql-azure-active-directory.md
         - name: Troubleshoot initial snapshot
           href: ./synapse-link/troubleshoot/troubleshoot-sql-snapshot-issues.md
@@ -1035,7 +1035,7 @@ items:
         href: ../data-factory/format-avro.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Azure Blob Storage
         href: ../data-factory/connector-azure-blob-storage.md?toc=/azure/synapse-analytics/toc.json&tabs=synapse-analytics
-      - name: Azure Cognitive Search
+      - name: Azure AI Search
         href: ../data-factory/connector-azure-search.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Azure Cosmos DB for NoSQL
         href: ../data-factory/connector-azure-cosmos-db.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics

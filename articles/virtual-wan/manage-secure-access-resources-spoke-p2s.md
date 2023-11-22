@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/16/2022
+ms.date: 11/21/2023
 ms.author: cherylmc
 
 ---
@@ -23,7 +23,7 @@ The steps in this article help you create the architecture in the following diag
 
 [!INCLUDE [Prerequisites](../../includes/virtual-wan-before-include.md)]
 
-* You have the values available for the authentication configuration that you want to use. For example, a RADIUS server, Azure Active Directory authentication, or [Generate and export certificates](certificates-point-to-site.md).
+* You have the values available for the authentication configuration that you want to use. For example, a RADIUS server, Microsoft Entra authentication, or [Generate and export certificates](certificates-point-to-site.md).
 
 ## Create a virtual WAN
 
@@ -37,11 +37,11 @@ The point-to-site (P2S) configuration defines the parameters for connecting remo
 
 When selecting the authentication method, you have three choices. Each method has specific requirements. Select one of the following methods, and then complete the steps.
 
-* **Azure Active Directory authentication:** Obtain the following:
+* **Microsoft Entra authentication:** Obtain the following:
 
-   * The **Application ID** of the Azure VPN Enterprise Application registered in your Azure AD tenant.
+   * The **Application ID** of the Azure VPN Enterprise Application registered in your Microsoft Entra tenant.
    * The **Issuer**. Example: `https://sts.windows.net/your-Directory-ID`.
-   * The **Azure AD tenant**. Example: `https://login.microsoftonline.com/your-Directory-ID`.
+   * The **Microsoft Entra tenant**. Example: `https://login.microsoftonline.com/your-Directory-ID`.
 
 * **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
 
@@ -97,7 +97,7 @@ Convert the hub to a secured hub using the following article: [Configure Azure F
 
 Create rules that dictate the behavior of Azure Firewall. By securing the hub, we ensure that all packets that enter the virtual hub are subject to firewall processing before accessing your Azure resources.
 
-Once you complete these steps, you will have created an architecture that allows VPN users to access the VM with private IP address 10.18.0.4, but **NOT** access the VM with private IP address 10.18.0.5
+Once you complete these steps, you'll have created an architecture that allows VPN users to access the VM with private IP address 10.18.0.4, but **NOT** access the VM with private IP address 10.18.0.5
 
 1. In the Azure portal, navigate to **Firewall Manager**.
 1. Under Security, select **Azure Firewall policies**.
@@ -107,7 +107,7 @@ Once you complete these steps, you will have created an architecture that allows
 1. Select **Next: Rules**.
 1. On the **Rules** tab, select **Add a rule collection**.
 1. Provide a name for the collection. Set the type as **Network**. Add a priority value **100**.
-1. Fill in the name of the rule, source type, source, protocol, destination ports, and destination type, as shown in the example below. Then, select **add**. This rule allows any IP address from the VPN client pool to access the VM with private IP address 10.18.04, but not any other resource connected to the virtual hub. Create any rules you want that fit your desired architecture and permissions rules.
+1. Fill in the name of the rule, source type, source, protocol, destination ports, and destination type, as shown in the following example. Then, select **add**. This rule allows any IP address from the VPN client pool to access the VM with private IP address 10.18.04, but not any other resource connected to the virtual hub. Create any rules you want that fit your desired architecture and permissions rules.
 
    :::image type="content" source="./media/manage-secure-access-resources-spoke-p2s/rules.png" alt-text="Firewall rules" :::
 

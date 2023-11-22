@@ -1,12 +1,12 @@
 ---
 title: Overview of user accounts in Azure Active Directory B2C
 description: Learn about the types of user accounts that can be used in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: conceptual
 ms.date: 12/28/2022
 ms.author: godonnell
@@ -16,12 +16,12 @@ ms.custom: b2c-support
 
 # Overview of user accounts in Azure Active Directory B2C
 
-In Azure Active Directory B2C (Azure AD B2C), there are several types of accounts that can be created. Azure Active Directory (Azure AD), Azure Active Directory B2B (Azure AD B2B), and Azure Active Directory B2C (Azure AD B2C) share in the types of user accounts that can be used.
+In Azure Active Directory B2C (Azure AD B2C), there are several types of accounts that can be created. Microsoft Entra ID, Microsoft Entra B2B, and Azure Active Directory B2C (Azure AD B2C) share in the types of user accounts that can be used.
 
 The following types of accounts are available:
 
 - **Work account** - A work account can access resources in a tenant, and with an administrator role, can manage tenants.
-- **Guest account** - A guest account can only be a Microsoft account or an Azure AD user that can be used to share administration responsibilities such as [managing a tenant](tenant-management-manage-administrator.md).
+- **Guest account** - A guest account can only be a Microsoft account or a Microsoft Entra user that can be used to share administration responsibilities such as [managing a tenant](tenant-management-manage-administrator.md).
 - **Consumer account** - A consumer account is used by a user of the applications you've registered with Azure AD B2C. Consumer accounts can be created by:
   - The user going through a sign-up user flow in an Azure AD B2C application
   - Using Microsoft Graph API
@@ -29,7 +29,7 @@ The following types of accounts are available:
 
 ## Work account
 
-A work account is created the same way for all tenants based on Azure AD. To create a work account, you can use the information in [Quickstart: Add new users to Azure Active Directory](../active-directory/fundamentals/add-users.md). A work account is created using the **New user** choice in the Azure portal.
+A work account is created the same way for all tenants based on Microsoft Entra ID. To create a work account, you can use the information in [Quickstart: Add new users to Microsoft Entra ID](../active-directory/fundamentals/add-users.md). A work account is created using the **New user** choice in the Azure portal.
 
 When you add a new work account, you need to consider the following configuration settings:
 
@@ -41,7 +41,7 @@ When you add a new work account, you need to consider the following configuratio
 
     - **User** - Users can access assigned resources but cannot manage most tenant resources.
     - **Global administrator** - Global administrators have full control over all tenant resources.
-    - **Limited administrator** - Select the administrative role or roles for the user. For more information about the roles that can be selected, see [Assigning administrator roles in Azure Active Directory](../active-directory/roles/permissions-reference.md).
+    - **Limited administrator** - Select the administrative role or roles for the user. For more information about the roles that can be selected, see [Assigning administrator roles in Microsoft Entra ID](../active-directory/roles/permissions-reference.md).
 
 ### Create a work account
 
@@ -66,7 +66,7 @@ You can use the following information to reset the password of a user:
 
 ## Guest user
 
-You can invite external users to your tenant as a guest user. A typical scenario for inviting a guest user to your Azure AD B2C tenant is to share administration responsibilities. For an example of using a guest account, see [Properties of an Azure Active Directory B2B collaboration user](../active-directory/external-identities/user-properties.md).
+You can invite external users to your tenant as a guest user. A typical scenario for inviting a guest user to your Azure AD B2C tenant is to share administration responsibilities. For an example of using a guest account, see [Properties of a Microsoft Entra B2B collaboration user](../active-directory/external-identities/user-properties.md).
 
 When you invite a guest user to your tenant, you provide the email address of the recipient and a message describing the invitation. The invitation link takes the user to the consent page. If an inbox isn't attached to the email address, the user can navigate to the consent page by going to a Microsoft page using the invited credentials. The user is then forced to redeem the invitation the same way as clicking on the link in the email. For example: `https://myapps.microsoft.com/B2CTENANTNAME`.
 

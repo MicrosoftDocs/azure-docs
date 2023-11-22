@@ -2,12 +2,12 @@
 title: Adding chit-chat to a QnA Maker knowledge base
 titleSuffix: Azure AI services
 description: Adding personal chit-chat to your bot makes it more conversational and engaging when you create a KB. QnA Maker allows you to easily add a pre-populated set of the top chit-chat, into your KB.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
 ms.date: 08/25/2021
 ms.custom: ignite-fall-2021

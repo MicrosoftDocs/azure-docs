@@ -57,11 +57,8 @@ App settings are always encrypted when stored (encrypted-at-rest).
 
 1. In the dialog, you can [stick the setting to the current slot](deploy-staging-slots.md#which-settings-are-swapped).
 
-    App setting names can't contain periods (`.`). If an app setting contains a period, the period is replaced with an underscore in the container.
-
     > [!NOTE]
-    > In a default Linux app service or a custom Linux container, any nested JSON key structure in the app setting name like `ApplicationInsights:InstrumentationKey` needs to be configured in App Service as `ApplicationInsights__InstrumentationKey` for the key name. In other words, any `:` should be replaced by `__` (double underscore).
-    >
+    > In a default Linux app service or a custom Linux container, any nested JSON key structure in the app setting name like `ApplicationInsights:InstrumentationKey` needs to be configured in App Service as `ApplicationInsights__InstrumentationKey` for the key name. In other words, any `:` should be replaced by `__` (double underscore). Any periods in the app setting name will be replaced with a `_` (single underscore).
 
 1. When finished, select **Update**. Don't forget to select **Save** back in the **Configuration** page.
 
@@ -509,6 +506,9 @@ Set-AzWebApp $webapp
 ## Map a URL path to a directory
 
 By default, App Service starts your app from the root directory of your app code. But certain web frameworks don't start in the root directory. For example, [Laravel](https://laravel.com/) starts in the `public` subdirectory. Such an app would be accessible at `http://contoso.com/public`, for example, but you typically want to direct `http://contoso.com` to the `public` directory instead. If your app's startup file is in a different folder, or if your repository has more than one application, you can edit or add virtual applications and directories.
+
+> [!IMPORTANT]
+> Virtual directory to a physical path feature is only available on Windows apps.
 
 # [Azure portal](#tab/portal)
 

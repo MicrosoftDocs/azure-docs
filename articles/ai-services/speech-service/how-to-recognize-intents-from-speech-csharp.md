@@ -2,11 +2,10 @@
 title: How to recognize intents from speech using the Speech SDK C#
 titleSuffix: Azure AI services
 description: In this guide, you learn how to recognize intents from speech using the Speech SDK for C#.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 02/08/2022
 ms.author: eur

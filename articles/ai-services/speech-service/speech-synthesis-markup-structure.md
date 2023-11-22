@@ -2,11 +2,10 @@
 title: Speech Synthesis Markup Language (SSML) document structure and events - Speech service
 titleSuffix: Azure AI services
 description: Learn about the Speech Synthesis Markup Language (SSML) document structure.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 11/30/2022
 ms.author: eur

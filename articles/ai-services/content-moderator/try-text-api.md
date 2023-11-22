@@ -2,12 +2,11 @@
 title: Moderate text by using the Text Moderation API - Content Moderator
 titleSuffix: Azure AI services
 description: Test-drive text moderation by using the Text Moderation API in the online console.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 ms.author: pafarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-moderator
+ms.service: azure-ai-content-moderator
 ms.topic: how-to
 ms.date: 10/27/2021
 ---

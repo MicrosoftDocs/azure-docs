@@ -2,12 +2,12 @@
 title: Deploy custom policies with GitHub Actions
 titleSuffix: Azure AD B2C
 description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipeline by using GitHub Actions.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 08/25/2021
 ms.author: kengaderdus
@@ -48,7 +48,7 @@ For the GitHub Action to access data in Microsoft Graph, grant the registered ap
 
 GitHub secrets are encrypted environment variables that you create in an organization, repository, or repository environment. In this step, you store the application secret for the application you registered earlier in the [Register an MS Graph application](#register-a-microsoft-graph-application) step.
 
-The GitHub Action for deploying Azure AD B2C custom policies uses the secret to acquire an access token that is used to interact with the Microsoft Graph API. For more information, see [Creating encrypted secrets for a repository](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-encrypted-secrets-for-a-repository).
+The GitHub Action for deploying Azure AD B2C custom policies uses the secret to acquire an access token that is used to interact with the Microsoft Graph API. For more information, see [Creating encrypted secrets for a repository](https://docs.github.com/actions/security-guides/using-secrets-in-github-actions#creating-encrypted-secrets-for-a-repository).
 
 To create a GitHub secret, follow these steps:
 
@@ -141,9 +141,9 @@ To test the workflow you created, **Push** the changes of your custom policy. On
 
 ## Optional: Schedule your workflow
 
-The workflow you created is triggered by the [push](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#push) event. If you prefer, you can choose another event to trigger the workflow, for example a [pull request](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request).
+The workflow you created is triggered by the [push](https://docs.github.com/actions/using-workflows/events-that-trigger-workflows#push) event. If you prefer, you can choose another event to trigger the workflow, for example a [pull request](https://docs.github.com/actions/using-workflows/events-that-trigger-workflows#pull_request).
 
-You can also schedule a workflow to run at specific UTC times using [POSIX cron syntax](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). The schedule event allows you to trigger a workflow at a scheduled time. For more information, see [Scheduled events](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#scheduled-events).
+You can also schedule a workflow to run at specific UTC times using [POSIX cron syntax](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). The schedule event allows you to trigger a workflow at a scheduled time. For more information, see [Scheduled events](https://docs.github.com/actions/using-workflows/events-that-trigger-workflows#scheduled-events).
 
 The following example triggers the workflow every day at 5:30 and 17:30 UTC:
 
@@ -170,4 +170,4 @@ To edit your workflow:
 
 ## Next steps
 
-- Learn how to configure [Events that trigger workflows](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows)
+- Learn how to configure [Events that trigger workflows](https://docs.github.com/actions/using-workflows/events-that-trigger-workflows)

@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/07/2023
+ms.date: 10/31/2023
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
@@ -89,10 +89,10 @@ If you already have a certificate, you can upload it to your key vault. Otherwis
 
 #### Register Azure Front Door
 
-Register the service principal for Azure Front Door as an app in your Azure Active Directory (Azure AD) by using Azure PowerShell or the Azure CLI.
+Register the service principal for Azure Front Door as an app in your Microsoft Entra ID by using Azure PowerShell or the Azure CLI.
 
 > [!NOTE]
-> * This action requires you to have *Global Administrator* permissions in Azure AD. The registration only needs to be performed **once per Azure AD tenant**.
+> * This action requires you to have *Global Administrator* permissions in Microsoft Entra ID. The registration only needs to be performed **once per Microsoft Entra tenant**.
 > * The application ID of **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** and **d4631ece-daab-479b-be77-ccb713491fc0** is predefined by Azure for Front Door Standard and Premium across all Azure tenants and subscriptions. Azure Front Door (Classic) has a different application ID.
 
 # [Azure PowerShell](#tab/powershell)
@@ -203,4 +203,6 @@ You can change a domain between using an Azure Front Door-managed certificate an
 
 ## Next steps
 
-Learn about [caching with Azure Front Door Standard/Premium](../front-door-caching.md).
+* Learn about [caching with Azure Front Door Standard/Premium](../front-door-caching.md).
+* [Understand custom domains](../domain.md) on Azure Front Door.
+* Learn about [End-to-end TLS with Azure Front Door](../end-to-end-tls.md).

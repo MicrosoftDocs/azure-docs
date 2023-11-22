@@ -6,7 +6,7 @@ ms.author: weetok
 ms.service: data-factory
 ms.subservice: security
 ms.topic: quickstart
-ms.date: 10/14/2022
+ms.date: 10/20/2023
 ms.reviewer: mariozi
 ms.custom: mode-other
 ---
@@ -16,11 +16,11 @@ ms.custom: mode-other
 
 Azure Data Factory encrypts data at rest, including entity definitions and any data cached while runs are in progress. By default, data is encrypted with a randomly generated Microsoft-managed key that is uniquely assigned to your data factory. For extra security guarantees, you can now enable Bring Your Own Key (BYOK) with customer-managed keys feature in Azure Data Factory. When you specify a customer-managed key, Data Factory uses __both__ the factory system key and the CMK to encrypt customer data. Missing either would result in Deny of Access to data and factory.
 
-Azure Key Vault is required to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. Key vault and Data Factory must be in the same Azure Active Directory (Azure AD) tenant and in the same region, but they may be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
+Azure Key Vault is required to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. Key vault and Data Factory must be in the same Microsoft Entra tenant and in the same region, but they may be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
 
 ## About customer-managed keys
 
-The following diagram shows how Data Factory uses Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
+The following diagram shows how Data Factory uses Microsoft Entra ID and Azure Key Vault to make requests using the customer-managed key:
 
   :::image type="content" source="media/enable-customer-managed-key/encryption-customer-managed-keys-diagram.png" alt-text="Diagram showing how customer-managed keys work in Azure Data Factory.":::
 
@@ -28,7 +28,7 @@ The following list explains the numbered steps in the diagram:
 
 1. An Azure Key Vault admin grants permissions to encryption keys to the managed identity that's associated with the Data Factory
 1. A Data Factory admin enables customer-managed key feature in the factory
-1. Data Factory uses the managed identity that's associated with the factory to authenticate access to Azure Key Vault via Azure Active Directory
+1. Data Factory uses the managed identity that's associated with the factory to authenticate access to Azure Key Vault via Microsoft Entra ID
 1. Data Factory wraps the factory encryption key with the customer key in Azure Key Vault
 1. For read/write operations, Data Factory sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations
 
@@ -46,7 +46,7 @@ If you are creating a new Azure Key Vault through Azure portal, __Soft Delete__ 
 
 ### Grant Data Factory access to Azure Key Vault
 
-Make sure Azure Key Vault and Azure Data Factory are in the same Azure Active Directory (Azure AD) tenant and in the _same region_. From Azure Key Vault access control, grant data factory following permissions: _Get_, _Unwrap Key_, and _Wrap Key_. These permissions are required to enable customer-managed keys in Data Factory.
+Make sure Azure Key Vault and Azure Data Factory are in the same Microsoft Entra tenant and in the _same region_. From Azure Key Vault access control, grant data factory following permissions: _Get_, _Unwrap Key_, and _Wrap Key_. These permissions are required to enable customer-managed keys in Data Factory.
 
 * If you want to add customer managed key encryption [after factory creation in Data Factory UI](#post-factory-creation-in-data-factory-ui), ensure data factory's managed service identity (MSI) has the three permissions to Key Vault
 * If you want to add customer managed key encryption [during factory creation time in Azure portal](#during-factory-creation-in-azure-portal), ensure the user-assigned managed identity (UA-MI) has the three permissions to Key Vault

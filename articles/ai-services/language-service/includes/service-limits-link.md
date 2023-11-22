@@ -1,9 +1,9 @@
 ---
  title: include file
  description: include file
- services: cognitive-services
+ #services: cognitive-services
  author: aahill
- ms.service: cognitive-services
+ ms.service: azure-ai-language
  ms.topic: include
  ms.date: 12/02/2021
  ms.author: aahi

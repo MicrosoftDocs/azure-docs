@@ -1,502 +1,529 @@
-- name: Apache Cassandra documentation
-  href: index.yml
-- name: Overview
+- name: Choose your model
+  href: choose-service.md
+- name: RU
   items:
-    - name: What is Azure Cosmos DB for Apache Cassandra?
-      href: introduction.md
-    - name: Wire protocol support
-      href: support.md
-    - name: Tokens and the Token function
-      href: tokens.md
-    - name: FAQ
-      href: cassandra-faq.yml
-- name: Quickstarts
-  items:
-    - name: Java v4
-      href: manage-data-java-v4-sdk.md
-    - name: Java v3
-      href: manage-data-java.md
-    - name: Python
-      href: manage-data-python.md
-    - name: Golang
-      href: manage-data-go.md
-    - name: CQLSH
-      href: manage-data-cqlsh.md
-    - name: Node.js
-      href: manage-data-nodejs.md
-    - name: .NET Core
-      href: manage-data-dotnet-core.md
-    - name: .NET
-      href: manage-data-dotnet.md
-- name: Tutorials
-  items:
-    - name: 1 - Create and manage data
-      href: create-account-java.md
-    - name: 2 - Load data
-      href: load-data-table.md
-    - name: 3 - Query data
-      href: query-data.md
-    - name: 4 - Migrate data
-      displayName: import
-      href: migrate-data.md
-    - name: Create Jupyter notebooks
-      href: ../nosql/tutorial-create-notebook.md
-    - name: KQL transformations for workspace data
-      href: ../tutorial-log-transformation.md
-- name: Samples
-  items:
-    - name: Azure CLI
+    - name: Apache Cassandra RU documentation
+      href: index.yml
+    - name: Overview
       items:
-        - name: Overview
-          href: cli-samples.md
-        - name: Create account, keyspace, and table
-          href: ../scripts/cli/cassandra/create.md
-        - name: Create serverless
-          href: ../scripts/cli/cassandra/serverless.md
-        - name: Create with autoscale
-          href: ../scripts/cli/cassandra/autoscale.md
-        - name: Perform throughput operations
-          href: ../scripts/cli/cassandra/throughput.md
-        - name: Lock resources from deletion
-          href: ../scripts/cli/cassandra/lock.md
-        - name: Add or fail over regions
-          href: ../scripts/cli/common/regions.md
-        - name: Perform account key operations
-          href: ../scripts/cli/common/keys.md
-        - name: Secure with IP firewall
-          href: ../scripts/cli/common/ipfirewall.md
-        - name: Secure new account with service endpoints
-          href: ../scripts/cli/common/service-endpoints.md
-        - name: Secure existing account with service endpoints
-          href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
-        - name: Find existing free-tier accounts
-          href: ../scripts/cli/common/free-tier.md
-    - name: Azure PowerShell
-      items:
-        - name: Overview
-          href: powershell-samples.md
-        - name: Create account, keyspace, and table
-          href: ../scripts/powershell/cassandra/create.md
-        - name: Create with autoscale
-          href: ../scripts/powershell/cassandra/autoscale.md
-        - name: Perform throughput operations
-          href: ../scripts/powershell/cassandra/throughput.md
-        - name: Lock resources from deletion
-          href: ../scripts/powershell/cassandra/lock.md
-        - name: List and get keyspaces and table
-          href: ../scripts/powershell/cassandra/list-get.md
-        - name: Account keys or connection strings
-          href: ../scripts/powershell/common/keys-connection-strings.md
-        - name: Change failover priority or trigger failover
-          href: ../scripts/powershell/common/failover-priority-update.md
-        - name: Create an account with IP Firewall
-          href: ../scripts/powershell/common/firewall-create.md
-        - name: Update account
-          href: ../scripts/powershell/common/account-update.md
-        - name: Update an account's regions
-          href: ../scripts/powershell/common/update-region.md
-    - name: Templates
-      items:
-        - name: JSON syntax templates
-          href: templates-samples.md
-          displayName: ARM
-        - name: Bicep syntax templates
-          href: manage-with-bicep.md
-    - name: Azure Resource Graph queries
-      href: ../resource-graph-samples.md
-- name: Concepts
-  items:
-    - name: Azure Cosmos DB resource model
-      displayName: collection, document
-      href: ../resource-model.md
-    - name: Partitioning
-      items:
-        - name: Partitioning overview
-          href: ../partitioning-overview.md
-        - name: Partitioning for API for Apache Cassandra
-          href: partitioning.md
-    - name: Throughput (RU/s)
-      items:
-        - name: Request units
-          displayName: RUs, RU
-          href: ../request-units.md
-        - name: Scale an API for Apache Cassandra account
-          href: scale-account-throughput.md
-        - name: Estimate RU/s with capacity planner
-          href: ../mongodb/estimate-ru-capacity-planner.md
-        - name: Provisioned throughput
-          displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
-          href: ../set-throughput.md
-        - name: Autoscale throughput
-          items:
-            - name: Autoscale introduction
-              href: ../provision-throughput-autoscale.md
-            - name: Autoscale FAQ
-              href: ../autoscale-faq.yml
-        - name: Serverless
-          href: ../serverless.md
-        - name: Choose between autoscale and standard (manual) throughput
-          href: ../how-to-choose-offer.md
-        - name: Choose between provisioned throughput and serverless
-          href: ../throughput-serverless.md
-        - name: Best practices for scaling provisioned throughput
-          href: ../scaling-provisioned-throughput-best-practices.md
-        - name: Burst capacity (preview)
-          items:
-            - name: Burst capacity overview
-              href: ../burst-capacity.md
-            - name: Burst capacity FAQ
-              href: ../burst-capacity-faq.yml
-    - name: Back up and restore
-      items:
-        - name: Back up and restore introduction
-          href: ../online-backup-and-restore.md
-        - name: Periodic backup
-          items:
-            - name: Introduction
-              href: ../periodic-backup-restore-introduction.md
-            - name: Storage redundancy
-              href: ../periodic-backup-storage-redundancy.md
-            - name: Request data restore
-              href: ../periodic-backup-request-data-restore.md
-    - name: Global distribution
-      items:
-        - name: Global distribution overview
-          displayName: replication, replicate, geo distribution
-          href: ../distribute-data-globally.md
-        - name: Consistency levels
-          displayName: session, consistency prefix, strong, eventual, bounded staleness
-          href: ../consistency-levels.md
-        - name: Mapping Cassandra consistency levels
-          href: consistency-mapping.md
-        - name: High availability
-          href: ../high-availability.md
-        - name: Conflict types and resolution policies
-          displayName: last write wins, custom, multi-region writes, multi-master
-          href: ../conflict-resolution-policies.md
-        - name: Global distribution - under the hood
-          href: ../global-dist-under-the-hood.md
-    - name: Security
-      items:
-        - name: Security overview
-          href: ../database-security.md
-        - name: Data encryption
-          href: ../database-encryption-at-rest.md
-        - name: Service tags
-          href: ../../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Azure role-based access control
-          displayName: rbac
-          href: ../role-based-access-control.md
-        - name: Azure Policy support
-          href: ../policy.md
-        - name: Security controls by Azure Policy
-          displayName: regulatory, compliance, standards, domains
-          href: ../security-controls-policy.md
-        - name: Security baseline
-          href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?bc=/azure/cosmos-db/breadcrumb/toc.json&toc=/azure/cosmos-db/toc.json
-    - name: Optimize your Azure Cosmos DB costs
-      items:
-        - name: Overview
-          href: ../optimize-costs.yml
-        - name: Free tier
-          href: ../free-tier.md
-          displayName: free tier
-        - name: Limit total account throughput
-          displayName: cost, RUs, RU
-          href: ../limit-total-account-throughput.md
-        - name: Plan and manage costs
-          href: ../plan-manage-costs.md
-        - name: Pricing model
-          href: ../how-pricing-works.md
-        - name: Total Cost of Ownership (TCO)
-          href: ../total-cost-ownership.md
-        - name: Understand your bill
-          displayName: free tier
-          href: ../understand-your-bill.md
-        - name: Optimize provisioned throughput cost
-          displayName: request units, RUs, RU
-          href: ../optimize-cost-throughput.md
-        - name: Optimize request cost
-          displayName: request, cost, read, write, query, queries, RUs, RU
-          href: ../optimize-cost-reads-writes.md
-        - name: Optimize storage cost
-          href: ../optimize-cost-storage.md
-        - name: Optimize multi-region cost
-          href: ../optimize-cost-regions.md
-        - name: Optimize development/testing cost
-          displayName: free tier
-          href: ../optimize-dev-test.md
-        - name: Optimize cost with reserved capacity
-          href: ../reserved-capacity.md
-        - name: Optimize using rate limiting
-          href: ../rate-limiting-requests.md
-        - name: Use the emulator
-          href: ../local-emulator.md
-    - name: Enterprise readiness
-      items:
-        - name: Service quotas
-          href: ../concepts-limits.md
-        - name: Automatic recommendations
-          href: ../automated-recommendations.md
-        - name: Compliance
-          href: ../compliance.md
-        - name: Data residency
-          href: ../data-residency.md
-    - name: Jupyter notebooks
-      items:
-        - name: Overview
-          href: ../notebooks-overview.md
+        - name: What is Azure Cosmos DB for Apache Cassandra?
+          href: introduction.md
+        - name: Wire protocol support
+          href: support.md
+        - name: Tokens and the Token function
+          href: tokens.md
         - name: FAQ
-          href: ../notebooks-faq.yml
-    - name: Emulator
-      href: ../emulator.md
-- name: How to
-  items:
-    - name: Develop applications
+          href: cassandra-faq.yml
+    - name: Quickstarts
       items:
-        - name: API for Apache Cassandra extensions overview
-          href: driver-extensions.md
-        - name: Create a table
-          href: how-to-create-container.md
-        - name: Allocate throughput
-          href: how-to-provision-throughput.md
-        - name: Mapping Cassandra consistency levels
-          href: consistency-mapping.md
-        - name: Secondary indexes
-          href: secondary-indexing.md
-        - name: Find request unit charge
-          displayName: request units, RUs, RU, charge, consumption
-          href: find-request-unit-charge.md
-        - name: Preventing rate-limiting errors
-          href: prevent-rate-limiting-errors.md
-        - name: Materialized View (Preview)
+        - name: Java v4
+          href: manage-data-java-v4-sdk.md
+        - name: Java v3
+          href: manage-data-java.md
+        - name: Python
+          href: manage-data-python.md
+        - name: Golang
+          href: manage-data-go.md
+        - name: CQLSH
+          href: manage-data-cqlsh.md
+        - name: Node.js
+          href: manage-data-nodejs.md
+        - name: .NET Core
+          href: manage-data-dotnet-core.md
+        - name: .NET
+          href: manage-data-dotnet.md
+    - name: Tutorials
+      items:
+        - name: Create and manage data
+          href: create-account-java.md
+        - name: Load data
+          href: load-data-table.md
+        - name: Query data
+          href: query-data.md
+        - name: Migrate data
+          displayName: import
+          href: migrate-data.md
+        - name: Create Jupyter notebooks
+          href: ../nosql/tutorial-create-notebook.md
+        - name: KQL transformations for workspace data
+          href: ../tutorial-log-transformation.md
+    - name: Samples
+      items:
+        - name: Azure CLI
           items:
             - name: Overview
-              href: materialized-views.md
-            - name: FAQ
-              href: materialized-views-faq.yml
-        - name: Lightweight Transactions in API for Apache Cassandra
-          href: lightweight-transactions.md
-        - name: Change feed for API for Apache Cassandra
-          href: change-feed.md
-        - name: Store and manage Spring Data
-          href: access-data-spring-data-app.md
-        - name: Copy data between tables
-          href: ../how-to-container-copy.md
-    - name: Operations on containers and items
-      items:
-        - name: Move data between containers
-          href: ../intra-account-container-copy.md
-    - name: Cassandra and Spark
-      items:
-        - name: Introduction
-          href: connect-spark-configuration.md
-        - name: Connect using Databricks
-          href: spark-databricks.md
-        - name: Connect using HDInsight
-          href: spark-hdinsight.md
-        - name: Create keyspace and table
-          href: spark-ddl-operations.md
-        - name: Insert data
-          href: spark-create-operations.md
-        - name: Read data
-          href: spark-read-operation.md
-        - name: Upsert data
-          href: spark-upsert-operations.md
-        - name: Delete data
-          href: spark-delete-operation.md
-        - name: Aggregation operations
-          href: spark-aggregation-operations.md
-        - name: Copy table data
-          href: spark-table-copy-operations.md
-    - name: Migrate to API for Apache Cassandra
-      items:
-        - name: Differences between API for Apache Cassandra and Apache Cassandra
-          href: adoption.md
-        - name: Migrate to API for Apache Cassandra using Kafka Connect
-          href: kafka-connect.md
-        - name: Migrate - Apache Cassandra to API for Apache Cassandra using Arcion
-          href: migrate-data-arcion.md
-        - name: Migrate - Apache Cassandra to API for Apache Cassandra using dual-write proxy
-          href: migrate-data-dual-write-proxy.md
-        - name: Migrate - Apache Cassandra to API for Apache Cassandra using Databricks
-          href: migrate-data-databricks.md
-        - name: Migrate - PostgreSQL to API for Apache Cassandra using Apache Kafka
-          href: postgres-migrate-cosmos-db-kafka.md
-        - name: Migrate - Oracle DB to API for Apache Cassandra using Striim
-          href: migrate-data-striim.md
-        - name: Migrate - Oracle DB to API for Apache Cassandra using Arcion
-          href: oracle-migrate-cosmos-db-arcion.md
-    - name: Use developer tools
-      items:
-        - name: Develop locally with emulator
+              href: cli-samples.md
+            - name: Create account, keyspace, and table
+              href: ../scripts/cli/cassandra/create.md
+            - name: Create serverless
+              href: ../scripts/cli/cassandra/serverless.md
+            - name: Create with autoscale
+              href: ../scripts/cli/cassandra/autoscale.md
+            - name: Perform throughput operations
+              href: ../scripts/cli/cassandra/throughput.md
+            - name: Lock resources from deletion
+              href: ../scripts/cli/cassandra/lock.md
+            - name: Add or fail over regions
+              href: ../scripts/cli/common/regions.md
+            - name: Perform account key operations
+              href: ../scripts/cli/common/keys.md
+            - name: Secure with IP firewall
+              href: ../scripts/cli/common/ipfirewall.md
+            - name: Secure new account with service endpoints
+              href: ../scripts/cli/common/service-endpoints.md
+            - name: Secure existing account with service endpoints
+              href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
+            - name: Find existing free-tier accounts
+              href: ../scripts/cli/common/free-tier.md
+        - name: Azure PowerShell
           items:
-            - name: Install and use the emulator
-              href: ../local-emulator.md
-            - name: Run the emulator on Docker
+            - name: Overview
+              href: powershell-samples.md
+            - name: Create account, keyspace, and table
+              href: ../scripts/powershell/cassandra/create.md
+            - name: Create with autoscale
+              href: ../scripts/powershell/cassandra/autoscale.md
+            - name: Perform throughput operations
+              href: ../scripts/powershell/cassandra/throughput.md
+            - name: Lock resources from deletion
+              href: ../scripts/powershell/cassandra/lock.md
+            - name: List and get keyspaces and table
+              href: ../scripts/powershell/cassandra/list-get.md
+            - name: Account keys or connection strings
+              href: ../scripts/powershell/common/keys-connection-strings.md
+            - name: Change failover priority or trigger failover
+              href: ../scripts/powershell/common/failover-priority-update.md
+            - name: Create an account with IP Firewall
+              href: ../scripts/powershell/common/firewall-create.md
+            - name: Update account
+              href: ../scripts/powershell/common/account-update.md
+            - name: Update an account's regions
+              href: ../scripts/powershell/common/update-region.md
+        - name: Templates
+          items:
+            - name: JSON syntax templates
+              href: templates-samples.md
+              displayName: ARM
+            - name: Bicep syntax templates
+              href: manage-with-bicep.md
+        - name: Azure Resource Graph queries
+          href: ../resource-graph-samples.md
+    - name: Concepts
+      items:
+        - name: Azure Cosmos DB resource model
+          displayName: collection, document
+          href: ../resource-model.md
+        - name: Partitioning
+          items:
+            - name: Partitioning overview
+              href: ../partitioning-overview.md
+            - name: Partitioning for API for Apache Cassandra
+              href: partitioning.md
+        - name: Throughput (RU/s)
+          items:
+            - name: Request units
+              displayName: RUs, RU
+              href: ../request-units.md
+            - name: Scale an API for Apache Cassandra account
+              href: scale-account-throughput.md
+            - name: Estimate RU/s with capacity planner
+              href: ../mongodb/estimate-ru-capacity-planner.md
+            - name: Provisioned throughput
+              displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
+              href: ../set-throughput.md
+            - name: Autoscale throughput
               items:
-                - name: Run the emulator on Docker for Windows
-                  href: ../local-emulator-on-docker-windows.md
-            - name: Export emulator certificates
-              href: ../local-emulator-export-ssl-certificates.md
-            - name: Emulator command-line parameters
-              href: ../emulator-command-line-parameters.md
-            - name: Emulator troubleshooting
-              href: ../troubleshoot-local-emulator.md
-            - name: Emulator release notes
-              href: ../local-emulator-release-notes.md
-            - name: Visual Studio Code extension
-              href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
-        - name: Set up CI/CD with Azure Pipelines
-          href: ../tutorial-setup-ci-cd.md
-        - name: Use Azure Cosmos DB Explorer
-          href: ../data-explorer.md
-    - name: Troubleshooting and performance
-      items:
-        - name: Troubleshoot common issues
-          href: troubleshoot-common-issues.md
-        - name: Troubleshoot NoHostAvailableException
-          href: troubleshoot-nohostavailable-exception.md
-        - name: Glowroot application performance monitoring (APM) with API for Apache Cassandra
-          displayName: Glowroot, APM, monitor
-          href: glowroot.md
-        - name: Understand API for Apache Cassandra error codes
-          href: error-codes-solution.md
-        - name: Monitor and debug with insights in API for Apache Cassandra
-          href: monitor-insights.md
-    - name: Manage Azure Cosmos DB resources
-      items:
-        - name: Manage an Azure Cosmos DB account
-          href: ../how-to-manage-database-account.md
-        - name: Manage using PowerShell
-          href: powershell-samples.md
-        - name: Manage using Azure CLI
-          href: cli-samples.md
-        - name: Manage using Bicep
-          href: manage-with-bicep.md
-        - name: Manage using Resource Manager templates
-          href: templates-samples.md
-          displayName: ARM
-        - name: Limit total account throughput
-          href: ../limit-total-account-throughput.md
-        - name: Move between regions
-          href: ../how-to-move-regions.md
-        - name: Prevent changes or deletion
-          href: ../resource-locks.md
-        - name: Request quota increase
-          href: ../sql/create-support-request-quota-increase.md
-        - name: Access preview features
-          href: ../access-previews.md
-    - name: Back up and restore
-      items:
-        - name: Periodic backup
+                - name: Autoscale introduction
+                  href: ../provision-throughput-autoscale.md
+                - name: Autoscale per partition/region
+                  href: ../autoscale-per-partition-region.md
+                - name: Autoscale FAQ
+                  href: ../autoscale-faq.yml
+            - name: Serverless
+              href: ../serverless.md
+            - name: Choose between autoscale and standard (manual) throughput
+              href: ../how-to-choose-offer.md
+            - name: Choose between provisioned throughput and serverless
+              href: ../throughput-serverless.md
+            - name: Best practices for scaling provisioned throughput
+              href: ../scaling-provisioned-throughput-best-practices.md
+            - name: Burst capacity (preview)
+              items:
+                - name: Burst capacity overview
+                  href: ../burst-capacity.md
+                - name: Burst capacity FAQ
+                  href: ../burst-capacity-faq.yml
+        - name: Back up and restore
           items:
-            - name: Update storage redundancy
-              href: ../periodic-backup-update-storage-redundancy.md
-            - name: Modify interval retention
-              href: ../periodic-backup-modify-interval-retention.md
-    - name: Security
+            - name: Back up and restore introduction
+              href: ../online-backup-and-restore.md
+            - name: Periodic backup
+              items:
+                - name: Introduction
+                  href: ../periodic-backup-restore-introduction.md
+                - name: Storage redundancy
+                  href: ../periodic-backup-storage-redundancy.md
+                - name: Request data restore
+                  href: ../periodic-backup-request-data-restore.md
+        - name: Global distribution
+          items:
+            - name: Global distribution overview
+              displayName: replication, replicate, geo distribution
+              href: ../distribute-data-globally.md
+            - name: Consistency levels
+              displayName: session, consistency prefix, strong, eventual, bounded staleness
+              href: ../consistency-levels.md
+            - name: Mapping Cassandra consistency levels
+              href: consistency-mapping.md
+            - name: High availability
+              href: ../high-availability.md
+            - name: Conflict types and resolution policies
+              displayName: last write wins, custom, multi-region writes, multi-master
+              href: ../conflict-resolution-policies.md
+            - name: Global distribution - under the hood
+              href: ../global-dist-under-the-hood.md
+        - name: Security
+          items:
+            - name: Security overview
+              href: ../database-security.md
+            - name: Data encryption
+              href: ../database-encryption-at-rest.md
+            - name: Service tags
+              href: ../../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Azure role-based access control
+              displayName: rbac
+              href: ../role-based-access-control.md
+            - name: Azure Policy support
+              href: ../policy.md
+            - name: Security controls by Azure Policy
+              displayName: regulatory, compliance, standards, domains
+              href: ../security-controls-policy.md
+            - name: Security baseline
+              href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?bc=/azure/cosmos-db/breadcrumb/toc.json&toc=/azure/cosmos-db/toc.json
+        - name: Optimize your Azure Cosmos DB costs
+          href: ../optimize-costs.yml
+        - name: Enterprise readiness
+          items:
+            - name: Service quotas
+              href: ../concepts-limits.md
+            - name: Automatic recommendations
+              href: ../automated-recommendations.md
+            - name: Compliance
+              href: ../compliance.md
+            - name: Data residency
+              href: ../data-residency.md
+        - name: Jupyter notebooks
+          items:
+            - name: Overview
+              href: ../notebooks-overview.md
+            - name: FAQ
+              href: ../notebooks-faq.yml
+    - name: How to
       items:
-        - name: Configure IP firewall
-          href: ../how-to-configure-firewall.md
-        - name: Configure access from virtual networks
-          displayName: service endpoints
-          href: ../how-to-configure-vnet-service-endpoint.md
-        - name: Configure access from private endpoints
-          href: ../how-to-configure-private-endpoints.md
-        - name: Connect privately to an Azure Cosmos DB account
-          href: ../../private-link/tutorial-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Store credentials in Azure Key Vault
-          href: ../store-credentials-key-vault.md
-        - name: Access Azure Key Vault with managed identity
-          href: ../access-key-vault-managed-identity.md
-        - name: Restrict user access to data operations only
-          href: ../how-to-restrict-user-data.md
-        - name: Configure customer-managed keys
-          href: ../how-to-setup-customer-managed-keys.md
-        - name: Configure cross-tenant customer-managed keys
-          href: ../how-to-setup-cross-tenant-customer-managed-keys.md
-        - name: Use managed identities with Azure services
-          href: ../how-to-setup-managed-identity.md
-    - name: Monitor
+        - name: Develop applications
+          items:
+            - name: API for Apache Cassandra extensions overview
+              href: driver-extensions.md
+            - name: Create a table
+              href: how-to-create-container.md
+            - name: Allocate throughput
+              href: how-to-provision-throughput.md
+            - name: Mapping Cassandra consistency levels
+              href: consistency-mapping.md
+            - name: Secondary indexes
+              href: secondary-indexing.md
+            - name: Find request unit charge
+              displayName: request units, RUs, RU, charge, consumption
+              href: find-request-unit-charge.md
+            - name: Preventing rate-limiting errors
+              href: prevent-rate-limiting-errors.md
+            - name: Materialized View (Preview)
+              items:
+                - name: Overview
+                  href: materialized-views.md
+                - name: FAQ
+                  href: materialized-views-faq.yml
+            - name: Lightweight Transactions in API for Apache Cassandra
+              href: lightweight-transactions.md
+            - name: Change feed for API for Apache Cassandra
+              href: change-feed.md
+            - name: Store and manage Spring Data
+              href: access-data-spring-data-app.md
+            - name: Copy data between tables
+              href: ../how-to-container-copy.md
+        - name: Operations on containers and items
+          items:
+            - name: Move data between containers
+              href: ../container-copy.md
+        - name: Cassandra and Spark
+          items:
+            - name: Introduction
+              href: connect-spark-configuration.md
+            - name: Connect using Databricks
+              href: spark-databricks.md
+            - name: Connect from Spark on YARN
+              href: spark-hdinsight.md
+            - name: Create keyspace and table
+              href: spark-ddl-operations.md
+            - name: Insert data
+              href: spark-create-operations.md
+            - name: Read data
+              href: spark-read-operation.md
+            - name: Upsert data
+              href: spark-upsert-operations.md
+            - name: Delete data
+              href: spark-delete-operation.md
+            - name: Aggregation operations
+              href: spark-aggregation-operations.md
+            - name: Copy table data
+              href: spark-table-copy-operations.md
+        - name: Migrate to API for Apache Cassandra
+          items:
+            - name: Differences between API for Apache Cassandra and Apache Cassandra
+              href: adoption.md
+            - name: Migrate to API for Apache Cassandra using Kafka Connect
+              href: kafka-connect.md
+            - name: Migrate - Apache Cassandra to API for Apache Cassandra using Arcion
+              href: migrate-data-arcion.md
+            - name: Migrate - Apache Cassandra to API for Apache Cassandra using dual-write proxy
+              href: migrate-data-dual-write-proxy.md
+            - name: Migrate - Apache Cassandra to API for Apache Cassandra using Databricks
+              href: migrate-data-databricks.md
+            - name: Migrate - PostgreSQL to API for Apache Cassandra using Apache Kafka
+              href: postgres-migrate-cosmos-db-kafka.md
+            - name: Migrate - Oracle DB to API for Apache Cassandra using Striim
+              href: migrate-data-striim.md
+            - name: Migrate - Oracle DB to API for Apache Cassandra using Arcion
+              href: oracle-migrate-cosmos-db-arcion.md
+        - name: Develop with the emulator
+          href: ../how-to-develop-emulator.md?pivots=api-apache-cassandra
+        - name: Use developer tools
+          items:
+            - name: Set up CI/CD with Azure Pipelines
+              href: ../tutorial-setup-ci-cd.md
+            - name: Use Azure Cosmos DB Explorer
+              href: ../data-explorer.md
+        - name: Troubleshooting and performance
+          items:
+            - name: Troubleshoot common issues
+              href: troubleshoot-common-issues.md
+            - name: Troubleshoot NoHostAvailableException
+              href: troubleshoot-nohostavailable-exception.md
+            - name: Glowroot application performance monitoring (APM) with API for Apache Cassandra
+              displayName: Glowroot, APM, monitor
+              href: glowroot.md
+            - name: Understand API for Apache Cassandra error codes
+              href: error-codes-solution.md
+            - name: Monitor and debug with insights in API for Apache Cassandra
+              href: monitor-insights.md
+        - name: Manage Azure Cosmos DB resources
+          items:
+            - name: Manage an Azure Cosmos DB account
+              href: ../how-to-manage-database-account.md
+            - name: Manage using PowerShell
+              href: powershell-samples.md
+            - name: Manage using Azure CLI
+              href: cli-samples.md
+            - name: Manage using Bicep
+              href: manage-with-bicep.md
+            - name: Manage using Resource Manager templates
+              href: templates-samples.md
+              displayName: ARM
+            - name: Limit total account throughput
+              href: ../limit-total-account-throughput.md
+            - name: Move between regions
+              href: ../how-to-move-regions.md
+            - name: Prevent changes or deletion
+              href: ../resource-locks.md
+            - name: Request quota increase
+              href: ../sql/create-support-request-quota-increase.md
+            - name: Access preview features
+              href: ../access-previews.md
+        - name: Back up and restore
+          items:
+            - name: Periodic backup
+              items:
+                - name: Update storage redundancy
+                  href: ../periodic-backup-update-storage-redundancy.md
+                - name: Modify interval retention
+                  href: ../periodic-backup-modify-interval-retention.md
+        - name: Security
+          items:
+            - name: Configure IP firewall
+              href: ../how-to-configure-firewall.md
+            - name: Configure access from virtual networks
+              displayName: service endpoints
+              href: ../how-to-configure-vnet-service-endpoint.md
+            - name: Configure access from private endpoints
+              href: ../how-to-configure-private-endpoints.md
+            - name: Connect privately to an Azure Cosmos DB account
+              href: ../../private-link/tutorial-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Store credentials in Azure Key Vault
+              href: ../store-credentials-key-vault.md
+            - name: Access Azure Key Vault with managed identity
+              href: ../access-key-vault-managed-identity.md
+            - name: Restrict user access to data operations only
+              href: ../how-to-restrict-user-data.md
+            - name: Configure customer-managed keys
+              href: ../how-to-setup-customer-managed-keys.md
+            - name: Configure cross-tenant customer-managed keys
+              href: ../how-to-setup-cross-tenant-customer-managed-keys.md
+            - name: Use managed identities with Azure services
+              href: ../how-to-setup-managed-identity.md
+        - name: Monitor
+          items:
+            - name: Monitor Azure Cosmos DB
+              href: ../monitor.md
+            - name: Use Azure monitor metrics
+              items:
+                - name: Azure Monitor for Azure Cosmos DB
+                  href: ../insights-overview.md
+                - name: Scenarios to monitor
+                  href: ../use-metrics.md
+                - name: Monitor server-side latency
+                  href: ../monitor-server-side-latency.md
+                - name: Monitor request unit usage
+                  href: ../monitor-request-unit-usage.md
+                - name: Monitor key updates
+                  href: ../monitor-account-key-updates.md
+                - name: Monitor normalized request unit usage
+                  href: ../monitor-normalized-request-units.md
+            - name: Use Azure monitor logs
+              items:
+                - name: Monitor with diagnostic logs
+                  href: ../monitor-resource-logs.md
+                - name: Troubleshoot issues using basic queries
+                  href: ../monitor-logs-basic-queries.md
+                - name: Audit control plane logs
+                  href: ../audit-control-plane-logs.md
+                - name: Troubleshoot issues with advanced diagnostics queries
+                  href: diagnostic-queries.md
+                - name: Add a transformation for workspace data
+                  href: ../tutorial-log-transformation.md
+            - name: Configure alerts
+              items:
+                - name: Create alert on metrics
+                  href: ../create-alerts.md
+                - name: Create alert on logical partition key size
+                  href: ../how-to-alert-on-logical-partition-key-storage-size.md
+            - name: Monitoring data reference
+              href: ../monitor-reference.md
+            - name: Third-party monitoring solutions
+              href: ../monitoring-solutions.md
+    - name: Reference
       items:
-        - name: Monitor Azure Cosmos DB
-          href: ../monitor.md
-        - name: Use Azure monitor metrics
+        - name: REST resource provider
+          href: /rest/api/cosmos-db-resource-provider/2021-04-01-preview/cassandra-resources
+        - name: PowerShell
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
+        - name: Resource Manager template
+          href: /azure/templates/microsoft.documentdb/allversions
+        - name: Azure CLI
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
+        - name: Emulator
           items:
-            - name: Azure Monitor for Azure Cosmos DB
-              href: ../insights-overview.md
-            - name: Scenarios to monitor
-              href: ../use-metrics.md
-            - name: Monitor server-side latency
-              href: ../monitor-server-side-latency.md
-            - name: Monitor request unit usage
-              href: ../monitor-request-unit-usage.md
-            - name: Monitor key updates
-              href: ../monitor-account-key-updates.md
-            - name: Monitor normalized request unit usage
-              href: ../monitor-normalized-request-units.md
-        - name: Use Azure monitor logs
+            - name: Release notes
+              href: ../emulator-release-notes.md
+            - name: Windows command-line arguments
+              href: ../emulator-windows-arguments.md
+    - name: Resources
+      items:
+        - name: Build your skills with Microsoft Learn training
+          href: /training/browse/?products=azure-cosmos-db
+        - name: FAQ
+          href: ../faq.yml
+        - name: Whitepapers
+          href: ../whitepapers.md
+        - name: Partners
+          href: ../partners-migration.md
+        - name: Microsoft Q&A question page
+          href: /answers/topics/azure-cosmos-db.html
+        - name: Videos
+          href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
+        - name: Azure Roadmap
+          href: https://azure.microsoft.com/updates/?query=Cosmos%20DB
+        - name: Try Azure Cosmos DB for free
+          href: https://azure.microsoft.com/try/cosmosdb/
+        - name: Pricing
+          href: https://azure.microsoft.com/pricing/details/cosmos-db/
+        - name: Use cases
           items:
-            - name: Monitor with diagnostic logs
-              href: ../monitor-resource-logs.md
-            - name: Troubleshoot issues using basic queries
-              href: ../monitor-logs-basic-queries.md
-            - name: Audit control plane logs
-              href: ../audit-control-plane-logs.md
-            - name: Troubleshoot issues with advanced diagnostics queries
-              href: diagnostic-queries.md
-            - name: Add a transformation for workspace data
-              href: ../tutorial-log-transformation.md
-        - name: Configure alerts
-          items:
-            - name: Create alert on metrics
-              href: ../create-alerts.md
-            - name: Create alert on logical partition key size
-              href: ../how-to-alert-on-logical-partition-key-storage-size.md
-        - name: Monitoring data reference
-          href: ../monitor-reference.md
-        - name: Third-party monitoring solutions
-          href: ../monitoring-solutions.md
-- name: Reference
+            - name: Common use cases
+              href: ../use-cases.md
+            - name: Social media apps
+              href: ../social-media-apps.md
+- name: Azure Managed Instance for Apache Cassandra
   items:
-    - name: REST resource provider
-      href: /rest/api/cosmos-db-resource-provider/2021-04-01-preview/cassandra-resources
-    - name: PowerShell
-      href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
-    - name: Resource Manager template
-      href: /azure/templates/microsoft.documentdb/allversions
-    - name: Azure CLI
-      href: /cli/azure/azure-cli-reference-for-cosmos-db
-    - name: Emulator
+    - name: Azure Managed Instance for Apache Cassandra documentation
+      href: ../../managed-instance-apache-cassandra/index.yml?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+    - name: Overview
       items:
-        - name: Release notes
-          href: ../emulator-release-notes.md
-        - name: Windows command-line arguments
-          href: ../emulator-windows-arguments.md
-- name: Resources
-  items:
-    - name: Build your skills with Microsoft Learn training
-      href: /training/browse/?products=azure-cosmos-db
-    - name: FAQ
-      href: ../faq.yml
-    - name: Whitepapers
-      href: ../whitepapers.md
-    - name: Partners
-      href: ../partners-migration.md
-    - name: Microsoft Q&A question page
-      href: /answers/topics/azure-cosmos-db.html
-    - name: Videos
-      href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
-    - name: Azure Roadmap
-      href: https://azure.microsoft.com/updates/?query=Cosmos%20DB
-    - name: Try Azure Cosmos DB for free
-      href: https://azure.microsoft.com/try/cosmosdb/
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/cosmos-db/
-    - name: Use cases
+        - name: What is Azure Managed Instance for Apache Cassandra?
+          href: ../../managed-instance-apache-cassandra/introduction.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Management operations
+          href: ../../managed-instance-apache-cassandra/management-operations.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+    - name: Quickstarts
       items:
-        - name: Common use cases
-          href: ../use-cases.md
-        - name: Social media apps
-          href: ../social-media-apps.md
+        - name: Create a cluster - portal
+          href: ../../managed-instance-apache-cassandra/create-cluster-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Create a cluster - CLI
+          displayName: az managed-cassandra, cluster, datacenter, connect
+          href: ../../managed-instance-apache-cassandra/create-cluster-cli.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Create a multi-region cluster - CLI
+          href: ../../managed-instance-apache-cassandra/create-multi-region-cluster.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Configure a hybrid cluster
+          href: ../../managed-instance-apache-cassandra/configure-hybrid-cluster.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Deploy Spark Cluster with Databricks
+          href: ../../managed-instance-apache-cassandra/deploy-cluster-databricks.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Search using Lucene Index
+          href: ../../managed-instance-apache-cassandra/search-lucene-index.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+    - name: Tutorials
+      items:
+        - name: Migration
+          items:
+            - name: Use dual-write proxy - live
+              href: ../../managed-instance-apache-cassandra/dual-write-proxy-migration.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Use Apache Spark - offline
+              href: ../../managed-instance-apache-cassandra/spark-migration.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+    - name: Concepts
+      items:
+        - name: Security overview
+          href: ../../managed-instance-apache-cassandra/security.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Building resilient applications
+          href: ../../managed-instance-apache-cassandra/resilient-applications.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json          
+        - name: Frequently asked questions
+          displayName: cost, region, monitor, backup
+          href: ../../managed-instance-apache-cassandra/faq.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+    - name: How-to guides
+      items:
+        - name: Best practices for optimal performance
+          href: ../../managed-instance-apache-cassandra/best-practice-performance.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Add service principal for deployment
+          href: ../../managed-instance-apache-cassandra/add-service-principal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Configure Customer-Managed Keys
+          href: ../../managed-instance-apache-cassandra/customer-managed-keys.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Enable LDAP authentication
+          href: ../../managed-instance-apache-cassandra/ldap.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Monitor
+          href: ../../managed-instance-apache-cassandra/monitor-clusters.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Manage with Azure CLI
+          displayName: az managed-cassandra, cluster, datacenter
+          href: ../../managed-instance-apache-cassandra/manage-resources-cli.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Required outbound network rules
+          href: ../../managed-instance-apache-cassandra/network-rules.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Visualize metrics in Prometheus with Grafana
+          href: ../../managed-instance-apache-cassandra/visualize-prometheus-grafana.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Enable materialized views
+          href: ../../managed-instance-apache-cassandra/materialized-views.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Commands
+          href: ../../managed-instance-apache-cassandra/dba-commands.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+    - name: Reference
+      items:
+        - name: REST API
+          items:
+            - name: Cassandra clusters
+              href: /rest/api/cosmos-db-resource-provider/2021-04-01-preview/cassandra-clusters
+            - name: Cassandra data centers
+              href: /rest/api/cosmos-db-resource-provider/2021-04-01-preview/cassandra-data-centers
+        - name: Azure CLI
+          href: /cli/azure/managed-cassandra

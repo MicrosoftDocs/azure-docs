@@ -1,9 +1,9 @@
 ---
 title: Azure account Contributor requirement
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: include
 ms.date: 02/14/2022
 ms.author: pafarley

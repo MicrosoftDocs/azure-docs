@@ -4,12 +4,12 @@ titleSuffix: Azure AI services
 description: Learn how to create, use, and manage Document Intelligence custom and composed models
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
@@ -18,13 +18,21 @@ monikerRange: '<=doc-intel-3.1.0'
 <!-- markdownlint-disable MD051 -->
 <!-- markdownlint-disable MD024 -->
 
-::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](../includes/applies-to-v3-1-v3-0.md)]
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [applies to v4.0](../includes/applies-to-v40.md)]
 ::: moniker-end
 
-:::moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
-:::moniker-end
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](../includes/applies-to-v31.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+[!INCLUDE [applies to v3.0](../includes/applies-to-v30.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-2.1.0"
+[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
+::: moniker-end
 
 ::: moniker range=">=doc-intel-3.0.0"
 
@@ -281,10 +289,6 @@ Try one of our Document Intelligence quickstarts:
 :::moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
-::: moniker-end
-
-::: moniker range="doc-intel-2.1.0"
 
 Document Intelligence uses advanced machine-learning technology to detect and extract information from document images and return the extracted data in a structured JSON output. With Document Intelligence, you can train standalone custom models or combine custom models to create composed models.
 
@@ -300,7 +304,7 @@ Try extracting data from custom forms using our Sample Labeling tool. You need t
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
@@ -347,7 +351,7 @@ Document Intelligence uses the [Layout](../concept-layout.md) API to learn the e
 
 [Get started with Train with labels](../label-tool.md)
 
-> [!VIDEO https://learn.microsoft.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
+  [!VIDEO https://learn.microsoft.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
 ## Create a composed model
 

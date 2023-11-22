@@ -4,16 +4,15 @@ metadata:
   description: Frequently asked questions about Document Intelligence service.
   author: laujan
   manager: nitinme
-  ms.service: applied-ai-services
-  ms.subservice: forms-recognizer
+  ms.service: azure-ai-document-intelligence
+  ms.custom:
+    - ignite-2023
   ms.topic: faq
-  ms.date: 08/17/2023
+  ms.date: 11/15/2023
   ms.author: lajanuar
-  monikerRange: '<=doc-intel-3.1.0'
-
 title: Frequently asked questions (FAQ)
 summary: |
-   [!INCLUDE [applies to v3.1, v3.0, and v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
+   [!INCLUDE [applies to v4.0, v3.1, v3.0, and v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 
 
 
@@ -78,7 +77,7 @@ sections:
 
           - [AI Builder workflows](/ai-builder/create-form-processing-model?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json)
 
-          - [Azure Cognitive Search](../../search/cognitive-search-custom-skill-form.md)
+          - [Azure AI Search](../../search/cognitive-search-custom-skill-form.md)
 
           - [Azure Functions](tutorial-azure-function.md)
 
@@ -452,7 +451,7 @@ sections:
 
           - For **custom models**, you can either use a **Contributor** role, or use the endpoint and key of a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to create a project. You also need to have **Contributor** role to access to at least one blob storage account.
 
-          - For more information, *see* [Azure AD built-in roles](../../role-based-access-control/built-in-roles.md).
+          - For more information, *see* [Microsoft Entra built-in roles](../../role-based-access-control/built-in-roles.md).
 
       - question: |
           I have multiple pages in a document. Why are there only two pages analyzed in Document Intelligence Studio?
@@ -525,7 +524,7 @@ sections:
 
           - [Authenticate](create-document-intelligence-resource.md?#get-endpoint-url-and-keys) with a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) key.
 
-          - [Authenticate](../../ai-services/authentication.md?context=%2fazure%2fapplied-ai-services%2fform-recognizer%2fcontext%2fcontext&tabs=PowerShell#authenticate-with-azure-active-directory) with Azure Active Directory (Azure AD).
+          - [Authenticate](../../ai-services/authentication.md?context=%2fazure%2fapplied-ai-services%2fform-recognizer%2fcontext%2fcontext&tabs=PowerShell#authenticate-with-azure-active-directory) with Microsoft Entra ID.
 
           - [Enable](./encrypt-data-at-rest.md#enable-customer-managed-keys-for-your-resource) customer-managed keys.
 

@@ -4,7 +4,7 @@ description: Configure on-premises Active Directory Domain Services (AD DS) auth
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 11/21/2023
 ms.author: kendownie
 ---
 
@@ -13,7 +13,7 @@ ms.author: kendownie
 Many organizations want to use identity-based authentication for SMB Azure file shares in environments that have multiple on-premises Active Directory Domain Services (AD DS) forests. This is a common IT scenario, especially following mergers and acquisitions, where the acquired company's AD forests are isolated from the parent company's AD forests. This article explains how forest trust relationships work and provides step-by-step instructions for multi-forest setup and validation.
 
 > [!IMPORTANT]
-> If you want to set share-level permissions for specific Azure AD users or groups using Azure role-based access control (RBAC), then you must first sync the on-premises AD accounts to Azure AD using [Azure AD Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md). Otherwise, you can use a [default share-level permission](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities).
+> If you want to set share-level permissions for specific Microsoft Entra users or groups using Azure role-based access control (RBAC), then you must first sync the on-premises AD accounts to Microsoft Entra ID using [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md). Otherwise, you can use a [default share-level permission](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities).
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -26,7 +26,7 @@ Many organizations want to use identity-based authentication for SMB Azure file 
 
 - Two AD DS domain controllers with different forests and on different virtual networks (VNETs)
 - Sufficient AD permissions to perform administrative tasks (for example, Domain Admin)
-- If using Azure RBAC, both forests must be reachable by a single Azure AD Connect sync server
+- If using Azure RBAC, both forests must be reachable by a single Microsoft Entra Connect Sync server
 
 ## How forest trust relationships work
 
@@ -78,7 +78,7 @@ Once authentication passes, the trust is established, and you should be able to 
 
 ### Set up identity-based authentication and hybrid user accounts
 
-Once the trust is established, follow these steps to create a storage account and SMB file share for each domain, enable AD DS authentication on the storage accounts, and create hybrid user accounts synced to Azure AD.
+Once the trust is established, follow these steps to create a storage account and SMB file share for each domain, enable AD DS authentication on the storage accounts, and create hybrid user accounts synced to Microsoft Entra ID.
 
 1. Log in to the Azure portal and create two storage accounts such as **onprem1sa** and **onprem2sa**. For optimal performance, we recommend that you deploy the storage accounts in the same region as the clients from which you plan to access the shares.
    
@@ -86,13 +86,13 @@ Once the trust is established, follow these steps to create a storage account an
    > Creating a second storage account isn't necessary. These instructions are meant to show an example of how to access storage accounts that belong to different forests. If you only have one storage account, you can ignore the second storage account setup instructions.
    
 1. [Create an SMB Azure file share](storage-files-identity-ad-ds-assign-permissions.md) on each storage account.
-1. [Sync your on-premises AD to Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md) using [Azure AD Connect sync](../../active-directory/hybrid/whatis-azure-ad-connect.md) application. 
+1. [Sync your on-premises AD to Microsoft Entra ID](../../active-directory/hybrid/how-to-connect-install-roadmap.md) using [Microsoft Entra Connect Sync](../../active-directory/hybrid/whatis-azure-ad-connect.md) application. 
 1. Domain-join an Azure VM in **Forest 1** to your on-premises AD DS. For information about how to domain-join, refer to [Join a Computer to a Domain](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
 1. [Enable AD DS authentication](storage-files-identity-ad-ds-enable.md) on the storage account associated with **Forest 1**, for example **onprem1sa**. This will create a computer account in your on-premises AD called **onprem1sa** to represent the Azure storage account and join the storage account to the **onpremad1.com** domain. You can verify that the AD identity representing the storage account was created by looking in **Active Directory Users and Computers** for **onpremad1.com**. In this example, you'd see a computer account called **onprem1sa**.
 1. Create a user account by navigating to **Active Directory > onpremad1.com**. Right-click on **Users**, select **Create**, enter a user name (for example, **onprem1user**), and check the **Password never expires** box (optional).
-1. Optional: If you want to use Azure RBAC to assign share-level permissions, you must sync the user to Azure AD using Azure AD Connect. Normally Azure AD Connect sync updates every 30 minutes. However, you can force it to sync immediately by opening an elevated PowerShell session and running `Start-ADSyncSyncCycle -PolicyType Delta`. You might need to install the AzureAD Sync module first by running `Import-Module ADSync`. To verify that the user has been synced to Azure AD, sign in to the Azure portal with the Azure subscription associated with your multi-forest tenant and select **Azure Active Directory**. Select **Manage > Users** and search for the user you added (for example, **onprem1user**). **On-premises sync enabled** should say **Yes**.
+1. Optional: If you want to use Azure RBAC to assign share-level permissions, you must sync the user to Microsoft Entra ID using Microsoft Entra Connect. Normally Microsoft Entra Connect Sync updates every 30 minutes. However, you can force it to sync immediately by opening an elevated PowerShell session and running `Start-ADSyncSyncCycle -PolicyType Delta`. You might need to install the ADSync module first by running `Import-Module ADSync`. To verify that the user has been synced to Microsoft Entra ID, sign in to the Azure portal with the Azure subscription associated with your multi-forest tenant and select **Microsoft Entra ID**. Select **Manage > Users** and search for the user you added (for example, **onprem1user**). **On-premises sync enabled** should say **Yes**.
 1. Set share-level permissions using either Azure RBAC roles or a default share-level permission. 
-   - If the user is synced to Azure AD, you can grant a share-level permission (Azure RBAC role) to the user **onprem1user** on storage account **onprem1sa** so the user can mount the file share. To do this, navigate to the file share you created in **onprem1sa** and follow the instructions in [Assign share-level permissions for specific Azure AD users or groups](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-specific-azure-ad-users-or-groups).
+   - If the user is synced to Microsoft Entra ID, you can grant a share-level permission (Azure RBAC role) to the user **onprem1user** on storage account **onprem1sa** so the user can mount the file share. To do this, navigate to the file share you created in **onprem1sa** and follow the instructions in [Assign share-level permissions for specific Microsoft Entra users or groups](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-specific-azure-ad-users-or-groups).
    - Otherwise, you can use a [default share-level permission](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities) that applies to all authenticated identities.
 
 Repeat steps 4-8 for **Forest2** domain **onpremad2.com** (storage account **onprem2sa**/user **onprem2user**). If you have more than two forests, repeat the steps for each forest.
@@ -159,6 +159,7 @@ To use this method, complete the following steps:
    1. Select the node named after your domain (for example, **onpremad1.com**) and right-click **New Alias (CNAME)**.
    1. For the alias name, enter your storage account name.
    1. For the fully qualified domain name (FQDN), enter **`<storage-account-name>`.`<domain-name>`**, such as **mystorageaccount.onpremad1.com**.
+   1. If you're using a private endpoint (PrivateLink) for the storage account, add an additional CNAME entry to map to the private endpoint name, for example **mystorageaccount.privatelink.onpremad1.com**.
    1. For the target host FQDN, enter **`<storage-account-name>`.file.core.windows.net**
    1. Select **OK**.
 

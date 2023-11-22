@@ -18,7 +18,7 @@ The Custom Logs data source for the Log Analytics agent in Azure Monitor allows 
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
-![Diagram that shows custom log collection.](media/data-sources-custom-logs/overview.png)
+:::image type="content" source="media/data-sources-custom-logs/overview.png" lightbox="media/data-sources-custom-logs/overview.png" alt-text="Diagram that shows custom log collection.":::
 
 The log files to be collected must match the following criteria:
 
@@ -150,25 +150,25 @@ The following section walks through an example of creating a custom log. The sam
 
 We provide one of the log files and can see the events that it will be collecting. In this case, **New line** is a sufficient delimiter. If a single entry in the log could span multiple lines though, a timestamp delimiter would need to be used.
 
-:::image type="content" source="media/data-sources-custom-logs/delimiter.png" alt-text="Screenshot that shows uploading and parsing a sample log.":::
+:::image type="content" source="media/data-sources-custom-logs/delimiter.png" lightbox="media/data-sources-custom-logs/delimiter.png" alt-text="Screenshot that shows uploading and parsing a sample log.":::
 
 ### Add log collection paths
 
 The log files will be located in *C:\MyApp\Logs*. A new file will be created each day with a name that includes the date in the pattern *appYYYYMMDD.log*. A sufficient pattern for this log would be *C:\MyApp\Logs\\\*.log*.
 
-:::image type="content" source="media/data-sources-custom-logs/collection-path.png" alt-text="Screenshot that shows adding a log collection path.":::
+:::image type="content" source="media/data-sources-custom-logs/collection-path.png" lightbox="media/data-sources-custom-logs/collection-path.png" alt-text="Screenshot that shows adding a log collection path.":::
 
 ### Provide a name and description for the log
 
 We use a name of *MyApp_CL* and type in a **Description**.
 
-:::image type="content" source="media/data-sources-custom-logs/log-name.png" alt-text="Screenshot that shows adding a log name.":::
+:::image type="content" source="media/data-sources-custom-logs/log-name.png" lightbox="media/data-sources-custom-logs/log-name.png" alt-text="Screenshot that shows adding a log name.":::
 
 ### Validate that the custom logs are being collected
 
 We use a simple query of *MyApp_CL* to return all records from the collected log.
-
-:::image type="content" source="media/data-sources-custom-logs/query-01.png" alt-text="Screenshot that shows a log query with no custom fields.":::
+<!-- convertborder later -->
+:::image type="content" source="media/data-sources-custom-logs/query-01.png" lightbox="media/data-sources-custom-logs/query-01.png" alt-text="Screenshot that shows a log query with no custom fields." border="false":::
 
 ## Alternatives to custom logs
 
