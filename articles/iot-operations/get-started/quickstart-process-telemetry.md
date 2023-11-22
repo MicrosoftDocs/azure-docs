@@ -41,7 +41,7 @@ To create a service principal that gives your pipeline access to your Microsoft 
 
 1. Use the following Azure CLI command to create a service principal.
 
-    ```bash
+    ```azurecli
     az ad sp create-for-rbac --name <YOUR_SP_NAME> 
     ```
 
@@ -104,14 +104,14 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
 
 1. Enter the following command on the machine where your cluster is running to edit the **aio-default-spc** `secretproviderclass` resource. The YAML configuration for the resource opens in your default editor:
 
-    ```bash
+    ```console
     kubectl edit secretproviderclass aio-default-spc -n azure-iot-operations
     ```
 
 1. Add a new entry to the array of secrets for your new Azure Key Vault secret. The `spec` section looks like the following example:
 
     ```yaml
-    # Please edit the object below. Lines beginning with a '#' will be ignored,
+    # Edit the object below. Lines beginning with a '#' will be ignored,
     # and an empty file will abort the edit. If an error occurs while saving this file will be
     # reopened with the relevant failures.
     #
@@ -146,7 +146,7 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
 
 The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the polling interval is reached. To update the pod immediately, restart the pods for the component. For Data Processor, run the following commands:
 
-```bash
+```console
 kubectl delete pod aio-dp-reader-worker-0 -n azure-iot-operations
 kubectl delete pod aio-dp-runner-worker-0 -n azure-iot-operations
 ```
@@ -193,10 +193,16 @@ In the following steps, leave all values at their default unless otherwise speci
 
 1. Select the pipeline name, **\<pipeline-name\>**, and change it to _passthrough-data-pipeline_. Select **Apply**.
 1. Select **Save** to save and deploy the pipeline. It takes a few seconds to deploy this pipeline to your cluster.
-1. Connect to the MQ broker using your MQTT client again. This time, specify the topic `dp-output`.
+1. Run the following command to create a shell environment in the **mqtt-client** pod you created in the previous quickstart:
 
-    ```bash
-    mqttui -b mqtt://127.0.0.1:1883 "dp-output"
+    ```console
+    kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
+    ```
+
+1. At the shell in the **mqtt-client** pod, connect to the MQ broker using your MQTT client again. This time, specify the topic `dp-output`.
+
+    ```console
+    mqttui -b mqtts://aio-mq-dmqtt-frontend:8883 -u '$sat' --password $(cat /var/run/secrets/tokens/mq-sat) --insecure "dp-output"
     ```
 
 1. You see the same data flowing as previously. This behavior is expected because the deployed _passthrough data pipeline_ doesn't transform the data. The pipeline routes data from one MQTT topic to another.
@@ -232,7 +238,7 @@ In the following steps, leave all values at their default unless otherwise speci
     | Name           | `equipment-data`                  |
     | Expiration time | `1h`                              |
 
-1. Select **Create dataset** to save the reference dataset destination details. It takes a few seconds to deploy the dataset to your cluster and become visible in the dataset list view.
+1. Select **Create** to save the reference dataset destination details. It takes a few seconds to deploy the dataset to your cluster and become visible in the dataset list view.
 
 1. Use the values in the following table to configure the destination stage. Then select **Apply**:
 
@@ -251,9 +257,17 @@ In the following steps, leave all values at their default unless otherwise speci
 
 To store the reference data, publish it as an MQTT message to the `reference_data` topic by using the mqttui tool:
 
-```bash
-mqttui -b mqtt://127.0.0.1:1883 publish "reference_data" '{ "customer": "Contoso", "batch": 102, "equipment": "Boiler", "location": "Seattle", "isSpare": true }'
-```
+1. Create a shell environment in the **mqtt-client** pod you created in the previous quickstart:
+
+    ```console
+    kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
+    ```
+
+1. Publish the message:
+
+    ```console
+    mqttui -b mqtts://aio-mq-dmqtt-frontend:8883 -u '$sat' --password $(cat /var/run/secrets/tokens/mq-sat) --insecure publish "reference_data" '{ "customer": "Contoso", "batch": 102, "equipment": "Boiler", "location": "Seattle", "isSpare": true }'
+    ```
 
 After you publish the message, the pipeline receives the message and stores the data in the equipment data reference dataset.
 
@@ -283,17 +297,10 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     Add two properties:
 
-    | Parameter         | Value |
-    | ----------------- | ----- |
-    | Input path        | `.payload.payload["temperature"]` |
-    | Output path       | `.payload.payload.temperature_lkv` |
-    | Expiration time    | `01h` |
-
-    | Parameter         | Value |
-    | ----------------- | ----- |
-    | Input path        | `.payload.payload["Tag 10"]` |
-    | Output path       | `.payload.payload.tag1_lkv` |
-    | Expiration time    | `01h` |
+    | Input path        | Output path       | Expiration time    |
+    | ----------------- | ----------------- | ------------------ |
+    | `.payload.payload["temperature"]` | `.payload.payload.temperature_lkv` | `01h` |
+    | `.payload.payload["Tag 10"]` | `.payload.payload.tag1_lkv` | `01h` |
 
     This stage enriches the incoming messages with the latest `temperature` and `Tag 10` values if they're missing. The tracked latest values are retained for 1 hour. If the tracked properties appear in the message, the tracked latest value is updated to ensure that the values are always up to date.
 
@@ -313,7 +320,7 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 
     | Parameter     | Value       |
     | ------------- | ----------- |
-    | Display name  | construct full payload |
+    | Display name  | `construct full payload` |
 
     The following jq expression formats the payload property to include all telemetry values and all the contextual information as key value pairs:
 
@@ -369,6 +376,9 @@ Create a Data Processor pipeline to process and enrich your data before it sends
 1. After a short time, the data from your pipeline begins to populate the table in your lakehouse.
 
 :::image type="content" source="media/quickstart-process-telemetry/lakehouse-preview.png" alt-text="Screenshot that shows data from the pipeline appearing in the lakehouse table.":::
+
+> [!TIP]
+> Make sure that no other processes write to the OPCUA table in your lakehouse. If you write to the table from multiple sources, you might see corrupted data in the table.
 
 ## How did we solve the problem?
 
