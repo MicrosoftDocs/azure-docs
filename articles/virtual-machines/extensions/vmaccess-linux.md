@@ -39,7 +39,7 @@ This article describes how to run the VMAccess Extension from the Azure CLI and 
 | Ubuntu |	18.04+, 20.04+, 22.04+ |	20.04+, 22.04+ |
 
 ### Tips
-* VMAccess was designed for the purpose of regaining access to a VM in the event that access is lost. Based on this principle, it will grant sudo permission to account specified in the username field. If you don't wish a user to gain sudo permissions, login to the VM and use built-in tools (for example, usermod, chage, etc.) to manage unprivileged users.
+* VMAccess was designed for regaining access to a VM given that access is lost. Based on this principle, it grants sudo permission to account specified in the username field. If you don't wish a user to gain sudo permissions, login to the VM and use built-in tools (for example, usermod, chage, etc.) to manage unprivileged users.
 * You can only have one version of the extension applied to a VM. To run a second action, update the existing extension with a new configuration.
 * During a user update, VMAccess alters the `sshd_config` file and takes a backup of it beforehand. To restore the original backed-up SSH configuration, run VMAccess with `restore_backup_ssh` set to `True`.
 
@@ -300,8 +300,8 @@ The VMAccess extension logs exist locally on the VM and are most informative whe
 
 | Location | Description |
 | ---- | ---- |
-| /var/log/waagent.log	| Shows when an update to the extension occurred. This contains logs from the Linux Agent, and we can check it to ensure the extension ran. |
-| /var/log/azure/Microsoft.OSTCExtensions.VMAccessForLinux/*	| The VMAccess Extension produces logs, which can be found here. The directory contains `CommandExecution.log` where you can find each command executed along with its result, along with `extension.log` which contains individual logs for each execution. |
+| /var/log/waagent.log	| Contains logs from the Linux Agent and shows when an update to the extension occurred. We can check it to ensure the extension ran. |
+| /var/log/azure/Microsoft.OSTCExtensions.VMAccessForLinux/*	| The VMAccess Extension produces logs, which can be found here. The directory contains `CommandExecution.log` where you can find each command executed along with its result, along with `extension.log`, which contains individual logs for each execution. |
 | /var/lib/waagent/Microsoft.OSTCExtensions.VMAccessForLinux-\<most recent version\>/config/*	| The configuration and binaries for VMAccess VM Extension. |
 |||
 
