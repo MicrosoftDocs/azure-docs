@@ -1,7 +1,7 @@
 ---
-title: Set up sign-in for multi-tenant Microsoft Entra ID using custom policies
+title: Set up sign-in for multitenant Microsoft Entra ID using custom policies
 titleSuffix: Azure AD B2C
-description: Add a multi-tenant Microsoft Entra identity provider using custom policies in Azure Active Directory B2C.
+description: Add a multitenant Microsoft Entra identity provider using custom policies in Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
 ms.service: active-directory
@@ -12,11 +12,11 @@ ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 
-#Customer intent: As a developer, I want to enable sign-in for users using the multi-tenant endpoint for Microsoft Entra ID. Allowing users from multiple Microsoft Entra tenants to sign in using Azure AD B2C, without me having to configure an identity provider for each tenant. 
+#Customer intent: As a developer, I want to enable sign-in for users using the multitenant endpoint for Microsoft Entra ID. Allowing users from multiple Microsoft Entra tenants to sign in using Azure AD B2C, without me having to configure an identity provider for each tenant. 
 
 ---
 
-# Set up sign-in for multi-tenant Microsoft Entra ID using custom policies in Azure Active Directory B2C
+# Set up sign-in for multitenant Microsoft Entra ID using custom policies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -28,7 +28,7 @@ zone_pivot_groups: b2c-policy-type
 
 ::: zone pivot="b2c-custom-policy"
 
-This article shows you how to enable sign-in for users using the multi-tenant endpoint for Microsoft Entra ID, allowing users from multiple Microsoft Entra tenants to sign in using Azure AD B2C, without you having to configure an identity provider for each tenant. However, guest members in any of these tenants **will not** be able to sign in. For that, you need to [individually configure each tenant](identity-provider-azure-ad-single-tenant.md).
+This article shows you how to enable sign-in for users using the multitenant endpoint for Microsoft Entra ID, allowing users from multiple Microsoft Entra tenants to sign in using Azure AD B2C, without you having to configure an identity provider for each tenant. However, guest members in any of these tenants **will not** be able to sign in. For that, you need to [individually configure each tenant](identity-provider-azure-ad-single-tenant.md).
 
 ## Prerequisites
 
@@ -155,8 +155,8 @@ You can define Microsoft Entra ID as a claims provider by adding Microsoft Entra
 
 1. Under the **ClaimsProvider** element, update the value for **Domain** to a unique value that can be used to distinguish it from other identity providers.
 1. Under the **TechnicalProfile** element, update the value for **DisplayName**, for example, `Multi-Tenant AAD`. This value is displayed on the sign-in button on your sign-in page.
-1. Set **client_id** to the application ID of the Microsoft Entra multi-tenant application that you registered earlier.
-1. Under **CryptographicKeys**, update the value of **StorageReferenceId** to the name of the policy key that created earlier. For example, `B2C_1A_AADAppSecret`.
+1. Set **client_id** to the application ID of the Microsoft Entra multitenant application that you registered earlier.
+1. Under **CryptographicKeys**, update the value of **StorageReferenceId** to the name of the policy key that you created earlier. For example, `B2C_1A_AADAppSecret`.
 
 ### Restrict access
 
@@ -200,13 +200,13 @@ Perform these steps for each Microsoft Entra tenant that should be used to sign 
 1. Select the **Run now** button.
 1. From the sign-up or sign-in page, select **Common Microsoft Entra ID** to sign in with Microsoft Entra account.
 
-To test the multi-tenant sign-in capability, perform the last two steps using the credentials for a user that exists another Microsoft Entra tenant. Copy the **Run now endpoint** and open it in a private browser window, for example, Incognito Mode in Google Chrome or an InPrivate window in Microsoft Edge. Opening in a private browser window allows you to test the full user journey by not using any currently cached Microsoft Entra credentials.
+To test the multitenant sign-in capability, perform the last two steps using the credentials for a user that exists with another Microsoft Entra tenant. Copy the **Run now endpoint** and open it in a private browser window, for example, Incognito Mode in Google Chrome or an InPrivate window in Microsoft Edge. Opening in a private browser window allows you to test the full user journey by not using any currently cached Microsoft Entra credentials.
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ## See also
 
 - Learn how to [pass the Microsoft Entra token to your application](idp-pass-through-user-flow.md).
-- Check out the Microsoft Entra multi-tenant federation [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory), and how to pass Microsoft Entra access token [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory-with-access-token)
+- Check out the Microsoft Entra multitenant federation [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory), and how to pass Microsoft Entra access token [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory-with-access-token)
 
 ::: zone-end
