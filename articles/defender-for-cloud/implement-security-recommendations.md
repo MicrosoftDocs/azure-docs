@@ -4,7 +4,7 @@ description: Learn how to remediate security recommendations in Microsoft Defend
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
-ms.date: 11/08/2023
+ms.date: 11/22/2023
 ---
 # Remediate security recommendations
 
@@ -15,6 +15,11 @@ This article describes how to remediate security recommendations in your Defende
 ## Before you start
 
 Before you attempt to remediate a recommendation you should review it in detail. Learn how to [review security recommendations](review-security-recommendations.md).
+
+> [!IMPORTANT]
+> This page discusses how to use the new recommendations experience where you have the ability to prioritize your recommendations by their effective risk level. To view this experience you must select **Try it now**.
+>
+> :::image type="content" source="media/review-security-recommendations/try-it-now.png" alt-text="Screenshot that shows where the try it now button is located on the recommendation page." lightbox="media/review-security-recommendations/try-it-now.png":::
 
 ## Group recommendations by risk level
 
@@ -30,8 +35,7 @@ Before you start remediating, we recommend grouping your recommendations by risk
 
     Recommendations are displayed in groups of risk levels.
 
-1. Review critical and other recommendations to understand the recommendation and remediation steps. Use the graph to understand the risk to your business, including which resources are exploitable, and the effect that the recommendation has on your business.
-
+You can now review critical and other recommendations to understand the recommendation and remediation steps. Use the graph to understand the risk to your business, including which resources are exploitable, and the effect that the recommendation has on your business.
 
 ## Remediate recommendations
 
@@ -39,11 +43,15 @@ After reviewing recommendations by risk, decide which one to remediate first.
 
 In addition to risk level, we recommend that you prioritize the security controls in the default [Microsoft Cloud Security Benchmark (MCSB)](concept-regulatory-compliance.md) standard in Defender for Cloud, since these controls affect your [secure score](secure-score-security-controls.md).
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the **Recommendations** page, select the recommendation you want to remediate.
+1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
-1. In the recommendation details page, select **Take action** > **Remediate**.
-1. Follow the remediation instructions.
+1. Select a recommendation to remediate.
+
+1. Select **Take action** 
+
+1. Locate the Remediate section and follow the remediation instructions.
 
     As an example, the following screenshot shows remediation steps for configuring applications to only allow traffic over HTTPS.
 
