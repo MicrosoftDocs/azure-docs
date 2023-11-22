@@ -36,7 +36,7 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 | [DigiCert Global Root G2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt) | 0x033af1e6a711a9a0bb2864b11d09fae5<br>DF3C24F9BFD666761B268073FE06D1CC8D4F82A4 |
 | [DigiCert Global Root G3](https://cacerts.digicert.com/DigiCertGlobalRootG3.crt) | 0x055556bcf25ea43535c3a40fd5ab4572<br>7E04DE896A3E666D00E687D33FFAD93BE83D349E |
 | [Microsoft ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt) | 0x66f23daf87de8bb14aea0c573101c2ec<br>999A64C37FF47D9FAB95F14769891460EEC4C3C5 |
-| [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/archived/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) | 29c87039f4dbfdb94dbcda6ca792836b<br>ee68c3e94ab5d55eb9395116424e25b0cadd9009 |
+| [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) | 0x1ed397095fd8b4b347701eaabe7f45b3<br>73A5E64A3BFF8316FF0EDCCC618A906E4EAE4D74 |
 
 ### Subordinate Certificate Authorities
 
