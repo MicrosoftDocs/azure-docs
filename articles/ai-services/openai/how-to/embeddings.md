@@ -80,11 +80,15 @@ AzureKeyCredential credentials = new (oaiKey);
 
 OpenAIClient openAIClient = new (oaiEndpoint, credentials);
 
-EmbeddingsOptions embeddingOptions = new ("Your text string goes here");
+EmbeddingsOptions embeddingOptions = new()
+{
+    DeploymentName = "text-embedding-ada-002",
+    Input = { "Your text string goes here" },
+};
 
-var returnValue = openAIClient.GetEmbeddings("YOUR_DEPLOYMENT_NAME", embeddingOptions);
+var returnValue = openAIClient.GetEmbeddings(embeddingOptions);
 
-foreach (float item in returnValue.Value.Data[0].Embedding)
+foreach (float item in returnValue.Value.Data[0].Embedding.ToArray())
 {
     Console.WriteLine(item);
 }
