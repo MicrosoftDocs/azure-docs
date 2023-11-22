@@ -61,11 +61,11 @@ The sign-up and sign-in user flow handles both experiences with a single configu
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **User flows**, and then select **New user flow**.
 
-    ![Screenshot of the User flows page from the Azure portal with New user flow button highlighted](./media/tutorial-create-user-flows/sign-up-sign-in-user-flow.png)
+    ![Screenshot of the User flows page from the Azure portal with New user flow button highlighted.](./media/tutorial-create-user-flows/sign-up-sign-in-user-flow.png)
 
 1. On the **Create a user flow** page, select the **Sign up and sign in** user flow.
 
-    ![Screenshot of the Select a user flow page from the Azure portal with the Sign-up and sign-in flow highlighted](./media/tutorial-create-user-flows/select-user-flow-type.png)
+    ![Screenshot of the Select a user flow page from the Azure portal with the Sign-up and sign-in flow highlighted.](./media/tutorial-create-user-flows/select-user-flow-type.png)
 
 1. Under **Select a version**, select **Recommended**, and then select **Create**. ([Learn more](user-flow-versions.md) about user flow versions.)
 
@@ -75,7 +75,7 @@ The sign-up and sign-in user flow handles both experiences with a single configu
 1. For **Identity providers**, select **Email signup**.
 1. For **User attributes and token claims**, choose the claims and attributes that you want to collect and send from the user during sign-up. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
 
-    ![Screenshot of the attributes and claims selection page from the Azure portal with three claims selected and highlighted](./media/tutorial-create-user-flows/signup-signin-attributes.png)
+    ![Screenshot of the attributes and claims selection page from the Azure portal with three claims selected and highlighted.](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
 1. Select **Create** to add the user flow. A prefix of *B2C_1_* is automatically prepended to the name you entered earlier. For example, *B2C_1_signupsignin1*. 
 
@@ -86,7 +86,7 @@ The sign-up and sign-in user flow handles both experiences with a single configu
 1. For **Application**, select the web application you wish to test, such as the one named *webapp1*. The **Reply URL** should show `https://jwt.ms`.
 1. Select **Run user flow**, and then select **Sign up now**.
 
-    ![A screenshot of the Run user flow page from the Azure portal portal with Run user flow button, Application text box and Reply URL text box highlighted](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
+    ![A screenshot of the Run user flow page from the Azure portal portal with Run user flow button, Application text box and Reply URL text box highlighted.](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
 
 1. Enter a valid email address, select **Send verification code**, enter the verification code that you receive, then select **Verify code**.
 1. Enter a new password and confirm the password.
@@ -230,12 +230,12 @@ Now, grant permissions to the API scope you exposed earlier in the *IdentityExpe
 
 ## Custom policy starter pack
 
-Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define technical profiles and user journeys. We provide starter packs with several pre-built policies to get you going quickly. Each of these starter packs contains the smallest number of technical profiles and user journeys needed to achieve the scenarios described. For a more in-depth guide to Azure AD B2C custom policies, follow our [custom policies how-to guide series](custom-policies-series-overview.md)
+Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define technical profiles and user journeys. We provide starter packs with several pre-built policies to get you going quickly. Each of these starter packs contains the smallest number of technical profiles and user journeys needed to achieve the scenarios described. For a more in-depth guide to Azure AD B2C custom policies, follow our [custom policies how-to guide series](custom-policies-series-overview.md).
 
 - **LocalAccounts** - Enables the use of local accounts only.
 - **SocialAccounts** - Enables the use of social (or federated) accounts only.
 - **SocialAndLocalAccounts** - Enables the use of both local and social accounts.
-- **SocialAndLocalAccountsWithMFA** - Enables social, local, and multi-factor authentication options.
+- **SocialAndLocalAccountsWithMFA** - Enables social, local, and multifactor authentication options.
 
 Each starter pack contains:
 
