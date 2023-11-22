@@ -19,11 +19,11 @@ This article describes the architecture of deploying hybrid and air-gapped secur
 
 ## Architecture recommendations
 
-The following image shows a high level architecture of our recommendations for monitoring and maintaining Defender for IoT systems, where each OT sensor connects to multiple security management systems in the cloud or on-premises.
+The following image shows a sample, high level architecture of our recommendations for monitoring and maintaining Defender for IoT systems, where each OT sensor connects to multiple security management systems in the cloud or on-premises.
 
 :::image type="content" source="../media/on-premises-architecture/on-premises-architecture.png" alt-text="Diagram of the new architecture for hybrid and air-gapped support.":::
 
-In this architecture, three sensors connect to four routers in different logical zones across the organization. The sensors are located behind a firewall and integrate with local, on-premises IT infrastructure, such as local backup servers, remote access connections through SASE, and forwarding alerts to an on-premises security event and information management (SIEM) system.
+In this sample architecture, three sensors connect to four routers in different logical zones across the organization. The sensors are located behind a firewall and integrate with local, on-premises IT infrastructure, such as local backup servers, remote access connections through SASE, and forwarding alerts to an on-premises security event and information management (SIEM) system.
 
 The Defender for IoT architecture guidance for hybrid and air-gapped networks helps you to:
 
@@ -62,13 +62,12 @@ Transitioning to the updated architecture guidance helps gain improved security,
 
 1. Connect your sensors to recommended on-premises, Azure, and other cloud resources, as needed for each site. For example, set up proxy servers, backup storage, and integrations to third-party systems. You may have multiple sites and adopt a hybrid approach, where as only specific sites are kept completely on-premises.
 
-    For more information, see the procedures linked in the [air-gapped deployment procedure](#deployment-steps), as well as the following cloud resources:
+    For more information, see the information linked in the [air-gapped deployment procedure](#deployment-steps), as well as the following cloud resources:
 
     - [Provision sensors for cloud management](provision-cloud-management.md)
     - [OT threat monitoring in enterprise SOCs](../concept-sentinel-integration.md)
     - [Securing IoT devices in the enterprise](../concept-enterprise.md)
-    - [Power BI documentation](https://learn.microsoft.com/en-us/power-bi/)
-    
+
 1. Set up permissions and update procedures for accessing your sensors to match the new deployment architecture.
 
 1. Review and validate that all security use cases and procedures have transitioned to the new architecture.

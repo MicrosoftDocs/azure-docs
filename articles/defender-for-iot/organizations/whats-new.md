@@ -16,6 +16,44 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## December
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [New architecture for hybrid and air-gapped support](#new-architecture-for-hybrid-and-air-gapped-support)|
+
+### New architecture for hybrid and air-gapped support
+
+Hybrid and air-gapped networks are common in many industries, such as government, financial services, or industrial manufacturing. Air-gapped networks are physically separated from other, unsecured networks like the internet, and are less vulnerable to cyber-attacks. However, air-gapped networks are still not completely secure, can still be breached, and must be secured and monitored carefully.
+
+Defender for IoT now provides new guidance for connecting to and monitoring hybrid and air-gapped networks. The new architecture guidance is designed to add efficiency, security, and reliability to your SOC operations, with fewer components to maintain and troubleshoot. The sensor technology used in the new architecture allows for on-premises processing that keeps data within your own network, reducing the need for cloud resources and improving performance.
+
+- **Use your existing organizational infrastructure** to monitor and manage your OT sensors, reducing the need for additional hardware or software
+- **Use organizational security stack integrations** that are increasingly reliable and robust, whether you are on the cloud or on-premises
+- **Collaborate with your global security teams** by auditing and controlling access to cloud and on-premises resources, ensuring consistent visibility and protection across your OT environments
+- **Boost your OT security system** by adding cloud-based resources that enhance and empower your existing capabilities, such as threat intelligence, analytics, and automation
+
+The following image shows a sample, high level architecture of our recommendations for monitoring and maintaining Defender for IoT systems, where each OT sensor connects to multiple security management systems in the cloud or on-premises.
+
+:::image type="content" source="media/on-premises-architecture/on-premises-architecture.png" alt-text="Diagram of the new architecture for hybrid and air-gapped support.":::
+
+We recommend that existing customers who are currently using an on-premises management console to manage OT sensors transition to the updated architecture guidance.
+
+For more information, see [Deploy hybrid or air-gapped OT sensor management](ot-deploy/air-gapped-deploy.md).
+
+#### On-premises management console sunset
+
+The [legacy on-premises management console](../legacy-central-management/legacy-air-gapped-deploy.md) won't be available for download after **January 1st, 2025**. Until then, we recommend transitioning to the new architecture guidance, using the full spectrum of on-premises and cloud APIs.
+
+- Sensor versions released after **January 1, 2024** won't be able to be managed by an on-premises management console.
+- Sensor software versions released between **January 1, 2023 - January 1, 2024** will continue to support an on-premises management console release.
+- Air-gapped sensors that cannot connect to the cloud can be managed directly via the sensor console or using REST APIs.
+
+Our support team is available to help with further guidance as customers begin planning for the transition to the new architecture guidance. For more information, see:
+
+- [ Transitioning from a legacy on-premises management console](ot-deploy/air-gapped-deploy.md#transitioning-from-a-legacy-on-premises-management-console).
+- [Versioning and support for on-premises software versions](release-notes.md#versioning-and-support-for-on-premises-software-versions)
+
 ## November 2023
 
 |Service area  |Updates  |
@@ -66,45 +104,7 @@ For customers using legacy integration methods, we recommend moving your integra
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [New architecture for hybrid and air-gapped support](#new-architecture-for-hybrid-and-air-gapped-support) <br><br>**Version 23.1.3**: <br>- [Troubleshoot OT sensor connectivity](#troubleshoot-ot-sensor-connectivity) <br>- [Event timeline access for OT sensor Read Only users](#event-timeline-access-for-ot-sensor-read-only-users)|
-
-### New architecture for hybrid and air-gapped support
-
-To enhance your SOC teams' ability to secure operational networks, Defender for IoT now provides new guidance for connecting to and monitoring hybrid and air-gapped environments.
-
-The updated guidance includes recommendations such as:
-
-- Monitoring and managing your OT sensors using existing organizational infrastructure
-- Using organizational security stack integrations that are increasingly reliable and robust
-- Controlling access to cloud and on-premises resources for global security teams
-- Adding cloud-based resources to enhance and empower your existing OT security system
-
-The following image shows a high level architecture of the updated guidance for monitoring and maintaining Defender for IoT systems. In this image, each OT sensor connects to both Azure and existing customer infrastructure.
-
-:::image type="content" source="media/on-premises-architecture/on-premises-architecture.png" alt-text="Diagram of the new architecture for hybrid and air-gapped support.":::
-
-####  Transitioning to the new architecture
-
-We recommend that existing customers use the following steps when transitioning to the new architecture guidance:
-
-1. For each of your OT sensors, identify the existing integrations and permissions for on-premises security teams.
-1. Connect your sensors to your existing on-premises, Azure, and other cloud resources.
-1. Set up permissions and update procedures for accessing your sensors to match the new architecture.
-1. Review and validate that all security use cases and procedures support the new guidance.
-1. If you're using an on-premises management console, decommission it when the transition is complete.
-
-#### On-premises management console sunset
-
-The [legacy on-premises management console](../legacy-central-management/legacy-air-gapped-deploy.md) won't be available for OT network sensor software versions released after September 1, 2024. Instead, we recommend running management activities via Microsoft cloud services or third-party services with APIs.
-
-- Sensor versions released after **September 1, 2024** won't be able to be managed by an on-premises management console. All management activities are planned for support via Microsoft cloud services or partner services with APIs.
-- Sensor software versions released between September 1, 2023 - September 1, 2024 will continue to have a parallel on-premises management console release. Support for those versions will continue until September 1, 2024.
-- Air-gapped sensors that cannot connect to the cloud can be managed directly via the sensor console or using third-party services and APIs.
-
-Our support team is available to help with further guidance as customers begin planning for the transition to the new architecture guidance. 
-
-- [Deploy hybrid or air-gapped OT sensor management](ot-deploy/air-gapped-deploy.md)
-- [Versioning and support for on-premises software versions](release-notes.md#versioning-and-support-for-on-premises-software-versions)
+| **OT networks** | **Version 23.1.3**: <br>- [Troubleshoot OT sensor connectivity](#troubleshoot-ot-sensor-connectivity) <br>- [Event timeline access for OT sensor Read Only users](#event-timeline-access-for-ot-sensor-read-only-users)|
 
 ### Troubleshoot OT sensor connectivity
 
