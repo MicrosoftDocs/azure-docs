@@ -19,7 +19,7 @@ Whether you work with the results of your queries interactively or use them with
 
 Here's a video version of this tutorial: 
 
-[!VIDEO https://www.youtube.com/embed/-aMecR2Nrfc]
+> [!VIDEO https://www.youtube.com/embed/-aMecR2Nrfc]
 
 ## Start Log Analytics
 
