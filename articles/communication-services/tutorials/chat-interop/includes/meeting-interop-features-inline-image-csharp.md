@@ -71,7 +71,7 @@ As an example, the following JSON is an example of what `ChatAttachment` might l
         "previewUrl": "https://contoso.communication.azure.com/chat/threads/19:9d89acb29d89acb2@thread.v2/images/9d89acb2-c4e4-4cab-b94a-7c12a61afe30/views/small?api-version=2023-11-03"
       }
 ]
-``
+```
 
 Now let's go back to the replace the code to add some extra logic like the following code snippets: 
 
@@ -106,23 +106,12 @@ Noticing in this example, we've created two helper functions - `fetchPreviewImag
 
 Now we've concluded all the changes we need to render inline images for messages coming from real time notifications.
 
-## Run the code 
-
-Webpack users can use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
-
-```console
-<TODO>
-```
-
 ## Demo
-Open your browser and navigate to `<TODO>`. Enter the meeting URL and the thread ID. Send some inline images from Teams client like this:
 
-:::image type="content" source="<TODO>" alt-text="A screenshot of Teams client shown a sent message reads: Here are some ideas, let me know what you think! The message also contains two inline images of room interior mockups.":::
+* Run the application from the IDE.
+* Enter a team meating link
+* Join meeting
+* Admit user on the Teams side
+* Send a mesage from the Teams side with an image
+* You will see the url included with the message in the application
 
-Then you should see the new message being rendered along with preview images:
-
-:::image type="content" source="<TODO>" alt-text="A screenshot of sample app shown an incoming message with inline images being presented.":::
-
-Upon clicking the preview image by the ACS user, an overlay would be shown with the full scale image sent by the Teams user:
-
- :::image type="content" source="<TODO>" alt-text="A screenshot of sample app shown an overlay of a full scale image being presented.":::
