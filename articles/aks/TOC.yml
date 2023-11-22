@@ -524,6 +524,8 @@
                 - name: Application routing add-on overview
                   href: app-routing.md
                 - name: Advanced application routing add-on configurations
+                  href: app-routing-configuration.md
+                - name: Custom domain name and SSL certificate configuration
                   href: app-routing-dns-ssl.md
                 - name: Monitor using Prometheus and Grafana
                   href: app-routing-nginx-prometheus.md
