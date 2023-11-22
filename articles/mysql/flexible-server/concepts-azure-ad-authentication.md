@@ -1,6 +1,6 @@
 ---
 title: Active Directory authentication - Azure Database for MySQL - Flexible Server
-description: Learn about the concepts of Microsoft Entra ID for authentication with Azure Database for MySQL - Flexible Server.
+description: Learn about the concepts of Microsoft Entra ID for authentication with Azure Database for MySQL flexible server.
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Microsoft Entra authentication is a mechanism of connecting to Azure Database for MySQL - Flexible Server using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, simplifying permission management.
+Microsoft Entra authentication is a mechanism of connecting to Azure Database for MySQL flexible server by using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, simplifying permission management.
 
 ## Benefits
 
@@ -40,15 +40,15 @@ Microsoft Entra authentication is a mechanism of connecting to Azure Database fo
 1. Connect to your database by retrieving a token for a Microsoft Entra identity and logging in.
 
 > [!NOTE]  
-> For detailed, step-by-step instructions about how to configure Microsoft Entra authentication with Azure Database for MySQL - Flexible Server, see [Learn how to set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](how-to-azure-ad.md)
+> For detailed, step-by-step instructions about how to configure Microsoft Entra authentication with Azure Database for MySQL flexible server, see [Learn how to set up Microsoft Entra authentication for Azure Database for MySQL flexible server](how-to-azure-ad.md)
 
 ## Architecture
 
 User-managed identities are required for Microsoft Entra authentication. When a User-Assigned Identity is linked to the flexible server, the Managed Identity Resource Provider (MSRP) issues a certificate internally to that identity. When the managed identity is deleted, the corresponding service principal is automatically removed.
 
-The service then uses the managed identity to request access tokens for services that support Microsoft Entra authentication. Azure Database currently supports only a User-assigned Managed Identity (UMI) for Azure Database for MySQL - Flexible Server. For more information, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) in Azure.
+The service then uses the managed identity to request access tokens for services that support Microsoft Entra authentication. Azure Database currently supports only a User-assigned Managed Identity (UMI) for Azure Database for MySQL flexible server. For more information, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) in Azure.
 
-The following high-level diagram summarizes how authentication works using Microsoft Entra authentication with Azure Database for MySQL. The arrows indicate communication pathways.
+The following high-level diagram summarizes how authentication works using Microsoft Entra authentication with Azure Database for MySQL flexible server. The arrows indicate communication pathways.
 
 :::image type="content" source="media/concepts-azure-ad-authentication/azure-ad-authentication-flow.jpg" alt-text="Diagram of how Microsoft Entra authentication works.":::
 
@@ -59,7 +59,7 @@ The following high-level diagram summarizes how authentication works using Micro
 
 ## Administrator structure
 
-There are two Administrator accounts for the MySQL server when using Microsoft Entra authentication: the original MySQL administrator and the Microsoft Entra administrator.
+There are two Administrator accounts for Azure Database for MySQL flexible server when using Microsoft Entra authentication: the original MySQL administrator and the Microsoft Entra administrator.
 
 Only the administrator based on a Microsoft Entra account can create the first Microsoft Entra ID contained database user in a user database. The Microsoft Entra administrator sign-in can be a Microsoft Entra user or a Microsoft Entra group. When the administrator is a group account, it can be used by any group member, enabling multiple Microsoft Entra administrators for the flexible server. Using a group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Microsoft Entra ID without changing the users or permissions in the Flexible server. Only one Microsoft Entra administrator (a user or group) can be configured at a time.
 
@@ -88,7 +88,7 @@ After you grant the permissions to the UMI, they're enabled for all servers crea
 
 ## Token Validation
 
-Microsoft Entra authentication in Azure Database for MySQL - Flexible Server ensures that the user exists in the MySQL server and checks the token's validity by validating the token's contents. The following token validation steps are performed:
+Microsoft Entra authentication in Azure Database for MySQL flexible server ensures that the user exists in the MySQL server and checks the token's validity by validating the token's contents. The following token validation steps are performed:
 
 - Token is signed by Microsoft Entra ID and hasn't been tampered.
 - Token was issued by Microsoft Entra ID for the tenant associated with the server.
@@ -124,15 +124,15 @@ Once you authenticate against the Active Directory, you retrieve a token. This t
 - If a user is deleted from Microsoft Entra ID, that user can no longer authenticate with Microsoft Entra ID. Therefore, acquiring an access token for that user is no longer possible. Although the matching user is still in the database, connecting to the server with that user isn't possible.
 
 > [!NOTE]  
-> Log in with the deleted Microsoft Entra user can still be done until the token expires (up to 60 minutes from token issuing). If you remove the user from Azure Database for MySQL, this access is revoked immediately.
+> Log in with the deleted Microsoft Entra user can still be done until the token expires (up to 60 minutes from token issuing). If you remove the user from Azure Database for MySQL flexible server, this access is revoked immediately.
 
 - If the Microsoft Entra admin is removed from the server, the server is no longer associated with a Microsoft Entra tenant, and therefore all Microsoft Entra logins are disabled for the server. Adding a new Microsoft Entra admin from the same tenant re-enables Microsoft Entra logins.
 
-- A flexible server matches access tokens to the Azure Database for MySQL users using the user's unique Microsoft Entra user ID instead of the username. This means that if a Microsoft Entra user is deleted in Microsoft Entra ID and a new user is created with the same name, the flexible server considers that a different user. Therefore, if a user is deleted from Microsoft Entra ID and then a new user with the same name is added, the new user isn't able to connect with the existing user.
+- A flexible server matches access tokens to the Azure Database for MySQL flexible server users using the user's unique Microsoft Entra user ID instead of the username. This means that if a Microsoft Entra user is deleted in Microsoft Entra ID and a new user is created with the same name, the flexible server considers that a different user. Therefore, if a user is deleted from Microsoft Entra ID and then a new user with the same name is added, the new user isn't able to connect with the existing user.
 
 > [!NOTE]  
 > The subscriptions of a flexible server with Microsoft Entra authentication enabled can't be transferred to another tenant or directory.
 
 ## Next steps
 
-- To learn how to configure Microsoft Entra ID with Azure Database for MySQL, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](how-to-azure-ad.md)
+- To learn how to configure Microsoft Entra ID with Azure Database for MySQL flexible server, see [Set up Microsoft Entra authentication for Azure Database for MySQL flexible server](how-to-azure-ad.md)

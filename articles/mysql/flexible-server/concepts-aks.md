@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure Kubernetes Service - Azure Database for MySQL
-description: Learn about connecting Azure Kubernetes Service with Azure Database for MySQL
+title: Connect to Azure Kubernetes Service - Azure Database for MySQL - Flexible Server
+description: Learn about connecting Azure Kubernetes Service with Azure Database for MySQL flexible server.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -9,15 +9,15 @@ ms.author: sunaray
 ms.date: 06/20/2022
 ---
 
-# Best practices for Azure Kubernetes Service and Azure Database for MySQL
+# Best practices for Azure Kubernetes Service and Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-Azure Kubernetes Service (AKS) provides a managed Kubernetes cluster you can use in Azure. Consider the following options when using AKS and Azure Database for MySQL together to create an application.
+Azure Kubernetes Service (AKS) provides a managed Kubernetes cluster you can use in Azure. Consider the following options when using AKS and Azure Database for MySQL flexible server together to create an application.
 
-## Create Database before creating the AKS cluster
+## Create the database before creating the AKS cluster
 
 Azure Database for MySQL has two deployment options:
 

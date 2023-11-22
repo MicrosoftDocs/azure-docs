@@ -1,6 +1,6 @@
 ---
-title: Performance best practices - Azure Database for MySQL
-description: This article describes some recommendations to monitor and tune performance for your Azure Database for MySQL.
+title: Performance best practices - Azure Database for MySQL flexible server
+description: This article describes some recommendations to monitor and tune performance for Azure Database for MySQL flexible server.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -9,13 +9,13 @@ ms.author: sisawant
 ms.date: 07/22/2022
 ---
 
-# Best practices for optimal performance of Azure Database for MySQL servers
+# Best practices for optimal performance of Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-Learn how to get best performance while working with your Azure Database for MySQL server. As we add new capabilities to the platform, we'll continue refining our recommendations in this section.
+Learn how to get best performance while working with Azure Database for MySQL flexible server. As we add new capabilities to the platform, we'll continue refining our recommendations in this section.
 
 ## Physical proximity
 
@@ -23,7 +23,7 @@ Learn how to get best performance while working with your Azure Database for MyS
 
 When resources such as a web application and its associated database are running in different regions, there might be increased latency in the communication between those resources. Another side possible effect of having the application and database in separate regions relates to [outbound data transfer costs](https://azure.microsoft.com/pricing/details/data-transfers).
 
-To improve the performance and reliability of an application in a cost optimized deployment, it's highly recommended that the web application service and the Azure Database for MySQL resource reside in the same region and availability zone. This colocation is best for applications that are latency sensitive, and it also provides the best throughput, as resources are closely paired.
+To improve the performance and reliability of an application in a cost optimized deployment, it's highly recommended that the web application service and the Azure Database for MySQL flexible server resource reside in the same region and availability zone. This colocation is best for applications that are latency sensitive, and it also provides the best throughput, as resources are closely paired.
 
 ## Accelerated networking
 
@@ -87,28 +87,28 @@ Over time, applications evolve, and new functionality is added. Out of convenien
 
 Horizontally sharding a database works by creating multiple copies of the application schema in separate databases and segregating customers and all associated data based on customer ID, geography, or some other per-customer or tenant attribute. This works very well for SaaS or B2C applications in which individual customers are small and the load on the application is from aggregate usage of millions of customers. However, it's more difficult with B2B applications in which customers are different sizes and individual large customers may dominate the traffic load for a particular shard.
 
-Vertically split load by functionally sharding the database - moving separate application domains (or micro services) to their own databases. This distributes load from the primary database to separate per-service databases. Simple examples include a logging table or site configuration information that doesn't need to be in the same database as the heavily loaded orders table. More complicated examples include breaking customer and account domains apart from orders or fulfillment domains. In some cases, this may require application changes, for example to modify email or background job queues to be self-contained and not rely on joins back to a customer or order table. Moving existing tables and data to a new primary database can be performed with Azure Database for MySQL read replicas and promoting the replica and pointing parts of the application to the newly created writable database. The newly created database needs to limit access with connection pools, tune queries, and spread load with its own replicas just like the original primary.
+Vertically split load by functionally sharding the database - moving separate application domains (or micro services) to their own databases. This distributes load from the primary database to separate per-service databases. Simple examples include a logging table or site configuration information that doesn't need to be in the same database as the heavily loaded orders table. More complicated examples include breaking customer and account domains apart from orders or fulfillment domains. In some cases, this may require application changes, for example to modify email or background job queues to be self-contained and not rely on joins back to a customer or order table. Moving existing tables and data to a new primary database can be performed with Azure Database for MySQL flexible server read replicas and promoting the replica and pointing parts of the application to the newly created writable database. The newly created database needs to limit access with connection pools, tune queries, and spread load with its own replicas just like the original primary.
 
 ## Data import configurations
 
 - You can temporarily scale your instance to higher SKU size before starting a data import operation and then scale it down when the import is successful.
 - You can import your data with minimal downtime by using [Azure Database Migration Service (DMS)](../migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md) for online or offline migrations.
 
-## Azure Database for MySQL memory recommendations
+## Azure Database for MySQL flexible server memory recommendations
 
-An Azure Database for MySQL performance best practice is to allocate enough RAM so that your working set resides almost completely in memory.
+An Azure Database for MySQL flexible server performance best practice is to allocate enough RAM so that your working set resides almost completely in memory.
 
-- Check if the memory percentage being used in reaching the [limits](../single-server/concepts-pricing-tiers.md) using the [metrics for the MySQL server](./concepts-monitoring.md).
+- Check if the memory percentage being used in reaching the [limits](../single-server/concepts-pricing-tiers.md) using the [metrics for Azure Database for MySQL flexible server](./concepts-monitoring.md).
 - Set up alerts on such numbers to ensure that as the server reaches limits, you can take prompt actions to fix it. Based on the limits defined, check if scaling up the database SKU—either to higher compute size or to better pricing tier, which results in a dramatic increase in performance. 
-- Scale up until your performance numbers no longer drops dramatically after a scaling operation. For information on monitoring a DB instance's metrics, see [MySQL DB Metrics](./concepts-monitoring.md#metrics).
+- Scale up until your performance numbers no longer drops dramatically after a scaling operation. For information on monitoring a DB instance's metrics, see [Azure Database for MySQL flexible server DB Metrics](./concepts-monitoring.md#metrics).
 
 ## Use InnoDB buffer pool Warmup
 
-After the Azure Database for MySQL server restarts, the data pages residing in storage are loaded as the tables are queried which leads to increased latency and slower performance for the first execution of the queries. This may not be acceptable for latency sensitive workloads. 
+After the Azure Database for MySQL flexible server instance restarts, the data pages residing in storage are loaded as the tables are queried which leads to increased latency and slower performance for the first execution of the queries. This may not be acceptable for latency sensitive workloads. 
 
 Utilizing InnoDB buffer pool warmup shortens the warmup period by reloading disk pages that were in the buffer pool before the restart rather than waiting for DML or SELECT operations to access corresponding rows.
 
-You can reduce the warmup period after restarting your Azure Database for MySQL server, which represents a performance advantage by configuring [InnoDB buffer pool server parameters](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html). InnoDB saves a percentage of the most recently used pages for each buffer pool at server shutdown and restores these pages at server startup.
+You can reduce the warmup period after restarting your Azure Database for MySQL flexible server instance, which represents a performance advantage by configuring [InnoDB buffer pool server parameters](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html). InnoDB saves a percentage of the most recently used pages for each buffer pool at server shutdown and restores these pages at server startup.
 
 It's also important to note that improved performance comes at the expense of longer start-up time for the server. When this parameter is enabled, server startup and restart time is expected to increase depending on the IOPS provisioned on the server.
 
@@ -117,10 +117,10 @@ We recommend testing and monitor the restart time to ensure the start-up/restart
 To save the state of the buffer pool at server shutdown, set server parameter `innodb_buffer_pool_dump_at_shutdown` to `ON`. Similarly, set server parameter `innodb_buffer_pool_load_at_startup` to `ON` to restore the buffer pool state at server startup. You can control the effect on start-up/restart time by lowering and fine-tuning the value of server parameter `innodb_buffer_pool_dump_pct`. By default, this parameter is set to `25`.
 
 > [!NOTE]
-> InnoDB buffer pool warmup parameters are only supported in general purpose storage servers with up to 16-TB storage. For more information, see [Azure Database for MySQL storage options](../single-server/concepts-pricing-tiers.md#storage).
+> InnoDB buffer pool warmup parameters are only supported in general purpose storage servers with up to 16-TB storage. For more information, see [Azure Database for MySQL flexible server storage options](../single-server/concepts-pricing-tiers.md#storage).
 
 ## Next steps
 
-- [Best practice for server operations using Azure Database for MySQL](concept-operation-excellence-best-practices.md)
-- [Best practice for monitoring your Azure Database for MySQL](concept-monitoring-best-practices.md)
-- [Get started with Azure Database for MySQL](../single-server/quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Best practice for server operations using Azure Database for MySQL flexible server](concept-operation-excellence-best-practices.md)
+- [Best practice for monitoring Azure Database for MySQL flexible server](concept-monitoring-best-practices.md)
+- [Get started with Azure Database for MySQL flexible server](../single-server/quickstart-create-mysql-server-database-using-azure-portal.md)

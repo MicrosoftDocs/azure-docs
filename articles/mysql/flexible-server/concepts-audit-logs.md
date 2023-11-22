@@ -1,6 +1,6 @@
 ---
 title: Audit logs - Azure Database for MySQL - Flexible Server
-description: Describes the audit logs available in Azure Database for MySQL - Flexible Server.
+description: Describes the audit logs available in Azure Database for MySQL flexible server.
 author: code-sidd
 ms.author: sisawant
 ms.reviewer:
@@ -14,12 +14,12 @@ ms.topic: conceptual
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Azure Database for MySQL - Flexible Server provides users with the ability to configure audit logs. Audit logs can be used to track database-level activity including connection, admin, DDL, and DML events. These types of logs are commonly used for compliance purposes.
+Azure Database for MySQL flexible server provides users with the ability to configure audit logs. Audit logs can be used to track database-level activity including connection, admin, DDL, and DML events. These types of logs are commonly used for compliance purposes.
 
 ## Configure audit logging
 
 > [!IMPORTANT]  
-> It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted and minium amount of data is collected.
+> It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance isn't heavily impacted and a minimum amount of data is collected.
 
 By default, audit logs are disabled. To enable them, set the `audit_log_enabled` server parameter to *ON*. This can be configured using the Azure portal or Azure CLI.
 
@@ -46,10 +46,10 @@ Other parameters you can adjust to control audit logging behavior include:
 
 ## Access audit logs
 
-Audit logs are integrated with Azure Monitor diagnostic settings. Once you've enabled audit logs on your flexible server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about diagnostic settings, see the [diagnostic logs documentation](../../azure-monitor/essentials/platform-logs-overview.md). To learn more about how to enable diagnostic settings in the Azure portal, see the [audit log portal article](tutorial-configure-audit.md#set-up-diagnostics).
+Audit logs are integrated with Azure Monitor diagnostic settings. Once you've enabled audit logs on your flexible server, you can emit them to Azure Monitor logs, Azure Event Hubs, or Azure Storage. To learn more about diagnostic settings, see the [diagnostic logs documentation](../../azure-monitor/essentials/platform-logs-overview.md). To learn more about how to enable diagnostic settings in the Azure portal, see the [audit log portal article](tutorial-configure-audit.md#set-up-diagnostics).
 
 > [!NOTE]  
-> Premium Storage accounts are not supported if you send the logs to Azure storage via diagnostics and settings.
+> Premium Storage accounts aren't supported if you send the logs to Azure storage via diagnostics and settings.
 
 The following sections describe the output of MySQL audit logs based on the event type. Depending on the output method, the fields included and the order in which they appear may vary.
 
@@ -185,7 +185,7 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
     | render timechart
     ```
 
-- List audited events across all MySQL servers with Diagnostic Logs enabled for audit logs
+- List audited events across all Azure Database for MySQL flexible server instances with Diagnostic Logs enabled for audit logs
 
     ```kusto
     AzureDiagnostics
