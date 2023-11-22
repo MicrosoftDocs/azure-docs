@@ -15,7 +15,7 @@ ms.custom: event-tier1-build-2022
 Learn how to access Azure Blob Storage for a web app (not a signed-in user) running on Azure App Service by using managed identities. In this tutorial, you'll use the Azure CLI to complete the following tasks:
 
 > [!div class="checklist"]
-
+>
 > * Set up your initial environment with the Azure CLI
 > * Create a storage account and an Azure Blob Storage container.
 > * Deploy code to Azure App Service and connect to storage with managed identity using Service Connector
