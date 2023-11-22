@@ -17,7 +17,7 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 * You've gone through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
 * Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to **record your connection string** for this tutorial.
 * You've set up a Teams meeting using your business account and have the meeting URL ready.
-* You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.3.2-beta.1 or latest. See [here](https://www.npmjs.com/package/@azure/communication-chat).
+* You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.4.0 or latest. See [here](https://www.npmjs.com/package/@azure/communication-chat).
 
 ## Goal
 
@@ -75,16 +75,16 @@ export interface ChatAttachment {
   /** Id of the attachment */
   id: string;
   /** The type of attachment. */
-  attachmentType: "teamsInlineImage"
-  /** The type of content of the attachment, if available */
-  contentType?: string;
+  attachmentType: AttachmentType;
   /** The name of the attachment content. */
   name?: string;
   /** The URL where the attachment can be downloaded */
-  url: string;
+  url?: string;
   /** The URL where the preview of attachment can be downloaded */
   previewUrl?: string;
 }
+
+export type AttachmentType = "image" | "file" | "unknown";
 ```
 
 Now let's go back to the previous code to add some extra logic like the following code snippets: 
@@ -115,7 +115,7 @@ async function renderReceivedMessage(e) {
   
   // filter out inline images from attchments
   const imageAttachments = e.attachments.filter((e) =>
-    e.attachmentType.toLowerCase() === 'teamsinlineimage');
+    e.attachmentType.toLowerCase() === 'image');
   
   // fetch and render preview images
   fetchPreviewImages(imageAttachments);

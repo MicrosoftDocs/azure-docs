@@ -17,7 +17,7 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 * You've gone through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
 * Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to **record your connection string** for this tutorial.
 * You've set up a Teams meeting using your business account and have the meeting URL ready.
-* You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.3.2-beta.2 or the latest. See [here](https://www.npmjs.com/package/@azure/communication-chat).
+* You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.4.0 or the latest. See [here](https://www.npmjs.com/package/@azure/communication-chat).
 
 ## Goal
 
@@ -26,7 +26,7 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 
 ## Handle file attachments
 
-The Chat SDK for JavaScript would return `AttachmentType` of `file` for regular files and `teamsImage` for image attachments.
+The Chat SDK for JavaScript would return `AttachmentType` of `file` for regular files and `image` for image attachments.
 
 ```js
 export interface ChatMessageReceivedEvent extends BaseChatMessageEvent {
@@ -48,39 +48,37 @@ export interface ChatAttachment {
   id: string;
   /** The type of attachment. */
   attachmentType: AttachmentType;
-  /** The type of content of the attachment, if available */
-  contentType?: string;
   /** The name of the attachment content. */
   name?: string;
   /** The URL that is used to provide original size of the inline images */
-  url: string;
+  url?: string;
   /** The URL that provides the preview of attachment */
   previewUrl?: string;
 }
 
 /** Type of Supported Attachments. */
-export type AttachmentType = "teamsInlineImage" | "teamsImage" | "file";
+export type AttachmentType = "image" | "file" | "unknown";
 ```
 
 As an example, the following JSON is an example of what `ChatAttachment` might look like for an image attachment and a file attachment:
 
-```js
+```json
 "attachments": [
     {
         "id": "08a182fe-0b29-443e-8d7f-8896bc1908a2",
         "attachmentType": "file",
-        "contentType": "pdf",
+        "extension": "pdf",
         "name": "business report.pdf",
         "url": "",
         "previewUrl": "https://contoso.sharepoint.com/:u:/g/user/h8jTwB0Zl1AY"
     },
     {
         "id": "9d89acb2-c4e4-4cab-b94a-7c12a61afe30",
-        "attachmentType": "teamsImage",
-        "contentType": "png",
+        "attachmentType": "image",
+        "extension": "png",
         "name": "Screenshot.png",
-        "url": "https://contoso.communication.azure.com/chat/threads/19:9d89acb29d89acb2@thread.v2/messages/123/teamsInterop/images/9d89acb2-c4e4-4cab-b94a-7c12a61afe30/views/original?api-version=2023-07-01-preview",
-        "previewUrl": "https://contoso.communication.azure.com/chat/threads/19:9d89acb29d89acb2@thread.v2/messages/123/teamsInterop/images/9d89acb2-c4e4-4cab-b94a-7c12a61afe30/views/small?api-version=2023-07-01-preview"
+        "url": "https://contoso.communication.azure.com/chat/threads/19:9d89acb29d89acb2@thread.v2/messages/123/images/9d89acb2-c4e4-4cab-b94a-7c12a61afe30/views/original?api-version=2023-07-01-preview",
+        "previewUrl": "https://contoso.communication.azure.com/chat/threads/19:9d89acb29d89acb2@thread.v2/messages/123/images/9d89acb2-c4e4-4cab-b94a-7c12a61afe30/views/small?api-version=2023-07-01-preview"
       }
 ]
 ```
@@ -116,7 +114,7 @@ async function renderReceivedMessage(event) {
 
 function renderFileAttachments(attachment) {
     return '<div class="attachment-container">' +
-        '<p class="attachment-type">' + attachment.contentType + '</p>' +
+        '<p class="attachment-type">' + attachment.extension + '</p>' +
         '<img class="attachment-icon" alt="attachment file icon" />' +
         '<div>' +
         '<p>' + attachment.name + '</p>' +
@@ -227,7 +225,7 @@ Then you should see the new message being rendered along with file attachments:
 
 ## Handle image attachments
 
-In addition to regular files, image attachment needs to be treated differently. As we wrote in the beginning, the image attachment has `attachmentType` of `teamsImage`, which requires the communication token to retrieve the preview image and full scale image.
+In addition to regular files, image attachment needs to be treated differently. As we wrote in the beginning, the image attachment has `attachmentType` of `image`, which requires the communication token to retrieve the preview image and full scale image.
 
 Before we go any further, make sure you have gone through the tutorial that demonstrates [how you can enable inline image support in your chat app](../meeting-interop-features-inline-image.md). To summary, fetching images require a communication token in the request header. Upon getting the image blob, we need to create an `ObjectUrl` that points to this blob. Then we inject this URL to `src` attribute of each inline image.
 
@@ -242,7 +240,7 @@ async function renderReceivedMessage(event) {
 
     // Inject image tag for all image attachments
     var imageAttachmentHtml = event.attachments
-        .filter(attachment => attachment.attachmentType === "teamsImage")
+        .filter(attachment => attachment.attachmentType === "image")
         .map(attachment => renderImageAttachments(attachment))
         .join('');
     messagesContainer.innerHTML += imageAttachmentHtml;
@@ -256,8 +254,7 @@ async function renderReceivedMessage(event) {
 
     // filter out inline images from attchments
     const imageAttachments = event.attachments.filter((attachment) =>
-        attachment.attachmentType === "teamsInlineImage" ||
-        attachment.attachmentType === "teamsImage");
+        attachment.attachmentType === "image");
 
     // fetch and render preview images
     fetchPreviewImages(imageAttachments);
