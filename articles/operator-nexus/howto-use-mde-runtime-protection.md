@@ -41,6 +41,34 @@ export MANAGED_RESOURCE_GROUP="contoso-cluster-managed-rg"
 export CLUSTER_NAME="contoso-cluster"
 ```
 
+## Enabling & disabling MDE service on all nodes
+To use the MDE runtime protection service on the Cluster, you need to make the cluster aware of it first. The Cluster is not aware of this functionality by default.
+To do this, execute the following command with `enforcement-level="Disabled"`.
+
+```bash
+az networkcloud cluster update \
+--subscription ${SUBSCRIPTION_ID} \
+--resource-group ${RESOURCE_GROUP} \
+--cluster-name ${CLUSTER_NAME} \
+--runtime-protection-configuration enforcement-level="Disabled"
+```
+
+Upon execution, inspect the output for the following:
+
+```json
+  "runtimeProtectionConfiguration": {
+    "enforcementLevel": "Disabled"
+  }
+```
+
+Running this command will make the Cluster aware of the MDE runtime protection service. To use the service and benefit from its features, you need to set the `enforcement-level`
+to a value other than `Disabled` in the next section
+
+> [!NOTE]
+>As you have noted, the argument `--runtime-protection-configuration enforcement-level="<enforcement level>"` serves two purposes: enabling/disabling MDE service and updating the enforcement level.
+
+If you want to disable the MDE service across your Cluster, use an `<enforcement level>` of `Disabled`.
+
 ## Configuring enforcement level
 The `az networkcloud cluster update` allows you to update of the settings for Cluster runtime protection *enforcement level* by using the argument `--runtime-protection-configuration enforcement-level="<enforcement level>"`.
 
@@ -56,24 +84,13 @@ az networkcloud cluster update \
 
 Allowed values for `<enforcement level>`: `Audit`, `Disabled`, `OnDemand`, `Passive`, `RealTime`. 
 
-## Enabling & Disabling MDE Service on All Nodes
-By default the MDE service isn't active. You need to enable it before you can trigger an MDE scan.
-To enable the MDE service, execute the following command.
+Upon execution, inspect the output for the following:
 
-```bash
-az networkcloud cluster update \
---subscription ${SUBSCRIPTION_ID} \
---resource-group ${RESOURCE_GROUP} \
---cluster-name ${CLUSTER_NAME} \
---runtime-protection-configuration enforcement-level="<enforcement level>"
+```json
+  "runtimeProtectionConfiguration": {
+    "enforcementLevel": "<enforcement level>"
+  }
 ```
-
-where `<enforcement level>` value must be a value other than `Disabled`.
-
-> [!NOTE]
->As you have noted, the argument `--runtime-protection-configuration enforcement-level="<enforcement level>"` serves two purposes: enabling/disabling MDE service and updating the enforcement level.
-
-If you want to disable the MDE service across your Cluster, use an `<enforcement level>` of `Disabled`.
 
 ## Triggering MDE scan on all nodes
 Once you have set an enforcement level for your Cluster, you can trigger an MDE scan with the following command:

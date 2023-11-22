@@ -3,7 +3,7 @@ title: Configure caching
 description: Learn how to configure caching in Trino
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 08/29/2023
+ms.date: 11/03/2023
 ---
 
 # Configure caching
@@ -12,7 +12,7 @@ ms.date: 08/29/2023
 
 Querying object storage using the Hive connector is a common use case for Trino. This process often involves sending large amounts of data. Objects are retrieved from HDFS or another supported object store by multiple workers and processed by those workers. Repeated queries with different parameters, or even different queries from different users, often access and transfer the same objects. 
 
-HDInsight on AKS Trino has added **final result caching** capability, which provides the following benefits:
+HDInsight on AKS added **final result caching** capability for Trino, which provides the following benefits:
 
 * Reduce the load on object storage.
 * Improve the query performance.
@@ -41,9 +41,9 @@ Available configuration parameters are:
 |`query.cache.max-result-data-size`|0|Max data size for a result. If this value exceeded, then result doesn't cache.|
 
 > [!NOTE]
-> Final result caching is using query plan and ttl as a cache key.
+> Final result caching uses query plan and ttl as a cache key.
 
-Final result caching can also be controlled through the following session parameters:
+### Final result caching can also be controlled through the following session parameters:
 
 |Session parameter|Default|Description|
 |---|---|---|
@@ -63,6 +63,23 @@ Final result caching can also be controlled through the following session parame
 >order by cust.name
 >limit 10;
 >```
+
+Final result caching produces **JMX metrics** which can be viewed using [Managed Prometheus and Grafana](../monitor-with-prometheus-grafana.md). The following metrics are available:
+
+|Metric|Description|
+|---|---|
+|`trino_cache_cachestats_requestcount`|Total number of queries going through cache layer. This number doesn't include queries executed with cache off.|
+|`trino_cache_cachestats_hitcount`|Number of cache hits i.e. number of queries when data was available and returned from the cache.|
+|`trino_cache_cachestats_misscount`|Number of cache misses i.e. number of queries when data wasn't available and had to be cached.|
+|`trino_cache_cachestats_hitrate`|Percentage representation of cache hits against total number of queries.|
+|`trino_cache_cachestats_totalevictedcount`|Number of cached queries evicted from the cache.|
+|`trino_cache_cachestats_totalbytesfromsource`|Number of bytes read from the source.|
+|`trino_cache_cachestats_totalbytesfromcache`|Number of bytes read from the cache.|
+|`trino_cache_cachestats_totalcachedbytes`|Total number of bytes cached.|
+|`trino_cache_cachestats_totalevictedbytes`|Total Number of bytes evicted.|
+|`trino_cache_cachestats_spaceused`|Current size of the cache.|
+|`trino_cache_cachestats_cachereadfailures`|Number of times when data can't be read from the cache due to any error.|
+|`trino_cache_cachestats_cachewritefailures`|Number of times when data can't be written into the cache due to any error.|
 
 ### Using Azure portal
 
@@ -96,7 +113,7 @@ Final result caching can also be controlled through the following session parame
 
 #### Prerequisites
 
-* An operational HDInsight on AKS Trino cluster.
+* An operational Trino cluster with HDInsight on AKS.
 * Create [ARM template](../create-cluster-using-arm-template-script.md) for your cluster.
 * Review complete cluster [ARM template](https://hdionaksresources.blob.core.windows.net/trino/samples/arm/arm-trino-config-sample.json) sample.
 * Familiarity with [ARM template authoring and deployment](/azure/azure-resource-manager/templates/overview).

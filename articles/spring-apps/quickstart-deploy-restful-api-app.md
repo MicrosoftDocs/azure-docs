@@ -6,7 +6,8 @@ ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 10/02/2023
 ms.author: v-shilichen
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
+ms.custom: devx-track-java, devx-track-extended-java, mode-other, event-tier1-build-2022, engagement-fy23
+zone_pivot_groups: spring-apps-enterprise-or-consumption-plan-selection
 ---
 
 # Quickstart: Deploy RESTful API application to Azure Spring Apps
@@ -16,8 +17,6 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
-
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview)
 
 This article describes how to deploy a RESTful API application protected by [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) to Azure Spring Apps. The sample project is a simplified version based on the [Simple Todo](https://github.com/Azure-Samples/ASA-Samples-Web-Application) web application, which only provides the backend service and uses Microsoft Entra ID to protect the RESTful APIs.
 
@@ -39,13 +38,23 @@ The following diagram shows the architecture of the system:
 
 ## 1. Prerequisites
 
-### [Azure portal](#tab/Azure-portal)
+::: zone pivot="sc-enterprise"
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
-- [curl](https://curl.se/download.html).
+
+::: zone-end
+
+::: zone pivot="sc-consumption-plan"
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- [Git](https://git-scm.com/downloads).
+- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+- A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
@@ -54,17 +63,28 @@ The following diagram shows the architecture of the system:
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
 - [Azure Developer CLI (AZD)](https://aka.ms/azd-install), version 1.0.2 or higher.
-- [curl](https://curl.se/download.html).
 
 ---
 
+::: zone-end
+
+::: zone pivot="sc-enterprise"
+
+[!INCLUDE [deploy-restful-api-app-with-enterprise-plan](includes/quickstart-deploy-restful-api-app/deploy-restful-api-app-with-enterprise-plan.md)]
+
+::: zone-end
+
+::: zone pivot="sc-consumption-plan"
+
 [!INCLUDE [deploy-restful-api-app-with-consumption-plan](includes/quickstart-deploy-restful-api-app/deploy-restful-api-app-with-consumption-plan.md)]
+
+::: zone-end
 
 ## 5. Validate the app
 
-Now, you can access the RESTful API to see if it works.
+You can now access the RESTful API to see if it works.
 
-### Request an access token
+### 5.1. Request an access token
 
 The RESTful APIs act as a resource server, which is protected by Microsoft Entra ID. Before acquiring an access token, you're required to register another application in Microsoft Entra ID and grant permissions to the client application, which is named `ToDoWeb`.
 
@@ -123,7 +143,7 @@ Use the following steps to update the OAuth2 configuration for Swagger UI author
 
 1. Under **Manage**, select **Authentication**, select **Add a platform**, and then select **Single-page application**.
 
-1. Use the format `<your-app-exposed-application-url-or-endpoint>/swagger-ui/oauth2-redirect.html` as the OAuth2 redirect URL in the **Redirect URIs** field - for example, `https://simple-todo-api.xxxxxxxx-xxxxxxxx.xxxxxx.azurecontainerapps.io/swagger-ui/oauth2-redirect.html` - and then select **Configure**.
+1. Use the format `<your-app-exposed-application-url-or-endpoint>/swagger-ui/oauth2-redirect.html` as the OAuth2 redirect URL in the **Redirect URIs** field, and then select **Configure**.
 
    :::image type="content" source="media/quickstart-deploy-restful-api-app/single-page-app-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication page for Microsoft Entra ID." lightbox="media/quickstart-deploy-restful-api-app/single-page-app-authentication.png":::
 
@@ -137,7 +157,7 @@ Use the following steps to use [OAuth 2.0 authorization code flow](../active-dir
 
 After completing the sign in with the previous user, you're returned to the **Available authorizations** window.
 
-### Access the RESTful APIs
+### 5.2. Access the RESTful APIs
 
 Use the following steps to access the RESTful APIs of the `ToDo` app in the Swagger UI:
 

@@ -39,8 +39,8 @@ Application Gateway for Containers enables you to set weights and shift traffic 
   
   This command creates the following on your cluster:
   - a namespace called `test-infra`
-  - 2 services called `backend-v1` and `backend-v2` in the `test-infra` namespace
-  - 2 deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
+  - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
+  - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 

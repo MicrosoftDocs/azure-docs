@@ -34,7 +34,7 @@ Typically there are three parameters you need to consider:
 
     * The throughput for question answering is currently capped at 10 text records per second for both management APIs and prediction APIs.
 
-    * This should also influence your Azure **Cognitive Search** SKU selection, see more details [here](../../../../search/search-sku-tier.md). Additionally, you may need to adjust Cognitive Search [capacity](../../../../search/search-capacity-planning.md) with replicas.
+    * This should also influence your **Azure AI Search** SKU selection, see more details [here](../../../../search/search-sku-tier.md). Additionally, you may need to adjust Azure AI Search [capacity](../../../../search/search-capacity-planning.md) with replicas.
 
 * **Size and the number of projects**: Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. Typically, you decide the number of projects you need based on number of different subject domains. One subject domain (for a single language) should be in one project.
 
@@ -49,7 +49,7 @@ Typically there are three parameters you need to consider:
 
 The following table gives you some high-level guidelines.
 
-|                            |Azure Cognitive Search | Limitations                      |
+|                            |Azure AI Search | Limitations                      |
 | -------------------------- |------------ | -------------------------------- |
 | **Experimentation**        |Free Tier    | Publish Up to 2 KBs, 50 MB size  |
 | **Dev/Test Environment**   |Basic        | Publish Up to 14 KBs, 2 GB size    |
@@ -58,19 +58,19 @@ The following table gives you some high-level guidelines.
 ## Recommended settings
 
 
-The throughput for question answering is currently capped at 10 text records per second for both management APIs and prediction APIs. To target 10 text records per second for your service, we recommend the S1 (one instance) SKU of Azure Cognitive Search.
+The throughput for question answering is currently capped at 10 text records per second for both management APIs and prediction APIs. To target 10 text records per second for your service, we recommend the S1 (one instance) SKU of Azure AI Search.
 
 
 ## Keys in question answering
 
-Your custom question answering feature deals with two kinds of keys: **authoring keys** and **Azure Cognitive Search keys** used to access the service in the customer’s subscription.
+Your custom question answering feature deals with two kinds of keys: **authoring keys** and **Azure AI Search keys** used to access the service in the customer’s subscription.
 
 Use these keys when making requests to the service through APIs.
 
 |Name|Location|Purpose|
 |--|--|--|
 |Authoring/Subscription key|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|These keys are used to access the Language service APIs). These APIs let you edit the questions and answers in your project, and publish your project. These keys are created when you create a new resource.<br><br>Find these keys on the **Azure AI services** resource on the **Keys and Endpoint** page.|
-|Azure Cognitive Search Admin Key|[Azure portal](../../../../search/search-security-api-keys.md)|These keys are used to communicate with the Azure cognitive search service deployed in the user’s Azure subscription. When you associate an Azure Cognitive Search resource with the custom question answering feature, the admin key is automatically passed to question answering. <br><br>You can find these keys on the **Azure Cognitive Search** resource on the **Keys** page.|
+|Azure AI Search Admin Key|[Azure portal](../../../../search/search-security-api-keys.md)|These keys are used to communicate with the Azure AI Search service deployed in the user’s Azure subscription. When you associate an Azure AI Search resource with the custom question answering feature, the admin key is automatically passed to question answering. <br><br>You can find these keys on the **Azure AI Search** resource on the **Keys** page.|
 
 ### Find authoring keys in the Azure portal
 
@@ -95,22 +95,22 @@ In custom question answering, both the management and the prediction services ar
 Each Azure resource created with Custom question answering feature has a specific purpose:
 
 * Language resource (Also referred to as a Text Analytics resource depending on the context of where you are evaluating the resource.)
-* Cognitive Search resource
+* Azure AI Search resource
 
 ### Language resource
 
 The language resource with custom question answering feature provides access to the authoring and publishing APIs, hosts the ranking runtime as well as provides telemetry.
 
-### Azure Cognitive Search resource
+### Azure AI Search resource
 
-The [Cognitive Search](../../../../search/index.yml) resource is used to:
+The [Azure AI Search](../../../../search/index.yml) resource is used to:
 
 * Store the question and answer pairs
 * Provide the initial ranking (ranker #1) of the question and answer pairs at runtime
 
 #### Index usage
 
-You can publish N-1 projects of a single language or N/2 projects of different languages in a particular tier, where N is the maximum number of indexes allowed in the Azure Cognitive Search tier. Also check the maximum size and the number of documents allowed per tier.
+You can publish N-1 projects of a single language or N/2 projects of different languages in a particular tier, where N is the maximum number of indexes allowed in the Azure AI Search tier. Also check the maximum size and the number of documents allowed per tier.
 
 For example, if your tier has 15 allowed indexes, you can publish 14 projects of the same language (one index per published project). The 15th index is used for all the projects for authoring and testing. If you choose to have projects in different languages, then you can only publish seven projects.
 

@@ -1,10 +1,12 @@
 ---
 title: 'Tutorial: create a custom analyzer'
-titleSuffix: Azure Cognitive Search
-description: Learn how to build a custom analyzer to improve the quality of search results in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Learn how to build a custom analyzer to improve the quality of search results in Azure AI Search.
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
 ms.date: 01/05/2023
 ---
@@ -15,7 +17,7 @@ ms.date: 01/05/2023
 
 In some cases, like with a free text field, simply selecting the correct [language analyzer](index-add-language-analyzers.md) will improve search results. However, some scenarios such as accurately searching phone numbers, URLs, or emails may require the use of custom analyzers.
 
-This tutorial uses Postman and Azure Cognitive Search's [REST APIs](/rest/api/searchservice/) to:
+This tutorial uses Postman and Azure AI Search's [REST APIs](/rest/api/searchservice/) to:
 
 > [!div class="checklist"]
 > * Explain how analyzers work
@@ -32,11 +34,11 @@ The following services and tools are required for this tutorial.
 
 ## Download files
 
-Source code for this tutorial is in the [custom-analyzers](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/custom-analyzers) folder in the [Azure-Samples/azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) GitHub repository.
+Source code for this tutorial is in the [custom-analyzers](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/custom-analyzers) folder in the [Azure-Samples/azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) GitHub repository.
 
-## 1 - Create Azure Cognitive Search service
+## 1 - Create an Azure AI Search service
 
-To complete this tutorial, you'll need an Azure Cognitive Search service, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough.
+To complete this tutorial, you'll need an Azure AI Search service, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough.
 
 For the next step, you'll need to know the name of your search service and its API Key. If you're unsure how to find those items, check out this [REST quickstart](search-get-started-rest.md).
 
@@ -54,7 +56,7 @@ For each request, you need to:
 
   :::image type="content" source="media/search-get-started-rest/postman-url.png" alt-text="Postman request URL and header" border="false":::
 
-If you're unfamiliar with Postman, see [Explore Azure Cognitive Search REST APIs](search-get-started-rest.md).
+If you're unfamiliar with Postman, see [Explore Azure AI Search REST APIs](search-get-started-rest.md).
 
 ## 3 - Create an initial index
 
@@ -253,7 +255,7 @@ If the query terms don't match the terms in your inverted index, results won't b
 
 ### Test analyzer using the Analyze Text API
 
-Azure Cognitive Search provides an [Analyze Text API](/rest/api/searchservice/test-analyzer) that allows you to test analyzers to understand how they process text.
+Azure AI Search provides an [Analyze Text API](/rest/api/searchservice/test-analyzer) that allows you to test analyzers to understand how they process text.
 
 The Analyze Text API is called using the following request:
 
@@ -588,4 +590,4 @@ You can find and manage resources in the portal, using the All resources or Reso
 Now that you're familiar with how to create a custom analyzer, let's take a look at all of the different filters, tokenizers, and analyzers available to you to build a rich search experience.
 
 > [!div class="nextstepaction"]
-> [Custom Analyzers in Azure Cognitive Search](index-add-custom-analyzers.md)
+> [Custom Analyzers in Azure AI Search](index-add-custom-analyzers.md)

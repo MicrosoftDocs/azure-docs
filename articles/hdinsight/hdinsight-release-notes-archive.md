@@ -4,7 +4,7 @@ description: Archived release notes for Azure HDInsight. Get development tips an
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, references_regions
-ms.date: 7/28/2023
+ms.date: 10/26/2023
 ---
 
 # Archived release notes
@@ -14,11 +14,59 @@ ms.date: 7/28/2023
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/Azure/HDInsight/releases).
 
+## Release date: September 7, 2023
+
+This release applies to HDInsight 4.x and 5.x HDInsight release will be available to all regions over several days. This release is applicable for image number **2308221128**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
+
+**OS versions**
+
+* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.1: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+
+For workload specific versions, see 
+
+* [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
+* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
+
+> [!IMPORTANT]
+> This release addresses the following CVEs released by [MSRC](https://msrc.microsoft.com/update-guide/vulnerability) on September 12, 2023. The action is to update to the latest image **2308221128**. Customers are advised to plan accordingly. 
+
+| CVE | Severity| CVE Title| Remark |
+| - | - | - | - | 
+| [CVE-2023-38156](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-38156) |	Important | Azure HDInsight Apache Ambari Elevation of Privilege Vulnerability |Included on 2308221128 image |
+| [CVE-2023-36419](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36419) | Important | Azure HDInsight Apache Oozie Workflow Scheduler Elevation of Privilege Vulnerability | Apply [Script action](https://hdiconfigactions2.blob.core.windows.net/msrc-script/script_action.sh) on your clusters |
+
+## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg) Coming soon
+
+* The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters. This change will be implemented by September 30, 2023.
+* Cluster permissions for secure storage  
+  * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to contact the storage account. 
+* In-line quota update.
+   * Request quotas increase directly from the My Quota page, which will be a direct API call, which is faster. If the APdI call fails, then customers need to create a new support request for quota increase.
+* HDInsight Cluster Creation with Custom VNets.
+  * To improve the overall security posture of the HDInsight clusters, HDInsight clusters using custom VNETs need to ensure that the user needs to have permission for `Microsoft Network/virtualNetworks/subnets/join/action` to perform create operations. Customers would need to plan accordingly as this change would be a mandatory check to avoid cluster creation failures before September 30, 2023. 
+* Basic and Standard A-series VMs Retirement.
+   * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs). To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before August 31, 2024.
+* Non-ESP ABFS clusters [Cluster Permissions for Word Readable] 
+  * Plan to introduce a change in non-ESP ABFS clusters, which restricts non-Hadoop group users from executing Hadoop commands for storage operations. This change to improve cluster security posture. Customers need to plan for the updates before September 30, 2023. 
+
+If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+
+You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answers/tags/168/azure-hdinsight)
+
+You’re welcome to add more proposals and ideas and other topics here and vote for them - [HDInsight Community (azure.com)](https://feedback.azure.com/d365community/search/?q=HDInsight).
+
+ > [!NOTE]
+ > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
+
 ## Release date: July 25, 2023
 
 This release applies to HDInsight 4.x and 5.x HDInsight release will be available to all regions over several days. This release is applicable for image number **2307201242**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
-HDInsight uses safe deployment practices, which involve gradual region deployment. it may take up to 10 business days for a new release or a new version to be available in all regions.
+HDInsight uses safe deployment practices, which involve gradual region deployment. it might take up to 10 business days for a new release or a new version to be available in all regions.
 
 **OS versions**
 
@@ -39,16 +87,16 @@ For workload specific versions, see
 > [!IMPORTANT]
 > This release addresses the following CVEs released by [MSRC](https://msrc.microsoft.com/update-guide/vulnerability) on August 8, 2023. The action is to update to the latest image **2307201242**. Customers are advised to plan accordingly. 
 
-|CVE | Severity| CVE Title|
-|-|-|-|
-|[CVE-2023-35393](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-35393)|	Important|Azure Apache Hive Spoofing Vulnerability|
-|[CVE-2023-35394](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-35394)|	Important|Azure HDInsight Jupyter Notebook Spoofing Vulnerability|
-|[CVE-2023-36877](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36877)|	Important|Azure Apache Oozie Spoofing Vulnerability|
-|[CVE-2023-36881](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36881)|	Important|Azure Apache Ambari Spoofing Vulnerability|
-|[CVE-2023-38188](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-38188)|	Important|Azure Apache Hadoop Spoofing Vulnerability|
+| CVE | Severity| CVE Title|
+| - | - | - |
+| [CVE-2023-35393](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-35393) |	Important|Azure Apache Hive Spoofing Vulnerability |
+| [CVE-2023-35394](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-35394) |	Important|Azure HDInsight Jupyter Notebook Spoofing Vulnerability |
+| [CVE-2023-36877](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36877) |	Important|Azure Apache Oozie Spoofing Vulnerability |
+| [CVE-2023-36881](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36881) |	Important|Azure Apache Ambari Spoofing Vulnerability |
+| [CVE-2023-38188](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-38188) |	Important|Azure Apache Hadoop Spoofing Vulnerability |
  
 
-## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg) Coming soon
+## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg)Coming soon
 
 * The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters. Customers need to plan for the updates before 30, September 2023.
 * Cluster permissions for secure storage  
@@ -75,7 +123,7 @@ You’re welcome to add more proposals and ideas and other topics here and vote 
 
 This release applies to HDInsight 4.x and 5.x HDInsight release is available to all regions over several days. This release is applicable for image number **2304280205**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
-HDInsight uses safe deployment practices, which involve gradual region deployment. it may take up to 10 business days for a new release or a new version to be available in all regions.
+HDInsight uses safe deployment practices, which involve gradual region deployment. it might take up to 10 business days for a new release or a new version to be available in all regions.
 
 **OS versions**
 
@@ -144,7 +192,7 @@ For workload specific versions, see
 
 This release applies to HDInsight 4.0. and 5.0, 5.1. HDInsight release is available to all regions over several days. This release is applicable for image number **2302250400**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
-HDInsight uses safe deployment practices, which involve gradual region deployment. it may take up to 10 business days for a new release or a new version to be available in all regions.
+HDInsight uses safe deployment practices, which involve gradual region deployment. it might take up to 10 business days for a new release or a new version to be available in all regions.
 
 **OS versions**
 
@@ -219,7 +267,7 @@ End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For 
 
 This release applies to HDInsight 4.0. and 5.0 HDInsight release is made available to all regions over several days.
 
-HDInsight uses safe deployment practices, which involve gradual region deployment. It may take up to 10 business days for a new release or a new version to be available in all regions.
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 **OS versions**
 
@@ -304,7 +352,7 @@ For more information on how to check Ubuntu version of cluster, see [here](https
 
 This release applies to HDInsight 4.0.  HDInsight release is made available to all regions over several days.
 
-HDInsight uses safe deployment practices, which involve gradual region deployment. It may take up to 10 business days for a new release or a new version to be available in all regions.
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 
 ![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) 
@@ -312,7 +360,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 **1. Attach external disks in HDI Hadoop/Spark clusters**
 
-HDInsight cluster comes with predefined disk space based on SKU. This space may not be sufficient in large job scenarios. 
+HDInsight cluster comes with predefined disk space based on SKU. This space might not be sufficient in large job scenarios. 
 
 This new feature allows you to add more disks in cluster, which used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the  selected disks are part of node manager’s local directories.
 
@@ -408,7 +456,7 @@ HDInsight is compatible with Apache HIVE 3.1.2. Due to a bug in this release, th
 
 This release applies to HDInsight 4.0.  HDInsight release is made available to all regions over several days.
 
-HDInsight uses safe deployment practices, which involve gradual region deployment. It may take up to 10 business days for a new release or a new version to be available in all regions.
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 
 ![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) 
@@ -416,7 +464,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 **1. Attach external disks in HDI Hadoop/Spark clusters**
 
-HDInsight cluster comes with predefined disk space based on SKU. This space may not be sufficient in large job scenarios. 
+HDInsight cluster comes with predefined disk space based on SKU. This space might not be sufficient in large job scenarios. 
 
 This new feature allows you to add more disks in cluster, which will be used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the selected disks are part of node manager’s local directories.
 
@@ -590,7 +638,7 @@ HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version has all fixes a
 | LLAP external client - Need to reduce LlapBaseInputFormat#getSplits() footprint|[HIVE-22221](https://issues.apache.org/jira/browse/HIVE-22221)|
 | Column name with reserved keyword is unescaped when query including join on table with mask column is rewritten (Zoltan Matyus via Zoltan Haindrich)|[HIVE-22208](https://issues.apache.org/jira/browse/HIVE-22208)|
 |Prevent LLAP shutdown on `AMReporter` related RuntimeException|[HIVE-22113](https://issues.apache.org/jira/browse/HIVE-22113)|
-| LLAP status service driver may get stuck with wrong Yarn app ID|[HIVE-21866](https://issues.apache.org/jira/browse/HIVE-21866)|
+| LLAP status service driver might get stuck with wrong Yarn app ID|[HIVE-21866](https://issues.apache.org/jira/browse/HIVE-21866)|
 | OperationManager.queryIdOperation doesn't  properly clean up multiple queryIds|[HIVE-22275](https://issues.apache.org/jira/browse/HIVE-22275)|
 | Bringing a node manager down blocks restart of LLAP service|[HIVE-22219](https://issues.apache.org/jira/browse/HIVE-22219)|
 | StackOverflowError when drop lots of partitions|[HIVE-15956](https://issues.apache.org/jira/browse/HIVE-15956)|
@@ -722,7 +770,7 @@ The new Azure monitor integration experience will be Preview in East US and West
 HDInsight 3.6 version is deprecated effective Oct 01, 2022. 
 ### Behavior changes
 #### HDInsight Interactive Query only supports schedule-based Autoscale
-As customer scenarios grow more mature and diverse, we've identified some limitations with Interactive Query (LLAP) load-based Autoscale. These limitations are caused by the nature of LLAP query dynamics, future load prediction accuracy issues, and issues in the LLAP scheduler's task redistribution. Due to these limitations, users may see their queries run slower on LLAP clusters when Autoscale is enabled. The effect on performance can outweigh the cost benefits of Autoscale.
+As customer scenarios grow more mature and diverse, we've identified some limitations with Interactive Query (LLAP) load-based Autoscale. These limitations are caused by the nature of LLAP query dynamics, future load prediction accuracy issues, and issues in the LLAP scheduler's task redistribution. Due to these limitations, users might see their queries run slower on LLAP clusters when Autoscale is enabled. The effect on performance can outweigh the cost benefits of Autoscale.
 
 Starting from July 2021, the Interactive Query workload in HDInsight only supports schedule-based Autoscale. You can no longer enable load-based autoscale on new Interactive Query clusters. Existing running clusters can continue to run with the known limitations described above. 
 
@@ -831,7 +879,7 @@ The following changes will happen in upcoming releases.
 
 #### HDInsight Interactive Query only supports schedule-based Autoscale
 
-As customer scenarios grow more mature and diverse, we've identified some limitations with Interactive Query (LLAP) load-based Autoscale. These limitations are caused by the nature of LLAP query dynamics, future load prediction accuracy issues, and issues in the LLAP scheduler's task redistribution. Due to these limitations, users may see their queries run slower on LLAP clusters when Autoscale is enabled. The effect on performance can outweigh the cost benefits of Autoscale.
+As customer scenarios grow more mature and diverse, we've identified some limitations with Interactive Query (LLAP) load-based Autoscale. These limitations are caused by the nature of LLAP query dynamics, future load prediction accuracy issues, and issues in the LLAP scheduler's task redistribution. Due to these limitations, users might see their queries run slower on LLAP clusters when Autoscale is enabled. The effect on performance can outweigh the cost benefits of Autoscale.
 
 Starting from July  2021, the Interactive Query workload in HDInsight only supports schedule-based Autoscale. You can no longer enable Autoscale on new Interactive Query clusters. Existing running clusters can continue to run with the known limitations described above. 
 
@@ -841,7 +889,7 @@ Microsoft recommends that you move to a schedule-based Autoscale for LLAP.  You 
 HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). This migration will change the cluster host name FQDN name format, and the numbers in the host name won't be guarantee in sequence. If you want to get the FQDN names for each node, refer to [Find the Host names of Cluster Nodes](./find-host-name.md).
 
 #### Move to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. The service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+HDInsight now uses Azure virtual machines to provision the cluster. The service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ## Release date: 03/24/2021
 
@@ -856,7 +904,7 @@ HDInsight added [Kafka 2.4.1](http://kafka.apache.org/24/documentation.html) sup
 HDInsight added `Eav4`-series support in this release. 
 
 #### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ### Deprecation
 No deprecation in this release.
@@ -876,7 +924,7 @@ The following changes will happen in upcoming releases.
 
 #### HDInsight Interactive Query only supports schedule-based Autoscale
 
-As customer scenarios grow more mature and diverse, we've identified some limitations with Interactive Query (LLAP) load-based Autoscale. These limitations are caused by the nature of LLAP query dynamics, future load prediction accuracy issues, and issues in the LLAP scheduler's task redistribution. Due to these limitations, users may see their queries run slower on LLAP clusters when Autoscale is enabled. The impact on performance can outweigh the cost benefits of Autoscale.
+As customer scenarios grow more mature and diverse, we've identified some limitations with Interactive Query (LLAP) load-based Autoscale. These limitations are caused by the nature of LLAP query dynamics, future load prediction accuracy issues, and issues in the LLAP scheduler's task redistribution. Due to these limitations, users might see their queries run slower on LLAP clusters when Autoscale is enabled. The impact on performance can outweigh the cost benefits of Autoscale.
 
 Starting from July 2021, the Interactive Query workload in HDInsight only supports schedule-based Autoscale. You can no longer enable Autoscale on new Interactive Query clusters. Existing running clusters can continue to run with the known limitations described above. 
 
@@ -913,7 +961,7 @@ HDInsight added Dav4-series support in this release. Learn more about [Dav4-seri
 Kafka REST Proxy enables you to interact with your Kafka cluster via a REST API over HTTPS. Kafka REST Proxy is general available starting from this release. Learn more about [Kafka REST Proxy here](./kafka/rest-proxy.md).
 
 #### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ### Deprecation
 #### Disabled VM sizes
@@ -953,7 +1001,7 @@ Starting from this release, customers can use Azure KeyValut version-less encryp
 HDInsight previously didn't support customizing Zookeeper node size for Spark, Hadoop, and ML Services cluster types. It defaults to A2_v2/A2 virtual machine sizes, which are provided free of charge. From this release, you can select a Zookeeper virtual machine size that is most appropriate for your scenario. Zookeeper nodes with virtual machine size other than A2_v2/A2 will be charged. A2_v2 and A2 virtual machines are still provided free of charge.
 
 #### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ### Deprecation
 #### Deprecation of HDInsight 3.6 ML Services cluster
@@ -982,7 +1030,7 @@ HDInsight Identity Broker (HIB) that enables OAuth authentication for ESP cluste
 For more information, see [HIB documentation](./domain-joined/identity-broker.md).
 
 #### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ### Deprecation
 #### Deprecation of HDInsight 3.6 ML Services cluster
@@ -1023,7 +1071,7 @@ This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release
 HDInsight now supports creating clusters with no public IP and private link access to the clusters in preview. Customers can use the new advanced networking settings to create a fully isolated cluster with no public IP and use their own private endpoints to access the cluster. 
 
 #### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ### Deprecation
 #### Deprecation of HDInsight 3.6 ML Services cluster
@@ -1056,7 +1104,7 @@ Auto scale for Interactive Query cluster type is now General Available (GA) for 
 HDInsight now supports Premium ADLS Gen2 as primary storage account for HDInsight HBase 3.6 and 4.0 clusters. Together with [Accelerated Writes](./hbase/apache-hbase-accelerated-writes.md), you can get better performance for your HBase clusters.
 
 #### Kafka partition distribution on Azure fault domains
-A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. Before HDInsight Kafka may store all partition replicas in the same fault domain. Starting from this release, HDInsight now supports automatically distribution of Kafka partitions based on Azure fault domains. 
+A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. Before HDInsight Kafka might store all partition replicas in the same fault domain. Starting from this release, HDInsight now supports automatically distribution of Kafka partitions based on Azure fault domains. 
 
 #### Encryption in transit
 Customers can enable encryption in transit between cluster nodes using IPSec encryption with platform-managed keys. This option can be enabled at the cluster creation time. See more details about [how to enable encryption in transit](./domain-joined/encryption-in-transit.md).
@@ -1065,7 +1113,7 @@ Customers can enable encryption in transit between cluster nodes using IPSec enc
 When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the storage service. From this release, you can **Enable encryption at host on temp data disk** when creating the cluster. Encryption at host is only supported on [certain VM SKUs in limited regions](../virtual-machines/disks-enable-host-based-encryption-portal.md). HDInsight supports the [following node configuration and SKUs](./hdinsight-supported-node-configuration.md). See more details about [how to enable encryption at host](./disk-encryption.md#encryption-at-host-using-platform-managed-keys).
 
 #### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ### Deprecation
 No deprecation for this release.
@@ -1137,7 +1185,7 @@ No component version change for this release. You can find the current component
 
 ### Known issues
 
-An issue has been fixed in the Azure portal, where users were experiencing an error when they were creating an Azure HDInsight cluster using an SSH authentication type of public key. When users clicked **Review + Create**, they would receive the error "Must not contain any three consecutive characters from SSH username." This issue has been fixed, but it may require that you refresh your browser cache by hitting CTRL + F5 to load the corrected view. The workaround to this issue was to create a cluster with an ARM template.
+An issue has been fixed in the Azure portal, where users were experiencing an error when they were creating an Azure HDInsight cluster using an SSH authentication type of public key. When users clicked **Review + Create**, they would receive the error "Must not contain any three consecutive characters from SSH username." This issue has been fixed, but it might require that you refresh your browser cache by hitting CTRL + F5 to load the corrected view. The workaround to this issue was to create a cluster with an ARM template.
 
 ## Release date: 07/13/2020
 
@@ -1621,7 +1669,7 @@ This release provides Hadoop Common 2.7.3 and the following Apache patches:
 
 -   [HDFS-7922](https://issues.apache.org/jira/browse/HDFS-7922): ShortCircuitCache\#close isn't releasing ScheduledThreadPoolExecutors.
 
--   [HDFS-8496](https://issues.apache.org/jira/browse/HDFS-8496): Calling stopWriter() with FSDatasetImpl lock held may block other threads (cmccabe).
+-   [HDFS-8496](https://issues.apache.org/jira/browse/HDFS-8496): Calling stopWriter() with FSDatasetImpl lock held might block other threads (cmccabe).
 
 -   [HDFS-10267](https://issues.apache.org/jira/browse/HDFS-10267): Extra "synchronized" on FsDatasetImpl\#recoverAppend and FsDatasetImpl\#recoverClose.
 
@@ -1707,7 +1755,7 @@ This release provides HBase 1.1.2 and the following Apache patches.
 
 -   [HBASE-15615](https://issues.apache.org/jira/browse/HBASE-15615): Wrong sleep time when `RegionServerCallable` need retry.
 
--   [HBASE-16135](https://issues.apache.org/jira/browse/HBASE-16135): PeerClusterZnode under rs of removed peer may never be deleted.
+-   [HBASE-16135](https://issues.apache.org/jira/browse/HBASE-16135): PeerClusterZnode under rs of removed peer might never be deleted.
 
 -   [HBASE-16570](https://issues.apache.org/jira/browse/HBASE-16570): Compute region locality in parallel at startup.
 
@@ -1841,7 +1889,7 @@ This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following pat
 
 -   [*HIVE-18551*](https://issues.apache.org/jira/browse/HIVE-18551): Vectorization: VectorMapOperator tries to write too many vector columns for Hybrid Grace.
 
--   [*HIVE-18587*](https://issues.apache.org/jira/browse/HIVE-18587): insert DML event may attempt to calculate a checksum on directories.
+-   [*HIVE-18587*](https://issues.apache.org/jira/browse/HIVE-18587): insert DML event might attempt to calculate a checksum on directories.
 
 -   [*HIVE-18613*](https://issues.apache.org/jira/browse/HIVE-18613): Extend JsonSerDe to support BINARY type.
 
@@ -1977,7 +2025,7 @@ This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following pat
 
 -   [*HIVE-18577*](https://issues.apache.org/jira/browse/HIVE-18577): SemanticAnalyzer.validate has some pointless metastore calls.
 
--   [*HIVE-18587*](https://issues.apache.org/jira/browse/HIVE-18587): insert DML event may attempt to calculate a checksum on directories.
+-   [*HIVE-18587*](https://issues.apache.org/jira/browse/HIVE-18587): insert DML event might attempt to calculate a checksum on directories.
 
 -   [*HIVE-18597*](https://issues.apache.org/jira/browse/HIVE-18597): LLAP: Always package the `log4j2` API jar for `org.apache.log4j`.
 
@@ -2051,9 +2099,9 @@ In HDP-2.5.x and 2.6.x, we removed the "commons-httpclient" library from Mahout 
 
 -   Previously compiled Mahout jobs will need to be recompiled in the HDP-2.5 or 2.6 environment.
 
--   There's  a small possibility that some Mahout jobs may encounter "ClassNotFoundException" or "could not load class" errors related to "org.apache.commons.httpclient", "net.java.dev.jets3t", or related class name prefixes. If these errors happen, you may consider whether to manually install the needed jars in your classpath for the job, if the risk of security issues in the obsolete library is acceptable in your environment.
+-   There's  a small possibility that some Mahout jobs might encounter "ClassNotFoundException" or "could not load class" errors related to "org.apache.commons.httpclient", "net.java.dev.jets3t", or related class name prefixes. If these errors happen, you might consider whether to manually install the needed jars in your classpath for the job, if the risk of security issues in the obsolete library is acceptable in your environment.
 
--   There's  an even smaller possibility that some Mahout jobs may encounter crashes in Mahout's hbase-client code calls to the hadoop-common libraries, due to binary compatibility problems. Regrettably, there's  no way to resolve this issue except revert to the HDP-2.4.2 version of Mahout, which may have security issues. Again, this should be unusual, and is unlikely to occur in any given Mahout job suite.
+-   There's  an even smaller possibility that some Mahout jobs might encounter crashes in Mahout's hbase-client code calls to the hadoop-common libraries, due to binary compatibility problems. Regrettably, there's  no way to resolve this issue except revert to the HDP-2.4.2 version of Mahout, which might have security issues. Again, this should be unusual, and is unlikely to occur in any given Mahout job suite.
 
 #### Oozie
 
@@ -2143,7 +2191,7 @@ This release provides Ranger 0.7.0 and the following Apache patches:
 
 -   [RANGER-1982](https://issues.apache.org/jira/browse/RANGER-1982): Error Improvement for Analytics Metric of Ranger Admin and Ranger KMS.
 
--   [RANGER-1984](https://issues.apache.org/jira/browse/RANGER-1984): HBase audit log records may not show all tags associated with accessed column.
+-   [RANGER-1984](https://issues.apache.org/jira/browse/RANGER-1984): HBase audit log records might not show all tags associated with accessed column.
 
 -   [RANGER-1988](https://issues.apache.org/jira/browse/RANGER-1988): Fix insecure randomness.
 
@@ -2407,7 +2455,7 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 
 ### Fixed issues for support
 
-Fixed issues represent selected issues that were previously logged via Hortonworks Support, but are now addressed in the current release. These issues may have been reported in previous versions within the Known Issues section; meaning they were reported by customers or identified by Hortonworks Quality Engineering team.
+Fixed issues represent selected issues that were previously logged via Hortonworks Support, but are now addressed in the current release. These issues might have been reported in previous versions within the Known Issues section; meaning they were reported by customers or identified by Hortonworks Quality Engineering team.
 
 **Incorrect Results**
 
@@ -2441,7 +2489,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-97864              | [HIVE-18833](https://issues.apache.org/jira/browse/HIVE-18833)                                                                                                                                                                                                                 | Auto Merge fails when "insert into directory as orcfile"                                                               |
 | BUG-97889              | [RANGER-2008](https://issues.apache.org/jira/browse/RANGER-2008)                                                                                                                                                                                                               | Policy evaluation is failing for multiline policy conditions.                                                          |
 | BUG-98655              | [RANGER-2066](https://issues.apache.org/jira/browse/RANGER-2066)                                                                                                                                                                                                               | HBase column family access is authorized by a tagged column in the column family                                       |
-| BUG-99883              | [HIVE-19073](https://issues.apache.org/jira/browse/HIVE-19073), [HIVE-19145](https://issues.apache.org/jira/browse/HIVE-19145)                                                                                                                                                 | StatsOptimizer may mangle constant columns                                                                             |
+| BUG-99883              | [HIVE-19073](https://issues.apache.org/jira/browse/HIVE-19073), [HIVE-19145](https://issues.apache.org/jira/browse/HIVE-19145)                                                                                                                                                 | StatsOptimizer might mangle constant columns                                                                             |
 
 **Other**
 
@@ -2633,7 +2681,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-95201              | [HDFS-13060](https://issues.apache.org/jira/browse/HDFS-13060)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Adding a BlacklistBasedTrustedChannelResolver for TrustedChannelResolver                                                                       |
 | BUG-95284              | [HBASE-19395](https://issues.apache.org/jira/browse/HBASE-19395)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | \[branch-1\] TestEndToEndSplitTransaction.testMasterOpsWhileSplitting fails with NPE                                                           |
 | BUG-95301              | [HIVE-18517](https://issues.apache.org/jira/browse/HIVE-18517)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Vectorization: Fix VectorMapOperator to accept VRBs and check vectorized flag correctly to support LLAP Caching                                |
-| BUG-95542              | [HBASE-16135](https://issues.apache.org/jira/browse/HBASE-16135)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | PeerClusterZnode under rs of removed peer may never be deleted                                                                                 |
+| BUG-95542              | [HBASE-16135](https://issues.apache.org/jira/browse/HBASE-16135)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | PeerClusterZnode under rs of removed peer might never be deleted                                                                                 |
 | BUG-95595              | [HIVE-15563](https://issues.apache.org/jira/browse/HIVE-15563)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Ignore Illegal Operation state transition exception in SQLOperation.runQuery to expose real exception.                                         |
 | BUG-95596              | [YARN-4126](https://issues.apache.org/jira/browse/YARN-4126), [YARN-5750](https://issues.apache.org/jira/browse/YARN-5750)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | TestClientRMService fails                                                                                                                      |
 | BUG-96019              | [HIVE-18548](https://issues.apache.org/jira/browse/HIVE-18548)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Fix `log4j` import                                                                                                                               |
@@ -2770,13 +2818,13 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-96479              | [HDFS-12781](https://issues.apache.org/jira/browse/HDFS-12781)                                                                                                                                                                                                                 | After `Datanode` down, In `Namenode` UI `Datanode` tab is throwing warning message.                                                                                |
 | BUG-96502              | [RANGER-1990](https://issues.apache.org/jira/browse/RANGER-1990)                                                                                                                                                                                                               | Add One-way SSL MySQL support in Ranger Admin                                                                                                                |
 | BUG-96718              | [ATLAS-2439](https://issues.apache.org/jira/browse/ATLAS-2439)                                                                                                                                                                                                                 | Update Sqoop hook to use V2 notifications                                                                                                                    |
-| BUG-96748              | [HIVE-18587](https://issues.apache.org/jira/browse/HIVE-18587)                                                                                                                                                                                                                 | insert DML event may attempt to calculate a checksum on directories                                                                                          |
+| BUG-96748              | [HIVE-18587](https://issues.apache.org/jira/browse/HIVE-18587)                                                                                                                                                                                                                 | insert DML event might attempt to calculate a checksum on directories                                                                                          |
 | BUG-96821              | [HBASE-18212](https://issues.apache.org/jira/browse/HBASE-18212)                                                                                                                                                                                                               | In Standalone mode with local filesystem HBase logs Warning message: Failed to invoke 'unbuffer' method in class org.apache.hadoop.fs.FSDataInputStream |
 | BUG-96847              | [HIVE-18754](https://issues.apache.org/jira/browse/HIVE-18754)                                                                                                                                                                                                                 | REPL STATUS should support 'with' clause                                                                                                                     |
 | BUG-96873              | [ATLAS-2443](https://issues.apache.org/jira/browse/ATLAS-2443)                                                                                                                                                                                                                 | Capture required entity attributes in outgoing DELETE messages                                                                                               |
 | BUG-96880              | [SPARK-23230](https://issues.apache.org/jira/browse/SPARK-23230)                                                                                                                                                                                                               | When hive.default.fileformat is other kinds of file types, create `textfile` table cause a `serde` error                                                         |
 | BUG-96911              | [OOZIE-2571](https://issues.apache.org/jira/browse/OOZIE-2571), [OOZIE-2792](https://issues.apache.org/jira/browse/OOZIE-2792), [OOZIE-2799](https://issues.apache.org/jira/browse/OOZIE-2799), [OOZIE-2923](https://issues.apache.org/jira/browse/OOZIE-2923)                 | Improve Spark options parsing                                                                                                                                |
-| BUG-97100              | [RANGER-1984](https://issues.apache.org/jira/browse/RANGER-1984)                                                                                                                                                                                                               | HBase audit log records may not show all tags associated with accessed column                                                                                |
+| BUG-97100              | [RANGER-1984](https://issues.apache.org/jira/browse/RANGER-1984)                                                                                                                                                                                                               | HBase audit log records might not show all tags associated with accessed column                                                                                |
 | BUG-97110              | [PHOENIX-3789](https://issues.apache.org/jira/browse/PHOENIX-3789)                                                                                                                                                                                                             | Execute cross region index maintenance calls in postBatchMutateIndispensably                                                                                 |
 | BUG-97145              | [HIVE-12245](https://issues.apache.org/jira/browse/HIVE-12245), [HIVE-17829](https://issues.apache.org/jira/browse/HIVE-17829)                                                                                                                                                 | Support column comments for an HBase backed table                                                                                                            |
 | BUG-97409              | [HADOOP-15255](https://issues.apache.org/jira/browse/HADOOP-15255)                                                                                                                                                                                                             | Upper/Lower case conversion support for group names in LdapGroupsMapping                                                                                     |
@@ -2878,7 +2926,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
           SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
     
   >[!NOTE]  
-  >The noted values are working examples and may not be indicative of your environment. Ensure that the way you set these properties matches how your environment is configured.   
+  >The noted values are working examples and might not be indicative of your environment. Ensure that the way you set these properties matches how your environment is configured.   
 
 - **RangerUI: Escape of policy condition text entered in the policy form**
     

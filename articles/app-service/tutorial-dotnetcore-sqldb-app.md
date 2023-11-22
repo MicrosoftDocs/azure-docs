@@ -230,7 +230,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 
 ## 4. Generate database schema
 
-With the SQL Database protected by the virtual network, the easiest way to run Run [dotnet database migrations](/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli) is in an SSH session with the App Service container. 
+With the SQL Database protected by the virtual network, the easiest way to run [dotnet database migrations](/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli) is in an SSH session with the App Service container. 
 
 :::row:::
     :::column span="2":::

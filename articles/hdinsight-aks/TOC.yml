@@ -153,17 +153,17 @@ items:
       href: ./trino/trino-airflow.md
     - name: Use AWS S3 and Glue with Trino cluster
       href: ./trino/trino-catalog-glue.md
-- name: Apache Flink
+- name: Apache Flink®
   items:
-  - name: What is Flink in HDInsight on AKS?
+  - name: What is Apache Flink® in Azure HDInsight on AKS?
     href: ./flink/flink-overview.md
-  - name: Create Flink cluster
+  - name: Create Apache Flink cluster
     href: ./flink/flink-create-cluster-portal.md
   - name: Tutorials
     items:
     - name: Configuration management
       href: ./flink/flink-configuration-management.md
-    - name: Flink job management
+    - name: Job management
       href: ./flink/flink-job-management.md
     - name: Hive dialect in Flink
       href: ./flink/hive-dialect-flink.md
@@ -195,7 +195,7 @@ items:
         href: ./flink/use-flink-delta-connector.md  
       - name:  Elastic and Kibana
         href: ./flink/sink-kafka-to-kibana.md
-      - name:  HDInsight Kafka
+      - name:  Apache Kafka on HDInsight
         href: ./flink/process-and-consume-data.md
     - name: Flink SQL
       items:
@@ -207,9 +207,9 @@ items:
         href: ./flink/create-kafka-table-flink-kafka-sql-connector.md
       - name: Hive Catalog and FlinkSQL
         href: ./flink/use-hive-catalog.md
-      - name: Flink-Iceberg Catalog
+      - name:  Iceberg Catalog
         href: ./flink/flink-catalog-iceberg-hive.md
-      - name: Flink-Delta Catalog
+      - name:  Delta Catalog
         href: ./flink/flink-catalog-delta-hive.md
     - name: Flink streaming
       items:
@@ -237,11 +237,11 @@ items:
       items:
       - name: Flink cluster configuration
         href: ./flink/flink-cluster-configuration.md   
-- name: Apache Spark
+- name: Apache Spark™
   items:
-  - name: What is Apache Spark in HDInsight on AKS?
+  - name: What is Apache Spark™ in HDInsight on AKS?
     href: ./spark/hdinsight-on-aks-spark-overview.md
-  - name: Create Spark cluster
+  - name: Create Apache Spark cluster
     href: ./spark/create-spark-cluster.md
   - name: How-to guides
     items:
@@ -253,7 +253,7 @@ items:
       href: ./spark/library-management.md
     - name: Connect to One Lake Storage
       href: ./spark/connect-to-one-lake-storage.md
-    - name: Use Delta Lake scenario in Azure HDInsight on AKS Spark cluster
+    - name: Use Delta Lake scenario in Azure HDInsight on AKS cluster
       href: ./spark/azure-hdinsight-spark-on-aks-delta-lake.md
     - name: Use ML Notebook on Spark
       href: ./spark/use-machine-learning-notebook-on-spark.md
@@ -263,10 +263,14 @@ items:
   items:
   - name: FAQ
     href: ./faq.md
+  - name: Subscribe to release notes GitHub repo
+    href: ./subscribe-to-release-notes-repo.md  
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Support options
     href: ./hdinsight-aks-support-help.md
+  - name: Trademarks
+    href: ./trademarks.md
   - name: Troubleshoot
     items:
     - name: Cluster creation errors

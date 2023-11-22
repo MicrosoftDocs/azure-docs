@@ -5,7 +5,11 @@
   - name: About Azure Arc-enabled VMware vSphere
     href: overview.md
   - name: Switch to the new version
-    href: switch-to-new-preview-version.md
+    href: switch-to-new-version.md
+- name: Concepts
+  items:   
+  - name: Azure Arc agent
+    href: azure-arc-agent.md
 - name: Quickstarts
   items:
   - name: Connect vCenter to Azure Arc
@@ -56,4 +60,4 @@
 - name: Resources
   items:
    - name: Azure Arc Jumpstart
-     href: https://azurearcjumpstart.io
+     href: https://aka.ms/AzureArcJumpstart

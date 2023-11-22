@@ -5,7 +5,8 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/13/2023
+ms.date: 10/26/2023
+ms.custom: references_regions
 ---
 
 # About Bastion configuration settings
@@ -23,6 +24,11 @@ A SKU is also known as a Tier. Azure Bastion supports multiple SKU tiers. When y
 The Bastion Developer SKU is a new, lower-cost, lightweight SKU. This SKU is ideal for Dev/Test users who want to securely connect to their VMs and that don't need additional features or scaling. You can connect to one Azure VM at a time directly through the Virtual Machine connect page.
 
 The Developer SKU has different requirements and limitations than the other SKU tiers. See [Deploy Bastion automatically - Developer SKU](quickstart-developer-sku.md) for more information and deployment steps.
+
+[!INCLUDE [Developer SKU regions](../../includes/bastion-developer-sku-regions.md)]
+
+> [!NOTE]
+> VNet peering isn't currently supported for the Developer SKU.
 
 ### Specify SKU
 
@@ -89,7 +95,7 @@ You can configure this setting using the following methods:
 
 ## <a name="instance"></a>Instances and host scaling
 
-An instance is an optimized Azure VM that is created when you configure Azure Bastion. It's fully managed by Azure and runs all of the processes needed for Azure Bastion. An instance is also referred to as a scale unit. You connect to client VMs via an Azure Bastion instance. When you configure Azure Bastion using the Basic SKU, two instances are created. If you use the Bastion Standard SKU, you can specify the number of instances. This is called **host scaling**.
+An instance is an optimized Azure VM that is created when you configure Azure Bastion. It's fully managed by Azure and runs all of the processes needed for Azure Bastion. An instance is also referred to as a scale unit. You connect to client VMs via an Azure Bastion instance. When you configure Azure Bastion using the Basic SKU, two instances are created. If you use the Standard SKU, you can specify the number of instances (with a minimum of two instances). This is called **host scaling**.
 
 Each instance can support 20 concurrent RDP connections and 40 concurrent SSH connections for medium workloads (see [Azure subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md) for more information). The number of connections per instances depends on what actions you're taking when connected to the client VM. For example, if you're doing something data intensive, it creates a larger load for the instance to process. Once the concurrent sessions are exceeded, another scale unit (instance) is required.
 

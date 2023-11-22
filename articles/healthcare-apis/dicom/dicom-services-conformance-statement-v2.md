@@ -4,7 +4,7 @@ description: This document provides details about the DICOM Conformance Statemen
 services: healthcare-apis
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: reference
 ms.date: 10/13/2023
 ms.author: mmitrik
@@ -423,8 +423,11 @@ The following `Accept` header(s) are supported for searching:
 * `application/dicom+json`
 
 ### Search changes from v1
-In the v1 API and continued for v2, if an [extended query tag](dicom-extended-query-tags-overview.md) has any errors, because one or more of the existing instances had a tag value that couldn't be indexed, then subsequent search queries containing the extended query tag returns `erroneous-dicom-attributes` as detailed in the [documentation](dicom-extended-query-tags-overview.md#tag-query-status). However, tags (also known as attributes) with validation warnings from STOW-RS are **not** included in this header. If a store request results in validation warnings on [searchable tags](#searchable-attributes), subsequent searches containing these tags doesn't consider any DICOM SOP instance that produced a warning. This behavior might result in incomplete search results.
-To correct an attribute, delete the stored instance and upload the corrected data.
+In the v1 API and continued for v2, if an [extended query tag](dicom-extended-query-tags-overview.md) has any errors, because one or more of the existing instances had a tag value that couldn't be indexed, then subsequent search queries containing the extended query tag returns `erroneous-dicom-attributes` as detailed in the [documentation](dicom-extended-query-tags-overview.md#tag-query-status). However, tags (also known as attributes) with validation warnings from STOW-RS are **not** included in this header. If a store request results in validation warnings for [searchable attributes](#searchable-attributes) at the time the [instance was stored](#store-changes-from-v1), those attributes may not be used to search for the stored instance. However, any [searchable attributes](#searchable-attributes) that failed validation will be able to return results if the values are overwritten by instances in the same study/series that are stored after the failed one, or if the values are already stored correctly by a previous instance. If the attribute values are not overwritten, then they will not produce any search results.
+
+An attribute can be corrected in the following ways:
+- Delete the stored instance and upload a new instance with the corrected data
+- Upload a new instance in the same study/series with corrected data
 
 ### Supported search parameters
 

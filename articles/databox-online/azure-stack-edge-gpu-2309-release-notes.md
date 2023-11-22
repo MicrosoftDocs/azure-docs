@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/09/2023
+ms.date: 10/26/2023
 ms.author: alkohli
 ---
 
@@ -28,13 +28,13 @@ This article applies to the **Azure Stack Edge 2309** release, which maps to sof
 
 ## Supported update paths
 
-To apply the 2309 update, your device must be running version 2203 or later.
+To apply the 2309 update, your device must be running version 2303 or later.
 
  - If you are not running the minimum required version, you'll see this error: 
 
    *Update package cannot be installed as its dependencies are not met.* 
 
- - You can update to 2203 from 2207 or later, and then install 2309.
+ - You can update to 2303 from 2207 or later, and then install 2309.
 
 You can update to the latest version using the following update paths:
 
@@ -77,6 +77,7 @@ The 2309 release has the following new features and enhancements:
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
 |**1.**|AKS Update |The AKS Kubernetes update might fail if the one of the AKS VMs are not running. This issue might be seen in the 2-node cluster. |If the AKS update has failed, [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md). Check the state of the Kubernetes VMs by running `Get-VM` cmdlet. If the VM is off, run the `Start-VM` cmdlet to restart the VM. Once the Kubernetes VM is running, reapply the update. |
+|**2.**|Wi-Fi |Starting this release, Wi-Fi functionality for Azure Stack Edge Mini R has been deprecated. |  |
 
 
 ## Known issues from previous releases

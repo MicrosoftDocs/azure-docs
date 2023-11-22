@@ -2,7 +2,7 @@
 title: How to train your custom Text Analytics for health model
 titleSuffix: Azure AI services
 description: Learn about how to train your model for custom Text Analytics for health.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

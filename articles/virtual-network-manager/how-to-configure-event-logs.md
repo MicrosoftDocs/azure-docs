@@ -69,7 +69,7 @@ In this task, you access the event logs for your Azure Virtual Network Manager i
 1. When completed reviewing the logs, close the window and select **ok** to discard changes.
  
     > [!NOTE]
-    > When you close the **Query editor** window, you will be be returned to the **Azure Home** page. If you need to return to the **Logs** page, browse to your virtual network manager instance, and select **Logs** under the **Monitoring** in the left pane.
+    > When you close the **Query editor** window, you will be returned to the **Azure Home** page. If you need to return to the **Logs** page, browse to your virtual network manager instance, and select **Logs** under the **Monitoring** in the left pane.
 
 1. If you choose **Load to editor**, the **Query editor** window displays the query. Choose **Run** to display the event logs and you can expand each log to view the details.
 

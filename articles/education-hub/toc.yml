@@ -4,6 +4,8 @@
   items:
   - name: What is the Education Hub?
     href: about-education-hub.md
+  - name: What is Azure Dev Tools for Teaching?
+    href: azure-dev-tools-teaching/about-program.md
   - name: What is Azure for Students?
     href: about-azure-for-students.md
   - name: What is Azure for Students Starter?
@@ -18,55 +20,37 @@
     href: set-up-lab.md
   - name: Allocate Credit to an Educator
     href: it-admin-allocate-credit.md
+  - name: Enroll or renew a subscription
+    href: azure-dev-tools-teaching/enroll-renew-subscription.md
+  - name: Set up access
+    href: azure-dev-tools-teaching/set-up-access.md
 - name: How-to guides
   items:
   - name: Manage your Academic Grant
     href: hub-overview-page.md
   - name: Create an assignment and allocate credit
     href: create-assignment-allocate-credit.md
-  - name: Support
-    items:
   - name: Service desk
     href: educator-service-desk.md
-- name: Azure Dev Tools for Teaching
+  - name: How to use a script to automate lab functionality
+    href: full-api-script.md
+  - name: How to create a lab
+    href: create-lab-education-hub.md
+  - name: How to add students to a lab
+    href: add-student-api.md
+  - name: How to delete a lab
+    href: delete-lab-education-hub-apis.md
+  - name: How to manage students
+    href: azure-dev-tools-teaching/manage-students.md
+  - name: How to download software
+    href: azure-dev-tools-teaching/download-software.md
+  - name: How to Track Usage and Create Budgets in Azure for Students
+    href: navigate-costs.md
+- name: Tutorials
   items:
-  - name: Overview    
-    items:
-    - name: What is Azure Dev Tools for Teaching?
-      href: azure-dev-tools-teaching/about-program.md
-    - name: Azure for Students
-      href: azure-dev-tools-teaching/azure-students-program.md
-    - name: Azure for Students Starter
-      href: azure-dev-tools-teaching/azure-students-starter-program.md
-  - name: Quickstarts
-    items: 
-    - name: Enroll or renew a subscription
-      href: azure-dev-tools-teaching/enroll-renew-subscription.md
-    - name: Set up access
-      href: azure-dev-tools-teaching/set-up-access.md
-  - name: How-to guides
-    items:
-    - name: How to manage students
-      href: azure-dev-tools-teaching/manage-students.md
-    - name: How to download software
-      href: azure-dev-tools-teaching/download-software.md
-  - name: Troubleshooting
-    items:
-    - name: Login errors
-      href: azure-dev-tools-teaching/troubleshoot-login.md
-- name: Azure Education Hub REST APIs
+  - name: Find IDs required for calling Azure Education Hub APIs
+    href: find-ids.md
+- name: Troubleshooting
   items:
-  - name: How-to guides
-    items:
-    - name: How to use a script to automate lab functionality
-      href: full-api-script.md
-    - name: How to create a lab
-      href: create-lab-education-hub.md
-    - name: How to add students to a lab
-      href: add-student-api.md
-    - name: How to delete a lab
-      href: delete-lab-education-hub-apis.md
-  - name: Tutorials
-    items:
-    - name: Find IDs required for calling Azure Education Hub APIs
-      href: find-ids.md
+  - name: Login errors
+    href: azure-dev-tools-teaching/troubleshoot-login.md

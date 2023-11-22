@@ -1,6 +1,6 @@
 ---
 title: Integration of virtual network injection with Chaos Studio
-description: Learn how to use virtual network injection with Azure Chaos Studio Preview.
+description: Learn how to use virtual network injection with Azure Chaos Studio.
 services: chaos-studio
 author: prashabora
 ms.topic: conceptual
@@ -9,11 +9,13 @@ ms.author: prashabora
 ms.service: chaos-studio
 ms.custom: devx-track-azurecli
 ---
-# Virtual network injection in Azure Chaos Studio Preview
+# Virtual network injection in Azure Chaos Studio
 
 Azure [Virtual Network](../virtual-network/virtual-networks-overview.md) is the fundamental building block for your private network in Azure. A virtual network enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. A virtual network is similar to a traditional network that you operate in your own datacenter. It brings other benefits of Azure's infrastructure, such as scale, availability, and isolation.
 
-Virtual network injection allows an Azure Chaos Studio Preview resource provider to inject containerized workloads into your virtual network so that resources without public endpoints can be accessed via a private IP address on the virtual network. After you've configured virtual network injection for a resource in a virtual network and enabled the resource as a target, you can use it in multiple experiments. An experiment can target a mix of private and nonprivate resources if the private resources are configured according to the instructions in this article.
+Virtual network injection allows an Azure Chaos Studio resource provider to inject containerized workloads into your virtual network so that resources without public endpoints can be accessed via a private IP address on the virtual network. After you've configured virtual network injection for a resource in a virtual network and enabled the resource as a target, you can use it in multiple experiments. An experiment can target a mix of private and nonprivate resources if the private resources are configured according to the instructions in this article.
+
+We are also now excited to share that Chaos Studio supports running **agent-based experiments** using Private Endpoints! Chaos Studio now supports Private Link for **both** service-direct and agent-based experiments. If you would like to use Private-Link for agent-service, please reach out to your CSA or the Chaos Studio help team for instructions on how to get yourself onboarded. For private link for service-direct faults, read the following sections for instructions on how to use them. 
 
 ## Resource type support
 Currently, you can only enable certain resource types for Chaos Studio virtual network injection:
