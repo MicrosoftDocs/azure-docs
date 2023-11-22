@@ -83,7 +83,7 @@ Content-Type:application/fhir+json
         },
         {
             "name": "mode",
-            "valueString": <Use "InitialLoad" for initial mode import / Use "IncrementalLoad" for incremental mode import>
+            "valueString": "<Use "InitialLoad" for initial mode import / Use "IncrementalLoad" for incremental mode import>",
         },
         {
             "name": "input",
@@ -173,8 +173,12 @@ Table below provides some of the important fields in the response body:
 ### Ingestion of soft deleted resources
 Incremental mode import supports ingestion of soft deleted resources. You need to use the extension to ingest soft deleted resources in FHIR service.
 
-**Sample body for import with soft deleted resources:**
+**Sample import file with soft deleted resources:**
+Extension needs to be added to the resource to inform FHIR service, if it is soft deleted. Below is an example of the extension.
 
+```ndjson
+{"resourceType": "Patient", "id": "example10", "meta": { "lastUpdated": "2023-10-27T04:00:00.000Z", "versionId": 4, "extension": [ { "url": "http://azurehealthcareapis.com/data-extensions/deleted-state", "valueString": "soft-deleted" } ] } }
+```
 
 **Validate ingestion of soft deleted resources:**
 After import operation is successfully completed, to validate soft deleted resources in FHIR service, you need to perform history search on the resource. 
