@@ -2,12 +2,12 @@
   "redirections": [
     {
       "source_path": "scripts/powershell-webhook-secure-delivery-azure-ad-user.md",
-      "redirect_url": "scripts/powershell-webhook-secure-delivery-microsoft-entra-user",
+      "redirect_url": "/azure/event-grid/scripts/powershell-webhook-secure-delivery-microsoft-entra-user",
       "redirect_document_id": false
     },    
     {
       "source_path": "scripts/powershell-webhook-secure-delivery-azure-ad-app.md",
-      "redirect_url": "scripts/powershell-webhook-secure-delivery-microsoft-entra-app",
+      "redirect_url": "/azure/event-grid/scripts/powershell-webhook-secure-delivery-microsoft-entra-app",
       "redirect_document_id": false
     },    
     {
@@ -193,11 +193,6 @@
     {
       "source_path": "scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-user.md",
       "redirect_url": "/azure/event-grid/scripts/powershell-webhook-secure-delivery-azure-ad-user",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "scripts/event-grid-powershell-webhook-secure-delivery-microsoft-entra-app.md",
-      "redirect_url": "/azure/event-grid/scripts/powershell-webhook-secure-delivery-microsoft-entra-app",
       "redirect_document_id": false
     },
     {

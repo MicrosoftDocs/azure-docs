@@ -153,7 +153,7 @@ Based on the diagram, follow next steps to configure both tenants.
 
 Do the following steps in **Tenant A**: 
 
-1. Create a Microsoft Entra application for the Event Grid subscription writer configured to work with any Microsoft Entra directory (Multi-tenant).
+1. Create a Microsoft Entra application for the Event Grid subscription writer configured to work with any Microsoft Entra directory (multitenant).
 
 2. Create a secret for the Microsoft Entra application, and save the value (you need this value later).
 

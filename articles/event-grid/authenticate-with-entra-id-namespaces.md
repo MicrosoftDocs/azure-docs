@@ -103,7 +103,7 @@ Following are the prerequisites to authenticate to Event Grid.
 
 ### Publish events using Microsoft Entra Authentication
 
-To send events to a topic, domain, or partner namespace, you can build the client in the following way. The api version that first provided support for Microsoft Entra authentication is ``2018-01-01``. Use that API version or a more recent version in your application.
+To send events to a topic, domain, or partner namespace, you can build the client in the following way. The API version that first provided support for Microsoft Entra authentication is ``2018-01-01``. Use that API version or a more recent version in your application.
 
 Sample:
 
