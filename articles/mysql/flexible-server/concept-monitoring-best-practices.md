@@ -35,7 +35,7 @@ Monitor CPU usage and if the database is exhausting CPU resources. If CPU usage 
 
 ### Memory
 
-The amount of memory available for the Azure Database for MySQL flexible server is proportional to the [number of vCores](../single-server/concepts-pricing-tiers.md). Make sure the memory is enough for the workload. Load test your application to verify the memory is sufficient for read and write operations. If the database memory consumption frequently grows beyond a defined threshold, this indicates that you should upgrade your instance by increasing vCores or higher performance tier. Use [Query Store](../single-server/concepts-query-store.md), [Query Performance Recommendations](../single-server/concepts-performance-recommendations.md) to identify queries with the longest duration, most executed. Explore opportunities to optimize. 
+The amount of memory available for the Azure Database for MySQL flexible server database server is proportional to the [number of vCores](../single-server/concepts-pricing-tiers.md). Make sure the memory is enough for the workload. Load test your application to verify the memory is sufficient for read and write operations. If the database memory consumption frequently grows beyond a defined threshold, this indicates that you should upgrade your instance by increasing vCores or higher performance tier. Use [Query Store](../single-server/concepts-query-store.md), [Query Performance Recommendations](../single-server/concepts-performance-recommendations.md) to identify queries with the longest duration, most executed. Explore opportunities to optimize. 
 
 ### Storage
 

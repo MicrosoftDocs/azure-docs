@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure Kubernetes Service - Azure Database for MySQL - Flexible Server
+title: Connect to Azure Kubernetes Service - Azure Database for MySQL flexible server
 description: Learn about connecting Azure Kubernetes Service with Azure Database for MySQL flexible server.
 ms.service: mysql
 ms.subservice: flexible-server

@@ -155,7 +155,7 @@ The ideas presented in this section are intended to make performance testing pro
 
 ### Preparing test data
 
-Before conducting performance benchmarks against Azure Database for MySQL server, be sure that the server is populated with a representative sample of your production data set.
+Before conducting performance benchmarks against Azure Database for MySQL flexible server, be sure that the server is populated with a representative sample of your production data set.
 
 Whenever possible, use a full copy of the production set. When this isn’t possible, use the following suggestions to help you determine which portions of data you should always include and which data you can leave out.
 
@@ -184,9 +184,9 @@ If you can’t easily deploy a copy of your application in Azure, you'll need to
 
 1. Identify the SQL statements that most commonly appear in your production workload.
 2. Based on the information gathered in the first step, prepare a large sample of SQL statements to test.
-3. Create an Azure Database for MySQL node and populate it with a copy of your production data.
+3. Create an Azure Database for MySQL flexible server node and populate it with a copy of your production data.
 4. Launch Azure virtual machine (VM) client instance(s) in Azure.
-5. From the VMs, run the SQL workload sample against yourAzure Database for MySQL flexible server instance and assess the results.
+5. From the VMs, run the SQL workload sample against your Azure Database for MySQL flexible server instance and assess the results.
 
 There are two main approaches to generating the test payload (SQL statement samples):
 

@@ -1,5 +1,5 @@
 ---
-title: Active Directory authentication - Azure Database for MySQL - Flexible Server
+title: Microsoft Entra authentication - Azure Database for MySQL flexible server
 description: Learn about the concepts of Microsoft Entra ID for authentication with Azure Database for MySQL flexible server.
 author: SudheeshGH
 ms.author: sunaray
@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Active Directory authentication for Azure Database for MySQL - Flexible Server
+# Microsoft Entra authentication for Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

@@ -47,7 +47,7 @@ The following are operational guidelines that should be followed when working wi
 
 * If you are using replica, use [ProxySQL to balance off load](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/scaling-an-azure-database-for-mysql-workload-running-on/ba-p/1105847) between the primary server and the readable secondary replica server. See the setup steps here.
 
-* When provisioning the resource, make sure you [enabled the autogrow](../single-server/how-to-auto-grow-storage-portal.md) for your Azure Database for MySQL instance. This doesn't add any extra cost and protects the database from any storage bottlenecks that you might run into.
+* When provisioning the resource, make sure you [enabled the autogrow](../single-server/how-to-auto-grow-storage-portal.md) for your Azure Database for MySQL flexible server instance. This doesn't add any extra cost and protects the database from any storage bottlenecks that you might run into.
 
 ### Using InnoDB with Azure Database for MySQL flexible server
 
@@ -73,4 +73,4 @@ The following are operational guidelines that should be followed when working wi
 
 ## Next steps
 - [Best practice for performance of Azure Database for MySQL flexible server](concept-performance-best-practices.md)
-- [Best practice for monitoring your Azure Database for MySQL flexible server](concept-monitoring-best-practices.md)
+- [Best practice for monitoring Azure Database for MySQL flexible server](concept-monitoring-best-practices.md)
