@@ -189,8 +189,6 @@ curl -X GET $LANGUAGE_ENDPOINT/language/analyze-text/jobs/<my-job-id>?api-versio
 }
 ```
 
-# [Conversation summarization](#tab/conversation-summarization)
-
 ## Conversation issue and resolution summarization
 
 The following example will get you started with conversation issue and resolution summarization:
