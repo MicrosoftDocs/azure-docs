@@ -36,19 +36,19 @@ From incoming event of type `ChatMessageReceivedEvent`, there's a property named
 ```c#
 public class ChatAttachment
 {
-    public ChatAttachment(string id, AttachmentType attachmentType)
-    public AttachmentType AttachmentType { get }
-    public string Extension { get }
+    public ChatAttachment(string id, ChatAttachmentType attachmentType)
+    public ChatAttachmentType AttachmentType { get }
     public string Id { get }
     public string Name { get }
     public System.Uri PreviewUrl { get }
     public System.Uri Url { get }
 }
 
-public struct AttachmentType : System.IEquatable<AttachmentType>
+public struct ChatAttachmentType : System.IEquatable<AttachmentType>
 {
-    public AttachmentType(string value)
-    public static Azure.Communication.Chat.AttachmentType Image { get }
+    public ChatAttachmentType(string value)
+    public static File { get }
+    public static Image { get }
 }
 ```
 
