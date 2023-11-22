@@ -6,11 +6,11 @@ items:
 - name: Oracle on Azure Virtual Machines
   items:
   - name: Overview - Oracle on Azure Virtual Machines
-    href: ../virtual-machines/workloads/oracle/index.yml
+    href: /azure/virtual-machines/workloads/oracle/
 - name: Oracle Database@Azure
   items:
   - name: Overview - Oracle Database@Azure
     href: database-overview.md
   - name: Provision and manage Oracle Database@Azure
-    href: ../oracle-db/provision-oracle-database.md
+    href: /oracle-db/provision-oracle-database.md
   
