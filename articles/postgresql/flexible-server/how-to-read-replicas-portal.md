@@ -101,6 +101,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 }
 ```
 
+---
 
 - Set the replica server name.
 
@@ -119,6 +120,8 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
     :::image type="content" source="./media/how-to-read-replicas-portal/replica-compute.png" alt-text="Screenshot of chose the compute size.":::
 
+
+#### [Portal](#tab/portal)
 5.  Select **Review + create** to confirm the creation of the replica or **Next: Networking** if you want to add, delete or modify any firewall rules.
 
     :::image type="content" source="./media/how-to-read-replicas-portal/networking.png" alt-text="Screenshot of modify firewall rules action." lightbox="./media/how-to-read-replicas-portal/networking.png":::
@@ -136,12 +139,19 @@ After the read replica is created, it can be viewed from the **Replication** win
 
     :::image type="content" source="./media/how-to-read-replicas-portal/list-replica.png" alt-text="Screenshot of viewing the new replica in the replication window." lightbox="./media/how-to-read-replicas-portal/list-replica.png":::
 
+#### [REST API](#tab/restapi)
+check the operation status.
+
+---
+
 > [!IMPORTANT]  
 > Review the [considerations section of the Read Replica overview](concepts-read-replicas.md#considerations).
 >  
 > To avoid issues during promotion of replicas constantly change the following server parameters on the replicas first, before applying them on the primary: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
 
 ## Create virtual endpoints (preview)
+
+#### [Portal](#tab/portal)
 
 1.  In the Azure portal, select the primary server.
 
@@ -159,6 +169,10 @@ After the read replica is created, it can be viewed from the **Replication** win
     > If you do not create a virtual endpoint you will receive an error on the promote replica attempt.
 
     :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote-attempt.png" alt-text="Screenshot of promotion error when missing virtual endpoint.":::
+
+#### [REST API](#tab/restapi)
+
+---
 
 ### Modify application(s) to point to virtual endpoint
 
