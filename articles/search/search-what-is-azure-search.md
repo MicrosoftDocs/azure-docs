@@ -103,8 +103,8 @@ Customers often ask how Azure AI Search compares with other search-related solut
 
 | Compared to | Key differences |
 |-------------|-----------------|
-| Microsoft Search | [Microsoft Search](/microsoftsearch/overview-microsoft-search) is for Microsoft 365 authenticated users who need to query over content in SharePoint. Azure AI Search is for content pulled from Azure or from any data set that you can provide in JSON. |
-|Bing | [Bing family of search APIs](/bing/search-apis/bing-web-search/bing-api-comparison) search the indexes on Bing.com for matching terms. Azure AI Search searches over indexes populated with your content. You control data ingestion and the schema|
+| Microsoft Search | [Microsoft Search](/microsoftsearch/overview-microsoft-search) is for Microsoft 365 authenticated users who need to query over content in SharePoint. Azure AI Search pulls in content across Azure and any JSON dataset. |
+|Bing | [Bing APIs](/bing/search-apis/bing-web-search/bing-api-comparison) query the indexes on Bing.com for matching terms. Azure AI Search searches over indexes populated with your content. You control data ingestion and the schema. |
 |Database search | SQL Server has [full text search](/sql/relational-databases/search/full-text-search) and Azure Cosmos DB and similar technologies have queryable indexes. Azure AI Search becomes an attractive alternative when you need features like lexical analyzers and relevance tuning, or content from heterogeneous sources. Resource utilization is another inflection point. Indexing and queries are computationally intensive. Offloading search from the DBMS preserves system resources for transaction processing. |
 |Dedicated search solution | Assuming you've decided on dedicated search with full spectrum functionality, a final categorical comparison is between search technologies. Among cloud providers, Azure AI Search is strongest for vector, keyword, and hybrid workloads over content on Azure, for apps that rely primarily on search for both information retrieval and content navigation. |
 
@@ -112,8 +112,8 @@ Key strengths include:
 
 + Relevance tuning through semantic ranking and scoring profiles.
 + Data integration (crawlers) at the indexing layer.
-+ AI and machine learning integration with Azure AI services, useful if you need AI transformations to make content text-searchable.
-+ Security using Microsoft Entra ID for trusted connections, and Azure Private Link for private connections in no-internet scenarios.
++ Azure AI integration for transformations that make content text and vector searchable.
++ Microsoft Entra security for trusted connections, and Azure Private Link for private connections in no-internet scenarios.
 + [Full search experience](search-features-list.md): Linguistic and custom text analysis in 56 languages. Faceting, autocomplete queries and suggested results, and synonyms.
 + Azure scale, reliability, and global reach.
 
