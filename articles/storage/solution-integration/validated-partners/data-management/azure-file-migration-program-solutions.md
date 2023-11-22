@@ -162,4 +162,3 @@ The following comparison matrix shows basic functionality, and comparison of mig
 
 > [!IMPORTANT]
 > Support provided by ISV, not Microsoft
-
