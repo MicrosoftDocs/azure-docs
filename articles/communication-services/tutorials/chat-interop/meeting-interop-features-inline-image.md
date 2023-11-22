@@ -13,7 +13,7 @@ ms.custom: mode-other, devx-track-js
 
 # Tutorial: Enable inline image support in your Chat app
 
-The Chat SDK is designed to work with Microsoft Teams seamlessly. Specifically, Chat SDK provides a solution to receive inline images sent by users from Microsoft Teams. Currently this feature is only available in the Chat SDK for JavaScript. 
+The Chat SDK is designed to work with Microsoft Teams seamlessly. Specifically, Chat SDK provides a solution to receive inline images sent by users from Microsoft Teams. Currently this feature is only available in the Chat SDK for JavaScript and C#.
 
 ## Add inline image support
 
