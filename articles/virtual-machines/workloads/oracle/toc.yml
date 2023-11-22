@@ -1,8 +1,4 @@
 items:
-- name: Oracle on Azure Documentation
-  href: index.yml
-- name: Overview 
-  href: oracle-azure-overview.md
 - name: Oracle on Azure Virtual Machines
   items:
   - name: Overview - Oracle on Azure Virtual Machines
@@ -53,6 +49,8 @@ items:
         href: oracle-design.md
   - name: Reference
     items:
+      - name: Oracle on Database@Azure
+        href: ../oracle/oracle-db/database-overview.md
       - name: Oracle on Azure Virtual Machines landing zone accelerator
         href: /azure/cloud-adoption-framework/scenarios/oracle-iaas/introduction-oracle-landing-zone
       - name: Cloud Adoption Framework for Azure
@@ -65,10 +63,5 @@ items:
         href: /azure/devops/release-notes/features-timeline
   - name: FAQs
     href: oracle-azure-vms-faq.md
-- name: Oracle Database@Azure
-  items:
-  - name: Overview - Oracle Database@Azure
-    href: database-overview.md
-  - name: Provision and manage Oracle Database@Azure
-    href: ../oracle-db/provision-oracle-database.md
+
   
