@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: article
-ms.date: 09/27/2022
+ms.date: 11/22/2023
 ms.author: greglin
 ---
 
@@ -18,6 +18,10 @@ An alias record set is supported for the following record types in an Azure DNS 
 - A
 - AAAA
 - CNAME
+
+To create an alias record set in your DNS zone using the Azure portal, add a record set and choose **Yes** under **Alias record set**. You must also specify the **Alias type** as either an **Azure resource** or **Zone record set**. If the record set is for an Azure resource, also **Choose a subscription** and then choose the **Azure resource**. In the following example, the an alias named **vm1** is added that points to the public IP address of a virtual machine:
+
+   ![A screenshot showing how to add an alias record set.](./media/dns-alias/add-record-set.png)
 
 > [!NOTE]
 > If you intend to use an alias record for the A or AAAA record types to point to an [Azure Traffic Manager profile](../traffic-manager/quickstart-create-traffic-manager-profile.md) you must make sure that the Traffic Manager profile has only [external endpoints](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). You must provide the IPv4 or IPv6 address for external endpoints in Traffic Manager. You can't use fully qualified domain names (FQDNs) in endpoints. Ideally, use static IP addresses.
