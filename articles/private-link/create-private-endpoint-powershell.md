@@ -223,7 +223,7 @@ $pe = @{
 New-AzPrivateEndpoint @pe
 
 ```
-
+- When creating a private endpoint for storage, the connection name shown in a private endpoint tab is auto generated and is not editable.
 ---
 
 ## Configure the private DNS zone
