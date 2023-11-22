@@ -88,7 +88,7 @@ Use [Chat APIs](/rest/api/communication/chat/chatthread) to get, list, update, a
 
 In 2024, new functionality will be introduced where customers must choose between indefinite message retention or automatic deletion after 90 days. Existing messages remain unaffected.
 
-For customers that use Virtual appointments, refer to our Teams Interoperability [user privacy](/interop/guest/privacy.md#chat-storage) for storage of chat messages in Teams meetings.
+For customers that use Virtual appointments, refer to our Teams Interoperability [user privacy](interop/guest/privacy.md#chat-storage) for storage of chat messages in Teams meetings.
 
 ### SMS
 
