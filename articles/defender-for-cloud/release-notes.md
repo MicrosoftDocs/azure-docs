@@ -42,11 +42,11 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 November 22, 2023
 
-Microsoft now offers both Cloud-Native Application Protection Pltforms (CNAPP) and Cloud Infrastructure Entitlement Management (CIEM) solutions with Microsoft Defender for Cloud (CNAPP) and [Microsoft Entra Permissions Management](/entra/permissions-management/) (CIEM).
+Microsoft now offers both Cloud-Native Application Protection Platforms (CNAPP) and Cloud Infrastructure Entitlement Management (CIEM) solutions with [Microsoft Defender for Cloud (CNAPP)](defender-for-cloud-introduction.md) and [Microsoft Entra Permissions Management](/entra/permissions-management/) (CIEM).
 
 Security administrators can get a centralized view of their unused or excessive access permissions within Defender for Cloud. 
 
-Security teams can drive the least privilege access controls for cloud resources and receive actionable recommendations for resolving permissions risks across Azure, AWS, and GCP cloud environments as part of their Defender Cloud Security Posture Management (CSPM), without any additional licensing requirements.
+Security teams can drive the least privilege access controls for cloud resources and receive actionable recommendations for resolving permissions risks across Azure, AWS, and GCP cloud environments as part of their Defender Cloud Security Posture Management (CSPM), without any extra licensing requirements.
 
 Learn how to [Enable Permissions Management in Microsoft Defender for Cloud (Preview)](enable-permissions-management.md).
 
@@ -54,9 +54,7 @@ Learn how to [Enable Permissions Management in Microsoft Defender for Cloud (Pre
 
 November 22, 2023
 
-Microsoft Defender for Cloud is now integrated with ServiceNow. This integration allows you to connect ServiceNow to your Defender for Cloud environment. This allows you to prioritize the remediation of recommendations that impact your business. 
-
-Defender for Cloud's integration with SerivceNow's IT Service Management (ITSM) module for incident management, allows you to create and view ServiceNow tickets (which are linked to recommendations) from the Defender for Cloud portal.
+ServiceNow is now integrated with Microsoft Defender for Cloud, which enables customers to connect ServiceNow to their Defender for Cloud environment to prioritize remediation of recommendations that affect your business. Microsoft Defender for Cloud integrates with the ITSM module (incident management). As part of this connection, customers are able to create/view ServiceNow tickets (linked to recommendations) from Microsoft Defender for Cloud.
 
 You can learn more about [Defender for Cloud's integration with ServiceNow](integration-servicenow.md).
 
