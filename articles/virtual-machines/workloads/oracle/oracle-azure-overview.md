@@ -1,5 +1,5 @@
 ---
-title: Oracle on Azure offerings
+title: Oracle on Azure
 description: Oracle on Azure offerings 
 author: jjaygbay1
 ms.author: jacobjaygbay
