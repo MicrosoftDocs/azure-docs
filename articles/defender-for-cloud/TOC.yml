@@ -39,13 +39,13 @@
       expanded: false
       items:
         - name: Connect your Azure subscriptions
-          displayName: enable, defender for cloud, activate, turn on
+          displayName: enable, defender for cloud, activate, turn on, Microsoft 365 Defender, alerts, integration, m365, m365d, m365 defender
           href: connect-azure-subscription.md
         - name: Connect your AWS accounts
-          displayName: hybrid, multicloud, multicloud, amazon, arc, AWS, accounts
+          displayName: hybrid, multicloud, multicloud, amazon, arc, AWS, accounts, Microsoft 365 Defender, alerts, integration, m365, m365d, m365 defender
           href: quickstart-onboard-aws.md
         - name: Connect your GCP projects
-          displayName: hybrid, multicloud, multicloud, google, gcp
+          displayName: hybrid, multicloud, multicloud, google, gcp, Microsoft 365 Defender, alerts, integration, m365, m365d, m365 defender
           href: quickstart-onboard-gcp.md
         - name: Connect individual non-Azure machines
           items:
@@ -53,7 +53,7 @@
               displayName: azure stack, ash, windows, linux, hybrid, defender for endpoint
               href: onboard-machines-with-defender-for-endpoint.md
             - name: Connect machines with Azure Arc
-              displayName: azure stack, ash, windows, linux, hybrid, arc, on-premises
+              displayName: azure stack, ash, windows, linux, hybrid, arc, on-premises, Microsoft 365 Defender, alerts, integration, m365, m365d, m365 defender
               href: quickstart-onboard-machines.md
     - name: Enable specific Defender plans
       expanded: false
@@ -250,15 +250,15 @@
         - name: Reference list of DevOps recommendations
           displayName: devops, recommendations
           href: recommendations-reference-devops.md
-        - name: Reference list of attack paths and cloud security graph components
-          displayName: attack, paths, security, graph, components
-          href: attack-path-reference.md
     - name: Security alerts and incidents
       items:
         - name: About security alerts and incidents
           displayName: security, alerts, classification, incident, threat, detection,
             analytics,
           href: alerts-overview.md
+        - name: Alerts and incidents in Microsoft 365 Defender
+          displayName: Microsoft 365 Defender, alerts, integration, m365, m365d, m365 defender
+          href: concept-integration-365.md
         - name: Security alerts
           items:
             - name: Security alerts reference list
@@ -317,9 +317,6 @@
       - name: Exempt resources from recommendations
         displayName: disable, resource, exempt, recommendation
         href: exempt-resource.md
-      - name: Prevent misconfigurations with Enforce/Deny
-        displayName: recommendations, enforce, deny
-        href: prevent-misconfigurations.md
     - name: Investigate and remediate security posture
       items:
       - name: Investigate security recommendations

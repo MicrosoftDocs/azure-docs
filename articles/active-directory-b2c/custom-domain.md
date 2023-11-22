@@ -5,7 +5,6 @@ description: Learn how to enable custom domains in your redirect URLs for Azure 
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
 ms.date: 11/13/2023
 ms.author: kengaderdus

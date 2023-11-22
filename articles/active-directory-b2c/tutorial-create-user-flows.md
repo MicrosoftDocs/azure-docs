@@ -4,11 +4,10 @@ description: Follow this tutorial to learn how to create user flows and custom p
 author: garrodonnell
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2023
 ms.author: godonnell
-ms.custom: engagement-fy23
+ms.custom: 
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 

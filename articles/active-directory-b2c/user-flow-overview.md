@@ -5,10 +5,8 @@ description: Learn more about built-in user flows and the custom policy extensib
 author: garrodonnell
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/09/2023
-ms.custom: project-no-code, engagement-fy23
 ms.author: godonnell
 ms.subservice: B2C
 

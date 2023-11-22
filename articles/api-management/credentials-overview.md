@@ -50,10 +50,8 @@ Token credentials in credential manager consist of two parts: **management** and
 * The **management** part in credential manager takes care of setting up and configuring a *credential provider* for OAuth 2.0 tokens, enabling the consent flow for the identity provider, and setting up one or more *connections* to the credential provider for access to the credentials. For details, see [Management of connections](credentials-process-flow.md#management-of-connections).
 
 
-* The **runtime** part uses the [`get-authorization-context`](get-authorization-context-policy.md) policy to fetch and store the connection's access and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the identity provider. Then the access token is used to authorize access to the backend service. For details, see [Runtime of connections](credentials-process-flow.md#runtime-of-connections).  
+* The **runtime** part uses the [`get-authorization-context`](get-authorization-context-policy.md) policy to fetch and store the connection's access and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it first validates if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the identity provider. Then the access token is used to authorize access to the backend service. For details, see [Runtime of connections](credentials-process-flow.md#runtime-of-connections).  
    
-    During the policy execution, access to the tokens is also validated using access policies.
-
 ## When to use credential manager?
 
 The following are three scenarios for using credential manager.
@@ -139,7 +137,7 @@ All underlying connections and access policies are also deleted.
 
 ### Are the access tokens cached by API Management?
 
-In the dedicated service tiers, the access token is cached by the API management until 3 minutes before the token expiration time. If the access token is less than 3 minutes away from expiration, the cached time will be until the access token expires.
+In the dedicated service tiers, the access token is cached by the API Management instance until 3 minutes before the token expiration time. If the access token is less than 3 minutes away from expiration, the cached time will be until the access token expires.
 
 Access tokens aren't cached in the Consumption tier.
 
@@ -147,4 +145,5 @@ Access tokens aren't cached in the Consumption tier.
 
 - Configure [credential providers](credentials-configure-common-providers.md) for connections
 - Configure and use a connection for the [Microsoft Graph API](credentials-how-to-azure-ad.md) or the [GitHub API](credentials-how-to-github.md)
+- Configure a connection for [user-delegated access](credentials-how-to-user-delegated.md)
 - Configure [multiple connections](configure-credential-connection.md) for a credential provider

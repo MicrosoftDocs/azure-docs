@@ -4,7 +4,6 @@ description: How to enable multifactor authentication in consumer-facing applica
 author: garrodonnell
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.custom: project-no-code

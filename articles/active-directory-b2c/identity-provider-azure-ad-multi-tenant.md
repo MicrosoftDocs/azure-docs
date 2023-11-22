@@ -5,7 +5,6 @@ description: Add a multi-tenant Microsoft Entra identity provider using custom p
 author: garrodonnell
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
 ms.date: 11/16/2023
 ms.custom: project-no-code

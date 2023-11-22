@@ -4,10 +4,9 @@ description: Learn how you can use Azure Active Directory B2C to support externa
 author: garrodonnell
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: overview
 ms.date: 11/08/2023
-ms.custom: engagement-fy23
 ms.author: godonnell
 ms.subservice: B2C
 
