@@ -22,14 +22,26 @@ Find the finalized code of this tutorial on [GitHub TODO](<TODO>).
 ## Goal
 
 1. Grab the previewUri for inline image attachments
-2. Grab the fullSize Uri for inline omage attachments
 
 ## Handle inline images for new messages
 
 In the [quickstart](../../../quickstarts/chat/meeting-interop.md), we've created an event handler for `chatMessageReceived` event, which would be trigger when we receive a new message from the Teams user. We have also appended incoming message content to `messageContainer` directly upon receiving the `chatMessageReceived` event from the `chatClient` like this:
 
-```js
-<TODO>
+```c#
+  CommunicationUserIdentifier currentUser = new(user_Id_);
+  AsyncPageable<ChatMessage> allMessages = chatThreadClient.GetMessagesAsync();
+  SortedDictionary<long, string> messageList = [];
+  int textMessages = 0;
+  await foreach (ChatMessage message in allMessages)
+  {
+      if (message.Type == ChatMessageType.Html || message.Type == ChatMessageType.Text)
+      {
+          textMessages++;
+          var userPrefix = message.Sender.Equals(currentUser) ? "[you]:" : "";
+          var strippedMessage = StripHtml(message.Content.Message);
+          messageList.Add(long.Parse(message.SequenceId), $"{userPrefix}{strippedMessage}");
+      }
+  }
 ```
 From incoming event of type `ChatMessageReceivedEvent`, there's a property named `attachments`, which contains information about inline image, and it's all we need to render inline images in our UI:
 
@@ -76,35 +88,33 @@ As an example, the following JSON is an example of what `ChatAttachment` might l
 Now let's go back to the replace the code to add some extra logic like the following code snippets: 
 
 ```c#
-    CommunicationUserIdentifier currentUser = new(user_Id_);
-    AsyncPageable<ChatMessage> allMessages = chatThreadClient.GetMessagesAsync();
-    SortedDictionary<long, string> messageList = [];
-    int textMessages = 0;
-    await foreach (ChatMessage message in allMessages)
-    {
-        // Get message attachments that are of type 'image'
-        IEnumerable<ChatAttachment> imageAttachments = message.Content.Attachments.Where(x => x.AttachmentType == ChatAttachmentType.Image);
+  CommunicationUserIdentifier currentUser = new(user_Id_);
+  AsyncPageable<ChatMessage> allMessages = chatThreadClient.GetMessagesAsync();
+  SortedDictionary<long, string> messageList = [];
+  int textMessages = 0;
+  await foreach (ChatMessage message in allMessages)
+  {
+      // Get message attachments that are of type 'image'
+      IEnumerable<ChatAttachment> imageAttachments = message.Content.Attachments.Where(x => x.AttachmentType == ChatAttachmentType.Image);
 
-        var chatAttachmentImageUris = new List<Uri>();
-        foreach (ChatAttachment imageAttachment in imageAttachments)
-        {
-            chatAttachmentImageUris.Add(imageAttachment.PreviewUri);
-        }
+      var chatAttachmentImageUris = new List<Uri>();
+      foreach (ChatAttachment imageAttachment in imageAttachments)
+      {
+          chatAttachmentImageUris.Add(imageAttachment.PreviewUri);
+      }
 
-        if (message.Type == ChatMessageType.Html || message.Type == ChatMessageType.Text)
-        {
-            textMessages++;
-            var userPrefix = message.Sender.Equals(currentUser) ? "[you]:" : "";
-            var strippedMessage = StripHtml(message.Content.Message);
-            var chatAttachments = chatAttachmentImageUris.Count > 0 ? "[Attachments]:\n" + string.Join(",\n", chatAttachmentImageUris) : "";
-            messageList.Add(long.Parse(message.SequenceId), $"{userPrefix}{strippedMessage}\n{chatAttachments}");
-        }
-    }
+      if (message.Type == ChatMessageType.Html || message.Type == ChatMessageType.Text)
+      {
+          textMessages++;
+          var userPrefix = message.Sender.Equals(currentUser) ? "[you]:" : "";
+          var strippedMessage = StripHtml(message.Content.Message);
+          var chatAttachments = chatAttachmentImageUris.Count > 0 ? "[Attachments]:\n" + string.Join(",\n", chatAttachmentImageUris) : "";
+          messageList.Add(long.Parse(message.SequenceId), $"{userPrefix}{strippedMessage}\n{chatAttachments}");
+      }
+  }
 ```
 
-Noticing in this example, we've created two helper functions - `fetchPreviewImages` and `setImgHandler` - where the first one fetches preview image directly from the `previewURL` provided in each `ChatAttachment` object with an auth header. Similarly, we set up a `onclick` event for each image in the function `setImgHandler`, and in the event handler, we fetch a full scale image from property `url` from the `ChatAttachment` object with an auth header.
-
-Now we've concluded all the changes we need to render inline images for messages coming from real time notifications.
+Noticing in this example, we have grabbed all attachments from the message of type 'Image' and then taken their prewviewUris to then later be included with the message in the textblock.
 
 ## Demo
 
