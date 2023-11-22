@@ -52,6 +52,27 @@ public struct ChatAttachmentType : System.IEquatable<AttachmentType>
 }
 ```
 
+As an example, the following JSON is an example of what `ChatAttachment` might look like for an image attachment and a file attachment:
+
+```json
+"attachments": [
+    {
+        "id": "08a182fe-0b29-443e-8d7f-8896bc1908a2",
+        "attachmentType": "file",
+        "name": "business report.pdf",
+        "url": "",
+        "previewUrl": "https://contoso.sharepoint.com/:u:/g/user/h8jTwB0Zl1AY"
+    },
+    {
+        "id": "9d89acb2-c4e4-4cab-b94a-7c12a61afe30",
+        "attachmentType": "image",
+        "name": "Screenshot.png",
+        "url": "https://contoso.communication.azure.com/chat/threads/19:9d89acb29d89acb2@thread.v2/images/9d89acb2-c4e4-4cab-b94a-7c12a61afe30/views/original?api-version=2023-11-03",
+        "previewUrl": "https://contoso.communication.azure.com/chat/threads/19:9d89acb29d89acb2@thread.v2/images/9d89acb2-c4e4-4cab-b94a-7c12a61afe30/views/small?api-version=2023-11-03"
+      }
+]
+``
+
 Now let's go back to the replace the code to add some extra logic like the following code snippets: 
 
 ```c#
