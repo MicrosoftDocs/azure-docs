@@ -515,6 +515,8 @@
           href: ../../managed-instance-apache-cassandra/visualize-prometheus-grafana.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Enable materialized views
           href: ../../managed-instance-apache-cassandra/materialized-views.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Write-Through Cache
+          href: ../../managed-instance-apache-cassandra/write-through-cache.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Commands
           href: ../../managed-instance-apache-cassandra/dba-commands.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: Reference
