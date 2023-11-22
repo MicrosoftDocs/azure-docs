@@ -1,5 +1,5 @@
 ---
-title: Choose your Node OS Upgrade Channel 
+title: Auto-upgrade Node OS Images 
 description: Learn how to choose an upgrade channel that best supports your needs for cluster's node OS security and maintenance. 
 ms.topic: article
 ms.custom: build-2023, devx-track-azurecli
@@ -8,7 +8,7 @@ author: nickomang
 ms.date: 11/22/2023
 ---
 
-# Auto-upgrade Azure Kubernetes Service cluster's node OS images
+# Auto-upgrade node OS images on AKS
 
 AKS provides multiple auto-upgrade channels dedicated to timely node-level OS security updates. This channel is different from cluster-level Kubernetes version upgrades and supersedes it.
 
