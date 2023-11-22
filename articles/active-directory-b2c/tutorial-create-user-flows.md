@@ -231,7 +231,7 @@ Now, grant permissions to the API scope you exposed earlier in the *IdentityExpe
 
 ## Custom policy starter pack
 
-Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define technical profiles and user journeys. We provide starter packs with several pre-built policies to get you going quickly. Each of these starter packs contains the smallest number of technical profiles and user journeys needed to achieve the scenarios described. For a more in depth guide to custom policies in Azure AD B2C please follow our [how-to guide series on custom policies](custom-policies-series-overview.md)
+Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define technical profiles and user journeys. We provide starter packs with several pre-built policies to get you going quickly. Each of these starter packs contains the smallest number of technical profiles and user journeys needed to achieve the scenarios described. For a more in-depth guide to Azure AD B2C custom policies, follow our [custom policies how-to guide series](custom-policies-series-overview.md)
 
 - **LocalAccounts** - Enables the use of local accounts only.
 - **SocialAccounts** - Enables the use of social (or federated) accounts only.
