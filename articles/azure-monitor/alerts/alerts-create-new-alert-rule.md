@@ -275,6 +275,8 @@ To edit an existing alert rule:
 
 1. On the **Actions** tab, select or create the required [action groups](./action-groups.md).
 
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new alert rule.":::
+
 ### Set the alert rule details
 
 1. On the **Details** tab, define the **Project details**.
@@ -366,7 +368,7 @@ To edit an existing alert rule:
     1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
     ---
 
-1. <a name="custom-props"></a>(Optional)  In the **Custom properties**, if you've configured action groups for this alert rule, you can add your own properties to include in the alert notification payload. You can use these properties in the actions called by the action group, such as webhook, Azure function or logic app actions.
+1. <a name="custom-props"></a>(Optional)  In the **Custom properties** section, if you've configured action groups for this alert rule, you can add your own properties to include in the alert notification payload. You can use these properties in the actions called by the action group, such as webhook, Azure function or logic app actions.
 
     The custom properties are specified as key:value pairs, using either static text, a dynamic value extracted from the alert payload, or a combination of both.
 
@@ -374,7 +376,7 @@ To edit an existing alert rule:
 
     Use the [common alert schema](alerts-common-schema.md) format to specify the field in the payload, whether or not the action groups configured for the alert rule use the common schema.
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-custom-props.png" alt-text="Screenshot that shows the custom properties section of creating a new alert rule.":::
 
     In the following examples, values in the **custom properties** are used to utilize data from a payload that uses the common alert schema:
 
