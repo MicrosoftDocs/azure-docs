@@ -21,7 +21,7 @@ The steps in this document walk-through creating a HDInsight 4.0 cluster using t
 
 ## Create a cluster
 
-1. Log in to your Azure subscription. If you plan to use Azure Cloud Shell, then select **Try it** in the upper-right corner of the code block. Else, enter the command below:
+1. Log in to your Azure subscription. If you plan to use Azure Cloud Shell, then select **Try it** in the upper-right corner of the code block. Else, enter the following command:
 
     ```azurecli-interactive
     az login
@@ -30,13 +30,13 @@ The steps in this document walk-through creating a HDInsight 4.0 cluster using t
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. Set environment variables. The use of variables in this article is based on Bash. Slight variations will be needed for other environments. See [az-hdinsight-create](/cli/azure/hdinsight#az-hdinsight-create) for a complete list of possible parameters for cluster creation.
+2. Set environment variables. The use of variables in this article is based on Bash. Slight variations are needed for other environments. See [az-hdinsight-create](/cli/azure/hdinsight#az-hdinsight-create) for a complete list of possible parameters for cluster creation.
 
     |Parameter | Description |
     |---|---|
     |`--workernode-count`| The number of worker nodes in the cluster. This article uses the variable `clusterSizeInNodes` as the value passed to `--workernode-count`. |
     |`--version`| The HDInsight cluster version. This article uses the variable `clusterVersion` as the value passed to `--version`. See also: [Supported HDInsight versions](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
-    |`--type`| Type of HDInsight cluster, like: hadoop, interactivehive, hbase, kafka, spark, rserver, mlservices.  This article uses the variable `clusterType` as the value passed to `--type`. See also: [Cluster types and configuration](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
+    |`--type`| Type of HDInsight cluster, like: hadoop, interactive hive, hbase, kafka, spark, `rserver`, `mlservices`.  This article uses the variable `clusterType` as the value passed to `--type`. See also: [Cluster types and configuration](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
     |`--component-version`|The versions of various Hadoop components, in space-separated versions in 'component=version' format. This article uses the variable `componentVersion` as the value passed to `--component-version`. See also: [Hadoop components](./hdinsight-component-versioning.md).|
 
     Replace `RESOURCEGROUPNAME`, `LOCATION`, `CLUSTERNAME`, `STORAGEACCOUNTNAME`, and `PASSWORD` with the desired values. Change values for the other variables as desired. Then enter the CLI commands.
@@ -56,7 +56,7 @@ The steps in this document walk-through creating a HDInsight 4.0 cluster using t
     export componentVersion=Hadoop=3.1
     ```
 
-3. [Create the resource group](/cli/azure/group#az-group-create) by entering the command below:
+3. [Create the resource group](/cli/azure/group#az-group-create) by entering the following command:
 
     ```azurecli-interactive
     az group create \
@@ -66,7 +66,7 @@ The steps in this document walk-through creating a HDInsight 4.0 cluster using t
 
     For a list of valid locations, use the `az account list-locations` command, and then use one of the locations from the `name` value.
 
-4. [Create an Azure Storage account](/cli/azure/storage/account#az-storage-account-create) by entering the command below:
+4. [Create an Azure Storage account](/cli/azure/storage/account#az-storage-account-create) by entering the following command:
 
     ```azurecli-interactive
     # Note: kind BlobStorage is not available as the default storage account.
@@ -79,7 +79,7 @@ The steps in this document walk-through creating a HDInsight 4.0 cluster using t
         --sku Standard_LRS
     ```
 
-5. [Extract the primary key from the Azure Storage account](/cli/azure/storage/account/keys#az-storage-account-keys-list) and store it in a variable by entering the command below:
+5. [Extract the primary key from the Azure Storage account](/cli/azure/storage/account/keys#az-storage-account-keys-list) and store it in a variable by entering the following command:
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -88,7 +88,7 @@ The steps in this document walk-through creating a HDInsight 4.0 cluster using t
         --query [0].value -o tsv)
     ```
 
-6. [Create an Azure Storage container](/cli/azure/storage/container#az-storage-container-create) by entering the command below:
+6. [Create an Azure Storage container](/cli/azure/storage/container#az-storage-container-create) by entering the following command:
 
     ```azurecli-interactive
     az storage container create \
