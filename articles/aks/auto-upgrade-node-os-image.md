@@ -8,7 +8,7 @@ author: nickomang
 ms.date: 11/22/2023
 ---
 
-# Auto-upgrade node OS images on AKS
+# Auto-upgrade node OS images
 
 AKS provides multiple auto-upgrade channels dedicated to timely node-level OS security updates. This channel is different from cluster-level Kubernetes version upgrades and supersedes it.
 
