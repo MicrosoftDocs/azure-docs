@@ -821,11 +821,11 @@ items:
         items:
         - name: Overview
           displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers, Post-Call Analytics
-          href: ../speech-service/call-center-overview.md?context=%2fazure%2fcognitive-services%2flanguage-service%2fcontext%2fcontext
+          href: ../speech-service/call-center-overview.md?context=%2fazure%2fai-services%2flanguage-service%2fcontext%2fcontext
         - name: Post-call transcription and analytics quickstart
-          href: ../speech-service/call-center-quickstart.md?context=%2fazure%2fcognitive-services%2flanguage-service%2fcontext%2fcontext
+          href: ../speech-service/call-center-quickstart.md?context=%2fazure%2fai-services%2flanguage-service%2fcontext%2fcontext
         - name: Ingestion Client
-          href: ../speech-service/ingestion-client.md?context=%2fazure%2fcognitive-services%2flanguage-service%2fcontext%2fcontext
+          href: ../speech-service/ingestion-client.md?context=%2fazure%2fai-services%2flanguage-service%2fcontext%2fcontext
 - name: Reference
   items:
   - name: REST API
