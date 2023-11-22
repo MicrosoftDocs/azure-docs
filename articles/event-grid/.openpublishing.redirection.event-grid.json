@@ -1,12 +1,12 @@
 {
   "redirections": [
     {
-      "source_path": "scripts/powershell-webhook-secure-delivery-microsoft-entra-user.md",
+      "source_path": "scripts/powershell-webhook-secure-delivery-azure-ad-user.md",
       "redirect_url": "scripts/powershell-webhook-secure-delivery-microsoft-entra-user",
       "redirect_document_id": false
     },    
     {
-      "source_path": "scripts/powershell-webhook-secure-delivery-microsoft-entra-app.md",
+      "source_path": "scripts/powershell-webhook-secure-delivery-azure-ad-app.md",
       "redirect_url": "scripts/powershell-webhook-secure-delivery-microsoft-entra-app",
       "redirect_document_id": false
     },    

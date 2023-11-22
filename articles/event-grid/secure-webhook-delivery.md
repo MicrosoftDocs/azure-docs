@@ -54,7 +54,7 @@ This section shows how to configure the event subscription by using a Microsoft 
     PS /home/user>Connect-AzureAD -TenantId $webhookAadTenantId
     ```
 
-4. Open the [following script](scripts/powershell-webhook-secure-delivery-azure-ad-user.md) and update the values of **$webhookAppObjectId** and **$eventSubscriptionWriterUserPrincipalName** with your identifiers, then continue to run the script.
+4. Open the [following script](scripts/powershell-webhook-secure-delivery-microsoft-entra-user.md) and update the values of **$webhookAppObjectId** and **$eventSubscriptionWriterUserPrincipalName** with your identifiers, then continue to run the script.
 
     - Variables:
         - **$webhookAppObjectId**: Microsoft Entra application ID created for the webhook

@@ -270,7 +270,7 @@ items:
         - name: Secure WebHook delivery with Microsoft Entra App in Azure Event Grid
           href: scripts/powershell-webhook-secure-delivery-microsoft-entra-app.md
         - name: Secure WebHook delivery with Microsoft Entra user in Azure Event Grid
-          href: scripts/powershell-webhook-secure-delivery-azure-ad-user.md
+          href: scripts/powershell-webhook-secure-delivery-microsoft-entra-user.md
       - name: Resource Manager templates
         href: template-samples.md
       - name: Code samples
