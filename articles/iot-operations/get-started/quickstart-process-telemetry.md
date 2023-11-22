@@ -41,7 +41,7 @@ To create a service principal that gives your pipeline access to your Microsoft 
 
 1. Use the following Azure CLI command to create a service principal.
 
-    ```bash
+    ```azurecli
     az ad sp create-for-rbac --name <YOUR_SP_NAME> 
     ```
 
@@ -104,14 +104,14 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
 
 1. Enter the following command on the machine where your cluster is running to edit the **aio-default-spc** `secretproviderclass` resource. The YAML configuration for the resource opens in your default editor:
 
-    ```bash
+    ```console
     kubectl edit secretproviderclass aio-default-spc -n azure-iot-operations
     ```
 
 1. Add a new entry to the array of secrets for your new Azure Key Vault secret. The `spec` section looks like the following example:
 
     ```yaml
-    # Please edit the object below. Lines beginning with a '#' will be ignored,
+    # Edit the object below. Lines beginning with a '#' will be ignored,
     # and an empty file will abort the edit. If an error occurs while saving this file will be
     # reopened with the relevant failures.
     #
@@ -146,7 +146,7 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
 
 The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the polling interval is reached. To update the pod immediately, restart the pods for the component. For Data Processor, run the following commands:
 
-```bash
+```console
 kubectl delete pod aio-dp-reader-worker-0 -n azure-iot-operations
 kubectl delete pod aio-dp-runner-worker-0 -n azure-iot-operations
 ```
@@ -193,10 +193,16 @@ In the following steps, leave all values at their default unless otherwise speci
 
 1. Select the pipeline name, **\<pipeline-name\>**, and change it to _passthrough-data-pipeline_. Select **Apply**.
 1. Select **Save** to save and deploy the pipeline. It takes a few seconds to deploy this pipeline to your cluster.
-1. Connect to the MQ broker using your MQTT client again. This time, specify the topic `dp-output`.
+1. Run the following command to create a shell environment in the **mqtt-client** pod you created in the previous quickstart:
 
-    ```bash
-    mqttui -b mqtt://127.0.0.1:1883 "dp-output"
+    ```console
+    kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
+    ```
+
+1. At the shell in the **mqtt-client** pod, connect to the MQ broker using your MQTT client again. This time, specify the topic `dp-output`.
+
+    ```console
+    mqttui -b mqtts://aio-mq-dmqtt-frontend:8883 -u '$sat' --password $(cat /var/run/secrets/tokens/mq-sat) --insecure "dp-output"
     ```
 
 1. You see the same data flowing as previously. This behavior is expected because the deployed _passthrough data pipeline_ doesn't transform the data. The pipeline routes data from one MQTT topic to another.
@@ -232,7 +238,7 @@ In the following steps, leave all values at their default unless otherwise speci
     | Name           | `equipment-data`                  |
     | Expiration time | `1h`                              |
 
-1. Select **Create dataset** to save the reference dataset destination details. It takes a few seconds to deploy the dataset to your cluster and become visible in the dataset list view.
+1. Select **Create** to save the reference dataset destination details. It takes a few seconds to deploy the dataset to your cluster and become visible in the dataset list view.
 
 1. Use the values in the following table to configure the destination stage. Then select **Apply**:
 
@@ -251,9 +257,17 @@ In the following steps, leave all values at their default unless otherwise speci
 
 To store the reference data, publish it as an MQTT message to the `reference_data` topic by using the mqttui tool:
 
-```bash
-mqttui -b mqtt://127.0.0.1:1883 publish "reference_data" '{ "customer": "Contoso", "batch": 102, "equipment": "Boiler", "location": "Seattle", "isSpare": true }'
-```
+1. Create a shell environment in the **mqtt-client** pod you created in the previous quickstart:
+
+    ```console
+    kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
+    ```
+
+1. Publish the message:
+
+    ```console
+    mqttui -b mqtts://aio-mq-dmqtt-frontend:8883 -u '$sat' --password $(cat /var/run/secrets/tokens/mq-sat) --insecure publish "reference_data" '{ "customer": "Contoso", "batch": 102, "equipment": "Boiler", "location": "Seattle", "isSpare": true }'
+    ```
 
 After you publish the message, the pipeline receives the message and stores the data in the equipment data reference dataset.
 

@@ -170,7 +170,6 @@ On Ubuntu Linux, use K3s to create a Kubernetes cluster.
 
    ```bash
    mkdir ~/.kube
-   cp ~/.kube/config ~/.kube/config.back
    sudo KUBECONFIG=~/.kube/config:/etc/rancher/k3s/k3s.yaml kubectl config view --flatten > ~/.kube/merged
    mv ~/.kube/merged ~/.kube/config
    chmod  0600 ~/.kube/config
@@ -316,7 +315,7 @@ While the deployment is in progress, you can watch the resources being applied t
 
 To view the pods on your cluster, run the following command:
 
-```bash
+```console
 kubectl get pods -n azure-iot-operations
 ```
 
