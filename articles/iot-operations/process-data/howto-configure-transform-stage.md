@@ -16,18 +16,18 @@ ms.date: 10/09/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use the _transform_ stage to carry out structural transformations on messages in a pipeline such as:
+Use the _transform_ stage to carry out structural transformations on messages in a pipeline, such as:
 
-- Renaming tags and properties
-- Unbatching data
-- Adding new properties
-- Adding calculated values
+- Rename tags and properties
+- Unbatch data
+- Add new properties
+- Add calculated values
 
 The transform stage uses [jq](concept-jq.md) to support data transformation:
 
 - Each pipeline partition transforms messages independently of each other.
-- The stage outputs a transformed message based on the jq expression](concept-jq-expression.md) you provide.
-- Create a [jq expression](concept-jq-expression.md) to transform a message based on how the structure of the incoming message to the stage.  
+- The stage outputs a transformed message based on the [jq expression](concept-jq-expression.md) you provide.
+- Create a [jq expression](concept-jq-expression.md) to transform a message based on the structure of the incoming message to the stage.  
 
 ## Prerequisites
 
@@ -38,9 +38,9 @@ To configure and use a transform pipeline stage, you need:
 
 ### Configure the stage
 
-The transform stage JSON configuration defines the details of the stage. To author the stage, you can either interact with the form-based UI, or provide the JSON configuration on the **Advanced** tab:
+The transform stage JSON configuration defines the details of the stage. To author the stage, you can either interact with the form-based UI or provide the JSON configuration on the **Advanced** tab:
 
-| Name | Value | Required | Example |
+| Name | Value | Required | Example | 
 | --- | --- | --- | --- |
 | Name  | A name to show in the Data Processor UI.  | Yes | `Transform1` |
 | Description | A user-friendly description of what the transform stage does.  | No | `Rename Tags` |
@@ -58,7 +58,7 @@ The following transformation example converts the array of tags in the input mes
 }
 ```
 
-The output from the transform stage looks like the following example
+The output from the transform stage looks like the following example:
 
 ```json
 {

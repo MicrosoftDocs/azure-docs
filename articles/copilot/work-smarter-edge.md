@@ -19,6 +19,8 @@ When you ask Microsoft Copilot for Azure (preview) for information about the sta
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
+[!INCLUDE [preview-note](includes/preview-note.md)]
+
 ## Sample prompts
 
 Here are a few examples of the kinds of prompts you can use to work with your Azure Stack HCI clusters. Modify these prompts based on your real-life scenarios, or try additional prompts to get different types of information.
