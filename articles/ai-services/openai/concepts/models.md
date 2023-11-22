@@ -91,9 +91,9 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 | `gpt-4-32k`(0314)  | 32,768               | Sep 2021         |
 | `gpt-4` (0613)     | 8,192                | Sep 2021         |
 | `gpt-4-32k` (0613) | 32,768               | Sep 2021         |
-| `gpt-4` (1106-preview)**<sup>1</sup>**<br>**GPT-4 Turbo** | Input: 128,000  <br> Output: 4096           | Apr 2023         |
+| `gpt-4` (1106-preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4096           | Apr 2023         |
 
-**<sup>1</sup>** GPT-4 Turbo = `gpt-4` (1106-preview). To deploy GPT-4 Turbo, under **Deployments** select model **gpt-4**. For **Model version** select **1106-preview**. We don't recommend using this model in production. We will upgrade all deployments of this model to a future stable version. Models designated preview do not follow the standard Azure OpenAI model lifecycle.
+**<sup>1</sup>** GPT-4 Turbo Preview = `gpt-4` (1106-preview). To deploy this model, under **Deployments** select model **gpt-4**. For **Model version** select **1106-preview**. We don't recommend using this model in production. We will upgrade all deployments of this model to a future stable version. Models designated preview do not follow the standard Azure OpenAI model lifecycle.
 
 > [!NOTE]
 > Regions where GPT-4 (0314) & (0613) are listed as available have access to both the 8K and 32K versions of the model
