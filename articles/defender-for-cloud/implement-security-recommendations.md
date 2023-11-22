@@ -53,23 +53,21 @@ In addition to risk level, we recommend that you prioritize the security control
 
 1. Locate the Remediate section and follow the remediation instructions.
 
-    As an example, the following screenshot shows remediation steps for configuring applications to only allow traffic over HTTPS.
-
     :::image type="content" source="./media/implement-security-recommendations/security-center-remediate-recommendation.png" alt-text="This screenshots shows manual remediation steps for a recommendation." lightbox="./media/implement-security-recommendations/security-center-remediate-recommendation.png":::
-
-1. Once completed, a notification appears informing you whether the issue is resolved.
 
 ## Use the Fix option
 
 To simplify remediation and improve your environment's security (and increase your secure score), many recommendations include a **Fix** option to help you quickly remediate a recommendation on multiple resources.
 
+**To remediate a recommendation with the Fix button**:
+
 1. In the **Recommendations**  page, select a recommendation that shows the **Fix** action icon: :::image type="icon" source="media/implement-security-recommendations/fix-icon.png" border="false":::.
 
     :::image type="content" source="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png" alt-text="This screenshot shows recommendations with the Fix action" lightbox="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png":::
 
-1. In **Take action**, select **Fix**.
-1. Follow the rest of the remediation steps.
+1. Select **Take action** > **Fix**.
 
+1. Follow the rest of the remediation steps.
 
 After remediation completes, it can take several minutes to see the resources appear in the **Findings** tab when the status is filtered to view **Healthy** resources. 
 
