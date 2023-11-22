@@ -18,7 +18,7 @@ There are multiple Microsoft Azure offerings for running and managing your Oracl
 
 The Oracle on Azure virtual machines offering provides multiple options for running, managing, and monitoring Oracle workloads on Azure.  
 
-For more information, see the [Oracle workloads on Azure Virtual machine](oracle-overview.md) documentation. 
+For more information, see the [Oracle workloads on Azure Virtual machine](../virtual-machines/workloads/oracle/) documentation. 
 
 ## Oracle Database@Azure
 
@@ -26,7 +26,7 @@ In addition to the capabilities of Oracle on Azure virtual machines, Microsoft o
 
 Oracle Database@Azure delivers all the performance, scale, and workload availability advantages of Oracle Database on OCI with the security, flexibility, and best-in-class services of Microsoft Azure.  
 
-For more information, see the [Oracle Database on Azure](database-overview.md) documentation. 
+For more information, see the [Oracle Database on Azure](oracle-db/database-overview.md) documentation. 
 
 ## Next steps 
 

@@ -10,7 +10,7 @@ items:
 - name: Oracle Database@Azure
   items:
   - name: Overview - Oracle Database@Azure
-    href: ../oracle/oracle-db/database-overview.md
+    href: oracle-db/database-overview.md
   - name: Provision and manage Oracle Database@Azure
-    href: ../oracle/oracle-db/provision-oracle-database.md
+    href: oracle-db/provision-oracle-database.md
   
