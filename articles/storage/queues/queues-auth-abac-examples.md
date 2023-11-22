@@ -55,7 +55,7 @@ The condition can be added to a role assignment using either the Azure portal or
 
 Select **Add action**, then select **Peek messages** and **Clear messages**:
 
-:::image type="content" source="./media/queues-auth-abac-examples/peek-clear-action-select-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of just the peek operation." lightbox="./media/queues-auth-abac-examples/peek-clear-action-select-portal.png":::
+:::image type="content" source="./media/queues-auth-abac-examples/peek-clear-action-select-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of peek and clear operations." lightbox="./media/queues-auth-abac-examples/peek-clear-action-select-portal.png":::
 
 #### Build expression
 
@@ -109,6 +109,8 @@ $bearerCtx = New-AzStorageContext -StorageAccountName $storageAccountName
 Get-AzStorageQueue -Name <queueName> -Context $bearerCtx 
 ```
 
+---
+
 ## Environment attributes
 
 This section includes examples showing how to restrict access to queue messages based on the network environment or the current date and time.
@@ -142,13 +144,13 @@ Use the values in the following table to build the expression portion of the con
 > | Value | {queue-name} |
 > | Logical operator | ['AND'](../../role-based-access-control/conditions-format.md#and) |
 > | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
-> | Attribute | [UtcNow](storage-auth-abac-attributes.md#utc-now) |
+> | Attribute | [UtcNow](queues-auth-abac-attributes.md#utc-now) |
 > | Operator | [DateTimeGreaterThan](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
 > | Value | `2023-05-01T13:00:00.000Z` |
 
 The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
 
-:::image type="content" source="./media/queues-auth-abac-examples/environ-utcnow-queue-peek-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing peek access allowed after a specific date and time." lightbox="./media/queues-auth-abac-examples/environ-utcnow-queue-peek-portal.png":::
+:::image type="content" source="./media/queues-auth-abac-examples/env-utcnow-queue-peek-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing peek access allowed after a specific date and time." lightbox="./media/queues-auth-abac-examples/env-utcnow-queue-peek-portal.png":::
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
@@ -234,7 +236,7 @@ Use the values in the following table to build the expression portion of the con
 > | Value | `container1` |
 > | Logical operator | ['AND'](../../role-based-access-control/conditions-format.md#and) |
 > | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
-> | Attribute | [Subnet](storage-auth-abac-attributes.md#subnet) |
+> | Attribute | [Subnet](queues-auth-abac-attributes.md#subnet) |
 > | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Value | `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/sample-vnet/subnets/default` |
 
