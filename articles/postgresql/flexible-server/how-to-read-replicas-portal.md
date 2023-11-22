@@ -289,6 +289,8 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 ## Delete a replica
 
+#### [Portal](#tab/portal)
+
 You can delete a read replica similar to how you delete a standalone Azure Database for PostgreSQL - Flexible Server.
 
 1.  In the Azure portal, open the **Overview** page for the read replica. Select **Delete**.
@@ -307,9 +309,20 @@ You can also delete the read replica from the **Replication** window by followin
 
 5.  Acknowledge **Delete** operation.
 
+#### [REST API](#tab/restapi)
+To delete a primary or replica server, use the [delete API](/rest/api/postgresql/flexibleserver/servers/delete). If server has read replicas then read replicas should be deleted first before deleting the primary server.
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-03-08-preview
+```
+
+---
+
 ## Delete a primary server
 
 You can only delete the primary server once all read replicas have been deleted. Follow the instructions in the [Delete a replica](#delete-a-replica) section to delete replicas and then proceed with the steps below.
+
+#### [Portal](#tab/portal)
 
 To delete a server from the Azure portal, follow these steps:
 
@@ -322,6 +335,16 @@ To delete a server from the Azure portal, follow these steps:
 3.  Enter the name of the primary server to delete. Select **Delete** to confirm the deletion of the primary server.
 
     :::image type="content" source="./media/how-to-read-replicas-portal/delete-primary-confirm.png" alt-text="Screenshot of confirming to delete the primary server.":::
+
+#### [REST API](#tab/restapi)
+To delete a primary or replica server, use the [delete API](/rest/api/postgresql/flexibleserver/servers/delete). If server has read replicas then read replicas should be deleted first before deleting the primary server.
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-03-08-preview
+```
+
+---
+
 
 ## Monitor a replica
 
