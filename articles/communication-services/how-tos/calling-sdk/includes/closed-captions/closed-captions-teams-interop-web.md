@@ -57,7 +57,7 @@ if (captionsCallFeature.captions.kind === 'TeamsCaptions') {
 ### Add a listener to receive captions active/inactive status
 ```typescript
 const captionsActiveChangedHandler = () => {
-    if (teamsCaptions.isCaptionsFeatureActive()) {
+    if (teamsCaptions.isCaptionsFeatureActive) {
         /* USER CODE HERE - E.G. RENDER TO DOM */
     }
 }
