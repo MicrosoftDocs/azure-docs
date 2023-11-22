@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # Entitlement service
 
-Access management is a critical function for any service or resource. Entitlement service helps you manage who has access to your Azure Data Manager for Energy instance, what they can view or edit, and what services or data they have access to.
+Access management is a critical function for any service or resource. The entitlement service lets you control who can use your Azure Data Manager for Energy, what they can see or change, and which services or data they can use.
 
 ## Groups
 
@@ -27,16 +27,16 @@ Some user, data, and service groups are created by default when a data partition
 
 ## Group naming
 
-All group identifiers (emails) will be of form {groupType}.{serviceName|resourceName}.{permission}@{partition}.{domain}.com. A group naming convention has been adopted such that the group's name should start with 
+All group identifiers (emails) are of form {groupType}.{serviceName|resourceName}.{permission}@{partition}.{domain}.com. A group naming convention is adopted by OSDU such that the group's name starts with 
 1. the word "data." for data groups;
 2. the word "service." for service groups;
-3. the word "users." for user groups. There is one exception for "users" group which is created when a new data partition is provisioned. For example, for data partition `opendes`, the group `users@opendes.dataservices.energy` is created. 
+3. the word "users." for user groups. There's one exception for "users" group created when a new data partition is provisioned. For example, for data partition `opendes`, the group `users@opendes.dataservices.energy` is created. 
 
 ## Users
 
 For each OSDU group, you can either add a user as an OWNER or a MEMBER. 
 1. If you're an OWNER of an OSDU group, then you can add or remove the members of that group or delete the group.
-2. If you are a MEMBER of an OSDU group, you can view, edit, or delete the service or data depending on the scope of the OSDU group. For example, if you are a MEMBER of service.legal.editor OSDU group, you can call the APIs to change the legal service.
+2. If you're a MEMBER of an OSDU group, you can view, edit, or delete the service or data depending on the scope of the OSDU group. For example, if you're a MEMBER of service.legal.editor OSDU group, you can call the APIs to change the legal service.
 > [!NOTE]
 > Do not delete the OWNER of a group unless there is another OWNER to manage the users. 
 
