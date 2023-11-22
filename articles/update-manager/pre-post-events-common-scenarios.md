@@ -77,9 +77,8 @@ This article presents the frequently asked questions in the lifecycle of pre and
 
 #### [With webhooks using Automation Runbooks](#tab/events-runbooks)
 
-> [!NOTE]
-> - The VM start operation requires the Automation Managed Identity to have *Microsoft.Compute/virtualMachines/start/action* permissions over the VMs to get started, and this permission is included in the **VM Contributor** role.
-> - Ensure to import the PowerShell package - **ThreadJob with the Module version:2.0.3**.
+- The VM start operation requires the Automation Managed Identity to have *Microsoft.Compute/virtualMachines/start/action* permissions over the VMs to get started, and this permission is included in the **VM Contributor** role.
+- Ensure to import the PowerShell package - **ThreadJob with the Module version:2.0.3**.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Automation account**.
 1. In your Automation account, under **Process Automation**, select **Runbooks**.
