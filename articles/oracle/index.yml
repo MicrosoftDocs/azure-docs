@@ -39,7 +39,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Oracle Database@Azure
-            url: database-overview.md
+            url: ../oracle/oracle-db/database-overview.md
           - text: Provision and manage Oracle Database@Azure
             url: ../oracle-db/provision-oracle-database.md
 
