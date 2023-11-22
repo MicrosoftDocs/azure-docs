@@ -55,12 +55,13 @@ The top bar has controls for working with a query in the query window.
 
 ### Left sidebar
 
-The sidebar on the left lists tables in the workspace, sample queries, and filter options for the current query.
+The sidebar on the left lists tables in the workspace, sample queries, functions, and filter options for the current query.
 
 | Tab | Description |
 |:---|:---|
 | Tables | Lists the tables that are part of the selected scope. Select **Group by** to change the grouping of the tables. Hover over a table name to display a dialog with a description of the table and options to view its documentation and preview its data. Expand a table to view its columns. Double-click a table or column name to add it to the query. |
 | Queries | List of example queries that you can open in the query window. This list is the same one that appears when you open Log Analytics. Select **Group by** to change the grouping of the queries. Double-click a query to add it to the query window or hover over it for other options. |
+| Functions | Lists the [functions](./functions.md) in the workspace. |
 | Filter | Creates filter options based on the results of a query. After you run a query, columns appear with different values from the results. Select one or more values, and then select **Apply & Run** to add a **where** command to the query and run it again. |
 
 ### Query window
