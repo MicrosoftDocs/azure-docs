@@ -10233,6 +10233,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/tutorial-protect-vpn-gateway.md",
+            "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn-clients.md",
             "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
             "redirect_document_id": false
@@ -10534,6 +10539,11 @@
         },
         {
             "source_path_from_root": "/articles/bastion/bastion-create-host-portal.md",
+            "redirect_url": "/azure/bastion/tutorial-create-host-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/bastion/tutorial-protect-bastion-host-ddos.md",
             "redirect_url": "/azure/bastion/tutorial-create-host-portal",
             "redirect_document_id": false
         },

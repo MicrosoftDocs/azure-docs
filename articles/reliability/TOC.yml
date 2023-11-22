@@ -265,7 +265,7 @@
         - name: Azure Virtual WAN
           href: ../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md
         - name: Azure Web Application Firewall
-          href: ../application-gateway/application-gateway-faq.yml#how-do-i-achieve-a-dr-scenario-across-datacenters-by-using-application-gateway
+          href: ../application-gateway/application-gateway-faq.yml#how-do-i-achieve-a-disaster-recovery-scenario-across-datacenters-by-using-application-gateway
       - name: Strategic services
         items:
         - name: Azure Databox

@@ -1,11 +1,11 @@
 ---
 title: Configure authentication in a sample Angular SPA by using Azure Active Directory B2C
 description: Learn how to use Azure Active Directory B2C to sign in and sign up users in an Angular SPA.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 03/09/2023
 ms.author: kengaderdus

@@ -100,7 +100,7 @@ The following are the recommended limits for the mentioned indicators
 | Number of dynamic scopes per Resource Group or Subscription per Region     | 250  |
 | Number of dynamic scopes per Maintenance Configuration   | 50  |
 
-The following are the Dynamic Scope Limits for **each dynamic scope**
+The following are the Dynamic Scope recommended limits for **each dynamic scope**
 
 | Resource    | Limit          |
 |----------|----------------------------|

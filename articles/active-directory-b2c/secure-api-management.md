@@ -1,12 +1,12 @@
 ---
 title: Secure an Azure API Management API by using Azure Active Directory B2C
 description: Learn how to use access tokens issued by Azure Active Directory B2C to secure an Azure API Management API endpoint.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 09/20/2021
 ms.author: kengaderdus
