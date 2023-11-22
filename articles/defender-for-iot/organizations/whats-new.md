@@ -46,7 +46,7 @@ For more information, see [Deploy hybrid or air-gapped OT sensor management](ot-
 The [legacy on-premises management console](../legacy-central-management/legacy-air-gapped-deploy.md) won't be available for download after **January 1st, 2025**. Until then, we recommend transitioning to the new architecture guidance, using the full spectrum of on-premises and cloud APIs.
 
 - Sensor versions released after **January 1, 2024** won't be able to be managed by an on-premises management console.
-- Sensor software versions released between **January 1, 2023 - January 1, 2024** will continue to support an on-premises management console release.
+- Sensor software versions released between **January 1st, 2024 – January 1st, 2025** will continue to support an on-premises management console release.
 - Air-gapped sensors that cannot connect to the cloud can be managed directly via the sensor console or using REST APIs.
 
 Our support team is available to help with further guidance as customers begin planning for the transition to the new architecture guidance. For more information, see:
