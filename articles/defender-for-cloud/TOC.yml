@@ -611,6 +611,10 @@
             href: disable-vulnerability-findings-containers.md
           - name: REST API
             href: subassessment-rest-api.md
+          - name: Migration to MDVM from Qualys
+            href: migration-from-qualys-to-microsoft-defender-vulnerability-management.md
+          - name: Common questions about MDVM migration and Qualys retirement
+            href: common-questions-mdvm-qualys-retirement.md
       - name: Vulnerability assessment for AWS
         displayName: AWS, ECR, registry, images, qualys
         href: defender-for-containers-vulnerability-assessment-elastic.md
