@@ -129,8 +129,7 @@
       href: ot-deploy/create-learned-baseline.md
   - name: Deploy in hybrid or air-gapped environments
     href: ot-deploy/air-gapped-deploy.md
-  - name: Tutorials
-  expanded: false
+- name: Tutorials
   items:
   - name: Onboard and activate a virtual OT sensor
     href: tutorial-onboarding.md
@@ -309,7 +308,7 @@
   - name: Deploy air-gapped OT sensor management
     items:
     - name: Air-gapped management deployment path
-      href: ot-deploy/air-gapped-deploy.md
+      href: ot-deploy/legacy-air-gapped-deploy.md
     - name: Prepare an appliance
       href: legacy-central-management/install-software-on-premises-management-console.md
     - name: Install an on-premises management console

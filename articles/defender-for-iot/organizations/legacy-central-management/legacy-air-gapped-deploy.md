@@ -1,6 +1,6 @@
 ---
-title: On-premises management console deployment path - Microsoft Defender for IoT
-description: Learn about the steps involved in deploying a Microsoft Defender for IoT on-premises management console to centrally manage and view data from multiple locally-managed, air-gapped OT sensors.
+title: On-premises management console deployment path (Legacy) - Microsoft Defender for IoT
+description: Learn about the steps involved in deploying a legacy Microsoft Defender for IoT on-premises management console to centrally manage and view data from multiple locally-managed, air-gapped OT sensors.
 ms.topic: install-set-up-deploy
 ms.date: 08/07/2023
 ---
