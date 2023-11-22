@@ -62,7 +62,6 @@ When you create a cluster using the Azure portal, you can choose a preset config
 
 |                              |Standard |Dev/Test|Cost-optimized|Batch processing|Hardened access|
 |------------------------------|---------|--------|--------|--------|--------|
-|**Description**               |Best if you're not sure what to choose. Works well with most applications.|Best for experimenting with AKS or deploying a test app.|Best for reducing costs on production workloads that can tolerate interruptions.|Best for machine learning, compute-intensive, and graphics-intensive workloads. Suited for apps requiring fast scale-up and scale-out.|Best for large enterprises that need full control of security and stability.|
 |**System node pool node size**|DS2_v2   |B4ms|B4ms|D4s_v3|D4s_v3|
 |**User node pool node size**|-   |-|B4ms|NC6s_v3|D4s_v3|
 |**Cluster autoscaling**|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
