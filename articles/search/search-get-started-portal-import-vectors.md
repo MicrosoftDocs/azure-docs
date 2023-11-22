@@ -131,6 +131,8 @@ This step creates the following objects:
 
 + Indexer with field mappings and output field mappings (if applicable).
 
+If you get errors, review permissions first. You need **Cognitive Services OpenAI User** on Azure OpenAI and **Storage Blob Data Reader** on Azure Storage. Your blobs must be unstructured (chunked data is pulled from the blob's "content" property).
+
 ## Check results
 
 Search explorer accepts text strings as input and then vectorizes the text for vector query execution.
