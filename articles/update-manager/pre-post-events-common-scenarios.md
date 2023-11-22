@@ -21,10 +21,10 @@ This article presents the frequently asked questions in the lifecycle of pre and
 1. Under **Manage**, select **Machines**, **Maintenance Configurations**.
 1. On the **Maintenance Configuration** page, select the configuration.
 1. Select **Overview**, and check **Maintenance events**.
-    1. If there are no pre and post events that are set up, select **Configure** to set up.
-    1. If there are pre and post events associated to the configuration, you can see the count of pre and post events.
-    
-       :::image type="content" source="./media/pre-post-events-common-scenarios/configure-new-event.png" alt-text="Screenshot that shows how to configure new event." lightbox="./media/pre-post-events-common-scenarios/configure-new-event.png":::
+   - If there are no pre and post events that are set up, select **Configure** to set up.
+    :::image type="content" source="./media/pre-post-events-common-scenarios/configure-new-event.png" alt-text="Screenshot that shows how to configure new event." lightbox="./media/pre-post-events-common-scenarios/configure-new-event.png":::
+
+   - If there are pre and post events associated to the configuration, you can see the count of pre and post events associated to the configuration in the **Events** page. 
 
 ## How to view the list of pre and post events set up on a maintenance configuration?
 
@@ -76,6 +76,9 @@ This article presents the frequently asked questions in the lifecycle of pre and
 ## How to check if the endpoint has been triggered in the pre or post task?
 
 #### [With webhooks using Automation Runbooks](#tab/events-runbooks)
+
+- The VM start operation requires the Automation Managed Identity to have *Microsoft.Compute/virtualMachines/start/action* permissions over the VMs to get started, and this permission is included in the **VM Contributor** role.
+- Ensure to import the PowerShell package - **ThreadJob with the Module version:2.0.3**.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Automation account**.
 1. In your Automation account, under **Process Automation**, select **Runbooks**.

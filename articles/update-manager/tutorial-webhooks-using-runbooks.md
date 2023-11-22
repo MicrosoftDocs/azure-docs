@@ -2,7 +2,7 @@
 title: Create pre and post events using a webhook with Automation runbooks.
 description: In this tutorial, you learn how to create the pre and post events using webhook with Automation runbooks.
 ms.service: azure-update-manager
-ms.date: 11/12/2023
+ms.date: 11/21/2023
 ms.topic: tutorial 
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -20,9 +20,12 @@ This tutorial explains how to create pre and post events to start and stop a VM 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> - Prerequisites
 > - Create and publish Automation runbook
 > - Add webhooks
 > - Create an event subscription
+
+[!INCLUDE [pre-post-prerequisites.md](includes/pre-post-prerequisites.md)]
 
 
 ## Create and publish Automation runbook
@@ -222,6 +225,19 @@ foreach($id in $jobsList)
         Write-Output $job.Error
     }
 }
+```
+
+#### [Cancel a schedule](#tab/script-cancel)
+```
+Invoke-AzRestMethod `
+-Path "<Correlation ID from EventGrid Payload>?api-version=2023-09-01-preview" `
+-Payload 
+'{
+    "properties": {
+       "status": "Cancel"
+    }
+      }' `
+-Method PUT
 ```
 ---
 
