@@ -69,6 +69,8 @@ Before setting up a read replica for Azure Database for PostgreSQL, ensure the p
 
 To create a read replica, follow these steps:
 
+#### [Portal](#tab/portal)
+
 1.  Select an existing Azure Database for the PostgreSQL server to use as the primary server.
 
 2.  On the server sidebar, under **Settings**, select **Replication**.
@@ -80,6 +82,25 @@ To create a read replica, follow these steps:
 4.  Enter the Basics form with the following information.
 
     :::image type="content" source="./media/how-to-read-replicas-portal/basics.png" alt-text="Screenshot showing entering the basics information." lightbox="./media/how-to-read-replicas-portal/basics.png":::
+
+#### [REST API](#tab/restapi)
+
+You can create a read replica by using the [create API](/rest/api/postgresql/flexibleserver/servers/create):
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-03-08-preview
+```
+
+```json
+{
+  "location": "southeastasia",
+  "properties": {
+    "createMode": "Replica",
+    "SourceServerResourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}"
+  }
+}
+```
+
 
 - Set the replica server name.
 
@@ -109,7 +130,7 @@ To create a read replica, follow these steps:
     :::image type="content" source="./media/how-to-read-replicas-portal/replica-review.png" alt-text="Screenshot of reviewing the information in the final confirmation window.":::
 
 8.  During the deployment, you see the primary in `Updating` state.
-
+    
     :::image type="content" source="./media/how-to-read-replicas-portal/primary-updating.png" alt-text="Screenshot of primary entering into updating status." lightbox="./media/how-to-read-replicas-portal/primary-updating.png":::
 After the read replica is created, it can be viewed from the **Replication** window.
 
