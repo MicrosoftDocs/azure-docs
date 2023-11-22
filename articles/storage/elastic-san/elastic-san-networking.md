@@ -6,7 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: conceptual
 ms.date: 11/06/2023
 ms.author: rogarana
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure network access for Azure Elastic SAN Preview

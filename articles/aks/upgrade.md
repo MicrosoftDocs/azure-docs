@@ -4,7 +4,7 @@ description: Learn about the various upgradeable components of an Azure Kubernet
 author: nickomang
 ms.author: nickoman
 ms.topic: conceptual
-ms.date: 11/11/2022
+ms.date: 11/21/2023
 ---
 
 # Upgrading Azure Kubernetes Service clusters and node pools
@@ -24,6 +24,8 @@ The following table summarizes the details of updating each component:
 |Cluster Kubernetes version upgrade to supported patch version|Approximately weekly. To determine the latest applicable version in your region, see the [AKS release tracker][release-tracker]|Yes|Automatic, Manual|[Upgrade an AKS cluster][upgrade-cluster]|
 |Node image version upgrade|**Linux**: weekly<br>**Windows**: monthly|Yes|Automatic, Manual|[AKS node image upgrade][node-image-upgrade]|
 |Security patches and hot fixes for node images|As-necessary|||[AKS node security patches][node-security-patches]|
+
+An important practice that you should include as part of your upgrade process is remembering to follow commonly used deployment and testing patterns. Testing an upgrade in a development or test environment before deployment in production is an important step to ensure application functionality and compatibility with the target environment. It can help you identify and fix any errors, bugs, or issues that might affect the performance, security, or usability of the application or underlying infrastructure.
 
 ## Automatic upgrades
 

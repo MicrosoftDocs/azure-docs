@@ -21,6 +21,8 @@ When you ask Microsoft Copilot for Azure (preview) about improving security acco
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
+[!INCLUDE [preview-note](includes/preview-note.md)]
+
 ## Sample prompts
 
 Here are a few examples of the kinds of prompts you can use to improve and protect your storage accounts. Modify these prompts based on your real-life scenarios, or try additional prompts to get advice on specific areas.

@@ -30,15 +30,11 @@ Here are some troubleshooting options to consider:
 
 The Astro resource can only be created by users who have _Owner_ or _Contributor_ access on the Azure subscription. Ensure you have the appropriate access before setting up this integration.
 
-### Purchase errors
+### Marketplace purchase errors
 
-#### Purchase fails because a valid credit card isn't connected to the Azure subscription or a payment method isn't associated with the subscription
+[!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
-Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](../../cost-management-billing/manage/change-credit-card.md).
-
-#### The EA subscription doesn't allow Marketplace purchases
-
-Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Astronomer support](https://support.astronomer.io).
+If those options don't solve the problem, contact [Astronomer support](https://support.astronomer.io).
 
 ### DeploymentFailed error
 

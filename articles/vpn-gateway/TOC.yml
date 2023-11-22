@@ -27,6 +27,8 @@
     href: design.md
   - name: About VPN Gateway settings
     href: vpn-gateway-about-vpn-gateway-settings.md
+  - name: About gateway SKUs
+    href: about-gateway-skus.md
   - name: About VPN devices
     href: vpn-gateway-about-vpn-devices.md
   - name: About cryptographic requirements

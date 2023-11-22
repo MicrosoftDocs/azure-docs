@@ -2,15 +2,12 @@
 title: Set up OAuth 2.0 client credentials flow
 titleSuffix: Azure AD B2C
 description: Learn how to set up the OAuth 2.0 client credentials flow in Azure Active Directory B2C.
-services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
 ms.date: 11/21/2023
-ms.custom: project-no-code
+ms.custom: 
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type

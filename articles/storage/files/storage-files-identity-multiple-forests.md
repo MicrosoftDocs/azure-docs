@@ -4,7 +4,7 @@ description: Configure on-premises Active Directory Domain Services (AD DS) auth
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 11/21/2023
 ms.author: kendownie
 ---
 
@@ -159,6 +159,7 @@ To use this method, complete the following steps:
    1. Select the node named after your domain (for example, **onpremad1.com**) and right-click **New Alias (CNAME)**.
    1. For the alias name, enter your storage account name.
    1. For the fully qualified domain name (FQDN), enter **`<storage-account-name>`.`<domain-name>`**, such as **mystorageaccount.onpremad1.com**.
+   1. If you're using a private endpoint (PrivateLink) for the storage account, add an additional CNAME entry to map to the private endpoint name, for example **mystorageaccount.privatelink.onpremad1.com**.
    1. For the target host FQDN, enter **`<storage-account-name>`.file.core.windows.net**
    1. Select **OK**.
 
