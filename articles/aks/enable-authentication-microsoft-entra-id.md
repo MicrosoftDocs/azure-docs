@@ -1,13 +1,13 @@
 ---
-title: Enable Managed Identity Authentication
-description: Learn how to enable Microsoft Entra ID on Azure Kubernetes Service with kubelogin and authenticateAzure users with credentials or managed roles.
+title: Enable managed identity authentication on Azure Kubernetes Service
+description: Learn how to enable Microsoft Entra ID on Azure Kubernetes Service with kubelogin and authenticate Azure users with credentials or managed roles.
 ms.topic: article
 ms.date: 11/22/2023
 ms.custom: devx-track-azurecli
 ms.author: miwithro
 ---
 
-# Enable Azure Managed Identity authentication for Kubernetes clusters with kubelogin
+# Enable Azure managed identity authentication for Kubernetes clusters with kubelogin
 
 The AKS-managed Microsoft Entra integration simplifies the Microsoft Entra integration process. Previously, you were required to create a client and server app, and the Microsoft Entra tenant had to grant Directory Read permissions. Now, the AKS resource provider manages the client and server apps for you.
 
@@ -15,11 +15,11 @@ Cluster administrators can configure Kubernetes role-based access control (Kuber
 
 Learn more about the Microsoft Entra integration flow in the [Microsoft Entra documentation](concepts-identity.md#azure-ad-integration).
 
-## Limitations of integration
+## Limitations
 
-Azure Managed ID on AKS has certain limits to account for before you make a decision.
+The following are constraints integrating Azure managed identity authentication on AKS.
 
-* The integration can't be disabled once added.
+* Integration can't be disabled once added.
 * Downgrades from an integrated cluster to the legacy Microsoft Entra ID clusters aren't supported.
 * Clusters without Kubernetes RBAC support are unable to add the integration.
 
