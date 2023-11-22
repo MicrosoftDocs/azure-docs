@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: how-to
-ms.date: 10/24/2023
+ms.date: 11/22/2023
 ---
 
 # How to manage data sources in Azure Managed Grafana
@@ -241,6 +241,8 @@ Azure Managed Grafana can also access data sources using a service principal set
    ```
 
 1. Run the [az grafana data-source update](/cli/azure/grafana/data-source#az-grafana-data-source-update) command to update the configuration of the Azure Data Explorer data source.
+
+Fore more information about Azure Data Explorer datasources, go to [Azure Data Explorer](\how-to-connect-azure-data-explorer.md).
 
 ---
 
