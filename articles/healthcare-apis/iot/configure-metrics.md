@@ -37,7 +37,7 @@ Metric category|Metric name|Metric description|
 
 2. Select the MedTech service that you want to display metrics for. In this example, we select a MedTech service named **mt-azuredocsdemo**. You need to select a MedTech service within your organization's Azure Health Data Services workspace.
 
-   :::image type="content" source="media\configure-metrics\select-medtech-service.png" alt-text="Screenshot showing the MedTech service to display metrics for." lightbox="media\configure-metrics\select-medtech-service.png":::
+   :::image type="content" source="media\configure-metrics\select-medtech-service2.png" alt-text="Screenshot showing the MedTech service to display metrics for." lightbox="media\configure-metrics\select-medtech-service.png":::
 
 3. Select **Metrics** within the MedTech service page.
 
