@@ -18,14 +18,6 @@ metadata:
 
 landingContent:
   #card 1
-  - title: Oracle on Azure Documentation
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Oracle on Azure
-            url: oracle-azure-overview.md         
-
-  #card 2
   - title: Oracle on Azure Virtual Machines
     linkLists:
       - linkListType: reference
@@ -33,17 +25,7 @@ landingContent:
           - text: Oracle on Azure Virtual Machines
             url: oracle-overview.md  
    
-  #card 3
-  - title: Oracle Database@Azure
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Oracle Database@Azure
-            url: database-overview.md
-          - text: Provision and manage Oracle Database@Azure
-            url: ../oracle-db/provision-oracle-database.md
-  
-  #card 4  
+  #card 2 
   - title: Get started
     linkLists: 
       - linkListType: how-to-guide
