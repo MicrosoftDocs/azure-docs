@@ -48,8 +48,6 @@ export interface ChatAttachment {
   id: string;
   /** The type of attachment. */
   attachmentType: AttachmentType;
-  /** The type of content of the attachment, if available */
-  extension?: string;
   /** The name of the attachment content. */
   name?: string;
   /** The URL that is used to provide original size of the inline images */
