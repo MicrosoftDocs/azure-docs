@@ -21,7 +21,7 @@ ms.date: 11/17/2023
 
 * [Plugin management](how-to-manage-plugins.md) is available in preview. This feature lets you manage installed Grafana plugins directly within an Azure Managed Grafana workspace.
 
-* [Azure Monitor workspace integration](how-to-connect-azure-monitor-workspace.md) is available in preview. This feature allows you to add Azure Monitor workspaces to an Azure Managed Grafana workspace, in the Azure portal. This integration simplifies the process of collecting Prometheus data.
+* [Azure Monitor workspace](how-to-connect-azure-monitor-workspace.md) in Azure Managed Grafana. This feature in preview allows you to add Azure Monitor workspaces to an Azure Managed Grafana workspace, in the Azure portal. This integration simplifies the process of collecting Prometheus data.
 
 ## May 2023
 
