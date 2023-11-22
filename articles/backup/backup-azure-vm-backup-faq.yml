@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 06/13/2023
+  ms.date: 08/14/2023
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
 
@@ -226,9 +226,17 @@ sections:
 
           Also, before you swap VM disks, you must power off the VM.
 
-      -  question: Is there a limit to trigger restore in a day?
-         answer: |
-           Yes, the default maximum limit to trigger restore is 10 attempts per VM in 24 hours.
+      - question: Is there a limit to trigger restore in a day?
+        answer: |
+          Yes, the default maximum limit to trigger restore is 10 attempts per VM in 24 hours.
+
+      - question: How does restored disk SKU depend on target SA provided?
+        answer: |
+          In the case of an unmanaged VM, the VM disk type is Premium SSD or HDD and depends on the SA in which VHDs exist. If you provide normal SA during restore, the VM disk would be HDD, and if you provide Premium SA, all disks would be Premium SSDs.
+
+          >[!Note]
+          >- Azure Backup currently doesn't support taking different SAs as inputs for different disks.
+          >- **Restore to original disks SA** is only available for snapshot tier, and it increases restore performance because data is copied much faster to the same SA than to a different SA. It's not intended to support disk type, but can be used to retain it.
 
       - question: Can I delete JSON template and VHD files after the restore process is complete?
         answer: |
@@ -379,6 +387,10 @@ sections:
       - question: How do I manage key rotations? How to ensure which key is used during backup and if it’s present to be used with the restored VM?
         answer: |
           Azure Backup backs up the secrets and KEK data of the key version during backup, and restores the same. However, booting ADE VMs with older version keys are also possible.
+
+      - question: When Vault is configured with CRR, what happens to the secondary data if the primary region fails?
+        answer: |
+          Backup data fully replicated to the secondary region before the failure of the primary region will remain intact. This remains the case even after the primary region has recovered from the failure. In other words, the virtual machine can be recovered in the secondary region with the data it had before the failure as per the replication schedule. Note that the RPO for the secondary region is 36 hours i.e., data takes approximately 36 hours to be fully replicated from primary to the secondary region.
 
 
 

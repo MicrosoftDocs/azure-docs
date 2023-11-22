@@ -1,25 +1,65 @@
 ---
-title: Document Intelligence image tags and release notes
+title: Document Intelligence (formerly Form Recognizer) container image tags and release notes
 titleSuffix: Azure AI services
 description: A listing of all Document Intelligence container image tags.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
 ---
-
-
-
-
-
 
 # Document Intelligence container tags
 
-**This article applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**.
+<!-- markdownlint-disable MD051 -->
+
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [applies to v4.0](../includes/applies-to-v40.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](../includes/applies-to-v31.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+[!INCLUDE [applies to v3.0](../includes/applies-to-v30.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-2.1.0"
+[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
+::: moniker-end
+
+## Microsoft container registry (MCR)
+
+Document Intelligence container images can be found within the [**Microsoft Artifact Registry** (also know as Microsoft Container Registry(MCR))](https://mcr.microsoft.com/catalog?search=document%20intelligence), the primary registry for all Microsoft published container images.
+
+:::moniker range=">=doc-intel-3.0.0"
+
+The following containers support DocumentIntelligence v3.0 models and features:
+
+| Container name |image |
+|---|---|
+|[**Document Intelligence Studio**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/studio/tags)| `mcr.microsoft.com/azure-cognitive-services/form-recognizer/studio:latest`|
+| [**Business Card 3.0**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/businesscard-3.0/tags) | `mcr.microsoft.com/azure-cognitive-services/form-recognizer/businesscard-3.0:latest` |
+| [**Custom Template 3.0**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/custom-template-3.0/tags) | `mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-template-3.0:latest` |
+| [**Document 3.0**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/document-3.0/tags)| `mcr.microsoft.com/azure-cognitive-services/form-recognizer/document-3.0:latest`|
+| [**ID Document 3.0**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/id-document-3.0/tags) |  `mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document-3.0:latest` |
+| [**Invoice 3.0**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/invoice-3.0/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice-3.0:latest`|
+| [**Layout 3.0**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/layout/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest`|
+| [**Read 3.0**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/read-3.0/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0:latest`|
+| [**Receipt 3.0**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/receipt-3.0/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt-3.0:latest`|
+
+:::moniker-end
+
+:::moniker range="doc-intel-2.1.0"
+
+> [!IMPORTANT]
+>
+> Document Intelligence v3.0 containers are now generally available. If you are getting started with containers, consider using the v3 containers.
+The following containers:
 
 ## Feature containers
 
@@ -35,46 +75,12 @@ Document Intelligence containers support the following features:
 | **Custom API** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-api |
 | **Custom Supervised** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-supervised |
 
-## Microsoft container registry (MCR)
-
-Document Intelligence container images can be found within the [**Microsoft Container Registry Catalog**](https://mcr.microsoft.com/v2/_catalog) listing, the primary registry for all Microsoft Published Docker images:
-
-  :::image type="content" source="../media/containers/microsoft-container-registry-catalog.png" alt-text="Screenshot of the Microsoft Container Registry (MCR) catalog list.":::
-
-## Document Intelligence tags
-
-The following tags are available for Document Intelligence:
-
-### [Latest version](#tab/current)
-
-Release notes for `v2.1`:
-
-| Container | Tags | Retrieve image |
-|------------|:------|------------|
-| **Layout**| &bullet; `latest` </br> &bullet; `2.1-preview`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout`|
-| **Business Card** | &bullet; `latest` </br> &bullet; `2.1-preview` |`docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/businesscard` |
-| **ID Document** | &bullet; `latest` </br> &bullet; `2.1-preview`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document`|
-| **Receipt**| &bullet; `latest` </br> &bullet; `2.1-preview`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt` |
-| **Invoice**| &bullet; `latest` </br> &bullet; `2.1-preview`|`docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice` |
-| **Custom API** | &bullet; `latest` </br> &bullet; `2.1-preview`| `docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-api`|
-| **Custom Supervised**| &bullet; `latest` </br> &bullet; `2.1-preview`|`docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-supervised` |
-
-### [Previous versions](#tab/previous)
-
 > [!IMPORTANT]
-> The Document Intelligence v1.0 container has been retired.
+> The Document Intelligence v1.0 container is retired.
 
----
-
-
-
-
-
+:::moniker-end
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Install and run Document Intelligence containers](install-run.md)
->
-
-* [Azure container instance recipe](../../../ai-services/containers/azure-container-instance-recipe.md)

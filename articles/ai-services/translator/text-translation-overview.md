@@ -2,12 +2,11 @@
 title: What is Azure Text Translation?
 titlesuffix: Azure AI services
 description: Integrate the Text Translation API into your applications, websites, tools, and other solutions to provide multi-language user experiences.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-translator
 ms.topic: overview
-ms.subservice: translator-text
 ms.date: 07/18/2023
 ms.author: lajanuar
 ---
@@ -54,7 +53,7 @@ Add Text Translation to your projects and applications using the following resou
 
     > [!IMPORTANT]
     >
-    > * To use the Translator container you must complete and submit the [**Azure AI services Application for Gated Services**](https://aka.ms/csgate-translator) online request form and have it approved to acquire access to the container.
+    > * To use the Translator container you must complete and submit the [**Azure AI services application for Gated Services**](https://aka.ms/csgate-translator) online request form and have it approved to acquire access to the container.
     >
     > * The [**Translator container image**](https://mcr.microsoft.com/product/azure-cognitive-services/translator/text-translation/about) supports limited features compared to cloud offerings.
     >

@@ -1,9 +1,8 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 06/02/2022

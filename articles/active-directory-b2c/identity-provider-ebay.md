@@ -2,12 +2,12 @@
 title: Set up sign-up and sign-in with an eBay account
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with eBay accounts in your applications using Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.author: godonnell
@@ -33,7 +33,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create an eBay application
 
-To enable sign-in for users with an eBay account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [eBay developer console](https://developer.ebay.com). For more information, see [Creating a developer account](https://developer.ebay.com/api-docs/static/creating-edp-account.html). If you don't already have an eBay developer account, sign up at [https://developer.ebay.com/signin](https://developer.ebay.com/signin?tab=register).
+To enable sign-in for users with an eBay account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [eBay developer console](https://developer.ebay.com). For more information, see [Creating a developer account](https://developer.ebay.com/api-docs/static/gs_join-the-ebay-developers-program.html). If you don't already have an eBay developer account, sign up at [https://developer.ebay.com/signin](https://developer.ebay.com/signin?tab=register).
 
 To create an eBay application, follow these steps:
 
@@ -53,8 +53,7 @@ To create an eBay application, follow these steps:
 You need to store the client secret that you previously recorded in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. On the Overview page, select **Identity Experience Framework**.
 1. Select **Policy Keys** and then select **Add**.

@@ -8,14 +8,11 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: synapse, devx-track-dotnet
-ms.date: 09/22/2022
+ms.date: 08/10/2023
 ---
 
 # Use custom activities in an Azure Data Factory or Azure Synapse Analytics pipeline
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-use-custom-activities.md)
-> * [Current version](transform-data-using-dotnet-custom-activity.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 There are two types of activities that you can use in an Azure Data Factory or Synapse pipeline.
@@ -338,39 +335,6 @@ Sensitive property values designated as type *SecureString*, as shown in some of
 This serialization is not truly secure, and is not intended to be secure. The intent is a hint to the service to mask the value in the Monitoring tab.
 
 To access properties of type *SecureString* from a custom activity, read the `activity.json` file, which is placed in the same folder as your .EXE, deserialize the JSON, and then access the JSON property (extendedProperties => [propertyName] => value).
-
-## <a name="compare-v2-v1"></a> Compare v2 Custom Activity and version 1 (Custom) DotNet Activity
-
-In Azure Data Factory version 1, you implement a (Custom) DotNet Activity by creating a .NET Class Library project with a class that implements the `Execute` method of the `IDotNetActivity` interface. The Linked Services, Datasets, and Extended Properties in the JSON payload of a (Custom) DotNet Activity are passed to the execution method as strongly-typed objects. For details about the version 1 behavior, see [(Custom) DotNet in version 1](v1/data-factory-use-custom-activities.md). Because of this implementation, your version 1 DotNet Activity code has to target .NET Framework 4.5.2. The version 1 DotNet Activity also has to be executed on Windows-based Azure Batch Pool nodes.
-
-In the Azure Data Factory V2 and Synapse pipelines Custom Activity, you are not required to implement a .NET interface. You can now directly run commands, scripts, and your own custom code, compiled as an executable. To configure this implementation, you specify the `Command` property together with the `folderPath` property. The Custom Activity uploads the executable and its dependencies to `folderpath` and executes the command for you.
-
-The Linked Services, Datasets (defined in referenceObjects), and Extended Properties defined in the JSON payload of a Data Factory v2 or Synapse pipeline Custom Activity can be accessed by your executable as JSON files. You can access the required properties using a JSON serializer as shown in the preceding SampleApp.exe code sample.
-
-With the changes introduced in the Data Factory V2 and Synapse pipeline Custom Activity, you can write your custom code logic in your preferred language and execute it on Windows and Linux Operation Systems supported by Azure Batch.
-
-The following table describes the differences between the Data Factory V2 and Synapse pipeline Custom Activity and the Data Factory version 1 (Custom) DotNet Activity:
-
-|Differences      | Custom Activity      | version 1 (Custom) DotNet Activity      |
-| ---- | ---- | ---- |
-|How custom logic is defined      |By providing an executable      |By implementing a .NET DLL      |
-|Execution environment of the custom logic      |Windows or Linux      |Windows (.NET Framework 4.5.2)      |
-|Executing scripts      |Supports executing scripts directly (for example "cmd /c echo hello world" on Windows VM)      |Requires implementation in the .NET DLL      |
-|Dataset required      |Optional      |Required to chain activities and pass information      |
-|Pass information from activity to custom logic      |Through ReferenceObjects (LinkedServices and Datasets) and ExtendedProperties (custom properties)      |Through ExtendedProperties (custom properties), Input, and Output Datasets      |
-|Retrieve information in custom logic      |Parses activity.json, linkedServices.json, and datasets.json stored in the same folder of the executable      |Through .NET SDK (.NET Frame 4.5.2)      |
-|Logging      |Writes directly to STDOUT      |Implementing Logger in .NET DLL      |
-
-If you have existing .NET code written for a version 1 (Custom) DotNet Activity, you need to modify your code for it to work with the current version of the Custom Activity. Update your code by following these high-level guidelines:
-
-  - Change the project from a .NET Class Library to a Console App.
-  - Start your application with the `Main` method. The `Execute` method of the `IDotNetActivity` interface is no longer required.
-  - Read and parse the Linked Services, Datasets and Activity with a JSON serializer, and not as strongly-typed objects. Pass the values of required properties to your main custom code logic. Refer to the preceding SampleApp.exe code as an example.
-  - The Logger object is no longer supported. Output from your executable can be printed to the console and is saved to stdout.txt.
-  - The Microsoft.Azure.Management.DataFactories NuGet package is no longer required.
-  - Compile your code, upload the executable and its dependencies to Azure Storage, and define the path in the `folderPath` property.
-
-For a complete sample of how the end-to-end DLL and pipeline sample described in the Data Factory version 1 article [Use custom activities in an Azure Data Factory pipeline](./v1/data-factory-use-custom-activities.md) can be rewritten as a Custom Activity for Data Factory v2 and Synapse pipelines, see [Custom Activity sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
 
 ## Auto-scaling of Azure Batch
 

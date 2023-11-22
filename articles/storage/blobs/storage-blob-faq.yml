@@ -1,0 +1,185 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions - Azure Blob Storage | Microsoft Docs
+  description: This article provides a list of frequently asked questions (FAQ) for Azure Blob Storage. 
+  ms.topic: faq
+  ms.service: azure-blob-storage
+  ms.date: 08/10/2023
+  ms.author: normesta
+  author: normesta
+title: Azure Blob Storage frequently asked questions
+summary: |
+  This article provides a list of frequently asked questions (FAQ) for Azure Blob Storage.</br></br>  
+
+sections:
+  - name: Lifecycle management policies
+    questions:
+      - question: |
+          I created a new policy. Why do the actions not run immediately?
+        answer: |
+          The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for some actions to run for the first time.
+      - question: |
+          If I update an existing policy, how long does it take for the actions to run?
+        answer: |
+          The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, auto-tiering to Hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled/deleted, and a blob is currently in cool or cold and then accessed, it will move back to Hot as that is applied on access outside of lifecycle management. The blob won't then move from hot to cool or cold given the lifecycle management rule is disabled/deleted. The only way to prevent autoTierToHotFromCool is to turn off last access time tracking.  
+      - question: |
+          The run completes but doesn't move or delete some blobs
+        answer: |
+          Depending on the size and the number of objects that are in a storage account, more than one run might be required to process all of the objects. You can also check the storage resource logs to see if the operations are being performed by the lifecycle management policy.  
+      - question: |
+          I don't see capacity changes even though the policy is executing and deleting the blobs
+        answer: |
+          Check to see if data protection features such as soft delete or versioning are enabled on the storage account. Even if the policy is deleting the blobs, those blobs might still exist in a soft deleted state or as an older version depending on how these features are configured.  
+      - question: |
+          I rehydrated an archived blob. How do I prevent it from being moved back to the Archive tier temporarily?
+        answer: |
+          If there's a lifecycle management policy in effect for the storage account, then rehydrating a blob by changing its tier can result in a scenario where the lifecycle policy moves the blob back to the archive tier. This can happen if the last modified time, creation time, or last access time is beyond the threshold set for the policy. There are three ways to prevent this from happening:
+
+          - Add the `daysAfterLastTierChangeGreaterThan` condition to the tierToArchive action of the policy. This condition applies only to the last modified time. See [Use lifecycle management policies to archive blobs](archive-blob.md#use-lifecycle-management-policies-to-archive-blobs).
+
+          - Disable the rule that affects this blob temporarily to prevent it from being archived again. Re-enable the rule when the blob can be safely moved back to archive tier. 
+
+          - If the blob needs to stay in the hot, cool, or cold tier permanently, copy the blob to another location where the lifecycle manage policy isn't in effect.  
+      - question: |
+          The blob prefix match string didn't apply the policy to the expected blobs
+        answer: |
+          The blob prefix match field of a policy is a full or partial blob path, which is used to match the blobs you want the policy actions to apply to. The path must start with the container name. If no prefix match is specified, then the policy will apply to all the blobs in the storage account. The format of the prefix match string is `[container name]/[blob name]`.  
+          Keep in mind the following points about the prefix match string:
+
+          - A prefix match string like *container1/* applies to all blobs in the container named *container1*. A prefix match string of *container1*, without the trailing forward slash character (/), applies to all blobs in all containers where the container name begins with the string *container1*. The prefix will match containers named *container11*, *container1234*, *container1ab*, and so on.
+          - A prefix match string of *container1/sub1/* applies to all blobs in the container named *container1* that begin with the string *sub1/*. For example, the prefix will match blobs named *container1/sub1/test.txt* or *container1/sub1/sub2/test.txt*.
+          - The asterisk character `*` is a valid character in a blob name. If the asterisk character is used in a prefix, then the prefix will match blobs with an asterisk in their names. The asterisk doesn't function as a wildcard character.
+          - The question mark character `?` is a valid character in a blob name. If the question mark character is used in a prefix, then the prefix will match blobs with a question mark in their names. The question mark doesn't function as a wildcard character.
+          - The prefix match considers only positive (=) logical comparisons. Negative (!=) logical comparisons are ignored.
+      - question: |
+          Is there a way to identify the time at which the policy will be executing?
+        answer: |
+          Unfortunately, there's no way to track the time at which the policy will be executing, as it's a background scheduling process. However, the platform will run the policy once per day.     
+  - name: Multiple inventory file output
+    questions:
+      - question: |
+          What has changed with respect to the number of inventory files produced?
+        answer: |
+          Blob Inventory report produces three types of files. See [Inventory files](blob-inventory.md#inventory-files). Existing customers using blob inventory might see a change in the number of inventory files, from one file to multiple files. Today, we already have manifest file that provides the list of files. This behavior remains unchanged, so these files are listed in the manifest file.    
+      - question: |
+          Why was the change made?
+        answer: |
+          The change was implemented to enhance blob inventory performance, particularly for large storage accounts containing over five million objects. Now, results are written in parallel to multiple files, eliminating the bottleneck of using a single inventory file. This change was prompted by customer feedback, as they reported difficulties in opening and working with the excessively large single inventory file.
+      - question: |
+          How does this change affect me as a user?
+        answer: |
+          As a user, this change has a positive impact on your experience with blob inventory runs. It's expected to enhance performance and reduce the overall running time. However, to fully benefit from this improvement, you must ensure that your code is updated to process multiple results files instead of just one. This adjustment aligns your code with the new approach and optimizes the handling of inventory data.  
+      - question: |
+          Is my existing data affected?
+        answer: |
+          No, existing data isn't affected. Only new blob inventory results have multiple inventory files.  
+      - question: |
+          Will there be any downtime or service interruptions?
+        answer: |
+          No, the change happens seamlessly.  
+      - question: |
+          Is there anything I need to do differently now?
+        answer: |
+          Your required actions depend on how you currently process blob inventory results:
+
+          - If your current processing assumes a single inventory results file, then you need to modify your code to accommodate multiple inventory results files.
+
+          - However, if your current processing involves reading the list of results files from the manifest file, there's no need to make any changes to how you process the results. The existing approach continues to work seamlessly with the updated feature.  
+      - question: |
+          Can I revert to the previous behavior if I don't like the change?
+        answer: |
+          This isn't recommended, but it's possible. Please work through your support channels to ask to turn off this feature.  
+      - question: |
+          How can I provide feedback or report issues related to the changes?
+        answer: |
+          Please work through your current account team and support channels.  
+      - question: |
+          When will this change take effect?
+        answer: |
+          This change will start gradual rollout starting September 1, 2023.  
+  - name: Metrics and Logs
+    questions:
+      - question: |
+          Does Azure Storage support metrics for Managed Disks or Unmanaged Disks?
+        answer: |
+          No. Azure Compute supports the metrics on disks. For more information, see [Per disk metrics for Managed and Unmanaged Disks](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
+      - question: |
+          What does a dashed line in an Azure Metric chart indicate?
+        answer: |
+          Some Azure metrics charts, such as the ones that display availability and latency data, use a dashed line to indicate that there's a missing value (also known as null value) between two known time grain data points. For example, if in the time selector you picked `1 minute` time granularity, but the metric was reported at 07:26, 07:27, 07:29, and 07:30, then a dashed line connects 07:27 and 07:29 because there's a minute gap between those two data points. A solid line connects all other data points. The dashed line drops down to zero when the metric uses count and sum aggregation. For the avg, min or max aggregations, a dashed line connects the two nearest known data points. Also, when the data is missing on the rightmost or leftmost side of the chart, the dashed line expands to the direction of the missing data point.
+      - question: |
+          How do I track availability of my storage account?
+        answer: |
+          You can configure a resource health alert based on the [Azure Resource Health](../../service-health/resource-health-overview.md) service to track the availability of your storage account. If there are no transactions on the account, then the alert reports based on the health of the Storage cluster where your storage account is located.
+  - name: Change feed support
+    questions:
+      - question: |
+          What is the difference between the change feed and Storage Analytics logging?
+        answer: |
+          Analytics logs have records of all read, write, list, and delete operations with successful and failed requests across all operations. Analytics logs are best-effort and no ordering is guaranteed.
+
+          The change feed is a solution that provides transactional log of successful mutations or changes to your account such as blob creation, modification, and deletions. The change feed guarantees all events to be recorded and displayed in the order of successful changes per blob, thus you do not have to filter out noise from a huge volume of read operations or failed requests. The change feed is fundamentally designed and optimized for application development that require certain guarantees.
+      - question: |
+          Should I use the change feed or Storage events?
+        answer: |
+          You can leverage both features as the change feed and [Blob storage events](storage-blob-event-overview.md) provide the same information with the same delivery reliability guarantee, with the main difference being the latency, ordering, and storage of event records. The change feed publishes records to the log within few minutes of the change and also guarantees the order of change operations per blob. Storage events are pushed in real time and might not be ordered. Change feed events are durably stored inside your storage account as read-only stable logs with your own defined retention, while storage events are transient to be consumed by the event handler unless you explicitly store them. With change feed, any number of your applications can consume the logs at their own convenience using blob APIs or SDKs.
+  - name: Static website hosting
+    questions:
+      - question: |
+         Does the Azure Storage firewall work with a static website?
+        answer: |
+         Yes. Storage account [network security rules](../common/storage-network-security.md), including IP-based and VNET firewalls, are supported for the static website endpoint, and may be used to protect your website.
+      - question: |
+         Do static websites support Microsoft Entra ID?
+        answer: |
+         No. A static website only supports anonymous public read access for files in the **$web** container.
+      - question: |
+         How do I use a custom domain with a static website?
+        answer: |
+         You can configure a [custom domain](./static-website-content-delivery-network.md) with a static website by using [Azure Content Delivery Network (Azure CDN)](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled). Azure CDN provides consistent low latencies to your website from anywhere in the world.
+      - question: |
+         How do I use a custom Secure Sockets Layer (SSL) certificate with a static website?
+        answer: |
+         You can configure a [custom SSL](./static-website-content-delivery-network.md) certificate with a static website by using [Azure CDN](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled). Azure CDN provides consistent low latencies to your website from anywhere in the world.
+      - question: |
+         How do I add custom headers and rules with a static website?
+        answer: |
+         You can configure the host header for a static website by using [Azure CDN - Verizon Premium](../../cdn/cdn-verizon-premium-rules-engine.md). We'd be interested to hear your feedback [here](https://feedback.azure.com/d365community/idea/694b08ef-3525-ec11-b6e6-000d3a4f0f84).
+      - question: |
+         Why am I getting an HTTP 404 error from a static website?
+        answer: |
+         A 404 error can happen if you refer to a file name by using an incorrect case. For example: `Index.html` instead of `index.html`. File names and extensions in the url of a static website are case-sensitive even though they're served over HTTP. This can also happen if your Azure CDN endpoint isn't yet provisioned. Wait up to 90 minutes after you provision a new Azure CDN for the propagation to complete.
+      - question: |
+         Why isn't the root directory of the website not redirecting to the default index page?
+        answer: |
+         In the Azure portal, open the static website configuration page of your account and locate the name and extension that is set in the **Index document name** field. Ensure that this name is exactly the same as the name of the file located in the **$web** container of the storage account. File names and extensions in the url of a static website are case-sensitive even though they're served over HTTP.
+
+  - name: Blob index tags
+    questions:
+      - question: |
+         Can blob index help me filter and query content inside my blobs?
+        answer: |
+         No, if you need to search within your blob data, use query acceleration or Azure search.
+      - question: |
+         Are there any requirements on index tag values?
+        answer: |
+         Blob index tags only support string data types and querying returns results with lexicographical ordering. For numbers, zero pad the number. For dates and times, store as an ISO 8601 compliant format.
+      - question: |
+         Are blob index tags and Azure Resource Manager tags related?
+        answer: |
+         No, Resource Manager tags help organize control plane resources such as subscriptions, resource groups, and storage accounts. Index tags provide blob management and discovery on the data plane.
+  
+  - name: Managing costs
+    questions:
+      - question: |
+         If I use Azure Storage for only a few days a month, is the cost prorated?
+        answer: |
+         Storage capacity is billed in units of the average daily amount of data stored, in gigabytes (GB), over a monthly period. For example, if you consistently used 10 GB of storage for the first half of the month, and none for the second half of the month, you would be billed for your average usage of 5 GB of storage.
+additionalContent: |
+
+  ## Next steps
+  
+  You can learn more about Azure Blob Storage by visiting the following links:
+
+  - [Introduction to Azure Storage](../common/storage-introduction.md)
+  - [What is Azure Blob storage](storage-blobs-overview.md)

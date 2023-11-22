@@ -1,14 +1,13 @@
 ---
 title: "Text to speech quickstart - Speech service"
 titleSuffix: Azure AI services
-description: In this quickstart, you convert text to speech. Learn about object construction and design patterns, supported audio output formats, and custom configuration options for speech synthesis.
-services: cognitive-services
+description: In this quickstart, you convert text to speech. Learn about object construction and design patterns, supported audio formats, and custom configuration options.
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: quickstart
-ms.date: 09/16/2022
+ms.date: 08/25/2023
 ms.author: eur
 ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other, devx-track-extended-java, devx-track-go

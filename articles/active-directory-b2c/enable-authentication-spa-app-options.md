@@ -1,11 +1,11 @@
 ---
 title: Enable SPA application options by using Azure Active Directory B2C
 description:  This article discusses several ways to enable the use of SPA applications.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 07/05/2021
 ms.author: kengaderdus

@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 5/18/2023
+ms.date: 10/24/2023
 reviewer: msakande
 ms.topic: how-to
 ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022, sdkv2
@@ -174,7 +174,7 @@ The following table lists key attributes to specify when you define an endpoint.
 
 | Attribute                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name                      | **Required.** Name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Name                      | **Required.** Name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Authentication mode      | The authentication method for the endpoint. Choose between key-based authentication `key` and Azure Machine Learning token-based authentication `aml_token`. A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).                                                                                                                                                                                                                                                                                         |
 | Description    | Description of the endpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Tags           | Dictionary of tags for the endpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
@@ -197,7 +197,7 @@ A *deployment* is a set of resources required for hosting the model that does th
 | Scoring script | Python code that executes the model on a given input request. This value can be the relative path to the scoring file in the source code directory.<br>The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output.<br>In this example, we have a *score.py* file. This Python code must have an `init()` function and a `run()` function. The `init()` function will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction.  |
 | Environment    | **Required.** The environment to host the model and code. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. The environment can be a Docker image with Conda dependencies, a Dockerfile, or a registered environment.                                                                                                                                                                                                                 |
 | Instance type  | **Required.** The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).                                                                                                                                                                                                                            |
-| Instance count | **Required.** The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).                                |
+| Instance count | **Required.** The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [limits for online endpoints](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).                                |
 
 To see a full list of attributes that you can specify when you create a deployment, see [CLI (v2) managed online deployment YAML schema](/azure/machine-learning/reference-yaml-deployment-managed-online) or
 [SDK (v2) ManagedOnlineDeployment Class](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlinedeployment).
@@ -210,7 +210,7 @@ First set the endpoint's name and then configure it. In this article, you'll use
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml":::
 
-The reference for the endpoint YAML format is described in the following table. To learn how to specify these attributes, see the [online endpoint YAML reference](reference-yaml-endpoint-online.md). For information about limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+The reference for the endpoint YAML format is described in the following table. To learn how to specify these attributes, see the [online endpoint YAML reference](reference-yaml-endpoint-online.md). For information about limits related to managed online endpoints, see [limits for online endpoints](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
 
 | Key         | Description                                                                                                                                                                                                                                                 |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -301,7 +301,7 @@ When you create a managed online endpoint in the Azure Machine Learning studio, 
 
 ### Register your model
 
-A model registration is a logical entity in the workspace. This entity may contain a single model file or a directory of multiple files. As a best practice for production, you should register the model and environment. When creating the endpoint and deployment in this article, we'll assume that you've registered the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
+A model registration is a logical entity in the workspace. This entity can contain a single model file or a directory of multiple files. As a best practice for production, you should register the model and environment. When creating the endpoint and deployment in this article, we'll assume that you've registered the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
 
 To register the example model, follow these steps:
 
@@ -372,7 +372,7 @@ This action opens up a window for you to specify details about your endpoint and
 
 ## Confirm your existing deployment
 
-One way to confirm your existing deployment is to invoke your endpoint so that it can score your model for a given input request. When you invoke your endpoint via the CLI or Python SDK, you may choose to specify the name of the deployment that will receive the incoming traffic.
+One way to confirm your existing deployment is to invoke your endpoint so that it can score your model for a given input request. When you invoke your endpoint via the CLI or Python SDK, you can choose to specify the name of the deployment that will receive the incoming traffic.
 
 > [!NOTE]
 > Unlike the CLI or Python SDK, Azure Machine Learning studio requires you to specify a deployment when you invoke an endpoint.
@@ -574,7 +574,7 @@ Mirroring has the following limitations:
 * Mirroring is supported for the CLI (v2) (version 2.4.0 or above) and Python SDK (v2) (version 1.0.0 or above). If you use an older version of CLI/SDK to update an endpoint, you'll lose the mirror traffic setting.
 * Mirroring isn't currently supported for Kubernetes online endpoints.
 * You can mirror traffic to only one deployment in an endpoint.
-* The maximum percentage of traffic you can mirror is 50%. This limit is to reduce the effect on your [endpoint bandwidth quota](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) (default 5 MBPS)—your endpoint bandwidth is throttled if you exceed the allocated quota. For information on monitoring bandwidth throttling, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md#metrics-at-endpoint-scope).
+* The maximum percentage of traffic you can mirror is 50%. This limit is to reduce the effect on your [endpoint bandwidth quota](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints) (default 5 MBPS)—your endpoint bandwidth is throttled if you exceed the allocated quota. For information on monitoring bandwidth throttling, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md#metrics-at-endpoint-scope).
 
 Also note the following behaviors:
 
@@ -769,7 +769,7 @@ Alternatively, you can delete a managed online endpoint directly by selecting th
 - [Use network isolation with managed online endpoints](how-to-secure-online-endpoint.md)
 - [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Monitor managed online endpoints](how-to-monitor-online-endpoints.md)
-- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints)
 - [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
 - [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md)
 - [Troubleshooting  online endpoints deployment and scoring](how-to-troubleshoot-managed-online-endpoints.md)

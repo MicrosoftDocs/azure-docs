@@ -6,8 +6,9 @@ services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
+ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 07/25/2023
+ms.date: 11/07/2023
 ms.author: greglin
 ---
 
@@ -25,137 +26,149 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 1. Prepare your Azure subscription and your `az-cli` client.
 
-	```azurecli-interactive
-	# Sign in to your Azure subscription.
-	SUBSCRIPTION_ID='<your subscription id>'
-	az login
-	az account set --subscription $SUBSCRIPTION_ID
+    ```azurecli-interactive
+    # Sign in to your Azure subscription.
+    SUBSCRIPTION_ID='<your subscription id>'
+    az login
+    az account set --subscription $SUBSCRIPTION_ID
 
-	# Register required resource providers on Azure.
-	az provider register --namespace Microsoft.ContainerService
-	az provider register --namespace Microsoft.Network
-	az provider register --namespace Microsoft.NetworkFunction
-	az provider register --namespace Microsoft.ServiceNetworking
+    # Register required resource providers on Azure.
+    az provider register --namespace Microsoft.ContainerService
+    az provider register --namespace Microsoft.Network
+    az provider register --namespace Microsoft.NetworkFunction
+    az provider register --namespace Microsoft.ServiceNetworking
 
-	# Install Azure CLI extensions.
-	az extension add --name alb
-	```
+    # Install Azure CLI extensions.
+    az extension add --name alb
+    ```
 
 2. Set an AKS cluster for your workload.
 
-	> [!NOTE]
-	> The AKS cluster needs to be in a [region where Application Gateway for Containers is available](overview.md#supported-regions)
-	> AKS cluster should use [Azure CNI](../../aks/configure-azure-cni.md).
-    > AKS cluster should have the workload identity feature enabled. [Learn how](../../aks/workload-identity-deploy-cluster.md#update-an-existing-aks-cluster) to enable and use an existing AKS cluster section. 
+    > [!NOTE]
+    > The AKS cluster needs to be in a [region where Application Gateway for Containers is available](overview.md#supported-regions)
+    > AKS cluster should use [Azure CNI](../../aks/configure-azure-cni.md).
+    > AKS cluster should have the workload identity feature enabled. [Learn how](../../aks/workload-identity-deploy-cluster.md#update-an-existing-aks-cluster) to enable workload identity on an existing AKS cluster. 
 
-	If using an existing cluster, ensure you enable Workload Identity support on your AKS cluster.  Workload identities can be enabled via the following:
-	
-	```azurecli-interactive
- 	AKS_NAME='<your cluster name>'
-	RESOURCE_GROUP='<your resource group name>'
-	az aks update -g $RESOURCE_GROUP -n $AKS_NAME --enable-oidc-issuer --enable-workload-identity --no-wait
-	```
+    If using an existing cluster, ensure you enable Workload Identity support on your AKS cluster.  Workload identities can be enabled via the following:
+    
+    ```azurecli-interactive
+     AKS_NAME='<your cluster name>'
+    RESOURCE_GROUP='<your resource group name>'
+    az aks update -g $RESOURCE_GROUP -n $AKS_NAME --enable-oidc-issuer --enable-workload-identity --no-wait
+    ```
 
-	If you don't have an existing cluster, use the following commands to create a new AKS cluster with Azure CNI and workload identity enabled.	
+    If you don't have an existing cluster, use the following commands to create a new AKS cluster with Azure CNI and workload identity enabled.
  
-	```azurecli-interactive
-	AKS_NAME='<your cluster name>'
-	RESOURCE_GROUP='<your resource group name>'
-	LOCATION='northeurope' # The list of available regions may grow as we roll out to more preview regions
-	VM_SIZE='<the size of the vm in AKS>' # The size needs to be available in your location
+    ```azurecli-interactive
+    AKS_NAME='<your cluster name>'
+    RESOURCE_GROUP='<your resource group name>'
+    LOCATION='northeurope' # The list of available regions may grow as we roll out to more preview regions
+    VM_SIZE='<the size of the vm in AKS>' # The size needs to be available in your location
 
-	az group create --name $RESOURCE_GROUP --location $LOCATION
-	az aks create \
-		--resource-group $RESOURCE_GROUP \
-		--name $AKS_NAME \
-		--location $LOCATION \
-		--node-vm-size $VM_SIZE \
-		--network-plugin azure \
- 		--enable-oidc-issuer \
- 		--enable-workload-identity \
-		--generate-ssh-key
-	```
+    az group create --name $RESOURCE_GROUP --location $LOCATION
+    az aks create \
+        --resource-group $RESOURCE_GROUP \
+        --name $AKS_NAME \
+        --location $LOCATION \
+        --node-vm-size $VM_SIZE \
+        --network-plugin azure \
+        --enable-oidc-issuer \
+        --enable-workload-identity \
+        --generate-ssh-key
+    ```
 
 3. Install Helm
 
-	[Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. 
+    [Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. 
 
-	> [!NOTE]
-	> Helm is already available in Azure Cloud Shell.  If you are using Azure Cloud Shell, no additional Helm installation is necessary.
+    > [!NOTE]
+    > Helm is already available in Azure Cloud Shell.  If you are using Azure Cloud Shell, no additional Helm installation is necessary.
 
-	You can also use the following steps to install Helm on a local device running Windows or Linux. Ensure that you have the latest version of helm installed. 
+    You can also use the following steps to install Helm on a local device running Windows or Linux. Ensure that you have the latest version of helm installed. 
 
-	# [Windows](#tab/install-helm-windows)
-	See the [instructions for installation](https://github.com/helm/helm#install) for various options of installation.  Similarly, if your version of Windows has [Windows Package Manager winget](/windows/package-manager/winget/) installed, you may execute the following command:
-	```powershell
-	winget install helm.helm
-	```
+    # [Windows](#tab/install-helm-windows)
+    See the [instructions for installation](https://github.com/helm/helm#install) for various options of installation.  Similarly, if your version of Windows has [Windows Package Manager winget](/windows/package-manager/winget/) installed, you may execute the following command:
 
-	# [Linux](#tab/install-helm-linux)
-	The following command can be used to install Helm. Commands that use Helm with Azure CLI in this article can also be run using Bash.
-	```bash
-	curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-	```
+    ```powershell
+    winget install helm.helm
+    ```
+
+    # [Linux](#tab/install-helm-linux)
+    The following command can be used to install Helm. Commands that use Helm with Azure CLI in this article can also be run using Bash.
+    ```bash
+    curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+    ```
 
 
 ## Install the ALB Controller
 
-1. Create a user managed identity for ALB controller and federate the identity as Pod Identity to use in the AKS cluster.
+1. Create a user managed identity for ALB controller and federate the identity as Workload Identity to use in the AKS cluster.
 
     ```azurecli-interactive
-	RESOURCE_GROUP='<your resource group name>'
-	AKS_NAME='<your aks cluster name>'
-	IDENTITY_RESOURCE_NAME='azure-alb-identity'
-	
-	mcResourceGroup=$(az aks show --resource-group $RESOURCE_GROUP --name $AKS_NAME --query "nodeResourceGroup" -o tsv)
-	mcResourceGroupId=$(az group show --name $mcResourceGroup --query id -otsv)
-	
-	echo "Creating identity $IDENTITY_RESOURCE_NAME in resource group $RESOURCE_GROUP"
-	az identity create --resource-group $RESOURCE_GROUP --name $IDENTITY_RESOURCE_NAME
-	principalId="$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query principalId -otsv)"
+    RESOURCE_GROUP='<your resource group name>'
+    AKS_NAME='<your aks cluster name>'
+    IDENTITY_RESOURCE_NAME='azure-alb-identity'
 
-	echo "Waiting 60 seconds to allow for replication of the identity..."
-	sleep 60
+    mcResourceGroup=$(az aks show --resource-group $RESOURCE_GROUP --name $AKS_NAME --query "nodeResourceGroup" -o tsv)
+    mcResourceGroupId=$(az group show --name $mcResourceGroup --query id -otsv)
+
+    echo "Creating identity $IDENTITY_RESOURCE_NAME in resource group $RESOURCE_GROUP"
+    az identity create --resource-group $RESOURCE_GROUP --name $IDENTITY_RESOURCE_NAME
+    principalId="$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query principalId -otsv)"
+
+    echo "Waiting 60 seconds to allow for replication of the identity..."
+    sleep 60
  
-	echo "Apply Reader role to the AKS managed cluster resource group for the newly provisioned identity"
-	az role assignment create --assignee-object-id $principalId --assignee-principal-type ServicePrincipal --scope $mcResourceGroupId --role "acdd72a7-3385-48ef-bd42-f606fba81ae7" # Reader role
-	
-	echo "Set up federation with AKS OIDC issuer"
-	AKS_OIDC_ISSUER="$(az aks show -n "$AKS_NAME" -g "$RESOURCE_GROUP" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
-	az identity federated-credential create --name "azure-alb-identity" \
-	    --identity-name "$IDENTITY_RESOURCE_NAME" \
-	    --resource-group $RESOURCE_GROUP \
-	    --issuer "$AKS_OIDC_ISSUER" \
-	    --subject "system:serviceaccount:azure-alb-system:alb-controller-sa"
+    echo "Apply Reader role to the AKS managed cluster resource group for the newly provisioned identity"
+    az role assignment create --assignee-object-id $principalId --assignee-principal-type ServicePrincipal --scope $mcResourceGroupId --role "acdd72a7-3385-48ef-bd42-f606fba81ae7" # Reader role
+
+    echo "Set up federation with AKS OIDC issuer"
+    AKS_OIDC_ISSUER="$(az aks show -n "$AKS_NAME" -g "$RESOURCE_GROUP" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
+    az identity federated-credential create --name "azure-alb-identity" \
+        --identity-name "$IDENTITY_RESOURCE_NAME" \
+        --resource-group $RESOURCE_GROUP \
+        --issuer "$AKS_OIDC_ISSUER" \
+        --subject "system:serviceaccount:azure-alb-system:alb-controller-sa"
     ```
     ALB Controller requires a federated credential with the name of _azure-alb-identity_.  Any other federated credential name is unsupported.
 
    > [!Note]
-   > Assignment of the managed identity immediately after creation may result in an error that the principalId does not exist. Allow about a minute of time to elapse for the identity to replicate in Azure AD prior to delegating the identity.
+   > Assignment of the managed identity immediately after creation may result in an error that the principalId does not exist. Allow about a minute of time to elapse for the identity to replicate in Microsoft Entra ID prior to delegating the identity.
 
 2. Install ALB Controller using Helm
 
-	### For new deployments
-	ALB Controller can be installed by running the following commands:
+    ### For new deployments
+    
+    To install ALB Controller, use the `helm install` command.
 
-	```azurecli-interactive
-	az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
-	helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
-	     --version 0.4.023971 \
-	     --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
-	```
+    When the `helm install` command is run, it will deploy the helm chart to the  _default_ namespace.  When alb-controller is deployed, it will deploy to the _azure-alb-system_ namespace.  Both of these namespaces may be overridden independently as desired.  To override the namespace the helm chart is deployed to, you may specify the --namespace (or -n) parameter.  To override the _azure-alb-system_ namespace used by alb-controller, you may set the albController.namespace property during installation (`--set albController.namespace`).  If neither the `--namespace` or `--set albController.namespace` parameters are defined, the _default_ namespace will be used for the helm chart and the _azure-alb-system_ namespace will be used for the ALB controller components. Lastly, if the namespace for the helm chart resource is not yet defined, ensure the `--create-namespace` parameter is also specified along with the `--namespace` or `-n` parameters.
+    
+    ALB Controller can be installed by running the following commands:
 
-   	> [!Note]
-   	> ALB Controller will automatically be provisioned into a namespace called azure-alb-system. The namespace name may be changed by defining the _--namespace <namespace_name>_ parameter when executing the helm command.  During upgrade, please ensure you specify the --namespace parameter.
+    ```azurecli-interactive
+    az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
+    helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
+         --namespace <helm-resource-namespace> \
+         --version 0.6.1 \
+         --set albController.namespace=<alb-controller-namespace> \
+         --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
+    ```
 
-	### For existing deployments
-	ALB can be upgraded by running the following commands (ensure you add the `--namespace namespace_name` parameter to define the namespace if the previous installation did not use the namespace _azure-alb-system_):
-	```azurecli-interactive
-	az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
-	helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
-	     --version 0.4.023971 \
-	     --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
-	```
+
+    ### For existing deployments
+    ALB can be upgraded by running the following commands:
+    
+    > [!Note]
+    > During upgrade, please ensure you specify the `--namespace` or `--set albController.namespace` parameters if the namespaces were overridden in the previously installed installation.  To determine the previous namespaces used, you may run the `helm list` command for the helm namespace and `kubectl get pod -A -l app=alb-controller` for the ALB controller.
+
+    ```azurecli-interactive
+    az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
+    helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
+        --namespace <helm-resource-namespace> \
+        --version 0.6.1 \
+        --set albController.namespace=<alb-controller-namespace> \
+        --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
+    ```
 
 ### Verify the ALB Controller installation
 
@@ -169,6 +182,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
     | NAME                                     | READY | STATUS  | RESTARTS | AGE  |
     | ---------------------------------------- | ----- | ------- | -------- | ---- |
     | alb-controller-bootstrap-6648c5d5c-hrmpc | 1/1   | Running | 0        | 4d6h |
+    | alb-controller-6648c5d5c-sdd9t           | 1/1   | Running | 0        | 4d6h |
     | alb-controller-6648c5d5c-au234           | 1/1   | Running | 0        | 4d6h |
 
 2. Verify GatewayClass `azure-application-lb` is installed on your cluster:
@@ -176,7 +190,28 @@ You need to complete the following tasks prior to deploying Application Gateway 
     ```azurecli-interactive
     kubectl get gatewayclass azure-alb-external -o yaml
     ```
+
     You should see that the GatewayClass has a condition that reads **Valid GatewayClass** . This indicates that a default GatewayClass has been set up and that any gateway resources that reference this GatewayClass is managed by ALB Controller automatically.
+    ```output
+    apiVersion: gateway.networking.k8s.io/v1beta1
+    kind: GatewayClass
+    metadata:
+      creationTimestamp: "2023-07-31T13:07:00Z"
+      generation: 1
+      name: azure-alb-external
+      resourceVersion: "64270"
+      uid: 6c1443af-63e6-4b79-952f-6c3af1f1c41e
+    spec:
+      controllerName: alb.networking.azure.io/alb-controller
+    status:
+      conditions:
+        - lastTransitionTime: "2023-07-31T13:07:23Z"
+        message: Valid GatewayClass
+        observedGeneration: 1
+        reason: Accepted
+        status: "True"
+        type: Accepted
+    ```
 
 ## Next Steps 
 

@@ -1,16 +1,15 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
 ms.date: 10/31/2022
 ms.author: jboback
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/rest/api/language/2023-04-01/text-analysis-runtime/analyze-text)
+[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2239169)
 
 Use this quickstart to send Named Entity Recognition (NER) requests using the REST API. In the following example, you'll use cURL to identify [recognized entities](../../concepts/named-entity-categories.md) in text.
 

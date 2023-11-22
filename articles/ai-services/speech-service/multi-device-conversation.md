@@ -2,11 +2,10 @@
 title: Multi-device Conversation overview - Speech service
 titleSuffix: Azure AI services
 description: Multi-device conversation makes it easy to create a speech or text conversation between multiple clients and coordinate the messages that are sent between them.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 02/19/2022
 ms.author: eur
@@ -28,7 +27,7 @@ With multi-device conversation, you can:
 
 You can build a feature or solution that works across an array of devices. Each device can independently send messages (either transcriptions of audio or instant messages) to all other devices.
 
-Whereas [Conversation Transcription](conversation-transcription.md) works on a single device with a multichannel microphone array, Multi-device Conversation is suited for scenarios with multiple devices, each with a single microphone.
+Whereas [Meeting Transcription](meeting-transcription.md) works on a single device with a multichannel microphone array, Multi-device Conversation is suited for scenarios with multiple devices, each with a single microphone.
 
 >[!IMPORTANT]
 > Multi-device conversation does not support sending audio files between clients: only the transcription and/or translation.

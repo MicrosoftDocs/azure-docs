@@ -2,10 +2,10 @@
 title: Language support
 titleSuffix: Azure AI services
 description: Azure AI services enable you to build applications that see, hear, speak with, and understand your users.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # Natural language support for Azure AI services
 
-Azure AI services enable you to build applications that see, hear, articulate, and understand users. Our burgeoning language support capabilities enable users to communicate with your application in natural ways and help facilitate global outreach. Use the links in the tables to view language support and availability by service.
+Azure AI services enable you to build applications that see, hear, articulate, and understand users. Our language support capabilities enable users to communicate with your applications in natural ways and empower global outreach. Use the links in the tables to view language support and availability by service.
 
 ## Language supported services
 
@@ -30,7 +30,7 @@ The following table provides links to language support reference articles by sup
 |![QnA Maker icon](media/service-icons/luis.svg)</br>[QnA Maker](./qnamaker/overview/language-support.md) (retired) | Distill information into easy-to-navigate questions and answers. |
 |![Speech icon](media/service-icons/speech.svg)</br>[Speech Service](./speech-service/language-support.md)| Configure speech-to-text, text-to-speech, translation, and speaker recognition applications. |
 |![Translator icon](media/service-icons/translator.svg)</br>[Translator](./translator/language-support.md) | Translate more than 100 languages and dialects including those deemed at-risk and endangered. |
-|![Video Indexer icon](media/service-icons/video-indexer.svg)</br>[Video Indexer](../azure-video-indexer/language-identification-model.md#guidelines-and-limitations) | Extract actionable insights from your videos. |
+|![Video Indexer icon](media/service-icons/video-indexer.svg)</br>[Video Indexer](/azure/azure-video-indexer/language-identification-model#guidelines-and-limitations) | Extract actionable insights from your videos. |
 |![Vision icon](media/service-icons/vision.svg)</br>[Vision](./computer-vision/language-support.md) | Analyze content in images and videos. |
 
 ## Language independent services

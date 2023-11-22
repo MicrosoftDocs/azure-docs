@@ -2,15 +2,13 @@
 title: Regions - Speech service
 titleSuffix: Azure AI services
 description: A list of available regions and endpoints for the Speech service, including speech to text, text to speech, and speech translation.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.date: 10/27/2023
 ms.author: eur
-ms.custom: references_regions, ignite-fall-2021
+ms.custom: references_regions
 ---
 
 # Speech service supported regions
@@ -34,31 +32,32 @@ The following regions are supported for Speech service features such as speech t
 | ----- | ----- | ----- |
 | Africa | South Africa North | `southafricanorth` <sup>6</sup>|
 | Asia Pacific | East Asia | `eastasia` <sup>5</sup>|
-| Asia Pacific | Southeast Asia | `southeastasia` <sup>1,2,3,4,5</sup>|
-| Asia Pacific | Australia East | `australiaeast` <sup>1,2,3,4</sup>|
+| Asia Pacific | Southeast Asia | `southeastasia` <sup>1,2,3,4,5,7</sup>|
+| Asia Pacific | Australia East | `australiaeast` <sup>1,2,3,4,7</sup>|
 | Asia Pacific | Central India | `centralindia` <sup>1,2,3,4,5</sup>|
 | Asia Pacific | Japan East | `japaneast` <sup>2,5</sup>|
 | Asia Pacific | Japan West | `japanwest` |
 | Asia Pacific | Korea Central | `koreacentral` <sup>2</sup>|
 | Canada | Canada Central | `canadacentral` <sup>1</sup>|
-| Europe | North Europe | `northeurope` <sup>1,2,4,5</sup>|
-| Europe | West Europe | `westeurope` <sup>1,2,3,4,5</sup>|
+| Europe | North Europe | `northeurope` <sup>1,2,4,5,7</sup>|
+| Europe | West Europe | `westeurope` <sup>1,2,3,4,5,7</sup>|
 | Europe | France Central | `francecentral` |
 | Europe | Germany West Central | `germanywestcentral` |
 | Europe | Norway East | `norwayeast` |
+| Europe | Sweden Central | `swedentcentral` |
 | Europe | Switzerland North | `switzerlandnorth` <sup>6</sup>|
 | Europe | Switzerland West | `switzerlandwest` |
-| Europe | UK South | `uksouth` <sup>1,2,3,4</sup>|
+| Europe | UK South | `uksouth` <sup>1,2,3,4,7</sup>|
 | Middle East | UAE North | `uaenorth` <sup>6</sup>|
 | South America | Brazil South | `brazilsouth` <sup>6</sup>|
 | US | Central US | `centralus` |
-| US | East US | `eastus` <sup>1,2,3,4,5</sup>|
+| US | East US | `eastus` <sup>1,2,3,4,5,7</sup>|
 | US | East US 2 | `eastus2` <sup>1,2,4,5</sup>|
 | US | North Central US | `northcentralus` <sup>4,6</sup>|
-| US | South Central US | `southcentralus` <sup>1,2,3,4,5,6</sup>|
+| US | South Central US | `southcentralus` <sup>1,2,3,4,5,6,7</sup>|
 | US | West Central US | `westcentralus` <sup>5</sup>|
 | US | West US | `westus` <sup>2,5</sup>|
-| US | West US 2 | `westus2` <sup>1,2,4,5</sup>|
+| US | West US 2 | `westus2` <sup>1,2,4,5,7</sup>|
 | US | West US 3 | `westus3` |
 
 <sup>1</sup> The region has dedicated hardware for Custom Speech training. If you plan to train a custom model with audio data, use one of the regions with dedicated hardware for faster training. Then you can [copy the trained model](how-to-custom-speech-train-model.md#copy-a-model) to another region.
@@ -72,6 +71,8 @@ The following regions are supported for Speech service features such as speech t
 <sup>5</sup> The region supports keyword verification.
 
 <sup>6</sup> The region does not support Speaker Recognition.
+
+<sup>7</sup> The region supports the [high performance](how-to-deploy-and-use-endpoint.md#add-a-deployment-endpoint) endpoint type for Custom Neural Voice.
 
 ## Intent recognition
 

@@ -1,57 +1,45 @@
 ---
 title: What's new in Azure Managed Grafana
 description: Recent updates for Azure Managed Grafana
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: managed-grafana
 ms.topic: conceptual
-ms.date: 02/06/2023
+ms.date: 10/01/2023
 
 ---
 
-# What's New in Azure Managed Grafana
+# What's new in Azure Managed Grafana
+
+## October 2023
+
+* Azure Managed Grafana has a new [Essential pricing plan](overview.md#service-tiers) available in preview. This plan provides core Grafana functionalities at a reduced price and is designed to be used in non-production environments.
+
+## September 2023
+
+* [Microsoft Entra groups](how-to-sync-teams-with-azure-ad-groups.md) is available in preview in Azure Managed Grafana.
+
+* [Plugin management](how-to-manage-plugins.md) is available in preview. This feature lets you manage installed Grafana plugins directly within an Azure Managed Grafana workspace.
+
+* Azure Monitor workspaces integration is available in preview. This feature allows you to link your Grafana dashboard to Azure Monitor workspaces. This integration simplifies the process of connecting AKS clusters to an Azure Managed Grafana workspace and collecting metrics.
 
 ## May 2023
 
-### Managed Private Endpoint
+* Connecting Azure Managed Grafana instances to data sources using managed private endpoints is available in preview. For more information about managed private endpoints, go to [Connect to a data source privately](how-to-connect-to-data-source-privately.md).
 
-Connecting Azure Managed Grafana instances to data sources using private links is now supported as a preview.
+* SMTP support in Azure Managed Grafana is now generally available. For more information, go to [Configure SMTP settings](how-to-smtp-settings.md).
 
-For more information, go to [Connect to a data source privately](how-to-connect-to-data-source-privately.md).
-
-### Support for SMTP settings
-
-SMTP support in Azure Managed Grafana is now generally available.
-
-For more information, go to [Configure SMTP settings](how-to-smtp-settings.md).
-
-### Reporting
-
-Reporting is now supported in Azure Managed Grafana as a preview.
-
-For more information, go to [Use reporting and image rendering](how-to-use-reporting-and-image-rendering.md).
+* Reporting is now supported in Azure Managed Grafana as a preview. For more information, go to [Use reporting and image rendering](how-to-use-reporting-and-image-rendering.md).
 
 ## February 2023
 
-### Support for SMTP settings
-
-Configuring SMTP settings for Azure Managed Grafana is now supported.
-
-For more information, go to [SMTP settings](how-to-smtp-settings.md).
+* Configuring SMTP settings for Azure Managed Grafana is now supported. For more information, go to [SMTP settings](how-to-smtp-settings.md).
 
 ## January 2023
 
-### Support for Grafana Enterprise
+* Grafana Enterprise is supported. For more information, go to [Subscribe to Grafana Enterprise](how-to-grafana-enterprise.md).
 
-Grafana Enterprise is now supported.
-
-For more information, go to [Subscribe to Grafana Enterprise](how-to-grafana-enterprise.md).
-
-### Support for service accounts
-
-Service accounts are now supported.
-
-For more information, go to [How to use service accounts](how-to-service-accounts.md).
+* Service accounts are supported. For more information, go to [How to use service accounts](how-to-service-accounts.md).
 
 ## Next steps
 

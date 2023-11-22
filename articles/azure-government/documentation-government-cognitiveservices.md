@@ -1,6 +1,6 @@
 ---
-title: Cognitive Services on Azure Government
-description: Guidance for developing Cognitive Services applications for Azure Government
+title: Azure AI services on Azure Government
+description: Guidance for developing Azure AI services applications for Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -13,9 +13,9 @@ ms.date: 08/30/2021
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 
-# Cognitive Services on Azure Government
+# Azure AI services on Azure Government
 
-This article provides developer guidance for using Computer Vision, Face API, Text Analytics, and Translator cognitive services. For feature variations and limitations, see [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md).
+This article provides developer guidance for using Computer Vision, Face API, Text Analytics, and Translator Azure AI services. For feature variations and limitations, see [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md).
 
 ## Prerequisites
 
@@ -24,9 +24,11 @@ This article provides developer guidance for using Computer Vision, Face API, Te
 - Install and Configure [Azure PowerShell](/powershell/azure/install-azure-powershell)
 - Connect [PowerShell with Azure Government](documentation-government-get-started-connect-with-ps.md)
 
-## Part 1: Provision Cognitive Services accounts
+<a name='part-1-provision-cognitive-services-accounts'></a>
 
-In order to access any of the Cognitive Services APIs, you must first provision a Cognitive Services account for each of the APIs you want to access. You can create cognitive services in the [Azure Government portal](https://portal.azure.us/), or you can use Azure PowerShell to access the APIs and services as described in this article.
+## Part 1: Provision Azure AI services accounts
+
+In order to access any of the Azure AI services APIs, you must first provision an Azure AI services account for each of the APIs you want to access. You can create Azure AI services in the [Azure Government portal](https://portal.azure.us/), or you can use Azure PowerShell to access the APIs and services as described in this article.
 
 > [!NOTE]
 > You must go through the process of creating an account and retrieving account key (explained below) **for each** of the APIs you want to access.
@@ -89,7 +91,7 @@ Now you are ready to make calls to the APIs.
 
 ## Part 2: API Quickstarts
 
-The Quickstarts below will help you to get started with the APIs available through Cognitive Services in Azure Government.
+The Quickstarts below will help you to get started with the APIs available through Azure AI services in Azure Government.
 
 
 ## Computer Vision

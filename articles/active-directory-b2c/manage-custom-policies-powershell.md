@@ -6,8 +6,8 @@ author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
-ms.custom: devx-track-azurepowershell
+
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: kengaderdus
@@ -188,7 +188,7 @@ Message: Validation failed: 1 validation error(s) found in policy "B2C_1A_SIGNUP
 ...
 ```
 
-For information about troubleshooting custom policies, see [Troubleshoot Azure AD B2C custom policies and Identity Experience Framework](./troubleshoot-custom-policies.md).
+For information about troubleshooting custom policies, see [Troubleshoot Azure AD B2C custom policies and Identity Experience Framework](./troubleshoot.md).
 
 ## Next steps
 

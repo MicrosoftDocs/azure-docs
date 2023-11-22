@@ -1,15 +1,14 @@
 ---
 title: NSG flow logs
 titleSuffix: Azure Network Watcher
-description: Learn about NSG flow logs feature of Azure Network Watcher.
-services: network-watcher
+description: Learn about NSG flow logs feature of Azure Network Watcher, which allows you to log information about IP traffic flowing through a network security group.
+ms.author: halkazwini
 author: halkazwini
 ms.service: network-watcher
-ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 05/24/2023
-ms.author: halkazwini
-ms.custom: template-concept, engagement-fy23
+ms.topic: concept-article
+ms.date: 11/16/2023
+
+#CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can better monitor and optimize my network.
 ---
 
 # Flow logging for network security groups
@@ -447,13 +446,15 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 When you disable an NSG flow log, you stop the flow logging for the associated network security group. But the flow log continues to exist as a resource, with all its settings and associations. You can enable it anytime to begin flow logging on the configured network security group.
 
+You can disable a flow log using the [Azure portal](nsg-flow-logging.md#disable-a-flow-log), [PowerShell](network-watcher-nsg-flow-logging-powershell.md#disable-a-flow-log), the [Azure CLI](network-watcher-nsg-flow-logging-cli.md#disable-a-flow-log), or the [REST API](/rest/api/network-watcher/flow-logs/create-or-update).
+
 For steps to disable and enable NSG flow logs, see [Configure NSG flow logs](./network-watcher-nsg-flow-logging-powershell.md).  
 
 ### Delete flow logs
 
 When you delete an NSG flow log, you not only stop the flow logging for the associated network security group but also delete the flow log resource (with all its settings and associations). To begin flow logging again, you must create a new flow log resource for that network security group.
 
-You can delete a flow log using [PowerShell](/powershell/module/az.network/remove-aznetworkwatcherflowlog), the [Azure CLI](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-delete), or the [REST API](/rest/api/network-watcher/flowlogs/delete).
+You can delete a flow log using the [Azure portal](nsg-flow-logging.md#delete-a-flow-log), [PowerShell](network-watcher-nsg-flow-logging-powershell.md#delete-a-flow-log), the [Azure CLI](network-watcher-nsg-flow-logging-cli.md#delete-a-flow-log), or the [REST API](/rest/api/network-watcher/flow-logs/delete).
 
 When you delete a network security group, the associated flow log resource is deleted by default.
 
@@ -476,11 +477,11 @@ Pricing of NSG flow logs doesn't include the underlying costs of storage. Using 
 
 If you want to retain data forever and don't want to apply any retention policy, set retention days to 0. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-### User-defined inbound TCP rules
+### Non-default inbound TCP rules
 
-Network security groups are implemented as a [stateful firewall](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). But because of current platform limitations, user-defined rules that affect inbound TCP flows are implemented in a stateless way.
+Network security groups are implemented as a [stateful firewall](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). But because of current platform limitations, network security group non-default security rules that affect inbound TCP flows are implemented in a stateless way.
 
-Flows that user-defined inbound rules affect become non-terminating. Additionally, byte and packet counts aren't recorded for these flows. Because of those factors, the number of bytes and packets reported in NSG flow logs (and Network Watcher traffic analytics) could be different from actual numbers.
+Flows affected by non-default inbound rules become non-terminating. Additionally, byte and packet counts aren't recorded for these flows. Because of those factors, the number of bytes and packets reported in NSG flow logs (and Network Watcher traffic analytics) could be different from actual numbers.
 
 You can resolve this difference by setting the `FlowTimeoutInMinutes` property on the associated virtual networks to a non-null value. You can achieve default stateful behavior by setting `FlowTimeoutInMinutes` to 4 minutes. For long-running connections where you don't want flows to disconnect from a service or destination, you can set `FlowTimeoutInMinutes` to a value of up to 30 minutes. Use [Get-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to set `FlowTimeoutInMinutes` property:
 
@@ -554,54 +555,14 @@ This problem might be related to:
 
 - **Lack of traffic on your network security groups**: Sometimes you don't see logs because your virtual machines aren't active, or because upstream filters at Application Gateway or other devices are blocking traffic to your network security groups.
 
-### I want to automate NSG flow logs
-
-Support for automation via Azure Resource Manager templates (ARM templates) is now available for NSG flow logs. For more information, see [Configure network security group flow logs using an Azure Resource Manager (ARM) template](quickstart-configure-network-security-group-flow-logs-from-arm-template.md).
-
-## Frequently asked questions (FAQ)
-
-### What do NSG flow logs do?
-
-NSG flow logs enable you to log 5-tuple flow information about all traffic passing through your network security groups. The raw flow logs are written to an Azure Storage account. From there, you can further process, analyze, query, or export them as needed.
-
-### Do flow logs affect my network latency or performance?
-
-Flow log data is collected outside the path of your network traffic, so it doesn't affect network throughput or latency. You can create or delete flow logs without any risk of impact to network performance.
-
-### How do I use NSG flow logs with a storage account behind a firewall?
-
-To use a storage account behind a firewall, you have to provide an exception for trusted Microsoft services to access the storage account:
-
-1. Go to the storage account by entering the account's name in the portal search.
-1. In the **Networking** section, select **Firewalls and virtual networks** at the top of the page. Then make sure that the following items are configured:
-
-   - For **Public network access**, select **Enabled from selected virtual networks and IP addresses**.
-   - For **Firewall**, select **Add your client IP address**.
-
-     > [!Note]
-     > A client IP address is provided here by default. Use `ipconfig` to verify that this IP address matches the machine that you're using to access the storage account. If the client IP address doesn't match your machine, you might get an "Unauthorized" error when you're trying to access the storage account to read NSG flow logs.
-
-   - For **Exceptions**, select **Allow Azure service on the trusted services list to access this storage account**.
-
-1. On the NSG flow logs page, find your target network security group and then enable flow logging using the previously configured storage account.
-
-Check the storage logs after a few minutes. You should see an updated time stamp or a new JSON file created.
-
-### How do I use NSG flow logs with a storage account behind a service endpoint?
-
-NSG flow logs are compatible with service endpoints without requiring any extra configuration. For more information, see [Enable a service endpoint](../virtual-network/tutorial-restrict-network-access-to-resources.md#enable-a-service-endpoint).
-
-### What's the difference between versions 1 and 2 of flow logs?
-
-Version 2 of flow logs introduces the concept of *flow state* and stores information about transmitted bytes and packets. [Read more](#log-format).
-
 ## Pricing
 
 NSG flow logs are charged per gigabyte of logs collected and come with a free tier of 5 GB/month per subscription. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
 Storage of logs is charged separately. For relevant prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## Next steps
+## Related content
 
-- Learn how to [Log network traffic to and from a virtual machine](./network-watcher-nsg-flow-logging-portal.md)
-- Learn how to [Read NSG flow logs](./network-watcher-read-nsg-flow-logs.md)
+- To learn how to manage NSG flow logs, see [Create, change, disable, or delete NSG flow logs using the Azure portal](nsg-flow-logging.md).
+- To find answers to some of the most frequently asked questions about NSG flow logs, see [NSG flow logs FAQ](frequently-asked-questions.yml#nsg-flow-logs).
+- To learn about traffic analytics, see [Traffic analytics overview](traffic-analytics.md).

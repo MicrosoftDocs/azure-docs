@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 07/22/2023
+ms.date: 07/28/2023
 ms.author: greglin
 ---
 
@@ -16,13 +16,13 @@ The instructions below assume Application Gateway Ingress Controller (AGIC) will
 installed in an environment with no pre-existing components.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md), currently in public preview.
+> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
 
 ## Required Command Line Tools
 
 We recommend the use of [Azure Cloud Shell](https://shell.azure.com/) for all command-line operations below. Launch your shell from shell.azure.com or by clicking the link:
 
-[![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+[![Embed launch](./media/launch-cloud-shell/launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
 Alternatively, launch Cloud Shell from Azure portal using the following icon:
 
@@ -39,7 +39,7 @@ choose to use another environment, ensure the following command-line tools are i
 
 ## Create an Identity
 
-Follow the steps below to create an Azure Active Directory (Azure AD) [service principal object](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Record the `appId`, `password`, and `objectId` values - these values will be used in the following steps.
+Follow the steps below to create a Microsoft Entra [service principal object](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Record the `appId`, `password`, and `objectId` values - these values will be used in the following steps.
 
 1. Create AD service principal ([Read more about Azure RBAC](../role-based-access-control/overview.md)):
     ```azurecli
@@ -76,7 +76,7 @@ This step will add the following components to your subscription:
 - [Application Gateway](./overview.md) v2
 - [Virtual Network](../virtual-network/virtual-networks-overview.md) with two [subnets](../virtual-network/virtual-networks-overview.md)
 - [Public IP Address](../virtual-network/ip-services/virtual-network-public-ip-address.md)
-- [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md), which will be used by [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity/blob/master/README.md)
+- [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md), which will be used by [Microsoft Entra Pod Identity](https://github.com/Azure/aad-pod-identity/blob/master/README.md)
 
 1. Download the Azure Resource Manager template and modify the template as needed.
     ```bash
@@ -110,7 +110,7 @@ This step will add the following components to your subscription:
 
 With the instructions in the previous section, we created and configured a new AKS cluster and an Application Gateway. We're now ready to deploy a sample app and an ingress controller to our new Kubernetes infrastructure.
 
-### Setup Kubernetes Credentials
+### Set up Kubernetes Credentials
 For the following steps, we need setup [kubectl](https://kubectl.docs.kubernetes.io/) command,
 which we'll use to connect to our new Kubernetes cluster. [Cloud Shell](https://shell.azure.com/) has `kubectl` already installed. We'll use `az` CLI to obtain credentials for Kubernetes.
 
@@ -124,16 +124,18 @@ resourceGroupName=$(jq -r ".resourceGroupName.value" deployment-outputs.json)
 az aks get-credentials --resource-group $resourceGroupName --name $aksClusterName
 ```
 
-### Install Azure AD Pod Identity
-  Azure Active Directory Pod Identity provides token-based access to
+<a name='install-azure-ad-pod-identity'></a>
+
+### Install Microsoft Entra Pod Identity
+  Microsoft Entra Pod Identity provides token-based access to
   [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md).
 
-  [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) will add the following components to your Kubernetes cluster:
+  [Microsoft Entra Pod Identity](https://github.com/Azure/aad-pod-identity) will add the following components to your Kubernetes cluster:
    * Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity`, `AzureIdentityBinding`
    * [Managed Identity Controller (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic) component
    * [Node Managed Identity (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi) component
 
-To install Azure AD Pod Identity to your cluster:
+To install Microsoft Entra Pod Identity to your cluster:
 
    - *Kubernetes RBAC enabled* AKS cluster
 
@@ -148,8 +150,10 @@ To install Azure AD Pod Identity to your cluster:
      ```
 
 ### Install Helm
-[Helm](../aks/kubernetes-helm.md) is a package manager for
-Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress` package:
+[Helm](../aks/kubernetes-helm.md) is a package manager for Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress` package.
+
+> [!NOTE]
+> If you use [Cloud Shell](https://shell.azure.com/), you don't need to install Helm.  Azure Cloud Shell comes with Helm version 3. Skip the first step and just add the AGIC Helm repository.
 
 1. Install [Helm](../aks/kubernetes-helm.md) and run the following to add `application-gateway-kubernetes-ingress` helm package:
 
@@ -167,7 +171,7 @@ Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress`
         helm init
         ```
 
-1. Add the AGIC Helm repository:
+2. Add the AGIC Helm repository:
     ```bash
     helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
     helm repo update

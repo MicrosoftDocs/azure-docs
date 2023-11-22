@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Azure Maps?
     href: about-azure-maps.md
+  - name: What is Azure Maps Creator?
+    href: about-creator.md
 - name: Quickstarts
   expanded: true
   items:
@@ -135,6 +137,8 @@ items:
       href: how-to-view-api-usage.md
   - name: Creator Indoor Maps
     items:
+    - name: Create indoor map with the onboarding tool
+      href: creator-onboarding-tool.md
     - name: Manage Creator
       href: how-to-manage-creator.md
     - name: Drawing package guide
@@ -177,6 +181,8 @@ items:
       href: how-to-dev-guide-java-sdk.md
   - name: Develop with the Web SDK
     items:
+    - name: Web SDK v1 migration guide
+      href: web-sdk-migration-guide.md
     - name: Map control
       items:
       - name: Use the Azure Maps map control
@@ -481,20 +487,6 @@ items:
             href: /rest/api/maps/v2/tileset
           - name: WFS
             href: /rest/api/maps/v2/wfs
-      - name: V20220901Preview
-        items:
-        - name: Dataset
-          href: /rest/api/maps/v20220901preview/dataset
-        - name: Map configuration
-          href: /rest/api/maps/v20220901preview/map-configuration
-        - name: Routeset
-          href: /rest/api/maps/v20220901preview/routeset
-        - name: Style
-          href: /rest/api/maps/v20220901preview/style
-        - name: Tileset
-          href: /rest/api/maps/v20220901preview/tileset
-        - name: Wayfinding
-          href: /rest/api/maps/v20220901preview/wayfinding
     - name: Maps account management
       href: /rest/api/maps-management/
   - name: JavaScript
@@ -515,6 +507,8 @@ items:
         href: release-notes-map-control.md
       - name: Indoor module
         href: release-notes-indoor-module.md
+      - name: Drawing Tools module
+        href: release-notes-drawing-tools-module.md
       - name: Spatial IO module
         href: release-notes-spatial-module.md
   - name: Resource Manager template
@@ -525,32 +519,8 @@ items:
   items:
   - name: Azure Maps code samples
     href: https://samples.azuremaps.com/
-  - name: Support and help options
-    href: ../iot/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
   - name: Azure Maps QPS Rate Limits
     href: azure-maps-qps-rate-limits.md
-  - name: Azure IoT services
-    items:
-    - name: IoT Hub
-      href: ../iot-hub/index.yml
-    - name: IoT Hub Device Provisioning Service
-      href: ../iot-dps/index.yml
-    - name: IoT Central
-      href: ../iot-central/index.yml
-    - name: IoT Edge
-      href: ../iot-edge/index.yml
-    - name: IoT Plug and Play
-      href: ../iot-develop/index.yml
-    - name: Azure Maps
-      href: ./index.yml
-    - name: Time Series Insights
-      href: ../time-series-insights/index.yml
-  - name: Azure IoT SDKs
-    items:
-    - name: IoT Service SDKs
-      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
-    - name: IoT Device SDKs
-      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
   - name: Azure Maps terms of use
     href: https://azure.microsoft.com/support/legal/
   - name: Azure Maps pricing
@@ -569,13 +539,5 @@ items:
     href: glossary.md
   - name: Service updates
     href: https://azure.microsoft.com/updates/
-  - name: Azure IoT Developer Center
-    href: https://azure.microsoft.com/overview/iot/
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Technical case studies
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Azure Maps on IoT School
-    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
   - name: Create elevation data & services
     href: elevation-data-services.md

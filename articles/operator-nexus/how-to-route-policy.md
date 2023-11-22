@@ -1,6 +1,6 @@
 ---
 title: "Azure Operator Nexus: How to create route policy in Network Fabric"
-description: Learn to create, view, list, update, delete commands for Network Fabric.
+description: Learn to create, view, list, update, and delete commands for Network Fabric.
 author: jdasari
 ms.author: jdasari
 ms.service: azure-operator-nexus
@@ -11,10 +11,10 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Route Policy in Network Fabric
 
-Route policies provides Operators the capability to allow or deny routes in regards to Layer 3 isolation domains in Network Fabric.
+Route policies provide Operators the capability to allow or deny routes in regards to Layer 3 isolation domains in Network Fabric.
 
 With route policies, routes are tagged with certain attributes via community values
-and extended community values when they're distributed via Border Gateway Patrol (BGP).
+and extended community values when they're distributed via Border Gateway Protocol (BGP).
 Similarly, on the BGP listener side, route policies can be authored to discard/allow
 routes based on community values and extended community value attributes.
 
@@ -89,7 +89,6 @@ IP prefixes specify only the match conditions of route policies. They don't spec
 | sequenceNumber | Sequence in which the prefixes are processed. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored |  100 |True |
 | networkPrefix | Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. |  1.1.1.0/24 |True |
 | condition | Specified prefix list bounds- EqualTo \|  GreaterThanOrEqualTo \|  LesserThanOrEqualTo |  EqualTo | |
-
 | subnetMaskLength | SubnetMaskLength specifies the minimum networkPrefix length to be matched. Required when condition is specified.  |  32| |
 
 ### Create IP Prefix
@@ -286,7 +285,7 @@ Expected output:
 
 ## IP extended community
 
-The `IPExtendedCommunity`resource allows operators to manipulate routes  based on  route targets. Operators use it to specify conditions and actions for adding/removing routes as they're propagated up-stream/down-stream or tag them with specific extended community values. The operator must create an ARM resource of the type `I`PExtendedCommunityList` by providing a list of community values and specific properties. ExtendedCommunityLists are used in specifying match conditions and the action properties for route policies.
+The `IPExtendedCommunity`resource allows operators to manipulate routes  based on  route targets. Operators use it to specify conditions and actions for adding/removing routes as they're propagated up-stream/down-stream or tag them with specific extended community values. The operator must create an ARM resource of the type `IPExtendedCommunityList` by providing a list of community values and specific properties. ExtendedCommunityLists are used in specifying match conditions and the action properties for route policies.
 
 ### Parameters for IP extended community
 

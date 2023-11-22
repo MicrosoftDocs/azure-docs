@@ -1,24 +1,24 @@
 ---
-title: Set up sign-in for an Azure AD organization
+title: Set up sign-in for a Microsoft Entra organization
 titleSuffix: Azure AD B2C
-description: Set up sign-in for a specific Azure Active Directory organization in Azure Active Directory B2C.
-services: active-directory-b2c
+description: Set up sign-in for a specific Microsoft Entra organization in Azure Active Directory B2C.
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 02/07/2023
 ms.author: godonnell
 ms.subservice: B2C
-ms.custom: fasttrack-edit, project-no-code
+ms.custom: fasttrack-edit, 
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Set up sign-in for a specific Azure Active Directory organization in Azure Active Directory B2C
+# Set up sign-in for a specific Microsoft Entra organization in Azure Active Directory B2C
 
-This article shows you how to enable sign-in for users from a specific Azure AD organization using a user flow in Azure AD B2C.
+This article shows you how to enable sign-in for users from a specific Microsoft Entra organization using a user flow in Azure AD B2C.
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -33,22 +33,22 @@ This article shows you how to enable sign-in for users from a specific Azure AD 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ### Verify the application's publisher domain
-As of November 2020, new application registrations show up as unverified in the user consent prompt unless [the application's publisher domain is verified](../active-directory/develop/howto-configure-publisher-domain.md) ***and*** the company’s identity has been verified with the Microsoft Partner Network and associated with the application. ([Learn more](../active-directory/develop/publisher-verification-overview.md) about this change.) Note that for Azure AD B2C user flows, the publisher’s domain appears only when using a [Microsoft account](../active-directory-b2c/identity-provider-microsoft-account.md) or other Azure AD tenant as the identity provider. To meet these new requirements, do the following:
+As of November 2020, new application registrations show up as unverified in the user consent prompt unless [the application's publisher domain is verified](../active-directory/develop/howto-configure-publisher-domain.md) ***and*** the company’s identity has been verified with the Microsoft Partner Network and associated with the application. ([Learn more](../active-directory/develop/publisher-verification-overview.md) about this change.) Note that for Azure AD B2C user flows, the publisher’s domain appears only when using a [Microsoft account](../active-directory-b2c/identity-provider-microsoft-account.md) or other Microsoft Entra tenant as the identity provider. To meet these new requirements, do the following:
 
 1. [Verify your company identity using your Microsoft Partner Network (MPN) account](/partner-center/verification-responses). This process verifies information about your company and your company’s primary contact.
 1. Complete the publisher verification process to associate your MPN account with your app registration using one of the following options:
-   - If the app registration for the Microsoft account identity provider is in an Azure AD tenant, [verify your app in the App Registration portal](../active-directory/develop/mark-app-as-publisher-verified.md).
+   - If the app registration for the Microsoft account identity provider is in a Microsoft Entra tenant, [verify your app in the App Registration portal](../active-directory/develop/mark-app-as-publisher-verified.md).
    - If your app registration for the Microsoft account identity provider is in an Azure AD B2C tenant, [mark your app as publisher verified using Microsoft Graph APIs](../active-directory/develop/troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls) (for example, using Graph Explorer). The UI for setting an app’s verified publisher is currently disabled for Azure AD B2C tenants.
 
-## Register an Azure AD app
+<a name='register-an-azure-ad-app'></a>
 
-To enable sign-in for users with an Azure AD account from a specific Azure AD organization, in Azure Active Directory B2C (Azure AD B2C), you need to create an application in the [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
+## Register a Microsoft Entra app
+
+To enable sign-in for users with a Microsoft Entra account from a specific Microsoft Entra organization, in Azure Active Directory B2C (Azure AD B2C), you need to create an application in the [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, Contoso):
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
-1. In the Azure portal, search for and select **Azure Active Directory**. 
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
+1. In the Azure portal, search for and select **Microsoft Entra ID**. 
 1. In the left menu, under **Manage**, select **App registrations**.
 1. Select **+ New registration**.
 1. Enter a **Name** for your application. For example, `Azure AD B2C App`.
@@ -69,14 +69,15 @@ To enable sign-in for users with an Azure AD account from a specific Azure AD or
 
 ::: zone pivot="b2c-user-flow"
 
-## Configure Azure AD as an identity provider
+<a name='configure-azure-ad-as-an-identity-provider'></a>
 
-1. Make sure you're using the directory that contains Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+## Configure Microsoft Entra ID as an identity provider
+
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity providers**, and then select **New OpenID Connect provider**.
-1. Enter a **Name**. For example, enter *Contoso Azure AD*.
-1. For **Metadata url**, enter the following URL replacing `{tenant}` with the domain name of your Azure AD tenant:
+1. Enter a **Name**. For example, enter *Contoso Microsoft Entra ID*.
+1. For **Metadata url**, enter the following URL replacing `{tenant}` with the domain name of your Microsoft Entra tenant:
 
     ```
     https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
@@ -99,19 +100,21 @@ To enable sign-in for users with an Azure AD account from a specific Azure AD or
 
 1. Select **Save**.
 
-## Add Azure AD identity provider to a user flow 
+<a name='add-azure-ad-identity-provider-to-a-user-flow-'></a>
 
-At this point, the Azure AD identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the Azure AD identity provider to a user flow:
+## Add Microsoft Entra identity provider to a user flow 
+
+At this point, the Microsoft Entra identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the Microsoft Entra identity provider to a user flow:
 
 1. In your Azure AD B2C tenant, select **User flows**.
-1. Click the user flow that you want to add the Azure AD identity provider.
+1. Click the user flow that you want to add the Microsoft Entra identity provider.
 1. Under **Settings**, select **Identity providers**
-1. Under **Custom identity providers**, select **Contoso Azure AD**.
+1. Under **Custom identity providers**, select **Contoso Microsoft Entra ID**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`. 
 1. Select the **Run user flow** button.
-1. From the sign-up or sign-in page, select **Contoso Azure AD** to sign in with Azure AD Contoso account.
+1. From the sign-up or sign-in page, select **Contoso Microsoft Entra ID** to sign in with Microsoft Entra Contoso account.
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
@@ -123,8 +126,7 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 You need to store the application key that you created in your Azure AD B2C tenant.
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Policy keys** and then select **Add**.
@@ -134,11 +136,13 @@ You need to store the application key that you created in your Azure AD B2C tena
 1. For **Key usage**, select `Signature`.
 1. Select **Create**.
 
-## Configure Azure AD as an identity provider
+<a name='configure-azure-ad-as-an-identity-provider'></a>
 
-To enable users to sign in using an Azure AD account, you need to define Azure AD as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
+## Configure Microsoft Entra ID as an identity provider
 
-You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsProvider** element in the extension file of your policy.
+To enable users to sign in using a Microsoft Entra account, you need to define Microsoft Entra ID as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
+
+You can define Microsoft Entra ID as a claims provider by adding Microsoft Entra ID to the **ClaimsProvider** element in the extension file of your policy.
 
 1. Open the *TrustFrameworkExtensions.xml* file.
 2. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
@@ -190,13 +194,13 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
 
 ### Update the technical profile
 
-To get a token from the Azure AD endpoint, you need to define the protocols that Azure AD B2C should use to communicate with Azure AD. This is done inside the **TechnicalProfile** element of  **ClaimsProvider**.
+To get a token from the Microsoft Entra endpoint, you need to define the protocols that Azure AD B2C should use to communicate with Microsoft Entra ID. This is done inside the **TechnicalProfile** element of  **ClaimsProvider**.
 
 1. Update the ID of the **TechnicalProfile** element. This ID is used to refer to this technical profile from other parts of the policy, for example `AADContoso-OpenIdConnect`.
 1. Update the value for **DisplayName**. This value will be displayed on the sign-in button on your sign-in screen.
 1. Update the value for **Description**.
-1. Azure AD uses the OpenID Connect protocol, so make sure that the value for **Protocol** is `OpenIdConnect`.
-1. Set value of the **METADATA** to `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`, where `tenant-name` is your Azure AD tenant name. For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`
+1. Microsoft Entra ID uses the OpenID Connect protocol, so make sure that the value for **Protocol** is `OpenIdConnect`.
+1. Set value of the **METADATA** to `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`, where `tenant-name` is your Microsoft Entra tenant name. For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 1. Set **client_id** to the application ID from the application registration.
 1. Under **CryptographicKeys**, update the value of **StorageReferenceId** to the name of the policy key that you created earlier. For example, `B2C_1A_ContosoAppSecret`.
 
@@ -228,7 +232,7 @@ To get a token from the Azure AD endpoint, you need to define the protocols that
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
 1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
-1. From the sign-up or sign-in page, select **Contoso Employee** to sign in with Azure AD Contoso account.
+1. From the sign-up or sign-in page, select **Contoso Employee** to sign in with Microsoft Entra Contoso account.
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
@@ -236,12 +240,12 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 ### [Optional] Configuring optional claims
 
-If you want to get the `family_name` and `given_name` claims from Azure AD, you can configure optional claims for your application in the Azure portal UI or application manifest. For more information, see [How to provide optional claims to your Azure AD app](../active-directory/develop/active-directory-optional-claims.md).
+If you want to get the `family_name` and `given_name` claims from Microsoft Entra ID, you can configure optional claims for your application in the Azure portal UI or application manifest. For more information, see [How to provide optional claims to your Microsoft Entra app](../active-directory/develop/optional-claims.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using your organizational Azure AD tenant. Or if you're already signed in, make sure you're using the directory that contains your organizational Azure AD tenant (for example, Contoso):
+1. Sign in to the [Azure portal](https://portal.azure.com) using your organizational Microsoft Entra tenant. Or if you're already signed in, make sure you're using the directory that contains your organizational Microsoft Entra tenant (for example, Contoso):
     1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**. 
-1. In the Azure portal, search for and select **Azure Active Directory**.
+    2. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the **Directory name** list, and then select **Switch**. 
+1. In the Azure portal, search for and select **Microsoft Entra ID**.
 1. In the left menu, under **Manage**, select **App registrations**.
 1. Select the application you want to configure optional claims for in the list, such as `Azure AD B2C App`. 
 1. From the **Manage** section, select **Token configuration**.
@@ -256,4 +260,4 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
 
 ## Next steps
 
-Learn how to [pass the Azure AD token to your application](idp-pass-through-user-flow.md).
+Learn how to [pass the Microsoft Entra token to your application](idp-pass-through-user-flow.md).

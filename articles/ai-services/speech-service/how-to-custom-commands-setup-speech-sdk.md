@@ -2,11 +2,10 @@
 title: 'Integrate with a client app using Speech SDK'                              
 titleSuffix: Azure AI services
 description: how to make requests to a published Custom Commands application from the Speech SDK running in a UWP application.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: eur
@@ -32,7 +31,7 @@ A Custom Commands application is required to complete this article. If you haven
 You'll also need:
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) or higher. This guide is based on Visual Studio 2019.
-> * An Azure AI services Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see see [Create a multi-service resource](../multi-service-resource.md?pivots=azportal).
+> * An Azure AI Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a multi-service resource](../multi-service-resource.md?pivots=azportal).
 > * [Enable your device for development](/windows/uwp/get-started/enable-your-device-for-development)
 
 ## Step 1: Publish Custom Commands application

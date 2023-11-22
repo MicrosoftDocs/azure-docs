@@ -2,11 +2,10 @@
 title: "Recording custom voice samples - Speech service"
 titleSuffix: Azure AI services
 description: Make a production-quality custom voice by preparing a robust script, hiring good voice talent, and recording professionally.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 10/14/2022
 ms.author: eur
@@ -316,6 +315,8 @@ The talent should *not* add distinct pauses between words. The sentence should s
 Create a reference recording, or *match file,* of a typical utterance at the beginning of the session. Ask the talent to repeat this line every page or so. Each time, compare the new recording to the reference. This practice helps the talent remain consistent in volume, tempo, pitch, and intonation. Meanwhile, the engineer can use the match file as a reference for levels and overall consistency of sound.
 
 The match file is especially important when you resume recording after a break or on another day. Play it a few times for the talent and have them repeat it each time until they're matching well.
+
+To record a corpus with a specific style, carefully choose scripts that showcase the desired style. During recording, ensure the voice talent maintains consistent in volume, tempo, pitch, and tone to achieve recordings that embody the intended style.
 
 Coach your talent to take a deep breath and pause for a moment before each utterance. Record a couple of seconds of silence between utterances. Words should be pronounced the same way each time they appear, considering context. For example, "record" as a verb is pronounced differently from "record" as a noun.
 

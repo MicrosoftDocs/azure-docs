@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Custom Resource Providers
 description: Lists Azure Policy built-in policy definitions for Azure Custom Resource Providers. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 07/25/2023
+ms.date: 11/21/2023
 ms.topic: reference
 author: jjbfour
 ms.author: jobreen

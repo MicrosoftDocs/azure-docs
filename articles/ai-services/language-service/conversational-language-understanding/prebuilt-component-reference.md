@@ -2,11 +2,10 @@
 title: Supported prebuilt entity components
 titleSuffix: Azure AI services
 description: Learn about which entities can be detected automatically in Conversational Language Understanding
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi

@@ -1,7 +1,7 @@
 ---
 title: CLI command users and access for OT monitoring - Microsoft Defender for IoT
 description: Learn about the users supported for the Microsoft Defender for IoT CLI commands and how to access the CLI.
-ms.date: 01/01/2023
+ms.date: 08/09/2023
 ms.topic: concept-article
 ---
 
@@ -18,25 +18,25 @@ To access the Defender for IoT CLI, you'll need access to the sensor or on-premi
 
 ## Privileged user access for OT monitoring
 
-Privileged users for OT monitoring are pre-defined together with the [OT monitoring software installation](../how-to-install-software.md), as part of the hardened operating system.
+Use the *support* user when using the Defender for IoT CLI, which is an administrative account with access to all CLI commands. On the on-premises management console, use either the *support* or the *cyberx* user.
 
-- On the OT sensor, users include the *cyberx*, *support*, and *cyberx_host* users.
-- On the on-premises management console, users include the *cyberx* and *support* users.
+In sensor software versions earlier than [23.1.x](whats-new.md#july-2023), the *cyberx* and *cyberx_host* privileged users are also available. In versions 23.1.x and higher, the *cyberx* and *cyberx_host* users are available, but not enabled by default. To enable these extra privileged users, [change their passwords](manage-users-sensor.md#change-a-sensor-users-password).
+
+Other CLI users cannot be added.
 
 The following table describes the access available to each privileged user:
 
 |Name  |Connects to  |Permissions  |
 |---------|---------|---------|
-|**support**     |   The OT sensor or on-premises management console's `configuration shell`        | A powerful administrative account with access to:<br>- All CLI commands<br>- The ability to manage log files<br>- Start and stop services<br><br>This user has no filesystem access   |
+|**support** | The OT sensor or on-premises management console's `configuration shell` |	A powerful administrative account with access to: <br>- All CLI commands <br>- The ability to manage log files <br>- Start and stop services <br><br>This user has no filesystem access |
 |**cyberx**     |    The OT sensor or on-premises management console's `terminal (root)`       | Serves as a root user and has unlimited privileges on the appliance. <br><br>Used only for the following tasks:<br>- Changing default passwords<br>- Troubleshooting<br>- Filesystem access      |
 |**cyberx_host**     | The OT sensor's host OS `terminal (root)`         | Serves as a root user and has unlimited privileges on the appliance host OS.<br><br>Used for: <br>- Network configuration<br>- Application container control <br>- Filesystem access |
 
-> [!NOTE]
-> We recommend that customers using the Defender for IoT CLI use the *support* user whenever possible. Other CLI users cannot be added.
+For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 ### Supported users by CLI actions
 
-The following tables list the activities available by CLI and the privileged users supported for each activity.
+The following tables list the activities available by CLI and the privileged users supported for each activity. The *cyberx* and *cyberx_host* users are only supported in versions earlier than [23.1.x](release-notes.md).
 
 ### Appliance maintenance commands
 
@@ -104,6 +104,17 @@ To access the Defender for IoT CLI, sign in to your OT or Enterprise IoT sensor 
 - **On a virtual appliance**, access the CLI via SSH, the vSphere client, or Hyper-V Manager. Connect to the virtual appliance's management interface IP address via port 22.
 
 Each CLI command on an OT network sensor or on-premises management console is supported a different set of privileged users, as noted in the relevant CLI descriptions. Make sure you sign in as the user required for the command you want to run. For more information, see [Privileged user access for OT monitoring](#privileged-user-access-for-ot-monitoring).
+
+## Access the system root as a *support* user
+
+
+When signing in as the *support* user, run the following command to access the host machine as the root user. Access the host machine as the root user enables you to run CLI commands that aren't available to the *support* user. 
+
+Run:
+
+```support bash
+system shell
+```
 
 ## Sign out of the CLI
 

@@ -2,11 +2,10 @@
 title: Set up the Bring your own storage (BYOS) Speech resource
 titleSuffix: Azure AI services
 description: Learn how to set up Bring your own storage (BYOS) Speech resource.
-services: cognitive-services
+#services: cognitive-services
 author: alexeyo26
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.author: alexeyo 
@@ -93,7 +92,7 @@ To use any of the methods above you need an Azure account that is assigned a rol
 
 To create a BYOS-enabled Speech resource with Azure portal, you need to access some portal preview features. Perform the following steps:
 
-1. Navigate to *Create Speech* page using [this link](https://ms.portal.azure.com/?feature.enablecsumi=true&feature.enablecsstoragemenu=true&feature.canmodifystamps=true&Microsoft_Azure_ProjectOxford=stage1&microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_byospreview#create/Microsoft.CognitiveServicesSpeechServices).
+1. Navigate to *Create Speech* page using [this link](https://ms.portal.azure.com/?feature.enablecsumi=true&feature.enablecsstoragemenu=true&microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_byospreview#create/Microsoft.CognitiveServicesSpeechServices).
 1. Note the *Storage account* section at the bottom of the page.
 1. Select *Yes* for *Bring your own storage* option.
 1. Configure the required Storage account settings and proceed with the Speech resource creation.
@@ -154,9 +153,9 @@ General rule is that you need to pass this JSON string as a value of `--storage`
 
 To create a BYOS-enabled Speech resource with a REST Request to Cognitive Services API, we use [Accounts - Create](/rest/api/cognitiveservices/accountmanagement/accounts/create) request.
 
-You need to have a meaning of authentication. The example in this section uses [Microsoft Azure Active Directory token](/azure/active-directory/develop/access-tokens).
+You need to have a means of authentication. The example in this section uses [Microsoft Entra token](/azure/active-directory/develop/access-tokens).
 
-This code snippet generates Azure AD token using interactive browser sign-in. It requires [Azure Identity client library](/dotnet/api/overview/azure/identity-readme):
+This code snippet generates Microsoft Entra token using interactive browser sign-in. It requires [Azure Identity client library](/dotnet/api/overview/azure/identity-readme):
 ```csharp
 TokenRequestContext context = new Azure.Core.TokenRequestContext(new string[] { "https://management.azure.com/.default" });
 InteractiveBrowserCredential browserCredential = new InteractiveBrowserCredential();
@@ -206,7 +205,7 @@ You may always check, whether any given Speech resource is BYOS enabled, and wha
 
 To check BYOS configuration of a Speech resource with Azure portal, you need to access some portal preview features. Perform the following steps:
 
-1. Navigate to *Create Speech* page using [this link](https://ms.portal.azure.com/?feature.enablecsumi=true&feature.enablecsstoragemenu=true&feature.canmodifystamps=true&Microsoft_Azure_ProjectOxford=stage1&microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_byospreview#create/Microsoft.CognitiveServicesSpeechServices).
+1. Navigate to *Create Speech* page using [this link](https://ms.portal.azure.com/?feature.enablecsumi=true&feature.enablecsstoragemenu=true&microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_byospreview#create/Microsoft.CognitiveServicesSpeechServices).
 1.  Close *Create Speech* screen by pressing *X* in the right upper corner.
 1.  If asked agree to discard unsaved changes.
 1.  Navigate to the Speech resource you want to check.
@@ -275,7 +274,7 @@ If you perform all actions in the section, your Storage account will be in the f
 - Access to all external network traffic is prohibited.
 - Access to Storage account using Storage account key is prohibited.
 - Access to Storage account blob storage using [shared access signatures (SAS)](../../storage/common/storage-sas-overview.md) is prohibited. (Except for [User delegation SAS](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens))
-- Access to the BYOS-enanled Speech resource is allowed using the resource [system assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
+- Access to the BYOS-enabled Speech resource is allowed using the resource [system assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
 
 So in effect your Storage account becomes completely "locked" and can only be accessed by your Speech resource, which will be able to:
 - Write artifacts of your Speech data processing (see details in the [correspondent articles](#next-steps)),
@@ -326,7 +325,7 @@ If you perform all actions in the section, your Storage account will be in the f
 - External network traffic is allowed.
 - Access to Storage account using Storage account key is prohibited.
 - Access to Storage account blob storage using [shared access signatures (SAS)](../../storage/common/storage-sas-overview.md) is prohibited. (Except for [User delegation SAS](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens))
-- Access to the BYOS-enanled Speech resource is allowed using the resource [system assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) and [User delegation SAS](../../storage/common/storage-sas-overview.md#user-delegation-sas).
+- Access to the BYOS-enabled Speech resource is allowed using the resource [system assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) and [User delegation SAS](../../storage/common/storage-sas-overview.md#user-delegation-sas).
 
 These are the most restricted security settings possible for Text to speech scenario. You may further customize them according to your needs.
 

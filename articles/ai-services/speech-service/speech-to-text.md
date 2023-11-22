@@ -2,11 +2,10 @@
 title: Speech to text overview - Speech service
 titleSuffix: Azure AI services
 description: Get an overview of the benefits and capabilities of the speech to text feature of the Speech service.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 04/05/2023
 ms.author: eur
@@ -27,16 +26,17 @@ For a full list of available speech to text languages, see [Language and voice s
 
 With real-time speech to text, the audio is transcribed as speech is recognized from a microphone or file. Use real-time speech to text for applications that need to transcribe audio in real-time such as:
 - Transcriptions, captions, or subtitles for live meetings
+- [Diarization](get-started-stt-diarization.md)
+- [Pronunciation assessment](how-to-pronunciation-assessment.md)
 - Contact center agent assist
 - Dictation
 - Voice agents
-- Pronunciation assessment
 
 Real-time speech to text is available via the [Speech SDK](speech-sdk.md) and the [Speech CLI](spx-overview.md). 
 
 ## Batch transcription
 
-Batch transcription is used to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. Use batch transcription for applications that need to transcribe audio in bulk such as:
+[Batch transcription](batch-transcription.md) is used to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. Use batch transcription for applications that need to transcribe audio in bulk such as:
 - Transcriptions, captions, or subtitles for pre-recorded audio
 - Contact center post-call analytics
 - Diarization

@@ -2,11 +2,10 @@
 title:  How to recognize intents with custom entity pattern matching
 titleSuffix: Azure AI services
 description: In this guide, you learn how to recognize intents and custom entities from simple patterns.
-services: cognitive-services
+#services: cognitive-services
 author: chschrae
 manager: travisw
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 11/15/2021
 ms.author: chschrae
@@ -40,7 +39,7 @@ For more information, see the [pattern matching overview](./pattern-matching-ove
 
 Be sure you have the following items before you begin this guide:
 
-- An [Azure AI services Azure resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) or a [Unified Speech resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
+- An [Azure AI services resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) or a [Unified Speech resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (any edition).
 
 ::: zone pivot="programming-language-csharp"

@@ -43,12 +43,12 @@ Create a new file `index.js` where you'll add the code for this quickstart.
 
 ### Install the packages
 
-You'll need to use the Azure Communication Job Router client library for JavaScript [version 1.0.0-beta.1](https://www.npmjs.com/package/@azure/communication-job-router) or above.
+You'll need to use the Azure Communication Job Router client library for JavaScript [version 1.0.0](https://www.npmjs.com/package/@azure-rest/communication-job-router) or above.
 
 Use the `npm install` command to install the below Communication Services SDKs for JavaScript.
 
 ```console
-npm install @azure/communication-job-router --save
+npm install @azure-rest/communication-job-router --save
 ```
 
 ### Set up the app framework
@@ -56,7 +56,7 @@ npm install @azure/communication-job-router --save
 In the `index.js` file, add the following code. We'll add the code for the quickstart in the `main` function.
 
 ``` javascript
-const { JobRouterClient, JobRouterAdministrationClient } = require('@azure/communication-job-router');
+const JobRouterClient = require('@azure-rest/communication-job-router').default;
 
 const main = async () => {
   console.log("Azure Communication Services - Job Router Quickstart")
@@ -71,29 +71,30 @@ main().catch((error) => {
 })
 ```
 
-## Initialize the Job Router client and administration client
+## Initialize the Job Router client
 
-Job Router clients can be authenticated using your connection string acquired from an Azure Communication Services resource in the Azure portal.  We generate both a client and an administration client to interact with the Job Router service.  The admin client is used to provision queues and policies, while the client is used to submit jobs and register workers. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
+Job Router clients can be authenticated using your connection string acquired from an Azure Communication Services resource in the Azure portal.  We generate a client to interact with the Job Router service.  For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 Add the following code in `index.js` inside the `main` function.
 
 ```javascript
-// create JobRouterAdministrationClient and JobRouterClient
 const connectionString = process.env["COMMUNICATION_CONNECTION_STRING"] ||
     "endpoint=https://<resource-name>.communication.azure.com/;<access-key>";
-const routerAdminClient = new JobRouterAdministrationClient(connectionString);
-const routerClient = new JobRouterClient(connectionString);
+const client = JobRouterClient(connectionString);
 ```
 
 ## Create a distribution policy
 
-Job Router uses a distribution policy to decide how workers are notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **ID**, a **name**, an **offerExpiresAfter**, and a distribution **mode**.
+Job Router uses a distribution policy to decide how workers are notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **Id**, a **name**, an **offerExpiresAfterSeconds**, and a distribution **mode**.
 
 ```javascript
-const distributionPolicy = await routerAdminClient.createDistributionPolicy("distribution-policy-1", {
-    offerExpiresAfterSeconds: 60,
-    mode: { kind: "longest-idle" },
-    name: "My distribution policy"
+const distributionPolicy = await client.path("/routing/distributionPolicies/{distributionPolicyId}", "distribution-policy-1").patch({
+    body: {
+        offerExpiresAfterSeconds: 60,
+        mode: { kind: "longest-idle" },
+        name: "My distribution policy"
+    },
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -102,9 +103,12 @@ const distributionPolicy = await routerAdminClient.createDistributionPolicy("dis
 Create the Queue by specifying an **ID**, **name**, and provide the **Distribution Policy** object's ID you created above.
 
 ```javascript
-const queue = await routerAdminClient.createQueue("queue-1", {
-    name: "My Queue",
-    distributionPolicyId: distributionPolicy.id
+const queue = await client.path("/routing/queues/{queueId}", "queue-1").patch({
+    body: {
+        name: "My Queue",
+        distributionPolicyId: distributionPolicy.body.id
+    },
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -113,11 +117,14 @@ const queue = await routerAdminClient.createQueue("queue-1", {
 Now, we can submit a job directly to that queue, with a worker selector that requires the worker to have the label `Some-Skill` greater than 10.
 
 ```javascript
-const job = await routerClient.createJob("job-1", {
-    channelId: "voice",
-    queueId: queue.id,
-    priority: 1,
-    requestedWorkerSelectors: [{ key: "Some-Skill", labelOperator: "greaterThan", value: 10 }]
+const job = await client.path("/routing/jobs/{jobId}", "job-1").patch({
+    body: {
+        channelId: "voice",
+        queueId: queue.body.id,
+        priority: 1,
+        requestedWorkerSelectors: [{ key: "Some-Skill", labelOperator: "greaterThan", value: 10 }]
+    },
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -126,12 +133,15 @@ const job = await routerClient.createJob("job-1", {
 Now, we create a worker to receive work from that queue, with a label of `Some-Skill` equal to 11 and capacity on `my-channel`.
 
 ```javascript
-let worker = await routerClient.createWorker("worker-1", {
-    totalCapacity: 1,
-    queueAssignments: { [queue.id]: {} },
-    labels: { "Some-Skill": 11 },
-    channelConfigurations: { "voice": { capacityCostPerJob: 1 } },
-    availableForOffers: true
+let worker = await client.path("/routing/workers/{workerId}", "worker-1").patch({
+    body:  {
+        capacity: 1,
+        queues: [queue.body.id],
+        labels: { "Some-Skill": 11 },
+        channels: [{ channelId: "voice", capacityCostPerJob: 1 }],
+        availableForOffers: true
+    },
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -142,9 +152,9 @@ However, we could also wait a few seconds and then query the worker directly aga
 
 ```javascript
 await new Promise(r => setTimeout(r, 10000));
-worker = await routerClient.getWorker(worker.id);
-for (const offer of worker.offers) {
-    console.log(`Worker ${worker.id} has an active offer for job ${offer.jobId}`);
+worker = await client.path("/routing/workers/{workerId}", worker.body.id).get();
+for (const offer of worker.body.offers) {
+    console.log(`Worker ${worker.body.id} has an active offer for job ${offer.jobId}`);
 }
 ```
 
@@ -153,8 +163,8 @@ for (const offer of worker.offers) {
 Then, the worker can accept the job offer by using the SDK, which assigns the job to the worker.
 
 ```javascript
-const accept = await routerClient.acceptJobOffer(worker.id, worker.offers[0].offerId);
-console.log(`Worker ${worker.id} is assigned job ${accept.jobId}`);
+const accept = await client.path("/routing/workers/{workerId}/offers/{offerId}:accept", worker.body.id, worker.body.offers[0].offerId).post();
+console.log(`Worker ${worker.body.id} is assigned job ${accept.body.jobId}`);
 ```
 
 ## Complete the job
@@ -162,8 +172,8 @@ console.log(`Worker ${worker.id} is assigned job ${accept.jobId}`);
 Once the worker has completed the work associated with the job (for example, completed the call), we complete the job.
 
 ```javascript
-await routerClient.completeJob(accept.jobId, accept.assignmentId);
-console.log(`Worker ${worker.id} has completed job ${accept.jobId}`);
+await client.path("/routing/jobs/{jobId}/assignments/{assignmentId}:complete", accept.body.jobId, accept.body.assignmentId).post();
+console.log(`Worker ${worker.body.id} has completed job ${accept.body.jobId}`);
 ```
 
 ## Close the job
@@ -171,8 +181,10 @@ console.log(`Worker ${worker.id} has completed job ${accept.jobId}`);
 Once the worker is ready to take on new jobs, the worker should close the job.  Optionally, the worker can provide a disposition code to indicate the outcome of the job.
 
 ```javascript
-await routerClient.closeJob(accept.jobId, accept.assignmentId, { dispositionCode: "Resolved" });
-console.log(`Worker ${worker.id} has closed job ${accept.jobId}`);
+await client.path("/routing/jobs/{jobId}/assignments/{assignmentId}:close", accept.body.jobId, accept.body.assignmentId).post({
+    body: { dispositionCode: "Resolved" }
+});
+console.log(`Worker ${worker.body.id} has closed job ${accept.body.jobId}`);
 ```
 
 ## Delete the job
@@ -180,8 +192,8 @@ console.log(`Worker ${worker.id} has closed job ${accept.jobId}`);
 Once the job has been closed, we can delete the job so that we can re-create the job with the same ID if we run this sample again
 
 ```javascript
-await routerClient.deleteJob(accept.jobId);
-console.log(`Deleting job ${accept.jobId}`);
+await client.path("/routing/jobs/{jobId}", accept.body.jobId).delete();
+console.log(`Deleting job ${accept.body.jobId}`);
 ```
 
 ## Run the code
@@ -204,7 +216,7 @@ Deleting job job-1
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [JavaScript SDK reference](/javascript/api/overview/azure/communication.jobrouter-readme) or [REST API reference](/rest/api/communication/jobrouter/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [JavaScript SDK reference](/javascript/api/overview/azure/communication-jobrouter?view=azure-node-preview&preserve-view=true) or [REST API reference](/rest/api/communication/jobrouter/job-router).
 
 <!-- LINKS -->
 

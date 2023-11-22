@@ -4,7 +4,7 @@ description: Learn about ultra disks for Azure VMs
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 06/07/2023
+ms.date: 11/09/2023
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell, ignite-2022, devx-track-arm-template
 ---
@@ -25,7 +25,7 @@ Azure ultra disks offer high throughput, high IOPS, and consistent low latency d
 
 ### VMs using availability zones
 
-To leverage ultra disks, you need to determine which availability zone you are in. Not every region supports every VM size with ultra disks. To determine if your region, zone, and VM size support ultra disks, run either of the following commands, make sure to replace the **region**, **vmSize**, and **subscription** values first:
+To use ultra disks, you need to determine which availability zone you are in. Not every region supports every VM size with ultra disks. To determine if your region, zone, and VM size support ultra disks, run either of the following commands, make sure to replace the **region**, **vmSize**, and **subscription** values first:
 
 #### CLI
 
@@ -50,7 +50,7 @@ if($sku){$sku[0].LocationInfo[0].ZoneDetails} Else {Write-host "$vmSize is not s
 
 The response will be similar to the form below, where X is the zone to use for deploying in your chosen region. X could be either 1, 2, or 3.
 
-Preserve the **Zones** value, it represents your availability zone and you will need it in order to deploy an Ultra disk.
+Preserve the **Zones** value, it represents your availability zone and you'll need it in order to deploy an Ultra disk.
 
 |ResourceType  |Name  |Location  |Zones  |Restriction  |Capability  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
@@ -63,7 +63,7 @@ Now that you know which zone to deploy to, follow the deployment steps in this a
 
 ### VMs with no redundancy options
 
-Ultra disks deployed in select regions must be deployed without any redundancy options, for now. However, not every disk size that supports ultra disks may be in these regions. To determine which disk sizes support ultra disks, you can use either of the following code snippets. Make sure to replace the `vmSize` and `subscription` values first:
+Ultra disks deployed in select regions must be deployed without any redundancy options, for now. However, not every VM size that supports ultra disks are necessarily in these regions. To determine which VM sizes support ultra disks, use either of the following code snippets. Make sure to replace the `vmSize` and `subscription` values first:
 
 ```azurecli
 subscription="<yourSubID>"
@@ -127,7 +127,7 @@ Once the VM is provisioned, you can partition and format the data disks and conf
 
 # [Portal](#tab/azure-portal)
 
-This section covers deploying a virtual machine equipped with an ultra disk as a data disk. It assumes you have familiarity with deploying a virtual machine, if you do not, see our [Quickstart: Create a Windows virtual machine in the Azure portal](./windows/quick-create-portal.md).
+This section covers deploying a virtual machine equipped with an ultra disk as a data disk. It assumes you have familiarity with deploying a virtual machine, if you don't, see our [Quickstart: Create a Windows virtual machine in the Azure portal](./windows/quick-create-portal.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and navigate to deploy a virtual machine (VM).
 1. Make sure to choose a [supported VM size and region](#ga-scope-and-limitations).
@@ -153,7 +153,7 @@ This section covers deploying a virtual machine equipped with an ultra disk as a
 
     :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-select-ultra-disk-size.png" alt-text="Screenshot of the select a disk size blade, ultra disk selected for storage type, other values highlighted.":::
 
-1. Continue with the VM deployment, it will be the same as you would deploy any other VM.
+1. Continue with the VM deployment, it is the same as you would deploy any other VM.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -311,7 +311,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 # [Portal](#tab/azure-portal)
 
-Alternatively, if your existing VM is in a region/availability zone that is capable of using ultra disks, you can make use of ultra disks without having to create a new VM. By enabling ultra disks on your existing VM, then attaching them as data disks. To enable ultra disk compatibility, you must stop the VM. After you stop the VM, you may enable compatibility, then restart the VM. Once compatibility is enabled you can attach an ultra disk:
+Alternatively, if your existing VM is in a region/availability zone that is capable of using ultra disks, you can make use of ultra disks without having to create a new VM. By enabling ultra disks on your existing VM, then attaching them as data disks. To enable ultra disk compatibility, you must stop the VM. After you stop the VM, you can enable compatibility, then restart the VM. Once compatibility is enabled you can attach an ultra disk:
 
 1. Navigate to your VM and stop it, wait for it to deallocate.
 1. Once your VM has been deallocated, select **Disks**.
@@ -327,7 +327,7 @@ Alternatively, if your existing VM is in a region/availability zone that is capa
 1. Select **Create and attach a new disk** and fill in a name for your new disk.
 1. For **Storage type** select **Ultra Disk**.
 1. Change the values of **Size (GiB)**, **Max IOPS**, and **Max throughput** to ones of your choice.
-1. After you are returned to your disk's blade, select **Save**.
+1. After you're returned to your disk's blade, select **Save**.
 
     :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-create-ultra-disk-existing-vm.png" alt-text="Screenshot of disk blade, adding a new ultra disk.":::
 
@@ -341,7 +341,7 @@ Alternatively, if your existing VM is in a region/availability zone that is capa
 
 If your VM meets the requirements outlined in [GA scope and limitations](#ga-scope-and-limitations) and is in the [appropriate zone for your account](#determine-vm-size-and-region-availability), then you can enable ultra disk compatibility on your VM.
 
-To enable ultra disk compatibility, you must stop the VM. After you stop the VM, you may enable compatibility, then restart the VM. Once compatibility is enabled you can attach an ultra disk:
+To enable ultra disk compatibility, you must stop the VM. After you stop the VM, you can enable compatibility, then restart the VM. Once compatibility is enabled, you can attach an ultra disk:
 
 ```azurecli
 az vm deallocate -n $vmName -g $rgName
@@ -393,7 +393,7 @@ Alternatively, if your existing VM is in a region/availability zone that is capa
 
 If your VM meets the requirements outlined in [GA scope and limitations](#ga-scope-and-limitations) and is in the [appropriate zone for your account](#determine-vm-size-and-region-availability), then you can enable ultra disk compatibility on your VM.
 
-To enable ultra disk compatibility, you must stop the VM. After you stop the VM, you may enable compatibility, then restart the VM. Once compatibility is enabled you can attach an ultra disk:
+To enable ultra disk compatibility, you must stop the VM. After you stop the VM, you can enable compatibility, then restart the VM. Once compatibility is enabled, you can attach an ultra disk:
 
 ```azurepowershell
 #Stop the VM
@@ -481,4 +481,4 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 
 - [Use Azure ultra disks on Azure Kubernetes Service (preview)](../aks/use-ultra-disks.md).
 - [Migrate log disk to an ultra disk](/azure/azure-sql/virtual-machines/windows/storage-migrate-to-ultradisk).
-- For additional questions on Ultra Disks, see the [Ultra Disks](faq-for-disks.yml#ultra-disks) section of the FAQ.
+- For more questions on Ultra Disks, see the [Ultra Disks](faq-for-disks.yml#ultra-disks) section of the FAQ.

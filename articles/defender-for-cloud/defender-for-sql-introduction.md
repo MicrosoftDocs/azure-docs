@@ -10,7 +10,7 @@ author: dcurwin
 
 # Overview of Microsoft Defender for Azure SQL
 
-Microsoft Defender for Azure SQL helps you discover and mitigate potential [database vulnerabilities](sql-azure-vulnerability-assessment-overview.md) and alerts you to [anomalous activities](#advanced-threat-protection) that may be an indication of a threat to your databases.
+Microsoft Defender for Azure SQL helps you discover and mitigate potential [database vulnerabilities](sql-azure-vulnerability-assessment-overview.md) and alerts you to [anomalous activities](#advanced-threat-protection) that might be an indication of a threat to your databases.
 
 - [Vulnerability assessment](#discover-and-mitigate-vulnerabilities): Scan databases to discover, track, and remediate vulnerabilities. Learn more about [vulnerability assessment](sql-azure-vulnerability-assessment-overview.md).
 - [Threat protection](#advanced-threat-protection): Receive detailed security alerts and recommended actions based on SQL Advanced Threat Protection to provide to mitigate threats. Learn more about [SQL Advanced Threat Protection](/azure/azure-sql/database/threat-detection-overview).
@@ -24,7 +24,7 @@ When you enable **Microsoft Defender for Azure SQL**, all supported resources th
 |Release state:|Generally available (GA)|
 |Pricing:|**Microsoft Defender for Azure SQL** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
 |Protected SQL versions:|Read-write replicas of:<br>- Azure SQL [single databases](/azure/azure-sql/database/single-database-overview) and [elastic pools](/azure/azure-sql/database/elastic-pool-overview)<br>- [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)<br>- [Azure Synapse Analytics (formerly SQL DW) dedicated SQL pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China 21Vianet (**Partial**: Subset of alerts and vulnerability assessment for SQL servers. Behavioral threat protections aren't available.)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Microsoft Azure operated by 21Vianet (**Partial**: Subset of alerts and vulnerability assessment for SQL servers. Behavioral threat protections aren't available.)|
 
 ## What are the benefits of Microsoft Defender for Azure SQL?
 

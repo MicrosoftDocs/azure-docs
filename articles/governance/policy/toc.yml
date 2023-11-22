@@ -102,78 +102,80 @@
       items:
       - name: Australian Government ISM PROTECTED
         href: ./samples/australia-ism.md
-      - name: Azure Security Benchmark
-        href: ./samples/azure-security-benchmark.md
       - name: Canada Federal PBMM
         href: ./samples/canada-federal-pbmm.md
-      - name: CIS Microsoft Azure Foundations Benchmark 1.4.0
-        href: ./samples/cis-azure-1-4-0.md
-      - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
-        href: ./samples/cis-azure-1-3-0.md
       - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
         href: ./samples/cis-azure-1-1-0.md
+      - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
+        href: ./samples/cis-azure-1-3-0.md
+      - name: CIS Microsoft Azure Foundations Benchmark 1.4.0
+        href: ./samples/cis-azure-1-4-0.md
+      - name: CIS Microsoft Azure Foundations Benchmark 2.0.0
+        href: ./samples/cis-azure-2-0-0.md
       - name: CMMC Level 3
         href: ./samples/cmmc-l3.md
-      - name: FedRAMP Moderate
-        href: ./samples/fedramp-moderate.md
       - name: FedRAMP High
         href: ./samples/fedramp-high.md
+      - name: FedRAMP Moderate
+        href: ./samples/fedramp-moderate.md
       - name: HIPAA HITRUST 9.2
         href: ./samples/hipaa-hitrust-9-2.md
       - name: IRS 1075 September 2016
         href: ./samples/irs-1075-sept2016.md
       - name: ISO 27001:2013
         href: ./samples/iso-27001.md
-      - name: PCI DSS 4.0
-        href: ./samples/pci-dss-4-0.md
-      - name: PCI DSS 3.2.1
-        href: ./samples/pci-dss-3-2-1.md
-      - name: RMIT Malaysia
-        href: ./samples/rmit-malaysia.md
+      - name: Microsoft cloud security benchmark
+        href: ./samples/azure-security-benchmark.md
       - name: New Zealand ISM Restricted
         href: ./samples/new-zealand-ism.md
       - name: New Zealand ISM Restricted v3.5
-        href: ./samples/NZ_ISM_Restricted_v3_5.md
-      - name: NIST SP 800-53 Rev. 5
-        href: ./samples/nist-sp-800-53-r5.md
+        href: ./samples/nz-ism-restricted-3-5.md
       - name: NIST SP 800-53 Rev. 4
         href: ./samples/nist-sp-800-53-r4.md
+      - name: NIST SP 800-53 Rev. 5
+        href: ./samples/nist-sp-800-53-r5.md
       - name: NIST SP 800-171 R2
         href: ./samples/nist-sp-800-171-r2.md
+      - name: NL BIO Cloud Theme
+        href: ./samples/nl-bio-cloud-theme.md
+      - name: PCI DSS 3.2.1
+        href: ./samples/pci-dss-3-2-1.md
+      - name: PCI DSS 4.0
+        href: ./samples/pci-dss-4-0.md
       - name: RBI ITF Banks v2016
-        href: ./samples/RBI_ITF_Banks_v2016.md
+        href: ./samples/rbi-itf-banks-2016.md
       - name: RBI ITF NBFC v2017
-        href: ./samples/rbi_itf_nbfc_v2017.md
-      - name: SWIFT CSCF 2021
-        href: ./samples/swift-cscf-v2021.md
+        href: ./samples/rbi-itf-nbfc-2017.md
+      - name: RMIT Malaysia
+        href: ./samples/rmit-malaysia.md
+      - name: SWIFT CSP-CSCF 2021
+        href: ./samples/swift-csp-cscf-2021.md
+      - name: SWIFT CSP-CSCF 2022
+        href: ./samples/swift-csp-cscf-2022.md
       - name: UK OFFICIAL and UK NHS
         href: ./samples/ukofficial-uknhs.md
     - name: Azure Government built-ins
       items:
-      - name: Azure Security Benchmark
-        href: ./samples/gov-azure-security-benchmark.md
-      - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
-        href: ./samples/gov-cis-azure-1-3-0.md
       - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
         href: ./samples/gov-cis-azure-1-1-0.md
+      - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
+        href: ./samples/gov-cis-azure-1-3-0.md
       - name: CMMC Level 3
         href: ./samples/gov-cmmc-l3.md
-      - name: DoD Impact Level 4
-        href: ./samples/gov-dod-impact-level-4.md
-      - name: DoD Impact Level 5
-        href: ./samples/gov-dod-impact-level-5.md
-      - name: FedRAMP Moderate
-        href: ./samples/gov-fedramp-moderate.md
       - name: FedRAMP High
         href: ./samples/gov-fedramp-high.md
+      - name: FedRAMP Moderate
+        href: ./samples/gov-fedramp-moderate.md
       - name: IRS 1075 September 2016
         href: ./samples/gov-irs-1075-sept2016.md
       - name: ISO 27001:2013
         href: ./samples/gov-iso-27001.md
-      - name: NIST SP 800-53 Rev. 5
-        href: ./samples/gov-nist-sp-800-53-r5.md
+      - name: Microsoft cloud security benchmark
+        href: ./samples/gov-azure-security-benchmark.md
       - name: NIST SP 800-53 Rev. 4
         href: ./samples/gov-nist-sp-800-53-r4.md
+      - name: NIST SP 800-53 Rev. 5
+        href: ./samples/gov-nist-sp-800-53-r5.md
       - name: NIST SP 800-171 R2
         href: ./samples/gov-nist-sp-800-171-r2.md
   - name: Compute security baselines

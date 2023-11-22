@@ -7,7 +7,7 @@ ms.devlang: java
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 04/11/2023
+ms.date: 09/27/2023
 ---
 
 # Convert to the new App Configuration library for Spring Boot
@@ -26,23 +26,31 @@ All of the group and artifact IDs in the Azure libraries for Spring Boot have be
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
-    <version>5.2.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>5.2.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-feature-management</artifactId>
-    <version>5.2.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-    <version>5.2.0</version>
 </dependency>
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>5.5.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
 ```
 
 ### [Spring Boot 2](#tab/spring-boot-2)
@@ -51,23 +59,31 @@ All of the group and artifact IDs in the Azure libraries for Spring Boot have be
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
-    <version>4.8.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>4.8.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-feature-management</artifactId>
-    <version>4.8.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-    <version>4.8.0</version>
 </dependency>
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>4.11.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
 ```
 
 ---
@@ -76,32 +92,6 @@ All of the group and artifact IDs in the Azure libraries for Spring Boot have be
 The 4.7.0 version is the first 4.x version of the library. It matches the version of the other Spring Cloud Azure libraries.
 
 As of the 4.7.0 version, the App Configuration and feature management libraries are part of the `spring-cloud-azure-dependencies` bill of materials (BOM). The BOM file ensures that you no longer need to specify the version of the libraries in your project. The BOM automatically manages the version of the libraries.
-
-```xml
-
-```
-
-### [Spring Boot 3](#tab/spring-boot-3)
-
-```xml
-<dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-dependencies</artifactId>
-    <version>5.2.0</version>
-    <type>pom</type>
-</dependency>
-```
-
-### [Spring Boot 2](#tab/spring-boot-2)
-
-```xml
-<dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-dependencies</artifactId>
-    <version>4.8.0</version>
-    <type>pom</type>
-</dependency>
-```
 
 ---
 

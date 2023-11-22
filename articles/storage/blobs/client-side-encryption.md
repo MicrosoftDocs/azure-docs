@@ -3,12 +3,12 @@ title: Client-side encryption for blobs
 titleSuffix: Azure Storage
 description: The Blob Storage client library supports client-side encryption and integration with Azure Key Vault for users requiring encryption on the client.
 services: storage
-author: pauljewellmsft
+author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: article
 ms.date: 12/12/2022
-ms.author: pauljewell
+ms.author: normesta
 ms.reviewer: ozgun
 ms.devlang: csharp
 ms.custom: devx-track-csharp

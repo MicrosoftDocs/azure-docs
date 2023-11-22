@@ -68,7 +68,7 @@ Latency is the time it takes an application to receive a single request, send it
 
 When you are optimizing your application to get higher IOPS and Throughput, it will affect the latency of your application. After tuning the application performance, always evaluate the latency of the application to avoid unexpected high latency behavior.
 
-The following control plane operations on Managed Disks may involve movement of the Disk from one Storage location to another. This is orchestrated via background copy of data that can take several hours to complete, typically less than 24 hours depending on the amount of data in the disks. During that time your application can experience higher than usual read latency as some reads can get redirected to the original location and can take longer to complete. There is no impact on write latency during this period.
+The following control plane operations on Managed Disks may involve movement of the Disk from one Storage location to another. This is orchestrated via background copy of data that can take several hours to complete, typically less than 24 hours depending on the amount of data in the disks. During that time your application can experience higher than usual read latency as some reads can get redirected to the original location and can take longer to complete. There is no impact on write latency during this period. For Premium SSD v2 and Ultra disks, if the disk has a 4k sector size, it would experience higher read latency. If the disk has a 512e sector size, it would experience both higher read and write latency.
 
 - Update the storage type.
 - Detach and attach a disk from one VM to another.

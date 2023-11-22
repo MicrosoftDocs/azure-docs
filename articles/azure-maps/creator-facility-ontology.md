@@ -550,6 +550,9 @@ The `category` class feature defines category names. For example: "room.conferen
 Learn more about Creator for indoor maps by reading:
 
 > [!div class="nextstepaction"]
+> [What is Azure Maps Creator?]
+
+> [!div class="nextstepaction"]
 > [Creator for indoor maps]
 
 <!---------   Internal Links     --------------->
@@ -573,7 +576,7 @@ Learn more about Creator for indoor maps by reading:
 [structures]: #structure
 <!---------   REST API Links     --------------->
 [conversion service]: /rest/api/maps/v2/conversion
-[dataset]: /rest/api/maps/v20220901preview/dataset
+[dataset]: /rest/api/maps/2023-03-01-preview/dataset
 [GeoJSON Point geometry]: /rest/api/maps/v2/wfs/get-features#geojsonpoint
 [MultiPolygon]: /rest/api/maps/v2/wfs/get-features?tabs=HTTP#geojsonmultipolygon
 [Point]: /rest/api/maps/v2/wfs/get-features#geojsonpoint
@@ -581,6 +584,7 @@ Learn more about Creator for indoor maps by reading:
 <!---------   learn.microsoft.com links     --------------->
 [Create a dataset using a GeoJson package]: how-to-dataset-geojson.md
 [Creator for indoor maps]: creator-indoor-maps.md
+[What is Azure Maps Creator?]: about-creator.md
 <!---------   External Links     --------------->
 [Azure Maps services]: https://aka.ms/AzureMaps
 [feature object]: https://www.rfc-editor.org/rfc/rfc7946#section-3.2

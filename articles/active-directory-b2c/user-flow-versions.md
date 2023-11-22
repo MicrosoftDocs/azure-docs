@@ -1,12 +1,12 @@
 ---
 title: User flow versions in Azure Active Directory B2C  
 description: Learn about the versions of user flows available in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 08/17/2021
 ms.author: kengaderdus
@@ -54,7 +54,7 @@ Standard user flows (previously referred to as V1) user flows, previously known 
 
 To switch from a legacy version of a user flow to the **Recommended** version, follow these steps:
 
-1. Create a new user flow policy by following the steps in [Tutorial: Create user flows in Azure Active Directory](tutorial-create-user-flows.md). While creating the user flow, select the **Recommended** version.
+1. Create a new user flow policy by following the steps in [Tutorial: Create user flows in Azure AD B2C](tutorial-create-user-flows.md). While creating the user flow, select the **Recommended** version.
 
 3. Configure your new user flow with the same settings that were configured in the legacy policy.
 

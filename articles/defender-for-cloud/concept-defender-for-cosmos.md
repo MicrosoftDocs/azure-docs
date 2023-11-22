@@ -26,7 +26,7 @@ Defender for Azure Cosmos DB doesn't access the Azure Cosmos DB account data, an
 |----|:----|
 |Release state:| General Availability (GA) | 
 | Protected Azure Cosmos DB API | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Cosmos DB for NoSQL <br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Cosmos DB for Apache Cassandra <br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Cosmos DB for MongoDB <br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Cosmos DB for Table <br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Cosmos DB for Apache Gremlin |
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government <br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet |
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government <br>:::image type="icon" source="./media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet |
 
 ## What are the benefits of Microsoft Defender for Azure Cosmos DB
 
@@ -45,7 +45,7 @@ Alerts include details of the incident that triggered them, and recommendations 
 Threat intelligence security alerts are triggered for: 
 
 - **Potential SQL injection attacks**: <br>
-    Due to the structure and capabilities of Azure Cosmos DB queries, many known SQL injection attacks can’t work in Azure Cosmos DB. However, there are some variations of SQL injections that can succeed and may result in exfiltrating data from your Azure Cosmos DB accounts. Defender for Azure Cosmos DB detects both successful and failed attempts, and helps you harden your environment to prevent these threats. 
+    Due to the structure and capabilities of Azure Cosmos DB queries, many known SQL injection attacks can’t work in Azure Cosmos DB. However, there are some variations of SQL injections that can succeed and might result in exfiltrating data from your Azure Cosmos DB accounts. Defender for Azure Cosmos DB detects both successful and failed attempts, and helps you harden your environment to prevent these threats. 
  
 - **Anomalous database access patterns**: <br>
     For example, access from a TOR exit node, known suspicious IP addresses, unusual applications, and unusual locations. 

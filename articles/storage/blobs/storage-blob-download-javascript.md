@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.date: 04/21/2023
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
@@ -15,16 +15,15 @@ ms.custom: devx-track-js, devguide-js
 
 # Download a blob with JavaScript
 
+[!INCLUDE [storage-dev-guide-selector-download](../../../includes/storage-dev-guides/storage-dev-guide-selector-download.md)]
+
 This article shows how to download a blob using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). You can download blob data to various destinations, including a local file path, stream, or text string.
 
 ## Prerequisites
 
-To work with the code examples in this article, make sure you have:
-
-- An authorized client object to connect to Blob Storage data resources. To learn more, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
-- Permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operation:
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform a download operation. To learn more, see the authorization guidance for the following REST API operation:
     - [Get Blob](/rest/api/storageservices/get-blob#authorization)
-- The package **@azure/storage-blob** installed to your project directory. To learn more about setting up your project, see [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md).
 
 ## Download a blob
 
@@ -41,7 +40,7 @@ The following example downloads a blob by using a file path with the [BlobClient
 ```javascript
 async function downloadBlobToFile(containerClient, blobName, fileNameWithPath) {
 
-    const blobClient = await containerClient.getBlobClient(blobName);
+    const blobClient = containerClient.getBlobClient(blobName);
     
     await blobClient.downloadToFile(fileNameWithPath);
     console.log(`download of ${blobName} success`);
@@ -55,7 +54,7 @@ The following example downloads a blob by creating a Node.js writable stream obj
 ```javascript
 async function downloadBlobAsStream(containerClient, blobName, writableStream) {
 
-    const blobClient = await containerClient.getBlobClient(blobName);
+    const blobClient = containerClient.getBlobClient(blobName);
 
     const downloadResponse = await blobClient.download();
 
@@ -72,7 +71,7 @@ The following Node.js example downloads a blob to a string with [BlobClient.down
 
 async function downloadBlobToString(containerClient, blobName) {
 
-    const blobClient = await containerClient.getBlobClient(blobName);
+    const blobClient = containerClient.getBlobClient(blobName);
 
     const downloadResponse = await blobClient.download();
 

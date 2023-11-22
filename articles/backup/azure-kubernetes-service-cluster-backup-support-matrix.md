@@ -2,14 +2,16 @@
 title: Azure Kubernetes Service (AKS) backup support matrix
 description: This article provides a summary of support settings and limitations of Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
-ms.date: 03/27/2023
-ms.custom: references_regions
+ms.date: 11/20/2023
+ms.custom:
+  - references_regions
+  - ignite-2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Azure Kubernetes Service backup support matrix (preview)
+# Azure Kubernetes Service backup support matrix
 
 You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernetes Service (AKS). This article summarizes region availability, supported scenarios, and limitations.
 
@@ -19,17 +21,21 @@ AKS backup is available in all the Azure public cloud regions: East US, North Eu
 
 ## Limitations
 
-- AKS backup supports AKS clusters with Kubernetes version 1.21.1 or later. This version has Container Storage Interface (CSI) drivers installed.
-
-- A CSI driver supports performing backup and restore operations for persistent volumes.
-
-- Currently, an AKS backup supports only the backup of Azure disk-based persistent volumes (enabled by the CSI driver). If you're using Azure Files shares and Azure Blob Storage persistent volumes in your AKS clusters, you can configure backups for them via the Azure Backup solutions. For more information, see [About Azure file share backup](azure-file-share-backup-overview.md) and [Overview of Azure Blob Storage backup](blob-backup-overview.md).
-
-- AKS backups don't support tree volumes. You can back up only CSI driver-based volumes. You can [migrate from tree volumes to CSI driver-based persistent volumes](../aks/csi-migrate-in-tree-volumes.md).
+- AKS backup supports AKS clusters with Kubernetes version *1.22* or later. This version has Container Storage Interface (CSI) drivers installed.
 
 - Before you install the backup extension in an AKS cluster, ensure that the CSI drivers and snapshot are enabled for your cluster. If they're disabled, [enable these settings](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
 
-- The backup extension uses the AKS cluster's managed system identity to perform backup operations. So, an AKS backup doesn't support AKS clusters that use a service principal. You can [update your AKS cluster to use a managed system identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
+- AKS backups don't support in-tree volumes. You can back up only CSI driver-based volumes. You can [migrate from tree volumes to CSI driver-based persistent volumes](../aks/csi-migrate-in-tree-volumes.md).
+
+- Currently, an AKS backup supports only the backup of Azure disk-based persistent volumes (enabled by the CSI driver). Also, these persistent volumes should be dynamically provisioned as static volumes are not supported.
+
+- Azure Files shares and Azure Blob Storage persistent volumes are currently not supported by AKS backup due to lack of CSI Driver-based snapshotting capability. If you're using said persistent volumes in your AKS clusters, you can configure backups for them via the Azure Backup solutions. For more information, see [Azure file share backup](azure-file-share-backup-overview.md) and [Azure Blob Storage backup](blob-backup-overview.md).
+
+- Any unsupported persistent volume type is skipped while a backup is being created for the AKS cluster.
+
+- Currently, AKS clusters using a Service Principal aren't supported. If your AKS cluster uses a Service Principal, you can [update your AKS cluster to use a System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
+
+- You can deploy the Backup Extension in the Ubuntu-based cluster nodes. AKS Clusters with the Windows-based nodes aren't supported by Azure Backup for AKS.
 
 - You must install the backup extension in the AKS cluster. If you're using Azure CLI to install the backup extension, ensure that the version is 2.41 or later. Use `az upgrade` command to upgrade the Azure CLI.
 
@@ -56,6 +62,6 @@ AKS backup is available in all the Azure public cloud regions: East US, North Eu
 
 ## Next steps
 
-- [About Azure Kubernetes Service cluster backup (preview)](azure-kubernetes-service-cluster-backup-concept.md)
-- [Back up Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-backup.md)
-- [Restore Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-restore.md)
+- [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-concept.md)
+- [Back up Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-backup.md)
+- [Restore Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-restore.md)

@@ -36,8 +36,14 @@ There are two different ways to monitor the status the asynchronous operation. Y
 
 If `Azure-AsyncOperation` isn't one of the header values, then look for:
 
-* `Location` - URL for determining when an operation has completed. Only use this value only when Azure-AsyncOperation isn't returned.
+* `Location` - URL for determining when an operation has completed. Use this value only when `Azure-AsyncOperation` isn't returned.
 * `Retry-After` - The number of seconds to wait before checking the status of the asynchronous operation.
+
+> [!NOTE]
+> Your REST client must accept a minimum URL size of 4 KB for `Azure-AsyncOperation` and `Location`.
+
+> [!NOTE]
+> When the `Retry-after` header is not returned, implement your own retry logic by following the Azure guidelines in [this](https://learn.microsoft.com/azure/architecture/best-practices/retry-service-specific#general-rest-and-retry-guidelines) document.
 
 ## Azure-AsyncOperation request and response
 

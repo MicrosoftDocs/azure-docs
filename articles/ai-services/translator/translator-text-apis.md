@@ -2,11 +2,10 @@
 title: "Use Azure AI Translator APIs"
 titleSuffix: Azure AI services
 description: "Learn to translate text, transliterate text, detect language and more with the Translator service. Examples are provided in C#, Java, JavaScript and Python."
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar

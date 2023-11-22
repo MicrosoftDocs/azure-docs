@@ -5,8 +5,11 @@ ms.topic: conceptual
 ms.author: ankitadutta
 ms.service: site-recovery
 author: ankitaduttaMSFT
-ms.date: 05/02/2023
-ms.custom: engagement-fy23, devx-track-linux
+ms.date: 11/14/2023
+ms.custom:
+  - engagement-fy23
+  - devx-track-linux
+  - ignite-2023
 ---
 
 # What's new in Site Recovery
@@ -21,13 +24,35 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Replication appliance / Configuration server** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Rollup 68](https://support.microsoft.com/topic/a81c2d22-792b-4cde-bae5-dc7df93a7810) | 9.55.6765.1 | 9.55.6765.1 / 5.1.8095.0  | 9.55.6765.1 | 5.23.0720.4 (VMware) & 5.1.8095.0 (Hyper-V) | 2.0.9261.0 (VMware) & 2.0.9260.0 (Hyper-V)
 [Rollup 67](https://support.microsoft.com/topic/update-rollup-67-for-azure-site-recovery-9fa97dbb-4539-4b6c-a0f8-c733875a119f) | 9.54.6682.1 | 9.54.6682.1 / 5.1.8095.0  | 9.54.6682.1 | 5.23.0428.1 (VMware) & 5.1.8095.0 (Hyper-V) | 2.0.9261.0 (VMware) & 2.0.9260.0 (Hyper-V)
 [Rollup 66](https://support.microsoft.com/en-us/topic/update-rollup-66-for-azure-site-recovery-kb5023601-c306c467-c896-4c9d-b236-73b21ca27ca5) | 9.53.6615.1 | 9.53.6615.1 / 5.1.8095.0  | 9.53.6615.1 | 5.1.8103.0 (Modernized VMware), 5.1.8095.0 (Hyper-V) & 5.23.0210.5 (Classic VMware) | 2.0.9260.0
 [Rollup 65](https://support.microsoft.com/topic/update-rollup-65-for-azure-site-recovery-kb5021964-15db362f-faac-417d-ad71-c22424df43e0) | 9.52.6522.1 | 9.52.6522.1 / 5.1.7870.0 | 9.52.6522.1 | 5.1.7870.0 (VMware) & 5.1.7882.0 (Hyper-V) | 2.0.9259.0
 [Rollup 64](https://support.microsoft.com/topic/update-rollup-64-for-azure-site-recovery-kb5020102-23db9799-102c-4378-9754-2f19f6c7858a) | 9.51.6477.1 | 9.51.6477.1 / 5.1.7802.0 | 9.51.6477.1 | 5.1.7802.0 | 2.0.9257.0
-[Rollup 63](https://support.microsoft.com/topic/update-rollup-63-for-azure-site-recovery-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | 9.50.6419.1 | 9.50.6419.1 / 5.1.7626.0 | 9.50.6419.1 | 5.1.7626.0 | 2.0.9249.0
+
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+## Updates (November 2023)
+
+
+### Use Azure Business Continuity center (preview)
+
+You can now also manage Azure Site Recovery protections using Azure Business Continuity (ABC) center. ABC enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your business continuity estate for better discoverability with the ability to do core activities. [Lear more about the supported scenarios](../business-continuity-center/business-continuity-center-support-matrix.md).
+
+
+## Updates (August 2023)
+
+### Update Rollup 68
+
+[Update rollup 68](https://support.microsoft.com/topic/a81c2d22-792b-4cde-bae5-dc7df93a7810) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for RHEL 8.8 Linux distros.
+**VMware VM/physical disaster recovery to Azure** | Added support for RHEL 8.8 Linux distros. 
 
 ## Updates (May 2023)
 
@@ -40,7 +65,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for Oracle Linux 8.7 with UEK7 kernel, RHEL 9 and Cent OS 9 Linux distros.
-**VMware VM/physical disaster recovery to Azure** | Added support for Oracle Linux 8.7 with UEK7 kernel, RHEL 9, Cent OS 9 and Oracle Linux 9 Linux distros. <br> <br/> Added support for Windows Server 2019 as the ASR replication appliance. <br> <br/> Added support for Microsoft Edge to be the default browser in Appliance Configuration Manager. <br> <br/> Added support to select an Availability set or a Proximity Placement group, after enabling replication using modernized VMware/Physical machine replication scenario.
+**VMware VM/physical disaster recovery to Azure** | Added support for Oracle Linux 8.7 with UEK7 kernel, RHEL 9, Cent OS 9 and Oracle Linux 9 Linux distros. <br> <br/> Added support for Windows Server 2019 as the Azure Site Recovery replication appliance. <br> <br/> Added support for Microsoft Edge to be the default browser in Appliance Configuration Manager. <br> <br/> Added support to select an Availability set or a Proximity Placement group, after enabling replication using modernized VMware/Physical machine replication scenario.
 
 
 ## Updates (February 2023)
@@ -67,7 +92,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for Debian 11 and SUSE Linux Enterprise Server 15 SP 4 Linux distro.
-**VMware VM/physical disaster recovery to Azure** | Added support for Debian 11 and SUSE Linux Enterprise Server 15 SP 4 Linux distro.<br/><br/> Added Modernized VMware to Azure DR support for government clouds. [Learn more](deploy-vmware-azure-replication-appliance-modernized.md#allow-urls-for-government-clouds).
+**VMware VM/physical disaster recovery to Azure** | Added support for Debian 11 and SUSE Linux Enterprise Server 15 SP 4 Linux distro.<br/><br/> Added Modernized VMware to Azure DR support for government clouds. [Learn more](./replication-appliance-support-matrix.md#allow-urls-for-government-clouds).
 
 
 ## Updates (October 2022)
@@ -177,7 +202,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 This public preview covers a complete overhaul of the current architecture for protecting VMware machines.
 - [Learn](/azure/site-recovery/vmware-azure-architecture-preview) about the new architecture and the changes introduced.
-- Check the pre-requisites and set up the Azure Site Recovery replication appliance by following [these steps](/azure/site-recovery/deploy-vmware-azure-replication-appliance-preview).
+- Check the prerequisites and set up the Azure Site Recovery replication appliance by following [these steps](/azure/site-recovery/deploy-vmware-azure-replication-appliance-preview).
 - [Enable replication](/azure/site-recovery/vmware-azure-set-up-replication-tutorial-preview) for your VMware machines.
 - Check out the [automatic upgrade](/azure/site-recovery/upgrade-mobility-service-preview) and [switch](/azure/site-recovery/switch-replication-appliance-preview) capability for Azure Site Recovery replication appliance.
 

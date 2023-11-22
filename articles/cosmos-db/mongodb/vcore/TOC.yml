@@ -1,8 +1,8 @@
-- name: vCore-based MongoDB documentation
+- name: MongoDB vCore documentation
   href: index.yml
 - name: Overview
   items:
-    - name: What is vCore-based Azure Cosmos DB for MongoDB?
+    - name: What is Azure Cosmos DB for MongoDB vCore?
       href: introduction.md
 - name: Quickstarts
   items:
@@ -18,25 +18,55 @@
           href: tutorial-nodejs-web-app.md
 - name: Concepts
   items:
+    - name: Free tier
+      href: free-tier.md
+    - name: Burstable tier
+      href: burstable-tier.md
     - name: Vector search
-      href: vector-search.md
+      items:
+        - name: Vector search overview
+          href: vector-search.md
+        - name: Build AI Apps with vector search
+          href: vector-search-ai.md
     - name: MongoDB feature support
       href: compatibility.md
     - name: High availability
       href: high-availability.md
+    - name: Failover and disaster recovery
+      href: failover-disaster-recovery.md
     - name: Migration options
-      href: migration-options.md
+      href: migration-options.md 
     - name: Security
       href: security.md
 - name: How to
   items:
-    - name: Use developer tools
+    - name: Use community tools
       items:
-        - name: Community tools
-          items:
-            - name: Connect using Studio 3T
-              href: connect-using-robomongo.md
+        - name: Connect using Studio 3T
+          href: how-to-connect-studio-3t.md
+    - name: Migrate data
+      items:
+        - name: Premigration assessment
+          href: how-to-assess-plan-migration-readiness.md
+        - name: Native tools
+          href: how-to-migrate-native-tools.md
+        - name: Azure Data Studio
+          href: /azure-data-studio/extensions/database-migration-for-mongo-extension        
+    - name: Develop applications
+      items:
+        - name: Create transactions
+          href: how-to-transactions.md
     - name: Scale cluster
       href: how-to-scale-cluster.md
     - name: Restore cluster
       href: how-to-restore-cluster.md
+    - name: Search and query text
+      href: how-to-create-text-index.md
+    - name: Monitor diagnostics logs
+      href: how-to-monitor-diagnostics-logs.md
+    - name: Use Azure Private Link
+      href: how-to-private-link.md
+- name: Reference
+  items:
+    - name: Troubleshoot common issues
+      href: troubleshoot-common-issues.md

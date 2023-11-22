@@ -2,12 +2,14 @@
 title: "Known issues, limitations, and troubleshooting"
 titleSuffix: Azure Database Migration Service
 description: Known issues, limitations and troubleshooting guide for Azure SQL Migration extension for Azure Data Studio
-author: croblesm
-ms.author: roblescarlos
+author: abhims14
+ms.author: abhishekum
 ms.date: 04/21/2023
 ms.service: dms
 ms.topic: troubleshooting
-ms.custom: seo-lt-2019
+ms.custom:
+  - seo-lt-2019
+  - sql-migration-content
 ---
 
 # Known issues, limitations, and troubleshooting
@@ -240,13 +242,13 @@ WHERE STEP in (3,4,6);
 
 - **Cause**: The selected tables for the migration don't exist in the target Azure SQL Database.
 
-- **Recommendation**: Make sure the target database schema was created before starting the migration. For more information on how to deploy the target database schema, see [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension)
+- **Recommendation**: Make sure the target database schema was created before starting the migration. For more information on how to deploy the target database schema, see [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension)
 
 - **Message**: DatabaseSizeMoreThanMax: `The source database size <Source Database Size> exceeds the maximum allowed size of the target database <Target Database Size>. Check if the target database has enough space.`
 
 - **Cause**: The target database doesn't have enough space.
 
-- **Recommendation**: Make sure the target database schema was created before starting the migration. For more information on how to deploy the target database schema, see [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension).
+- **Recommendation**: Make sure the target database schema was created before starting the migration. For more information on how to deploy the target database schema, see [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension).
 
 - **Message**: NoTablesFound: `Some of the source tables don't exist in the target database. Missing tables: <TableList>`.
 
@@ -267,6 +269,78 @@ WHERE STEP in (3,4,6);
 - **Cause**: The selected tables for the migration don't exist in the target Azure SQL Database.
 
 - **Recommendation**: Check if the selected tables exist in the target Azure SQL Database. If this migration is called from a PowerShell script, check if the table list parameter includes the correct table names and is passed into the migration.
+
+## Error code: 2060 - SqlSchemaCopyFailed
+
+- **Message**:` The SELECT permission was denied on the object 'sql_logins', database 'master', schema 'sys'.`
+
+- **Cause**: The account customers use to connect Azure SQL Database lacks the permission to access sys.sql_logins table.
+
+- **Recommendation**: There are two ways to mitigate the issue:
+1. Add 'sysadmin' role to the account, which grant the admin permission.
+2. If customers cannot use admin account or cannot grant admin permission to the account, they can create a user in master and grant dbmanager and loginmanager permission to the user. For example,
+```sql
+-- Run the script in the master
+create user testuser from login testlogin;
+exec sp_addRoleMember 'dbmanager', 'testuser'
+exec sp_addRoleMember 'loginmanager', 'testuser'
+```
+
+
+- **Message**:` Failed to get service token from ADF service.`
+
+- **Cause**: The customer's SHIR fails to connect data factory.
+
+- **Recommendation**: This is sample doc how to solve it: [Integration runtime Unable to connect to Data Factory](https://learn.microsoft.com/answers/questions/139976/integration-runtime-unable-to-connect-to-data-fact)
+
+
+
+- **Message**:` IR Nodes are offline.`
+
+- **Cause**: The cause might be that the network is interrupted during migration and thus the IR node become offline. Make sure that the machine where SHIR is installed is on.
+
+- **Recommendation**: Make sure that the machine where SHIR is installed is on.
+
+
+- **Message**:` Deployed failure: {0}. Object element: {1}.`
+
+- **Cause**: This is the most common error customers might encounter. It means that the object cannot be deployed to the target because it is unsupported on the target.
+
+- **Recommendation**: Customers need to check the assessment results ([Assessment rules](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql)). This is the list of assessment issues that might fail the schema migration:
+  
+[BUIK INSERT](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#BulkInsert)
+
+[COMPUTE clause](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#ComputeClause)
+
+[Cryptographic provider](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#CryptographicProvider)
+
+[Cross database references](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#CrossDatabaseReferences)
+
+[Database principal alias](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#DatabasePrincipalAlias)
+
+[DISABLE_DEF_CNST_CHK option](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#DisableDefCNSTCHK)
+
+[FASTFIRSTROW hint](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#FastFirstRowHint)
+
+[FILESTREAM](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#FileStream)
+
+[MS DTC](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#MSDTCTransactSQL)
+
+[OPENROWSET (bulk)](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#OpenRowsetWithNonBlobDataSourceBulk)
+
+[OPENROWSET (provider)](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#OpenRowsetWithSQLAndNonSQLProvider)
+
+Note: To view error detail, Open Microsoft Integration runtime configurtion manager > Diagnostics > logging > view logs. 
+It will open the Event viewer > Application and Service logs > Connectors - Integration runtime and now filter for errors.
+
+- **Message**: Deployed failure: Index cannot be created on computed column '{0}' of table '{1}' because the underlying object '{2}' has a different owner. Object element: {3}.
+  
+  ` Sample Generated Script:: IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[Sales].[Customer]') AND name = N'AK_Customer_AccountNumber') CREATE UNIQUE NONCLUSTERED INDEX [AK_Customer_AccountNumber] ON [Sales].[Customer] ( [AccountNumber] ASC )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) `
+
+- **Cause**: All function references in the computed column must have the same owner as the table.
+
+- **Recommendation**: Check the doc [Ownership Requirement](https://learn.microsoft.com/sql/relational-databases/indexes/indexes-on-computed-columns?view=sql-server-ver16#ownership-requirements).
+
 
 ## Error code: Ext_RestoreSettingsError
 
@@ -325,6 +399,6 @@ Migrating to SQL Server on Azure VMs by using the Azure SQL extension for Azure 
 
 ## Next steps
 
-- For an overview and installation of the Azure SQL migration extension, see [Azure SQL migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension)
+- For an overview and installation of the Azure SQL migration extension, see [Azure SQL migration extension for Azure Data Studio](/azure-data-studio/extensions/azure-sql-migration-extension)
 - For more information on known limitations with Log Replay Service,  see [Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)](/azure/azure-sql/managed-instance/log-replay-service-migrate#limitations)
 - For more information on SQL Server on Virtual machine resource limits, see [Checklist: Best practices for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist)

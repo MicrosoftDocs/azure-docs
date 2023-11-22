@@ -2,7 +2,7 @@
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: include
-ms.date: 10/19/2022
+ms.date: 07/29/2023
 ms.author: greglin
 ---
 | Resource | Limit | Note |
@@ -12,14 +12,14 @@ ms.author: greglin
 | Frontend ports |100<sup>1</sup> | |
 | Backend address pools |100 | |
 | Backend targets per pool |1,200 | |
-| HTTP listeners |200<sup>1</sup> |Limited to 100 active listeners that are routing traffic. Active listeners = total number of listeners - listeners not active.<br>If a default configuration inside a routing rule is set to route traffic (for example, it has a listener, a backend pool, and HTTP settings) then that also counts as a listener. For more information, see [Frequently asked questions about Application Gateway](../articles/application-gateway/application-gateway-faq.yml#what-is-considered-an-active-listener-versus-inactive-listener).|
+| HTTP listeners |200<sup>1</sup> |Limited to 100 active listeners that are routing traffic. Active listeners = total number of listeners - listeners not active.<br>If a default configuration inside a routing rule is set to route traffic (for example, it has a listener, a backend pool, and HTTP settings) then that also counts as a listener. For more information, see [Frequently asked questions about Application Gateway](../articles/application-gateway/application-gateway-faq.yml#what-is-considered-an-active-listener-versus-an-inactive-listener).|
 | HTTP load-balancing rules |400<sup>1</sup> | |
 | Backend HTTP settings |100<sup>1</sup> | |
 | Instances per gateway |V1 SKU - 32<br>V2 SKU - 125 | |
 | SSL certificates |100<sup>1</sup> |1 per HTTP listener |
 | Maximum SSL certificate size |V1 SKU - 10 KB<br>V2 SKU - 16 KB| |
 | Maximum trusted client CA certificate size | 25 KB| 25 KB is the maximum aggregated size of root and intermediate certificates contained in an uploaded pem or cer file. |
-| Maximum trusted client CA certificate chains | 5 | |
+| Maximum trusted client CA certificates |200 | 100 per SSL Profile |
 | Authentication certificates |100 | |
 | Trusted root certificates |100 | |
 | Request timeout minimum |1 second | |
@@ -43,7 +43,7 @@ ms.author: greglin
 | WAF body size limit (without files)|V1 or V2 (with CRS 3.1 and older) - 128 KB<br>V2 (with CRS 3.2 or newer) - 2 MB<sup>3</sup>| |
 | Maximum Private Link Configurations| 2 | 1 for public IP, 1 for private IP |
 | Maximum Private Link IP Configurations| 8 | |
-| Maximum WAF custom rules|100||
+| Maximum WAF custom rules per WAF policy|100||
 | WAF IP address ranges per match condition|540<br>600 - with CRS 3.2 or newer|
 | Maximum WAF exclusions per Application Gateway|40<br>200 - with CRS 3.2 or newer|
 | WAF string match values per match condition|10||

@@ -3,8 +3,8 @@ title: Compare Azure Government and global Azure
 description: Describe feature differences between Azure Government and global Azure.
 ms.service: azure-government
 ms.topic: article
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 ms.custom: references_regions
 recommendations: false
 ms.date: 06/08/2023
@@ -20,7 +20,15 @@ You're responsible for designing and deploying your applications to meet [US exp
 
 ## Guidance for developers
 
-Azure Government services operate the same way as the corresponding services in global Azure, which is why most of the existing online Azure documentation applies equally well to Azure Government. However, there are some key differences that developers working on applications hosted in Azure Government must be aware of. For more information, see [Guidance for developers](./documentation-government-developer-guide.md). As a developer, you must know how to connect to Azure Government and once you connect you'll mostly have the same experience as in global Azure.
+Most of the currently available technical content assumes that applications are being developed on global Azure rather than on Azure Government. For this reason, it’s important to be aware of two key differences in applications that you develop for hosting in Azure Government.
+
+- Certain services and features that are in specific regions of global Azure might not be available in Azure Government.
+
+- Feature configurations in Azure Government might differ from those in global Azure.
+
+Therefore, it's important to review your sample code and configurations to ensure that you are building within the Azure Government cloud services environment.
+
+For more information, see [Azure Government developer guide](./documentation-government-developer-guide.md). 
 
 > [!NOTE]
 > This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [**Introducing the new Azure PowerShell Az module**](/powershell/azure/new-azureps-module-az). For Az module installation instructions, see [**Install the Azure Az PowerShell module**](/powershell/azure/install-azure-powershell).
@@ -50,16 +58,16 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 |Service category|Service name|Azure Public|Azure Government|Notes|
 |-----------|-----------|-------|----------|----------------------|
 |**AI + machine learning**|Azure Bot Service|botframework.com|botframework.azure.us||
-||Azure Form Recognizer|cognitiveservices.azure.com|cognitiveservices.azure.us||
+||Azure AI Document Intelligence|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Computer Vision|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Custom Vision|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://www.customvision.azure.us/)||
 ||Content Moderator|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Face API|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)|Part of [Cognitive Services for Language](../ai-services/language-service/index.yml)|
+||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
 ||Personalizer|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Cognitive Services for Language](../ai-services/language-service/index.yml)|
+||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
 ||Speech service|See [STT API docs](../ai-services/speech-service/rest-speech-to-text-short.md#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](../ai-services/Speech-Service/sovereign-clouds.md)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
-||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Cognitive Services for Language](../ai-services/language-service/index.yml)|
+||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
 ||Translator|See [Translator API docs](../ai-services/translator/reference/v3-0-reference.md#base-urls)|cognitiveservices.azure.us||
 |**Analytics**|Azure HDInsight|azurehdinsight.net|azurehdinsight.us||
 ||Event Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
@@ -74,7 +82,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Azure Database for MySQL|mysql.database.azure.com|mysql.database.usgovcloudapi.net||
 ||Azure Database for PostgreSQL|postgres.database.azure.com|postgres.database.usgovcloudapi.net||
 ||Azure SQL Database|database.windows.net|database.usgovcloudapi.net||
-|**Identity**|Azure AD|login.microsoftonline.com|login.microsoftonline.us||
+|**Identity**|Microsoft Entra ID|login.microsoftonline.com|login.microsoftonline.us||
 |||certauth.login.microsoftonline.com|certauth.login.microsoftonline.us||
 |||passwordreset.microsoftonline.com|passwordreset.microsoftonline.us||
 |**Integration**|Service Bus|servicebus.windows.net|servicebus.usgovcloudapi.net||
@@ -112,7 +120,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||API Management Portal|portal.azure-api.net|portal.azure-api.us||
 ||App Configuration|azconfig.io|azconfig.azure.us||
 ||App Service|azurewebsites.net|azurewebsites.us||
-||Azure Cognitive Search|search.windows.net|search.windows.us||
+||Azure AI Search|search.windows.net|search.windows.us||
 ||Azure Functions|azurewebsites.net|azurewebsites.us||
 
 ## Service availability
@@ -142,26 +150,34 @@ For information on how to deploy Bot Framework and Azure Bot Service bots to Azu
 
 For feature variations and limitations, see [Azure Machine Learning feature availability across cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md).
 
-### [Cognitive Services: Content Moderator](../ai-services/content-moderator/index.yml)
+<a name='cognitive-services-content-moderator'></a>
+
+### [Azure AI services: Content Moderator](../ai-services/content-moderator/index.yml)
 
 The following Content Moderator **features aren't currently available** in Azure Government:
 
 - Review UI and Review APIs.
 
-### [Cognitive Services: Language Understanding (LUIS)](../ai-services/luis/index.yml)
+<a name='cognitive-services-language-understanding-luis'></a>
+
+### [Azure AI Language Understanding (LUIS)](../ai-services/luis/index.yml)
 
 The following Language Understanding **features aren't currently available** in Azure Government:
 
 - Speech Requests
 - Prebuilt Domains
 
-Cognitive Services Language Understanding (LUIS) is part of [Cognitive Services for Language](../ai-services/language-service/index.yml).
+Azure AI Language Understanding (LUIS) is part of [Azure AI Language](../ai-services/language-service/index.yml).
 
-### [Cognitive Services: Speech](../ai-services/speech-service/index.yml)
+<a name='cognitive-services-speech'></a>
+
+### [Azure AI Speech](../ai-services/speech-service/index.yml)
 
 For feature variations and limitations, including API endpoints, see [Speech service in sovereign clouds](../ai-services/speech-service/sovereign-clouds.md).
 
-### [Cognitive Services: Translator](../ai-services/translator/index.yml)
+<a name='cognitive-services-translator'></a>
+
+### [Azure AI services: Translator](../ai-services/translator/index.yml)
 
 For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../ai-services/translator/sovereign-clouds.md).
 
@@ -181,11 +197,11 @@ For secured virtual networks, you'll want to allow network security groups (NSGs
 |US Gov Virginia|13.72.49.126 </br> 13.72.55.55 </br> 13.72.184.124 </br> 13.72.190.110| 443|
 |US Gov Arizona|52.127.3.176 </br> 52.127.3.178| 443|
 
-For a demo on how to build data-centric solutions on Azure Government using HDInsight, see Cognitive Services, HDInsight, and Power BI on Azure Government.
+For a demo on how to build data-centric solutions on Azure Government using HDInsight, see Azure AI services, HDInsight, and Power BI on Azure Government.
 
 ### [Power BI](/power-bi/fundamentals/)
 
-For usage guidance, feature variations, and limitations, see [Power BI for US government customers](/power-bi/admin/service-govus-overview). For a demo on how to build data-centric solutions on Azure Government using Power BI, see Cognitive Services, HDInsight, and Power BI on Azure Government.
+For usage guidance, feature variations, and limitations, see [Power BI for US government customers](/power-bi/admin/service-govus-overview). For a demo on how to build data-centric solutions on Azure Government using Power BI, see Azure AI services, HDInsight, and Power BI on Azure Government.
 
 ### [Power BI Embedded](/power-bi/developer/embedded/)
 
@@ -224,7 +240,9 @@ This section outlines variations and considerations when using Developer tools i
 
 This section outlines variations and considerations when using Identity services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=information-protection,active-directory-ds,active-directory&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
-### [Azure Active Directory Premium P1 and P2](../active-directory/index.yml)
+<a name='azure-active-directory-premium-p1-and-p2'></a>
+
+### [Microsoft Entra ID P1 and P2](../active-directory/index.yml)
 
 For feature variations and limitations, see [Cloud feature availability](../active-directory/authentication/feature-availability.md).
 
@@ -233,7 +251,7 @@ For information on how to use Power BI capabilities for collaboration between Az
 The following features have known limitations in Azure Government:
 
 - Limitations with B2B Collaboration in supported Azure US Government tenants:
-  - For more information about B2B collaboration limitations in Azure Government and to find out if B2B collaboration is available in your Azure Government tenant, see [Azure AD B2B in government and national clouds](../active-directory/external-identities/b2b-government-national-clouds.md).
+  - For more information about B2B collaboration limitations in Azure Government and to find out if B2B collaboration is available in your Azure Government tenant, see [Microsoft Entra B2B in government and national clouds](../active-directory/external-identities/b2b-government-national-clouds.md).
 
 - Limitations with multi-factor authentication:
     - Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and shouldn't be required based off the user's current IP address.
@@ -347,13 +365,10 @@ For an overview of ExpressRoute, see [What is Azure ExpressRoute?](../expressrou
 
 ### [Azure Front Door](../frontdoor/index.yml)
 
-Azure Front Door Standard and Premium tiers are available in public preview in Azure Government regions US Gov Arizona and US Gov Texas. During public preview, the following Azure Front Door **features aren't supported** in Azure Government:
+Azure Front Door (AFD) Standard and Premium tiers are available in general availability in Azure Government regions US Gov Arizona and US Gov Texas. The following Azure Front Door feature **isn’t supported** in Azure Government:
 
-- Managed certificate for enabling HTTPS; instead, you need to use your own certificate.
-- [Migration](../frontdoor/tier-migration.md) from classic to Standard/Premium tier.
-- [Managed identity integration](../frontdoor/managed-identity.md) for Azure Front Door Standard/Premium access to Azure Key Vault for your own certificate.
-- [Tier upgrade](../frontdoor/tier-upgrade.md) from Standard to Premium.
-- Web Application Firewall (WAF) policies creation via WAF portal extension; instead, WAF policies can be created via Azure Front Door Standard/Premium portal extension. Updates and deletions to WAF policies and rules are supported on WAF portal extension.
+- Managed certificate for enabling HTTPS; instead use your own certificate.
+
 
 ### [Private Link](../private-link/index.yml)
 

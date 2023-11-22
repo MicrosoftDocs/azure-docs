@@ -64,7 +64,7 @@ Arc-enabled servers because it's included in the Arc Connected Machine agent.
 > machines.
 
 To deploy the extension at scale across many machines, assign the policy initiative
-`Virtual machines' Guest Configuration extension should be deployed with system-assigned managed identity`
+`Deploy prerequisites to enable Guest Configuration policies on virtual machines`
 to a management group, subscription, or resource group containing the machines that you plan to
 manage.
 
@@ -75,7 +75,7 @@ for each:
 - [Configure managed identities for Azure resources on a VM using the Azure portal][14]
 
 To use machine configuration packages that apply configurations, Azure VM guest configuration
-extension version 1.29.24 or later is required.
+extension version 1.26.24 or later is required.
 
 ### Limits set on the extension
 

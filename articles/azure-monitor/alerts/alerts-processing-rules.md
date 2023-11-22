@@ -17,7 +17,7 @@ ms.reviewer: nolavime
 
 Alert processing rules allow you to apply processing on fired alerts. Alert processing rules are different from alert rules. Alert rules generate new alerts, while alert processing rules modify the fired alerts as they're being fired.
 
-You can use alert processing rules to add [action groups](./action-groups.md) or remove (suppress) action groups from your fired alerts. You can apply alert processing rules to different resource scopes, from a single resource, or to an entire subscription. You can also use them to apply various filters or have the rule work on a predefined schedule.
+You can use alert processing rules to add [action groups](./action-groups.md) or remove (suppress) action groups from your fired alerts. You can apply alert processing rules to different resource scopes, from a single resource, or to an entire subscription, as long as they are within the same subscription as the alert processing rule. You can also use them to apply various filters or have the rule work on a predefined schedule.
 
 Some common use cases for alert processing rules are described here.
 
@@ -53,7 +53,7 @@ For those alert types, you can use alert processing rules to add action groups.
 
 This section describes the scope and filters for alert processing rules.
 
-Each alert processing rule has a scope. A scope is a list of one or more specific Azure resources, a specific resource group, or an entire subscription. *The alert processing rule applies to alerts that fired on resources within that scope*.  
+Each alert processing rule has a scope. A scope is a list of one or more specific Azure resources, a specific resource group, or an entire subscription. The alert processing rule applies to alerts that fired on resources within that scope. You cannot create an alert processing rule on a resource from a different subsciption.   
 
 You can also define filters to narrow down which specific subset of alerts are affected within the scope. The available filters are described in the following table.  
 
@@ -76,7 +76,7 @@ Severity |  The rule applies only to alerts with the selected severities. |
 * If you define multiple filters in a rule, all the rules apply. There's a logical AND between all filters.  
   For example, if you set both `resource type = "Virtual Machines"` and `severity = "Sev0"`, then the rule applies only for `Sev0` alerts on virtual machines in the scope.
 * Each filter can include up to five values. There's a logical OR between the values.  
-  For example, if you set `description contains ["this", "that"]`, then the rule applies only to alerts whose description contains either `this` or `that`.
+  For example, if you set `description contains "this, that" (in the field there is no need to write the apostrophes), then the rule applies only to alerts whose description contains either `this` or `that`. 
 
 ### What should this rule do?
 

@@ -28,7 +28,7 @@ Azure Communications Services provides monitoring and analytics features via [Az
 The following are instructions for configuring your Azure Monitor resource to start creating logs and metrics for your Communications Services. For detailed documentation about using Diagnostic Settings across all Azure resources, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
 
 > [!NOTE]
-> Under diagnostic setting name please select  select “Email Service Delivery Status Update Logs”, "Email Service Send Mail logs", "Email Service User Engagement Logs" to enable the logs for emails
+> Under diagnostic setting name please select “Email Service Delivery Status Update Logs”, "Email Service Send Mail logs", "Email Service User Engagement Logs" to enable the logs for emails
 >
 >  :::image type="content" source="..\logs\email-diagnostic-log.png" alt-text="Screenshot of diagnostic settings for Email.":::
 

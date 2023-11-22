@@ -1,16 +1,15 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
 ms.date: 07/19/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-<!--[Reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)-->
+[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2239169)
 
 Use this quickstart to send sentiment analysis requests using the REST API. In the following example, you'll use cURL to identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
 
@@ -37,7 +36,7 @@ Use this quickstart to send sentiment analysis requests using the REST API. In t
 
 ## Create a JSON file with the example request body
 
-In a code editor, create a new file named `request_body.json` and copy the following JSON example. This example request will be sent to the API in the next step.
+In a code editor, create a new file named `test_sentiment_payload.json` and copy the following JSON example. This example request will be sent to the API in the next step.
 
 ```json
 {
@@ -58,7 +57,7 @@ In a code editor, create a new file named `request_body.json` and copy the follo
 } 
 ```
 
-Save `request_body.json` somewhere on your computer. For example, your desktop.  
+Save `test_sentiment_payload.json` somewhere on your computer. For example, your desktop.  
 
 ## Send a sentiment analysis and opinion mining API request
 
@@ -238,4 +237,4 @@ curl -X POST $LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2023-04-15-pr
 
 * [Sentiment analysis and opinion mining language support](../../language-support.md)
 * [How to call the API](../../how-to/call-api.md)  
-<!--* [Reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)-->
+* [Reference documentation](https://go.microsoft.com/fwlink/?linkid=2239169)

@@ -33,7 +33,7 @@ For quick and reliable answers on your technical product questions from Microsof
 
 ### Development Azure Kinect on Azure
 
-Azure subscribers can create and manage support requests in the Azure portal. One-on-one development support for Body Tracking, Sensor SDK, Speech device SDK, or Azure Cognitive Services is available for Azure subscribers with an [Azure Support Plan](https://azure.microsoft.com/support/plans/) associated with their subscription.
+Azure subscribers can create and manage support requests in the Azure portal. One-on-one development support for Body Tracking, Sensor SDK, Speech device SDK, or Azure AI services is available for Azure subscribers with an [Azure Support Plan](https://azure.microsoft.com/support/plans/) associated with their subscription.
 
   - Have an [Azure Support Plan](https://azure.microsoft.com/support/plans/) associated with your Azure subscription? Sign in to the [Azure portal](https://portal.azure.com) to submit an incident.
   - Need an Azure Subscription? [Azure subscription options](https://azure.microsoft.com/pricing/purchase-options/) will provide more information about different options.

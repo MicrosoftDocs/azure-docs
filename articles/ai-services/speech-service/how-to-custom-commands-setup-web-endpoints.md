@@ -2,11 +2,10 @@
 title: 'Set up web endpoints'                             
 titleSuffix: Azure AI services
 description: set up web endpoints for Custom Commands
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: eur
@@ -29,7 +28,7 @@ In this article, you'll learn how to set up web endpoints in a Custom Commands a
 
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-> * An Azure AI services Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see see [Create a multi-service resource](../multi-service-resource.md?pivots=azportal).
+> * An Azure AI Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a multi-service resource](../multi-service-resource.md?pivots=azportal).
 > * A Custom Commands app (see [Create a voice assistant using Custom Commands](quickstart-custom-commands-application.md))
 > * A Speech SDK enabled client app (see [Integrate with a client application using Speech SDK](how-to-custom-commands-setup-speech-sdk.md))
 
@@ -154,7 +153,7 @@ In this section, you'll use an existing default **DeviceState** endpoint. If you
    | Setting | Suggested value | Description |
    | ------- | --------------- | ----------- |
    | Name | UpdateDeviceState | Name for the web endpoint. |
-   | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | The URL of the endpoint you wish your custom command app to talk to. |
+   | URL | ```https://webendpointexample.azurewebsites.net/api/DeviceState``` | The URL of the endpoint you wish your custom command app to talk to. |
    | Method | POST | The allowed interactions (such as GET, POST) with your endpoint.|
    | Headers | Key: app, Value: take the first 8 digits of your applicationId | The header parameters to include in the request header.|
 

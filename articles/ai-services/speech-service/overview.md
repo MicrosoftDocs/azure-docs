@@ -2,11 +2,10 @@
 title: What is the Speech service?
 titleSuffix: Azure AI services
 description: The Speech service provides speech to text, text to speech, and speech translation capabilities with an Azure resource. Add speech to your applications, tools, and devices with the Speech SDK, Speech Studio, or REST APIs.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 09/16/2022
 ms.author: eur
@@ -56,10 +55,11 @@ The base model may not be sufficient if the audio contains ambient noise or incl
 
 With [real-time speech to text](get-started-speech-to-text.md), the audio is transcribed as speech is recognized from a microphone or file. Use real-time speech to text for applications that need to transcribe audio in real-time such as:
 - Transcriptions, captions, or subtitles for live meetings
+- [Diarization](get-started-stt-diarization.md)
+- [Pronunciation assessment](how-to-pronunciation-assessment.md)
 - Contact center agent assist
 - Dictation
 - Voice agents
-- Pronunciation assessment
 
 ### Batch transcription
 
@@ -96,17 +96,17 @@ With [text to speech](text-to-speech.md), you can convert input text into humanl
 
 ## Delivery and presence
 
-You can deploy Azure AI services Speech features in the cloud or on-premises. 
+You can deploy Azure AI Speech features in the cloud or on-premises.
 
 With [containers](speech-container-howto.md), you can bring the service closer to your data for compliance, security, or other operational reasons. 
 
-Speech service deployment in sovereign clouds is available for some government entities and their partners. For example, the Azure Government cloud is available to US government entities and their partners. Azure China cloud is available to organizations with a business presence in China. For more information, see [sovereign clouds](sovereign-clouds.md). 
+Speech service deployment in sovereign clouds is available for some government entities and their partners. For example, the Azure Government cloud is available to US government entities and their partners. Microsoft Azure operated by 21Vianet cloud is available to organizations with a business presence in China. For more information, see [sovereign clouds](sovereign-clouds.md). 
 
 :::image type="content" border="false" source="media/overview/speech-delivery-presence.png" alt-text="Diagram showing where Speech service can be deployed and accessed.":::
 
 ## Use Speech in your application
 
-The [Speech Studio](speech-studio-overview.md) is a set of UI-based tools for building and integrating features from Azure AI services Speech service in your applications. You create projects in Speech Studio by using a no-code approach, and then reference those assets in your applications by using the [Speech SDK](speech-sdk.md), the [Speech CLI](spx-overview.md), or the REST APIs.
+The [Speech Studio](speech-studio-overview.md) is a set of UI-based tools for building and integrating features from Azure AI Speech service in your applications. You create projects in Speech Studio by using a no-code approach, and then reference those assets in your applications by using the [Speech SDK](speech-sdk.md), the [Speech CLI](spx-overview.md), or the REST APIs.
 
 The [Speech CLI](spx-overview.md) is a command-line tool for using Speech service without having to write any code. Most features in the Speech SDK are available in the Speech CLI, and some advanced features and customizations are simplified in the Speech CLI. 
 

@@ -2,14 +2,13 @@
 title: Sovereign Clouds - Speech service
 titleSuffix: Azure AI services
 description: Learn how to use Sovereign Clouds
-services: cognitive-services
+#services: cognitive-services
 author: alexeyo26
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 05/10/2022
+ms.date: 11/17/2023
 ms.author: alexeyo
 ---
 
@@ -35,8 +34,10 @@ Available to US government entities and their partners only. See more informatio
     - Neural voice
   - Speech translation
 - **Unsupported features:**
-  - Custom Voice
-  - Custom Commands
+  - Custom commands
+  - Custom neural voice
+  - Personal voice
+  - Text to speech avatar
 - **Supported languages:**
   - See the list of supported languages [here](language-support.md)
 
@@ -107,9 +108,9 @@ Replace `subscriptionKey` with your Speech resource key. Replace `usGovHost` wit
 | Text to speech | `https://usgovvirginia.tts.speech.azure.us` |
 
 
-## Azure China
+## Microsoft Azure operated by 21Vianet
 
-Available to organizations with a business presence in China. See more information about Azure China [here](/azure/china/overview-operations). 
+Available to organizations with a business presence in China. See more information about Microsoft Azure operated by 21Vianet [here](/azure/china/overview-operations). 
 
 - **Azure portal:**
   - [https://portal.azure.cn/](https://portal.azure.cn/)
@@ -129,8 +130,10 @@ Available to organizations with a business presence in China. See more informati
     - Neural voice
   - Speech translator
 - **Unsupported features:**
-  - Custom Voice
-  - Custom Commands
+  - Custom commands
+  - Custom neural voice
+  - Personal voice
+  - Text to speech avatar
 - **Supported languages:**
   - See the list of supported languages [here](language-support.md)
 
@@ -140,7 +143,7 @@ This section contains Speech service endpoint information for the usage with [Sp
 
 #### Speech service REST API
 
-Speech service REST API endpoints in Azure China have the following format:
+Speech service REST API endpoints in Azure operated by 21Vianet have the following format:
 
 |  REST API type / operation | Endpoint format |
 |--|--|

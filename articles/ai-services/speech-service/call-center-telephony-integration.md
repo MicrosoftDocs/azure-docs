@@ -2,11 +2,10 @@
 title: Call Center Telephony Integration - Speech service
 titleSuffix: Azure AI services
 description: A common scenario for speech to text is transcribing large volumes of telephony data that come from various systems, such as interactive voice response (IVR) in real-time. This requires an integration with the Telephony System used.
-services: cognitive-services
+#services: cognitive-services
 author: goergenj
 ms.author: jagoerge
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 08/10/2022
 ms.custom: template-concept

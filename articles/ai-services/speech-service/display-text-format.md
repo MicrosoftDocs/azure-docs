@@ -2,11 +2,10 @@
 title: Display text formatting with speech to text - Speech service
 titleSuffix: Azure AI services
 description: An overview of key concepts for display text formatting with speech to text.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: conceptual
 ms.date: 09/19/2022

@@ -21,11 +21,11 @@ Microsoft Spark Utilities (MSSparkUtils) is a builtin package to help you easily
 
 ### Configure access to Azure Data Lake Storage Gen2
 
-Synapse notebooks use Azure Active Directory (Azure AD) pass-through to access the ADLS Gen2 accounts. You need to be a **Storage Blob Data Contributor** to access the ADLS Gen2 account (or folder).
+Synapse notebooks use Microsoft Entra pass-through to access the ADLS Gen2 accounts. You need to be a **Storage Blob Data Contributor** to access the ADLS Gen2 account (or folder).
 
 Synapse pipelines use workspace's Managed Service Identity (MSI) to access the storage accounts. To use MSSparkUtils in your pipeline activities, your workspace identity needs to be **Storage Blob Data Contributor** to access the ADLS Gen2 account (or folder).
 
-Follow these steps to make sure your Azure AD and workspace MSI have access to the ADLS Gen2 account:
+Follow these steps to make sure your Microsoft Entra ID and workspace MSI have access to the ADLS Gen2 account:
 
 1. Open the [Azure portal](https://portal.azure.com/) and the storage account you want to access. You can navigate to the specific container you want to access.
 
@@ -39,7 +39,7 @@ Follow these steps to make sure your Azure AD and workspace MSI have access to t
     | --- | --- |
     | Role | Storage Blob Data Contributor |
     | Assign access to | USER and MANAGEDIDENTITY |
-    | Members | your Azure AD account and your workspace identity |
+    | Members | your Microsoft Entra account and your workspace identity |
 
     > [!NOTE]
     > The managed identity name is also the workspace name.
@@ -170,14 +170,14 @@ Follow these steps to add an Azure Key Vault as a Synapse linked service:
 
 6. Select **Create** first and click **Publish all** to save your change.
 
-Synapse notebooks use Azure active directory(Azure AD) pass-through to access Azure Key Vault. Synapse pipelines use workspace identity(MSI) to access Azure Key Vault. To make sure your code work both in notebook and in Synapse pipeline, we recommend granting secret access permission for both your Azure AD account and workspace identity.
+Synapse notebooks use Microsoft Entra pass-through to access Azure Key Vault. Synapse pipelines use workspace identity(MSI) to access Azure Key Vault. To make sure your code work both in notebook and in Synapse pipeline, we recommend granting secret access permission for both your Microsoft Entra account and workspace identity.
 
 Follow these steps to grant secret access to your workspace identity:
 1. Open the [Azure portal](https://portal.azure.com/) and the Azure Key Vault you want to access.
 2. Select the **Access policies** from the left panel.
 3. Select **Add Access Policy**:
     - Choose **Key, Secret, & Certificate Management** as config template.
-    - Select **your Azure AD account** and **your workspace identity** (same as your workspace name) in the select principal or make sure it is already assigned.
+    - Select **your Microsoft Entra account** and **your workspace identity** (same as your workspace name) in the select principal or make sure it is already assigned.
 4. Select **Select** and **Add**.
 5. Select the **Save** button to commit changes.
 
@@ -230,7 +230,7 @@ mssparkutils.fs provides utilities for working with various FileSystems.
 Below is overview about the available methods:
 
 cp(from: String, to: String, recurse: Boolean = false): Boolean -> Copies a file or directory, possibly across FileSystems
-mv(from: String, to: String, recurse: Boolean = false): Boolean -> Moves a file or directory, possibly across FileSystems
+mv(src: String, dest: String, create_path: Boolean = False, overwrite: Boolean = False): Boolean -> Moves a file or directory, possibly across FileSystems
 ls(dir: String): Array -> Lists the contents of a directory
 mkdirs(dir: String): Boolean -> Creates the given directory if it does not exist, also creating any necessary parent directories
 put(file: String, contents: String, overwrite: Boolean = false): Boolean -> Writes the given String out to a file, encoded in UTF-8
@@ -779,7 +779,7 @@ mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
 For example:
 
 ```r
-mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
+mssparkutils.notebook.run("folder/Sample1", 90, list("input": 20))
 ```
 
 After the run finished, you will see a snapshot link named '**View notebook run: *Notebook Name***'  shown in the cell output, you can click the link to see the snapshot for this specific run.
@@ -825,7 +825,7 @@ Sample1 run success with input is 10
 You can run the **Sample1** in another notebook and set the **input** value as 20:
 
 ```r
-exitVal <- mssparkutils.notebook.run("mssparkutils/folder/Sample1", 90, {"input": 20 })
+exitVal <- mssparkutils.notebook.run("mssparkutils/folder/Sample1", 90, list("input": 20))
 print (exitVal)
 ```
 
@@ -946,18 +946,21 @@ putSecretWithLS(linkedService, secretName, secretValue): puts AKV secret for a g
 
 ### Get token
 
-Returns Azure AD token for a given audience, name (optional). The table below list all the available audience types:
+Returns Microsoft Entra token for a given audience, name (optional). The table below list all the available audience types:
 
-|Audience Type|Audience key|
-|--|--|
-|Audience Resolve Type|'Audience'|
-|Storage Audience Resource|'Storage'|
-|Dedicated SQL pools (Data warehouse)|'DW'|
-|Data Lake Audience Resource|'AzureManagement'|
-|Vault Audience Resource|'DataLakeStore'|
-|Azure OSSDB Audience Resource|'AzureOSSDB'|
-|Azure Synapse Resource|'Synapse'|
-|Azure Data Factory Resource|'ADF'|
+| Audience Type                                         | String literal to be used in API call |
+|-------------------------------------------------------|---------------------------------------|
+| Azure Storage                                         | `Storage`                             |
+| Azure Key Vault                                       | `Vault`                               |
+| Azure Management                                      | `AzureManagement`                     |
+| Azure SQL Data Warehouse (Dedicated and Serverless)   | `DW`                                  |
+| Azure Synapse                                         | `Synapse`                             |
+| Azure Data Lake Store                                 | `DataLakeStore`                       |
+| Azure Data Factory                                    | `ADF`                                 |
+| Azure Data Explorer                                   | `AzureDataExplorer`                   |
+| Azure Database for MySQL                              | `AzureOSSDB`                          |
+| Azure Database for MariaDB                            | `AzureOSSDB`                          |
+| Azure Database for PostgreSQL                         | `AzureOSSDB`                          |
 
 :::zone pivot = "programming-language-python"
 

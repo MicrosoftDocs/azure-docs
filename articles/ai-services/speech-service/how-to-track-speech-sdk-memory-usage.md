@@ -2,18 +2,16 @@
 title: How to track Speech SDK memory usage - Speech service
 titleSuffix: Azure AI services
 description: The Speech SDK supports numerous programming languages for speech to text and text to speech conversion, along with speech translation. This article discusses memory management tooling built into the SDK.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 12/10/2019
 ms.author: rhurey
 ms.devlang: cpp, csharp, java, objective-c, python
 ms.custom: devx-track-csharp, ignite-fall-2021, devx-track-extended-java, devx-track-python
 zone_pivot_groups: programming-languages-set-two
-ROBOTS: NOINDEX
 ---
 
 # How to track Speech SDK memory usage

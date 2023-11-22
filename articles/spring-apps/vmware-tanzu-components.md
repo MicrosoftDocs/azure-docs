@@ -29,13 +29,13 @@ VMware Tanzu components are commercial products in the VMware Tanzu Application 
 
 The Azure Spring Apps Enterprise plan offers the following components:
 
-- VMware Tanzu® Build Service™
-- Spring Cloud Gateway for VMware Tanzu®
-- API portal for VMware Tanzu®
-- Application Configuration Service for VMware Tanzu®
-- VMware Tanzu® Service Registry
-- Application Live View for VMware Tanzu®
-- Application Accelerator for VMware Tanzu®
+- VMware Tanzu Build Service
+- Spring Cloud Gateway for VMware Tanzu
+- API portal for VMware Tanzu
+- Application Configuration Service for VMware Tanzu
+- VMware Tanzu Service Registry
+- Application Live View for VMware Tanzu
+- Application Accelerator for VMware Tanzu
 
 You also have the flexibility to enable only the components that you need at any time.
 

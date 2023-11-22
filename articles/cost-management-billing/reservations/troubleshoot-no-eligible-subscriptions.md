@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.author: banders
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.topic: troubleshooting
 ms.date: 07/20/2023
 ---
@@ -49,7 +49,7 @@ This subscription is not eligible for reservation benefit an cannot be used to p
 :::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/subscription-not-eligible.png" alt-text="Example showing the Subscription not eligible for purchase error message" :::
 
 >[!NOTE]
-> Reservations aren't supported by the China legacy Online Service Premium Agreement (OSPA) platform. For more information, see [Azure China OSPA purchase](https://go.microsoft.com/fwlink/?linkid=2239835).
+> Reservations aren't supported by the China legacy Online Service Premium Agreement (OSPA) platform. For more information, see [Microsoft Azure operated by 21Vianet OSPA purchase](https://go.microsoft.com/fwlink/?linkid=2239835).
 
 ### Cause 2
 

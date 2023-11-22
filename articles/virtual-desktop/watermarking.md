@@ -1,18 +1,14 @@
 ---
-title: Watermarking in Azure Virtual Desktop (preview)
-description: Learn how to enable watermarking in Azure Virtual Desktop (preview) to help prevent sensitive information from being captured on client endpoints.
+title: Watermarking in Azure Virtual Desktop
+description: Learn how to enable watermarking in Azure Virtual Desktop to help prevent sensitive information from being captured on client endpoints.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 11/16/2023
 ms.author: daknappe
 ---
-# Watermarking in Azure Virtual Desktop (preview)
+# Watermarking in Azure Virtual Desktop
 
-> [!IMPORTANT]
-> Watermarking is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-Watermarking (preview), alongside [screen capture protection](screen-capture-protection.md), helps prevent sensitive information from being captured on client endpoints. When you enable watermarking, QR code watermarks appear as part of remote desktops. The QR code contains the *connection ID* of a remote session that admins can use to trace the session. Watermarking is configured on session hosts and enforced by the Remote Desktop client.
+Watermarking, alongside [screen capture protection](screen-capture-protection.md), helps prevent sensitive information from being captured on client endpoints. When you enable watermarking, QR code watermarks appear as part of remote desktops. The QR code contains the *connection ID* of a remote session that admins can use to trace the session. Watermarking is configured on session hosts and enforced by the Remote Desktop client.
 
 Here's a screenshot showing what watermarking looks like when it's enabled:
 
@@ -32,6 +28,10 @@ You'll need the following things before you can use watermarking:
 - A Remote Desktop client that supports watermarking. The following clients currently support watermarking:
 
   - [Windows Desktop client](users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json), version 1.2.3317 or later, on Windows 10 and later.
+  - [Web client](users/connect-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
+  - [macOS client](users/connect-macos.md).
+
+  Note: iOS and Android clients don't support watermarking. 
 
 - [Azure Virtual Desktop Insights](azure-monitor.md) configured for your environment.
 

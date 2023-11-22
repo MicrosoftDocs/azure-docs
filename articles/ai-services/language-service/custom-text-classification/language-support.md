@@ -2,11 +2,10 @@
 title: Language support in custom text classification
 titleSuffix: Azure AI services
 description: Learn about which languages are supported by custom text classification.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 05/06/2022
 ms.author: aahi
@@ -57,7 +56,7 @@ Custom text classification supports `.txt` files in the following languages:
 | Spanish | `es` |
 | Estonian | `et` |
 | Basque | `eu` |
-| Persian (Farsi) | `fa` |
+| Persian | `fa` |
 | Finnish | `fi` |
 | French | `fr` |
 | Western Frisian | `fy` |
@@ -96,7 +95,7 @@ Custom text classification supports `.txt` files in the following languages:
 | Nepali | `ne` |
 | Dutch | `nl` |
 | Norwegian (Bokmal) | `nb` |
-| Oriya | `or` |
+| Odia | `or` |
 | Punjabi | `pa` |
 | Polish | `pl` |
 | Pashto | `ps` |

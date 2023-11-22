@@ -358,11 +358,9 @@ sections:
       - question: |
           How and when do we renew our Azure Dev Tools for Teaching subscription?
         answer: |
-          Sixty days before your membership expires, you'll start receiving email reminders to renew your subscription. In a renewal email, select the [renewal link](https://portal.azureforeducation.microsoft.com/).
+          Sixty days before your membership expires, you'll start receiving email reminders to renew your subscription.
           
           If you don't receive these reminder emails and are concerned that your subscription is about to expire, [contact us](https://aka.ms/adt4tsupport).
-          
-          Alternatively, go to the [Azure Dev Tools for Teaching - Renew page](https://portal.azureforeducation.microsoft.com/), and complete the renewal process.
           
           To check the expiration date of your subscription, go to the [Azure Dev Tools for Teaching Management portal](https://azureforeducation.microsoft.com/account/Subscriptions), and look under **Subscriptions**.
           

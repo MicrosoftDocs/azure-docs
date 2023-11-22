@@ -49,6 +49,9 @@ The steps you'll take are:
 
 [!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
 
+> [!NOTE]
+>- Serverless Spark Compute does not have `Python 3.10 - SDK v2` installed by default. It is recommended that users create a compute instance and select it before proceeding with the tutorial.
+
 <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/main/tutorials/get-started-notebooks/deploy-model.ipynb -->
 
 
@@ -157,7 +160,7 @@ In this tutorial, we'll walk you through the steps of implementing a _managed on
 
 ## Create an online endpoint
 
-Now that you have a registered model, it's time to create your online endpoint. The endpoint name needs to be unique in the entire Azure region. For this tutorial, you'll create a unique name using a universally unique identifier [`UUID`](https://en.wikipedia.org/wiki/Universally_unique_identifier). For more information on the endpoint naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+Now that you have a registered model, it's time to create your online endpoint. The endpoint name needs to be unique in the entire Azure region. For this tutorial, you'll create a unique name using a universally unique identifier [`UUID`](https://en.wikipedia.org/wiki/Universally_unique_identifier). For more information on the endpoint naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
 
 
 ```python
@@ -403,7 +406,7 @@ ml_client.online_deployments.begin_create_or_update(green_deployment).result()
 ```
 
 ## Update traffic allocation for deployments
-You can split production traffic between deployments. You may first want to test the `green` deployment with sample data, just like you did for the `blue` deployment. Once you've tested your green deployment, allocate a small percentage of traffic to it.
+You can split production traffic between deployments. You might first want to test the `green` deployment with sample data, just like you did for the `blue` deployment. Once you've tested your green deployment, allocate a small percentage of traffic to it.
 
 
 ```python

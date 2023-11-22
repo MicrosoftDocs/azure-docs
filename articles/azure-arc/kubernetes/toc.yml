@@ -5,6 +5,7 @@
   - name: About Azure Arc-enabled Kubernetes
     href: overview.md
   - name: What's new with Arc-enabled Kubernetes
+    displayName: release, notes, version, latest
     href: release-notes.md
   - name: Azure Arc validated partners
     displayName: distributions, validation
@@ -12,42 +13,47 @@
 - name: Quickstarts
   items:
   - name: Connect a cluster to Azure Arc
-    displayName: enable, Arc-enable, deploy
+    displayName: enable, Arc-enable, deploy, quickstart
     href: quickstart-connect-cluster.md
 - name: Tutorials
   items:
-  - name: Deploy configurations using GitOps
-    displayName: flux
+  - name: Deploy applications using GitOps
+    displayName: flux, tutorial, controller
     href: tutorial-use-gitops-flux2.md
   - name: Implement CI/CD with GitOps
-    displayName: flux
+    displayName: flux, pipeline
     href: tutorial-gitops-flux2-ci-cd.md
 - name: Samples
   items:
   - name: Azure Resource Graph queries
+    displayName: arg
     href: ./resource-graph-samples.md
 - name: Concepts
   items:
   - name: Agent overview
     href: conceptual-agent-overview.md
   - name: System requirements
+    displayName: memory, compute, prerequisites
     href: system-requirements.md
   - name: Network requirements
+    displayName: endpoint, url, connection, connectivity, proxy
     href: network-requirements.md
   - name: Connectivity modes
+    displayName: disconnected, semi-connected
     href: conceptual-connectivity-modes.md
   - name: Data exchange between cluster and Azure
+    displayName: metadata
     href: conceptual-data-exchange.md
   - name: Identity and access management
     items:
       - name: Identity and access overview
-        displayName: connect, rbac
+        displayName: connect, rbac, authentication, authorization
         href: identity-access-overview.md
       - name: Cluster connect access
         displayName: identity
         href: conceptual-cluster-connect.md
       - name: Azure RBAC integration
-        displayName: azure ad, azure active directory, identity, access
+        displayName: azure ad, azure active directory, identity, access, role
         href: conceptual-azure-rbac.md
   - name: Extend Azure capabilities to clusters anywhere
     items:
@@ -57,14 +63,15 @@
         displayName: gitops, flux, version
         href: extensions-release.md
       - name: Custom locations
+        displayName: target
         href: conceptual-custom-locations.md
   - name: Deploy applications to cluster
     items:
-      - name: Configurations and GitOps
-        displayName: flux, deploy, applications
+      - name: Application deployment with GitOps
+        displayName: flux, deploy, configuration
         href: conceptual-gitops-flux2.md
       - name: CI/CD workflow using GitOps
-        displayName: flux
+        displayName: flux, pipeline
         href: conceptual-gitops-flux2-ci-cd.md
       - name: Multi-cluster workload management with GitOps
         displayName: multicluster
@@ -90,23 +97,28 @@
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-arc-enabled-kubernetes-security-baseline?toc=/azure/azure-arc/kubernetes/toc.json
   - name: Frequently Asked Questions
+    displayName: FAQ
     href: faq.md
 - name: How-to guides
   items:
   - name: Upgrade agents
+    displayName: update, automatic
     href: agent-upgrade.md
   - name: Use Private Link Scope
     href: private-link.md
-  - name: Azure portal Kubernetes resource view
+  - name: View resources in Azure portal
+    displayName: workload
     href: kubernetes-resource-view.md
   - name: Deploy applications consistently
-    displayName: GitOps, flux, configuration, policy
+    displayName: GitOps, flux, configuration, policy, scale
     href: use-azure-policy-flux-2.md
   - name: Explore multi-cluster workload management
+    displayName: gitops, application
     href: workload-management.md
   - name: Manage identity and access
     items:
     - name: Securely connect to cluster from anywhere
+      displayName: cluster connect, authentication, access
       href: cluster-connect.md
     - name: Use Azure RBAC for authorization checks
       displayName: azure active directory, identity, access
@@ -118,26 +130,32 @@
     - name: Monitor using Azure Monitor Container Insights
       href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
     - name: Monitor GitOps (Flux v2) activity
+      displayName: dashboard, prometheus, compliance, status, reconciliation, activity
       href: monitor-gitops-flux-2.md
     - name: Enforce threat protection using Microsoft Defender for Cloud
       displayName: security
       href: ../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
     - name: In-cluster policy enforcements using Azure Policy
+      displayName: compliance
       href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json#install-azure-policy-extension-for-azure-arc-enabled-kubernetes
     - name: Deploy Azure Arc-enabled Open Service Mesh
+      displayName: osm, microservice
       href: tutorial-arc-enabled-open-service-mesh.md
     - name: Access secrets from Azure Key Vault
+      displayName: akv, cert
       href: tutorial-akv-secrets-provider.md
   - name: Deploy Arc-enabled services
     items:
       - name: Create custom locations
+        displayName: target
         href: custom-locations.md
       - name: Azure Arc-enabled Machine Learning
+        displayName: ML, AzureML, compute
         href: ../../machine-learning/how-to-attach-kubernetes-anywhere.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
   - name: Move between regions
     href: move-regions.md
   - name: Diagnose connection issues
-    displayName: troubleshoot, problem, proxy
+    displayName: troubleshoot, problem, proxy, network
     href: diagnose-connection-issues.md
   - name: Troubleshooting
     displayName: problem, issue, resolve
@@ -153,7 +171,15 @@
     href: /powershell/module/az.connectedkubernetes#connected-kubernetes
 - name: Resources
   items:
-    - name: Region availability
-      href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc
-    - name: Azure Arc jumpstart
-      href: https://azurearcjumpstart.io
+  - name: Azure Arc Jumpstart
+    href: https://aka.ms/AzureArcJumpstart
+  - name: Microsoft Q&A for Azure Arc
+    href: /answers/tags/146/azure-arc
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regional availability
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc&regions=all
+  - name: Product feedback
+    href: https://feedback.azure.com/d365community/forum/5c778dec-0625-ec11-b6e6-000d3a4f0858

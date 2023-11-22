@@ -2,12 +2,12 @@
 title: "Call the Detect API - Face"
 titleSuffix: Azure AI services
 description: This guide demonstrates how to use face detection to extract attributes like age, emotion, or head pose from a given image.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: face-api
+ms.service: azure-ai-vision
+ms.subservice: azure-ai-face
 ms.topic: how-to
 ms.date: 12/27/2022
 ms.author: pafarley
@@ -36,15 +36,21 @@ To find faces and get their locations in an image, call the [DetectWithUrlAsync]
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic1":::
 
-You can query the returned [DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface) objects for the rectangles that give the pixel coordinates of each face. If you set _returnFaceId_ to `true` (approved customers only), you can get the unique ID for each face, which you can use in later face recognition tasks.
-
-:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic2":::
+The service returns a [DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface) object, which you can query for different kinds of information, specified below.
 
 For information on how to parse the location and dimensions of the face, see [FaceRectangle](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.facerectangle). Usually, this rectangle contains the eyes, eyebrows, nose, and mouth. The top of head, ears, and chin aren't necessarily included. To use the face rectangle to crop a complete head or get a mid-shot portrait, you should expand the rectangle in each direction.
 
 ## Determine how to process the data
 
 This guide focuses on the specifics of the Detect call, such as what arguments you can pass and what you can do with the returned data. We recommend that you query for only the features you need. Each operation takes more time to complete.
+
+### Get face ID
+
+If you set the parameter _returnFaceId_ to `true` (approved customers only), you can get the unique ID for each face, which you can use in later face recognition tasks.
+
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic2":::
+
+The optional _faceIdTimeToLive_ parameter specifies how long (in seconds) the face ID should be stored on the server. After this time expires, the face ID is removed. The default value is 86400 (24 hours).
 
 ### Get face landmarks
 

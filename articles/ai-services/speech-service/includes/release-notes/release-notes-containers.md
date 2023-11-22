@@ -1,19 +1,64 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 03/16/2023
+ms.date: 10/2/2023
 ms.author: eur
 ---
 
+### 2023-October release
+
+Add support for the latest model versions:
+- Custom speech to text 4.4.0
+- Speech to text 4.4.0
+- Neural text to speech 2.18.0
+
+Fix a bunch of high risk vulnerability issues.
+
+Remove redundant logs in containers.
+
+Upgrade internal media component to the latest.
+
+Add support for voice `en-IN-NeerjaNeural`.
+
+### 2023-September release
+
+Add support for the latest model versions:
+- Speech language identification 1.12.0
+- Custom speech to text 4.3.0
+- Speech to text 4.3.0
+- Neural text to speech 2.17.0
+
+Upgrade custom speech to text and speech to text to the latest framework.
+
+Fix vulnerability issues.
+
+Add support for voice `ar-AE-FatimaNeural`.
+
+### 2023-July release
+
+Add support for the latest model versions:
+- Custom speech to text 4.1.0
+- Speech to text 4.1.0
+- Neural text to speech 2.15.0
+
+Fix the issue of running speech to text container via `docker` mount options with local custom model files.
+
+Fix the issue that in some cases the `RECOGNIZING` event does not show up in response through the Speech SDK.
+
+Fix vulnerability issues.
+
 ### 2023-June release
+
 Add support for the latest model versions:
 - Custom speech to text 4.0.0
 - Speech to text 4.0.0
 - Neural text to speech 2.14.0
 
 On-premises speech to text images are upgraded to .NET 6.0
+
 Upgrade display models for locales including `en-us`, `ar-eg`, `ar-bh`, `ja-jp`, `ko-kr`, and more.
+
 Upgrade the speech to text container component to address vulnerability issues.
 
 Add support for locale voices `de-DE-AmalaNeural`,`de-AT-IngridNeural`,`de-AT-JonasNeural`, and `en-US-JennyMultilingualNeural`

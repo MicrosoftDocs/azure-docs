@@ -30,7 +30,8 @@ Azure Notification Hubs provide an easy-to-use and scaled-out push engine that e
 - Notify users of enterprise events such as new messages and work items.
 - Send codes for multi-factor authentication.
 
-[!INCLUDE [notification-hubs-firebase-deprecation](../../includes/notification-hubs-firebase-deprecation.md)]
+> [!NOTE]
+> For information about Firebase Cloud Messaging deprecation and migration steps, see [Google Firebase Cloud Messaging migration](notification-hubs-gcm-to-fcm.md).
 
 ## What are push notifications?
 
@@ -99,10 +100,6 @@ Notification Hubs is your ready-to-use push engine with the following advantages
   - Scheduled push: You can schedule notifications to be sent anytime.
   - Direct push: You can skip registering devices with the Notification Hubs service and directly batch push to a list of device handles.
   - Personalized push: Device push variables help you send device-specific personalized push notifications with customized key-value pairs.
-- **Rich telemetry**
-  - General push, device, error, and operation telemetry are available both in the Azure portal and programmatically.
-  - Per-message telemetry tracks each push from your initial request call to the Notification Hubs service successfully sending the pushes.
-  - Platform Notification System feedback communicates all feedback from PNSes to assist in debugging.
 - **Scalability**
   - Send fast messages to millions of devices without re-architecting or device sharding.
 - **Security**
@@ -113,20 +110,36 @@ Notification Hubs is your ready-to-use push engine with the following advantages
 Get started with creating and using a notification hub by following the [Tutorial: Push notifications to mobile applications](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 [0]: ./media/notification-hubs-overview/registration-diagram.png
+
 [1]: ./media/notification-hubs-overview/notification-hub-diagram.png
 
 [How customers are using Notification Hubs]: https://azure.microsoft.com/services/notification-hubs
+
 [Notification Hubs tutorials and guides]: ./index.yml
+
 [iOS]: ./notification-hubs-push-notification-fixer.md
+
 [Android]: ./notification-hubs-android-push-notification-google-gcm-get-started.md
+
 [Windows Universal]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+
 [Windows Phone]: ./notification-hubs-windows-mobile-push-notifications-mpns.md
+
 [Kindle]: ./notification-hubs-android-push-notification-google-fcm-get-started.md
+
 [Xamarin.iOS]: ./xamarin-notification-hubs-ios-push-notification-apns-get-started.md
+
 [Xamarin.Android]: ./xamarin-notification-hubs-push-notifications-android-gcm.md
+
 [Microsoft.WindowsAzure.Messaging.NotificationHub]: /previous-versions/azure/reference/dn339221(v=azure.100)
+
 [Microsoft.ServiceBus.Notifications]: /previous-versions/azure/
+
 [App Service Mobile Apps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
+
 [templates]: notification-hubs-templates-cross-platform-push-messages.md
+
 [Azure portal]: https://portal.azure.com
+
 [tags]: (https://msdn.microsoft.com/library/azure/dn530749.aspx)
+

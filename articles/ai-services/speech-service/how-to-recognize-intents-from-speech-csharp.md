@@ -2,11 +2,10 @@
 title: How to recognize intents from speech using the Speech SDK C#
 titleSuffix: Azure AI services
 description: In this guide, you learn how to recognize intents from speech using the Speech SDK for C#.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 02/08/2022
 ms.author: eur
@@ -237,7 +236,7 @@ For example, if you say "Turn off the lights", pause, and then say "Turn on the 
 
 ![Audio file LUIS recognition results](media/sdk/luis-results-2.png)
 
-The Speech SDK team actively maintains a large set of examples in an open-source repository. For the sample source code repository, see the [Azure AI services Speech SDK on GitHub](https://aka.ms/csspeech/samples). There are samples for C#, C++, Java, Python, Objective-C, Swift, JavaScript, UWP, Unity, and Xamarin. Look for the code from this article in the **samples/csharp/sharedcontent/console** folder.
+The Speech SDK team actively maintains a large set of examples in an open-source repository. For the sample source code repository, see the [Azure AI Speech SDK on GitHub](https://aka.ms/csspeech/samples). There are samples for C#, C++, Java, Python, Objective-C, Swift, JavaScript, UWP, Unity, and Xamarin. Look for the code from this article in the **samples/csharp/sharedcontent/console** folder.
 
 ## Next steps
 

@@ -2,11 +2,10 @@
 title: Relation extraction in Text Analytics for health
 titleSuffix: Azure AI services
 description: Learn about relation extraction
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 01/04/2023
 ms.author: jboback
@@ -25,33 +24,33 @@ Text Analytics for health features relation extraction, which is used to  identi
 Relation extraction output contains URI references and assigned roles of the entities of the relation type. For example, in the following JSON:
 
 ```json
-                "relations": [
-                    {
-                        "relationType": "DosageOfMedication",
-                        "entities": [
-                            {
-                                "ref": "#/results/documents/0/entities/0",
-                                "role": "Dosage"
-                            },
-                            {
-                                "ref": "#/results/documents/0/entities/1",
-                                "role": "Medication"
-                            }
-                        ]
-                    },
-                    {
-                        "relationType": "RouteOfMedication",
-                        "entities": [
-                            {
-                                "ref": "#/results/documents/0/entities/1",
-                                "role": "Medication"
-                            },
-                            {
-                                "ref": "#/results/documents/0/entities/2",
-                                "role": "Route"
-                            }
-                        ]
-...
+"relations": [
+    {
+        "relationType": "DosageOfMedication",
+        "entities": [
+            {
+                "ref": "#/results/documents/0/entities/0",
+                "role": "Dosage"
+            },
+            {
+                "ref": "#/results/documents/0/entities/1",
+                "role": "Medication"
+            }
+        ]
+    },
+    {
+        "relationType": "RouteOfMedication",
+        "entities": [
+            {
+                "ref": "#/results/documents/0/entities/1",
+                "role": "Medication"
+            },
+            {
+                "ref": "#/results/documents/0/entities/2",
+                "role": "Route"
+            }
+        ]
+    }
 ]
 ```
 

@@ -1,21 +1,19 @@
 items:
-- name: Azure Orbital - Documentation
+- name: Azure Orbital Ground Station - Documentation
   href: index.yml
 - name: Overview
   items:
   - name: Why use Azure Orbital Ground Station?
     href: overview.md
-  - name: What is the Azure Space Partner Community?
-    href: space-partner-program-overview.md
-
+  - name: About Microsoft and partner ground stations
+    href: about-ground-stations.md
+    
 - name: Quickstart
   items:
-  - name: Register a spacecraft
-    href: register-spacecraft.md
-  - name: Configure a contact profile
-    href: contact-profile.md
-  - name: Schedule a contact
-    href: schedule-contact.md
+  - name: Get started with Azure Orbital Ground Station
+    href: get-started.md
+  - name: Mission phases
+    href: mission-phases.md
     
 - name: Concepts
   items:
@@ -28,26 +26,32 @@ items:
     
 - name: How-to guides
   items:
+  - name: Initiate ground station licensing
+    href: initiate-licensing.md
+  - name: Register a spacecraft
+    href: register-spacecraft.md
   - name: Prepare network to send and receive data
     href: prepare-network.md
-  - name: Integrate partner network ground stations
-    href: partner-network-integration.md 
+  - name: Configure a contact profile
+    href: contact-profile.md
   - name: Configure the RF chain
-    href: modem-chain.md 
-  - name: Receive real-time telemetry
-    href: receive-real-time-telemetry.md
+    href: modem-chain.md
+  - name: Schedule a contact
+    href: schedule-contact.md
   - name: Update the spacecraft TLE
     href: update-tle.md
-  - name: Cancel a contact
-    href: delete-contact.md
+  - name: Receive real-time antenna telemetry
+    href: receive-real-time-telemetry.md
+  - name: Prepare for launch
+    href: prepare-for-launch.md
+  - name: Use Azure Resource Graph Queries
+    href: resource-graph-samples.md
     
 - name: Tutorials
   items:
-  - name: Downlink data from NASA's Aqua public satellite
+  - name: Downlink data from public satellites
     href: downlink-aqua.md 
-  - name: Process Aqua satellite data using NASA-provided tools
-    href: satellite-imagery-with-orbital-ground-station.md
-  - name: Understand virtual RF (vRF) through demodulation of Aqua using GNU Radio
+  - name: Understand virtual RF through demodulation of Aqua using GNU Radio
     href: virtual-rf-tutorial.md
   - name: Geospatial reference architecture
     href: geospatial-reference-architecture.md          

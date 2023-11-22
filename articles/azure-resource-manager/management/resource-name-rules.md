@@ -4,7 +4,8 @@ description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/18/2022
+ms.reviewer: franksolomon
+ms.date: 11/20/2023
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -408,6 +409,14 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | databaseAccounts | global | 3-44 | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
 
+## Microsoft.ElasticSan (preview)
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | elasticSans | global | 3-24 | Lowercase letters, numbers, hyphens and underscores.<br><br>Start with lowercase letter or number.<br><br>Must begin and end with a letter or a number.<br><br>Each hyphen and underscore must be preceded and followed by an alphanumeric character. |
+> | elasticSans / volumeGroups | elastic san | 3-63 | Lowercase letters, numbers and hyphens.<br><br>Start with lowercase letter or number.<br><br>Must begin and end with a letter or a number.<br><br>Each hyphen must be preceded and followed by an alphanumeric character. |
+
 ## Microsoft.EventGrid
 
 > [!div class="mx-tableFixed"]
@@ -528,8 +537,9 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | workspaces | resource group | 3-33 | Alphanumerics and hyphens. |
+> | workspaces | resource group | 3-33 | Alphanumerics and hyphens |
 > | workspaces / computes | workspace | 3-24 for compute instance<br>3-32 for AML compute<br>2-16 for other compute types | Alphanumerics and hyphens. |
+> | workspaces / datastores | workspace | Maximum 255 characters for datastore name| Datastore name consists only of lowercase letters, digits, and underscores |
 
 ## Microsoft.ManagedIdentity
 
@@ -596,6 +606,10 @@ In the following tables, the term alphanumeric refers to:
 > | azureFirewalls | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | bastionHosts | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | connections | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | dnsForwardingRuleset | resource group | 1-80 | Alphanumerics, underscores and hyphens.<br><br>Start with alphanumeric. End alphanumeric. |
+> | dnsResolvers | resource group | 1-80 | Alphanumerics, underscores and hyphens.<br><br>Start with alphanumeric. End alphanumeric. |
+> | dnsResolvers / inboundEndpoints | resource group | 1-80 | Alphanumerics, underscores and hyphens.<br><br>Start with alphanumeric. End alphanumeric. |
+> | dnsResolvers / outboundEndpoints | resource group | 1-80 | Alphanumerics, underscores and hyphens.<br><br>Start with alphanumeric. End alphanumeric. |
 > | dnsZones | resource group | 1-63 characters<br><br>2 to 34 labels<br><br>Each label is a set of characters separated by a period. For example, **contoso.com** has 2 labels. | Each label can contain alphanumerics, underscores, and hyphens.<br><br>Each label is separated by a period. |
 > | expressRouteCircuits | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | firewallPolicies | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
@@ -848,7 +862,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | certificates | resource group | 1-260 | Can't use:<br>`/` <br><br>Can't end with space or period.  |
-> | serverfarms | resource group | 1-40 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode |
+> | serverfarms | resource group | 1-60 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode |
 > | sites | global or per domain. See note below. | 2-60 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode<br><br>Can't start or end with hyphen. |
 > | sites / slots | site | 2-59 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode |
 

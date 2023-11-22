@@ -131,8 +131,6 @@ public static async Task Run(
 
 ::: zone pivot="programming-language-java" 
 + [Azure Functions Kafka trigger Java Sample](https://github.com/azure/azure-functions-kafka-extension/tree/main/samples/WalletProcessing_KafkademoSample)
-+ [Event Hubs trigger examples](https://github.com/azure-samples/azure-functions-samples-java/blob/master/src/main/java/com/functions/EventHubTriggerFunction.java)
-+ [Kafka triggered function examples](https://github.com/azure-samples/azure-functions-samples-java/blob/master/src/main/java/com/functions/KafkaTriggerFunction.java)
 + [Azure Event Hubs trigger for Azure Functions](functions-bindings-event-hubs-trigger.md?pivots=programming-language-java)
 + [Apache Kafka trigger for Azure Functions](functions-bindings-kafka-trigger.md?pivots=programming-language-java)
 ::: zone-end
@@ -141,7 +139,7 @@ public static async Task Run(
 
 Besides data processing, Azure Functions can be used to infer on models. 
 
-For example, a function that calls a TensorFlow model or submits it to Azure AI Cognitive Services can process and classify a stream of images.
+For example, a function that calls a TensorFlow model or submits it to Azure AI services can process and classify a stream of images.
 
 Functions can also connect to other services to help process data and perform other AI-related tasks, like [text summarization](https://github.com/Azure-Samples/function-csharp-ai-textsummarize).
 
@@ -154,7 +152,7 @@ Functions can also connect to other services to help process data and perform ot
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-+ Training: [Create a custom skill for Azure Cognitive Search](/training/modules/create-enrichment-pipeline-azure-cognitive-search)
++ Training: [Create a custom skill for Azure AI Search](/training/modules/create-enrichment-pipeline-azure-cognitive-search)
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

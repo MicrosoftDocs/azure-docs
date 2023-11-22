@@ -4,7 +4,7 @@ description: Learn about bring-your-own-subscription images for Red Hat Enterpri
 author: mamccrea
 ms.service: virtual-machines
 ms.subservice: redhat
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, devx-track-linux, devx-track-azurepowershell
 ms.collection: linux
 ms.topic: article
 ms.date: 06/10/2020
@@ -18,7 +18,7 @@ ms.author: mamccrea
 Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-go or bring-your-own-subscription (BYOS) (Red Hat Gold Image) model. This article provides an overview of the Red Hat Gold Images in Azure.
 
 >[!NOTE]
-> RHEL BYOS Gold Images are available in Azure Public (commercial) and Azure Government clouds. They're not available in Azure China or Azure Blackforest clouds.
+> RHEL BYOS Gold Images are available in Azure Public (commercial) and Azure Government clouds. They're not available in Microsoft Azure operated by 21Vianet or Azure Blackforest clouds.
 
 ## Important points to consider
 
@@ -126,6 +126,12 @@ The following instructions walk you through the initial deployment process for a
 
 The following script is an example. Replace the resource group, location, VM name, login information, and other variables with the configuration of your choice. Publisher and plan information must be lowercase.
 
+>[!NOTE]
+>All versions of the AzureRM PowerShell module are outdated. The Az PowerShell module is now the recommended PowerShell module for interacting with Azure
+>For more information, see [Migrate Azure PowerShell from AzureRM to Az](/powershell/azure/migrate-from-azurerm-to-az).
+
+#### [AzureRM  ](#tab/AzureRM)
+
 ```powershell-interactive
     # Variables for common values
     $resourceGroup = "testbyos"
@@ -135,7 +141,7 @@ The following script is an example. Replace the resource group, location, VM nam
     # Define user name and blank password
     $securePassword = ConvertTo-SecureString 'TestPassword1!' -AsPlainText -Force
     $cred = New-Object System.Management.Automation.PSCredential("azureuser",$securePassword)
-    Get-AzureRmMarketplaceTerms -Publisher redhat -Product rhel-byos -Name rhel-lvm87 | SetAzureRmMarketplaceTerms -Accept
+    Get-AzureRmMarketplaceTerms -Publisher redhat -Product rhel-byos -Name rhel-lvm87 | Set-AzureRmMarketplaceTerms -Accept
 
     # Create a resource group
     New-AzureRmResourceGroup -Name $resourceGroup -Location $location
@@ -168,7 +174,7 @@ The following script is an example. Replace the resource group, location, VM nam
     # Create a virtual machine configuration
     $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D3_v2 |
     Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred |
-    Set-AzureRmVMSourceImage -PublisherName redhat -Offer rhel-byos -Skus rhel-lvm87 -Version latest | Add-     AzureRmVMNetworkInterface -Id $nic.Id
+    Set-AzureRmVMSourceImage -PublisherName redhat -Offer rhel-byos -Skus rhel-lvm87 -Version latest | Add-AzureRmVMNetworkInterface -Id $nic.Id
     Set-AzureRmVMPlan -VM $vmConfig -Publisher redhat -Product rhel-byos -Name "rhel-lvm87"
 
     # Configure SSH Keys
@@ -177,6 +183,54 @@ The following script is an example. Replace the resource group, location, VM nam
 
     # Create a virtual machine
     New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+```
+#### [Azure PowerShell (Az)  ](#tab/AzurePowerShell)
+
+```powershell-interactive
+    $resourceGroup = "testbyos"
+    $location = "canadaeast"
+    $vmName = "test01"
+
+    # Define user name and blank password
+    $securePassword = ConvertTo-SecureString 'TestPassword1!' -AsPlainText -Force
+    $cred = New-Object System.Management.Automation.PSCredential("azureuser",$securePassword)
+    Get-AzMarketplaceTerms -Publisher redhat -Product rhel-byos -Name rhel-lvm87
+    Set-AzMarketplaceTerms -Accept  -Publisher redhat -Product rhel-byos -Name rhel-lvm87
+	
+    # Create a resource group
+    New-AzResourceGroup -Name $resourceGroup -Location $location
+
+    # Create a subnet configuration
+    $subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+
+    # Create a virtual network
+    $vnet = New-AzVirtualNetwork -ResourceGroupName $resourceGroup -Location $location -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+	
+    # Create a public IP address and specify a DNS name
+    $pip = New-AzPublicIpAddress -ResourceGroupName $resourceGroup -Location $location -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+
+    # Create an inbound network security group rule for port 22
+    $nsgRuleSSH = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleSSH -Protocol Tcp  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 22 -Access Allow
+
+    # Create a network security group
+    $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH
+
+    # Create a virtual network card and associate with public IP address and NSG
+    $nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+
+    # Create a virtual machine configuration
+    $vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D3_v2 |
+    Set-AzVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred |
+    Set-AzVMSourceImage -PublisherName redhat -Offer rhel-byos -Skus rhel-lvm87 -Version latest | 
+	Add-AzVMNetworkInterface -Id $nic.Id
+    Set-AzVMPlan -VM $vmConfig -Publisher redhat -Product rhel-byos -Name "rhel-lvm87"
+
+    # Configure SSH Keys
+    $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
+    Add-AzVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
+
+    # Create a virtual machine
+    New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
 ## Encrypt Red Hat Enterprise Linux bring-your-own-subscription Gold Images

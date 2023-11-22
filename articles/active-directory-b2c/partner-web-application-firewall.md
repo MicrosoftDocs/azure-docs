@@ -2,12 +2,12 @@
 title: Tutorial to configure Azure Active Directory B2C with Azure Web Application Firewall
 titleSuffix: Azure AD B2C
 description: Learn to configure Azure AD B2C with Azure Web Application Firewall to protect applications from malicious attacks 
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 03/08/2023
 ms.author: gasinh

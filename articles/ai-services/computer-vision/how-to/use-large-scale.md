@@ -1,25 +1,30 @@
 ---
-title: "Example: Use the Large-Scale feature - Face"
+title: "Scale to handle more enrolled users - Face"
 titleSuffix: Azure AI services
 description: This guide is an article on how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects.
-services: cognitive-services
+#services: cognitive-services
 author: nitinme
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: face-api
+ms.service: azure-ai-vision
+ms.subservice: azure-ai-face
 ms.topic: how-to
 ms.date: 05/01/2019
 ms.author: nitinme
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 ---
 
-# Example: Use the large-scale feature
+# Scale to handle more enrolled users
 
 [!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
-This guide is an advanced article on how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects, respectively. PersonGroups can hold up to 1000 persons in the free tier and 10,000 in the paid tier, while LargePersonGroups can hold up to one million persons in the paid tier.
+This guide shows you how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects, respectively. PersonGroups can hold up to 1000 persons in the free tier and 10,000 in the paid tier, while LargePersonGroups can hold up to one million persons in the paid tier.
+
+> [!IMPORTANT]
+> The newer data structure **PersonDirectory** is recommended for new development. It can hold up to 75 million identities and does not require manual training. For more information, see the [PersonDirectory guide](./use-persondirectory.md).
 
 This guide demonstrates the migration process. It assumes a basic familiarity with PersonGroup and FaceList objects, the [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) operation, and the face recognition functions. To learn more about these subjects, see the [face recognition](../concept-face-recognition.md) conceptual guide.
 
@@ -197,13 +202,13 @@ and [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/56
 
 To better utilize the large-scale feature, we recommend the following strategies.
 
-### Step 3.1: Customize time interval
+### Step 3a: Customize time interval
 
 As is shown in `TrainLargeFaceList()`, there's a time interval in milliseconds to delay the infinite training status checking process. For LargeFaceList with more faces, using a larger interval reduces the call counts and cost. Customize the time interval according to the expected capacity of the LargeFaceList.
 
 The same strategy also applies to LargePersonGroup. For example, when you train a LargePersonGroup with 1 million persons, `timeIntervalInMilliseconds` might be 60,000, which is a 1-minute interval.
 
-### Step 3.2: Small-scale buffer
+### Step 3b: Small-scale buffer
 
 Persons or faces in a LargePersonGroup or a LargeFaceList are searchable only after being trained. In a dynamic scenario, new persons or faces are constantly added and must be immediately searchable, yet training might take longer than desired. 
 
@@ -218,7 +223,7 @@ An example workflow:
 1. When the buffer collection size increases to a threshold or at a system idle time, create a new buffer collection. Trigger the Train operation on the master collection.
 1. Delete the old buffer collection after the Train operation finishes on the master collection.
 
-### Step 3.3: Standalone training
+### Step 3c: Standalone training
 
 If a relatively long latency is acceptable, it isn't necessary to trigger the Train operation right after you add new data. Instead, the Train operation can be split from the main logic and triggered regularly. This strategy is suitable for dynamic scenarios with acceptable latency. It can be applied to static scenarios to further reduce the Train frequency.
 

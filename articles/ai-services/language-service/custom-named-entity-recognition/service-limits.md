@@ -2,13 +2,12 @@
 title: Custom Named Entity Recognition (NER) service limits
 titleSuffix: Azure AI services
 description: Learn about the data and service limits when using Custom Named Entity Recognition (NER).
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 05/06/2022
+ms.date: 08/23/2023
 ms.author: aahi
 ms.custom: language-service-custom-ner, references_regions, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -37,40 +36,7 @@ Use this article to learn about the data and service limits when using custom NE
 
 ## Regional availability 
 
-Custom named entity recognition is only available in some Azure regions. Some regions are available for **both authoring and prediction**, while other regions are **prediction only**. Language resources in authoring regions allow you to create, edit, train, and deploy your projects. Language resources in prediction regions allow you to get [predictions from a deployment](../concepts/custom-features/multi-region-deployment.md).
-
-| Region             | Authoring | Prediction  |
-|--------------------|-----------|-------------|
-| Australia East     | ✓         | ✓           |
-| Brazil South       |           | ✓           |
-| Canada Central     |           | ✓           |
-| Central India      | ✓         | ✓           |
-| Central US         |           | ✓           |
-| East Asia          |           | ✓           |
-| East US            | ✓         | ✓           |
-| East US 2          | ✓         | ✓           |
-| France Central     |           | ✓           |
-| Japan East         |           | ✓           |
-| Japan West         |           | ✓           |
-| Jio India West     |           | ✓           |
-| Korea Central      |           | ✓           |
-| North Central US   |           | ✓           |
-| North Europe       | ✓         | ✓           |
-| Norway East        |           | ✓           |
-| Qatar Central      |           | ✓           |
-| South Africa North |           | ✓           |
-| South Central US   | ✓         | ✓           |
-| Southeast Asia     |           | ✓           |
-| Sweden Central     |           | ✓           |
-| Switzerland North  | ✓         | ✓           |
-| UAE North          |           | ✓           |
-| UK South           | ✓         | ✓           |
-| West Central US    |           | ✓           |
-| West Europe        | ✓         | ✓           |
-| West US            |            | ✓           |
-| West US 2          | ✓         | ✓           |
-| West US 3          | ✓         | ✓           |
-
+See [Language service regional availability](../concepts/regional-support.md#custom-named-entity-recognition).
 
 ## API limits
 
@@ -112,7 +78,8 @@ The following limits are observed for the custom named entity recognition.
 |Count of entity types | 1 | 200 |
 |Entity length in characters | 1 | 500 |
 |Count of trained models per project| 0 | 10 |
-|Count of deployments per project| 0 | 10 |
+|Count of deployments per project (paid tier) | 0 | 10 |
+|Count of deployments per project (free tier) | 0 | 1 |
 
 ## Naming limits
 

@@ -1,150 +1,84 @@
 ---
-title: The regulatory compliance dashboard
-description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
+title: Assign regulatory compliance standards in Microsoft Defender for Cloud
+description: Learn how to assign regulatory compliance standards in Microsoft Defender for Cloud.
 ms.topic: how-to
-ms.date: 06/18/2023
-ms.custom: ignite-2022
+ms.date: 10/10/2023
+ms.custom: ignite-2023
 ---
 
-# Customize the set of standards in your regulatory compliance dashboard
+# Assign security standards
 
-Microsoft Defender for Cloud continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance requirements.
 
-> [!TIP]
-> Learn more about Defender for Cloud's regulatory compliance dashboard in the [common questions](faq-regulatory-compliance.yml).
+Regulatory standards and benchmarks are represented in Microsoft Defender for Cloud as [security standards](security-policy-concept.md). Each standard is an initiative defined in Azure Policy.
 
-## How are compliance standards represented in Defender for Cloud?
 
-Industry standards, regulatory standards, and benchmarks are represented in Defender for Cloud's regulatory compliance dashboard. Each standard is an initiative defined in Azure Policy.
+In Defender for Cloud you assign security standards to  specific scopes such as Azure subscriptions, AWS accounts, and GCP projects that have Defender for Cloud enabled.
 
-To see compliance data mapped as assessments in your dashboard, add a compliance standard to your management group or subscription from within the **Security policy** page. To learn more about Azure Policy and initiatives, see [Working with security policies](tutorial-security-policy.md).
+Defender for Cloud continually assesses the environment-in-scope against standards. Based on assessments, it shows in-scope resources as being compliant or non-compliant with the standard, and provides remediation recommendations.
 
-When you've assigned a standard or benchmark to your selected scope, the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments. You can also download summary reports for any of the standards that have been assigned.
+This article describes how to add regulatory compliance standards as security standards in an Azure subscriptions, AWS account, or GCP project.
 
-Microsoft tracks the regulatory standards themselves and automatically improves its coverage in some of the packages over time. When Microsoft releases new content for the initiative, it appears automatically in your dashboard as new policies mapped to controls in the standard.
+## Before you start
 
-## What regulatory compliance standards are available in Defender for Cloud?
+- To add compliance standards, at least one Defender for Cloud plan must be enabled.
+- You need Owner or Policy Contributor permissions to add a standard.
 
-By default:
-- Azure subscriptions get the **Microsoft cloud security benchmark** assigned. This is the Microsoft-authored, cloud specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Microsoft cloud security benchmark](/security/benchmark/azure/introduction).
-- AWS accounts get the **AWS Foundational Security Best Practices** standard assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
-- GCP projects get the **GCP Default** standard assigned.
 
-If a subscription, account, or project has *any* Defender plan enabled, additional standards can be applied.
+## Assign a standard (Azure)
 
-**Available regulatory standards**:
-
-| Standards for Azure subscriptions | Standards for AWS accounts    | Standards for GCP projects |
-| ----------------------------------| ------------------------------| ---------------------------|
-| PCI-DSS v3.2.1 **(deprecated)**   | CIS 1.2.0                     | CIS 1.1.0                  |
-| PCI DSS v4                        | CIS 1.5.0                     | CIS 1.2.0                  |
-| SOC TSP                           | PCI DSS v3.2.1                | PCI DSS v3.2.1             |
-| SOC 2 Type 2                      |                               | NIST 800-53                |
-| ISO 27001:2013                    |                               | ISO 27001                  |
-| Azure CIS 1.1.0                         |||
-| Azure CIS 1.3.0                         |||
-| Azure CIS 1.4.0                         |||
-| NIST SP 800-53 R4                       |||
-| NIST SP 800-53 R5                       |||
-| NIST SP 800 171 R2                      |||
-| CMMC Level 3                            |||
-| FedRAMP H                               |||
-| FedRAMP M                               |||
-| HIPAA/HITRUST                           |||
-| SWIFT CSP CSCF v2020                    |||
-| UK OFFICIAL and UK NHS                  |||
-| Canada Federal PBMM                     |||
-| New Zealand ISM Restricted              |||
-| New Zealand ISM Restricted v3.5         |||
-| Australian Government ISM Protected     |||
-| RMIT Malaysia                           |||
-
-> [!TIP]
-> Standards are added to the dashboard as they become available. This table might not contain recently added standards.
-
-## Add a regulatory standard to your dashboard
-
-The following steps explain how to add a package to monitor your compliance with one of the supported regulatory standards.
-
-### Prerequisites
-
-To add standards to your dashboard:
-
-- The subscription must have Defender for Cloud's enhanced security features enabled
-- The user must have owner or policy contributor permissions
-
-### Add a standard to your Azure subscriptions
-
-1. From Defender for Cloud's menu, select **Regulatory compliance** to open the regulatory compliance dashboard. Here you'll see the compliance standards assigned to the currently selected subscriptions.
+1. In the Defender for Cloud portal, select **Regulatory compliance**. For each standard, you can see the subscription in which it's applied.
 
 1. From the top of the page, select **Manage compliance policies**.
 
-1. Select the subscription or management group for which you want to manage the regulatory compliance posture.
+1. Select the subscription or management group on which you want to assign the security standard.
 
-    > [!TIP]
-    > We recommend selecting the highest scope for which the standard is applicable so that compliance data is aggregated and tracked for all nested resources.
+We recommend selecting the highest scope for which the standard is applicable so that compliance data is aggregated and tracked for all nested resources.
 
-1. Select **Security policy**.
+1. Select **Security policies**.
 
-1. Expand the Industry & regulatory standards section and select **Add more standards**.
+1. For the standard you want to enable, in the **Status** column, switch the toggle button to **On**.
 
-1. From the **Add regulatory compliance standards** page, you can search for any of the available standards:
-:::image type="content" source="media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png" alt-text="Screenshot showing adding regulatory standards to regulatory compliance dashboard. "lightbox="media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png":::
+1. If any information is needed in order to enable the standard, the **Set parameters** page appears for you to type in the information.
 
-1. Select **Add** and enter all the necessary details for the specific initiative such as scope, parameters, and remediation.
 
-1. From Defender for Cloud's menu, select **Regulatory compliance** again to go back to the regulatory compliance dashboard.
+    :::image type="content" source="media/update-regulatory-compliance-packages/turn-standard-on.png" alt-text="Screenshot showing regulatory compliance dashboard options."  lightbox="media/update-regulatory-compliance-packages/turn-standard-on.png":::
 
-    Your new standard appears in your list of Industry & regulatory standards.
+1. From the menu at the top of the page, select **Regulatory compliance** again to go back to the regulatory compliance dashboard.
 
-    > [!NOTE]
-    > It may take a few hours for a newly added standard to appear in the compliance dashboard.
 
-    :::image type="content" source="media/concept-regulatory-compliance/compliance-dashboard.png" alt-text="Screenshot showing regulatory compliance dashboard."  lightbox="media/concept-regulatory-compliance/compliance-dashboard.png":::
+The selected standard appears in **Regulatory compliance** dashboard as enabled for the subscription.
 
-### Add a standard to your AWS accounts
 
-To add regulatory compliance standards on AWS accounts:
+## Assign a standard (AWS)
+
+To assign regulatory compliance standards on AWS accounts:
 
 1. Navigate to **Environment settings**.
-1. Select the relevant account.
-1. Select **Standards**.
-1. Select **Add** and choose **Standard**.
-1. Choose a standard from the drop-down menu.
-1. Select **Save**.
+1. Select the relevant AWS account.
+1. Select **Security policies**.
+1. In the **Standards** tab, select the three dots in the standard you want to assign > **Assign standard**.
 
-    :::image type="content" source="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png":::
+    :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-aws-from-list.png" alt-text="Screenshot that shows where to select a standard to assign." lightbox="media/update-regulatory-compliance-packages/assign-standard-aws-from-list.png":::
 
+1. At the prompt, select **Yes**. The standard is assigned to your AWS account.
 
-## Remove a standard from your dashboard
+    :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-aws.png" alt-text="Screenshot of the prompt to assign a regulatory compliance standard to the AWS account." lightbox="media/update-regulatory-compliance-packages/assign-standard-aws.png":::
 
-You can continue to customize the regulatory compliance dashboard, to focus only on the standards that are applicable to you, by removing any of the supplied regulatory standards that aren't relevant to your organization.
+The selected standard appears in **Regulatory compliance** dashboard as enabled for the account.
 
-To remove a standard:
+## Assign a standard (GCP)
 
-1. From Defender for Cloud's menu, select **Security policy**.
+To assign regulatory compliance standards on GCP projects:
 
-1. Select the relevant subscription from which you want to remove a standard.
+1. Navigate to **Environment settings**.
+1. Select the relevant GCP project.
+1. Select **Security policies**.
+1. In the **Standards** tab, select the three dots alongside an unassigned standard and select **Assign standard**.
+1. At the prompt, select **Yes**. The standard is assigned to your GCP project.
 
-    > [!NOTE]
-    > You can remove a standard from a subscription, but not from a management group.
-
-    The security policy page opens. For the selected subscription, it shows the default policy, the industry and regulatory standards, and any custom initiatives you've created.
-
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Remove a regulatory standard from your regulatory compliance dashboard in Microsoft Defender for Cloud.":::
-
-1. For the standard you want to remove, select **Disable**. A confirmation window appears.
-
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Screenshot showing to confirm that you really want to remove the regulatory standard you selected." lightbox="media/update-regulatory-compliance-packages/remove-standard-confirm.png":::
-
-1. Select **Yes**.
+The selected standard appears in the **Regulatory compliance** dashboard as enabled for the project.
 
 ## Next steps
 
-In this article, you learned how to **add compliance standards** to monitor your compliance with regulatory and industry standards.
-
-For related material, see the following pages:
-
-- [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
-- [Defender for Cloud regulatory compliance dashboard](regulatory-compliance-dashboard.md) - Learn how to track and export your regulatory compliance data with Defender for Cloud and external tools
-- [Working with security policies](tutorial-security-policy.md)
+- Create custom standards for [Azure](custom-security-policies.md), [AWS, and GCP](create-custom-recommendations.md).
+- [Improve regulatory compliance](regulatory-compliance-dashboard.md)

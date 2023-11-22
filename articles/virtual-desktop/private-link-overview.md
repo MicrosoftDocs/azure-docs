@@ -31,7 +31,7 @@ The following table summarizes the private endpoints you need to create:
 
 You can either share these private endpoints across your network topology or you can isolate your virtual networks so that each has their own private endpoint to the host pool or workspace.
 
-The following high-level diagram shows how Private Link securely connects a local client to the Azure Virtual Desktop service:
+The following high-level diagram shows how Private Link securely connects a local client to the Azure Virtual Desktop service. For more detailed information about client connections, see [Client connection sequence](#client-connection-sequence).
 
 :::image type="content" source="media/private-link-diagram.png" alt-text="A high-level diagram that shows Private Link connecting a local client to the Azure Virtual Desktop service.":::
 
@@ -43,10 +43,43 @@ When adding Private Link with Azure Virtual Desktop, you have the following opti
 - Clients use public routes while session host VMs use private routes.
 - Both clients and session host VMs use public routes. Private Link isn't used.
 
+For connections to a workspace, except the workspace used for initial feed discovery (global sub-resource), the following table details the outcome of each scenario:
+
+| Configuration | Outcome |
+|--|--|
+| Public access **enabled** from all networks | Workspace feed requests are **allowed** from *public* routes.<br /><br />Workspace feed requests are **allowed** from *private* routes. |
+| Public access **disabled** from all networks | Workspace feed requests are **denied** from *public* routes.<br /><br />Workspace feed requests are **allowed** from *private* routes. |
+
+With the [reverse connect transport](network-connectivity.md#reverse-connect-transport), there are two network connections for connections to host pools: the client to the gateway, and the session host to the gateway. In addition to enabling or disabling public access for both connections, you can also choose to enable public access for clients connecting to the gateway and only allow private access for session hosts connecting to the gateway. The following table details the outcome of each scenario:
+
+| Configuration | Outcome |
+|--|--|
+| Public access **enabled** from all networks | Remote sessions are **allowed** when either the client or session host is using a *public* route.<br /><br />Remote sessions are **allowed** when either the client or session host is using a *private* route. |
+| Public access **disabled** from all networks | Remote sessions are **denied** when either the client or session host is using a *public* route.<br /><br />Remote sessions are **allowed** when both the client and session host are using a *private* route. |
+| Public access **enabled** for client networks, but **disabled** for session host networks | Remote sessions are **denied** if the session host is using a *public* route, regardless of the route the client is using.<br /><br />Remote sessions are **allowed** as long as the session host is using a *private* route, regardless of the route the client is using. |
+
 > [!IMPORTANT]
 > - A private endpoint to the global sub-resource of any workspace controls the shared fully qualified domain name (FQDN) for initial feed discovery. This in turn enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. We recommend you create an unused placeholder workspace for the global sub-resource. 
 >
+> - You can't control access to the workspace used for the initial feed discovery (global sub-resource). If you configure this workspace to only allow private access, the setting is ignored. This workspace is always accessible from public routes.
+> 
 > - If you intend to restrict network ports from either the user client devices or your session host VMs to the private endpoints, you will need to allow traffic across the entire TCP dynamic port range of 1 - 65535 to the private endpoint for the host pool resource using the *connection* sub-resource. The entire TCP dynamic port range is needed because port mapping is used to all global gateways through the single private endpoint IP address corresponding to the *connection* sub-resource. If you restrict ports to the private endpoint, your users may not be able to connect successfully to Azure Virtual Desktop. 
+
+## Client connection sequence
+
+When a user connects to Azure Virtual Desktop over Private Link, and Azure Virtual Desktop is configured to only allow client connections from private routes, the connection sequence is as follows:
+
+1. With a supported client, a user subscribes to a workspace. The user's device queries DNS for the address `rdweb.wvd.microsoft.com` (or the corresponding address for other Azure environments).
+
+1. Your private DNS zone for **privatelink-global.wvd.microsoft.com** returns the private IP address for the initial feed discovery (global sub-resource).
+
+1. For each workspace in the feed, a DNS query is made for the address `<workspaceId>.privatelink.wvd.microsoft.com`.
+
+1. Your private DNS zone for **privatelink.wvd.microsoft.com** returns the private IP address for the workspace feed download.
+
+1. When connecting a remote session, the `.rdp` file that comes from the workspace feed download contains the Remote Desktop gateway address. A DNS query is made for the address `<hostpooId>.afdfp-rdgateway.wvd.microsoft.com`.
+
+1. Your private DNS zone for **privatelink.wvd.microsoft.com** returns the private IP address for the Remote Desktop gateway to use for the host pool providing the remote session.
 
 ## Limitations
 
@@ -60,12 +93,16 @@ Private Link with Azure Virtual Desktop has the following limitations:
 
 - Using both Private Link and [RDP Shortpath](./shortpath.md) at the same time isn't currently supported.
 
-- Azure PowerShell cmdlets for Azure Virtual Desktop that support Private Link are in preview. You'll need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview) to use these cmdlets, which have been added in version 5.0.0.
+- If you're using the [Remote Desktop client for Windows](./users/connect-windows.md) on a network without public internet access, you aren't able to subscribe to a workspace with a private endpoint if you're also assigned to a workspace that doesn't have a private endpoint configured.
+
+- Early in the preview of Private Link with Azure Virtual Desktop, the private endpoint for the initial feed discovery (for the *global* sub-resource) shared the private DNS zone name of `privatelink.wvd.microsoft.com` with other private endpoints for workspaces and host pools. In this configuration, users are unable to establish private endpoints exclusively for host pools and workspaces. Starting September 1, 2023, sharing the private DNS zone in this configuration will no longer be supported. You need to create a new private endpoint for the *global* sub-resource to use the private DNS zone name of `privatelink-global.wvd.microsoft.com`. For the steps to do this, see [Initial feed discovery](private-link-setup.md#initial-feed-discovery).
+
+- Azure PowerShell cmdlets for Azure Virtual Desktop that support Private Link are in preview. You need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview) to use these cmdlets, which have been added in version 5.0.0.
 
 ## Next steps
 
 - Learn how to [Set up Private Link with Azure Virtual Desktop](private-link-setup.md).
-- Learn how to configure Azure Private Endpoint DNS at [Private Link DNS integration](../private-link/private-endpoint-dns.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
+- Learn how to configure Azure Private Endpoint DNS at [Private Link DNS integration](../private-link/private-endpoint-dns-integration.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
 - For general troubleshooting guides for Private Link, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
 - Understand [Azure Virtual Desktop network connectivity](network-connectivity.md).
 - See the [Required URL list](safe-url-list.md) for the list of URLs you need to unblock to ensure network access to the Azure Virtual Desktop service.

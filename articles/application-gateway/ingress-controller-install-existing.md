@@ -4,9 +4,9 @@ description: This article provides information on how to deploy an Application G
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.custom: devx-track-arm-template, devx-track-linux
+ms.custom: devx-track-arm-template, devx-track-linux, devx-track-azurecli
 ms.topic: how-to
-ms.date: 07/22/2023
+ms.date: 07/28/2023
 ms.author: greglin
 ---
 
@@ -17,13 +17,13 @@ AGIC monitors the Kubernetes [Ingress](https://kubernetes.io/docs/concepts/servi
 resources, and creates and applies Application Gateway config based on the status of the Kubernetes cluster.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md), currently in public preview.
+> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
 
 ## Outline
 
 - [Prerequisites](#prerequisites)
 - [Azure Resource Manager Authentication (ARM)](#azure-resource-manager-authentication)
-    - Option 1: [Set up Azure AD workload identity](#set-up-azure-ad-workload-identity) and create Azure Identity on ARMs
+    - Option 1: [Set up Microsoft Entra Workload ID](#set-up-azure-ad-workload-identity) and create Azure Identity on ARMs
     - Option 2: [Set up a Service Principal](#using-a-service-principal)
 - [Install Ingress Controller using Helm](#install-ingress-controller-as-a-helm-chart)
 - [Shared Application Gateway](#shared-application-gateway): Install AGIC in an environment, where Application Gateway is
@@ -35,7 +35,7 @@ This document assumes you already have the following tools and infrastructure in
 
 - [An AKS cluster](../aks/intro-kubernetes.md) with [Azure Container Networking Interface (CNI)](../aks/configure-azure-cni.md)
 - [Application Gateway v2](./tutorial-autoscale-ps.md) in the same virtual network as the AKS cluster
-- [Azure AD workload identity](../aks/workload-identity-overview.md) configured for your AKS cluster
+- [Microsoft Entra Workload ID](../aks/workload-identity-overview.md) configured for your AKS cluster
 - [Cloud Shell](https://shell.azure.com/) is the Azure shell environment, which has `az` CLI, `kubectl`, and `helm` installed. These tools are required for commands used to support configuring this deployment.
 
 **Backup your Application Gateway's configuration** before installing AGIC:
@@ -49,7 +49,9 @@ Gateway should that become necessary
 ## Install Helm
 
 [Helm](../aks/kubernetes-helm.md) is a package manager for Kubernetes, used to install the `application-gateway-kubernetes-ingress` package.
-Use [Cloud Shell](https://shell.azure.com/) to install Helm:
+
+> [!NOTE]
+> If you use [Cloud Shell](https://shell.azure.com/), you don't need to install Helm.  Azure Cloud Shell comes with Helm version 3. Skip the first step and just add the AGIC Helm repository.
 
 1. Install [Helm](../aks/kubernetes-helm.md) and run the following to add `application-gateway-kubernetes-ingress` helm package:
 
@@ -67,8 +69,7 @@ Use [Cloud Shell](https://shell.azure.com/) to install Helm:
     helm init
     ```
 
-1. Add the AGIC Helm repository:
-
+2. Add the AGIC Helm repository:
     ```bash
     helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
     helm repo update
@@ -79,9 +80,11 @@ Use [Cloud Shell](https://shell.azure.com/) to install Helm:
 AGIC communicates with the Kubernetes API server and the Azure Resource Manager. It requires an identity to access
 these APIs.
 
-## Set up Azure AD workload identity
+<a name='set-up-azure-ad-workload-identity'></a>
 
-[Azure AD workload identity](../aks/workload-identity-overview.md) is an identity you assign to a software workload, to authenticate and access other services and resources. This identity enables your AKS pod to use this identity and authenticate with other Azure resources. For this configuration, we need authorization
+## Set up Microsoft Entra Workload ID
+
+[Microsoft Entra Workload ID](../aks/workload-identity-overview.md) is an identity you assign to a software workload, to authenticate and access other services and resources. This identity enables your AKS pod to use this identity and authenticate with other Azure resources. For this configuration, we need authorization
 for the AGIC pod to make HTTP requests to [ARM](../azure-resource-manager/management/overview.md).
 
 1. Use the Azure CLI [az account set](/cli/azure/account#az-account-set) command to set a specific subscription to be the current active subscription. Then use the [az identity create](/cli/azure/identity#az-identity-create) command to create a managed identity. The identity needs to be created in the [node resource group](../aks/concepts-clusters-workloads.md#node-resource-group). The node resource group is assigned a name by default, such as *MC_myResourceGroup_myAKSCluster_eastus*.
@@ -223,7 +226,7 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
 1. Edit helm-config.yaml and fill in the values for `appgw` and `armAuth`.
   
     > [!NOTE]
-    > The `<identity-client-id>` is a property of the Azure AD workload identity you setup in the previous section. You can retrieve this information by running the following command: `az identity show -g <resourcegroup> -n <identity-name>`, where `<resourcegroup>` is the resource group hosting the infrastructure resources related to the AKS cluster, Application Gateway and managed identity.
+    > The `<identity-client-id>` is a property of the Microsoft Entra Workload ID you setup in the previous section. You can retrieve this information by running the following command: `az identity show -g <resourcegroup> -n <identity-name>`, where `<resourcegroup>` is the resource group hosting the infrastructure resources related to the AKS cluster, Application Gateway and managed identity.
 
 1. Install Helm chart `application-gateway-kubernetes-ingress` with the `helm-config.yaml` configuration from the previous step
 

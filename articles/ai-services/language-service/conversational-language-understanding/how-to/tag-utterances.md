@@ -2,13 +2,12 @@
 title: How to tag utterances in Conversational Language Understanding
 titleSuffix: Azure AI services
 description: Use this article to tag your utterances in Conversational Language Understanding projects
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 06/03/2022
+ms.date: 08/25/2023
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
@@ -40,6 +39,8 @@ As you add utterances and label them, keep in mind:
     * **Label precisely**: Label each intent and entity to its right type always. Only include what you want classified and extracted, avoid unnecessary data in your labels.
     * **Label consistently**:  The same entity should have the same label across all the utterances.
     * **Label completely**: Provide varied utterances for every intent. Label all the instances of the entity in all your utterances.
+
+[!INCLUDE [Label data best practices](../includes/label-data-best-practices.md)]
 
 * For [Multilingual projects](../language-support.md#multi-lingual-option), adding utterances in other languages increases the model's performance in these languages, but avoid duplicating your data across all the languages you would like to support. For example, to improve a calender bot's performance with users, a developer might add examples mostly in English, and a few in Spanish or French as well. They might add utterances such as:
 
@@ -138,13 +139,13 @@ Your Language resource must have identity management, to enable it using [Langua
 
 ---
 
-After enabling managed identity, assign the role `Azure AI services User` to your Azure OpenAI resource using the managed identity of your Language resource. 
+After enabling managed identity, assign the role `Cognitive Services User` to your Azure OpenAI resource using the managed identity of your Language resource. 
 
   1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure OpenAI resource.
   2. Select the Access Control (IAM) tab on the left. 
   3. Select Add > Add role assignment. 
   4. Select "Job function roles" and click Next.
-  5. Select `Azure AI services User` from the list of roles and click Next.
+  5. Select `Cognitive Services User` from the list of roles and click Next.
   6. Select Assign access to "Managed identity" and select "Select members". 
   7. Under "Managed identity" select "Language".
   8. Search for your resource and select it. Then select the Select button below and next to complete the process.

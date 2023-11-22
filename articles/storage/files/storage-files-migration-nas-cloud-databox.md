@@ -4,7 +4,7 @@ description: Learn how to migrate files from an on-premises Network Attached Sto
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 11/21/2023
 ms.author: kendownie
 recommendations: false
 ---
@@ -125,7 +125,7 @@ To save time, you should proceed with this phase while you wait for your DataBox
 
 :::row:::
     :::column:::
-        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jd49W33DxkQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        > [!VIDEO https://www.youtube-nocookie.com/embed/jd49W33DxkQ]
     :::column-end:::
     :::column:::
         This video is a guide and demo for how to securely expose Azure file shares directly to information workers and apps in five simple steps.</br>
@@ -145,7 +145,7 @@ To save time, you should proceed with this phase while you wait for your DataBox
 
 ## Phase 6: Copy files onto your DataBox
 
-When your DataBox arrives, you need to set up your DataBox in a line of sight to your NAS appliance. Follow the setup documentation for the DataBox type you ordered.
+When your DataBox arrives, you need to set up your DataBox with unimpeded network connectivity to your NAS appliance. Follow the setup documentation for the DataBox type you ordered.
 
 * [Set up Data Box](../../databox/data-box-quickstart-portal.md)
 * [Set up Data Box Disk](../../databox/data-box-disk-quickstart-portal.md)

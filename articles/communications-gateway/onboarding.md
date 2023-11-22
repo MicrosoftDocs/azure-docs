@@ -1,100 +1,96 @@
 ---
-title: Onboarding to Microsoft Teams Phone with Azure Communications Gateway
-description: Understand the Azure Communications Gateway Basic Integration Included Benefit for onboarding to Operator Connect and your other options for onboarding
+title: Onboarding for Azure Communications Gateway
+description: Understand the Included Benefits and your other options for onboarding to Azure Communications Gateway for Microsoft or Zoom connectivity
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: conceptual 
-ms.date: 01/18/2023
+ms.date: 11/06/2023
 ms.custom: template-concept 
 ---
 
-# Onboarding to Microsoft Teams with Azure Communications Gateway
+# Onboarding with Included Benefits for Azure Communications Gateway
 
-To launch Operator Connect and/or Teams Phone Mobile, you'll need an onboarding partner. Launching requires changes to the Operator Connect or Teams Phone Mobile environments and your onboarding partner manages the integration process and coordinates with Microsoft Teams on your behalf. They can also help you design and set up your network for success.
+Azure Communications Gateway includes a project team for helping you design and set up your network for success. This service includes a customer success program and onboarding service called _Included Benefits_. We work with your team to enable rapid and effective solution design and deployment. The program includes tailored guidance from Azure for Operators engineers, using proven practices and architectural guides. If you're not eligible for Included Benefits or you require more support, discuss your requirements with your Microsoft sales representative. 
+ 
+The Operator Connect and Teams Phone Mobile programs also require an onboarding partner who manages the necessary changes to the Operator Connect or Teams Phone Mobile environments and coordinates with Microsoft Teams on your behalf. The Azure Communications Gateway Included Benefits project team fulfills this role, but you can choose a different onboarding partner to coordinate with Microsoft Teams on your behalf.
 
-If you're launching Operator Connect, Azure Communications Gateway includes an off-the-shelf onboarding service called the Basic Integration Included Benefit. It's suitable for simple Operator Connect use cases.
+## Eligibility for Included Benefits and alternatives
 
-If you're launching Teams Phone Mobile, you're not eligible for the Basic Integration Included Benefit. See [Alternatives to the Basic Integration Included Benefit](#alternatives-to-the-basic-integration-included-benefit).
+Included Benefits is available to operator customers who:
 
-## Onboarding with the Basic Integration Included Benefit for Operator Connect
+- Have an active paid Azure subscription.
+- Have a defined project using Azure Communications Gateway with intent to deploy. A defined project has an executive sponsor, committed customer/partner resources, established success metrics, and clear timelines for start and end of the project.
+- Are located in a country/region supported by  Azure Communications Gateway. Engagements are in English (although we might offer engagements in your local language, depending on the availability of our teams).
 
-The Basic Integration Included Benefit (BIIB) helps you to onboard customers to your Microsoft Teams Operator Connect offering as quickly as possible. You'll need to meet the [eligibility requirements](#eligibility-for-the-basic-integration-included-benefit).
+There's no cost to you for the Included Benefits program.
 
-If you're eligible, we'll assign the following people as your onboarding team.
+If your requirements exceed the scope of the program or you fail to meet your responsibilities, at any point we might ask you to:
 
-- A remote **Project Manager** as a single point of contact. The Project Manager is responsible for communicating the schedule and keeping you up to date with your onboarding status.
-- Microsoft **Delivery Consultants** and other technical personnel, led by a **Technical Delivery Manager**. These people guide and support you through the onboarding process for Microsoft Teams Operator Connect. The process includes providing and certifying the Operator Connect SBC functionality and launching your Operator Connect service in the Teams Admin Center.
+- Contact your Microsoft sales representative to arrange extra services.
+- Find your own partner able to meet your needs (for example a System Integrator).
 
-### Eligibility for the Basic Integration Included Benefit
+## Process overview for Included Benefits
 
-To be eligible for the BIIB, you must first deploy an Azure Communications Gateway resource. In addition:
+Azure for Operators partners with you to drive your business outcomes and success. Our goal is to empower you to deliver a new breed of solutions that meet the fast-changing needs of business today and in the future. To achieve this goal, Included Benefits takes a solution-centric approach, providing you with design principles and tools for your solutions: we work with you from design to deployment in a production environment. When you use Included Benefits to help accelerate and deploy solutions on Azure, there are three phases involved in the process:
 
-- You must be launching Microsoft Teams Operator Connect for fixed-line calls (not Teams Phone Mobile).
-- Your network must be capable of meeting the [reliability requirements for Azure Communications Gateway](reliability-communications-gateway.md).
-- You must not have more than two Azure service regions (the regions containing the voice and API infrastructure for traffic).
-- You must not require any interworking options that aren't listed in the [interoperability description](interoperability.md).
-- You must not require any API customization as part of the API Bridge feature (if you choose to deploy the API Bridge).
+### Phase 1: Discovery
 
-If you don't meet these requirements, see [Alternatives to the Basic Integration Included Benefit](#alternatives-to-the-basic-integration-included-benefit).
+Once you've identified your Azure Communications Gateway project, you can ask your account team to nominate your project for Included Benefits. The Included Benefits team works with you to identify key stakeholders, understand the vision/goals, and assess the architectural needs for problems you're trying to solve.
 
-If we (Microsoft) determine at our sole discretion that your integration needs are unusually complex, we might:
+In this phase, we establish eligibility, scope and conditions of success for the project.
 
-- Decline to provide the BIIB.
-- Stop providing the BIIB, even if we've already started providing it.
+### Phase 2: Solution enablement
 
-This limitation applies even if you're otherwise eligible.
+If your project is approved, the Included Benefits team carries out architectural design reviews and delivers solution enablement guidance by sharing proven practices and design principles for the solution.
 
-We might also stop providing the BIIB if you don't meet [your obligations with the Basic Integration Included Benefit](#your-obligations-with-the-basic-integration-included-benefit), including making timely responses to questions and fulfilling dependencies.
+A typical project might include the following engagements:
 
-### Phases of the Basic Integration Included Benefit
+- Technical talks and workshops: subject matter deep dives and best practices to accelerate your deployment. These meetings often provide an overview of available documentation and admin consoles.
+- Review of your architecture and design with Azure Communications Gateway.
+- Checkpoint meetings: weekly or biweekly touchpoints to ensure that your deployment is progressing to completion.
 
-When you've deployed your Azure Communications Gateway resource, your onboarding team will help you to ensure that Azure Communications Gateway and your network are properly configured for Operator Connect. Your onboarding team will then help you through the Operator Connect onboarding process, so that your service is launched in the Teams Admin Center.
+### Phase 3: Deployment
 
-The BIIB has three phases. During these phases, you'll be responsible for some steps. See [Your obligations with the Basic Integration Included Benefit](#your-obligations-with-the-basic-integration-included-benefit).
+The Included Benefits team supports your in-house resources (your teams and people) or a partner to successfully deploy Azure Communications Gateway into production.
 
-#### Phase 1: gathering information
+A typical project might include the following engagements:
 
-We'll share the Teams Operator Connect specification documents (for example, for network connectivity) if you don't already have access to them. We'll also provide an Operator Connect onboarding form and a proposed test plan. When you've given us the information listed in the onboarding form, your onboarding team will work with you to create a project timeline describing your path to launching in the Teams Admin Center.
+- Integration testing: support and advice for troubleshooting of issues identified with the solution.
+- Help gathering artifacts for Microsoft Teams Operator Connect Certification (if applicable)
 
-#### Phase 2: preparing Azure Communications Gateway and your networks
+## Scope of Included Benefits
 
-We'll use the information you provided with the onboarding form to set up Azure Communications Gateway. We'll also provide guidance on preparing your own environment for Azure Communications Gateway.
+Included Benefits is aimed at standard deployments of Azure Communications Gateway. It covers:
 
-#### Phase 3: preparing for live traffic
+- Initial deployment of Azure Communications Gateway and integration into operator's production network
+- If you're launching Microsoft Teams Operator Connect, fulfilling the role of an Operator Connect Accelerator by guiding and supporting you through the onboarding process for Microsoft Teams Operator Connect.
 
-Your onboarding team will work through the steps described in [Prepare for live traffic with Azure Communications Gateway](prepare-for-live-traffic.md) with you. As part of these steps, we'll:
+## Responsibilities with Included Benefits
 
- - Work through the test plan we agreed, with your help.
- - Provide training on the Azure Communications Gateway solution. Training topics include:
-   - A technical overview of the Azure Communications Gateway platform.
-   - How your engineering and operations staff can interact with Azure Communications Gateway and Operator Connect.
-   - How your teams can get support for Azure Communications Gateway and Operator Connect.
- - Help you to prepare for launch.
+We provide:
 
-### Your obligations with the Basic Integration Included Benefit
+- Guidance on:
+  - Enablement of Azure Communications Gateway (including remote support).
+  - Configuration tasks and integration testing.
+  - Azure platform configuration.
+- Architectural guidance and design principles for eligible solutions.
+- Resources committed to making your project successful.
 
-You're responsible for:
+Your responsibilities include:
 
-- Arranging Microsoft Azure Peering Service (MAPS) connectivity. If you haven't finished rolling out MAPS yet, you must have started the roll-out and have a known delivery date.
-- Signing the Operator Connect agreement.
-- Providing someone as a single point-of-contact to assist us in collecting information and coordinating your resources. This person must have the authority to review and approve deliverables, and otherwise ensure that these responsibilities are carried out.
-- Completing the onboarding form after we've supplied it.
-- Providing test numbers and working with your onboarding team to run the test plan, including testing from your network to find call flow integration issues.
-- Providing timely responses to questions, issues and dependencies to ensure the project finishes on time.
-- Configuring your Operator Connect and Azure environments as described in [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md), [Deploy Azure Communications Gateway](deploy.md) and [Prepare for live traffic with Azure Communications Gateway](prepare-for-live-traffic.md).
-- Ensuring that your network is compliant with the Microsoft Teams _Network Connectivity Specification_ and _Operational Excellence Specification_, and any other specifications provided by Microsoft Teams.
-- Ensuring that your network engineers watch the training that your onboarding team provides.
-
-## Alternatives to the Basic Integration Included Benefit
-
-If you're not eligible for the Basic Integration Included Benefit (because you're deploying Teams Phone Mobile or you don't meet the [eligibility requirements](#eligibility-for-the-basic-integration-included-benefit)), you must arrange onboarding separately. You can:
-
-- Contact your Microsoft sales representative to arrange onboarding through Microsoft.
-- Find your own onboarding partner.
+- Providing someone as a single point-of-contact to assist us in collecting information and coordinating your resources (your teams and people). This person must have the authority to review and approve deliverables, and otherwise ensure that these responsibilities are carried out.
+- Providing timely responses to questions, issues, and dependencies to ensure the project finishes on time.
+- Creating architectural documentation and technical documentation specific to your organization.
+- Hands-on administration, support, and deployment on Azure.
+- Producing any reports, presentations, and meeting minutes that are specific to your organization.
+- Overall program management and project management for your resources.
+- Managing your deployment, third-party suppliers (for example, any system integrators or provisioning partners), and your suppliers' equipment, as necessary.
+- Providing test numbers, devices and testing from your network to find integration issues.
+- Demos, POCs or extra testing specific to your organization.
 
 ## Next steps
 
 - [Review the reliability requirements for Azure Communications Gateway](reliability-communications-gateway.md).
-- [Review the interoperability function of Azure Communications Gateway](interoperability.md).
-- [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md).
+- [Learn more about planning an Azure Communications Gateway deployment](get-started.md)
+

@@ -19,6 +19,10 @@ ms.author: williamzhao
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 - The latest version [.NET client library](https://dotnet.microsoft.com/download/dotnet) for your operating system.
 
+## Sample code
+
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/JobRouterQuickStart).
+
 ## Setting up
 
 ### Create a new C# application
@@ -44,7 +48,7 @@ Install the Azure Communication Job Router client library for .NET with [NuGet](
 dotnet add package Azure.Communication.JobRouter
 ```
 
-You'll need to use the Azure Communication Job Router client library for .NET [version 1.0.0-beta.1](https://www.nuget.org/packages/Azure.Communication.JobRouter/1.0.0-beta.1) or above.
+You'll need to use the Azure Communication Job Router client library for .NET [version 1.0.0](https://www.nuget.org/packages/Azure.Communication.JobRouter/1.0.0) or above.
 
 Add the following `using` directives to the top of **Program.cs** to include the JobRouter namespaces.
 
@@ -58,9 +62,8 @@ Job Router clients can be authenticated using your connection string acquired fr
 
 ```csharp
 // Get a connection string to our Azure Communication Services resource.
-var connectionString = "your_connection_string";
-var routerAdminClient = new JobRouterAdministrationClient(connectionString);
-var routerClient = new JobRouterClient(connectionString);
+var routerAdminClient = new JobRouterAdministrationClient("your_connection_string");
+var routerClient = new JobRouterClient("your_connection_string");
 ```
 
 ## Create a distribution policy
@@ -102,7 +105,7 @@ var job = await routerClient.CreateJobAsync(
         Priority = 1,
         RequestedWorkerSelectors =
         {
-            new RouterWorkerSelector(key: "Some-Skill", labelOperator: LabelOperator.GreaterThan, value: new LabelValue(10))
+            new RouterWorkerSelector(key: "Some-Skill", labelOperator: LabelOperator.GreaterThan, value: new RouterValue(10))
         }
     });
 ```
@@ -113,11 +116,11 @@ Now, we create a worker to receive work from that queue, with a label of `Some-S
 
 ```csharp
 var worker = await routerClient.CreateWorkerAsync(
-    new CreateWorkerOptions(workerId: "worker-1", totalCapacity: 1)
+    new CreateWorkerOptions(workerId: "worker-1", capacity: 1)
     {
-        QueueAssignments = { [queue.Value.Id] = new RouterQueueAssignment() },
-        Labels = { ["Some-Skill"] = new LabelValue(11) },
-        ChannelConfigurations = { ["voice"] = new ChannelConfiguration(capacityCostPerJob: 1) },
+        Queues = { queue.Value.Id },
+        Labels = { ["Some-Skill"] = new RouterValue(11) },
+        Channels = { new RouterChannel(channelId: "voice", capacityCostPerJob: 1) },
         AvailableForOffers = true
     });
 ```
@@ -141,7 +144,7 @@ foreach (var offer in worker.Value.Offers)
 Then, the worker can accept the job offer by using the SDK, which assigns the job to the worker.
 
 ```csharp
-var accept = await routerClient.AcceptJobOfferAsync(worker.Value.Id, worker.Value.Offers.FirstOrDefault().OfferId);
+var accept = await routerClient.AcceptJobOfferAsync(workerId: worker.Value.Id, offerId: worker.Value.Offers.FirstOrDefault().OfferId);
 Console.WriteLine($"Worker {worker.Value.Id} is assigned job {accept.Value.JobId}");
 ```
 
@@ -150,7 +153,7 @@ Console.WriteLine($"Worker {worker.Value.Id} is assigned job {accept.Value.JobId
 Once the worker has completed the work associated with the job (for example, completed the call), we complete the job.
 
 ```csharp
-await routerClient.CompleteJobAsync(new CompleteJobOptions(accept.Value.JobId, accept.Value.AssignmentId));
+await routerClient.CompleteJobAsync(new CompleteJobOptions(jobId: accept.Value.JobId, assignmentId: accept.Value.AssignmentId));
 Console.WriteLine($"Worker {worker.Value.Id} has completed job {accept.Value.JobId}");
 ```
 
@@ -159,7 +162,7 @@ Console.WriteLine($"Worker {worker.Value.Id} has completed job {accept.Value.Job
 Once the worker is ready to take on new jobs, the worker should close the job.  Optionally, the worker can provide a disposition code to indicate the outcome of the job.
 
 ```csharp
-await routerClient.CloseJobAsync(new CloseJobOptions(accept.Value.JobId, accept.Value.AssignmentId) {
+await routerClient.CloseJobAsync(new CloseJobOptions(jobId: accept.Value.JobId, assignmentId: accept.Value.AssignmentId) {
     DispositionCode = "Resolved"
 });
 Console.WriteLine($"Worker {worker.Value.Id} has closed job {accept.Value.JobId}");
@@ -194,7 +197,7 @@ Deleting job job-1
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [.NET SDK reference](/dotnet/api/overview/azure/communication.jobrouter-readme) or [REST API reference](/rest/api/communication/jobrouter/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [.NET SDK reference](/dotnet/api/overview/azure/communication.jobrouter-readme?view=azure-dotnet-preview&preserve-view=true) or [REST API reference](/rest/api/communication/jobrouter/job-router).
 
 <!-- LINKS -->
 

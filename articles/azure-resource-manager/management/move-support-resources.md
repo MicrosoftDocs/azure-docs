@@ -9,7 +9,7 @@ ms.date: 01/30/2023
 
 This article lists whether an Azure resource type supports the move operation. It also provides information about special conditions to consider when moving a resource.
 
-Before starting your move operation, review the [checklist](./move-resource-group-and-subscription.md#checklist-before-moving-resources) to make sure you have satisfied prerequisites. Moving resources across [Azure Active Directory tenants](../../active-directory/develop/quickstart-create-new-tenant.md) isn't supported.
+Before starting your move operation, review the [checklist](./move-resource-group-and-subscription.md#checklist-before-moving-resources) to make sure you have satisfied prerequisites. Moving resources across [Microsoft Entra tenants](../../active-directory/develop/quickstart-create-new-tenant.md) isn't supported.
 
 > [!IMPORTANT]
 > In most cases, a child resource can't be moved independently from its parent resource. Child resources have a resource type in the format of `<resource-provider-namespace>/<parent-resource>/<child-resource>`. For example, `Microsoft.ServiceBus/namespaces/queues` is a child resource of `Microsoft.ServiceBus/namespaces`. When you move the parent resource, the child resource is automatically moved with it. If you don't see a child resource in this article, you can assume it is moved with the parent resource. If the parent resource doesn't support move, the child resource can't be moved.
@@ -406,7 +406,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | **Yes** | **Yes** | No |
-> | Cognitive Search | **Yes** | **Yes** | Supported with manual steps.<br/><br/> Learn about [moving your Azure Cognitive Search service to another region](../../search/search-howto-move-across-regions.md) |
+> | Cognitive Search | **Yes** | **Yes** | Supported with manual steps.<br/><br/> Learn about [moving your Azure AI Search service to another region](../../search/search-howto-move-across-regions.md) |
 
 ## Microsoft.Commerce
 
@@ -968,7 +968,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | **Yes** | **Yes** | No. [Learn more](../../azure-monitor/faq.yml#how-do-i-move-an-application-insights-resource-to-a-new-region-). |
+> | accounts | **Yes** | **Yes** | No. [Learn more](../../azure-monitor/app/create-workspace-resource.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
 > | actiongroups | **Yes** | **Yes** | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | **Yes** | **Yes** | No |
@@ -1077,7 +1077,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | loadtests | No | No | No |
+> | loadtests | Yes | Yes | No |
 
 ## Microsoft.LocationBasedServices
 
@@ -1304,7 +1304,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | applicationgatewaywebapplicationfirewallpolicies | No | No | No |
 > | applicationsecuritygroups | **Yes** | **Yes** | No |
 > | azurefirewalls | No | No | No |
-> | bastionhosts | No | No | No |
+> | bastionhosts | Yes | No | No |
 > | bgpservicecommunities | No | No | No |
 > | connections | **Yes** | **Yes** | No |
 > | ddoscustompolicies | **Yes** | **Yes** | No |
@@ -1397,6 +1397,8 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | linktargets | No | No | No |
 > | storageinsightconfigs | No | No | No |
 > | workspaces | **Yes** | **Yes** | No |
+> | querypacks | No | No | No |
+
 
 ## Microsoft.OperationsManagement
 
@@ -1416,11 +1418,11 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | legacypeerings | No | No | No |
 > | peerasns | No | No | No |
 > | peeringlocations | No | No | No |
-> | peerings | No | No | No |
+> | peerings | **Yes** | **Yes** | No |
 > | peeringservicecountries | No | No | No |
 > | peeringservicelocations | No | No | No |
 > | peeringserviceproviders | No | No | No |
-> | peeringservices | No | No | No |
+> | peeringservices | **Yes** | **Yes** | No |
 
 ## Microsoft.PolicyInsights
 
@@ -1658,7 +1660,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | namespaces | **Yes** | **Yes** | No |
+> | namespaces | **Yes** | **Yes** | Yes (with template)<br/><br/> [Move an Azure Service Bus namespace to another region](../../service-bus-messaging/move-across-regions.md) |
 > | premiummessagingregions | No | No | No |
 > | sku | No | No | No |
 
@@ -1987,3 +1989,4 @@ Third-party services currently don't support the move operation.
 - For commands to move resources, see [Move resources to new resource group or subscription](move-resource-group-and-subscription.md).
 - [Learn more](../../resource-mover/overview.md) about the Resource Mover service.
 - To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv) for resource group and subscription move support. If you want those properties and region move support, download [move-support-resources-with-regions.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources-with-regions.csv).
+

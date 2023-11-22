@@ -64,6 +64,8 @@ landingContent:
             url: collect-required-information-for-private-mobile-network.md
           - text: Deploy a private mobile network - Azure portal
             url: how-to-guide-deploy-a-private-mobile-network-azure-portal.md
+          - text: Configure Azure Private 5G Core network for accessing UE IP addresses
+            url: configure-access-for-user-equipment-ip-addresses.md
           - text: Create and manage network slices - Azure portal
             url: create-manage-network-slices.md
           - text: Create a network slice - ARM template
@@ -140,7 +142,7 @@ landingContent:
           - text: Manage SIM groups
             url: manage-sim-groups.md
   # Card
-  - title: Monitor your private mobile network
+  - title: Monitor and diagnose your private mobile network
     linkLists:
       - linkListType: concept
         links:
@@ -152,18 +154,18 @@ landingContent:
             url: packet-core-dashboards.md
           - text: Monitor AP5GC UE usage with Event Hubs (preview)
             url: ue-usage-event-hub.md
+          - text: Monitor packet cores with alerts
+            url: monitor-private-5g-core-alerts.md
       - linkListType: how-to-guide
         links:
-          - text: Perform data plane packet capture for a packet core instance
-            url: data-plane-packet-capture.md 
-          - text: Enable Azure Active Directory
-            url: enable-azure-active-directory.md
-          - text: Modify a site's local access configuration
-            url: modify-local-access-configuration.md
-          - text: Export, upload and share traces for diagnostics
-            url: distributed-tracing-share-traces.md
           - text: Gather diagnostics
             url: gather-diagnostics.md
+          - text: Export, upload and share traces for diagnostics
+            url: distributed-tracing-share-traces.md
+          - text: Perform packet capture on a packet core instance
+            url: data-plane-packet-capture.md
+          - text: Use ping and traceroute on a packet core instance
+            url: ping-traceroute.md
             
   # Card
   - title: Learn about Azure Private 5G Core architecture

@@ -13,10 +13,14 @@
       href: concepts-compute.md
     - name: Storage overview
       href: concepts-storage.md
+    - name: Network Fabric overview
+      href: concepts-network-fabric.md
     - name: Nexus Kubernetes
       href: concepts-nexus-kubernetes-cluster.md
     - name: Observability
       href: concepts-observability.md 
+    - name: Security
+      href: concepts-security.md
 - name: Quickstarts
   items:
     - name: Before you start workload deployment
@@ -30,36 +34,26 @@
           href: quickstarts-kubernetes-cluster-deployment-arm.md
         - name: Use Bicep file
           href: quickstarts-kubernetes-cluster-deployment-bicep.md
+        - name: Use Azure PowerShell
+          href: quickstarts-kubernetes-cluster-deployment-powershell.md
     - name: Deploy Nexus Virtual Machine
       expanded: true
       items:
         - name: Use the Azure CLI
-          href: quickstarts-tenant-workload-deployment.md
+          href: quickstarts-virtual-machine-deployment-cli.md
+        - name: Use ARM template
+          href: quickstarts-virtual-machine-deployment-arm.md
+        - name: Use Bicep file
+          href: quickstarts-virtual-machine-deployment-bicep.md
+        - name: Use Azure PowerShell
+          href: quickstarts-virtual-machine-deployment-ps.md 
 - name: How-To Guides
   items:
     - name: Operator Nexus Instance Deployment and Upgrade
       expanded: false
-      items:    
-        - name: Before you start Operator Nexus NFC and CM deployment
-          href: howto-azure-operator-nexus-prerequisites.md
-        - name: Network Fabric Controller
-          href: howto-configure-network-fabric-controller.md
-        - name: Cluster Manager
-          href: howto-cluster-manager.md
-        - name: Before you start Operator Nexus platform deployment
-          href: howto-platform-prerequisites.md
-        - name: Network Fabric
-          href: howto-configure-network-fabric.md
-        - name: Cluster
-          href: howto-configure-cluster.md
-        - name: Instance Readiness Testing
-          href: howto-run-instance-readiness-testing.md
-        - name: Cluster Upgrades
-          href: howto-cluster-runtime-upgrade.md
-    - name: BareMetal Actions
       items:
         - name: Management Plane
-          expanded: false
+          expanded: true
           items:
             - name: Before you start deployment
               href: howto-azure-operator-nexus-prerequisites.md
@@ -79,33 +73,49 @@
                   href: howto-configure-network-fabric.md
                 - name: Cluster
                   href: howto-configure-cluster.md
+                - name: Instance Readiness Testing
+                  href: howto-run-instance-readiness-testing.md
                 - name: Cluster Upgrades
                   href: howto-cluster-runtime-upgrade.md
-    - name: Network Fabric
-      expanded: false
-      items:
-        - name: Isolation Domain
-          href: howto-configure-isolation-domain.md
-        - name: Network Fabric Route Policy
-          href: how-to-route-policy.md  
+        - name: Network Fabric
+          expanded: false
+          items:
+          - name: Isolation Domain
+            href: howto-configure-isolation-domain.md
+          - name: Network Fabric Route Policy
+            href: how-to-route-policy.md  
+          - name: Network Packet Broker
+            href: howto-configure-network-packet-broker.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
         - name: Understand agent pools
           href: howto-kubernetes-cluster-agent-pools.md
+        - name: Connect to the cluster
+          href: howto-kubernetes-cluster-connect.md
+        - name: Configure role-based access control
+          href: howto-kubernetes-cluster-aad-rbac.md
+        - name: Upgrade Nexus Kubernetes cluster
+          href: howto-kubernetes-cluster-upgrade.md
         - name: Configure huge-pages for cluster virtual machines
           href: howto-kubernetes-cluster-huge-pages.md
         - name: Configure service load balancer
           href: howto-kubernetes-service-load-balancer.md
-        - name: Configure role-based access control
-          href: howto-kubernetes-cluster-aad-rbac.md
+        - name: Disable cgroupsv2 in Nexus Kubernetes 1.27+
+          href: howto-disable-cgroupsv2.md
+        - name: Restart cluster node
+          href: howto-kubernetes-cluster-action-restart.md
+        - name: Customize cluster DNS
+          href: how-to-customize-kubernetes-cluster-dns.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
         - name: Create virtual machine image
           href: howto-virtual-machine-image.md
-        - name: Virtual Machine console service
+        - name: Virtual machine console service
           href: howto-use-vm-console-service.md
+        - name: Virtual machine placement hints
+          href: howto-virtual-machine-placement-hints.md
     - name: Observability
       expanded: false
       items:
@@ -117,20 +127,28 @@
           href: howto-cluster-metrics-configuration-management.md
         - name: Tracking asynchronous operations
           href: howto-track-async-operations-cli.md
-    - name: Precertification
-      href: howto-precertification.md
+    - name: Security
+      expanded: false
+      items:
+        - name: Set up Defender for Cloud security
+          href: howto-set-up-defender-for-cloud-security.md
+        - name: Use Azure Policy for AKS Clusters
+          href: howto-use-azure-policy-for-aks-cluster-security.md
+        - name: MDE Runtime Protection
+          href: howto-use-mde-runtime-protection.md
+
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
 - name: Troubleshooting
   items:
     - name: Troubleshoot Bare Metal Machine
       href: troubleshoot-reboot-reimage-replace.md
-    - name: Troubleshoot AKS-Hybrid
-      href: troubleshoot-aks-hybrid-cluster.md
     - name: Troubleshoot Isolation Domain
       href: troubleshoot-isolation-domain.md
     - name: Troubleshoot Internet host virtual machine
       href: troubleshoot-internet-host-virtual-machine.md
+    - name: Troubleshooting dual-stack configuration issues for Nexus Kubernetes cluster
+      href: troubleshoot-kubernetes-cluster-dual-stack-configuration.md
     - name: Troubleshoot BMM reboot issues
       href: troubleshoot-bmm-node-reboot.md
     - name: BareMetal Actions
@@ -150,6 +168,13 @@
   href: azure-operator-nexus-faq.md
 - name: Reference
   items:
+    - name: Nexus Kubernetes service
+      expanded: false
+      items:
+        - name: Supported VM sizes
+          href: reference-nexus-kubernetes-cluster-sku.md
+        - name: Supported Kubernetes versions
+          href: reference-nexus-kubernetes-cluster-supported-versions.md
     - name: Instance to on-premises WAN Connectivity
       href: reference-customer-edge-provider-edge-connectivity.md
     - name: List of metrics collected

@@ -3,14 +3,14 @@ title: Request disallowed by policy error
 description: Describes the error for request disallowed by policy when deploying resources with an Azure Resource Manager template (ARM template) or Bicep file.
 ms.topic: troubleshooting
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 04/05/2023
+ms.date: 10/20/2023
 author: genlin
 ms.author: genli
 ---
 
 # Resolve errors for request disallowed by policy
 
-This article describes the cause of the `RequestDisallowedByPolicy` error and provides a solution for the error. The request disallowed by policy error can occur when you deploy resources with an Azure Resource Manager template (ARM template) or Bicep file.
+When deploying an Azure Resource Manager template (ARM template) or Bicep file, you get the `RequestDisallowedByPolicy` error when one of the resources to deploy doesn't comply with an existing [Azure Policy](../../governance/policy/overview.md).
 
 ## Symptom
 
@@ -31,25 +31,28 @@ In the `id` string, the `{guid}` placeholder represents an Azure subscription ID
 
 ## Cause
 
-In this example, the error occurred when an administrator attempted to create a network interface with a public IP address. A policy assignment enables enforcement of a built-in policy definition that prevents public IPs on network interfaces.
+Your organization assigns policies to enforce organizational standards and to assess compliance at-scale. If you're trying to deploy a resource that violates a policy, the deployment is blocked.
 
-You can use the name of a policy assignment or policy definition to get more details about a policy that caused the error. The example commands use placeholders for input. For example, replace `<policy definition name>` including the angle brackets, with the definition name from your error message.
+For example, your subscription can have a policy that prevents public IPs on network interfaces. If you attempt to create a network interface with a public IP address, the policy blocks you from creating the network interface.
+
+## Solution
+
+To resolve the `RequestDisallowedByPolicy` error when deploying an ARM template or Bicep file, you need to find which policy is blocking the deployment. Within that policy, you need to review the rules so you can update your deployment to comply with the policy.
+
+The error message includes the names of the policy definition and policy assignment that caused the error. You need these names to get more information about the policy.
 
 # [Azure CLI](#tab/azure-cli)
 
 To get more information about a policy definition, use [az policy definition show](/cli/azure/policy/definition#az-policy-definition-show).
 
 ```azurecli
-defname=<policy definition name>
-az policy definition show --name $defname
+az policy definition show --name {policy-name}
 ```
 
 To get more information about a policy assignment, use [az policy assignment show](/cli/azure/policy/assignment#az-policy-assignment-show).
 
 ```azurecli
-rg=<resource group name>
-assignmentname=<policy assignment name>
-az policy assignment show --name $assignmentname --resource-group $rg
+az policy assignment show --name {assignment-name} --resource-group {resource-group-name}
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -76,11 +79,7 @@ Get-AzPolicyAssignment -Name $assignmentname -Scope $rg.ResourceId | ConvertTo-J
 
 ---
 
-## Solution
-
-For security or compliance, your subscription administrators might assign policies that limit how resources are deployed. For example, policies that prevent creating public IP addresses, network security groups, user-defined routes, or route tables.
-
-To resolve `RequestDisallowedByPolicy` errors, review the resource policies and determine how to deploy resources that comply with those policies. The error message displays the names of the policy definition and policy assignment.
+Within the policy definition, you see a description of the policy and the rules that are applied. Review the rules and update your ARM template or Bicep file to comply with the rules. For example, if the rule states the public network access is disabled, you need to update the corresponding resource properties.
 
 For more information, see the following articles:
 

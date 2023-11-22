@@ -1,23 +1,25 @@
 ---
-title: "Check my usage and estimate the cost"
+title: "Check my usage and estimate the cost -  Document Intelligence (formerly Form Recognizer)"
 titleSuffix: Azure AI services
 description: Learn how to use Azure portal to check how many pages are analyzed and estimate the total price.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: luzhan
-monikerRange: '<=doc-intel-3.0.0'
 ---
 
 
-# Check usage and estimate costs
+# Check usage and estimate cost
 
-[!INCLUDE [applies to v3.0 and v2.1](../includes/applies-to-v3-0-v2-1.md)]
+::: moniker range="<=doc-intel-4.0.0"
+ [!INCLUDE [applies to v4.0 v3.1 v3.0 v2.1](../includes/applies-to-v40-v31-v30-v21.md)]
+::: moniker-end
 
- In this guide, you'll learn how to use the metrics dashboard in the Azure portal to view how many pages were processed by Azure AI Document Intelligence. You'll also learn how to estimate the cost of processing those pages using the Azure pricing calculator.
+In this guide, you'll learn how to use the metrics dashboard in the Azure portal to view how many pages were processed by Azure AI Document Intelligence. You'll also learn how to estimate the cost of processing those pages using the Azure pricing calculator.
 
 ## Check how many pages were processed
 

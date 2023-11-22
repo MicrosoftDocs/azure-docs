@@ -9,6 +9,9 @@ ms.author: dacurwin
 ---
 # Introduction to Microsoft Defender for container registries (deprecated)
 
+> [!IMPORTANT]
+> We have started a public preview of Azure Vulnerability Assessment powered by MDVM. For more information see [Vulnerability assessments for Azure with Microsoft Defender Vulnerability Management](agentless-container-registry-vulnerability-assessment.md).
+
 Azure Container Registry (ACR) is a managed, private Docker registry service that stores and manages your container images for Azure deployments in a central registry. It's based on the open-source Docker Registry 2.0.
 
 To protect the Azure Resource Manager based registries in your subscription, enable **Microsoft Defender for container registries** at the subscription level. Defender for Cloud will then scan all images when they’re pushed to the registry, imported into the registry, or pulled within the last 30 days. You’ll be charged for every image that gets scanned – once per image.
@@ -32,7 +35,7 @@ To protect the Azure Resource Manager based registries in your subscription, ena
 |Supported registries and images:|Linux images in ACR registries accessible from the public internet with shell access<br>[ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md)|
 |Unsupported registries and images:|Windows images<br>'Private' registries (unless access is granted to [Trusted Services](../container-registry/allow-access-trusted-services.md#trusted-services))<br>Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images, or "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br>Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md)|
 |Required roles and permissions:|**Security reader** and [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md)|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: National (Azure Government, Azure China 21Vianet)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: National (Azure Government, Microsoft Azure operated by 21Vianet)|
 
 ## What are the benefits of Microsoft Defender for container registries?
 
@@ -92,7 +95,7 @@ Yes. If you have an organizational need to ignore a finding, rather than remedia
 
 ### Why is Defender for Cloud alerting me to vulnerabilities about an image that isn’t in my registry?
 
-Defender for Cloud provides vulnerability assessments for every image pushed or pulled in a registry. Some images may reuse tags from an image that was already scanned. For example, you may reassign the tag “Latest” every time you add an image to a digest. In such cases, the ‘old’ image does still exist in the registry and may still be pulled by its digest. If the image has security findings and is pulled, it'll expose security vulnerabilities.
+Defender for Cloud provides vulnerability assessments for every image pushed or pulled in a registry. Some images might reuse tags from an image that was already scanned. For example, you might reassign the tag “Latest” every time you add an image to a digest. In such cases, the ‘old’ image does still exist in the registry and might still be pulled by its digest. If the image has security findings and is pulled, it'll expose security vulnerabilities.
 
 ## Next steps
 

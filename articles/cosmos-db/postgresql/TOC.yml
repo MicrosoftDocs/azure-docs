@@ -1,15 +1,17 @@
 - name: PostgreSQL documentation
   href: index.yml
-- name: Overview
-  items:
-    - name: What is Azure Cosmos DB for PostgreSQL?
-      href: introduction.md
-    - name: Product updates
-      href: product-updates.md
+- name: What is Azure Cosmos DB for PostgreSQL?
+  href: introduction.md
+- name: Product updates
+  href: product-updates.md
 - name: Quickstart
   items:
     - name: Create cluster
-      href: quickstart-create-portal.md
+      items:
+        - name: Azure portal
+          href: quickstart-create-portal.md
+        - name: Bicep
+          href: quickstart-create-bicep.md
     - name: Connect
       href: quickstart-connect-psql.md
     - name: Distribute tables
@@ -60,6 +62,9 @@
         - name: Design a real-time dashboard
           href: tutorial-design-database-realtime.md
           displayName: tutorial, real-time
+        - name: Design for microservices
+          href: tutorial-design-database-microservices.md
+          displayName: tutorial, microservices
     - name: Administer
       items:
         - name: Set up private access
@@ -69,6 +74,8 @@
   items:
     - name: Clusters
       href: concepts-cluster.md
+    - name: Sharding models
+      href: concepts-sharding-models.md
     - name: Distributed data
       items:
         - name: Nodes and tables
@@ -94,6 +101,9 @@
         - name: Private access
           href: concepts-private-access.md
           displayName: private, link
+        - name: Microsoft Entra ID and Postgres authentication
+          href: concepts-authentication.md
+          displayName: Azure Active Directory, AAD, authentication, PostgreSQL roles
         - name: Node DNS names
           href: concepts-node-domain-name.md
           displayName: DNS, FQDN, connection, connect
@@ -157,8 +167,8 @@
           href: howto-ingest-azure-data-factory.md
     - name: Manage
       items:
-        - name: Create users
-          href: howto-create-users.md
+        - name: Manage Microsoft Entra ID and Postgres authentication
+          href: how-to-configure-authentication.md
         - name: Schedule maintenance
           href: howto-maintenance.md
         - name: Start and stop cluster compute
@@ -214,6 +224,9 @@
         - name: Manage private access
           href: howto-private-access.md
           displayName: network, private link
+        - name: Manage Microsoft Entra ID and Postgres users
+          href: how-to-configure-authentication.md
+          displayName: Azure Active Directory, PosgreSQL roles, authentication
         - name: Customer managed keys
           href: how-to-customer-managed-keys.md
           displayName: customer-managed, keys, cmk
@@ -270,9 +283,25 @@
       href: /azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-arm-template
     - name: Bicep
       href: /azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-bicep
+    - name: Azure CLI
+      href: /cli/azure/cosmosdb/postgres
+    - name: Azure SDKs
+      items:
+        - name: .NET SDK
+          href: https://www.nuget.org/packages/Azure.ResourceManager.CosmosDBForPostgreSql/
+        - name: Go SDK
+          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/cosmosforpostgresql/armcosmosforpostgresql
+        - name: Java SDK
+          href: https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmosdbforpostgresql/
+        - name: JavaScript SDK
+          href: https://www.npmjs.com/package/@azure/arm-cosmosdbforpostgresql/
+        - name: Python SDK
+          href: https://pypi.org/project/azure-mgmt-cosmosdbforpostgresql/
 
 - name: Resources
   items:
+    - name: Learning path - Azure Cosmos DB for PostgreSQL
+      href: /training/paths/azure-cosmos-db-for-postgresql/
     - name: Pricing
       href: resources-pricing.md
     - name: Regional availability

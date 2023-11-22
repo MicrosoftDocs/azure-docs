@@ -11,105 +11,111 @@ ms.topic: how-to
 
 # How to create a `WebPubSubServiceClient` with .NET and Azure Identity
 
-This how-to guide shows you how to create a `WebPubSubServiceClient` using Azure Active Directory in .NET.
+This how-to guide shows you how to create a `WebPubSubServiceClient` using Microsoft Entra ID in .NET.
 
 ## Requirements
 
 - Install [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) from nuget.org.
 
   ```bash
-  Install-Package Azure.Identity
+  dotnet add package Azure.Identity
   ```
 
 - Install [Azure.Messaging.WebPubSub](https://www.nuget.org/packages/Azure.Messaging.WebPubSub) from nuget.org
 
   ```bash
-  Install-Package Azure.Messaging.WebPubSub 
+  dotnet add package Azure.Messaging.WebPubSub
   ```
 
+- If using DependencyInjection, install [Microsoft.Extensions.Azure](https://www.nuget.org/packages/Microsoft.Extensions.Azure) from nuget.org
+
+  ```bash
+  dotnet add package Microsoft.Extensions.Azure
+  ```
+  
 ## Sample codes
 
 1. Create a `TokenCredential` with Azure Identity SDK.
 
-    ```C#
-    using Azure.Identity;
+   ```C#
+   using Azure.Identity;
 
-    namespace chatapp 
-    {
-        public class Program
-        {
-            public static void Main(string[] args)
-            {
-                var credential = new DefaultAzureCredential();
-            }
-        }
-    }
-    ```
+   namespace chatapp
+   {
+       public class Program
+       {
+           public static void Main(string[] args)
+           {
+               var credential = new DefaultAzureCredential();
+           }
+       }
+   }
+   ```
 
-    `credential` can be any class that inherits from `TokenCredential` class.
+   `credential` can be any class that inherits from `TokenCredential` class.
 
-    - EnvironmentCredential
-    - ClientSecretCredential
-    - ClientCertificateCredential
-    - ManagedIdentityCredential
-    - VisualStudioCredential
-    - VisualStudioCodeCredential
-    - AzureCliCredential
+   - EnvironmentCredential
+   - ClientSecretCredential
+   - ClientCertificateCredential
+   - ManagedIdentityCredential
+   - VisualStudioCredential
+   - VisualStudioCodeCredential
+   - AzureCliCredential
 
-    To learn more, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme)
+   To learn more, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme)
 
-2. Then create a `client` with `endpoint`, `hub`, and `credential`. 
+2. Then create a `client` with `endpoint`, `hub`, and `credential`.
 
-    ```C#
-    using Azure.Identity;
-    using Azure.Messaging.WebPubSub;
-    
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var credential = new DefaultAzureCredential();
-            var client = new WebPubSubServiceClient(new Uri("<endpoint>"), "<hub>", credential);
-        }
-    }
-    ```
+   ```C#
+   using Azure.Identity;
+   using Azure.Messaging.WebPubSub;
 
-    Or inject it into `IServiceCollections` with our `BuilderExtensions`.
+   public class Program
+   {
+       public static void Main(string[] args)
+       {
+           var credential = new DefaultAzureCredential();
+           var client = new WebPubSubServiceClient(new Uri("<endpoint>"), "<hub>", credential);
+       }
+   }
+   ```
 
-    ```C#
-    using System;
+   Or inject it into `IServiceCollections` with our `BuilderExtensions`.
 
-    using Azure.Identity;
+   ```C#
+   using System;
 
-    using Microsoft.Extensions.Azure;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
+   using Azure.Identity;
 
-    namespace chatapp
-    {
-        public class Startup
-        {
-            public Startup(IConfiguration configuration)
-            {
-                Configuration = configuration;
-            }
+   using Microsoft.Extensions.Azure;
+   using Microsoft.Extensions.Configuration;
+   using Microsoft.Extensions.DependencyInjection;
 
-            public IConfiguration Configuration { get; }
+   namespace chatapp
+   {
+       public class Startup
+       {
+           public Startup(IConfiguration configuration)
+           {
+               Configuration = configuration;
+           }
 
-            public void ConfigureServices(IServiceCollection services)
-            {
-                services.AddAzureClients(builder =>
-                {
-                    var credential = new DefaultAzureCredential();
-                    builder.AddWebPubSubServiceClient(new Uri("<endpoint>"), "<hub>", credential);
-                });
-            }
-        }
-    }
-    ```
+           public IConfiguration Configuration { get; }
 
-    Learn how to use this client, see [Azure Web PubSub service client library for .NET](/dotnet/api/overview/azure/messaging.webpubsub-readme)
+           public void ConfigureServices(IServiceCollection services)
+           {
+               services.AddAzureClients(builder =>
+               {
+                   var credential = new DefaultAzureCredential();
+                   builder.AddWebPubSubServiceClient(new Uri("<endpoint>"), "<hub>", credential);
+               });
+           }
+       }
+   }
+   ```
+
+   Learn how to use this client, see [Azure Web PubSub service client library for .NET](/dotnet/api/overview/azure/messaging.webpubsub-readme)
 
 ## Complete sample
 
-- [Simple chatroom with AAD Auth](https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/chatapp-aad)
+- [Simple chatroom with Microsoft Entra authorization](https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/chatapp-aad)

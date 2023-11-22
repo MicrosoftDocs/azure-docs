@@ -1,5 +1,5 @@
 ---
-title: Understand NAS concepts in Azure NetApp Files 
+title: Understand NAS concepts in Azure NetApp Files | Microsoft Docs
 description: This article covers important information about NAS volumes when using Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''

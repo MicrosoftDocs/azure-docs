@@ -26,61 +26,22 @@ The packet core instances in the Azure Private 5G Core service run on an Arc-ena
     > Make a note of the Azure Stack Edge's resource group. The AKS cluster and custom location, created in this procedure, must belong to this resource group.
 - Review [Azure Stack Edge virtual machine sizing](azure-stack-edge-virtual-machine-sizing.md#azure-stack-edge-virtual-machine-sizing) to ensure your ASE has enough space available to commission the cluster.
 
-## Enter a minishell session
+## Configure Kubernetes for Azure Private MEC on the Azure Stack Edge device
 
-You need to run minishell commands on Azure Stack Edge  during this procedure. You must use a Windows machine that is on a network with access to the management port of the ASE. You should be able to view the ASE local UI to verify you have access.
+These steps modify the Kubernetes cluster on the Azure Stack Edge device to optimize it for Azure Private MEC workloads.
 
-> [!TIP]
-> To access the local UI, see [Tutorial: Connect to Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-connect.md).
+1. In the local UI, select **Kubernetes** in the left-hand menu.
+2. Under **Choose the option that best describes your scenario**, select **an Azure Private MEC solution in your environment**.
+3. On the **Workload confirmation** popup, select **I confirm I am running Azure Private MEC in my environment**, and click **Apply** to close the popup.
+4. Click **Apply** to save the changes.
 
-### Enable WinRM on your machine
+:::image type="content" source="media/commission-cluster/commission-cluster-enable-aks.png" alt-text="Screenshot of ASE Kubernetes configuration menu. The Azure Private MEC radio button is selected. The Workload confirmation popup is overlaid.":::
 
-The following process uses PowerShell and needs WinRM to be enabled on your machine. Run the following command from a PowerShell window in Administrator mode:
-```powershell
-winrm quickconfig
-```
-WinRM may already be enabled on your machine, as you only need to do it once. Ensure your network connections are set to Private or Domain (not Public), and accept any changes.
-
-### Start the minishell session
-
-1. From a PowerShell window, enter the ASE management IP address (including quotation marks, for example `"10.10.5.90"`):
-    ```powershell
-   $ip = "*ASE IP address*"
-   
-   $sessopt = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck
-
-   $minishellSession = New-PSSession -ComputerName $ip -ConfigurationName "Minishell" -Credential ~\EdgeUser -UseSSL -SessionOption $sessopt
-    ```
-
-1. At the prompt, enter your Azure Stack Edge password. Ignore the following message:
-
-    `WARNING: The Windows PowerShell interface of your device is intended to
-   be used only for the initial network configuration. Please
-   engage Microsoft Support if you need to access this interface
-   to troubleshoot any potential issues you may be experiencing.
-   Changes made through this interface without involving Microsoft
-   Support could result in an unsupported configuration.`
-
-You now have a minishell session set up ready to enable your Azure Kubernetes Service in the next step.
-
-> [!TIP]
-> If there is a network change, the session can break. Run `Get-PSSession` to view the state of the session.  If it is still connected, you should still be able to run minishell commands. If it is broken or disconnected, run `Remove-PSSession` to remove the session locally, then start a new session.
-
-## Enable Azure Kubernetes Service on the Azure Stack Edge device
-
-Run the following commands at the PowerShell prompt, specifying the object ID you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). 
-
-```powershell
-Invoke-Command -Session $minishellSession -ScriptBlock {Set-HcsKubeClusterArcInfo -CustomLocationsObjectId *object ID*}
-
-Invoke-Command -Session $minishellSession -ScriptBlock {Enable-HcsAzureKubernetesService -f}
-```
-
-Once you've run these commands, you should see an updated option in the local UI – **Kubernetes** becomes **Kubernetes (Preview)** as shown in the following image.
+Once you've applied these changes, you should see an updated option in the local UI – **Kubernetes** becomes **Kubernetes (Preview)** as shown in the following image.
 
 :::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview.png" alt-text="Screenshot of configuration menu, with Kubernetes (Preview) highlighted.":::
 
-Additionally, if you go to the Azure portal and navigate to your **Azure Stack Edge** resource, you should see an **Azure Kubernetes Service** option. You'll set up the Azure Kubernetes Service in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc).
+If you go to the Azure portal and navigate to your **Azure Stack Edge** resource, you should see an **Azure Kubernetes Service** option. You'll set up the Azure Kubernetes Service in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc).
 
 :::image type="content" source="media/commission-cluster/commission-cluster-ase-resource.png" alt-text="Screenshot of Azure Stack Edge resource in the Azure portal. Azure Kubernetes Service (PREVIEW) is shown under Edge services in the left menu.":::
 
@@ -116,15 +77,17 @@ You can input all the settings on this page before selecting **Apply** at the bo
     - User plane access interface
     - User plane data interface(s)  
 
-    You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. For example, you can use the names **N2**, **N3** and **N6-DN1**, **N6-DN2**, **N6-DN3** (for a 5G deployment with multiple data networks (DNs); just **N6** for a single DN deployment). You can optionally configure each virtual network with a virtual local area network identifier (VLAN ID) to enable layer 2 traffic separation. The following example is for a 5G multi-DN deployment without VLANs.
+    You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. For example, you can use the names **N2**, **N3** and up to ten **N6-DNX** (where **X** is the DN number 1-10 in a multiple DN deployment; or just **N6** for a single DN deployment). You can optionally configure each virtual network with a virtual local area network identifier (VLAN ID) to enable layer 2 traffic separation. The following example is for a 5G multi-DN deployment without VLANs.
 :::zone pivot="ase-pro-2"
-3. Carry out the following procedure three times, plus once for each of the supplementary data networks (so five times in total if you have the maximum three data networks):
+3. Carry out the following procedure three times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
+    > [!IMPORTANT]
+    > If you are using port 3 for data networks, we recommend that it is used for the lowest expected load.
     1. Select **Add virtual network** and fill in the side panel:
-          - **Virtual switch**: select **vswitch-port3** for N2 and N3, and select **vswitch-port4** for N6-DN1, N6-DN2, and N6-DN3.
-          - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.
-          - **VLAN**: 0
-          - **Subnet mask** and **Gateway**: Use the correct subnet mask and gateway for the IP address configured on the ASE port (even if the gateway is not set on the ASE port itself).
-            - For example, *255.255.255.0* and *10.232.44.1*
+        - **Virtual switch**: select **vswitch-port3** for N2, N3 and up to four DNs, and select **vswitch-port4** for up to six DNs.
+        - **Name**: *N2*, *N3*, or *N6-DNX* (where *X* is the DN number 1-10).
+        - **VLAN**: VLAN ID, or 0 if not using VLANs
+        - **Network** and **Gateway**: Use the correct subnet and gateway for the IP address configured on the ASE port (even if the gateway is not set on the ASE port itself).
+            - For example, *10.232.44.0/24* and *10.232.44.1*
             - If the subnet does not have a default gateway, use another IP address in the subnet which will respond to ARP requests (such as one of the RAN IP addresses). If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
         - **DNS server** and **DNS suffix** should be left blank.
     1. Select **Modify** to save the configuration for this virtual network.
@@ -134,14 +97,15 @@ You can input all the settings on this page before selecting **Apply** at the bo
   :::image type="content" source="media/commission-cluster/commission-cluster-advanced-networking-ase-2.png" alt-text="Screenshot showing Advanced networking, with a table of virtual switch information and a table of virtual network information.":::
 :::zone-end
 :::zone pivot="ase-pro-gpu"
-
-3. Carry out the following procedure three times, plus once for each of the supplementary data networks (so five times in total if you have the maximum three data networks):
+3. Carry out the following procedure three times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
+    > [!IMPORTANT]
+    > If you are using port 5 for data networks, we recommend that it is used for the lowest expected load.
     1. Select **Add virtual network** and fill in the side panel:
-        - **Virtual switch**: select **vswitch-port5** for N2 and N3, and select **vswitch-port6** for N6-DN1, N6-DN2, and N6-DN3.
-        - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.
+        - **Virtual switch**: select **vswitch-port5** for N2, N3 and up to four DNs, and select **vswitch-port6** for up to six DNs.
+        - **Name**: *N2*, *N3*, or *N6-DNX* (where *X* is the DN number 1-10).
         - **VLAN**: VLAN ID, or 0 if not using VLANs
-        - **Subnet mask** and **Gateway** must match the external values for the port.
-            - For example, *255.255.255.0* and *10.232.44.1*
+        - **Network** and **Gateway**: Use the correct subnet and gateway for the IP address configured on the ASE port (even if the gateway is not set on the ASE port itself).
+            - For example, *10.232.44.0/24* and *10.232.44.1*
             - If the subnet does not have a default gateway, use another IP address in the subnet which will respond to ARP requests (such as one of the RAN IP addresses). If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
         - **DNS server** and **DNS suffix** should be left blank.
     1. Select **Modify** to save the configuration for this virtual network.
@@ -158,11 +122,11 @@ In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'l
 1. Under **Compute virtual switch**, select **Modify**.
       1. Select the vswitch with compute intent (for example, *vswitch-port2*)
       1. Enter six IP addresses in a range for the node IP addresses on the management network.
-      1. Enter one IP address in a range for the service IP address, also on the management network.
+      1. Enter one IP address in a range for the service IP address, also on the management network. This will be used for accessing local monitoring tools for the packet core instance.
       1. Select **Modify** at the bottom of the panel to save the configuration.
-1. Under **Virtual network**, select a virtual network (from **N2**, **N3**, **N6-DN1**, **N6-DN2**, and **N6-DN3**). In the side panel:
-      1. Enable the virtual network for Kubernetes and add a pool of IP addresses. Add a range of one IP address for the appropriate address (N2, N3, N6-DN1, N6-DN2 or N6-DN3 as collected earlier. For example, *10.10.10.20-10.10.10.20*.
-      1. Repeat for each of the N2, N3, N6-DN1, N6-DN2, and N6-DN3 virtual networks.
+1. Under **Virtual network**, select a virtual network, from **N2**, **N3**, **N6-DNX** (where *X* is the DN number 1-10). In the side panel:
+      1. Enable the virtual network for Kubernetes and add a pool of IP addresses. Add a range of one IP address for the appropriate address (N2, N3, or N6-DNX as collected earlier). For example, *10.10.10.20-10.10.10.20*.
+      1. Repeat for each of the N2, N3, and N6-DNX virtual networks.
       1. Select **Modify** at the bottom of the panel to save the configuration.
 1. Select **Apply** at the bottom of the page and wait for the settings to be applied. Applying the settings will take approximately 5 minutes.
 
@@ -193,7 +157,13 @@ If you're running other VMs on your Azure Stack Edge, we recommend that you stop
 
 1. For the **Node size**, select **Standard_F16s_HPN**.
 1. Ensure the **Arc enabled Kubernetes** checkbox is selected.
-1. The Arc enabled Kubernetes service is automatically created in the same resource group as your **Azure Stack Edge** resource. If your Azure Stack Edge resource group is not in a region that supports Azure Private 5G Core, you must change the region using the **Change** link.
+1. Select the **Change** link and enter the Microsoft Entra application Object Id (OID) for the custom location which you obtained from [Retrieve the Object ID (OID)](complete-private-mobile-network-prerequisites.md#retrieve-the-object-id-oid).
+
+   :::image type="content" source="media/commission-cluster/commission-cluster-configure-kubernetes.png" alt-text="Screenshot of Configure Arc enabled Kubernetes pane, showing where to enter the custom location OID.":::
+
+1. The Arc enabled Kubernetes service is automatically created in the same resource group as your **Azure Stack Edge** resource. If your Azure Stack Edge resource group is not in a region that supports Azure Private 5G Core, you must change the region.
+1. Click **Configure** to apply the configuration.
+1. Check the **Region** and **Microsoft Entra application Object Id (OID)** fields show the appropriate values, and then click **Create**.
 1. Work through the prompts to set up the service.
 
 The creation of the Kubernetes cluster takes about 20 minutes. During creation, there may be a critical alarm displayed on the **Azure Stack Edge** resource. This alarm is expected and should disappear after a few minutes.
@@ -204,23 +174,9 @@ Once deployed, the portal should show  **Kubernetes service is running** on the 
 
 You'll need *kubectl* access to verify that the cluster has deployed successfully. For read-only *kubectl* access to the cluster, you can download a *kubeconfig* file from the ASE local UI. Under **Device**, select **Download config**.
 
-:::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-download-config.png" alt-text="Screenshot of Kubernetes dashboard showing link to download config.":::
+:::image type="content" source="media/set-up-kubectl/commission-cluster-kubernetes-download-config.png" alt-text="Screenshot of Kubernetes dashboard showing link to download config.":::
 
 The downloaded file is called *config.json*. This file has permission to describe pods and view logs, but not to access pods with *kubectl exec*.
-
-The Azure Private 5G Core deployment uses the *core* namespace. If you need to collect diagnostics, you can download a *kubeconfig* file with full access to the *core* namespace using the following minishell commands.
-
-- Create the namespace, download the *kubeconfig* file and use it to grant access to the namespace:
-    ```powershell
-    Invoke-Command -Session $minishellSession -ScriptBlock {New-HcsKubernetesNamespace -Namespace "core"}
-    Invoke-Command -Session $minishellSession -ScriptBlock {New-HcsKubernetesUser -UserName "core"} | Out-File -FilePath .\kubeconfig-core.yaml
-    Invoke-Command -Session $minishellSession -ScriptBlock {Grant-HcsKubernetesNamespaceAccess -Namespace "core" -UserName "core"}
-    ```
-- If you need to retrieve the saved *kubeconfig* file later:
-    ```powershell
-    Invoke-Command -Session $miniShellSession -ScriptBlock { Get-HcsKubernetesUserConfig -UserName "core" }
-    ```
-For more information, see [Configure cluster access via Kubernetes RBAC](../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md#configure-cluster-access-via-kubernetes-rbac).
 
 ## Set up portal access
 
@@ -277,17 +233,17 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 > [!TIP]
 > The commands in this section require the `k8s-extension` and `customlocation` extensions to the Azure CLI tool to be installed. If you do not already have them, a prompt will appear to install these when you run commands that require them. See [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview) for more information on automatic extension installation.
 
-1. Sign in to the Azure CLI using Azure Cloud Shell.
+1. Sign in to the Azure CLI using Azure Cloud Shell and select **Bash** from the dropdown menu.
 
 1. Set the following environment variables using the required values for your deployment:
 
     ```azurecli
-    $SUBSCRIPTION_ID=<subscription ID>
-    $RESOURCE_GROUP_NAME=<resource group name>
-    $LOCATION=<deployment region, for example eastus>
-    $CUSTOM_LOCATION=<custom location for the AKS cluster>
-    $ARC_CLUSTER_RESOURCE_NAME=<resource name>
-    $TEMP_FILE=./tmpfile
+    SUBSCRIPTION_ID=<subscription ID>
+    RESOURCE_GROUP_NAME=<resource group name>
+    LOCATION=<deployment region, for example eastus>
+    CUSTOM_LOCATION=<custom location for the AKS cluster>
+    ARC_CLUSTER_RESOURCE_NAME=<resource name>
+    TEMP_FILE=./tmpfile
     ```
 
 1. Prepare your shell environment:
@@ -299,7 +255,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 1. Create the Network Function Operator Kubernetes extension:
 
     ```azurecli
-    Add-Content -Path $TEMP_FILE -Value @"
+    cat > $TEMP_FILE <<EOF
     {
       "helm.versions": "v3",
       "Microsoft.CustomLocation.ServiceAccount": "azurehybridnetwork-networkfunction-operator",
@@ -310,45 +266,45 @@ The Azure Private 5G Core private mobile network requires a custom location and 
       "helm.release-namespace": "azurehybridnetwork",
       "managed-by": "helm"
     }
-    "@ 
+    EOF 
     ```
 
     ```azurecli
-    az k8s-extension create `
-    --name networkfunction-operator `
-    --cluster-name "$ARC_CLUSTER_RESOURCE_NAME" `
-    --resource-group "$RESOURCE_GROUP_NAME" `
-    --cluster-type connectedClusters `
-    --extension-type "Microsoft.Azure.HybridNetwork" `
-    --auto-upgrade-minor-version "true" `
-    --scope cluster `
-    --release-namespace azurehybridnetwork `
-    --release-train preview `
+    az k8s-extension create \
+    --name networkfunction-operator \
+    --cluster-name "$ARC_CLUSTER_RESOURCE_NAME" \
+    --resource-group "$RESOURCE_GROUP_NAME" \
+    --cluster-type connectedClusters \
+    --extension-type "Microsoft.Azure.HybridNetwork" \
+    --auto-upgrade-minor-version "true" \
+    --scope cluster \
+    --release-namespace azurehybridnetwork \
+    --release-train preview \
     --config-settings-file $TEMP_FILE 
     ```
 
 1. Create the Packet Core Monitor Kubernetes extension:
 
     ```azurecli
-    az k8s-extension create `
-    --name packet-core-monitor `
-    --cluster-name "$ARC_CLUSTER_RESOURCE_NAME" `
-    --resource-group "$RESOURCE_GROUP_NAME" `
-    --cluster-type connectedClusters `
-    --extension-type "Microsoft.Azure.MobileNetwork.PacketCoreMonitor" `
-    --release-train stable `
+    az k8s-extension create \
+    --name packet-core-monitor \
+    --cluster-name "$ARC_CLUSTER_RESOURCE_NAME" \
+    --resource-group "$RESOURCE_GROUP_NAME" \
+    --cluster-type connectedClusters \
+    --extension-type "Microsoft.Azure.MobileNetwork.PacketCoreMonitor" \
+    --release-train stable \
     --auto-upgrade true 
     ```
 
 1. Create the custom location:
 
     ```azurecli
-    az customlocation create `
-    -n "$CUSTOM_LOCATION" `
-    -g "$RESOURCE_GROUP_NAME" `
-    --location "$LOCATION" `
-    --namespace azurehybridnetwork `
-    --host-resource-id "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$ARC_CLUSTER_RESOURCE_NAME" `
+    az customlocation create \
+    -n "$CUSTOM_LOCATION" \
+    -g "$RESOURCE_GROUP_NAME" \
+    --location "$LOCATION" \
+    --namespace azurehybridnetwork \
+    --host-resource-id "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$ARC_CLUSTER_RESOURCE_NAME" \
     --cluster-extension-ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$ARC_CLUSTER_RESOURCE_NAME/providers/Microsoft.KubernetesConfiguration/extensions/networkfunction-operator"
     ```
 

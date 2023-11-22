@@ -2,11 +2,10 @@
 title: 'Test your Custom Commands app'
 titleSuffix: Azure AI services
 description: In this article, you learn different approaches to testing a custom commands application. 
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: eur

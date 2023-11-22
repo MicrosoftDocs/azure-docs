@@ -2,11 +2,10 @@
 title: "Tutorial: Voice-enable your bot - Speech service"
 titleSuffix: Azure AI services
 description: In this tutorial, you'll create an echo bot and configure a client app that lets you speak to your bot and hear it respond back to you.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: tutorial
 ms.date: 01/24/2022
 ms.author: eur
@@ -16,7 +15,7 @@ ms.custom: cogserv-non-critical-speech, devx-track-csharp
 
 # Tutorial: Voice-enable your bot
 
-You can use Azure AI services Speech to voice-enable a chat bot.
+You can use Azure AI Speech to voice-enable a chat bot.
 
 In this tutorial, you'll use the Microsoft Bot Framework to create a bot that responds to what you say. You'll deploy your bot to Azure and register it with the Bot Framework Direct Line Speech channel. Then, you'll configure a sample client app for Windows that lets you speak to your bot and hear it speak back to you.
 

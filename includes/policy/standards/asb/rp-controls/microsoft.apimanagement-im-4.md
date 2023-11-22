@@ -2,12 +2,13 @@
 author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/20/2023
+ms.date: 11/21/2023
 ms.author: davidsmatlak
 ms.custom: generated
 ---
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
+|[API endpoints in Azure API Management should be authenticated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8ac833bd-f505-48d5-887e-c993a1d3eea0) |API endpoints published within Azure API Management should enforce authentication to help minimize security risk. Authentication mechanisms are sometimes implemented incorrectly or are missing. This allows attackers to exploit implementation flaws and to access data. Learn More about the OWASP API Threat for Broken User Authentication here: [https://learn.microsoft.com/azure/api-management/mitigate-owasp-api-threats#broken-user-authentication](../../../../../articles/api-management/mitigate-owasp-api-threats.md#broken-user-authentication) |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_APIMApiEndpointsShouldbeAuthenticated_AuditIfNotExists.json) |
 |[API Management calls to API backends should be authenticated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc15dcc82-b93c-4dcb-9332-fbf121685b54) |Calls from API Management to backends should use some form of authentication, whether via certificates or credentials. Does not apply to Service Fabric backends. |Audit, Disabled, Deny |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/API%20Management/ApiManagement_BackendAuth_AuditDeny.json) |
 |[API Management calls to API backends should not bypass certificate thumbprint or name validation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F92bb331d-ac71-416a-8c91-02f2cb734ce4) |To improve the API security, API Management should validate the backend server certificate for all API calls. Enable SSL certificate thumbprint and name validation. |Audit, Disabled, Deny |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/API%20Management/ApiManagement_BackendCertificateChecks_AuditDeny.json) |

@@ -4,8 +4,8 @@ description: Guidance for configuring Azure Government services for DoD Impact L
 ms.service: azure-government
 ms.topic: article
 ms.custom: references_regions, ignite-2022
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 recommendations: false
 ms.date: 04/02/2023
 ---
@@ -62,47 +62,63 @@ Be sure to review the entry for each service you're using and ensure that all is
 
 For AI and machine learning services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=project-bonsai,genomics,search,bot-service,databricks,machine-learning-service,cognitive-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
-### [Azure Cognitive Search](../search/index.yml)
+### [Azure AI Search](../search/index.yml)
 
-- Configure encryption at rest of content in Azure Cognitive Search by [using customer-managed keys in Azure Key Vault](../search/search-security-manage-encryption-keys.md).
+- Configure encryption at rest of content in Azure AI Search by [using customer-managed keys in Azure Key Vault](../search/search-security-manage-encryption-keys.md).
 
 ### [Azure Machine Learning](../machine-learning/index.yml)
 
 - Configure encryption at rest of content in Azure Machine Learning by using customer-managed keys in Azure Key Vault. Azure Machine Learning stores snapshots, output, and logs in the Azure Blob Storage account that's associated with the Azure Machine Learning workspace and customer subscription. All the data stored in Azure Blob Storage is [encrypted at rest with Microsoft-managed keys](../machine-learning/concept-enterprise-security.md). Customers can use their own keys for data stored in Azure Blob Storage. See [Configure encryption with customer-managed keys stored in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md).
 
-### [Cognitive Services: Content Moderator](../ai-services/content-moderator/index.yml)
+<a name='cognitive-services-content-moderator'></a>
+
+### [Azure AI services: Content Moderator](../ai-services/content-moderator/index.yml)
 
 - Configure encryption at rest of content in the Content Moderator service by [using customer-managed keys in Azure Key Vault](../ai-services/content-moderator/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
 
-### [Cognitive Services: Custom Vision](../ai-services/custom-vision-service/index.yml)
+<a name='cognitive-services-custom-vision'></a>
 
-- Configure encryption at rest of content in Cognitive Services Custom Vision [using customer-managed keys in Azure Key Vault](../ai-services/custom-vision-service/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
+### [Azure AI services: Custom Vision](../ai-services/custom-vision-service/index.yml)
 
-### [Cognitive Services: Face](../ai-services/computer-vision/overview-identity.md)
+- Configure encryption at rest of content in Azure AI Custom Vision [using customer-managed keys in Azure Key Vault](../ai-services/custom-vision-service/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
+
+<a name='cognitive-services-face'></a>
+
+### [Azure AI services: Face](../ai-services/computer-vision/overview-identity.md)
 
 - Configure encryption at rest of content in the Face service by [using customer-managed keys in Azure Key Vault](../ai-services/computer-vision/identity-encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
 
-### [Cognitive Services: Language Understanding (LUIS)](../ai-services/luis/index.yml)
+<a name='cognitive-services-language-understanding-luis'></a>
+
+### [Azure AI Language Understanding (LUIS)](../ai-services/luis/index.yml)
 
 - Configure encryption at rest of content in the Language Understanding service by [using customer-managed keys in Azure Key Vault](../ai-services/luis/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
 
-Cognitive Services Language Understanding (LUIS) is part of [Cognitive Services for Language](../ai-services/language-service/index.yml).
+Azure AI Language Understanding (LUIS) is part of [Azure AI Language](../ai-services/language-service/index.yml).
 
-### [Cognitive Services: Personalizer](../ai-services/personalizer/index.yml)
+<a name='cognitive-services-personalizer'></a>
 
-- Configure encryption at rest of content in Cognitive Services Personalizer [using customer-managed keys in Azure Key Vault](../ai-services/personalizer/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
+### [Azure AI services: Personalizer](../ai-services/personalizer/index.yml)
 
-### [Cognitive Services: QnA Maker](../ai-services/qnamaker/index.yml)
+- Configure encryption at rest of content in Azure AI Personalizer [using customer-managed keys in Azure Key Vault](../ai-services/personalizer/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
 
-- Configure encryption at rest of content in Cognitive Services QnA Maker [using customer-managed keys in Azure Key Vault](../ai-services/qnamaker/encrypt-data-at-rest.md).
+<a name='cognitive-services-qna-maker'></a>
 
-Cognitive Services QnA Maker is part of [Cognitive Services for Language](../ai-services/language-service/index.yml).
+### [Azure AI services: QnA Maker](../ai-services/qnamaker/index.yml)
 
-### [Cognitive Services: Speech](../ai-services/speech-service/index.yml)
+- Configure encryption at rest of content in Azure AI QnA Maker [using customer-managed keys in Azure Key Vault](../ai-services/qnamaker/encrypt-data-at-rest.md).
+
+Azure AI QnA Maker is part of [Azure AI Language](../ai-services/language-service/index.yml).
+
+<a name='cognitive-services-speech'></a>
+
+### [Azure AI Speech](../ai-services/speech-service/index.yml)
 
 - Configure encryption at rest of content in Speech Services by [using customer-managed keys in Azure Key Vault](../ai-services/speech-service/speech-encryption-of-data-at-rest.md).
 
-### [Cognitive Services: Translator](../ai-services/translator/index.yml)
+<a name='cognitive-services-translator'></a>
+
+### [Azure AI services: Translator](../ai-services/translator/index.yml)
 
 - Configure encryption at rest of content in the Translator service by [using customer-managed keys in Azure Key Vault](../ai-services/translator/encrypt-data-at-rest.md).
 

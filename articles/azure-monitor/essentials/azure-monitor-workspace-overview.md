@@ -19,7 +19,7 @@ Azure Monitor workspaces will eventually contain all metric data collected by Az
 
 ## Azure Monitor workspace architecture 
 
-While a single Azure Monitor workspace may be sufficient for many use cases using Azure Monitor, many organizations create multiple workspaces to better meet their needs. This article presents a set of criteria for deciding whether to use a single Azure Monitor workspace, multiple Azure Monitor workspaces, and the configuration and placement of those workspaces. 
+While a single Azure Monitor workspace can be sufficient for many use cases using Azure Monitor, many organizations create multiple workspaces to better meet their needs. This article presents a set of criteria for deciding whether to use a single Azure Monitor workspace, multiple Azure Monitor workspaces, and the configuration and placement of those workspaces. 
 
 ### Design criteria 
 
@@ -31,7 +31,7 @@ The following table presents criteria to consider when designing an Azure Monito
 |---|---|
 |Segregate by logical boundaries |Create separate Azure Monitor workspaces for operational data based on logical boundaries, such as by a role, application type, type of metric etc.|
 |Azure tenants | For multiple Azure tenants, create an Azure Monitor workspace in each tenant. Data sources can only send monitoring data to an Azure Monitor workspace in the same Azure tenant. |
-|Azure regions |Each Azure Monitor workspace resides in a particular Azure region. Regulatory or compliance requirements may dictate the storage of data in particular locations. |
+|Azure regions |Each Azure Monitor workspace resides in a particular Azure region. Regulatory or compliance requirements might dictate the storage of data in particular locations. |
 |Data ownership |Create separate Azure Monitor workspaces to define data ownership, such as by subsidiaries or affiliated companies.| 
 
 ### Considerations when creating an Azure Monitor workspace 
@@ -54,7 +54,7 @@ When an Azure Monitor workspace reaches 80% of its maximum capacity or is foreca
   
 In certain circumstances, splitting an Azure Monitor workspace into multiple workspaces can be necessary. For example: 
 * Monitoring data in sovereign clouds: Create an Azure Monitor workspace in each sovereign cloud.  
-* Compliance or regulatory requirements that mandate storage of data in specific regions: Create an Azure Monitor workspace per region as per requirements. There may be a need to manage the scale of metrics for large services or financial institutions with regional accounts. 
+* Compliance or regulatory requirements that mandate storage of data in specific regions: Create an Azure Monitor workspace per region as per requirements. There might be a need to manage the scale of metrics for large services or financial institutions with regional accounts. 
 * Separating metrics in test, pre-production, and production environments: Create an Azure Monitor workspace per environment.
 
 >[!Note] 
@@ -63,9 +63,7 @@ In certain circumstances, splitting an Azure Monitor workspace into multiple wor
 
 ## Limitations
 See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for performance related service limits for Azure Monitor managed service for Prometheus.
-- Azure Monitor Private Links aren't supported for Prometheus metrics collection into Azure monitor workspace.
-- Azure Monitor workspaces are currently only supported in public clouds.
-- Azure Monitor workspaces don't currently support being moved into a different subscription or resource group once created.
+
 
 ## Data considerations
 Data stored in the Azure Monitor Workspace is handled in accordance with all standards described in the [Azure Trust Center](https://www.microsoft.com/en-us/trust-center?rtc=1). Several considerations exist specific to data stored in the Azure Monitor Workspace:
@@ -73,6 +71,19 @@ Data stored in the Azure Monitor Workspace is handled in accordance with all sta
 - Data is encrypted at rest using a Microsoft-managed key
 - Data is retained for 18 months
 - For details about the Azure Monitor managed service for Prometheus' support of PII/EUII data, please see details [here](./prometheus-metrics-overview.md)
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### What's the difference between an Azure Monitor workspace and a Log Analytics workspace?
+
+An Azure Monitor workspace is a unique environment for data collected by Azure Monitor. Each workspace has its own data repository, configuration, and permissions. Azure Monitor workspaces will eventually contain all metrics collected by Azure Monitor, including native metrics. Currently, the only data hosted by an Azure Monitor workspace is Prometheus metrics.
+
+### Can I delete Prometheus metrics from an Azure Monitor workspace?
+        
+Data is removed from the Azure Monitor workspace according to its data retention period, which is 18 months. 
+
 
 ## Next steps
 

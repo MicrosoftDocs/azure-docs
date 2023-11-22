@@ -121,22 +121,23 @@ Data asset creation also creates a *reference* to the data source location, alon
 
 The next notebook cell creates the data asset. The code sample uploads the raw data file to the designated cloud storage resource.  
 
-Each time you create a data asset, you need a unique version for it.  If the version already exists, you'll get an error.  This code uses time to generate a unique version, each time the cell is run.
+Each time you create a data asset, you need a unique version for it.  If the version already exists, you'll get an error.  In this code, we're using the "initial" for the first read of the data.  If that version already exists, we'll skip creating it again.
 
-You can also omit the **version** parameter, and a version number is generated for you, starting with 1 and then incrementing from there. In this tutorial, we want to refer to specific version numbers, so we create a version number instead.
+You can also omit the **version** parameter, and a version number is generated for you, starting with 1 and then incrementing from there. 
+
+In this tutorial, we use the name "initial" as the first version. The [Create production machine learning pipelines](tutorial-pipeline-python-sdk.md) tutorial will also use this version of the data, so here we are using a value that you'll see again in that tutorial.
 
 
 ```python
 from azure.ai.ml.entities import Data
 from azure.ai.ml.constants import AssetTypes
-import time
 
 # update the 'my_path' variable to match the location of where you downloaded the data on your
 # local filesystem
 
 my_path = "./data/default_of_credit_card_clients.csv"
-# set the version number of the data asset to the current UTC time
-v1 = time.strftime("%Y.%m.%d.%H%M%S", time.gmtime())
+# set the version number of the data asset
+v1 = "initial"
 
 my_data = Data(
     name="credit-card",
@@ -146,10 +147,15 @@ my_data = Data(
     type=AssetTypes.URI_FILE,
 )
 
-# create data asset
-ml_client.data.create_or_update(my_data)
-
-print(f"Data asset created. Name: {my_data.name}, version: {my_data.version}")
+## create data asset if it doesn't already exist:
+try:
+    data_asset = ml_client.data.get(name="credit-card", version=v1)
+    print(
+        f"Data asset already exists. Name: {my_data.name}, version: {my_data.version}"
+    )
+except:
+    ml_client.data.create_or_update(my_data)
+    print(f"Data asset created. Name: {my_data.name}, version: {my_data.version}")
 ```
 
 You can see the uploaded data by selecting **Data** on the left. You'll see the data is uploaded and a data asset is created:
@@ -240,11 +246,7 @@ This table shows the structure of the data in the original **default_of_credit_c
 |X18-23     | Explanatory        |  Amount of previous payment (NT dollar) from April to September  2005.      |
 |Y     | Response        |    Default payment (Yes = 1, No = 0)     |
 
-Next, create a new _version_ of the data asset (the data automatically uploads to cloud storage):
-
-> [!NOTE]
->
-> This Python code cell sets **name** and **version** values for the data asset it creates. As a result, the code in this cell will fail if executed more than once, without a change to these values. Fixed **name** and **version** values offer a way to pass values that work for specific situations, without concern for auto-generated or randomly-generated values.
+Next, create a new _version_ of the data asset (the data automatically uploads to cloud storage).  For this version, we'll add a time value, so that each time this code is run, a different version number will be created.
 
 
 
@@ -254,7 +256,7 @@ from azure.ai.ml.constants import AssetTypes
 import time
 
 # Next, create a new *version* of the data asset (the data is automatically uploaded to cloud storage):
-v2 = v1 + "_cleaned"
+v2 = "cleaned" + time.strftime("%Y.%m.%d.%H%M%S", time.gmtime())
 my_path = "./data/cleaned-credit-card.parquet"
 
 # Define the data asset, and use tags to make it clear the asset can be used in training

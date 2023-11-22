@@ -8,141 +8,154 @@ ms.date: 01/19/2023
 
 # Certificate rotation in Azure Kubernetes Service (AKS)
 
-Azure Kubernetes Service (AKS) uses certificates for authentication with many of its components. If you have a RBAC-enabled cluster built after March 2022, it's enabled with certificate auto-rotation. Periodically, you may need to rotate those certificates for security or policy reasons. For example, you may have a policy to rotate all your certificates every 90 days.
+Azure Kubernetes Service (AKS) uses certificates for authentication with many of its components. RBAC-enabled clusters created after March 2022 are enabled with certificate auto-rotation. You may need to periodically rotate those certificates for security or policy reasons. For example, you may have a policy to rotate all your certificates every 90 days.
 
 > [!NOTE]
-> Certificate auto-rotation will *only* be enabled by default for RBAC enabled AKS clusters.
+> Certificate auto-rotation is *only* enabled by default for RBAC enabled AKS clusters.
 
 This article shows you how certificate rotation works in your AKS cluster.
 
 ## Before you begin
 
-This article requires that you are running the Azure CLI version 2.0.77 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This article requires the Azure CLI version 2.0.77 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## AKS certificates, Certificate Authorities, and Service Accounts
 
-AKS generates and uses the following certificates, Certificate Authorities, and Service Accounts:
+AKS generates and uses the following certificates, Certificate Authorities (CA), and Service Accounts (SA):
 
-* The AKS API server creates a Certificate Authority (CA) called the Cluster CA.
+* The AKS API server creates a CA called the Cluster CA.
 * The API server has a Cluster CA, which signs certificates for one-way communication from the API server to kubelets.
-* Each kubelet also creates a Certificate Signing Request (CSR), which is signed by the Cluster CA, for communication from the kubelet to the API server.
+* Each kubelet creates a Certificate Signing Request (CSR), which the Cluster CA signs, for communication from the kubelet to the API server.
 * The API aggregator uses the Cluster CA to issue certificates for communication with other APIs. The API aggregator can also have its own CA for issuing those certificates, but it currently uses the Cluster CA.
-* Each node uses a Service Account (SA) token, which is signed by the Cluster CA.
+* Each node uses an SA token, which the Cluster CA signs.
 * The `kubectl` client has a certificate for communicating with the AKS cluster.
 
-Certificates mentioned above are maintained by Microsoft, except the cluster certificate, which you have to maintain.
+Microsoft maintains all certificates mentioned in this section, except for the cluster certificate.
 
 > [!NOTE]
-> AKS clusters created prior to May 2019 have certificates that expire after two years. Any cluster created after May 2019 or any cluster that has its certificates rotated have Cluster CA certificates that expire after 30 years. All other AKS certificates, which use the Cluster CA for signing, will expire after two years and are automatically rotated during an AKS version upgrade which happened after 8/1/2021. To verify when your cluster was created, use `kubectl get nodes` to see the *Age* of your node pools.
 >
-> Additionally, you can check the expiration date of your cluster's certificate. For example, the following bash command displays the client certificate details for the *myAKSCluster* cluster in resource group *rg*:
-> ```console
-> kubectl config view --raw -o jsonpath="{.users[?(@.name == 'clusterUser_rg_myAKSCluster')].user.client-certificate-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
-> ```
+> * **AKS clusters created *before* May 2019** have certificates that expire after two years.
+> * **AKS clusters created *after* May 2019** have Cluster CA certificates that expire after 30 years.
+>
+> You can verify when your cluster was created using the `kubectl get nodes` command, which shows you the *Age* of your node pools.
 
-To check expiration date of apiserver certificate, run the following command:
+## Check certificate expiration dates
 
-```console
-curl https://{apiserver-fqdn} -k -v 2>&1 |grep expire
-```
+### Check cluster certificate expiration date
 
-To check the expiration date of certificate on VMAS agent node, run the following command:
+* Check the expiration date of the cluster certificate using the `kubectl config view` command.
 
-```azurecli
-az vm run-command invoke -g MC_rg_myAKSCluster_region -n vm-name --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
-```
+    ```console
+   kubectl config view --raw -o jsonpath="{.clusters[?(@.name == '')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
+    ```
 
-To check expiration date of certificate on one virtual machine scale set agent node, run the following command:
+### Check API server certificate expiration date
 
-```azurecli
-az vmss run-command invoke --resource-group "MC_rg_myAKSCluster_region" --name "vmss-name " --command-id RunShellScript --instance-id 1 --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate" --query "value[0].message"
-```
+* Check the expiration date of the API server certificate using the following `curl` command.
+
+    ```console
+    curl https://{apiserver-fqdn} -k -v 2>&1 |grep expire
+    ```
+
+### Check VMAS agent node certificate expiration date
+
+* Check the expiration date of the VMAS agent node certificate using the `az vm run-command invoke` command.
+
+    ```azurecli-interactive
+    az vm run-command invoke -g MC_rg_myAKSCluster_region -n vm-name --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
+    ```
+
+### Check Virtual Machine Scale Set agent node certificate expiration date
+
+* Check the expiration date of the Virtual Machine Scale Set agent node certificate using the `az vm run-command invoke` command.
+
+    ```azurecli-interactive
+    az vmss run-command invoke --resource-group "MC_rg_myAKSCluster_region" --name "vmss-name" --command-id RunShellScript --instance-id 1 --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate" --query "value[0].message"
+    ```
 
 ## Certificate Auto Rotation
 
-For AKS to automatically rotate non-CA certificates, the cluster must have [TLS Bootstrapping](https://kubernetes.io/docs/reference/access-authn-authz/kubelet-tls-bootstrapping/) which has been enabled by default in all Azure regions.
+For AKS to automatically rotate non-CA certificates, the cluster must have [TLS Bootstrapping](https://kubernetes.io/docs/reference/access-authn-authz/kubelet-tls-bootstrapping/), which is enabled by default in all Azure regions.
 
 > [!NOTE]
-> If you have an existing cluster you have to upgrade that cluster to enable Certificate Auto-Rotation.
-> Do not disable bootstrap to keep your auto-rotation enabled.
+>
+> * If you have an existing cluster, you have to upgrade that cluster to enable Certificate Auto Rotation.
+> * Don't disable Bootstrap to keep auto rotation enabled.
+> * If the cluster is in a stopped state during the auto certificate rotation, only the control plane certificates are rotated. In this case, you should recreate the node pool after certificate rotation to initiate the node pool certificate rotation.
 
-> [!NOTE]
-> If the cluster is in a stopped state during the auto certificate rotation only the control plane certificates are rotated.  In this case the nodepool should be recreated, after certificate rotation, in order to initiate the nodepool certificate rotation.
-
-For any AKS clusters created or upgraded after March 2022 Azure Kubernetes Service will automatically rotate non-CA certificates on both the control plane and agent nodes within 80% of the client certificate valid time, before they expire with no downtime for the cluster.
+For any AKS clusters created or upgraded after March 2022, Azure Kubernetes Service automatically rotates non-CA certificates on both the control plane and agent nodes within 80% of the client certificate valid time before they expire with no downtime for the cluster.
 
 ### How to check whether current agent node pool is TLS Bootstrapping enabled?
 
-To verify if TLS Bootstrapping is enabled on your cluster browse to the following paths:
+1. Verify if your cluster has TLS Bootstrapping enabled by browsing to one to the following paths:
 
-* On a Linux node: */var/lib/kubelet/bootstrap-kubeconfig* or */host/var/lib/kubelet/bootstrap-kubeconfig*
-* On a Windows node: *C:\k\bootstrap-config*
+   * On a Linux node: */var/lib/kubelet/bootstrap-kubeconfig* or */host/var/lib/kubelet/bootstrap-kubeconfig*
+   * On a Windows node: *C:\k\bootstrap-config*
 
-To access agent nodes, see [Connect to Azure Kubernetes Service cluster nodes for maintenance or troubleshooting][aks-node-access] for more information.
+    For more information, see [Connect to Azure Kubernetes Service cluster nodes for maintenance or troubleshooting][aks-node-access].
 
-> [!NOTE]
-> The file path may change as Kubernetes version evolves in the future.
+    > [!NOTE]
+    > The file path may change as Kubernetes versions evolve.
 
-Once a region is configured, create a new cluster or upgrade an existing cluster with `az aks upgrade` to set that cluster for auto-certificate rotation. A control plane and node pool upgrade is needed to enable this feature.
-
-```azurecli
-az aks upgrade -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
-```
-
-### Limitation
-
-Certificate auto-rotation will only be enabled by default for RBAC enabled AKS clusters.
+2. Once a region is configured, create a new cluster or upgrade an existing cluster to set auto rotation for the cluster certificate. You need to upgrade the control plane and node pool to enable this feature.
 
 ## Manually rotate your cluster certificates
 
 > [!WARNING]
-> Rotating your certificates using `az aks rotate-certs` will recreate all of your nodes, VM scale set and their Disks and can cause up to 30 minutes of downtime for your AKS cluster.
+> Rotating your certificates using `az aks rotate-certs` recreates all of your nodes, Virtual Machine Scale Sets and Disks and can cause up to *30 minutes of downtime* for your AKS cluster.
 
-Use [az aks get-credentials][az-aks-get-credentials] to sign in to your AKS cluster. This command also downloads and configures the `kubectl` client certificate on your local machine.
+1. Connect to your cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
-```azurecli
-az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
-```
+    ```azurecli-interactive
+    az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
+    ```
 
-Use `az aks rotate-certs` to rotate all certificates, CAs, and SAs on your cluster.
+2. Rotate all certificates, CAs, and SAs on your cluster using the [`az aks rotate-certs`][az-aks-rotate-certs] command.
 
-```azurecli
-az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
-```
+    ```azurecli-interactive
+    az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
+    ```
 
-> [!IMPORTANT]
-> It may take up to 30 minutes for `az aks rotate-certs` to complete. If the command fails before completing, use `az aks show` to verify the status of the cluster is *Certificate Rotating*. If the cluster is in a failed state, rerun `az aks rotate-certs` to rotate your certificates again.
+    > [!IMPORTANT]
+    > It may take up to 30 minutes for `az aks rotate-certs` to complete. If the command fails before completing, use `az aks show` to verify the status of the cluster is *Certificate Rotating*. If the cluster is in a failed state, rerun `az aks rotate-certs` to rotate your certificates again.
 
-Verify that the old certificates aren't valid by running any `kubectl` command. If you haven't updated the certificates used by `kubectl`, you'll see an error similar to the following example:
+3. Verify the old certificates are no longer valid using any `kubectl` command, such as `kubectl get nodes`.
 
-```console
-kubectl get nodes
-Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "ca")
-```
+    ```azurecli-interactive
+    kubectl get nodes
+    ```
 
-To update the certificate used by `kubectl`, run the [az aks get-credentials][az-aks-get-credentials] command:
+    If you haven't updated the certificates used by `kubectl`, you see an error similar to the following example output:
 
-```azurecli
-az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
-```
+    ```output
+    Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "ca")
+    ```
 
-To verify the certificates have been updated, run the following [kubectl get][kubectl-get] command:
+4. Update the certificate used by `kubectl` using the [`az aks get-credentials`][az-aks-get-credentials] command with the `--overwrite-existing` flag.
 
-```console
-kubectl get nodes
-```
+    ```azurecli-interactive
+    az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
+    ```
 
-> [!NOTE]
-> If you have any services that run on top of AKS, you might need to update their certificates.
+5. Verify the certificates have been updated using the [`kubectl get`][kubectl-get] command.
+
+    ```azurecli-interactive
+    kubectl get nodes
+    ```
+
+    > [!NOTE]
+    > If you have any services that run on top of AKS, you might need to update their certificates.
 
 ## Next steps
 
-This article showed you how to automatically rotate your cluster's certificates, CAs, and SAs. You can see [Best practices for cluster security and upgrades in Azure Kubernetes Service (AKS)][aks-best-practices-security-upgrades] for more information on AKS security best practices.
+This article showed you how to automatically rotate your cluster certificates, CAs, and SAs. For more information, see [Best practices for cluster security and upgrades in Azure Kubernetes Service (AKS)][aks-best-practices-security-upgrades].
 
+<!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
-[az-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md
 [aks-node-access]: ./node-access.md
+[az-aks-rotate-certs]: /cli/azure/aks#az_aks_rotate_certs
+
+<!-- LINKS - external -->
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

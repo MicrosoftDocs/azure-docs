@@ -2,12 +2,11 @@
 title: What is Custom Vision?
 titleSuffix: Azure AI services
 description: Learn how to use the Azure AI Custom Vision service to build custom AI models to detect objects or classify images.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: custom-vision
+ms.service: azure-ai-custom-vision
 ms.topic: overview
 ms.date: 07/04/2023
 ms.author: pafarley

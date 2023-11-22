@@ -8,26 +8,30 @@ ms.reviewer: mopeakande
 author: dem108
 ms.author: sehan
 ms.subservice: mlops
-ms.date: 07/17/2023
+ms.date: 10/24/2023
 ms.topic: conceptual
 ms.custom: how-to, devplatv2, event-tier1-build-2022
 ---
 
 # Monitor online endpoints
 
-In this article, you learn how to monitor [Azure Machine Learning online endpoints](concept-endpoints.md). Use Application Insights to view metrics and create alerts to stay up to date with your online endpoints.
+Azure Machine Learning uses integration with Azure Monitor to track and monitor metrics and logs for [online endpoints](concept-endpoints.md). You can view metrics in charts, compare between endpoints and deployments, pin to Azure portal dashboards, configure alerts, query from log tables, and push logs to supported targets. You can also use Application Insights to analyze events from user containers.
+
+* **Metrics**: For endpoint-level metrics such as request latency, requests per minute, new connections per second, and network bytes, you can drill down to see details at the deployment level or status level. Deployment-level metrics such as CPU/GPU utilization and memory or disk utilization can also be drilled down to instance level. Azure Monitor allows tracking these metrics in charts and setting up dashboards and alerts for further analysis.
+
+* **Logs**: You can send metrics to the Log Analytics workspace where you can query the logs using Kusto query syntax. You can also send metrics to Azure Storage accounts and/or Event Hubs for further processing. In addition, you can use dedicated log tables for online endpoint related events, traffic, and console (container) logs. Kusto query allows complex analysis and joining of multiple tables.
+
+* **Application insights**: Curated environments include integration with Application Insights, and you can enable or disable this integration when you create an online deployment. Built-in metrics and logs are sent to Application Insights, and you can use the built-in features of Application Insights (such as Live metrics, Transaction search, Failures, and Performance) for further analysis. 
 
 In this article you learn how to:
 
 > [!div class="checklist"]
+> * Choose the right method to view and track metrics and logs
 > * View metrics for your online endpoint
 > * Create a dashboard for your metrics
 > * Create a metric alert
-
-> [!IMPORTANT]
-> Items marked (preview) in this article are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> * View logs for your online endpoint
+> * Use Application Insights to track metrics and logs 
 
 ## Prerequisites
 
@@ -77,13 +81,15 @@ Split on the following dimensions:
 - Deployment
 - Status Code
 - Status Code Class
-- Model Status Code
+
+For example, you can split along the deployment dimension to compare the request latency of different deployments under an endpoint. 
 
 **Bandwidth throttling**
 
-Bandwidth will be throttled if the limits are exceeded for _managed_ online endpoints (see managed online endpoints section in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)). To determine if requests are throttled:
+Bandwidth will be throttled if the quota limits are exceeded for _managed_ online endpoints. For more information on limits, see the article on [limits for online endpoints](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints). To determine if requests are throttled:
 - Monitor the "Network bytes" metric
 - The response trailers will have the fields: `ms-azureml-bandwidth-request-delay-ms` and `ms-azureml-bandwidth-response-delay-ms`. The values of the fields are the delays, in milliseconds, of the bandwidth throttling.
+For more information, see [Bandwidth limit issues](how-to-troubleshoot-online-endpoints.md#bandwidth-limit-issues).
 
 #### Metrics at deployment scope
 
@@ -96,27 +102,36 @@ Bandwidth will be throttled if the limits are exceeded for _managed_ online endp
 
 Split on the following dimension:
 
-- InstanceId
+- Instance Id
 
-### Create a dashboard
+For instance, you can compare CPU and/or memory utilization between difference instances for an online deployment. 
 
-You can create custom dashboards to visualize data from multiple sources in the Azure portal, including the metrics for your online endpoint. For more information, see [Create custom KPI dashboards using Application Insights](../azure-monitor/app/tutorial-app-dashboards.md#add-custom-metric-chart).
+### Create dashboards and alerts
+
+Azure Monitor allows you to create dashboards and alerts, based on metrics.
+
+#### Create dashboards and visualize queries
+
+You can create custom dashboards and visualize metrics from multiple sources in the Azure portal, including the metrics for your online endpoint. For more information on creating dashboards and visualizing queries, see [Dashboards using log data](../azure-monitor/visualize/tutorial-logs-dashboards.md) and [Dashboards using application data](../azure-monitor/app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights).
     
-### Create an alert
+#### Create alerts
 
 You can also create custom alerts to notify you of important status updates to your online endpoint:
 
 1. At the top right of the metrics page, select **New alert rule**.
 
-    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-new-alert-rule.png" alt-text="Monitoring online endpoints: screenshot showing 'New alert rule' button surrounded by a red box":::
+    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-new-alert-rule.png" alt-text="Screenshot showing 'New alert rule' button surrounded by a red box."  lightbox="./media/how-to-monitor-online-endpoints/online-endpoints-new-alert-rule.png" :::
 
 1. Select a condition name to specify when your alert should be triggered.
 
-    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-configure-signal-logic.png" alt-text="Monitoring online endpoints: screenshot showing 'Configure signal logic' button surrounded by a red box":::
+    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-configure-signal-logic.png" alt-text="Screenshot showing 'Configure signal logic' button surrounded by a red box."  lightbox="./media/how-to-monitor-online-endpoints/online-endpoints-configure-signal-logic.png" :::
 
 1. Select **Add action groups** > **Create action groups** to specify what should happen when your alert is triggered.
 
 1. Choose **Create alert rule** to finish creating your alert.
+
+For more information, see [Create Azure Monitor alert rules](../azure-monitor/alerts/alerts-create-new-alert-rule.md).
+
 
 ## Logs
 
@@ -134,13 +149,13 @@ There are three logs that can be enabled for online endpoints:
 
 * **AMLOnlineEndpointConsoleLog**: Contains logs that the containers output to the console. Below are some cases: 
 
-    * If the container fails to start, the console log may be useful for debugging. 
+    * If the container fails to start, the console log can be useful for debugging. 
 
     * Monitor container behavior and make sure that all requests are correctly handled. 
 
     * Write request IDs in the console log. Joining the request ID, the AMLOnlineEndpointConsoleLog, and AMLOnlineEndpointTrafficLog in the Log Analytics workspace, you can trace a request from the network entry point of an online endpoint to the container.  
 
-    * You may also use this log for performance analysis in determining the time required by the model to process each request. 
+    * You can also use this log for performance analysis in determining the time required by the model to process each request. 
 
 * **AMLOnlineEndpointEventLog**: Contains event information regarding the container’s life cycle. Currently, we provide information on the following types of events: 
 
@@ -205,6 +220,14 @@ The following tables provide details on the data stored in each log:
 **AMLOnlineEndpointEventLog**
 
 [!INCLUDE [endpoint-monitor-event-reference](includes/endpoint-monitor-event-reference.md)]
+
+
+## Using Application Insights
+
+Curated environments include integration with Application Insights, and you can enable or disable this integration when you create an online deployment. Built-in metrics and logs are sent to Application Insights, and you can use the built-in features of Application Insights (such as Live metrics, Transaction search, Failures, and Performance) for further analysis.
+
+See [Application Insights overview](../azure-monitor/app/app-insights-overview.md) for more.
+
 
 ## Next steps
 

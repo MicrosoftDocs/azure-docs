@@ -1,26 +1,37 @@
 ---
-title: Document layout analysis - Document Intelligence
+title: Document layout analysis - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Extract text, tables, selections, titles, section headings, page headers, page footers, and more with layout analysis model from Document Intelligence.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
 ---
 
+<!-- markdownlint-disable DOCSMD006 -->
 
 # Document Intelligence layout model
 
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [preview-version-notice](includes/preview-notice.md)]
+
+[!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](includes/applies-to-v31.md)]
+::: moniker-end
+
 ::: moniker range="doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+[!INCLUDE [applies to v3.0](includes/applies-to-v30.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 ::: moniker-end
 
 Document Intelligence layout model is an advanced machine-learning based document analysis API available in the Document Intelligence cloud. It enables you to take documents in various formats and return structured data representations of the documents. It combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../ai-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
@@ -34,41 +45,63 @@ Document structure layout analysis is the process of analyzing a document to ext
 
 The following illustration shows the typical components in an image of a sample page.
 
-:::image type="content" source="media/document-layout-example.png" alt-text="Illustration of document layout example.":::
+  :::image type="content" source="media/document-layout-example.png" alt-text="Illustration of document layout example.":::
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
-***Sample form processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
+  ***Sample document processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Document Intelligence Studio.":::
+  :::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Document Intelligence Studio.":::
+
+::: moniker-end
 
 ## Development options
 
-Document Intelligence v3.0 supports the following tools:
+::: moniker range="doc-intel-4.0.0"
+
+Document Intelligence v4.0 (2023-10-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
-|----------|------------|------------|
-|**Layout model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li></ul>|**prebuilt-layout**|
+|----------|-------------|-----------|
+|**Layout model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-layout**|
+::: moniker-end
 
+::: moniker range="doc-intel-3.1.0"
+
+Document Intelligence v3.1 supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Layout model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)|**prebuilt-layout**|
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+
+Document Intelligence v3.0 supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Layout model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-layout**|
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
 
-**Sample document processed with [Document Intelligence Sample Labeling tool layout model](https://fott-2-1.azurewebsites.net/layout-analyze)**:
+Document Intelligence v2.1 supports the following tools, applications, and libraries:
 
-:::image type="content" source="media/layout-tool-example.jpg" alt-text="Screenshot of a document processed with the layout model.":::
-
+| Feature | Resources |
+|----------|-------------------------|
+|**Layout model**|&bullet; [**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</br>&bullet;  [**REST API**](how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&view=doc-intel-2.1.0&preserve-view=true&tabs=windows)</br>&bullet;  [**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</br>&bullet;  [**Document Intelligence Docker container**](containers/install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)|
 ::: moniker-end
 
 ## Input requirements
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ::: moniker-end
 
-::: moniker range="doc-intel-2.1.0"
+::: moniker range=">=doc-intel-2.1.0"
 
 * Supported file formats: JPEG, PNG, PDF, and TIFF
 * For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
@@ -76,34 +109,34 @@ Document Intelligence v3.0 supports the following tools:
 
 ::: moniker-end
 
-### Try layout extraction
+### Layout model data extraction
 
 See how data, including text, tables, table headers, selection marks, and structure information is extracted from documents using  Document Intelligence. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 ## Document Intelligence Studio
 
 > [!NOTE]
-> Document Intelligence Studio is available with the v3.0 API.
+> Document Intelligence Studio is available with v3.0 APIs and later versions.
 
-***Sample form processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
+***Sample document processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot: Layout processing a newspaper page in Document Intelligence Studio.":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of `Layout` processing a newspaper page in Document Intelligence Studio.":::
 
 1. On the Document Intelligence Studio home page, select **Layout**
 
-1. You can analyze the sample document or select the **+ Add** button to upload your own sample.
+1. You can analyze the sample document or upload your own files.
 
-1. Select the **Analyze** button:
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
 
-    :::image type="content" source="media/studio/layout-analyze.png" alt-text="Screenshot: analyze layout menu.":::
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
    > [!div class="nextstepaction"]
    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
@@ -132,7 +165,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 1. Select **Run Layout**. The Document Intelligence Sample Labeling tool calls the Analyze Layout API and analyze the document.
 
-    :::image type="content" source="media/fott-layout.png" alt-text="Screenshot: Layout dropdown window.":::
+    :::image type="content" source="media/fott-layout.png" alt-text="Screenshot of `Layout` dropdown window.":::
 
 1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
 
@@ -140,65 +173,32 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 ::: moniker-end
 
-## Supported document types
-
-| **Model**   | **Images**   | **PDF**  | **TIFF** |
-| --- | --- | --- | --- |
-| Layout  | ✓  | ✓  | ✓  |
-
 ## Supported languages and locales
 
-*See* [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
-
-::: moniker range="doc-intel-3.0.0"
-
-### Data extraction
-
-**Starting with v3.0 GA**, it extracts paragraphs and more structure information like titles, section headings, page header, page footer, page number, and footnote from the document page. These structural elements are examples of logical roles described in the previous section. This capability is supported for PDF documents and images (JPG, PNG, BMP, TIFF).
-
-| **Model**   | **Text**   | **Selection Marks**   | **Tables**  | **Paragraphs** | **Logical roles** |
-| --- | --- | --- | --- | --- | --- |
-| Layout  | ✓  | ✓  | ✓  | ✓  | ✓  |
-
-**Supported logical roles for paragraphs**:
-The paragraph roles are best used with unstructured documents.  Paragraph roles help analyze the structure of the extracted content for better semantic search and analysis.
-
-* title
-* sectionHeading
-* footnote
-* pageHeader
-* pageFooter
-* pageNumber
-
-::: moniker-end
+*See* our [Language Support—document analysis models](language-support-ocr.md) page for a complete list of supported languages.
 
 ::: moniker range="doc-intel-2.1.0"
 
-### Data extraction support
-
-| **Model**   | **Text** | **Tables**  | Selection marks|
-| --- | --- | --- | --- |
-| Layout  | ✓  | ✓| ✓ |
-
-Document Intelligence v2.1 supports the following tools:
+Document Intelligence v2.1 supports the following tools, applications, and libraries:
 
 | Feature | Resources |
 |----------|-------------------------|
-|**Layout API**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/layout-analyze)</li><li>[**REST API**](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=doc-intel-2.1.0#analyze-layout)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|**Layout API**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/layout-analyze)</li><li>[**REST API**](how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=windows&view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
 ::: moniker-end
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
-## Model extraction
+## Data extraction
 
 The layout model extracts text, selection marks, tables, paragraphs, and paragraph types (`roles`) from your documents.
 
-### Paragraph extraction
+### Paragraphs
 
 The Layout model extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top level `content` property that contains the full text from the document.
 
 ```json
+
 "paragraphs": [
     {
         "spans": [],
@@ -241,7 +241,7 @@ The new machine-learning based page object detection extracts logical roles like
 
 ```
 
-### Pages extraction
+### Pages
 
 The pages collection is the first object you see in the service response.
 
@@ -261,7 +261,7 @@ The pages collection is the first object you see in the service response.
 ]
 ```
 
-### Text lines and words extraction
+### Text lines and words
 
 The document layout model in Document Intelligence extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
 
@@ -283,7 +283,7 @@ The document layout model in Document Intelligence extracts print and handwritte
 ]
 ```
 
-### Selection marks extraction
+### Selection marks
 
 The Layout model also extracts selection marks from documents. Extracted selection marks appear within the `pages` collection for each page. They include the bounding `polygon`, `confidence`, and selection `state` (`selected/unselected`). Any associated text if extracted is also included as the starting index (`offset`) and `length` that references the top level `content` property that contains the full text from the document.
 
@@ -303,9 +303,9 @@ The Layout model also extracts selection marks from documents. Extracted selecti
 }
 ```
 
-### Extract tables from documents and images
+### Tables
 
-Extracting tables is a key requirement for processing documents containing large volumes of data typically formatted as tables. The Layout model extracts tables in the `pageResults` section of the JSON output. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding polygon is output along with information whether it's recognized as a `columnHeader` or not. The model supports extracting tables that are rotated. Each table cell contains the row and column index and bounding polygon coordinates. For the cell text, the model outputs the `span` information containing the starting index (`offset`). The model also outputs the `length` within the top-level content that contains the full text from the document.
+Extracting tables is a key requirement for processing documents containing large volumes of data typically formatted as tables. The Layout model extracts tables in the `pageResults` section of the JSON output. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding polygon is output along with information whether the area is recognized as a `columnHeader` or not. The model supports extracting tables that are rotated. Each table cell contains the row and column index and bounding polygon coordinates. For the cell text, the model outputs the `span` information containing the starting index (`offset`). The model also outputs the `length` within the top-level content that contains the full text from the document.
 
 ```json
 {
@@ -330,9 +330,9 @@ Extracting tables is a key requirement for processing documents containing large
 
 ```
 
-### Handwritten style for text lines (Latin languages only)
+### Handwritten style for text lines
 
-The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows an example JSON snippet.
+The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. For more information. *see*, [Handwritten language support](language-support-ocr.md). The following example shows an example JSON snippet.
 
 ```json
 "styles": [
@@ -348,74 +348,59 @@ The response includes classifying whether each text line is of handwriting style
 }
 ```
 
-### Annotations extraction
-
-The Layout model extracts annotations in documents, such as checks and crosses. The response includes the kind of annotation, along with a confidence score and bounding polygon.
-
-```json
-    {
-  "pages": [
-    {
-      "annotations": [
-        {
-          "kind": "cross",
-          "polygon": [...],
-          "confidence": 1
-        }
-      ]
-    }
-  ]
-}
-```
-
-### Barcode extraction
-
-The Layout model extracts all identified barcodes in the `barcodes` collection as a top level object under `content`. Inside the `content`, detected barcodes are represented as `:barcode:`. Each entry in this collection represents a barcode and includes the barcode type as `kind` and the embedded barcode content as `value` along with its `polygon` coordinates. Initially, barcodes appear at the end of each page.
-
-#### Supported barcode types
-
-| **Barcode Type**   | **Example**   |
-| --- | --- |
-| QR Code |:::image type="content" source="media/barcodes/qr-code.png" alt-text="Screenshot of the QR Code.":::|
-| Code 39 |:::image type="content" source="media/barcodes/code-39.png" alt-text="Screenshot of the Code 39.":::|
-| Code 128 |:::image type="content" source="media/barcodes/code-128.png" alt-text="Screenshot of the Code 128.":::|
-| UPC (UPC-A & UPC-E) |:::image type="content" source="media/barcodes/upc.png" alt-text="Screenshot of the UPC.":::|
-| PDF417 |:::image type="content" source="media/barcodes/pdf-417.png" alt-text="Screenshot of the PDF417.":::|
-
-   > [!NOTE]
-   > The `confidence` score is hard-coded for the `2023-02-28` public preview.
-
-   ```json
-   "content": ":barcode:",
-     "pages": [
-       {
-         "pageNumber": 1,
-         "barcodes": [
-           {
-             "kind": "QRCode",
-             "value": "http://test.com/",
-             "span": { ... },
-             "polygon": [...],
-             "confidence": 1
-           }
-         ]
-       }
-     ]
-   ```
-
-### Extract selected pages from documents
+### Extract selected page(s) from documents
 
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
 
 ::: moniker-end
 
-::: moniker range="doc-intel-2.1.0"
+:::moniker range="doc-intel-3.1.0"
+### Annotations (available only in ``2023-02-28-preview`` API.)
+
+The Layout model extracts annotations in documents, such as checks and crosses. The response includes the kind of annotation, along with a confidence score and bounding polygon.
+
+```json
+    {
+    "pages": [
+    {
+        "annotations": [
+        {
+            "kind": "cross",
+            "polygon": [...],
+            "confidence": 1
+        }
+        ]
+    }
+    ]
+}
+```
+:::moniker-end
+
+:::moniker range="doc-intel-4.0.0"
+
+### Output to markdown format (2023-10-31-preview)
+
+The Layout API can output the extracted text in markdown format. Use the `outputContentFormat=markdown` to specify the output format in markdown. The markdown content is output as part of the `content` section.
+
+```json
+"analyzeResult": {
+"apiVersion": "2023-10-31-preview",
+"modelId": "prebuilt-layout",
+"contentFormat": "markdown",
+"content": "# CONTOSO LTD...",
+}
+
+```
+
+:::moniker-end
+
+:::moniker range="doc-intel-2.1.0"
 
 ### Natural reading order output (Latin only)
 
 You can specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
 
-:::image type="content" source="media/layout-reading-order-example.png" alt-text="Screenshot of layout model reading order processing." lightbox="../../ai-services/Computer-vision/Images/ocr-reading-order-example.png":::
+:::image type="content" source="media/layout-reading-order-example.png" alt-text="Screenshot of `layout` model reading order processing." lightbox="../../ai-services/Computer-vision/Images/ocr-reading-order-example.png":::
 
 ### Select page numbers or ranges for text extraction
 
@@ -429,7 +414,7 @@ The second step is to call the [Get Analyze Layout Result](https://westcentralus
 
 |Field| Type | Possible values |
 |:-----|:----:|:----|
-|status | string | `notStarted`: The analysis operation hasn't started.<br /><br />`running`: The analysis operation is in progress.<br /><br />`failed`: The analysis operation has failed.<br /><br />`succeeded`: The analysis operation has succeeded.|
+|status | string | `notStarted`: The analysis operation isn't started.</br></br>`running`: The analysis operation is in progress.</br></br>`failed`: The analysis operation failed.</br></br>`succeeded`: The analysis operation succeeded.|
 
 Call this operation iteratively until it returns the `succeeded` value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
 
@@ -439,7 +424,7 @@ When the **status** field has the `succeeded` value, the JSON response includes 
 
 The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows the handwritten classification for the text in the image.
 
-:::image type="content" source="./media/layout-handwriting-classification.png" alt-text="Screenshot of layout model handwriting classification process.":::
+:::image type="content" source="./media/layout-handwriting-classification.png" alt-text="Screenshot of `layout` model handwriting classification process.":::
 
 ### Sample JSON output
 
@@ -459,7 +444,7 @@ Layout API extracts text from documents and images with multiple text angles and
 
 ### Tables with headers
 
-Layout API extracts tables in the `pageResults` section of the JSON output. Documents can be scanned, photographed, or digitized. Tables can be complex with merged cells or columns, with or without borders, and with odd angles. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding box is output along with information whether it's recognized as part of a header or not. The model predicted header cells can span multiple rows and aren't necessarily the first rows in a table. They also work with rotated tables. Each table cell also includes the full text with references to the individual words in the `readResults` section.
+Layout API extracts tables in the `pageResults` section of the JSON output. Documents can be scanned, photographed, or digitized. Tables can be complex with merged cells or columns, with or without borders, and with odd angles. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding box is output along with whether the area is recognized as part of a header or not. The model predicted header cells can span multiple rows and aren't necessarily the first rows in a table. They also work with rotated tables. Each table cell also includes the full text with references to the individual words in the `readResults` section.
 
 ![Tables example](./media/layout-table-header-demo.gif)
 
@@ -469,16 +454,16 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ### Migration guide
 
-* Follow our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+* Follow our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md) to learn how to use the v3.1 version in your applications and workflows.
 ::: moniker-end
 
 ## Next steps
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 * [Learn how to process your own forms and documents](quickstarts/try-document-intelligence-studio.md) with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
-* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end
 

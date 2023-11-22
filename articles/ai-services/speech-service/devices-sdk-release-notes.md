@@ -2,11 +2,10 @@
 title: Speech Devices SDK release notes
 titleSuffix: Azure AI services
 description: The release notes provide a log of updates, enhancements, bug fixes, and changes to the Speech Devices SDK. This article is updated with each release of the Speech Devices SDK.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: release-notes
 ms.date: 02/12/2022
 ms.author: eur
@@ -63,7 +62,7 @@ The following sections list changes in the most recent releases.
 
 ## Speech Devices SDK 1.5.1:
 
-- Include [Conversation Transcription](./conversation-transcription.md) in the sample app.
+- Include conversation transcription in the sample app.
 - Updated the [Speech SDK](./speech-sdk.md) component to version 1.5.1. For more information, see its [release notes](./releasenotes.md).
 
 ## Speech Devices SDK 1.5.0: 2019-May release

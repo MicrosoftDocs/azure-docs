@@ -1,23 +1,25 @@
 ---
 title: How to move your service resource across regions
-titleSuffix: Azure Cognitive Search
-description: This article will show you how to move your Azure Cognitive Search resources from one region to another in the Azure cloud.
+titleSuffix: Azure AI Search
+description: This article will show you how to move your Azure AI Search resources from one region to another in the Azure cloud.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.custom: subject-moving-resources
+ms.custom:
+  - subject-moving-resources
+  - ignite-2023
 ms.date: 01/30/2023
 ---
 
-# Move your Azure Cognitive Search service to another Azure region
+# Move your Azure AI Search service to another Azure region
 
 Occasionally, customers ask about moving a search service to another region. Currently, there is no built-in mechanism or tooling to help with that task, but this article can help you understand the manual steps for recreating indexes and other objects on a new search service in a different region.
 
 > [!NOTE]
-> In the Azure portal, all services have an **Export template** command. In the case of Azure Cognitive Search, this command produces a basic definition of a service (name, location, tier, replica, and partition count), but does not recognize the content of your service, nor does it carry over keys, roles, or logs. Although the command exists, we don't recommend using it for moving a search service.
+> In the Azure portal, all services have an **Export template** command. In the case of Azure AI Search, this command produces a basic definition of a service (name, location, tier, replica, and partition count), but does not recognize the content of your service, nor does it carry over keys, roles, or logs. Although the command exists, we don't recommend using it for moving a search service.
 
 ## Prerequisites
 
@@ -27,13 +29,13 @@ Occasionally, customers ask about moving a search service to another region. Cur
 
 ## Prepare and move
 
-1. Identify dependencies and related services to understand the full impact of relocating a service, in case you need to move more than just Azure Cognitive Search.
+1. Identify dependencies and related services to understand the full impact of relocating a service, in case you need to move more than just Azure AI Search.
 
    Azure Storage is used for logging, creating a knowledge store, and is a commonly used external data source for AI enrichment and indexing. Azure AI services is a dependency in AI enrichment. Both Azure AI services and your search service are required to be in the same region if you are using AI enrichment.
 
 1. Create an inventory of all objects on the service so that you know what to move: indexes, synonym maps, indexers, data sources, skillsets. If you enabled logging, create and archive any reports you might need for a historical record.
 
-1. Check pricing and availability in the new region to ensure availability of Azure Cognitive Search plus any related services in the new region. The majority of features are available in all regions, but some preview features have restricted availability.
+1. Check pricing and availability in the new region to ensure availability of Azure AI Search plus any related services in the new region. The majority of features are available in all regions, but some preview features have restricted availability.
 
 1. Create a service in the new region and republish from source code any existing indexes, synonym maps, indexers, data sources, and skillsets. Remember that service names must be unique so you cannot reuse the existing name. Check each skillset to see if connections to Azure AI services are still valid in terms of the same-region requirement. Also, if knowledge stores are created, check the connection strings for Azure Storage if you are using a different service.
 
@@ -51,14 +53,14 @@ Delete the old service once the new service is fully tested and operational. Del
 
 The following links can help you locate more information when completing the steps outlined above.
 
-+ [Azure Cognitive Search pricing and regions](https://azure.microsoft.com/pricing/details/search/)
++ [Azure AI Search pricing and regions](https://azure.microsoft.com/pricing/details/search/)
 + [Choose a tier](search-sku-tier.md)
 + [Create a search service](search-create-service-portal.md)
 + [Load search documents](search-what-is-data-import.md)
 + [Enable logging](monitor-azure-cognitive-search.md)
 
 
-<!-- To move your Azure Cognitive Service account from one region to another, you will create an export template to move your subscription(s). After moving your subscription, you will need to move your data and recreate your service.
+<!-- To move your Azure AI services account from one region to another, you will create an export template to move your subscription(s). After moving your subscription, you will need to move your data and recreate your service.
 
 In this article, you'll learn how to:
 

@@ -7,7 +7,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 07/24/2023
+ms.date: 11/07/2023
 ms.author: greglin
 ---
 
@@ -15,15 +15,21 @@ ms.author: greglin
 
 This document helps set up an example application that uses the _Ingress_ resource from [Ingress API](https://kubernetes.io/docs/concepts/services-networking/ingress/):
 
+## Background
+
+Application Gateway for Containers enables SSL [offloading](/azure/architecture/patterns/gateway-offloading) for better backend performance. See the following example scenario:
+
+![A figure showing SSL offloading with Application Gateway for Containers.](./media/how-to-ssl-offloading-ingress-api/ssl-offloading.png)
+
 ## Prerequisites
 
 > [!IMPORTANT]
 > Application Gateway for Containers is currently in PREVIEW.<br>
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
-3. Deploy sample HTTPS application
+1. If you follow the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
+2. If you follow the ALB managed deployment strategy, ensure that you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and the Application Gateway for Containers resources via the [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+3. Deploy a sample HTTPS application:
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate TLS/SSL offloading.
   
     ```bash
@@ -32,9 +38,9 @@ This document helps set up an example application that uses the _Ingress_ resour
     
     This command creates the following on your cluster:
     - a namespace called `test-infra`
-    - 1 service called `echo` in the `test-infra` namespace
-    - 1 deployment called `echo` in the `test-infra` namespace
-    - 1 secret called `listener-tls-secret` in the `test-infra` namespace
+    - one service called `echo` in the `test-infra` namespace
+    - one deployment called `echo` in the `test-infra` namespace
+    - one secret called `listener-tls-secret` in the `test-infra` namespace
 
 ## Deploy the required Ingress API resources
 
@@ -50,7 +56,7 @@ metadata:
   namespace: test-infra
   annotations:
     alb.networking.azure.io/alb-name: alb-test
-    alb.networking.azure.io/alb-namespace: test-infra
+    alb.networking.azure.io/alb-namespace: alb-test-infra
 spec:
   ingressClassName: azure-alb-external
   tls:
@@ -71,6 +77,7 @@ spec:
 EOF
 ```
 
+[!INCLUDE [application-gateway-for-containers-frontend-naming](../../../includes/application-gateway-for-containers-frontend-naming.md)]
 
 # [Bring your own (BYO) deployment](#tab/byo)
 
@@ -117,12 +124,12 @@ EOF
 
 ---
 
-Once the ingress resource has been created, ensure the status shows the hostname of your load balancer and that both ports are listening for requests.
+When the ingress resource is created, ensure the status shows the hostname of your load balancer and that both ports are listening for requests.
 ```bash
 kubectl get ingress ingress-01 -n test-infra -o yaml
 ```
 
-Example output of successful gateway creation.
+Example output of successful Ingress creation.
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -172,7 +179,7 @@ status:
 Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the command below to get the FQDN.
 
 ```bash
-fqdn=$(kubectl get ingress ingress-01 -n test-infra -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'')
+fqdn=$(kubectl get ingress ingress-01 -n test-infra -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
 ```
 
 Curling this FQDN should return responses from the backend as configured on the HTTPRoute.

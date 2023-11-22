@@ -2,11 +2,10 @@
 title: "Speech Studio overview - Speech service"
 titleSuffix: Azure AI services
 description: Speech Studio is a set of UI-based tools for building and integrating features from Speech service in your applications.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 09/25/2022
 ms.author: eur
@@ -14,7 +13,7 @@ ms.author: eur
 
 # What is Speech Studio?
 
-[Speech Studio](https://aka.ms/speechstudio/) is a set of UI-based tools for building and integrating features from Azure AI services Speech service in your applications. You create projects in Speech Studio by using a no-code approach, and then reference those assets in your applications by using the [Speech SDK](speech-sdk.md), the [Speech CLI](spx-overview.md), or the REST APIs.
+[Speech Studio](https://aka.ms/speechstudio/) is a set of UI-based tools for building and integrating features from Azure AI Speech service in your applications. You create projects in Speech Studio by using a no-code approach, and then reference those assets in your applications by using the [Speech SDK](speech-sdk.md), the [Speech CLI](spx-overview.md), or the REST APIs.
 
 > [!TIP]
 > You can try speech to text and text to speech in [Speech Studio](https://aka.ms/speechstudio/) without signing up or writing any code.

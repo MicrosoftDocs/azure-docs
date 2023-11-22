@@ -10,15 +10,19 @@ items:
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Create & run a load test
+    - name: Create a URL-based load test
       href: quickstart-create-and-run-load-test.md
+    - name: Create a load test with a JMeter script
+      href: how-to-create-and-run-load-test-with-JMeter-script.md 
     - name: Automate load tests with CI/CD
+      displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
       href: quickstart-add-load-test-cicd.md
 - name: Tutorials
   items: 
     - name: Identify performance bottlenecks
       href: tutorial-identify-bottlenecks-azure-portal.md
     - name: Automate regression tests with CI/CD
+      displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
       href: tutorial-identify-performance-regression-with-cicd.md
 - name: Concepts
   items: 
@@ -35,6 +39,8 @@ items:
   items:
     - name: Configure tests
       items:
+        - name: Add HTTP requests to URL-based tests
+          href: how-to-add-requests-to-url-based-test.md
         - name: Configure for high scale loads
           href: how-to-high-scale-load.md
         - name: Define test fail criteria
@@ -43,14 +49,15 @@ items:
           href: how-to-parameterize-load-tests.md
         - name: Use JMeter user properties
           href: how-to-configure-user-properties.md
-        - name: Customize tests with JMeter plugins
-          href: how-to-use-jmeter-plugins.md
-    - name: Run tests
-      items:
-        - name: Create a load test with a JMeter script
-          href: how-to-create-and-run-load-test-with-JMeter-script.md 
         - name: Read data from a CSV file
           href: how-to-read-csv-data.md
+        - name: Customize tests with JMeter plugins
+          href: how-to-use-jmeter-plugins.md
+        - name: Configure CI/CD for load testing
+          displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
+          href: how-to-configure-load-test-cicd.md
+    - name: Run tests
+      items:
         - name: Test applications with authentication
           href: how-to-test-secured-endpoints.md
         - name: Test a private endpoint
@@ -58,6 +65,7 @@ items:
     - name: Analyze test results
       items:
         - name: Compare test runs
+          displayName: comparison, regression, baseline, compare metrics, compare results
           href: how-to-compare-multiple-test-runs.md
         - name: Configure server-side monitoring
           href: how-to-monitor-server-side-metrics.md
@@ -81,6 +89,8 @@ items:
           href: how-to-create-manage-test-runs.md
         - name: Move between regions
           href: how-to-move-between-regions.md
+        - name: Move across resource groups or subscriptions
+          href: how-to-move-between-resource-groups-subscriptions.md
         - name: Monitor Azure Load Testing
           href: monitor-load-testing.md
 

@@ -1,6 +1,6 @@
 ---
-title: Scale the management of Azure role assignments by using conditions and custom security attributes (Preview) - Azure ABAC
-description: Scale the management of Azure role assignments by using Azure attribute-based access control (Azure ABAC) conditions and Azure AD custom security attributes for principals.
+title: Scale the management of Azure role assignments by using conditions and custom security attributes - Azure ABAC
+description: Scale the management of Azure role assignments by using Azure attribute-based access control (Azure ABAC) conditions and Microsoft Entra custom security attributes for principals.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -8,21 +8,17 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/13/2022
+ms.date: 11/15/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to 
 ---
 
-# Scale the management of Azure role assignments by using conditions and custom security attributes (Preview)
-
-> [!IMPORTANT]
-> Custom security attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Scale the management of Azure role assignments by using conditions and custom security attributes
 
 Azure role-based access control (Azure RBAC) has a [limit of role assignments per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits). If you need to create hundreds or even thousands of Azure role assignments, you might encounter this limit. Managing hundreds or thousands of role assignments can be difficult. Depending on your scenario, you might be able to reduce the number of role assignments and make it easier to manage access.
 
-This article describes a solution to scale the management of role assignments by using [Azure attribute-based access control (Azure ABAC)](conditions-overview.md) conditions and [Azure AD custom security attributes](../active-directory/fundamentals/custom-security-attributes-overview.md) for principals.
+This article describes a solution to scale the management of role assignments by using [Azure attribute-based access control (Azure ABAC)](conditions-overview.md) conditions and [Microsoft Entra custom security attributes](../active-directory/fundamentals/custom-security-attributes-overview.md) for principals.
 
 ## Example scenario
 
@@ -30,7 +26,7 @@ Consider a company named Contoso with thousands of customers that wants to set u
 
 - Distribute customer data across 128 storage accounts for security and performance reasons​.
 - Add 2,000 containers to each storage account where there is a container for each customer.
-- Represent each customer by a unique Azure AD service principal.
+- Represent each customer by a unique Microsoft Entra service principal.
 - Allow each customer to access objects in their container, but not other containers.​
 
 This configuration could potentially require 256,000 [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner) role assignments in a subscription, which is well beyond the role assignments limit. Having this many role assignments would be difficult, if not impossible, to maintain.
@@ -130,7 +126,7 @@ There are several attributes you could use in your condition, such as the follow
 
 You can also define your own custom security attributes for users, enterprise applications, and managed identities.
 
-For more information, see [Azure role assignment condition format and syntax](conditions-format.md#attributes) and [What are custom security attributes in Azure AD?](../active-directory/fundamentals/custom-security-attributes-overview.md).
+For more information, see [Azure role assignment condition format and syntax](conditions-format.md#attributes) and [What are custom security attributes in Microsoft Entra ID?](../active-directory/fundamentals/custom-security-attributes-overview.md).
 
 #### Step 3: Create a condition at a higher scope
 
@@ -139,5 +135,5 @@ Create one or more role assignments that use a condition at a higher scope to ma
 ## Next steps
 
 - [What is Azure attribute-based access control (Azure ABAC)?](conditions-overview.md)
-- [What are custom security attributes in Azure AD?](../active-directory/fundamentals/custom-security-attributes-overview.md)
+- [What are custom security attributes in Microsoft Entra ID?](../active-directory/fundamentals/custom-security-attributes-overview.md)
 - [Allow read access to blobs based on tags and custom security attributes (Preview)](conditions-custom-security-attributes.md)

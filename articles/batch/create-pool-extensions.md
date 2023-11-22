@@ -33,6 +33,7 @@ The following extensions can currently be installed when creating a Batch pool:
 - [HPC GPU driver extension for Linux on NVIDIA](../virtual-machines/extensions/hpccompute-gpu-linux.md)
 - [Microsoft Antimalware extension for Windows](../virtual-machines/extensions/iaas-antimalware-windows.md)
 - [Azure Monitor agent for Linux](../azure-monitor/agents/azure-monitor-agent-manage.md)
+- [Azure Monitor agent for Windows](../azure-monitor/agents/azure-monitor-agent-manage.md)
 
 You can request support for additional publishers and/or extension types by opening a support request.
 
@@ -60,12 +61,12 @@ Request Body
         "deploymentConfiguration": {
             "virtualMachineConfiguration": {
                 "imageReference": {
-                    "publisher": "almalinux",
-                    "offer": "almalinux",
-                    "sku": "9-gen1",
+                    "publisher": "microsoftcblmariner",
+                    "offer": "cbl-mariner",
+                    "sku": "cbl-mariner-2",
                     "version": "latest"
                 },
-                "nodeAgentSkuId": "batch.node.el 9",
+                "nodeAgentSkuId": "batch.node.mariner 2.0",
                 "extensions": [
                     {
                         "name": "secretext",

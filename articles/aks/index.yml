@@ -9,9 +9,9 @@ metadata:
   ms.service: azure-kubernetes-service
   ms.custom: ignite-2022
   ms.topic: landing-page
-  author: rayoef
-  ms.author: rayoflores
-  ms.date: 10/03/2022
+  author: mgoedtel
+  ms.author: magoedte
+  ms.date: 09/26/2023
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -26,26 +26,22 @@ landingContent:
             url: intro-kubernetes.md
       - linkListType: whats-new
         links:
+          - text: Reduce image pull time with Artifact Streaming on AKS (Preview)
+            url: artifact-streaming.md
+          - text: Secure your cluster using pod security policies (Deprecated)
+            url: use-pod-security-policies.md
           - text: Automatically upgrade node images
             url: auto-upgrade-node-image.md
-          - text: Azure Linux container host for AKS
+          - text: Azure Linux Container Host for AKS
             url: use-azure-linux.md
-          - text: Vertical Pod Autoscaler (preview)
+          - text: Vertical Pod Autoscaler
             url: vertical-pod-autoscaler.md
-          - text: Workload identity (preview)
-            url: workload-identity-overview.md
-          - text: Use CVM (Preview)
+          - text: Use Confidential Virtual Machines
             url: use-cvm.md
           - text: AKS GitHub Actions
             url: kubernetes-action.md
-          - text: Enable Azure resources to access AKS clusters using Trusted Access (preview)
+          - text: Enable Azure resources to access AKS clusters using Trusted Access (Preview)
             url: trusted-access-feature.md
-          - text: Automatically upgrade an AKS cluster
-            url: auto-upgrade-cluster.md
-          - text: Start/stop node pools
-            url: start-stop-nodepools.md
-          - text: Default OS disk sizing
-            url: cluster-configuration.md#default-os-disk-sizing
       - linkListType: concept
         links:
           - text: Kubernetes core concepts for AKS
@@ -88,7 +84,7 @@ landingContent:
             url: ./learn/quick-kubernetes-deploy-terraform.md
 
   # Card
-  - title: Develop and debug applications
+  - title: Deploy an application in 5 minutes 
     linkLists:
       - linkListType: quickstart
         links:
@@ -96,6 +92,10 @@ landingContent:
             url: quickstart-helm.md
           - text: Develop with Dapr
             url: quickstart-dapr.md
+          - text: Use Draft and the DevX extension for Visual Studio Code
+            url: draft-devx-extension-aks.md
+          - text: Use Automated Deployments
+            url: automated-deployments.md
       - linkListType: how-to-guide
         links:
           - text: Use Bridge to Kubernetes with Visual Studio Code

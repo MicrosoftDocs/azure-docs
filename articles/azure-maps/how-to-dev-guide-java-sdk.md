@@ -2,8 +2,8 @@
 title: How to create Azure Maps applications using the Java REST SDK (preview)
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the Java REST SDK Developers Guide.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 01/25/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -20,8 +20,8 @@ The Azure Maps Java SDK can be integrated with Java applications and libraries t
 
 ## Prerequisites
 
-- [Azure Maps account].
-- [Subscription key] or other form of [authentication].
+- An [Azure Maps account]
+- A [Subscription key] or other form of [authentication]
 - [Java Version 8] or above  
 - Maven (any version). For more information, see [Get started with Azure SDK and Apache Maven][maven].
 
@@ -108,11 +108,13 @@ New-Item demo.java
 
 ## Create and authenticate a MapsSearchClient
 
-The client object used to access the Azure Maps Search APIs require either an `AzureKeyCredential` object to authenticate when using an Azure Maps subscription key or a TokenCredential object with the Azure Maps client ID when authenticating using Azure Active Directory (Azure AD). For more information on authentication, see [Authentication with Azure Maps][authentication].
+The client object used to access the Azure Maps Search APIs require either an `AzureKeyCredential` object to authenticate when using an Azure Maps subscription key or a TokenCredential object with the Azure Maps client ID when authenticating using Microsoft Entra ID. For more information on authentication, see [Authentication with Azure Maps][authentication].
 
-### Using an Azure AD credential
+<a name='using-an-azure-ad-credential'></a>
 
-You can authenticate with Azure AD using the [Azure Identity library][Identity library]. To use the [DefaultAzureCredential] provider, you need to add the mvn dependency in the `pom.xml` file:
+### Using a Microsoft Entra credential
+
+You can authenticate with Microsoft Entra ID using the [Azure Identity library]. To use the [DefaultAzureCredential] provider, you need to add the mvn dependency in the `pom.xml` file:
 
 ```xml
 <dependency>
@@ -121,9 +123,9 @@ You can authenticate with Azure AD using the [Azure Identity library][Identity l
 </dependency>
 ```
 
-You need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources][Host daemon]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
+You need to register the new Microsoft Entra application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
 
-Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource's client ID as environment variables:
+Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Microsoft Entra application, and the map resource's client ID as environment variables:
 
 | Environment Variable | Description                                                   |
 |----------------------|---------------------------------------------------------------|
@@ -167,7 +169,7 @@ public class Demo {
 
 You can authenticate with your Azure Maps subscription key. Your subscription key can be found in the **Authentication** section in the Azure Maps account as shown in the following screenshot:
 
-:::image type="content" source="./media/rest-sdk-dev-guides/subscription-key.png" alt-text="A screenshot showing the subscription key in the Authentication section of an Azure Maps account." lightbox="./media/rest-sdk-dev-guides/subscription-key.png":::
+:::image type="content" border="false" source="./media/shared/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal." lightbox="./media/shared/get-key.png":::
 
 Now you can create environment variables in PowerShell to store the subscription key: 
 
@@ -390,10 +392,10 @@ public class Demo{
 [authentication]: azure-maps-authentication.md
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [defaultazurecredential]: /azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential
-[Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
-[Identity library]: /java/api/overview/azure/identity-readme?source=recommendations&view=azure-java-stable
+[Host a daemon on non-Azure resources]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
+[Azure Identity library]: /java/api/overview/azure/identity-readme?source=recommendations
 [Java Standard Versions]: https://www.oracle.com/java/technologies/downloads/
-[Java Version 8]: /azure/developer/java/fundamentals/?view=azure-java-stable
+[Java Version 8]: /azure/developer/java/fundamentals
 [maven]: /azure/developer/java/sdk/get-started-maven
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 

@@ -1,15 +1,16 @@
 ---
 title: Reference inputs and outputs in skillsets
-titleSuffix: Azure Cognitive Search
-description: Explains the annotation syntax and how to reference inputs and outputs of a skillset in an AI enrichment pipeline in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Explains the annotation syntax and how to reference inputs and outputs of a skillset in an AI enrichment pipeline in Azure AI Search.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 09/16/2022
 ---
-# Reference an annotation in an Azure Cognitive Search skillset
+# Reference an annotation in an Azure AI Search skillset
 
 In this article, you'll learn how to reference *annotations* (or an enrichment node) in skill definitions, using examples to illustrate various scenarios. 
 

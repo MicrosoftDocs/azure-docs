@@ -1,20 +1,25 @@
 ---
 title: API versions
-titleSuffix: Azure Cognitive Search
-description: Version policy for Azure Cognitive Search REST APIs and the client library in the .NET SDK.
+titleSuffix: Azure AI Search
+description: Version policy for Azure AI Search REST APIs and the client library in the .NET SDK.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom:
+  - devx-track-dotnet
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 03/22/2023
 ---
 
-# API versions in Azure Cognitive Search
+# API versions in Azure AI Search
 
-Azure Cognitive Search rolls out feature updates regularly. Sometimes, but not always, these updates require a new version of the API to preserve backward compatibility. Publishing a new version allows you to control when and how you integrate search service updates in your code.
+Azure AI Search rolls out feature updates regularly. Sometimes, but not always, these updates require a new version of the API to preserve backward compatibility. Publishing a new version allows you to control when and how you integrate search service updates in your code.
 
 As a rule, the REST APIs and libraries are versioned only when necessary, since it can involve some effort to upgrade your code to use a new API version. A new version is needed only if some aspect of the API has changed in a way that breaks backward compatibility. Such changes can happen because of fixes to existing features, or because of new features that change existing API surface area.
 
@@ -31,7 +36,7 @@ Some API versions are discontinued and will be rejected by a search service:
 + **2014-07-31-Preview**
 + **2014-10-20-Preview**
 
-All SDKs are based on REST API versions. If a REST version is discontinued, any SDK that's based on it is also discontinued. All Azure Cognitive Search .NET SDKs older than [**3.0.0-rc**](https://www.nuget.org/packages/Microsoft.Azure.Search/3.0.0-rc) are now discontinued. 
+All SDKs are based on REST API versions. If a REST version is discontinued, any SDK that's based on it is also discontinued. All Azure AI Search .NET SDKs older than [**3.0.0-rc**](https://www.nuget.org/packages/Microsoft.Azure.Search/3.0.0-rc) are now discontinued. 
 
 Support for the above-listed versions was discontinued on October 15, 2020. If you have code that uses a discontinued version, you can [migrate existing code](search-api-migration.md) to a newer [REST API version](/rest/api/searchservice/) or to a newer Azure SDK.
 
@@ -50,8 +55,8 @@ The following  table provides links to more recent SDK versions.
 |-------------|--------|------------------------------|
 | [Azure.Search.Documents 11](/dotnet/api/overview/azure/search.documents-readme) | Active | New client library from the Azure .NET SDK team, initially released July 2020. See the [Change Log](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Search.Documents_11.3.0/sdk/search/Azure.Search.Documents/CHANGELOG.md) for information about minor releases. |
 | [Microsoft.Azure.Search 10](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Retired | Released May 2019. This is the last version of the Microsoft.Azure.Search package and it's now deprecated. It's succeeded by Azure.Search.Documents. |
-| [Microsoft.Azure.Management.Search 4.0.0](/dotnet/api/overview/azure/search/management/management-cognitivesearch) | Active | Targets the Management REST api-version=2020-08-01.  |
-| [Microsoft.Azure.Management.Search 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | Active | Targets the Management REST api-version=2015-08-19.  |
+| [Microsoft.Azure.Management.Search 4.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/4.0.0) | Active | Targets the Management REST api-version=2020-08-01. |
+| [Microsoft.Azure.Management.Search 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | Retired | Targets the Management REST api-version=2015-08-19.  |
 
 ## Azure SDK for Java
 

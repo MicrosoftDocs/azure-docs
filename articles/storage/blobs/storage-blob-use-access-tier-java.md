@@ -6,23 +6,24 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 07/11/2023
+ms.date: 08/02/2023
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
 # Set or change a block blob's access tier with Java
 
+[!INCLUDE [storage-dev-guide-selector-access-tier](../../../includes/storage-dev-guides/storage-dev-guide-selector-access-tier.md)]
+
 This article shows how to set or change the access tier for a block blob using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). 
 
 ## Prerequisites
 
-This article doesn't detail the project setup process. To learn about setting up your project, including package installation, adding `import` directives, and authorizing a client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md). To see the `import` directives used in the code samples for this article, see [Code samples](#code-samples).
-
-You also need the right permissions to set the blob's access tier. To learn more, see the authorization guidance for the following REST API operation:
-- [Set Blob Tier](/rest/api/storageservices/set-blob-tier#authorization)
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to set the blob's access tier. To learn more, see the authorization guidance for the following REST API operation:
+    - [Set Blob Tier](/rest/api/storageservices/set-blob-tier#authorization)
 
 [!INCLUDE [storage-dev-guide-about-access-tiers](../../../includes/storage-dev-guides/storage-dev-guide-about-access-tiers.md)]
 
@@ -87,4 +88,4 @@ The Azure SDK for Java contains libraries that build on top of the Azure REST AP
 ### See also
 
 - [Access tiers best practices](access-tiers-best-practices.md)
-- [Blob rehydration from the Archive tier](archive-rehydrate-overview.md)
+- [Blob rehydration from the archive tier](archive-rehydrate-overview.md)

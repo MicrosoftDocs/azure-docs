@@ -49,8 +49,10 @@
   items:
   - name: Learn modules for Bicep
     href: learn-bicep.md
-  - name: Learn live - Bicep
+  - name: Learn Live - Bicep
     href: /events/learntv/learnlive-iac-and-bicep/
+  - name: Learn Live - Bicep and GitHub Actions
+    href: /events/learn-events/learnlive-automate-azure-deployments-bicep-github-actions/
   - name: Use deployment stacks
     href: ./tutorial-use-deployment-stacks.md
 - name: Samples - Azure Services
@@ -59,7 +61,7 @@
     items:
     - name: Cognitive Search
       href: ../../search/search-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Cognitive Services
+    - name: Azure AI services
       href: ../../ai-services/create-account-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Data Science Virtual Machine
       href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
@@ -265,6 +267,9 @@
   - name: User-defined data types (type)
     displayName: custom
     href: user-defined-data-types.md
+  - name: User-defined functions (func)
+    displayName: custom
+    href: user-defined-functions.md
   - name: Parameters (param)
     href: parameters.md
     displayName: decorators,secure,objects,constraints
@@ -295,6 +300,8 @@
     displayName: multiple
   - name: Conditions (if)
     href: conditional-resource-deployment.md
+  - name: Using (using)
+    href: bicep-using.md
   - name: Scopes (targetScope)
     items:
     - name: Resource group
@@ -316,30 +323,43 @@
     - name: Any function
       href: bicep-functions-any.md
     - name: Array functions
+      displayName: array,concat,contains,empty,first,flatten,indexOf,intersection,last,lastIndexOf,length,max,min,range,skip,take,union
       href: bicep-functions-array.md
     - name: CIDR functions
+      displayName: parseCidr,cidrSubnet,cidrHost
       href: bicep-functions-cidr.md
     - name: Date functions
+      displayName: dateTimeAdd,dateTimeFromEpoch,dateTimeToEpoch,utcNow
       href: bicep-functions-date.md
     - name: Deployment functions
+      displayName: deployment,environment
       href: bicep-functions-deployment.md
     - name: File functions
+      displayName: loadFileAsBase64,loadJsonContent,loadYamlContent,loadTextContent
       href: bicep-functions-files.md
     - name: Lambda functions
+      displayName: filter,map,reduce,sort,toObject
       href: bicep-functions-lambda.md
     - name: Logical functions
+      displayName: bool
       href: bicep-functions-logical.md
     - name: Numeric functions
+      displayName: int,max,min
       href: bicep-functions-numeric.md
     - name: Object functions
+      displayName: contains,empty,intersection,items,json,length,union
       href: bicep-functions-object.md
     - name: Parameters file functions
+      displayName: getSecret,readEnvironmentVariable
       href: bicep-functions-parameters-file.md
     - name: Resource functions
+      displayName: extensionResourceId,getSecret,list,pickZones,providers,reference,resourceId,subscriptionResourceId,managementGroupResourceId,tenantResourceId
       href: bicep-functions-resource.md
     - name: Scope functions
+      displayName: managementGroup,resourceGroup,subscription,tenant
       href: bicep-functions-scope.md
     - name: String functions
+      displayName: base64,base64ToJson,base64ToString,concat,contains,dataUri,dataUriToString,empty,endsWith,first,format,guid,indexOf,join,json,last,lastIndexOf,length,newGuid,padLeft,replace,skip,split,startsWith,string,substring,take,toLower,toUpper,trim,uniqueString,uri,uriComponent,uriComponentToString
       href: bicep-functions-string.md
   - name: Operators
     items:
@@ -371,6 +391,8 @@
       displayName: module registry,private module registry
     - name: Deployment script
       href: deployment-script-bicep.md
+    - name: Create deployment script dev environment
+      href: deployment-script-bicep-configure-dev.md
     - name: Template specs
       href: template-specs.md
     - name: Deployment stacks
@@ -393,6 +415,8 @@
       items:
       - name: Access control
         href: scenarios-rbac.md
+      - name: Create resource group
+        href: create-resource-group.md
       - name: Monitoring
         href: scenarios-monitoring.md
       - name: Secrets
@@ -435,6 +459,15 @@
       - name: Max variables
         displayName: linter
         href: linter-rule-max-variables.md
+      - name: Nested deployment template scoping
+        displayName: linter
+        href: linter-rule-nested-deployment-template-scoping.md
+      - name: No conflicting metadata
+        displayName: linter
+        href: linter-rule-no-conflicting-metadata.md
+      - name: No deployments resources
+        displayName: linter
+        href: linter-rule-no-deployments-resources.md
       - name: No hardcoded environment URLs
         displayName: linter
         href: linter-rule-no-hardcoded-environment-urls.md

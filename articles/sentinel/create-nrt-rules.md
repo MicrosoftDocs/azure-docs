@@ -8,10 +8,6 @@ ms.author: yelevin
 ---
 # Work with near-real-time (NRT) detection analytics rules in Microsoft Sentinel
 
-> [!IMPORTANT]
->
-> - Near-real-time (NRT) rules are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 Microsoft Sentinel’s [near-real-time analytics rules](near-real-time-rules.md) provide up-to-the-minute threat detection out-of-the-box. This type of rule was designed to be highly responsive by running its query at intervals just one minute apart.
 
 For the time being, these templates have limited application as outlined below, but the technology is rapidly evolving and growing.
@@ -34,7 +30,7 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
 
 1. From the Microsoft Sentinel navigation menu, select **Analytics**.
 
-1. Select **Create** from the button bar, then **NRT query rule (preview)** from the drop-down list.
+1. Select **Create** from the button bar, then **NRT query rule** from the drop-down list.
 
     :::image type="content" source="media/create-nrt-rules/create-nrt-rule.png" alt-text="Screenshot shows how to create a new NRT rule." lightbox="media/create-nrt-rules/create-nrt-rule.png":::
 
@@ -42,7 +38,7 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
 
     The configuration of NRT rules is in most ways the same as that of scheduled analytics rules. 
 
-    - You can refer to [**watchlists**](watchlists.md) in your query logic.
+    - You can refer to multiple tables and [**watchlists**](watchlists.md) in your query logic.
 
     - You can use all of the alert enrichment methods: [**entity mapping**](map-data-fields-to-entities.md), [**custom details**](surface-custom-details-in-alerts.md), and [**alert details**](customize-alert-details.md).
 
@@ -57,8 +53,6 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
     - **Event grouping** configuration is now available to a limited degree. You can choose to have an NRT rule generate an alert for each event for up to 30 events. If you choose this option and the rule results in more than 30 events, single-event alerts will be generated for the first 29 events, and a 30th alert will summarize all the events in the result set.
 
     In addition, the query itself has the following requirements:
-
-    - The query itself can refer to only one table, and cannot contain unions or joins.
 
     - You can't run the query across workspaces.
 

@@ -1,11 +1,10 @@
 ---
 title: "Quickstart: Analyze image content with C#"
-description: In this quickstart, get started using the Content Safety .NET SDK to analyze image content for objectionable material.
-services: cognitive-services
+description: In this quickstart, get started using the Azure AI Content Safety .NET SDK to analyze image content for objectionable material.
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.custom:
 ms.topic: include
 ms.date: 07/04/2023
@@ -15,7 +14,7 @@ ms.author: pafarley
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) with workload .NET desktop development enabled. Or if you don't plan on using Visual Studio IDE, you need [.NET 6.0](https://dotnet.microsoft.com/download/dotnet-core) SDK or above installed.
+* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) with workload .NET desktop development enabled. Or if you don't plan on using Visual Studio IDE, you need the current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * [.NET Runtime](https://dotnet.microsoft.com/download/dotnet/) installed.
 * Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select the subscription you entered on the application form, select a resource group, supported region, and supported pricing tier. Then select **Create**.
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
@@ -73,36 +72,51 @@ dotnet add package Azure.AI.ContentSafety --prerelease
 From the project directory, open the *Program.cs* file that was created previously. Paste in the following code:
 
 ```csharp
-// retrieve the endpoint and key from the environment variables created earlier
-string endpoint = Environment.GetEnvironmentVariable("CONTENT_SAFETY_ENDPOINT");
-string key = Environment.GetEnvironmentVariable("CONTENT_SAFETY_KEY");
+using System;
+using Azure.AI.ContentSafety;
 
-ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
-
-string datapath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Samples", "sample_data", "image.jpg");
-ImageData image = new ImageData() { Content = BinaryData.FromBytes(File.ReadAllBytes(datapath)) };
-
-var request = new AnalyzeImageOptions(image);
-
-Response<AnalyzeImageResult> response;
-try
+namespace Azure.AI.ContentSafety.Dotnet.Sample
 {
-    response = client.AnalyzeImage(request);
-}
-catch (RequestFailedException ex)
-{
-    Console.WriteLine("Analyze image failed.\nStatus code: {0}, Error code: {1}, Error message: {2}", ex.Status, ex.ErrorCode, ex.Message);
-    throw;
-}
+  class ContentSafetySampleAnalyzeImage
+  {
+    public static void AnalyzeImage()
+    {
+      // retrieve the endpoint and key from the environment variables created earlier
+      string endpoint = Environment.GetEnvironmentVariable("CONTENT_SAFETY_ENDPOINT");
+      string key = Environment.GetEnvironmentVariable("CONTENT_SAFETY_KEY");
 
-Console.WriteLine("Hate severity: {0}", response.Value.HateResult?.Severity ?? 0);
-Console.WriteLine("SelfHarm severity: {0}", response.Value.SelfHarmResult?.Severity ?? 0);
-Console.WriteLine("Sexual severity: {0}", response.Value.SexualResult?.Severity ?? 0);
-Console.WriteLine("Violence severity: {0}", response.Value.ViolenceResult?.Severity ?? 0);
+      ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+
+      // Example: analyze image
+
+      string imagePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Samples", "sample_data", "image.jpg");
+      ImageData image = new ImageData() { Content = BinaryData.FromBytes(File.ReadAllBytes(imagePath)) };
+
+      var request = new AnalyzeImageOptions(image);
+
+      Response<AnalyzeImageResult> response;
+      try
+      {
+          response = client.AnalyzeImage(request);
+      }
+      catch (RequestFailedException ex)
+      {
+          Console.WriteLine("Analyze image failed.\nStatus code: {0}, Error code: {1}, Error message: {2}", ex.Status, ex.ErrorCode, ex.Message);
+          throw;
+      }
+
+      Console.WriteLine("Hate severity: {0}", response.Value.HateResult?.Severity ?? 0);
+      Console.WriteLine("SelfHarm severity: {0}", response.Value.SelfHarmResult?.Severity ?? 0);
+      Console.WriteLine("Sexual severity: {0}", response.Value.SexualResult?.Severity ?? 0);
+      Console.WriteLine("Violence severity: {0}", response.Value.ViolenceResult?.Severity ?? 0);
+    }
+    static void Main()
+    {
+      AnalyzeImage();
+    }
+  }
+}
 ```
-
-
-Then, build and run the application. You should see output similar to the one shown here.
 
 #### [Visual Studio IDE](#tab/visual-studio)
 

@@ -3,7 +3,7 @@ title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 07/20/2023
+ms.date: 09/06/2023
 ---
 
 # Deployment stacks (Preview)
@@ -135,7 +135,7 @@ az stack mg create \
   --name '<deployment-stack-name>' \
   --location '<location>' \
   --template-file '<bicep-file-name>' \
-  --deployment-subscription-id '<subscription-id>' \
+  --deployment-subscription '<subscription-id>' \
   --deny-settings-mode 'none'
 ```
 
@@ -310,7 +310,7 @@ az stack mg create \
   --name '<deployment-stack-name>' \
   --location '<location>' \
   --template-file '<bicep-file-name>' \
-  --deployment-subscription-id '<subscription-id>' \
+  --deployment-subscription '<subscription-id>' \
   --deny-settings-mode 'none'
 ```
 
@@ -325,7 +325,7 @@ Currently not implemented.
 You get a warning similar to the following:
 
 ```warning
-The deployment stack 'myStack' you're trying to create already already exists in the current subscription/management group/resource group. Do you want to overwrite it? Detaching: resources, resourceGroups (Y/N)
+The deployment stack 'myStack' you're trying to create already exists in the current subscription/management group/resource group. Do you want to overwrite it? Detaching: resources, resourceGroups (Y/N)
 ```
 
 For more information, see [Create deployment stacks](#create-deployment-stacks).
@@ -589,7 +589,7 @@ To delete a managed resource, remove the resource definition from the underlying
 
 ## Protect managed resources against deletion
 
-When creating a deployment stack, it's possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are refereed as deny settings. You want to store the stack at a parent scope.
+When creating a deployment stack, it's possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are referred to as deny settings. You want to store the stack at a parent scope.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -597,8 +597,8 @@ The Azure PowerShell includes these parameters to customize the deny assignment:
 
 - `DenySettingsMode`: Defines the operations that are prohibited on the managed resources to safeguard against unauthorized security principals attempting to delete or update them. This restriction applies to everyone unless explicitly granted access. The values include: `None`, `DenyDelete`, and `DenyWriteAndDelete`.
 - `DenySettingsApplyToChildScopes`: Deny settings are applied to nested resources under managed resources.
-- `DenySettingsExcludedActions`: List of role-based management operations that are excluded from the deny settings. Up to 200 actions are permitted.
-- `DenySettingsExcludedPrincipals`: List of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are permitted.
+- `DenySettingsExcludedAction`: List of role-based management operations that are excluded from the deny settings. Up to 200 actions are permitted.
+- `DenySettingsExcludedPrincipal`: List of Microsoft Entra principal IDs excluded from the lock. Up to five principals are permitted.
 
 # [CLI](#tab/azure-cli)
 
@@ -607,7 +607,7 @@ The Azure CLI includes these parameters to customize the deny assignment:
 - `deny-settings-mode`: Defines the operations that are prohibited on the managed resources to safeguard against unauthorized security principals attempting to delete or update them. This restriction applies to everyone unless explicitly granted access. The values include: `none`, `denyDelete`, and `denyWriteAndDelete`.
 - `deny-settings-apply-to-child-scopes`: Deny settings are applied to nested resources under managed resources.
 - `deny-settings-excluded-actions`: List of role-based access control (RBAC) management operations excluded from the deny settings. Up to 200 actions are allowed.
-- `deny-settings-excluded-principals`: List of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are allowed.
+- `deny-settings-excluded-principals`: List of Microsoft Entra principal IDs excluded from the lock. Up to five principals are allowed.
 
 # [Portal](#tab/azure-portal)
 
@@ -625,8 +625,8 @@ New-AzResourceGroupDeploymentStack `
   -ResourceGroupName "<resource-group-name>" `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
-  -DenySettingsExcludedActions "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipals "<object-id>" "<object-id>"
+  -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
+  -DenySettingsExcludedPrincipal "<object-id>" "<object-id>"
 ```
 
 # [CLI](#tab/azure-cli)
@@ -657,8 +657,8 @@ New-AzSubscriptionDeploymentStack `
   -Location "<location>" `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
-  -DenySettingsExcludedActions "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipals "<object-id>" "<object-id>"
+  -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
+  -DenySettingsExcludedPrincipal "<object-id>" "<object-id>"
 ```
 
 Use the `DeploymentResourceGroupName` parameter to specify the resource group name at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
@@ -694,7 +694,7 @@ New-AzManagmentGroupDeploymentStack `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
   -DenySettingsExcludedActions "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipals "<object-id>" "<object-id>"
+  -DenySettingsExcludedPrincipal "<object-id>" "<object-id>"
 ```
 
 Use the `DeploymentSubscriptionId ` parameter to specify the subscription ID at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.

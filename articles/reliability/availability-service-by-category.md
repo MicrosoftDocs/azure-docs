@@ -46,11 +46,11 @@ Azure services are presented in the following tables by category. Note that some
 > | Azure Application Gateway              | Azure API Management                              | 
 > | Azure Backup                           | Azure App Configuration                           | 
 > | Azure Cosmos DB                        | Azure App Service                                 | 
-> | Azure Event Hubs                       | Azure Active Directory Domain Services            | 
+> | Azure Event Hubs                       | Microsoft Entra Domain Services            | 
 > | Azure ExpressRoute                     | Azure Bastion                                     |
 > | Azure Key Vault                        | Azure Batch                                       | 
 > | Azure Load Balancer                    | Azure Cache for Redis                             | 
-> | Azure Public IP                        | Azure Cognitive Search                            | 
+> | Azure Public IP                        | Azure AI Search                            | 
 > | Azure Service Bus                      | Azure Container Registry                          | 
 > | Azure Service Fabric                   | Azure Container Instances                         |
 > | Azure Site Recovery                    | Azure Data Explorer                               |  
@@ -93,9 +93,9 @@ As mentioned previously, Azure classifies services into three categories: founda
 > |------------------------------------------------------|
 > | Azure API for FHIR                                   |
 > | Azure Analysis Services                              |
-> | Azure Applied AI Services                            |
+> | Azure AI services                            |
 > | Azure Automation                                     |
-> | Azure Cognitive Services                             |
+> | Azure AI services                             |
 > | Azure Data Share                                     |
 > | Azure Databricks                                     |
 > | Azure Database for MariaDB                           |
@@ -151,4 +151,3 @@ To learn more about preview services that aren't yet in general availability and
 ## Next steps
 
 - [Azure services and regions that support availability zones](availability-zones-service-support.md)
-
