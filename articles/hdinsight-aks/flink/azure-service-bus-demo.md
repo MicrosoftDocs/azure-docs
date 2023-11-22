@@ -1,5 +1,12 @@
-
+---
+title: DStreamAPI AzureServiceBusDemo
+description: DStreamAPI AzureServiceBusDemo
+ms.service: hdinsight-aks
+ms.topic: how-to
+ms.date: 11/23/2023
+---
 # DStreamAPI AzureServiceBusDemo
+
 This i sample text.
 
 ## This Flink job demo reads messages from an Azure Service Bus topic and writes them to ADLS gen2.
