@@ -120,7 +120,7 @@ See the [OpenTelemetry Overview](../app/opentelemetry-overview.md#instrumentatio
 
 Some customers have begun to use the [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md) as an agent alternative, even though Microsoft doesn't officially support an agent-based approach for application monitoring yet. In the meantime, the open-source community has contributed an [OpenTelemetry Collector Azure Monitor Exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) that some customers are using to send data to Azure Monitor Application Insights.
           
-We plan to support an agent-based approach in the future, but the details and timeline aren't available yet. Our objective is to provide a path for any OpenTelemetry-supported language to send to Azure Monitor via the [OpenTelemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). This approach enables customers to observe applications written in languages beyond our [supported languages](../app/app-insights-overview.md#supported-languages). 
+We plan to support an agent-based approach in the future, but the details and timeline aren't available yet. Our objective is to provide a path for any OpenTelemetry-supported language to send to Azure Monitor via the [OpenTelemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-proto/blob/main/docs/README.md). This approach enables customers to observe applications written in languages beyond our [supported languages](../app/app-insights-overview.md#supported-languages). 
 
 ### What's the difference between OpenCensus and OpenTelemetry?
 
