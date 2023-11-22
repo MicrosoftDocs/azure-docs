@@ -26,10 +26,6 @@ For import operation, ensure
 * The data to be imported must be in the same Tenant as of the FHIR service.
 * Maximum number of files to be imported per operation is 10,000.
 
-Note: 
-* Import operation does not support conditional references in resources. 
-* During import operation, If multiple resources share the same resource ID, then only one of those resources is imported at random. There is an error logged for the resources sharing the same resource ID.
-
 
 ### Calling $import
 
