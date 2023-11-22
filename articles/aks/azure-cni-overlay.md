@@ -29,6 +29,17 @@ You can provide outbound (egress) connectivity to the internet for Overlay pods 
 
 You can configure ingress connectivity to the cluster using an ingress controller, such as Nginx or [HTTP application routing](./http-application-routing.md). You cannot configure ingress connectivity using Azure App Gateway. For details see [Limitations with Azure CNI Overlay](#limitations-with-azure-cni-overlay).
 
+## Regional availability for ARM64 node pools
+
+Azure CNI Overlay is currently unavailable for ARM64 node pools in the following regions:
+
+- East US 2
+- France Central
+- Southeast Asia
+- South Central US
+- West Europe
+- West US 3
+
 ## Differences between Kubenet and Azure CNI Overlay
 
 Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address space logically different from the VNet, but it has scaling and other limitations. The below table provides a detailed comparison between Kubenet and Azure CNI Overlay. If you don't want to assign VNet IP addresses to pods due to IP shortage, we recommend using Azure CNI Overlay.
