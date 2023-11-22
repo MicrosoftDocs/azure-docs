@@ -50,7 +50,7 @@ items:
   - name: Reference
     items:
       - name: Oracle on Database@Azure
-        href: azure/oracle/oracle-db/database-overview
+        href: /azure/oracle/oracle-db/database-overview
       - name: Oracle on Azure Virtual Machines landing zone accelerator
         href: /azure/cloud-adoption-framework/scenarios/oracle-iaas/introduction-oracle-landing-zone
       - name: Cloud Adoption Framework for Azure
