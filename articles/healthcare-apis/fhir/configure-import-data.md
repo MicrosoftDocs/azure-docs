@@ -14,8 +14,16 @@ ms.author: kesheth
 The FHIR service supports $import operation that allows you to import data into FHIR service from a storage account. Import splits input files in several data streams for optimal performance and doesn't guarantee order in which resources are processed. 
 
 There are two modes of $import supported today- 
-* Initial mode is intended to load FHIR resources into an empty FHIR server. Initial mode only supports CREATE operations and, when enabled, blocks API writes to the FHIR server.
-* Incremental mode is optimized to load data into FHIR server periodically and doesn't block writes via API. It also allows you to load lastUpdated and versionId from resource Meta (if present in resource JSON). 
+* Initial mode
+1. Initial mode is intended to load FHIR resources into an empty FHIR server.
+1. Initial mode only supports CREATE operations and, when enabled, blocks API writes to the FHIR server.
+* Incremental mode
+1. Incremental mode is optimized to load data into FHIR server periodically and doesn't block writes via API.
+1. Incremental mode allows you to load lastUpdated and versionId from resource Meta (if present in resource JSON).
+   Incase
+   * Import files do not have version and lastUpdated field values specified, there is no guarantee of importing resources in FHIR service.
+   * Import files have resources with duplicate version with lastUpdate field values, then only one resource is ingested in FHIR service.
+1. Incremental mode allows you to ingest soft deleted resources. This capability is beneficial in case you would like to migrate from Azure API for FHIR to Azure Health Data Services, FHIR service. 
 
 In this document we go over the steps to configure import settings on the FHIR service:
 
