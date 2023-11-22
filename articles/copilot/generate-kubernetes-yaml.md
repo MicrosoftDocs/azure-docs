@@ -19,6 +19,8 @@ You provide your application specifications, such as container images, resource 
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
+[!INCLUDE [preview-note](includes/preview-note.md)]
+
 ## Sample prompts
 
 Here are a few examples of the kinds of prompts you can use to generate Kubernetes YAML files. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of Kubernetes YAML files.

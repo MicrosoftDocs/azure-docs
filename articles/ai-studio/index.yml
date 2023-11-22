@@ -51,6 +51,8 @@ landingContent:
         links:
           - text: Deploy a web app for chat on your data
             url: tutorials/deploy-chat-web-app.md
+          - text: Build your own copilot using prompt flow
+            url: tutorials/deploy-copilot-ai-studio.md
 
   # Card
   - title: Develop apps
