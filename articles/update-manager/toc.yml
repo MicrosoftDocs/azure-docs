@@ -68,6 +68,14 @@
       href: /azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json
     - name: Create alerts (preview)
       href: manage-alerts.md
+    - name: Pre and Post Events (preview)
+      items:
+      - name: Overview
+        href: pre-post-scripts-overview.md
+      - name: Manage pre and post events (preview)
+        href: manage-pre-post-events.md  
+      - name: FAQ
+        href: pre-post-events-common-scenarios.md
     - name: Check update compliance 
       href: view-updates.md
     - name: Deploy updates and track results
