@@ -32,8 +32,7 @@ The following table lists the runtime name, Apache Spark version, and release da
 
 | Runtime name                                                               | Release date      | Release stage                   | End of life announcement date | End of life effective date |
 |----------------------------------------------------------------------------|-------------------|---------------------------------|-------------------------------|----------------------------|
-| [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) | Nov 21, 2023      | Public Preview (GA expected in Q1 2024)
-| "-"                | "-"           |
+| [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) | Nov 21, 2023      | Public Preview (GA expected in Q1 2024) | 
 | [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) | Nov 17, 2022      | GA (as of Feb 23, 2023)         | Q1/Q2 2024  |   Q1 2025              |
 | [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | July 8, 2022      | __End of Life Announced (EOLA)__ | July 8, 2023                  | July 8, 2024               |
 | [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md)  | May 26, 2021      | __End of Life Announced (EOLA)__ | January 26, 2023              | January 26, 2024           |
@@ -77,15 +76,17 @@ The patch policy differs based on the [runtime lifecycle stage](./runtime-for-ap
 
 ## Migration between Apache Spark versions - support
 
-General Upgrade guidelines/ FAQ's :
+General Upgrade guidelines/ FAQ's:
 
 Question: If a customer is seeking advice on how to migrate from 2.4 to 3.X, what steps should be taken?
-Answer: Refer to the following migration guide: https://spark.apache.org/docs/latest/sql-migration-guide.html
+
+Answer:   Refer to the following migration guide: https://spark.apache.org/docs/latest/sql-migration-guide.html
 
 Question: I get an error when I try to upgrade Spark pool runtime using PowerShell commandlet when they have attached libraries
-Answer: Do not use PowerShell Commandlet if you have custom libraries installed in your synapse workspace. Instead follow these steps:
-        -Recreate Spark Pool 3.3 from the ground up.
-        -Downgrade the current Spark Pool 3.3 to 3.1, remove any packages attached, and then upgrade again to 3.3
+
+Answer:   Do not use PowerShell Commandlet if you have custom libraries installed in your synapse workspace. Instead follow these steps:
+          -Recreate Spark Pool 3.3 from the ground up.
+          -Downgrade the current Spark Pool 3.3 to 3.1, remove any packages attached, and then upgrade again to 3.3
 
 
 

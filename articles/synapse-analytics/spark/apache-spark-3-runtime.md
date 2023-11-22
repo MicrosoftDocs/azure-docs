@@ -2041,6 +2041,6 @@ zoo 1.8-10
 - [Apache Spark Documentation](https://spark.apache.org/docs/3.1.2/)
 - [Apache Spark Concepts](apache-spark-concepts.md)
 
-## Migration between Apache Spark versions - support :
+## Migration between Apache Spark versions - support
 
-For guidance on migrating from older runtime versions to runtime 33 please refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).
+For guidance on migrating from older runtime versions to Azure Synapse Runtime for Apache Spark 3.3 or 3.4 refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).

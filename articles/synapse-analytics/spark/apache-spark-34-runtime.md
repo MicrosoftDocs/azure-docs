@@ -1,12 +1,12 @@
 ---
 title: Azure Synapse Runtime for Apache Spark 3.4 
 description: New runtime is in Public Preview. Try it and use Spark 3.4.1, Python 3.10, Delta Lake 2.4.
-author: winnyr
+author: rajwinny
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
 ms.date: 11/17/2023 
-ms.author: winnyr
+ms.author: rajwinny
 ms.reviewer: ekote
 ---
 
@@ -27,9 +27,8 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 
 
 
->
-> * As of now, creation of Spark 3.4 pools will be available only thru Azure Synapse Studio. In the upcoming weeks we will add the Azure Portal and ARM support.
-> 
+As of now, creation of Spark 3.4 pools will be available only thru Azure Synapse Studio. In the upcoming weeks we will add the Azure Portal and ARM support.
+
 
 ## Libraries
 The following sections present the libraries included in Azure Synapse Runtime for Apache Spark 3.4 (Public Preview).
@@ -478,9 +477,9 @@ The following table lists all the default level packages for R and their respect
 | r-callr                   | 3.7.3        | r-plyr          | 1.8.9      | zlib             | 1.2.13     |
 |                           |              |                 |            | zstd             | 1.5.5      |
 
-## Migration between Apache Spark versions - support :
+## Migration between Apache Spark versions - support
 
-For guidance on migrating from older runtime versions to runtime 34 please refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).
+For guidance on migrating from older runtime versions to Azure Synapse Runtime for Apache Spark 3.4 refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).
 
 
 
