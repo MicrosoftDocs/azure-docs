@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to your **Azure Automation** account.
 1. [Create](../automation/manage-runbooks.md#create-a-runbook) and [Publish](../automation/manage-runbooks.md#publish-a-runbook) an Automation runbook. 
-1. To customize, you can use either your existing script or use the following two sample scripts.
+1. To customize, you can use either your existing script or use the following sample scripts.
 
 ### Sample scripts
 
