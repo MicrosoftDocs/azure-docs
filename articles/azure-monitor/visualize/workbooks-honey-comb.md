@@ -17,7 +17,7 @@ The following image shows the CPU utilization of virtual machines across two sub
 :::image type="content" source=".\media\workbooks-honey-comb\cpu-example.png" lightbox=".\media\workbooks-honey-comb\cpu-example.png" alt-text="Screenshot that shows the CPU utilization of virtual machines across two subscriptions." border="false":::
 
 Watch this video to learn how to build a hive cluster.
-.
+
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5ah5O]
 
 ## Add a honeycomb
