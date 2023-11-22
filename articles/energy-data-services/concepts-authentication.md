@@ -9,7 +9,7 @@ ms.date: 02/10/2023
 ms.custom: template-concept
 ---
 
-# Authentication
+# Authentication concepts in Azure Data Manager for Energy 
 
 ## Service Principals
 In the Azure Data Manager for Energy instance, 
