@@ -22,6 +22,13 @@ In Defender for Cloud, navigate to the **Overview** dashboard to get a holistic 
 
 ## Review recommendations
 
+> [!IMPORTANT]
+> This page discusses how to use the new recommendations experience where you have the ability to prioritize your recommendations by their effective risk level. To view this experience you must select **Try it now**.
+>
+> :::image type="content" source="media/review-security-recommendations/try-it-now.png" alt-text="Screenshot that shows where the try it now button is located on the recommendation page." lightbox="media/review-security-recommendations/try-it-now.png":::
+
+**To review recommendations**:
+
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **Defender for Cloud** > **Recommendations**.
@@ -34,16 +41,18 @@ In Defender for Cloud, navigate to the **Overview** dashboard to get a holistic 
     - **Attack Paths** - The number of attack paths.
     - **Owner** - The person assigned to this recommendation.
     - **Due date** - Indicates the due date for fixing the recommendation.
-    - **Recommendation status** indicates whether the recommendation has been assigned, and whether the due date for fixing the recommendation has passed.
+    - **Recommendation status** indicates whether the recommendation is assigned, and the status of the due date for fixing the recommendation.
 
 ## Review recommendation details
 
-> [!NOTE]
-> This page discusses how to use the new recommendations experience where you have the ability to prioritize your recommendations by their effective risk level. To view this experience you must select **Try it now**.
->
-> :::image type="content" source="media/review-security-recommendations/try-it-now.png" alt-text="Screenshot that shows where the try it now button is located on the recommendation page." lightbox="media/review-security-recommendations/try-it-now.png":::
+It's important to review all of the details related to a recommendation before trying to understand the process needed to resolve the recommendation. We recommend ensuring that all of the recommendation details are correct before resolving the recommendation.
 
-1. In the **Recommendations** page, select the recommendation.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Navigate to **Defender for Cloud** > **Recommendations**.
+
+1. Select a recommendation.
+
 1. In the recommendation page, review the details:
     - **Description** - A short description of the security issue.
     - **Attack Paths** - The number of attack paths.
