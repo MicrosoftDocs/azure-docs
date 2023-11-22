@@ -24,8 +24,17 @@ Click the **Add** button located in the lower left of the clusters page. This wi
 ![CycleCloud Create New Cluster Screen](../images/version-8/create-cluster-selection.png)
 ::: moniker-end
 
+Fill out the new cluster form and hit **Save** to create the new cluster. You can later change these values using **Edit** on the cluster page, though most changes require the cluster to be terminated first.
 
-Fill out the new cluster form and hit **Save** to create the new cluster. The form itself will vary based on the cluster template's parameters, but below are some that are commonly required:
+::: moniker range=">=cyclecloud-8"
+
+The cluster form itself is based on two things: the [cluster parameters](../how-to/cluster-templates.md#cluster-template-parameters), which are grouped into sections, and automatic sections added by CycleCloud. 
+
+::: moniker-end
+
+### Cluster Parameters
+
+The parameters in the form vary based on the cluster template, but below are some that are commonly required:
 
 - **Region** determines the region of nodes in the cluster. Changing the region may also affect the types of VMs which are available as well as the capacity and quota.
 
@@ -43,6 +52,31 @@ Fill out the new cluster form and hit **Save** to create the new cluster. The fo
 
 ::: moniker range=">=cyclecloud-8"
 ![CycleCloud New Cluster Form](../images/version-8/create-cluster-form.png)
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+
+### Standard Cluster Sections
+
+CycleCloud 8 adds standard cluster sections automatically to the **Create** and **Edit** form for every cluster, regardless of type. These are not specified in the cluster template itself, and cannot be imported or exported as parameters.
+
+* CycleCloud 8.0+ includes a Cloud-init section
+* CycleCloud 8.5+ includes a Security section
+
+These sections let you edit certain settings for the node arrays and the standalone nodes defined in the cluster template. (It does not include nodes created from the node arrays, such as execute nodes.) 
+The default for new clusters is to use the same values across all standalone nodes and node arrays, but there is an option to use different values for each.
+
+**Separate settings for each standalone node and node array:**
+![CycleCloud Separate Node Array Settings](../images/cluster-edit-separate.png)
+
+**Shared settings used for all standalone nodes and node arrays:**
+![CycleCloud Shared Node Array Settings](../images/cluster-edit-shared.png)
+
+If the values happen to match across all standalone nodes and node arrays, then **Apply to all** is initially activated.
+
+> [!WARNING]
+> Toggling the **Apply to all** setting on and clicking Save will update all standalone nodes and node arrays with the new settings in the form!
+
 ::: moniker-end
 
 ## Using the CycleCloud CLI
