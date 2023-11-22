@@ -29,7 +29,7 @@ To centrally and logically organize and manage Azure resources associated with y
 
   1. In the [Azure portal](https://portal.azure.com) search box, enter and select **Subscriptions**.
 
-  1. On the **Subscrptions** page, find and select your Azure subscription.
+  1. On the **Subscriptions** page, find and select your Azure subscription.
 
   1. On your subscription menu, under **Settings**, select **Resource providers**.
 
