@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 11/20/2023
+ms.date: 11/22/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,8 +24,8 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
-| November 20 | [Enable permissions management with Defender for Cloud (Preview)](#enable-permissions-management-with-defender-for-cloud-preview) |
-| November 20 | [Defender for Cloud integration with ServiceNow](#defender-for-cloud-integration-with-servicenow) |
+| November 22 | [Enable permissions management with Defender for Cloud (Preview)](#enable-permissions-management-with-defender-for-cloud-preview) |
+| November 22 | [Defender for Cloud integration with ServiceNow](#defender-for-cloud-integration-with-servicenow) |
 | November 20| [General Availability of the autoprovisioning process for SQL Servers on machines plan](#general-availability-of-the-autoprovisioning-process-for-sql-servers-on-machines-plan)|
 | November 15 | [Defender for Cloud is now integrated with Microsoft 365 Defender](#defender-for-cloud-is-now-integrated-with-microsoft-365-defender) |
 | November 15 | [General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries](#general-availability-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries) |
@@ -40,13 +40,19 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ### Enable permissions management with Defender for Cloud (Preview)
 
+November 22, 2023
+
 Microsoft now offers both Cloud-Native Application Protection Pltforms (CNAPP) and Cloud Infrastructure Entitlement Management (CIEM) solutions with Microsoft Defender for Cloud (CNAPP) and [Microsoft Entra Permissions Management](/entra/permissions-management/) (CIEM).
 
 Security administrators can get a centralized view of their unused or excessive access permissions within Defender for Cloud. 
 
 Security teams can drive the least privilege access controls for cloud resources and receive actionable recommendations for resolving permissions risks across Azure, AWS, and GCP cloud environments as part of their Defender Cloud Security Posture Management (CSPM), without any additional licensing requirements.
 
+Learn how to [Enable Permissions Management in Microsoft Defender for Cloud (Preview)](enable-permissions-management.md).
+
 ### Defender for Cloud integration with ServiceNow
+
+November 22, 2023
 
 Microsoft Defender for Cloud is now integrated with ServiceNow. This integration allows you to connect ServiceNow to your Defender for Cloud environment. This allows you to prioritize the remediation of recommendations that impact your business. 
 
