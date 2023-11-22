@@ -42,7 +42,7 @@ For already existing Azure Managed Instance for Apache Cassandra clusters, you c
  :::image type="content" source="./media/write-through-cache/add-datacenter-page2.png" alt-text="Fill in the requirements for new datacenter." lightbox="./media/write-through-cache/add-datacenter-page2.png" border="true":::
 
 > [!NOTE]
-> You can access new features of Auto replication when adding a new data center. [Learn more](managed-instance-apache-cassandra/create-cluster-portal.md#turnkey-replication)
+> You can access new features of Auto replication when adding a new data center. [Learn more](create-cluster-portal.md#turnkey-replication)
 
 - Once the new datacenter is created, you should be able to see it along other existing datacenter(s).
 
@@ -56,11 +56,11 @@ In this analysis, we explore a sample test designed to compare the IOPs and late
 
 The screenshot shows IOPS of Raid 0 array with four premium managed disks(present day configuration)
 
-:::image type="content" source="./media/write-through-cache/premium-disk-iops.png" alt-text="IOPS test screenshot using premium disks." lightbox="./media/write-through-cache/premium-disk-iop.png" border="true":::
+:::image type="content" source="./media/write-through-cache/premium-disk-iops.png" alt-text="IOPS test screenshot using premium disks." lightbox="./media/write-through-cache/premium-disk-iops.png" border="true":::
 
 IOPS with RAID 1 array of local NVMe disks and Premium managed disks
 
-:::image type="content" source="./media/write-through-cache/nvme-disk-iops.png" alt-text="IOPS test screenshot using locally NVMe disks." lightbox="./media/write-through-cache/nvme-disk-iop.png" border="true":::
+:::image type="content" source="./media/write-through-cache/nvme-disk-iops.png" alt-text="IOPS test screenshot using locally NVMe disks." lightbox="./media/write-through-cache/nvme-disk-iops.png" border="true":::
 
 We see a better read performance of 248 K IOPS using locally attached NVMe disk.
 
