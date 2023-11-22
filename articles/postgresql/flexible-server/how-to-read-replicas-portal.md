@@ -153,23 +153,6 @@ check the operation status.
 
 #### [Portal](#tab/portal)
 
-1.  In the Azure portal, select the primary server.
-
-2.  On the server sidebar, under **Settings**, select **Replication**.
-
-3.  Select **Create endpoint**.
-
-4.  In the dialog, type a meaningful name for your endpoint. Notice the DNS endpoint that is being generated.
-
-    :::image type="content" source="./media/how-to-read-replicas-portal/add-virtual-endpoint.png" alt-text="Screenshot of creating a new virtual endpoint with custom name.":::
-
-5.  Select **Create**.
-
-    > [!NOTE]  
-    > If you do not create a virtual endpoint you will receive an error on the promote replica attempt.
-
-    :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote-attempt.png" alt-text="Screenshot of promotion error when missing virtual endpoint.":::
-
 #### [REST API](#tab/restapi)
 
 ---
@@ -293,9 +276,9 @@ Rather than switchover to a replica, it's also possible to break the replication
 
 ## Delete virtual endpoint (preview)
 
+#### [Portal](#tab/portal)
+
 #### [REST API](#tab/restapi)
-
-
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{serverName}/virtualendpoints/{virtualendpointName}?api-version=2023-06-01-preview
