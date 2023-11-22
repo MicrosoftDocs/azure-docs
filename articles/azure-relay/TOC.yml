@@ -15,7 +15,9 @@
     - name: Send and receive messages - Node WebSockets
       href: relay-hybrid-connections-node-get-started.md
     - name: Send and receive messages - Node HTTP
-      href: relay-hybrid-connections-http-requests-node-get-started.md    
+      href: relay-hybrid-connections-http-requests-node-get-started.md   
+    - name: Send and receive messages - Java HTTP
+      href: relay-hybrid-connections-java-get-started.md
   - name: Windows Communication Foundation (WCF)
     items:
     - name: Expose an on-premises WCF service to a web application in the cloud
