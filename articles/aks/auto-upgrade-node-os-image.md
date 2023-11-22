@@ -5,19 +5,19 @@ ms.topic: article
 ms.custom: build-2023, devx-track-azurecli
 ms.author: nickoman
 author: nickomang
-ms.date: 02/03/2023
+ms.date: 11/22/2023
 ---
 
 # Auto-upgrade Azure Kubernetes Service cluster's node OS images
 
 AKS provides multiple auto-upgrade channels dedicated to timely node-level OS security updates. This channel is different from cluster-level Kubernetes version upgrades and supersedes it.
 
-## Interactions between node OS and cluster auto-upgrade
+## Interactions between node OS auto-upgrade and cluster auto-upgrade
 
 Node-level OS security updates are released at a faster rate than Kubernetes patch or minor version updates. The node OS auto-upgrade channel grants you flexibility and enables a customized strategy for node-level OS security updates. Then, you can choose a separate plan for cluster-level Kubernetes version [auto-upgrades][Autoupgrade].
 It's best to use both cluster-level [auto-upgrades][Autoupgrade] and the node OS auto-upgrade channel together. Scheduling can be fine-tuned by applying two separate sets of [maintenance windows][planned-maintenance] - `aksManagedAutoUpgradeSchedule` for the cluster [auto-upgrade][Autoupgrade] channel and `aksManagedNodeOSUpgradeSchedule` for the node OS auto-upgrade channel.
 
-## Channels for node OS upgrades
+## Channels for node OS image upgrades
 
 The selected channel determines the timing of upgrades. When making changes to node OS auto-upgrade channels, allow up to 24 hours for the changes to take effect. 
 
@@ -64,7 +64,7 @@ To use the `SecurityPatch` channel, your cluster must support these requirements
 
 - The `NodeOsUpgradeChannelPreview` feature flag must be enabled on your subscription
 
-### Register the 'NodeOsUpgradeChannelPreview' feature flag
+### Register NodeOsUpgradeChannelPreview
 
 Register the `NodeOsUpgradeChannelPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
