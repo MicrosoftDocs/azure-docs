@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: pauljewell
 ms.reviewer: nachakra
 ms.custom: devx-track-azurepowershell
-ms.date: 11/21/2023
+ms.date: 11/22/2023
 #Customer intent: As a dev, devops, or IT admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -309,6 +309,6 @@ To see a full example of how to use principal attributes to allow access to blob
 ## Next steps
 
 - [Actions and attributes for Azure role assignment conditions for Azure Queue Storage](queues-auth-abac-attributes.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal](storage-auth-abac-portal.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal](../blobs/storage-auth-abac-portal.md)
 - [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md)
 - [Troubleshoot Azure role assignment conditions](../../role-based-access-control/conditions-troubleshoot.md)
