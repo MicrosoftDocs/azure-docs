@@ -140,7 +140,7 @@ landingContent:
         links:
           - text: Analyze unstructured documents and more with Azure AI Document Intelligence
             url: https://aka.ms/form-recognizer/ai-show
-          - text: Using AI With Documents - Syntex, AI Builder & Azure AI services
+          - text: Using AI With Documents - Syntax, AI Builder & Azure AI services
             url: https://aka.ms/form-recognizer/event-session
       - linkListType: reference
         links:

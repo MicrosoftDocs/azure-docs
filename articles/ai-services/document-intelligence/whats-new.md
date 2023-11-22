@@ -230,7 +230,7 @@ The v3.1 API introduces new and updated capabilities:
   * US Military ID
 
 > [!TIP]
-> All January 2023 updates are available with [REST API version **2022-08-31 (GA)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument).
+> All January 2023 updates are available with [REST API version **2022-08-31 (GA)**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP).
 
 * **[Prebuilt receipt model](concept-receipt.md#supported-languages-and-locales)—additional language support**:
 
@@ -481,7 +481,7 @@ The v3.1 API introduces new and updated capabilities:
 
 * Document Intelligence v3.0 generally available
 
-  * **Document Intelligence REST API v3.0 is now generally available and ready for use in production applications!** Update your applications with [**REST API version 2022-08-31**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument).
+  * **Document Intelligence REST API v3.0 is now generally available and ready for use in production applications!** Update your applications with [**REST API version 2022-08-31**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP).
 
 * Document Intelligence Studio updates
   > [!div class="checklist"]

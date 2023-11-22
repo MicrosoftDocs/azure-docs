@@ -15,7 +15,7 @@ ms.author: lajanuar
 >
 > This project targets Azure AI Document Intelligence API version 3.1 and uses cURL to execute REST API calls.
 
-[Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Azure SDKs](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported SDKs](../../../sdk-overview-v3-1.md)
+[Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Azure SDKs](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported SDKs](../../../sdk-overview-v3-1.md)
 
 ## Prerequisites
 
@@ -87,7 +87,7 @@ You receive a `202 (Success)` response that includes an `Operation-location` hea
 
 ### Get analyze result (GET Request)
 
-After you call the [Analyze document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) API, call the [Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data.
+After you call the [Analyze document](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API, call the [Get analyze result}(/rest/api/aiservices/document-models/get-analyze-result?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to get the status of the operation and the extracted data.
 
 <!-- markdownlint-disable MD024 -->
 

@@ -93,7 +93,7 @@ If you want to use manually labeled data, you have to upload the *.labels.json* 
 
 When you [train your model](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) with labeled data, the model uses supervised learning to extract values of interest, using the labeled forms you provide. Labeled data results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
 
-Document Intelligence uses the [prebuilt-layout model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) API to learn the expected sizes and positions of typeface and handwritten text elements and extract tables. Then it uses user-specified labels to learn the key/value associations and tables in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started with training a new model. Then, add more labeled data, as needed, to improve the model accuracy. Document Intelligence enables training a model to extract key-value pairs and tables using supervised learning capabilities.
+Document Intelligence uses the [prebuilt-layout model](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to learn the expected sizes and positions of typeface and handwritten text elements and extract tables. Then it uses user-specified labels to learn the key/value associations and tables in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started with training a new model. Then, add more labeled data, as needed, to improve the model accuracy. Document Intelligence enables training a model to extract key-value pairs and tables using supervised learning capabilities.
 
 ### [Document Intelligence Studio](#tab/studio)
 
@@ -146,7 +146,7 @@ Training with labels leads to better performance in some scenarios. To train wit
 > [!NOTE]
 > **the `create compose model` operation is only available for custom models trained _with_ labels.** Attempting to compose unlabeled models will produce an error.
 
-With the [**create compose model**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/ComposeDocumentModel) operation, you can assign up to 100 trained custom models to a single model ID. When analyze documents with a composed model, Document Intelligence first classifies the form you submitted, then chooses the best matching assigned model, and returns results for that model. This operation is useful when incoming forms may belong to one of several templates.
+With the [**create compose model**](/rest/api/aiservices/document-models/compose-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) operation, you can assign up to 100 trained custom models to a single model ID. When analyze documents with a composed model, Document Intelligence first classifies the form you submitted, then chooses the best matching assigned model, and returns results for that model. This operation is useful when incoming forms may belong to one of several templates.
 
 ### [Document Intelligence Studio](#tab/studio)
 
@@ -205,19 +205,19 @@ Once the training process has successfully completed, you can begin to build you
 
 #### Compose your custom models
 
-The [compose model API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/ComposeDocumentModel) accepts a list of model IDs to be composed.
+The [compose model API](/rest/api/aiservices/document-models/compose-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) accepts a list of model IDs to be composed.
 
 :::image type="content" source="../media/compose-model-request-body.png" alt-text="Screenshot of compose model request.":::
 
 #### Analyze documents
 
-To make an [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) request, use a unique model name in the request parameters.
+To make an [**Analyze document**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) request, use a unique model name in the request parameters.
 
 :::image type="content" source="../media/custom-model-analyze-request.png" alt-text="Screenshot of a custom model request URL.":::
 
 #### Manage your composed models
 
-You can manage custom models throughout your development needs including [**copying**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/CopyDocumentModelTo), [**listing**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/GetModels), and [**deleting**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/DeleteModel) your models.
+You can manage custom models throughout your development needs including [**copying**](/rest/api/aiservices/document-models/copy-model-to?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP), [**listing**](/rest/api/aiservices/document-models/get-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTPs), and [**deleting**](/rest/api/aiservices/document-models/delete-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) your models.
 
 ### [Client libraries](#tab/sdks)
 
@@ -421,7 +421,7 @@ When the operation completes, your newly composed model appears in the list.
 
 ### [**REST API**](#tab/rest)
 
-Using the **REST API**, you can make a  [**Compose Custom Model**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/ComposeDocumentModel) request to create a single composed model from existing models. The request body requires a string array of your `modelIds` to compose and you can optionally define the `modelName`.
+Using the **REST API**, you can make a  [**Compose Custom Model**](/rest/api/aiservices/document-models/compose-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) request to create a single composed model from existing models. The request body requires a string array of your `modelIds` to compose and you can optionally define the `modelName`.
 
 ### [**Client-library SDKs**](#tab/sdks)
 
@@ -457,7 +457,7 @@ Use the programming language code of your choice to create a composed model that
 
 ### [**REST API**](#tab/rest)
 
-Using the REST API, you can make an [Analyze Document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) request to analyze a document and extract key-value pairs and table data.
+Using the REST API, you can make an [Analyze Document](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) request to analyze a document and extract key-value pairs and table data.
 
 ### [**Client-library SDKs**](#tab/sdks)
 
@@ -478,7 +478,7 @@ Test your newly trained models by [analyzing forms](build-a-custom-model.md?view
 
 ## Manage your custom models
 
-You can [manage your custom models](../how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) throughout their lifecycle by viewing a [list of all custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/GetModels) under your subscription, retrieving information about [a specific custom model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/GetModel), and [deleting custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/DeleteModel) from your account.
+You can [manage your custom models](../how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) throughout their lifecycle by viewing a [list of all custom models](/rest/api/aiservices/document-models/get-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTPs) under your subscription, retrieving information about [a specific custom model](/rest/api/aiservices/document-models/get-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP), and [deleting custom models](/rest/api/aiservices/document-models/delete-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) from your account.
 
 Great! You've learned the steps to create custom and composed models and use them in your Document Intelligence projects and applications.
 
@@ -487,6 +487,6 @@ Great! You've learned the steps to create custom and composed models and use the
 Learn more about the Document Intelligence client library by exploring our API reference documentation.
 
 > [!div class="nextstepaction"]
-> [Document Intelligence API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
+> [Document Intelligence API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)
 
 ::: moniker-end
