@@ -132,6 +132,10 @@ az aks create -n $clusterName -g $resourceGroup \
 > - Doesn't use the dynamic pod IP allocation feature.
 > - Doesn't have network policies enabled.
 > - Doesn't use any Windows node pools with docker as the container runtime.
+
+> [!NOTE]
+> Because Routing domain is not yet supported for ARM, CNI Overlay is not yet supported on ARM-based (ARM64) processor nodes.
+>
  
 > [!WARNING]
 > Prior to Windows OS Build 20348.1668, there was a limitation around Windows Overlay pods incorrectly SNATing packets from host network pods, which had a more detrimental effect for clusters upgrading to Overlay. To avoid this issue, **use Windows OS Build greater than or equal to 20348.1668**.
