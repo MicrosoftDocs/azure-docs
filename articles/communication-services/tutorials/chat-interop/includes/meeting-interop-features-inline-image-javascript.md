@@ -76,8 +76,6 @@ export interface ChatAttachment {
   id: string;
   /** The type of attachment. */
   attachmentType: AttachmentType;
-  /** The type of content of the attachment, if available */
-  extension?: string;
   /** The name of the attachment content. */
   name?: string;
   /** The URL where the attachment can be downloaded */
@@ -86,7 +84,7 @@ export interface ChatAttachment {
   previewUrl?: string;
 }
 
-export type AttachmentType = "image" | "file";
+export type AttachmentType = "image" | "file" | "unknown";
 ```
 
 Now let's go back to the previous code to add some extra logic like the following code snippets: 
