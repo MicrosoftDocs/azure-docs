@@ -19,9 +19,10 @@ We support authentication of clients using X.509 certificates.  X.509 certificat
 ## Supported authentication modes
 
 - Certificates issued by a Certificate Authority (CA)
-- Self-signed client certificate - thumbprint based authentication
+- Self-signed client certificate - thumbprint
+- Azure Entra ID token
 
-**Certificate Authority (CA) signed certificates:**
+### Certificate Authority (CA) signed certificates:
 
 In this method, a root or intermediate X.509 certificate is registered with the service. Essentially, the root or intermediary certificate that is used to sign the client certificate, must be registered with the service first.
 
@@ -35,9 +36,9 @@ While registering clients, you need to identify the certificate field used to ho
 
 :::image type="content" source="./media/mqtt-client-authentication/mqtt-client-certificate-chain-authentication-options.png" alt-text="Screenshot showing the client metadata with the five certificate chain based validation schemes.":::
 
-**Self-signed client certificate - thumbprint based authentication:**
+### Self-signed client certificate - thumbprint:
 
-Clients are onboarded to the service using the certificate thumbprint alongside the identity record. In this method of authentication, the client registry stores the exact thumbprint of the certificate that the client is going to use to authenticate.  When client tries to connect to the service, service validates the client by comparing the thumbprint presented in the client certificate with the thumbprint stored in client metadata.
+In this method of authentication, the client registry stores the exact thumbprint of the certificate that the client is going to use to authenticate.  When client tries to connect to the service, service validates the client by comparing the thumbprint presented in the client certificate with the thumbprint stored in client metadata.
 
 :::image type="content" source="./media/mqtt-client-authentication/mqtt-client-metadata-thumbprint.png" alt-text="Screenshot showing the client metadata with thumbprint authentication scheme.":::
 
@@ -59,7 +60,8 @@ while authenticating the client connection,
 
 In both modes of client authentication, we expect the client authentication name to be provided either in the username field of the connect packet or in one of the client certificate fields.
 
-### Supported client certificate fields for alternative source of client authentication name
+**Supported client certificate fields for alternative source of client authentication name**
+
 You can use one of the following fields to provide client authentication name in the client certificate.
 
 | Authentication name source option | Certificate field | Description |
@@ -69,6 +71,13 @@ You can use one of the following fields to provide client authentication name in
 | Certificate Uri | tls_client_auth_san_uri | The uniformResourceIdentifier SAN entry in the certificate. |
 | Certificate Ip | tls_client_auth_san_ip | The IPv4 or IPv6 address present in the iPAddress SAN entry in the certificate. |
 | Certificate Email | tls_client_auth_san_email | The rfc822Name SAN entry in the certificate. |
+
+
+
+### Azure Entra ID token
+
+You can authenticate MQTT clients with Microsoft Entra JWT to connect to Event Grid namespace.  You can use Azure role-based access control (Azure RBAC) to enable MQTT clients, with Microsoft Entra identity, to publish or subscribe access to specific topic spaces.
+
 
 ## High level flow of how mutual transport layer security (mTLS) connection is established
 
@@ -88,3 +97,4 @@ To establish a secure connection with MQTT broker, you can use either MQTTS over
 
 ## Next steps
 - Learn how to [authenticate clients using certificate chain](mqtt-certificate-chain-client-authentication.md)
+- Learn how to [authenticate client using Azure Entra ID token](mqtt-client-azure-ad-token-and-rbac.md)
