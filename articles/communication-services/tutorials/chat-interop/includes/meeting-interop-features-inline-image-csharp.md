@@ -21,8 +21,8 @@ Find the finalized code of this tutorial on [GitHub TODO](<TODO>).
   
 ## Goal
 
-1. Be able to render preview images in the message thread
-2. Be able to render full scale image upon click on preview images
+1. Grab the previewUri for inline image attachments
+2. Grab the fullSize Uri for inline omage attachments
 
 ## Handle inline images for new messages
 
@@ -52,50 +52,38 @@ public struct ChatAttachmentType : System.IEquatable<AttachmentType>
 }
 ```
 
-Now let's go back to the previous code to add some extra logic like the following code snippets: 
+Now let's go back to the replace the code to add some extra logic like the following code snippets: 
 
-```js
-<TODO>
+```c#
+    CommunicationUserIdentifier currentUser = new(user_Id_);
+    AsyncPageable<ChatMessage> allMessages = chatThreadClient.GetMessagesAsync();
+    SortedDictionary<long, string> messageList = [];
+    int textMessages = 0;
+    await foreach (ChatMessage message in allMessages)
+    {
+        // Get message attachments that are of type 'image'
+        IEnumerable<ChatAttachment> imageAttachments = message.Content.Attachments.Where(x => x.AttachmentType == ChatAttachmentType.Image);
+
+        var chatAttachmentImageUris = new List<Uri>();
+        foreach (ChatAttachment imageAttachment in imageAttachments)
+        {
+            chatAttachmentImageUris.Add(imageAttachment.PreviewUri);
+        }
+
+        if (message.Type == ChatMessageType.Html || message.Type == ChatMessageType.Text)
+        {
+            textMessages++;
+            var userPrefix = message.Sender.Equals(currentUser) ? "[you]:" : "";
+            var strippedMessage = StripHtml(message.Content.Message);
+            var chatAttachments = chatAttachmentImageUris.Count > 0 ? "[Attachments]:\n" + string.Join(",\n", chatAttachmentImageUris) : "";
+            messageList.Add(long.Parse(message.SequenceId), $"{userPrefix}{strippedMessage}\n{chatAttachments}");
+        }
+    }
 ```
 
 Noticing in this example, we've created two helper functions - `fetchPreviewImages` and `setImgHandler` - where the first one fetches preview image directly from the `previewURL` provided in each `ChatAttachment` object with an auth header. Similarly, we set up a `onclick` event for each image in the function `setImgHandler`, and in the event handler, we fetch a full scale image from property `url` from the `ChatAttachment` object with an auth header.
 
-
-Another thing we need to do is to expose token on to the global level since we need to construct an auth header with it. So we need to modify the following code: 
-
-```js
-<TODO>
-```
-
-To show full scale image in an overlay, we need to add a new component as well:
-
-```html
-
-<TODO>
-
-```
-
-with some CSS:
-
-<TODO>
-  
-```
-
-Now we have an overlay set up, it's time to work on the logic to render full scale images. Recall that we've created an `onClick` event handler to call a function `fetchFullScaleImage`:
-
-```js
-<TODO>
-
-```
-
-One last thing we want to add is the ability to dismiss the overlay when clicking on the image:
-
-```js
-<TODO>
-```
-
 Now we've concluded all the changes we need to render inline images for messages coming from real time notifications.
-
 
 ## Run the code 
 
