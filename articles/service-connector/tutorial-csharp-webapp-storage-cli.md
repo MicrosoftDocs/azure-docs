@@ -34,7 +34,7 @@ Learn how to access Azure Blob Storage for a web app (not a signed-in user) runn
     az --version
     ```
 
-    If you need to upgrade, run the `az upgrade` command (requires version 2.11+) or go to [Install the Azure CLI](/cli/azure/install-azure-cli.md).
+    If you need to upgrade, run the `az upgrade` command (requires version 2.11+).
 
 1. Sign in to Azure using the CLI:
 
