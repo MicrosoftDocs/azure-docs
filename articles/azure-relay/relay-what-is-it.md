@@ -47,7 +47,7 @@ To get started with using Hybrid Connections in Azure Relay, see the following q
 - [Hybrid Connections - Node WebSockets](relay-hybrid-connections-node-get-started.md)
 - [Hybrid Connections - .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 - [Hybrid Connections - Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
-- [Hybrid Connections - Java HTTP](relay-hybrid-connections-http-requests-java-get-started.md)
+- [Hybrid Connections - Java HTTP](relay-hybrid-connections-java-get-started.md)
 
 For more samples, see [Azure Relay - Hybrid Connections samples on GitHub](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections).
 
