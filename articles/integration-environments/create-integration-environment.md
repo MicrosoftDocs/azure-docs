@@ -4,7 +4,7 @@ description: Create an integration environment to centrally organize and manage 
 ms.service: integration-environments
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 11/15/2023
+ms.date: 11/22/2023
 # CustomerIntent: As an integration developer, I want a way to centrally and logically organize Azure resoruces related to my organization's integration solutions.
 ---
 
@@ -24,6 +24,20 @@ To centrally and logically organize and manage Azure resources associated with y
   > [!NOTE]
   >
   > Your integration environment and the Azure resources that you want to organize must exist in the same Azure subscription. 
+
+- Register the **Microsoft.IntegrationSpaces** resource provider for the Azure Integration Environment resource.
+
+  1. In the [Azure portal](https://portal.azure.com) search box, enter and select **Subscriptions**.
+
+  1. On the **Subscrptions** page, find and select your Azure subscription.
+
+  1. On your subscription menu, under **Settings**, select **Resource providers**.
+
+  1. In the **Resource providers** filter box, enter **integration**, and select **Microsoft.IntegrationSpaces**.
+
+  1. On the **Resource providers** toolbar, select **Register**.
+
+     After the Azure portal completes the registration, the **Microsoft.IntegrationSpaces** resource provider status changes to **Registered**.
 
 ## Create an integration environment
 
