@@ -319,7 +319,7 @@ synapse_comp = SynapseSparkCompute(
 ml_client.begin_create_or_update(synapse_comp)
 ```
 
-A Synapse Spark pool can also use a user-assigned identity. For a user-assigned identity, you can pass a managed identity definition, using the [IdentityConfiguration](/python/api/azure-ai-ml/azure.ai.ml.entities.identityconfiguration) class, as the `identity` parameter of the `SynapseSparkCompute` class. For the managed identity definition used in this way, set the `type` to `UserAssigned`. In addition, pass a `user_assigned_identities` parameter. The parameter `user_assigned_identities` is a list of objects of the [UserAssignedIdentity](/python/api/azure-ai-ml/azure.ai.ml.entities.userassignedidentity) class. The `resource_id`of the user-assigned identity populates each `UserAssignedIdentity` class object. This code snippet attaches a Synapse Spark pool that uses a user-assigned identity:
+A Synapse Spark pool can also use a user-assigned identity. For a user-assigned identity, you can pass a managed identity definition, using the [IdentityConfiguration](/python/api/azure-ai-ml/azure.ai.ml.entities.identityconfiguration) class, as the `identity` parameter of the `SynapseSparkCompute` class. For the managed identity definition used in this way, set the `type` to `UserAssigned`. In addition, pass a `user_assigned_identities` parameter. The parameter `user_assigned_identities` is a list of objects of the UserAssignedIdentity class. The `resource_id`of the user-assigned identity populates each `UserAssignedIdentity` class object. This code snippet attaches a Synapse Spark pool that uses a user-assigned identity:
 
 ```python
 # import required libraries
@@ -535,7 +535,7 @@ synapse_identity = IdentityConfiguration(type="SystemAssigned")
 synapse_comp = SynapseSparkCompute(name=synapse_name, resource_id=synapse_resource,identity=synapse_identity) ml_client.begin_create_or_update(synapse_comp) 
 ```
 
-A Synapse Spark pool can also use a user-assigned identity. For a user-assigned identity, you can pass a managed identity definition, using the [IdentityConfiguration](/python/api/azure-ai-ml/azure.ai.ml.entities.identityconfiguration) class, as the `identity` parameter of the `SynapseSparkCompute` class. For the managed identity definition used in this way, set the `type` to `UserAssigned`. In addition, pass a `user_assigned_identities` parameter. The parameter `user_assigned_identities` is a list of objects of the [UserAssignedIdentity](/python/api/azure-ai-ml/azure.ai.ml.entities.userassignedidentity) class. The `resource_id`of the user-assigned identity populates each `UserAssignedIdentity` class object. This code snippet updates a Synapse Spark pool to use a user-assigned identity:
+A Synapse Spark pool can also use a user-assigned identity. For a user-assigned identity, you can pass a managed identity definition, using the [IdentityConfiguration](/python/api/azure-ai-ml/azure.ai.ml.entities.identityconfiguration) class, as the `identity` parameter of the `SynapseSparkCompute` class. For the managed identity definition used in this way, set the `type` to `UserAssigned`. In addition, pass a `user_assigned_identities` parameter. The parameter `user_assigned_identities` is a list of objects of the UserAssignedIdentity class. The `resource_id`of the user-assigned identity populates each `UserAssignedIdentity` class object. This code snippet updates a Synapse Spark pool to use a user-assigned identity:
 
 ```python
 # import required libraries
