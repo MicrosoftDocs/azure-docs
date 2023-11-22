@@ -1,6 +1,36 @@
 {
   "redirections": [
     {
+      "source_path": "scripts/powershell-webhook-secure-delivery-azure-ad-user.md",
+      "redirect_url": "/azure/event-grid/scripts/powershell-webhook-secure-delivery-microsoft-entra-user",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "scripts/powershell-webhook-secure-delivery-azure-ad-app.md",
+      "redirect_url": "/azure/event-grid/scripts/powershell-webhook-secure-delivery-microsoft-entra-app",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-app.md",
+      "redirect_url": "/azure/event-grid/scripts/powershell-webhook-secure-delivery-microsoft-entra-app",
+      "redirect_document_id": false
+    },        
+    {
+      "source_path": "mqtt-client-azure-ad-token-and-rbac.md",
+      "redirect_url": "/azure/event-grid/mqtt-client-microsoft-entra-token-and-rbac",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "authenticate-with-active-directory.md",
+      "redirect_url": "/azure/event-grid/authenticate-with-microsoft-entra-id",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "azure-active-directory-events.md",
+      "redirect_url": "/azure/event-grid/microsoft-entra-events",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "concepts-pull-delivery.md",
       "redirect_url": "/azure/event-grid/concepts-event-grid-namespaces",
       "redirect_document_id": false
@@ -166,11 +196,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-app.md",
-      "redirect_url": "/azure/event-grid/scripts/powershell-webhook-secure-delivery-azure-ad-app",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "scripts/event-grid-powershell-subscribe-custom-topic.md",
       "redirect_url": "/azure/event-grid/scripts/powershell-subscribe-custom-topic",
       "redirect_document_id": false
@@ -292,7 +317,7 @@
     },
     {
       "source_path": "mqtt-client-authorization-use-rbac.md",
-      "redirect_url": "/azure/event-grid/mqtt-client-azure-ad-token-and-rbac",
+      "redirect_url": "/azure/event-grid/mqtt-client-microsoft-entra-token-and-rbac",
       "redirect_document_id": false
     },
     {
