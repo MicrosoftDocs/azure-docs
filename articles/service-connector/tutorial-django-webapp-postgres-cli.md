@@ -295,7 +295,7 @@ In this section, you create app host in App Service app, connect this app to the
 
 Upon successful deployment, the command generates JSON output like the following example:
 
-![Example az webapp up command output](../app-service/media/tutorial-python-postgresql-app/az-webapp-up-output.png)
+:::image type="content" source="../app-service/media/tutorial-python-postgresql-app/az-webapp-up-output.png" alt-text="Screenshot of the terminal, showing an example output for the az webapp up command." :::
 
 Having issues? Refer first to the [Troubleshooting guide](../app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
 
