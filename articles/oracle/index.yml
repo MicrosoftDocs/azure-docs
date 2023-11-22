@@ -31,7 +31,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Oracle on Azure Virtual Machines
-            url: ../virtual-machines/workloads/oracle/index.yml  
+            url: /azure/virtual-machines/workloads/oracle/  
    
   #card 3
   - title: Oracle Database@Azure
@@ -41,7 +41,7 @@ landingContent:
           - text: Oracle Database@Azure
             url: oracle-db/database-overview.md
           - text: Provision and manage Oracle Database@Azure
-            url: oracle-db/provision-manage.md
+            url: oracle-db/provision-oracle-database.md
 
 
   
