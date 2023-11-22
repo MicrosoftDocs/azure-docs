@@ -20,7 +20,7 @@ This article will provide you with background around how latency works with Azur
 
 The high level definition of latency in this context is the amount of time it takes to get a response back from the model. For completion and chat completion requests, latency is largely dependent on model type as well as the number of tokens generated and returned. The number of tokens sent to the model as part of the input token limit, has a much smaller overall impact on latency.
 
-## Completions and chat completions
+## Improve performance
 
 ### Model selection
 
@@ -44,7 +44,7 @@ Streaming impacts perceived latency. If you have streaming enabled you'll receiv
 
 Sentiment analysis, language translation, content generation.
 
-There are many use cases where you are performing some bulk task where you only care about the finished result, not the real-time response. If streaming is disabled, you won't receive any tokens until the model has finished the entire response. While you do have the ability to choose to enable or disable streaming from an API to client response perspective, technically the model itself is always streaming its response.
+There are many use cases where you are performing some bulk task where you only care about the finished result, not the real-time response. If streaming is disabled, you won't receive any tokens until the model has finished the entire response.
 
 ### Content filtering
 
