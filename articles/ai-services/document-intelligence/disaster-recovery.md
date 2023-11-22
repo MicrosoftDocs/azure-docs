@@ -205,7 +205,7 @@ Operation-Location: https://{source-resource}.cognitiveservices.azure.com/formre
 
 ### Track copy operation progress
 
-You can use the [**Get operation**](https://w/rest/api/aiservices/miscellaneous/get-operation?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to list all document model operations (succeeded, in-progress, or failed) associated with your Document Intelligence resource. Operation information only persists for 24 hours. Here's a list of the operations (operationId) that can be returned:
+You can use the [**Get operation**](/rest/api/aiservices/miscellaneous/get-operation?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to list all document model operations (succeeded, in-progress, or failed) associated with your Document Intelligence resource. Operation information only persists for 24 hours. Here's a list of the operations (operationId) that can be returned:
 
 * documentModelBuild
 * documentModelCompose
