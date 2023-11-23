@@ -151,4 +151,4 @@ io.on('connect', (socket) => {
 A complete sample is given in [chat-with-auth-passport](https://github.com/Azure/azure-webpubsub/blob/main/sdk/webpubsub-socketio-extension/examples/chat-with-auth-passport).
 
 >[!IMPORTANT]
-> The wrong order of using middlewares could make the authenication workflow fail. Please follow the order given in our sample, unless you know the mechanism of these middlewares.
+> The wrong order of using middlewares could make the authentication workflow fail. Please follow the order given in our sample, unless you know the mechanism of these middlewares.
