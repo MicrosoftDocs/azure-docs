@@ -16,76 +16,40 @@ The HDInsight .NET SDK provides .NET client libraries, so that it's easier to wo
 
 - Visual Studio 
 
-Create a Resource group in your Azure Subscription 
+- Create a Resource group in your Azure Subscription 
 
-Create an ADLS Gen2 storage account in the same resource group 
+- Create an ADLS Gen2 storage account in the same resource group 
 
-Create a Managed Identity in the same resource group 
+- Create a Managed Identity in the same resource group
 
-Login to Visual Studio and create a project folder 
+## Steps to create a cluster using .NET SDK
 
-In the project folder add the following dependencies  
+1. Login to Visual Studio and create a project folder 
 
-Azure Identity 
+1. In the project folder add the following dependencies  
 
-Azure Resource Manager 
+	- Azure Identity 
 
-Azure.ResourceManager.HDinsight.Containers 
+	- Azure Resource Manager 
 
-:::image type="content" source="./media/get-started/search-object-id.png" alt-text="Screenshot showing how to search object ID.":::
+	- Azure.ResourceManager.HDinsight.Containers
+	:::image type="content" source="./media/get-started/search-object-id.png" alt-text="Screenshot showing how to search object ID.":::
 
-Description automatically generated 
-
-In the code below set the following parameters at appropriate places: 
-
-Create HDInsight On AKS cluster pool steps: 
-
-Provide the subscription id, resource group and location where you want to create the cluster pool resource 
-
-Provide the required parameters to config the cluster pool like: cluster pool name and so on. 
-
-             Create HDInsight On Aks cluster under existing cluster pool: 
-
-Provide the subscription id, resource group and location where you want to create the cluster pool resource 
-
-Provide the required parameters to create cluster: cluster pool name, cluster name, cluster type, cluster version, identity profile, authorization profile 
-
-Variables required in the script 
-
+1. Provide the required parameters to config the cluster pool and cluster in the script: 
 -Cluster Name 
-
 -Cluster Pool Name 
-
 -Subscription ID 
-
 -Resource Group Name 
-
 -Region Name 
-
 -Cluster Type 
-
 -SKU 
-
 -Woker Node count 
-	-MSI resource id:  
-
+-MSI resource id: 
 “/subscriptions/<subscription ID>/resourcegroups/ <resource group 	name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<Managed identity name>" 
-
 -MSI client id(See below) 
-
 -MSI object id (See below) 
-
- 
-
--Microsoft Entra user ID: Find tenant ID, domain name, user object ID - Partner 	Center | Microsoft Learn 
-
--HDInsight on AKS VM list: 
-
-https://learn.microsoft.com/en-us/azure/hdinsight-aks/virtual-machine-		recommendation-capacity-planning 
-
- 
-
- 
+-Microsoft Entra user ID: [Find tenant ID, domain name, user object ID - Partner Center | Microsoft Learn](https://learn.microsoft.com/en-us/partner-center/find-ids-and-domain-names)
+-HDInsight on AKS VM list: (https://learn.microsoft.com/en-us/azure/hdinsight-aks/virtual-machine-recommendation-capacity-planning) 
 
 Copy the following .NET code to the Visual Studio project file 
 
