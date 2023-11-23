@@ -28,35 +28,36 @@ You can change these components independently without impacting the other.
 
 Runtime environment captures the following details about the job execution environment:
 
-1. **Language** - the scripting language targeted for runbook execution. For example, PowerShell, Python.
-1. **Runtime version** - the version of the language selected for runbook execution. For example, PowerShell 7.2, Python 3.8
+1. **Language** - the scripting language targeted for runbook execution. For example - PowerShell and Python.
+1. **Runtime version** - the version of the language selected for runbook execution. For example - PowerShell 7.2 and Python 3.8.
 1. **Packages** - the packages are the assemblies and the *.dll* files that you import and required by runbooks for execution. There are two types of packages supported for Runtime environment.
     
    |**Package Types** | **Description** |
    |---------|---------|
-   |**Default packages**  | The packages enable you to manage Azure resources. For example, - Az PowerShell 8.0.0 |
-   |**Customer-provided packages** | These are custom packages that are required by runbooks during execution. The packages can be from: </br> - Public gallery:- PSGallery, pypi </br> - Self-authored. |
+   |**Default packages**  | The packages enable you to manage Azure resources. For example, Az PowerShell 8.0.0 |
+   |**Customer-provided packages** | These are custom packages that are required by runbooks during execution. The packages can be from: </br> - Public gallery: PSGallery, pypi </br> - Self-authored. |
 
 ## Key Benefits
 
-**Granular control** - enables you to configure the script execution environment by choosing the Runtime language, its version, and dependent modules.
-**Runbook update** - allows easy portability of runbooks across different versions to keep pace with latest PowerShell and Python releases. You can test updates before publishing them to production.
-**Module management** - enables you to test compatibility during module updates and avoid unexpected changes that might affect the execution of their production scenarios.
-**Rollback capability** - allows you to easily revert to a previous version in case a runbook update introduces issues or unexpected behavior.
-**Streamlined code** - allows you to organize your code easily by linking runbooks to different runtime environments without the need to create multiple Automation accounts.
+- **Granular control** - enables you to configure the script execution environment by choosing the Runtime language, its version, and dependent modules.
+- **Runbook update** - allows easy portability of runbooks across different versions to keep pace with latest PowerShell and Python releases. You can test updates before publishing them to production.
+- **Module management** - enables you to test compatibility during module updates and avoid unexpected changes that might affect the execution of their production scenarios.
+- **Rollback capability** - allows you to easily revert to a previous version in case a runbook update introduces issues or unexpected behavior.
+- **Streamlined code** - allows you to organize your code easily by linking runbooks to different runtime environments without the need to create multiple Automation accounts.
 
 ## Known limitations
 
-- Runtime environment is currently supported in all Public regions except Central India, Germany North, Italy North, Israel Central, Poland Central, UAE Central and Gov clouds.
+- Runtime environment is currently supported in all Public regions except Central India, Germany North, Italy North, Israel Central, Poland Central, UAE Central, and Government clouds.
 - Currently cloud jobs are supported for runbooks linked to Runtime environment. Hybrid jobs aren't supported.
-- Runtime environment is currently not supported for PowerShell Workflow, Graphical PowerShell and Graphical PowerShell Workflow runbooks.
+- Runtime environment is currently not supported for PowerShell Workflow, Graphical PowerShell, and Graphical PowerShell Workflow runbooks.
 - RBAC permissions can't be currently assigned to Runtime environment.
-- Runtime environment can't be configured through Azure Automation extension for Visual Studio code
+- Runtime environment can't be configured through Azure Automation extension for Visual Studio Code.
 
 
 ## System-generated Runtime environments
 
-Azure Automation creates system-generated Runtime environments based on the Runtime language, version and packages/modules present in your Azure Automation account. There are six system-generated Runtime environments:
+Azure Automation creates system-generated Runtime environments based on the Runtime language, version, and packages/modules present in your Azure Automation account. There are six system-generated Runtime environments:
+
 - PowerShell-5.1
 - PowerShell-7.1
 - PowerShell-7.2
@@ -64,7 +65,7 @@ Azure Automation creates system-generated Runtime environments based on the Runt
 - Python-3.8
 - Python-3.10
 
-You can't edit these runtime environments. However, any changes that are made in Modules/Packages blades for the Automation account are automatically reflected in these system-generated Runtime environments. 
+You can't edit these Runtime environments. However, any changes that are made in Modules/Packages blades for the Automation account are automatically reflected in these system-generated Runtime environments. 
 
 > [!NOTE]
 > Packages present in System-generated Runtime environments are unique to your Azure Automation account and might vary across different accounts. 
