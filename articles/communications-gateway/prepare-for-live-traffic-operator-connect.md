@@ -28,7 +28,7 @@ In this article, you learn about the steps that you and your onboarding team mus
 - You must [deploy Azure Communications Gateway](deploy.md) using the Microsoft Azure portal and [connect it to Operator Connect or Teams Phone Mobile](connect-operator-connect.md).
 - You must know the test numbers to use for integration testing and for service verification (continuous call testing). These numbers can't be the same. You chose them as part of [deploying Azure Communications Gateway](deploy.md#prerequisites) or [connecting it to Operator Connect or Teams Phone Mobile](connect-operator-connect.md#prerequisites).
     - Integration testing allows you to confirm that Azure Communications Gateway and Microsoft Phone System are interoperating correctly with your network.
-    - Service verification is set up by the Operator Connect and Teams Phone Mobile programs and ensures that your deployment is able to handle calls from Microsoft Phone System throughout the lifetime of your deployment.
+    - Service verification is set up by the Operator Connect and Teams Phone Mobile programs. It ensures that your deployment is able to handle calls from Microsoft Phone System throughout the lifetime of your deployment.
 - You must have a tenant you can use for integration testing (representing an enterprise customer), and some users in that tenant to whom you can assign the numbers for integration testing.
     - If you don't already have a suitable test tenant, you can use the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program), which provides E5 licenses.
     - The test users must be licensed for Teams Phone System and in Teams Only mode.
@@ -61,7 +61,7 @@ Integration testing requires setting up your test tenant for Operator Connect or
 > [!IMPORTANT]
 > Do not assign the service verification numbers to test users. Your onboarding team arranges configuration of your service verification numbers.
 
-1. Ask your onboarding team for the name of the Calling Profile that you must use for these test numbers. The name typically has the suffix `commsgw`. This Calling Profile has been created for you during the Azure Communications Gateway deployment process.
+1. Ask your onboarding team for the name of the Calling Profile that you must use for these test numbers. The name typically has the suffix `commsgw`. This Calling Profile was created for you during the Azure Communications Gateway deployment process.
 1. In your test tenant, request service from your company.
     1. Sign in to the [Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant.
     1. Select **Voice** > **Operators**.
@@ -111,7 +111,7 @@ Your network must route calls for service verification testing and for integrati
 
 Network integration includes identifying SIP interoperability requirements and configuring devices to meet these requirements. For example, this process often includes interworking header formats and/or the signaling & media flows used for call hold and session refresh.
 
-You must test typical call flows for your network. Your onboarding team will provide an example test plan that we recommend you follow. Your test plan should include call flow, failover, and connectivity testing.
+You must test typical call flows for your network. We recommend that you follow the example test plan from your onboarding team. Your test plan should include call flow, failover, and connectivity testing.
 
 - If you decide that you need changes to Azure Communications Gateway, ask your onboarding team. Microsoft will make the changes for you.
 - If you need changes to the configuration of devices in your core network, you must make those changes.
@@ -170,7 +170,7 @@ If you have the Number Management Portal, your onboarding team can obtain proof 
 
 # [Without the Number Management Portal](#tab/no-number-management-portal)
 
-If you don't have the Number Management Portal, you must provide your onboarding team with proof that you have made successful API calls for:
+If you don't have the Number Management Portal, you must provide your onboarding team with proof of successful API calls for:
 
 - Partner consent
 - TN Upload to Account
@@ -187,7 +187,7 @@ After launch, synthetic traffic will be sent through your deployment using your 
 
 ## Schedule launch
 
-Your launch date is the date that you'll appear to enterprises in the Teams Admin Center. Your onboarding team must arrange this date by making a request to Microsoft Teams.
+Your launch date is the date that you appear to enterprises in the Teams Admin Center. Your onboarding team must arrange this date by making a request to Microsoft Teams.
 
 Your service can be launched on specific dates each month. Your onboarding team must submit the request at least two weeks before your preferred launch date.
 

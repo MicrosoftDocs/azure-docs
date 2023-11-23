@@ -20,13 +20,13 @@ You must have [chosen test numbers](deploy.md#prerequisites). You need two types
 - Integration testing by your staff.
 - Service verification (continuous call testing) by your chosen communication services.
 
-You must have completed the following procedures.
+You must complete the following procedures.
 
 - [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md)
 - [Deploy Azure Communications Gateway](deploy.md)
 - [Connect Azure Communications Gateway to Zoom Phone Cloud Peering](connect-zoom.md)
 
-Your organization must have integrated with Azure Communications Gateway's Provisioning API. Someone in your organization must be able to make requests using the Provisioning API during this procedure.
+Your organization must [integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md). Someone in your organization must be able to make requests using the Provisioning API during this procedure.
 
 You must be an owner or admin of a Zoom account that you want to use for testing.
 
@@ -39,7 +39,7 @@ You must provision Azure Communications Gateway with the details of the test num
 > [!IMPORTANT]
 > Do not provision the service verification numbers for Zoom. Azure Communications Gateway routes calls involving those numbers automatically. Any provisioning you do for those numbers has no effect.
 
-This step requires Azure Communications Gateway's Provisioning API. The API allows you to indicate to Azure Communications Gateway which service(s) you are supporting for each number, using _account_ and _number_ resources.
+This step requires Azure Communications Gateway's Provisioning API. The API allows you to indicate to Azure Communications Gateway which service(s) you're supporting for each number, using _account_ and _number_ resources.
 - Account resources are descriptions of your customers (typically, an enterprise), and per-customer settings for service provisioning.
 - Number resources belong to an account. They describe numbers, the services (for example, Zoom) that the numbers make use of, and any extra per-number configuration.
 
@@ -50,9 +50,9 @@ Use the Provisioning API for Azure Communications Gateway to:
 
 ## Configure users in Zoom with the test numbers for integration testing
 
-Upload the numbers for integration testing to Zoom. When you do this, you can optionally configure Zoom to add a header with custom contents to SIP INVITEs. You can use this header to identify the Zoom account for the number or indicate that these are test numbers. For more information on this header, see Zoom's _Zoom Phone Provider Exchange Solution Reference Guide_.
+Upload the numbers for integration testing to Zoom. When you upload numbers, you can optionally configure Zoom to add a header with custom contents to SIP INVITEs. You can use this header to identify the Zoom account for the number or indicate that these numbers are test numbers. For more information on this header, see Zoom's _Zoom Phone Provider Exchange Solution Reference Guide_.
 
-Use [https://support.zoom.us/hc/en-us/articles/360020808292-Managing-phone-numbers](https://support.zoom.us/hc/en-us/articles/360020808292-Managing-phone-numbers) to assign the numbers for integration testing to the user accounts that you will use for testing.
+Use [https://support.zoom.us/hc/en-us/articles/360020808292-Managing-phone-numbers](https://support.zoom.us/hc/en-us/articles/360020808292-Managing-phone-numbers) to assign the numbers for integration testing to the user accounts that you'll use for testing when you prepare for live traffic.
 
 > [!IMPORTANT]
 > Do not assign the service verification numbers to Zoom user accounts. In the next step, you will ask your Zoom representative to configure the service verification numbers for you.
