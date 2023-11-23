@@ -5,7 +5,7 @@ ms.date: 11/01/2023
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
-ms.workload: identity
+
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG

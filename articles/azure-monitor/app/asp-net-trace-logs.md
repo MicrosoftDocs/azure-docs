@@ -108,7 +108,7 @@ For each source, you can set the following parameters:
 
 ## Use DiagnosticSource events
 
-You can configure [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) events to be sent to Application Insights as traces. First, install the [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet package. Then edit the "TelemetryModules" section of the [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) file.
+You can configure [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/runtime/blob/main/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) events to be sent to Application Insights as traces. First, install the [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet package. Then edit the "TelemetryModules" section of the [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) file.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
@@ -247,12 +247,12 @@ Perhaps your application sends voluminous amounts of data and you're using the A
 ## <a name="add"></a>Next steps
 
 * [Diagnose failures and exceptions in ASP.NET](asp-net-exceptions.md)
-* [Learn more about Transaction Search](search-and-transaction-diagnostics.md?tabs=transaction-search)
+* [Learn more about Transaction Search](transaction-search-and-diagnostics.md?tabs=transaction-search)
 * [Set up availability and responsiveness tests](availability-overview.md)
 
 <!--Link references-->
 
 [availability]: ./availability-overview.md
-[diagnostic]: ./search-and-transaction-diagnostics.md?tabs=transaction-search
+[diagnostic]: ./transaction-search-and-diagnostics.md?tabs=transaction-search
 [exceptions]: asp-net-exceptions.md
 [start]: ./app-insights-overview.md

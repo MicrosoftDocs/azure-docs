@@ -1,14 +1,14 @@
 ---
-title: How to manage and use snapshots (preview) in Azure App Configuration
+title: How to manage and use snapshots in Azure App Configuration
 description: How to manage and use snapshots in an Azure App Configuration store.
 author: Muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
 ms.topic: how-to 
-ms.date: 09/28/2023
+ms.date: 11/15/2023
 ---
 
-# Manage and use snapshots (preview)
+# Manage and use snapshots
 
 In this article, learn how to create, use and manage snapshots in Azure App Configuration. Snapshot is a set of App Configuration settings stored in an immutable state.
 
@@ -39,7 +39,7 @@ In your App Configuration store, go to **Operations** > **Configuration explorer
 
 As a temporary workaround, you can switch to using Access keys authentication from either the Configuration explorer or the Feature manager blades. You should then see the Snapshot blade displayed properly, assuming you have permission for the access keys.
 
-Under **Operations** > **Snapshots (preview)**, select **Create a new snapshot**.
+Under **Operations** > **Snapshots**, select **Create a new snapshot**.
 
 1. Enter a **snapshot name** and optionally also add **Tags**.
 1. Under  **Choose the composition type**, keep the default value **Key (default)**.
@@ -81,7 +81,7 @@ Under **Operations** > **Snapshots (preview)**, select **Create a new snapshot**
 
 To create sample snapshots and check how the snapshots feature work, use the snapshot sandbox. This sandbox contains sample data you can play with to better understand how snapshot's composition type and filters work.
 
-1. In **Operations** > **Snapshots (preview)** > **Active snapshots**, select **Test in sandbox**.
+1. In **Operations** > **Snapshots** > **Active snapshots**, select **Test in sandbox**.
 1. Review the sample data and practice creating snapshots by filling out the form with a composition type and one or more filters.
 1. Select **Create** to generate the sample snapshot.
 1. Check out the snapshot result generated under **Generated sample snapshot**. The sample snapshot displays all keys that are included in the sample snapshot, according to your selection.
@@ -111,7 +111,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 ```
 
 > [!NOTE]
-> Snapshot support is available if you use version **7.0.0-preview** or later of any of the following packages.
+> Snapshot support is available if you use version **7.0.0** or later of any of the following packages.
 > - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
@@ -149,7 +149,7 @@ spring:
 
 ## Manage active snapshots
 
-The page under **Operations** > **Snapshots (preview)** displays two tabs: **Active snapshots** and **Archived snapshots**. Select **Active snapshots** to view the list of all active snapshots in an App Configuration store.
+The page under **Operations** > **Snapshots** displays two tabs: **Active snapshots** and **Archived snapshots**. Select **Active snapshots** to view the list of all active snapshots in an App Configuration store.
 
    :::image type="content" source="./media/howto-create-snapshots/snapshots-view-list.png" alt-text="Screenshot of the list of active snapshots.":::
 
@@ -167,7 +167,7 @@ In the **Active snapshots** tab, select the ellipsis **...** on the right of an 
 
 ## Manage archived snapshots
 
-Go to **Operations** > **Snapshots (preview)** > **Archived snapshots** to view the list of all archived snapshots in an App Configuration store. Archived snapshots remain accessible for the retention period that was selected during their creation.
+Go to **Operations** > **Snapshots** > **Archived snapshots** to view the list of all archived snapshots in an App Configuration store. Archived snapshots remain accessible for the retention period that was selected during their creation.
 
    :::image type="content" source="./media/howto-create-snapshots/archived-snapshots.png" alt-text="Screenshot of the list of archived snapshots.":::
 
@@ -179,7 +179,7 @@ Detailed view of snapshot is available in the archive state as well. In the **Ar
 
 ### Recover an archived snapshot
 
-In the **Archived snapshots** tab, select the ellipsis **...** on the right of an archived snapshot and select **Recover** to recover a snapshot. Confirm App Configuration snapshot recovery by selecting **Yes** or cancel with **No**. Once a snapshot has been recovered, a notification appears to confirm the operation and the list of archived snapshots is updated.
+In the **Archived snapshots** tab, select the ellipsis **...** on the right of an archived snapshot and select **Recover** to recover a snapshot. Once a snapshot has been recovered, a notification appears to confirm the operation and the list of archived snapshots is updated.
 
    :::image type="content" source="./media/howto-create-snapshots/recover-snapshots.png" alt-text="Screenshot of the recover option in the archived snapshots.":::
 

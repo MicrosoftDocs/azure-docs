@@ -21,8 +21,17 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
- 
 ## November 2023
+
+* [Standard network features is US Gov regions](azure-netapp-files-network-topologies.md#supported-regions) is now generally available (GA)
+ 
+    Azure NetApp Files now supports Standard network features for new volumes in US Gov Arizona, US Gov Texas, and US Gov Virginia. Standard network features provide an enhanced virtual networking experience through various features for a seamless and consistent experience with security posture of all their workloads including Azure NetApp Files. 
+
+* [Volume user and group quotas](default-individual-user-group-quotas-introduction.md) is now generally available (GA).
+
+    User and group quotas enable you to stay in control and define how much storage capacity can be used by individual users or groups can use within a specific Azure NetApp Files volume. You can set default (same for all users) or individual user quotas on all NFS, SMB, and dual protocol-enabled volumes. On all NFS-enabled volumes, you can define a default (that is, same for all users) or individual group quotas. 
+
+    This feature is Generally Available in Azure commercial regions and US Gov regions where Azure NetApp Files is available.
 
 * [SMB Continuous Availability (CA)](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) shares now supports MSIX app attach for Azure Virtual Desktop
 
