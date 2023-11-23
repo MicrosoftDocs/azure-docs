@@ -118,54 +118,6 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     conn = psycopg2.connect(conn_string + ' password=' + accessToken.token) 
     ```
 
-# [Django](#tab/django-postgres-mi)
-
-1. Install dependencies.
-
-    ```bash
-    pip install azure-identity
-    ```
-
-1. Get access token via `azure-identity` library using environment variables added by Service Connector. **Uncomment the corresponding part of the code snippet according to the authentication type.**
-
-    ```python
-    from azure.identity import DefaultAzureCredential
-    import psycopg2
-
-    # Uncomment the following lines according to the authentication type.
-    # For system-assigned identity.
-    # credential = DefaultAzureCredential()
-
-    # For user-assigned identity.
-    # managed_identity_client_id = os.getenv('AZURE_POSTGRESQL_CLIENTID')
-    # cred = ManagedIdentityCredential(client_id=managed_identity_client_id)    
-
-    # Acquire the access token.
-    accessToken = cred.get_token('https://ossrdbms-aad.database.windows.net/.default')
-    ```
-
-1. In setting file, get Azure PostgreSQL database information from environment variables added by Service Connector service. Use `accessToken` acquired in previous step to access the database.
-
-    ```python
-    # In your setting file, eg. settings.py
-    host = os.getenv('AZURE_POSTGRESQL_HOST')
-    user = os.getenv('AZURE_POSTGRESQL_USER')
-    password = accessToken.token # this is accessToken acquired from above step.
-    database = os.getenv('AZURE_POSTGRESQL_NAME')
-    
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': database,
-            'USER': user,
-            'PASSWORD': password,
-            'HOST': host,
-            'PORT': '5432',  # Port is 5432 by default 
-            'OPTIONS': {'sslmode': 'require'},
-        }
-    }
-    ```
-
 # [NodeJS](#tab/nodejs-postgres-mi)
 
 1. Install dependencies.
@@ -208,24 +160,6 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     
     await client.end();
     })();
-    ```
-
-# [PHP](#tab/php-postgres-mi)
-
-For PHP, get an access token for the managed identity and use it as the password to connect to the database. The access token can be acquired using Azure REST API.
-
-1. In code, get the access token via a REST API using your favorite library.
-
-    For user-assigned identity and system-assigned identity, App Service and Container Apps provide an internally accessible REST endpoint to retrieve tokens for managed identities by defining two environment variables: `IDENTITY_ENDPOINT` and `IDENTITY_HEADER`. For more information, see [REST endpoint reference](/azure/container-apps/managed-identity?tabs=http#rest-endpoint-reference). 
-    Get the access token by making an HTTP GET request to the identity endpoint, and use `https://ossrdbms-aad.database.windows.net` as `resource` in the query. For user-assigned identity, please include the client ID from the environment variables added by Service Connector in the query as well.
-
-2. Combine the access token and the PostgreSQL connection string from the environment variables added by Service Connector service to establish the connection.
-
-    ```php
-    <?php
-    $conn_string = sprintf("%s password=", getenv('AZURE_POSTGRESQL_CONNECTIONSTRING'), $access_token);
-    $dbconn = pg_connect($conn_string);
-    ?>
     ```
 
 -----
