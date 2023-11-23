@@ -191,7 +191,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ### Modify application(s) to point to virtual endpoint
 
-Modify any applications that are using your Azure Database for PostgreSQL to use the new virtual endpoints (ex: `corp-pg-001.writer.postgres.database.azure.com` and `corp-pg-001.reader.postgres.database.azure.com`)
+Modify any applications that are using your Azure Database for PostgreSQL to use the new virtual endpoints (ex: `corp-pg-001.writer.postgres.database.azure.com` and `corp-pg-001.reader.postgres.database.azure.com`).
 
 ## Promote replicas
 
@@ -217,6 +217,10 @@ To promote replica from the Azure portal, follow these steps:
 6.  Select **Promote** to begin the process. Once it's completed, the roles reverse: the replica becomes the primary, and the primary will assume the role of the replica.
 
 #### [REST API](#tab/restapi)
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/virtualendpoints/{virtualendpointName}?api-version=2023-06-01-preview
+```
 
 ---
 
@@ -282,6 +286,10 @@ Create a secondary read replica in a separate region to modify the reader virtua
 9.  During the deployment, you see the primary in `Updating` state.
     
     :::image type="content" source="./media/how-to-read-replicas-portal/primary-updating.png" alt-text="Screenshot of primary entering into updating status." lightbox="./media/how-to-read-replicas-portal/primary-updating.png":::
+
+#### [REST API](#tab/restapi)
+
+---
 
 ## Modify virtual endpoint
 
