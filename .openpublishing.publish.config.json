@@ -1129,6 +1129,12 @@
       "url": "https://github.com/MicrosoftDocs/azure-reference-other-pr",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-iot-operations-samples",
+      "url": "https://github.com/Azure-Samples/explore-iot-operations",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
