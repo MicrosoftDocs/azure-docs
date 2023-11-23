@@ -71,6 +71,6 @@ You can't edit these runtime environments. However, any changes that are made in
 
 ## Next steps
 
-* To work with runbooks and runtime environment, see [Manage Runtime environment](manage-runtime-environment.md).
+* To work with runbooks and Runtime environment, see [Manage Runtime environment](manage-runtime-environment.md).
 * For details of PowerShell, see [PowerShell Docs](/powershell/scripting/overview).
 

@@ -11,7 +11,8 @@ ms.custom: devx-track-azurepowershell
 
 # Manage runbooks in Runtime environment
 
-You can test the following scenarios through the Azure portal and REST API
+This article provides information on how to create Runtime Environment and  perform various operations through portal and REST API.  
+
 
 ## Prerequisites
 
@@ -51,7 +52,7 @@ You can test the following scenarios through the Azure portal and REST API
     
        :::image type="content" source="./media/manage-runtime-environment/create-runtime-environment.png" alt-text="Screenshot shows the entries in basics tab of create runtime environment.":::
 
-1. Select **Next** and in the **Packages** tab upload the packages required during the runbook execution. The *Az PowerShell package* is uploaded by default for all PowerShell Runtime environments, which includes all cmdlets for managing Azure resources. You can choose the version of Az package from the dropdown.
+1. Select **Next** and in the **Packages** tab, upload the packages required during the runbook execution. The *Az PowerShell package* is uploaded by default for all PowerShell Runtime environments, which includes all cmdlets for managing Azure resources. You can choose the version of Az package from the dropdown.
 
    :::image type="content" source="./media/manage-runtime-environment/packages-runtime-environment.png" alt-text="Screenshot shows the selections in packages tab of create runtime environment.":::
 
@@ -62,13 +63,13 @@ You can test the following scenarios through the Azure portal and REST API
     > [!NOTE]
     > - When you import a package, it might take several minutes. 100MB is the maximum total size of the files that you can import.
     > - Use *.zip* files for PowerShell runbook types.
-    > - For Python 2.7 packages, use .tar.gz or .whl files targeting cp24-amd64
-    > - For Python 3.8 packages, use .tar.gz or .whl files targeting cp38-amd64.
-    > - For Python 3.10 (preview) packages, use .whl files targeting cp310    Linux OS.
+     > - For Python 2.7 packages, use .tar.gz or .whl files targeting cp24-amd64
+     > - For Python 3.8 packages, use .tar.gz or .whl files targeting cp38-amd64.
+     > - For Python 3.10 (preview) packages, use .whl files targeting cp310    Linux OS.
   
 1. Select **Next** and in the **Review + Create** tab, verify that the settings are correct. When you select **Create**, Azure runs validation on Runtime environment settings that you have chosen. If the validation passes, you can proceed to create Runtime environment else, the portal indicates the settings that you need to modify.
 
-In the **Runtime Environments (preview)** page, you can view the newly created  Runtime environments for your Automation account. If you don't find the newly created Runtime environments in the list, select **Refresh**.
+In the **Runtime Environments (preview)** page, you can view the newly created  Runtime environment for your Automation account. If you don't find the newly created Runtime environments in the list, select **Refresh**.
 
 #### [REST API](#tab/create-runtime-rest)
 
@@ -327,7 +328,7 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 ---
 
 
-### Existing runbooks linked to System-generated Runtime environments
+### Link existing runbooks to System-generated Runtime environments
 
 All existing runbooks in your Azure Automation account would be automatically linked to System-generated Runtime environments. These system-generated Runtime environments are created on the basis of Runtime language, version and Modules/Packages present in your respective Azure Automation account. [Learn more](runtime-environment-overview.md). To update existing runbooks, change the Runtime environment by following the steps mentioned here:
 
