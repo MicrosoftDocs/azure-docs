@@ -22,7 +22,7 @@ From March 2024, you can set up a dedicated lab deployment of Azure Communicatio
 - Test new Azure Communications Gateway features and services (for example, configuring Microsoft Teams Direct Routing or Zoom Phone Cloud Peering).
 - Test changes in your preproduction network, before rolling them out to your production networks.
 
-You plan for, order, and deploy lab deployments in the same way as production deployments.
+You plan for, order, and deploy lab deployments in the same way as production deployments. You must have deployed a standard deployment or be about to deploy one. You can't use a lab deployment as a standalone Azure Communications Gateway deployment.
 
 For more information, see [Lab Azure Communications Gateway overview](lab.md).
 
