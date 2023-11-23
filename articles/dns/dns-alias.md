@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: article
-ms.date: 09/27/2022
+ms.date: 11/22/2023
 ms.author: greglin
 ---
 
@@ -19,6 +19,12 @@ An alias record set is supported for the following record types in an Azure DNS 
 - AAAA
 - CNAME
 
+To create an alias record set in your DNS zone using the Azure portal, add a record set and choose **Yes** under **Alias record set**. You must also specify the **Alias type** as either an **Azure resource** or **Zone record set**. If the record set is for an Azure resource, also **Choose a subscription** and then choose the **Azure resource**. 
+
+In the following example, an alias named **vm1** is added that points to the public IP address of a virtual machine:
+
+   <br><img src="./media/dns-alias/add-record-set.png" alt="A screenshot showing how to add an alias record set." width="50%">
+
 > [!NOTE]
 > If you intend to use an alias record for the A or AAAA record types to point to an [Azure Traffic Manager profile](../traffic-manager/quickstart-create-traffic-manager-profile.md) you must make sure that the Traffic Manager profile has only [external endpoints](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). You must provide the IPv4 or IPv6 address for external endpoints in Traffic Manager. You can't use fully qualified domain names (FQDNs) in endpoints. Ideally, use static IP addresses.
 
@@ -30,8 +36,8 @@ An alias record set is supported for the following record types in an Azure DNS 
    > There's a current limit of 20 alias records sets per resource.
 
 - **Point to a Traffic Manager profile from a DNS A/AAAA/CNAME record set** - You can create an A/AAAA or CNAME record set and use alias records to point it to a Traffic Manager profile. It's especially useful when you need to route traffic at a zone apex, as traditional CNAME records aren't supported for a zone apex. For example, say your Traffic Manager profile is myprofile.trafficmanager.net and your business DNS zone is contoso.com. You can create an alias record set of type A/AAAA for contoso.com (the zone apex) and point to myprofile.trafficmanager.net.
-- **Point to an Azure Content Delivery Network (CDN) endpoint** - This is useful when you create static websites using Azure storage and Azure CDN.
-- **Point to another DNS record set within the same zone** - Alias records can reference other record sets of the same type. For example, a DNS CNAME record set can be an alias to another CNAME record set. This arrangement is useful if you want some record sets to be aliases and some non-aliases.
+- **Point to an Azure Content Delivery Network (CDN) endpoint** - This alias type is useful when you create static websites using Azure storage and Azure CDN.
+- **Point to another DNS record set within the same zone** - Alias records can reference other record sets of the same type. For example, a DNS CNAME record set can be an alias to another CNAME record set. This arrangement is useful if you want some but not all record sets to be aliases.
 
 ## Scenarios
 
@@ -55,13 +61,13 @@ The DNS protocol prevents the assignment of CNAME records at the zone apex. For 
 
 This restriction presents a problem for application owners who have load-balanced applications behind [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Since using a Traffic Manager profile requires creation of a CNAME record, it's not possible to point to Traffic Manager profile from the zone apex.
 
-To resolve this issue, you can use alias records. Unlike CNAME records, alias records are created at the zone apex and application owners can use it to point their zone apex record to a Traffic Manager profile that has external endpoints. Application owners point to the same Traffic Manager profile that's used for any other domain within their DNS zone.
+To resolve this issue, you can use alias records. Unlike CNAME records, alias records are created at the zone apex. Application owners can use it to point their zone apex record to a Traffic Manager profile that has external endpoints. Application owners point to the same Traffic Manager profile used for any other domain within their DNS zone.
 
 For example, contoso.com and www\.contoso.com can point to the same Traffic Manager profile. To learn more about using alias records with Azure Traffic Manager profiles, see the Next steps section.
 
 ### Point zone apex to Azure CDN endpoints
 
-Just like a Traffic Manager profile, you can also use alias records to point your DNS zone apex to Azure CDN endpoints. This is useful when you create static websites using Azure storage and Azure CDN. You can then access the website without prepending "www" to your DNS name.
+Just like a Traffic Manager profile, you can also use alias records to point your DNS zone apex to Azure CDN endpoints. This alias is useful when you create static websites using Azure storage and Azure CDN. You can then access the website without prepending "www" to your DNS name.
 
 For example, if your static website is named `www.contoso.com`, your users can access your site using `contoso.com` without the need to prepend www to the DNS name.
 

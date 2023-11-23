@@ -1,5 +1,6 @@
 ---
 title: Add an Azure Data Explorer datasource in Azure Managed Grafana
+titlesuffix: Azure Managed Grafana
 description: In this guide, learn how to connect an Azure Data Explorer datasource to Grafana and learn about the authentication methods available for Azure Data Explorer.
 author: maud-lv
 ms.author: malev
@@ -17,158 +18,75 @@ Azure Data Explorer is a logs & telemetry data exploration service. In this guid
 * [An Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md) in the Standard plan.
 * [An Azure Data Explorer database](dataexplorer-docs-pr/data-explorer/create-cluster-and-database.md).
 
-You can follow the steps below using the Azure portal or the Azure CLI.
-
 ## Add an Azure Data Explorer data source
 
-1. Open your Azure Managed Grafana instance in the Azure portal.
-1. Select **Overview** from the left menu, then open the **Endpoint** URL.
+Add an Azure Data Explorer data source to Grafana by following the steps below.
+
+1. Open an Azure Managed Grafana instance in the Azure portal.
+1. In the **Overview** section, open the **Endpoint** URL.
 1. In the Grafana portal, deploy the menu on the left and select **Connections** > **Connect data**.
-1. Select **Azure Data Explorer Datasource** from the list, and add it to your instance by selecting **Create a Azure Data Explorer Datasource data source** in the top right corner.
+1. Select **Azure Data Explorer Datasource** from the list, and add it to Grafana by selecting **Create a Azure Data Explorer Datasource data source** in the top right corner.
 
-## Configure Azure Data Explorer
+## Register basic configuration information
 
-A new page is displayed, showing Azure Data Explorer configuration.
+Enter Azure Data Explorer configuration settings.
 
 1. In the **Settings** tab, optionally edit the data source **Name**.
-1. Under **Connection Details**, enter the Azure Data Explorer database **Cluster URL**.
-1. Select an authentication method, between **Managed Identity**, **Current User** or **App Registration**.
+1. Under **Connection Details**, enter the Azure Data Explorer database **Cluster URL**..
 
-### Managed Identity
+## Set up authentication
 
-## Test the configuration
+Configure the Azure Data Explorer data source with one of the following authentication options.
 
-Select **Save & test** and check if any error is displayed on screen.
+### Use a managed identity
 
-<!-- 
+Azure Managed identity lets you authenticate without using explicit credentials.
 
-Link to Troubleshooting doc eventually
+1. In the Azure portal, open your Azure Data Explorer cluster.
+1. In the **Overview** section, select the database that contains your data.
+1. Select **Permissions > Add > Viewer**.
+1. In the search box, enter your Azure Managed Grafana workspace name, select the workspace and then choose **Select**.
+1. A success notification appears.
+1. Back in Grafana, under **Authentication Method**, select **Managed Identity**.
+1. Select **Save & test**. The "Success" notification displayed indicates that Grafana is able to fetch data from the database.
 
-Got error Azure HTTP "403 Forbidden"
- -->
+### Use  a service principal (app registration)
 
-1.  and optionally also edit the **Query Optimizations**, **Database schema settings**, and **Tracking** sections.
+To use a service principal, you need to have a Microsoft Entra service principal and connect Microsoft Entra ID with an Azure Data Explorer User. For more information, go to [Configuring the datasource in Grafana](https://github.com/grafana/azure-data-explorer-datasource#configuring-the-datasource-in-grafana).
 
-   :::image type="content" source="media/data-sources/data-explorer-connection-settings.jpg" alt-text="Screenshot of the Connection details section for Data Explorer in data sources.":::
+#### Configure initial set-up
 
-   To complete this process, you need to have a Microsoft Entra service principal and connect Microsoft Entra ID with an Azure Data Explorer User. For more information, go to [Configuring the datasource in Grafana](https://github.com/grafana/azure-data-explorer-datasource#configuring-the-datasource-in-grafana).
+1. Follow the steps in [Register an application with Microsoft Entra ID and create a service principal](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal).
+1. Assign the Reader role to the application in the [next step of the guide](/entra/identity-platform/howto-create-service-principal-portal#assign-a-role-to-the-application).
+1. Follow the three first steps of the [Retrieve application details](/azure/managed-grafana/how-to-api-calls#retrieve-application-details) guide to gather the Directory (tenant) ID, Application (client) ID and Client Secret ID required in the next step.
 
-1. Select **Save & test** to validate the connection. "Success" is displayed on screen and confirms that Azure Managed Grafana is able to fetch the data source through the provided connection details, using the service principal in Microsoft Entra ID.
+#### Configure the data source
 
-## Configure Azure Data Explorer
+1. Under **Authentication Method**, select **App Registration**.
+1. For **Azure Cloud**, select your Azure Cloud. For example, **Azure**.
+1. Enter a **Directory (tenant) ID**, **Application (client) ID** and **Client Secret**
+1. Optionally also edit the **Query Optimizations**, **Database schema settings**, and **Tracking** sections.
+1. Select **Save & test** to validate the connection. The "Success" notification displayed indicates that Grafana is able to connect to the database.
 
-To add and configure an Azure Data Explorer using the Azure CLI, run the [az grafana data-source create](/cli/azure/grafana/data-source#az-grafana-data-source-create) command in the Azure CLI.
+### Use Current User
 
-### Using Managed Identity
+The Azure Data Explorer data source also supports user-based authentication. This authentication method leverages the current Grafana user's Entra ID credentials in the configured data source.
 
-Replace the placeholder `<name>` with a name for your data source, such as "Azure Data Explorer Datasource", and replace `<cluster-url>` with the URL of your cluster. An example is available in the [Azure CLI documentation](/cli/azure/grafana/data-source#az-grafana-data-source-create).
+When you configure an Azure Data Explorer data source with a user-based authentication method, Grafana queries Azure Data Explorer using the user's credentials. With this approach, you don't need to go through the extra step of geting a read permission assigned to your Grafana managed identity.
 
-```azurecli
-az grafana data-source create -n MyGrafana --definition '{
-  "name": "<name>",
-  "type": "grafana-azure-data-explorer-datasource",
-  "access": "proxy",
-  "jsonData": {
-    "dataConsistency": "strongconsistency",
-    "clusterUrl": "<cluster-url>"
-  }
-}'
-```
-
-### Using App Registration
-
-Replace the placeholder `<name>` with a name for your data source, such as "Azure Data Explorer Datasource", and replace `<cluster-url>`, `<tenant-id>`, and `<-client-id>` with your own information. An example is available in the [Azure CLI documentation](/cli/azure/grafana/data-source#az-grafana-data-source-create).
-
-```azurecli
-az grafana data-source create -n MyGrafana --definition '{
-  "name": "Azure Data Explorer Datasource-1",
-  "type": "grafana-azure-data-explorer-datasource",
-  "access": "proxy",
-  "jsonData": {
-    "clusterUrl": "<cluster-url>",
-    "azureCredentials": {
-      "authType": "clientsecret",
-      "azureCloud": "AzureCloud",
-      "tenantId": "<tenant-id>",
-      "clientId": "<-client-id>"
-    }
-  },
-  "secureJsonData": { "azureClientSecret": "verySecret" }
-}'
-```
-
----
-
-> [!TIP]
-> If you can't connect to a data source, you may need to [modify access permissions](how-to-permissions.md) to allow access from your Azure Managed Grafana instance.
-
-Azure Managed Grafana can also access data sources using a service principal set up in Microsoft Entra ID.
-
-### [Portal](#tab/azure-portal)
-
-
-### [Azure CLI](#tab/azure-cli)
-
-1. Run the [az grafana data-source create](/cli/azure/grafana/data-source#az-grafana-data-source-create) command to create the Azure Data Explorer data source.
-
-   For example:
-
-   ```azurecli-interactive
-   az grafana data-source create --name <grafana-instance-name> --definition '{
-   "access": "proxy", 
-   "jsonData": { 
-      "azureCloud": "azuremonitor", 
-      "clientId": "<client-ID>",
-      "clusterUrl": "<cluster URL>",
-      "dataConsistency": "strongconsistency", 
-      "defaultDatabase": "<database-name>",
-      "queryTimeout": "120s",
-      "tenantId": "<tenant-ID>"
-   },
-   "name": "<data-source-name>",
-   "type": "grafana-azure-data-explorer-datasource",
-   }'      
-   ```
-
-1. Run the [az grafana data-source update](/cli/azure/grafana/data-source#az-grafana-data-source-update) command to update the configuration of the Azure Data Explorer data source.
-
-Fore more information about Azure Data Explorer datasources, go to [Azure Data Explorer](\how-to-connect-azure-data-explorer.md).
-
----a
-
-## Remove a data source
-
-This section describes the steps for removing a data source.
+> [!NOTE]
+> Rollout of the user-based authentication in Azure Managed Grafana is in progress and will be complete in all regions by the end of 2023.
 
 > [!CAUTION]
-> Removing a data source that is used in a dashboard will make the dashboard unable to collect the corresponding data and will trigger an error or result in no data being shown in the panel.
+> User-based authentication in Grafana data sources is experimental. 
 
-### [Portal](#tab/azure-portal)
+> [!CAUTION]
+> This feature is incompatible with use cases that requires always-on machine access to the queried data, including Alerting, Reporting, Query caching and Public dashboards. The Current User authentication method relies on a user being logged in, in an interactive session, for Grafana to reach the database. When user-based authentication is used and no user is logged in, automated tasks can't run in the background. To leverage automated tasks for Azure Data Explorer, we recommend setting up another Azure Data Explorer data source using another authentication method.
 
-Remove a data source in the Azure portal:
-
-1. Open your Azure Managed Grafana instance in the Azure portal.
-1. Select **Overview** from the left menu, then open the **Endpoint** URL.
-1. In the Grafana portal, go to **Connections** > **Your connections**
-1. Select the data source you want to remove and select **Delete**.
-
-### [Azure CLI](#tab/azure-cli)
-
-Run the [az grafana data-source delete](/cli/azure/grafana/data-source#az-grafana-data-source-delete) command to remove an Azure Managed Grafana data source using the Azure CLI. In the sample below, replace the placeholders `<instance-name>` and `<id>` with the name of the Azure Managed Grafana workspace and the name, ID or UID of the data source.
-
-```azurecli
-az grafana data-source delete --name <instance-name> --data-source <id>
-```
-
----
+1. Under **Authentication Method**, select **Current User**.
+1. Select **Save & test**. The "Success" notification displayed indicates that Grafana is able to fetch data from the database.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Create a dashboard](how-to-create-dashboard.md)
-
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Monitor your Azure Managed Grafana instance](how-to-monitor-managed-grafana-workspace.md)

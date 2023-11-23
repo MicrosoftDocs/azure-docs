@@ -14,7 +14,7 @@ In this guide, you learn about data sources supported in each Azure Managed Gran
 
 ## Prerequisites
 
-[An Azure Managed Grafana instance](./how-to-permissions.md).
+[An Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
 
 ## Supported Grafana data sources
 
