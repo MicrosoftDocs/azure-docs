@@ -29,35 +29,34 @@ Azure Arc-enabled SCVMM requires the Arc resource bridge to connect your SCVMM e
 
 To upgrade to the latest version of the resource bridge, perform the following steps:
 
-1. Copy the Azure region and resource IDs of the Arc resource bridge, custom location, and vCenter Azure resources.
+1. Copy the Azure region and resource IDs of the Arc resource bridge, custom location, and SCVMM Azure resources.
 
-2. Find and delete the old Arc resource bridge **template** from your vCenter.
+2. Find and delete the old Arc resource bridge resource under the [Resource Bridges tab from the Azure Arc center](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/resourceBridges).
 
-3. Download the script from the portal and update the following section in the script.
+3. Download the [onboarding script](/azure/azure-arc/system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc#download-the-onboarding-script) from the Azure portal and update the following section in the script, using the same information as the original resources in Azure.
 
     ```powershell
     $location = <Azure region of the resources>
-    
     $applianceSubscriptionId = <subscription-id>
-    $applianceResourceGroupName = <resourcegroup-name>
+    $applianceResourceGroupName = <resource-group-name>
     $applianceName = <resource-bridge-name>
-    
+
     $customLocationSubscriptionId = <subscription-id>
-    $customLocationResourceGroupName = <resourcegroup-name>
+    $customLocationResourceGroupName = <resource-group-name>
     $customLocationName = <custom-location-name>
-    
-    $vCenterSubscriptionId = <subscription-id>
-    $vCenterResourceGroupName = <resourcegroup-name>
-    $vCenterName = <vcenter-name-in-azure>
+
+    $vmmserverSubscriptionId = <subscription-id>
+    $vmmserverResourceGroupName = <resource-group-name>
+    $vmmserverName= <SCVMM-name-in-azure>
     ```
 
-4. [Run the onboarding script](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md#run-the-script) again with the `--force` parameter.
+4. [Run the onboarding script](/azure/azure-arc/system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc#download-the-onboarding-script) again with the `--force` parameter.
 
     ``` powershell-interactive
     ./resource-bridge-onboarding-script.ps1 --force
     ```
 
-5. [Provide the inputs](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md#inputs-for-the-script) as prompted.
+5. [Provide the inputs](/azure/azure-arc/system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc#script-runtime) as prompted.
 
 6. Once the onboarding is successfully completed, the resource bridge is upgraded to the latest version.
 
