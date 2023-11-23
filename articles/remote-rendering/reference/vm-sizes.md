@@ -16,11 +16,21 @@ Azure Remote Rendering is available in two server configurations: `Standard` and
 
 A primitive is either a single triangle (in triangular meshes) or a single point (in point cloud meshes). Triangular meshes can be instantiated together with point clouds, in which case the sum of all points and triangles in the session are counted against the limit.
 
-Remote Rendering with `Standard` size server has a maximum scene size of 20 million primitives. Remote Rendering with `Premium` size doesn't enforce a hard maximum, but performance may be degraded if your content exceeds the rendering capabilities of the service.
+### Standard size
 
-When the renderer on a 'Standard' server size hits this limitation, it switches rendering to a checkerboard background:
+Remote Rendering with `Standard` size server has a maximum scene size of 20 million primitives. When the renderer on a 'Standard' server size hits this limitation, it switches rendering to a checkerboard background:
 
 ![Screenshot shows a grid of black and white squares with a Tools menu.](media/checkerboard.png)
+
+### Premium size
+
+Remote Rendering with `Premium` size doesn't enforce a hard maximum, but performance may be degraded if your content exceeds the rendering capabilities of the service. Furthermore, for triangular meshes, the available amount of graphics memory is a hard limit. It's not possible to map the amount of graphics memory to a specific number of triangles, because there are many contributing factors that depend on the source mesh:
+
+* number and resolution of textures,
+* amount of unique geometry versus sub-mesh instantiation inside the mesh (see also [instancing objects](../how-tos/conversion/configure-model-conversion.md#instancing)),
+* [vertex streams](../how-tos/conversion/configure-model-conversion.md#vertex-format) being used
+
+For [point clouds](../../overview/features/point-cloud-rendering.md) there is no real limit since point cloud assets use the [data streaming approach](../../overview/features/point-cloud-rendering.md#Point-cloud-data-streaming). With data streaming, the renderer automatically manages the memory budget on the graphics card, based on the actual visible geometry.
 
 ## Specify the server size
 

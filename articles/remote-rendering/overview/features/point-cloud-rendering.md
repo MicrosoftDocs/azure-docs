@@ -31,7 +31,7 @@ Conversion settings specifically for point cloud files are explained in the [con
 
 ## Size limitations
 
-Point cloud asset conversion has a hard limit of 2.5 billion points per converted asset.
+Point cloud asset conversion has a hard limit of 12.5 billion points per converted asset.
 For the overall maximum number of allowed points loaded and rendered by ARR, the same kind of distinctions between a `standard` and `premium` rendering session applies, as described in paragraph about [server size limits](../../reference/limits.md#overall-number-of-primitives).
 
 ## Global rendering properties
@@ -57,6 +57,12 @@ void ChangeGlobalPointCloudSettings(ApiHandle<RenderingSession> session)
     settings->SetPointSizeScale(1.25f);
 }
 ```
+
+## Point cloud data streaming
+
+Point cloud asset files are automatically configured for dynamic data streaming during conversion. That means that unlike triangular mesh assets or smaller point cloud asset files, these converted assets aren't fully downloaded to the rendering VM, but rather partially loaded from storage as needed. The size threshold for full download versus partial on-demand-loading is currently set to 2 GB (arrAsset file size), but this threshold may change during the public preview.
+
+Regardless of the point cloud file size, the great benefit of the data streaming approach is that the renderer can start early with presenting the data. The decision of the renderer which data to prioritize, is based on camera view and proximity. No custom interaction through the API is necessary. Furthermore, data streaming imposes an implicit budget on the amount of data that is in memory at the same time, so there's no memory limit whatsoever on the amount of rendered point cloud data.
 
 ## API documentation
 
