@@ -5,7 +5,7 @@ ms.topic: how-to
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: MeirMen
-ms.date: 02/07/2023
+ms.date: 11/23/2023
 
 #Customer-intent: As a Log Analytics workspace administrator, I want to know when there are latency issues in a Log Analytics workspace, so I can act to resolve the issue, contact Microsoft for support, or track that is Azure is meeting its SLA.  
 ---
@@ -97,8 +97,7 @@ To investigate Log Analytics workspace health issues:
 - [Query](./queries.md) the data in your Log Analytics workspace to [understand which factors are contributing greater than expected latency in your workspace](../logs/data-ingestion-time.md).  
 - [Use the `_LogOperation` function to view and set up alerts about operational issues](../logs/monitor-workspace.md) logged in your Log Analytics workspace.
 
-      
-
+  
 
 ## Next steps
 
