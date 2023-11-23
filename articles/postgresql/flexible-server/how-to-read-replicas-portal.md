@@ -18,6 +18,15 @@ ms.topic: how-to
 
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL from the Azure portal. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
+
+> [!NOTE]  
+> Azure Database for PostgreSQL - Flexible Server is currently supporting the following features in Preview:
+>
+> - Promote to primary server (to maintain backward compatibility, please use promote to independent server and remove from replication, which keeps the former behavior)
+> - Virtual endpoints
+> 
+> For these features, remember to use the API version `2023-06-01-preview` in your requests. This version is necessary to access the latest, albeit preview, functionalities of these features. 
+
 ## Prerequisites
 
 An [Azure Database for PostgreSQL server](./quickstart-create-server-portal.md) to be the primary server.
@@ -181,10 +190,7 @@ The accompanying JSON body for this request is as follows:
   "Properties": { 
     "EndpointType": "ReadWrite", 
     "Members": ["{replicaserverName}"] 
-  }, 
-  "Id": null, 
-  "Name": "{sourceserverName}", 
-  "Type": "Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints" 
+  }
 } 
 ```
 
@@ -221,7 +227,7 @@ To promote replica from the Azure portal, follow these steps:
 
 #### [REST API](#tab/restapi)
 
-When promoting a replica to a primary server, you will use an `HTTP PATCH` request with a specific `JSON` body to set the promotion options. This process is crucial when you need to elevate a replica server to act as the primary server.
+When promoting a replica to a primary server, use an `HTTP PATCH` request with a specific `JSON` body to set the promotion options. This process is crucial when you need to elevate a replica server to act as the primary server.
 
 The `HTTP` request is structured as follows:
 
@@ -254,7 +260,7 @@ Restart your applications and attempt to perform some operations. Your applicati
 
 ### Failback to the original server and region
 
-Repeat the same operations to promote the original server to the primary:
+Repeat the same operations to promote the original server to the primary.
 
 #### [Portal](#tab/portal)
 
@@ -271,6 +277,25 @@ Repeat the same operations to promote the original server to the primary:
 6.  Select **Promote**, the process begins. Once it's completed, the roles reverse: the replica becomes the primary, and the primary will assume the role of the replica.
 
 #### [REST API](#tab/restapi)
+
+This time, change the `{replicaserverName}` in the API request to refer to your old primary server, which is currently acting as a replica, and execute the request again.
+
+```http
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2023-06-01-preview
+```
+
+```json
+{
+  "Properties": {
+    "Replica": {
+      "PromoteMode": "switchover",
+      "PromoteOption": "planned"
+    }
+  }
+}
+```
+
+In this `JSON`, the promotion is set to occur in `switchover` mode with a `planned` promotion option. While there are two options for promotion - `planned` or `forced` - chose `planned` for this exercise.
 
 ---
 
@@ -315,6 +340,8 @@ You can create a secondary read replica by using the [create API](/rest/api/post
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-12-01
 ```
 
+Choose a distinct name for `{replicaserverName}` to differentiate it from the primary server and any other replicas.
+
 ```json
 {
   "location": "westus3",
@@ -324,6 +351,8 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
   }
 }
 ```
+
+The location is set to `westus3`, but you can adjust this based on your geographical and operational needs.
 
 ---
 
@@ -389,7 +418,7 @@ Rather than switchover to a replica, it's also possible to break the replication
 
 #### [REST API](#tab/restapi)
 
-You can promote a replica to a standalone server using a `PATCH` request. To do this, send a `PATCH` request to the specified Azure Management `REST API URL` with the first `JSON` body, where `PromoteMode` is set to `standalone` and `PromoteOption` to `planned`. The second `JSON` body format, setting `ReplicationRole` to `None`, is deprecated but still mentioned here for backward compatibility.
+You can promote a replica to a standalone server using a `PATCH` request. To do this, send a `PATCH` request to the specified Azure Management REST API URL with the first `JSON` body, where `PromoteMode` is set to `standalone` and `PromoteOption` to `planned`. The second `JSON` body format, setting `ReplicationRole` to `None`, is deprecated but still mentioned here for backward compatibility.
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2023-06-01-preview
@@ -419,6 +448,8 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 
    > [!NOTE]  
    > Once a replica is promoted to an independent server, it cannot be added back to the replication set.
+   
+
    
 
 ## Delete virtual endpoint (preview)
@@ -489,7 +520,7 @@ To delete a server from the Azure portal, follow these steps:
 To delete a primary or replica server, use the [delete API](/rest/api/postgresql/flexibleserver/servers/delete). If server has read replicas then read replicas should be deleted first before deleting the primary server.
 
 ```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-12-01
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}?api-version=2022-12-01
 ```
 
 ---
