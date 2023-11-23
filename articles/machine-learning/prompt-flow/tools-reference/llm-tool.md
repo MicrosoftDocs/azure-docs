@@ -95,4 +95,4 @@ The following sections show various inputs.
 
 1. Set up and select the connections to OpenAI resources.
 1. Configure the LLM model API and its parameters.
-1. Prepare the prompt with [guidance](prompt-tool.md#how-to-write-prompt).
+1. Prepare the prompt with [guidance](prompt-tool.md#write-a-prompt).
