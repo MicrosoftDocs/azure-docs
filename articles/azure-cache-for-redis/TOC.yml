@@ -56,8 +56,6 @@
     href: cache-overview.md#choosing-the-right-tier
   - name: Upgrade to a new version
     href: cache-how-to-upgrade.md
-  - name: Set Redis version
-    href: cache-how-to-version.md
   - name: Save with reservations 
     href: cache-reserved-pricing.md
   - name: Migrate to Azure Cache for Redis

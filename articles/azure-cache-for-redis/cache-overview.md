@@ -31,7 +31,7 @@ Azure Cache for Redis improves application performance by supporting common appl
 
 ## Redis versions
 
-Azure Cache for Redis supports OSS Redis version 4.0.x and 6.0.x. We've made the decision to skip Redis 5.0 to bring you the latest version. Previously, Azure Cache for Redis maintained a single Redis version. In the future, it will provide a newer major release upgrade and at least one older stable version. You can [choose which version](cache-how-to-version.md) works the best for your application.
+Azure Cache for Redis supports OSS Redis version 4.0.x and 6.0.x. We've made the decision to skip Redis 5.0 to bring you the latest version. Previously, Azure Cache for Redis maintained a single Redis version. In the future, you can choose from a newer major release upgrade and at least one older stable version. You can choose the version that works the best for your application.
 
 ## Service tiers
 
