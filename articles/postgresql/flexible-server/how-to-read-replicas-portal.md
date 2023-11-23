@@ -155,7 +155,11 @@ Here, you need to replace `{subscriptionId}`, `{resourceGroupName}`, and `{repli
 >  
 > To avoid issues during promotion of replicas constantly change the following server parameters on the replicas first, before applying them on the primary: `max_connections`, `max_prepared_transactions`, `max_locks_per_transaction`, `max_wal_senders`, `max_worker_processes`.
 
-## Create virtual endpoint (preview)
+## Create virtual endpoints (preview)
+
+> [!NOTE]
+> All operations involving virtual endpoints - like adding, editing, or removing - are executed in the context of the primary server. 
+
 
 #### [Portal](#tab/portal)
 1. In the Azure portal, select the primary server.
@@ -199,15 +203,29 @@ Here, `{replicaserverName}` should be replaced with the name of the replica serv
 ---
 
 
-## List virtual endpoint (preview)
+## List virtual endpoints (preview)
+
+To list virtual endpoints in the preview version of Azure Database for PostgreSQL - Flexible Server, use the following steps:
+
+#### [Portal](#tab/portal)
+
+1. In the Azure portal, select the **primary** server.
+
+2. On the server sidebar, under **Settings**, select **Replication**.
+
+3. At the top of the page, you will see both the reader and writer endpoints displayed, along with the names of the servers they are pointing to.
+
+    :::image type="content" source="./media/how-to-read-replicas-portal/virtual-endpoints-show.png" alt-text="Screenshot of virtual endpoints list." lightbox="./media/how-to-read-replicas-portal/virtual-endpoints-show.png":::
+
 #### [REST API](#tab/restapi)
 
 ```http request
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/virtualendpoints?api-version=2023-06-01-preview
 ```
 
----
+Here, `{sourceserverName}` should be the name of the primary server from which you're managing the virtual endpoints.
 
+---
 
 
 ### Modify application(s) to point to virtual endpoint
