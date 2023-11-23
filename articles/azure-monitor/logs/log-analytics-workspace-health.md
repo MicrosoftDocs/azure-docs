@@ -47,7 +47,7 @@ To view your Log Analytics workspace health and set up health status alerts:
 
     | Resource health status | Description |
     |-|-|
-    |Available| [Average latency](../logs/data-ingestion-time.md#average-latency) and no query execution issues.|
+    |Available| [Average latency](../logs/data-ingestion-time.md#average-latency) and no query execution issues detected.|
     |Unavailable|Higher than average latency detected.|    
     |Degraded|Query execution errors detected.|
     |Unknown|Currently unable to determine the workspace health. You haven't run queries or ingested data to this workspace recently.|
