@@ -1,7 +1,7 @@
 ---
-title: Diagnose load test errors
+title: Diagnose failing load tests
 titleSuffix: Azure Load Testing
-description: Learn how you can diagnose and troubleshoot errors in Azure Load Testing. Download and analyze the Apache JMeter worker logs in the Azure portal.
+description: Learn how you can diagnose and troubleshoot failing tests in Azure Load Testing. Download and analyze the Apache JMeter worker logs in the Azure portal.
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog

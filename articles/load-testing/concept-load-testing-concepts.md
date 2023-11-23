@@ -98,7 +98,7 @@ A test engine is computing infrastructure, managed by Microsoft that runs the Ap
 
 The test engines are hosted in the same location as your Azure Load Testing resource. You can configure the Azure region when you create the Azure load testing resource.
 
-While the test script runs, Azure Load Testing collects and aggregates the Apache JMeter worker logs from all test engine instances. You can [download the logs for analyzing errors during the load test](./how-to-troubleshoot-failing-test.md).
+While the test script runs, Azure Load Testing collects and aggregates the Apache JMeter worker logs from all test engine instances. You can [download the logs for analyzing errors during the load test](./how-to-diagnose-failing-load-test.md).
 
 ### Test run
 
