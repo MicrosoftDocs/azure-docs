@@ -1923,7 +1923,6 @@ groups:
     title: PowerShell
   - id: rest-api
     title: REST (DALL-E 3)
-# Owner: diberry
 # Owner: mbullwin
 - id: openai-whisper
   title: Programming languages
@@ -1933,6 +1932,7 @@ groups:
     title: REST
   - id: programming-language-powershell
     title: PowerShell
+# Owner: diberry
 - id: app-service-webjob
   title: WebJob types
   prompt: Choose a type of WebJob
