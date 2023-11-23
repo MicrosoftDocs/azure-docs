@@ -5,29 +5,29 @@ author: rcdun
 ms.author: rdunstan
 ms.service: operator-insights
 ms.topic: troubleshooting-general
-ms.date: 10/30/2023
+ms.date: 11/23/2023
 ---
 
 # Monitor and troubleshoot SFTP Ingestion Agents for Azure Operator Insights
 
 ## Agent diagnostics overview
 
-Because the ingestion bus agents are software packages, their diagnostics are limited to the functioning of the application.  Microsoft doesn't provide OS or resource monitoring. You're encouraged to use standard tooling such as snmpd, Prometheus node exporter, or others to send OS-level data and telemetry to your on-premises monitoring systems.
+Because the ingestion bus agents are software packages, their diagnostics are limited to the functioning of the application.  Microsoft doesn't provide OS or resource monitoring. You're encouraged to use standard tooling such as snmpd, Prometheus node exporter, or others to send OS-level data, logs and metrics to your on-premises monitoring systems.
 
-The diagnostics provided by the MCCs, or by Azure Operator Insights itself in Azure Monitor, are expected to be sufficient for most other use cases.
+The diagnostics provided by Azure Operator Insights itself in Azure Monitor are expected to be sufficient for most other use cases.
 
-The agent writes logs and metrics to files under */var/log/az-mcc-edr-uploader/*.  If the agent is failing to start for any reason, such as misconfiguration, the stdout.log file contains human-readable logs explaining the issue.
+The agent writes logs and metrics to files under */var/log/az-sftp-uploader/*.  If the agent is failing to start for any reason, such as misconfiguration, the stdout.log file contains human-readable logs explaining the issue.
 
-Metrics are reported in a simple human-friendly form.  They're provided primarily for Microsoft support to have telemetry for debugging unexpected issues.  The diagnostics provided by the MCCs, or by Azure Operator Insights itself in Azure Monitor, are expected to be sufficient for most other use cases.
+Metrics are reported in a simple human-friendly form.  They're provided primarily to help Microsoft Support debug unexpected issues.  The diagnostics provided by Azure Operator Insights itself in Azure Monitor are expected to be sufficient for most other use cases.
 
 ## Collecting diagnostics
 
-Microsoft Support may request diagnostic packages when investigating an issue.
+Microsoft Support might request diagnostic packages when investigating an issue.
 
 To collect a diagnostics package, SSH to the Virtual Machine and run the command `/usr/bin/microsoft/az-ingestion-gather-diags`.  This command generates a date-stamped zip file in the current directory that you can copy from the system.
 
 > [!NOTE]
-> Diagnostics packages don't contain any customer data or the value of the Azure Storage connection string.
+> Diagnostics packages don't contain any customer data or the value of any credentials.
 
 ## Troubleshooting common issues
 
@@ -37,49 +37,57 @@ If none of these suggested remediation steps help, or you're unsure how to proce
 
 ### Agent fails to start
 
-Symptoms: `sudo systemctl status az-mcc-edr-uploader` shows that the service is in failed state.
+Symptoms: `sudo systemctl status az-sftp-uploader` shows that the service is in failed state.
 
 Steps to remediate:
 
-- Ensure the service is running: `sudo systemctl start az-mcc-edr-uploader`.
+- Ensure the service is running: `sudo systemctl start az-sftp-uploader`.
 
-- Look at the */var/log/az-mcc-edr-uploader/stdout.log* file and check for any reported errors.  Fix any issues with the configuration file and start the agent again.
+- Look at the */var/log/az-sftp-uploader/stdout.log* file and check for any reported errors.  Fix any issues with the configuration file and start the agent again.
 
-### MCC cannot connect
+### Agent can't connect to SFTP server
 
-Symptoms: MCC reports alarms about MSFs being unavailable.
-
-Steps to remediate:
-
-- Check that the agent is running.
-- Ensure that MCC is configured with the correct IP and port.
-
-- Check the logs from the agent and see if it's reporting connections.  If not, check the network connectivity to the agent VM and verify that the firewalls aren't blocking traffic to port 36001.
-
-- Collect a packet capture to see where the connection is failing.
-
-### No EDRs appearing in AOI
-
-Symptoms: no data appears in Azure Data Explorer.
+Symptoms: No files are uploaded to AOI. The agent log file, */var/log/az-sftp-uploader/stdout.log*, contains errors about connecting the SFTP server.
 
 Steps to remediate:
 
-- Check that the MCC is healthy and ingestion bus agents are running.
+- Verify the SFTP user and credentials used by the agent are valid for the SFTP server.
 
-- Check the logs from the ingestion agent for errors uploading to Azure. If the logs point to an invalid connection string, or connectivity issues, fix the configuration/connection string and restart the agent.
+- Check network connectivity and firewall configuration between the agent and the SFTP server.
 
-- Check the network connectivity and firewall configuration on the storage account.
 
-### Data missing or incomplete
+### No files are uploaded to AOI
 
-Symptoms: Azure Monitor shows a lower incoming EDR rate in ADX than expected.
+Symptoms: 
+- No data appears in Azure Data Explorer.
+- The AOI *Data Ingested* metric for the relevant data type is zero. 
 
 Steps to remediate:
 
 - Check that the agent is running on all VMs and isn't reporting errors in logs.
 
-- Verify that the agent VMs aren't being sent more than the rated load.  
+- Check that files exist in the correct location on the SFTP server, and that they aren't being excluded due to file source config (see [Data missing or incomplete](#data-missing-or-incomplete)).
 
-- Check agent metrics for dropped bytes/dropped EDRs.  If the metrics don't show any dropped data, then MCC isn't sending the data to the agent. Check the "received bytes" metrics to see how much data is being received from MCC.
+- Check the network connectivity and firewall configuration between the ingestion agent and AOI.
 
-- Check that the agent VM isn't overloaded – monitor CPU and memory usage.   In particular, ensure no other process is taking resources from the VM.
+
+### Files are missing
+
+Symptoms:
+- Data is missing from Azure Data Explorer.
+- The AOI *Data Ingested* and *Processed File Count* metrics for the relevant data type are lower than expected. 
+
+Steps to remediate:
+
+- Check that the agent is running on all VMs and isn't reporting errors in logs. Search the logs for the name of the missing file to find errors related to that file.
+
+- Check that the files exist on the SFTP server and that they aren't being excluded due to file source config. Check the file source config and confirm that:
+  - The files exist on the SFTP server under the path defined in `base_path`.
+  - The "last modified" time of the files is at least `settling_time_secs` seconds earlier than the time of the most recent upload run for this file source.
+  - The "last modified" time of the files is later than `exclude_before_time` (if specified).
+  - The file path relative to `base_path` matches the regular expression given by `include_pattern` (if specified).
+  - The file path relative to `base_path` *does not* match the regular expression given by `exclude_pattern` (if specified).
+
+- If recent files are missing, check the agent logs to confirm that the ingestion agent performed an upload run for the file source at the expected time. The `schedule` parameter in the file source config gives the expected schedule. 
+
+- Check that the agent VM isn't overloaded – monitor CPU and memory usage. In particular, ensure no other process is taking resources from the VM.
