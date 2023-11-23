@@ -308,7 +308,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ```json
 {
-  "location": "southeastasia",
+  "location": "westus3",
   "properties": {
     "createMode": "Replica",
     "SourceServerResourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}"
@@ -337,6 +337,8 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 5.  Select **Save**. The reader endpoint will now be pointed at the secondary replica, and the promote operation will now be tied to this replica.
 
 #### [REST API](#tab/restapi)
+
+You can now modify your reader endpoint to point to the newly created secondary replica by using a `PATCH` request. Remember to replace `{replicaserverName}` with the name of the newly created read replica.
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/virtualendpoints/{virtualendpointName}?api-version=2023-06-01-preview
@@ -369,20 +371,33 @@ Rather than switchover to a replica, it's also possible to break the replication
     
 4.  In the dialog, ensure the action is **Promote to independent server and remove from replication. This won't impact the primary server**.
 
-   > [!NOTE]  
-   > Once a replica is promoted to an independent server, it cannot be added back to the replication set.
-
 5.  For **Data sync**, ensure **Planned - sync data before promoting** is selected.
 
     :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote-independent.png" alt-text="Screenshot of promoting the replica to independent server.":::
 
 6.  Select **Promote**, the process begins. Once completed, the server will no longer be a replica of the primary.
 
+
 #### [REST API](#tab/restapi)
+
+You can promote a replica to a standalone server using a `PATCH` request. To do this, send a `PATCH` request to the specified Azure Management `REST API URL` with the first `JSON` body, where `PromoteMode` is set to `standalone` and `PromoteOption` to `planned`. The second `JSON` body format, setting `ReplicationRole` to `None`, is deprecated but still mentioned here for backward compatibility.
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2023-06-01-preview
 ```
+
+
+```json
+{
+  "Properties": {
+    "Replica": {
+      "PromoteMode": "standalone",
+      "PromoteOption": "planned"
+    }
+  }
+}
+```
+
 
 ```json
 {
@@ -393,6 +408,10 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 ```
 
 ---
+
+   > [!NOTE]  
+   > Once a replica is promoted to an independent server, it cannot be added back to the replication set.
+   
 
 ## Delete virtual endpoint (preview)
 
