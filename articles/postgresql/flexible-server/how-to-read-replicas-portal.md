@@ -206,6 +206,8 @@ Here, `{replicaserverName}` should be replaced with the name of the replica serv
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/virtualendpoints?api-version=2023-06-01-preview
 ```
 
+---
+
 
 
 ### Modify application(s) to point to virtual endpoint
