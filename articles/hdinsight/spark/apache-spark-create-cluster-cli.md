@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli, mode-api
 
 In this quickstart, you learn how to create an Apache Spark cluster in Azure HDInsight using the Azure CLI. Azure HDInsight is a managed, full-spectrum, open-source analytics service for enterprises. The Apache Spark framework for HDInsight enables fast data analytics and cluster computing using in-memory processing. The Azure CLI is Microsoft's cross-platform command-line experience for managing Azure resources.
 
-If you're using multiple clusters together, you'll want to create a virtual network, and if you're using a Spark cluster you'll also want to use the Hive Warehouse Connector. For more information, see [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) and [Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](../interactive-query/apache-hive-warehouse-connector.md).
+If you're using multiple clusters together, you can create a virtual network, and if you're using a Spark cluster you can use the Hive Warehouse Connector. For more information, see [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) and [Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](../interactive-query/apache-hive-warehouse-connector.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +29,7 @@ If you're using multiple clusters together, you'll want to create a virtual netw
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. Set environment variables. The use of variables in this quickstart is based on Bash. Slight variations will be needed for other environments. Replace RESOURCEGROUPNAME, LOCATION, CLUSTERNAME, STORAGEACCOUNTNAME, and PASSWORD in the code snippet below with the desired values. Then enter the CLI commands to set the environment variables.
+2. Set environment variables. The use of variables in this quickstart is based on Bash. Slight variations are needed for other environments. Replace RESOURCEGROUPNAME, LOCATION, CLUSTERNAME, STORAGEACCOUNTNAME, and PASSWORD in the following code snippet with the desired values. Then enter the CLI commands to set the environment variables.
 
     ```azurecli-interactive
     export resourceGroupName=RESOURCEGROUPNAME
@@ -46,7 +46,7 @@ If you're using multiple clusters together, you'll want to create a virtual netw
     export componentVersion=Spark=2.3
     ```
 
-3. Create the resource group by entering the command below:
+3. Create the resource group by entering the following command:
 
     ```azurecli-interactive
     az group create \
@@ -54,7 +54,7 @@ If you're using multiple clusters together, you'll want to create a virtual netw
         --name $resourceGroupName
     ```
 
-4. Create an Azure storage account by entering the command below:
+4. Create an Azure storage account by entering the following command:
 
     ```azurecli-interactive
     az storage account create \
@@ -66,7 +66,7 @@ If you're using multiple clusters together, you'll want to create a virtual netw
         --sku Standard_LRS
     ```
 
-5. Extract the primary key from the Azure storage account and store it in a variable by entering the command below:
+5. Extract the primary key from the Azure storage account and store it in a variable by entering the following command:
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -75,7 +75,7 @@ If you're using multiple clusters together, you'll want to create a virtual netw
         --query [0].value -o tsv)
     ```
 
-6. Create an Azure storage container by entering the command below:
+6. Create an Azure storage container by entering the following command:
 
     ```azurecli-interactive
     az storage container create \
