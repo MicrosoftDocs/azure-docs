@@ -119,8 +119,6 @@
   items:
   - name: Change the size and tier of a cache
     href: cache-how-to-scale.md
-  - name: Use Redis cluster to scale in/out
-    href: cache-how-to-premium-clustering.md
   - name: Development best practices
     href: cache-best-practices-development.md
   - name: Scaling best practices
