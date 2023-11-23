@@ -23,8 +23,38 @@ The listed features were released in the last three months. For information abou
 
 ## November 2023
 
+- [Take advantage of Microsoft Defender for Cloud integration with Microsoft 365 Defender (Preview)](#take-advantage-of-microsoft-defender-for-cloud-integration-with-microsoft-365-defender-preview)
 - [Near-real-time rules now generally available](#near-real-time-rules-now-generally-available)
 - [Elevate your cybersecurity intelligence with enrichment widgets (Preview)](#elevate-your-cybersecurity-intelligence-with-enrichment-widgets-preview)
+
+### Take advantage of Microsoft Defender for Cloud integration with Microsoft 365 Defender (Preview)
+
+Microsoft Defender for Cloud now integrates with Microsoft 365 Defender (this integration is currently **in Preview**). Microsoft Sentinel customers can now take advantage of this integration by ingesting Defender for Cloud alerts and incidents through Microsoft 365 Defender.
+
+To support this integration, Microsoft has added a new **Tenant-based Microsoft Defender for Cloud (Preview)** connector. This connector will allow Defender for Cloud alerts and incidents to be sent to any Microsoft Sentinel customers who have already enabled [Microsoft 365 Defender incident integration](microsoft-365-defender-sentinel-integration.md).
+
+Customers who enable this new tenant-based connector will receive all the alerts in Defender for Cloud incidents, with all their information. with no gaps or empty alerts, customers are advised to connect the new tenant based MDC connector which will bring alerts from all mdc enabled subscriptions of the tenant. 
+
+Customers that do not want to receive MDC incidents through the XDR integration will need to opt-out of the integration through the XDR portal. 
+
+Customers that wish to collect alert from all their MDC enabled subscriptions of the tenant without manual addition of each subscription adding to MDC can enable the tenant based MDC alerts connector with no incidents from XDR enablement.
+
+
+
+
+
+If you have previously connected your Microsoft Defender XDR incidents connector, connect the new “Tenant-based Microsoft Defender for Cloud (Preview)” connector to synchronize your entire collection of subscriptions with your tenant-based Defender for Cloud incidents streaming through the Microsoft Defender XDR Incidents connector. The connector is available through the Microsoft Defender for Cloud version 3.0.0 solution in the Content Hub. 
+
+If you have not previously synchronized your Defender XDR incidents to Sentinel and would like to benefit from this exciting integration in your Microsoft Sentinel workspace, connect the Defender XDR Incidents and the new “Tenant-based Microsoft Defender for Cloud (Preview)” connector.     
+
+If you previously enabled the legacy subscription-based Microsoft Defender for Cloud alerts connector, you are advised to disconnect to prevent duplications. 
+
+
+
+
+
+
+
 
 ### Near-real-time rules now generally available
 
