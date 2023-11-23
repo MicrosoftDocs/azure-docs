@@ -46,7 +46,7 @@ Parameterized linked services can be used in a mapping data flow (for either dat
 
 For the inline source type, the linked service parameters are exposed in the data flow activity settings within the pipeline as shown below. 
 
-:::image type="content" source="media/data-flow/data-flow-params-1.png" alt-text="Screenshot shows the parameters in the Parameters tab with new parameters added.":::
+:::image type="content" source="media/data-flow/data-flow-params-1.png" alt-text="Screenshot shows the use of linked service parameters in the data flow.":::
 
 For the dataset source type, the linked service parameters are exposed directly in the dataset configuration. 
 
