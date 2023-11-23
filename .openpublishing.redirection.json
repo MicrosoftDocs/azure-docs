@@ -9072,6 +9072,10 @@
           "source_path_from_root": "/articles/azure-cache-for-redis/cache-how-to-premium-clustering.md",
           "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-scale",
           "redirect_document_id": false
+        },        {
+          "source_path_from_root": "/articles/azure-cache-for-redis/cache-how-to-version.md",
+          "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-upgrade",
+          "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service/app-service-export-api-to-powerapps-and-flow.md",
