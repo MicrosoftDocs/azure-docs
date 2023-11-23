@@ -83,6 +83,23 @@ To create a read replica, follow these steps:
 
     :::image type="content" source="./media/how-to-read-replicas-portal/basics.png" alt-text="Screenshot showing entering the basics information." lightbox="./media/how-to-read-replicas-portal/basics.png":::
 
+5.  Select **Review + create** to confirm the creation of the replica or **Next: Networking** if you want to add, delete or modify any firewall rules.
+
+    :::image type="content" source="./media/how-to-read-replicas-portal/networking.png" alt-text="Screenshot of modify firewall rules action." lightbox="./media/how-to-read-replicas-portal/networking.png":::
+
+6.  Leave the remaining defaults and then select the **Review + create** button at the bottom of the page or proceed to the next forms to add tags or change data encryption method.
+
+7.  Review the information in the final confirmation window. When you're ready, select **Create**. A new deployment will be created and executed.
+
+    :::image type="content" source="./media/how-to-read-replicas-portal/replica-review.png" alt-text="Screenshot of reviewing the information in the final confirmation window.":::
+
+8.  During the deployment, you see the primary in `Updating` state.
+    
+    :::image type="content" source="./media/how-to-read-replicas-portal/primary-updating.png" alt-text="Screenshot of primary entering into updating status." lightbox="./media/how-to-read-replicas-portal/primary-updating.png":::
+    After the read replica is created, it can be viewed from the **Replication** window.
+
+    :::image type="content" source="./media/how-to-read-replicas-portal/list-replica.png" alt-text="Screenshot of viewing the new replica in the replication window." lightbox="./media/how-to-read-replicas-portal/list-replica.png":::
+
 #### [REST API](#tab/restapi)
 
 You can create a read replica by using the [create API](/rest/api/postgresql/flexibleserver/servers/create):
@@ -121,28 +138,6 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
     :::image type="content" source="./media/how-to-read-replicas-portal/replica-compute.png" alt-text="Screenshot of chose the compute size.":::
 
 
-#### [Portal](#tab/portal)
-5.  Select **Review + create** to confirm the creation of the replica or **Next: Networking** if you want to add, delete or modify any firewall rules.
-
-    :::image type="content" source="./media/how-to-read-replicas-portal/networking.png" alt-text="Screenshot of modify firewall rules action." lightbox="./media/how-to-read-replicas-portal/networking.png":::
-
-6.  Leave the remaining defaults and then select the **Review + create** button at the bottom of the page or proceed to the next forms to add tags or change data encryption method.
-
-7.  Review the information in the final confirmation window. When you're ready, select **Create**. A new deployment will be created and executed.
-
-    :::image type="content" source="./media/how-to-read-replicas-portal/replica-review.png" alt-text="Screenshot of reviewing the information in the final confirmation window.":::
-
-8.  During the deployment, you see the primary in `Updating` state.
-    
-    :::image type="content" source="./media/how-to-read-replicas-portal/primary-updating.png" alt-text="Screenshot of primary entering into updating status." lightbox="./media/how-to-read-replicas-portal/primary-updating.png":::
-    After the read replica is created, it can be viewed from the **Replication** window.
-
-    :::image type="content" source="./media/how-to-read-replicas-portal/list-replica.png" alt-text="Screenshot of viewing the new replica in the replication window." lightbox="./media/how-to-read-replicas-portal/list-replica.png":::
-
-#### [REST API](#tab/restapi)
-check the operation status.
-
----
 
 > [!IMPORTANT]  
 > Review the [considerations section of the Read Replica overview](concepts-read-replicas.md#considerations).
@@ -171,9 +166,13 @@ check the operation status.
 
 #### [REST API](#tab/restapi)
 
+To create a virtual endpoint in a preview environment using Azure's REST API, you would use an `HTTP PUT` request. The request would look like this:
+
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/virtualendpoints/{virtualendpointName}?api-version=2023-06-01-preview
 ```
+
+The accompanying JSON body for this request is as follows:
 
 ```json
 { 
@@ -186,6 +185,8 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
   "Type": "Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints" 
 } 
 ```
+
+Here, `{replicaserverName}` should be replaced with the name of the replica server you're including as a reader endpoint target in this virtual endpoint.
 
 ---
 
@@ -218,6 +219,10 @@ To promote replica from the Azure portal, follow these steps:
 
 #### [REST API](#tab/restapi)
 
+When promoting a replica to a primary server, you will use an `HTTP PATCH` request with a specific `JSON` body to set the promotion options. This process is crucial when you need to elevate a replica server to act as the primary server.
+
+The `HTTP` request is structured as follows:
+
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2023-06-01-preview
 ```
@@ -233,11 +238,13 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
----
+In this `JSON`, the promotion is set to occur in `switchover` mode with a `planned` promotion option. While there are two options for promotion - `planned` or `forced` - chose `planned` for this exercise.
 
+---
 
    > [!NOTE]  
    > The replica you are promoting must have the reader virtual endpoint assigned, or you will receive an error on promotion.
+   
 
 ### Test applications
 
@@ -398,7 +405,6 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-
 ```json
 {
   "Properties": {
@@ -418,6 +424,8 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 #### [Portal](#tab/portal)
 
 #### [REST API](#tab/restapi)
+
+To delete a virtual endpoint in a preview environment using Azure's REST API, you would issue an `HTTP DELETE` request. The request URL would be structured as follows:
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{serverName}/virtualendpoints/{virtualendpointName}?api-version=2023-06-01-preview
@@ -517,4 +525,4 @@ The **Read Replica Lag** metric shows the time since the last replayed transacti
 
 ## Related content
 
-- [read replicas in Azure Database for PostgreSQL](concepts-read-replicas.md)
+- [Read replicas in Azure Database for PostgreSQL](concepts-read-replicas.md)
