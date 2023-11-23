@@ -2,7 +2,7 @@
 title: Tutorial - Govern and view compliance
 description: This tutorial describes how to configure protection for your data sources which are currently not protected by any solution using Azure Business Continuity center.
 ms.topic: tutorial
-ms.date: 10/19/2023
+ms.date: 11/15/2023
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
