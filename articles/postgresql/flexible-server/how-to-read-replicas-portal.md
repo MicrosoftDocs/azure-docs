@@ -135,7 +135,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 8.  During the deployment, you see the primary in `Updating` state.
     
     :::image type="content" source="./media/how-to-read-replicas-portal/primary-updating.png" alt-text="Screenshot of primary entering into updating status." lightbox="./media/how-to-read-replicas-portal/primary-updating.png":::
-After the read replica is created, it can be viewed from the **Replication** window.
+    After the read replica is created, it can be viewed from the **Replication** window.
 
     :::image type="content" source="./media/how-to-read-replicas-portal/list-replica.png" alt-text="Screenshot of viewing the new replica in the replication window." lightbox="./media/how-to-read-replicas-portal/list-replica.png":::
 
@@ -147,13 +147,45 @@ check the operation status.
 > [!IMPORTANT]  
 > Review the [considerations section of the Read Replica overview](concepts-read-replicas.md#considerations).
 >  
-> To avoid issues during promotion of replicas constantly change the following server parameters on the replicas first, before applying them on the primary: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
+> To avoid issues during promotion of replicas constantly change the following server parameters on the replicas first, before applying them on the primary: `max_connections`, `max_prepared_transactions`, `max_locks_per_transaction`, `max_wal_senders`, `max_worker_processes`.
 
 ## Create virtual endpoints (preview)
 
 #### [Portal](#tab/portal)
+1. In the Azure portal, select the primary server.
+
+2. On the server sidebar, under **Settings**, select **Replication**.
+
+3. Select **Create endpoint**.
+
+4. In the dialog, type a meaningful name for your endpoint. Notice the DNS endpoint that is being generated.
+
+    :::image type="content" source="./media/how-to-read-replicas-portal/add-virtual-endpoint.png" alt-text="Screenshot of creating a new virtual endpoint with custom name.":::
+
+5. Select **Create**.
+
+    > [!NOTE]  
+    > If you do not create a virtual endpoint you will receive an error on the promote replica attempt.
+
+    :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote-attempt.png" alt-text="Screenshot of promotion error when missing virtual endpoint.":::
 
 #### [REST API](#tab/restapi)
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/virtualendpoints/{virtualendpointName}?api-version=2023-06-01-preview
+```
+
+```json
+{ 
+  "Properties": { 
+    "EndpointType": "ReadWrite", 
+    "Members": ["{replicaserverName}"] 
+  }, 
+  "Id": null, 
+  "Name": "{sourceserverName}", 
+  "Type": "Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints" 
+} 
+```
 
 ---
 
@@ -165,6 +197,7 @@ Modify any applications that are using your Azure Database for PostgreSQL to use
 
 With all the necessary components in place, you're ready to perform a promote replica to primary operation.
 
+#### [Portal](#tab/portal)
 To promote replica from the Azure portal, follow these steps:
 
 1.  In the [Azure portal](https://portal.azure.com/), select your primary Azure Database for PostgreSQL - Flexible server.
@@ -183,6 +216,11 @@ To promote replica from the Azure portal, follow these steps:
 
 6.  Select **Promote** to begin the process. Once it's completed, the roles reverse: the replica becomes the primary, and the primary will assume the role of the replica.
 
+#### [REST API](#tab/restapi)
+
+---
+
+
    > [!NOTE]  
    > The replica you are promoting must have the reader virtual endpoint assigned, or you will receive an error on promotion.
 
@@ -193,6 +231,8 @@ Restart your applications and attempt to perform some operations. Your applicati
 ### Failback to the original server and region
 
 Repeat the same operations to promote the original server to the primary:
+
+#### [Portal](#tab/portal)
 
 1.  In the [Azure portal](https://portal.azure.com/), select the replica.
 
@@ -206,6 +246,10 @@ Repeat the same operations to promote the original server to the primary:
 
 6.  Select **Promote**, the process begins. Once it's completed, the roles reverse: the replica becomes the primary, and the primary will assume the role of the replica.
 
+#### [REST API](#tab/restapi)
+
+---
+
 ### Test applications
 
 Again, switch to one of the consuming applications. Wait for the primary and replica status to change to `Updating` and then attempt to perform some operations. During the replica promote, your application might encounter temporary connectivity issues to the endpoint:
@@ -216,6 +260,8 @@ Again, switch to one of the consuming applications. Wait for the primary and rep
 ## Add secondary read replica
 
 Create a secondary read replica in a separate region to modify the reader virtual endpoint and to allow for creating an independent server from the first replica.
+
+#### [Portal](#tab/portal)
 
 1.  In the [Azure portal](https://portal.azure.com/), choose the primary Azure Database for PostgreSQL - Flexible Server.
 
@@ -233,7 +279,9 @@ Create a secondary read replica in a separate region to modify the reader virtua
 
 8.  Review the information in the final confirmation window. When you're ready, select **Create**. A new deployment will be created and executed.
 
-9.  During the deployment, you see the primary in `Updating` status:
+9.  During the deployment, you see the primary in `Updating` state.
+    
+    :::image type="content" source="./media/how-to-read-replicas-portal/primary-updating.png" alt-text="Screenshot of primary entering into updating status." lightbox="./media/how-to-read-replicas-portal/primary-updating.png":::
 
 ## Modify virtual endpoint
 
