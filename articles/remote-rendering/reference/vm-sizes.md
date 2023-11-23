@@ -30,7 +30,7 @@ Remote Rendering with `Premium` size doesn't enforce a hard maximum, but perform
 * amount of unique geometry versus sub-mesh instantiation inside the mesh (see also [instancing objects](../how-tos/conversion/configure-model-conversion.md#instancing)),
 * [vertex streams](../how-tos/conversion/configure-model-conversion.md#vertex-format) being used.
 
-For [point clouds](../overview/features/point-cloud-rendering.md) there is no real limit since point cloud assets use the [data streaming approach](../overview/features/point-cloud-rendering.md#Point-cloud-data-streaming). With data streaming, the renderer automatically manages the memory budget on the graphics card, based on the actual visible geometry.
+For [point clouds](../overview/features/point-cloud-rendering) there is no real limit since point cloud assets use the [data streaming approach](../overview/features/point-cloud-rendering#Point-cloud-data-streaming). With data streaming, the renderer automatically manages the memory budget on the graphics card, based on the actual visible geometry.
 
 ## Specify the server size
 
