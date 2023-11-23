@@ -10,21 +10,21 @@ ms.date: 12/06/2023
 
 # Create and configure SFTP Ingestion Agents for Azure Operator Insights
 
-The MCC EDR agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you. The agent receives EDRs from an Affirmed MCC, and forwards them to Azure Operator Insights.  
+The SFTP agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you. The agent pulls files from an SFTP server, and forwards them to Azure Operator Insights.  
 
 ## Prerequisites
 
-- You must have an Affirmed Networks MCC deployment that generates EDRs.
+- You must have a configured SFTP server where the files which will be forwarded to Azure Operator Insights are stored
 - You must have an Azure Operator Insights MCC Data product deployment.
-- You must provide VMs with the following specifications to run the agent:
+- You must provide one or more VMs with the following specifications to run the agent:
   - OS - Red Hat Enterprise Linux 8.6 or later
   - Minimum hardware - 4 vCPU,  8-GB RAM, 30-GB disk
-  - Network - connectivity from MCCs and to Azure
+  - Network - connectivity to the SFTP server and to Azure
   - Software - systemd and logrotate installed
   - SSH or alternative access to run shell commands
   - (Preferable) Ability to resolve public DNS.  If not, you need to perform additional manual steps to resolve Azure locations. Refer to [Running without public DNS](#running-without-public-dns) for instructions.
 
-The number of VMs needed depends on the scale and redundancy characteristics of your deployment. Each agent instance must run on its own VM. Talk to the Affirmed Support Team to determine your requirements.
+TODO: The number of VMs needed depends on the scale and redundancy characteristics of your deployment. Each agent instance must run on its own VM. Talk to the Affirmed Support Team to determine your requirements.
 
 ## Deploy the agent on your VMs
 
@@ -69,14 +69,14 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 Repeat these steps for each VM onto which you want to install the agent:
 
 1. Ensure you have an SSH session open to the VM, and that you have `sudo` permissions.
-1. Verify that the VM has the following ports open:
+1. TODO: Verify that the VM has the following ports open:
     - Port 36001/TCP inbound from the MCCs
     - Port 443/TCP outbound to Azure
     
     These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
 1. Install systemd, logrotate and zip on the VM, if not already present.
 1. Obtain the ingestion agent RPM and copy it to the VM.
-1. Copy the pkcs12-formatted base64-encoded certificate (created in the [Prepare certificates](#prepare-certificates) step) to an accessible location on the VM (such as /etc/az-mcc-edr-uploader).
+1. Copy the pkcs12-formatted base64-encoded certificate (created in the [Prepare certificates](#prepare-certificates) step) to an accessible location on the VM (such as /etc/az-sftp-uploader).
 
 ### Running without public DNS
 
@@ -106,13 +106,12 @@ Repeat these steps for each VM onto which you want to install the agent:
 
 1. In an SSH session, change to the directory where the RPM was copied.
 1. Install the RPM:  `sudo dnf install \*.rpm`.  Answer 'y' when prompted.  If there are any missing dependencies, the RPM isn't installed.
-1. Change to the configuration directory: cd /etc/az-mcc-edr-uploader
+1. Change to the configuration directory: cd /etc/az-sftp-uploader
 1. Make a copy of the default configuration file:  `sudo cp example\_config.yaml config.yaml`
-1. Edit the *config.yaml* and fill out the fields.  Most of them are set to default values and do not require input.  The full reference for each parameter is described in [MCC EDR Ingestion Agents configuration reference](mcc-edr-agent-configuration.md). The following parameters must be set:
+1. Edit the *config.yaml* and fill out the fields.  Many of them are set to default values and do not require input.  The full reference for each parameter is described in [SFTP Ingestion Agents configuration reference](sftp-agent-configuration.md). The following parameters must be set:
 
-    1. **site\_id** should be changed to a unique identifier for your on-premises site – for example, the name of the city or state for this site.  This name becomes searchable metadata in Operator Insights for all EDRs from this agent. 
-    1. **agent\_id** should be a unique identifier for this agent – for example, the VM hostname.
-    1. **secret\_providers\[0\].provider.vault\_name** must be the name of the key vault for your Data Product  
+    1. **site\_id** should be changed to a unique identifier for your on-premises site – for example, the name of the city or state for this site.  This name becomes searchable metadata in Operator Insights for all data ingested by this agent. Reserved URL characters must be percent-encoded.
+    1. **secret\_providers\[0\].provider.vault\_name** must be the name of the key vault for your Data Product 
     1. **secret\_providers\[0\].provider.auth** must be filled out with:
 
         1. **tenant\_id** as your Microsoft Entra ID tenant.
@@ -121,68 +120,76 @@ Repeat these steps for each VM onto which you want to install the agent:
 
         3. **cert\_path** as the path on disk to the location of the base64-encoded certificate and private key for the service principal to authenticate with.
 
-    1. **sink.container\_name** *must be left as "edr".*
+    1. **secret\_providers\[1\].provider.auth.secrets_directory** the absolute path to the secrets directory on the agent VM.  This is the directory where the secrets for connecting to the SFTP server are stored.  Each secret must be an individual file without a file extension, where the secret name is the file name, and the file contains the secret only.
 
-1. Start the agent: `sudo systemctl start az-mcc-edr-uploader`
+    1. **file_sources** a list of file source details, which specifies the configured SFTP server and configures which files should be uploaded, where they should be uploaded, and how often. Multiple file sources can be specified but only a single source is required. Must be filled out with the following:
 
-1. Check that the agent is running: `sudo systemctl status az-mcc-edr-uploader`
+        1. **source_id** a unique identifier for the file source. Any URL reserved characters in source_id must be percent-encoded.
 
-    1. If you see any status other than "active (running)", look at the logs as described in the [Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights](troubleshoot-mcc-edr-agent.md) article to understand the error.  It's likely that some configuration is incorrect.
+        1. **source** must be filled out with:
+
+            1. **sftp** must be filled out with:
+
+                1. **host** the hostname or IP address of the SFTP server.
+
+                1. **base\_path** the path on the SFTP server to copy files from.
+
+                1. **known\_hosts\_file** the path on the VM to the 'known_hosts' file for the SFTP server.  This file must be in SSH format and contain  details of any public SSH keys used by the SFTP server.
+
+                1. **user** the name of the user on the SFTP server which the agent should use to connect.
+
+                1. **auth** either a *password* or an *ssh key* can be used to authenticate to the SFTP server. the required fields will be different depending on which auth type is specified
+
+                    1. **type** set to either `password` or `ssh_key` depending on which type of authentication is used.
+
+                    1. **secret\_name** to be filled in if `type: password`. The name of the file containing the password in the secrets_directory folder.
+
+                    1. **key\_secret** to be filled in if `type: ssh_key`. The name of the file containing the SSH key in the secrets_directory folder.
+
+                    1. **passphrase\_secret\_name** to be filled in if `type: ssh_key`. The name of the file containing the passphrase for the SSH key in the secrets_directory folder. If the SSH key does not have a passphrase, do not include this field.
+
+        1. **sink.container\_name** a string giving the name of the Azure Blob Storage container to use with this file source. Each data type must be sent to a specific container
+
+1. Start the agent: `sudo systemctl start az-sftp-uploader`
+
+1. Check that the agent is running: `sudo systemctl status az-sftp-uploader`
+
+    1. If you see any status other than "active (running)", look at the logs as described in the [Monitor and troubleshoot SFTP Ingestion Agents for Azure Operator Insights](troubleshoot-sftp-agent.md) article to understand the error.  It's likely that some configuration is incorrect.
 
     2. Once you resolve the issue,  attempt to start the agent again.
 
     3. If issues persist, raise a support ticket.
 
-1. Once the agent is running, ensure it will automatically start on a reboot: `sudo systemctl enable az-mcc-edr-uploader.service`
+1. Once the agent is running, ensure it will automatically start on a reboot: `sudo systemctl enable az-sftp-uploader.service`
 
 1. Save a copy of the delivered RPM – you'll need it to reinstall or to back out any future upgrades.
-
-### Configure affirmed MCCs
-
-Once the agents are installed and running, configure the MCCs to send EDRs to them.
-
-1. Follow the steps under "Generating SESSION, BEARER, FLOW, and HTTP Transaction EDRs" in the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/13.1/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm) (1), making the following changes:
-
-    - Replace the IP addresses of the MSFs in MCC configuration with the IP addresses of the VMs running the ingestion agents.
-
-    - Confirm that the following EDR server parameters are set:
-
-        - port: 36001
-        - encoding: protobuf
-        - keep-alive: 2 seconds
 
 ## Important considerations
 
 ### Security
 
-The VM used for the MCC EDR agent should be set up following best practice for security. For example:
+The VM used for the SFTP agent should be set up following best practice for security. For example:
 
 - Networking - Only allow network traffic on the ports that are required to run the agent and maintain the VM.
 
 - OS version - Keep the OS version up-to-date to avoid known vulnerabilities.
 
-- Access - Limit access to the VM to a minimal set of users, and set up audit logging for their actions. For the MCC EDR agent, we recommend that the following are restricted:
+- Access - Limit access to the VM to a minimal set of users, and set up audit logging for their actions. For the SFTP agent, we recommend that the following are restricted:
 
-  - Admin access to the VM (for example, to stop/start/install the MCC EDR software)
+  - Admin access to the VM (for example, to stop/start/install the SFTP agent software)
 
-  - Access to the directory where the logs are stored *(/var/log/az-mcc-edr-uploader/)*
+  - Access to the directory where the logs are stored *(/var/log/az-sftp-uploader/)*
 
   - Access to the certificate and private key for the service principal
 
 ### Deploying for fault tolerance
 
-The MCC EDR agent is designed to be highly reliable and resilient to low levels of network disruption. If an unexpected error occurs, the agent restarts and provides service again as soon as it's running.
+The SFTP agent is designed to be highly reliable and resilient to low levels of network disruption. If an unexpected error occurs, the agent restarts and provides service again as soon as it's running.
 
-The agent doesn't buffer data, so if a persistent error or extended connectivity problems occur, EDRs are dropped.
-
-For additional fault tolerance, you can deploy multiple instances of the MCC EDR agent and configure the MCC to switch to a different instance if the original instance becomes unresponsive, or to shared EDR traffic across a pool of agents. For more information, refer to the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/13.1/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm)(2) or speak to the Affirmed Networks Support Team.
+The agent doesn't buffer data, so if a persistent error or extended connectivity problems occur, any files which are scheduled to be uploaded, but have not yet been uploaded will not be uploaded for that scheduled run. However, if the error suggests that the upload may be successful if retried, the agent will attempt the upload the file on the next scheduled run.
 
 ## Related content
 
-[Manage MCC EDR Ingestion Agents for Azure Operator Insights](how-to-manage-mcc-edr-agent.md)
+[Manage SFTP Ingestion Agents for Azure Operator Insights](how-to-manage-sftp-agent.md)
 
-[Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights](troubleshoot-mcc-edr-agent.md)
-
-[1] Only accessible for customers with Affirmed Support
-
-[2] Only accessible for customers with Affirmed support
+[Monitor and troubleshoot SFTP Ingestion Agents for Azure Operator Insights](troubleshoot-sftp-agent.md)

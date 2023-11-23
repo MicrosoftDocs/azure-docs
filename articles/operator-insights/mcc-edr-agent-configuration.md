@@ -53,17 +53,17 @@ sink:
   # the format Azure Operator Insights expects.  Do not adjust 
   # without consulting your support representative. 
   container_name: edrs
+  # Optional. How often, in hours, the sink should refresh its ADLS token. Defaults to 1
+  adls_token_cache_period_hours: 1
   auth:       
     type: sas_token 
     # This must reference a secret provider configured above. 
     secret_provider: dp_keyvault 
-    # How often to check for a new ADLS token 
-    cache_period_hours: 12 
     # The name of a secret in the corresponding provider. 
     # This will be the name of a secret in the Key Vault.   
     # This is created by the Data Product and should not be changed. 
     secret_name: adls-sas-token   
-# The maximum size of each block that is uploaded to Azure. 
-# Each blob is composed of one or more blocks.
+# Optional. The maximum size of each block that is uploaded to Azure. 
+# Each blob is composed of one or more blocks. Defaults to 32MiB (=33554432 Bytes)
   block_size_in_bytes  : 33554432
 ```
