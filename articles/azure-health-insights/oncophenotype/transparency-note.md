@@ -1,6 +1,6 @@
 ---
-title: Transparency Note for Onco Phenotype
-description: Transparency Note for Onco Phenotype
+title: Transparency Note for Onco-Phenotype
+description: Transparency Note for Onco-Phenotype
 services: azure-health-insights
 author: psanapathi
 ms.service: azure-health-insights
@@ -9,7 +9,7 @@ ms.date: 04/11/2023
 ms.author: prsanapa
 ---
 
-# Transparency Note for Onco Phenotype
+# Transparency Note for Onco-Phenotype
 
 ## What is a Transparency Note?
 
@@ -17,11 +17,11 @@ An AI system includes not only the technology, but also the people who will use 
 
 Microsoft’s Transparency Notes are part of a broader effort at Microsoft to put our AI Principles into practice. To find out more, see the [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai).
 
-## The basics of Onco Phenotype
+## The basics of Onco-Phenotype
 
 ### Introduction
 
-The Onco Phenotype model, available in the Azure AI Health Insights cognitive service as an API, augments traditional clinical natural language processing (NLP) tools by helping healthcare providers rapidly identify key cancer attributes of a cancer within their patient populations with an existing cencer diagnosis. You can use this model to infer tumor site; histology; clinical stage tumor (T), lymph node (N), and metastasis (M) categories; and pathologic stage TNM categories from unstructured clinical documents, along with confidence scores and relevant evidence.
+The Onco-Phenotype model, available in the Azure AI Health Insights cognitive service as an API, augments traditional clinical natural language processing (NLP) tools by helping healthcare providers rapidly identify key cancer attributes of a cancer within their patient populations with an existing cencer diagnosis. You can use this model to infer tumor site; histology; clinical stage tumor (T), lymph node (N), and metastasis (M) categories; and pathologic stage TNM categories from unstructured clinical documents, along with confidence scores and relevant evidence.
 
 ### Key terms
 
@@ -38,7 +38,7 @@ The Onco Phenotype model, available in the Azure AI Health Insights cognitive se
 
 ### System behavior
 
-The Onco Phenotype model, available in the Azure AI Health Insights cognitive service as an API, takes in unstructured clinical documents as input and returns inferences for cancer attributes along with confidence scores as output. Through the model configuration as part of the API request, it also allows the user to seek evidence with the inference values and to explicitly check for the existence of a cancer case before generating the inferences for cancer attributes.
+The Onco-Phenotype model, available in the Azure AI Health Insights cognitive service as an API, takes in unstructured clinical documents as input and returns inferences for cancer attributes along with confidence scores as output. Through the model configuration as part of the API request, it also allows the user to seek evidence with the inference values and to explicitly check for the existence of a cancer case before generating the inferences for cancer attributes.
 
 
 Upon receiving a valid API request to process the unstructured clinical documents, a job is created and the request is processed asynchronously. The status of the job and the inferences (upon successful job completion) can be accessed by using the job ID. The job results are available for only 24 hours and are purged thereafter.
@@ -47,13 +47,13 @@ Upon receiving a valid API request to process the unstructured clinical document
 
 #### Intended uses
 
-The Onco Phenotype model can be used in the following  scenario. The system’s intended uses include:
+The Onco-Phenotype model can be used in the following  scenario. The system’s intended uses include:
 
 - **Assisted annotation and curation:** To support healthcare systems and cancer registrars identify and extract cancer attributes for regulatory purposes and for downstream tasks such as clinical trials matching, research cohort discovery, and molecular tumor board discussions.
 
 #### Considerations when choosing a use case
 
-We encourage customers to use the Onco Phenotype model in their innovative solutions or applications. However, here are some considerations when choosing a use case:
+We encourage customers to use the Onco-Phenotype model in their innovative solutions or applications. However, here are some considerations when choosing a use case:
 
 - **Avoid scenarios that use personal health information for a purpose not permitted by patient consent or applicable law.** Health information has special protections regarding privacy and consent. Make sure that all data you use has patient consent for the way you use the data in your system or you're otherwise compliant with applicable law as it relates to the use of health information.
 - **Facilitate human review and inference error corrections.** Given the sensitive nature of health information, it's essential that a human review the source data and correct any inference errors.
@@ -63,7 +63,7 @@ We encourage customers to use the Onco Phenotype model in their innovative solut
 
 ### Technical limitations, operational factors, and ranges
 
-Specific characteristics and limitations of the Onco Phenotype model include:
+Specific characteristics and limitations of the Onco-Phenotype model include:
 
 - **Multiple cancer cases for a patient:** The model infers only a single set of phenotype values (tumor site, histology, and clinical/pathologic stage TNM categories) per patient. If the model is given an input with multiple primary cancer diagnoses, the behavior is undefined and might mix elements from the separate diagnoses.
 - **Inference values for tumor site and histology:** The inference values are only as exhaustive as the training dataset labels. If the model is presented with a cancer case for which the true tumor site or histology wasn't encountered during training (for example, a rare tumor site or histology), the model will be unable to produce a correct inference result.
@@ -82,17 +82,17 @@ In many AI systems, performance is often defined in relation to accuracy or by h
 
 ### Best practices for improving system performance
 
-For each inference, the Onco Phenotype model returns a confidence score that expresses how confident the model is with the response. Confidence scores range from 0 to 1. The higher the confidence score, the more certain the model is about the inference value it provided. However, the system isn't designed for workflows or scenarios without a human in the loop. Also, inference values can't be consumed without human review, irrespective of the confidence score. You can choose to completely discard an inference value if its confidence score is below a confidence score threshold that best suits the scenario.
+For each inference, the Onco-Phenotype model returns a confidence score that expresses how confident the model is with the response. Confidence scores range from 0 to 1. The higher the confidence score, the more certain the model is about the inference value it provided. However, the system isn't designed for workflows or scenarios without a human in the loop. Also, inference values can't be consumed without human review, irrespective of the confidence score. You can choose to completely discard an inference value if its confidence score is below a confidence score threshold that best suits the scenario.
 
-## Evaluation of Onco Phenotype
+## Evaluation of Onco-Phenotype
 
 ### Evaluation methods
 
-The Onco Phenotype model was evaluated on a held-out dataset that shares the same characteristics as the training dataset. The training and held-out datasets consist of patients located only in the United States. The patient races include White or Caucasian, Black or African American, Asian, Native Hawaiian or Pacific Islander, American Indian or Alaska native, and Other. During model development and training, a separate development dataset was used for error analysis and model improvement.
+The Onco-Phenotype model was evaluated on a held-out dataset that shares the same characteristics as the training dataset. The training and held-out datasets consist of patients located only in the United States. The patient races include White or Caucasian, Black or African American, Asian, Native Hawaiian or Pacific Islander, American Indian or Alaska native, and Other. During model development and training, a separate development dataset was used for error analysis and model improvement.
 
 ### Evaluation results
 
-Although the Onco Phenotype model makes mistakes on the held-out dataset, it was observed that the inferences, and the evidence spans identified by the model are helpful in speeding up manual curation effort.
+Although the Onco-Phenotype model makes mistakes on the held-out dataset, it was observed that the inferences, and the evidence spans identified by the model are helpful in speeding up manual curation effort.
 
 Microsoft has also tested the generalizability of the model by evaluating the trained model on a secondary dataset that was collected from a different hospital system, and which was unavailable during training. A limited performance decrease was observed on the secondary dataset.
 
@@ -102,18 +102,18 @@ At Microsoft, we strive to empower every person on the planet to achieve more. A
 
 One dimension we need to consider is how well the system performs for different groups of people. This might include looking at the accuracy of the model and measuring the performance of the complete system. Research has shown that without conscious effort focused on improving performance for all groups, it's often possible for the performance of an AI system to vary across groups based on factors such as race, ethnicity, language, gender, and age.
 
-The evaluation performance of the Onco Phenotype model was stratified by race to ensure minimal performance discrepancy between different patient racial groups. The lowest performance by racial group is well within 80% of the highest performance by racial group. When the evaluation performance was stratified by gender, there was no significant difference.
+The evaluation performance of the Onco-Phenotype model was stratified by race to ensure minimal performance discrepancy between different patient racial groups. The lowest performance by racial group is well within 80% of the highest performance by racial group. When the evaluation performance was stratified by gender, there was no significant difference.
 
 However, each use case is different, and our testing might not perfectly match your context or cover all scenarios that are required for your use case. We encourage you to thoroughly evaluate error rates for the service by using real-world data that reflects your use case, including testing with users from different demographic groups.
 
-## Evaluating and integrating Onco Phenotype for your use
+## Evaluating and integrating Onco-Phenotype for your use
 
-As Microsoft works to help customers safely develop and deploy solutions that use the Onco Phenotype model, we offer guidance for considering the AI systems' fairness, reliability & safety, privacy &security, inclusiveness, transparency, and human accountability. These considerations are in line with our commitment to developing responsible AI.
+As Microsoft works to help customers safely develop and deploy solutions that use the Onco-Phenotype model, we offer guidance for considering the AI systems' fairness, reliability & safety, privacy &security, inclusiveness, transparency, and human accountability. These considerations are in line with our commitment to developing responsible AI.
 
 When getting ready to integrate and use AI-powered products or features, the following activities help set you up for success:
 
-- **Understand what it can do:** Fully vet and review the capabilities of Onco Phenotype to understand its capabilities and limitations.
-- **Test with real, diverse data:** Understand how Onco Phenotype will perform in your scenario by thoroughly testing it by using real-life conditions and data that reflects the diversity in your users, geography, and deployment contexts. Small datasets, synthetic data, and tests that don't reflect your end-to-end scenario are unlikely to sufficiently represent your production performance.
+- **Understand what it can do:** Fully vet and review the capabilities of Onco-Phenotype to understand its capabilities and limitations.
+- **Test with real, diverse data:** Understand how Onco-Phenotype will perform in your scenario by thoroughly testing it by using real-life conditions and data that reflects the diversity in your users, geography, and deployment contexts. Small datasets, synthetic data, and tests that don't reflect your end-to-end scenario are unlikely to sufficiently represent your production performance.
 - **Respect an individual's right to privacy:** Collect data and information from individuals only for lawful and justifiable purposes. Use data and information that you have consent to use only for this purpose.
 - **Legal review:** Obtain appropriate legal advice to review your solution, particularly if you'll use it in sensitive or high-risk applications. Understand what restrictions you might need to work within and your responsibility to resolve any issues that might come up in the future.
 - **System review:** If you're planning to integrate and responsibly use an AI-powered product or feature in an existing system of software or in customer and organizational processes, take the time to understand how each part of your system will be affected. Consider how your AI solution aligns with Microsoft's Responsible AI principles.
@@ -129,9 +129,9 @@ When getting ready to integrate and use AI-powered products or features, the fol
 
 [Microsoft Azure Learning courses on responsible AI](/training/paths/responsible-ai-business-principles/)
 
-## Learn more about Onco Phenotype
+## Learn more about Onco-Phenotype
 
-[Overview of Onco Phenotype](overview.md)
+[Overview of Onco-Phenotype](overview.md)
 
 ## Contact us
 

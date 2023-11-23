@@ -29,7 +29,7 @@ There are currently two models available in Azure AI Health Insights:
 
 The [Trial Matcher](./trial-matcher/overview.md) model receives patients' data and clinical trials protocols, and provides relevant clinical trials based on eligibility criteria.
 
-The [Onco Phenotype](./oncophenotype/overview.md) receives clinical records of oncology patients and outputs cancer staging, such as  **clinical stage TNM** categories and **pathologic stage TNM categories** as well as **tumor site** and **histology**.
+The [Onco-Phenotype](./oncophenotype/overview.md) receives clinical records of oncology patients and outputs cancer staging, such as  **clinical stage TNM** categories and **pathologic stage TNM categories** as well as **tumor site** and **histology**.
 
 
 ## Architecture
@@ -37,7 +37,7 @@ The [Onco Phenotype](./oncophenotype/overview.md) receives clinical records of o
 ![Diagram that shows Azure AI Health Insights architecture.](media/architecture.png) 
 
 Azure AI Health Insights service receives patient data through multiple input channels. This can be unstructured healthcare data, FHIR resources or specific JSON format data. This in combination with the correct model configuration, such as ```includeEvidence```. 
-With these input channels and configuration, the service can run the data through several health insights AI models, such as Trial Matcher or Onco Phenotype.  
+With these input channels and configuration, the service can run the data through several health insights AI models, such as Trial Matcher or Onco-Phenotype.  
 
 ## Next steps
 
@@ -47,7 +47,7 @@ Review the following information to learn how to deploy Azure AI Health Insights
 > [Deploy Azure AI Health Insights](deploy-portal.md) 
 
 >[!div class="nextstepaction"]
-> [Onco Phenotype](oncophenotype/overview.md) 
+> [Onco-Phenotype](oncophenotype/overview.md) 
 
 >[!div class="nextstepaction"]
 > [Trial Matcher](trial-matcher//overview.md) 

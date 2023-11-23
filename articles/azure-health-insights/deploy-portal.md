@@ -53,7 +53,7 @@ Once the Azure AI services account is successfully created, configure private en
 To get started using Azure AI Health Insights, get started with one of the following models:
 
 >[!div class="nextstepaction"]
-> [Onco Phenotype](oncophenotype/index.yml) 
+> [Onco-Phenotype](oncophenotype/index.yml) 
 
 >[!div class="nextstepaction"]
 > [Trial Matcher](trial-matcher/index.yml) 

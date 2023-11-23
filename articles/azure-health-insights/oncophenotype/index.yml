@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Onco Phenotype documentation
-summary: Onco Phenotype is offered within the context of the broader Azure AI Health Insights, augments traditional clinical NLP tools by enabling healthcare partners to rapidly identify key cancer attributes within their patient populations.
+title: Onco-Phenotype documentation
+summary: Onco-Phenotype is offered within the context of the broader Azure AI Health Insights, augments traditional clinical NLP tools by enabling healthcare partners to rapidly identify key cancer attributes within their patient populations.
 
 metadata:
-  title: Onco Phenotype documentation
+  title: Onco-Phenotype documentation
   titleSuffix: Azure AI Health Insights
   description: enable healthcare organizations to rapidly identify key cancer attributes within their patient populations.
   ms.service: Azure AI Health Insights
@@ -18,11 +18,11 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new 
 
 landingContent:
-  - title: About Onco Phenotype
+  - title: About Onco-Phenotype
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Onco Phenotype?
+          - text: What is Onco-Phenotype?
             url: overview.md
       - linkListType: concept
         links:
@@ -30,7 +30,7 @@ landingContent:
             url: model-configuration.md
           - text: Inference information
             url: inferences.md
-  - title: Use the Onco Phenotype model
+  - title: Use the Onco-Phenotype model
     linkLists:
       - linkListType: quickstart
         links:

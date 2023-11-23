@@ -1,7 +1,7 @@
 ---
-title: Onco Phenotype model configuration
+title: Onco-Phenotype model configuration
 titleSuffix: Azure AI Health Insights
-description: This article provides Onco Phenotype model configuration information.
+description: This article provides Onco-Phenotype model configuration information.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -12,9 +12,9 @@ ms.author: behoorne
 ---
 
 
-# Onco Phenotype model configuration
+# Onco-Phenotype model configuration
 
-To interact with the Onco Phenotype model, you can provide several model configurations parameters that modify the outcome of the responses.
+To interact with the Onco-Phenotype model, you can provide several model configurations parameters that modify the outcome of the responses.
 
 > [!IMPORTANT]
 > Model configuration is applied to ALL the patients within a request.
@@ -29,7 +29,7 @@ To interact with the Onco Phenotype model, you can provide several model configu
 ## Case finding
 
 
-The Onco Phenotype model configuration helps you find if any cancer cases exist. The API allows you to explicitly check if a cancer case exists in the provided clinical documents. 
+The Onco-Phenotype model configuration helps you find if any cancer cases exist. The API allows you to explicitly check if a cancer case exists in the provided clinical documents. 
 
 **Check for cancer case** |**Did the model find a case?** |**Behavior** 
 ---------------------- |-----------------------|-------------------
