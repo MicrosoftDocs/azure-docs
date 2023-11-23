@@ -2,7 +2,7 @@
 title: What's new in Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more.
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 11/23/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -27,6 +27,20 @@ The following table lists the new features added in MABS V4 UR1:
 | **Experience improvements for MABS backups to Azure.** |                 |
 | List online recovery points for a data source along with the expiry time and soft-delete status. |     To view the list of recovery points along with their expiration dates, right-click a data source and select **List recovery points**.    |
 | Stop protection and retaining data using the policy duration for immutable vaults directly from the console.  |  This helps you to save the backup costs when stopping protection for a data source backed up to an immutable vault. [Learn more](backup-azure-security-feature.md#immutability-support).      |
+
+
+>[!Important]
+>We're temporarily pausing the release of Update Rollup 1 for Microsoft Azure Backup Server V4 due to tbe following known limitations - **Hyper-V scheduled backups take a long time to complete because each backup job triggers a consistency check.**
+>
+>**Error message**: The replica of Microsoft Hyper-V RCT on `<Machine Name>` is not consistent with the protected data source. DPM has detected changes in file locations or volume configurations of protected objects since the data source was configured for protection. (ID 30135).
+>
+>**Resolution**: This will be resolved in the new version planned to be released soon.
+>
+>- If you haven't installed UR1 for MABS V4 already, wait for the new release.
+>- If you have already installed UR1 for MABS V4, this new build will install on top of UR1 for MABS V4 to fix the known issues.
+>
+>For additional information, reach out to Microsoft Support.
+
 
 ## What's new in MABS V4 RTM
 
