@@ -8,7 +8,7 @@ ms.custom: fasttrack-edit
 ---
 
 ::: zone pivot="programming-language-csharp"   
-Binding code for C# depends on the [specific process model](../articles/azure-functions/dotnet-isolated-process-guide.md#why-net-functions-isolated-worker-process). 
+Binding code for C# depends on the [specific process model](../articles/azure-functions/dotnet-isolated-process-guide.md#why-use-the-isolated-worker-model). 
 
 ### [Isolated process](#tab/isolated-process) 
 | Service | Examples | Samples |

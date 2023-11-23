@@ -16,7 +16,7 @@ This article is an overview of Durable Functions in the [.NET isolated worker](.
 
 ## Why use Durable Functions in the .NET isolated worker?
 
-Using this model lets you get all the great benefits that come with the Azure Functions .NET isolated worker process. For more information, see [here](../dotnet-isolated-process-guide.md#why-net-functions-isolated-worker-process). Additionally, this new SDK includes some new [features](#feature-improvements-over-in-process-durable-functions).
+Using this model lets you get all the great benefits that come with the Azure Functions .NET isolated worker process. For more information, see [here](../dotnet-isolated-process-guide.md#why-use-the-isolated-worker-model). Additionally, this new SDK includes some new [features](#feature-improvements-over-in-process-durable-functions).
 
 ### Feature improvements over in-process Durable Functions
 

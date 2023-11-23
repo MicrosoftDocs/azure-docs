@@ -145,7 +145,7 @@ The project template creates a project in your chosen language and installs requ
 Depending on your language, these other files are created:
 
 ::: zone pivot="programming-language-csharp"  
-An HttpExample.cs class library file, the contents of which vary depending on whether your project runs in an [isolated worker process](dotnet-isolated-process-guide.md#net-isolated-worker-model-project) or [in-process](functions-dotnet-class-library.md#functions-class-library-project) with the Functions host.
+An HttpExample.cs class library file, the contents of which vary depending on whether your project runs in an [isolated worker process](dotnet-isolated-process-guide.md#project-structure) or [in-process](functions-dotnet-class-library.md#functions-class-library-project) with the Functions host.
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + A pom.xml file in the root folder that defines the project and deployment parameters, including project dependencies and the [Java version](functions-reference-java.md#java-versions). The pom.xml also contains information about the Azure resources that are created during a deployment.

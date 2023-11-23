@@ -3,7 +3,7 @@ title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use a .NET isolated worker process to run your C# functions in Azure, which supports non-LTS versions of .NET and .NET Framework apps.
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 11/22/2023
 ms.custom:
   - template-concept
   - devx-track-dotnet
@@ -15,25 +15,21 @@ recommendations: false
 
 # Guide for running C# Azure Functions in an isolated worker process
 
-This article is an introduction to working with .NET Functions isolated worker process, which runs your functions in an isolated worker process in Azure. This allows you to run your .NET class library functions on a version of .NET that is different from the version used by the Functions host process. For information about specific .NET versions supported, see [supported version](#supported-versions). 
+This article is an introduction to working with Azure Functions in .NET, using the isolated worker model. This model allows your project to target versions of .NET independently of other runtime components. For information about specific .NET versions supported, see [supported version](#supported-versions). 
 
-Use the following links to get started right away building .NET isolated worker process functions.
+Use the following links to get started right away building .NET isolated worker model functions.
 
 | Getting started | Concepts| Samples |
 |--|--|--| 
 | <ul><li>[Using Visual Studio Code](create-first-function-vs-code-csharp.md?tabs=isolated-process)</li><li>[Using command line tools](create-first-function-cli-csharp.md?tabs=isolated-process)</li><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md?tabs=isolated-process)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[Reference samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
 
-If you still need to run your functions in the same process as the host, see [In-process C# class library functions](functions-dotnet-class-library.md). 
-
-For a comprehensive comparison between isolated worker process and in-process .NET Functions, see [Differences between in-process and isolate worker process .NET Azure Functions](dotnet-isolated-in-process-differences.md).
-
 To learn about migration from the in-process model to the isolated worker model, see [Migrate .NET apps from the in-process model to the isolated worker model][migrate].
 
-## Why .NET Functions isolated worker process?
+## Why use the isolated worker model?
 
 When it was introduced, Azure Functions only supported a tightly integrated mode for .NET functions. In this _in-process_ mode, your [.NET class library functions](functions-dotnet-class-library.md) run in the same process as the host. This mode provides deep integration between the host process and the functions. For example, when running in the same process .NET class library functions can share binding APIs and types. However, this integration also requires a tight coupling between the host process and the .NET function. For example, .NET functions running in-process are required to run on the same version of .NET as the Functions runtime. This means that your in-process functions can only run on version of .NET with Long Term Support (LTS). To enable you to run on non-LTS version of .NET, you can instead choose to run in an isolated worker process. This process isolation lets you develop functions that use current .NET releases not natively supported by the Functions runtime, including .NET Framework. Both isolated worker process and in-process C# class library functions run on LTS versions. To learn more, see [Supported versions][supported-versions]. 
 
-Because these functions run in a separate process, there are some [feature and functionality differences](./dotnet-isolated-in-process-differences.md) between .NET isolated function apps and .NET class library function apps.
+There are also some [feature and functionality advantages to using the isolated worker model](./dotnet-isolated-in-process-differences.md).
 
 ### Benefits of isolated worker process
 
@@ -45,33 +41,33 @@ When your .NET functions run in an isolated worker process, you can take advanta
 
 [!INCLUDE [functions-dotnet-supported-versions](../../includes/functions-dotnet-supported-versions.md)]
 
-## .NET isolated worker model project
+## Project structure
 
 A .NET project for Azure Functions using the isolated worker model is basically a .NET console app project that targets a supported .NET runtime. The following are the basic files required in any .NET isolated project:
 
-+ [host.json](functions-host-json.md) file.
-+ [local.settings.json](functions-develop-local.md#local-settings-file) file.
 + C# project file (.csproj) that defines the project and dependencies.
 + Program.cs file that's the entry point for the app.
-+ Any code files [defining your functions](#bindings).
++ Any code files [defining your functions](#methods-recognized-as-functions).
++ [host.json](functions-host-json.md) file that defines configuration shared by functions in your project.
++ [local.settings.json](functions-develop-local.md#local-settings-file) file that defines environment variables used by your project when run locally on your machine.
  
 For complete examples, see the [.NET 8 sample project](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/FunctionApp) and the [.NET Framework 4.8 sample project](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/NetFxWorker).
 
 > [!NOTE]
 > To be able to publish a project using the isolated worker model to either a Windows or a Linux function app in Azure, you must set a value of `dotnet-isolated` in the remote [FUNCTIONS_WORKER_RUNTIME](functions-app-settings.md#functions_worker_runtime) application setting. To support [zip deployment](deployment-zip-push.md) and [running from the deployment package](run-functions-from-deployment-package.md) on Linux, you also need to update the `linuxFxVersion` site config setting to `DOTNET-ISOLATED|7.0`. To learn more, see [Manual version updates on Linux](set-runtime-version.md#manual-version-updates-on-linux). 
 
-## Package references
+### Package references
 
 A .NET project for Azure Functions using the isolated worker model uses a unique set of packages, for both core functionality and binding extensions. 
 
-### Core packages 
+#### Core packages 
 
 The following packages are required to run your .NET functions in an isolated worker process:
 
 + [Microsoft.Azure.Functions.Worker]
 + [Microsoft.Azure.Functions.Worker.Sdk]
 
-### Extension packages
+#### Extension packages
 
 Because .NET isolated worker process functions use different binding types, they require a unique set of binding extension packages. 
 
@@ -221,107 +217,6 @@ The following is an example of a middleware implementation that reads the `HttpR
  
 For a more complete example of using custom middleware in your function app, see the [custom middleware reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
 
-## Cancellation tokens
-
-A function can accept a [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
-
-Cancellation tokens are supported in .NET functions when running in an isolated worker process. The following example raises an exception when a cancellation request has been received:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Net7Worker/EventHubCancellationToken.cs" id="docsnippet_cancellation_token_throw":::
- 
-The following example performs clean-up actions if a cancellation request has been received:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Net7Worker/EventHubCancellationToken.cs" id="docsnippet_cancellation_token_cleanup":::
-
-## Performance optimizations
-
-This section outlines options you can enable that improve performance around [cold start](./event-driven-scaling.md#cold-start).
-
-In general, your app should use the latest versions of its core dependencies. At a minimum, you should update your project as follows:
-
-- Upgrade [Microsoft.Azure.Functions.Worker] to version 1.19.0 or later.
-- Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.16.2 or later.
-- Add a framework reference to `Microsoft.AspNetCore.App`, unless your app targets .NET Framework.
-
-The following example shows this configuration in the context of a project file:
-
-```xml
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.2" />
-  </ItemGroup>
-```
-
-### Placeholders
-
-Placeholders are a platform capability that improves cold start for apps targeting .NET 6 or later. The feature requires some opt-in configuration. To enable placeholders:
-
-- **Update your project as detailed in the preceding section.**
-- Set the `WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED` application setting to "1".
-- Ensure that the `netFrameworkVersion` property of the function app matches your project's target framework, which must be .NET 6 or later.
-- Ensure that the function app is configured to use a 64-bit process.
-
-> [!IMPORTANT]
-> Setting the `WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED` to "1" requires all other aspects of the configuration to be set correctly. Any deviation can cause startup failures.
-
-The following CLI commands will set the application setting, update the `netFrameworkVersion` property, and make the app run as 64-bit. Replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. Replace `<framework>` with the appropriate version string, such as "v8.0", "v7.0", or "v6.0", according to your target .NET version.
-
-```azurecli
-az functionapp config appsettings set -g <groupName> -n <appName> --settings 'WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED=1'
-az functionapp config set -g <groupName> -n <appName> --net-framework-version <framework>
-az functionapp config set -g <groupName> -n <appName> --use-32bit-worker-process false
-```
-
-### Optimized executor 
-
-The function executor is a component of the platform that causes invocations to run. An optimized version of this component is enabled by default starting with version 1.16.2 of the SDK. No additional configuration is required.
-
-### ReadyToRun
-
-You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the effect of cold starts when running in a [Consumption plan](consumption-plan.md). ReadyToRun is available in .NET 6 and later versions and requires [version 4.0 or later](functions-versions.md) of the Azure Functions runtime.
-
-ReadyToRun requires you to build the project against the runtime architecture of the hosting app. **If these are not aligned, your app will encounter an error at startup.** Select your runtime identifier from the table below:
-
-|Operating System | App is 32-bit<sup>1</sup> | Runtime identifier |
-|-|-|-|
-| Windows | True | `win-x86` |
-| Windows | False | `win-x64` |
-| Linux | True | N/A (not supported) |
-| Linux | False | `linux-x64` | 
-
-<sup>1</sup> Only 64-bit apps are eligible for some other performance optimizations.
-
-To check if your Windows app is 32-bit or 64-bit, you can run the following CLI command, substituting `<group_name>` with the name of your resource group and `<app_name>` with the name of your application. An output of "true" indicates that the app is 32-bit, and "false" indicates 64-bit.
-
-```azurecli
- az functionapp config show -g <group_name> -n <app_name> --query "use32BitWorkerProcess"
-```
-
-You can change your application to 64-bit with the following command, using the same substitutions:
-
-```azurecli
-az functionapp config set -g <group_name> -n <app_name> --use-32bit-worker-process false`
-```
-
-To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following example shows a configuration for publishing to a Windows 64-bit function app.
-
-```xml
-<PropertyGroup>
-  <TargetFramework>net8.0</TargetFramework>
-  <AzureFunctionsVersion>v4</AzureFunctionsVersion>
-  <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-  <PublishReadyToRun>true</PublishReadyToRun>
-</PropertyGroup>
-```
-
-If you don't want to set the `<RuntimeIdentifier>` as part of the project file, you can also configure this as part of the publish gesture itself. For example, with a Windows 64-bit function app, the .NET CLI command would be:
-
-```dotnetcli
-dotnet publish --runtime win-x64
-```
-
-In Visual Studio, the "Target Runtime" option in the publish profile should be set to the correct runtime identifier. If it is set to the default value "Portable", ReadyToRun will not be used.
 
 ## Methods recognized as functions
 
@@ -333,9 +228,29 @@ The trigger attribute specifies the trigger type and binds input data to a metho
 
 The `Function` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name. The method must be a public member of a public class. It should generally be an instance method so that services can be passed in via [dependency injection](#dependency-injection).
 
-## Execution context
+## Function parameters
+
+Here are some of the parameters that you can include as part of a function method signature:
+
+- [Bindings](#bindings), marked as such by decorating the parameters as attributes. The function must contain exactly one trigger parameter.
+- An [execution context object](#execution-context) which provides information about the current invocation.
+- A [cancellation token](#cancellation-tokens) for graceful shutdown.
+
+### Execution context
 
 .NET isolated passes a [FunctionContext] object to your function methods. This object lets you get an [`ILogger`][ILogger] instance to write to the logs by calling the [GetLogger] method and supplying a `categoryName` string. To learn more, see [Logging](#logging). 
+
+### Cancellation tokens
+
+A function can accept a [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
+
+Cancellation tokens are supported in .NET functions when running in an isolated worker process. The following example raises an exception when a cancellation request has been received:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Net7Worker/EventHubCancellationToken.cs" id="docsnippet_cancellation_token_throw":::
+ 
+The following example performs clean-up actions if a cancellation request has been received:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Net7Worker/EventHubCancellationToken.cs" id="docsnippet_cancellation_token_cleanup":::
 
 ## Bindings 
 
@@ -399,14 +314,15 @@ Each trigger and binding extension also has its own minimum version requirement,
 > [!NOTE]
 > When using [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data, SDK types for the trigger itself cannot be used.
 
-### HTTP trigger
+
+## HTTP trigger
 
 [HTTP triggers](./functions-bindings-http-webhook-trigger.md) allow a function to be invoked by an HTTP request. There are two different approaches that can be used:
 
 - An [ASP.NET Core integration model](#aspnet-core-integration) that uses concepts familiar to ASP.NET Core developers
 - A [built-in model](#built-in-http-model) which does not require additional dependencies and uses custom types for HTTP requests and responses
 
-#### ASP.NET Core integration
+### ASP.NET Core integration
 
 This section shows how to work with the underlying HTTP request and response objects using types from ASP.NET Core including [HttpRequest], [HttpResponse], and [IActionResult]. This model is not available to [apps targeting .NET Framework][supported-versions], which should instead leverage the [built-in model](#built-in-http-model).
 
@@ -441,7 +357,7 @@ This section shows how to work with the underlying HTTP request and response obj
     }
     ```
 
-#### Built-in HTTP model
+### Built-in HTTP model
 
 In the built-in model, the system translates the incoming HTTP request message into an [HttpRequestData] object that is passed to the function. This object provides data from the request, including `Headers`, `Cookies`, `Identities`, `URL`, and optionally a message `Body`. This object is a representation of the HTTP request but is not directly connected to the underlying HTTP listener or the received message. 
 
@@ -450,7 +366,6 @@ Likewise, the function returns an [HttpResponseData] object, which provides data
 The following example demonstrates the use of `HttpRequestData` and `HttpResponseData`:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
-
 
 ## Logging
 
@@ -570,7 +485,103 @@ var host = new HostBuilder()
 host.Run();
 ```
 
-## Debugging when targeting .NET Framework
+## Performance optimizations
+
+This section outlines options you can enable that improve performance around [cold start](./event-driven-scaling.md#cold-start).
+
+In general, your app should use the latest versions of its core dependencies. At a minimum, you should update your project as follows:
+
+- Upgrade [Microsoft.Azure.Functions.Worker] to version 1.19.0 or later.
+- Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.16.2 or later.
+- Add a framework reference to `Microsoft.AspNetCore.App`, unless your app targets .NET Framework.
+
+The following example shows this configuration in the context of a project file:
+
+```xml
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.2" />
+  </ItemGroup>
+```
+
+### Placeholders
+
+Placeholders are a platform capability that improves cold start for apps targeting .NET 6 or later. The feature requires some opt-in configuration. To enable placeholders:
+
+- **Update your project as detailed in the preceding section.**
+- Set the `WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED` application setting to "1".
+- Ensure that the `netFrameworkVersion` property of the function app matches your project's target framework, which must be .NET 6 or later.
+- Ensure that the function app is configured to use a 64-bit process.
+
+> [!IMPORTANT]
+> Setting the `WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED` to "1" requires all other aspects of the configuration to be set correctly. Any deviation can cause startup failures.
+
+The following CLI commands will set the application setting, update the `netFrameworkVersion` property, and make the app run as 64-bit. Replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. Replace `<framework>` with the appropriate version string, such as "v8.0", "v7.0", or "v6.0", according to your target .NET version.
+
+```azurecli
+az functionapp config appsettings set -g <groupName> -n <appName> --settings 'WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED=1'
+az functionapp config set -g <groupName> -n <appName> --net-framework-version <framework>
+az functionapp config set -g <groupName> -n <appName> --use-32bit-worker-process false
+```
+
+### Optimized executor 
+
+The function executor is a component of the platform that causes invocations to run. An optimized version of this component is enabled by default starting with version 1.16.2 of the SDK. No additional configuration is required.
+
+### ReadyToRun
+
+You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the effect of cold starts when running in a [Consumption plan](consumption-plan.md). ReadyToRun is available in .NET 6 and later versions and requires [version 4.0 or later](functions-versions.md) of the Azure Functions runtime.
+
+ReadyToRun requires you to build the project against the runtime architecture of the hosting app. **If these are not aligned, your app will encounter an error at startup.** Select your runtime identifier from the table below:
+
+|Operating System | App is 32-bit<sup>1</sup> | Runtime identifier |
+|-|-|-|
+| Windows | True | `win-x86` |
+| Windows | False | `win-x64` |
+| Linux | True | N/A (not supported) |
+| Linux | False | `linux-x64` | 
+
+<sup>1</sup> Only 64-bit apps are eligible for some other performance optimizations.
+
+To check if your Windows app is 32-bit or 64-bit, you can run the following CLI command, substituting `<group_name>` with the name of your resource group and `<app_name>` with the name of your application. An output of "true" indicates that the app is 32-bit, and "false" indicates 64-bit.
+
+```azurecli
+ az functionapp config show -g <group_name> -n <app_name> --query "use32BitWorkerProcess"
+```
+
+You can change your application to 64-bit with the following command, using the same substitutions:
+
+```azurecli
+az functionapp config set -g <group_name> -n <app_name> --use-32bit-worker-process false`
+```
+
+To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following example shows a configuration for publishing to a Windows 64-bit function app.
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net8.0</TargetFramework>
+  <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+  <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+  <PublishReadyToRun>true</PublishReadyToRun>
+</PropertyGroup>
+```
+
+If you don't want to set the `<RuntimeIdentifier>` as part of the project file, you can also configure this as part of the publish gesture itself. For example, with a Windows 64-bit function app, the .NET CLI command would be:
+
+```dotnetcli
+dotnet publish --runtime win-x64
+```
+
+In Visual Studio, the "Target Runtime" option in the publish profile should be set to the correct runtime identifier. If it is set to the default value "Portable", ReadyToRun will not be used.
+
+## Debugging
+
+### Remote Debugging using Visual Studio
+
+Because your isolated worker process app runs outside the Functions runtime, you need to attach the remote debugger to a separate process. To learn more about debugging using Visual Studio, see [Remote Debugging](functions-develop-vs.md?tabs=isolated-process#remote-debugging).
+
+### Debugging when targeting .NET Framework
 
 If your isolated project targets .NET Framework 4.8, the current preview scope requires manual steps to enable debugging. These steps aren't required if using another target framework.
 
@@ -618,10 +629,6 @@ Azure Functions .NET Worker (PID: <process id>) initialized in debug mode. Waiti
 Where `<process id>` is the ID for your worker process. You can now use Visual Studio to manually attach to the process. For instructions on this operation, see [How to attach to a running process](/visualstudio/debugger/attach-to-running-processes-with-the-visual-studio-debugger#BKMK_Attach_to_a_running_process).
 
 After the debugger is attached, the process execution resumes, and you'll be able to debug.
-
-## Remote Debugging using Visual Studio
-
-Because your isolated worker process app runs outside the Functions runtime, you need to attach the remote debugger to a separate process. To learn more about debugging using Visual Studio, see [Remote Debugging](functions-develop-vs.md?tabs=isolated-process#remote-debugging).
 
 ## Preview .NET versions
 
