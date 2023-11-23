@@ -32,7 +32,7 @@ ms.author: behoorne
 
 - Do you support subcategories for clinical/pathologic TNM categories?
 
-  No, subcategories or isolated tumor cell modifiers aren't supported. For instance, 'T3a' would be predicted as T3, and N0(i+) would be predicted as N0.
+  No, subcategories or isolated tumor cell modifiers aren't supported. For instance, 'T3 a' would be predicted as T3, and N0(i+) would be predicted as N0.
 
 - Do you have plans to support I-IV stage grouping?
 
