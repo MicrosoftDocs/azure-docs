@@ -5,8 +5,8 @@ author: anraghun
 ms.author: anraghun
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 08/31/2023
-ms.custom: template-tutorial
+ms.date: 11/23/2023
+ms.custom: template-tutorial, engagement-fy24
 ---
 
 # Modernize ASP.NET web apps to Azure Kubernetes Service (preview)
@@ -73,6 +73,9 @@ In **Replicate** > **Web apps**, a paged list of discovered ASP.NET apps discove
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-web-apps-app-dir.png" alt-text="Screenshot of the Application directories tab.":::
 
 5. Select **Next**.
+
+> [!NOTE]
+> The source path and the attribute value of app configurations and app directories together must be under 3000 characters in length. This can roughly be translated to around 15 entries (inclusive of both configurations and directories) of character length of about 200 each.
 
 ### Configure target settings
 
