@@ -22,7 +22,7 @@ Azure Cosmos DB for MongoDB vCore now introduces a new SKU, the "Free Tier," ena
 boasting command and feature parity with a regular Azure Cosmos DB for MongoDB vCore account.
 
 It makes it easy for you to get started, develop, test your applications, or even run small production workloads for free. With Free Tier, you get a dedicated MongoDB cluster with 32-GB storage, perfect 
-for all of your learning & evaluation needs. Users can provision a single free DB server per supported Azure region for a given subscription. This feature is currently available for our users in the East US, West Europe, and Southeast Asia regions. 
+for all of your learning & evaluation needs. Users can provision a single free DB server per supported Azure region for a given subscription. This feature is currently available for our users in the East US, and Southeast Asia regions. 
 
 
 ## Get started
@@ -51,7 +51,7 @@ specify your storage requirements, and you're all set. Rest assured, your data, 
 ## Restrictions
 
 * For a given subscription, only one free tier account is permissible in a region.
-* Free tier is currently available in East US, West Europe, and Southeast Asia regions only.
+* Free tier is currently available in East US, and Southeast Asia regions only.
 * High availability, Azure Active Directory (Azure AD) and Diagnostic Logging are not supported.
 
 
