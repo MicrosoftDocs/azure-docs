@@ -1902,6 +1902,8 @@ groups:
     title: Go 
   - id: rest-api
     title: REST
+  - id: programming-language-powershell
+    title: PowerShell
 # Owner: pafarley
 - id: openai-quickstart-dall-e
   title: Programming languages
