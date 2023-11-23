@@ -37,7 +37,7 @@ Support for ECR, GCR, GAR, EKS and GKE will be added to the  MDVM powered offeri
 
 ## How complicated is it to enable container vulnerability assessment powered by MDVM?
 
-The MDVM powered offering is already enabled by default in all supported plans. For instructions on how to re-enable MDVM with a single click if you previously disabled this offering, see []().
+The MDVM powered offering is already enabled by default in all supported plans. For instructions on how to re-enable MDVM with a single click if you previously disabled this offering, see [Enabling vulnerability assessments in Azure powered by MDVM](enable-vulnerability-assessment.md).
 
 ## How long does it take for a new image to be scanned with the MDVM powered offering?
 
@@ -46,7 +46,7 @@ When released in AWS and GCP, new images are typically scanned within a few hour
 
 ## Any difference between scanning criteria for the Qualys and MDVM offerings?
 
-Container vulnerability assessment powered by MDVM supports all scan triggers supported by Qualys, and in addition also supports scanning of all images pushed in the last 90 days to a registry. For more information, see []().
+Container vulnerability assessment powered by MDVM supports all scan triggers supported by Qualys, and in addition also supports scanning of all images pushed in the last 90 days to a registry. For more information, see [scanning triggers for MDVM](agentless-container-registry-vulnerability-assessment.md#scan-triggers).
 
 ## Is there a difference in rescan period between the Qualys and MDVM offerings?
 
@@ -64,7 +64,15 @@ There's no different for coverage of language specific packages between the Qual
 ## Are there any other capabilities that are unique to the MDVM powered offering?
 
 1. Each reported vulnerability is enriched with real-world exploit exploitability insights, helping customers prioritize remediation of vulnerabilities with known exploit methods and exploitability tools. Exploit sources include CISA key, exploit DB, Microsoft Security Response Center, and more.
-1. Vulnerability reports for OS packages are enriched with evidence on commands that can be used to find the vulnerable package.
+2. Vulnerability reports for OS packages are enriched with evidence on commands that can be used to find the vulnerable package.
+
+## I'm currently using the container vulnerability assessment offering powered by Qualys to scan Windows images. Will the MDVM powered offering provide coverage for Windows?
+
+Container vulnerability assessment powered by MDVM will provide coverage for Windows images starting from December 21, 2023.
+
+## I'm currently using the container vulnerability assessment offering powered by Qualys in Azure Government cloud and/or Azure operated by 21Vianet. Will the MDVM powered offering provide coverage in those clouds?
+
+Container vulnerability assessment powered by MDVM will provide coverage for those clouds starting from December 21, 2023.
 
 ## I have more questions not covered in this FAQ or the migration guide. What should I do?
 
