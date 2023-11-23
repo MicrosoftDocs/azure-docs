@@ -88,7 +88,7 @@ To create a read replica, follow these steps:
 You can create a read replica by using the [create API](/rest/api/postgresql/flexibleserver/servers/create):
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-03-08-preview
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-12-01
 ```
 
 ```json
@@ -303,7 +303,7 @@ Create a secondary read replica in a separate region to modify the reader virtua
 You can create a secondary read replica by using the [create API](/rest/api/postgresql/flexibleserver/servers/create):
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-03-08-preview
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-12-01
 ```
 
 ```json
@@ -381,16 +381,15 @@ Rather than switchover to a replica, it's also possible to break the replication
 #### [REST API](#tab/restapi)
 
 ```http
-PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/virtualendpoints/{virtualendpointName}?api-version=2023-06-01-preview
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2023-06-01-preview
 ```
 
 ```json
-{ 
-  "Properties": { 
-    "EndpointType": "ReadWrite", 
-    "Members": ["{replicaserverName}"] 
+{
+  "Properties": {
+    "ReplicationRole": "None"
   }
-} 
+}
 ```
 
 ---
@@ -434,7 +433,7 @@ You can also delete the read replica from the **Replication** window by followin
 To delete a primary or replica server, use the [delete API](/rest/api/postgresql/flexibleserver/servers/delete). If server has read replicas then read replicas should be deleted first before deleting the primary server.
 
 ```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-03-08-preview
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-12-01
 ```
 
 ---
@@ -461,7 +460,7 @@ To delete a server from the Azure portal, follow these steps:
 To delete a primary or replica server, use the [delete API](/rest/api/postgresql/flexibleserver/servers/delete). If server has read replicas then read replicas should be deleted first before deleting the primary server.
 
 ```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-03-08-preview
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-12-01
 ```
 
 ---
