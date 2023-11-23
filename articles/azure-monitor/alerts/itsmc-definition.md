@@ -91,18 +91,16 @@ To create an action group:
     :::image type="content" source="media/itsmc-definition/action-group-pen.png" lightbox="media/itsmc-definition/action-group-pen.png" alt-text="Screenshot that shows selections for creating an action group.":::
 
 1. In the **Subscription** list, select the subscription that contains your Log Analytics workspace. In the **Connection** list, select your ITSM Connector name. It will be followed by your workspace name. An example is *MyITSMConnector(MyWorkspace)*.
-1. In the **Work Item** type field, select the type of work item.
+1. In the **Work Item** type field, select **Incident**.
 
     > [!NOTE]
-    > As of September 2022, we are starting the 3-year process of deprecating support for using ITSM actions to send alerts and events to ServiceNow.
+    > As of September 2022, we are starting the 3-year process of deprecating support for using ITSM actions to send alerts and events to ServiceNow. For information on the deprecated behavior, see [Use Azure alerts to create a ServiceNow alert or event work item](https://learn.microsoft.com/previous-versions/azure/azure-monitor/alerts/alerts-create-itsm-work-items).
 
 1. In the last section of the interface for creating an ITSM action group, if the alert is a log alert, you can define how many work items will be created for each alert. For all other alert types, one work item is created per alert.
-
-    - If the work item type is **Incident**:
       
       :::image type="content" source="media/itsmc-definition/itsm-action-incident.png" lightbox="media/itsmc-definition/itsm-action-incident.png" alt-text="Screenshot that shows the ITSM Ticket area with an incident work item type.":::
    
-1. You can configure predefined fields to contain constant values as a part of the payload. Based on the work item type, three options can be used as a part of the payload:
+1. You can configure predefined fields to contain constant values as a part of the payload. Three options can be used as a part of the payload:
     * **None**: Use a regular payload to ServiceNow without any extra predefined fields and values.
     * **Use default fields**: Use a set of fields and values that will be sent automatically as a part of the payload to ServiceNow. Those fields aren't flexible, and the values are defined in ServiceNow lists.
     * **Use saved templates from ServiceNow**: Use a predefined set of fields and values that were defined as a part of a template definition in ServiceNow. If you already defined the template in ServiceNow, you can use it from the **Template** list. Otherwise, you can define it in ServiceNow. For more information, see [define a template](#define-a-template).
