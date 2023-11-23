@@ -77,13 +77,15 @@ In this example, a test environment is created with [Virtual Network](/azure/vir
 
 ## Configure custom DNS
 
-A custom DNS is needed for level 3 and below. It ensures that DNS resolution for network traffic originating within the cluster is pointed to the parent level Layered Network Management instance. In an existing or production environment, incorporate the following DNS resolutions into your DNS design. If you want to set up a test environment for Layered Network Management service and Azure IoT Operations, you can refer to one of the following examples.
+A custom DNS is needed for level 3 and below. It ensures that DNS resolution for network traffic originating within the cluster is pointed to the parent level Layered Network Management instance. In an existing or production environment, incorporate the following DNS resolutions into your DNS design. If you want to set up a test environment for Layered Network Management service and Azure IoT Operations, you can refer to the following examples.
 
 # [CoreDNS](#tab/coredns)
 
 ### Configure CoreDNS
 
 While the DNS setup can be achieved many different ways, this example uses an extension mechanism provided by CoreDNS to add the allowlisted URLs to be resolved by CoreDNS. CoreDNS is the default DNS server for K3S clusters.
+> [!IMPORTANT]
+> The CoreDNS approach is only applicable to K3S cluster on Ubuntu host at level 3.
 
 ### Create configmap from level 4 Layered Network Management
 After the level 4 cluster and Layered Network Management are ready, perform the following steps.

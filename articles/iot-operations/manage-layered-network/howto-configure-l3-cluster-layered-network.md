@@ -34,6 +34,9 @@ Follow the guidance for **hardware requirements** and **prerequisites** sections
 You can choose to use [AKS Edge Essentials](/azure/aks/hybrid/aks-edge-overview) hosted on Windows 11 or a K3S cluster on Ubuntu for the Kubernetes cluster.
 
 # [AKS Edge Essentials](#tab/aksee)
+There are few limitations for setting up AKS Edge Essentials as the level 3 cluster.
+- For configuring the custom DNS, you must use a DNS server. The CoreDNS approach is not applicable to AKS Edge Essentials cluster.
+- If you plan to access and manage the cluster remotely, you need to make a [full deployment](/azure/aks/hybrid/aks-edge-howto-multi-node-deployment) instead of a [single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment). Moreover, the full deployment cannot be hosted on a Azure VM.
 
 ## Prepare Windows 11
 
