@@ -91,7 +91,7 @@ To create an action group:
     :::image type="content" source="media/itsmc-definition/action-group-pen.png" lightbox="media/itsmc-definition/action-group-pen.png" alt-text="Screenshot that shows selections for creating an action group.":::
 
 1. In the **Subscription** list, select the subscription that contains your Log Analytics workspace. In the **Connection** list, select your ITSM Connector name. It will be followed by your workspace name. An example is *MyITSMConnector(MyWorkspace)*.
-1. In the **Work Item** type field, select the type of work item.
+1. In the **Work Item** type field, select **Incident**.
 
     > [!NOTE]
     > As of September 2022, we are starting the 3-year process of deprecating support for using ITSM actions to send alerts and events to ServiceNow. For information on the deprecated behavior, see [Use Azure alerts to create a ServiceNow alert or event work item](https://learn.microsoft.com/previous-versions/azure/azure-monitor/alerts/alerts-create-itsm-work-items).
