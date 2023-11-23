@@ -112,7 +112,7 @@ const socket = io(webPubSubEndpoint, {
 
 #### Possible error
 
-Server throws error as below:
+Server throws error:
 ```
   const io = await require('socket.io')(server).useAzureSocketIO(wpsOptions);        
                                                   ^
@@ -121,7 +121,7 @@ TypeError: require(...)(...).useAzureSocketIO is not a function
 
 #### Root cause
 
-An `socket.io` or `engine.io` package is added to `package.json` under the dependencies field by user, while the SDK package `@azure/web-pubsub-socket.io` have already specified an internal one of different version. For example:
+An `socket.io` or `engine.io` package is added to `package.json` under the dependencies field by user, while the SDK package `@azure/web-pubsub-socket.io` specifies a different version internally. For example:
 ```json
 "dependencies": {
     "@azure/web-pubsub-socket.io": "1.0.1-beta.6",
@@ -129,8 +129,8 @@ An `socket.io` or `engine.io` package is added to `package.json` under the depen
 },
 ```
 
-After `yarn install`, both of two different versions will be installed. You could verify this by running `npm list socket.io`.
-This command should show two versions of `socket.io` packages as below:
+After `yarn install`, both of two different versions are installed. You could verify by running `npm list socket.io`.
+This command should show two versions of `socket.io` packages:
 ```bash
 demo@0.0.0 G:\demo
 ├─┬ @azure/web-pubsub-socket.io@1.0.0-beta.6
@@ -139,10 +139,10 @@ demo@0.0.0 G:\demo
 ```
 
 #### Solution
-The solution depends on whether a customized verion of `socket.io` or `engine.io` package is necessary for your need or not.
+The solution depends on whether a customized version of `socket.io` or `engine.io` package is necessary for your need or not.
 
 - Customized version of `socket.io`/`engine.io` package is NOT necessary
-Simply removing `socket.io`/`engine.io` in `package.json` dependencies will work. For example:
+Simply removing `socket.io`/`engine.io` in `package.json` dependencies works. For example:
 ```json
 "dependencies": {
     "@azure/web-pubsub-socket.io": "1.0.1-beta.6",
@@ -158,10 +158,10 @@ In this case, `package.json` could be:
 },
 ```
 
-Then you should run `yarn install --flat`. It will install all the dependencies, but only allow one version for each package. On the first run this will prompt you to choose a single version for each package that is depended on at multiple version ranges. 
+Then you should run `yarn install --flat`. It installs all the dependencies, but only allow one version for each package. On the first run, it prompts you to choose a single version for each package that is depended on at multiple version ranges. 
 For our case, it could prompt you to choose versions of `socket.io`, `enigne.io`, `engine.io-parser` and maybe more. Make sure their versions are matched with each other according to [the native implementation of `socket.io` package](https://github.com/socketio/socket.io/) and [`engine.io` package](https://github.com/socketio/engine.io/).
 
-The final versions will be added to your `package.json`` under a resolutions field.
+The final versions are added to your `package.json`` under a resolutions field.
 ```json
 "resolutions": {
   "package-a": "a.b.c",
