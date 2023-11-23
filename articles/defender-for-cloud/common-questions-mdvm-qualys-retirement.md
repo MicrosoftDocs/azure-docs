@@ -2,7 +2,7 @@
 title: Common questions on MDVM and Qualys retirement
 description: Answers to common questions on the new Container VA offering powered by Microsoft Defender Vulnerability Management (MDVM) and the Qualys retirement
 ms.topic: faq
-ms.date: 11/22/2023
+ms.date: 11/23/2023
 ---
 
 # Common questions on MDVM and Qualys retirement
@@ -58,8 +58,9 @@ Vulnerability assessments performed using the MDVM scanner are refreshed daily.
 Container vulnerability assessment powered by MDVM supports all OS packages and language packages supported by Qualys except FreeBSD. In addition, the offering powered by MDVM also provides support for Red Hat Enterprise version 8 and 9, CentOS versions 8 and 9, Oracle Linux 9, openSUSE Tumbleweed, Debian 12, Fedora 36 and 37, and CBL-Mariner 1 and 2.
 There's no different for coverage of language specific packages between the Qualys and MDVM powered offerings.
 
-- [Full list of supported packages and their versions for MDVM](support-matrix-defender-for-containers.md#registries-and-images-for-azure---powered-by-mdvm)
-- [Full list of supported packages and their versions for Qualys](support-matrix-defender-for-containers.md#registries-and-images-support-for-azure---powered-by-qualys)
+- [Full list of supported packages and their versions for MDVM](support-matrix-defender-for-containers.md#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-mdvm)
+
+- [Full list of supported packages and their versions for Qualys](support-matrix-defender-for-containers.md#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-qualys)
 
 ## Are there any other capabilities that are unique to the MDVM powered offering?
 
