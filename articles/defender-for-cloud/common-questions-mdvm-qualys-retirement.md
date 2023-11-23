@@ -65,7 +65,7 @@ There's no different for coverage of language specific packages between the Qual
 ## Are there any other capabilities that are unique to the MDVM powered offering?
 
 1. Each reported vulnerability is enriched with real-world exploit exploitability insights, helping customers prioritize remediation of vulnerabilities with known exploit methods and exploitability tools. Exploit sources include CISA key, exploit DB, Microsoft Security Response Center, and more.
-2. Vulnerability reports for OS packages are enriched with evidence on commands that can be used to find the vulnerable package.
+1. Vulnerability reports for OS packages are enriched with evidence on commands that can be used to find the vulnerable package.
 
 ## I have more questions not covered in this FAQ or the migration guide. What should I do?
 
