@@ -1,6 +1,6 @@
 ---
 title: Onco Phenotype frequently asked questions
-titleSuffix: Project Health Insights
+titleSuffix: Azure AI Health Insights
 description: Onco Phenotype frequently asked questions
 services: azure-health-insights
 author: iBoonZ

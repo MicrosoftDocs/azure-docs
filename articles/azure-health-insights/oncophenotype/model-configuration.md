@@ -1,6 +1,6 @@
 ---
 title: Onco Phenotype model configuration
-titleSuffix: Project Health Insights
+titleSuffix: Azure AI Health Insights
 description: This article provides Onco Phenotype model configuration information.
 services: azure-health-insights
 author: iBoonZ

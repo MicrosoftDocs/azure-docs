@@ -1,7 +1,7 @@
 ---
-title: Configure Project Health Insights containers
-titleSuffix: Project Health Insights
-description: Project Health Insights containers use a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
+title: Configure Azure AI Health Insights containers
+titleSuffix: Azure AI Health Insights
+description: Azure AI Health Insights containers use a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -11,9 +11,9 @@ ms.date: 03/14/2023
 ms.author: behoorne
 ---
 
-# Configure Project Health Insights docker containers
+# Configure Azure AI Health Insights docker containers
 
-Project Health Insights provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers. Several [example docker run commands](use-containers.md#run-the-container-with-docker-run) are also available.
+Azure AI Health Insights provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers. Several [example docker run commands](use-containers.md#run-the-container-with-docker-run) are also available.
 
 ## Configuration settings
 
@@ -68,7 +68,7 @@ The `Eula` setting indicates that you've accepted the license for the container.
 |--|------|-----------|-------------|
 |Yes| `Eula` | String | License acceptance **Example:** `Eula=accept` |
 
-Project Health Insights containers are licensed under [your agreement](https://go.microsoft.com/fwlink/?linkid=2018657) governing your use of Azure. If you don't have an existing agreement governing your use of Azure, you agree that your agreement use of Azure is the [Microsoft Online Subscription Agreement](https://go.microsoft.com/fwlink/?linkid=2018755), which incorporates the [Online Services Terms](https://go.microsoft.com/fwlink/?linkid=2018760). For previews, you also agree to the [Supplemental Terms of Use for Microsoft Azure Previews](https://go.microsoft.com/fwlink/?linkid=2018815). By using the container, you agree to these terms.
+Azure AI Health Insights containers are licensed under [your agreement](https://go.microsoft.com/fwlink/?linkid=2018657) governing your use of Azure. If you don't have an existing agreement governing your use of Azure, you agree that your agreement use of Azure is the [Microsoft Online Subscription Agreement](https://go.microsoft.com/fwlink/?linkid=2018755), which incorporates the [Online Services Terms](https://go.microsoft.com/fwlink/?linkid=2018760). For previews, you also agree to the [Supplemental Terms of Use for Microsoft Azure Previews](https://go.microsoft.com/fwlink/?linkid=2018815). By using the container, you agree to these terms.
 
 ## RAI-Terms setting
 

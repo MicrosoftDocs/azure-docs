@@ -1,6 +1,6 @@
 ---
 title: Onco Phenotype inference information
-titleSuffix: Project Health Insights
+titleSuffix: Azure AI Health Insights
 description: This article provides Onco Phenotype inference information.
 services: azure-health-insights
 author: iBoonZ
@@ -14,7 +14,7 @@ ms.author: behoorne
 
 # Onco Phenotype inference information
 
-Project Health Insights Onco Phenotype model was trained with labels that conform to the following standards.
+Azure AI Health Insights Onco Phenotype model was trained with labels that conform to the following standards.
 - Tumor site and histology inferences: **WHO ICD-O-3** representation.
 - Clinical and pathologic stage TNM category inferences: **American Joint Committee on Cancer (AJCC)'s 7th edition** of the cancer staging manual.
 

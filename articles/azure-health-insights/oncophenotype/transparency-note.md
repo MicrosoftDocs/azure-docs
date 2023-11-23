@@ -21,7 +21,7 @@ Microsoft’s Transparency Notes are part of a broader effort at Microsoft to pu
 
 ### Introduction
 
-The Onco Phenotype model, available in the Project Health Insights cognitive service as an API, augments traditional clinical natural language processing (NLP) tools by helping healthcare providers rapidly identify key cancer attributes of a cancer within their patient populations with an existing cencer diagnosis. You can use this model to infer tumor site; histology; clinical stage tumor (T), lymph node (N), and metastasis (M) categories; and pathologic stage TNM categories from unstructured clinical documents, along with confidence scores and relevant evidence.
+The Onco Phenotype model, available in the Azure AI Health Insights cognitive service as an API, augments traditional clinical natural language processing (NLP) tools by helping healthcare providers rapidly identify key cancer attributes of a cancer within their patient populations with an existing cencer diagnosis. You can use this model to infer tumor site; histology; clinical stage tumor (T), lymph node (N), and metastasis (M) categories; and pathologic stage TNM categories from unstructured clinical documents, along with confidence scores and relevant evidence.
 
 ### Key terms
 
@@ -38,7 +38,7 @@ The Onco Phenotype model, available in the Project Health Insights cognitive ser
 
 ### System behavior
 
-The Onco Phenotype model, available in the Project Health Insights cognitive service as an API, takes in unstructured clinical documents as input and returns inferences for cancer attributes along with confidence scores as output. Through the model configuration as part of the API request, it also allows the user to seek evidence with the inference values and to explicitly check for the existence of a cancer case before generating the inferences for cancer attributes.
+The Onco Phenotype model, available in the Azure AI Health Insights cognitive service as an API, takes in unstructured clinical documents as input and returns inferences for cancer attributes along with confidence scores as output. Through the model configuration as part of the API request, it also allows the user to seek evidence with the inference values and to explicitly check for the existence of a cancer case before generating the inferences for cancer attributes.
 
 
 Upon receiving a valid API request to process the unstructured clinical documents, a job is created and the request is processed asynchronously. The status of the job and the inferences (upon successful job completion) can be accessed by using the job ID. The job results are available for only 24 hours and are purged thereafter.

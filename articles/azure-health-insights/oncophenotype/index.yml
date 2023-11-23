@@ -1,13 +1,13 @@
 ### YamlMime:Landing
 
 title: Onco Phenotype documentation
-summary: Onco Phenotype is offered within the context of the broader Project Health Insights, augments traditional clinical NLP tools by enabling healthcare partners to rapidly identify key cancer attributes within their patient populations.
+summary: Onco Phenotype is offered within the context of the broader Azure AI Health Insights, augments traditional clinical NLP tools by enabling healthcare partners to rapidly identify key cancer attributes within their patient populations.
 
 metadata:
   title: Onco Phenotype documentation
-  titleSuffix: Project Health Insights
+  titleSuffix: Azure AI Health Insights
   description: enable healthcare organizations to rapidly identify key cancer attributes within their patient populations.
-  ms.service: Project Health Insights
+  ms.service: Azure AI Health Insights
   ms.topic: landing-page 
   author: iBoonZ
   ms.collection: collection
