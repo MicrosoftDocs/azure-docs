@@ -14,7 +14,7 @@ ms.author: behoorne
 
 # Data, privacy, and security for Azure AI Health Insights
 
-This article provides high level details regarding how Azure AI Health Insights processes data provided by customers. As an important reminder, you're responsible for the implementation of your use case and are required to obtain all necessary permissions or other proprietary rights required to process the data you send to the system. It's your responsibility to comply with all applicable laws and regulations in your jurisdiction.
+This article provides high level details regarding how Azure AI Health Insights serviec processes data provided by customers. As an important reminder, you're responsible for the implementation of your use case and are required to obtain all necessary permissions or other proprietary rights required to process the data you send to the system. It's your responsibility to comply with all applicable laws and regulations in your jurisdiction.
 
 
 ## What data does it process and how?  

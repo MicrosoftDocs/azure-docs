@@ -13,7 +13,7 @@ ms.author: behoorne
 
 # Configure Azure AI Health Insights docker containers
 
-Azure AI Health Insights provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers. Several [example docker run commands](use-containers.md#run-the-container-with-docker-run) are also available.
+Azure AI Health Insights service provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers. Several [example docker run commands](use-containers.md#run-the-container-with-docker-run) are also available.
 
 ## Configuration settings
 
@@ -40,7 +40,7 @@ This setting can be found in the following place:
 
 ## ApplicationInsights setting
 
-The `ApplicationInsights` setting allows you to add [Azure Application Insights](/azure/application-insights) telemetry support to your container. Application Insights provides in-depth monitoring of your container. You can easily monitor your container for availability, performance, and usage. You can also quickly identify and diagnose errors in your container.
+The `ApplicationInsights` setting allows you to add [Azure Application Insights](/azure/application-insights) telemetry support to your container. Application Insights service provides in-depth monitoring of your container. You can easily monitor your container for availability, performance, and usage. You can also quickly identify and diagnose errors in your container.
 
 The following table describes the configuration settings supported under the `ApplicationInsights` section.
 

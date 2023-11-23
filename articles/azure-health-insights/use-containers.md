@@ -53,13 +53,13 @@ Azure AI Health Insights container images can be found on the `mcr.microsoft.com
 
 To use the latest version of the container, you can use the `latest` tag. You can  find a full list of tags on the MCR via `https://mcr.microsoft.com/v2/azure-cognitive-services/health-insights/clinical-matching/tags/list` and `https://mcr.microsoft.com/v2/azure-cognitive-services/health-insights/cancer-profiling/tags/list`.
 
-- Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry. You can find the featured tags on the [dockerhub clinical matching page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-clinical-matching) and [dockerhub cancer profiling page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-cancer-profiling)  
+- Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry. You can find the featured tags on the [docker hub clinical matching page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-clinical-matching) and [docker hub cancer profiling page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-cancer-profiling)  
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/health-insights/<model-name>:<tag-name>
 ```
 
-- For Clinical Trial Matcher, use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download textanalytics healthcare container image from the Microsoft public container registry. You can find the featured tags on the [dockerhub](https://hub.docker.com/_/microsoft-azure-cognitive-services-textanalytics-healthcare)
+- For Clinical Trial Matcher, use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download textanalytics healthcare container image from the Microsoft public container registry. You can find the featured tags on the [docker hub](https://hub.docker.com/_/microsoft-azure-cognitive-services-textanalytics-healthcare)
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:<tag-name>
@@ -86,7 +86,7 @@ container-
 
 There are multiple ways you can install and run Azure AI Health Insights containers. 
 
-- Use the Azure portal to create a Azure AI Health Insights resource, and use Docker to get your container.
+- Use the Azure portal to create an Azure AI Health Insights resource, and use Docker to get your container.
 - Use an Azure VM with Docker to run the container. 
 - Use PowerShell and Azure CLI scripts to automate resource deployment and container configuration.
 
@@ -232,7 +232,7 @@ The [docker run](https://docs.docker.com/engine/reference/commandline/run/) comm
 
 In this article, you learned concepts and workflow for downloading, installing, and running Azure AI Health Insights containers. In summary:
 
-* Azure AI Health Insights provides a Linux container for Docker
+* Azure AI Health Insights service provides a Linux container for Docker
 * Container images are downloaded from the Microsoft Container Registry (MCR).
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Azure AI Health Insights containers by specifying the host URI of the container.
