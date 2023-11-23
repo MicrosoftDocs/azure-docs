@@ -480,11 +480,18 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
    > Once a replica is promoted to an independent server, it cannot be added back to the replication set.
    
 
-   
-
 ## Delete virtual endpoint (preview)
 
 #### [Portal](#tab/portal)
+
+1. In the Azure portal, select the **primary** server.
+
+2. On the server sidebar, under **Settings**, select **Replication**.
+
+3. At the top of the page, locate the `Virtual endpoints (Preview)` section. Navigate to the three dots (menu options) next to the endpoint name, expand it, and choose `Delete`.
+
+4. A delete confirmation dialog will appear. It will warn you: "This action will delete the virtual endpoint `virtualendpointName`. Any clients connected using these domains may lose access." Acknowledge the implications and confirm by clicking on **Delete**.
+
 
 #### [REST API](#tab/restapi)
 
