@@ -30,7 +30,7 @@ The following table lists the new features added in MABS V4 UR1:
 
 
 >[!Important]
->We're temporarily pausing the release of Update Rollup 1 for Microsoft Azure Backup Server V4 due to tbe following known limitations - **Hyper-V scheduled backups take a long time to complete because each backup job triggers a consistency check.**
+>We're temporarily pausing the release of Update Rollup 1 for Microsoft Azure Backup Server V4 due to tbe following known issue - **Hyper-V scheduled backups take a long time to complete because each backup job triggers a consistency check.**
 >
 >**Error message**: The replica of Microsoft Hyper-V RCT on `<Machine Name>` is not consistent with the protected data source. DPM has detected changes in file locations or volume configurations of protected objects since the data source was configured for protection. (ID 30135).
 >
