@@ -6,6 +6,7 @@ ms.author: dacurwin
 author: dcurwin
 ms.date: 11/22/2023
 ---
+
 # Remediate security recommendations
 
 Resources and workloads protected by Microsoft Defender for Cloud are assessed against built-in and custom security standards enabled in your Azure subscriptions, AWS accounts, and GCP projects. Based on those assessments, security recommendations provide practical steps to remediate security issues, and improve security posture.
@@ -17,7 +18,7 @@ This article describes how to remediate security recommendations in your Defende
 Before you attempt to remediate a recommendation you should review it in detail. Learn how to [review security recommendations](review-security-recommendations.md).
 
 > [!IMPORTANT]
-> This page discusses how to use the new recommendations experience where you have the ability to prioritize your recommendations by their effective risk level. To view this experience you must select **Try it now**.
+> This page discusses how to use the new recommendations experience where you have the ability to prioritize your recommendations by their effective risk level. To view this experience, you must select **Try it now**.
 >
 > :::image type="content" source="media/review-security-recommendations/try-it-now.png" alt-text="Screenshot that shows where the try it now button is located on the recommendation page." lightbox="media/review-security-recommendations/try-it-now.png":::
 
@@ -53,7 +54,7 @@ In addition to risk level, we recommend that you prioritize the security control
 
 1. Locate the Remediate section and follow the remediation instructions.
 
-    :::image type="content" source="./media/implement-security-recommendations/security-center-remediate-recommendation.png" alt-text="This screenshots shows manual remediation steps for a recommendation." lightbox="./media/implement-security-recommendations/security-center-remediate-recommendation.png":::
+    :::image type="content" source="./media/implement-security-recommendations/security-center-remediate-recommendation.png" alt-text="This screenshot shows manual remediation steps for a recommendation." lightbox="./media/implement-security-recommendations/security-center-remediate-recommendation.png":::
 
 ## Use the Fix option
 
@@ -74,5 +75,3 @@ After remediation completes, it can take several minutes to see the resources ap
 ## Next steps
 
 [Learn about](governance-rules.md) using governance rules in your remediation processes.
-
-

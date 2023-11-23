@@ -23,7 +23,7 @@ In Defender for Cloud, navigate to the **Overview** dashboard to get a holistic 
 ## Review recommendations
 
 > [!IMPORTANT]
-> This page discusses how to use the new recommendations experience where you have the ability to prioritize your recommendations by their effective risk level. To view this experience you must select **Try it now**.
+> This page discusses how to use the new recommendations experience where you have the ability to prioritize your recommendations by their effective risk level. To view this experience, you must select **Try it now**.
 >
 > :::image type="content" source="media/review-security-recommendations/try-it-now.png" alt-text="Screenshot that shows where the try it now button is located on the recommendation page." lightbox="media/review-security-recommendations/try-it-now.png":::
 
@@ -46,6 +46,8 @@ In Defender for Cloud, navigate to the **Overview** dashboard to get a holistic 
 ## Review recommendation details
 
 It's important to review all of the details related to a recommendation before trying to understand the process needed to resolve the recommendation. We recommend ensuring that all of the recommendation details are correct before resolving the recommendation.
+
+**To review a recommendation's details**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -70,13 +72,15 @@ It's important to review all of the details related to a recommendation before t
 
 You can perform many actions to interact with recommendations. If an option isn't available, it isn't relevant for the recommendation.
 
+**To explore a recommendation**:
+
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **Defender for Cloud** > **Recommendations**.
 
 1. Select a recommendation.
 
-1. In the recommendation you can perform the following actions:
+1. In the recommendation, you can perform the following actions:
 
     - Select **Open query** to view detailed information about the affected resources using an Azure Resource Graph Explorer query.
 
@@ -111,7 +115,7 @@ Defender for Cloud supports governance rules for recommendations, to specify a r
 
 [Learn more](governance-rules.md) about configuring governance rules.
 
-**Manage recommendations assigned to you**:
+**To manage recommendations assigned to you**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -144,6 +148,8 @@ Defender for Cloud supports governance rules for recommendations, to specify a r
 
 You can use [Azure Resource Graph](../governance/resource-graph/index.yml) to write a [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) to query Defender for Cloud security posture data across multiple subscriptions. Azure Resource Graph provides an efficient way to query at scale across cloud environments by viewing, filtering, grouping, and sorting data.
 
+**To review recommendations in Azure Resource Graph**:
+
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **Defender for Cloud** > **Recommendations**.
@@ -165,11 +171,11 @@ You can use [Azure Resource Graph](../governance/resource-graph/index.yml) to wr
 
 ### Example
 
-In this example,  this recommendation details page shows 15 affected resources:
+In this example, this recommendation details page shows 15 affected resources:
 
 :::image type="content" source="./media/review-security-recommendations/open-query.png" alt-text="Screenshot of the Open Query button on the recommendation details page." lightbox="media/review-security-recommendations/open-query.png":::
 
-When you open the underlying query, and run it, Azure Resource Graph Explorer returns the same affected resources for this recommendation:
+When you open the underlying query, and run it, Azure Resource Graph Explorer returns the same affected resources for this recommendation.
 
 ## Next steps
 

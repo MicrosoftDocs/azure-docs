@@ -4,7 +4,7 @@ description: Learn how to drive remediation of security recommendations with gov
 services: defender-for-cloud
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 10/29/2023
+ms.date: 11/23/2023
 ---
 
 # Drive remediation with governance rules
