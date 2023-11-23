@@ -121,7 +121,7 @@ Here, you need to replace `{subscriptionId}`, `{resourceGroupName}`, and `{repli
 
 ```json
 {
-  "location": "southeastasia",
+  "location": "eastus",
   "properties": {
     "createMode": "Replica",
     "SourceServerResourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}"
@@ -155,7 +155,7 @@ Here, you need to replace `{subscriptionId}`, `{resourceGroupName}`, and `{repli
 >  
 > To avoid issues during promotion of replicas constantly change the following server parameters on the replicas first, before applying them on the primary: `max_connections`, `max_prepared_transactions`, `max_locks_per_transaction`, `max_wal_senders`, `max_worker_processes`.
 
-## Create virtual endpoints (preview)
+## Create virtual endpoint (preview)
 
 #### [Portal](#tab/portal)
 1. In the Azure portal, select the primary server.
@@ -197,6 +197,16 @@ The accompanying JSON body for this request is as follows:
 Here, `{replicaserverName}` should be replaced with the name of the replica server you're including as a reader endpoint target in this virtual endpoint.
 
 ---
+
+
+## List virtual endpoint (preview)
+#### [REST API](#tab/restapi)
+
+```http request
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/virtualendpoints?api-version=2023-06-01-preview
+```
+
+
 
 ### Modify application(s) to point to virtual endpoint
 
