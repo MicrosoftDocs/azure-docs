@@ -391,7 +391,7 @@
             href: flexible-server/how-to-enable-intelligent-performance-cli.md
     - name: Replication
       items:
-      - name: Azure portal
+      - name: Azure portal, REST API
         href: flexible-server/how-to-read-replicas-portal.md
         displayName: replica
       - name: Azure REST API
