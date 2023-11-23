@@ -102,11 +102,13 @@ To create a read replica, follow these steps:
 
 #### [REST API](#tab/restapi)
 
-You can create a read replica by using the [create API](/rest/api/postgresql/flexibleserver/servers/create):
+Initiate an `HTTP PUT` request by using the [create API](/rest/api/postgresql/flexibleserver/servers/create):
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-12-01
 ```
+
+Here, you need to replace `{subscriptionId}`, `{resourceGroupName}`, and `{replicaserverName}` with your specific Azure subscription ID, the name of your resource group, and the desired name for your read replica, respectively.
 
 ```json
 {
