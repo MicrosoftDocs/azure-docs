@@ -18,6 +18,8 @@
     href: quickstarts/playground-completions.md
   - name: Moderate text and images with content safety
     href: quickstarts/content-safety.md
+  - name: Analyze images and video with GPT-4 for Vision in the playground
+    href: quickstarts/multimodal-vision.md
 - name: Tutorials
   items:
   - name: Deploy a chat web app
