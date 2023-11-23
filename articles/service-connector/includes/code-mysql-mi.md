@@ -117,52 +117,6 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
     
     ```
 
-# [Django](#tab/django-mysql-mi)
-
-1. Install dependencies.
-
-   ```bash
-   pip install azure-identity
-   ```
-
-1. Get an access token via the `azure-identity` library with the environment variables added by Service Connector. When using the code below, make sure you uncomment the part of the code snippet that corresponds to the authentication type you want to use.
-
-    ```python
-    from azure.identity import ManagedIdentityCredential, ClientSecretCredential
-    import os
-
-    # Uncomment the following lines according to the authentication type.
-    # system-assigned managed identity
-    # cred = ManagedIdentityCredential()
-    
-    # user-assigned managed identity
-    # managed_identity_client_id = os.getenv('AZURE_MYSQL_CLIENTID')
-    # cred = ManagedIdentityCredential(client_id=managed_identity_client_id)
-    
-    # acquire token
-    accessToken = cred.get_token('https://ossrdbms-aad.database.windows.net/.default')
-    ```
-
-1. In the settings file, get the Azure MySQL database information from the environment variables added by Service Connector. Use the `accessToken` acquired in the previous step to access the database.
-
-    ```python
-    # in your settings file, eg. settings.py
-    host = os.getenv('AZURE_MYSQL_HOST')
-    database = os.getenv('AZURE_MYSQL_NAME')
-    user = os.getenv('AZURE_MYSQL_USER')
-    password = accessToken.token # this is the accessToken acquired from the above step.
-    
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': database,
-            'USER': user,
-            'PASSWORD': password,
-            'HOST': host
-        }
-    }
-    ```
-
 # [NodeJS](#tab/nodejs-mysql-mi)
 
 1. Install dependencies.
@@ -209,10 +163,6 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
      console.log('Connected to MySQL database');
    });
    ```
-
-# [PHP](#tab/php-mysql-mi)
-
-For other languages, use the connection string and username that Service Connector set to the environment variables to connect the database. For the environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
 
 -----
 
