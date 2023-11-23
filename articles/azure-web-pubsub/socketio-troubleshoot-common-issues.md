@@ -107,3 +107,65 @@ const socket = io(webPubSubEndpoint, {
     path: "/clients/socketio/hubs/<Your hub name>",
 });
 ```
+
+### Installed multiple versions for the same package
+
+#### Possible error
+
+Server throws error as below:
+```
+  const io = await require('socket.io')(server).useAzureSocketIO(wpsOptions);        
+                                                  ^
+TypeError: require(...)(...).useAzureSocketIO is not a function
+```
+
+#### Root cause
+
+An `socket.io` or `engine.io` package is added to `package.json` under the dependencies field by user, while the SDK package `@azure/web-pubsub-socket.io` have already specified an internal one of different version. For example:
+```json
+"dependencies": {
+    "@azure/web-pubsub-socket.io": "1.0.1-beta.6",
+    "socket.io": "4.6.1"
+},
+```
+
+After `yarn install`, both of two different versions will be installed. You could verify this by running `npm list socket.io`.
+This command should show two versions of `socket.io` packages as below:
+```bash
+demo@0.0.0 G:\demo
+├─┬ @azure/web-pubsub-socket.io@1.0.0-beta.6
+│ └── socket.io@4.7.1
+└── socket.io@4.6.1
+```
+
+#### Solution
+The solution depends on whether a customized verion of `socket.io` or `engine.io` package is necessary for your need or not.
+
+- Customized version of `socket.io`/`engine.io` package is NOT necessary
+Simply removing `socket.io`/`engine.io` in `package.json` dependencies will work. For example:
+```json
+"dependencies": {
+    "@azure/web-pubsub-socket.io": "1.0.1-beta.6",
+},
+```
+
+- Customized version of `socket.io`/`engine.io` package is necessary
+In this case, `package.json` could be:
+```json
+"dependencies": {
+    "@azure/web-pubsub-socket.io": "1.0.1-beta.6",
+    "socket.io": "4.6.1"
+},
+```
+
+Then you should run `yarn install --flat`. It will install all the dependencies, but only allow one version for each package. On the first run this will prompt you to choose a single version for each package that is depended on at multiple version ranges. 
+For our case, it could prompt you to choose versions of `socket.io`, `enigne.io`, `engine.io-parser` and maybe more. Make sure their versions are matched with each other according to [the native implementation of `socket.io` package](https://github.com/socketio/socket.io/) and [`engine.io` package](https://github.com/socketio/engine.io/).
+
+The final versions will be added to your `package.json`` under a resolutions field.
+```json
+"resolutions": {
+  "package-a": "a.b.c",
+  "package-b": "d.e.f",
+  "package-c": "g.h.i"
+}
+```
