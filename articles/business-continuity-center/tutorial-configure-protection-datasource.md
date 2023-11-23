@@ -3,7 +3,7 @@ title: Tutorial - Configure protection for data sources
 description: Learn how to configure protection for your data sources which are currently not protected by any solution using Azure Business Continuity center.
 ms.topic: tutorial
 ms.date: 10/19/2023
-ms.service: backup
+ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
 author: AbhishekMallick-MS
