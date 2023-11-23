@@ -75,9 +75,17 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ```
 ---
 
+::: zone pivot="programming-language-powershell"
+
+[!INCLUDE [PowerShell quickstart](includes/whisper-powershell.md)]
+
+::: zone-end
+
+::: zone pivot="rest-api"
 
 [!INCLUDE [REST API quickstart](includes/whisper-rest.md)]
 
+::: zone-end
 
 ## Clean up resources
 
