@@ -27,7 +27,7 @@ Create OpenAI resources:
     - Sign up your account on the [OpenAI website](https://openai.com/).
     - Sign in and [find your personal API key](https://platform.openai.com/account/api-keys).
 
-- **Azure OpenAI**:
+- **Azure OpenAI Service**:
 
     Create Azure OpenAI resources with these [instructions](../../../ai-services/openai/how-to/create-resource.md).
 
