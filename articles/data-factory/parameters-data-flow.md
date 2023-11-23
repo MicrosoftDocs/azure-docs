@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.date: 11/15/2023
 ---
 
 # Parameterizing mapping data flows
@@ -39,6 +39,16 @@ Parameters can be referenced in any data flow expression. Parameters begin with 
 You can quickly add additional parameters by selecting **New parameter** and specifying the name and type.
 
 :::image type="content" source="media/data-flow/new-parameter-expression.png" alt-text="Screenshot shows the parameters in the Parameters tab with new parameters added.":::
+
+## Using parameterized linked services in a mapping data flow
+
+Parameterized linked services can be used in a mapping data flow (for either dataset or inline source types).  
+
+For the inline source type, the linked service parameters are exposed in the data flow activity settings within the pipeline as shown below. 
+
+:::image type="content" source="media/data-flow/data-flow-params-1.png" alt-text="Screenshot shows the parameters in the Parameters tab with new parameters added.":::
+
+For the dataset source type, the linked service parameters are exposed directly in the dataset configuration. 
 
 ## Assign parameter values from a pipeline
 
