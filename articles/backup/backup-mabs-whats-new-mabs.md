@@ -17,18 +17,6 @@ Microsoft Azure Backup Server gives you enhanced backup capabilities to protect 
 
 **Microsoft Azure Backup Server version 4 (MABS V4) Update Rollup 1** includes critical bug fixes and feature enhancements. To view the list of bugs fixed and the installation instructions for MABS V4 UR1, see [KB article 5032421](https://support.microsoft.com/help/5032421/).
 
-The following table lists the new features added in MABS V4 UR1:
-
-| Feature | Supportability |
-| --- | --- |
-| Item-level recovery for VMware VMs running Windows directly from online recovery points. |  Note that you need *MARS version 2.0.9251.0 or above* to use this feature.   | 
-| Windows and Basic SMTP Authentication for MABS email reports and alerts.    |  This enables MABS to send reports and alerts using any vendor supporting SMTP Basic Authentication. [Learn more](/system-center/dpm/monitor-dpm?view=sc-dpm-2022&preserve-view=true#configure-email-for-dpm).            <br><br>     Note that if you are using Microsoft 365 SMTP with a MABS V4 private fix, reenter the credential using Basic Authentication.       | 
-| Fall back to crash consistent backups for VMware VMs.    |     Use a registry key for VMware VMs when backups fail with ApplicationQuiesceFault. [Learn more](backup-azure-backup-server-vmware.md#applicationquiescefault).  |
-| **Experience improvements for MABS backups to Azure.** |                 |
-| List online recovery points for a data source along with the expiry time and soft-delete status. |     To view the list of recovery points along with their expiration dates, right-click a data source and select **List recovery points**.    |
-| Stop protection and retaining data using the policy duration for immutable vaults directly from the console.  |  This helps you to save the backup costs when stopping protection for a data source backed up to an immutable vault. [Learn more](backup-azure-security-feature.md#immutability-support).      |
-
-
 >[!Important]
 >We're temporarily pausing the release of Update Rollup 1 for Microsoft Azure Backup Server V4 due to the known issue - **Hyper-V scheduled backups take a long time to complete because each backup job triggers a consistency check.**
 >
@@ -41,6 +29,16 @@ The following table lists the new features added in MABS V4 UR1:
 >
 >For additional information, reach out to Microsoft Support.
 
+The following table lists the new features added in MABS V4 UR1:
+
+| Feature | Supportability |
+| --- | --- |
+| Item-level recovery for VMware VMs running Windows directly from online recovery points. |  Note that you need *MARS version 2.0.9251.0 or above* to use this feature.   | 
+| Windows and Basic SMTP Authentication for MABS email reports and alerts.    |  This enables MABS to send reports and alerts using any vendor supporting SMTP Basic Authentication. [Learn more](/system-center/dpm/monitor-dpm?view=sc-dpm-2022&preserve-view=true#configure-email-for-dpm).            <br><br>     Note that if you are using Microsoft 365 SMTP with a MABS V4 private fix, reenter the credential using Basic Authentication.       | 
+| Fall back to crash consistent backups for VMware VMs.    |     Use a registry key for VMware VMs when backups fail with ApplicationQuiesceFault. [Learn more](backup-azure-backup-server-vmware.md#applicationquiescefault).  |
+| **Experience improvements for MABS backups to Azure.** |                 |
+| List online recovery points for a data source along with the expiry time and soft-delete status. |     To view the list of recovery points along with their expiration dates, right-click a data source and select **List recovery points**.    |
+| Stop protection and retaining data using the policy duration for immutable vaults directly from the console.  |  This helps you to save the backup costs when stopping protection for a data source backed up to an immutable vault. [Learn more](backup-azure-security-feature.md#immutability-support).      |
 
 ## What's new in MABS V4 RTM
 
