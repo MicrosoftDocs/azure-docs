@@ -219,7 +219,18 @@ To promote replica from the Azure portal, follow these steps:
 #### [REST API](#tab/restapi)
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/virtualendpoints/{virtualendpointName}?api-version=2023-06-01-preview
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2023-06-01-preview
+```
+
+```json
+{
+  "Properties": {
+    "Replica": {
+      "PromoteMode": "switchover",
+      "PromoteOption": "planned"
+    }
+  }
+}
 ```
 
 ---
@@ -289,9 +300,27 @@ Create a secondary read replica in a separate region to modify the reader virtua
 
 #### [REST API](#tab/restapi)
 
+You can create a secondary read replica by using the [create API](/rest/api/postgresql/flexibleserver/servers/create):
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{replicaserverName}?api-version=2022-03-08-preview
+```
+
+```json
+{
+  "location": "southeastasia",
+  "properties": {
+    "createMode": "Replica",
+    "SourceServerResourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}"
+  }
+}
+```
+
 ---
 
 ## Modify virtual endpoint
+
+#### [Portal](#tab/portal)
 
 1.  In the [Azure portal](https://portal.azure.com/), choose the primary Azure Database for PostgreSQL - Flexible Server.
 
@@ -307,9 +336,28 @@ Create a secondary read replica in a separate region to modify the reader virtua
 
 5.  Select **Save**. The reader endpoint will now be pointed at the secondary replica, and the promote operation will now be tied to this replica.
 
+#### [REST API](#tab/restapi)
+
+```http
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/virtualendpoints/{virtualendpointName}?api-version=2023-06-01-preview
+```
+
+```json
+{ 
+  "Properties": { 
+    "EndpointType": "ReadWrite", 
+    "Members": ["{replicaserverName}"] 
+  }
+} 
+```
+
+---
+
 ## Promote replica to independent server
 
 Rather than switchover to a replica, it's also possible to break the replication of a replica such that it becomes its standalone server.
+
+#### [Portal](#tab/portal)
 
 1.  In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL - Flexible Server primary server.
 
@@ -329,6 +377,23 @@ Rather than switchover to a replica, it's also possible to break the replication
     :::image type="content" source="./media/how-to-read-replicas-portal/replica-promote-independent.png" alt-text="Screenshot of promoting the replica to independent server.":::
 
 6.  Select **Promote**, the process begins. Once completed, the server will no longer be a replica of the primary.
+
+#### [REST API](#tab/restapi)
+
+```http
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/virtualendpoints/{virtualendpointName}?api-version=2023-06-01-preview
+```
+
+```json
+{ 
+  "Properties": { 
+    "EndpointType": "ReadWrite", 
+    "Members": ["{replicaserverName}"] 
+  }
+} 
+```
+
+---
 
 ## Delete virtual endpoint (preview)
 
