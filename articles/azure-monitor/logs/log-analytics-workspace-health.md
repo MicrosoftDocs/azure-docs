@@ -26,7 +26,6 @@ Azure Service Health monitors:
 
 ## View Log Analytics workspace health and set up health status alerts 
 
-When Azure Service Health detects [average latency](../logs/data-ingestion-time.md#average-latency) in your Log Analytics workspace, the workspace resource health status is **Available**.
 
 To view your Log Analytics workspace health and set up health status alerts:
  
@@ -34,14 +33,24 @@ To view your Log Analytics workspace health and set up health status alerts:
 
     The **Resource health** screen shows:
 
-    - **Health history**: Indicates whether Azure Service Health has detected latency issues related to the specific Log Analytics workspace. To further investigate latency issues related to your workspace, see [Investigate latency](#investigate-log-analytics-workspace-health-issues).  
+    - **Health history**: Indicates whether Azure Service Health has detected latency or query execution issues in the specific Log Analytics workspace. To further investigate latency issues related to your workspace, see [Investigate latency](#investigate-log-analytics-workspace-health-issues).  
     - **Azure service issues**: Displayed when a known issue with an Azure service might affect latency in the Log Analytics workspace. Select the message to view details about the service issue in Azure Service Health.
    
     > [!NOTE]
     > - Service health notifications do not indicate that your Log Analytics workspace is necessarily affected by the know service issue. If your Log Analytics workspace resource health status is **Available**, Azure Service Health did not detect issues in your workspace.
     > - Resource Health excludes data types for which long ingestion latency is expected. For example, Application Insights data types that calculate the application map data and are known to add latency.
+
    
     :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency.png" alt-text="Screenshot that shows the Resource health screen for a Log Analytics workspace.":::  
+
+    This table describes the possible resource health status values for a Log Analytics workspace:
+
+    | Resource health status | Description |
+    |-|-|
+    |Available| [Average latency](../logs/data-ingestion-time.md#average-latency) and no query execution issues.|
+    |Unavailable|Higher than average latency detected.|    
+    |Degraded|Query execution errors detected.|
+    |Unknown|Currently unable to determine the workspace health. You haven't run queries or ingested data to this workspace recently.|
     
 1. To set up health status alerts, you can either [enable recommended out-of-the-box alert](../alerts/alerts-overview.md#recommended-alert-rules) rules, or manually create new alert rules.
     - To enable the recommended alert rules:
@@ -78,7 +87,7 @@ To view Log Analytics workspace health metrics:
    | - | - |
    | Query count | Total number of user queries in the Log Analytics workspace within the selected time range.<br>This number includes only user-initiated queries, and doesn't include queries initiated by Sentinel rules and alert-related queries. |
    | Query failure count | Total number of failed user queries in the Log Analytics workspace within the selected time range.<br>This number includes all queries that return 5XX response codes - except 504 *Gateway Timeout* - which indicate an error related to the application gateway or the backend server.|
-   | Query success rate | Total number of successful user queries in the Log Analytics workspace within the selected time range.<br>This number includes all queries that return 2XX, 4XX, and 504 response codes; in other words, all user queries that don't result in a service error. |
+   | AvailabilityRate_Query | Total number of successful user queries in the Log Analytics workspace within the selected time range.<br>This number includes all queries that return 2XX, 4XX, and 504 response codes; in other words, all user queries that don't result in a service error. |
 
 ## Investigate Log Analytics workspace health issues
 
