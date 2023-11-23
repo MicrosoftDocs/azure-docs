@@ -21,6 +21,30 @@ For example, consider a sudden surge in connections that initiates surge of data
 
 Besides capturing metrics, it’s important to also trace the workload to understand if one or more queries are causing the spike in CPU utilization.
 
+## High CPU causes
+
+Most CPU spikes raises for two reasons, **connections spikes** and **bad written SQL queries** or **both**:
+
+* **Connections Spike.**
+
+When connections increases, that will increase number of threads which will cause CPU increases to handle these connections with their queries and resources, to troubleshoot connections spike, check [Total Connections](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/concepts-monitoring#list-of-metrics) metrics and next section for details about these connections.   
+You can use performance_schema to get hosts and users that are currerntly connected to server.
+
+```
+   select HOST,CURRENT_CONNECTIONS From performance_schema.hosts
+   where CURRENT_CONNECTIONS > 0
+   and host not in ('NULL','localhost');
+```
+```
+   select USER,CURRENT_CONNECTIONS from performance_schema.users
+   where CURRENT_CONNECTIONS >0
+   and USER not in ('NULL','azure_superuser');
+```
+  
+* **Bad written SQL queries.**
+
+If queries have an expensive cost and scans a lot of rows with no index, or doing temporary sort along with other bad plans, will lead to CPU spikes, some queries when executed in single session, will be fast, with 100 session, will cause CPU spikes, always explain your queries that you capture from [show processlist](https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html) and make sure their execution plans is effecient, by making sure, they scans low number of rows and uses indexes, more info about execution plan [here](https://dev.mysql.com/doc/refman/5.7/en/explain-output.html)
+
 ## Capturing details of the current workload
 
 The SHOW (FULL) PROCESSLIST command displays a list of all user sessions currently connected to the Azure Database for MySQL server. It also provides details about the current state and activity of each session.
