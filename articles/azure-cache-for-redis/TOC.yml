@@ -21,6 +21,12 @@
         href: scripts/create-manage-cache.md
       - name: Create and manage premium cache with Azure CLI
         href: scripts/create-manage-premium-cache-cluster.md
+      - name: Create Redis cache - Bicep
+        displayName: ARM, Resource Manager, Template
+        href: cache-redis-cache-bicep-provision.md
+      - name: Create Redis cache - ARM template
+        displayName: Resource Manager
+        href: cache-redis-cache-arm-provision.md
 
     - name: Use a cache
       items:
@@ -64,6 +70,8 @@
     href: /azure/architecture/best-practices/caching?toc=/azure/redis-cache/toc.json
   - name: Create and manage with Azure PowerShell
     href: cache-how-to-manage-redis-cache-powershell.md
+  - name: Connect an AKS application to a cache
+    href: cache-tutorial-aks-get-started.md
   - name: Use Azure CLI
     items:
     - name: Overview
@@ -72,18 +80,8 @@
       href: scripts/create-manage-cache.md
     - name: Create and manage a premium cache
       href: scripts/create-manage-premium-cache-cluster.md
-  - name: Create Redis cache - Bicep
-    displayName: ARM, Resource Manager, Template
-    href: cache-redis-cache-bicep-provision.md
-  - name: Create Redis cache - ARM template
-    displayName: Resource Manager
-    href: cache-redis-cache-arm-provision.md
-  - name: Create Web App with Redis cache - Bicep
-    displayName: ARM, Resource Manager, Template
-    href: cache-web-app-bicep-with-redis-cache-provision.md
-  - name: Create Web App with Redis cache - ARM template
-    displayName: Resource Manager
-    href: cache-web-app-arm-with-redis-cache-provision.md
+
+
 
 - name: Development and client libraries
   items:
@@ -99,6 +97,14 @@
     href: cache-best-practices-performance.md
   - name: Enterprise tiers best practices
     href: cache-best-practices-enterprise-tiers.md
+  - name: Vector Search
+    href: cache-overview-vector-similarity.md
+  - name: Connection resilience best practices
+    href: cache-best-practices-connection.md
+  - name: Use Azure Functions triggers and bindings
+    items:
+    - name: Create a simple Function app for Redis triggers 
+      href: cache-tutorial-functions-getting-started.md
 
 - name: Logs and monitoring
   items:
@@ -117,7 +123,7 @@
     href: cache-how-to-scale.md
   - name: Use Redis cluster to scale in/out
     href: cache-how-to-premium-clustering.md
-  - name: Development
+  - name: Development best practices
     href: cache-best-practices-development.md
   - name: Scaling best practices
     href: cache-best-practices-scale.md
@@ -125,7 +131,7 @@
     href: cache-best-practices-server-load.md
 
 
-- name: Authentication
+- name: Authentication and authorization
   items:
   - name: Role-based access control
     href: cache-configure-role-based-access-control.md
@@ -151,8 +157,7 @@
       href: cache-remove-tls-10-11.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline?toc=/azure/azure-cache-for-redis/TOC.json
-    - name: Connection resilience best practices
-      href: cache-best-practices-connection.md
+
 
 - name: Cache management 
   items:
@@ -257,6 +262,12 @@
     href: cache-web-app-cache-aside-leaderboard.md
   - name: Deploy a machine learning model 
     href: cache-ml.md
+  - name: Create Web App with Redis cache - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: cache-web-app-bicep-with-redis-cache-provision.md
+  - name: Create Web App with Redis cache - ARM template
+    displayName: Resource Manager
+    href: cache-web-app-arm-with-redis-cache-provision.md
 
 - name: Reference
   items:
