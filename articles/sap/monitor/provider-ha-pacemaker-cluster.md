@@ -116,7 +116,7 @@ When the provider settings validation operation fails with the code `PrometheusU
 1. Restart the HA cluster exporter agent.
 
     ```bash
-    sstemctl start pmproxy
+    systemctl start pmproxy
     ```
 
 1. Reenable the HA cluster exporter agent.
