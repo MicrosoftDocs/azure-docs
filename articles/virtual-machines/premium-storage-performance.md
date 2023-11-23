@@ -334,7 +334,7 @@ Currently, **None** is only supported on data disks. It isn't supported on OS di
 
 As an example, you can apply these guidelines to SQL Server running on premium storage by following these steps:
 
-1. Configure the **ReadOnly** cache on premium storage disks hosting data files
+1. Configure the **ReadOnly** cache on premium storage disks hosting data files.
    1. The fast reads from cache lower the SQL Server query time because data pages are retrieved faster from the cache compared to directly from the data disks.
    1. Serving reads from cache means there's more throughput available from premium data disks. SQL Server can use this extra throughput toward retrieving more data pages and other operations like backup/restore, batch loads, and index rebuilds.
 1. Configure the **None** cache on premium storage disks hosting the log files.
