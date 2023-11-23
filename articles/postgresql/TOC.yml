@@ -394,9 +394,6 @@
       - name: Azure portal, REST API
         href: flexible-server/how-to-read-replicas-portal.md
         displayName: replica
-      - name: Azure REST API
-        href: flexible-server/how-to-read-replicas-rest-api.md
-        displayName: replica rest api
   - name: Extensions
     items:
     - name: Overview
