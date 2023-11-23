@@ -1288,7 +1288,7 @@ items:
       href: best-practices-alerts.md
     - name: Set up alerts
       items:
-        - name: Configure alert rules
+        - name: Set up alert rules
           items:
           - name: Create or edit an alert rule
             href: alerts/alerts-create-new-alert-rule.md
@@ -1312,7 +1312,7 @@ items:
           - name: Integrate with Logic apps
             href: alerts/alerts-logic-apps.md
           - name: Integrate with webhooks
-            href: alerts/activity-log-alerts-webhooks.md
+            href: alerts/activity-log-alerts-webhook.md
           - name: Integrate with ITSM providers
             items:
             - name: ITSM overview
@@ -1351,7 +1351,7 @@ items:
                   href: alerts/itsmc-resync-servicenow.md
                 - name: Connector deletion
                   href: alerts/itsmc-connector-deletion.md
-    - name: Comsuming alerts
+    - name: Consume alerts
       items:
         - name: Alerts common schemas
           href: alerts/alerts-common-schema.md
