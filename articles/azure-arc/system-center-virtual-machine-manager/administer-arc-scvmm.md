@@ -14,8 +14,8 @@ manager: jsuri
 
 In this article, you learn how to perform various administrative operations related to Azure Arc-enabled System Center Virtual Machine Manager (SCVMM):
 
-- Upgrade the Azure Arc resource bridge
-- Update the credentials
+- Upgrade the Azure Arc resource bridge manually
+- Update the SCVMM account credentials
 - Collect logs from the Arc resource bridge
 
 Each of these operations requires either SSH key to the resource bridge VM or the kubeconfig file that provides access to the Kubernetes cluster on the resource bridge VM.
