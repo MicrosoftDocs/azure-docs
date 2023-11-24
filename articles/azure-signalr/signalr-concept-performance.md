@@ -336,7 +336,7 @@ For **send to big group**, the outbound bandwidth becomes the bottleneck before 
 | Group member count        | 100   | 200   | 500    | 1,000  | 2,000  | 5,000   | 10,000 
 | Group count               | 10    | 10    | 10     | 10     | 10     | 10      | 10
 | Inbound messages per second  | 20    | 20    | 20     | 20     | 20     | 20      | 20      |
-| Inbound bandwidth  | 80 KBps   | 40 KBps   | 40 KBps    | 20 KBps    | 40 KBps    | 40 KBps     | 40 KBps     |
+| Inbound bandwidth  | 40 KBps   | 40 KBps   | 40 KBps    | 40 KBps    | 40 KBps    | 40 KBps     | 40 KBps     |
 | Outbound messages per second | 2,000 | 4,000 | 10,000 | 20,000 | 40,000 | 100,000 | 200,000 |
 | Outbound bandwidth | 8 MBps    | 8 MBps    | 20 MBps    | 40 MBps    | 80 MBps    | 200 MBps    | 400 MBps    |
 
