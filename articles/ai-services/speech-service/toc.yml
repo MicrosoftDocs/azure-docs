@@ -162,9 +162,19 @@ items:
         - name: Custom Neural Voice Lite
           href: custom-neural-voice-lite.md
         - name: Personal voice (preview)
-          href: personal-voice-overview.md
-          displayName: cnv
-        - name: Create a Custom Neural Voice 
+          items:
+          - name: Personal voice overview
+            href: personal-voice-overview.md
+          - name: Create a personal voice project
+            href: personal-voice-create-project.md
+          - name: Add user consent to your project
+            href: personal-voice-create-consent.md
+          - name: Upload a training dataset
+            href: personal-voice-create-training-set.md
+          - name: Use personal voice in your application
+            href: personal-voice-how-to-use.md
+            displayName: cnv
+        - name: Create a professional voice
           items:
           - name: Create a project
             displayName: custom voice, neural voice, cnv
