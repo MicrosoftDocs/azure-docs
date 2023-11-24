@@ -137,14 +137,14 @@ Do *not* exceed the highlighted values in the following two tables.
 
 |       Echo                        | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 20,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
-| **Inbound bandwidth** | **2 MBps**    | **4 MBps**    | **20 MBps**    | **40 MBps**    | **200 MBps**    | **400 MBps**    | **1,000 MBps**   | **2,000 MBps**    |
+| Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
+| **Inbound bandwidth** | **2 MBps**    | **4 MBps**    | **20 MBps**    | **100 MBps**    | **200 MBps**    | **400 MBps**    | **1,000 MBps**   | **2,000 MBps**    |
 | Outbound bandwidth | 2 MBps   | 4 MBps   | 20 MBps   | 100 MBps  | 200 MBps   | 400 MBps   | 1,000 MBps  | 2,000 MBps   |
 
 
 |     Broadcast             | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 20,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
+| Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | Inbound bandwidth  | 4 KBps   | 4 KBps   | 4 KBps    | 4 KBps    | 4 KBps    | 4 KBps     | 4 KBps    | 4 KBps    |
 | **Outbound bandwidth** | **4 MBps**    | **8 MBps**    | **40 MBps**    | **200 MBps**    | **400 MBps**   | **800 MBps**    | **2,000 MBps**    | **4,000 MBps**   |
 
@@ -229,8 +229,8 @@ The behavior of **echo** determines that the maximum inbound bandwidth is equal 
 
 |       Echo                        | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 20,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
-| Inbound/outbound messages per second | 1,000 | 5,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
+| Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
+| Inbound/outbound messages per second | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | Inbound/outbound bandwidth | 2 MBps   | 4 MBps   | 20 MBps   | 100 MBps  | 200 MBps   | 400 MBps   | 1,000 MBps  | 2,000 MBps   |
 
 In this use case, every client invokes the hub defined in the app server. The hub just calls the method defined in the original client side. This hub is the most lightweight hub for **echo**.
@@ -247,7 +247,7 @@ Even for this simple hub, the traffic pressure on the app server is prominent as
 
 |    Echo          | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
 |------------------|-------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 20,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
+| Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | App server count | 1     | 1     | 1      | 5     | 10      | 20      | 50     | 100      |
 
 > [!NOTE]
@@ -265,17 +265,17 @@ The following table summarizes maximum client connections, inbound/outbound mess
 
 |     Broadcast             |  Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 20,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
+| Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | Inbound messages per second  | 2     | 2     | 2      | 2      | 2      | 2       | 2       | 2       |
 | Outbound messages per second | 2,000 | 4,000 | 20,000 | 100,000 | 200,000 | 400,000 | 1,000,000 | 2,000,000 |
 | Inbound bandwidth  | 4 KBps   | 4 KBps   | 4 KBps    | 4 KBps    | 4 KBps    | 4 KBps     | 4 KBps     | 4 KBps     |
-| Outbound bandwidth | 4 MBps   | 8 MBps   | 20 MBps   | 40 MBps   | 80 MBps   | 200 MBps   | 400 MBps   | 800 MBps   | 2，000 MBps   | 4，000 MBps   |
+| Outbound bandwidth | 4 MBps   | 8 MBps   | 20 MBps   | 40 MBps   | 200 MBps   | 400 MBps   | 800 MBps   | 2，000 MBps   | 4，000 MBps   |
 
 The broadcasting clients that post messages are no more than four. They need fewer app servers compared with **echo** because the inbound message amount is small. Two app servers are enough for both SLA and performance considerations. But you should increase the default server connections to avoid imbalance, especially for Unit larger than 50.
 
 |   Broadcast      |  Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
 |------------------|-------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 20,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
+| Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | App server count | 1     | 1     | 1      | 2      | 2       |  4      | 10      | 20       |
 
 > [!NOTE]
@@ -306,19 +306,19 @@ The routing cost is significant for sending message to many small groups. Curren
 
 |   Send to small group     |  Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
 |---------------------------|-------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 20,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
-| Group member count        | 10    | 10    | 10     | 10     | 10     | 10     | 10 
-| Group count               | 100   | 200   | 500    | 1,000  | 2,000  | 5,000  | 10,000 
-| Inbound messages per second  | 200   | 400   | 1,000  | 2,500  | 4,000  | 7,000  | 7,000   |
-| Inbound bandwidth  | 400 KBps  | 800 KBps  | 2 MBps     | 5 MBps     | 8 MBps     | 14 MBps    | 14 MBps     |
-| Outbound messages per second | 2,000 | 4,000 | 10,000 | 25,000 | 40,000 | 70,000 | 70,000  |
-| Outbound bandwidth | 4 MBps    | 8 MBps    | 20 MBps    | 50 MBps     | 80 MBps    | 140 MBps   | 140 MBps    |
+| Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
+| Group member count        | 10    | 10    | 10     | 10     | 10     | 10     | 10   | 10  |
+| Group count               | 100   | 200   | 1,000  | 5,000  | 10,000 | 20,000  | 50,000  | 100,000 |
+| Inbound messages per second  | 200   | 400   | 2,000    | 10,000  | 10,000   | 20,000   | 50,000 | 100,000 |
+| Inbound bandwidth  | 400 KBps  | 800 KBps  | 2 MBps     | 4 MBps     | 20 MBps     | 20 MBps    | 40 MBps     | 100 MBps    | 200 MBps     |
+| Outbound messages per second | 2,000 | 4,000 | 20,000 | 100,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
+| Outbound bandwidth | 4 MBps | 8 MBps | 20 MBps | 40 MBps | 200 MBps | 200 MBps | 400 MBps | 1,000 MBps | 2,000 MBps |
 
 Many client connections are calling the hub, so the app server number is also critical for performance. The following table lists the suggested app server counts.
 
 |  Send to small group   |  Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
 |------------------|-------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 20,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
+| Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | App server count | 1     | 1     | 1      | 5     | 10      | 20      | 50     | 100      |
 
 > [!NOTE]
@@ -332,7 +332,7 @@ For **send to big group**, the outbound bandwidth becomes the bottleneck before 
 
 |    Send to big group      | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 20,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
+| Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | Group member count        | 100   | 200   | 500    | 1,000  | 2,000  | 5,000   | 10,000 | 20,000  | 50,000   | 100,000 
 | Group count               | 10    | 10    | 10     | 10     | 10     | 10      | 10    | 10      |
 | Inbound messages per second  | 20    | 20    | 20     | 20     | 20     | 20      | 20      | 20      |
@@ -345,7 +345,7 @@ The sending connection count is no more than 40. The burden on the app server is
 
 |   Send to big group   | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
 |------------------|-------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 20,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
+| Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | App server count | 1     | 1     | 2      | 2      | 2       |  4      | 10      | 20       |
 
 > [!NOTE]
@@ -365,9 +365,9 @@ As the connection count increases, the routing cost limits overall performance. 
 
 The following table is a statistical summary after many rounds of running the **send to connection** benchmark.
 
-|   Send to connection   | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
+|   Send to connection   | Unit1 | Unit2 | Unit0 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
 |------------------------------------|-------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 20,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
+| Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | Inbound/outbound messages per second | 1,000 | 2,000 | 5,000 | 8,000  | 9,000  | 20,000 | 20,000 |
 | Inbound/outbound bandwidth | 2 MBps    | 4 MBps    | 10 MBps   | 16 MBps    | 18 MBps    | 40 MBps       | 40 MBps       |
 
@@ -375,38 +375,15 @@ This use case requires high load on the app server side. See the suggested app s
 
 |  Send to connection  |  Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
 |------------------|-------|-------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 20,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
+| Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | App server count | 1     | 1     | 1      | 5     | 10      | 20      | 50     | 100      |
 
 > [!NOTE]
 > The client connection number, message size, message sending rate, routing cost, SKU tier, and CPU/memory for the app server affect the overall performance of **send to connection**.
 
-#### ASP.NET SignalR echo, broadcast, and send to small group
+#### ASP.NET SignalR 
 
 Azure SignalR Service provides the same performance capacity for ASP.NET SignalR. 
-
-The performance test uses Azure Web Apps from [Standard Service Plan S3](https://azure.microsoft.com/pricing/details/app-service/windows/) for ASP.NET SignalR.
-
-The following table gives the suggested web app count for ASP.NET SignalR **echo**.
-
-|   Echo           |  Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
-|------------------|-------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 20,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
-| App server count | 1     | 1     | 1      | 5     | 10      | 20      | 50     | 100      |
-
-The following table gives the suggested web app count for ASP.NET SignalR **broadcast**.
-
-|  Broadcast       |  Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
-|------------------|-------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 20,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
-| App server count | 1     | 1     | 2      | 2      | 2       |  4      | 10      | 20       |
-
-The following table gives the suggested web app count for ASP.NET SignalR **send to small group**.
-
-|  Send to small group     |  Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
-|------------------|-------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 20,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
-| App server count | 1     | 1     | 1      | 5     | 10      | 20      | 50     | 100      |
 
 ### Serverless mode
 
@@ -419,7 +396,7 @@ All clients establish WebSocket connections with Azure SignalR Service. Then som
 
 |   Broadcast through REST API     |  Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 20,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
+| Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | Inbound messages per second  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
 | Outbound messages per second | 2,000 | 4,000 | 10,000 | 20,000 | 40,000 | 100,000 | 200,000 |
 | Inbound bandwidth  | 4 KBps    | 4 KBps    | 4 KBps     | 4 KBps     | 4 KBps     | 4 KBps      | 4 KBps      |
@@ -430,7 +407,7 @@ The benchmark assigns usernames to all of the clients before they start connecti
 
 |   Send to user through REST API |  Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 20,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
+| Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | Inbound messages per second  | 300   | 600   | 900    | 1,300  | 2,000  | 10,000  | 18,000  |
 | Outbound messages per second | 300   | 600   | 900    | 1,300  | 2,000  | 10,000  | 18,000 |
 | Inbound bandwidth  | 600 KBps  | 1.2 MBps  | 1.8 MBps   | 2.6 MBps   | 4 MBps     | 10 MBps     | 36 MBps    |
