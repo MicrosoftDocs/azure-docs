@@ -53,10 +53,14 @@ Steps to remediate:
 
 - Verify the SFTP user and credentials used by the agent are valid for the SFTP server.
 
-- Check network connectivity and firewall configuration between the agent and the SFTP server.
+- Check network connectivity and firewall configuration between the agent and the SFTP server. By default, the SFTP server must have port 22 open to accept SFPT connections.
+
+- Check that the `known_hosts` file on the agent VM contains a valid public SSH key for the SFTP server: 
+  - On the agent VM, run `ssh-keygen -l -F *<sftp-server-IP-or-hostname>*` 
+  - If there is no output, then `known_hosts` doesn't contain a matching entry. Follow the instructions in [Learn how to create and configure SFTP Ingestion Agents for Azure Operator Insights](how-to-install-sftp-agent.md) to add a `known_hosts` entry for the SFTP server.
 
 
-### No files are uploaded to AOI
+### No files are uploaded to Azure Operator Insights
 
 Symptoms: 
 - No data appears in Azure Data Explorer.
@@ -68,7 +72,7 @@ Steps to remediate:
 
 - Check that files exist in the correct location on the SFTP server, and that they aren't being excluded due to file source config (see [Data missing or incomplete](#data-missing-or-incomplete)).
 
-- Check the network connectivity and firewall configuration between the ingestion agent and AOI.
+- Check the network connectivity and firewall configuration between the ingestion agent and Azure Operator Insights.
 
 
 ### Files are missing
