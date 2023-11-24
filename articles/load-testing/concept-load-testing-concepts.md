@@ -6,7 +6,7 @@ ms.service: load-testing
 author: ntrogh
 ms.author: nicktrog
 ms.topic: conceptual
-ms.date: 11/03/2022
+ms.date: 11/24/2023
 ms.custom: template-concept 
 ---
 
@@ -58,7 +58,9 @@ For example, given an application latency of 20 milliseconds (0.02 second), to s
 
 ## Azure Load Testing components
 
-Learn about the key concepts and components of Azure Load Testing.
+Learn about the key concepts and components of Azure Load Testing. The following diagram gives a overview of how the different concepts relate to one another.
+
+:::image type="content" source="./media/concept-load-testing-concepts/azure-load-testing-concepts.png" alt-text="Diagram that shows how the different concepts in Azure Load Testing relate to one another." lightbox="./media/concept-load-testing-concepts/azure-load-testing-concepts-large.png":::
 
 ### Load testing resource
 
