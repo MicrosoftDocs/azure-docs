@@ -4,8 +4,8 @@ description: This article describes how to stop/start operations in Azure Databa
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: devx-track-azurecli
-ms.author: sunila
-author: sunilagarwal
+author: AlicjaKucharczyk
+ms.author: alkuchar
 ms.reviewer: ""
 ms.topic: how-to
 ms.date: 11/30/2021
