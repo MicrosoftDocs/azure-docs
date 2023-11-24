@@ -12,13 +12,13 @@ ms.topic: how-to
 ---
 # Diagnose failing load tests in Azure Load Testing
 
-In this article, you learn how to diagnose and troubleshoot failing load tests in Azure Load Testing. Azure Load Testing provides several options to identify the root cause of a failing load test. For example, use the information in the load test dashboard, or download the Apache JMeter worker logs and test results for in-depth analysis. Alternately, configure server-side metrics to identify issues in the Azure application components.
+In this article, you learn how to diagnose and troubleshoot failing load tests in Azure Load Testing. Azure Load Testing provides several options to identify the root cause of a failing load test. For example, you can use the load test dashboard, or download the test results or test log files for an in-depth analysis. Alternately, configure server-side metrics to identify issues with application endpoint.
 
-Azure Load Testing has two indicators for the outcome of a load test:
+Azure Load Testing uses two indicators to determine the outcome of a load test:
 
-- **Test status**: indicates if Azure Load Testing was able to run and complete the load test. For example, the test status is *Failed* if there's an error in the JMeter test script, or if the [autostop listener](./how-to-define-test-criteria.md#auto-stop-configuration) interrupted the load test because too many requests failed.
+- **Test status**: indicates whether the load test was able to start successfully and run the test script until the end. For example, the test status is *Failed* if there's an error in the JMeter test script, or if the [autostop listener](./how-to-define-test-criteria.md#auto-stop-configuration) interrupted the load test because too many requests failed.
 
-- **Test result**: reflects the evaluation of the [test fail criteria](./how-to-define-test-criteria.md). If at least one of the test fail criteria was met, the test result is set to *Failed*.
+- **Test result**: indicates the result of evaluating the [test fail criteria](./how-to-define-test-criteria.md). If at least one of the test fail criteria was met, the test result is set to *Failed*.
 
 Depending on the indicator, you can use a different approach to identify the root cause of a test failure.
 
@@ -81,21 +81,37 @@ Use the following steps to get the outcome of a load test:
 
 ## Diagnose test failures
 
-You can use different approaches for diagnosing why your load test failed based on the test status and test result:
+You can use a different approach for diagnosing a load test failure based whether Azure Load Testing was able to run and complete the test script or not.
 
-- Test status is *Failed*:
+### Load test failed to complete
 
-    1. Verify the error details in the load test dashboard.
-    1. [Download and analyze the test logs](#download-apache-jmeter-worker-logs-for-your-load-test) to identify issues with running the test script.
-    1. [Download the test results](./how-to-export-test-results.md) to identify issues with individual requests.
+When the load test fails to complete, the *test status* of the test run is set to *Failed*.
 
-- Test status is *Done* and test result is *Failed*:
+A load test can fail to complete because of multiple reasons. Examples of why a load test doesn't finish:
 
-    1. Verify the [test fail criteria](./how-to-define-test-criteria.md) and corresponding client-side metrics.
-    1. Verify the sampler statistics in the load test dashboard to identify which requests in the test script might cause an issue.
-    1. [Download the test results](./how-to-export-test-results.md) to identify issues with individual requests.
-    1. Verify the test [engine health metrics](./how-to-high-scale-load.md#monitor-engine-instance-metrics) to identify possible resource contention on the test engines.
-    1. Optionally, [add app components and server-side metrics](./how-to-monitor-server-side-metrics.md) to identify performance bottlenecks for the application endpoint.
+- There are errors in the JMeter test script.
+- The test script uses JMeter features that Azure Load Testing doesn't support. Learn about the [supported JMeter features](./resource-jmeter-support.md).
+- The test script references a file or plugin that isn't available on the test engine instance.
+- The autostop functionality interrupted the load test because too many requests are failing and the error rate exceeds the threshold. Learn more about the [autostop functionality in Azure Load Testing](./how-to-define-test-criteria.md#auto-stop-configuration).
+
+Use the following steps to help diagnose a test not finishing:
+
+1. Verify the error details on the load test dashboard.
+1. [Download and analyze the test logs](#download-apache-jmeter-worker-logs-for-your-load-test) to identify issues in the JMeter test script.
+1. [Download the test results](./how-to-export-test-results.md) to identify issues with individual requests.
+
+### Load test completed
+
+A load test might run the test script until the end (test status equals *Done*), but might not pass all the [test fail criteria](./how-to-define-test-criteria.md). If at least one of the test criteria didn't pass, the *test result* of the test run is set to *Failed*.
+
+Use the following steps to help diagnose a test failing to meet the test criteria:
+
+1. Review the [test fail criteria](./how-to-define-test-criteria.md) in the load test dashboard.
+1. Review the sampler statistics in the load test dashboard to further identify which requests in the test script might cause an issue.
+1. Review the client-side metrics in the load test dashboard. Optionally, you can filter the charts for a specific request by using the filter controls.
+1. [Download the test results](./how-to-export-test-results.md) to get error information for individual requests.
+1. Verify the test [engine health metrics](./how-to-high-scale-load.md#monitor-engine-instance-metrics) to identify possible resource contention on the test engines.
+1. Optionally, [add app components and monitor server-side metrics](./how-to-monitor-server-side-metrics.md) to identify performance bottlenecks for the application endpoint.
 
 ## Download Apache JMeter worker logs for your load test
 
