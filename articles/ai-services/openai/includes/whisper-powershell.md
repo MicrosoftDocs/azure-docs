@@ -10,7 +10,7 @@ ms.date: 11/22/2023
 
 ## PowerShell
 
-Run the following command. You need to replace `MyDeploymentName` with the deployment name you chose when you deployed the Whisper model. Entering the model name results in an error unless you chose a deployment name that is identical to the underlying model name.
+Run the following command. You need to replace `YOUR-DEPLOYMENT-NAME-HERE` with the deployment name you chose when you deployed the Whisper model. Entering the model name results in an error unless you chose a deployment name that is identical to the underlying model name.
 
 ```powershell-interactive
    # Azure OpenAI metadata variables
