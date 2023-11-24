@@ -58,47 +58,6 @@ The tutorial uses [Quarkus sample: Hibernate ORM with Panache and RESTEasy](http
 
 For more information on how the Quarkus sample application is created, see Quarkus documentation [Simplified Hibernate ORM with Panache](https://quarkus.io/guides/hibernate-orm-panache) and [Configure data sources in Quarkus](https://quarkus.io/guides/datasource).
 
-## 1 - Create App Service and PostgreSQL resources
-
-In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for PostgreSQL. For the creation process, you'll specify:
-
-* The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
-* The **Region** to run the app physically in the world.
-* The **Runtime stack** for the app. It's where you select the version of Java SDK to use for your app.
-* The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
-* The **Resource Group** for the app. A resource group lets you group (in a logical container) all the Azure resources needed for the application.
-
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
-
-:::row:::
-    :::column span="2":::
-        **Step 1:** In the Azure portal:
-        1. Enter "web app database" in the search bar at the top of the Azure portal.
-        1. Select the item labeled **Web App + Database** under the **Marketplace** heading.
-        You can also navigate to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-create-app-postgres-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App + Database creation wizard." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-create-app-postgres-1.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2:** In the **Create Web App + Database** page, fill out the form as follows.
-        1. *Resource Group* &rarr; Select **Create new** and use a name of **msdocs-quarkus-postgres-tutorial**.
-        1. *Region* &rarr; Any Azure region near you.
-        1. *Name* &rarr; **msdocs-quarkus-postgres-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
-        1. *Runtime stack* &rarr; **Java 17**.
-        1. *Java web server stack* &rarr; **Java SE (Embedded Web Server)**.
-        1. *Database* &rarr;  **PostgreSQL - Flexible Server**. The server name and database name are set by default to appropriate values.
-        1. *Hosting plan* &rarr; **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
-        1. Select **Review + create**.
-        1. After validation completes, select **Create**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-create-app-postgres-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-create-app-postgres-2.png":::
-    :::column-end:::
-:::row-end:::
-
 ## 2. Create App Service and PostgreSQL
 
 First, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for PostgreSQL. For the creation process, you'll specify:
@@ -360,7 +319,6 @@ When you're finished, you can delete all of the resources from your Azure subscr
         :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-clean-up-resources-3.png"::::
     :::column-end:::
 :::row-end:::
-::: zone-end
 
 ## Troubleshooting
 
@@ -373,6 +331,11 @@ This is a Vert.x error (see [Quarkus Reactive Architecture](https://quarkus.io/g
 This Quarkus error is most likely because the app can't connect to the Azure database. Make sure that the app setting `AZURE_POSTGRESQL_CONNECTIONSTRING` hasn't been changed, and that *application.properties* is using the app setting properly.
 
 ## Frequently asked questions
+
+- [How much does this setup cost?](#how-much-does-this-setup-cost)
+- [How do I connect to the PostgreSQL server that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-postgresql-server-thats-secured-behind-the-virtual-network-with-other-tools)
+- [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
+- [What if I want to run tests with PostgreSQL during the GitHub workflow?](#what-if-i-want-to-run-tests-with-postgresql-during-the-github-workflow)
 
 #### How much does this setup cost?
 
