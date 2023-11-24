@@ -4,7 +4,7 @@ description: Learn how to use the Azure Key Vault provider for Secrets Store CSI
 author: nickomang 
 ms.author: nickoman
 ms.topic: how-to 
-ms.date: 10/19/2023
+ms.date: 11/24/2023
 ms.custom: template-how-to, devx-track-azurecli, devx-track-linux
 ---
 
@@ -68,6 +68,9 @@ A container using *subPath volume mount* doesn't receive secret updates when it'
         }
     ```
 
+> [!NOTE]
+> After enabling the feature, AKS creates a managed identity named "azurekeyvaultsecretsprovider-xxx" in the node resource group and assigns it to virtual machine (VM) scale set automatically. You can use this managed identity or your own managed identity to access the key vault. It's not supported to not let the identity be created.
+
 ## Upgrade an existing AKS cluster with Azure Key Vault provider for Secrets Store CSI Driver support
 
 * Upgrade an existing AKS cluster with Azure Key Vault provider for Secrets Store CSI Driver capability using the [`az aks enable-addons`][az-aks-enable-addons] command and enable the `azure-keyvault-secrets-provider` add-on. The add-on creates a user-assigned managed identity you can use to authenticate to your key vault.
@@ -75,6 +78,9 @@ A container using *subPath volume mount* doesn't receive secret updates when it'
     ```azurecli-interactive
     az aks enable-addons --addons azure-keyvault-secrets-provider --name myAKSCluster --resource-group myResourceGroup
     ```
+
+> [!NOTE]
+> After enabling the feature, AKS creates a managed identity named "azurekeyvaultsecretsprovider-xxx" in the node resource group and assigns it to virtual machine (VM) scale set automatically. You can use this managed identity or your own managed identity to access the key vault. It's not supported to not let the identity be created.
 
 ## Verify the Azure Key Vault provider for Secrets Store CSI Driver installation
 
