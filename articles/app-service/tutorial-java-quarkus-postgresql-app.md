@@ -13,7 +13,7 @@ ms.custom: mvc, devx-track-azurecli, devx-track-extended-java, AppServiceConnect
 
 This tutorial shows how to build, configure, and deploy a secure [Quarkus](https://quarkus.io) application in Azure App Service that's connected to a PostgreSQL database (using [Azure Database for PostgreSQL](../postgresql/index.yml)). Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you'll have a Quarkus app running on [Azure App Service on Linux](overview.md).
 
-:::image type="content" source="./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-locally.png" alt-text="Screenshot of Quarkus application storing data in PostgreSQL.":::
+:::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Quarkus application storing data in PostgreSQL.":::
 
 **To complete this tutorial, you'll need:**
 
@@ -41,7 +41,7 @@ The tutorial uses [Quarkus sample: Hibernate ORM with Panache and RESTEasy](http
         **Step 2:** In the GitHub fork, select **Code** > **Create codespace on main**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-run-sample-application-2.png" alt-text="A screenshot showing how to open the Visual Studio Code browser experience in GitHub." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-run-sample-application-2.png":::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-run-sample-application-2.png" alt-text="A screenshot showing how create a codespace in GitHub." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-run-sample-application-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -52,7 +52,7 @@ The tutorial uses [Quarkus sample: Hibernate ORM with Panache and RESTEasy](http
         You should see the sample application in a new browser tab.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-run-sample-application-3.png" alt-text="A screenshot showing how to open the Visual Studio Code browser experience in GitHub." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-run-sample-application-3.png":::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-run-sample-application-3.png" alt-text="A screenshot showing how to run the sample application inside the GitHub codespace." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-run-sample-application-3.png":::
     :::column-end:::
 :::row-end:::
 
@@ -230,7 +230,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
         This property sets the production data source URL to the app setting that the creation wizard generated for you.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing Visual Studio Code in the browser and an opened file." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png":::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing a GitHub codespace and the application.properties file opened." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -241,7 +241,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
         `-DskipTests` skips the tests in your Quarkus project, and `-Dquarkus.package.type=uber-jar` [creates an Uber-jar](https://quarkus.io/guides/maven-tooling#uber-jar-maven) that App Service needs.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-4.png" alt-text="A screenshot showing Visual Studio Code in the browser and an opened file." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-4.png":::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-4.png" alt-text="A screenshot showing a GitHub codespace and a GitHub workflow YAML opened." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-4.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -366,7 +366,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 
 #### I see the error log "ERROR [org.acm.hib.orm.pan.ent.FruitEntityResource] (vert.x-eventloop-thread-0) Failed to handle request: jakarta.ws.rs.NotFoundException: HTTP 404 Not Found".
 
-This is a Vert.x error (see [Quarkus Reactive Architecture](https://quarkus.io/guides/quarkus-reactive-architecture)), indicating that the client has requested an unknown path. This happens on app startup because App Service verifies that the app has started by sending a `GET` request to `/robots933456.txt`.
+This is a Vert.x error (see [Quarkus Reactive Architecture](https://quarkus.io/guides/quarkus-reactive-architecture)), indicating that the client requested an unknown path. This error happens on every app startup because App Service verifies that the app starts by sending a `GET` request to `/robots933456.txt`.
 
 #### The app failed to start and shows the following error in log: "Model classes are defined for the default persistence unit <default> but configured datasource <default> not found: the default EntityManagerFactory will not be created."
 
@@ -386,7 +386,7 @@ Pricing for the created resources is as follows:
 #### How do I connect to the PostgreSQL server that's secured behind the virtual network with other tools?
 
 - For basic access from a command-line tool, you can run `psql` from the app's SSH terminal.
-- To connect from a desktop tool, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
+- To connect from a desktop tool, your machine must be within the virtual network. For example, it could be an Azure VM in one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
 - You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) with the virtual network.
 
 #### How does local app development work with GitHub Actions?
@@ -401,7 +401,7 @@ git push origin main
 
 #### What if I want to run tests with PostgreSQL during the GitHub workflow?
 
-The default Quarkus sample application includes tests that includes database connectivity. If you want, you can run the tests against a PostgreSQL service container. For example, in the automatically generated workflow file in your GitHub fork (*.github/workflows/main_cephalin-quarkus.yml*), make the following changes:
+The default Quarkus sample application includes tests with database connectivity. To avoid connection errors, you added the `-skipTests` property. If you want, you can run the tests against a PostgreSQL service container. For example, in the automatically generated workflow file in your GitHub fork (*.github/workflows/main_cephalin-quarkus.yml*), make the following changes:
 
 1. Add YAML code for the PostgreSQL container to the `build` job, as shown in the following snippet.
 
