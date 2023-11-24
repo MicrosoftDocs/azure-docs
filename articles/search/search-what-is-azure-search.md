@@ -54,7 +54,7 @@ On the search service itself, the two primary workloads are *indexing* and *quer
 
 Azure AI Search is well suited for the following application scenarios:
 
-+ Search over your proprietary vector and text content.
++ Search over your vector and text content. You own or control what's searchable.
 
 + Consolidate heterogeneous content into a user-defined and populated search index composed of vectors and text. 
 
