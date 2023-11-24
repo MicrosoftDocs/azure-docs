@@ -51,7 +51,7 @@ Container vulnerability assessment powered by MDVM supports all scan triggers su
 ## Is there a difference in rescan period between the Qualys and MDVM offerings?
 
 Vulnerability assessments performed using the Qualys scanner are refreshed weekly.
-Vulnerability assessments performed using the MDVM scanner are refreshed daily.
+Vulnerability assessments performed using the MDVM scanner are refreshed daily. For Defender for Container Registries (deprecated), rescan period is once every 7 days for vulnerability assessments performed by both the Qualys and MDVM scanner.
 
 ## Is there any difference between the OS and language packages covered by the Qualys and MDVM offerings?
 
