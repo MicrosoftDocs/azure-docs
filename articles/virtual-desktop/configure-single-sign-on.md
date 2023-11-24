@@ -84,7 +84,7 @@ To enable single sign-on in your environment, you must:
 
 Before enabling the single sign-on feature, you must first allow Microsoft Entra authentication for Windows in your Microsoft Entra tenant. This will enable issuing RDP access tokens allowing users to sign in to Azure Virtual Desktop session hosts. This is done by enabling the isRemoteDesktopProtocolEnabled property on the service principal's remoteDesktopSecurityConfiguration object for the apps listed above.
 
-Use the [Microsoft Graph API](/graph/use-the-api) to [create remoteDesktopSecurityConfiguration](/graph/api/serviceprincipal-post-remotedesktopsecurityconfiguration)  or the [PowerShell Microsoft Graph Module](/powershell/microsoftgraph/overview?view=graph-powershell-1.0) to [Update-MgServicePrincipalRemoteDesktopSecurityConfiguration](/powershell/module/microsoft.graph.applications/update-mgserviceprincipalremotedesktopsecurityconfiguration?view=graph-powershell-1.0)  to set the property **isRemoteDesktopProtocolEnabled** to **true**.
+Use the [Microsoft Graph API](/graph/use-the-api) to [create remoteDesktopSecurityConfiguration](/graph/api/serviceprincipal-post-remotedesktopsecurityconfiguration)  or the [PowerShell Microsoft Graph Module](https://learn.microsoft.com/en-us/powershell/microsoftgraph/overview?view=graph-powershell-1.0) to [Update-MgServicePrincipalRemoteDesktopSecurityConfiguration](https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.applications/update-mgserviceprincipalremotedesktopsecurityconfiguration?view=graph-powershell-1.0)  to set the property **isRemoteDesktopProtocolEnabled** to **true**.
 
 ```powershell
 #Requirements
