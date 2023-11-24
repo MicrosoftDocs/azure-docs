@@ -18,14 +18,14 @@ In this article, you learn how to perform various administrative operations rela
 - Update the credentials
 - Collect logs from the Arc resource bridge
 
-Each of these operations requires either SSH key to the resource bridge VM or the kubeconfig that provides access to the Kubernetes cluster on the resource bridge VM.
+Each of these operations requires either SSH key to the resource bridge VM or the kubeconfig file that provides access to the Kubernetes cluster on the resource bridge VM.
 
 ## Upgrade the Arc resource bridge manually
 
 Azure Arc-enabled SCVMM requires the Arc resource bridge to connect your SCVMM environment with Azure. Periodically, new images of Arc resource bridge are released to include security and feature updates. The Arc resource bridge can be manually upgraded from the SCVMM server. You must meet all upgrade [prerequisites](../resource-bridge/upgrade.md#prerequisites) before attempting to upgrade. The SCVMM server must have the kubeconfig and appliance configuration files stored locally.
 
 > [!NOTE]
-> The manual upgrade feature is available for resource bridge version 1.0.14 and higher. Resource bridges below version 1.0.14 need to [perform the recovery option](./disaster-recovery.md) to get to version 1.0.15 or higher.
+> The manual upgrade feature is available for resource bridge version 1.0.14 and higher. Resource bridges below version 1.0.14 must [perform the recovery option](./disaster-recovery.md) to get to version 1.0.15 or higher.
 
 The manual upgrade generally takes between 30-90 minutes depending on network speeds. The upgrade command takes your Arc resource bridge to the immediate next version, which might not be the latest available version. Multiple upgrades could be needed to reach a [supported version](../resource-bridge/upgrade.md#supported-versions). You can check your resource bridge version by checking the Azure resource of your Arc resource bridge.
 
