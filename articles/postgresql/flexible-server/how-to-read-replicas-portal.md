@@ -95,11 +95,11 @@ Review and note the following settings:
     - autoGrow
   - Network
   - High Availability
-   - Enabled / Disabled
-   - Availability zone settings
+    - Enabled / Disabled
+    - Availability zone settings
   - Backup settings
-   - Retention period
-   - Redundancy Options
+    - Retention period
+    - Redundancy Options
 
 
 **Sample response**
