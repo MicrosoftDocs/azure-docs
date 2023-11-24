@@ -178,6 +178,9 @@ In this example, the following manifest configures mounting a Blob storage conta
       protocol: nfs
       tags: environment=Development
     volumeBindingMode: Immediate
+    allowVolumeExpansion: true
+    mountOptions:
+      - nconnect=4
     ```
 
 2. Create the storage class with the [kubectl apply][kubectl-apply] command:
@@ -319,6 +322,8 @@ The following example demonstrates how to mount a Blob storage container as a pe
         - ReadWriteMany
       persistentVolumeReclaimPolicy: Retain  # If set as "Delete" container would be removed after pvc deletion
       storageClassName: azureblob-nfs-premium
+      mountOptions:
+        - nconnect=4
       csi:
         driver: blob.csi.azure.com
         readOnly: false
