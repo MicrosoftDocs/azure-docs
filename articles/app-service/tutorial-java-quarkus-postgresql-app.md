@@ -368,7 +368,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 
 This is a Vert.x error (see [Quarkus Reactive Architecture](https://quarkus.io/guides/quarkus-reactive-architecture)), indicating that the client requested an unknown path. This error happens on every app startup because App Service verifies that the app starts by sending a `GET` request to `/robots933456.txt`.
 
-#### The app failed to start and shows the following error in log: "Model classes are defined for the default persistence unit <default> but configured datasource <default> not found: the default EntityManagerFactory will not be created."
+#### The app failed to start and shows the following error in log: "Model classes are defined for the default persistence unit \<default> but configured datasource \<default> not found: the default EntityManagerFactory will not be created."
 
 This Quarkus error is most likely because the app can't connect to the Azure database. Make sure that the app setting `AZURE_POSTGRESQL_CONNECTIONSTRING` hasn't been changed, and that *application.properties* is using the app setting properly.
 
