@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: how-to
-ms.date: 11/22/2023
+ms.date: 11/24/2023
 ---
 
 # How to manage data sources in Azure Managed Grafana
@@ -200,38 +200,7 @@ az grafana data-source update --data-source 'Azure Monitor' --name <instance-nam
 
 ### Azure Data Explorer configuration
 
-To configure Azure Data Explorer using a graphical interface or the Azure CLI, follow the steps below.
-
-### [Portal](#tab/azure-portal)
-
-To configure Azure Data Explorer using the Azure portal and the Grafana portal, refer to [Configure Azure Data Explorer](how-to-connect-azure-data-explorer.md).
-
-### [Azure CLI](#tab/azure-cli)
-
-1. Run the [az grafana data-source create](/cli/azure/grafana/data-source#az-grafana-data-source-create) command to create the Azure Data Explorer data source.
-
-   For example:
-
-   ```azurecli-interactive
-   az grafana data-source create --name <grafana-instance-name> --definition '{
-   "access": "proxy", 
-   "jsonData": { 
-      "azureCloud": "azuremonitor", 
-      "clientId": "<client-ID>",
-      "clusterUrl": "<cluster URL>",
-      "dataConsistency": "strongconsistency", 
-      "defaultDatabase": "<database-name>",
-      "queryTimeout": "120s",
-      "tenantId": "<tenant-ID>"
-   },
-   "name": "<data-source-name>",
-   "type": "grafana-azure-data-explorer-datasource",
-   }'      
-   ```
-
-1. Run the [az grafana data-source update](/cli/azure/grafana/data-source#az-grafana-data-source-update) command to update the configuration of the Azure Data Explorer data source.
-
----
+To configure Azure Data Explorer using a graphical interface or the Azure CLI, go to [Configure Azure Data Explorer](how-to-connect-azure-data-explorer.md).
 
 ## Remove a data source
 
