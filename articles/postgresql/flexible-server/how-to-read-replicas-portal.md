@@ -86,6 +86,26 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 Replace `{subscriptionId}`, `{resourceGroupName}`, and `{serverName}` with your Azure subscription ID, the resource group name, and the name of the primary server you want to review, respectively. This request will give you access to the configuration details of your primary server, ensuring it is properly set up for creating a read replica.
 
+Review and note the following settings:
+
+      - Compute Tier, Processor, Size (ex `Standard_D8ads_v5`).
+    
+      - Storage
+        - Type
+        - Storage size (ex `128`)
+        - autoGrow
+
+     - Network
+    
+      - High Availability
+        - Enabled / Disabled
+        - Availability zone settings
+    
+      - Backup settings
+        - Retention period
+        - Redundancy Options
+
+
 **Sample response**
 
 ```json
@@ -107,7 +127,7 @@ Replace `{subscriptionId}`, `{resourceGroupName}`, and `{serverName}` with your 
             "iops": 500,
             "tier": "P10",
             "storageSizeGB": 128,
-            `**`"autoGrow": "Disabled"`**`
+            "autoGrow": "Disabled"
         },
         "network": {
             "publicNetworkAccess": "Enabled"
