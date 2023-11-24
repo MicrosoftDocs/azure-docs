@@ -1487,7 +1487,7 @@
     },
     {
         "source_path_from_root": "/articles/postgresql/flexible-server/how-to-read-replicas-rest-api.md",
-        "redirect_url": "/azure/postgresql/flexible-server/how-to-read-replicas-portal&tabs=restapi",
+        "redirect_url": "/azure/postgresql/flexible-server/how-to-read-replicas-portal",
         "redirect_document_id": true
     }
     ]

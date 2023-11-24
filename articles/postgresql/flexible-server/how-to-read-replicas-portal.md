@@ -78,7 +78,7 @@ Before setting up a read replica for Azure Database for PostgreSQL, ensure the p
 
 #### [REST API](#tab/restapi)
 
-To obtain information about the configuration of a server in Azure Database for PostgreSQL - Flexible Server, especially to view settings for recently introduced features like Storage Auto-Grow or Private Link, you should use the latest API version `2023-06-01-preview`. The `GET` request for this would be formatted as follows:
+To obtain information about the configuration of a server in Azure Database for PostgreSQL - Flexible Server, especially to view settings for recently introduced features like storage auto-grow or private link, you should use the latest API version `2023-06-01-preview`. The `GET` request for this would be formatted as follows:
 
 ```http request
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}?api-version=2023-06-01-preview
