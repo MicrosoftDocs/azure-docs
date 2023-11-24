@@ -26,8 +26,8 @@ items:
     href: high-availability.md
   - name: Encryption
     href: encryption.md
-  - name: User-based authentication
-    href: user-based-authentication.md
+  - name: Add Azure Data Explorer
+    href: how-to-connect-azure-data-explorer.md
 - name: How-to guides
   expanded: true
   items:

@@ -1,6 +1,6 @@
 ---
 title: How to manage data sources for Azure Managed Grafana
-description: In this how-to guide, discover how you can configure data sources for Azure Managed Grafana
+description: In this how-to guide, discover how you can add, configure and remove data sources for Azure Managed Grafana.
 author: maud-lv 
 ms.author: malev 
 ms.service: managed-grafana 
@@ -14,7 +14,7 @@ In this guide, you learn about data sources supported in each Azure Managed Gran
 
 ## Prerequisites
 
-[An Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
+* [An Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
 
 ## Supported Grafana data sources
 
@@ -90,7 +90,7 @@ To add a [Grafana core data source](https://grafana.com/docs/grafana/latest/data
 1. Select a data source from the list, and add it to your instance by selecting **Create** or **Add** in the top right hand corner.
 1. Fill out the form and select **Save and test** to test and update the data source configuration.
 
-   :::image type="content" source="media/data-sources/add-data-source.png" alt-text="Screenshot of the Add data source page.":::
+   :::image type="content" source="media/data-sources/add-data-source.png" alt-text="Screenshot of the Add data source page in Grafana.":::
 
 ### Other data sources
 
@@ -200,22 +200,8 @@ az grafana data-source update --data-source 'Azure Monitor' --name <instance-nam
 
 ### Azure Data Explorer configuration
 
-Azure Managed Grafana can also access data sources using a service principal set up in Microsoft Entra ID.
-
 ### [Portal](#tab/azure-portal)
-
-1. From the left menu, select **Configuration** > **Data sources**.
-
-   :::image type="content" source="media/data-sources/configuration.png" alt-text="Screenshot of the Add data sources page.":::
-
-1. Add the **Azure Data Explorer Datasource** data source to your Managed Grafana instance.
-1. In the **Settings** tab, fill out the form under **Connection Details**,  and optionally also edit the **Query Optimizations**, **Database schema settings**, and **Tracking** sections.
-
-   :::image type="content" source="media/data-sources/data-explorer-connection-settings.jpg" alt-text="Screenshot of the Connection details section for Data Explorer in data sources.":::
-
-   To complete this process, you need to have a Microsoft Entra service principal and connect Microsoft Entra ID with an Azure Data Explorer User. For more information, go to [Configuring the datasource in Grafana](https://github.com/grafana/azure-data-explorer-datasource#configuring-the-datasource-in-grafana).
-
-1. Select **Save & test** to validate the connection. "Success" is displayed on screen and confirms that Azure Managed Grafana is able to fetch the data source through the provided connection details, using the service principal in Microsoft Entra ID.
+To learn how to configure Azure Data Explorer, refer to the guide [Configure Azure Data Explorer](how-to-connect-azure-data-explorer.md).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -241,8 +227,6 @@ Azure Managed Grafana can also access data sources using a service principal set
    ```
 
 1. Run the [az grafana data-source update](/cli/azure/grafana/data-source#az-grafana-data-source-update) command to update the configuration of the Azure Data Explorer data source.
-
-For more information about configuring Azure Data Explorer in Grafana, go to [Azure Data Explorer](\how-to-connect-azure-data-explorer.md).
 
 ---
 
