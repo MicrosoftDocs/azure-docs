@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Key concepts for new Azure Load Testing users
 
-Learn about the key concepts and components of Azure Load Testing. This can help you to more effectively set up a load test to identify performance issues in your application.
+Learn about the key concepts and components of Azure Load Testing. This information can help you to more effectively set up a load test to identify performance issues in your application.
 
 ## General concepts of load testing
 
@@ -32,15 +32,15 @@ You can achieve the target number of virtual users by [configuring the number of
 
 ### Ramp-up time
 
-The ramp-up time is the amount of time to get to the full number of [virtual users](#virtual-users) for the load test. If the number of virtual users is 20, and the ramp-up time is 120 seconds, then it will take 120 seconds to get to all 20 virtual users. Each virtual user will start 6 (120/20) seconds after the previous user was started.
+The ramp-up time is the amount of time to get to the full number of [virtual users](#virtual-users) for the load test. If the number of virtual users is 20, and the ramp-up time is 120 seconds, then it takes 120 seconds to get to all 20 virtual users. Each virtual user will start 6 (120/20) seconds after the previous user was started.
 
 ### Response time
 
-The response time of an individual request, or [elapsed time in JMeter](https://jmeter.apache.org/usermanual/glossary.html), is the total time from just before sending the request to just after the last response has been received. The response time doesn't include the time to render the response. Any client code, such as JavaScript, isn't processed during the load test.
+The response time of an individual request, or [elapsed time in JMeter](https://jmeter.apache.org/usermanual/glossary.html), is the total time from just before sending the request to just after the last response is received. The response time doesn't include the time to render the response. Any client code, such as JavaScript, isn't processed during the load test.
 
 ### Latency
 
-The latency of an individual request is the total time from just before sending the request to just after the first response has been received. Latency includes all the processing needed to assemble the request and assembling the first part of the response.
+The latency of an individual request is the total time from just before sending the request to just after the first response is received. Latency includes all the processing needed to assemble the request and assembling the first part of the response.
 
 ### Requests per second (RPS)
 
@@ -54,11 +54,11 @@ Another way to calculate the RPS is based on the average application's [latency]
 
 The formula is: Virtual users = (RPS) * (latency in seconds).
 
-For example, given an application latency of 20 milliseconds (0.02 second), to simulate 100,000 RPS, you should configure the load test with 2,000 virtual users (100,000 * 0.02).
+For example, given an application latency of 20 milliseconds (0.02 seconds), to simulate 100,000 RPS, you should configure the load test with 2,000 virtual users (100,000 * 0.02).
 
 ## Azure Load Testing components
 
-Learn about the key concepts and components of Azure Load Testing. The following diagram gives a overview of how the different concepts relate to one another.
+Learn about the key concepts and components of Azure Load Testing. The following diagram gives an overview of how the different concepts relate to one another.
 
 :::image type="content" source="./media/concept-load-testing-concepts/azure-load-testing-concepts.png" alt-text="Diagram that shows how the different concepts in Azure Load Testing relate to one another." lightbox="./media/concept-load-testing-concepts/azure-load-testing-concepts-large.png":::
 
@@ -123,7 +123,7 @@ When you run a load test for an Azure-hosted application, you can monitor resour
 
 When you create or update a load test, you can configure the list of app components that Azure Load Testing will monitor. You can modify the list of default resource metrics for each app component.
 
-Learn more about which [Azure resource types are supported by Azure Load Testing](./resource-supported-azure-resource-types.md).
+Learn more about which [Azure resource types that Azure Load Testing supports](./resource-supported-azure-resource-types.md).
 
 ### Metrics
 
