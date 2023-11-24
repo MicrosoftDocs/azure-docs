@@ -16,7 +16,7 @@ The SFTP agent is a software package that is installed onto a Linux Virtual Mach
 
 - You must have a configured SFTP server where the files which will be forwarded to Azure Operator Insights are uploaded to.
     - The SFTP server must be accessible from the VM where the agent is installed.
-- You must have an Azure Operator Insights Data product deployment.
+- You must have an Azure Operator Insights Data Product deployment.
 - You must provide one or more VMs with the following specifications to run the agent:
   - OS - Red Hat Enterprise Linux 8.6 or later
   - Minimum hardware - 4 vCPU,  8-GB RAM, 30-GB disk
@@ -123,7 +123,7 @@ Steps:
 
 A link to download the SFTP agent RPM is provided as part of the Azure Operator Insights onboarding process. See [How do I get access to Azure Operator Insights?](/articles/operator-insights/overview.md#how-do-i-get-access-to-azure-operator-insights) for details.
 
-### Install agent software
+### Install and configure agent software
 
 Repeat these steps for each VM onto which you want to install the agent:
 
@@ -131,7 +131,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 1. Install the RPM:  `sudo dnf install \*.rpm`.  Answer 'y' when prompted.  If there are any missing dependencies, the RPM will not be installed.
 1. Change to the configuration directory: cd /etc/az-sftp-uploader
 1. Make a copy of the default configuration file:  `sudo cp example\_config.yaml config.yaml`
-1. Edit the *config.yaml* and fill out the fields.  Many of them are set to default values and do not require input.  The full reference for each parameter is described in [SFTP Ingestion Agents configuration reference](sftp-agent-configuration.md). The following parameters must be set:
+1. Edit the *config.yaml* and fill out the fields. Start by filling out the parameters that don't depend on the type of Data Product.  Many parameters are set to default values and don't need to be changed.  The full reference for each parameter is described in [SFTP Ingestion Agents configuration reference](sftp-agent-configuration.md). The following parameters must be set:
 
     1. **site\_id** should be changed to a unique identifier for your on-premises site – for example, the name of the city or state for this site.  This name becomes searchable metadata in Operator Insights for all data ingested by this agent. Reserved URL characters must be percent-encoded.
     1. For the secret provider with name `data_product_keyvault`, set the following:
@@ -178,7 +178,13 @@ Repeat these steps for each VM onto which you want to install the agent:
 
                     1. **passphrase\_secret\_name** is the name of the file containing the passphrase for the SSH key in the secrets_directory folder. If the SSH key does not have a passphrase, do not include this field.
 
-        1. **sink.container\_name** a string giving the name of the Azure Blob Storage container to use with this file source. This is determined by the type of Data Product that has been deployed. TODO: refer to this doc.
+   
+2. Continue to edit *config.yaml* to set the parameters that depend on the type of Data Product that you're using.
+For the **Monitoring - Affirmed MCC** Data Product, set the following parameters in each file source block in **file_sources**:
+
+    1. **source.settling_time_secs** set to `60`
+    2. **source.schedule** set to  `* /5 * * * * *` so that the agent checks for new files in the file source every 5 minutes
+    3. **sink.container\_name** set to `pmstats`
 
 > [!TIP]
 > The agent supports additional optional configuration for the following:
@@ -189,9 +195,11 @@ Repeat these steps for each VM onto which you want to install the agent:
 > - A settling time, which is a time period after a file is last modified that the agent will wait before it is uploaded (by default, 1 minute)
 > For more information about these configuration options, see [SFTP Ingestion Agents configuration reference](sftp-agent-configuration.md).
 
-6. Start the agent: `sudo systemctl start az-sftp-uploader`
+### Start the agent software
 
-1. Check that the agent is running: `sudo systemctl status az-sftp-uploader`
+1. Start the agent: `sudo systemctl start az-sftp-uploader`
+
+2. Check that the agent is running: `sudo systemctl status az-sftp-uploader`
 
     1. If you see any status other than "active (running)", look at the logs as described in the [Monitor and troubleshoot SFTP Ingestion Agents for Azure Operator Insights](troubleshoot-sftp-agent.md) article to understand the error.  It's likely that some configuration is incorrect.
 
@@ -199,9 +207,9 @@ Repeat these steps for each VM onto which you want to install the agent:
 
     3. If issues persist, raise a support ticket.
 
-1. Once the agent is running, ensure it will automatically start on a reboot: `sudo systemctl enable az-sftp-uploader.service`
+3. Once the agent is running, ensure it will automatically start on a reboot: `sudo systemctl enable az-sftp-uploader.service`
 
-1. Save a copy of the delivered RPM – you'll need it to reinstall or to back out any future upgrades.
+4. Save a copy of the delivered RPM – you'll need it to reinstall or to back out any future upgrades.
 
 ## Important considerations
 
