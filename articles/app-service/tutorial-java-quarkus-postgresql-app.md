@@ -262,7 +262,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 Azure App Service captures all messages output to the console to help you diagnose issues with your application. The sample application includes standard JBoss logging statements to demonstrate this capability as shown below.
 
-:::code language="java" source="~/msdocs-quarkus-postgresql-sample-app/src/main/java/org/acme/hibernate/orm/panache/entity/FruitEntityResource.java" range="34-40" highlight="34,38":::
+:::code language="java" source="~/msdocs-quarkus-postgresql-sample-app/src/main/java/org/acme/hibernate/orm/panache/entity/FruitEntityResource.java" range="34-40" highlight="38":::
 
 :::row:::
     :::column span="2":::
