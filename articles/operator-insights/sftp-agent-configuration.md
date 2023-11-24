@@ -20,7 +20,7 @@ site_id: london-lab01
   #  A secret provider of type `key_vault` which contains details required to connect to the Azure key vault and allow connection to the storage account.
   # A secret provider of type `file_system`, which specifies a directory on the VM where secrets for connecting to the SFTP server will be accessed from.
 secret_providers: 
-  - name: dp_keyvault 
+  - name: data_product_keyvault 
     provider: 
       type: key_vault 
       vault_name: contoso-dp-kv 
@@ -28,7 +28,7 @@ secret_providers:
         tenant_id: ad5421f5-99e4-44a9-8a46-cc30f34e8dc7 
         identity_name: 98f3263d-218e-4adf-b939-eacce6a590d2 
         cert_path: /path/to/local/certkey.pkcs
-  - name: dlh_filesystem
+  - name: local_filesystem
     provider:
       # The file system provider specifies a folder in which secrets are stored.
       # Each secret must be an individual file without a file extension, where the secret name is the file name, and the file contains the secret only.
@@ -52,7 +52,7 @@ file_sources:
       user: sftp-user
       auth: 
         # The name of the secret provider configured above which contains the secret for the SFTP user.
-        secret_provider: dlh_filesystem
+        secret_provider: local_filesystem
         # The form of authentication to the SFTP server. This can take the values 'password' or 'ssh_key'. The  appropriate field(s) must be configured below depending on which type is specified.
         type: password
         # Only for use with 'type: password'. The name of the file containing the password in the secrets_directory   folder
@@ -81,7 +81,7 @@ file_sources:
   auth:
     type: sas_token 
     # This must reference a secret provider configured above. 
-    secret_provider: dp_keyvault 
+    secret_provider: data_product_keyvault 
     # The name of a secret in the corresponding provider. 
     # This will be the name of a secret in the Key Vault.   
     # This is created by the Data Product and should not be changed. 

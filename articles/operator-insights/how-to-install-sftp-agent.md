@@ -14,8 +14,9 @@ The SFTP agent is a software package that is installed onto a Linux Virtual Mach
 
 ## Prerequisites
 
-- You must have a configured SFTP server where the files which will be forwarded to Azure Operator Insights are stored
-- You must have an Azure Operator Insights MCC Data product deployment.
+- You must have a configured SFTP server where the files which will be forwarded to Azure Operator Insights are uploaded to.
+    - The SFTP server must be accessible from the VM where the agent is installed.
+- You must have an Azure Operator Insights Data product deployment.
 - You must provide one or more VMs with the following specifications to run the agent:
   - OS - Red Hat Enterprise Linux 8.6 or later
   - Minimum hardware - 4 vCPU,  8-GB RAM, 30-GB disk
@@ -24,7 +25,7 @@ The SFTP agent is a software package that is installed onto a Linux Virtual Mach
   - SSH or alternative access to run shell commands
   - (Preferable) Ability to resolve public DNS.  If not, you need to perform additional manual steps to resolve Azure locations. Refer to [Running without public DNS](#running-without-public-dns) for instructions.
 
-TODO: The number of VMs needed depends on the scale and redundancy characteristics of your deployment. Each agent instance must run on its own VM. Talk to the Affirmed Support Team to determine your requirements.
+The number of VMs needed depends on the scale and redundancy characteristics of your deployment. Each agent instance must run on its own VM. Talk to the Microsoft Support Team to determine your requirements.
 
 ## Deploy the agent on your VMs
 
@@ -49,6 +50,7 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 1. Obtain a certificate. We strongly recommend using trusted certificate(s) from a certificate authority.
 1. Add the certificate(s) as credential(s) to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
 1. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key vault.  Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire.  Once a certificate has expired, the agent  is unable to authenticate to Azure and no longer uploads data.  For details of this approach see [Renew your Azure Key Vault certificates Azure portal](../key-vault/certificates/overview-renew-certificate.md).
+    - You will need the 'Key Vault Certificates Officer' role on the Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 
 1. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
 
@@ -60,8 +62,8 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 
 #### Permissions
 
-1. Find the Azure Key Vault that holds the storage credentials for the input storage account. This key vault is in a resource group named *\<data-product-name\>-HostedResources-\<unique-id\>*.
-1. Grant your service principal the Key Vault Secrets User role on this Key Vault.  You need Owner level permissions on your Azure subscription.  See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
+1. Find the Azure Key Vault that holds the storage credentials for the input storage account. This Key vault is in a resource group named *\<data-product-name\>-HostedResources-\<unique-id\>*.
+1. Grant your service principal the 'Key Vault Secrets User' role on this Key Vault.  You need Owner level permissions on your Azure subscription.  See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 1. Note the name of the Key Vault.
 
 ### Prepare the VMs
@@ -69,14 +71,30 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 Repeat these steps for each VM onto which you want to install the agent:
 
 1. Ensure you have an SSH session open to the VM, and that you have `sudo` permissions.
-1. TODO: Verify that the VM has the following ports open:
-    - Port 36001/TCP inbound from the MCCs
-    - Port 443/TCP outbound to Azure
-    
-    These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
+1. Create a directory which will be used for storing secrets for the agent. Note the path of this directory. This is the directory where the secrets for connecting to the SFTP server will be stored, and is referenced in this document as the 'secrets directory'.
+1. Verify that the VM has the Port 443/TCP outbound to Azure open
+    - This port must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
 1. Install systemd, logrotate and zip on the VM, if not already present.
 1. Obtain the ingestion agent RPM and copy it to the VM.
 1. Copy the pkcs12-formatted base64-encoded certificate (created in the [Prepare certificates](#prepare-certificates) step) to an accessible location on the VM (such as /etc/az-sftp-uploader).
+1. Ensure the SFTP server's public SSH key is listed on the VM's `known_hosts` file.
+
+> [!TIP]
+> A servers SSH key can be added to a VM's `known_hosts` file manually using the `ssh-keygen` command on linux. E.g. `ssh-keygen -192.0.2.0 ~/.ssh/known_hosts`
+
+### Configure the connection between the SFTP server and VM:
+Do the following on the SFTP server:
+
+1. Ensure port 22 is outbound to the VM is open.
+1. Create a new user, or determine an existing user on the SFTP server that will be used by the SFTP agent to forward files to Azure Operator Insights.
+1. Determine the authentication method that will be used by the agent to connect to the SFTP server.  The agent supports two methods:
+    - Password authentication
+    - SSH key authentication
+1. Create a file to store the secret value in the secrets directory on the agent VM, which was created in the [Prepare the VMs](#prepare-the-vms) step.
+   - The file must not have a file extension.
+   - Choose an appropriate name for the secret file, and note this for later.  This name is referenced in the agent configuration.
+   - The secret file must contain only the secret value, with no additional characters or whitespace.
+1. If you are using an SSH key that has a passphrase to authenticate, create a separate secret file that contains the passphrase using the same method.
 
 ### Running without public DNS
 
@@ -100,57 +118,78 @@ Steps:
 
     *\<Key Vault private IP\>*  *\<Key Vault hostname\>*
 
+
+### Acquire the agent RPM
+
+A link to download the SFTP agent RPM is provided as part of the Azure Operator Insights onboarding process. See [How do I get access to Azure Operator Insights?](/articles/operator-insights/overview.md#how-do-i-get-access-to-azure-operator-insights) for details.
+
 ### Install agent software
 
 Repeat these steps for each VM onto which you want to install the agent:
 
 1. In an SSH session, change to the directory where the RPM was copied.
-1. Install the RPM:  `sudo dnf install \*.rpm`.  Answer 'y' when prompted.  If there are any missing dependencies, the RPM isn't installed.
+1. Install the RPM:  `sudo dnf install \*.rpm`.  Answer 'y' when prompted.  If there are any missing dependencies, the RPM will not be installed.
 1. Change to the configuration directory: cd /etc/az-sftp-uploader
 1. Make a copy of the default configuration file:  `sudo cp example\_config.yaml config.yaml`
 1. Edit the *config.yaml* and fill out the fields.  Many of them are set to default values and do not require input.  The full reference for each parameter is described in [SFTP Ingestion Agents configuration reference](sftp-agent-configuration.md). The following parameters must be set:
 
     1. **site\_id** should be changed to a unique identifier for your on-premises site – for example, the name of the city or state for this site.  This name becomes searchable metadata in Operator Insights for all data ingested by this agent. Reserved URL characters must be percent-encoded.
-    1. **secret\_providers\[0\].provider.vault\_name** must be the name of the key vault for your Data Product 
-    1. **secret\_providers\[0\].provider.auth** must be filled out with:
+    1. For the secret provider with name `data_product_keyvault`, set the following:
+        1. **provider.vault\_name** must be the name of the Key Vault for your Data Product  
+        1. **provider.auth** must be filled out with:
 
-        1. **tenant\_id** as your Microsoft Entra ID tenant.
+            1. **tenant\_id** as your Microsoft Entra ID tenant.
 
-        2. **identity\_name** as the application ID of your service principal
+            2. **identity\_name** as the application ID of your service principal
 
-        3. **cert\_path** as the path on disk to the location of the base64-encoded certificate and private key for the service principal to authenticate with.
+            3. **cert\_path** as the path on disk to the location of the base64-encoded certificate and private key for the service principal to authenticate with.
+    1. For the secret provider with name `local_file_system`, set the following:
 
-    1. **secret\_providers\[1\].provider.auth.secrets_directory** the absolute path to the secrets directory on the agent VM.  This is the directory where the secrets for connecting to the SFTP server are stored.  Each secret must be an individual file without a file extension, where the secret name is the file name, and the file contains the secret only.
+        1. **provider.auth.secrets_directory** the absolute path to the secrets directory on the agent VM, which was created in the [Prepare the VMs](#prepare-the-vms) step.
+    
 
     1. **file_sources** a list of file source details, which specifies the configured SFTP server and configures which files should be uploaded, where they should be uploaded, and how often. Multiple file sources can be specified but only a single source is required. Must be filled out with the following:
 
         1. **source_id** a unique identifier for the file source. Any URL reserved characters in source_id must be percent-encoded.
 
-        1. **source** must be filled out with:
+        1. **source.sftp** must be filled out with:
 
-            1. **sftp** must be filled out with:
+            1. **host** the hostname or IP address of the SFTP server.
 
-                1. **host** the hostname or IP address of the SFTP server.
+            1. **base\_path** the path on the SFTP server to copy files from.
 
-                1. **base\_path** the path on the SFTP server to copy files from.
+            1. **known\_hosts\_file** the path on the VM to the 'known_hosts' file for the SFTP server.  This file must be in SSH format and contain details of any public SSH keys used by the SFTP server.
 
-                1. **known\_hosts\_file** the path on the VM to the 'known_hosts' file for the SFTP server.  This file must be in SSH format and contain  details of any public SSH keys used by the SFTP server.
+            1. **user** the name of the user on the SFTP server which the agent should use to connect.
 
-                1. **user** the name of the user on the SFTP server which the agent should use to connect.
+            1. **auth** must be filled according to which authentication method was chosen in the [Configure the connection between the SFTP server and VM](#configure-the-connection-between-the-sftp-server-and-vm) step. The required fields will be different depending on which authentication type is specified:
 
-                1. **auth** either a *password* or an *ssh key* can be used to authenticate to the SFTP server. the required fields will be different depending on which auth type is specified
+                - Password:
 
-                    1. **type** set to either `password` or `ssh_key` depending on which type of authentication is used.
+                    1. **type** set to `password`
 
-                    1. **secret\_name** to be filled in if `type: password`. The name of the file containing the password in the secrets_directory folder.
+                    1. **secret\_name** is the name of the file containing the password in the `secrets_directory` folder.
 
-                    1. **key\_secret** to be filled in if `type: ssh_key`. The name of the file containing the SSH key in the secrets_directory folder.
+                - SSH key:
 
-                    1. **passphrase\_secret\_name** to be filled in if `type: ssh_key`. The name of the file containing the passphrase for the SSH key in the secrets_directory folder. If the SSH key does not have a passphrase, do not include this field.
+                    1. **type** set to `ssh_key`
 
-        1. **sink.container\_name** a string giving the name of the Azure Blob Storage container to use with this file source. Each data type must be sent to a specific container
+                    1. **key\_secret** is the name of the file containing the SSH key in the `secrets_directory` folder.
 
-1. Start the agent: `sudo systemctl start az-sftp-uploader`
+                    1. **passphrase\_secret\_name** is the name of the file containing the passphrase for the SSH key in the secrets_directory folder. If the SSH key does not have a passphrase, do not include this field.
+
+        1. **sink.container\_name** a string giving the name of the Azure Blob Storage container to use with this file source. This is determined by the type of Data Product that has been deployed. TODO: refer to this doc.
+
+> [!TIP]
+> The agent supports additional optional configuration for the following:
+> - Specifying a pattern of files in the `base_path` folder which will be uploaded (by default all files in the folder are uploaded)
+> - Specifying a pattern of files in the `base_path` folder which should not be uploaded
+> - A time and date before which files in the `base_path` folder will not be uploaded
+> - How often the SFTP agent uploads files (by default, every 1 hour)
+> - A settling time, which is a time period after a file is last modified that the agent will wait before it is uploaded (by default, 1 minute)
+> For more information about these configuration options, see [SFTP Ingestion Agents configuration reference](sftp-agent-configuration.md).
+
+6. Start the agent: `sudo systemctl start az-sftp-uploader`
 
 1. Check that the agent is running: `sudo systemctl status az-sftp-uploader`
 
@@ -186,7 +225,7 @@ The VM used for the SFTP agent should be set up following best practice for secu
 
 The SFTP agent is designed to be highly reliable and resilient to low levels of network disruption. If an unexpected error occurs, the agent restarts and provides service again as soon as it's running.
 
-The agent doesn't buffer data, so if a persistent error or extended connectivity problems occur, any files which are scheduled to be uploaded, but have not yet been uploaded will not be uploaded for that scheduled run. However, if the error suggests that the upload may be successful if retried, the agent will attempt the upload the file on the next scheduled run.
+If a persistent error or extended connectivity problems occur, some files may not be uploaded. However, if the error suggests that the upload may be successful if retried, the agent will attempt the upload the file on the next scheduled run.
 
 ## Related content
 

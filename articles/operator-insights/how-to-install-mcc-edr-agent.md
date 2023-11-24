@@ -49,6 +49,7 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 1. Obtain a certificate. We strongly recommend using trusted certificate(s) from a certificate authority.
 1. Add the certificate(s) as credential(s) to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
 1. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key vault.  Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire.  Once a certificate has expired, the agent  is unable to authenticate to Azure and no longer uploads data.  For details of this approach see [Renew your Azure Key Vault certificates Azure portal](../key-vault/certificates/overview-renew-certificate.md).
+    - You will need the 'Key Vault Certificates Officer' role on the Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 
 1. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
 
@@ -60,8 +61,8 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 
 #### Permissions
 
-1. Find the Azure Key Vault that holds the storage credentials for the input storage account. This key vault is in a resource group named *\<data-product-name\>-HostedResources-\<unique-id\>*.
-1. Grant your service principal the Key Vault Secrets User role on this Key Vault.  You need Owner level permissions on your Azure subscription.  See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
+1. Find the Azure Key Vault that holds the storage credentials for the input storage account. This Key Vault is in a resource group named *\<data-product-name\>-HostedResources-\<unique-id\>*.
+1. Grant your service principal the 'Key Vault Secrets User' role on this Key Vault.  You need Owner level permissions on your Azure subscription.  See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 1. Note the name of the Key Vault.
 
 ### Prepare the VMs
@@ -82,7 +83,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 
 If your agent VMs don't have access to public DNS, then you need to add entries on each agent VM to map the Azure host names to IP addresses.
 
-This process assumes that you're connecting to Azure over ExpressRoute and are using Private Links and/or Service Endpoints. If you're connecting over public IP addressing,  you **cannot** use this workaround and must use public DNS.
+This process assumes that you're connecting to Azure over ExpressRoute and are using Private Links and/or Service Endpoints. If you're connecting over public IP addressing, you **cannot** use this workaround and must use public DNS.
 
 Create the following from a virtual network that is peered to your ingestion agents:
 
@@ -100,6 +101,10 @@ Steps:
 
     *\<Key Vault private IP\>*  *\<Key Vault hostname\>*
 
+### Acquire the agent RPM
+
+A link to download the MCC EDR agent RPM is provided as part of the Azure Operator Insights onboarding process. See [How do I get access to Azure Operator Insights?](/articles/operator-insights/overview.md#how-do-i-get-access-to-azure-operator-insights) for details.
+
 ### Install agent software
 
 Repeat these steps for each VM onto which you want to install the agent:
@@ -112,14 +117,16 @@ Repeat these steps for each VM onto which you want to install the agent:
 
     1. **site\_id** should be changed to a unique identifier for your on-premises site – for example, the name of the city or state for this site.  This name becomes searchable metadata in Operator Insights for all EDRs from this agent. 
     1. **agent\_id** should be a unique identifier for this agent – for example, the VM hostname.
-    1. **secret\_providers\[0\].provider.vault\_name** must be the name of the key vault for your Data Product  
-    1. **secret\_providers\[0\].provider.auth** must be filled out with:
 
-        1. **tenant\_id** as your Microsoft Entra ID tenant.
+    1. For the secret provider with name `data_product_keyvault`, set the following:
+        1. **provider.vault\_name** must be the name of the Key Vault for your Data Product  
+        1. **provider.auth** must be filled out with:
 
-        2. **identity\_name** as the application ID of your service principal
+            1. **tenant\_id** as your Microsoft Entra ID tenant.
 
-        3. **cert\_path** as the path on disk to the location of the base64-encoded certificate and private key for the service principal to authenticate with.
+            2. **identity\_name** as the application ID of your service principal
+
+            3. **cert\_path** as the path on disk to the location of the base64-encoded certificate and private key for the service principal to authenticate with.
 
     1. **sink.container\_name** *must be left as "edr".*
 
