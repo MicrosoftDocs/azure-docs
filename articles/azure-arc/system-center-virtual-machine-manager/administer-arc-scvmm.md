@@ -2,7 +2,7 @@
 title:  Perform ongoing administration for Arc-enabled System Center Virtual Machine Manager
 description: Learn how to perform administrator operations related to Azure Arc-enabled System Center Virtual Machine Manager
 ms.topic: how-to 
-ms.date: 11/21/2023
+ms.date: 11/24/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-scvmm
 author: Farha-Bano
@@ -20,45 +20,26 @@ In this article, you learn how to perform various administrative operations rela
 
 Each of these operations requires either SSH key to the resource bridge VM or the kubeconfig that provides access to the Kubernetes cluster on the resource bridge VM.
 
-## Upgrade the Arc resource bridge
+## Upgrade the Arc resource bridge manually
 
-Azure Arc-enabled SCVMM requires the Arc resource bridge to connect your SCVMM environment with Azure. Periodically, new images of Arc resource bridge are released to include security and feature updates.
+Azure Arc-enabled SCVMM requires the Arc resource bridge to connect your SCVMM environment with Azure. Periodically, new images of Arc resource bridge are released to include security and feature updates. The Arc resource bridge can be manually upgraded from the SCVMM server. You must meet all upgrade prerequisites before attempting to upgrade. The SCVMM server must have the kubeconfig and appliance configuration files stored locally.
 
 > [!NOTE]
-> To upgrade the Arc resource bridge VM to the latest version, you need to perform the onboarding again with the **same resource IDs**. This will cause some downtime as operations performed through Arc during this time might fail.
+> The manual upgrade feature is available for resource bridge version 1.0.14 and higher. Resource bridges below version 1.0.14 need to perform the recovery option to get to version 1.0.15 or higher.
 
-To upgrade to the latest version of the resource bridge, perform the following steps:
+The manual upgrade generally takes between 30-90 minutes depending on network speeds. The upgrade command takes your Arc resource bridge to the immediate next version, which might not be the latest available version. Multiple upgrades could be needed to reach a supported version. You can check your resource bridge version by checking the Azure resource of your Arc resource bridge.
 
-1. Copy the Azure region and resource IDs of the Arc resource bridge, custom location, and SCVMM Azure resources.
+To manually upgrade your Arc resource bridge, make sure you have installed the latest `az arcappliance` CLI extension by running the extension upgrade command from the SCVMM server:
 
-2. Find and delete the old Arc resource bridge resource under the [Resource Bridges tab from the Azure Arc center](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/resourceBridges).
+```azurecli
+az extension add --upgrade --name arcappliance 
+```
 
-3. Download the [onboarding script](/azure/azure-arc/system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc#download-the-onboarding-script) from the Azure portal and update the following section in the script, using the same information as the original resources in Azure.
+To manually upgrade your resource bridge, use the following command:
 
-    ```powershell
-    $location = <Azure region of the resources>
-    $applianceSubscriptionId = <subscription-id>
-    $applianceResourceGroupName = <resource-group-name>
-    $applianceName = <resource-bridge-name>
-
-    $customLocationSubscriptionId = <subscription-id>
-    $customLocationResourceGroupName = <resource-group-name>
-    $customLocationName = <custom-location-name>
-
-    $vmmserverSubscriptionId = <subscription-id>
-    $vmmserverResourceGroupName = <resource-group-name>
-    $vmmserverName= <SCVMM-name-in-azure>
-    ```
-
-4. [Run the onboarding script](/azure/azure-arc/system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc#download-the-onboarding-script) again with the `--force` parameter.
-
-    ``` powershell-interactive
-    ./resource-bridge-onboarding-script.ps1 --force
-    ```
-
-5. [Provide the inputs](/azure/azure-arc/system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc#script-runtime) as prompted.
-
-6. Once the onboarding is successfully completed, the resource bridge is upgraded to the latest version.
+```azurecli
+az arcappliance upgrade scvmm --config-file <file path to ARBname-appliance.yaml> 
+```
 
 ## Update the SCVMM account credentials (using a new password or a new SCVMM account after onboarding)
 
