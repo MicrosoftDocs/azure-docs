@@ -26,8 +26,6 @@ items:
     href: high-availability.md
   - name: Encryption
     href: encryption.md
-  - name: Add Azure Data Explorer
-    href: how-to-connect-azure-data-explorer.md
 - name: How-to guides
   expanded: true
   items:
@@ -49,6 +47,8 @@ items:
       href: how-to-permissions.md
     - name: Add an Azure Monitor workspace
       href: how-to-connect-azure-monitor-workspace.md
+    - name: Add Azure Data Explorer
+      href: how-to-connect-azure-data-explorer.md
     - name: Enable Grafana Enterprise
       href: how-to-grafana-enterprise.md
     - name: Manage plugins
