@@ -10,6 +10,7 @@ author: eric-urban
 ms.author: eur
 ms.date: 09/15/2023
 recommendations: false
+zone_pivot_groups: openai-whisper
 ---
 
 # Quickstart: Speech to text with the Azure OpenAI Whisper model
