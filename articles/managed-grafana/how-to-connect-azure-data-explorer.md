@@ -105,13 +105,13 @@ When you configure an Azure Data Explorer data source with the Current User auth
 
 ::: zone pivot="aro-azurecli"
 
-In the Azure CLI, add and configure an Azure Data Explorer, by running the [az grafana data-source create](/cli/azure/grafana/data-source#az-grafana-data-source-create) command. Choose the authentication method you want to use and refer to the correspondig the tab below for more information. When running these commands, replace all placeholders with your own information.
-
 ## Create an Azure Data Explorer data source
 
-### [Managed identity](#tab/managed-identity)
+In the Azure CLI, add and configure an Azure Data Explorer, by running the [az grafana data-source create](/cli/azure/grafana/data-source#az-grafana-data-source-create) command. Choose the authentication method you want to use and refer to the correspondig tab below for more information. When running these commands, replace all placeholders with your own information.
 
-Azure Managed identity lets you authenticate without using explicit credentials.
+### [Managed identity](#tab/managed-identity-cli)
+
+Authenticate with a managed identity without using explicit credentials.
 
 ```azurecli
 az grafana data-source create --name <azure-managed-grafana-workspace> --definition '{
@@ -125,9 +125,9 @@ az grafana data-source create --name <azure-managed-grafana-workspace> --definit
 }'
 ```
 
-### [App registration](#tab/app-registration)
+### [App registration](#tab/app-registration-cli)
 
-The app registration authentication method uses a Microsoft Entra service principal.
+Authenticate with app registration using a Microsoft Entra service principal.
 
 ```azurecli
 az grafana data-source create --name <azure-managed-grafana-workspace> --definition '{
@@ -155,17 +155,17 @@ To update an Azure Data Explorer data source, follow the steps below. When runni
 
 1. Get the ID of the Azure Data Explorer data source to update with [az grafana data-source list](/cli/azure/grafana/data-source#az-grafana-data-source-list).
   
-  ```azurecli
-  az grafana data-source list --resource-group <azure-managed-grafana-resource-group> --name <azure-managed-grafana-workspace> --query "[?type=='grafana-azure-data-explorer-datasource'].id"
-  ```
+   ```azurecli
+   az grafana data-source list --resource-group <azure-managed-grafana-resource-group> --name <azure-managed-grafana-workspace> --query "[?type=='grafana-azure-data-explorer-datasource'].id"
+   ```
 
 1. Run the [az grafana data-source update](/cli/azure/grafana/data-source#az-grafana-data-source-update) command to update the data source.
 
-  For example, update the name and cluster URL of the Azure Data Explorer data source with the following command.
+   For example, update the name and cluster URL of the Azure Data Explorer data source with the following command.
 
-  ```azurecli
-  az grafana data-source update --resource-group <azure-managed-grafana-workspace-resource-group> --name <azure-managed-grafana-workspace> --data-source-id <data-source-id> --set name="<new-name>" url="<new-url>
-  ```
+   ```azurecli
+   az grafana data-source update --resource-group <azure-managed-grafana-workspace-resource-group> --name <azure-managed-grafana-workspace> --data-source-id <data-source-id> --set name="<new-name>" url="<new-url>
+   ```
 
 :::zone-end
 
