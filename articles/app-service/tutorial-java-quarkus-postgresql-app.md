@@ -1,308 +1,459 @@
 ---
 title: 'Tutorial: Linux Java app with Quarkus and PostgreSQL'
 description: Learn how to get a data-driven Linux Quarkus app working in Azure App Service, with connection to a PostgreSQL running in Azure.
-author: denvermb
-ms.author: dbrittain
+author: cephalin
+ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 5/27/2022
+ms.date: 11/30/2023
 ms.custom: mvc, devx-track-azurecli, devx-track-extended-java, AppServiceConnectivity
 ---
 
 # Tutorial: Build a Quarkus web app with Azure App Service on Linux and PostgreSQL
 
-This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure.
-When you are finished, you will have a [Quarkus](https://quarkus.io) application storing data in [PostgreSQL](../postgresql/index.yml) database running on [Azure App Service on Linux](overview.md).
+This tutorial shows how to build, configure, and deploy a secure [Quarkus](https://quarkus.io) application in Azure App Service that's connected to a PostgreSQL database (using [Azure Database for PostgreSQL](../postgresql/index.yml)). Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you'll have a Quarkus app running on [Azure App Service on Linux](overview.md).
 
 :::image type="content" source="./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-locally.png" alt-text="Screenshot of Quarkus application storing data in PostgreSQL.":::
 
-In this tutorial, you learn how to:
+**To complete this tutorial, you'll need:**
 
-> [!div class="checklist"]
-> * Create a App Service on Azure
-> * Create a PostgreSQL database on Azure
-> * Deploy the sample app to Azure App Service
-> * Connect a sample app to the database
-> * Stream diagnostic logs from App Service
-> * Add additional instances to scale out the sample app
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/java/).
+* Knowledge of Java with [Quarkus](https://quarkus.io) development.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+## 1. Run the sample application
 
-## Prerequisites
+The tutorial uses [Quarkus sample: Hibernate ORM with Panache and RESTEasy](https://github.com/Azure-Samples/msdocs-quarkus-postgresql-sample-app), which comes with a [dev container](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers) configuration. The easiest way to run it is in a GitHub codespace.
 
-* [Azure CLI](/cli/azure/overview), installed on your own computer.
-* [Git](https://git-scm.com/)
-* [Java JDK](/azure/developer/java/fundamentals/java-support-on-azure)
-* [Maven](https://maven.apache.org)
+:::row:::
+    :::column span="2":::
+        **Step 1:** In a new browser window:
+        1. Sign in to your GitHub account.
+        1. Navigate to [https://github.com/Azure-Samples/msdocs-quarkus-postgresql-sample-app](https://github.com/Azure-Samples/msdocs-quarkus-postgresql-sample-app).
+        1. Select **Fork**.
+        1. Select **Create fork**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-run-sample-application-1.png" alt-text="A screenshot showing how to create a fork of the sample GitHub repository." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-run-sample-application-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** In the GitHub fork, select **Code** > **Create codespace on main**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-run-sample-application-2.png" alt-text="A screenshot showing how to open the Visual Studio Code browser experience in GitHub." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-run-sample-application-2.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3:** In the codespace terminal:
+        1. Run `mvn quarkus:dev`.
+        1. When you see the notification `Your application running on port 8080 is available.`, select **Open in Browser**. If you see a notification with port 5005, skip it.
+        You should see the sample application in a new browser tab.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-run-sample-application-3.png" alt-text="A screenshot showing how to open the Visual Studio Code browser experience in GitHub." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-run-sample-application-3.png":::
+    :::column-end:::
+:::row-end:::
 
-## Clone the sample app and prepare the repo
+For more information on how the Quarkus sample application is created, see Quarkus documentation [Simplified Hibernate ORM with Panache](https://quarkus.io/guides/hibernate-orm-panache) and [Configure data sources in Quarkus](https://quarkus.io/guides/datasource).
 
-This tutorial uses a sample Fruits list app with a web UI that calls a Quarkus REST API backed by [Azure Database for PostgreSQL](../postgresql/index.yml). The code for the app is available [on GitHub](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart). To learn more about writing Java apps using Quarkus and PostgreSQL, see the [Quarkus Hibernate ORM with Panache Guide](https://quarkus.io/guides/hibernate-orm-panache) and the [Quarkus Datasource Guide](https://quarkus.io/guides/datasource).
+## 1 - Create App Service and PostgreSQL resources
 
-Run the following commands in your terminal to clone the sample repo and set up the sample app environment.
+In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for PostgreSQL. For the creation process, you'll specify:
 
-```bash
-git clone https://github.com/quarkusio/quarkus-quickstarts
-cd quarkus-quickstarts/hibernate-orm-panache-quickstart
+* The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
+* The **Region** to run the app physically in the world.
+* The **Runtime stack** for the app. It's where you select the version of Java SDK to use for your app.
+* The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
+* The **Resource Group** for the app. A resource group lets you group (in a logical container) all the Azure resources needed for the application.
+
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
+
+:::row:::
+    :::column span="2":::
+        **Step 1:** In the Azure portal:
+        1. Enter "web app database" in the search bar at the top of the Azure portal.
+        1. Select the item labeled **Web App + Database** under the **Marketplace** heading.
+        You can also navigate to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-create-app-postgres-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App + Database creation wizard." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-create-app-postgres-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** In the **Create Web App + Database** page, fill out the form as follows.
+        1. *Resource Group* &rarr; Select **Create new** and use a name of **msdocs-quarkus-postgres-tutorial**.
+        1. *Region* &rarr; Any Azure region near you.
+        1. *Name* &rarr; **msdocs-quarkus-postgres-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
+        1. *Runtime stack* &rarr; **Java 17**.
+        1. *Java web server stack* &rarr; **Java SE (Embedded Web Server)**.
+        1. *Database* &rarr;  **PostgreSQL - Flexible Server**. The server name and database name are set by default to appropriate values.
+        1. *Hosting plan* &rarr; **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
+        1. Select **Review + create**.
+        1. After validation completes, select **Create**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-create-app-postgres-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-create-app-postgres-2.png":::
+    :::column-end:::
+:::row-end:::
+
+## 2. Create App Service and PostgreSQL
+
+First, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for PostgreSQL. For the creation process, you'll specify:
+
+* The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
+* The **Region** to run the app physically in the world.
+* The **Runtime stack** for the app. It's where you select the version of Java to use for your app.
+* The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
+* The **Resource Group** for the app. A resource group lets you group (in a logical container) all the Azure resources needed for the application.
+
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
+
+:::row:::
+    :::column span="2":::
+        **Step 1:** In the Azure portal:
+        1. Enter "web app database" in the search bar at the top of the Azure portal.
+        1. Select the item labeled **Web App + Database** under the **Marketplace** heading.
+        You can also navigate to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-create-app-postgres-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App + Database creation wizard." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-create-app-postgres-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** In the **Create Web App + Database** page, fill out the form as follows.
+        1. *Resource Group* &rarr; Select **Create new** and use a name of **msdocs-quarkus-postgres-tutorial**.
+        1. *Region* &rarr; Any Azure region near you.
+        1. *Name* &rarr; **msdocs-quarkus-postgres-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
+        1. *Runtime stack* &rarr; **Java 17**.
+        1. *Java web server stack* &rarr; **Java SE (Embedded Web Server)**.
+        1. *Database* &rarr;  **PostgreSQL - Flexible Server**. The server name and database name are set by default to appropriate values.
+        1. *Hosting plan* &rarr; **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
+        1. Select **Review + create**.
+        1. After validation completes, select **Create**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-create-app-postgres-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-create-app-postgres-2.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
+        - **Resource group** &rarr; The container for all the created resources.
+        - **App Service plan** &rarr; Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
+        - **App Service** &rarr; Represents your app and runs in the App Service plan.
+        - **Virtual network** &rarr; Integrated with the App Service app and isolates back-end network traffic.
+        - **Azure Database for PostgreSQL flexible server** &rarr; Accessible only from within the virtual network. A database and a user are created for you on the server.
+        - **Private DNS zone** &rarr; Enables DNS resolution of the PostgreSQL server in the virtual network.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-create-app-postgres-3.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-create-app-postgres-3.png":::
+    :::column-end:::
+:::row-end:::
+
+## 3. Verify connection settings
+
+The creation wizard generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings). App settings are one way to keep connection secrets out of your code repository. When you're ready to move your secrets to a more secure location, you can use [Key Vault references](app-service-key-vault-references.md) instead.
+
+:::row:::
+    :::column span="2":::
+        **Step 1:** In the App Service page, in the left menu, select **Configuration**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-get-connection-string-1.png" alt-text="A screenshot showing how to open the configuration page in App Service." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-get-connection-string-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** In the **Application settings** tab of the **Configuration** page, verify that `AZURE_POSTGRESQL_CONNECTIONSTRING` is present. It's injected at runtime as an environment variable.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-get-connection-string-2.png" alt-text="A screenshot showing how to see the autogenerated connection string." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-get-connection-string-2.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4:** In the **Application settings** tab of the **Configuration** page, select **New application setting**. Name the setting `PORT` and set its value to `8080`, which is the default port of the Quarkus application. Select **OK**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-app-service-app-setting.png" alt-text="A screenshot showing how to set the PORT app setting in the Azure portal." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-app-service-app-setting.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 5:** Select **Save**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-app-service-app-setting-save.png" alt-text="A screenshot showing how to save the PORT app setting in the Azure portal." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-app-service-app-setting-save.png":::
+    :::column-end:::
+:::row-end:::
+
+
+Having issues? Check the [Troubleshooting section](#troubleshooting).
+
+## 4. Deploy sample code
+
+In this step, you'll configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository will kick off the build and deploy action.
+
+:::row:::
+    :::column span="2":::
+        **Step 1:** Back in the App Service page, in the left menu, select **Deployment Center**. 
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-1.png" alt-text="A screenshot showing how to open the deployment center in App Service." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** In the Deployment Center page:
+        1. In **Source**, select **GitHub**. By default, **GitHub Actions** is selected as the build provider.        
+        1. Sign in to your GitHub account and follow the prompt to authorize Azure.
+        1. In **Organization**, select your account.
+        1. In **Repository**, select **msdocs-quarkus-postgresql-sample-app**.
+        1. In **Branch**, select **main**.
+        1. In **Authentication type**, select **User-assigned identity (Preview)**.
+        1. In the top menu, select **Save**. App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
+        
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-2.png" alt-text="A screenshot showing how to configure CI/CD using GitHub Actions." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-2.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3:** Back in the GitHub codespace of your sample fork, 
+        1. Open *src/main/resources/application.properties* in the explorer. Quarkus uses this file to load Java properties.
+        1. Add a production property `%prod.quarkus.datasource.jdbc.url=${AZURE_POSTGRESQL_CONNECTIONTRING}`. 
+        This property sets the production data source URL to the app setting that the creation wizard generated for you.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing Visual Studio Code in the browser and an opened file." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4:** 
+        1. Open *.github/workflows/main_msdocs-quarkus-postgres-XYZ.yml* in the explorer. This file was created by the App Service create wizard.
+        1. Under the `Build with Maven` step, change the Maven command to `mvn clean install -DskipTests -Dquarkus.package.type=uber-jar`.
+        `-DskipTests` skips the tests in your Quarkus project, and `-Dquarkus.package.type=uber-jar` [creates an Uber-jar](https://quarkus.io/guides/maven-tooling#uber-jar-maven) that App Service needs.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-4.png" alt-text="A screenshot showing Visual Studio Code in the browser and an opened file." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-4.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 5:**
+        1. Select the **Source Control** extension.
+        1. In the textbox, type a commit message like `Configure DB and deployment workflow`.
+        1. Select **Commit**, then confirm with **Yes**.
+        1. Select **Sync changes 2**, then confirm with **OK**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-5.png" alt-text="A screenshot showing the changes being committed and pushed to GitHub." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-5.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 6:** Back in the Deployment Center page in the Azure portal:
+        1. Select **Logs**. A new deployment run is already started from your committed changes.
+        1. In the log item for the deployment run, select the **Build/Deploy Logs** entry with the latest timestamp.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-6.png" alt-text="A screenshot showing how to open deployment logs in the deployment center." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-6.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 7:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Complete**. It takes about 5 minutes.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-7.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-7.png":::
+    :::column-end:::
+:::row-end:::
+
+Having issues? Check the [Troubleshooting section](#troubleshooting).
+
+## 5. Browse to the app
+
+:::row:::
+    :::column span="2":::
+        **Step 1:** In the App Service page:
+        1. From the left menu, select **Overview**.
+        1. Select the URL of your app. You can also navigate directly to `https://<app-name>.azurewebsites.net`.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-browse-app-1.png" alt-text="A screenshot showing how to launch an App Service from the Azure portal." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-browse-app-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** Add a few fruits to the list.
+        Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for PostgreSQL.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Quarkus web app with PostgreSQL running in Azure showing a list of fruits." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-browse-app-2.png":::
+    :::column-end:::
+:::row-end:::
+
+## 6. Stream diagnostic logs
+
+Azure App Service captures all messages output to the console to help you diagnose issues with your application. The sample application includes standard JBoss logging statements to demonstrate this capability as shown below.
+
+:::code language="java" source="~/msdocs-quarkus-postgresql-sample-app/src/main/java/org/acme/hibernate/orm/panache/entity/FruitEntityResource.java" range="34-40" highlight="34,38":::
+
+:::row:::
+    :::column span="2":::
+        **Step 1:** In the App Service page:
+        1. From the left menu, select **App Service logs**.
+        1. Under **Application logging**, select **File System**.
+        1. In the top menu, select **Save**. 
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-stream-diagnostic-logs-1.png" alt-text="A screenshot showing how to enable native logs in App Service in the Azure portal." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-stream-diagnostic-logs-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** From the left menu, select **Log stream**. You see the logs for your app, including platform logs and logs from inside the container.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-stream-diagnostic-logs-2.png" alt-text="A screenshot showing how to view the log stream in the Azure portal." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-stream-diagnostic-logs-2.png":::
+    :::column-end:::
+:::row-end:::
+
+Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](../azure-monitor/app/opentelemetry-enable.md?tabs=java).
+
+## 7. Clean up resources
+
+When you're finished, you can delete all of the resources from your Azure subscription by deleting the resource group.
+
+:::row:::
+    :::column span="2":::
+        **Step 1:** In the search bar at the top of the Azure portal:
+        1. Enter the resource group name.
+        1. Select the resource group.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-clean-up-resources-1.png" alt-text="A screenshot showing how to search for and navigate to a resource group in the Azure portal." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-clean-up-resources-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** In the resource group page, select **Delete resource group**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-clean-up-resources-2.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-clean-up-resources-2.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3:** 
+        1. Enter the resource group name to confirm your deletion.
+        1. Select **Delete**.
+        1. Confirm with **Delete** again.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-clean-up-resources-3.png"::::
+    :::column-end:::
+:::row-end:::
+::: zone-end
+
+## Troubleshooting
+
+#### I see the error log "ERROR [org.acm.hib.orm.pan.ent.FruitEntityResource] (vert.x-eventloop-thread-0) Failed to handle request: jakarta.ws.rs.NotFoundException: HTTP 404 Not Found".
+
+This is a Vert.x error (see [Quarkus Reactive Architecture](https://quarkus.io/guides/quarkus-reactive-architecture)), indicating that the client has requested an unknown path. This happens on app startup because App Service verifies that the app has started by sending a `GET` request to `/robots933456.txt`.
+
+#### The app failed to start and shows the following error in log: "Model classes are defined for the default persistence unit <default> but configured datasource <default> not found: the default EntityManagerFactory will not be created."
+
+This Quarkus error is most likely because the app can't connect to the Azure database. Make sure that the app setting `AZURE_POSTGRESQL_CONNECTIONSTRING` hasn't been changed, and that *application.properties* is using the app setting properly.
+
+## Frequently asked questions
+
+#### How much does this setup cost?
+
+Pricing for the created resources is as follows:
+
+- The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
+- The PostgreSQL flexible server is created in the lowest burstable tier **Standard_B1ms**, with the minimum storage size, which can be scaled up or down. See [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/).
+- The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
+- The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
+
+#### How do I connect to the PostgreSQL server that's secured behind the virtual network with other tools?
+
+- For basic access from a command-line tool, you can run `psql` from the app's SSH terminal.
+- To connect from a desktop tool, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
+- You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) with the virtual network.
+
+#### How does local app development work with GitHub Actions?
+
+Using the autogenerated workflow file from App Service as an example, each `git push` kicks off a new build and deployment run. From a local clone of the GitHub repository, you make the desired updates and push to GitHub. For example:
+
+```terminal
+git add .
+git commit -m "<some-message>"
+git push origin main
 ```
 
-## Create an App Service on Azure
+#### What if I want to run tests with PostgreSQL during the GitHub workflow?
 
-1. Sign in to your Azure CLI, and optionally set your subscription if you have more than one connected to your sign-in credentials.
+The default Quarkus sample application includes tests that includes database connectivity. If you want, you can run the tests against a PostgreSQL service container. For example, in the automatically generated workflow file in your GitHub fork (*.github/workflows/main_cephalin-quarkus.yml*), make the following changes:
 
-    ```azurecli
-    az login
-    az account set -s <your-subscription-id>
+1. Add YAML code for the PostgreSQL container to the `build` job, as shown in the following snippet.
+
+    ```yml
+    ...
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+    
+        # BEGIN CODE ADDITION
+        container: ubuntu
+        services:
+          # Hostname for the PostgreSQL container
+          postgresdb:
+            image: postgres
+            env:
+              POSTGRES_PASSWORD: postgres
+              POSTGRES_USER: postgres
+              POSTGRES_DB: postgres
+            # Set health checks to wait until postgres has started
+            options: >-
+              --health-cmd pg_isready
+              --health-interval 10s
+              --health-timeout 5s
+              --health-retries 5
+    
+        # END CODE ADDITION
+    
+        steps:
+          - uses: actions/checkout@v4
+          ...
     ```
+    
+    `container: ubuntu` tells GitHub to run the `build` job in a container. This way, the connection string in your dev environment `jdbc:postgresql://postgresdb:5432/postgres` can work as-is in when the workflow runs. For more information about PostgreSQL connectivity in GitHub Actions, see [Creating PostgreSQL service containers](https://docs.github.com/en/actions/using-containerized-services/creating-postgresql-service-containers).
 
-2. Create an Azure Resource Group, noting the resource group name (referred to with `$RESOURCE_GROUP` later on)
+1. In the `Build with Maven` step, remove `-DskipTests`. For example:
 
-    ```azurecli
-    az group create \
-        --name <a-resource-group-name> \
-        --location <a-resource-group-region>
+    ```yml
+          - name: Build with Maven
+            run: mvn clean install -Dquarkus.package.type=uber-jar
     ```
-
-3. Create an App Service Plan. The App Service Plan is the compute container, it determines your cores, memory, price, and scale.
-
-    ```azurecli
-    az appservice plan create \
-        --name "quarkus-tutorial-app-service-plan" \
-        --resource-group $RESOURCE_GROUP \
-        --sku B2 \
-        --is-linux
-    ```
-
-4. Create an app service within the App Service Plan.
-
-    ```azurecli
-        WEBAPP_NAME=<a unique name>
-        az webapp create \
-        --name $WEBAPP_NAME \
-        --resource-group $RESOURCE_GROUP \
-        --runtime "JAVA|11-java11" \
-        --plan "quarkus-tutorial-app-service-plan"
-    ```
-
-> [!IMPORTANT]
-> The `WEBAPP_NAME` must be **unique across all Azure**. A good pattern is to use a combination of your company name or initials of your name along with a good webapp name, for example `johndoe-quarkus-app`.
-
-## Create an Azure PostgreSQL Database
-
-Follow these steps to create an Azure PostgreSQL database in your subscription. The Quarkus Fruits app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
-
-1. Create the database service.
-
-    ```azurecli
-    DB_SERVER_NAME='msdocs-quarkus-postgres-webapp-db'
-    ADMIN_USERNAME='demoadmin'
-    ADMIN_PASSWORD='<admin-password>'
-
-    az postgres server create \
-        --resource-group $RESOURCE_GROUP \
-        --name $DB_SERVER_NAME \
-        --location $LOCATION \
-        --admin-user $ADMIN_USERNAME \
-        --admin-password $ADMIN_PASSWORD \
-        --sku-name GP_Gen5_2
-    ```
-
-    The following parameters are used in the above Azure CLI command:
-
-   * *resource-group* &rarr; Use the same resource group name in which you created the web app, for example `msdocs-quarkus-postgres-webapp-rg`.
-   * *name* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure** (the server endpoint becomes `https://<name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and server identifier. (`msdocs-quarkus-postgres-webapp-db`)
-   * *location* &rarr; Use the same location used for the web app.
-   * *admin-user* &rarr; Username for the administrator account. It can't be `azure_superuser`, `admin`, `administrator`, `root`, `guest`, or `public`. For example, `demoadmin` is okay.
-   * *admin-password* Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
-
-       > [!IMPORTANT]
-       > When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Java apps.
-
-   * *public-access* &rarr; `None` which sets the server in public access mode with no firewall rules. Rules will be created in a later step.
-   * *sku-name* &rarr; The name of the pricing tier and compute configuration, for example `GP_Gen5_2`. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
-
-2. Configure the firewall rules on your server by using the [az postgres server firewall-rule create](/cli/azure/postgres/flexible-server/firewall-rule) command to give your local environment access to connect to the server.
-
-    ```azurecli
-    az postgres server firewall-rule create \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --server-name $DB_SERVER_NAME \
-    --name AllowMyIP \
-    --start-ip-address <your IP> \
-    --end-ip-address <your IP>
-    ```
-
-    Also, once your application runs on App Service, you'll need to give it access as well. run the following command to allow access to the database from services within Azure:
-
-    ```azurecli
-    az postgres server firewall-rule create \
-      --resource-group $RESOURCE_GROUP_NAME \
-      --server-name $DB_SERVER_NAME \
-      --name AllowAllWindowsAzureIps \
-      --start-ip-address 0.0.0.0 \
-      --end-ip-address 0.0.0.0
-    ```
-
-3. Create a database named `fruits` within the Postgres service with this command:
-
-    ```azurecli
-    az postgres db create \
-        --resource-group $RESOURCE_GROUP \
-        --server-name $DB_SERVER_NAME \
-        --name fruits
-    ```
-
-## Configure the Quarkus app properties
-
-Quarkus configuration is located in the `src/main/resources/application.properties` file. Open this file in your editor, and observe several default properties. The properties prefixed with `%prod` are only used when the application is built and deployed, for example when deployed to Azure App Service. When the application runs locally, `%prod` properties are ignored.  Similarly, `%dev` properties are used in Quarkus' Live Coding / Dev mode, and `%test` properties are used during continuous testing.
-
-Delete the existing content in `application.properties` and replace with the following to configure our database for dev, test, and production modes:
-
-```properties
-quarkus.package.type=uber-jar
-%dev.quarkus.datasource.db-kind=h2
-%dev.quarkus.datasource.jdbc.url=jdbc:h2:mem:fruits
-
-%test.quarkus.datasource.db-kind=h2
-%test.quarkus.datasource.jdbc.url=jdbc:h2:mem:fruits
-
-%prod.quarkus.datasource.db-kind=postgresql
-%prod.quarkus.datasource.jdbc.url=jdbc:postgresql://${DBHOST}.postgres.database.azure.com:5432/${DBNAME}?user=${DBUSER}@${DBHOST}&password=${DBPASS}
-%prod.quarkus.hibernate-orm.sql-load-script=import.sql
-
-quarkus.hibernate-orm.database.generation=drop-and-create
-```
-
-> [!IMPORTANT]
-> Be sure to keep the dollar signs and braces intact when copying and pasting the above for the variables `${DBHOST}`, `${DBNAME}`, `${DBUSER}`, and `${DBPASS}`. We'll set the actual values later in our environment so that we don't expose them hard-coded in the properties file, and so that we can change them without having to re-deploy the app.
-
-## Run the sample app locally
-
-Use Maven to run the sample.
-
-```bash
-mvn quarkus:dev
-```
-
-> [!IMPORTANT]
-> Be sure you have the H2 JDBC driver installed. You can add it using the following Maven command: `./mvnw quarkus:add-extension -Dextensions="jdbc-h2"`.
-
-This will build the app, run its unit tests, and then start the application in developer live coding. You should see:
-
-```output
-__  ____  __  _____   ___  __ ____  ______
- --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
- -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
---\___\_\____/_/ |_/_/|_/_/|_|\____/___/
-INFO  [io.quarkus] (Quarkus Main Thread) hibernate-orm-panache-quickstart 1.0.0-SNAPSHOT on JVM (powered by Quarkus x.x.x.Final) started in x.xxxs. Listening on: http://localhost:8080
-
-INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-h2, jdbc-postgresql, narayana-jta, resteasy-reactive, resteasy-reactive-jackson, smallrye-context-propagation, vertx]
-```
-
-You can access Quarkus app locally by typing the `w` character into the console, or using this link once the app is started: `http://localhost:8080/`.
-
-:::image type="content" source="./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-locally.png" alt-text="Screenshot of Quarkus application storing data in PostgreSQL.":::
-
-If you see exceptions in the output, double-check that the configuration values for `%dev` are correct.
-
-> [!TIP]
-> You can enable continuous testing by typing `r` into the terminal. This will continuously run tests as you develop the application. You can also use Quarkus' *Live Coding* to see changes to your Java or `pom.xml` immediately. Simlply edit code and reload the browser.
-
-When you're done testing locally, shut down the application with `CTRL-C` or type `q` in the terminal.
-
-## Configure App Service for Database
-
-Our Quarkus app is expecting various environment variables to configure the database. Add these to the App Service environment with the following command:
-
-```azurecli
-az webapp config appsettings set \
-    -g $RESOURCE_GROUP \
-    -n $WEBAPP_NAME \
-    --settings \
-        'DBHOST=$DB_SERVER_NAME' \
-        'DBNAME=fruits' \
-        'DBUSER=$ADMIN_USERNAME' \
-        'DBPASS=$ADMIN_PASSWORD' \
-        'PORT=8080' \
-        'WEBSITES_PORT=8080'
-```
-
-> [!NOTE]
-> The use of single quotes (`'`) to surround the settings is required if your password has special characters.
-
-Be sure to replace the values for `$RESOURCE_GROUP`, `$WEBAPP_NAME`, `$DB_SERVER_NAME`, `$ADMIN_USERNAME`, and `$ADMIN_PASSWORD` with the relevant values from previous steps.
-
-## Deploy to App Service on Linux
-
-Build the production JAR file using the following command:
-
-```azurecli
-mvn clean package
-```
-
-The final result will be a JAR file in the `target/` subfolder.
-
-To deploy applications to Azure App Service, developers can use the [Maven Plugin for App Service](/training/modules/publish-web-app-with-maven-plugin-for-azure-app-service/), [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), or the Azure CLI to deploy apps. Use the following command to deploy our app to the App Service:
-
-```azurecli
-az webapp deploy \
-    --resource-group $RESOURCE_GROUP \
-    --name $WEBAPP_NAME \
-    --src-path target/*.jar --type jar
-```
-
-You can then access the application using the following command:
-
-```azurecli
-az webapp browse \
-    --resource-group $RESOURCE_GROUP \
-    --name $WEBAPP_NAME
-```
-
-> [!TIP]
-> You can also manually open the location in your browser at `http://<webapp-name>.azurewebsites.net`. It may take a minute or so to upload the app and restart the App Service.
-
-You should see the app running with the remote URL in the address bar:
-
-:::image type="content" source="./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-remotely.png" alt-text="Screenshot of Quarkus application storing data in PostgreSQL running remotely.":::
-
-If you see errors, use the following section to access the log file from the running app:
-
-## Stream diagnostic logs
-
-[!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
-
-## Scale out the app
-
-Scale out the application by adding another worker:
-
-```azurecli
-az appservice plan update --number-of-workers 2 \
-   --name quarkus-tutorial-app-service-plan \
-   --resource-group $RESOURCE_GROUP
-```
-
-## Clean up resources
-
-If you don't need these resources for another tutorial (see [Next steps](#next-steps)), you can delete them by running the following command in the Cloud Shell or on your local terminal:
-
-```azurecli
-az group delete --name $RESOURCE_GROUP --yes
-```
 
 ## Next steps
 
-[Azure for Java Developers](/java/azure/)
-[Quarkus](https://quarkus.io),
-[Getting Started with Quarkus](https://quarkus.io/get-started/),
-and
-[App Service Linux](overview.md).
+- [Azure for Java Developers](/java/azure/)
+- [Quarkus](https://quarkus.io),
+- [Getting Started with Quarkus](https://quarkus.io/get-started/)
 
-Learn more about running Java apps on App Service on Linux in the developer guide.
+Learn more about running Java apps on App Service in the developer guide.
 
 > [!div class="nextstepaction"] 
-> [Java in App Service Linux dev guide](configure-language-java.md?pivots=platform-linux)
+> [Configure a Java app in Azure App Service](configure-language-java.md?pivots=platform-linux)
 
 Learn how to secure your app with a custom domain and certificate.
 
