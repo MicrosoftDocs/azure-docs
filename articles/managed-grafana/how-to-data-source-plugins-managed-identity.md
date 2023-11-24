@@ -136,7 +136,9 @@ Other data sources can be added [from the Azure portal](#other-data-sources).
 
 ## Configure a data source
 
-The content below, shows how to configure some of the most popular data sources in Azure Managed Grafana: Azure Monitor and Azure Data Explorer. A similar process can be used to configure other types of data sources. For more information about a specific data source, refer to [Grafana's documentation](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources).
+Learn below how to configure some of the most popular data sources in Azure Managed Grafana: Azure Monitor and Azure Data Explorer. A similar process can be used to configure other types of data sources.
+
+For more information about a specific data source, refer to [Grafana's documentation](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources).
 
 ### Azure Monitor configuration
 
@@ -200,8 +202,11 @@ az grafana data-source update --data-source 'Azure Monitor' --name <instance-nam
 
 ### Azure Data Explorer configuration
 
+To configure Azure Data Explorer using a graphical interface or the Azure CLI, follow the steps below.
+
 ### [Portal](#tab/azure-portal)
-To learn how to configure Azure Data Explorer, refer to the guide [Configure Azure Data Explorer](how-to-connect-azure-data-explorer.md).
+
+To configure Azure Data Explorer using the Azure portal and the Grafana portal, refer to [Configure Azure Data Explorer](how-to-connect-azure-data-explorer.md).
 
 ### [Azure CLI](#tab/azure-cli)
 
