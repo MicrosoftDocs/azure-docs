@@ -40,7 +40,14 @@ For more information on Red Hat support policies for all versions of RHEL, see [
 
 ## Image update behavior
 
-As of April 2019, Azure offers RHEL images that are connected to Extended Update Support (EUS) repositories by default and RHEL images that come connected to the regular (non-EUS) repositories by default. The default behavior of `sudo yum update` varies depending which RHEL image you provisioned from because different images are connected to different repositories. For more information on RHEL EUS, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) and [Red Hat Enterprise Linux Extended Update Support Overview](https://access.redhat.com/articles/rhel-eus).
+The Red Hat images provided in Azure Marketplace are connected by default to one of two different types of life-cycle repositories:
+
+- Non-EUS: Will have the latest available software published by Red Hat for their particular Red Hat Enterprise Linux (RHEL) repositories.
+- Extended Update Support (EUS): Updates will not go beyond a specific RHEL minor release. 
+
+> [!NOTE] For more information on RHEL EUS, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) and [Red Hat Enterprise Linux Extended Update Support Overview](https://access.redhat.com/articles/rhel-eus).
+
+The packages contained in the Red Hat Update Infrastructure repositories are published and maintained exclusively by Red Hat, additional packages to support custom Azure services, are published in independent repositories maintained by Microsoft.
 
 For a full image list, run `az vm image list --offer RHEL --all -p RedHat --output table` using the Azure CLI.
 
@@ -68,10 +75,13 @@ If you provision a VM from a RHEL image that is connected to EUS repositories, i
 Images connected to EUS repositories contain a minor version number in the SKU. For example, all of the following images come attached to EUS repositories:
 
 ```output
-RedHat:RHEL:7_9:7.9.20230301107
-RedHat:RHEL:8_7:8.7.2023022801
-RedHat:RHEL:9_1:9.1.2022112113 
+RedHat:RHEL:7.7:7.7.2022051301
+RedHat:RHEL:8_4:latest
+RedHat:RHEL:9_0:9.0.2023061412
 ```
+
+> [!NOTE]
+> Not all minor versions are valid EUS stops, for example, for RHEL8 only 8.1, 8.2, 8.4, 8.6 and 8.8 are valid EUS releases, while 8.3, 8.5 and 8.7 are not.
 
 ## RHEL EUS and version-locking RHEL VMs
 
