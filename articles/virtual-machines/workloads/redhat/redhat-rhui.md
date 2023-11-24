@@ -45,7 +45,8 @@ The Red Hat images provided in Azure Marketplace are connected by default to one
 - Non-EUS: Will have the latest available software published by Red Hat for their particular Red Hat Enterprise Linux (RHEL) repositories.
 - Extended Update Support (EUS): Updates will not go beyond a specific RHEL minor release. 
 
-> [!NOTE] For more information on RHEL EUS, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) and [Red Hat Enterprise Linux Extended Update Support Overview](https://access.redhat.com/articles/rhel-eus).
+> [!NOTE]
+> For more information on RHEL EUS, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) and [Red Hat Enterprise Linux Extended Update Support Overview](https://access.redhat.com/articles/rhel-eus).
 
 The packages contained in the Red Hat Update Infrastructure repositories are published and maintained exclusively by Red Hat, additional packages to support custom Azure services, are published in independent repositories maintained by Microsoft.
 
