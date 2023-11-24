@@ -31,7 +31,7 @@ Add an Azure Data Explorer data source to Grafana by following the steps below.
 
 1. Select **Azure Data Explorer Datasource** from the list, and add it to Grafana by selecting **Create a Azure Data Explorer Datasource data source**.
 
-## Register basic configuration information
+## Configure the Azure Data Explorer data source
 
 Enter Azure Data Explorer configuration settings.
 
@@ -39,13 +39,10 @@ Enter Azure Data Explorer configuration settings.
 
     :::image type="content" source="media\azure-data-explorer\basic-settings.png" alt-text="Screenshot of the Grafana platform showing the basic configuration settings for Azure Data Explorer.":::
 
-1. Under **Connection Details**, enter the Azure Data Explorer database **Cluster URL**..
+1. Under **Connection Details**, enter the Azure Data Explorer database **Cluster URL**.
+1. Select your preferred authentication option between **Managed Identity**, **App Registration** (service principal) or **Current User** (user-based authentication).
 
-## Set up authentication
-
-Configure the Azure Data Explorer data source with one of the following authentication options.
-
-### Use a managed identity
+### [Managed identity](#tab/managed-identity)
 
 Azure Managed identity lets you authenticate without using explicit credentials.
 
@@ -60,9 +57,9 @@ Azure Managed identity lets you authenticate without using explicit credentials.
 1. Back in Grafana, under **Authentication Method**, select **Managed Identity**.
 1. Select **Save & test**. The "Success" notification displayed indicates that Grafana is able to fetch data from the database.
 
-### Use  a service principal (app registration)
+### [App registration](#tab/app-registration)
 
-To use a service principal, you need to have a Microsoft Entra service principal and connect Microsoft Entra ID with an Azure Data Explorer User. For more information, go to [Configuring the datasource in Grafana](https://github.com/grafana/azure-data-explorer-datasource#configuring-the-datasource-in-grafana).
+The app registration option authenticates using a Microsoft Entra service principal.
 
 #### Configure initial set-up
 
@@ -79,11 +76,11 @@ To use a service principal, you need to have a Microsoft Entra service principal
 1. Optionally also edit the **Query Optimizations**, **Database schema settings**, and **Tracking** sections.
 1. Select **Save & test** to validate the connection. The "Success" notification displayed indicates that Grafana is able to connect to the database.
 
-### Use Current User
+### [Current user](#tab/current-user)
 
-The Azure Data Explorer data source also supports user-based authentication. This authentication method leverages the current Grafana user's Entra ID credentials in the configured data source.
+User-based authentication leverages the current Grafana user's Entra ID credentials in the configured data source.
 
-When you configure an Azure Data Explorer data source with a user-based authentication method, Grafana queries Azure Data Explorer using the user's credentials. With this approach, you don't need to go through the extra step of geting a read permission assigned to your Grafana managed identity.
+When you configure an Azure Data Explorer data source with the Current User authentication method, Grafana queries Azure Data Explorer using the user's credentials. With this approach, you don't need to go through the extra step of geting a read permission assigned to your Grafana managed identity.
 
 > [!NOTE]
 > Rollout of the user-based authentication in Azure Managed Grafana is in progress and will be complete in all regions by the end of 2023.
@@ -96,6 +93,8 @@ When you configure an Azure Data Explorer data source with a user-based authenti
 
 1. Under **Authentication Method**, select **Current User**.
 1. Select **Save & test**. The "Success" notification displayed indicates that Grafana is able to fetch data from the database.
+
+---
 
 ## Next step
 
