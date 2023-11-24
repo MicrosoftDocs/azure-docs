@@ -44,6 +44,8 @@ Before setting up a read replica for Azure Database for PostgreSQL, ensure the p
 
 **Private link**: Review the networking configuration of the primary server. For the read replica creation to be allowed, the primary server must be configured with either public access using allowed IP addresses or combined public and private access using virtual network integration.
 
+#### [Portal](#tab/portal)
+
 1.  In the [Azure portal](https://portal.azure.com/), choose the Azure Database for PostgreSQL - Flexible Server you want for the replica.
 
 2.  On the **Overview** dialog, note the PostgreSQL version (ex `15.4`). Also, note the region your primary is deployed to (ex., `East US`).
@@ -73,6 +75,83 @@ Before setting up a read replica for Azure Database for PostgreSQL, ensure the p
 6. Review the network settings.
 
       :::image type="content" source="./media/how-to-read-replicas-portal/primary-compute.png" alt-text="Screenshot of server settings." lightbox="./media/how-to-read-replicas-portal/primary-compute.png":::
+
+#### [REST API](#tab/restapi)
+
+To obtain information about the configuration of a server in Azure Database for PostgreSQL - Flexible Server, especially to view settings for recently introduced features like Storage Auto-Grow or Private Link, you should use the latest API version `2023-06-01-preview`. The `GET` request for this would be formatted as follows:
+
+```http request
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}?api-version=2023-06-01-preview
+```
+
+Replace `{subscriptionId}`, `{resourceGroupName}`, and `{serverName}` with your Azure subscription ID, the resource group name, and the name of the primary server you want to review, respectively. This request will give you access to the configuration details of your primary server, ensuring it is properly set up for creating a read replica.
+
+**Sample response**
+
+```json
+{
+    "sku": {
+        "name": "Standard_D8ads_v5",
+        "tier": "GeneralPurpose"
+    },
+    "systemData": {
+        "createdAt": "2023-11-22T16:11:42.2461489Z"
+    },
+    "properties": {
+        "replica": {
+            "role": "Primary",
+            "capacity": 5
+        },
+        "storage": {
+            "type": "",
+            "iops": 500,
+            "tier": "P10",
+            "storageSizeGB": 128,
+            `**`"autoGrow": "Disabled"`**`
+        },
+        "network": {
+            "publicNetworkAccess": "Enabled"
+        },
+        "dataEncryption": {
+            "type": "SystemManaged"
+        },
+        "authConfig": {
+            "activeDirectoryAuth": "Disabled",
+            "passwordAuth": "Enabled"
+        },
+        "fullyQualifiedDomainName": "{serverName}.postgres.database.azure.com",
+        "version": "15",
+        "minorVersion": "4",
+        "administratorLogin": "myadmin",
+        "state": "Ready",
+        "availabilityZone": "1",
+        "backup": {
+            "backupRetentionDays": 7,
+            "geoRedundantBackup": "Disabled",
+            "earliestRestoreDate": "2023-11-23T12:55:33.3443218+00:00"
+        },
+        "highAvailability": {
+            "mode": "Disabled",
+            "state": "NotEnabled"
+        },
+        "maintenanceWindow": {
+            "customWindow": "Disabled",
+            "dayOfWeek": 0,
+            "startHour": 0,
+            "startMinute": 0
+        },
+        "replicationRole": "Primary",
+        "replicaCapacity": 5
+    },
+    "location": "East US",
+    "tags": {},
+    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}",
+    "name": "{serverName}",
+    "type": "Microsoft.DBforPostgreSQL/flexibleServers"
+}
+```
+
+---
 
 ## Create a read replica
 
