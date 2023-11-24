@@ -84,7 +84,32 @@ To enable single sign-on in your environment, you must:
 
 Before enabling the single sign-on feature, you must first allow Microsoft Entra authentication for Windows in your Microsoft Entra tenant. This will enable issuing RDP access tokens allowing users to sign in to Azure Virtual Desktop session hosts. This is done by enabling the isRemoteDesktopProtocolEnabled property on the service principal's remoteDesktopSecurityConfiguration object for the apps listed above.
 
-Use the [Microsoft Graph API](/graph/use-the-api) to [create remoteDesktopSecurityConfiguration](/graph/api/serviceprincipal-post-remotedesktopsecurityconfiguration) and set the property **isRemoteDesktopProtocolEnabled** to **true** to enable Microsoft Entra authentication.
+Use the [Microsoft Graph API](/graph/use-the-api) to [create remoteDesktopSecurityConfiguration](/graph/api/serviceprincipal-post-remotedesktopsecurityconfiguration)  or the [PowerShell Microsoft Graph Module](/powershell/microsoftgraph/overview?view=graph-powershell-1.0) to [Update-MgServicePrincipalRemoteDesktopSecurityConfiguration](/powershell/module/microsoft.graph.applications/update-mgserviceprincipalremotedesktopsecurityconfiguration?view=graph-powershell-1.0)  to set the property **isRemoteDesktopProtocolEnabled** to **true**.
+
+```powershell
+#Requirements
+Install-Module Microsoft.Graph.Authentication
+Install-Module Microsoft.Graph.Applications
+
+#Login to Microsoft Graph
+Connect-MgGraph -Scopes Application-RemoteDesktopConfig.ReadWrite.All
+
+#Get the service principal ID's
+$MSRDspId = Get-MgServicePrincipal -Filter "DisplayName eq 'Microsoft Remote Desktop'"
+$WCLspId = Get-MgServicePrincipal -Filter "DisplayName eq 'Windows Cloud Login'"
+
+#Check status of IsRemoteDesktopProtocolEnabled flag if already enabled for the service principal ID's
+Get-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $MSRDspId.Id
+Get-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $WCLspId.Id
+
+#Set the IsRemoteDesktopProtocolEnabled flag to true
+Update-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $MSRDspId.Id -IsRemoteDesktopProtocolEnabled
+Update-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $WCLspId.Id -IsRemoteDesktopProtocolEnabled
+
+#Check if any Targetdevicegroup is already configured
+Get-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $MSRDspId.Id
+Get-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $WCLspId.Id
+```
 
 ### Configure the target device groups
 
