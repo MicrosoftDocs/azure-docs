@@ -4,6 +4,7 @@ description: "Quickstart: Use a Data Processor pipeline to process data from you
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
+ms.subservice: data-processor
 ms.custom:
   - ignite-2023
 ms.date: 10/11/2023
