@@ -88,22 +88,18 @@ Replace `{subscriptionId}`, `{resourceGroupName}`, and `{serverName}` with your 
 
 Review and note the following settings:
 
-      - Compute Tier, Processor, Size (ex `Standard_D8ads_v5`).
-    
-      - Storage
-        - Type
-        - Storage size (ex `128`)
-        - autoGrow
-
-     - Network
-    
-      - High Availability
-        - Enabled / Disabled
-        - Availability zone settings
-    
-      - Backup settings
-        - Retention period
-        - Redundancy Options
+  - Compute Tier, Processor, Size (ex `Standard_D8ads_v5`).
+  - Storage
+    - Type
+    - Storage size (ex `128`)
+    - autoGrow
+  - Network
+  - High Availability
+   - Enabled / Disabled
+   - Availability zone settings
+  - Backup settings
+   - Retention period
+   - Redundancy Options
 
 
 **Sample response**
