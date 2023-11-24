@@ -105,10 +105,6 @@ Get-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $WC
 #Set the IsRemoteDesktopProtocolEnabled flag to true
 Update-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $MSRDspId.Id -IsRemoteDesktopProtocolEnabled
 Update-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $WCLspId.Id -IsRemoteDesktopProtocolEnabled
-
-#Check if any Targetdevicegroup is already configured
-Get-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $MSRDspId.Id
-Get-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $WCLspId.Id
 ```
 
 ### Configure the target device groups
