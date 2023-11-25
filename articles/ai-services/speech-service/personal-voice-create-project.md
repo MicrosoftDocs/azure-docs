@@ -22,7 +22,7 @@ To create a personal voice project, use the `Projects_Create` operation of the c
 
 - Set the required `description` property. The description can be changed later.
 - Set the required `kind` property to `PersonalVoice`. The kind can't be changed later.
-- Optionally, remove or replace `JessicalId` with a project ID of your choice. The case sensitive ID must be unique within your Speech resource. The ID will be used in the project's URI (and the Speech Studio URL) and can't be changed later. 
+- Optionally, remove or replace `JessicaProjectId` with a project ID of your choice. The case sensitive ID must be unique within your Speech resource. The ID will be used in the project's URI (and the Speech Studio URL) and can't be changed later. 
 - Optionally, set the `displayName` property for the project name. The project name can be changed later.
 
 Make an HTTP POST request using the URI as shown in the following `Projects_Create` example. 

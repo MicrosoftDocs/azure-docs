@@ -35,10 +35,9 @@ Here's example SSML in a request for text to speech with the voice name and the 
 
 You can use the SSML via the [Speech SDK](./get-started-text-to-speech.md), [REST API](rest-text-to-speech.md), or [batch synthesis API](batch-synthesis.md).
 
-* **Real-time speech synthesis**: Use the [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md) to convert text to speech by using [prebuilt neural voices](language-support.md?tabs=tts) or [custom neural voices](custom-neural-voice.md).
+* **Real-time speech synthesis**: Use the [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md) to convert text to speech.
 
 * **Asynchronous synthesis of long audio**: Use the [batch synthesis API](batch-synthesis.md) (Preview) to asynchronously synthesize text to speech files longer than 10 minutes (for example, audio books or lectures). Unlike synthesis performed via the Speech SDK or Speech to text REST API, responses aren't returned in real-time. The expectation is that requests are sent asynchronously, responses are polled for, and synthesized audio is downloaded when the service makes it available.
-
 
 ## Reference documentation
 
