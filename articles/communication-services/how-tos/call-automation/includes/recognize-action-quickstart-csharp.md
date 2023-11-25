@@ -66,7 +66,7 @@ The NuGet package can be obtained from [here](https://www.nuget.org/packages/Azu
 By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/quickstart-make-an-outbound-call.md). You can also use the code snippet provided here to understand how to answer a call.
 
 ``` csharp
-var callAutomationClient = new CallAutomationClient("<Azure Communication Services connection string
+var callAutomationClient = new CallAutomationClient("<Azure Communication Services connection string>");
 
 var answerCallOptions = new AnswerCallOptions("<Incoming call context once call is connected>", new Uri("<https://sample-callback-uri>"))  
 {  
