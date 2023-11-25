@@ -26,9 +26,10 @@ To create a training set, use the `TrainingSets_Create` operation of the custom 
 - Set the required `description` property. The description can be changed later.
 - Set the required `voiceKind` property to `Male` or `Female`. The kind can't be changed later. 
 - Set the required `locale` property. This should be the locale of the consent. The locale can't be changed later. You can find the text to speech locale list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
-- Optionally, set the `displayName` property for the project name. The project name can be changed later.
+- Optionally, set the `displayName` property for the training set name. The training set name can be changed later.
+- Optionally, remove or replace `JessicaTrainingId` with a training set ID of your choice. The case sensitive ID will be used in the training set's URI and can't be changed later. 
 
-Make an HTTP POST request using the URI as shown in the following `Projects_Create` example. 
+Make an HTTP POST request using the URI as shown in the following `TrainingSets_Create` example. 
 - Replace `YourSubscriptionKey` with your Speech resource key.
 - Replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
@@ -36,10 +37,11 @@ Make an HTTP POST request using the URI as shown in the following `Projects_Crea
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
   "description": "300 sentences Jessica data in general style.",
   "displayName": "Training set name",
+  "id": "JessicaTrainingId",
   "projectId": "JessicaProjectId",
   "locale": "en-US",
   "voiceKind": "Female"
-} '  "https://YourServiceRegion.api.cognitive.microsoft.com/customvoice/trainingsets/JessicaTrainingId?api-version=2023-12-01-preview"
+} '  "https://YourServiceRegion.api.cognitive.microsoft.com/customvoice/trainingsets?api-version=2023-12-01-preview"
 ```
 
 You should receive a response body in the following format:
@@ -96,7 +98,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 } '  "https://YourServiceRegion.api.cognitive.microsoft.com/customvoice/trainingsets/JessicaTrainingId:upload?api-version=2023-12-01-preview"
 ```
 
-The response header contains the `Operation-Location` property. Use this URI to get details about the upload operation. Here's an example of the response header:
+The response header contains the `Operation-Location` property. Use this URI to get details about the `TrainingSets_UploadData` operation. Here's an example of the response header:
 
 ```HTTP 201
 Operation-Location: https://eastus.api.cognitive.microsoft.com/customvoice/operations/284b7e37-f42d-4054-8fa9-08523c3de345?api-version=2023-12-01-preview
@@ -105,5 +107,6 @@ Operation-Id: 284b7e37-f42d-4054-8fa9-08523c3de345
 
 ## Next steps
 
+- [Create a personal voice](./personal-voice-create-voice.md).
 - [Upload consent file](./personal-voice-create-consent.md). 
 - [Use personal voice in your application](./personal-voice-how-to-use.md).

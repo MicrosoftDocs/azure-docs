@@ -171,6 +171,8 @@ items:
             href: personal-voice-create-consent.md
           - name: Upload a training dataset
             href: personal-voice-create-training-set.md
+          - name: Create a speaker profile ID
+            href: personal-voice-create-voice.md
           - name: Use personal voice in your application
             href: personal-voice-how-to-use.md
             displayName: cnv

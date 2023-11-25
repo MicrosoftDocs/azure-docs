@@ -25,8 +25,9 @@ To add consent to a personal voice project from the URL of an audio file, use th
 - Set the required `projectId` property. 
 - Set the required `voiceTalentName` property. The voice talent name can't be changed later.
 - Set the required `companyName` property. The company name can't be changed later.
-- Set the required `audioUrl` property.
+- Set the required `audioUrl` property. The public accessible URL of the consent audio file.
 - Set the required `locale` property. This should be the locale of the consent. The locale can't be changed later. You can find the text to speech locale list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
+- Optionally, remove or replace `JessicaConsentId` with a consent ID of your choice. The case sensitive ID will be used in the consent's URI and can't be changed later. 
 
 Make an HTTP POST request using the URI as shown in the following `Consents_Create` example. 
 - Replace `YourSubscriptionKey` with your Speech resource key.
@@ -35,12 +36,13 @@ Make an HTTP POST request using the URI as shown in the following `Consents_Crea
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
   "description": "Consent for Jessica voice",
+  "id": "JessicaConsentId",
   "projectId": "JessicaProjectId",
   "voiceTalentName": "Jessica Smith",
   "companyName": "Contoso",
   "audioUrl": "https://contoso.blob.core.windows.net/public/jessica-consent.wav",
   "locale": "en-US"
-} '  "https://YourServiceRegion.api.cognitive.microsoft.com/customvoice/consents/JessicaProjectId?api-version=2023-12-01-preview"
+} '  "https://YourServiceRegion.api.cognitive.microsoft.com/customvoice/consents?api-version=2023-12-01-preview"
 ```
 
 You should receive a response body in the following format:
@@ -59,13 +61,12 @@ You should receive a response body in the following format:
 }
 ```
 
-The response header contains the `Operation-Location` property. This is the consent's URI. Use this URI to get details about the consent, or to delete the consent. Here's an example of the response header:
+The response header contains the `Operation-Location` property. Use this URI to get details about the `Consents_Create` operation. Here's an example of the response header:
 
 ```HTTP 201
 Operation-Location: https://eastus.api.cognitive.microsoft.com/customvoice/operations/070f7986-ef17-41d0-ba2b-907f0f28e314?api-version=2023-12-01-preview
 Operation-Id: 070f7986-ef17-41d0-ba2b-907f0f28e314
 ```
-
 
 ## Next steps
 

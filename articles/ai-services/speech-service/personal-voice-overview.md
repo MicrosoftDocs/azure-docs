@@ -58,7 +58,8 @@ The demo in Speech Studio is made available to approved customers. You can apply
 To get started, here's a summary of the steps to create a personal voice:
 1. [Create a project](./personal-voice-create-project.md). 
 1. [Upload consent file](./personal-voice-create-consent.md). With the personal voice feature, it's required that every voice be created with explicit consent from the user. A recorded statement from the user is required acknowledging that the customer (Azure AI Speech resource owner) will create and use their voice.
-1. [Upload an audio recording of the voice talent as a training set](./personal-voice-create-training-set.md). It can take only three seconds. Personal voice creates a voice ID based on the speaker verbal statement file and the audio prompt (a clean human voice sample longer than 60 seconds). The user's voice characteristics are encoded in the voice ID that's used to generate synthesized audio with the text input provided.
+1. [Upload an audio recording of the voice talent as a training set](./personal-voice-create-training-set.md). It can take only three seconds. 
+1. Create a personal voice. Personal voice creates a voice ID based on the speaker verbal statement file and the audio prompt (a clean human voice sample longer than 60 seconds). The user's voice characteristics are encoded in the voice ID that's used to generate synthesized audio with the text input provided.
 
 Once you have a personal voice, you can [use it](./personal-voice-how-to-use.md) to synthesize speech in any of the 91 languages supported across 100+ locales. A locale tag isn't required. Personal voice uses automatic language detection at the sentence level. For more information, see [use personal voice in your application](./personal-voice-how-to-use.md).
 
@@ -70,5 +71,5 @@ We care about the people who use AI and the people who will be affected by it as
 ## Next steps
 
 - [Create a project](./personal-voice-create-project.md). 
-- Learn more about custom neural voice pro in the [overview](custom-neural-voice.md).
+- Learn more about custom neural voice in the [overview](custom-neural-voice.md).
 - Learn more about Speech Studio in the [overview](speech-studio-overview.md).

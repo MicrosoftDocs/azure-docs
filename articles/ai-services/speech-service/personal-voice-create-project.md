@@ -31,7 +31,7 @@ Make an HTTP POST request using the URI as shown in the following `Projects_Crea
 
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
-  "id": "JessicaId",
+  "id": "JessicaProjectId",
   "displayName": "Project name for Jessica Voice",
   "description": "Project description for Jessica Voice",
   "kind": "PersonalVoice"

@@ -45,5 +45,5 @@ The API reference documentation is made available to approved customers. You can
 
 ## Next steps
 
-- Learn more about custom neural voice pro in the [overview](custom-neural-voice.md).
+- Learn more about custom neural voice in the [overview](custom-neural-voice.md).
 - Learn more about Speech Studio in the [overview](speech-studio-overview.md).
