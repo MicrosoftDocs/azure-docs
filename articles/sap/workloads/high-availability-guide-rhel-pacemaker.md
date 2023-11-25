@@ -114,7 +114,7 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
 1. **[A]** Install the RHEL HA add-on.
 
    ```bash
-    sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
+    sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap
    ```
 
    > [!IMPORTANT]
