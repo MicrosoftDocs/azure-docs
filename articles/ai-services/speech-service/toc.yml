@@ -154,12 +154,12 @@ items:
     - name: Get facial position with viseme
       href: how-to-speech-synthesis-viseme.md
       displayName: viseme, phoneme, phonetic
-    - name: Custom Neural Voice
+    - name: Custom neural voice
       items:
-        - name: What is Custom Neural Voice?
+        - name: What is custom neural voice?
           href: custom-neural-voice.md
           displayName: cnv
-        - name: Custom Neural Voice Lite
+        - name: Custom neural voice lite
           href: custom-neural-voice-lite.md
         - name: Personal voice (preview)
           items:
@@ -575,11 +575,11 @@ items:
           href: /legal/cognitive-services/speech-service/pronunciation-assessment/transparency-note-pronunciation-assessment?context=/azure/ai-services/speech-service/context/context
         - name: Characteristics and limitations
           href: /legal/cognitive-services/speech-service/pronunciation-assessment/characteristics-and-limitations-pronunciation-assessment?context=/azure/ai-services/speech-service/context/context
-    - name: Custom Neural Voice
+    - name: Custom neural voice
       items:
         - name: Transparency Note
           items:
-            - name: Use cases for Custom Neural Voice
+            - name: Use cases for custom neural voice
               href: /legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/ai-services/speech-service/context/context
             - name: Characteristics and limitations
               href: /legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/ai-services/speech-service/context/context

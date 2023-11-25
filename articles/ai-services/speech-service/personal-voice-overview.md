@@ -21,9 +21,9 @@ With personal voice, you can get AI generated replication of your voice (or user
 > Personal voice is available in these regions: West Europe, East US, and South East Asia. 
 > For supported locales, see [personal voice language support](./language-support.md#personal-voice).
 
-The following table summarizes the difference between custom neural voice pro and personal voice.  
+The following table summarizes the difference between personal voice and professional custom neural voice.  
  
-| Comparison | Personal voice (preview) | Custom neural voice pro |
+| Comparison | Personal voice (preview) | Professional voice |
 |-------|-------------------------|-----|
 | Target scenarios | Business customers to build an app to allow their users to create and use their own personal voice in the app. | Professional scenarios like brand and character voices for chat bots, or audio content reading. |
 | Training data | Make sure you follow the code of conduct. | Bring your own data. Recording in a professional studio is recommended. |
@@ -66,9 +66,6 @@ Once you have a personal voice, you can [use it](./personal-voice-how-to-use.md)
 
 We care about the people who use AI and the people who will be affected by it as much as we care about technology. For more information, see the Responsible AI [transparency notes](/legal/cognitive-services/speech-service/text-to-speech/transparency-note?context=/azure/ai-services/speech-service/context/context).
 
-## Reference documentation
-
-The API reference documentation is made available to approved customers. You can apply for access [here](https://aka.ms/customneural).
 
 ## Next steps
 

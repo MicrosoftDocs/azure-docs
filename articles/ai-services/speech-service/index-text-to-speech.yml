@@ -36,11 +36,11 @@ landingContent:
           url: batch-synthesis.md
     - linkListType: concept
       links:
-        - text: What is Custom Neural Voice?
+        - text: What is custom neural voice?
           url: custom-neural-voice.md
-        - text: Get started with Custom Voice
+        - text: Get started with custom voice
           url: how-to-custom-voice.md
-        - text: Create and use Custom Voice models
+        - text: Create and use custom voice models
           url: how-to-custom-voice-create-voice.md
 - title: Reference
   linkLists:

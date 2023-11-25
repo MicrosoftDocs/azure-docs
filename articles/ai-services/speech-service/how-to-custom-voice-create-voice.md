@@ -17,7 +17,7 @@ ms.custom: references_regions
 In this article, you learn how to train a custom neural voice through the Speech Studio portal.
 
 > [!IMPORTANT]
-> Custom Neural Voice training is currently only available in some regions. After your voice model is trained in a supported region, you can [copy](#copy-your-voice-model-to-another-project) it to a Speech resource in another region as needed. For more information, see the footnotes in the [Speech service table](regions.md#speech-service).
+> Custom neural voice training is currently only available in some regions. After your voice model is trained in a supported region, you can [copy](#copy-your-voice-model-to-another-project) it to a Speech resource in another region as needed. For more information, see the footnotes in the [Speech service table](regions.md#speech-service).
 
 Training duration varies depending on how much data you use. It takes about 40 compute hours on average to train a custom neural voice. Standard subscription (S0) users can train four voices simultaneously. If you reach the limit, wait until at least one of your voice models finishes training, and then try again.
 
@@ -26,7 +26,7 @@ Training duration varies depending on how much data you use. It takes about 40 c
 
 ## Choose a training method
 
-After you validate your data files, use them to build your Custom Neural Voice model. When you create a custom neural voice, you can choose to train it with one of the following methods:
+After you validate your data files, use them to build your custom neural voice model. When you create a custom neural voice, you can choose to train it with one of the following methods:
 
 - [Neural](?tabs=neural#train-your-custom-neural-voice-model): Create a voice in the same language of your training data.
 
@@ -40,14 +40,14 @@ After you validate your data files, use them to build your Custom Neural Voice m
 
 The language of the training data must be one of the [languages that are supported](language-support.md?tabs=tts) for custom neural voice, cross-lingual, or multiple style training.
 
-## Train your Custom Neural Voice model
+## Train your custom neural voice model
 
 To create a custom neural voice in Speech Studio, follow these steps for one of the following methods:
 
 # [Neural](#tab/neural)
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customvoice).
-1. Select **Custom Voice** > *\<Your project name>* > **Train model** > **Train a new model**.
+1. Select **Custom voice** > *\<Your project name>* > **Train model** > **Train a new model**.
 1. Select **Neural** as the [training method](#choose-a-training-method) for your model and then select **Next**. To use a different training method, see [Neural - cross lingual](?tabs=crosslingual#train-your-custom-neural-voice-model) or [Neural - multi style](?tabs=multistyle#train-your-custom-neural-voice-model).
 
    :::image type="content" source="media/custom-voice/cnv-train-neural.png" alt-text="Screenshot that shows how to select neural training.":::
@@ -72,7 +72,7 @@ To create a custom neural voice in Speech Studio, follow these steps for one of 
 # [Neural - cross lingual](#tab/crosslingual)
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customvoice).
-1. Select **Custom Voice** > *\<Your project name>* > **Train model** > **Train a new model**.
+1. Select **Custom voice** > *\<Your project name>* > **Train model** > **Train a new model**.
 1. Select **Neural - cross lingual** as the [training method](#choose-a-training-method) for your model. To use a different training method, see [Neural](?tabs=neural#train-your-custom-neural-voice-model) or [Neural - multi style](?tabs=multistyle#train-your-custom-neural-voice-model).
 
    :::image type="content" source="media/custom-voice/cnv-train-neural-cross-lingual.png" alt-text="Screenshot that shows how to select neural cross lingual training.":::
@@ -97,7 +97,7 @@ To create a custom neural voice in Speech Studio, follow these steps for one of 
 # [Neural - multi style](#tab/multistyle)
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customvoice).
-1. Select **Custom Voice** > *\<Your project name>* > **Train model** > **Train a new model**.
+1. Select **Custom voice** > *\<Your project name>* > **Train model** > **Train a new model**.
 1. Select **Neural - multi style** as the [training method](#choose-a-training-method) for your model. To use a different training method, see [Neural](?tabs=neural#train-your-custom-neural-voice-model) or [Neural - cross lingual](?tabs=crosslingual#train-your-custom-neural-voice-model).
 
    :::image type="content" source="media/custom-voice/cnv-train-neural-multi-style.png" alt-text="Screenshot that shows how to select neural multi style training.":::
@@ -256,14 +256,14 @@ Updating the engine creates a new version of the model at no extra cost. After y
 
 After you create a new endpoint, you need to [transfer the traffic to the new endpoint in your product](how-to-deploy-and-use-endpoint.md#switch-to-a-new-voice-model-in-your-product).
 
-To learn more about the capabilities and limits of this feature, and the best practice to improve your model quality, see [Characteristics and limitations for using Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
+To learn more about the capabilities and limits of this feature, and the best practice to improve your model quality, see [Characteristics and limitations for using custom neural voice](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## Copy your voice model to another project
 
 You can copy your voice model to another project for the same region or another region. For example, you can copy a neural voice model that was trained in one region, to a project for another region.
 
 > [!NOTE]
-> Custom Neural Voice training is currently only available in some regions. You can copy a neural voice model from those regions to other regions. For more information, see the [regions for Custom Neural Voice](regions.md#speech-service).
+> Custom neural voice training is currently only available in some regions. You can copy a neural voice model from those regions to other regions. For more information, see the [regions for custom neural voice](regions.md#speech-service).
 
 To copy your custom neural voice model to another project:
 

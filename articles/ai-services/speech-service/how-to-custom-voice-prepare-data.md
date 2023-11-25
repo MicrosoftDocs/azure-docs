@@ -1,7 +1,7 @@
 ---
-title: "How to prepare data for Custom Voice - Speech service"
+title: "How to prepare data for custom voice - Speech service"
 titleSuffix: Azure AI services
-description: "Learn how to provide studio recordings and the associated scripts that will be used to train your Custom Neural Voice."
+description: "Learn how to provide studio recordings and the associated scripts that will be used to train your custom neural voice."
 #services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -11,7 +11,7 @@ ms.date: 10/27/2022
 ms.author: eur
 ---
 
-# Prepare training data for Custom Neural Voice
+# Prepare training data for custom neural voice
 
 When you're ready to create a custom Text to speech voice for your application, the first step is to gather audio recordings and associated scripts to start training the voice model. For details on recording voice samples, see [the tutorial](record-custom-voice-samples.md). The Speech service uses this data to create a unique voice tuned to match the voice in the recordings. After you've trained the voice, you can start synthesizing speech in your applications.
 
@@ -28,7 +28,7 @@ When you're ready to upload your data, go to the **Prepare training data** tab t
 To upload training data, follow these steps:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customvoice).
-1. Select **Custom Voice** > Your project name > **Prepare training data** > **Upload data**. 
+1. Select **Custom voice** > Your project name > **Prepare training data** > **Upload data**. 
 1. In the **Upload data** wizard, choose a [data type](how-to-custom-voice-training-data.md) and then select **Next**.
 1. Select local files from your computer or enter the Azure Blob storage URL to upload data.
 1. Under **Specify the target training set**, select an existing training set or create a new one. If you created a new training set, make sure it's selected in the drop-down list before you continue.

@@ -11,7 +11,7 @@ ms.date: 10/27/2022
 ms.author: eur
 ---
 
-# Set up voice talent for Custom Neural Voice
+# Set up voice talent for custom neural voice
 
 A voice talent is an individual or target speaker whose voices are recorded and used to create neural voice models. 
 
@@ -27,7 +27,7 @@ You can find the verbal consent statement in multiple languages on [GitHub](http
 To add a voice talent profile and upload their consent statement, follow these steps:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customvoice).
-1. Select **Custom Voice** > Your project name > **Set up voice talent** > **Add voice talent**. 
+1. Select **Custom voice** > Your project name > **Set up voice talent** > **Add voice talent**. 
 1. In the **Add new voice talent** wizard, describe the characteristics of the voice you're going to create. The scenarios that you specify here must be consistent with what you provided in the application form.
 1. Select **Next**.
 1. On the **Upload voice talent statement** page, follow the instructions to upload the voice talent statement you've recorded beforehand. Make sure the verbal statement was [recorded](record-custom-voice-samples.md) with the same settings, environment, and speaking style as your training data.

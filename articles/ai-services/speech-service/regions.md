@@ -62,7 +62,7 @@ The following regions are supported for Speech service features such as speech t
 
 <sup>1</sup> The region has dedicated hardware for Custom Speech training. If you plan to train a custom model with audio data, use one of the regions with dedicated hardware for faster training. Then you can [copy the trained model](how-to-custom-speech-train-model.md#copy-a-model) to another region.
 
-<sup>2</sup> The region is available for Custom Neural Voice training. You can copy a trained neural voice model to other regions for deployment.
+<sup>2</sup> The region is available for custom neural voice training. You can copy a trained neural voice model to other regions for deployment.
 
 <sup>3</sup> The Long Audio API is available in the region.
 
@@ -72,7 +72,7 @@ The following regions are supported for Speech service features such as speech t
 
 <sup>6</sup> The region does not support Speaker Recognition.
 
-<sup>7</sup> The region supports the [high performance](how-to-deploy-and-use-endpoint.md#add-a-deployment-endpoint) endpoint type for Custom Neural Voice.
+<sup>7</sup> The region supports the [high performance](how-to-deploy-and-use-endpoint.md#add-a-deployment-endpoint) endpoint type for custom neural voice.
 
 ## Intent recognition
 

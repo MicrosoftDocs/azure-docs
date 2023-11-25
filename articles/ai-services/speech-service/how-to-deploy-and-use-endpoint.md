@@ -29,7 +29,7 @@ To use your custom neural voice, you must specify the voice model name, use the 
 To create a custom neural voice endpoint:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customvoice).
-1. Select **Custom Voice** > Your project name > **Deploy model** > **Deploy model**. 
+1. Select **Custom voice** > Your project name > **Deploy model** > **Deploy model**. 
 1. Select a voice model that you want to associate with this endpoint.  
 1. Enter a **Name** and **Description** for your custom endpoint.
 1. Select **Endpoint type** according to your scenario. If your resource is in a supported region, the default setting for the endpoint type is *High performance*. Otherwise, if the resource is in an unsupported region, the only available option is *Fast resume*.

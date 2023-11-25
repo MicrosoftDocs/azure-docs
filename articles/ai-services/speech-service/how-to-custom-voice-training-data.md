@@ -1,7 +1,7 @@
 ---
-title: "Training data for Custom Neural Voice - Speech service"
+title: "Training data for custom neural voice - Speech service"
 titleSuffix: Azure AI services
-description: "Learn about the data types that you can use to train a Custom Neural Voice."
+description: "Learn about the data types that you can use to train a custom neural voice."
 #services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -11,7 +11,7 @@ ms.date: 10/27/2022
 ms.author: eur
 ---
 
-# Training data for Custom Neural Voice
+# Training data for custom neural voice
 
 When you're ready to create a custom Text to speech voice for your application, the first step is to gather audio recordings and associated scripts to start training the voice model. The Speech service uses this data to create a unique voice tuned to match the voice in the recordings. After you've trained the voice, you can start synthesizing speech in your applications.
 

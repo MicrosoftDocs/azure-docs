@@ -93,7 +93,7 @@ These limits aren't adjustable. For more information on batch synthesis latency,
 | Max number of text inputs per synthesis job | N/A | 1000 |
 |Max time to live for a synthesis job since it being in the final state  | N/A | Up to 31 days (specified using properties) |
 
-#### Custom Neural Voice
+#### Custom neural voice
 
 | Quota | Free (F0)| Standard (S0) |
 |--|--|--|
@@ -253,7 +253,7 @@ How to get information for the prebuilt voice:
 How to get information for the custom voice:
 
 1. Go to the [Speech Studio](https://aka.ms/speechstudio/customvoice) portal.
-1. Sign in if necessary, and go to **Custom Voice**.
+1. Sign in if necessary, and go to **Custom voice**.
 1. Select your project, and go to **Deploy model**.
 1. Select the required endpoint.
 1. Copy and save the values of the following fields:

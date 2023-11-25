@@ -30,7 +30,7 @@ BYOS can be used with several Azure AI services. For Speech, it can be used in t
 **Text to speech**
 
 - [Audio Content Creation](how-to-audio-content-creation.md)
-- [Custom Neural Voice](custom-neural-voice.md) (Custom models for Speech synthesizing)
+- [Custom neural voice](custom-neural-voice.md) (Custom models for Speech synthesizing)
 
 
 One Speech resource – Storage account combination can be used for all four scenarios simultaneously in all combinations.
@@ -342,7 +342,7 @@ For more information, see [Prevent anonymous public read access to containers an
 
 **Configure Azure Storage firewall**
 
-Custom Neural Voice uses [User delegation SAS](../../storage/common/storage-sas-overview.md#user-delegation-sas) to read the data for Custom Neural Voice model training. It requires allowing external network traffic access to the Storage account.
+Custom neural voice uses [User delegation SAS](../../storage/common/storage-sas-overview.md#user-delegation-sas) to read the data for custom neural voice model training. It requires allowing external network traffic access to the Storage account.
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. Select the Storage account.
