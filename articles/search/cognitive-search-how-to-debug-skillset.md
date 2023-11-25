@@ -151,20 +151,20 @@ If skills produce output but the search index is empty, check the field mappings
 
 ## Debug a custom skill locally
 
-Custom skills can be more challenging to debug because the code runs externally, so the debug session can't be used to debug them. This section describes how to locally debug your Custom Web API skill, debug session, Visual Studio Code and [ngrok](https://ngrok.com/docs). This technique works with custom skills that execute in [Azure Functions](../azure-functions/functions-overview.md) or any other Web Framework that runs locally (for example, [FastAPI](https://fastapi.tiangolo.com/)).
+Custom skills can be more challenging to debug because the code runs externally, so the debug session can't be used to debug them. This section describes how to locally debug your Custom Web API skill, debug session, Visual Studio Code and [ngrok](https://ngrok.com/docs) or [Tunnelmole](https://github.com/robbie-cahill/tunnelmole-client). This technique works with custom skills that execute in [Azure Functions](../azure-functions/functions-overview.md) or any other Web Framework that runs locally (for example, [FastAPI](https://fastapi.tiangolo.com/)).
 
-### Get a Public URL
+### Get a public URL
 
 #### Using Tunnelmole
-Tunnelmole is an open source tunneling tool that can create a Public URL that forwards to your local machine through a tunnel.
+Tunnelmole is an open source tunneling tool that can create a public URL that forwards requests to your local machine through a tunnel.
 
-1. Install Tunnelmole
+1. Install Tunnelmole:
 - NPM:  `npm install -g tunnelmole`
 - Linux: `curl -s https://tunnelmole.com/sh/install-linux.sh | sudo bash`
 - Mac:  `curl -s https://tunnelmole.com/sh/install-mac.sh --output install-mac.sh && sudo bash install-mac.sh`
 - Windows: Install with NPM, or if you don't have NodeJS installed, download the precompiled `exe` file for Windows [here](https://tunnelmole.com/downloads/tmole.exe) and put it somewhere in your PATH.
 
-2. Then run this command to create a new tunnel
+2. Then run this command to create a new tunnel:
 ```console
 ➜  ~ tmole 7071
 http://m5hdpb-ip-49-183-170-144.tunnelmole.net is forwarding to localhost:7071
