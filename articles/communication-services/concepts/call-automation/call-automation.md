@@ -103,7 +103,7 @@ When your application answers a call or places an outbound call, you can play an
 After your application has played an audio prompt, you can request user input to drive business logic and navigation in your application. To learn more, view our [concepts](./recognize-action.md) and how-to guide for [Gathering user input](../../how-tos/call-automation/recognize-action.md).
 
 **Continuous DTMF recognition**
-When your application needs to be able to receive DTMF tones at any point in the call without the application needing to trigger a specific recognize action. This can be useful in scenarios where an agent is on a call and needs the user to enter in some kind of ID or tracking number. To learn more about how to use this view our [guide[()
+When your application needs to be able to receive DTMF tones at any point in the call without the application needing to trigger a specific recognize action. This can be useful in scenarios where an agent is on a call and needs the user to enter in some kind of ID or tracking number. To learn more about how to use this view our [guide](../../how-tos/call-automation/control-mid-call-media-actions.md).
 
 **Send DTMF**
 When your application needs to send DTMF tones to an external participant, this could be for purposes like dialing out to an external agent and providing the extension number, or something like navigating an external IVR menu.
