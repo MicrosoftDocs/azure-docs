@@ -121,6 +121,7 @@ Using the `TextSource`, you can provide the service with the text you want synth
 Next, we pass the text into the `CallMediaRecognizeChoiceOptions` and then call `StartRecognizingAsync`. This allows your application to recognize the option the caller chooses.
 
 ```python
+
 get_media_recognize_choice_options( 
     call_connection_client=call_connection_client, 
     text_to_play=MainMenu,  
@@ -131,6 +132,7 @@ def get_media_recognize_choice_options(call_connection_client: CallConnectionCli
     play_source =  TextSource (text= text_to_play, voice_name= SpeechToTextVoice) 
     call_connection_client.start_recognizing_media( 
         input_type=RecognizeInputType.CHOICES, 
+
         target_participant=target_participant,
         choices=choices, 
         play_prompt=play_source, 
@@ -147,7 +149,7 @@ def get_choices():
 return choices 
 ```
 
-## Recognize DTMF Events
+## Handle Choice Events
 
 Azure Communication Services Call Automation triggers the `api/callbacks` to the webhook we have setup and will notify us with the `RecognizeCompleted` event. The event gives us the ability to respond to input recieved and trigger an action. The application then plays a message to the caller based on the specific input received.
 

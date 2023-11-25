@@ -195,6 +195,8 @@
     href: stream-analytics-stream-analytics-query-patterns.md
   - name: Parse JSON and AVRO data
     href: stream-analytics-parsing-json.md
+  - name: Parsing Protobuf
+    href: stream-analytics-parsing-protobuf.md
   - name: Event ordering
     items:
     - name: Event ordering overview

@@ -5,7 +5,7 @@
  author: robece
  ms.service: event-grid
  ms.topic: include
- ms.date: 11/02/2023
+ ms.date: 11/15/2023
  ms.author: robece
 ms.custom: include file, ignite-2023
 ---
@@ -24,7 +24,7 @@ The following limits apply to namespace resources in Azure Event Grid.
 
 | Limit description                      | Limit |
 |----------------------------------------|-------|
-| Namespaces per Azure subscription      | 10    |
+| Namespaces per Azure subscription      | 50    |
 | Maximum throughput units per namespace | 40    |
 
 ## MQTT limits in namespace
@@ -79,7 +79,7 @@ The following limits apply to events in Azure Event Grid namespace resource.
 | Event egress  (push and pull APIs)                                   | Up to 2,000 events per second or 2 MB per second per TU                            |
 | Event egress  (acknowledge, release, reject, and renew lock APIs)    | Up to 2,000 events per second or 2 MB per second per TU                            |
 | Maximum event retention on namespace topics                          | 7 days                                                                             |
-| Subscriptions per topic                                              | 100                                                                                |
+| Subscriptions per topic                                              | 500                                                                                |
 | Maximum event size                                                   | 1 MB                                                                               |
 | Batch size                                                           | 1 MB                                                                               |
 | Events per request                                                   | 1,000                                                                              |

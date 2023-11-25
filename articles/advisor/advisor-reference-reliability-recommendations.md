@@ -23,19 +23,19 @@ Azure Advisor helps you ensure and improve the continuity of your business-criti
 
 You're close to exceeding storage quota of 2GB. Create a Standard search service. Indexing operations stop working when storage quota is exceeded.
 
-Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity).
+Learn more about [Service limits in Azure AI Search](/azure/search/search-limits-quotas-capacity).
 
 ### You're close to exceeding storage quota of 50MB. Create a Basic or Standard search service
 
 You're close to exceeding storage quota of 50MB. Create a Basic or Standard search service. Indexing operations stop working when storage quota is exceeded.
 
-Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity).
+Learn more about [Service limits in Azure AI Search](/azure/search/search-limits-quotas-capacity).
 
 ### You're close to exceeding your available storage quota. Add more partitions if you need more storage
 
 You're close to exceeding your available storage quota. Add extra partitions if you need more storage. After exceeding storage quota, you can still query, but indexing operations no longer work.
 
-Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity)
+Learn more about [Service limits in Azure AI Search](/azure/search/search-limits-quotas-capacity)
 
 ### Quota Exceeded for this resource
 

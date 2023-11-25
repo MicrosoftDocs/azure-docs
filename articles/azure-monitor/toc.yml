@@ -440,13 +440,13 @@ items:
         href: insights/scom-assessment.md
     - name: Tutorials
       items:
-      - name: Enable recommended alerts
+      - name: Enable recommended alerts for VMs
         href: vm/tutorial-monitor-vm-alert-recommended.md
-      - name: Create availability alert
+      - name: Create an availability alert for VMs
         href: vm/tutorial-monitor-vm-alert-availability.md
       - name: Enable VM insights
         href: vm/tutorial-monitor-vm-enable-insights.md
-      - name: Collect guest logs and metrics
+      - name: Collect VM guest logs and metrics
         href: vm/tutorial-monitor-vm-guest.md
   - name: Monitor containers
     items:
@@ -541,6 +541,10 @@ items:
           href: containers/container-insights-hybrid-setup.md          
         - name: Enable with Azure Policy
           href: containers/container-insights-enable-aks-policy.md
+        - name: Configure private link
+          href: containers/container-insights-private-link.md
+        - name: Legacy authentication
+          href: containers/container-insights-authentication.md
         - name: Supported region mappings
           href: containers/container-insights-region-mapping.md
         - name: Transition from Container monitoring solution
