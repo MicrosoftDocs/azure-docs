@@ -161,6 +161,19 @@ items:
           displayName: cnv
         - name: Custom neural voice lite
           href: custom-neural-voice-lite.md
+        - name: Create a professional voice
+          items:
+          - name: Create a professional voice project
+            displayName: custom voice, neural voice, cnv
+            href: how-to-custom-voice.md
+          - name: Set up voice talent
+            href: how-to-custom-voice-talent.md
+          - name: Prepare training data
+            href: how-to-custom-voice-prepare-data.md
+          - name: Train your voice model
+            href: how-to-custom-voice-create-voice.md
+          - name: Deploy and use your voice model
+            href: how-to-deploy-and-use-endpoint.md
         - name: Personal voice (preview)
           items:
           - name: Personal voice overview
@@ -176,19 +189,7 @@ items:
           - name: Use personal voice in your application
             href: personal-voice-how-to-use.md
             displayName: cnv
-        - name: Create a professional voice
-          items:
-          - name: Create a project
-            displayName: custom voice, neural voice, cnv
-            href: how-to-custom-voice.md
-          - name: Set up voice talent
-            href: how-to-custom-voice-talent.md
-          - name: Prepare training data
-            href: how-to-custom-voice-prepare-data.md
-          - name: Train your voice model
-            href: how-to-custom-voice-create-voice.md
-          - name: Deploy and use your voice model
-            href: how-to-deploy-and-use-endpoint.md
+        
         - name: Training data types
           href: how-to-custom-voice-training-data.md
         - name: How to record voice samples
