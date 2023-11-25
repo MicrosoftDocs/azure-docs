@@ -31,12 +31,12 @@ SSML is designed to give you flexibility in how you want your speech output to s
 SSML functionality is available in various tools that might fit your use case.
 
 > [!IMPORTANT]
-> You're billed for each character that's converted to speech, including punctuation. Although the SSML document itself isn't billable, the service counts optional elements that you use to adjust how the text is converted to speech, like phonemes and pitch, as billable characters. For more information, see [Pricing note](text-to-speech.md#pricing-note).
+> You're billed for each character that's converted to speech, including punctuation. Although the SSML document itself isn't billable, the service counts optional elements that you use to adjust how the text is converted to speech, like phonemes and pitch, as billable characters. For more information, see the [pricing note](text-to-speech.md#pricing-note).
 
 You can use SSML in the following ways:
 
-- [The Audio Content Creation](https://aka.ms/audiocontentcreation) tool lets you author plain text and SSML in Speech Studio. You can listen to the output audio and adjust the SSML to improve speech synthesis. For more information, see [Speech synthesis with the Audio Content Creation tool](how-to-audio-content-creation.md).
-- [The Batch synthesis API](batch-synthesis.md) accepts SSML via the `inputs` property. 
+- [The audio content creation](https://aka.ms/audiocontentcreation) tool lets you author plain text and SSML in Speech Studio. You can listen to the output audio and adjust the SSML to improve speech synthesis. For more information, see [Speech synthesis with the Audio Content Creation tool](how-to-audio-content-creation.md).
+- [The batch synthesis API](batch-synthesis.md) accepts SSML via the `inputs` property. 
 - [The Speech CLI](get-started-text-to-speech.md?pivots=programming-language-cli) accepts SSML via the `spx synthesize --ssml SSML` command line argument.
 - [The Speech SDK](how-to-speech-synthesis.md#use-ssml-to-customize-speech-characteristics) accepts SSML via the "speak" SSML method across the different supported languages.
 

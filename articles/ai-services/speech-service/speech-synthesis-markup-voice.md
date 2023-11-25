@@ -94,7 +94,7 @@ You use the `effect` attribute to optimize the auditory experience for scenarios
 By default, neural voices have a neutral speaking style. You can adjust the speaking style, style degree, and role at the sentence level.
 
 > [!NOTE]
-> The Speech service supports styles, style degree, and roles for a subset of neural voices as described in [Voice styles and roles](language-support.md?tabs=tts#voice-styles-and-roles) documentation. To determine the supported styles and roles for each voice, you can also use the [list voices](rest-text-to-speech.md#get-a-list-of-voices) API and the [Audio Content Creation](https://aka.ms/audiocontentcreation) web application.
+> The Speech service supports styles, style degree, and roles for a subset of neural voices as described in the [voice styles and roles](language-support.md?tabs=tts#voice-styles-and-roles) documentation. To determine the supported styles and roles for each voice, you can also use the [list voices](rest-text-to-speech.md#get-a-list-of-voices) API and the [audio content creation](https://aka.ms/audiocontentcreation) web application.
 
 The following table describes the usage of the `mstts:express-as` element's attributes:
 
@@ -214,6 +214,22 @@ This example uses a custom voice named **my-custom-voice**. The custom voice spe
         </mstts:express-as>
     </voice>
 </speak>
+```
+
+## Speaker profile ID
+
+You use the `mstts:ttsembedding` element to specify the `speakerProfileId` property for a [personal voice](./personal-voice-overview.md). Personal voice is a custom neural voice that's trained on your own voice or your customer's voice. For more information, see [create a personal voice](./personal-voice-create-voice.md).
+
+The following SSML example uses the `<mstts:ttsembedding>` element with a voice name and speaker profile ID.
+
+```xml
+<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='en-US'>
+    <voice xml:lang='en-US' xml:gender='Male' name='PhoenixV2Neural'> 
+    <mstts:ttsembedding speakerProfileId='your speaker profile ID here'> 
+    I'm happy to hear that you find me amazing and that I have made your trip planning easier and more fun. 我很高兴听到你觉得我很了不起，我让你的旅行计划更轻松、更有趣。Je suis heureux d'apprendre que vous me trouvez incroyable et que j'ai rendu la planification de votre voyage plus facile et plus amusante.  
+    </mstts:ttsembedding> 
+    </voice> 
+</speak> 
 ```
 
 ## Adjust speaking languages
