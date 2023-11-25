@@ -16,13 +16,13 @@ ms.author: eur
 
 With the personal voice feature, it's required that every voice be created with explicit consent from the user. A recorded statement from the user is required acknowledging that the customer (Azure AI Speech resource owner) will create and use their voice.
 
-To add user consent to the personal voice project, you get the prerecorded consent audio file from a publicly accessible URL (`Consents_Create`) or upload the audio file (`Consents_Post`). 
+To add user consent to the personal voice project, you get the prerecorded consent audio file from a publicly accessible URL (`Consents_Create`) or upload the audio file (`Consents_Post`). In this article, you add consent from a URL. 
 
 ## Add consent from a URL
 
 To add consent to a personal voice project from the URL of an audio file, use the `Consents_Create` operation of the custom voice API. Construct the request body according to the following instructions:
 
-- Set the required `projectId` property. 
+- Set the required `projectId` property. See [create a project](./personal-voice-create-project.md).
 - Set the required `voiceTalentName` property. The voice talent name can't be changed later.
 - Set the required `companyName` property. The company name can't be changed later.
 - Set the required `audioUrl` property. The public accessible URL of the consent audio file.

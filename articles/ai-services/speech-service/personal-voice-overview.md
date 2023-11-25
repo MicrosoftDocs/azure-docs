@@ -32,7 +32,7 @@ The following table summarizes the difference between personal voice and profess
 | Voice quality | Natural | Highly natural |
 | Multilingual support | Yes. The voice is able to speak about 100 languages, with automatic language detection enabled. | Yes. You need to select the "Neural – cross lingual" feature to train a model that speaks a different language from the training data. |
 | Availability | The demo on [Speech Studio](https://aka.ms/speechstudio/) is available upon registration. | Access to the API is restricted to eligible customers and approved use cases. Request access through the intake form. You can only train and deploy a CNV Pro model after access is approved. CNV Pro access is limited based on eligibility and usage criteria. Request access through the intake form. |
-| Pricing | To be announced later. | Check the pricing details here. |
+| Pricing | To be announced later. | Check the pricing details [here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). |
 | RAI requirements | Speaker's verbal statement required. No unapproved use case allowed. | Speaker's verbal statement required. No unapproved use case allowed. |
 
 ## Try the demo
@@ -59,7 +59,7 @@ To get started, here's a summary of the steps to create a personal voice:
 1. [Create a project](./personal-voice-create-project.md). 
 1. [Upload consent file](./personal-voice-create-consent.md). With the personal voice feature, it's required that every voice be created with explicit consent from the user. A recorded statement from the user is required acknowledging that the customer (Azure AI Speech resource owner) will create and use their voice.
 1. [Upload an audio recording of the voice talent as a training set](./personal-voice-create-training-set.md). It can take only three seconds. 
-1. Create a personal voice. Personal voice creates a voice ID based on the speaker verbal statement file and the audio prompt (a clean human voice sample longer than 60 seconds). The user's voice characteristics are encoded in the voice ID that's used to generate synthesized audio with the text input provided.
+1. [Get a speaker profile ID](./personal-voice-create-voice.md) for the personal voice. You get a speaker profile ID based on the speaker's verbal consent statement and an audio prompt (a clean human voice sample longer than 60 seconds). The user's voice characteristics are encoded in the `speakerProfileId` property that's used for text to speech. 
 
 Once you have a personal voice, you can [use it](./personal-voice-how-to-use.md) to synthesize speech in any of the 91 languages supported across 100+ locales. A locale tag isn't required. Personal voice uses automatic language detection at the sentence level. For more information, see [use personal voice in your application](./personal-voice-how-to-use.md).
 

@@ -14,7 +14,7 @@ ms.author: eur
 
 [!INCLUDE [Personal voice preview](./includes/previews/preview-personal-voice.md)]
 
-Personal voice projects contain models, training and testing datasets, and deployment endpoints. You can only create a personal voice project using the custom voice API. You can't create a personal voice project in the Speech Studio.
+Personal voice projects contain the user consent statement, training datasets, and the personal voice ID that's used for text to speech. You can only create a personal voice project using the custom voice API. You can't create a personal voice project in the Speech Studio.
 
 ## Create a project
 
@@ -22,7 +22,7 @@ To create a personal voice project, use the `Projects_Create` operation of the c
 
 - Set the required `description` property. The description can be changed later.
 - Set the required `kind` property to `PersonalVoice`. The kind can't be changed later.
-- Optionally, remove or replace `JessicaProjectId` with a project ID of your choice. The case sensitive ID must be unique within your Speech resource. The ID will be used in the project's URI (and the Speech Studio URL) and can't be changed later. 
+- Optionally, remove or replace `JessicaProjectId` with a project ID of your choice. The case sensitive ID must be unique within your Speech resource. The ID will be used in the project's URI and can't be changed later. 
 - Optionally, set the `displayName` property for the project name. The project name can be changed later.
 
 Make an HTTP POST request using the URI as shown in the following `Projects_Create` example. 
@@ -42,7 +42,7 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "id": "JessicaId",
+  "id": "JessicaProjectId",
   "displayName": "Project name for Jessica Voice",
   "description": "Project description for Jessica Voice",
   "kind": "PersonalVoice",
@@ -50,6 +50,7 @@ You should receive a response body in the following format:
 }
 ```
 
+You use the project `id` in subsequent API requests to [add user consent](./personal-voice-create-consent.md), [create a training set](./personal-voice-create-training-set.md), and [get a speaker profile ID](./personal-voice-create-voice.md).
 
 ## Next steps
 

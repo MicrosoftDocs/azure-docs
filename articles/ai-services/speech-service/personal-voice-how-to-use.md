@@ -15,11 +15,13 @@ ms.custom: references_regions
 
 [!INCLUDE [Personal voice preview](./includes/previews/preview-personal-voice.md)]
 
-With personal voice, you can get AI generated replication of your voice (or users of your application) in a few seconds. You provide a one-minute speech sample as the audio prompt, and then use it to generate speech in any of the more than 90 languages supported across more than 100 locales.  
+You can use the [speaker profile ID](./personal-voice-create-voice.md) for your personal voice to synthesize speech in any of the 91 languages supported across 100+ locales. A locale tag isn't required. Personal voice uses automatic language detection at the sentence level. 
 
 ## Integrate personal voice in your application
 
-Personal voice creates a voice ID based on the speaker verbal statement file and the audio prompt (a clean human voice sample longer than 60 seconds). The user's voice characteristics are encoded in the voice ID that's used to generate synthesized audio with the text input provided. The voice created can generate speech in any of the 91 languages supported across 100+ locales. A locale tag isn't required. Personal voice uses automatic language detection at the sentence level.  
+You need to use speech synthesis markup language (SSML) to use personal voice in your application. SSML is an XML-based markup language that provides a standard way to mark up text for the generation of synthetic speech. SSML tags are used to control the pronunciation, volume, pitch, rate, and other attributes of the speech synthesis output.
+
+The `speakerProfileId` property is used to specify the [speaker profile ID](./personal-voice-create-voice.md) for the personal voice.
 
 Here's example SSML in a request for text to speech with the voice name and the speaker profile ID. 
 

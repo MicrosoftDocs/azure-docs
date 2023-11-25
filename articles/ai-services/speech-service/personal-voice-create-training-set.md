@@ -14,15 +14,15 @@ ms.author: eur
 
 [!INCLUDE [Personal voice preview](./includes/previews/preview-personal-voice.md)]
 
-Personal voice creates a voice ID based on the speaker verbal statement file and the audio prompt (a clean human voice sample longer than 60 seconds). The user's voice characteristics are encoded in the voice ID that's used to generate synthesized audio with the text input provided. 
+You need a training dataset to create a personal voice. A training dataset includes audio and script files. The audio files are recordings of the voice talent reading the script files. The script files are the text of the audio files. 
 
-First, you create a training set and get it's resource ID. Then, using the resource ID, you can upload a set of audio and script files.
+In this article, you [create a training set](#create-a-training-set) and get it's resource ID. Then, using the resource ID, you can [upload a set of audio and script files](#upload-training-set).
 
 ## Create a training set
 
 To create a training set, use the `TrainingSets_Create` operation of the custom voice API. Construct the request body according to the following instructions:
 
-- Set the required `projectId` property. 
+- Set the required `projectId` property. See [create a project](./personal-voice-create-project.md).
 - Set the required `description` property. The description can be changed later.
 - Set the required `voiceKind` property to `Male` or `Female`. The kind can't be changed later. 
 - Set the required `locale` property. This should be the locale of the consent. The locale can't be changed later. You can find the text to speech locale list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
@@ -76,7 +76,7 @@ To upload a training set of audio and scripts, use the `TrainingSets_UploadData`
 Make an HTTP POST request using the URI as shown in the following `TrainingSets_UploadData` example. 
 - Replace `YourSubscriptionKey` with your Speech resource key.
 - Replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
-- Replace `JessicaTrainingId` if you used a different training set ID in the previous step.
+- Replace `JessicaTrainingId` if you specified a different training set ID or you let the service generate one in the previous step.
 
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
