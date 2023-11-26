@@ -13,11 +13,7 @@ ms.custom: references_regions
 
 This article provides information about the latest updates to the Remote Desktop WebRTC Redirector Service for Teams for Azure Virtual Desktop, which you can download at [Remote Desktop WebRTC Redirector Service](https://aka.ms/msrdcwebrtcsvc/msi).
 
-## Latest versions of the Remote Desktop WebRTC Redirector Service
-
-The following sections describe what changed in each version of the Remote Desktop WebRTC Redirector Service.
-
-### Updates for version 1.45.2310.13001
+## Updates for version 1.45.2310.13001
 
 Date published: November 15, 2023
 
@@ -25,7 +21,7 @@ Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/bin
 
 - Added support for Teams optimization reinitialization upon virtual machine (VM) hibernate and resume.
 
-### Updates for version 1.43.2306.30001
+## Updates for version 1.43.2306.30001
 
 Date published: September 7, 2023
 
@@ -36,7 +32,7 @@ Download: [MSI Installer](https://aka.ms/msrdcwebrtcsvc/msi)
 - Fixed an issue where the diagnostic overlay hotkey (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>;</kbd>) caused hotkeys to be disabled for non-Teams applications during Teams calls.
 - Fixed an issue where a race condition caused a loss of audio during Teams calls.
 
-### Updates for version 1.33.2302.07001
+## Updates for version 1.33.2302.07001
 
 Date published: March 1, 2023
 
@@ -44,7 +40,7 @@ Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/bin
 
 - Support for non-Latin characters for window names in the application window share tray.
 
-### Updates for version 1.31.2211.15001 
+## Updates for version 1.31.2211.15001 
 
 Date published: January 19, 2023
 
@@ -55,7 +51,7 @@ Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/bin
 - Latency and performance improvements for Give and Take Control on Windows.
 - Improved screen share performance.
 
-### Updates for version 1.17.2205.23001
+## Updates for version 1.17.2205.23001
 
 Date published: June 20, 2022
 
@@ -65,7 +61,7 @@ Download: [MSI installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/bin
 - Added keyboard shortcut detection for Shift+Ctrl+; that lets users turn on a diagnostic overlay during calls on Teams for Azure Virtual Desktop. This feature is supported in version 1.2.3313 or later of the Windows Desktop client.
 - Added further stability and reliability improvements to the service.
 
-### Updates for version 1.4.2111.18001
+## Updates for version 1.4.2111.18001
 
 Date published: December 2, 2021
 
@@ -76,7 +72,7 @@ Download: [MSI installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/bin
 - Removed timeout that prevented the WebRTC redirector service from starting when the user connects.
 - Fixed setup problems that prevented side-by-side installation from working.
 
-### Updates for version 1.1.2110.16001
+## Updates for version 1.1.2110.16001
 
 Date published: October 15, 2021
 
