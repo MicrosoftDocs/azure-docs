@@ -25,18 +25,18 @@ To create a training set, use the `TrainingSets_Create` operation of the custom 
 - Optionally, remove or replace `JessicaTrainingId` with a training set ID of your choice. The case sensitive ID will be used in the training set's URI and can't be changed later. 
 
 Make an HTTP POST request using the URI as shown in the following `TrainingSets_Create` example. 
-- Replace `YourSubscriptionKey` with your Speech resource key.
-- Replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
+- Replace `YourResourceKey` with your Speech resource key.
+- Replace `YourResourceRegion` with your Speech resource region.
 
 ```azurecli-interactive
-curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
+curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
   "description": "300 sentences Jessica data in general style.",
   "displayName": "Training set name",
   "id": "JessicaTrainingId",
   "projectId": "JessicaProjectId",
   "locale": "en-US",
   "voiceKind": "Female"
-} '  "https://YourServiceRegion.api.cognitive.microsoft.com/customvoice/trainingsets?api-version=2023-12-01-preview"
+} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/trainingsets?api-version=2023-12-01-preview"
 ```
 
 You should receive a response body in the following format:
@@ -69,12 +69,12 @@ To upload a training set of audio and scripts, use the `TrainingSets_UploadData`
   - Optionally, set the `prefix` property to set a prefix for the blob name.
 
 Make an HTTP POST request using the URI as shown in the following `TrainingSets_UploadData` example. 
-- Replace `YourSubscriptionKey` with your Speech resource key.
-- Replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
+- Replace `YourResourceKey` with your Speech resource key.
+- Replace `YourResourceRegion` with your Speech resource region.
 - Replace `JessicaTrainingId` if you specified a different training set ID or you let the service generate one in the previous step.
 
 ```azurecli-interactive
-curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
+curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
   "kind": "AudioAndScript",
   "audios": {
     "containerUrl": "https://contoso.blob.core.windows.net/voicecontainer?mySasToken",
@@ -90,7 +90,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
       "*.txt"
     ]
   }
-} '  "https://YourServiceRegion.api.cognitive.microsoft.com/customvoice/trainingsets/JessicaTrainingId:upload?api-version=2023-12-01-preview"
+} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/trainingsets/JessicaTrainingId:upload?api-version=2023-12-01-preview"
 ```
 
 The response header contains the `Operation-Location` property. Use this URI to get details about the `TrainingSets_UploadData` operation. Here's an example of the response header:
@@ -99,3 +99,7 @@ The response header contains the `Operation-Location` property. Use this URI to 
 Operation-Location: https://eastus.api.cognitive.microsoft.com/customvoice/operations/284b7e37-f42d-4054-8fa9-08523c3de345?api-version=2023-12-01-preview
 Operation-Id: 284b7e37-f42d-4054-8fa9-08523c3de345
 ```
+
+## Resolve data issues online
+
+[!INCLUDE [Resolve data issues](./speech-studio-resolve-data-issues.md)]

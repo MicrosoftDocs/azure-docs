@@ -21,16 +21,16 @@ To create a professional voice project, use the `Projects_Create` operation of t
 - Optionally, set the `displayName` property for the project name. The project name can be changed later.
 
 Make an HTTP POST request using the URI as shown in the following `Projects_Create` example. 
-- Replace `YourSubscriptionKey` with your Speech resource key.
-- Replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
+- Replace `YourResourceKey` with your Speech resource key.
+- Replace `YourResourceRegion` with your Speech resource region.
 
 ```azurecli-interactive
-curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
+curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
   "id": "JessicaProjectId",
   "displayName": "Project name for Jessica Voice",
   "description": "Project description for Jessica Voice",
   "kind": "ProfessionalVoice"
-} '  "https://YourServiceRegion.api.cognitive.microsoft.com/customvoice/projects?api-version=2023-12-01-preview"
+} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/projects?api-version=2023-12-01-preview"
 ```
 
 You should receive a response body in the following format:
