@@ -36,6 +36,10 @@ $Env:AZURE_OPENAI_KEY = 'YOUR_KEY_VALUE'
 $Env:AZURE_OPENAI_ENDPOINT = 'YOUR_ENDPOINT'
 ```
 
+```powershell-interactive
+$Env:AZURE_OPENAI_DEPLOYMENT_NAME = 'YOUR_DEPLOYMENT_NAME'
+```
+
 # [Bash](#tab/bash)
 
 ```Bash
@@ -44,6 +48,10 @@ echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environm
 
 ```Bash
 echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+```
+
+```Bash
+echo export AZURE_OPENAI_DEPLOYMENT_NAME="REPLACE_WITH_YOUR_DEPLOYMENT_NAME_HERE" >> /etc/environment && source /etc/environment
 ```
 
 ---
@@ -231,7 +239,7 @@ param (
     [string]$text,
     [Parameter(Mandatory = $true, ValueFromPipelineByPropertyName = $true)]
     [string]$pathToTokenizerlibDll,
-    [string]$modelName = 'text-embedding-ada-002',
+    [string]$modelName = 'gpt-4',
     [hashtable]$specialTokens = @{} # for chat models, this value would include IM_START and IM_END
 )
 
@@ -263,7 +271,8 @@ $datatable.rows | ForEach-Object {
 
 Now we can create a view of the datatable, called a
 [dataview](/dotnet/framework/data/adonet/dataset-datatable-dataview/dataviews),
-that filters any rows where the token count is greater than 8192.
+that filters any rows where the token count is greater than
+[8192](https://platform.openai.com/docs/api-reference/embeddings/create#embeddings-create-input).
 
 ```powershell-interactive
 $dataview   = New-Object System.Data.DataView($datatable)
@@ -285,12 +294,12 @@ Nine documents are excluded from the dataview because they're larger than 8192 t
 ```
 
 When we pass the documents to the embeddings model, it encodes the documents into tokens similar
-(though not identical) to the *Microsoft.DeepDev.Tokenizerlib* sample and then return a series of floating
+(though not identical) to the *Microsoft.DeepDev.Tokenizerlib* sample and then returns a series of floating
 point numbers to use in a [cosine similarity](../concepts/understand-embeddings.md#cosine-similarity) search. These embeddings can be stored locally or
 in a service such as [Vector Search in Azure AI Search](/azure/search/vector-search-overview). Each
-document has its own corresponding embedding vector in the new `vectors` column.
+document has its own corresponding embedding vector in the new *vectors* column.
 
-The next example loops through each row in the datatable, retrieves the vectors for the preprocessed content, and stores them to the "vectors" column. The OpenAI service throttles frequent requests, so the example includes an **exponential back-off** as suggested by the [documentation](https://platform.openai.com/docs/guides/rate-limits/error-mitigation).
+The next example loops through each row in the datatable, retrieves the vectors for the preprocessed content, and stores them to the *vectors* column. The OpenAI service throttles frequent requests, so the example includes an **exponential back-off** as suggested by the [documentation](https://platform.openai.com/docs/guides/rate-limits/error-mitigation).
 
 After the script completes, each row should have a comma-delimited list of 1536 vectors for each document.
 
@@ -300,7 +309,7 @@ $openai = @{
     api_key     = $Env:AZURE_OPENAI_KEY
     api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
     api_version = '2023-05-15' # this may change in the future
-    name        = 'YOUR-DEPLOYMENT-NAME-HERE' # Corresponds to the custom name you chose for your deployment when you deployed a model.
+    name        = $Env:AZURE_OPENAI_DEPLOYMENT_NAME # Corresponds to the custom name you chose for your deployment when you deployed a model.
 }
 
 $headers = [ordered]@{
@@ -314,7 +323,7 @@ $dataview | ForEach-Object {
         input = $doc.prep
     } | ConvertTo-Json
     
-    $url = "$($openai.api_base)/openai/deployments/$($openai.name)/embeddings?api-version=$($openai.api_version)
+    $url = "$($openai.api_base)/openai/deployments/$($openai.name)/embeddings?api-version=$($openai.api_version)"
     
     $retryCount = 0
     $maxRetries = 10
@@ -340,7 +349,7 @@ $dataview | ForEach-Object {
 }
 ```
 
-You now have a local in-memory database of PowerShell 7.4 reference docs.
+You now have a local in-memory database table of PowerShell 7.4 reference docs.
 
 Based on a search string, we need to calculate another set of vectors so PowerShell can rank each document by similarity. In the next example, vectors are retrieved for the string "get a list of running processes."
 
