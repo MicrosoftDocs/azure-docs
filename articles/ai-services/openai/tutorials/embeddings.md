@@ -37,12 +37,8 @@ In this tutorial, you learn how to:
 * Access granted to Azure OpenAI in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 * An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** model deployed. This model is currently only available in [certain regions](../concepts/models.md#model-summary-table-and-region-availability).  If you don't have a resource the process of creating one is documented in our [resource deployment guide](../how-to/create-resource.md).
-::: zone pivot="programming-language-python"
-[!INCLUDE [Python](../includes/embeddings-python.md)]
-::: zone-end
-::: zone pivot="programming-language-powershell"
-[!INCLUDE [PowerShell](../includes/embeddings-powershell.md)]
-::: zone-end
+::: zone pivot="programming-language-python"[!INCLUDE [Python](../includes/embeddings-python.md)]::: zone-end
+::: zone pivot="programming-language-powershell"[!INCLUDE [PowerShell](../includes/embeddings-powershell.md)]::: zone-end
 
 Using this approach, you can use embeddings as a search mechanism across documents in a knowledge base. The user can then take the top search result and use it for their downstream task, which prompted their initial query.
 
