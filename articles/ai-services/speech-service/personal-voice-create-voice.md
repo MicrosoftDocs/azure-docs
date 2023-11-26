@@ -77,6 +77,5 @@ Operation-Id: 1321a2c0-9be4-471d-83bb-bc3be4f96a6f
 
 ## Next steps
 
-- [Use personal voice in your application](./personal-voice-how-to-use.md).
-- Learn more about custom neural voice in the [overview](custom-neural-voice.md).
-- Learn more about Speech Studio in the [overview](speech-studio-overview.md).
+> [!div class="nextstepaction"]
+> [Use personal voice in your application.](./personal-voice-how-to-use.md).

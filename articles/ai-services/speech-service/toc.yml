@@ -165,6 +165,19 @@ items:
           items:
           - name: Create a professional voice project
             displayName: custom voice, neural voice, cnv
+            href: professional-voice-create-project.md
+          - name: Add voice talent consent to your project
+            href: professional-voice-create-consent.md
+          - name: Add training data
+            href: professional-voice-create-training-set.md
+          - name: Train your voice model
+            href: professional-voice-train-voice.md
+          - name: Deploy and use your voice model
+            href: professional-voice-deploy-endpoint.md
+        - name: Create a professional voice
+          items:
+          - name: Create a professional voice project
+            displayName: custom voice, neural voice, cnv
             href: how-to-custom-voice.md
           - name: Set up voice talent
             href: how-to-custom-voice-talent.md
@@ -182,7 +195,7 @@ items:
             href: personal-voice-create-project.md
           - name: Add user consent to your project
             href: personal-voice-create-consent.md
-          - name: Upload a training dataset
+          - name: Add a training dataset
             href: personal-voice-create-training-set.md
           - name: Get a speaker profile ID
             href: personal-voice-create-voice.md

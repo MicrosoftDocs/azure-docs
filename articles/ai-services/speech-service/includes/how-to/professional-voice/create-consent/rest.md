@@ -1,28 +1,23 @@
 ---
-title: Add user consent to the personal voice project - Speech service
-titleSuffix: Azure AI services
-description: Learn about how to add user consent to the personal voice project. 
-author: eric-urban
-manager: nitinme
-ms.service: azure-ai-speech
-ms.topic: how-to
-ms.date: 11/24/2023
-ms.author: eur
+ title: include file
+ description: include file
+ author: eur
+ ms.author: eric-urban
+ ms.service: azure-ai-services
+ ms.topic: include
+ ms.date: 11/24/2023
+ ms.custom: include
 ---
 
-# Add user consent to the personal voice (preview) project
+With the professional voice feature, it's required that every voice be created with explicit consent from the user. A recorded statement from the user is required acknowledging that the customer (Azure AI Speech resource owner) will create and use their voice.
 
-[!INCLUDE [Personal voice preview](./includes/previews/preview-personal-voice.md)]
-
-With the personal voice feature, it's required that every voice be created with explicit consent from the user. A recorded statement from the user is required acknowledging that the customer (Azure AI Speech resource owner) will create and use their voice.
-
-To add user consent to the personal voice project, you get the prerecorded consent audio file from a publicly accessible URL (`Consents_Create`) or upload the audio file (`Consents_Post`). In this article, you add consent from a URL. 
+To add user consent to the professional voice project, you get the prerecorded consent audio file from a publicly accessible URL (`Consents_Create`) or upload the audio file (`Consents_Post`). In this article, you add consent from a URL. 
 
 ## Add consent from a URL
 
-To add consent to a personal voice project from the URL of an audio file, use the `Consents_Create` operation of the custom voice API. Construct the request body according to the following instructions:
+To add consent to a professional voice project from the URL of an audio file, use the `Consents_Create` operation of the custom voice API. Construct the request body according to the following instructions:
 
-- Set the required `projectId` property. See [create a project](./personal-voice-create-project.md).
+- Set the required `projectId` property. See [create a project](../../../../professional-voice-create-project.md).
 - Set the required `voiceTalentName` property. The voice talent name can't be changed later.
 - Set the required `companyName` property. The company name can't be changed later.
 - Set the required `audioUrl` property. The public accessible URL of the consent audio file.
@@ -67,8 +62,3 @@ The response header contains the `Operation-Location` property. Use this URI to 
 Operation-Location: https://eastus.api.cognitive.microsoft.com/customvoice/operations/070f7986-ef17-41d0-ba2b-907f0f28e314?api-version=2023-12-01-preview
 Operation-Id: 070f7986-ef17-41d0-ba2b-907f0f28e314
 ```
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Add training data to the personal voice project.](./personal-voice-create-training-set.md)

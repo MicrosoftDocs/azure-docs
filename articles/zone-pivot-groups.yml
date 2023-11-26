@@ -969,6 +969,15 @@ groups:
     title: REST
   - id: speech-cli
     title: CLI
+- id: speech-studio-rest
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a tool or API
+  pivots:
+  - id: speech-studio
+    title: Speech Studio
+  - id: rest-api
+    title: REST
 - id: speech-cli-rest
 # Owner: eur
   title: Programming languages

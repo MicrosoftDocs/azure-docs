@@ -1,20 +1,15 @@
 ---
-title: Add a personal voice training dataset - Speech service
-titleSuffix: Azure AI services
-description: Learn about how to upload a training dataset for personal voice. 
-author: eric-urban
-manager: nitinme
-ms.service: azure-ai-speech
-ms.topic: how-to
-ms.date: 11/24/2023
-ms.author: eur
+ title: include file
+ description: include file
+ author: eur
+ ms.author: eric-urban
+ ms.service: azure-ai-services
+ ms.topic: include
+ ms.date: 11/24/2023
+ ms.custom: include
 ---
 
-# Add a personal voice (preview) training dataset
-
-[!INCLUDE [Personal voice preview](./includes/previews/preview-personal-voice.md)]
-
-You need a training dataset to create a personal voice. A training dataset includes audio and script files. The audio files are recordings of the voice talent reading the script files. The script files are the text of the audio files. 
+You need a training dataset to create a professional voice. A training dataset includes audio and script files. The audio files are recordings of the voice talent reading the script files. The script files are the text of the audio files. 
 
 In this article, you [create a training set](#create-a-training-set) and get it's resource ID. Then, using the resource ID, you can [upload a set of audio and script files](#upload-training-set).
 
@@ -22,7 +17,7 @@ In this article, you [create a training set](#create-a-training-set) and get it'
 
 To create a training set, use the `TrainingSets_Create` operation of the custom voice API. Construct the request body according to the following instructions:
 
-- Set the required `projectId` property. See [create a project](./personal-voice-create-project.md).
+- Set the required `projectId` property. See [create a project](../../../../professional-voice-create-project.md).
 - Set the required `description` property. The description can be changed later.
 - Set the required `voiceKind` property to `Male` or `Female`. The kind can't be changed later. 
 - Set the required `locale` property. This should be the locale of the consent. The locale can't be changed later. You can find the text to speech locale list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
@@ -104,8 +99,3 @@ The response header contains the `Operation-Location` property. Use this URI to 
 Operation-Location: https://eastus.api.cognitive.microsoft.com/customvoice/operations/284b7e37-f42d-4054-8fa9-08523c3de345?api-version=2023-12-01-preview
 Operation-Id: 284b7e37-f42d-4054-8fa9-08523c3de345
 ```
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Create a personal voice.](./personal-voice-create-voice.md).
