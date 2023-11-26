@@ -19,7 +19,8 @@ Make sure your Azure OpenAI deployment includes the model, **text-embedding-ada-
 
 > [!NOTE]
 > Many examples in this tutorial re-use variables from step-to-step. Keep the same terminal session
-open throughout, or you must to begin again from the start.
+open throughout. If variables you set in a previous step are lost due to closing the terminal, you
+must begin again from the start.
 
 [!INCLUDE [get-key-endpoint](../includes/get-key-endpoint.md)]
 
