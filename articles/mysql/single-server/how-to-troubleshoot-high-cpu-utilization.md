@@ -27,7 +27,7 @@ Most CPU spikes raises for two reasons, **connections spikes** and **bad written
 
 * **Connections Spike.**
 
-When connections increases, that will increase number of threads which will cause CPU increases to handle these connections with their queries and resources, to troubleshoot connections spike, check [Total Connections](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/concepts-monitoring#list-of-metrics) metrics and next section for details about these connections.   
+When connections increases, that will increase number of threads which will cause CPU increases to handle these connections with their queries and resources, to troubleshoot connections spike, check [Total Connections](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-monitoring#list-of-metrics) metrics and next section for details about these connections.   
 You can use performance_schema to get hosts and users that are currerntly connected to server.
 
 ```
