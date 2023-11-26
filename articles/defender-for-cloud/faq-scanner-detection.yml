@@ -17,7 +17,7 @@ sections:
       - question: |
          How can I test the Microsoft Defender Vulnerability Management’s (MDVM) scanner detection VS Qualys by myself?
         answer: |
-         There is a [CVE workbook](https://aka.ms/CVEDashboard) that covers both the built-in Qualys VA solution and the built-in MDVM solution. The workbook demonstrates the differences in information found when both MDVM and Qualys In Defender for Servers are deployed on resources in your subscriptions
+         There's a [CVE workbook](https://aka.ms/CVEDashboard) that covers both the built-in Qualys VA solution and the built-in MDVM solution. The workbook demonstrates the differences in information found when both MDVM and Qualys In Defender for Servers are deployed on resources in your subscriptions
 
 
       - question: |
@@ -31,22 +31,22 @@ sections:
         answer: |
           Refer to the [list of compatible operating systems](https://learn.microsoft.com/microsoft-365/security/defender-vulnerability-management/tvm-supported-os?view=o365-worldwide) that are compatible with the MDVM scanner.
 
-          If your machine’s operating system is not on the list of compatible OSs, an upgrade will be necessary for it to be scanned by MDVM.
+          If your machine’s operating system isn't on the list of compatible OSs, an upgrade is necessary to allow MDVM to perform a scan.
 
 
       - question: |
           Which agent is being used by the built-in MDVM VA solution?
         answer: |
-          The built-in MDVM scanner in Defender for Cloud uses the same agent as Microsoft Defender for Endpoint. If you have already enabled endpoint protection, the MDVM agent has already been enabled.
+          The built-in MDVM scanner in Defender for Cloud uses the same agent as Microsoft Defender for Endpoint. If endpoint protection is enabled, the MDVM agent is already enabled.
 
       - question: |
           What are the benefits of having one consolidate VA solution across Defender for cloud?
         answer: |
-          1. **Hybrid approach:** offers flexible deployments options, by utilizing a consistent vulnerability scanner across a variety of use cases. It is applicable in multi-cloud environments and different host runtimes: 
+          1. **Hybrid approach:** offers flexible deployments options, by utilizing a consistent vulnerability scanner across various use cases. It's applicable in multicloud environments and different host runtimes: 
           
-            - ** Agentless vulnerability assessment:**  enabling agentless scanning on a subscription will automatically scan all virtual machines in Azure, AWS, and GCP for software inventory and vulnerabilities, powered by MDVM. 
+            - ** Agentless vulnerability assessment:**  Enabling agentless scanning on a subscription automatically scan all virtual machines in Azure, AWS, and GCP for software inventory and vulnerabilities, powered by MDVM. 
             
-            - **Consolidated agent:** MDVM uses the same agent as Microsoft Defender for Endpoints (MDE) to protect servers, so, if you are an existing MDE customer, you are automatically covered by MDVM.
+            - **Consolidated agent:** MDVM uses the same agent as Microsoft Defender for Endpoints (MDE) to protect servers, so, if you're an existing MDE customer, you're automatically covered by MDVM.
           
           1. **Software vulnerability evidence (coming soon)**: The MDVM scanner identifies vulnerable software and provides the corresponding file path and/or registry key as evidence.
 
@@ -57,12 +57,12 @@ sections:
       - question: |
           If I'm using an EDR solution other than MDE, how can I upgrade my VA solution to MDVM?
         answer: |
-          For cloud resources, Defender for Servers recommends enabling Agentless scanning to enable coverage while minimizing the effect on your machines’ performance. When you enable the coverage, MDVM’s VA findings will be visible in Defender for Cloud’s portal. 
+          For cloud resources, Defender for Servers recommends enabling Agentless scanning to enable coverage while minimizing the effect on your machines’ performance. When you enable the coverage, MDVM’s VA findings are visible in Defender for Cloud’s portal. 
 
-          If you are using an on-premises machine, you are required to install the MDE agent. The MDE agent is needed to scan vulnerabilities using the MDVM solution.
+          If you're using an on-premises machine, you're required to install the MDE agent. The MDE agent is needed to scan vulnerabilities using the MDVM solution.
       
       - question: |
-          What are the Microsoft Defender Vulnerability Management agent-based capabilities I’m eligible when enabling Defender for servers P2 plan?
+          What are the capabilities of the agent-based Microsoft Defender Vulnerability Management that I’m eligible for when I enable the Defender for Servers P2 plan?
         answer: |
           Software Inventory.
 
@@ -72,14 +72,17 @@ sections:
 
           Network share configuration assessment.
 
+          Learn more about the [MDVM premium capabilities](https://learn.microsoft.com/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management?view=o365-worldwide).
 
       - question: |
-          How can I continue using the Qualys VA solution in Defender for Servers?
+          How can I continue to use the Qualys VA solution in Defender for Servers?
         answer: |
-          The support for Bring Your Own License (BYOL) VA solution powered by Qualys or Rapid 7 will persist, enabling continued usage of these vendors. Learn more about the [BYOL VA solution](deploy-vulnerability-assessment-byol-vm.md).
+          Defender for Servers support the use of Bring Your Own License (BYOL) VA solution, which is powered by Qualys or Rapid 7, allowing you to continue to use these vendors. Learn more about the [BYOL VA solution](deploy-vulnerability-assessment-byol-vm.md).
 
 
       - question: |
-          How do I access the premium capabilities offered by MDVM?
+          How can I access the premium capabilities offered by MDVM?
         answer: |
-          Premium capabilities can be accessed through the MDVM portal only. Navigate to the MDVM’s portal, and access premium capabilities features under the vulnerability assessment section.
+          Premium capabilities can  only be accessed through the [MDVM portal](https://security.microsoft.com/). Navigate to the [MDVM portal](https://security.microsoft.com/), and access the premium capabilities features under the vulnerability assessment section.
+
+          :::image type="content" source="media/faq-scanner-detection/mdvm-dashboard.png" alt-text="Screenshot of the MDVM dashboard."::: 
