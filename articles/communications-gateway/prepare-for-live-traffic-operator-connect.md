@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 09/01/2023
+ms.date: 11/15/2023
 ---
 
 # Prepare for live traffic with Operator Connect, Teams Phone Mobile and Azure Communications Gateway
@@ -25,10 +25,12 @@ In this article, you learn about the steps that you and your onboarding team mus
 
 ## Prerequisites
 
-- You must have [deployed Azure Communications Gateway](deploy.md) using the Microsoft Azure portal and [connected it to Operator Connect or Teams Phone Mobile](connect-operator-connect.md).
-- You must have [chosen some test numbers](deploy.md#prerequisites).
-- You must have a tenant you can use for testing (representing an enterprise customer), and some users in that tenant to whom you can assign the test numbers.
-    - If you do not already have a suitable test tenant, you can use the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program), which provides E5 licenses.
+- You must [deploy Azure Communications Gateway](deploy.md) using the Microsoft Azure portal and [connect it to Operator Connect or Teams Phone Mobile](connect-operator-connect.md).
+- You must know the test numbers to use for integration testing and for service verification (continuous call testing). These numbers can't be the same. You chose them as part of [deploying Azure Communications Gateway](deploy.md#prerequisites) or [connecting it to Operator Connect or Teams Phone Mobile](connect-operator-connect.md#prerequisites).
+    - Integration testing allows you to confirm that Azure Communications Gateway and Microsoft Phone System are interoperating correctly with your network.
+    - Service verification is set up by the Operator Connect and Teams Phone Mobile programs and ensures that your deployment is able to handle calls from Microsoft Phone System throughout the lifetime of your deployment.
+- You must have a tenant you can use for integration testing (representing an enterprise customer), and some users in that tenant to whom you can assign the numbers for integration testing.
+    - If you don't already have a suitable test tenant, you can use the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program), which provides E5 licenses.
     - The test users must be licensed for Teams Phone System and in Teams Only mode.
 - You must have access to the following configuration portals.
 
@@ -36,7 +38,6 @@ In this article, you learn about the steps that you and your onboarding team mus
     |---------|---------|
     |[Operator Connect portal](https://operatorconnect.microsoft.com/) | `Admin` role or `PartnerSettings.Read` and `NumberManagement.Write` roles (configured on the Project Synergy enterprise application that you set up when [you connected to Operator Connect or Teams Phone Mobile](connect-operator-connect.md#add-the-project-synergy-application-to-your-azure-tenancy))|
     |[Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant |User management|
-
 
 ## Methods
 
@@ -53,7 +54,12 @@ Your onboarding team must register the test enterprise tenant that you chose in 
     - The ID of the tenant to use for testing.
 1. Wait for your onboarding team to confirm that your test tenant has been registered.
 
-## Assign numbers to test users in your tenant
+## Set up your test tenant
+
+Integration testing requires setting up your test tenant for Operator Connect or Teams Phone Mobile and configuring users in this tenant with the numbers you chose for integration testing.
+
+> [!IMPORTANT]
+> Do not assign the service verification numbers to test users. Your onboarding team arranges configuration of your service verification numbers.
 
 1. Ask your onboarding team for the name of the Calling Profile that you must use for these test numbers. The name typically has the suffix `commsgw`. This Calling Profile has been created for you during the Azure Communications Gateway deployment process.
 1. In your test tenant, request service from your company.
@@ -93,6 +99,13 @@ Your onboarding team must register the test enterprise tenant that you chose in 
     1. Select a number, then select **Edit**.
     1. Assign the number to a user.
     1. Repeat for all your test users.
+
+## Update your network's routing configuration
+
+Your network must route calls for service verification testing and for integration testing to Azure Communications Gateway.
+
+1. Route all calls from any service verification number to any other service verification number back to Microsoft Phone System through Azure Communications Gateway.
+2. Route calls involving the test numbers for integration testing in the same way that you expect to route customer calls.
 
 ## Carry out integration testing and request changes
 

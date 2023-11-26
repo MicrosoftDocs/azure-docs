@@ -111,7 +111,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 ```
 
 > [!NOTE]
-> Snapshot support is available if you use version **7.0.0-preview** or later of any of the following packages.
+> Snapshot support is available if you use version **7.0.0** or later of any of the following packages.
 > - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
