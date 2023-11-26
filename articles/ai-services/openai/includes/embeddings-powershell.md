@@ -59,8 +59,8 @@ Expand-Archive FILE-PATH-TO-YOUR-PROJECT\PSDocs.zip
 Set-Location FILE-PATH-TO-YOUR-PROJECT\PSDocs\PowerShell-Docs-main\reference\7.4\
 ```
 
-We are working with a large amount of data in this tutorial, so we use a .NET data table
-object for efficient performance. The datatable has columns *title*, *content*,*prep*, 
+We're working with a large amount of data in this tutorial, so we use a .NET data table
+object for efficient performance. The datatable has columns *title*, *content*, *prep*, 
 *uri*, *tokens*, and *vectors*. The *title* column is the [primary key](/dotnet/framework/data/adonet/dataset-datatable-dataview/defining-primary-keys).
 
 In the next step, we load the content of each markdown file into the data table. We also use PowerShell `-match` operator to capture known lines of text "title: " and "online version: ", and store them in distinct columns. Some of the files don't contain
@@ -137,7 +137,7 @@ param(
 ```
 
 After you create the `invoke-docprep` function, use the `ForEach-Object` command to store prepared
-content in the "prep" column, for all rows in the datatable. We are using a new column so the
+content in the "prep" column, for all rows in the datatable. We're using a new column so the
 original formatting is available if we would like to retrieve it later.
 
 ```powershell-interactive
@@ -156,7 +156,7 @@ Next, we estimate the number of tokens per document and populate the "tokens" co
 > If you are estimating tokens for any purpose related to billing, make sure to use a solution officially recommended by OpenAI, such as the [TikToken](https://github.com/openai/tiktoken) package for Python. The official approach could change without updates to this document. See the OpenAI [Tokenizer](https://platform.openai.com/tokenizer) site for details.
 
 To estimate token count for each document, we use the unsupported C# package
-"Microsoft.DeepDev.Tokenizer".
+*Microsoft.DeepDev.Tokenizer*.
 
 From the project website:
 
@@ -208,7 +208,7 @@ $pathToTokenizerlibDll = Get-PSResource -Name 'Microsoft.DeepDev.TokenizerLib' |
 ```
 
 The full path to the file is the installed location plus the folder structure. The folder
-names will change as new versions ar released.
+names change as new versions ar released.
 
 ```powershell-interactive
 # for package version 1.3.2
@@ -280,7 +280,7 @@ Nine documents are excluded from the dataview because they're larger than 8192 t
 ```
 
 When we pass the documents to the embeddings model, it encodes the documents into tokens similar
-(though not identical) to the `Microsoft.DeepDev.Tokenizerlib` sample and then return a series of floating
+(though not identical) to the *Microsoft.DeepDev.Tokenizerlib* sample and then return a series of floating
 point numbers to use in a [cosine similarity](../concepts/understand-embeddings.md#cosine-similarity) search. These embeddings can be stored locally or
 in a service such as [Vector Search in Azure AI Search](/azure/search/vector-search-overview). Each
 document has its own corresponding embedding vector in the new `vectors` column.
@@ -337,7 +337,7 @@ $dataview | ForEach-Object {
 
 You now have a local in-memory database of PowerShell 7.4 reference docs.
 
-Based on a search string, we need to calculate another set of vectors so PowerShell can rank each document by similarity. In the next example, vectors are retrieved for the string "get a list of running processes".
+Based on a search string, we need to calculate another set of vectors so PowerShell can rank each document by similarity. In the next example, vectors are retrieved for the string "get a list of running processes."
 
 
 ```powershell-interactive
@@ -398,8 +398,8 @@ As a learning exercise, add the "content" column to the `Select` (alias for `Sel
 
 Finally, rather than regenerate the embeddings every time you need to query the dataset, you can
 store the data to disk and recall it in the future. The `WriteXML` and `ReadXML` methods of
-datatable object types in the example below simplify the process. The schema of the XML file
-requires the datatable to have a "TableName". Replace "YOUR-FULL-FILE-PATH" with the full path
+datatable object types in the next example simplify the process. The schema of the XML file
+requires the datatable to have a *TableName*. Replace "YOUR-FULL-FILE-PATH" with the full path
 where you would like to write and read the XML file.
 
 ```powershell-interactive
