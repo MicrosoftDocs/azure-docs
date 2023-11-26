@@ -31,14 +31,13 @@ In this tutorial, you learn how to:
 > [!IMPORTANT]
 > We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.  
 
-## Prerequisites
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python](../includes/embeddings-python.md)]
+::: zone-end
 
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-* Access granted to Azure OpenAI in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-* An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** model deployed. This model is currently only available in [certain regions](../concepts/models.md#model-summary-table-and-region-availability).  If you don't have a resource the process of creating one is documented in our [resource deployment guide](../how-to/create-resource.md).
-::: zone pivot="programming-language-python"[!INCLUDE [Python](../includes/embeddings-python.md)]::: zone-end
-::: zone pivot="programming-language-powershell"[!INCLUDE [PowerShell](../includes/embeddings-powershell.md)]::: zone-end
+::: zone pivot="programming-language-powershell"
+[!INCLUDE [PowerShell](../includes/embeddings-powershell.md)]
+::: zone-end
 
 Using this approach, you can use embeddings as a search mechanism across documents in a knowledge base. The user can then take the top search result and use it for their downstream task, which prompted their initial query.
 
