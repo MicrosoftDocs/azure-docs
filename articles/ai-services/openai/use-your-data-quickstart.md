@@ -2,14 +2,14 @@
 title: 'Use your own data with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Use this article to import and use your data in Azure OpenAI.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-go, devx-track-python
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 08/25/2023
+ms.date: 11/22/2023
 recommendations: false
 zone_pivot_groups: openai-use-your-data
 ---
@@ -85,6 +85,12 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 ::: zone pivot="programming-language-python"
 
 [!INCLUDE [Python quickstart](includes/use-your-data-python.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
+[!INCLUDE [PowerShell quickstart](includes/use-your-data-powershell.md)]
 
 ::: zone-end
 

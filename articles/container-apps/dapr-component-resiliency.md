@@ -8,9 +8,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: hannahhunter
-ms.custom:
-  - ignite-fall-2023
-  - ignite-2023
+ms.custom: ignite-fall-2023, ignite-2023, devx-track-azurecli
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
 
@@ -103,7 +101,7 @@ az extension update --name containerapp
 Create resiliency policies by targeting an individual policy. For example, to create the `Outbound Timeout` policy, run the following command.
 
 ```azurecli
-az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --out-timeout 20
+az containerapp env dapr-component resiliency create --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --out-timeout 20
 ```
 
 [For a full list of parameters, see the CLI reference guide.](/cli/azure/containerapp/resiliency#az-containerapp-resiliency-create-optional-parameters)
@@ -113,7 +111,7 @@ az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyDap
 To apply the resiliency policies from a YAML file, run the following command:
 
 ```azurecli
-az containerapp env dapr-component resiliency create -g MyResourceGroup -n MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --yaml <MY_YAML_FILE>
+az containerapp env dapr-component resiliency create --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --yaml <MY_YAML_FILE>
 ```
 
 This command passes the resiliency policy YAML file, which might look similar to the following example:
@@ -140,7 +138,7 @@ inboundPolicy:
 Update your resiliency policies by targeting an individual policy. For example, to update the response timeout of the `Outbound Timeout` policy, run the following command.
 
 ```azurecli
-az containerapp env dapr-component resiliency update -g MyResourceGroup -n MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --out-timeout 20
+az containerapp env dapr-component resiliency update --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --out-timeout 20
 ```
 
 ### Update policies with resiliency YAML

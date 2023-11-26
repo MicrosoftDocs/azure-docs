@@ -9,7 +9,7 @@ ms.service: azure-ai-openai
 ms.custom:
   - ignite-2023
 ms.topic: whats-new
-ms.date: 10/16/2023
+ms.date: 10/17/2023
 recommendations: false
 keywords:
 ---
@@ -17,6 +17,20 @@ keywords:
 # What's new in Azure OpenAI Service
 
 ## November 2023
+
+
+
+### GPT-4 Turbo Preview & GPT-3.5-Turbo-1106 released
+
+Both models are the latest release from OpenAI with improved instruction following, [JSON mode](./how-to/json-mode.md), [reproducible output](./how-to/reproducible-output.md), and parallel function calling.
+
+- **GPT-4 Turbo Preview** has a max context window of 128,000 tokens and can generate 4,096 output tokens. It has the latest training data with knowledge up to April 2023. This model is in preview and is not recommended for production use. All deployments of this preview model will be automatically updated in place once the stable release becomes available.
+
+- **GPT-3.5-Turbo-1106** has a max context window of 16,385 tokens and can generate 4,096 output tokens.
+
+For information on model regional availability consult the [models page](./concepts/models.md).
+
+The models have their own unique per region [quota allocations](./quotas-limits.md).
 
 ### DALL-E 3 public preview
 
@@ -26,6 +40,22 @@ DALL-E 3 includes built-in prompt rewriting to enhance images, reduce bias, and 
 
 Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
 
+### Responsible AI
+
+- **Expanded customer configurability**: All Azure OpenAI customers can now configure all severity levels (low, medium, high) for the categories hate, violence, sexual and self-harm, including filtering only high severity content. [Configure content filters](./how-to/content-filters.md)
+
+- **Content Credentials in all DALL-E models**: AI-generated images from all DALL-E models now include a digital credential that discloses the content as AI-generated. Applications that display image assets can leverage the open source [Content Authenticity Initiative SDK](https://opensource.contentauthenticity.org/docs/js-sdk/getting-started/quick-start/) to display credentials in their AI generated images. [Content Credentials in Azure OpenAI](/azure/ai-services/openai/concepts/content-credentials)
+
+
+- **New RAI models**
+    
+    - **Jailbreak risk detection**: Jailbreak attacks are user prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. The jailbreak risk detection model is optional (default off), and available in annotate and filter model. It runs on user prompts.
+    - **Protected material text**: Protected material text describes known text content (for example, song lyrics, articles, recipes, and selected web content) that can be outputted by large language models. The protected material text model is optional (default off), and available in annotate and filter model. It runs on LLM completions.
+    - **Protected material code**: Protected material code describes source code that matches a set of source code from public repositories, which can be outputted by large language models without proper citation of source repositories. The protected material code model is optional (default off), and available in annotate and filter model. It runs on LLM completions.
+
+    [Configure content filters](./how-to/content-filters.md)
+
+- **Blocklists**: Customers can now quickly customize content filter behavior for prompts and completions further by creating a custom blocklist in their filters. The custom blocklist allows the filter to take action on a customized list of patterns, such as specific terms or regex patterns. In addition to custom blocklists, we provide a Microsoft profanity blocklist (English). [Use blocklists](./how-to/use-blocklists.md)
 ## October 2023
 
 ### New fine-tuning models (preview)

@@ -1911,6 +1911,8 @@ groups:
     title: Go 
   - id: rest-api
     title: REST
+  - id: programming-language-powershell
+    title: PowerShell
 # Owner: pafarley
 - id: openai-quickstart-dall-e
   title: Programming languages
@@ -1932,6 +1934,15 @@ groups:
     title: PowerShell
   - id: rest-api
     title: REST (DALL-E 3)
+# Owner: mbullwin
+- id: openai-whisper
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: rest-api
+    title: REST
+  - id: programming-language-powershell
+    title: PowerShell
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types

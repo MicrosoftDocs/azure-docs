@@ -163,7 +163,7 @@ To configure your load test to split input CSV files:
 
 ### Test status is failed and test log has `File {my-filename} must exist and be readable`
 
-When the load test completes with the Failed status, you can [download the test logs](./how-to-troubleshoot-failing-test.md#download-apache-jmeter-worker-logs).
+When the load test completes with the Failed status, you can [download the test logs](./how-to-diagnose-failing-load-test.md#download-apache-jmeter-worker-logs-for-your-load-test).
 
 When you receive an error message `File {my-filename} must exist and be readable` in the test log, the input CSV file couldn't be found when running the JMeter script.
 

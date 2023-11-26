@@ -3,7 +3,7 @@ title: Data Processor jq path expressions
 description: Understand the jq path expressions used by Azure IoT Data Processor to reference parts of a message.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.custom:
   - ignite-2023

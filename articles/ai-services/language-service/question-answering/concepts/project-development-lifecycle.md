@@ -33,7 +33,7 @@ This tight loop of test-update continues until you are satisfied with the result
 
 ## Deploy your project
 
-Once you are done testing the project, you can deploy it to production. Deployment pushes the latest version of the tested project to a dedicated Azure Cognitive Search index representing the **published** project. It also creates an endpoint that can be called in your application or chat bot.
+Once you are done testing the project, you can deploy it to production. Deployment pushes the latest version of the tested project to a dedicated Azure AI Search index representing the **published** project. It also creates an endpoint that can be called in your application or chat bot.
 
 Due to the deployment action, any further changes made to the test version of the project leave the published version unaffected. The published version can be live in a production application.
 

@@ -10,6 +10,8 @@
       href: release-tracker.md
     - name: Supported Kubernetes versions
       href: supported-kubernetes-versions.md
+    - name: Long Term Support
+      href: long-term-support.md
     - name: Add-ons, extensions, and other integrations
       href: integrations.md
       displayName: add-on, extensions, prometheus, grafana, openfaas, spark, istio, linkerd, consul, github, actions
@@ -313,6 +315,8 @@
               href: create-node-pools.md
             - name: Manage node pools
               href: manage-node-pools.md
+            - name: Reduce image pull time with Artifact Streaming on AKS
+              href: artifact-streaming.md
             - name: Add an Azure Spot node pool
               href: spot-node-pool.md
             - name: Multi-instance GPU node pool
@@ -381,8 +385,6 @@
               href: use-managed-identity.md
             - name: Enable access to AKS clusters using Trusted Access
               href: trusted-access-feature.md
-            - name: Remove vulnerable images with ImageCleaner
-              href: image-cleaner.md
             - name: Limit access to cluster configuration file
               href: control-kubeconfig-access.md
             - name: Define API server authorized IP ranges
@@ -420,7 +422,7 @@
                 - name: AKS-managed Microsoft Entra ID
                   items: 
                     - name: Enable AKS-managed Microsoft Entra integration
-                      href: managed-azure-ad.md
+                      href: enable-authentication-microsoft-entra-id.md
                     - name: Manage local accounts
                       href: manage-local-accounts-managed-azure-ad.md
                     - name: Cluster access control
@@ -463,7 +465,7 @@
               href: use-psa.md
             - name: Secrets Store CSI Driver
               items:
-                - name: Configure TLS for NGINX ingress controller
+                - name: Configure TLS for NGINX Ingress controller
                   href: csi-secrets-store-nginx-tls.md
                 - name: Azure Key Vault provider with Secrets Store CSI Driver
                   items:
@@ -521,8 +523,8 @@
               items:
                 - name: Application routing add-on overview
                   href: app-routing.md
-                - name: Application routing add-on advanced configurations
-                  href: app-routing-configuration.md
+                - name: Advanced application routing add-on configurations
+                  href: app-routing-dns-ssl.md
                 - name: Monitor using Prometheus and Grafana
                   href: app-routing-nginx-prometheus.md
                 - name: Migrate from HTTP application routing to the application routing add-on
@@ -535,7 +537,7 @@
               href: http-application-routing.md
             - name: Use unmanaged ingress-nginx
               items:
-                - name: Create an ingress controller
+                - name: Create an Ingress controller
                   href: ingress-basic.md
                 - name: Use TLS with an ingress controller
                   href: ingress-tls.md
