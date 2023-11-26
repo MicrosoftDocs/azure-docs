@@ -52,9 +52,9 @@ In the Defender for Cloud portal, you have the ability to change the Vulnerabili
 
 1. Ensure that `Endpoint protection` or `Agentless scanning for machines` are toggled to **On**.
 
-You will also need to offboard each VM from the current VA solution by deleting the VM extension, or via REST API DELETE request or with delete custom policy at scale.
+You will also need to offboard each VM from the current VA solution by deleting the VM extension. You can delete the VM extensions with the REST API DELETE request or with delete custom policy at scale.
 
-3. **REST API for Azure VMs:**
+## REST API for Azure VMs
 
 a.   Using this REST API, you can easily migrate your subscription, at scale, from any VA solution to Microsoft Defender Vulnerability Management. 
 
