@@ -7,7 +7,7 @@ ms.date: 11/06/2023
 author: mrbullwinkle #noabenefraim
 ms.author: mbullwin
 ---
-* [PowerShell 7.4]("https://aka.ms/install-powershell")>
+* [PowerShell 7.4](https://aka.ms/install-powershell)>
 
 Make sure your Azure OpenAI deployment includes the model, **text-embedding-ada-002**, or [deploy the model](../how-to/create-resource.md#deploy-a-model) before proceeding.
 
@@ -44,7 +44,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=OVERVIEW&Pillar=AOAI&Product=embedding&Page=tutorial&Section=Prerequisites)
 
-For this tutorial, we will use the [PowerShell 7.4 reference documentation](https://learn.microsoft.com/powershell/module/?view=powershell-7.4) as a well-known and safe sample dataset. As an alternative, you might
+For this tutorial, we will use the [PowerShell 7.4 reference documentation](/powershell/module/?view=powershell-7.4&preserve-view=true) as a well-known and safe sample dataset. As an alternative, you might
 choose to explore the [Microsoft Research tools](https://www.microsoft.com/research/tools/)
 sample datasets.
 
@@ -157,10 +157,12 @@ To estimate token count for each document, we will use the unsupported C# packag
 
 From the project website:
 
-    This repo contains C# and Typescript implementation of byte pair encoding(BPE) tokenizer for
-    OpenAI LLMs, it's based on open sourced rust implementation in the OpenAI tiktoken. Both
-    implementation are valuable to run prompt tokenization in .NET and Nodejs environment before
-    feeding prompt into a LLM.
+```text
+This repo contains C# and Typescript implementation of byte pair encoding(BPE)tokenizer for
+OpenAI LLMs, it's based on open sourced rust implementation in the OpenAI tiktoken.Both
+implementation are valuable to run prompt tokenization in .NET and Nodejs environmentbefore
+feeding prompt into a LLM.
+```
 
 For details about the Tokenizer project development or to submit issues/feedback
 to the community, visit the [Tokenizer GitHub project](https://github.com/microsoft/Tokenizer/).
@@ -169,7 +171,7 @@ For this tutorial, the intention
 is to use the estimated token count only as a filter for excluding large documents before upload.
 
 To install the library assembly, we register [NuGet.org](https://nuget.org) as a repository in
-PSResourceGet, [following the documentation](/powershell/gallery/powershellget/supported-repositories?view=powershellget-2.x#nugetorg).
+PSResourceGet, [following the documentation](/powershell/gallery/powershellget/supported-repositories?view=powershellget-2.x#nugetorg&preserve-view=true).
 
 ```powershell-interactive
 $params = @{
@@ -275,7 +277,7 @@ $dataview.count
 
 When we pass the documents to the embeddings model, it will encode the documents into tokens similar
 (though not identical) to the `Microsoft.DeepDev.Tokenizerlib` sample and then return a series of floating
-point numbers to use in a [cosine similarity](../concepts/understand-embeddings#cosine-similarity) search. These embeddings can be stored locally or
+point numbers to use in a [cosine similarity](../concepts/understand-embeddings.md#cosine-similarity) search. These embeddings can be stored locally or
 in a service such as [Vector Search in Azure AI Search](/azure/search/vector-search-overview). Each
 document will have its own corresponding embedding vector in the new `vectors` column.
 
