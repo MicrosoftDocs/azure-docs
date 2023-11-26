@@ -46,6 +46,8 @@ echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environm
 echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
 ```
 
+---
+
 For this tutorial, we use the [PowerShell 7.4 reference documentation](/powershell/module/?view=powershell-7.4&preserve-view=true) as a well-known and safe sample dataset. As an alternative, you might
 choose to explore the [Microsoft Research tools](https://www.microsoft.com/research/tools/)
 sample datasets.
