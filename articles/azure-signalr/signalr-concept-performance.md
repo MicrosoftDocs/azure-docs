@@ -36,7 +36,7 @@ The chart shows the computing pressure of your SignalR service. You can test you
 
 *Bandwidth*: The total size of all messages in 1 second.
 
-*Default mode*: The default working mode when an Azure SignalR Service instance is created. Azure SignalR Service expects the app server to establish a connection with it before it accepts any client connections.
+*Default mode*: The default working mode when an Azure SignalR Service instance is created. Azure SignalR Service expects the app server to establish a connection with it before it accepts any client connection.
 
 *Serverless mode*: A mode in which Azure SignalR Service accepts only client connections. No server connection is allowed.
 
@@ -45,11 +45,11 @@ The chart shows the computing pressure of your SignalR service. You can test you
 Azure SignalR Service defines seven Standard tiers for different performance capacities. This
 guide answers the following questions:
 
-* What is the typical Azure SignalR Service performance for each tier?
+* What is the typical Azure SignalR Service performance for each tier(unit)?
 
 * Does Azure SignalR Service meet my requirements for message throughput (for example, sending 100,000 messages per second)?
 
-* For my specific scenario, which tier is suitable for me? Or how can I select the proper tier?
+* For my specific scenario, how can I select the proper tier?
 
 * What kind of app server (VM size) is suitable for me? How many of them should I deploy?
 
@@ -361,15 +361,19 @@ In the **send to connection** use case, when clients establish the connections t
 
 The routing cost for **send to connection** is similar to the cost for **send to small group**.
 
-As the connection count increases, the routing cost limits overall performance. Unit50 has reached the limit. As a result, Unit100 can't improve further.
+As the number of connections increases, routing cost becomes a critical factor limiting overall performance. Notably, Unit20 marks the threshold where the service hits the routing bottlececk. Further increases in unit count do not yield performance improvements unless there's a shift to Premium_P2(unit >=100), which enhances routing capabilities.
 
 The following table is a statistical summary after many rounds of running the **send to connection** benchmark.
 
-|   Send to connection   | Unit1 | Unit2 | Unit0 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
+|   Send to connection   | Unit1 | Unit2 | Unit20 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
 |------------------------------------|-------|-------|-------|--------|--------|--------|---------|---------|
 | Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
-| Inbound/outbound messages per second | 1,000 | 2,000 | 5,000 | 8,000  | 9,000  | 20,000 | 20,000 |
-| Inbound/outbound bandwidth | 2 MBps    | 4 MBps    | 10 MBps   | 16 MBps    | 18 MBps    | 40 MBps       | 40 MBps       |
+| Inbound/outbound messages per second | 1,000 | 2,000 | 20,000 | 20,000  | 20,000  | 20,000 | 20,000 | 40,000 | 100,000 | 2,000,000 |
+| Inbound/outbound bandwidth | 2 MBps    | 4 MBps    | 40 MBps   | 40 MBps    | 40 MBps    | 80 MBps       | 200 MBps       | 400 MBps |
+
+> [!NOTE]
+> Despite the stagnation in inbound/outbound messages per second after Unit20, the capacity for more connections continues to grow. In real business scenarios, it's often the count of connections, not their concurrent message-sending activity, that forms the bottleneck. It's uncommon for all connections to be actively sending messages at such high frequencies as the benchmark test does.
+
 
 This use case requires high load on the app server side. See the suggested app server count in the following table.
 
@@ -397,8 +401,8 @@ All clients establish WebSocket connections with Azure SignalR Service. Then som
 |   Broadcast through REST API     |  Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
 | Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
-| Inbound messages per second  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
-| Outbound messages per second | 2,000 | 4,000 | 10,000 | 20,000 | 40,000 | 100,000 | 200,000 |
+| Inbound messages per second  | 2     | 2     | 2      | 2      | 2      | 2       | 2       | 2     |
+| Outbound messages per second | 2,000 | 4,000 | 10,000 | 20,000 | 40,000 | 100,000 | 200,000 | 40,000 | 100,000 | 200,000 |
 | Inbound bandwidth  | 4 KBps    | 4 KBps    | 4 KBps     | 4 KBps     | 4 KBps     | 4 KBps      | 4 KBps      |
 | Outbound bandwidth | 4 MBps    | 8 MBps    | 20 MBps    | 40 MBps    | 80 MBps    | 200 MBps    | 400 MBps    |
 
