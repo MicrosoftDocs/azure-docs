@@ -391,7 +391,13 @@ function Get-CosineSimilarity ([float[]]$vector1, [float[]]$vector2) {
 
     return [Math]::Round($dot / ($mag1 * $mag2), 3)
 }
+```
 
+The commands in the next example loop through all rows in `$dataview` and calculate the cosine
+similarity to the search string. The results are sorted and the top three results are stored
+in a variable named `$topThree`. The example does not return output.
+
+```powershell-interactive
 # Calculate cosine similarity for each row and select the top 3
 $topThree = $dataview | ForEach-Object {
     [PSCustomObject]@{
@@ -402,11 +408,9 @@ $topThree = $dataview | ForEach-Object {
     $title = $_.title
     $dataview | Where-Object { $_.title -eq $title }
 }
-
-$topThree | Select "title", "uri"
 ```
 
-Review the output in gridview.
+Review the output of the `$topThree` variable, with only *title* and *url* properties, in gridview.
 
 ```powershell
 $topThree | Select "title", "uri" | Out-GridView
