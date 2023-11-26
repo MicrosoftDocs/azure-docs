@@ -15,8 +15,6 @@ ms.author: mbullwin
 * An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** model deployed. This model is currently only available in [certain regions](../concepts/models.md#model-summary-table-and-region-availability).  If you don't have a resource the process of creating one is documented in our [resource deployment guide](../how-to/create-resource.md).
 * [PowerShell 7.4](https://aka.ms/install-powershell)>
 
-Make sure your Azure OpenAI deployment includes the model, **text-embedding-ada-002**, or [deploy the model](../how-to/create-resource.md#deploy-a-model) before proceeding.
-
 > [!NOTE]
 > Many examples in this tutorial re-use variables from step-to-step. Keep the same terminal session
 open throughout. If variables you set in a previous step are lost due to closing the terminal, you
