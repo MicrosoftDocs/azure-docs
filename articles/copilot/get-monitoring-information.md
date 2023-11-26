@@ -3,7 +3,7 @@ title: Get information about Azure Monitor logs using Microsoft Copilot for Azur
 description: Learn about scenarios where Microsoft Copilot for Azure (preview) can provide information about Azure Monitor metrics and logs.
 ms.date: 11/15/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
@@ -20,6 +20,8 @@ When asked about logs for a particular resource, Microsoft Copilot for Azure (pr
 When you ask Microsoft Copilot for Azure (preview) about logs, it automatically pulls context when possible, based on the current conversation or on the page you're viewing in the Azure portal. If the context isn't clear, you'll be prompted to specify the resource for which you want information.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
+
+[!INCLUDE [preview-note](includes/preview-note.md)]
 
 ### Sample prompts
 

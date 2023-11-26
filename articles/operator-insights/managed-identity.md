@@ -1,8 +1,8 @@
 ---
 title: Managed identity for Azure Operator Insights
 description: This article helps you understand managed identity and how it works in Azure Operator Insights.
-author: bettylew
-ms.author: bettylew
+author: rcdun
+ms.author: rdunstan
 ms.service: operator-insights
 ms.topic: concept-article
 ms.date: 10/18/2023

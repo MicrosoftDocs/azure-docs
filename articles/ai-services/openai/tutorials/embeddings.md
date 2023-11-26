@@ -2,7 +2,7 @@
 title: Azure OpenAI Service embeddings tutorial
 titleSuffix: Azure OpenAI
 description: Learn how to use Azure OpenAI's embeddings API for document search with the BillSum dataset
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: tutorial
@@ -59,7 +59,7 @@ Learn more about Azure OpenAI's models:
 > [!div class="nextstepaction"]
 > [Azure OpenAI Service models](../concepts/models.md)
 * Store your embeddings and perform vector (similarity) search using your choice of Azure service:
-  * [Azure Cognitive Search](../../../search/vector-search-overview.md)
+  * [Azure AI Search](../../../search/vector-search-overview.md)
   * [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md)
   * [Azure Cosmos DB for NoSQL](../../../cosmos-db/vector-search.md)
   * [Azure Cosmos DB for PostgreSQL](../../../cosmos-db/postgresql/howto-use-pgvector.md)

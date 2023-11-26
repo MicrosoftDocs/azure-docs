@@ -19,8 +19,6 @@ Key-value pairs provide an easy way for users to define a prefix suffix combinat
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
- 
-
 ## Scenario overview
 
 Scenarios most affected by this change:
@@ -92,10 +90,10 @@ For more information, see [Regions that require endpoint modification](./create-
 
 #### Is the connection string a secret?
 
-The connection string contains an ikey, which is a unique identifier used by the ingestion service to associate telemetry to a specific Application Insights resource. It's not considered a security token or key. If you want to protect your AI resource from misuse, the ingestion endpoint provides authenticated telemetry ingestion options based on Microsoft Entra ID.
+The connection string contains an ikey, which is a unique identifier used by the ingestion service to associate telemetry to a specific Application Insights resource. These ikey unique identifiers aren't security tokens or security keys. If you want to protect your AI resource from misuse, the ingestion endpoint provides authenticated telemetry ingestion options based on [Microsoft Entra ID](azure-ad-authentication.md#microsoft-entra-authentication-for-application-insights).
 
 > [!NOTE]
-> The Application Insights JavaScript SDK requires the connection string to be passed in during initialization and configuration. It's viewable in plain text in client browsers. There's no easy way to use the Microsoft Entra ID-based authentication for browser telemetry. We recommend that you consider creating a separate Application Insights resource for browser telemetry if you need to secure the service telemetry.
+> The Application Insights JavaScript SDK requires the connection string to be passed in during initialization and configuration. It's viewable in plain text in client browsers. There's no easy way to use the [Microsoft Entra ID-based authentication](azure-ad-authentication.md#microsoft-entra-authentication-for-application-insights) for browser telemetry. We recommend that you consider creating a separate Application Insights resource for browser telemetry if you need to secure the service telemetry.
 
 ## Connection string examples
 

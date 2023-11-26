@@ -1,13 +1,14 @@
 ---
 title: Configure Azure IoT MQ authorization
-# titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ
 description: Configure Azure IoT MQ authorization using BrokerAuthorization.
 author: PatAltimore
 ms.author: patricka
+ms.subservice: mq
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/28/2023
+ms.date: 11/21/2023
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ---
@@ -30,15 +31,16 @@ The specification of a *BrokerAuthorization* resource has the following fields:
 | Field Name | Required | Description |
 | --- | --- | --- |
 | listenerRef | Yes | The names of the BrokerListener resources that this authorization policy applies. This field is required and must match an existing *BrokerListener* resource in the same namespace. |
-| authorizationPolicies | Yes | This field defines the settings for the authorization policies. |
-| enableCache |  | Whether to enable caching for the authorization policies. |
-| rules |  | A boolean flag that indicates whether to enable caching for the authorization policies. If set to `true`, the broker caches the authorization results for each client and topic combination to improve performance and reduce latency. If set to `false`, the broker evaluates the authorization policies for each client and topic request, to ensure consistency and accuracy. This field is optional and defaults to `false`. |
-| principals |  | This subfield defines the identities that represent the clients. |
-| usernames |  | A list of usernames that match the clients. The usernames are case-sensitive and must match the usernames provided by the clients during authentication. |
-| attributes |  | A list of key-value pairs that match the attributes of the clients. The attributes are case-sensitive and must match the attributes provided by the clients during authentication. |
-| brokerResources | Yes | This subfield defines the objects that represent the actions or topics. |
-| method | Yes | The type of action that the clients can perform on the broker. This subfield is required and can be one of these values: **Connect**: This value indicates that the clients can connect to the broker. - **Publish**: This value indicates that the clients can publish messages to topics on the broker. - **Subscribe**: This value indicates that the clients can subscribe to topics on the broker. |
-| topics | No | A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is Subscribe or Publish. |
+| authorizationPolicies | Yes | This field defines the settings for the authorization policies, such as *enableCache* and *rules*.|
+| enableCache | No | Whether to enable caching for the authorization policies.  If set to `true`, the broker caches the authorization results for each client and topic combination to improve performance and reduce latency. If set to `false`, the broker evaluates the authorization policies for each client and topic request, to ensure consistency and accuracy. This field is optional and defaults to `false`. |
+| rules | No | A list of rules that specify the principals and resources for the authorization policies. Each rule has these subfields: *principals* and *brokerResources*. |
+| principals | Yes | This subfield defines the identities that represent the clients, such as *usernames*, *clientids*, and *attributes*.|
+| usernames | No | A list of usernames that match the clients. The usernames are case-sensitive and must match the usernames provided by the clients during authentication. |
+| clientids | No | A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection. |
+| attributes | No | A list of key-value pairs that match the attributes of the clients. The attributes are case-sensitive and must match the attributes provided by the clients during authentication. |
+| brokerResources | Yes | This subfield defines the objects that represent the actions or topics, such as *method* and *topics*. |
+| method | Yes | The type of action that the clients can perform on the broker. This subfield is required and can be one of these values: **Connect**: This value indicates that the clients can connect to the broker. **Publish**: This value indicates that the clients can publish messages to topics on the broker. **Subscribe**: This value indicates that the clients can subscribe to topics on the broker. |
+| topics | No | A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is *Subscribe* or *Publish*. |
 
 The following example shows how to create a *BrokerAuthorization* resource that defines the authorization policies for a listener named *my-listener*.
 

@@ -34,7 +34,7 @@ To configure an assets endpoint, you need a running instance of Azure IoT Operat
 
 ## Sign in to the Azure IoT Operations portal
 
-Navigate to the [Azure IoT Operations portal](https://aka.ms/iot-operations-portal) in your browser and sign in by using your Microsoft Entra ID credentials.
+Navigate to the [Azure IoT Operations portal](https://iotoperations.azure.com) in your browser and sign in by using your Microsoft Entra ID credentials.
 
 ## Select your cluster
 

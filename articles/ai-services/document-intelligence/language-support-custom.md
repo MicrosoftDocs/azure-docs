@@ -459,7 +459,6 @@ The following table lists the supported languages for printed text.
   |Serbian (Cyrillic)|sr-cyrl|
   |Serbian (Latin)|sr, sr-latn|
   |Shambala|ksb|
-  |Sherpa (Devanagari)|xsr|
   |Shona|sn|
   |Siksika|bla|
   |Sirmauri (Devanagari)|srx|

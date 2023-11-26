@@ -502,7 +502,7 @@ Azure Cosmos DB for MongoDB vCore supports the following indexes and index prope
 <tr><td>Text Index</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td>Geospatial Index</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 <tr><td>Hashed Index</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>Vector Index (only available in Cosmos DB)</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes, with [vector search](vector-search.md)</td></tr>
+<tr><td>Vector Index (only available in Cosmos DB)</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes, with <a href=vector-search.md>vector search</a></td></tr>
 </table>
 
 

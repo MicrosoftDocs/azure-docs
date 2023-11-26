@@ -1,3 +1,4 @@
+items:
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
@@ -155,6 +156,9 @@
     - name: Blockchain Workbench
       tocHref: /azure/blockchain/workbench/
       topicHref: /azure/blockchain/workbench/
+  - name: Business Continuity Center
+    tocHref: /azure/business-continuity-center/
+    topicHref: /azure/business-continuity-center/index
   - name: Azure Data Explorer
     tocHref: /azure/data-explorer/
     topicHref: /azure/data-explorer/
@@ -313,6 +317,9 @@
       - name: Palo Alto Networks
         tocHref: /azure/partner-solutions/palo-alto/
         topicHref: /azure/partner-solutions/palo-alto/palo-alto-overview
+      - name: Apache Airflow on Astro
+        tocHref: /azure/partner-solutions/astronomer/
+        topicHref: /azure/partner-solutions/astronomer/index     
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
@@ -694,31 +701,6 @@
       - name: Azure FarmBeats
         tocHref: /azure/industry
         topicHref: /azure/industry
-#  - name: Internet of Things
-#    tocHref: /azure/iot/
-#    topicHref: /azure/iot/
-#    items:
-#    - name: IoT Fundamentals
-#      tocHref: /azure/iot/
-#      topicHref: /azure/iot/
-#    - name: IoT Edge
-#      tocHref: /azure/iot-edge/
-#      topicHref: /azure/iot-edge/
-#    - name: IoT Hub
-#      tocHref: /azure/iot-hub/
-#      topicHref: /azure/iot-hub/
-#    - name: IoT Hub Device Provisioning Service
-#      tocHref: /azure/iot-dps/
-#      topicHref: /azure/iot-dps/
-#    - name: IoT Central
-#      tocHref: /azure/iot-central/
-#      topicHref: /azure/iot-central/
-#    - name: Maps
-#      tocHref: /azure/azure-maps/
-#      topicHref: /azure/azure-maps/
-#    - name: Time Series Insights
-#      tocHref: /azure/time-series-insights/
-#      topicHref: /azure/time-series-insights/
   - name: Jenkins
     tocHref: /azure/jenkins/
     topicHref: /azure/jenkins/
@@ -1171,3 +1153,6 @@
   - name: Operator Insights
     tocHref: /azure/operator-insights/
     topicHref: /azure/operator-insights/index
+  - name: Microsoft Copilot for Azure
+    tocHref: /azure/copilot/
+    topicHref: /azure/copilot/

@@ -59,13 +59,13 @@ You can now view the state of the Spring Cloud Gateway on the **Spring Cloud Gat
 Use the following Azure CLI commands to enable or disable VMware Spring Cloud Gateway:
 
 ```azurecli
-az spring spring-cloud-gateway create \
+az spring gateway create \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
 
 ```azurecli
-az spring spring-cloud-gateway delete \
+az spring gateway delete \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name>
 ```
@@ -91,7 +91,7 @@ Use the following steps to restart VMware Spring Cloud Gateway by using the Azur
 Use the following Azure CLI command to restart the gateway:
 
 ```azurecli
-az spring spring-cloud-gateway restart \
+az spring gateway restart \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
@@ -177,7 +177,7 @@ VMware Spring Cloud Gateway supports authentication and authorization through si
 
 | Property       | Required? | Description                                                                                                                                                                                                                                                                                  |
 |----------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `issuerUri`    | Yes       | The URI that's asserted as its issuer identifier. For example, if `issuer-uri` is `https://example.com`, an OpenID Provider Configuration Request is made to `https://example.com/.well-known/openid-configuration`. The result is expected to be an OpenID Provider Configuration Response. |
+| `issuerUri`    | Yes       | The URI that is asserted as its issuer identifier. For example, if `issuerUri` is `https://example.com`, an OpenID Provider Configuration Request is made to `https://example.com/.well-known/openid-configuration`. The result is expected to be an OpenID Provider Configuration Response. |
 | `clientId`     | Yes       | The OpenID Connect client ID from your identity provider.                                                                                                                                                                                                                                    |
 | `clientSecret` | Yes       | The OpenID Connect client secret from your identity provider.                                                                                                                                                                                                                                |
 | `scope`        | Yes       | A list of scopes to include in JWT identity tokens. This list should be based on the scopes that your identity provider allows.                                                                                                                                                              |

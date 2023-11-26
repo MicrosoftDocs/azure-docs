@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Data Manager for Energy entitlement concepts
-description:  This article describes the various concepts regarding the entitlement services in Azure Data Manager for Energy
+title: Entitlement concepts in Microsoft Azure Data Manager for Energy 
+description:  This article describes the various concepts regarding the entitlement service in Azure Data Manager for Energy.
 author: shikhagarg1
 ms.author: shikhagarg
 ms.service: energy-data-services
@@ -11,40 +11,40 @@ ms.custom: template-concept
 
 # Entitlement service
 
-Access management is a critical function for any service or resource. Entitlement service helps you manage who has access to your Azure Data Manager for Energy instance, what they can do with it, and what services they have access to.
+Access management is a critical function for any service or resource. The entitlement service lets you control who can use your Azure Data Manager for Energy, what they can see or change, and which services or data they can use.
 
 ## Groups
 
-The entitlements service of Azure Data Manager for Energy allows you to create groups, and an entitlement group defines permissions on services/data sources for your Azure Data Manager for Energy instance. Users added by you to that group obtain the associated permissions.
+The entitlements service of Azure Data Manager for Energy allows you to create groups and manage memberships of the groups. An entitlement group defines permissions on services/data sources for your Azure Data Manager for Energy instance. Users added to a given group obtain the associated permissions.
 
-The main motivation for entitlements service is data authorization, but the functionality enables three use cases:
+The entitlements service enables three use cases for authorization:
 
 - **Data groups** used for data authorization (for example, data.welldb.viewers, data.welldb.owners)
 - **Service groups** used for service authorization (for example, service.storage.user, service.storage.admin)
 - **User groups** used for hierarchical grouping of user and service identities (for example, users.datalake.viewers, users.datalake.editors)
 
-## Users
-
-For each group, you can either add a user as an OWNER or a MEMBER. The only difference being if you're an OWNER of a group, then you can manage the members of that group. 
-> [!NOTE]
-> Do not delete the OWNER of a group unless there is another OWNER to manage the users. 
+Some user, data, and service groups are created by default when a data partition is provisioned with details in [Bootstrapped OSDU Entitlements Groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md).
 
 ## Group naming
 
-All group identifiers (emails) will be of form {groupType}.{serviceName|resourceName}.{permission}@{partition}.{domain}.com. A group naming convention has been adopted such that the group's name should start with the word "data." for data groups; "service." for service groups; and "users." for user groups. An exception is when a data partition is provisioned. When a data partition is created, so is a corresponding group-for example, for data partition `opendes`, the group `users@opendes.dataservices.energy` is created. 
+All group identifiers (emails) are of form {groupType}.{serviceName|resourceName}.{permission}@{partition}.{domain}.com. A group naming convention is adopted by OSDU such that the group's name starts with 
+1. the word "data." for data groups;
+2. the word "service." for service groups;
+3. the word "users." for user groups. There's one exception for "users" group created when a new data partition is provisioned. For example, for data partition `opendes`, the group `users@opendes.dataservices.energy` is created. 
 
-## Permissions and roles
+## Users
 
-The OSDU&trade; Data Ecosystem user groups provide an abstraction from permission and user management and--without a user creating their own groups--the following user groups exist by default:
-
-- **users.datalake.viewers**: viewer level authorization for OSDU Data Ecosystem services.
-- **users.datalake.editors**: editor level authorization for OSDU Data Ecosystem services and authorization to create the data using OSDU&trade; Data Ecosystem storage service.
-- **users.datalake.admins**: admin level authorization for OSDU Data Ecosystem services.
-
-A full list of all API endpoints for entitlements can be found in [OSDU entitlement service](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/release/0.15/docs/tutorial/Entitlements-Service.md#entitlement-service-api). We have provided few illustrations below. Depending on the resources you have, you need to use the entitlements service in different ways than what is shown below. [Entitlement permissions](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/release/0.15/docs/tutorial/Entitlements-Service.md#permissions) on the endpoints and the corresponding minimum level of permissions required.
-
+For each OSDU group, you can either add a user as an OWNER or a MEMBER. 
+1. If you're an OWNER of an OSDU group, then you can add or remove the members of that group or delete the group.
+2. If you're a MEMBER of an OSDU group, you can view, edit, or delete the service or data depending on the scope of the OSDU group. For example, if you're a MEMBER of service.legal.editor OSDU group, you can call the APIs to change the legal service.
 > [!NOTE]
-> The OSDU documentation refers to V1 endpoints, but the scripts noted in this documentation refers to V2 endpoints, which work and have been successfully validated
+> Do not delete the OWNER of a group unless there is another OWNER to manage the users. 
+
+## Entitlement APIs
+
+A full list of entitlements API endpoints can be found in [OSDU entitlement service](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/release/0.15/docs/tutorial/Entitlements-Service.md#entitlement-service-api). A few illustrations of how to use Entitlement APIs are available in the [How to manage users](how-to-manage-users.md).
+> [!NOTE]
+> The OSDU documentation refers to V1 endpoints, but the scripts noted in this documentation refer to V2 endpoints, which work and have been successfully validated.
 
 OSDU&trade; is a trademark of The Open Group.
 
