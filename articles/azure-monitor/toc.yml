@@ -1309,6 +1309,8 @@ items:
           displayName: Azure CLI, az monitor action rule
         - name: Set up alert integrations
           items:
+          - name: The alerts common schema
+            href: alerts/alerts-common-schema.md
           - name: Integrate with Logic apps
             href: alerts/alerts-logic-apps.md
           - name: Integrate with webhooks
@@ -1351,10 +1353,6 @@ items:
                   href: alerts/itsmc-resync-servicenow.md
                 - name: Connector deletion
                   href: alerts/itsmc-connector-deletion.md
-    - name: Consume alerts
-      items:
-        - name: Alerts common schemas
-          href: alerts/alerts-common-schema.md
     - name: Manage alerts
       items:
         - name: Manage alert rules
