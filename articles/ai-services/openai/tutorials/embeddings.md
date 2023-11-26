@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 11/25/2023
 author: mrbullwinkle #noabenefraim
 ms.author: mbullwin
-zone-group: "openai-embeddings"
+zone_pivot_groups: "openai-embeddings"
 recommendations: false
 ms.custom:
 
