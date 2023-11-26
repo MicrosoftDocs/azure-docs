@@ -59,9 +59,9 @@ containing reference information for PowerShell version 7.4.
 ```powershell-interactive
 New-Item 'FILE-PATH-TO-YOUR-PROJECT' -Type Directory
 Set-Location 'FILE-PATH-TO-YOUR-PROJECT'
-Invoke-WebRequest 'https://github.com/MicrosoftDocs/PowerShell-Docs/archive/refs/heads/main.zip' -OutFile '.\PSDocs.zip'
-Expand-Archive '.\PSDocs.zip'
-Set-Location '.\PSDocs\PowerShell-Docs-main\reference\7.4\'
+Invoke-WebRequest 'https://github.com/MicrosoftDocs/PowerShell-Docs/archive/refs/heads/main.zip' -OutFile './PSDocs.zip'
+Expand-Archive './PSDocs.zip'
+Set-Location './PSDocs/PowerShell-Docs-main/reference/7.4/'
 ```
 
 We're working with a large amount of data in this tutorial, so we use a .NET data table
@@ -91,7 +91,7 @@ $md | ForEach-Object {
         $row                = $Datatable.newrow()
         $row.title          = $title.tostring().replace('title: ','')
         $row.content        = $content | out-string
-        $row.content        = '' # use later in the tutorial
+        $row.prep           = '' # use later in the tutorial
         $row.uri            = $uri.tostring().replace('online version: ','')
         $row.vectors        = '' # use later in the tutorial
         $Datatable.rows.add($row)
@@ -99,9 +99,9 @@ $md | ForEach-Object {
 }
 ```
 
-View the data using the `out-gridview` command.
+View the data using the `out-gridview` command (not available in Cloud Shell).
 
-```powershell-interactive
+```powershell
 $datatable | out-gridview
 ```
 
@@ -146,12 +146,12 @@ content in the "prep" column, for all rows in the datatable. We're using a new c
 original formatting is available if we would like to retrieve it later.
 
 ```powershell-interactive
-$dataset.rows | ForEach-Object {$_.prep = Invoke-DocPrep $_.content}
+$datatable.rows | ForEach-Object {$_.prep = Invoke-DocPrep $_.content}
 ```
 
 View the datatable again to see the change.
 
-```powershell-interactive
+```powershell
 $datatable | out-gridview
 ```
 
@@ -196,8 +196,8 @@ $params = @{
     name        = 'Microsoft.DeepDev.TokenizerLib'
     repository  = 'NuGetGallery'
 }
-Install-PSResource @params
 # after running the command, you is prompted to accept installing from a public repository
+Install-PSResource @params
 ```
 
 Then, if you prefer not to leave the repository registered, unregister it.
@@ -230,7 +230,7 @@ param (
     [Parameter(Mandatory = $true, ValueFromPipelineByPropertyName = $true)]
     [string]$text,
     [Parameter(Mandatory = $true, ValueFromPipelineByPropertyName = $true)]
-    [string]$pathToTokenizerlibDll
+    [string]$pathToTokenizerlibDll,
     [string]$modelName = 'text-embedding-ada-002',
     [hashtable]$specialTokens = @{} # for chat models, this value would include IM_START and IM_END
 )
@@ -254,7 +254,7 @@ Run the sample function to set the "tokens" value for each row in the datatable.
 ```powershell-interactive
 $datatable.rows | ForEach-Object {
     $params = @{
-        content = $_.content
+        text                  = $_.content
         pathToTokenizerlibDll = $pathToTokenizerlibDll
     }
     $_.tokens = Get-BPETokenCount @params
