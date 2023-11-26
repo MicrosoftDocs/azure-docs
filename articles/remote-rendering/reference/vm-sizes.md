@@ -24,11 +24,12 @@ Remote Rendering with `Standard` size server has a maximum scene size of 20 mill
 
 ### Premium size
 
-Remote Rendering with `Premium` size doesn't enforce a hard maximum, but performance may be degraded if your content exceeds the rendering capabilities of the service. Furthermore, for triangular meshes and unlike point clouds, the available amount of graphics memory is a hard limit. It's not possible to map the amount of graphics memory to a specific number of triangles, because there are many contributing factors that depend on the source mesh:
+Remote Rendering with `Premium` size doesn't enforce a hard maximum, but performance may be degraded if your content exceeds the rendering capabilities of the service. Furthermore, for triangular meshes (and unlike point clouds), the available amount of graphics memory is a hard limit. It's not possible to map the amount of graphics memory to a specific number of triangles, because there are many contributing factors that depend on the source mesh and settings:
 
 * number and resolution of textures,
 * amount of unique geometry versus sub-mesh instantiation inside the mesh (see also [instancing objects](../how-tos/conversion/configure-model-conversion.md#instancing)),
-* [vertex streams](../how-tos/conversion/configure-model-conversion.md#vertex-format) being used.
+* [vertex streams](../how-tos/conversion/configure-model-conversion.md#vertex-format) being used,
+* the [rendering composition mode](../concepts/rendering-modes.md) used with the `Premium` size.
 
 For [point clouds](../overview/features/point-cloud-rendering.md) there's no real limit since point cloud assets use the [data streaming approach](../overview/features/point-cloud-rendering.md#point-cloud-data-streaming). With data streaming, the renderer automatically manages the memory budget on the graphics card, based on the actual visible geometry.
 

@@ -31,7 +31,7 @@ Conversion settings specifically for point cloud files are explained in the [con
 
 ## Size limitations
 
-Point cloud asset conversion has a hard limit of 12.5 billion points per converted asset. If larger databases need to be rendered, the source file needs to be split into multiple assets that obey the 12.5 billion points constraint each. The renderer doesn't limit you on the number of unique assets being loaded, and the [streaming data technique](#point-cloud-data-streaming) works in combination across all loaded models.
+Point cloud asset conversion has a hard limit of 12.5 billion points per converted asset. If larger data sets need to be rendered, the source file needs to be split into multiple assets that obey the 12.5 billion points constraint each. The renderer doesn't limit you on the number of unique assets being loaded, and the [streaming data technique](#point-cloud-data-streaming) ensures that prioritization works seamlessly across all loaded instances.
 For the overall maximum number of allowed points loaded and rendered by ARR, the same kind of distinctions between a `standard` and `premium` rendering session applies, as described in paragraph about [server size limits](../../reference/limits.md#overall-number-of-primitives).
 
 ## Global rendering properties
