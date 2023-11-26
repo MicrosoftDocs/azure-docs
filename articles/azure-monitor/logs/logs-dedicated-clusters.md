@@ -222,7 +222,7 @@ You need 'write' permissions to both the workspace and the cluster resource for 
 > Linking a workspace can be performed only after the completion of the Log Analytics cluster provisioning.
 > Linking a workspace to a cluster involves syncing multiple backend components and cache hydration, which can take up to two hours.
 
-Use Linked services to link a workspace to a cluster:
+Use the following steps to link a workspace to a cluster. You can automated for linking multiple workspaces:
 
 #### [CLI](#tab/cli)
 
