@@ -17,7 +17,6 @@ open throughout, or you must to begin again from the start.
 
 [!INCLUDE [get-key-endpoint](../includes/get-key-endpoint.md)]
 
-
 Create and assign persistent environment variables for your key and endpoint.
 
 ### Environment variables
@@ -41,9 +40,6 @@ echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environm
 ```Bash
 echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
 ```
-
-> [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=OVERVIEW&Pillar=AOAI&Product=embedding&Page=tutorial&Section=Prerequisites)
 
 For this tutorial, we use the [PowerShell 7.4 reference documentation](/powershell/module/?view=powershell-7.4&preserve-view=true) as a well-known and safe sample dataset. As an alternative, you might
 choose to explore the [Microsoft Research tools](https://www.microsoft.com/research/tools/)
