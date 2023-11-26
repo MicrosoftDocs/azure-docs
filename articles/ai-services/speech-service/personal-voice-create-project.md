@@ -14,7 +14,7 @@ ms.author: eur
 
 [!INCLUDE [Personal voice preview](./includes/previews/preview-personal-voice.md)]
 
-Personal voice projects contain the user consent statement, training datasets, and the personal voice ID. You can only create a personal voice project using the custom voice API. You can't create a personal voice project in the Speech Studio.
+Personal voice projects contain the user consent statement and the personal voice ID. You can only create a personal voice project using the custom voice API. You can't create a personal voice project in the Speech Studio.
 
 ## Create a project
 
@@ -50,7 +50,7 @@ You should receive a response body in the following format:
 }
 ```
 
-You use the project `id` in subsequent API requests to [add user consent](./personal-voice-create-consent.md), [create a training set](./personal-voice-create-training-set.md), and [get a speaker profile ID](./personal-voice-create-voice.md).
+You use the project `id` in subsequent API requests to [add user consent](./personal-voice-create-consent.md) and [get a speaker profile ID](./personal-voice-create-voice.md).
 
 ## Next steps
 

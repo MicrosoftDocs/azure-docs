@@ -168,7 +168,7 @@ items:
             href: professional-voice-create-project.md
           - name: Add voice talent consent to your project
             href: professional-voice-create-consent.md
-          - name: Add training data
+          - name: Add training datasets
             href: professional-voice-create-training-set.md
           - name: Train your voice model
             href: professional-voice-train-voice.md
@@ -195,8 +195,6 @@ items:
             href: personal-voice-create-project.md
           - name: Add user consent to your project
             href: personal-voice-create-consent.md
-          - name: Add a training dataset
-            href: personal-voice-create-training-set.md
           - name: Get a speaker profile ID
             href: personal-voice-create-voice.md
           - name: Use personal voice in your application

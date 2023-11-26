@@ -24,6 +24,6 @@ zone_pivot_groups: speech-studio-rest
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add user consent to the professional voice project.](./professional-voice-create-consent.md)
+> [Add voice talent consent to the professional voice project.](./professional-voice-create-consent.md)
 
 

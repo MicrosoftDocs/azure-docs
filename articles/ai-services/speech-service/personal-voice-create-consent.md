@@ -71,4 +71,4 @@ Operation-Id: 070f7986-ef17-41d0-ba2b-907f0f28e314
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add training data to the personal voice project.](./personal-voice-create-training-set.md)
+> [Create a personal voice.](./personal-voice-create-voice.md).

@@ -9,7 +9,7 @@
  ms.custom: include
 ---
 
-Professional voice projects contain the user consent statement, training datasets, voice models, and endpoints.
+Professional voice projects contain the voice talent consent statement, training datasets, voice models, and endpoints.
 
 ## Create a project
 
@@ -45,4 +45,4 @@ You should receive a response body in the following format:
 }
 ```
 
-You use the project `id` in subsequent API requests to [add user consent](../../../../professional-voice-create-consent.md) and [create a training set](../../../../professional-voice-create-training-set.md).
+You use the project `id` in subsequent API requests to [add voice talent consent](../../../../professional-voice-create-consent.md) and [create a training set](../../../../professional-voice-create-training-set.md).

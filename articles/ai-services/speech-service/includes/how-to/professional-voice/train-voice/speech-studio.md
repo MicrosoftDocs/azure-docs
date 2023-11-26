@@ -223,7 +223,7 @@ Azure text to speech engines are updated from time to time to capture the latest
 
 1. When a new engine is available, you're prompted to update your neural voice model.
 
-   :::image type="content" source="../../../../media/custom-voice/cnv-engine-update-prompt.png" alt-text="Screenshot of displaying engine update message." lightbox="media/custom-voice/cnv-engine-update-prompt.png":::
+   :::image type="content" source="../../../../media/custom-voice/cnv-engine-update-prompt.png" alt-text="Screenshot of displaying engine update message." lightbox="../../../../media/custom-voice/cnv-engine-update-prompt.png":::
 
 1. Go to the model details page and follow the on-screen instructions to install the latest engine.
 

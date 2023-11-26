@@ -38,7 +38,7 @@ After your endpoint is deployed, the endpoint name appears as a link. Select the
 
 The application settings that you use as REST API [request parameters](#request-parameters) are available on the **Deploy model** tab in [Speech Studio](https://aka.ms/custom-voice-portal).
 
-:::image type="content" source="./media/custom-voice/cnv-endpoint-app-settings-zoom.png" alt-text="Screenshot of custom endpoint app settings in Speech Studio." lightbox="./media/custom-voice/cnv-endpoint-app-settings-full.png":::
+:::image type="content" source="../../../../media/custom-voice/cnv-endpoint-app-settings-zoom.png" alt-text="Screenshot of custom endpoint app settings in Speech Studio." lightbox="../../../../media/custom-voice/cnv-endpoint-app-settings-full.png":::
 
 * The **Endpoint key** shows the Speech resource key the endpoint is associated with. Use the endpoint key as the value of your `Ocp-Apim-Subscription-Key` request header. 
 * The **Endpoint URL** shows your service region. Use the value that precedes `voice.speech.microsoft.com` as your service region request parameter. For example, use `eastus` if the endpoint URL is `https://eastus.voice.speech.microsoft.com/cognitiveservices/v1`.
@@ -48,49 +48,9 @@ The application settings that you use as REST API [request parameters](#request-
 
 The custom endpoint is functionally identical to the standard endpoint that's used for text to speech requests. 
 
-One difference is that the `EndpointId` must be specified to use the custom voice via the Speech SDK. You can start with the [text to speech quickstart](../../../../get-started-text-to-speech.md) and then update the code with the `EndpointId` and `SpeechSynthesisVoiceName`.
+One difference is that the `EndpointId` must be specified to use the custom voice via the Speech SDK. You can start with the [text to speech quickstart](../../../../get-started-text-to-speech.md) and then update the code with the `EndpointId` and `SpeechSynthesisVoiceName`. For more information, see [use a custom endpoint](../../../../how-to-speech-synthesis.md#use-a-custom-endpoint).
 
-::: zone pivot="programming-language-csharp"
-```csharp
-var speechConfig = SpeechConfig.FromSubscription(speechKey, speechRegion);     
-speechConfig.SpeechSynthesisVoiceName = "YourCustomVoiceName";
-speechConfig.EndpointId = "YourEndpointId";
-```
-::: zone-end
-
-::: zone pivot="programming-language-cpp"
-```cpp
-auto speechConfig = SpeechConfig::FromSubscription(speechKey, speechRegion);
-speechConfig->SetSpeechSynthesisVoiceName("YourCustomVoiceName");
-speechConfig->SetEndpointId("YourEndpointId");
-```
-::: zone-end
-
-::: zone pivot="programming-language-java"
-```java
-SpeechConfig speechConfig = SpeechConfig.fromSubscription(speechKey, speechRegion);
-speechConfig.setSpeechSynthesisVoiceName("YourCustomVoiceName");
-speechConfig.setEndpointId("YourEndpointId");
-```
-::: zone-end
-
-::: zone pivot="programming-language-objectivec"
-```ObjectiveC
-SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithSubscription:speechKey region:speechRegion];
-speechConfig.speechSynthesisVoiceName = @"YourCustomVoiceName";
-speechConfig.EndpointId = @"YourEndpointId";
-```
-::: zone-end
-
-::: zone pivot="programming-language-python"
-```Python
-speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
-speech_config.endpoint_id = "YourEndpointId"
-speech_config.speech_synthesis_voice_name = "YourCustomVoiceName"
-```
-::: zone-end
-
-To use a custom neural voice via [Speech Synthesis Markup Language (SSML)](../../../../speech-synthesis-markup-voice.md#use-voice-elements), specify the model name as the voice name. This example uses the `YourCustomVoiceName` voice. 
+To use a custom voice via [Speech Synthesis Markup Language (SSML)](../../../../speech-synthesis-markup-voice.md#use-voice-elements), specify the model name as the voice name. This example uses the `YourCustomVoiceName` voice. 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
