@@ -60,8 +60,8 @@ containing reference information for PowerShell version 7.4.
 New-Item 'FILE-PATH-TO-YOUR-PROJECT' -Type Directory
 Set-Location 'FILE-PATH-TO-YOUR-PROJECT'
 Invoke-WebRequest 'https://github.com/MicrosoftDocs/PowerShell-Docs/archive/refs/heads/main.zip' -OutFile '.\PSDocs.zip'
-Expand-Archive 'FILE-PATH-TO-YOUR-PROJECT\PSDocs.zip'
-Set-Location 'FILE-PATH-TO-YOUR-PROJECT\PSDocs\PowerShell-Docs-main\reference\7.4\'
+Expand-Archive '.\PSDocs.zip'
+Set-Location '.\PSDocs\PowerShell-Docs-main\reference\7.4\'
 ```
 
 We're working with a large amount of data in this tutorial, so we use a .NET data table
