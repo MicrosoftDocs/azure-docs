@@ -131,6 +131,8 @@ param(
 )
     # tab, line breaks, empty space
     $replace = @('\t','\r\n','\n','\r','  ')
+    # non-UTF8 characters
+    $replace += @('[^\x00-\x7F]')
     # html
     $replace += @('<table>','</table>','<tr>','</tr>','<td>','</td>')
     $replace += @('<ul>','</ul>','<li>','</li>')
@@ -239,7 +241,7 @@ param (
     [string]$text,
     [Parameter(Mandatory = $true, ValueFromPipelineByPropertyName = $true)]
     [string]$pathToTokenizerlibDll,
-    [string]$modelName = 'gpt-4',
+    [string]$modelName = 'text-embedding-ada-002',
     [hashtable]$specialTokens = @{} # for chat models, this value would include IM_START and IM_END
 )
 
@@ -262,7 +264,7 @@ Run the sample function to set the "tokens" value for each row in the datatable.
 ```powershell-interactive
 $datatable.rows | ForEach-Object {
     $params = @{
-        text                  = $_.content
+        text                  = $_.prep
         pathToTokenizerlibDll = $pathToTokenizerlibDll
     }
     $_.tokens = Get-BPETokenCount @params
@@ -404,11 +406,48 @@ $topThree = $dataview | ForEach-Object {
 $topThree | Select "title", "uri"
 ```
 
-As a learning exercise, add the "content" column to the `Select` (alias for `Select-Object`) command in the last line of the example, to view the full text of each document.
+Review the output in gridview.
+
+```powershell
+$topThree | Select "title", "uri" | Out-GridView
+```
 
 **Output:**
 
 :::image type="content" source="../media/tutorials/query-result-powershell.png" alt-text="Screenshot of the formatted results once the search query finishes." lightbox="../media/tutorials/query-result-powershell.png":::
+
+The `$topThree` variable contains all the information from the rows in the datatable. For example,
+the *content* property contains the original document format. Use `[0]` to index into the first item
+in the array.
+
+```powershell-interactive
+$topThree[0].content
+```
+
+View the full document (truncated in the output snippet for this page).
+
+```OUTPUT
+---
+external help file: Microsoft.PowerShell.Commands.Management.dll-Help.xml
+Locale: en-US
+Module Name: Microsoft.PowerShell.Management
+ms.date: 07/03/2023
+online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.management/get-process?view=powershell-7.4&WT.mc_id=ps-gethelp
+schema: 2.0.0
+title: Get-Process
+---
+
+# Get-Process
+
+## SYNOPSIS
+Gets the processes that are running on the local computer.
+
+## SYNTAX
+
+### Name (Default)
+
+Get-Process [[-Name] <String[]>] [-Module] [-FileVersionInfo] [<CommonParameters>]
+```
 
 Finally, rather than regenerate the embeddings every time you need to query the dataset, you can
 store the data to disk and recall it in the future. The `WriteXML` and `ReadXML` methods of
