@@ -12,7 +12,8 @@ ms.author: mbullwin
 Make sure your Azure OpenAI deployment includes the model, **text-embedding-ada-002**, or [deploy the model](../how-to/create-resource.md#deploy-a-model) before proceeding.
 
 > [!NOTE]
-> Many examples in this tutorial re-use variables from step-to-step. Keep the same terminal session open throughout, or you will have to begin again from the start.
+> Many examples in this tutorial re-use variables from step-to-step. Keep the same terminal session
+open throughout, or you must to begin again from the start.
 
 [!INCLUDE [get-key-endpoint](../includes/get-key-endpoint.md)]
 
@@ -44,7 +45,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=OVERVIEW&Pillar=AOAI&Product=embedding&Page=tutorial&Section=Prerequisites)
 
-For this tutorial, we will use the [PowerShell 7.4 reference documentation](/powershell/module/?view=powershell-7.4&preserve-view=true) as a well-known and safe sample dataset. As an alternative, you might
+For this tutorial, we use the [PowerShell 7.4 reference documentation](/powershell/module/?view=powershell-7.4&preserve-view=true) as a well-known and safe sample dataset. As an alternative, you might
 choose to explore the [Microsoft Research tools](https://www.microsoft.com/research/tools/)
 sample datasets.
 
@@ -58,12 +59,12 @@ Expand-Archive FILE-PATH-TO-YOUR-PROJECT\PSDocs.zip
 Set-Location FILE-PATH-TO-YOUR-PROJECT\PSDocs\PowerShell-Docs-main\reference\7.4\
 ```
 
-We will be working with a large amount of data in this tutorial, so we will use a .NET data table
-object for efficient performance. The datatable will have columns "title", "content","prep", 
-"uri", "tokens", and "vectors". The "title" column will be the [primary key](/dotnet/framework/data/adonet/dataset-datatable-dataview/defining-primary-keys).
+We are working with a large amount of data in this tutorial, so we use a .NET data table
+object for efficient performance. The datatable has columns *title*, *content*,*prep*, 
+*uri*, *tokens*, and *vectors*. The *title* column is the [primary key](/dotnet/framework/data/adonet/dataset-datatable-dataview/defining-primary-keys).
 
-In the next step we load the content of each markdown file into the data table. We also use PowerShell `-match` operator to capture known lines of text "title: " and "online version: ", and store them in distinct columns. Some of the files do not contain
-the metadata lines of text, but since they are overview pages and not detailed reference docs, we will exclude them from the datatable.
+In the next step, we load the content of each markdown file into the data table. We also use PowerShell `-match` operator to capture known lines of text "title: " and "online version: ", and store them in distinct columns. Some of the files don't contain
+the metadata lines of text, but since they're overview pages and not detailed reference docs, we exclude them from the datatable.
 
 ```powershell-interactive
 # make sure your location is the project subfolder
@@ -85,9 +86,9 @@ $md | ForEach-Object {
         $row                = $Datatable.newrow()
         $row.title          = $title.tostring().replace('title: ','')
         $row.content        = $content | out-string
-        $row.content        = '' # will use later in the tutorial
+        $row.content        = '' # use later in the tutorial
         $row.uri            = $uri.tostring().replace('online version: ','')
-        $row.vectors        = '' # will use later in the tutorial
+        $row.vectors        = '' # use later in the tutorial
         $Datatable.rows.add($row)
     }
 }
@@ -103,7 +104,7 @@ Output:
 
 :::image type="content" source="../media/tutorials/initial-datatable.png" alt-text="Screenshot of the initial DataTable results." lightbox="../media/tutorials/initial-datatable.png":::
 
-Next we'll perform some light data cleaning by removing extra characters, empty space, and other document
+Next perform some light data cleaning by removing extra characters, empty space, and other document
 notations, to prepare the data for tokenization. The sample function `Invoke-DocPrep` demonstrates
 how to use the PowerShell `-replace` operator to iterate through a list of characters you would like
 to remove from the content.
@@ -135,7 +136,9 @@ param(
 }
 ```
 
-After you create the `invoke-docprep` function, use the `ForEach-Object` command to store prepared content in the "prep" column, for all rows in the datatable. We are using a new column so the original formatting will still be available if we would like to retrieve it later.
+After you create the `invoke-docprep` function, use the `ForEach-Object` command to store prepared
+content in the "prep" column, for all rows in the datatable. We are using a new column so the
+original formatting is available if we would like to retrieve it later.
 
 ```powershell-interactive
 $dataset.rows | ForEach-Object {$_.prep = Invoke-DocPrep $_.content}
@@ -147,12 +150,12 @@ View the datatable again to see the change.
 $datatable | out-gridview
 ```
 
-Next, we will estimate the number of tokens per document and populate the "tokens" column.
+Next, we estimate the number of tokens per document and populate the "tokens" column.
 
 > [!IMPORTANT]
 > If you are estimating tokens for any purpose related to billing, make sure to use a solution officially recommended by OpenAI, such as the [TikToken](https://github.com/openai/tiktoken) package for Python. The official approach could change without updates to this document. See the OpenAI [Tokenizer](https://platform.openai.com/tokenizer) site for details.
 
-To estimate token count for each document, we will use the unsupported C# package
+To estimate token count for each document, we use the unsupported C# package
 "Microsoft.DeepDev.Tokenizer".
 
 From the project website:
@@ -189,7 +192,7 @@ $params = @{
     repository  = 'NuGetGallery'
 }
 Install-PSResource @params
-# after running the command, you will be prompted to accept installing from a public repository
+# after running the command, you is prompted to accept installing from a public repository
 ```
 
 Then, if you prefer not to leave the repository registered, unregister it.
@@ -198,13 +201,13 @@ Then, if you prefer not to leave the repository registered, unregister it.
 Unregister-PSResourceRepository -Name 'NuGetGallery'
 ```
 
-Lookup the install location of the DLL file using the `Get-PSResource` command.
+Look up the install location of the DLL file using the `Get-PSResource` command.
 
 ```powershell-interactive
 $pathToTokenizerlibDll = Get-PSResource -Name 'Microsoft.DeepDev.TokenizerLib' | ForEach-Object InstalledLocation
 ```
 
-The full path to the file will be the installed location plus the folder structure below. The folder
+The full path to the file is the installed location plus the folder structure. The folder
 names will change as new versions ar released.
 
 ```powershell-interactive
@@ -253,8 +256,9 @@ $datatable.rows | ForEach-Object {
 }
 ```
 
-Now we can create a view of the datatable, called a [dataview](/dotnet/framework/data/adonet/dataset-datatable-dataview/dataviews), that filters any rows where the token
-count is greater than 8192.
+Now we can create a view of the datatable, called a
+[dataview](/dotnet/framework/data/adonet/dataset-datatable-dataview/dataviews),
+that filters any rows where the token count is greater than 8192.
 
 ```powershell-interactive
 $dataview   = New-Object System.Data.DataView($datatable)
@@ -268,22 +272,22 @@ $datatable.rows.count
 $dataview.count
 ```
 
-9 documents are excluded from the dataview because they are larger than 8192 tokens.
+Nine documents are excluded from the dataview because they're larger than 8192 tokens.
 
 ```output
 446
 437
 ```
 
-When we pass the documents to the embeddings model, it will encode the documents into tokens similar
+When we pass the documents to the embeddings model, it encodes the documents into tokens similar
 (though not identical) to the `Microsoft.DeepDev.Tokenizerlib` sample and then return a series of floating
 point numbers to use in a [cosine similarity](../concepts/understand-embeddings.md#cosine-similarity) search. These embeddings can be stored locally or
 in a service such as [Vector Search in Azure AI Search](/azure/search/vector-search-overview). Each
-document will have its own corresponding embedding vector in the new `vectors` column.
+document has its own corresponding embedding vector in the new `vectors` column.
 
-The example below loops through each row in the datatable, retrieves the vectors for the pre-processed content, and stores them to the "vectors" column. The OpenAI service will throttle frequent requests, so the example includes an **exponential back-off** as suggested by the [documentation](https://platform.openai.com/docs/guides/rate-limits/error-mitigation).
+The next example loops through each row in the datatable, retrieves the vectors for the preprocessed content, and stores them to the "vectors" column. The OpenAI service throttles frequent requests, so the example includes an **exponential back-off** as suggested by the [documentation](https://platform.openai.com/docs/guides/rate-limits/error-mitigation).
 
-After the script has completed, each row should have a comma-delimited list of 1536 vectors for each document.
+After the script completes, each row should have a comma-delimited list of 1536 vectors for each document.
 
 ```powershell-interactive
 # Azure OpenAI metadata variables
@@ -291,7 +295,7 @@ $openai = @{
     api_key     = $Env:AZURE_OPENAI_KEY
     api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
     api_version = '2023-05-15' # this may change in the future
-    name        = 'YOUR-DEPLOYMENT-NAME-HERE' #This will correspond to the custom name you chose for your deployment when you deployed a model.
+    name        = 'YOUR-DEPLOYMENT-NAME-HERE' # Corresponds to the custom name you chose for your deployment when you deployed a model.
 }
 
 $headers = [ordered]@{
@@ -349,7 +353,7 @@ $response = Invoke-RestMethod -Uri $url -Headers $headers -Body $body -Method Po
 $searchVectors = $response.data.embedding -join ','
 ```
 
-Finally, the sample function below, which borrows an example from Lee Holmes' [Measure-VectorSimilarity](https://www.powershellgallery.com/packages/Measure-VectorSimilarity/) script, performs a **cosine similarity** calculation and then ranks each row in the dataview. The "title" and "uri" of the top three most similar rows are returned.
+Finally, the next sample function, which borrows an example from Lee Holmes' [Measure-VectorSimilarity](https://www.powershellgallery.com/packages/Measure-VectorSimilarity/) script, performs a **cosine similarity** calculation and then ranks each row in the dataview. The *title* and *uri* of the top three most similar rows are returned.
 
 ```powershell-interactive
 # Sample function to calculate cosine similarity
@@ -390,9 +394,9 @@ As a learning exercise, add the "content" column to the `Select` (alias for `Sel
 
 **Output:**
 
-:::image type="content" source="../media/tutorials/query-result-powershell.png" alt-text="Screenshot of the formatted results once the search query has been run." lightbox="../media/tutorials/query-result-powershell.png":::
+:::image type="content" source="../media/tutorials/query-result-powershell.png" alt-text="Screenshot of the formatted results once the search query finishes." lightbox="../media/tutorials/query-result-powershell.png":::
 
-Finally, rather than re-generate the embeddings every time you need to query the dataset, you can
+Finally, rather than regenerate the embeddings every time you need to query the dataset, you can
 store the data to disk and recall it in the future. The `WriteXML` and `ReadXML` methods of
 datatable object types in the example below simplify the process. The schema of the XML file
 requires the datatable to have a "TableName". Replace "YOUR-FULL-FILE-PATH" with the full path
@@ -410,6 +414,6 @@ $newDatatable = New-Object System.Data.DataTable
 $newDatatable.ReadXml("YOUR-FULL-FILE-PATH.xml")
 ```
 
-As you re-use the data, you will still need to get the vectors of each new search string (but not
+As you reuse the data, you need to get the vectors of each new search string (but not
 the entire datatable). As a learning exercise, try creating a PowerShell script to automate the
 `Invoke-RestMethod` command with the search string as a parameter.
