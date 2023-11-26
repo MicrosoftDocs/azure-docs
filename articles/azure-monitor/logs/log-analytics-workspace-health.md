@@ -50,7 +50,7 @@ To view your Log Analytics workspace health and set up health status alerts:
     |Available| [Average latency](../logs/data-ingestion-time.md#average-latency) and no query execution issues detected.|
     |Unavailable|Higher than average latency detected.|    
     |Degraded|Query failures detected.|
-    |Unknown|Currently unable to determine Log Analytics workspace health because queries haven't been run or data was not ingested in this workspace recently.|
+    |Unknown|Currently unable to determine Log Analytics workspace health because you haven't run queries or ingested data to this workspace recently.|
     
 1. To set up health status alerts, you can either [enable recommended out-of-the-box alert](../alerts/alerts-overview.md#recommended-alert-rules) rules, or manually create new alert rules.
     - To enable the recommended alert rules:
