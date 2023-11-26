@@ -528,6 +528,9 @@
             - name: Automatically enable a vulnerability assessment solution
               displayName: qualys, rapid7, vulnerability, auto provision
               href: auto-deploy-vulnerability-assessment.md
+            - name: Migrate to the built-in MDVM solution
+              displayName: qualys, rapid7, vulnerability, migrate
+              href: how-to-migrate-to-built-in.md
             - name: Common questions 
               displayName: questions, common, MDVM, Qualys, BYOL, bring your own license, agent, consolidated, vulnerability, management, faq, frequently asked questions
               href: faq-scanner-detection.yml

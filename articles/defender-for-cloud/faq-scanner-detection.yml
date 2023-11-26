@@ -40,7 +40,7 @@ sections:
           The built-in MDVM scanner in Defender for Cloud uses the same agent as Microsoft Defender for Endpoint. If endpoint protection is enabled, the MDVM agent is already enabled.
 
       - question: |
-          What are the benefits of having one consolidate VA solution across Defender for cloud?
+          What are the benefits of having one consolidate VA solution across Defender for Cloud?
         answer: |
           1. **Hybrid approach:** offers flexible deployments options, by utilizing a consistent vulnerability scanner across various use cases. It's applicable in multicloud environments and different host runtimes: 
           
