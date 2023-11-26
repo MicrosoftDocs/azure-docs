@@ -3,7 +3,7 @@ title: Enrich data in a pipeline
 description: Configure an enrich pipeline stage to enrich data in a Data Processor pipeline with contextual or reference data.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: how-to
 ms.custom:
   - ignite-2023

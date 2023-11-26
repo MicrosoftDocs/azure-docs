@@ -2,14 +2,14 @@
 title: Call a REST API by using Azure Active Directory B2C custom policy
 titleSuffix: Azure AD B2C
 description: Learn how to make an HTTP call to external API by using Azure Active Directory B2C custom policy.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.custom: b2c-docs-improvements
+ms.custom: b2c-docs-improvements, devx-track-js
 ms.date: 11/20/2023
 ms.author: kengaderdus
 ms.reviewer: yoelh

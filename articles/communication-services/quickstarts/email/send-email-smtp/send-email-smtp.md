@@ -8,6 +8,7 @@ ms.author: ddouglas
 ms.date: 10/18/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.custom: devx-track-dotnet
 zone_pivot_groups: acs-smtp-sending-method
 ---
 # Quickstart: Send email with SMTP
