@@ -528,6 +528,9 @@
             - name: Automatically enable a vulnerability assessment solution
               displayName: qualys, rapid7, vulnerability, auto provision
               href: auto-deploy-vulnerability-assessment.md
+            - name: Common questions 
+              displayName: questions, common, MDVM, Qualys, BYOL, bring your own license, agent, consolidated, vulnerability, management, faq, frequently asked questions
+              href: faq-scanner-detection.yml
         - name: Enable just-in-time access on VMs
           displayName: jit, management, ports
           href: just-in-time-access-usage.md
