@@ -14,7 +14,7 @@ This reference provides the complete set of configuration for the agent, listing
 ``` 
 # The name of the site this agent lives in. Reserved URL characters must be percent-encoded.
 site_id: london-lab01 
-# Config for secrets providers. We currently support reading secrets from Azure Key Vault and from the VM's local filesystem.
+# Config for secrets providers. We support reading secrets from Azure Key Vault and from the VM's local filesystem.
 # Multiple secret providers can be defined and each must be given a unique name, which is referenced later in the config.
 # Two secret providers must be configured for the SFTP agent to run:
   # A secret provider of type `key_vault` which contains details required to connect to the Azure Key Vault and allow connection to the storage account.
