@@ -1,7 +1,7 @@
 ---
 title: Azure Arc resource bridge overview
 description: Learn how to use Azure Arc resource bridge to support VM self-servicing on Azure Stack HCI, VMware, and System Center Virtual Machine Manager.
-ms.date: 11/15/2023
+ms.date: 11/27/2023
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -65,12 +65,14 @@ By registering resource pools, networks, and VM templates, you can represent a s
 
 ### System Center Virtual Machine Manager (SCVMM)
 
-You can connect an SCVMM management server to Azure by deploying Azure Arc resource bridge (preview) in the VMM environment. Azure Arc resource bridge enables you to represent the SCVMM resources (clouds, VMs, templates etc.) in Azure and perform various operations on them:
+You can connect an SCVMM management server to Azure by deploying Azure Arc resource bridge in the VMM environment. Azure Arc resource bridge enables you to represent the SCVMM resources (clouds, VMs, templates etc.) in Azure and perform various operations on them:
 
 * Start, stop, and restart a virtual machine
 * Control access and add Azure tags
 * Add, remove, and update network interfaces
 * Add, remove, and update disks and update VM size (CPU cores and memory)
+* Enable guest management
+* Install extensions
 
 ## Example scenarios
 
@@ -141,8 +143,7 @@ Arc resource bridge typically releases a new version on a monthly cadence, at th
 
 ## Next steps
 
-* Learn more about [how Azure Arc-enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure](../vmware-vsphere/overview.md).
-* Learn more about [provisioning and managing on-premises Windows and Linux VMs running on Azure Stack HCI clusters](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
+* Learn how [Azure Arc-enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure](../vmware-vsphere/overview.md).
+* Learn how [Azure Arc-enabled SCVMM extends Azure's governance and management capabilities to System Center managed infrastructure(../system-center-virtual-machine-manager/overview.md).
+* Learn about [provisioning and managing on-premises Windows and Linux VMs running on Azure Stack HCI clusters](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
 * Review the [system requirements](system-requirements.md) for deploying and managing Arc resource bridge.
-
-
