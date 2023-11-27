@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Azure Arc-enabled System Center Virtual Machine Manager
+  - name: About Azure Arc-enabled SCVMM
     href: overview.md
   - name: Switch to the new version
     href: switch-to-the-new-version-scvmm.md
