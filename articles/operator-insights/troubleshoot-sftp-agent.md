@@ -95,3 +95,16 @@ Steps to remediate:
 - If recent files are missing, check the agent logs to confirm that the ingestion agent performed an upload run for the file source at the expected time. The `schedule` parameter in the file source config gives the expected schedule. 
 
 - Check that the agent VM isn't overloaded – monitor CPU and memory usage. In particular, ensure no other process is taking resources from the VM.
+
+### Files are uploaded more than once
+
+Symptoms:
+- Duplicate data appears in Azure Operator Insights
+
+Steps to remediate:
+
+- Check that the file sources defined in the config file refer to non-overlapping sets of files. If multiple file sources are configured to pull files from the same location on the SFTP server, use the `include_pattern` and `exclude_pattern` config fields to specify distinct sets of files that each file source should consider.
+
+- If you are running multiple instances of the SFTP ingestion agent, check that the file sources configured for each agent do not overlap with file sources on any other agent. In particular, look out for file source config that has been accidentally copied from another agent's config.
+
+- If you recently changed the `source_id` for a configured file source, use the `exclude_before_time` field to avoid files being re-uploaded with the new `source_id`. For instructions, see [Manage SFTP Ingestion Agents for Azure Operator Insights: Agent configuration update](how-to-manage-sftp-agent.md#agent-configuration-update)
