@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 10/19/2022
+ms.date: 11/27/2023
 ms.author: spelluru
 ms.custom: "include file","fasttrack-edit","iot","event-hubs"
 
