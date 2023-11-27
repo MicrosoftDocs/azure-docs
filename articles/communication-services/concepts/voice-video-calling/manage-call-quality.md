@@ -104,7 +104,7 @@ The Network Diagnostic Tool provides a hosted experience for
 
 
 - For more information, please see: [Network Diagnostics Tool](../developer-tools/network-diagnostic.md).
-  <!-- - <span class="mark">Visual</span> - [ACS Network Diagnostic
+  <!-- - <span class="mark">Visual</span> - [Azure Communication Services Network Diagnostic
     Tool](https://azurecommdiagnostics.net/) -->
 
 

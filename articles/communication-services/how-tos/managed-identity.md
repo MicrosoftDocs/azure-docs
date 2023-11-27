@@ -23,7 +23,7 @@ Your Azure Communication Services resource can be assigned two types of identity
    Your resource can only have one system-assigned identity.
 2. A **User Assigned Identity** which is an Azure resource that can be assigned to your Azure Communication Services resource. This identity isn't deleted when your resource is deleted. Your resource can have multiple user-assigned identities.
 
-To use Managed Identity with ACS, follow these steps:
+To use Managed Identity with Azure Communication Services, follow these steps:
 
 1. Grant your Managed Identity access to the Communication Services resource. This assignment can be through the Azure portal, Azure CLI and the Azure Communication Management SDKs.
 2. Use the Managed Identity to authenticate with Azure Communication Services. Authentication can be done through the Azure SDKs or REST APIs that support Managed Identity.

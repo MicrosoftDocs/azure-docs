@@ -204,7 +204,7 @@ call_automation_client.get_call_connection(call_connection_id).play_media(
 
 If you're playing the same audio file multiple times, your application can provide Azure Communication Services with the sourceID for the audio file. Azure Communication Services caches this audio file for 1 hour. 
 > [!Note]
-> Caching audio files isn't suitable for dynamic prompts. If you change the URL provided to ACS, it does not update the cached URL straight away. The update will occur after the existing cache expires.
+> Caching audio files isn't suitable for dynamic prompts. If you change the URL provided to Azure Communication Services, it does not update the cached URL straight away. The update will occur after the existing cache expires.
 
 ``` python
 play_source = FileSource(url=audioUri, play_source_cache_id="<playSourceId>")
