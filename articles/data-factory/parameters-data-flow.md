@@ -26,13 +26,13 @@ Use this capability to make your data flows general-purpose, flexible, and reusa
 
 ## Create parameters in a mapping data flow
 
-To add parameters to your data flow, click on the blank portion of the data flow canvas to see the general properties. In the settings pane, you will see a tab called **Parameter**. Select **New** to generate a new parameter. For each parameter, you must assign a name, select a type, and optionally set a default value.
+To add parameters to your data flow, click on the blank portion of the data flow canvas to see the general properties. In the settings pane, you'll see a tab called **Parameter**. Select **New** to generate a new parameter. For each parameter, you must assign a name, select a type, and optionally set a default value.
 
-:::image type="content" source="media/data-flow/create-params.png" alt-text="Create Data Flow parameters":::
+:::image type="content" source="media/data-flow/create-params.png" alt-text="Screenshot of create Data Flow parameters.":::
 
 ## Use parameters in a mapping data flow 
 
-Parameters can be referenced in any data flow expression. Parameters begin with $ and are immutable. You will find the list of available parameters inside of the Expression Builder under the **Parameters** tab.
+Parameters can be referenced in any data flow expression. Parameters begin with $ and are immutable. you'll find the list of available parameters inside of the Expression Builder under the **Parameters** tab.
 
 :::image type="content" source="media/data-flow/parameter-expression.png" alt-text="Screenshot shows the available parameters in the Parameters tab.":::
 
@@ -52,7 +52,7 @@ For the dataset source type, the linked service parameters are exposed directly 
 
 ## Assign parameter values from a pipeline
 
-Once you've created a data flow with parameters, you can execute it from a pipeline with the Execute Data Flow Activity. After you add the activity to your pipeline canvas, you will be presented with the available data flow parameters in the activity's **Parameters** tab.
+Once you've created a data flow with parameters, you can execute it from a pipeline with the Execute Data Flow Activity. After you add the activity to your pipeline canvas, you'll be presented with the available data flow parameters in the activity's **Parameters** tab.
 
 When assigning parameter values, you can use either the [pipeline expression language](control-flow-expression-language-functions.md) or the [data flow expression language](data-transformation-functions.md) based on spark types. Each mapping data flow can have any combination of pipeline and data flow expression parameters.
 
@@ -75,7 +75,7 @@ When assigning a pipeline expression parameter of type string, by default quotes
 If data flow parameter `stringParam` references a pipeline parameter with value `upper(column1)`. 
 
 - If expression is checked, `$stringParam` evaluates to the value of column1 all uppercase.
-- If expression is not checked (default behavior),  `$stringParam` evaluates to `'upper(column1)'`
+- If expression isn't checked (default behavior),  `$stringParam` evaluates to `'upper(column1)'`
 
 #### Passing in timestamps
 
@@ -102,7 +102,7 @@ When `$intParam` is referenced in an expression such as a derived column, it wil
 
 ### Data flow expression parameters
 
-Select **Data flow expression** will open up the data flow expression builder. You will be able to reference functions, other parameters and any defined schema column throughout your data flow. This expression will be evaluated as is when referenced.
+Select **Data flow expression** will open up the data flow expression builder. You'll be able to reference functions, other parameters and any defined schema column throughout your data flow. This expression will be evaluated as is when referenced.
 
 > [!NOTE]
 > If you pass in an invalid expression or reference a schema column that doesn't exist in that transformation, the parameter will evaluate to null.
@@ -117,7 +117,7 @@ For example, if you wanted to map a string column based upon a parameter `column
 :::image type="content" source="media/data-flow/parameterize-column-name.png" alt-text="Passing in a column name as a parameter":::
 
 > [!NOTE]
-> In data flow expressions, string interpolation (substituting variables inside of the string) is not supported. Instead, concatenate the expression into string values. For example, `'string part 1' + $variable + 'string part 2'`
+> In data flow expressions, string interpolation (substituting variables inside of the string) isn't supported. Instead, concatenate the expression into string values. For example, `'string part 1' + $variable + 'string part 2'`
 
 ## Next steps
 * [Execute data flow activity](control-flow-execute-data-flow-activity.md)
