@@ -163,7 +163,8 @@ Here are the steps for migrating from 2023-07-01-preview:
     ```http
     {
         "search": (this parameter is ignored in vector search),
-        "vectors": [{
+        "vectors": [
+          {
             "value": [
                 0.103,
                 0.0712,
@@ -173,7 +174,8 @@ Here are the steps for migrating from 2023-07-01-preview:
             ],
             "fields": "contentVector",
             "k": 5
-        }],
+          }
+        ],
         "select": "title, content, category"
     }
     ```
