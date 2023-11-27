@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: network-watcher
   ms.topic: faq
-  ms.date: 09/21/2023
+  ms.date: 11/27/2023
 title: "Network Watcher frequently asked questions (FAQ)"
 summary: |
   This article provides answers to some of the frequently asked questions asked about Azure Network Watcher.
@@ -222,3 +222,7 @@ sections:
         answer: |
           Yes, you can automate NSG flow logs via Azure Resource Manager templates (ARM templates). For more information, see [Configure NSG flow logs using an Azure Resource Manager (ARM) template](quickstart-configure-network-security-group-flow-logs-from-arm-template.md).
 
+      - question: |
+          Can I log ICMP traffic using Network Watcher flow logs?
+        answer: |
+          No. NSG flow logs and VNet flow logs don't support ICMP protocol.
