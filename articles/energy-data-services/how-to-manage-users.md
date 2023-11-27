@@ -10,14 +10,14 @@ ms.custom: template-how-to
 ---
 
 # How to manage users
-In this article, you'll learn how to manage users and their memberships in OSDU groups in Azure Data Manager for Energy. [Entitlements APIs](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/tree/master/) are used to add or remove users to OSDU groups and to check the entitlements when the user tries to access the OSDU services or data. For more information about OSDU groups, see [entitlement services](concepts-entitlements.md).
+In this article, you learn how to manage users and their memberships in OSDU groups in Azure Data Manager for Energy. [Entitlements APIs](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/tree/master/) are used to add or remove users to OSDU groups and to check the entitlements when the user tries to access the OSDU services or data. For more information about OSDU groups, see [entitlement services](concepts-entitlements.md).
 
 
 ## Prerequisites
 1. Create an Azure Data Manager for Energy instance using the tutorial at [How to create Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 2. Generate the access token needed to call the Entitlements APIs.
 3. Get various parameters of your instance such as client-id, client-secret, etc.  
-4. Keep all these parameter values handy as they will be needed for executing different user management requests via the Entitlements API. 
+4. Keep all these parameter values handy as they are needed for executing different user management requests via the Entitlements API. 
 
 ## Fetch Parameters
 #### Find `tenant-id`
@@ -30,7 +30,7 @@ In this article, you'll learn how to manage users and their memberships in OSDU 
 :::image type="content" source="media/how-to-manage-users/tenant-id.png" alt-text="Screenshot of finding the tenant-id.":::
 
 #### Find `client-id`
-It's the same value that you used to register your application during the provisioning of your [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md). It is often referred to as `app-id`.
+It's the same value that you use to register your application during the provisioning of your [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md). It is often referred to as `app-id`.
 
 1. Find the `client-id` in the *Essentials* pane of Azure Data Manager for Energy *Overview* page.
 2. Copy the `client-id` and paste it into an editor to be used later.
@@ -99,7 +99,7 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
         "access_token": "abcdefgh123456............."
     }
 ```
-2. Copy the `access_token` value from the response. You'll need it to pass as one of the headers in all calls to the Entitlements APIs. 
+2. Copy the `access_token` value from the response. You need it to pass as one of the headers in all calls to the Entitlements APIs. 
 
 ## Fetch OID
 `object-id` (OID) is the Microsoft Entra user Object ID.
@@ -112,7 +112,7 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 :::image type="content" source="media/how-to-manage-users/profile-object-id.png" alt-text="Screenshot of finding the object-id from the profile.":::
 
 ## First time addition of users in a new data partition
-In order to add entitlements to a new data partition of Azure Data Manager for Energy instance, use the SPN  token of the app which was used to provision the instance. If you try to directly use user tokens for adding entitlements, it results in 401 error. The SPN token must be used to add initial users in the system and those users (with admin access) can manage rest of the additional users.
+In order to add entitlements to a new data partition of Azure Data Manager for Energy instance, use the SPN  token of the app that was used to provision the instance. If you try to directly use user tokens for adding entitlements, it results in 401 error. The SPN token must be used to add initial users in the system and those users (with admin access) can then manage additional users.
 
 The SPN is generated using client_credentials flow
 ```bash
@@ -135,7 +135,7 @@ Run the below curl command in Azure Cloud Bash to get all the groups that are av
     --header 'Authorization: Bearer <access_token>'
 ```
 
-## Add user(s) to a OSDU group in a data partition
+## Add user(s) to an OSDU group in a data partition
 
 1. Run the below curl command in Azure Cloud Bash to add the user(s) to the "Users" group using the Entitlement service.
 2. The value to be sent for the param **"email"** is the **Object_ID (OID)** of the user and not the user's email.
