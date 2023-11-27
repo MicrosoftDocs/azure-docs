@@ -58,7 +58,7 @@ __Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Customers a
 
 ## Next steps
 
-- **Try it out.** Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM. 
+- **Try it out.** Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM. 
 
 - **Create your own.** Follow these steps to create on your own Kubernetes cluster: 
    1. [Install the client tools](install-client-tools.md)

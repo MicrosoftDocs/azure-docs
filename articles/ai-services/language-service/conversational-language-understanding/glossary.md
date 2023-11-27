@@ -2,7 +2,7 @@
 title: Definitions used in conversational language understanding
 titleSuffix: Azure AI services
 description: Learn about definitions used in conversational language understanding.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

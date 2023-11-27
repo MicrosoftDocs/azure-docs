@@ -2,8 +2,8 @@
 title: Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchain operator (Preview)
 description: Learn how to enable the AI toolchain operator add-on on Azure Kubernetes Service (AKS) to simplify OSS AI model management and deployment.
 ms.topic: article
-ms.custom: azure-kubernetes-service
-ms.date: 11/01/2023
+ms.custom: azure-kubernetes-service, ignite-2023, devx-track-azurecli
+ms.date: 11/03/2023
 ---
 
 # Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchain operator (Preview)
@@ -38,6 +38,28 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 
     ```azurecli-interactive
     az extension add --name aks-preview
+    ```
+
+## Register the `AIToolchainOperatorPreview` feature flag
+
+1. Register the `AIToolchainOperatorPreview` feature flag using the [`az feature register`][az-feature-register] command.
+
+    ```azurecli-interactive
+    az feature register --name AIToolchainOperatorPreview --namespace Microsoft.ContainerService
+    ```
+
+    It takes a few minutes for the status to show as *Registered*.
+
+2. Verify the registration using the [`az feature show`][az-feature-show] command.
+
+    ```azurecli-interactive
+    az feature show --name AIToolchainOperatorPreview --namespace Microsoft.ContainerService
+    ```
+
+3. When the status reflects as *Registered*, refresh the registration of the Microsoft.ContainerService resource provider using the [`az provider register`][az-provider-register] command.
+
+    ```azurecli-interactive
+    az provider register --namespace Microsoft.ContainerService
     ```
 
 ### Export environment variables
@@ -162,3 +184,6 @@ For more inference model options, see the [KAITO GitHub repository](https://gith
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az_identity_federated_credential_create
 [az-account-set]: /cli/azure/account#az_account_set
 [az-extension-add]: /cli/azure/extension#az_extension_add
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-show]: /cli/azure/feature#az_feature_show
+[az-provider-register]: /cli/azure/provider#az_provider_register

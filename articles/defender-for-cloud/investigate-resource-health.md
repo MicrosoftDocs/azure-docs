@@ -29,7 +29,7 @@ In this tutorial you'll learn how to:
 
 To step through the features covered in this tutorial:
 
-- An Azure subscription If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- You need an Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - To apply security recommendations, you must be signed in with an account that has the relevant permissions (Resource Group Contributor, Resource Group Owner, Subscription Contributor, or Subscription Owner)
 - To dismiss alerts, you must be signed in with an account that has the relevant permissions (Security Admin, Subscription Contributor, or Subscription Owner)
 
@@ -53,7 +53,7 @@ To open the resource health page for a resource:
     :::image type="content" source="media/investigate-resource-health/resource-health-right-pane.png" alt-text="The right pane of Microsoft Defender for Cloud's resource health page has two tabs: recommendations and alerts." lightbox="./media/investigate-resource-health/resource-health-right-pane.png":::
 
     > [!NOTE]
-    > Microsoft Defender for Cloud uses the terms "healthy" and "unhealthy" to describe the security status of a resource. These terms relate to whether the resource is compliant with a specific [security recommendation](security-policy-concept.md#what-is-a-security-recommendation).
+    > Microsoft Defender for Cloud uses the terms "healthy" and "unhealthy" to describe the security status of a resource. These terms relate to whether the resource is compliant with a specific [security recommendation](security-policy-concept.md).
     >
     > In the screenshot above, you can see that recommendations are listed even when this resource is "healthy". One advantage of the resource health page is that all recommendations are listed so you can get a complete picture of your resources' health.
 
@@ -68,7 +68,7 @@ The resource health page lists the recommendations for which your resource is "u
         > [!TIP]
         > The instructions for fixing issues raised by security recommendations differ for each of Defender for Cloud's recommendations.
         >
-        > To decide which recommendations to resolve first, look at the severity of each one and its [potential impact on your secure score](secure-score-security-controls.md#security-controls-and-their-recommendations).
+        > To decide which recommendations to resolve first, look at the severity of each one and its [potential impact on your secure score](secure-score-security-controls.md).
 
 - To investigate a security alert:
     1. From the right pane, select an alert.

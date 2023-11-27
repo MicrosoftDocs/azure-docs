@@ -1,11 +1,13 @@
 ---
 title: Connect to Azure SQL
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn how to set up an indexer connection to Azure SQL Database  using a managed identity
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - ignite-2023
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 09/19/2022
@@ -60,7 +62,7 @@ DROP USER IF EXISTS [insert your search service name or user-assigned managed id
 
 ## 2 - Add a role assignment
 
-In this section you'll, give your Azure Cognitive Search service permission to read data from your SQL Server. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+In this section you'll, give your Azure AI Search service permission to read data from your SQL Server. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 1. In the Azure portal, navigate to your Azure SQL Server page.
 
