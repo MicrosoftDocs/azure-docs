@@ -8,7 +8,7 @@
     href: switch-to-the-new-version-scvmm.md
 - name: Quickstarts
   items:
-  - name: Connect a System Center Virtual Machine Manager management server to Azure Arc
+  - name: Connect an SCVMM server to Azure Arc
     href: quickstart-connect-system-center-virtual-machine-manager-to-arc.md
 - name: Tutorials
   items:

@@ -7,7 +7,7 @@ manager: jsuri
 ms.topic: quickstart
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-ms.date: 11/15/2023
+ms.date: 11/27/2023
 ms.custom: references_regions
 ---
 
@@ -28,7 +28,7 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 | --- | --- |
 | **Azure** | An Azure subscription  <br/><br/> A resource group in the above subscription where you have the *Owner/Contributor* role. |
 | **SCVMM** | You need an SCVMM management server running version 2019 or later.<br/><br/> A private cloud with minimum free capacity of 32 GB of RAM, 4 vCPUs with 100 GB of free disk space. <br/><br/> A VM network with internet access, directly or through proxy. Appliance VM will be deployed using this VM network.<br/><br/> Only Static IP allocation is supported and VMM Static IP Pool is required. Follow [these steps](https://learn.microsoft.com/system-center/vmm/network-pool?view=sc-vmm-2022) to create a VMM Static IP Pool and ensure that the Static IP Pool has at least four IP addresses. Dynamic IP allocation using DHCP is not supported. |
-| **SCVMM accounts** | An SCVMM admin account that can perform all administrative actions on all objects that VMM manages. <br/><br/> The user should be part of local administrator account in the SCVMM server. <br/><br/>This will be used for the ongoing operation of Azure Arc-enabled SCVMM as well as the deployment of the Arc Resource bridge VM. |
+| **SCVMM accounts** | An SCVMM admin account that can perform all administrative actions on all objects that VMM manages. <br/><br/> The user should be part of local administrator account in the SCVMM server.If SCVMM is installed in a High Availability configuration, the user should be part of the local administrator accounts in all the SCVMM nodes. <br/><br/>This will be used for the ongoing operation of Azure Arc-enabled SCVMM as well as the deployment of the Arc Resource bridge VM. |
 | **Workstation** | The workstation will be used to run the helper script.<br/><br/> A Windows/Linux machine that can access both your SCVMM management server and internet, directly or through proxy.<br/><br/> The helper script can be run directly from the VMM server machine as well.<br/><br/> To avoid network latency issues, we recommend executing the helper script directly in the VMM server machine.<br/><br/> Note that when you execute the script from a Linux machine, the deployment takes a bit longer and you might experience performance issues. |
 
 ## Prepare SCVMM management server
@@ -118,7 +118,7 @@ Once the command execution is completed, your setup is complete, and you can try
 If for any reason, the appliance creation fails, you need to retry it. Run the command with ```-Force``` to clean up and onboard again.
 
 ```powershell-interactive
- ./resource-bridge-onboarding-script.ps1-Force -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VMMservername <VMMservername>
+ ./resource-bridge-onboarding-script.ps1 -Force -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VMMservername <VMMservername>
 ```
 
 ### Retry command - Linux
