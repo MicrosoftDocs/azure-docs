@@ -135,7 +135,7 @@ Run the below curl command in Azure Cloud Bash to get all the groups that are av
     --header 'Authorization: Bearer <access_token>'
 ```
 
-## Add user(s) to a OSDU group
+## Add user(s) to a OSDU group in a data partition
 
 1. Run the below curl command in Azure Cloud Bash to add the user(s) to the "Users" group using the Entitlement service.
 2. The value to be sent for the param **"email"** is the **Object_ID (OID)** of the user and not the user's email.
