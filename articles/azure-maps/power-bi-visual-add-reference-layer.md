@@ -12,7 +12,7 @@ services: azure-maps
 
 # Add a reference layer
 
-Reference layers enable the enhancement of spatial visualizations by overlaying a secondary spatial dataset on the map to provide additional context. Power BI hosts this dataset in various formats, including:
+Reference layers enable the enhancement of spatial visualizations by overlaying a secondary spatial dataset on the map to provide more context. Power BI hosts this dataset in various formats, including:
 
 - [GeoJSON files] with a `.json` or `.geojson` extension
 - [WKT] (Well-Known Text) files with a `.wkt` extension
@@ -24,11 +24,11 @@ To add a spatial dataset as a reference layer:
 
 1. Navigate to the **Format** pane.
 1. Expand the **Reference Layer** section.
-1. Select **Browse**. The file selection dialog will open, allowing you to choose a file with a `.json`, `.geojson`, `.wkt` or `.kml` extension.
+1. Select **Browse**. The file selection dialog opens, allowing you to choose a file with a `.json`, `.geojson`, `.wkt` or `.kml` extension.
 
     :::image type="content" source="./media/power-bi-visual/reference-layer.png" alt-text="Screenshot showing the reference layers upload a file control.":::
 
-Once the file is added to the reference layer, its name will replace the **+ Add Local File** button. It will be accompanied by an '**X**' button, which when selected, will remove the data from the visual and delete the associated file from Power BI.
+Once the file is added to the reference layer, its name replaces the **+ Add Local File** button. An '**X**' button is added that removes the data from the visual and deletes the associated file from Power BI when selected.
 
 The following map displays [2016 census tracts for Colorado]. The areas are colored, based on population, using the reference layer.
 
@@ -42,9 +42,9 @@ The following are all settings in the **Format** pane that are available in the 
 
 ## Styling data in a reference layer
 
-Properties can be added to each feature within the GeoJSON file to customize how it's styled on the map. This feature uses the simple data layer feature in the Azure Maps Web SDK. For more information, see this document on [supported style properties]. Custom icon images aren't supported within the Azure Maps Power BI visual as a security precaution.
+Properties can be added to each feature within the GeoJSON file to customize styling. This feature uses the simple data layer feature in the Azure Maps Web SDK. For more information, see this document on [supported style properties]. Custom icon images aren't supported within the Azure Maps Power BI visual as a security precaution.
 
-The following are examples showing how to set a point features color to red.
+The following are examples showing how to set a point features `color` property to red.
 
 **GeoJSON**
 
