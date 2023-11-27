@@ -596,7 +596,7 @@ When you chat with a model, providing a history of the chat will help the model 
 | GPT-4 32k               | 32000                  | 2000                               | 6400                               |
 
 
-**model**
+**Model**
 
 This determines the maximum number of tokens available to be used (`T`), the maximum number of tokens that can be used for the system message (`SM`) and that for the model response (`MR`).  If the system message is more than the max tokens allowed for system messages, the rest of the tokens beyond the maximum will be ignored. This limitation only applies to Azure OpenAI on your data.
 
@@ -618,7 +618,7 @@ For example, if you use a 16k model with default values for `K` (5) and `C` (102
 
 `Min (5 * 1024, (0.8*16000- 3850 – 2000 – 1000)) = Min (5120, 5950) = 5120`
 
-To calculate how many tokens per request: use the python library called [tiktoken](https://github.com/openai/tiktoken). 
+To calculate the number of tokens per request, use the python library called [tiktoken](https://github.com/openai/tiktoken). 
 
 ```python 
 import tiktoken 
