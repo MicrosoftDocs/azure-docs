@@ -6,7 +6,7 @@ ms.date: 11/16/2023
 ms.reviewer: harelbr
 ---
 
-# Create Metric Alerts for Logs in Azure Monitor
+# Create a metric alert on a set of Azure Monitor Logs 
 
 ## Overview
 
