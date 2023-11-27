@@ -60,19 +60,6 @@ sections:
           For cloud resources, we recommend enabling agentless scanning under the Defender for Servers plan, to provide a more comprehensive coverage while ensuring minimal impact on your machine’s performance. 
 
           If you're using an on-premises machine, you're required to [install the MDE agent](https://learn.microsoft.com/microsoft-365/security/defender-endpoint/configure-server-endpoints?view=o365-worldwide). The MDE agent is needed to scan vulnerabilities using the MDVM solution.
-      
-      - question: |
-          What are the capabilities of the agent-based Microsoft Defender Vulnerability Management that I’m eligible for when I enable the Defender for Servers P2 plan?
-        answer: |
-          - Software Inventory.
-
-          - Digital certificates assessment.
-
-          - Security baselines assessment.
-
-          - Network share configuration assessment.
-
-          Learn more about the [MDVM premium capabilities](https://learn.microsoft.com/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management?view=o365-worldwide).
 
       - question: |
           How can I continue to use the Qualys VA solution in Defender for Servers?
@@ -85,4 +72,7 @@ sections:
         answer: |
           Premium capabilities can  only be accessed through the [MDVM portal](https://security.microsoft.com/). Navigate to the [MDVM portal](https://security.microsoft.com/), and access the premium capabilities features under the vulnerability assessment section.
 
-          :::image type="content" source="media/faq-scanner-detection/mdvm-dashboard.png" alt-text="Screenshot of the MDVM dashboard."::: 
+          :::image type="content" source="media/faq-scanner-detection/mdvm-dashboard.png" alt-text="Screenshot of the MDVM dashboard.":::
+
+          Learn more about [MDVM's premium capabilities](https://learn.microsoft.com/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities?view=o365-worldwide).
+          
