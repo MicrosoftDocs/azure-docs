@@ -69,7 +69,7 @@ Query composition and complexity are one of the most important factors for perfo
 
 + **Number of facets.** Adding facets to queries requires aggregations for each query. Requesting a higher "count" for a facet also requires extra work by the service. In general, only add the facets that you plan to render in your app and avoid requesting a high count for facets unless necessary.
 
-+ **High skip values.** Setting the $skip parameter to a high value (for example, in the thousands) increases search latency because the engine is retrieving and ranking a larger volume of documents for each request. For performance reasons, it's best to avoid high $skip values and use other techniques instead, such as filtering, to retrieve large numbers of documents.
++ **High skip values.** Setting the `$skip` parameter to a high value (for example, in the thousands) increases search latency because the engine is retrieving and ranking a larger volume of documents for each request. For performance reasons, it's best to avoid high `$skip` values and use other techniques instead, such as filtering, to retrieve large numbers of documents.
 
 + **Limit high cardinality fields.**  A *high cardinality field* refers to a facetable or filterable field that has a significant number of unique values, and as a result, consumes significant resources when computing results. For example, setting a Product ID or Description field as facetable and filterable would count as high cardinality because most of the values from document to document are unique.
 
