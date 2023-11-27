@@ -120,5 +120,5 @@ Use the following steps to mark a test run as baseline:
 ## Next steps
 
 - Learn more about [exporting the load test results for reporting](./how-to-export-test-results.md).
-- Learn more about [troubleshooting load test execution errors](./how-to-troubleshoot-failing-test.md).
+- Learn more about [diagnosing failing load tests](./how-to-diagnose-failing-load-test.md).
 - Learn more about [configuring automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).

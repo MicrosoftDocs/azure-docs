@@ -47,8 +47,6 @@ The web UI in IoT Central lets you monitor device conditions, create rules, and 
 
 IoT Hub - a managed cloud service - acts as a message hub for secure, bi-directional communication between your IoT application and your devices. When you connect an IoT Plug and Play device to an IoT hub, you can use the [Azure IoT explorer](../iot/howto-use-iot-explorer.md) tool to view the telemetry, properties, and commands defined in the DTDL model.
 
-If you have existing sensors attached to a Windows or Linux gateway, you can use [IoT Plug and Play bridge](./concepts-iot-pnp-bridge.md), to connect these sensors and create IoT Plug and Play devices without the need to write device software/firmware (for [supported protocols](./concepts-iot-pnp-bridge.md#supported-protocols-and-sensors)).
-
 To learn more, see [IoT Plug and Play architecture](concepts-architecture.md)
 
 ## Develop an IoT device application
@@ -57,7 +55,7 @@ As a device builder, you can develop an IoT hardware product that supports IoT P
 
 1. Define the device model. You author a set of JSON files that define your device's capabilities using the [DTDL](https://github.com/Azure/opendigitaltwins-dtdl). A model describes a complete entity such as a physical product, and defines the set of interfaces implemented by that entity. Interfaces are shared contracts that uniquely identify the telemetry, properties, and commands supported by a device. You can reuse interfaces across different models.
 
-1. Implement your device software or firmware such that your telemetry, properties, and commands follow the [IoT Plug and Play conventions](concepts-convention.md). If you're connecting existing sensors attached to a Windows or Linux gateway, the [IoT Plug and Play bridge](./concepts-iot-pnp-bridge.md) can simplify this step.
+1. Implement your device software or firmware such that your telemetry, properties, and commands follow the [IoT Plug and Play conventions](concepts-convention.md).
 
 1. Ensure the device announces the model ID as part of the MQTT connection. The Azure IoT SDKs include constructs to provide the model ID at connection time.
 

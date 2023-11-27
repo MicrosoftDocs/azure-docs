@@ -57,7 +57,7 @@ Start your enterprise IoT trial using the [Microsoft Defender for IoT - EIoT Dev
 1. On the **Microsoft Defender for IoT - EIoT Device License - add-on** page, select **Start free trial**. On the **Check out** page, select **Try now**.
 
 > [!TIP]
-> Make sure to [assign your licenses to specific users]/microsoft-365/admin/manage/assign-licenses-to-users to start using them.
+> Make sure to [assign your licenses to specific users](/microsoft-365/admin/manage/assign-licenses-to-users) to start using them.
 >
 
 For more information, see [Free trial](billing.md#free-trial).
