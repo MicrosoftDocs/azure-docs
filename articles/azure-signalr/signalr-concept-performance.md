@@ -371,8 +371,8 @@ The following table is a statistical summary after many rounds of running the **
 
 |   Send to connection   | Unit1 | Unit2 | Unit20 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
 |------------------------------------|-------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
-| Inbound/outbound messages per second | 1,000 | 2,000 | 20,000 | 20,000  | 20,000  | 20,000 | 20,000 | 40,000 | 100,000 | 2,000,000 |
+| Connections                       | 1,000 | 2,000 | 20,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
+| Inbound/outbound messages per second | 1,000 | 2,000 | 20,000 | 20,000  | 20,000  | 40,000 | 100,000 | 200,000 |
 | Inbound/outbound bandwidth | 2 MBps    | 4 MBps    | 40 MBps   | 40 MBps    | 40 MBps    | 80 MBps       | 200 MBps       | 400 MBps |
 
 > [!NOTE]
