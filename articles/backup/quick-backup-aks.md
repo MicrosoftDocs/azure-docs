@@ -27,18 +27,18 @@ The Azure Backup vault communicates with the cluster via the Backup extension to
 
 1. In the Azure portal, go to the AKS cluster that you want to back up.
 
-1. Select **Backup** > **Configure backup**.
+1. In the resource menu, select **Backup**, and then select **Configure Backup**.
   
-1. Select the Azure Backup vault to configure a backup.
+1. Select a backup vault to use for the AKS instance backup.
   
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-vault.png" alt-text="Screenshot that shows the Configure Backup page." lightbox="./media/azure-kubernetes-service-cluster-backup/select-vault.png":::
 
-    The Backup vault should have **Trusted Access** enabled for the AKS cluster to be backed up. To enable **Trusted Access**, select **Grant permission**. If it's already enabled, select **Next**.
+    The backup vault must have **Trusted Access** enabled for the AKS cluster to be backed up. To enable **Trusted Access**, select **Grant permission**. If it's already enabled, select **Next**.
 
     :::image type="content" source="./media/quick-backup-aks/backup-vault-review.png" alt-text="Screenshot that shows the review page for Configure Backup." lightbox="./media/quick-backup-aks/backup-vault-review.png":::
 
-    >[!NOTE]
-    >Before you enable **Trusted Access**, enable the `TrustedAccessPreview` feature flag for the Microsoft.ContainerServices resource provider on the subscription.
+   > [!NOTE]
+   > Before you enable **Trusted Access**, enable the `TrustedAccessPreview` feature flag for the Microsoft.ContainerServices resource provider on the subscription.
 
 1. Select a backup policy, which defines the schedule for backups and their retention period. Then select **Next**.
 
@@ -52,7 +52,7 @@ The Azure Backup vault communicates with the cluster via the Backup extension to
 
     :::image type="content" source="./media/quick-backup-aks/resources-to-backup.png" alt-text="Screenshot shows how to select resources to add to the backup." lightbox="./media/quick-backup-aks/resources-to-backup.png":::
 
-1. For **Snapshot resource group**, select a resource group to store the persistent volumes (Azure Disk) snapshots. Then select **Validate**.
+1. For **Snapshot resource group**, select the resource group that you want to store the persistent volumes (Azure Disk) snapshots. Then select **Validate**.
 
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png" alt-text="Screenshot that shows the Snapshot resource group dropdown." lightbox="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png":::
 
