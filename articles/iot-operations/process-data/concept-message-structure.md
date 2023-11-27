@@ -3,7 +3,7 @@ title: Data Processor message structure overview
 description: Understand the message structure used internally by Azure IoT Data Processor to represent messages as they move between pipeline stages.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.custom:
   - ignite-2023

@@ -50,7 +50,7 @@ Azure services are presented in the following tables by category. Note that some
 > | Azure ExpressRoute                     | Azure Bastion                                     |
 > | Azure Key Vault                        | Azure Batch                                       | 
 > | Azure Load Balancer                    | Azure Cache for Redis                             | 
-> | Azure Public IP                        | Azure Cognitive Search                            | 
+> | Azure Public IP                        | Azure AI Search                            | 
 > | Azure Service Bus                      | Azure Container Registry                          | 
 > | Azure Service Fabric                   | Azure Container Instances                         |
 > | Azure Site Recovery                    | Azure Data Explorer                               |  

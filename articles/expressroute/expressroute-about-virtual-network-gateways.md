@@ -69,7 +69,7 @@ Before you create an ExpressRoute gateway, you must create a gateway subnet. The
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
 >
->- Linking a private DNS resolver to the virtual network where the ExpressRoute virtual network gateway is deployed may cause management connectivity issues and is not recommended.
+>- Linking an Azure DNS private resolver to the virtual network where the ExpressRoute virtual network gateway is deployed may cause management connectivity issues and is not recommended.
 
 When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others. 
 
@@ -190,7 +190,7 @@ ErGwScale is free of charge during public preview. For information about Express
 
 * For more information about creating ExpressRoute gateways, see [Create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md).
 
-* For more information on how to deploy ErGwScale, see [How to configure ErGwScale]().
+* For more information on how to deploy ErGwScale, see [Configure a virtual network gateway for ExpressRoute using the Azure portal](https://learn.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager).
 
 * For more information about configuring zone-redundant gateways, see [Create a zone-redundant virtual network gateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
 
