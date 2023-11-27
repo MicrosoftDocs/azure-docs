@@ -54,6 +54,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum number of manual backups per volume per day |  5  |  No  |
 |  Maximum number of volumes supported for cool access per subscription per region |  10  |  Yes  |
 
+
 \* [!INCLUDE [Limitations for capacity pool minimum of 1 TiB](includes/2-tib-capacity-pool.md)]
 
 For more information, see [Capacity management FAQs](faq-capacity-management.md).
