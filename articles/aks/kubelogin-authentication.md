@@ -6,7 +6,7 @@ ms.date: 11/27/2023
 
 ---
 
-# Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes
+# Use Kubelogin with Azure Kubernetes Service (AKS)
 
 Kubelogin is a client-go credential [plugin][client-go-cred-plugin] that implements Microsoft Entra ID authentication. Microsoft Entra ID integrated clusters using a Kubernetes version newer than version 1.24 automatically use the `kubelogin` format.
 
@@ -79,7 +79,7 @@ kubectl get nodes
 
 When the Azure CLI's config directory is outside the $`{HOME}` directory, specify the parameter `--azure-config-dir` in `convert-kubeconfig` subcommand. It generates the `kubeconfig` with the environment variable configured. You can achieve the same configuration by setting the environment variable `AZURE_CONFIG_DIR` to this directory while running `kubectl` command.
 
-### Using interactive Web browser
+### Interactive web browser
 
 Interactive web browser authentication automatically opens a web browser to log in the user. Once authenticated, the browser redirects back to a local web server with the credentials. This authentication method complies with Conditional Access policy.
 
@@ -246,7 +246,7 @@ The AKS Microsoft Entra ID client application ID used by kubelogin to perform pu
 <!-- LINKS - internal -->
 [aks-managed-microsoft-entra-id]: managed-azure-ad.md
 [oauth-on-behalf-of]: ../active-directory/develop/v2-oauth2-on-behalf-of-flow.md
-[web-browser-interactive-mode]: #using-interactive-web-browser
+[web-browser-interactive-mode]: #interactive-web-browser
 [microsoft-entra-group-membership]: /entra/identity/hybrid/connect/how-to-connect-fed-group-claims
 [managed-identity-overview]: /entra/identity/managed-identities-azure-resources/overview
 [workload-identity]: /entra/workload-id/workload-identities-overview
