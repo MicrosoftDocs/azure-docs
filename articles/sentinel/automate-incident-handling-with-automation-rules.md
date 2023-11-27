@@ -163,6 +163,18 @@ The order of automation rules that add [incident tasks](incident-tasks.md) deter
 
 Rules based on the update trigger have their own separate order queue. If such rules are triggered to run on a just-created incident (by a change made by another automation rule), they will run only after all the applicable rules based on the create trigger have run.
 
+#### Notes on execution order and priority
+
+- Setting the **order** number in automation rules determines their order of execution.
+- Each trigger type maintains its own queue.
+- For rules created in the Azure portal, the **order** field will be automatically populated with the number following the highest number used by existing rules of the same trigger type.
+- However, for rules created in other ways (command line, API, etc.), the **order** number must be assigned manually.
+- There is no validation mechanism preventing multiple rules from having the same order number, even within the same trigger type. 
+- You can allow two or more rules of the same trigger type to have the same order number, if you don't care which order they run in.
+- For rules of the same trigger type with the same order number, the execution engine randomly selects which rules will run in which order.
+- For rules of different *incident trigger* types, all applicable rules with the *incident creation* trigger type will run first (according to their order numbers), and only then the rules with the *incident update* trigger type (according to *their* order numbers).
+- Rules always run sequentially, never in parallel.
+
 ## Common use cases and scenarios
 
 ### Incident tasks
