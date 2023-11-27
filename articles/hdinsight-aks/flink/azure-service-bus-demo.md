@@ -17,19 +17,19 @@ Here’s a breakdown of what each part does!
 
 1. **Creating a source function for Azure Service Bus**: A SessionBasedServiceBusSource object is created with the connection string, topic name, and subscription name for your Azure Service Bus. This object is a source function that can be used to create a data stream.
 
-1. **Creating a data stream**: The env.addSource(sourceFunction) method is used to create a data stream from the source function. Each message from the Azure Service Bus topic will become an element in this stream.
+1. **Creating a data stream**: The env.addSource(sourceFunction) method is used to create a data stream from the source function. Each message from the Azure Service Bus topic becomes an element in this stream.
 
 1. **Processing the data**: The stream.map(value -> processValue(value)) method is used to process each element in the stream. In this case, the processValue method is applied to each element. This is where you’d put your processing logic.
 
 1. **Creating a sink for Azure Data Lake Storage Gen2**: A FileSink object is created with the output path and a SimpleStringEncoder. The withRollingPolicy method is used to set a rolling policy for the sink.
 
-1. **Adding the sink function to the processed stream**: The processedStream.sinkTo(sink) method is used to add the sink function to the processed stream. Each processed element will be written to a file in Azure Data Lake Storage Gen2.
+1. **Adding the sink function to the processed stream**: The processedStream.sinkTo(sink) method is used to add the sink function to the processed stream. Each processed element is written to a file in Azure Data Lake Storage Gen2.
 
-1. **Executing the job**: Finally, the env.execute("ServiceBusToDataLakeJob") method is used to execute the Flink job. This will start reading messages from the Azure Service Bus topic, process them, and write them to Azure Data Lake Storage Gen2.
+1. **Executing the job**: Finally, the env.execute("ServiceBusToDataLakeJob") method is used to execute the Flink job. This starts reading messages from the Azure Service Bus topic, process them, and write them to Azure Data Lake Storage Gen2.
 
 ### Flink source function: SessionBasedServiceBusSource.java
 
-1. **Class Definition**: The SessionBasedServiceBusSource class extends RichParallelSourceFunction<String>, which is a base class for implementing a parallel data source in Flink.
+1. **Class Definition**: The SessionBasedServiceBusSource class extends `RichParallelSourceFunction<String>`, which is a base class for implementing a parallel data source in Flink.
 
 1. **Instance Variables**: The connectionString, topicName, and subscriptionName variables hold the connection string, topic name, and subscription name for your Azure Service Bus. The isRunning flag is used to control the execution of the source function. The sessionReceiver is an instance of ServiceBusSessionReceiverAsyncClient, which is used to receive messages from the Service Bus.
 
@@ -57,9 +57,9 @@ Azure Service Bus is a fully managed enterprise message broker with message queu
 
 [What is Azure Service Bus?](/azure/service-bus-messaging/service-bus-messaging-overview)
 
-Please refer below doc to create Topic and Subscription preparation 
+Refer below doc to create Topic and Subscription preparation 
 
-[Use Service Bus Explorer](https://learn.microsoft.com/en-us/azure/service-bus-messaging/explorer)
+[Use Service Bus Explorer](/azure/service-bus-messaging/explorer)
 
 :::image type="content" source="./media/azure-service-bus-demo/subscription-topic-1.png" alt-text="Screenshot shows subscription." lightbox="./media/azure-service-bus-demo/subscription-topic-1.png":::
 
