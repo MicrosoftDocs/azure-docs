@@ -91,13 +91,14 @@ A **standard performance** [**Azure Blob Storage account**](https://portal.azure
 
 ### Azure role assignments
 
-For custom projects, following role assignments are required for different scenarios.
+For custom projects, the following role assignments are required for different scenarios.
+
 * Basic
-  * **Cognitive Services User**: you need this role to Document Intelligence or Azure AI services resource to train custom model or analysis with trained models.
-  * **Storage Blob Data Contributor**: you need this role to Storage Account to create project and label data.
+  * **Cognitive Services User**: You need this role for Document Intelligence or Azure AI services resource to train the custom model or do analysis with trained models.
+  * **Storage Blob Data Contributor**: You need this role for the Storage Account to create a project and label data.
 * Advanced
-  * **Storage Account Contributor**: you need this role to Storage Account to setup CORS settings (this is one time effort if the same storage account is reused).
-  * **Contributor**: you need this role to create resource group and resources.
+  * **Storage Account Contributor**: You need this role for the Storage Account to set up CORS settings (this is a one-time effort if the same storage account is reused).
+  * **Contributor**: You need this role to create a resource group and resources.
 
 ### Configure CORS
 
