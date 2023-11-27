@@ -105,13 +105,27 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 `object-id` (OID) is the Microsoft Entra user Object ID.
 
 1. Find the 'object-id' (OID) of the user(s) first. If you are managing an application's access, you must find and use the application ID (or client ID) instead of the OID.
-2. Input the `object-id` (OID) of the users (or the application or client ID if managing access for an application) as parameters in the calls to the Entitlements API of your Azure Data Manager for Energy Instance. 
+2. Input the `object-id` (OID) of the users (or the application or client ID if managing access for an application) as parameters in the calls to the Entitlements API of your Azure Data Manager for Energy instance. 
 
 :::image type="content" source="media/how-to-manage-users/azure-active-directory-object-id.png" alt-text="Screenshot of finding the object-id from Microsoft Entra I D.":::
 
 :::image type="content" source="media/how-to-manage-users/profile-object-id.png" alt-text="Screenshot of finding the object-id from the profile.":::
 
-## Get the list of all available groups 
+## First time addition of user to a new data partition
+In order to add entitlements to a new data partition of Azure Data Manager for Energy instance, use the SPN  token of the app which was used to provision the instance. If you try to directly use user tokens for adding entitlements, it results in 401 error. The SPN token must be used to add initial users in the system and those users (with admin access) can manage rest of the additional users.
+
+The SPN is generated using client_credentials flow
+```bash
+curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oauth2/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'scope=<client-id>.default' \
+--data-urlencode 'client_id=<client-id>' \
+--data-urlencode 'client_secret=<client-secret>' \
+--data-urlencode 'resource=<client-id>'
+```
+
+## Get the list of all available groups for a data partition
 
 Run the below curl command in Azure Cloud Bash to get all the groups that are available for your Azure Data Manager for the Energy instance and its data partitions.
 
