@@ -16,6 +16,12 @@ zone_pivot_groups: openai-use-your-data
 
 # Quickstart: Chat with Azure OpenAI models using your own data
 
+::: zone pivot="programming-language-spring"
+
+[Source code](https://github.com/spring-projects-experimental/spring-ai)| [Source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai) | [Sample](https://github.com/rd-1-2022/ai-azure-retrieval-augmented-generation)
+
+::: zone-end
+
 ::: zone pivot="programming-language-javascript"
 
 [Reference](/javascript/api/@azure/openai) | [Source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai) | [Package (npm)](https://www.npmjs.com/package/@azure/openai) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)
@@ -73,6 +79,12 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [Csharp quickstart](includes/use-your-data-dotnet.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-spring"
+
+[!INCLUDE [Spring quickstart](includes/use-your-data-spring.md)]
 
 ::: zone-end
 
