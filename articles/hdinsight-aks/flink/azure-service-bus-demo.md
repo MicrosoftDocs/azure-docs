@@ -71,6 +71,10 @@ This Flink source function, encapsulated within the `SessionBasedServiceBusSourc
 
 ### Azure HDInsight on AKS with Flink 1.16
 
+Once the Flink cluster is created, you can observe on the left pane the **Settings** option to access **Secure Shell**.
+
+You're required to select SSH during [creation](./flink-create-cluster-portal) of Flink Cluster
+
 :::image type="content" source="./media/azure-service-bus-demo/azure-hdinsight-flink-1-16-aks.png" alt-text="Screenshot shows Azure HDInsight on AKS with Flink 1.16." lightbox="./media/azure-service-bus-demo/azure-hdinsight-flink-1-16-aks.png":::
 
 ### Azure Service Bus
@@ -99,8 +103,6 @@ Azure Service Bus is a fully managed enterprise message broker with message queu
 ## Running jobs
 
 ### Submit the JAR into Azure HDInsight on AKS with Flink 1.16 
-
-Once the Flink cluster is created, you can observe on the left pane the **Settings** option to access **Secure Shell** 
 
 To initiate a job, transfer the JAR file into the webssh pod and submit the job using the following command:
 
