@@ -12,7 +12,7 @@ There are two factors that influence scaling with Event Hubs.
 - Throughput units (standard tier) or processing units (premium tier) 
 - Partitions
 
-## Throughput units (standard tier)
+## Throughput units
 
 The throughput capacity of event hubs is controlled by **throughput units**. Throughput units are prepurchased units of capacity. A single throughput unit lets you:
 
