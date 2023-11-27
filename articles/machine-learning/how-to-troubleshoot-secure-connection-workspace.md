@@ -94,8 +94,10 @@ Check if DNS over HTTP is enabled in your web browser. DNS over HTTP can prevent
 
 * Mozilla Firefox: For more information, see [Disable DNS over HTTPS in Firefox](https://support.mozilla.org/en-US/kb/firefox-dns-over-https).
 * Microsoft Edge:
-    1. Search for DNS in Microsoft Edge settings: image.png
-    2. Disable __Use secure DNS to specify how to look up the network address for websites__.
+    1. In Edge, select __...__ and then select __Settings__.
+    1. From settings, search for `DNS` and then disable __Use secure DNS to specify how to look up the network address for websites__.
+    
+        :::image type="content" source="./media/how-to-troubleshoot-secure-connection-workspace/disable-dns-over-http.png" alt-text="Screenshot of the use secure DNS setting in Microsoft edge.":::
 
 ## Proxy configuration
 
