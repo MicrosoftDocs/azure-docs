@@ -2,7 +2,7 @@
 title: Integrate ServiceNow with Microsoft Defender for Cloud
 description: Learn about integrating ServiceNow with Microsoft Defender for Cloud to protect Azure, hybrid, and multicloud machines.
 ms.topic: how-to
-ms.date: 11/20/2023
+ms.date: 11/26/2023
 ---
 
 # Integrate ServiceNow with Microsoft Defender for Cloud (preview)
@@ -23,7 +23,7 @@ As part of the integration, you can create and monitor tickets in ServiceNow dir
 
 | Prerequisite | Details |
 |--------------|---------|
-| Environment  | - Have an application registry in ServiceNow. For more information, see [Create a ServiceNow API Client ID and Client Secret for the System Center Operations Manager ServiceNow Incident Connector (opslogix.com)](https://www.opslogix.com/knowledgebase/servicenow/kb-create-a-servicenow-api-key-and-secret-for-the-scom-servicenow-incident-connector) <br>- Enable Defender Cloud Security Posture Management (DCSPM) |
+| Environment  | - Have an application registry in ServiceNow. <br>- Enable Defender Cloud Security Posture Management (DCSPM) |
 | Roles  | To create an integration:<br>- Security Admin<br>- Contributor<br>- Owner<br><br>To create an assignment:<br>- The user should have admin permissions to ServiceNow |
 | Cloud  | &#x2705; Azure <br> &#10060; Azure Government, Azure China 21Vianet, air-gapped clouds |
 

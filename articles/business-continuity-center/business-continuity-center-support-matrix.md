@@ -2,11 +2,11 @@
 title: Azure Business Continuity center support matrix
 description: Provides a summary of support settings and limitations for the Azure Business Continuity center service.
 ms.topic: conceptual
-ms.date: 08/14/2023
+ms.date: 11/15/2023
 ms.custom:
   - references_regions
   - ignite-2023
-ms.service: backup
+ms.service: azure-business-continuity-center
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
