@@ -77,7 +77,7 @@ In Azure Spring Apps, we recommend using `Jammy OS Stack` to create your builder
 
 - Jammy Base - suitable for most apps without native extensions.
     - Java apps and .Net Core apps
-    - Go apps that require somme C libraries
+    - Go apps that require some C libraries
     - Node.js, Python, or Web Servers apps without native extensions
 
 - Jammy Full - includes the most libraries, and is suitable for apps with native extensions. For example, it includes a more complete library of fonts. If your app relies on the native extension, then use the `Full` stack.
