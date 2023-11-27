@@ -70,10 +70,12 @@ var sendDtmfAsyncResult = await callAutomationClient.GetCallConnection(c
 ### [Java](#tab/java)
 ```java
 List<DtmfTone> tones = Arrays.asList(DtmfTone.ONE, DtmfTone.TWO, DtmfTone.THREE, DtmfTone.POUND); 
+SendDtmfTonesOptions options = new SendDtmfTonesOptions(tones, new PhoneNumberIdentifier(c2Target)); 
+options.setOperationContext("dtmfs-to-ivr"); 
 callAutomationClient.getCallConnectionAsync(callConnectionId) 
-    .getCallMediaAsync() 
-    .sendDtmfTonesWithResponse(tones, new PhoneNumberIdentifier(c2Target), "dtmfs-to-ivr") 
-    .block(); 
+	.getCallMediaAsync() 
+	.sendDtmfTonesWithResponse(options) 
+	.block(); 
 ```
 ### [JavaScript](#tab/javascript)
 ```javascript
@@ -171,10 +173,12 @@ await callAutomationClient.GetCallConnection(callConnectionId)
 ```
 ### [Java](#tab/java)
 ```java
+ContinuousDtmfRecognitionOptions options = new ContinuousDtmfRecognitionOptions(new PhoneNumberIdentifier(c2Target)); 
+options.setOperationContext("dtmf-reco-on-c2"); 
 callAutomationClient.getCallConnectionAsync(callConnectionId) 
-        .getCallMediaAsync() 
-        .startContinuousDtmfRecognitionWithResponse(new PhoneNumberIdentifier(c2Target), "dtmf-reco-on-c2") 
-        .block(); 
+	.getCallMediaAsync() 
+	.startContinuousDtmfRecognitionWithResponse(options) 
+	.block(); 
 ```
 ### [JavaScript](#tab/javascript)
 ```javascript
@@ -212,17 +216,17 @@ var continuousDtmfRecognitionOptions = new ContinuousDtmfRecognitionOpti
 }; 
 
 var startContinuousDtmfRecognitionAsyncResult = await callAutomationClient.GetCallConnection(callConnectionId) 
-
     .GetCallMedia() 
-
     .StartContinuousDtmfRecognitionAsync(continuousDtmfRecognitionOptions); 
 ```
 ### [Java](#tab/java)
 ```java
+ContinuousDtmfRecognitionOptions options = new ContinuousDtmfRecognitionOptions(new PhoneNumberIdentifier(c2Target)); 
+options.setOperationContext("dtmf-reco-on-c2"); 
 callAutomationClient.getCallConnectionAsync(callConnectionId) 
-        .getCallMediaAsync() 
-        .stopContinuousDtmfRecognitionWithResponse(new PhoneNumberIdentifier(c2Target), "dtmf-reco-on-c2") 
-        .block(); 
+	.getCallMediaAsync() 
+	.stopContinuousDtmfRecognitionWithResponse(options) 
+	.block(); 
 ```
 ### [JavaScript](#tab/javascript)
 ```javascript
@@ -260,30 +264,29 @@ if (acsEvent is ContinuousDtmfRecognitionToneReceived continuousDtmfReco
 ```
 ### [Java](#tab/java)
 ``` java
-if (acsEvent instanceof ContinuousDtmfRecognitionToneReceived) { 
-    ContinuousDtmfRecognitionToneReceived event = (ContinuousDtmfRecognitionToneReceived) acsEvent; 
-    log.info("Tone detected: sequenceId=" + event.getToneInfo().getSequenceId() 
-        + ", tone=" + event.getToneInfo().getTone().convertToString() 
-        + ", context=" + event.getOperationContext()); 
+ if (acsEvent instanceof ContinuousDtmfRecognitionToneReceived) { 
+	ContinuousDtmfRecognitionToneReceived event = (ContinuousDtmfRecognitionToneReceived) acsEvent; 
+	log.info("Tone detected: sequenceId=" + event.getSequenceId() 
+		+ ", tone=" + event.getTone().convertToString() 
+		+ ", context=" + event.getOperationContext()); 
 } 
 ```
 ### [JavaScript](#tab/javascript)
 ```javascript
-if (event.type === "Microsoft.Communication.ContinuousDtmfRecognitionToneReceived") {
-	console.log("Tone detected: sequenceId=%s, tone=%s, context=%s",
-		eventData.toneInfo.sequenceId,
-		eventData.toneInfo.tone,
-		eventData.operationContext);
-
-}
+if (event.type === "Microsoft.Communication.ContinuousDtmfRecognitionToneReceived") { 
+	console.log("Tone detected: sequenceId=%s, tone=%s, context=%s", 
+        	eventData.sequenceId, 
+        	eventData.tone, 
+		eventData.operationContext); 
+} 
 ```
 ### [Python](#tab/python)
 ```python
-if event.type == "Microsoft.Communication.ContinuousDtmfRecognitionToneReceived": 
-    app.logger.info("Tone detected: sequenceId=%s, tone=%s, context=%s", 
-                    event.data['toneInfo']['sequenceId'], 
-                    event.data['toneInfo']['tone'], 
-                    event.data['operationContext']) 
+if event.type == "Microsoft.Communication.ContinuousDtmfRecognitionToneReceived":  
+	app.logger.info("Tone detected: sequenceId=%s, tone=%s, context=%s",  
+		event.data['sequenceId'],  
+                event.data['tone'],  
+		event.data['operationContext'])  
 ```
 -----
 
