@@ -20,15 +20,19 @@ The MCC EDR agent is a software package that is installed onto a Linux Virtual M
   - OS - Red Hat Enterprise Linux 8.6 or later
   - Minimum hardware - 4 vCPU,  8-GB RAM, 30-GB disk
   - Network - connectivity from MCCs and to Azure
-  - Software - systemd and logrotate installed
+  - Software - systemd, logrotate and zip installed
   - SSH or alternative access to run shell commands
-  - (Preferable) Ability to resolve public DNS.  If not, you need to perform additional manual steps to resolve Azure locations. Refer to [Running without public DNS](#running-without-public-dns) for instructions.
+  - (Preferable) Ability to resolve public DNS.  If not, you need to perform extra steps to resolve Azure locations. Refer to [Running without public DNS](#running-without-public-dns) for instructions.
 
 The number of VMs needed depends on the scale and redundancy characteristics of your deployment. Each agent instance must run on its own VM. Talk to the Affirmed Support Team to determine your requirements.
 
 ## Deploy the agent on your VMs
 
 To deploy the agent on your VMs, follow the procedures outlined in the following sections.
+
+### Acquire the agent RPM
+
+A link to download the MCC EDR agent RPM is provided as part of the Azure Operator Insights onboarding process. See [How do I get access to Azure Operator Insights?](/articles/operator-insights/overview.md#how-do-i-get-access-to-azure-operator-insights) for details.
 
 ### Authentication
 
@@ -37,7 +41,7 @@ You must have a service principal with a certificate credential that can access 
 #### Create a service principal
 
 > [!IMPORTANT]
-> You may need a Microsoft Entra tenant administrator in your organization to perform this set up for you.
+> You may need a Microsoft Entra tenant administrator in your organization to perform this setup for you.
 
 1. Create or obtain a Microsoft Entra ID service principal. Follow the instructions detailed in [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
 1. Note the Application (client) ID, and your Microsoft Entra Directory (tenant) ID (these IDs are UUIDs of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit).
@@ -48,8 +52,8 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 
 1. Obtain a certificate. We strongly recommend using trusted certificate(s) from a certificate authority.
 1. Add the certificate(s) as credential(s) to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
-1. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key vault.  Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire.  Once a certificate has expired, the agent  is unable to authenticate to Azure and no longer uploads data.  For details of this approach see [Renew your Azure Key Vault certificates Azure portal](../key-vault/certificates/overview-renew-certificate.md).
-    - You will need the 'Key Vault Certificates Officer' role on the Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
+1. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key vault.  Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire.  Once a certificate has expired, the agent is unable to authenticate to Azure and no longer uploads data.  For details of this approach see [Renew your Azure Key Vault certificates Azure portal](../key-vault/certificates/overview-renew-certificate.md).
+    - You'll need the 'Key Vault Certificates Officer' role on the Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 
 1. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
 
@@ -59,7 +63,7 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 
     `base64 -w 0 $pkcs12\_filename &gt; $base64filename`
 
-#### Permissions
+#### Grant permissions for the Data Product Key Vault
 
 1. Find the Azure Key Vault that holds the storage credentials for the input storage account. This Key Vault is in a resource group named *\<data-product-name\>-HostedResources-\<unique-id\>*.
 1. Grant your service principal the 'Key Vault Secrets User' role on this Key Vault.  You need Owner level permissions on your Azure subscription.  See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
@@ -79,52 +83,51 @@ Repeat these steps for each VM onto which you want to install the agent:
 1. Obtain the ingestion agent RPM and copy it to the VM.
 1. Copy the pkcs12-formatted base64-encoded certificate (created in the [Prepare certificates](#prepare-certificates) step) to an accessible location on the VM (such as /etc/az-mcc-edr-uploader).
 
-### Running without public DNS
+#### Running without public DNS
+
+**If your agent VMs have access to public DNS, then you can skip this step and continue to [Install and configure agent software](#install-and-configure-agent-software).**
 
 If your agent VMs don't have access to public DNS, then you need to add entries on each agent VM to map the Azure host names to IP addresses.
 
 This process assumes that you're connecting to Azure over ExpressRoute and are using Private Links and/or Service Endpoints. If you're connecting over public IP addressing, you **cannot** use this workaround and must use public DNS.
 
-Create the following from a virtual network that is peered to your ingestion agents:
+Create the following resources from a virtual network that is peered to your ingestion agents:
 
 - A Service Endpoint to Azure Storage
-- A Private Link  or Service Endpoint to the Key Vault created by your Data Product.  The Key Vault is the same one you found in step 5 of [Prepare the certificates](#prepare-certificates).
+- A Private Link or Service Endpoint to the Key Vault created by your Data Product. The Key Vault is the same one you found in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
 
 Steps:
 
-1. Note the IPs of these two connections.
-1. Note the domain of your Azure Operator Insights Input Storage Account.  You can find the domain on your Data Product overview page in the Azure portal, in the form of *\<account name\>.blob.core.windows.net*
-1. Note the domain of the Key Vault.  The domain appears as *\<vault name\>.vault. azure.net*
-1. Add a line to */etc/hosts* on the VM linking the two values in this format, for each of the storage and Key Vault:
+1. Note the IP addresses of these two connections.
+2. Note the ingestion URL for your Data Product.  You can find the ingestion URL on your Data Product overview page in the Azure portal, in the form *\<account name\>.blob.core.windows.net*
+3. Note the URL of the Data Product Key Vault.  The URL appears as *\<vault name\>.vault.azure.net*
+4. Add a line to */etc/hosts* on the VM linking the two values in this format, for each of the storage and Key Vault:
 
-    *\<Storage private IP\>*   *\<Storage hostname\>*
+    *\<Storage private IP\>*   *\<ingestion URL\>*
 
-    *\<Key Vault private IP\>*  *\<Key Vault hostname\>*
+    *\<Key Vault private IP\>*  *\<Key Vault URL\>*
 
-### Acquire the agent RPM
-
-A link to download the MCC EDR agent RPM is provided as part of the Azure Operator Insights onboarding process. See [How do I get access to Azure Operator Insights?](/articles/operator-insights/overview.md#how-do-i-get-access-to-azure-operator-insights) for details.
 
 ### Install agent software
 
 Repeat these steps for each VM onto which you want to install the agent:
 
 1. In an SSH session, change to the directory where the RPM was copied.
-1. Install the RPM:  `sudo dnf install \*.rpm`.  Answer 'y' when prompted.  If there are any missing dependencies, the RPM isn't installed.
-1. Change to the configuration directory: cd /etc/az-mcc-edr-uploader
-1. Make a copy of the default configuration file:  `sudo cp example\_config.yaml config.yaml`
-1. Edit the *config.yaml* and fill out the fields.  Most of them are set to default values and do not require input.  The full reference for each parameter is described in [MCC EDR Ingestion Agents configuration reference](mcc-edr-agent-configuration.md). The following parameters must be set:
+1. Install the RPM:  `sudo dnf install /*.rpm`.  Answer 'y' when prompted.  If there are any missing dependencies, the RPM isn't installed.
+1. Change to the configuration directory: `cd /etc/az-mcc-edr-uploader`
+1. Make a copy of the default configuration file:  `sudo cp example_config.yaml config.yaml`
+1. Edit the *config.yaml* and fill out the fields.  Most of them are set to default values and don't need to be changed.  The full reference for each parameter is described in [MCC EDR Ingestion Agents configuration reference](mcc-edr-agent-configuration.md). The following parameters must be set:
 
     1. **site\_id** should be changed to a unique identifier for your on-premises site – for example, the name of the city or state for this site.  This name becomes searchable metadata in Operator Insights for all EDRs from this agent. 
     1. **agent\_id** should be a unique identifier for this agent – for example, the VM hostname.
 
-    1. For the secret provider with name `data_product_keyvault`, set the following:
-        1. **provider.vault\_name** must be the name of the Key Vault for your Data Product  
+    1. For the secret provider with name `data_product_keyvault`, set the following fields:
+        1. **provider.vault\_name** must be the name of the Key Vault for your Data Product. You identified this name in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).  
         1. **provider.auth** must be filled out with:
 
             1. **tenant\_id** as your Microsoft Entra ID tenant.
 
-            2. **identity\_name** as the application ID of your service principal
+            2. **identity\_name** as the application ID of the service principle that you created in [Create a service principle](#create-a-service-principal).
 
             3. **cert\_path** as the path on disk to the location of the base64-encoded certificate and private key for the service principal to authenticate with.
 
@@ -182,7 +185,7 @@ The MCC EDR agent is designed to be highly reliable and resilient to low levels 
 
 The agent doesn't buffer data, so if a persistent error or extended connectivity problems occur, EDRs are dropped.
 
-For additional fault tolerance, you can deploy multiple instances of the MCC EDR agent and configure the MCC to switch to a different instance if the original instance becomes unresponsive, or to shared EDR traffic across a pool of agents. For more information, refer to the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/13.1/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm)(2) or speak to the Affirmed Networks Support Team.
+For additional fault tolerance, you can deploy multiple instances of the MCC EDR agent and configure the MCC to switch to a different instance if the original instance becomes unresponsive, or to share EDR traffic across a pool of agents. For more information, refer to the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/13.1/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm)(2) or speak to the Affirmed Networks Support Team.
 
 ## Related content
 

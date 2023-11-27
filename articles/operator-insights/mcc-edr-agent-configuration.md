@@ -52,8 +52,8 @@ sink:
   # The container within the ingestion account.  This *must* be in 
   # the format Azure Operator Insights expects.  Do not adjust 
   # without consulting your support representative. 
-  container_name: edrs
-  # Optional. How often, in hours, the sink should refresh its ADLS token. Defaults to 1
+  container_name: edr
+  # Optional. How often, in hours, the agent should refresh its ADLS token. Defaults to 1
   adls_token_cache_period_hours: 1
   auth:       
     type: sas_token 
@@ -64,6 +64,6 @@ sink:
     # This is created by the Data Product and should not be changed. 
     secret_name: adls-sas-token   
 # Optional. The maximum size of each block that is uploaded to Azure. 
-# Each blob is composed of one or more blocks. Defaults to 32MiB (=33554432 Bytes)
+# Each blob is composed of one or more blocks. Defaults to 32MiB (=33554432 bytes)
   block_size_in_bytes  : 33554432
 ```
