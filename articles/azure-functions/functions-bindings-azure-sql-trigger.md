@@ -18,7 +18,10 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 # Azure SQL trigger for Functions
 
 > [!NOTE]
-> In consumption plan functions, automatic scaling is not available for SQL trigger. Use premium or dedicated plans for [scaling benefits](functions-scale.md) with SQL trigger.
+> In consumption plan functions, automatic scaling is not supported for SQL trigger. If the automatic scaling process stops the function, it will need to be manually restarted.
+>
+> Use premium or dedicated plans for [scaling benefits](functions-scale.md) with SQL trigger.
+> 
 
 The Azure SQL trigger uses [SQL change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) functionality to monitor a SQL table for changes and trigger a function when a row is created, updated, or deleted. For configuration details for change tracking for use with the Azure SQL trigger, see [Set up change tracking](#set-up-change-tracking-required). For information on setup details of the Azure SQL extension for Azure Functions, see the [SQL binding overview](./functions-bindings-azure-sql.md).
 
