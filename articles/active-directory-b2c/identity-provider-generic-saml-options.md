@@ -86,7 +86,7 @@ The following XML is an example of a Microsoft Entra metadata single sign-on ser
 
 ### Assertion consumer service
 
-The Assertion Consumer Service (or ACS) is where the identity provider SAML responses are sent and received by Azure AD B2C. SAML responses are transmitted to Azure AD B2C via HTTP POST binding. The ACS location points to your relying party's base policy. For example, if the relying policy is *B2C_1A_signup_signin*, the ACS is the base policy of the *B2C_1A_signup_signin*, such as *B2C_1A_TrustFrameworkBase*.
+The Assertion Consumer Service is where the identity provider SAML responses are sent and received by Azure AD B2C. SAML responses are transmitted to Azure AD B2C via HTTP POST binding. The Assertion Consumer Service location points to your relying party's base policy. For example, if the relying policy is *B2C_1A_signup_signin*, the Assertion Consumer Service is the base policy of the *B2C_1A_signup_signin*, such as *B2C_1A_TrustFrameworkBase*.
 
 The following XML is an example of an Azure AD B2C policy metadata assertion consumer service element. 
 

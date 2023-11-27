@@ -25,7 +25,7 @@ The following sections provide information about known issues associated with th
 
 ### Chrome M115 - regression 
 
-Chrome version 115 for Android introduced a regression when making video calls - the result of this bug is a user making a call on Azure Communication Services with this version of Chrome will have no outgoing video in Group and ACS-MS Teams calls.
+Chrome version 115 for Android introduced a regression when making video calls - the result of this bug is a user making a call on Azure Communication Services with this version of Chrome will have no outgoing video in Group and Azure Communication Services-MS Teams calls.
 - This is a known regression introduced on [Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1469318)
 - As a short term mitigation please instruct users to use Microsoft Edge or Firefox on Android, or avoid using Google Chrome 115/116 on Android
 

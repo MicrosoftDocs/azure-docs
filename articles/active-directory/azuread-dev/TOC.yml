@@ -85,7 +85,7 @@
     - name: Publish to the Office 365 Seller Dashboard
       href: /partner-center/marketplace/add-in-submission-guide
   - name: Azure Access Control Service
-    displayName: ACS
+    displayName: Access Control Service
   - name: Use the Microsoft Graph API
     href: /graph/overview?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: AD FS for developers

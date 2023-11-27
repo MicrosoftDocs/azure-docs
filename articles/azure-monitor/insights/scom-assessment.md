@@ -68,7 +68,7 @@ Use the following information to set the Operations Manager Run As account for S
 
 The Run As account must meet following requirements before proceeding:
 
-* A domain user account that is a member of the local Administrators group on all servers supporting any Operations Manager role - Management server, SQL Server hosting the operational, data warehouse and ACS database, Reporting, Web console, and Gateway server.
+* A domain user account that is a member of the local Administrators group on all servers supporting any Operations Manager role - Management server, SQL Server hosting the operational, data warehouse and Audit Collection Services database, Reporting, Web console, and Gateway server.
 * Operation Manager Administrator Role for the management group being assessed
 * If the account does not have SQL sysadmin rights, then execute the [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) to grant granular permissions to the account on each SQL Server instance hosting one or all of the Operations Manager databases.
 
@@ -91,7 +91,7 @@ Now that the Run As account is created, it needs to target management servers in
 
 ### SQL script to grant granular permissions to the Run As account
 
-Execute the following SQL script to grant required permissions to the Run As account on the SQL Server instance used by Operations Manager hosting the operational, data warehouse, and ACS database.
+Execute the following SQL script to grant required permissions to the Run As account on the SQL Server instance used by Operations Manager hosting the operational, data warehouse, and Audit Collection Services database.
 
 ```
 -- Replace <UserName> with the actual user name being used as Run As Account.

@@ -167,7 +167,7 @@ If you're migrating existing persistent volumes to AKS, you generally follow the
 The following open-source tools can help you create managed disks and migrate volumes between Kubernetes clusters:
 
 * [Azure CLI Disk Copy extension](https://github.com/noelbundick/azure-cli-disk-copy-extension) copies and converts disks across resource groups and Azure regions.
-* [Azure Kube CLI extension](https://github.com/yaron2/azure-kube-cli) enumerates ACS Kubernetes volumes and migrates them to an AKS cluster.
+* [Azure Kube CLI extension](https://github.com/yaron2/azure-kube-cli) enumerates Azure Container Service Kubernetes volumes and migrates them to an AKS cluster.
 
 ### Deployment of your cluster configuration
 

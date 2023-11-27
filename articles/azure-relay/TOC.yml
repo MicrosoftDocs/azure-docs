@@ -58,7 +58,7 @@
     href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json    
   - name: Plan and design
     items:
-    - name: Migrate from ACS to SAS
+    - name: Migrate from Access Control Service to SAS
       href: relay-migrate-acs-sas.md
   - name: Develop
     items:
