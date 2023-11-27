@@ -2,7 +2,8 @@
 author: boris-bazilevskiy
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 11/70/2023
+ms.date: 11/27/2023
+
 ms.author: bobazile
 ms.custom: emergency_calling
 ---
