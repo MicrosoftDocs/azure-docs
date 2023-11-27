@@ -33,7 +33,7 @@ To upgrade to a new release of the agent, repeat the following steps on each VM 
 1. Once the agent is running, make sure it will automatically start on a reboot: `sudo systemctl enable az-mcc-edr-uploader.service`
 1. Verify that the agent is running and that EDRs are being routed to it as described in [Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights](troubleshoot-mcc-edr-agent.md).
 
-### Agent configuration update
+## Agent configuration update
 
 > [!WARNING]
 > Changing the configuration requires restarting the agent, whereupon a small number of EDRs being handled may be dropped.  It is not possible to gracefully restart without dropping any data.  For safety, update agents one at a time, only updating the next when you are sure the previous was successful.
@@ -46,7 +46,7 @@ If you need to change the agent's configuration, perform the following steps:
 
 1. Restart the agent: `sudo systemctl restart az-mcc-edr-uploader.service`
 
-### Rollback
+## Rollback
 
 If an upgrade or configuration change fails:
 

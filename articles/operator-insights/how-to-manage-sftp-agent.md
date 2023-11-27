@@ -30,7 +30,7 @@ To upgrade to a new release of the agent, repeat the following steps on each VM 
 6. Once the agent is running, configure the az-sftp-uploader service to automatically start on a reboot: `sudo systemctl enable az-sftp-uploader.service`
 7. Verify that the agent is running and that it's copying files as described in [Monitor and troubleshoot SFTP Ingestion Agents for Azure Operator Insights](troubleshoot-sftp-agent.md).
 
-### Agent configuration update
+## Agent configuration update
 
 If you need to change the agent's configuration, perform the following steps:
 
@@ -43,7 +43,7 @@ If you need to change the agent's configuration, perform the following steps:
 
 3. Restart the agent: `sudo systemctl restart az-sftp-uploader.service`
 
-### Rollback
+## Rollback
 
 If an upgrade or configuration change fails:
 
