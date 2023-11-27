@@ -277,7 +277,7 @@
     href: variables.md
     displayName: configuration
   - name: Import (import)
-    href: bicep-import-providers.md
+    href: bicep-import.md
   - name: Resources (resource)
     href: resource-declaration.md
   - name: Existing resources (existing)
