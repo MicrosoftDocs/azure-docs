@@ -92,6 +92,8 @@ landingContent:
         links:
           - text: Entitlement concepts
             url: concepts-entitlements.md
+          - text: Authentication concepts
+            url: concepts-authentication.md
   - title: Monitoring
     linkLists:
       - linkListType: how-to-guide

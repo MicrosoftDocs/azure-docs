@@ -28,6 +28,7 @@ This article provides information about limitations and known issues related to 
 - Location-based routing isn't supported.
 - No quality dashboard is available for customers.
 - Enhanced 911 isn't supported.
+- In-band DTMF is not supported, use RFC 2833 DTMF instead.
 
 ## Next steps
 

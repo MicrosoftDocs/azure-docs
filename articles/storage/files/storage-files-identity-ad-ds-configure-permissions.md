@@ -4,7 +4,7 @@ description: Learn how to configure Windows ACLs for directory and file level pe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/19/2022
+ms.date: 11/21/2023
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -19,7 +19,7 @@ After you assign share-level permissions, you can configure Windows access contr
 Both share-level and file/directory-level permissions are enforced when a user attempts to access a file/directory, so if there's a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file level, but only read at a share level, then they can only read that file. The same would be true if it was reversed: if a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
 
 > [!IMPORTANT]
-> To configure Windows ACLs, you'll need a client machine running Windows that has line-of-sight to the domain controller. If you're authenticating with Azure Files using Active Directory Domain Services (AD DS) or Microsoft Entra Kerberos for hybrid identities, this means you'll need line-of-sight to the on-premises AD. If you're using Microsoft Entra Domain Services, then the client machine must have line-of-sight to the domain controllers for the domain that's managed by Microsoft Entra Domain Services, which are located in Azure.
+> To configure Windows ACLs, you'll need a client machine running Windows that has unimpeded network connectivity to the domain controller. If you're authenticating with Azure Files using Active Directory Domain Services (AD DS) or Microsoft Entra Kerberos for hybrid identities, this means you'll need unimpeded network connectivity to the on-premises AD. If you're using Microsoft Entra Domain Services, then the client machine must have unimpeded network connectivity to the domain controllers for the domain that's managed by Microsoft Entra Domain Services, which are located in Azure.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -75,12 +75,12 @@ For more information on these advanced permissions, see [the command-line refere
 
 There are two approaches you can take to configuring and editing Windows ACLs:
 
-- **Log in with username and storage account key every time**: Anytime you want to configure ACLs, mount the file share by using your storage account key on a machine that has line-of-sight to the domain controller.
+- **Log in with username and storage account key every time**: Anytime you want to configure ACLs, mount the file share by using your storage account key on a machine that has unimpeded network connectivity to the domain controller.
 
 - **One-time username/storage account key setup:**
-  1. Log in with a username and storage account key on a machine that has line-of-sight to the domain controller, and give some users (or groups) permission to edit permissions on the root of the file share.
+  1. Log in with a username and storage account key on a machine that has unimpeded network connectivity to the domain controller, and give some users (or groups) permission to edit permissions on the root of the file share.
   2. Assign those users the **Storage File Data SMB Share Elevated Contributor** Azure RBAC role.
-  3. In the future, anytime you want to update ACLs, you can use one of those authorized users to log in from a machine that has line-of-sight to the domain controller and edit ACLs.
+  3. In the future, anytime you want to update ACLs, you can use one of those authorized users to log in from a machine that has unimpeded network connectivity to the domain controller and edit ACLs.
 
 ## Mount the file share using your storage account key
 
