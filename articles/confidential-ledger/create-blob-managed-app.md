@@ -41,7 +41,7 @@ Once a Managed Application is created, you're able to then connect the Managed A
 
 ### Create a topic and event subscription for the storage account
 
-The Managed Application uses an Azure Service Bus Queue to track and record all **Create Blob** events. You can add this Queue as an Event Subscriber for any storage account that you're creating blobs for.
+The Managed Application uses an Azure Service Bus Queue to track and record all **Create Blob** events. You will use the Queue created in the Managed Resource Group by the Managed Application and add it as an Event Subscriber for any storage account that you're creating blobs for.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -98,6 +98,8 @@ az eventgrid system-topic event-subscription create \
 
 `endpoint` - Resource ID of the service bus queue that is subscribing to the storage account Topic
 
+---
+
 ### Add required role to storage account
 
 The Managed Application requires the `Storage Blob Data Owner` role to read and create hashes for each blob and this role is required to be added in order for the digest to be calculated correctly.
@@ -122,6 +124,8 @@ az role assignment create \
 
 > [!NOTE]
 > Multiple storage accounts can be connected to a single Managed Application instance. We currently recommend a maximum of **10 storage accounts** that contain high usage blob containers.
+
+---
 
 ## Adding blobs and digest creation
 
@@ -193,6 +197,7 @@ message = {
 message = ServiceBusMessage(json.dumps(message), session_id=SESSION_ID)
 sender.send_messages(message)
 ```
+---
 
 ### Viewing audit results
 
