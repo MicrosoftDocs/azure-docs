@@ -132,7 +132,7 @@ You need to grant Document Intelligence access to your storage account before it
 
 ### Additional role assignment for Document Intelligence Studio
 
-If you are going to use Document Intelligence Studio and your storage account is configured with network restriction such as firewall or virtual network, an additional role, **Storage Blob Data Contributor**, need to be assigned to your Document Intelligence service. Document Intelligence Studio requires this role to write blobs to your storage account when you perform Auto label, OCR upgrade, Human in the loop, or Project sharing operations.
+If you are going to use Document Intelligence Studio and your storage account is configured with network restriction such as firewall or virtual network, an additional role, **Storage Blob Data Contributor**, needs to be assigned to your Document Intelligence service. Document Intelligence Studio requires this role to write blobs to your storage account when you perform Auto label, OCR upgrade, Human in the loop, or Project sharing operations.
 
 ## Next steps
 > [!div class="nextstepaction"]
