@@ -35,7 +35,7 @@ The active-passive disaster recovery solution uses many Azure services. This exa
 
 **Azure Front Door**: [Azure Front Door](../frontdoor/front-door-overview.md) load balances and routes traffic to the [Azure Application Gateway](../application-gateway/overview.md) instance in the primary region (cluster must be marked with priority 1). In the event of a region failure, the service redirects traffic to the next cluster in the priority list.
 
-For more information, see [Priority-based traffic-routing](../frontdoor/routing-methods#priority-based-traffic-routing).
+For more information, see [Priority-based traffic-routing](../frontdoor/routing-methods.md#priority-based-traffic-routing).
 
 **Hub-spoke pair**: A hub-spoke pair is deployed for each regional AKS instance. [Azure Firewall Manager](../firewall-manager/overview.md) policies manage the firewall rules across each region.
 

@@ -150,7 +150,7 @@ AKS sets default limits and quotas for resources and features, including usage r
 
 [!INCLUDE [container-service-limits](../../includes/container-service-limits.md)]
 
-For more information, see [AKS service quotas and limits](https://learn.microsoft.com/azure/aks/quotas-skus-regions#service-quotas-and-limits).
+For more information, see [AKS service quotas and limits](./quotas-skus-regions.md#service-quotas-and-limits).
 
 ## Backup
 
@@ -158,8 +158,8 @@ Azure Backup supports backing up AKS cluster resources and persistent volumes at
 
 For more information, see the following articles:
 
-- [About AKS backup using Azure Backup (preview)](https://learn.microsoft.com//azure/backup/azure-kubernetes-service-backup-overview)
-- [Back up AKS using Azure Backup (preview)](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup)
+- [About AKS backup using Azure Backup (preview)](../backup/azure-kubernetes-service-backup-overview.md)
+- [Back up AKS using Azure Backup (preview)](../backup/azure-kubernetes-service-cluster-backup.md)
 
 ## References and documentation
 
