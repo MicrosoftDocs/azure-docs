@@ -341,7 +341,7 @@ For **send to big group**, the outbound bandwidth becomes the bottleneck before 
 | Inbound messages per second | 20    | 20    | 20     | 20     | 20      | 20      | 20      | 20       |
 | Inbound bandwidth           | 40 KBps| 40 KBps| 40 KBps| 40 KBps| 40 KBps | 40 KBps | 40 KBps | 40 KBps  |
 | Outbound messages per second| 2,000 | 4,000 | 10,000 | 20,000 | 40,000  | 100,000 | 200,000 | 400,000  |
-| Outbound bandwidth          | 8 MBps| 8 MBps| 20 MBps| 40 MBps| 80 MBps | 200 MBps| 400 MBps| 800 MBps |
+| Outbound bandwidth          | 4 MBps| 8 MBps| 20 MBps| 40 MBps| 80 MBps | 200 MBps| 400 MBps| 800 MBps |
 
 
 The sending connection count is no more than 40. The burden on the app server is small, so the suggested number of web apps is small.
