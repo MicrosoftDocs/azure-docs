@@ -33,6 +33,8 @@
   items:
   - name: Create a client certificate
     href: create-client-certificate.md 
+  - name: Create a managed application to store blob digests
+    href: create-blob-managed-app.md
   - name: Register the confidential ledger resource provider
     href: register-ledger-resource-provider.md
   - name: Register an ACL app with Microsoft Entra ID
