@@ -15,20 +15,20 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-Invoke [Azure OpenAI embeddings](../../ai-services/openai/reference.md#embeddings) easily to get a vector representation of the input, which can be used then in [vector similarity](./how-to-use-pgvector.md) searches and consumed by machine learning models.
+Invoke [Azure OpenAI embeddings](../../ai-services/openai/reference.md#embeddings) easily to get a vector representation of the input, which can be used then in [vector similarity](./how-to-use-pgvector.md#vector-similarity) searches and consumed by machine learning models.
 
 ## Prerequisites
 
 1. Create an Open AI account and [request access to Azure OpenAI Service](https://aka.ms/oai/access).
-1. Grant Access to Azure OpenAI in the desired subscription  
-1. Grant permissions to [create Azure OpenAI resources and to deploy models](../../ai-services/openai/how-to/role-based-access-control.md). 
+1. Grant Access to Azure OpenAI in the desired subscription.
+1. Grant permissions to [create Azure OpenAI resources and to deploy models](../../ai-services/openai/how-to/role-based-access-control.md).
 
 [Create and deploy an Azure OpenAI service resource and a model](../../ai-services/openai/how-to/create-resource.md), for example deploy the embeddings model [text-embedding-ada-002](../../ai-services/openai/concepts/models.md#embeddings-models). Copy the deployment name as it is needed to create embeddings. 
 
 
 ## Configure OpenAI endpoint and key
 
-In the Azure AI services under **Resource Management** > **Keys and Endpoints** you can find the **Endpoint and Keys** for your Azure AI resource. Use the endpoint and key to enable `azure_ai` extension to invoke the model deployment.
+In the Azure OpenAI resource, under **Resource Management** > **Keys and Endpoints** you can find the endpoint and the keys for your Azure OpenAI resource. Use the endpoint and one of the keys to enable `azure_ai` extension to invoke the model deployment.
 
 ```postgresql
 select azure_ai.set_setting('azure_openai.endpoint','https://<endpoint>.openai.azure.com'); 

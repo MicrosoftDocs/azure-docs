@@ -1,6 +1,6 @@
 ---
-title: Project Health Insights request info  
-description: this article describes the required properties to interact with Project Health Insights
+title: Azure AI Health Insights request info  
+description: this article describes the required properties to interact with Azure AI Health Insights
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -10,12 +10,12 @@ ms.date: 02/17/2023
 ms.author: behoorne
 ---
 
-# Project Health Insights request info  
+# Azure AI Health Insights request info  
 
-This page describes the request models and parameters that are used to interact with Project Health Insights service.
+This page describes the request models and parameters that are used to interact with Azure AI Health Insights service.
 
 ## Request
-The generic part of Project Health Insights request, common to all models.
+The generic part of Azure AI Health Insights request, common to all models.
 
 Name    |Required|Type           |Description                                                         
 --------|--------|---------------|--------------------------------------------------------------------
