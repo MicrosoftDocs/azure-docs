@@ -95,9 +95,9 @@ Azure Service Bus is a fully managed enterprise message broker with message queu
 
 - **Getting the connection string, topic name, and subscription name** 
 
- To proceed with the integration, obtain the necessary connection string, topic name, and subscription name for your Azure Service Bus. This information is crucial for configuring your Flink job.
-
- :::image type="content" source="./media/azure-service-bus-demo/subscription-name.png" alt-text="Screenshot shows getting the connection string, topic name, and subscription name for your Azure Service Bus." lightbox="./media/azure-service-bus-demo/subscription-name.png":::
+  To proceed with the integration, obtain the necessary connection string, topic name, and subscription name for your Azure Service Bus. This information is crucial for configuring your Flink job.
+      
+  :::image type="content" source="./media/azure-service-bus-demo/subscription-name.png" alt-text="Screenshot shows getting the connection string, topic name, and subscription name for your Azure Service Bus." lightbox="./media/azure-service-bus-demo/subscription-name.png":::
 
 
 ## Running jobs
