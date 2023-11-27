@@ -48,6 +48,9 @@ This version has breaking changes and behavioral differences for semantic rankin
 
 If you added vector support using 2023-10-01-preview, there are no breaking changes. There's one behavior difference: the `vectorFilterMode` default changed from postfilter to prefilter. Change the API version and test your code to confirm the migration.
 
+> [!TIP]
+> You can upgrade a 2023-07-01-preview index in the Azure portal. The portal detects the previous version and provides a **Migrate** button. Select **Edit JSON** to review the updated schema before selecting **Migrate**. The new and changed schema conforms to the steps described in this section.
+
 Here are the steps for migrating from 2023-07-01-preview:
 
 1. Call [Get Index](/rest/api/searchservice/indexes/get?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true) to retrieve the existing definition.

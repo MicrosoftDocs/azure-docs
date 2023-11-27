@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/04/2023
+ms.date: 11/27/2023
 ---
 
 # Add vector fields to a search index
@@ -26,7 +26,7 @@ Follow these steps to index vector data:
 This article applies to the generally available, non-preview version of [vector search](vector-search-overview.md), which assumes your application code calls external resources for chunking and encoding. 
 
 > [!NOTE]
-> Code samples in the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
+> Looking for migration guidance from 2023-07-01-preview? See [Upgrade REST APIs](search-api-migration.md). 
 
 ## Prerequisites
 
@@ -700,4 +700,6 @@ api-key: {{admin-api-key}}
 
 As a next step, we recommend [Query vector data in a search index](vector-search-how-to-query.md). 
 
-You might also consider reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) or [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript).
+Code samples in the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
+
+There's demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) [Java](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-java), and [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript).
