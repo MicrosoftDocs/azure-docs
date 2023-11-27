@@ -37,7 +37,7 @@ $Env:AZURE_OPENAI_ENDPOINT = 'YOUR_ENDPOINT'
 ```
 
 ```powershell-interactive
-$Env:AZURE_OPENAI_DEPLOYMENT_NAME = 'YOUR_DEPLOYMENT_NAME'
+$Env:AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT = 'YOUR_DEPLOYMENT_NAME'
 ```
 
 # [Bash](#tab/bash)
@@ -51,7 +51,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ```
 
 ```Bash
-echo export AZURE_OPENAI_DEPLOYMENT_NAME="REPLACE_WITH_YOUR_DEPLOYMENT_NAME_HERE" >> /etc/environment && source /etc/environment
+echo export AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT="REPLACE_WITH_YOUR_DEPLOYMENT_NAME_HERE" >> /etc/environment && source /etc/environment
 ```
 
 ---
@@ -152,7 +152,7 @@ param(
 ```
 
 After you create the `invoke-docprep` function, use the `ForEach-Object` command to store prepared
-content in the "prep" column, for all rows in the datatable. We're using a new column so the
+content in the *prep* column, for all rows in the datatable. We're using a new column so the
 original formatting is available if we would like to retrieve it later.
 
 ```powershell-interactive
@@ -165,7 +165,7 @@ View the datatable again to see the change.
 $datatable | out-gridview
 ```
 
-Next, we estimate the number of tokens per document and populate the "tokens" column.
+Next, we estimate the number of tokens per document and populate the *tokens* column.
 
 > [!IMPORTANT]
 > If you are estimating tokens for any purpose related to billing, make sure to use a solution officially recommended by OpenAI, such as the [TikToken](https://github.com/openai/tiktoken) package for Python. The official approach could change without updates to this document. See the OpenAI [Tokenizer](https://platform.openai.com/tokenizer) site for details.
@@ -199,7 +199,7 @@ $params = @{
 Register-PSResourceRepository @params
 ```
 
-Next, install the "Microsoft.DeepDev.Tokenizerlib' package.
+Next, install the *Microsoft.DeepDev.Tokenizerlib* package.
 
 ```powershell-interactive
 $params = @{
@@ -259,7 +259,7 @@ param (
 }
 ```
 
-Run the sample function to set the "tokens" value for each row in the datatable.
+Run the sample function to set the *tokens* value for each row in the datatable.
 
 ```powershell-interactive
 $datatable.rows | ForEach-Object {
@@ -311,7 +311,7 @@ $openai = @{
     api_key     = $Env:AZURE_OPENAI_KEY
     api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
     api_version = '2023-05-15' # this may change in the future
-    name        = $Env:AZURE_OPENAI_DEPLOYMENT_NAME # Corresponds to the custom name you chose for your deployment when you deployed a model.
+    name        = $Env:AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT # Corresponds to the custom name you chose for your deployment when you deployed a model.
 }
 
 $headers = [ordered]@{
@@ -353,8 +353,9 @@ $dataview | ForEach-Object {
 
 You now have a local in-memory database table of PowerShell 7.4 reference docs.
 
-Based on a search string, we need to calculate another set of vectors so PowerShell can rank each document by similarity. In the next example, vectors are retrieved for the string "get a list of running processes."
+Based on a search string, we need to calculate another set of vectors so PowerShell can rank each document by similarity.
 
+In the next example, vectors are retrieved for the search string **"get a list of running processes"**.
 
 ```powershell-interactive
 $searchText = "get a list of running processes"
@@ -369,7 +370,7 @@ $response = Invoke-RestMethod -Uri $url -Headers $headers -Body $body -Method Po
 $searchVectors = $response.data.embedding -join ','
 ```
 
-Finally, the next sample function, which borrows an example from Lee Holmes' [Measure-VectorSimilarity](https://www.powershellgallery.com/packages/Measure-VectorSimilarity/) script, performs a **cosine similarity** calculation and then ranks each row in the dataview. The *title* and *uri* of the top three most similar rows are returned.
+Finally, the next sample function, which borrows an example from the example script [Measure-VectorSimilarity](https://www.powershellgallery.com/packages/Measure-VectorSimilarity/) written by Lee Holmes, performs a **cosine similarity** calculation and then ranks each row in the dataview.
 
 ```powershell-interactive
 # Sample function to calculate cosine similarity
@@ -430,7 +431,7 @@ $topThree[0].content
 
 View the full document (truncated in the output snippet for this page).
 
-```OUTPUT
+```Output
 ---
 external help file: Microsoft.PowerShell.Commands.Management.dll-Help.xml
 Locale: en-US
@@ -451,13 +452,16 @@ Gets the processes that are running on the local computer.
 ### Name (Default)
 
 Get-Process [[-Name] <String[]>] [-Module] [-FileVersionInfo] [<CommonParameters>]
+# truncated example
 ```
 
 Finally, rather than regenerate the embeddings every time you need to query the dataset, you can
 store the data to disk and recall it in the future. The `WriteXML` and `ReadXML` methods of
 datatable object types in the next example simplify the process. The schema of the XML file
-requires the datatable to have a *TableName*. Replace "YOUR-FULL-FILE-PATH" with the full path
-where you would like to write and read the XML file.
+requires the datatable to have a *TableName*.
+
+Replace "YOUR-FULL-FILE-PATH" with the full path where you would like to write and read the XML
+file.
 
 ```powershell-interactive
 # Set DataTable name
