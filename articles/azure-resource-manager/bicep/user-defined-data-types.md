@@ -92,6 +92,14 @@ The valid type expressions include:
     }
     ```
 
+    As `@allowed` isn't a valid decorator on user-defined types, the set of allowed values is specified using a union syntax on the same line as the key. The type is not necessary as it is inferred from the provided values.
+
+    ```bicep
+    type obj = {
+      level: ('bronze' | 'silver' | 'gold')
+    }
+    ```
+
     **Recursion**
 
     Object types may use direct or indirect recursion so long as at least leg of the path to the recursion point is optional. For example, the `myObjectType` definition in the following example is valid because the directly recursive `recursiveProp` property is optional:
