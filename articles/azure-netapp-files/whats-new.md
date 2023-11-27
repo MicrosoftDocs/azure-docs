@@ -23,7 +23,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## November 2023
 
-* [Metrics Enhancement: Throughput limits](azure-netapp-files-metrics.md#volumes)
+* [Metrics enhancement: Throughput limits](azure-netapp-files-metrics.md#volumes)
 
     Azure NetApp Files now supports a "throughput limit reached" metric for volumes. The metric is a Boolean value that denotes the volume is hitting its QoS limit. With this metric, you know whether or not to adjust volumes so they meet the specific needs of your workloads. 
 
