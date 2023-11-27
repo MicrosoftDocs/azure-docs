@@ -73,7 +73,7 @@ The previous example was a fairly simple: mounting a single, pre-formatted snaps
 
 The above example shows there are three volumes that should be attached to the node named `scheduler`, and that their mountpoint is named `giant`. The configuration for the mountpoint says that these three volumes should be RAIDed together using `raid_level = 0` for RAID0, formatted using the `xfs` filesystem, and the resulting device should be mounted at `/mnt/giant`. The device should also have block level encryption using 256-bit AES with an encryption key as defined in the template.
 
-## Server-Side Encryption with Azure Disk Encryption Sets
+## Disk Encryption
 CycleCloud supports server-side encryption (SSE) for OS and data disk Volumes using [Azure Disk Encryption Sets](/azure/virtual-machines/disk-encryption).
 Azure uses _Platform Managed Keys_ (PMK) by default. However, to use _Customer Managed Keys_ (CMK), you must first set up an Azure Disk Encryption Set and a Key Vault with your key.
 Follow the documention here to [set up your Disk Encryption Set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal).  
@@ -102,7 +102,6 @@ For example:
   mountpoint = /mnt/encrypted
   fs_type = ext4
   raid_level = 0
-
 ```
 
 > [!NOTE]
@@ -110,6 +109,18 @@ For example:
 >
 > `Azure.Encryption.DiskEncryptionSetId = /subscriptions/$SUBSCRIPTION-ID/resourceGroups/$RESOURCEGROUPNAME/providers/Microsoft.Compute/diskEncryptionSets/$DISK-ENCRYPTION-SET-NAME`.
 > However, you do not need to set `Azure.Encryption.Type`.
+
+CycleCloud 8.5 also supports [Confidential disk encryption](https://learn.microsoft.com/azure/confidential-computing/confidential-vm-overview#confidential-os-disk-encryption). This scheme protects all critical partitions of the disk and makes the protected disk content accessible only to the VM. Confidential disk encryption is per-disk, and requires the *Security Encryption Type* to be set to `DiskWithVMGuestState`. 
+
+For example, to use Confidential encryption on the OS disk:
+
+``` ini
+[[node scheduler]]
+  [[[volume boot]]]
+
+  ConfidentialDiskEncryptionSetId = /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResouceGroup/providers/Microsoft.Compute/diskEncryptionSets/myCMKDiskEncryptionSet
+  SecurityEncryptionType = DiskWithVMGuestState
+```
 
 See the [Volume Configuration Reference](../cluster-references/volume-reference.md) for details.
 
