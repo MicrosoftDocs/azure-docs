@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Configure backup of an AKS cluster
-description: In this quickstart, learn how to configure backup of an AKS cluster and utilize Azure Backup to back up specific items from the cluster.
+title: "Quickstart: Configure an Azure Kubernetes Services cluster backup"
+description: Learn how to configure backup for an Azure Kubernetes Service (AKS) cluster, and then use Azure Backup to back up specific items in the cluster.
 ms.topic: quickstart
 ms.date: 11/14/2023
 ms.service: backup
@@ -10,27 +10,30 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Quickstart: Configure backup of an AKS cluster 
+# Quickstart: Configure backup for an AKS cluster
 
-This quickstart describes how to configure backup of an AKS Cluster and utilize the Backup configuration to back up specific items from the cluster. 
+In this quickstart, you configure backup for an Azure Kubernetes Service (AKS) cluster, and then use the Azure Backup configuration to back up specific items in the cluster.
 
-Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations.
+You can use Azure Backup to back up AKS clusters by using an Azure Backup extension. The extension must be installed in the cluster. An AKS cluster backup includes cluster resources and persistent volumes that are attached to the cluster.
+
+The Azure Backup vault communicates with the cluster via the Backup extension to complete backup and restore operations.
 
 ## Prerequisites
 
-- Identify or [create a Backup vault](create-manage-backup-vault.md) in the same region where you want to back up the AKS cluster.
-- [Install the Backup Extension](quick-install-backup-extension.md) in the AKS cluster to be backed up. 
+- Identify or [create an Azure Backup vault](create-manage-backup-vault.md) in the same region where you want to back up an AKS cluster.
+- [Install the Backup extension](quick-install-backup-extension.md) in the AKS cluster that you want to back up.
 
+## Configure backup for an AKS cluster
 
-## Configure backup of an AKS cluster
+To configure backup for a cluster:
 
-To configure backup of an AKS cluster, follow these steps:
- 
-1. In the Azure portal, go to the selected Kubernetes services and select **Backup** > **Configure backup**.
-    
+1. In the Azure portal, go to the AKS cluster that you want to back up.
+
+1. Select **Backup** > **Configure backup**.
+  
 1. Select the Backup vault to configure backup.
-    
-    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-vault.png" alt-text="Screenshot showing **Configure backup** homepage." lightbox="./media/azure-kubernetes-service-cluster-backup/select-vault.png":::
+  
+    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-vault.png" alt-text="Screenshot that shows the Configure backup page." lightbox="./media/azure-kubernetes-service-cluster-backup/select-vault.png":::
 
     The Backup vault should have *Trusted Access* enabled for the AKS cluster to be backed up. You can enable *Trusted Access* by selecting **Grant permission**. If it's already enabled, select **Next**.
     
