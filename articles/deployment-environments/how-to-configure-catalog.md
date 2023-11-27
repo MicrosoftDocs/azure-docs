@@ -233,9 +233,13 @@ Azure Deployment Environments supports authenticating to GitHub repositories by 
     |**Token name**|Enter a descriptive name for the token.|
     |**Expiration**|Select the token expiration period in days.|
     |**Description**|Enter a description for the token.|
-    |**Repository access**|Select **Public Repositories (read-only)**.|
-    
-    Leave the other options at their defaults.
+    |**Resource owner**|Select the owner of the repository.|
+    |**Repository access**|Select **Only select repositories**.|
+    |**Select repositories**|Select the repository that contains the environment definitions.|
+    |**Repository permissions**|Expand **Repository permissions**, and for **Contents**, from the **Access** list, select **Code read**.|
+
+    :::image type="content" source="media/how-to-configure-catalog/github-repository-permissions.png" alt-text="Screenshot of the GitHub New fine-grained personal access token page, showing the Repository permissions with Contents highlighted."  lightbox="media/how-to-configure-catalog/github-repository-permissions.png":::
+
 1. Select **Generate token**.
 1. Save the generated token. You use the token later.
 
