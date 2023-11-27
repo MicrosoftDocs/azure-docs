@@ -16,15 +16,15 @@ You can configure input parameters for PowerShell, PowerShell Workflow, graphica
 
 You assign values to the input parameters for a runbook when you start it. You can start a runbook from the Azure portal, a web service, or PowerShell. You can also start one as a child runbook that is called inline in another runbook.
 
-## Input Types
+## Input types
 
-Azure Automation supports various input parameter values across the different runbook types. Supported input types for each type of Runbook are listed in the following table:
+Azure Automation supports various input parameter values across the different runbook types. Supported input types for each type of runbook are listed in the following table.
 
-| Runbook Type        | Supported Parameter Inputs                                                                                                            |
+| Runbook type        | Supported parameter inputs                                                                                                            |
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| PowerShell          | - String - Security.SecureString - INT32 - Boolean - DateTime - Array - Collections.Hashtable - Management.Automation.SwitchParameter |
-| PowerShell Workflow | - String - Security.SecureString - INT32 - Boolean - DateTime - Array - Collections.Hashtable - Management.Automation.SwitchParameter |
-| Graphical PowerShell| - String -INT32 - INT64 - Boolean - Decimal - DateTime - Object                                                                       |
+| PowerShell          | - String <br>- Security.SecureString <br>- INT32 <br>- Boolean <br>- DateTime <br>- Array <br>- Collections.Hashtable <br>- Management.Automation.SwitchParameter |
+| PowerShell Workflow | - String <br>- Security.SecureString <br>- INT32 <br>- Boolean <br>- DateTime <br>- Array <br>- Collections.Hashtable <br>- Management.Automation.SwitchParameter |
+| Graphical PowerShell| - String <br>- INT32 <br>- INT64 <br>- Boolean <br>- Decimal <br>- DateTime <br>- Object                                                                       |
 | Python              | - String                                                                                                                                                                                        |                                                               |
 
 ## Configure input parameters in PowerShell runbooks
@@ -35,7 +35,7 @@ PowerShell and PowerShell Workflow runbooks in Azure Automation support input pa
 |:--- |:--- |
 | Type |Required. The data type is expected for the parameter value. Any .NET type is valid. |
 | Name |Required. The name of the parameter. This name must be unique within the runbook, must start with a letter, and can contain only letters, numbers, or underscore characters. |
-| Mandatory |Optional. The boolean value specifies if the parameter requires a value. If you set this to True, a value must be provided when the runbook is started. If you set this to False, a value is optional. If you don't specify a value for the `Mandatory` property, PowerShell considers the input parameter optional by default. |
+| Mandatory |Optional. The Boolean value specifies whether the parameter requires a value. If you set this to True, a value must be provided when the runbook is started. If you set this to False, a value is optional. If you don't specify a value for the `Mandatory` property, PowerShell considers the input parameter optional by default. |
 | Default value |Optional. A value that is used for the parameter if no input value is passed in when the runbook starts. The runbook can set a default value for any parameter. |
 
 Windows PowerShell supports more attributes of input parameters than those listed above, such as validation, aliases, and parameter sets. However, Azure Automation currently supports only the listed input parameter properties.
