@@ -159,17 +159,17 @@ Custom skills can be more challenging to debug because the code runs externally,
 Tunnelmole is an open source tunneling tool that can create a public URL that forwards requests to your local machine through a tunnel.
 
 1. Install Tunnelmole:
-  - npm:  `npm install -g tunnelmole`
-  - Linux: `curl -s https://tunnelmole.com/sh/install-linux.sh | sudo bash`
-  - Mac:  `curl -s https://tunnelmole.com/sh/install-mac.sh --output install-mac.sh && sudo bash install-mac.sh`
-  - Windows: Install by using npm. Or if you don't have NodeJS installed, download the [precompiled .exe file for Windows](https://tunnelmole.com/downloads/tmole.exe) and put it somewhere in your PATH.
+   - npm:  `npm install -g tunnelmole`
+   - Linux: `curl -s https://tunnelmole.com/sh/install-linux.sh | sudo bash`
+   - Mac:  `curl -s https://tunnelmole.com/sh/install-mac.sh --output install-mac.sh && sudo bash install-mac.sh`
+   - Windows: Install by using npm. Or if you don't have NodeJS installed, download the [precompiled .exe file for Windows](https://tunnelmole.com/downloads/tmole.exe) and put it somewhere in your PATH.
 
 2. Run this command to create a new tunnel:
-  ```console
-  ➜  ~ tmole 7071
-  http://m5hdpb-ip-49-183-170-144.tunnelmole.net is forwarding to localhost:7071
-  https://m5hdpb-ip-49-183-170-144.tunnelmole.net is forwarding to localhost:7071
-  ```
+   ```console
+   ➜  ~ tmole 7071
+   http://m5hdpb-ip-49-183-170-144.tunnelmole.net is forwarding to localhost:7071
+   https://m5hdpb-ip-49-183-170-144.tunnelmole.net is forwarding to localhost:7071
+   ```
 
 In the preceding example, `https://m5hdpb-ip-49-183-170-144.tunnelmole.net` forwards to port `7071` on your local machine, which is the default port where Azure functions are exposed.
 
