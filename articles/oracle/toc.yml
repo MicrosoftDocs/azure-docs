@@ -11,6 +11,15 @@ items:
   items:
   - name: Overview - Oracle Database@Azure
     href: oracle-db/database-overview.md
+  - name: Onboarding with Oracle Database@Azure
+    href: oracle-db/onboarding-oracle-database.md
   - name: Provision and manage Oracle Database@Azure
     href: oracle-db/provision-oracle-database.md
+  - name: Migrate Oracle Database@Azure
+    href: oracle-db/migrate-oracle-database.md
+  - name: Backup and restore Oracle Database@Azure
+    href: oracle-db/backup-restore-oracle-database.md
+  - name: Support for Oracle Database@Azure
+    href: oracle-db/support-for-oracle-database.md
+
   

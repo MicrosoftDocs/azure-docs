@@ -33,52 +33,20 @@ For Oracle Container Databases (CDB) and Oracle Pluggable Databases (PDB), some 
 
 Database and application developers work in the Azure portal or use Azure tools (Azure API, SDK, Terraform) to interact with Oracle Database@Azure databases.
 
-## Support information 
-In this section, you find information about support for Oracle Database@Azure.
-
-### Azure support scope and contact information 
-
-Azure collaborates with OCI to provide support for the following:
-
--   Virtual networking issues including those involving network address translation (NAT), firewalls, DNS and traffic management, and delegated Azure subnets.
--   Bastion and virtual machine (VM) issues including database host connection, software installation, latency, and host performance.
--   VM metrics, database logs, database events
-
-For information on Azure support, see [Contact Microsoft Azure Support](https://support.microsoft.com/topic/contact-microsoft-azure-support-2315e669-8b1f-493b-5fb1-d88a8736ffe4) in the Azure documentation.
-
-### Oracle support scope and contact information 
-
-If you can't find an answer to a question by searching the documentation, you can submit a question to the [Oracle database on Azure forum](mailto:OracleDB@Azure.com) in Oracle's Cloud Customer Connect community. This option is available to all customers.
-
-For your Oracle database on Azure systems, Oracle Support can assist you with the following types of issues:
-
--   Database connection issues (Oracle TNS)
--   Oracle Database performance issues
--   Oracle Database error resolution
--   Networking issues related to communications with the OCI tenancy associated with the service
--   Quota (limits) increases to receive another capacity
--   Scaling to add more capacity (hardware) to existing OracleDB@Azure systems
--   New generation hardware upgrades
--   Billing issues related to the OracleDB@Azure service
-
-If you're contacting Oracle Support, be sure to tell your Oracle Support agent that your issue is related to OracleDB@Azure, as support requests for this service are handled by a  support team that specializes with these deployments. A member of this team contacts you directly.
-
-1.  Call **1-800-223-1711.** If you're outside of the United States, see [Oracle Support Contacts Global Directory](https://www.oracle.com/support/contact.html) to find contact information for your country or region.
-2.  Choose option "2" to open a new Service Request (SR).
-3.  Choose option "4" for "unsure".
-4.  Enter "#" each time you're asked for your CSI number. At the third attempt, your call is directed to an Oracle Support agent.
-5.  Let the agent know that you have an issue with your multicloud system, and the name of the product (for example,  or ). An internal Service Request is opened on your behalf and a  support engineer contacts you directly.
-
 ## Purchasing Oracle Database@Azure 
 
-For small deployments (for example, an Oracle Base Database system), simply buy Oracle Database@Azure in the Azure Marketplace.
+For small deployments, like an Oracle Base Database system, you can simply buy Oracle Database@Azure in the Azure Marketplace. For purchase larger commitments, like the systems using dedicated Exadata infrastructure, contact the [Oracle sales team](https://www.oracle.com/corporate/contact/) or your Oracle sales representative for a sale offer. Oracle Sales team creates an Azure Private Offer in the Azure Marketplace to set terms and offer custom pricing.
 
-For larger commitments (for example, systems using dedicated Exadata infrastructure),
-
-To purchase Oracle Database@Azure, contact the [Oracle sales team](https://www.oracle.com/corporate/contact/) or your Oracle sales representative for a sale offer. Oracle Sales team creates an Azure Private Offer in the Azure Marketplace to set terms and offer custom pricing.
-
-Existing Azure customers can use a Microsoft Azure Consumption Commitment (MACC) to pay for Oracle Database@Azure. Existing Oracle Database software customers can use the Bring Your Own License (BYOL) option or Unlimited License Agreements (ULAs). Billing and payment for the service is done through Azure. On your regular Microsoft Azure bills, you see charges for your Oracle Database@Azure service alongside charges for your other Azure services.
+Current Azure customers can use a Microsoft Azure Consumption Commitment (MACC) to pay for Oracle Database@Azure. Existing Oracle Database software customers can use the Bring Your Own License (BYOL) option or Unlimited License Agreements (ULAs). Billing and payment for the service is done through Azure. On your regular Microsoft Azure bills, you see charges for your Oracle Database@Azure service alongside charges for your other Azure services.
 
 After an offer is created for your organization, you can accept the offer and complete the purchase in the Azure portal's Marketplace service. Billing and payment for the service is done through Azure.
+
+## Available regions
+
+Oracle Database@Azure is available in the locations listed on this page. Oracle Database@Azure infrastructure resources must be provisioned in these Azure regions. The corresponding  regions listed are the regions used by database administrators for certain container database (CDB) and pluggable database (PDB) management and maintenance operations.
+
+|Azure region|
+|------------|
+|East US (Virginia)|
 
 ## Next steps 
