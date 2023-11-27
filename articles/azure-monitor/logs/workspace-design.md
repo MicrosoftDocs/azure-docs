@@ -32,7 +32,7 @@ The following table presents criteria to consider when you design your workspace
 | [Commitment tiers](#commitment-tiers) | Commitment tiers allow you to reduce your ingestion cost by committing to a minimum amount of daily data in a single workspace. |
 | [Legacy agent limitations](#legacy-agent-limitations) | Legacy virtual machine agents have limitations on the number of workspaces they can connect to. |
 | [Data access control](#data-access-control) | Configure access to the workspace and to different tables and data from different resources. |
-|[Reslience](#resilience)| To ensure that data in your workspace is available in the event of a region failure, you can ingest data into multiple workspaces in different regions.|
+|[Resilience](#resilience)| To ensure that data in your workspace is available in the event of a region failure, you can ingest data into multiple workspaces in different regions.|
 
 ### Operational and security data
 The decision whether to combine your operational data from Azure Monitor in the same workspace as security data from Microsoft Sentinel or separate each into their own workspace depends on your security requirements and the potential cost implications for your environment.
