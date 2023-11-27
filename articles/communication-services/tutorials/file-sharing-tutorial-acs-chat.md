@@ -17,7 +17,7 @@ ms.subservice: chat
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-In an Azure Communication Service Chat ("ACS Chat"), we can enable file sharing between communication users. Note, Azure Communication Services Chat is different from the Teams Interoperability Chat ("Interop Chat"). If you want to enable file sharing in an Interop Chat, refer to [Add file sharing with UI Library in Teams Interoperability Chat](./file-sharing-tutorial-interop-chat.md).
+In an Azure Communication Service Chat, we can enable file sharing between communication users. Note, Azure Communication Services Chat is different from the Teams Interoperability Chat ("Interop Chat"). If you want to enable file sharing in an Interop Chat, refer to [Add file sharing with UI Library in Teams Interoperability Chat](./file-sharing-tutorial-interop-chat.md).
 
 In this tutorial, we're configuring the Azure Communication Services UI Library Chat Composite to enable file sharing. The UI Library Chat Composite provides a set of rich components and UI controls that can be used to enable file sharing. We're using Azure Blob Storage to enable the storage of the files that are shared through the chat thread.
 
