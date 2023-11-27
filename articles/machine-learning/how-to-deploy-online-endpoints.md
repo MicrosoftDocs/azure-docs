@@ -1281,7 +1281,7 @@ If you aren't going use the deployment, you should delete it by running the foll
 
 ---
 
-## Next steps
+## Related content
 
 - [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
 - [Deploy models with REST](how-to-deploy-with-rest.md)

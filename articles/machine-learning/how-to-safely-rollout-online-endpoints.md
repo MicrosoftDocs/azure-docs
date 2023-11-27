@@ -767,7 +767,8 @@ Alternatively, you can delete a managed online endpoint directly by selecting th
 
 ---
 
-## Next steps
+## Related content
+
 - [Explore online endpoint samples](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints)
 - [Deploy models with REST](how-to-deploy-with-rest.md)
 - [Use network isolation with managed online endpoints](how-to-secure-online-endpoint.md)
