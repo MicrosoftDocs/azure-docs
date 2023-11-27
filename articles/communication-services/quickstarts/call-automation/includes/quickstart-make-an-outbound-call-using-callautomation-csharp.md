@@ -58,7 +58,7 @@ var callbackUriHost = "<CALLBACK_URI_HOST_WITH_PROTOCOL>";
 
 ## Make an outbound call
 
-To make the outbound call from ACS, this sample uses the `targetPhonenumber` you defined earlier in the application to create the call using the `CreateCallAsync` API. This code will make an outbound call using the target phone number.
+To make the outbound call from Azure Communication Services, this sample uses the `targetPhonenumber` you defined earlier in the application to create the call using the `CreateCallAsync` API. This code will make an outbound call using the target phone number.
 
 ```csharp
 PhoneNumberIdentifier target = new PhoneNumberIdentifier(targetPhonenumber);
