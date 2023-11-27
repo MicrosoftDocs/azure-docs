@@ -14,6 +14,12 @@ services: azure-maps
 
 This document contains information about new features and other changes to the Azure Maps Drawing Tools Module.
 
+## [1.0.3]
+
+### Other changes (1.0.3)
+
+- Updated CDN links in the readme.
+
 ## [1.0.2]
 
 ### Bug fixes (1.0.2)
@@ -35,6 +41,7 @@ Stay up to date on Azure Maps:
 > [Azure Maps Blog]
 
 
+[1.0.3]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.3
 [1.0.2]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.2
 [Azure Maps Drawing Tools Samples]: https://samples.azuremaps.com/?search=Drawing
 [Azure Maps Blog]: https://techcommunity.microsoft.com/t5/azure-maps-blog/bg-p/AzureMapsBlog
