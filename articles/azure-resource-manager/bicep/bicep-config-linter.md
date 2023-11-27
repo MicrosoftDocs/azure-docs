@@ -33,6 +33,9 @@ The following example shows the rules that are available for configuration.
         "decompiler-cleanup": {
           "level": "warning"
         },
+        "explicit-values-for-loc-params": {
+          "level": "warning"
+        },
         "max-outputs": {
           "level": "warning"
         },
