@@ -47,7 +47,7 @@ To support this integration, Microsoft has added a new **Tenant-based Microsoft 
 
 If you haven't already enabled [incident integration in your Microsoft 365 Defender connector](connect-microsoft-365-defender.md), do so first.
 
-Then, enable the new **Tenant-based Microsoft Defender for Cloud (Preview)** connector. This connector is available through the **Microsoft Defender for Cloud solution**, version 3.0.0, in the Content Hub.
+Then, enable the new **Tenant-based Microsoft Defender for Cloud (Preview)** connector. This connector is available through the **Microsoft Defender for Cloud solution**, version 3.0.0, in the Content Hub. If you have an earlier version of this solution, you can upgrade it in the content hub.
 
 If you had previously enabled the legacy, subscription-based Defender for Cloud connector (which will be displayed as **Subscription-based Microsoft Defender for Cloud (Legacy)** once you've installed the latest version of the Defender for Cloud solution), then you're advised to disable it to prevent duplication of alerts in your logs.
 
