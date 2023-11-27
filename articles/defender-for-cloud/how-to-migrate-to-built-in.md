@@ -4,7 +4,7 @@ description: Learn how to migrate to the built-in Microsoft Defender Vulnerabili
 services: defender-for-cloud
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 11/26/2023
+ms.date: 11/27/2023
 ---
 
 # Migrate to the built-in MDVM solution in Defender for Cloud
@@ -52,26 +52,42 @@ In the Defender for Cloud portal, you have the ability to change the Vulnerabili
 
 1. Ensure that `Endpoint protection` or `Agentless scanning for machines` are toggled to **On**.
 
-You will also need to offboard each VM from the current VA solution by deleting the VM extension. You can delete the VM extensions with the REST API DELETE request or with delete custom policy at scale.
+After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current VA solution. There are three ways to offboard a VM:
 
-## REST API for Azure VMs
+- Delete the VM extension.
+- REST API DELETE request.
+- Delete custom policy at scale.
 
-a.   Using this REST API, you can easily migrate your subscription, at scale, from any VA solution to Microsoft Defender Vulnerability Management. 
+## Migrate with REST API
 
-PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Security/serverVulnerabilityAssessmentsSettings/AzureServersSetting?api-version=2022-01-01-preview
+### REST API for Azure VMs
 
+Using this REST API, you can easily migrate your subscription, at scale, from any VA solution to Microsoft Defender Vulnerability Management.
+
+`PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Security/serverVulnerabilityAssessmentsSettings/AzureServersSetting?api-version=2022-01-01-preview`
+
+```json
 {
    "kind": "AzureServersSetting",
    "properties": {
     "selectedProvider": "MdeTvm"
    }
  }
+```
 
-4. **REST API for multi-cloud VMs**:
+After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current VA solution. There are three ways to offboard a VM:
 
-a.   PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Security/securityconnectors/{connectorName}?api-version=2022-08-01-preview
+- Delete the VM extension.
+- REST API DELETE request.
+- Delete custom policy at scale.
 
-```bash
+### REST API for multicloud VMs
+
+Using this REST API, you can easily migrate your subscription, at scale, from any VA solution to Microsoft Defender Vulnerability Management.
+
+`PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Security/securityconnectors/{connectorName}?api-version=2022-08-01-preview`
+
+```json
 {
   "properties": {
    "hierarchyIdentifier": "{GcpProjectNumber}",
@@ -123,4 +139,12 @@ a.   PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegro
 }
 ```
 
-5. Offboard each VM from the current VA solution either by deleting the VM extension or via REST API DELETE request or with delete custom policy at scale
+After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current VA solution. There are three ways to offboard a VM:
+
+- Delete the VM extension.
+- REST API DELETE request.
+- Delete custom policy at scale.
+
+## Next steps
+
+[Common questions about vulnerability scanning questions](faq-scanner-detection.yml)
