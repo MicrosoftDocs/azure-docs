@@ -174,19 +174,6 @@ items:
             href: professional-voice-train-voice.md
           - name: Deploy and use your voice model
             href: professional-voice-deploy-endpoint.md
-        - name: Create a professional voice
-          items:
-          - name: Create a professional voice project
-            displayName: custom voice, neural voice, cnv
-            href: how-to-custom-voice.md
-          - name: Set up voice talent
-            href: how-to-custom-voice-talent.md
-          - name: Prepare training data
-            href: how-to-custom-voice-prepare-data.md
-          - name: Train your voice model
-            href: how-to-custom-voice-create-voice.md
-          - name: Deploy and use your voice model
-            href: how-to-deploy-and-use-endpoint.md
         - name: Personal voice (preview)
           items:
           - name: Personal voice overview
