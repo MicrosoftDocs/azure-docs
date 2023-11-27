@@ -14,7 +14,7 @@ description: Learn how to monitor Azure Communication Services direct routing co
 
 This article describes how to monitor your direct routing configuration.
 
-The process of making and receiving calls through using direct routing involves the following components:
+The process of making and receiving calls through direct routing involves the following components:
 
 - Session Border Controllers (SBCs)
 - Direct routing components in the Microsoft Cloud
@@ -58,7 +58,7 @@ If two (or more) SBCs in one route are considered healthy and equal, Fisher-Yate
 
 ## Monitor with Azure Portal and SBC logs
 
-During the initial pairing phase, there may be issues related particulary to misconfiguration of the SBCs or the direct routing service.
+During the initial pairing phase, there may be issues related particularly to misconfiguration of the SBCs or the direct routing service.
 
 The following tools can be used to monitor your configuration:  
 
