@@ -15,7 +15,7 @@ Access management is a critical function for any service or resource. The entitl
 
 ## Groups
 
-The entitlements service of Azure Data Manager for Energy allows you to create groups and manage memberships of the groups. An entitlement group defines permissions on services/data sources for your Azure Data Manager for Energy instance. Users added to a given group obtain the associated permissions.
+The entitlements service of Azure Data Manager for Energy allows you to create groups and manage memberships of the groups. An entitlement group defines permissions on services/data sources for a given data partition in your Azure Data Manager for Energy instance. Users added to a given group obtain the associated permissions. Please note that different groups and associated user entitlements need to be set for a new data partition even in the same Azure Data Manager for Energy instance.
 
 The entitlements service enables three use cases for authorization:
 
