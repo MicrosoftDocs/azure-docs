@@ -75,7 +75,7 @@ parameters:
 
 ### Parameter definitions
 
-The following table describes the data types that you can use in environment.yaml. The data type names used in the environment.yaml manifest file differ from those used in ARM templates.
+The following table describes the data types that you can use in environment.yaml. The data type names used in the environment.yaml manifest file differ from the ones used in ARM templates.
 
 Each parameter can use any of the following properties:
 
@@ -84,11 +84,56 @@ Each parameter can use any of the following properties:
 | ID             | string         | Unique ID of the parameter.                     |                                        |
 | name           | string         | Display name of the parameter.                  |                                        |
 | description    | string         | Description of the parameter.                   |                                        |
-| default        | array </br> boolean </br> integer </br> null </br> number </br> object </br> string | The default value of the parameter. |                                        |
-| type           | array </br> boolean </br> integer </br> null </br> number </br> object </br> string | The data type of the parameter.  This data type must match the parameter data type in the ARM template, BICEP file, or Terraform file with the corresponding parameter name. | **Default type:** string |
+| default        | array </br> boolean </br> integer </br> number </br> object </br> string | The default value of the parameter. |                                        |
+| type           | array </br> boolean </br> integer </br> number </br> object </br> string | The data type of the parameter.  This data type must match the parameter data type in the ARM template, BICEP file, or Terraform file with the corresponding parameter name. | **Default type:** string |
 | readOnly       | boolean        | Whether or not this parameter is read-only.     |                                        |
 | required       | boolean        | Whether or not this parameter is required.      |                                        |
 | allowed        | array          | An array of allowed values.                     | "items": { </br> "type": "string" </br> }, </br> "minItems": 1, </br> "uniqueItems": true, |
+
+## YAML schema
+
+There's a defined schema for Azure Deployment Environments environment.yaml files, which can make editing these files a little easier. You can add the schema definition to the beginning of your environment.yaml file:
+
+```yml
+# yaml-language-server: $schema=https://github.com/Azure/deployment-environments/releases/download/2022-11-11-preview/manifest.schema.json
+```
+ 
+Here's an example environment definition that uses the schema:
+
+```yml
+# yaml-language-server: $schema=https://github.com/Azure/deployment-environments/releases/download/2022-11-11-preview/manifest.schema.json
+name: FunctionApp
+version: 1.0.0
+summary: Azure Function App Environment
+description: Deploys an Azure Function App, Storage Account, and Application Insights
+runner: ARM
+templatePath: azuredeploy.json
+
+parameters:
+  - id: name
+    name: Name
+    description: 'Name of the Function App.'
+    type: string
+    required: true
+
+  - id: supportsHttpsTrafficOnly
+    name: 'Supports Https Traffic Only'
+    description: 'Allows https traffic only to Storage Account and Functions App if set to true.'
+    type: boolean
+
+  - id: runtime
+    name: Runtime
+    description: 'The language worker runtime to load in the function app.'
+    type: string
+    allowed:
+      - 'dotnet'
+      - 'dotnet-isolated'
+      - 'java'
+      - 'node'
+      - 'powershell'
+      - 'python'
+    default: 'dotnet-isolated'
+```
 
 ## Related content
 
