@@ -42,15 +42,25 @@ In the Defender for Cloud portal, you have the ability to change the Vulnerabili
 
 1. Locate the Defender for Servers plan and select **Settings**.
 
+    :::image type="content" source="media/how-to-migrate-to-built-in/settings-server.png" alt-text="Screenshot of the Defender for Cloud plan page that shows where to locate and select the settings button under the servers plan." lightbox="media/how-to-migrate-to-built-in/settings-server.png":::
+
 1. Toggle `Vulnerability assessment for machines` to **On**.
 
-1. Select **Edit configuration**.
+    If `Vulnerability assessment for machines` was already set to on, select **Edit configuration**
+
+    :::image type="content" source="media/how-to-migrate-to-built-in/edit-configuration.png" alt-text="Screenshot of the servers plan that shows where the edit configuration button is located." lightbox="media/how-to-migrate-to-built-in/edit-configuration.png":::
 
 1. Select **Microsoft Defender Vulnerability Management**.
 
 1. Select **Apply**. 
 
 1. Ensure that `Endpoint protection` or `Agentless scanning for machines` are toggled to **On**.
+
+    :::image type="content" source="media/how-to-migrate-to-built-in/two-to-on.png" alt-text="Screenshot that shows where to turn on endpoint protection and agentless scanning for machines is located." lightbox="media/how-to-migrate-to-built-in/two-to-on.png":::
+
+1. Select **Continue**.
+
+1. Select **Save**.
 
 After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current VA solution. There are three ways to offboard a VM:
 
