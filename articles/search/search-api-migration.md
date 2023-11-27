@@ -15,16 +15,14 @@ ms.date: 11/27/2023
 
 # Upgrade to the latest REST API in Azure AI Search
 
-Use this article to migrate data plane REST API calls to newer versions of the [**Search REST API**](/rest/api/searchservice/).
+Use this article to migrate data plane REST API calls to newer *stable* versions of the [**Search REST API**](/rest/api/searchservice/).
 
 + **2023-11-01** is the most recent stable version. Semantic ranking and vector search support are generally available in this version.
 
-+ **2023-10-01-preview** is the most recent preview version. Integrated data chunking and vectorization using the Text Split skill and AzureOpenAiEmbedding skill are in this version.
-
-Filter controls on the table of contents provide version-specific API reference pages.
++ **2023-10-01-preview** is the most recent preview version. Integrated data chunking and vectorization using the [Text Split](cognitive-search-skill-textsplit.md) skill and [AzureOpenAiEmbedding](cognitive-search-skill-azure-openai-embedding.md) skill are in this version. There's no migration guidance to preview API versions, but you can review samples and walkthroughs for guidance. See [Integrated vectorization (preview)](vector-search-integrated-vectorization.md) for your first step.
 
 > [!NOTE]
-> A search service supports a range of REST API versions, including earlier ones. Over time, the most outdated versions of the REST API are deprecated and [no longer supported](search-api-versions.md#unsupported-versions).
+> Filter controls on the table of contents provide version-specific API reference pages.
 
 <a name="UpgradeSteps"></a>
 
@@ -38,7 +36,7 @@ Azure AI Search strives for backward compatibility. To upgrade and continue with
 
 + Your code references an API version that predates 2019-05-06 and is subject to one or more of the breaking changes in that release. The section [Upgrade to 2019-05-06](#upgrade-to-2019-05-06) provides more detail. 
 
-If any of these situations apply to you, then you might need to change your code accordingly. Otherwise, no changes should be necessary, although you might want to start using features added in the new version.
+If any of these situations apply to you, change your code to maintain existing functionality. Otherwise, no changes should be necessary, although you might want to start using features added in the new version.
 
 ## Upgrade to 2023-11-01
 
@@ -48,7 +46,7 @@ This version has breaking changes and behavioral differences for semantic rankin
 
 [Vector search](vector-search-overview.md) support was introduced in [Create or Update Index (2023-07-01-preview](/rest/api/searchservice/preview-api/create-or-update-index). If you're migrating from that version, there are new options and several breaking changes. New options include vector filter mode, vector profiles, and an exhaustive K-nearest neighbors algorithm. Breaking changes include renaming and restructuring the vector configuration in the index, and vector query syntax.
 
-If you added vector support using 2023-10-01-preview, there are no breaking changes or behavior differences. Change the API version and rerun verification tests to confirm the migration.
+If you added vector support using 2023-10-01-preview, there are no breaking changes or behavior differences. Change the API version and test your code to confirm the migration.
 
 Here are the steps for migrating from 2023-07-01-preview:
 
@@ -159,12 +157,13 @@ Here are the steps for migrating from 2023-07-01-preview:
 
 1. Call [Create or Update Index](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true) to post the changes, with `allowIndexDowntime=true` on the URI.
 
-1. Modify [Search POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view-true) to change the query syntax.
+1. Modify [Search POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true) to change the query syntax.
 
    + Rename `vectors` to `vectorQueries`.
-   + dd `kind` set to "vector". Rename `value` to `vector`.
-   + Optionally, add `exhaustive` to invoke comprehensive scans over all neighbors in the index. 
-   + Optionally, add `vectorFilterMode` if you're using [filter expressions](vector-search-filters.md) (default is prefilter).
+   + Add `kind`, setting it to "vector".
+   + Rename `value` to `vector`.
+   + Optionally, add `exhaustive` to invoke comprehensive scans over all neighbors in an HNSW index. 
+   + Optionally, add `vectorFilterMode` if you're using [filter expressions](vector-search-filters.md) (default is prefilter, you can change it to postfilter).
 
     **Before (2023-07-01-preview)**:
 
@@ -211,7 +210,7 @@ Here are the steps for migrating from 2023-07-01-preview:
     }
     ```
 
-1. Run verification tests to confirm the migration.
+These steps complete the migration to 2023-11-01 API version.
 
 ## Upgrade to 2020-06-30
 
