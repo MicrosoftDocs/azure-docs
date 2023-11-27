@@ -143,6 +143,8 @@ The transaction table holds information about each blob and a unique hash that i
 
 The block table holds information related to every digest this is created for the blob container and the associated transaction ID for the digest is stored in Azure Confidential Ledger.
 
+> [!NOTE]
+> Every blob creation event will not result in a digest being created. Digests are created after a certain block size is reached. Currently, a digest will be created for every **4 blob creation events**.
 
 ### Viewing digest on Azure Confidential Ledger
 
@@ -172,7 +174,7 @@ An audit can be triggered by including the following message to the Service Bus 
 
 Be sure to include a `Session ID` as the queue has sessions enabled.
 
-### [Python SDK](#tab/python-sdk)
+### [Python SDK](#tab/cli)
 
 ```python
 import json
