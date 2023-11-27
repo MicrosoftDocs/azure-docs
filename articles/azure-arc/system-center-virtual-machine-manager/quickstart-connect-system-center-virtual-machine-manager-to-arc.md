@@ -1,6 +1,6 @@
 ---
 title: Quick Start for Azure Arc-enabled System Center Virtual Machine Manager
-description: In this QuickStart, you will learn how to use the helper script to connect your System Center Virtual Machine Manager management server to Azure Arc.
+description: In this QuickStart, you learn how to use the helper script to connect your System Center Virtual Machine Manager management server to Azure Arc.
 author: PriskeyJeronika-MS
 ms.author: v-gjeronika
 manager: jsuri
@@ -27,8 +27,8 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 | **Requirement** | **Details** |
 | --- | --- |
 | **Azure** | An Azure subscription  <br/><br/> A resource group in the above subscription where you have the *Owner/Contributor* role. |
-| **SCVMM** | You need an SCVMM management server running version 2019 or later.<br/><br/> A private cloud with minimum free capacity of 32 GB of RAM, 4 vCPUs with 100 GB of free disk space. <br/><br/> A VM network with internet access, directly or through proxy. Appliance VM will be deployed using this VM network.<br/><br/> Only Static IP allocation is supported and VMM Static IP Pool is required. Follow [these steps](https://learn.microsoft.com/system-center/vmm/network-pool?view=sc-vmm-2022) to create a VMM Static IP Pool and ensure that the Static IP Pool has at least four IP addresses. Dynamic IP allocation using DHCP is not supported. |
-| **SCVMM accounts** | An SCVMM admin account that can perform all administrative actions on all objects that VMM manages. <br/><br/> The user should be part of local administrator account in the SCVMM server.If SCVMM is installed in a High Availability configuration, the user should be part of the local administrator accounts in all the SCVMM nodes. <br/><br/>This will be used for the ongoing operation of Azure Arc-enabled SCVMM as well as the deployment of the Arc Resource bridge VM. |
+| **SCVMM** | You need an SCVMM management server running version 2019 or later.<br/><br/> A private cloud with minimum free capacity of 32 GB of RAM, 4 vCPUs with 100 GB of free disk space. <br/><br/> A VM network with internet access, directly or through proxy. Appliance VM will be deployed using this VM network.<br/><br/> Only Static IP allocation is supported and VMM Static IP Pool is required. Follow [these steps](../system-center/vmm/network-pool.md?view=sc-vmm-2022&preserve-view=true) to create a VMM Static IP Pool and ensure that the Static IP Pool has at least four IP addresses. Dynamic IP allocation using DHCP isn't supported. |
+| **SCVMM accounts** | An SCVMM admin account that can perform all administrative actions on all objects that VMM manages. <br/><br/> The user should be part of local administrator account in the SCVMM server. If SCVMM is installed in a High Availability configuration, the user should be part of the local administrator accounts in all the SCVMM nodes. <br/><br/>This will be used for the ongoing operation of Azure Arc-enabled SCVMM as well as the deployment of the Arc Resource bridge VM. |
 | **Workstation** | The workstation will be used to run the helper script.<br/><br/> A Windows/Linux machine that can access both your SCVMM management server and internet, directly or through proxy.<br/><br/> The helper script can be run directly from the VMM server machine as well.<br/><br/> To avoid network latency issues, we recommend executing the helper script directly in the VMM server machine.<br/><br/> Note that when you execute the script from a Linux machine, the deployment takes a bit longer and you might experience performance issues. |
 
 ## Prepare SCVMM management server
@@ -97,13 +97,13 @@ The script execution will take up to half an hour and you'll be prompted for var
 
 | **Parameter** | **Details** |
 | --- | --- |
-| **Azure login** | You would be asked to log in to Azure by visiting [this site](https://www.microsoft.com/devicelogin) and pasting the prompted code. |
+| **Azure login** | You would be asked to sign in to Azure by visiting [this site](https://www.microsoft.com/devicelogin) and pasting the prompted code. |
 | **SCVMM management server FQDN/Address** | FQDN for the VMM server (or an IP address). </br> Provide role name if it’s a Highly Available VMM deployment. </br> For example: nyc-scvmm.contoso.com or 10.160.0.1 |
 | **SCVMM Username**</br> (domain\username) | Username for the SCVMM administrator account. The required permissions for the account are listed in the prerequisites above.</br> Example: contoso\contosouser |
 | **SCVMM password** | Password for the SCVMM admin account |
 | **Private cloud selection** | Select the name of the private cloud where the Arc resource bridge VM should be deployed. |
 | **Virtual Network selection** | Select the name of the virtual network to which *Arc resource bridge VM* needs to be connected. This network should allow the appliance to talk to the VMM management server and the Azure endpoints (or internet). |
-| **Static IP pool** | Select the VMM static IP pool that will be used to allot IP address. |
+| **Static IP pool** | Select the VMM static IP pool that will be used to allot the IP address. |
 | **Control Plane IP** | Provide a reserved IP address in the same subnet as the static IP pool used for Resource Bridge deployment. This IP address should be outside of the range of static IP pool used for Resource Bridge deployment and shouldn't be assigned to any other machine on the network. |
 | **Appliance proxy settings** | Type ‘Y’ if there's a proxy in your appliance network, else type ‘N’.|
 | **http** | Address of the HTTP proxy server. |
