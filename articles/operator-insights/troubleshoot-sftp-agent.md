@@ -86,7 +86,7 @@ Steps to remediate:
 - Check that the agent is running on all VMs and isn't reporting errors in logs. Search the logs for the name of the missing file to find errors related to that file.
 
 - Check that the files exist on the SFTP server and that they aren't being excluded due to file source config. Check the file source config and confirm that:
-  - The files exist on the SFTP server under the path defined in `base_path`.
+  - The files exist on the SFTP server under the path defined in `base_path`. Ensure that there are no symbolic links in the file paths of the files to upload: the ingestion agent ignores symbolic links.
   - The "last modified" time of the files is at least `settling_time_secs` seconds earlier than the time of the most recent upload run for this file source.
   - The "last modified" time of the files is later than `exclude_before_time` (if specified).
   - The file path relative to `base_path` matches the regular expression given by `include_pattern` (if specified).
