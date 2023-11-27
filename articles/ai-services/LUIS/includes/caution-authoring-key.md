@@ -1,7 +1,7 @@
 ---
 title: include file
 description: include file
-services: cognitive-services
+#services: cognitive-services
 
 manager: nitinme
 ms.service: azure-ai-language
@@ -13,4 +13,4 @@ ms.subservice: azure-ai-luis
 ---
 
 > [!CAUTION]
-> This quickstart uses the authoring key as as part of the runtime credentials. The authoring key is allowed to query the runtime with a few queries. For staging and production-level code, replace the authoring key with a prediction runtime key.
+> This quickstart uses the authoring key as part of the runtime credentials. The authoring key is allowed to query the runtime with a few queries. For staging and production-level code, replace the authoring key with a prediction runtime key.

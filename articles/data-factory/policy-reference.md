@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 11/03/2023
+ms.date: 11/21/2023
 ---
 
 # Azure Policy built-in definitions for Data Factory

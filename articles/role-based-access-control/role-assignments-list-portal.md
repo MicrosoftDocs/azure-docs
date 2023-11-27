@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/13/2022
+ms.date: 11/06/2023
 ms.author: rolyon
 ---
 
@@ -51,6 +51,28 @@ Users that have been assigned the [Owner](built-in-roles.md#owner) role for a su
 1. Scroll to the **Owners** section to see all the users that have been assigned the Owner role for this subscription.
 
    ![Screenshot of subscription Access control and Role assignments tab.](./media/role-assignments-list-portal/sub-access-control-role-assignments-owners.png)
+
+## List or manage privileged administrator role assignments
+
+On the **Role assignments** tab, you can list and see the count of privileged administrator role assignments at the current scope. For more information, see [Privileged administrator roles](role-assignments-steps.md#privileged-administrator-roles).
+
+1. In the Azure portal, click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
+
+1. Click the specific resource.
+
+1. Click **Access control (IAM)**.
+
+1. Click the **Role assignments** tab and then click the **Privileged** tab to list the privileged administrator role assignments at this scope.
+
+    :::image type="content" source="./media/role-assignments-list-portal/access-control-role-assignments-privileged.png" alt-text="Screenshot of Access control page, Role assignments tab, and Privileged tab showing privileged role assignments." lightbox="./media/role-assignments-list-portal/access-control-role-assignments-privileged.png":::
+
+1. To see the count of privileged administrator role assignments at this scope, see the **Privileged** card.
+
+1. To manage privileged administrator role assignments, see the **Privileged** card and click **View assignments**.
+
+    On the **Manage privileged role assignments** page, you can add a condition to constrain the privileged role assignment or remove the role assignment. For more information, see [Delegate the Azure role assignment task to others with conditions (preview)](delegate-role-assignments-portal.md).
+
+    :::image type="content" source="./media/role-assignments-list-portal/access-control-role-assignments-privileged-manage.png" alt-text="Screenshot of Manage privileged role assignments page showing how to add conditions or remove role assignments." lightbox="./media/role-assignments-list-portal/access-control-role-assignments-privileged-manage.png":::
 
 ## List role assignments at a scope
 

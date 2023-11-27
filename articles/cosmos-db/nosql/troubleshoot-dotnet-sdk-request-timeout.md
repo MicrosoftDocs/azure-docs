@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix .NET SDK request timeout exceptions.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.date: 02/15/2023
+ms.date: 11/16/2023
 ms.author: sidandrews
 ms.topic: troubleshooting
 ms.reviewer: mjbrown
@@ -144,11 +144,22 @@ If you use an HTTP proxy, make sure it can support the number of connections con
 
 ### Create multiple client instances
 
-Creating multiple client instances might lead to connection contention and timeout issues.
+Creating multiple client instances might lead to connection contention and timeout issues. The [Diagnostics](./troubleshoot-dotnet-sdk.md#capture-diagnostics) contain two relevant properties:
+
+```json
+{
+    "NumberOfClientsCreated":X,
+    "NumberOfActiveClients":Y,
+}
+```
+
+`NumberOfClientsCreated` tracks the number of times a `CosmosClient` was created within the same AppDomain, and `NumberOfActiveClients` tracks the active clients (not disposed). The expectation is that if the singleton pattern is followed, `X` would match the number of accounts the application works with and that `X` is equal to `Y`.
+
+If `X` is greater than `Y`, it means the application is creating and disposing client instances. This can lead to [connection contention](#socket-or-port-availability-might-be-low) and/or [CPU contention](#high-cpu-utilization).
 
 #### Solution
 
-Follow the [performance tips](performance-tips-dotnet-sdk-v3.md#sdk-usage), and use a single CosmosClient instance across an entire process.
+Follow the [performance tips](performance-tips-dotnet-sdk-v3.md#sdk-usage), and use a single CosmosClient instance per account across an entire process. Avoid creating and disposing clients.
 
 ### Hot partition key
 

@@ -166,7 +166,7 @@ for loc in range(len(searchPolyResponse["results"])):
 
 ## Upload the reachable range and charging points
 
-It's helpful to visualize the charging stations and the boundary for the maximum reachable range of the electric vehicle on a map. Follow the steps outlined in the [How to create data registry] article to upload the boundary data and charging stations data as geojson objects to your [Azure storage account] then register them in your Azure Maps account. Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is is how you reference the geojson objects you uploaded into your Azure storage account from your source code.
+It's helpful to visualize the charging stations and the boundary for the maximum reachable range of the electric vehicle on a map. Follow the steps outlined in the [How to create data registry] article to upload the boundary data and charging stations data as geojson objects to your [Azure storage account] then register them in your Azure Maps account. Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is how you reference the geojson objects you uploaded into your Azure storage account from your source code.
 
 <!---------------------------------------------------------------------------
 To upload the boundary and charging point data to Azure Maps Data service, run the following two cells:
@@ -330,7 +330,7 @@ routeData = {
 
 ## Visualize the route
 
-To help visualize the route, follow the steps outlined in the [How to create data registry] article to upload the route data as a geojson object to your [Azure storage account] then register it in your Azure Maps account. Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is is how you reference the geojson objects you uploaded into your Azure storage account from your source code. Then, call the rendering service, [Get Map Image API], to render the route on the map, and visualize it.
+To help visualize the route, follow the steps outlined in the [How to create data registry] article to upload the route data as a geojson object to your [Azure storage account] then register it in your Azure Maps account. Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is how you reference the geojson objects you uploaded into your Azure storage account from your source code. Then, call the rendering service, [Get Map Image API], to render the route on the map, and visualize it.
 
 To get an image for the rendered route on the map, run the following script:
 

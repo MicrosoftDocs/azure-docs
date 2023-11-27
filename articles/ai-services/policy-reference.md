@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure AI services
 description: Lists Azure Policy built-in policy definitions for Azure AI services. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 11/03/2023
+ms.date: 11/21/2023
 author: nitinme
 ms.author: nitinme
 ms.service: azure-ai-services

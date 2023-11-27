@@ -1,8 +1,9 @@
 ---
 title: Mobile Content Cloud (MCC) Data Product - Azure Operator Insights
 description: This article provides an overview of the MCC Data Product for Azure Operator Insights
-author: bettylew
-ms.author: bettylew
+author: rcdun
+ms.author: rdunstan
+ms.reviewer: rathishr
 ms.service: operator-insights
 ms.topic: concept-article
 ms.date: 10/25/2023

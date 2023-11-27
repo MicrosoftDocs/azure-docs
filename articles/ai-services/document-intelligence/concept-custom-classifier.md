@@ -6,21 +6,36 @@ author: vkurpad
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/21/2023
 ms.author: lajanuar
-ms.custom: references_regions
-monikerRange: 'doc-intel-3.1.0'
+ms.custom:
+  - references_regions
+  - ignite-2023
+monikerRange: '>=doc-intel-3.1.0'
 ---
 
 
 # Document Intelligence custom classification model
 
-**This article applies to:** ![Document Intelligence checkmark](media/yes-icon.png) **The latest [GA SDK](sdk-overview-v3-1.md) supported by Document Intelligence REST API version [2023-07-31](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)**.
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [preview-version-notice](includes/preview-notice.md)]
+
+**This content applies to:**![checkmark](media/yes-icon.png) **v4.0 (preview)** | **Previous version:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.1 (GA)**](?view=doc-intel-3.1.0&preserve-view=tru)
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+**This content applies to:** ![checkmark](media/yes-icon.png) **v3.1 (GA)** | **Latest version:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true)
+:::moniker-end
+
+::: moniker range=">=doc-intel-4.0.0"
 
 > [!IMPORTANT]
 >
-> Custom classification model is now generally available!
->
+> * Starting with the `2023-10-31-preview` API, analyzing documents with the custom classification model won't split documents by default.
+> * You need to explicitly set the ``splitMode`` property to auto to preserve the behavior from previous releases. The default for `splitMode` is `none`.
+> * If your input file contains multiple documents, you need to enable splitting by setting the ``splitMode`` to ``auto``.
+
+::: moniker-end
 
 Custom classification models are deep-learning-model types that combine layout and language features to accurately detect and identify documents you process within your application. Custom classification models perform classification of an input file one page at a time to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
 
@@ -34,11 +49,11 @@ Custom classification models can analyze a single- or multi-file documents to id
 
 * A single file containing multiple instances of the same document. For instance, a collection of scanned invoices.
 
-✔️ Training a custom classifier requires at least `two` distinct classes and a minimum of `five` samples per class. The model response contains the page ranges for each of the classes of documents identified. 
+✔️ Training a custom classifier requires at least `two` distinct classes and a minimum of `five` document samples per class. The model response contains the page ranges for each of the classes of documents identified.
 
-✔️ The maximum allowed number of classes is `500`. The maximum allowed number of samples per class is `100`.
+✔️ The maximum allowed number of classes is `500`. The maximum allowed number of document samples per class is `100`.
 
-The model classifies each page of the input document to one of the classes in the labeled dataset. Use the confidence score from the response to set the threshold for your application. 
+The model classifies each page of the input document to one of the classes in the labeled dataset. Use the confidence score from the response to set the threshold for your application.
 
 ### Compare custom classification and composed models
 
@@ -54,15 +69,84 @@ A custom classification model can replace [a composed model](concept-composed-mo
 
 Classification models currently only support English language documents.
 
+## Input requirements
+
+* For best results, provide one clear photo or high-quality scan per document.
+
+* Supported file formats:
+
+    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, TIFF, HEIF | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX), and HTML|
+    |--------|:----:|:-----:|:---------------:
+    |Read            | ✔    | ✔    | ✔  |
+    |Layout          | ✔  | ✔ | ✔ (2023-10-31-preview)  |
+    |General&nbsp;Document| ✔  | ✔ |   |
+    |Prebuilt        |  ✔  | ✔ |   |
+    |Custom          |  ✔  | ✔ |   |
+
+    &#x2731; Microsoft Office files are currently not supported for other models or versions.
+
+* For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
+
+* The file size for analyzing documents is 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
+
+* Image dimensions must be between 50 x 50 pixels and 10,000 px x 10,000 pixels.
+
+* If your PDFs are password-locked, you must remove the lock before submission.
+
+* The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 pixel image. This dimension corresponds to about `8`-point text at 150 dots per inch (DPI).
+
+* For custom model training, the maximum number of pages for training data is 500 for the custom template model and 50,000 for the custom neural model.
+
+* For custom extraction model training, the total size of training data is 50 MB for template model and 1G-MB for the neural model.
+
+* For custom classification model training, the total size of training data is `1GB`  with a maximum of 10,000 pages.
+
 ## Best practices
 
 Custom classification models require a minimum of five samples per class to train. If the classes are similar, adding extra training samples improves model accuracy.
 
 ## Training a model
 
-Custom classification models are only available in the [v3.1 API](v3-1-migration-guide.md) version ```2023-07-31```. [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier.
+Custom classification models are supported by **v4.0:2023-10-31-preview** and **v3.1:2023-07-31 (GA)** APIs. [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier.
 
-When using the REST API, if you've organized your documents by folders, you can use the ```azureBlobSource``` property of the request to train a classification model.
+When using the REST API, if you organize your documents by folders, you can use the ```azureBlobSource``` property of the request to train a classification model.
+
+:::moniker range="doc-intel-4.0.0"
+
+```rest
+
+https://{endpoint}/documentintelligence/documentClassifiers:build?api-version=2023-10-31-preview
+
+{
+  "classifierId": "demo2.1",
+  "description": "",
+  "docTypes": {
+    "car-maint": {
+        "azureBlobSource": {
+            "containerUrl": "SAS URL to container",
+            "prefix": "sample1/car-maint/"
+            }
+    },
+    "cc-auth": {
+        "azureBlobSource": {
+            "containerUrl": "SAS URL to container",
+            "prefix": "sample1/cc-auth/"
+            }
+    },
+    "deed-of-trust": {
+        "azureBlobSource": {
+            "containerUrl": "SAS URL to container",
+            "prefix": "sample1/deed-of-trust/"
+            }
+    }
+  }
+}
+
+```
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
 
 ```rest
 https://{endpoint}/formrecognizer/documentClassifiers:build?api-version=2023-07-31
@@ -93,6 +177,8 @@ https://{endpoint}/formrecognizer/documentClassifiers:build?api-version=2023-07-
 }
 
 ```
+
+:::moniker-end
 
 Alternatively, if you have a flat list of files or only plan to use a few select files within each folder to train the model, you can use the ```azureBlobFileListSource``` property to train the model. This step requires a ```file list``` in [JSON Lines](https://jsonlines.org/) format. For each class, add a new file with a list of files to be submitted for training.
 
@@ -138,16 +224,28 @@ File list `car-maint.jsonl` contains the following files.
 
 Analyze an input file with the document classification model
 
+:::moniker range="doc-intel-4.0.0"
+
+```rest
+https://{endpoint}/documentintelligence/documentClassifiers:build?api-version=2023-10-31-preview
+```
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+
 ```rest
 https://{service-endpoint}/formrecognizer/documentClassifiers/{classifier}:analyze?api-version=2023-07-31
 ```
+
+:::moniker-end
 
 The response contains the identified documents with the associated page ranges in the documents section of the response.
 
 ```json
 {
   ...
-    
+
     "documents": [
       {
         "docType": "formA",

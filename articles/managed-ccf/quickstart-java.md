@@ -6,7 +6,7 @@ ms.author: settiy
 ms.date: 09/11/2023
 ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: devx-track-python, mode-api
+ms.custom: mode-api, devx-track-extended-java
 ---
 
 # Quickstart: Create an Azure Managed CCF resource using the Azure SDK for Java
@@ -20,7 +20,8 @@ Azure Managed CCF (Managed CCF) is a new and highly secure service for deploying
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Java Development Kit (KDK) versions that are [supported by the Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/confidentialledger/azure-resourcemanager-confidentialledger/README.md).
+- Java Development Kit (JDK) versions that are [supported by the Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/confidentialledger/azure-resourcemanager-confidentialledger/README.md).
+- [OpenSSL](https://www.openssl.org/) on a computer running Windows or Linux.
 
 ## Setup
 
