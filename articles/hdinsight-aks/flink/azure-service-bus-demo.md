@@ -13,6 +13,8 @@ Let's break down the key components and functionality of the provided code:
 
 ### Main code: ServiceBusToAdlsgen2.java
 
+This Java class, `ServiceBusToAdlsgen2`, orchestrates the entire Flink job for the `DStreamAPI AzureServiceBusDemo`, shows a robust integration between Apache Flink and Azure Service Bus. 
+
 1. **Setting up the execution environment**
 
    The `StreamExecutionEnvironment.getExecutionEnvironment()` method is used to set up the execution environment for the Flink job.
@@ -31,7 +33,7 @@ Let's break down the key components and functionality of the provided code:
 
 1. **Creating a sink for Azure Data Lake Storage Gen2**
 
- A `FileSink object` is created with the output path and a `SimpleStringEncoder`. The `withRollingPolicy` method is used to set a rolling policy for the sink.
+    A `FileSink object` is created with the output path and a `SimpleStringEncoder`. The `withRollingPolicy` method is used to set a rolling policy for the sink.
 
 1. **Adding the sink function to the processed stream**
    
@@ -39,9 +41,11 @@ Let's break down the key components and functionality of the provided code:
 
 1. **Executing the job**
 
-   Finally, the `env.execute("ServiceBusToDataLakeJob")` method is used to execute the Flink job. This starts reading messages from the Azure Service Bus topic, process them, and write them to Azure Data Lake Storage Gen2.
+      Finally, the `env.execute("ServiceBusToDataLakeJob")` method is used to execute the Flink job. This starts reading messages from the Azure Service Bus topic, process them, and write them to Azure Data Lake Storage Gen2.
 
 ### Flink source function: SessionBasedServiceBusSource.java
+
+This Flink source function, encapsulated within the `SessionBasedServiceBusSource.java` class, establishing a connection with Azure Service Bus, retrieving messages, and integrating with Apache Flink for parallel data processing. The following is key aspects of this source function:
 
 1. **Class Definition**
 
@@ -49,19 +53,19 @@ Let's break down the key components and functionality of the provided code:
 
 1. **Instance Variables**
 
-The `connectionString`, `topicName`, and `subscriptionName` variables hold the connection string, topic name, and subscription name for your Azure Service Bus. The isRunning flag is used to control the execution of the source function. The `sessionReceiver` is an instance of `erviceBusSessionReceiverAsyncClient`, which is used to receive messages from the Service Bus.
+   The `connectionString`, `topicName`, and `subscriptionName` variables hold the connection string, topic name, and subscription name for your Azure Service Bus. The isRunning flag is used to control the execution of the source function. The `sessionReceiver` is an instance of `erviceBusSessionReceiverAsyncClient`, which is used to receive messages from the Service Bus.
 
 1. **Constructor**
 
-The constructor initializes the instance variables with the provided values.
+   The constructor initializes the instance variables with the provided values.
 
 1. **run() Method**
 
-This method is where the source function starts to emit data to Flink. It creates a `ServiceBusSessionReceiverAsyncClient`, accepts the next available session, and starts receiving messages from that session. Each message’s body is then collected into the Flink source context.
+   This method is where the source function starts to emit data to Flink. It creates a `ServiceBusSessionReceiverAsyncClient`, accepts the next available session, and starts receiving messages from that session. Each message’s body is then collected into the Flink source context.
 
 1. **cancel() Method**
 
-This method is called when the source function needs to be stopped. It sets the isRunning flag to false and closes the `sessionReceiver`.
+   This method is called when the source function needs to be stopped. It sets the isRunning flag to false and closes the `sessionReceiver`.
 
 ## Requirements
 
@@ -79,24 +83,27 @@ Azure Service Bus is a fully managed enterprise message broker with message queu
 
 ### Reference
 
-[What is Azure Service Bus?](/azure/service-bus-messaging/service-bus-messaging-overview)
+To learn more about Azure Service Bus, refer to the [What is Azure Service Bus?](/azure/service-bus-messaging/service-bus-messaging-overview)
 
-Refer below doc to create Topic and Subscription preparation 
-
-[Use Service Bus Explorer](/azure/service-bus-messaging/explorer)
+For guidance on creating topics and subscriptions, consult the [Service Bus Explorer](/azure/service-bus-messaging/explorer)
 
 :::image type="content" source="./media/azure-service-bus-demo/subscription-topic-1.png" alt-text="Screenshot shows subscription." lightbox="./media/azure-service-bus-demo/subscription-topic-1.png":::
 
-Getting the connection string, topic name, and subscription name for your Azure Service Bus
+**Getting the connection string, topic name, and subscription name** 
+
+To proceed with the integration, obtain the necessary connection string, topic name, and subscription name for your Azure Service Bus. This information is crucial for configuring your Flink job.
 
 :::image type="content" source="./media/azure-service-bus-demo/subscription-name.png" alt-text="Screenshot shows getting the connection string, topic name, and subscription name for your Azure Service Bus." lightbox="./media/azure-service-bus-demo/subscription-name.png":::
 
 
-## Running
+## Running jobs
 
-### Submit the jar into Azure HDInsight on AKS with Flink 1.16 to run
+### Submit the JAR into Azure HDInsight on AKS with Flink 1.16 
 
-In this case, we used webssh to submit
+Once the Flink cluster is created, you can observe on the left pane the **Settings** option to access **Secure Shell** 
+
+To initiate a job, transfer the JAR file into the webssh pod and submit the job using the following command:
+
 ```
 bin/flink run -c contoso.example.ServiceBusToAdlsGen2 -j AzureServiceBusDemo-1.0-SNAPSHOT.jar
 Job has been submitted with JobID fc5793361a914821c968b5746a804570
@@ -104,18 +111,26 @@ Job has been submitted with JobID fc5793361a914821c968b5746a804570
 
 ### Confirm job on Flink UI:
 
+After submitting the job, access the Flink Dashboard UI and click on the running job for further details.
+
 :::image type="content" source="./media/azure-service-bus-demo/confirm-job-flink-ui.png" alt-text="Screenshot shows confirm job on Flink UI." lightbox="./media/azure-service-bus-demo/confirm-job-flink-ui.png":::
 
 ### Sending message from Azure portal Serice Bus Explorer
+
+Navigate to the Service Bus Explorer on the Azure portal and send messages to the corresponding Service Bus.
 
 :::image type="content" source="./media/azure-service-bus-demo/sending-message-azure-portal.png" alt-text="Screenshot shows sending message from Azure portal Serice Bus Explorer." lightbox="./media/azure-service-bus-demo/sending-message-azure-portal.png":::
 
 
 ### Checking job running details on Flink UI:
 
+Review the running details of the job on the Flink UI for insights.
+
 :::image type="content" source="./media/azure-service-bus-demo/checking-job-running-details.png" alt-text="Screenshot shows checking job running details on Flink UI." lightbox="./media/azure-service-bus-demo/checking-job-running-details.png":::
 
 ### Confirm output file in ADLS gen2 on Portal
+
+After successfully publishing messages, verify the output file generated by the Flink job in ADLS Gen2 storage on the Azure portal.
 
 :::image type="content" source="./media/azure-service-bus-demo/confirm-output-file.png" alt-text="Screenshot shows confirm output file in ADLS gen2 on Portal." lightbox="./media/azure-service-bus-demo/confirm-output-file.png":::
 
