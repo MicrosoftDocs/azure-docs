@@ -418,10 +418,8 @@ The benchmark assigns usernames to all of the clients before they start connecti
 | Send to user through REST API | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 |
 |-------------------------------|-------|-------|--------|--------|---------|---------|---------|----------|
 | Connections                   | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000|
-| Inbound messages per second   | 200   | 400   | 2,000  | 10,000 | 20,000  | 40,000  | 100,000 | 200,000  |
-| Outbound messages per second  | 200   | 400   | 2,000  | 10,000 | 20,000  | 40,000  | 100,000 | 200,000  |
-| Inbound bandwidth             | 400 KBps| 800 KBps| 4 MBps| 20 MBps| 40 MBps | 80 MBps | 200 MBps| 400 MBps|
-| Outbound bandwidth            | 400 KBps| 800 KBps| 4 MBps| 20 MBps| 40 MBps | 80 MBps | 200 MBps| 400 MBps|
+| Inbound/Outbound messages per second   | 200   | 400   | 2,000  | 10,000 | 20,000  | 40,000  | 100,000 | 200,000  |
+| Inbound/Outbound bandwidth             | 400 KBps| 800 KBps| 4 MBps| 20 MBps| 40 MBps | 80 MBps | 200 MBps| 400 MBps|
 
 ## Performance test environments
 
