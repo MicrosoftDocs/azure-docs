@@ -36,7 +36,7 @@ The Network Watcher Agent extension can be configured for the following Linux di
 | Oracle Linux | 6.10, 7 and 8+ |
 | Red Hat Enterprise Linux (RHEL) | 6.10, 7, 8 and 9.2 |
 | Rocky Linux | 9.1 |
-| SUSE Linux Enterprise Server | 12 and 15 (SP2, SP3 and SP4) |
+| SUSE Linux Enterprise Server (SLES) | 12 and 15 (SP2, SP3 and SP4) |
 | Ubuntu | 16+ |
 
 > [!NOTE]
