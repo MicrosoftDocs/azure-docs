@@ -554,6 +554,10 @@ Alternatively, you can use the **Models** page to add a deployment:
     :::image type="content" source="media/how-to-safely-rollout-managed-endpoints/add-green-deployment-from-models-page.png" lightbox="media/how-to-safely-rollout-managed-endpoints/add-green-deployment-from-models-page.png" alt-text="A screenshot of Add deployment option from Models page.":::
 1. Follow the previous steps 3 to 9 to finish creating the green deployment.
 
+> [!NOTE]
+> When adding a new deployment to an endpoint, you can adjust the traffic balance between deployments on the "Traffic" page. At this point, though, you should keep the default traffic allocation to the deployments (100% traffic to "blue" and 0% traffic to "green").
+
+
 ### Test the new deployment
 
 Though `green` has 0% of traffic allocated, you can still invoke the endpoint and deployment. Use the **Test** tab in the endpoint's details page to test your managed online deployment. Enter sample input and view the results.
