@@ -313,7 +313,7 @@ The routing cost is significant for sending message to many small groups. Curren
 | Group member count        | 10    | 10    | 10     | 10     | 10     | 10     | 10   | 10  |
 | Group count               | 100   | 200   | 1,000  | 5,000  | 10,000 | 20,000  | 50,000  | 100,000 |
 | Inbound messages per second  | 200   | 400   | 2,000    | 10,000  | 10,000   | 20,000   | 50,000 | 100,000 |
-| Inbound bandwidth  | 400 KBps  | 800 KBps  | 2 MBps     | 20 MBps     | 20 MBps     | 20 MBps    | 40 MBps     | 100 MBps    | 200 MBps     |
+| Inbound bandwidth  | 400 KBps  | 800 KBps  | 4 MBps     | 20 MBps     | 20 MBps     | 20 MBps    | 40 MBps     | 100 MBps    | 200 MBps     |
 | Outbound messages per second | 2,000 | 4,000 | 20,000 | 100,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | Outbound bandwidth | 4 MBps | 8 MBps | 20 MBps | 200 MBps | 200 MBps | 200 MBps | 400 MBps | 1,000 MBps | 2,000 MBps |
 
