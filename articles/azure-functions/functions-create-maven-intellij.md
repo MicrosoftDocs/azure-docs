@@ -24,7 +24,7 @@ Specifically, this article shows you:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An [Azure supported Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure) for Java, version 8 or 11
+- An [Azure supported Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure) for Java, version 8, 11 or 17
 - An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition or Community Edition installed
 - [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 - Latest [Function Core Tools](https://github.com/Azure/azure-functions-core-tools)
@@ -90,7 +90,7 @@ To debug the project locally, follow these steps:
 
    :::image type="content" source="media/functions-create-first-java-intellij/local-debug-functions-button.png" alt-text="Local debug function app button." lightbox="media/functions-create-first-java-intellij/local-debug-functions-button.png":::
 
-1. Click on line *31* of the file *src/main/java/org/example/functions/HttpTriggerFunction.java* to add a breakpoint. Access the endpoint `http://localhost:7071/api/HttpTrigger-Java?name=Azure` again and you'll find the breakpoint is hit. You can then try more debug features like **Step**, **Watch**, and **Evaluation**. Stop the debug session by clicking the **Stop** button.
+1. Click on line *20* of the file *src/main/java/org/example/functions/HttpTriggerFunction.java* to add a breakpoint. Access the endpoint `http://localhost:7071/api/HttpTrigger-Java?name=Azure` again and you'll find the breakpoint is hit. You can then try more debug features like **Step**, **Watch**, and **Evaluation**. Stop the debug session by clicking the **Stop** button.
 
    :::image type="content" source="media/functions-create-first-java-intellij/local-debug-functions-break.png" alt-text="Local debug function app break." lightbox="media/functions-create-first-java-intellij/local-debug-functions-break.png":::
 
@@ -98,7 +98,7 @@ To debug the project locally, follow these steps:
 
 To deploy your project to Azure, follow these steps:
 
-1. Right click your project in IntelliJ Project explorer, then select **Azure -> Deploy to Azure Functions**.
+1. Click and expand the Azure icon in IntelliJ Project explorer, then select **Deploy to Azure -> Deploy to Azure Functions**.
 
    :::image type="content" source="media/functions-create-first-java-intellij/deploy-functions-to-azure.png" alt-text="Deploy project to Azure." lightbox="media/functions-create-first-java-intellij/deploy-functions-to-azure.png":::
 
