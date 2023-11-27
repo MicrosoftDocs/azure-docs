@@ -1,9 +1,6 @@
 ---
 title: Integrate ServiceNow with Microsoft Defender for Cloud
 description: Learn about integrating ServiceNow with Microsoft Defender for Cloud to protect Azure, hybrid, and multicloud machines.
-author: dcurwin
-ms.author: justinha
-ms.reviewer: safeenab
 ms.topic: how-to
 ms.date: 11/26/2023
 ---
@@ -35,13 +32,14 @@ As part of the integration, you can create and monitor tickets in ServiceNow dir
 To onboard ServiceNow to Defender for Cloud, you need a Client ID and Client Secret for the ServiceNow instance. If you don't have a Client ID and Client Secret, follow these steps to create them:
 
 1. Sign in to ServiceNow with an account that has permission to modify the Application Registry.
-1. Browse to **System OAuth**, and select **Application Registry**.
+
+1. Navigate to **System OAuth** > **Application Registry**.
 
    :::image type="content" border="true" source="./media/integration-servicenow/app-registry.png" alt-text="Screenshot of application registry.":::
 
 1. In the upper right corner, select **New**.
 
-   :::image type="content" border="true" source="./media/integration-servicenow/new.png" alt-text="Screenshot of where to start a new instance.":::
+   :::image type="content" border="true" source="./media/integration-servicenow/new.png" alt-text="Screenshot of where to start a new instance." lightbox="media/integration-servicenow/new.png":::
 
 1. Select **Create an OAuth API endpoint for external clients**.
 
@@ -58,7 +56,7 @@ Secret:
    >[!NOTE]
    >The default value of Refresh Token Lifespan is too small. Increase the value as much as possible so that you don't need to refresh the token soon.
 
-   :::image type="content" border="true" source="./media/integration-servicenow/app-details.png" alt-text="Screenshot of application details.":::
+   :::image type="content" border="true" source="./media/integration-servicenow/app-details.png" alt-text="Screenshot of application details." lightbox="media/integration-servicenow/app-details.png":::
 
 1. Select **Submit** to save the API Client ID and Client Secret.
 
@@ -73,7 +71,7 @@ After you complete these steps, you can use this integration name (MDCIntegratio
 
 1. Select **Add integration** > **ServiceNow**.
 
-   :::image type="content" border="true" source="./media/integration-servicenow/add-servicenow.png" alt-text="Screenshot of how to add ServiceNow.":::
+   :::image type="content" border="true" source="./media/integration-servicenow/add-servicenow.png" alt-text="Screenshot of how to add ServiceNow." lightbox="media/integration-servicenow/add-servicenow.png":::
 
    Use the instance URL, name, password, Client ID, and Client Secret that you previously created for the application registry to help complete the ServiceNow general information.
 
@@ -86,8 +84,8 @@ After you complete these steps, you can use this integration name (MDCIntegratio
 
    For simplicity, We recommend creating the integration on the higher scope based on the user permissions. For example, if you have permission for a management group, you could create a single integration of a management group rather than create integrations in each one of the subscriptions.
 
-1. Choose **Default** or **Customized** based on your requirement.
-
+1. Select **Default** or **Customized** based on your requirement.
+   
    The default option creates a Title, Description and Short description in the backend. The customized option lets you choose other fields such as **Incident data**, **Problems data**, and **Changes data**.
 
    :::image type="content" border="true" source="./media/integration-servicenow/customize-fields.png" alt-text="Screenshot of how to customize fields.":::
