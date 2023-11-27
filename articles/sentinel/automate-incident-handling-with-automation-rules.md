@@ -259,7 +259,7 @@ In order for an automation rule to run a playbook, this account must be granted 
 
 When you're configuring an automation rule and adding a **run playbook** action, a drop-down list of playbooks will appear. Playbooks to which Microsoft Sentinel does not have permissions will show as unavailable ("grayed out"). You can grant Microsoft Sentinel permission to the playbooks' resource groups on the spot by selecting the **Manage playbook permissions** link. To grant those permissions, you'll need **Owner** permissions on those resource groups. [See the full permissions requirements](tutorial-respond-threats-playbook.md#respond-to-incidents).
 
-#### Permissions in a multitenant architecture
+#### Permissions in a multi-tenant architecture
 
 Automation rules fully support cross-workspace and [multitenant deployments](extend-sentinel-across-workspaces-tenants.md#manage-workspaces-across-tenants-using-azure-lighthouse) (in the case of multitenant, using [Azure Lighthouse](../lighthouse/index.yml)).
 
@@ -277,7 +277,7 @@ In the specific case of a Managed Security Service Provider (MSSP), where a serv
 
     The scenario looks like this:
 
-    :::image type="content" source="./media/automate-incident-handling-with-automation-rules/automation-rule-multitenant.png" alt-text="Multi-tenant automation rule architecture":::
+    :::image type="content" source="./media/automate-incident-handling-with-automation-rules/automation-rule-multi-tenant.png" alt-text="Multi-tenant automation rule architecture":::
 
     See [our instructions](tutorial-respond-threats-playbook.md#permissions-to-run-playbooks) for setting this up.
 
