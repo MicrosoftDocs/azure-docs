@@ -3,7 +3,7 @@ title: Create custom security standards for Azure resources in Microsoft Defende
 description: Learn how to create custom security standards for Azure resources in Microsoft Defender for Cloud
 ms.topic: how-to
 ms.custom: ignite-2023
-ms.date: 11/21/2023
+ms.date: 11/27/2023
 zone_pivot_groups: manage-asc-initiatives
 ---
 
