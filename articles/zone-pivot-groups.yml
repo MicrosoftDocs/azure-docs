@@ -1838,6 +1838,8 @@ groups:
     title: Go
   - id: programming-language-java
     title: Java
+  - id: programming-language-spring
+    title: Java Spring
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-python
