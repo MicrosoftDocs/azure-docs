@@ -149,14 +149,14 @@ Here are the steps for migrating from 2023-07-01-preview:
       }
     ```
 
-1. Call [Create or Update Index](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true) to post the changes. This api change will allow support of polymorphic vector query types.
+1. Call [Create or Update Index](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true) to post the changes. 
 
-1. Modify [Search POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true) to change the query syntax.
+1. Modify [Search POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true) to change the query syntax. This API change enables support for polymorphic vector query types.
 
    + Rename `vectors` to `vectorQueries`.
    + For each vector query, add `kind`, setting it to "vector".
    + For each vector query, rename `value` to `vector`.
-   + Optionally, add `vectorFilterMode` if you're using [filter expressions](vector-search-filters.md) (default is now prefilter, you can change it to postfilter). 
+   + Optionally, add `vectorFilterMode` if you're using [filter expressions](vector-search-filters.md). The default is  prefilter for indexes created after 2023-10-01. Indexes created before that date only support postfilter, regardless of how you set the filter mode. 
 
     **Before (2023-07-01-preview)**:
 
