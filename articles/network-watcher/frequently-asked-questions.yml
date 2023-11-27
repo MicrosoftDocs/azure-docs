@@ -163,7 +163,7 @@ sections:
         answer: |
           There's no protocol selection option in connection monitor (classic). Tests in connection monitor (classic) only use the TCP protocol, and that's why, during the migration, we create a TCP configuration in tests in the new connection monitor.
 
-  - name: NSG flow logs
+  - name: Flow logs
     questions:
       - question: |
           What does NSG flow logs do?
@@ -179,6 +179,11 @@ sections:
           Can I log ESP and AH traffic using NSG flow logs?
         answer: |
           No, NSG flow logs don't support ESP and AH protocols.
+
+      - question: |
+          Can I log ICMP traffic using Network Watcher flow logs?
+        answer: |
+          No. NSG flow logs and VNet flow logs don't support ICMP protocol.
 
       - question: |
           How do I use NSG flow logs with a storage account behind a firewall?
@@ -222,7 +227,3 @@ sections:
         answer: |
           Yes, you can automate NSG flow logs via Azure Resource Manager templates (ARM templates). For more information, see [Configure NSG flow logs using an Azure Resource Manager (ARM) template](quickstart-configure-network-security-group-flow-logs-from-arm-template.md).
 
-      - question: |
-          Can I log ICMP traffic using Network Watcher flow logs?
-        answer: |
-          No. NSG flow logs and VNet flow logs don't support ICMP protocol.
