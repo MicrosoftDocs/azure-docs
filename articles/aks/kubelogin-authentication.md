@@ -8,7 +8,9 @@ ms.date: 11/27/2023
 
 # Use Kubelogin with Azure Kubernetes Service (AKS)
 
-Kubelogin is a client-go credential [plugin][client-go-cred-plugin] that implements Microsoft Entra ID authentication. Microsoft Entra ID integrated clusters using a Kubernetes version newer than version 1.24 automatically use the `kubelogin` format.
+Kubelogin is a client-go credential [plugin][client-go-cred-plugin] that implements Microsoft Entra ID authentication. Azure Kubernetes Service (AKS) clusters integrated with Microsoft Entra ID running Kubernetes versions 1.24 and higher automatically use the `kubelogin` format.
+
+This article provides an overview of the different authentication methods and examples on how to use them.
 
 ## Limitations
 
