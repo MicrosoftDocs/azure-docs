@@ -193,28 +193,27 @@ By using Tanzu Partner Buildpacks and CA Certificates Buildpack, the Azure Sprin
 
 A build task is triggered when an application is deployed from an Azure CLI command. Build logs are streamed in real time as part of the CLI command output. For information about using build logs to diagnose problems, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
 
-## Build History
-All Build Resources are showed in the `Builds`, shown as below picture. 
+## Build history
 
-:::image type="content" source="media/how-to-enterprise-build-service/build-table.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Build Service page with 'Builds' highlighted." lightbox="media/how-to-enterprise-build-service/build-table.png":::
+You can see all the build resources in the **Builds** section of the Azure Spring Apps Build Service page.
 
-* `Name`: the name of the build.
-* `Provisioning State`: the provision state of the build. The possible values are `Succeeded`, `Failed`, `Updating` and `Creating`. When the provisioning state is `Updating` or `Creating`, the build can't be updated. When the provision state is `Failed`, it means your latest source code build failed to generate a new build result.
-* `Resource Quota`: the resource quota in build pod of the build.
-* `Builder`: the builder used in the build.
-* `Latest Build Result`: the latest build result image tag of the build.
-* `Latest Build Result Provisioning State`: the latest build result provisioning state of the build. The possible values are `Queuing`, `Building`, `Succeeded` and `Failed`.
-* `Latest Build Result Last Transition Time`: the last transition time for the latest build result of the build.
-* `Latest Build Result Last Transition Reason`: the last transition Reason for the latest build result of the build. The possible values are `CONFIG`, `STACK` and `BUILDPACK`. The `CONFIG` means the build result changed by builder updates or a new source code deploy operation. The `Stack` means the build result changed by stack upgrade. The `BUILDPACK` means the build result changed by buildpack upgrade.
-* `Latest Build Result Last Transition Status`: the last transition status for the latest build result of the build. The possible values are `True` or `False`.
+:::image type="content" source="media/how-to-enterprise-build-service/build-table.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Build Service page with Builds highlighted." lightbox="media/how-to-enterprise-build-service/build-table.png":::
 
-### Provisioning State, Latest Build Result Provisioning State and Latest Build Result Last Transition Status
+- **Build Name**: The name of the build.
+- **Provisioning State**: The provisioning state of the build. The values are **Succeeded**, **Failed**, **Updating** and **Creating**. Provisioning state `Updating` or `Creating` means the build can't be updated until the current build finishes. Provisioning state is **Failed** means your latest source code build failed to generate a new build result.
+- **Resource Quota**: The resource quota in build pod of the build.
+- **Builder**: The builder used in the build.
+- **Latest Build Result**: The latest build result image tag of the build.
+- **Latest Build Result Provisioning State**: The latest build result provisioning state of the build. The values are **Queuing**, **Building**, **Succeeded**, and **Failed**.
+- **Latest Build Result Last Transition Time**: The last transition time for the latest build result of the build.
+- **Latest Build Result Last Transition Reason**: The last transition reason for the latest build result of the build. The values are **CONFIG**, **STACK**, and **BUILDPACK**. **CONFIG** value means the build result is changed by builder updates or by a new source code deploy operation. **STACK** value means the build result is changed by stack upgrade and **BUILDPACK** value means the build result is changed by buildpack upgrade.
+- **Latest Build Result Last Transition Status**: The last transition status for the latest build result of the build. The values are **True** and **False**.
 
-The `Provisioning State` is the provision state of the build. When it's `Failed`, it means the last build doesn't trigger a new build result, please redeploy the source code. If the error persists, please create a support ticket. 
+For `Provisioning State`, when the value is **Failed**, deploy the source code again. If the error persists, create a support ticket.
 
-The `Latest Build Result Provisioning State` is the provisioning state of the latest build result. When it's `Failed`, it means the build failed, please check build logs for more details, see [Troubleshoot common build issues in Azure Spring Apps](troubleshoot-build-exit-code.md). 
+For `Latest Build Result Provisioning State`, when the value is **Failed**, check the build logs. For more information, see [Troubleshoot common build issues in Azure Spring Apps](troubleshoot-build-exit-code.md). 
 
-The `Latest Build Result Last Transition Status` is the last transition status for the latest build result of the build. When it's `False`, it means the last update of the latest build result failed. Please see `Latest Build Result Last Transition Reason`, if the reason is `BUILDPACK` or `STACK`, the failure won't affect the deployment. It just doesn't use the latest buildpacks or stacks version. If the reason is `CONFIG`, please redeploy the source code. If the error persists, please create a support ticket.
+For `Latest Build Result Last Transition Status`, when the value is **Failed**, see the **Latest Build Result Last Transition Reason** column. If the reason is `BUILDPACK` or `STACK`, the failure won't affect the deployment. If the reason is `CONFIG`, deploy the source code again. If the error persists, create a support ticket.
 
 ## Next steps
 

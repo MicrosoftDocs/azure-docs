@@ -426,38 +426,38 @@ Your application must listen on port 8080. Spring Boot applications override the
 
 The following table indicates the features supported for each language.
 
-| Feature                                                         | Java | Python | Node | .NET Core | Go | [Static Files](how-to-enterprise-deploy-static-file.md) | Java Native Image |PHP |
-|-----------------------------------------------------------------|------|--------|------|-----------|----|---------------------------------------------------------|-------------------|----|
-| App lifecycle management                                        | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |            ✔️ | 
-| Assign endpoint                                                 | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |            ✔️ | 
-| Azure Monitor                                                   | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      |                   |          ✔️ | 
-| Out of box APM integration                                      | ✔️  |        |      |           |    |                                                         |                   |      | 
-| Blue/green deployment                                           | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |            ✔️ | 
-| Custom domain                                                   | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |            ✔️ | 
-| Scaling - auto scaling                                          | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      |                   |          ✔️ | 
-| Scaling - manual scaling (in/out, up/down)                      | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |            ✔️ | 
-| Managed Identity                                                | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ️                 |           ✔️ | 
-| API portal for VMware Tanzu                                   | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️                                                     | ✔️                |              ✔️ | 
-| Spring Cloud Gateway for VMware Tanzu                         | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️                                                     | ✔️                |              ✔️ | 
-| Application Configuration Service for VMware Tanzu            | ✔️   |        |      |           |    |                                                         | ✔️               |         | 
-| VMware Tanzu Service Registry                                 | ✔️   |        |      |           |    |                                                         | ✔️               |         | 
-| App Live View for VMware Tanzu                                | ✔️   |        |      |           |    |                                                         | ✔️               |         | 
-| Virtual network                                                 | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |            ✔️ | 
-| Outgoing IP Address                                             | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |            ✔️ | 
-| E2E TLS                                                         | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |            ✔️ | 
-| Advanced troubleshooting - thread/heap/JFR dump                 | ✔️  |        |      |           |    |                                                         |                   |      |
-| Bring your own storage                                          | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |            ✔️ | 
-| Integrate service binding with Resource Connector               | ✔️  |        |      |           |    |                                                         |   ✔️              |       |
-| Availability Zone                                               | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |            ✔️ | 
-| App Lifecycle events                                            | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |            ✔️ | 
-| Reduced app size - 0.5 vCPU and 512 MB                          | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |            ✔️ | 
-| Automate app deployments with Terraform and Azure Pipeline Task | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |            ✔️ | 
-| Soft Deletion                                                   | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |            ✔️ | 
-| Interactive diagnostic experience (AppLens-based)               | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |            ✔️ | 
-| SLA                                                             | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |            ✔️ | 
-| Customize health probes                                         | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |            ✔️ | 
-| Web shell connect for troubleshooting                           | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ️   ✔️           |             ✔️ | 
-| Remote debugging                                                | ✔️  |        |      |           | ️    | ️                                                        | ️                 |      |
+| Feature                                                         | Java | Python | Node | .NET Core | Go | [Static Files](how-to-enterprise-deploy-static-file.md) | Java Native Image | PHP |
+|-----------------------------------------------------------------|------|--------|------|-----------|----|---------------------------------------------------------|-------------------|-----|
+| App lifecycle management                                        | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| Assign endpoint                                                 | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| Azure Monitor                                                   | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      |                   | ✔️ |
+| Out of box APM integration                                      | ✔️  |        |      |           |    |                                                         |                   |     |
+| Blue/green deployment                                           | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| Custom domain                                                   | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| Scaling - auto scaling                                          | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      |                   | ✔️ |
+| Scaling - manual scaling (in/out, up/down)                      | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| Managed Identity                                                | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ️                 | ✔️ |
+| API portal for VMware Tanzu                                     | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| Spring Cloud Gateway for VMware Tanzu                           | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| Application Configuration Service for VMware Tanzu              | ✔️  |        |      |           |    |                                                         | ✔️                |     |
+| VMware Tanzu Service Registry                                   | ✔️  |        |      |           |    |                                                         | ✔️                |     |
+| App Live View for VMware Tanzu                                  | ✔️  |        |      |           |    |                                                         | ✔️                |     |
+| Virtual network                                                 | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| Outgoing IP Address                                             | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| E2E TLS                                                         | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| Advanced troubleshooting - thread/heap/JFR dump                 | ✔️  |        |      |           |    |                                                         |                   |     |
+| Bring your own storage                                          | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| Integrate service binding with Resource Connector               | ✔️  |        |      |           |    |                                                         | ✔️                |     |
+| Availability Zone                                               | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| App Lifecycle events                                            | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| Reduced app size - 0.5 vCPU and 512 MB                          | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| Automate app deployments with Terraform and Azure Pipeline Task | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| Soft Deletion                                                   | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| Interactive diagnostic experience (AppLens-based)               | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| SLA                                                             | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| Customize health probes                                         | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               | ✔️  |
+| Web shell connect for troubleshooting                           | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ️   ✔️           | ✔️  |
+| Remote debugging                                                | ✔️  |        |      |           | ️  | ️                                                       | ️                 |     |
 
 For more information about the supported configurations for different language apps, see the corresponding section later in this article.
 
