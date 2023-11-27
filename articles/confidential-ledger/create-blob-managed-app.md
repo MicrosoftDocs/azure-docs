@@ -53,7 +53,7 @@ On the Azure portal, you can navigate to the storage account that you would like
 
 The queue uses sessions to maintain ordering across multiple storage accounts so you will also need to navigate to the `Delivery Properties` tab and to enter a unique session ID for this event subscription.
 
-### [CLI](#tab/cli)
+### [CLI](#tab/cli-or-sdk)
 
 **Creating the Event Topic:**
 
@@ -108,7 +108,7 @@ The Managed Application requires the `Storage Blob Data Owner` role to read and 
 
 :::image type="content" source="./media/managed-application/managed-app-managed-identity-inline.png" alt-text="Screenshot of the Azure portal in a web browser, showing how to set up a managed identity for the managed app." lightbox="./media/managed-application/managed-app-managed-identity-enhanced.png":::
 
-### [CLI](#tab/cli)
+### [CLI](#tab/cli-or-sdk)
 
 ```azurecli
 az role assignment create \
@@ -122,10 +122,10 @@ az role assignment create \
 
 `scope` - Resource ID of storage account to create the role for
 
+---
+
 > [!NOTE]
 > Multiple storage accounts can be connected to a single Managed Application instance. We currently recommend a maximum of **10 storage accounts** that contain high usage blob containers.
-
----
 
 ## Adding blobs and digest creation
 
@@ -174,7 +174,7 @@ An audit can be triggered by including the following message to the Service Bus 
 
 Be sure to include a `Session ID` as the queue has sessions enabled.
 
-### [Python SDK](#tab/cli)
+### [Python SDK](#tab/cli-or-sdk)
 
 ```python
 import json
