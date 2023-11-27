@@ -111,7 +111,7 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 
 :::image type="content" source="media/how-to-manage-users/profile-object-id.png" alt-text="Screenshot of finding the object-id from the profile.":::
 
-## First time addition of user to a new data partition
+## First time addition of users in a new data partition
 In order to add entitlements to a new data partition of Azure Data Manager for Energy instance, use the SPN  token of the app which was used to provision the instance. If you try to directly use user tokens for adding entitlements, it results in 401 error. The SPN token must be used to add initial users in the system and those users (with admin access) can manage rest of the additional users.
 
 The SPN is generated using client_credentials flow
@@ -125,7 +125,7 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 --data-urlencode 'resource=<client-id>'
 ```
 
-## Get the list of all available groups for a data partition
+## Get the list of all available groups in a data partition
 
 Run the below curl command in Azure Cloud Bash to get all the groups that are available for your Azure Data Manager for the Energy instance and its data partitions.
 
@@ -178,7 +178,7 @@ Consider an Azure Data Manager for Energy instance named "medstest" with a data 
 > The app-id is the default OWNER of all the groups.
 :::image type="content" source="media/how-to-manage-users/appid.png" alt-text="Screenshot of app-d in Microsoft Entra ID.":::
 
-## Add user(s) to an entitlements group
+## Add user(s) to an entitlements group in a data partition
 
 1. Run the below curl command in Azure Cloud Bash to add the user(s) to an entitlement group using the Entitlement service.
 2. The value to be sent for the param **"email"** is the **Object_ID (OID)** of the user and not the user's email.
@@ -219,7 +219,7 @@ Consider an Azure Data Manager for Energy instance named "medstest" with a data 
     }
 ```
 
-## Get entitlements groups for a given user
+## Get entitlements groups for a given user in a data partition
 
 1. Run the below curl command in Azure Cloud Bash to get all the groups associated with the user.
 
@@ -259,7 +259,7 @@ Consider an Azure Data Manager for Energy instance named "medstest" with a data 
     }
 ```
 
-## Delete entitlement groups of a given user
+## Delete entitlement groups of a given user in a data partition
 
 1. Run the below curl command in Azure Cloud Bash to delete a given user from a given data partition.
 2. As stated above, **DO NOT** delete the OWNER of a group unless you have another OWNER who can manage users in that group.
