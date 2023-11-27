@@ -8,7 +8,7 @@ ms.reviewer: mopeakande
 author: dem108
 ms.author: sehan
 ms.subservice: mlops
-ms.date: 09/18/2023
+ms.date: 10/24/2023
 ms.topic: conceptual
 ms.custom: how-to, devplatv2, event-tier1-build-2022
 ---
@@ -86,7 +86,7 @@ For example, you can split along the deployment dimension to compare the request
 
 **Bandwidth throttling**
 
-Bandwidth will be throttled if the quota limits are exceeded for _managed_ online endpoints. For more information on limits, see the article on [managing and increasing quotas for managed online endpoints](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)). To determine if requests are throttled:
+Bandwidth will be throttled if the quota limits are exceeded for _managed_ online endpoints. For more information on limits, see the article on [limits for online endpoints](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints). To determine if requests are throttled:
 - Monitor the "Network bytes" metric
 - The response trailers will have the fields: `ms-azureml-bandwidth-request-delay-ms` and `ms-azureml-bandwidth-response-delay-ms`. The values of the fields are the delays, in milliseconds, of the bandwidth throttling.
 For more information, see [Bandwidth limit issues](how-to-troubleshoot-online-endpoints.md#bandwidth-limit-issues).
@@ -149,13 +149,13 @@ There are three logs that can be enabled for online endpoints:
 
 * **AMLOnlineEndpointConsoleLog**: Contains logs that the containers output to the console. Below are some cases: 
 
-    * If the container fails to start, the console log may be useful for debugging. 
+    * If the container fails to start, the console log can be useful for debugging. 
 
     * Monitor container behavior and make sure that all requests are correctly handled. 
 
     * Write request IDs in the console log. Joining the request ID, the AMLOnlineEndpointConsoleLog, and AMLOnlineEndpointTrafficLog in the Log Analytics workspace, you can trace a request from the network entry point of an online endpoint to the container.  
 
-    * You may also use this log for performance analysis in determining the time required by the model to process each request. 
+    * You can also use this log for performance analysis in determining the time required by the model to process each request. 
 
 * **AMLOnlineEndpointEventLog**: Contains event information regarding the container’s life cycle. Currently, we provide information on the following types of events: 
 

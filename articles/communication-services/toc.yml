@@ -307,6 +307,8 @@ items:
         href: how-tos/calling-sdk/reactions.md
       - name: Spotlight
         href: how-tos/calling-sdk/spotlight.md
+      - name: Teams Meeting Audio Conferencing
+        href: how-tos/calling-sdk/audio-conferencing.md
       - name: Show transcription state
         href: how-tos/calling-sdk/call-transcription.md
       - name: Manage role assignment

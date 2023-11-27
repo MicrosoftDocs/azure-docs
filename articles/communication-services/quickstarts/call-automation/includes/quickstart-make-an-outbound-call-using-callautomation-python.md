@@ -111,7 +111,7 @@ We pass the audio file into the `play_prompt` parameter and then call `start_rec
 
 ```python
 file_source = FileSource(MAIN_MENU_PROMPT_URI)
-call_connection_client.start_recognizing_media(input_type=RecognizeInputType.DTMF,
+call_automation_client.start_recognizing_media(input_type=RecognizeInputType.DTMF,
         target_participant=target_participant,
         play_prompt=file_source,
         interrupt_prompt=True,
@@ -127,6 +127,8 @@ When the telephony endpoint selects a DTMF tone, Azure Communication Services Ca
 
 ```python
 event = CloudEvent.from_dict(event_dict)
+call_connection_id = event.data['callConnectionId']
+call_connection_client = call_automation_client.get_call_connection(call_connection_id)
 if event.type == "Microsoft.Communication.RecognizeCompleted":
     selected_tone = event.data['dtmfResult']['tones'][0]
     if selected_tone == DtmfTone.ONE:
