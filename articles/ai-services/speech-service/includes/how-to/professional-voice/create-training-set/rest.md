@@ -22,21 +22,20 @@ To create a training set, use the `TrainingSets_Create` operation of the custom 
 - Set the required `voiceKind` property to `Male` or `Female`. The kind can't be changed later. 
 - Set the required `locale` property. This should be the locale of the consent. The locale can't be changed later. You can find the text to speech locale list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
 - Optionally, set the `displayName` property for the training set name. The training set name can be changed later.
-- Optionally, remove or replace `JessicaTrainingId` with a training set ID of your choice. The case sensitive ID will be used in the training set's URI and can't be changed later. 
 
 Make an HTTP POST request using the URI as shown in the following `TrainingSets_Create` example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
+- Optionally, remove or replace `JessicaTrainingId` with a training set ID of your choice. The case sensitive ID will be used in the training set's URI and can't be changed later. 
 
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
   "description": "300 sentences Jessica data in general style.",
   "displayName": "Training set name",
-  "id": "JessicaTrainingId",
   "projectId": "JessicaProjectId",
   "locale": "en-US",
   "voiceKind": "Female"
-} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/trainingsets?api-version=2023-12-01-preview"
+} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/trainingsets/JessicaTrainingId?api-version=2023-12-01-preview"
 ```
 
 You should receive a response body in the following format:

@@ -27,22 +27,21 @@ To add consent to a personal voice project from the URL of an audio file, use th
 - Set the required `companyName` property. The company name can't be changed later.
 - Set the required `audioUrl` property. The public accessible URL of the consent audio file.
 - Set the required `locale` property. This should be the locale of the consent. The locale can't be changed later. You can find the text to speech locale list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
-- Optionally, remove or replace `JessicaConsentId` with a consent ID of your choice. The case sensitive ID will be used in the consent's URI and can't be changed later. 
 
 Make an HTTP POST request using the URI as shown in the following `Consents_Create` example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
+- Optionally, remove or replace `JessicaConsentId` with a consent ID of your choice. The case sensitive ID will be used in the consent's URI and can't be changed later. 
 
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
   "description": "Consent for Jessica voice",
-  "id": "JessicaConsentId",
   "projectId": "JessicaProjectId",
   "voiceTalentName": "Jessica Smith",
   "companyName": "Contoso",
   "audioUrl": "https://contoso.blob.core.windows.net/public/jessica-consent.wav",
   "locale": "en-US"
-} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/consents?api-version=2023-12-01-preview"
+} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/consents/JessicaConsentId?api-version=2023-12-01-preview"
 ```
 
 You should receive a response body in the following format:

@@ -22,20 +22,19 @@ To create a personal voice project, use the `Projects_Create` operation of the c
 
 - Set the required `description` property. The description can be changed later.
 - Set the required `kind` property to `PersonalVoice`. The kind can't be changed later.
-- Optionally, remove or replace `JessicaProjectId` with a project ID of your choice. The case sensitive ID must be unique within your Speech resource. The ID will be used in the project's URI and can't be changed later. 
 - Optionally, set the `displayName` property for the project name. The project name can be changed later.
 
 Make an HTTP POST request using the URI as shown in the following `Projects_Create` example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
+- Optionally, remove or replace `JessicaProjectId` with a project ID of your choice. The case sensitive ID must be unique within your Speech resource. The ID will be used in the project's URI and can't be changed later. 
 
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
-  "id": "JessicaProjectId",
   "displayName": "Project name for Jessica Voice",
   "description": "Project description for Jessica Voice",
   "kind": "PersonalVoice"
-} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/projects?api-version=2023-12-01-preview"
+} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/projects/JessicaProjectId?api-version=2023-12-01-preview"
 ```
 
 You should receive a response body in the following format:
