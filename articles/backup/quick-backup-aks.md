@@ -25,57 +25,60 @@ The Azure Backup vault communicates with the cluster via the Backup extension to
 
 ## Configure backup for an AKS cluster
 
-To configure backup for a cluster:
-
 1. In the Azure portal, go to the AKS cluster that you want to back up.
 
 1. Select **Backup** > **Configure backup**.
   
-1. Select the Backup vault to configure backup.
+1. Select the Azure Backup vault to configure a backup.
   
-    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-vault.png" alt-text="Screenshot that shows the Configure backup page." lightbox="./media/azure-kubernetes-service-cluster-backup/select-vault.png":::
+    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-vault.png" alt-text="Screenshot that shows the Configure Backup page." lightbox="./media/azure-kubernetes-service-cluster-backup/select-vault.png":::
 
-    The Backup vault should have *Trusted Access* enabled for the AKS cluster to be backed up. You can enable *Trusted Access* by selecting **Grant permission**. If it's already enabled, select **Next**.
-    
-    :::image type="content" source="./media/quick-backup-aks/backup-vault-review.png" alt-text="Screenshot showing review page for Configure Backup." lightbox="./media/quick-backup-aks/backup-vault-review.png":::
+    The Backup vault should have **Trusted Access** enabled for the AKS cluster to be backed up. To enable **Trusted Access**, select **Grant permission**. If it's already enabled, select **Next**.
+
+    :::image type="content" source="./media/quick-backup-aks/backup-vault-review.png" alt-text="Screenshot that shows the review page for Configure Backup." lightbox="./media/quick-backup-aks/backup-vault-review.png":::
 
     >[!NOTE]
-    >Before you enable *Trusted Access*, enable the `TrustedAccessPreview` feature flag for the Microsoft.ContainerServices resource provider on the subscription.
+    >Before you enable **Trusted Access**, enable the `TrustedAccessPreview` feature flag for the Microsoft.ContainerServices resource provider on the subscription.
 
-1. Select the backup policy, which defines the schedule for backups and their retention period, and then select **Next**.
-    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-backup-policy.png" alt-text="Screenshot showing Backup policy page." lightbox="./media/azure-kubernetes-service-cluster-backup/select-backup-policy.png":::
+1. Select a backup policy, which defines the schedule for backups and their retention period. Then select **Next**.
 
-1. Select **Add/Edit** to define the Backup Instance configuration.
-    
-    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/define-backup-instance-configuration.png" alt-text="Screenshot showing the Add/Edit option for configure backup." lightbox="./media/azure-kubernetes-service-cluster-backup/define-backup-instance-configuration.png":::
+    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-backup-policy.png" alt-text="Screenshot that shows the Backup policy tab." lightbox="./media/azure-kubernetes-service-cluster-backup/select-backup-policy.png":::
 
-1. In the context pane, define the cluster resources you want to back up. [Learn more](./azure-kubernetes-service-cluster-backup-concept.md).
-    :::image type="content" source="./media/quick-backup-aks/resources-to-backup.png" alt-text="Screenshot shows how to select resources to the Backup pane." lightbox="./media/quick-backup-aks/resources-to-backup.png":::
+1. On the **Datasources** tab, select **Add/Edit** to define the backup instance configuration.
 
-1. Select **Snapshot resource group** where the Persistent volumes (Azure Disk) snapshots will be stored. Then select **Validate**.  
-    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png" alt-text="Screenshot showing **Snapshot resource group** blade." lightbox="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png":::
+    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/define-backup-instance-configuration.png" alt-text="Screenshot that shows the Add/Edit option on the Datasources tab." lightbox="./media/azure-kubernetes-service-cluster-backup/define-backup-instance-configuration.png":::
 
-1. After validation is complete, if appropriate roles aren't assigned to the vault on **Snapshot resource group**, an error appears.
+1. In the **Select Resources to Backup** pane, define the cluster resources that you want to back up. [Learn more](./azure-kubernetes-service-cluster-backup-concept.md).
 
-    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validation-error-on-permissions-not-assigned.png" alt-text="Screenshot showing validation error message." lightbox="./media/azure-kubernetes-service-cluster-backup/validation-error-on-permissions-not-assigned.png":::  
+    :::image type="content" source="./media/quick-backup-aks/resources-to-backup.png" alt-text="Screenshot shows how to select resources to add to the backup." lightbox="./media/quick-backup-aks/resources-to-backup.png":::
 
-1. To resolve the error, select the checkbox next to the **Datasource name** > **Assign missing roles**.
-    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/start-role-assignment.png" alt-text="Screenshot showing how to resolve validation error." lightbox="./media/azure-kubernetes-service-cluster-backup/start-role-assignment.png":::
-1. Once the role assignment is complete, select **Next** and proceed for backup.
-    :::image type="content" source="./media/quick-backup-aks/backup-role-assignment.png" alt-text="Screenshot showing resolved Configure Backup page." lightbox="./media/quick-backup-aks/backup-role-assignment.png":::
-1. Select Configure backup.
+1. For **Snapshot resource group**, select a resource group to store the persistent volumes (Azure Disk) snapshots. Then select **Validate**.
 
-1. Once the configuration is complete, select **Next**.
+    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png" alt-text="Screenshot that shows the Snapshot resource group dropdown." lightbox="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png":::
 
-    :::image type="content" source="./media/quick-backup-aks/backup-vault-review.png" alt-text="Screenshot showing review Configure Backup page." lightbox="./media/quick-backup-aks/backup-vault-review.png":::
+1. When validation is finished, if appropriate roles aren't assigned to the vault for **Snapshot resource group**, an error appears.
 
-   The Backup Instance is created after the backup configuration is complete.
+    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validation-error-on-permissions-not-assigned.png" alt-text="Screenshot that shows validation error message." lightbox="./media/azure-kubernetes-service-cluster-backup/validation-error-on-permissions-not-assigned.png":::  
 
-    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/backup-instance-details.png" alt-text="Screenshot showing configured backup for AKS cluster." lightbox="./media/azure-kubernetes-service-cluster-backup/backup-instance-details.png":::
+1. To resolve the error, select the checkbox next to **Datasource name** > **Assign missing roles**.
 
+    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/start-role-assignment.png" alt-text="Screenshot that shows how to resolve validation error." lightbox="./media/azure-kubernetes-service-cluster-backup/start-role-assignment.png":::
 
-## Next steps
+1. When the role assignment is complete, select **Next** and proceed to back up.
 
-Learn how to [restore backups to an AKS cluster](./azure-kubernetes-service-cluster-restore.md).
+    :::image type="content" source="./media/quick-backup-aks/backup-role-assignment.png" alt-text="Screenshot that shows resolved Configure Backup page." lightbox="./media/quick-backup-aks/backup-role-assignment.png":::
 
- 
+1. Select **Configure backup**.
+
+1. When the configuration is finished, select **Next**.
+
+    :::image type="content" source="./media/quick-backup-aks/backup-vault-review.png" alt-text="Screenshot that shows the Review Configure Backup page." lightbox="./media/quick-backup-aks/backup-vault-review.png":::
+
+   The backup instance is created when you finish configuring the backup.
+
+    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/backup-instance-details.png" alt-text="Screenshot that shows a configured backup for an AKS cluster." lightbox="./media/azure-kubernetes-service-cluster-backup/backup-instance-details.png":::
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Restore a backup for an AKS cluster](./azure-kubernetes-service-cluster-restore.md)
