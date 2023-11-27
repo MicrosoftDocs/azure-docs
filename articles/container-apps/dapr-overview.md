@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022, build-2023
 ms.topic: conceptual
-ms.date: 08/28/2023
+ms.date: 11/27/2023
 ---
 
 # Dapr integration with Azure Container Apps
@@ -356,6 +356,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 
 Now that you've learned about Dapr and some of the challenges it solves:
 
+- [Learn how to initialize Dapr components in your container app environment.](./dapr-init.md)
 - [Create an Azure Dapr component via the Azure Container Apps portal][dapr-component-connection]
 - Try [Deploying a Dapr application to Azure Container Apps using the Azure CLI][dapr-quickstart] or [Azure Resource Manager][dapr-arm-quickstart].
 - Walk through a tutorial [using GitHub Actions to automate changes for a multi-revision, Dapr-enabled container app][dapr-github-actions].
