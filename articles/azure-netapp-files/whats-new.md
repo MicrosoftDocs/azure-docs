@@ -13,15 +13,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: devx-track-linux
 ms.topic: overview
-ms.date: 11/08/2023
+ms.date: 11/27/2023
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
-
+  
 ## November 2023
+
+* [Capacity pool enhancement:](azure-netapp-files-set-up-capacity-pool.md) New lower limits
+
+    * 2 TiB capacity pool: The 2 TiB lower limit for capacity pools using Standard network features is now generally available (GA).
+
+    * 1 TiB capacity pool: Azure NetApp Files now supports a lower limit of 1 TiB for capacity pool sizing with Standard network features. This feature is currently in preview.
 
 * [Metrics enhancement: Throughput limits](azure-netapp-files-metrics.md#volumes)
 
