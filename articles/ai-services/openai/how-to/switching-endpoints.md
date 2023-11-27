@@ -111,9 +111,7 @@ client = AzureOpenAI(
 
 ## Keyword argument for model
 
-OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of [deployments](create-resource.md?pivots=web-portal#deploy-a-model) and uses the `deployment_id` keyword argument to describe which model deployment to use. Azure OpenAI also supports the use of `engine` interchangeably with `deployment_id`. `deployment_id` corresponds to the custom name you chose for your model during model deployment. By convention in our docs, we often show `deployment_id`'s which match the underlying model name, but if you chose a different deployment name that doesn't match the model name you need to use that name when working with models in Azure OpenAI.
-
-For OpenAI `engine` still works in most instances, but it's deprecated and `model` is preferred.
+OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of unique model [deployments](create-resource.md?pivots=web-portal#deploy-a-model). When using Azure OpenAI `model` should refer to the underling deployment name you chose when you deployed the model. 
 
 <table>
 <tr>
