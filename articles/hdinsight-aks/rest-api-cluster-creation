@@ -1,0 +1,151 @@
+---
+title: Manage HDInsight on AKS clusters using Powershell (Preview)
+description: Manage HDInsight on AKS clusters using Powershell.
+ms.service: hdinsight-aks
+ms.topic: how-to
+ms.date: 11/26/2023
+---
+
+# Manage HDInsight on AKS clusters using Azure REST API 
+
+Learn how to create an HDInsight cluster using an Azure Resource Manager template and the Azure REST API. 
+
+The Azure REST API allows you to perform management operations on services hosted in the Azure platform, including the creation of new resources such as HDInsight clusters. 
+
+ 
+
+## Create a template 
+
+Azure Resource Manager templates are JSON documents that describe a resource group and all resources in it (such as HDInsight on AKS.) This template-based approach allows you to define the resources that you need for HDInsight in one template. 
+ 
+
+## Create Cluster 
+
+Here we are going to create a cluster in an existing cluster pool. 
+
+
+Variables required in the script 
+
+- Cluster Name 
+
+- Cluster Pool Name 
+
+- Subscription ID 
+
+- Resource Group Name 
+
+- Region Name 
+
+- Cluster Type 
+
+- SKU 
+
+- Woker Node count 
+- MSI resource id: “/subscriptions/<subscription ID>/resourcegroups/<resource group name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<Managed identity name>" 
+
+- MSI client id(See below) 
+
+- MSI object id (See below) 
+
+ 
+
+- Microsoft Entra user ID: Find tenant ID, domain name, user object ID - Partner 	Center | Microsoft Learn 
+
+- HDInsight on AKS VM list: 
+
+  https://learn.microsoft.com/en-us/azure/hdinsight-aks/virtual-machine-		recommendation-capacity-planning 
+
+ 
+To create a cluster, copy the following command to your REST API tool e.g Postman 
+
+
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusterpools/{clusterPoolName}/clusters/{clusterName}?api-version=2023-06-01-preview 
+
+ 
+
+Please copy the following template into you REST API body 
+
+{ 
+
+  "location": "East US", 
+
+  "properties": { 
+
+    "clusterType": "spark", 
+
+    "computeProfile": { 
+
+      "nodes": [ 
+
+        { 
+
+          "type": "worker", 
+
+          "vmSize": "Standard_E8ads_v5", 
+
+          "count": 3 
+
+        } 
+
+      ] 
+
+    }, 
+
+    "clusterProfile": { 
+
+      "clusterVersion": "1.0.6", 
+
+      "ossVersion": "3.3.1", 
+
+      "identityProfile": { 
+
+        "msiResourceId": "/subscriptions/{subscription id}/resourceGroups/{resource group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{Managed Identity}", 
+
+        "msiClientId": "{}", 
+
+        "msiObjectId": "{}" 
+
+      }, 
+
+      "authorizationProfile": { 
+
+        "userIds": [ 
+
+          "{Microsoft Entra user id}" 
+
+        ] 
+
+      }, 
+
+      "serviceConfigsProfiles": [], 
+
+      "sparkProfile": { 
+
+        "defaultStorageUrl": "{abfs://<container name>@<storage name>.dfs.core.windows.net/}" 
+
+      }, 
+
+      "sshProfile": { 
+
+        "count": 1 
+
+      } 
+
+    } 
+
+  } 
+
+} 
+
+ 
+
+Run the API call 
+
+ 
+
+## Next Steps: 
+
+To Customize and manage the cluster, you can refer to the following documentation: 
+Resource Manager | Microsoft Learn 
+
+ 
