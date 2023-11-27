@@ -83,17 +83,17 @@ Azure Service Bus is a fully managed enterprise message broker with message queu
 
 ### Reference
 
-To learn more about Azure Service Bus, refer to the [What is Azure Service Bus?](/azure/service-bus-messaging/service-bus-messaging-overview)
+- To learn more about Azure Service Bus, refer to the [What is Azure Service Bus?](/azure/service-bus-messaging/service-bus-messaging-overview)
 
-For guidance on creating topics and subscriptions, consult the [Service Bus Explorer](/azure/service-bus-messaging/explorer)
+- For guidance on creating topics and subscriptions, consult the [Service Bus Explorer](/azure/service-bus-messaging/explorer)
 
-:::image type="content" source="./media/azure-service-bus-demo/subscription-topic-1.png" alt-text="Screenshot shows subscription." lightbox="./media/azure-service-bus-demo/subscription-topic-1.png":::
+  :::image type="content" source="./media/azure-service-bus-demo/subscription-topic-1.png" alt-text="Screenshot shows subscription." lightbox="./media/azure-service-bus-demo/subscription-topic-1.png":::
 
-**Getting the connection string, topic name, and subscription name** 
+- **Getting the connection string, topic name, and subscription name** 
 
-To proceed with the integration, obtain the necessary connection string, topic name, and subscription name for your Azure Service Bus. This information is crucial for configuring your Flink job.
+ To proceed with the integration, obtain the necessary connection string, topic name, and subscription name for your Azure Service Bus. This information is crucial for configuring your Flink job.
 
-:::image type="content" source="./media/azure-service-bus-demo/subscription-name.png" alt-text="Screenshot shows getting the connection string, topic name, and subscription name for your Azure Service Bus." lightbox="./media/azure-service-bus-demo/subscription-name.png":::
+ :::image type="content" source="./media/azure-service-bus-demo/subscription-name.png" alt-text="Screenshot shows getting the connection string, topic name, and subscription name for your Azure Service Bus." lightbox="./media/azure-service-bus-demo/subscription-name.png":::
 
 
 ## Running jobs
