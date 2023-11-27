@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: In this article, you learn how to use the bubble layer in an Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 11/14/2022
+ms.date: 12/04/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -75,6 +75,25 @@ When the **bubble layer** displays on a map, the **Category labels** settings be
 The **Category labels** settings enable you to customize font setting such as font type, size and color as well as the category labels background color and transparency.
 
 :::image type="content" source="./media/power-bi-visual/category-labels-example.png" alt-text="A screenshot showing the category labels on an Azure Maps map in Power BI." lightbox="./media/power-bi-visual/category-labels-example.png":::
+
+## Adding a cluster bubble layer
+
+Cluster bubble layers enable you to use enhanced data aggregation capabilities based on different zoom levels. Cluster bubble layers are designed to optimize the visualization and analysis of data by allowing dynamic adjustments to granularity as users zoom in or out on the map.
+
+:::image type="content" source="./media/power-bi-visual/cluster-bubble-layer.png" lightbox="./media/power-bi-visual/cluster-bubble-layer.png" alt-text="A screenshot showing an Azure Maps Power BI visual with a cluster bubble layer.":::
+
+Azure Maps Power BI visual offers a range of configuration options to provide flexibility when customizing the appearance of cluster bubbles. With parameters like cluster bubble size, color, text size, text color, border color, and border width, you can tailor the visual representation of clustered data to align with your reporting needs.
+
+:::image type="content" source="./media/power-bi-visual/visualizations-settings-cluster-bubbles.png" alt-text="A screenshot showing the format visual options for a cluster bubble layer.":::
+
+| Setting       | Description                                     | Values |
+|---------------|-------------------------------------------------|--------|
+| Bubble Size   | The size of each cluster bubble. Default: 12 px  | 1-50 px |
+| Cluster Color | Fill color of each cluster bubble.              |        |
+| Text Size     | The size of the number indicating the quantity of clustered bubbles. Default: 18 px.| 1-100 px|
+| Text Color    | Text color of the number displayed in the cluster bubbles.| |
+| Boarder Color | The color of the bubbles outline. Unavailable when the **High-contrast outline** option is enabled. ||
+| Boarder Width | The width of the border in pixels.              |         |
 
 ## Next steps
 
