@@ -7,37 +7,61 @@ ms.date: 11/27/2023
 ---
 # DStreamAPI AzureServiceBusDemo
 
-This page provides overview and demonstration of `DStreamAPI AzureServiceBusDemo`, a Flink job demonstration is designed to read messages from an Azure Service Bus topic and writes them to Data Lake Storage Gen2 (ADLS Gen2).
+This page provides an overview and demonstration of `DStreamAPI AzureServiceBusDemo`, a Flink job demonstration is designed to read messages from an Azure Service Bus topic and writes them to Data Lake Storage Gen2 (ADLS Gen2).
 
 Let's break down the key components and functionality of the provided code:
 
 ### Main code: ServiceBusToAdlsgen2.java
 
-1. **Setting up the execution environment**: The StreamExecutionEnvironment.getExecutionEnvironment() method is used to set up the execution environment for the Flink job.
+1. **Setting up the execution environment**
 
-1. **Creating a source function for Azure Service Bus**: A SessionBasedServiceBusSource object is created with the connection string, topic name, and subscription name for your Azure Service Bus. This object is a source function that can be used to create a data stream.
+   The `StreamExecutionEnvironment.getExecutionEnvironment()` method is used to set up the execution environment for the Flink job.
 
-1. **Creating a data stream**: The env.addSource(sourceFunction) method is used to create a data stream from the source function. Each message from the Azure Service Bus topic becomes an element in this stream.
+1. **Creating a source function for Azure Service Bus**
 
-1. **Processing the data**: The stream.map(value -> processValue(value)) method is used to process each element in the stream. In this case, the processValue method is applied to each element. This is where you’d put your processing logic.
+   A `SessionBasedServiceBusSource` object is created with the connection string, topic name, and subscription name for your Azure Service Bus. This object is a source function that can be used to create a data stream.
 
-1. **Creating a sink for Azure Data Lake Storage Gen2**: A FileSink object is created with the output path and a SimpleStringEncoder. The withRollingPolicy method is used to set a rolling policy for the sink.
+1. **Creating a data stream**
 
-1. **Adding the sink function to the processed stream**: The processedStream.sinkTo(sink) method is used to add the sink function to the processed stream. Each processed element is written to a file in Azure Data Lake Storage Gen2.
+   The `env.addSource(sourceFunction)` method is used to create a data stream from the source function. Each message from the Azure Service Bus topic becomes an element in this stream.
 
-1. **Executing the job**: Finally, the env.execute("ServiceBusToDataLakeJob") method is used to execute the Flink job. This starts reading messages from the Azure Service Bus topic, process them, and write them to Azure Data Lake Storage Gen2.
+1. **Processing the data**
+
+   The `stream.map(value -> processValue(value))` method is used to process each element in the stream. In this case, the `processValue` method is applied to each element. This is where you’d put your processing logic.
+
+1. **Creating a sink for Azure Data Lake Storage Gen2**
+
+ A `FileSink object` is created with the output path and a `SimpleStringEncoder`. The `withRollingPolicy` method is used to set a rolling policy for the sink.
+
+1. **Adding the sink function to the processed stream**
+   
+    The `processedStream.sinkTo(sink)` method is used to add the sink function to the processed stream. Each processed element is written to a file in Azure Data Lake Storage Gen2.
+
+1. **Executing the job**
+
+   Finally, the `env.execute("ServiceBusToDataLakeJob")` method is used to execute the Flink job. This starts reading messages from the Azure Service Bus topic, process them, and write them to Azure Data Lake Storage Gen2.
 
 ### Flink source function: SessionBasedServiceBusSource.java
 
-1. **Class Definition**: The SessionBasedServiceBusSource class extends `RichParallelSourceFunction<String>`, which is a base class for implementing a parallel data source in Flink.
+1. **Class Definition**
 
-1. **Instance Variables**: The connectionString, topicName, and subscriptionName variables hold the connection string, topic name, and subscription name for your Azure Service Bus. The isRunning flag is used to control the execution of the source function. The sessionReceiver is an instance of ServiceBusSessionReceiverAsyncClient, which is used to receive messages from the Service Bus.
+    The `SessionBasedServiceBusSource` class extends `RichParallelSourceFunction<String>`, which is a base class for implementing a parallel data source in Flink.
 
-1. **Constructor**: The constructor initializes the instance variables with the provided values.
+1. **Instance Variables**
 
-1. **run() Method**: This method is where the source function starts to emit data to Flink. It creates a ServiceBusSessionReceiverAsyncClient, accepts the next available session, and starts receiving messages from that session. Each message’s body is then collected into the Flink source context.
+The `connectionString`, `topicName`, and `subscriptionName` variables hold the connection string, topic name, and subscription name for your Azure Service Bus. The isRunning flag is used to control the execution of the source function. The `sessionReceiver` is an instance of `erviceBusSessionReceiverAsyncClient`, which is used to receive messages from the Service Bus.
 
-1. **cancel() Method**: This method is called when the source function needs to be stopped. It sets the isRunning flag to false and closes the sessionReceiver.
+1. **Constructor**
+
+The constructor initializes the instance variables with the provided values.
+
+1. **run() Method**
+
+This method is where the source function starts to emit data to Flink. It creates a `ServiceBusSessionReceiverAsyncClient`, accepts the next available session, and starts receiving messages from that session. Each message’s body is then collected into the Flink source context.
+
+1. **cancel() Method**
+
+This method is called when the source function needs to be stopped. It sets the isRunning flag to false and closes the `sessionReceiver`.
 
 ## Requirements
 
