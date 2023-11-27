@@ -49,7 +49,7 @@ items:
     - name: Configure resources from the CLI
       expanded: false
       items:
-       - name: Install Azure CLI dev center extension
+       - name: Install Azure CLI extension
          href: how-to-install-devcenter-cli-extension.md
        - name: Create and configure a dev center
          href: how-to-create-configure-dev-center.md
