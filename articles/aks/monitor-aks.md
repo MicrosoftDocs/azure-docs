@@ -134,7 +134,7 @@ Container Insights collect various types of telemetry data from containers and K
 | Workloads, Deployments, and HPAs | InsightsMetrics, KubePodInventory, KubeEvents, ContainerInventory, ContainerNodeInventory, KubeNodeInventory, KubeServices | |
 | Persistent Volumes | InsightsMetrics, KubePVInventory | |
 
-:::image type="content" source="media/monitor-aks/monitorconfig.png" alt-text="Screenshot of AKS data plane logs collection configuration page." lightbox="media/monitor-aks/monitorconfig.png":::
+:::image type="content" source="media/monitor-aks/monitor-config.png" alt-text="Screenshot of AKS data plane logs collection configuration page." lightbox="media/monitor-aks/monitor-config.png":::
 
 The **Logs and events** grouping captures the logs from the _ContainerLog_ or _ContainerLogV2_, _KubeEvents_, _KubePodInventory_ tables, but not the metrics. The recommended path to collect metrics is to enable [Azure Monitor managed service Prometheus for Prometheus](../azure-monitor/essentials/prometheus-metrics-overview.md) from your AKS cluster and to use [Azure Managed Grafana](../managed-grafana/overview.md) for data visualization. For more information, see [Manage an Azure Monitor workspace](../azure-monitor/essentials/azure-monitor-workspace-manage.md).
 
