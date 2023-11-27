@@ -134,7 +134,7 @@ During the cluster upgrade process, AKS performs the following operations:
 * [Cordon and drain][kubernetes-drain] one of the old nodes to minimize disruption to running applications. If you're using max surge, it [cordons and drains][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified.
 * For long running pods, you can configure the node drain timeout, which allows for custom wait time on the eviction of pods and graceful termination per node. If not specified, the default is 30 minutes.
 * When the old node is fully drained, it's reimaged to receive the new version and becomes the buffer node for the following node to be upgraded.
-* You have the option to set a node soak time to wait between draining a node, proceeding to reimage it, and moving onto the next node. The recommended node soak time is close to 0 minutes, with a maximum of 30 minutes. If not specified, the default is 0 minutes.
+* Optionally, you can set a node soak time to wait between draining a node, reimaging it, and then moving on to the next node. The minimum soak time value is 0 minutes, with a maximum of 30 minutes. If not specified, the default value is 0 minutes.
 * This process repeats until all nodes in the cluster have been upgraded.
 * At the end of the process, the last buffer node is deleted, maintaining the existing agent node count and zone balance.
 
@@ -248,7 +248,7 @@ When you have a long running workload on a certain pod and it cannot be reschedu
 
 #### Set node soak time value
 
-To stagger any type of node upgrade in a controlled manner, and minimize application downtime during upgrade, you can set the node soak time to a value between 0 and 30 minutes. These short time intervals allow you to complete other tasks, like checking application health on Grafana dashboards, throughout the upgrade process. We recommend a small value, close to 0 minutes, and a maximum of 30 minutes to minimize disruptions.
+To stagger a node upgrade in a controlled manner and minimize application downtime during an upgrade, you can set the node soak time to a value between 0 and 30 minutes. A short time interval allows you to complete other tasks, such as checking application health from a Grafana dashboard during the upgrade process. We recommend a short timeframe for the upgrade process, as close to 0 minutes as reasonably possible. Otherwise, a higher node soak time affects how long before you discover an issue.
 
 * Set node soak time for new or existing node pools using the [`az aks nodepool add`][az-aks-nodepool-add], [`az aks nodepool update`][az-aks-nodepool-update], or [`az aks nodepool upgrade`][az-aks-nodepool-upgrade] command.
 
