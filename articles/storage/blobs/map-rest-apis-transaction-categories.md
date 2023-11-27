@@ -82,7 +82,7 @@ The price of each type appears in the [Azure Blob Storage pricing](https://azure
 
 <sup>1</sup>    In addition to a read charge, charges are incurred for the **Query Acceleration - Data Scanned**, and **Query Acceleration - Data Returned** transaction categories that appear on the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
 
-<sup>1</sup> When the source object is in a different account, the source account incurs one transaction for each read request to the source object.
+<sup>2</sup> When the source object is in a different account, the source account incurs one transaction for each read request to the source object.
 
 ## Operation type of each Data Lake Storage Gen2 REST operation
 

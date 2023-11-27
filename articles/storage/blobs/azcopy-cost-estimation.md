@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 10/05/2023
+ms.date: 11/27/2023
 ms.author: normesta
 ms.custom: subject-cost-optimization
 ---
