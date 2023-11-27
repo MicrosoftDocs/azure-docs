@@ -4,7 +4,7 @@ description: This article helps you troubleshoot common problems and errors you 
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 11/10/2023
+ms.date: 11/27/2023
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -40,6 +40,11 @@ VM Image Builder failures can happen in two areas:
 
 - During image template submission
 - During image building
+
+> [!NOTE]
+> CIS-hardened images (Linux or Windows) on Azure marketplace, managed by CIS, can cause build failures with Azure Image Builder service due to their configurations. For instance:
+> - CIS-Hardened Windows images might disrupt WinRM connectivity, a prerequisite for AIB build.
+> - CIS Linux images can fail due to `chmod +x` permission issues.
 
 ## Troubleshoot image template submission errors
 
