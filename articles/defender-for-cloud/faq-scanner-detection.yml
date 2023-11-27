@@ -17,7 +17,7 @@ sections:
       - question: |
          How can I test the Microsoft Defender Vulnerability Management’s (MDVM) scanner detection VS Qualys by myself?
         answer: |
-         There's a [CVE workbook](https://aka.ms/CVEDashboard) that covers both the built-in Qualys VA solution and the built-in MDVM solution. The workbook demonstrates the differences in information found when both MDVM and Qualys In Defender for Servers are deployed on resources in your subscriptions
+         You can use the [CVE workbook](https://aka.ms/CVEDashboard) which covers both the built-in Qualys VA solution and the built-in MDVM solution. The CVE workbook provides an overview of machines in your environment that are affected by open vulnerabilities with a focus on CVE IDs. It will show vulnerability findings for either Microsoft Defender Vulnerability Management, or the integrated Qualys VA scanner.
 
 
       - question: |
@@ -31,7 +31,7 @@ sections:
         answer: |
           Refer to the [list of compatible operating systems](https://learn.microsoft.com/microsoft-365/security/defender-vulnerability-management/tvm-supported-os?view=o365-worldwide) that are compatible with the MDVM scanner.
 
-          If your machine’s operating system isn't on the list of compatible OSs, an upgrade is necessary to allow MDVM to perform a scan.
+          If your machine’s operating system isn't on the list of compatible OS, an upgrade is necessary to allow MDVM to perform a scan.
 
 
       - question: |
@@ -44,9 +44,9 @@ sections:
         answer: |
           1. **Hybrid approach:** offers flexible deployments options, by utilizing a consistent vulnerability scanner across various use cases. It's applicable in multicloud environments and different host runtimes: 
           
-            - ** Agentless vulnerability assessment:**  Enabling agentless scanning on a subscription automatically scan all virtual machines in Azure, AWS, and GCP for software inventory and vulnerabilities, powered by MDVM. 
+          - ** Agentless vulnerability assessment:**  Enabling agentless scanning on a subscription automatically scan all virtual machines in Azure, AWS, and GCP for software inventory and vulnerabilities, powered by MDVM. 
             
-            - **Consolidated agent:** MDVM uses the same agent as Microsoft Defender for Endpoints (MDE) to protect servers, so, if you're an existing MDE customer, you're automatically covered by MDVM.
+          - **Consolidated agent:** MDVM uses the same agent as Microsoft Defender for Endpoints (MDE) to protect servers, so, if you're an existing MDE customer, you're automatically covered by MDVM.
           
           1. **Software vulnerability evidence (coming soon)**: The MDVM scanner identifies vulnerable software and provides the corresponding file path and/or registry key as evidence.
 
@@ -57,27 +57,27 @@ sections:
       - question: |
           If I'm using an EDR solution other than MDE, how can I upgrade my VA solution to MDVM?
         answer: |
-          For cloud resources, Defender for Servers recommends enabling Agentless scanning to enable coverage while minimizing the effect on your machines’ performance. When you enable the coverage, MDVM’s VA findings are visible in Defender for Cloud’s portal. 
+          For cloud resources, we recommend enabling Agentless scanning under the Defender for Servers plan, to enable coverage while minimizing the effect on your machine's performance. When you enable the coverage, MDVM’s VA findings are visible in Defender for Cloud’s portal. 
 
           If you're using an on-premises machine, you're required to install the MDE agent. The MDE agent is needed to scan vulnerabilities using the MDVM solution.
       
       - question: |
           What are the capabilities of the agent-based Microsoft Defender Vulnerability Management that I’m eligible for when I enable the Defender for Servers P2 plan?
         answer: |
-          Software Inventory.
+          - Software Inventory.
 
-          Digital certificates assessment.
+          - Digital certificates assessment.
 
-          Security baselines assessment.
+          - Security baselines assessment.
 
-          Network share configuration assessment.
+          - Network share configuration assessment.
 
           Learn more about the [MDVM premium capabilities](https://learn.microsoft.com/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management?view=o365-worldwide).
 
       - question: |
           How can I continue to use the Qualys VA solution in Defender for Servers?
         answer: |
-          Defender for Servers support the use of Bring Your Own License (BYOL) VA solution, which is powered by Qualys or Rapid 7, allowing you to continue to use these vendors. Learn more about the [BYOL VA solution](deploy-vulnerability-assessment-byol-vm.md).
+          Defender for Servers support the use of Bring Your Own License (BYOL) VA solution, which is powered by Qualys or Rapid7, allowing you to continue to use these vendors. Learn more about the [BYOL VA solution](deploy-vulnerability-assessment-byol-vm.md).
 
 
       - question: |
