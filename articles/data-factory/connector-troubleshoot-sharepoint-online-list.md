@@ -35,11 +35,11 @@ You granted permission to your data factory in SharePoint Online List, but you s
 
 ### Cause 
 
-The SharePoint Online List uses ACS to acquire the access token to grant access to other applications. But for the tenant built after November 7, 2018, ACS is disabled by default. 
+The SharePoint Online List uses Azure Access Control Service to acquire the access token to grant access to other applications. But for the tenant built after November 7, 2018, Access Control Service is disabled by default. 
 
 ### Recommendation
 
-You need to enable ACS to acquire the access token. Take the following steps:  
+You need to enable Access Control Service to acquire the access token. Take the following steps:  
 
 1. Download [SharePoint Online Management Shell](https://www.microsoft.com/download/details.aspx?id=35588#:~:text=The%20SharePoint%20Online%20Management%20Shell%20has%20a%20new,and%20saving%20the%20file%20to%20your%20hard%20disk.), and ensure that you have a tenant admin account. 
 1. Run the following command in the SharePoint Online Management Shell. Replace `<tenant name>` with your tenant name and add `-admin` after it.  
@@ -55,7 +55,7 @@ You need to enable ACS to acquire the access token. Take the following steps:
    ```
     :::image type="content" source="./media/connector-troubleshoot-guide/sharepoint-online-management-shell-command.png" alt-text="Diagram of Azure Data Lake Storage Gen1 connections for troubleshooting issues.":::
 
-1. Use ACS to get the access token. 
+1. Use Access Control Service to get the access token. 
 
 
 ## Next steps
