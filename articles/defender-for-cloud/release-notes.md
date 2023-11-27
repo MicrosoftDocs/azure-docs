@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 11/23/2023
+ms.date: 11/27/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -43,13 +43,15 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 November 27, 2023
 
-We are announcing the General Availability (GA) of agentless secret scanning which is included in [Defender CSPM](tutorial-enable-cspm-plan.md) and [Defender for Servers P2](tutorial-enable-servers-plan.md). 
+Agentless secret scanning enhances the security cloud based Virtual Machines (VM) by identifying plaintext secrets on VM disks. Agentless secret scanning provides comprehensive information to help prioritize detected findings and mitigate lateral movement risks before they occur. This proactive approach prevents unauthorized access, ensuring your cloud environment remains secure.
 
-Agentless secret scanning enhances the security of your cloud Virtual Machines (VM) by detecting plaintext secrets that are  stored on VM disks. This capability allows you to prioritize any detected findings and to mitigate lateral movement risks before they happen in order to prevent unauthorized access, ensuring your cloud environment remains secure. 
+We're announcing the General Availability (GA) of agentless secret scanning, which is included in both the [Defender for Servers P2](tutorial-enable-servers-plan.md) and the [Defender CSPM](tutorial-enable-cspm-plan.md) plans. 
 
-We have also enhanced the the database and the data store connection strings that are available and added additional the ability to discover additional secret findings capabilities.
+Agentless secret scanning utilizes cloud APIs to capture snapshots of your disks, conducting out-of-band analysis that ensures that there is no effect on your VM's performance. Agentless secret scanning broadens the coverage offered by Defender for Cloud over cloud assets across Azure, AWS, and GCP environments to enhance your cloud security.
 
-You can learn more about what Go here to see all the available secrets we now can detect in this documentation page. 
+With this release, Defender for Cloud's detection capabilities have been expanded to support other database types, data store signed URLs, access tokens, and more.
+
+Learn how to [manage secrets with agentless secret scanning](secret-scanning.md).
 
 ### Enable permissions management with Defender for Cloud (Preview)
 

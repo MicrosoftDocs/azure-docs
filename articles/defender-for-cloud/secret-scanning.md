@@ -2,7 +2,7 @@
 title: Manage secrets with agentless secret scanning
 description: Learn how to scan your servers for secrets with Defender for Server's agentless secret scanning.
 ms.topic: overview
-ms.date: 11/21/2023
+ms.date: 11/27/2023
 ---
 
 # Manage secrets with agentless secret scanning
@@ -53,7 +53,7 @@ By using agentless secret scanning, you can proactively discover the following t
 - Plaintext NPM Author Token.
 - Plaintext Azure Subscription Management Certificate. 
 
-Secret findings can be found using the [Cloud Security Explorer](#remediate-secrets-with-cloud-security-explorer) and the [Secrets tab](#remediate-secrets-from-your-asset-inventory) when viewing the resource details, complete with metadata like secret type, file name, file path, last access time, and more. 
+Secret findings can be found using the [Cloud Security Explorer](#remediate-secrets-with-cloud-security-explorer) and the [Secrets tab](#remediate-secrets-from-your-asset-inventory) with their metadata like secret type, file name, file path, last access time, and more.
 
 The following secrets can also be accessed from the `Security Recommendations` and `Attack Path`, across Azure, AWS and GCP cloud providers: 
 
