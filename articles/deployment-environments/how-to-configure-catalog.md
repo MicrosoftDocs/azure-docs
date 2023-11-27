@@ -240,8 +240,8 @@ Azure Deployment Environments supports authenticating to GitHub repositories by 
 1. Save the generated token. You use the token later.
 
 > [!IMPORTANT]
-> When working with GitHub organizations, you must ensure that the GitHub PAT is configured to give access to the correct organization and the repositories within it. 
-> - Classic tokens within an organization must be SSO authorized to the specific organization after they are created.
+> When working with a private repository stored within a GitHub organization, you must ensure that the GitHub PAT is configured to give access to the correct organization and the repositories within it. 
+> - Classic tokens within the organization must be SSO authorized to the specific organization after they are created.
 > - Fine grained tokens must have the owner of the token set as the organization itself to be authorized.
 >
 > Incorrectly configured PATs can result in a *Repository not found* error.   
