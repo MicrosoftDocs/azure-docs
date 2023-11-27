@@ -44,20 +44,20 @@ This version has breaking changes and behavioral differences for semantic rankin
 
 [Semantic ranking](semantic-search-overview.md) no longer uses `queryLanguage`. It also requires a `semanticConfiguration` definition. If you're migrating from 2020-06-30-preview, a semantic configuration replaces `searchFields`. See [Migrate from preview version](semantic-how-to-query-request.md#migrate-from-preview-versions) for steps.
 
-[Vector search](vector-search-overview.md) support was introduced in [Create or Update Index (2023-07-01-preview)](/rest/api/searchservice/preview-api/create-or-update-index). If you're migrating from that version, there are new options and several breaking changes. New options include vector filter mode, vector profiles, and an exhaustive K-nearest neighbors algorithm. Breaking changes include renaming and restructuring the vector configuration in the index, and vector query syntax.
+[Vector search](vector-search-overview.md) support was introduced in [Create or Update Index (2023-07-01-preview)](/rest/api/searchservice/preview-api/create-or-update-index). If you're migrating from that version, there are new options and several breaking changes. New options include vector filter mode, vector profiles, and an exhaustive K-nearest neighbors algorithm and query-time exhaustive k-NN flag. Breaking changes include renaming and restructuring the vector configuration in the index, and vector query syntax.
 
-If you added vector support using 2023-10-01-preview, there are no breaking changes. There's one behavior difference: the `vectorFilterMode` default changed from postfilter to prefilter. Change the API version and test your code to confirm the migration.
+If you added vector support using 2023-10-01-preview, there are no breaking changes. There's one behavior difference: the `vectorFilterMode` default changed from postfilter to prefilter. Change the API version and test your code to confirm the migration from the previous preview version (2023-07-01-preview). 
 
 > [!TIP]
-> You can upgrade a 2023-07-01-preview index in the Azure portal. The portal detects the previous version and provides a **Migrate** button. Select **Edit JSON** to review the updated schema before selecting **Migrate**. The new and changed schema conforms to the steps described in this section.
+> You can upgrade a 2023-07-01-preview index in the Azure portal. The portal detects the previous version and provides a **Migrate** button. Select **Edit JSON** to review the updated schema before selecting **Migrate**. The new and changed schema conforms to the steps described in this section. Portal migration only handles indexes with one vector field. Indexes with more than one vector field require manual migration.
 
 Here are the steps for migrating from 2023-07-01-preview:
 
 1. Call [Get Index](/rest/api/searchservice/indexes/get?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true) to retrieve the existing definition.
 
-1. Modify the vector search configuration.
+1. Modify the vector search configuration. This api introduces the concept of "vector profiles" which bundles together vector-related configurations under one name. It also renames `algorithmConfigurations` to `algorithms`.
 
-   + Rename `algorithmConfigurations` to `algorithms`. Existing HNSW configurations are backwards compatible. You can add new configurations to vary HNSW parameters, or add exhaustive K-nearest neighbors.
+   + Rename `algorithmConfigurations` to `algorithms`. This is only a renaming of the array. The contents are backwards compatible. This means your existing HNSW configuration parameters can be used.
 
    + Add `profiles`, giving a name and an algorithm configuration for each one.
 
@@ -67,8 +67,8 @@ Here are the steps for migrating from 2023-07-01-preview:
       "vectorSearch": {
         "algorithmConfigurations": [
             {
-                "name": "name_of_algorithm_config",
-                "kind": "hnsw" (algorithm type. Only "hnsw" is supported currently.),
+                "name": "myHnswConfig",
+                "kind": "hnsw",
                 "hnswParameters": {
                     "m": 4,
                     "efConstruction": 400,
@@ -86,26 +86,17 @@ Here are the steps for migrating from 2023-07-01-preview:
         "profiles": [
           {
             "name": "myHnswProfile",
-            "algorithm": "myHnsw"
-          },
-          {
-            "name": "myAlgorithm",
-            "algorithm": "myExhaustive"
+            "algorithm": "myHnswConfig"
           }
         ],
         "algorithms": [
           {
-            "name": "myHnsw",
+            "name": "myHnswConfig",
             "kind": "hnsw",
             "hnswParameters": {
               "m": 4,
-              "metric": "cosine"
-            }
-          },
-          {
-            "name": "myExhaustive",
-            "kind": "exhaustiveKnn",
-            "exhaustiveKnnParameters": {
+              "efConstruction": 400,
+              "efSearch": 500,
               "metric": "cosine"
             }
           }
@@ -113,7 +104,7 @@ Here are the steps for migrating from 2023-07-01-preview:
       }
     ```
 
-1. Modify vector field definitions, replacing `vectorSearchConfiguration` with `vectorSearchProfile`. Remember that vector fields can't be filterable, sortable, or facetable. They don't use analyzers or normalizers or synonym maps.
+1. Modify vector field definitions, replacing `vectorSearchConfiguration` with `vectorSearchProfile`. Other vector field properties remain unchanged. For example, they can't be filterable, sortable, or facetable, nor use analyzers or normalizers or synonym maps.
 
     **Before (2023-07-01-preview)**:
 
@@ -133,7 +124,7 @@ Here are the steps for migrating from 2023-07-01-preview:
           "normalizer": "",
           "synonymMaps": "", 
           "dimensions": 1536,
-          "vectorSearchConfiguration": "my-vector-config"
+          "vectorSearchConfiguration": "myHnswConfig"
       }
     ```
 
@@ -158,15 +149,14 @@ Here are the steps for migrating from 2023-07-01-preview:
       }
     ```
 
-1. Call [Create or Update Index](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true) to post the changes, with `allowIndexDowntime=true` on the URI.
+1. Call [Create or Update Index](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true) to post the changes. This api change will allow support of polymorphic vector query types.
 
 1. Modify [Search POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true) to change the query syntax.
 
    + Rename `vectors` to `vectorQueries`.
-   + Add `kind`, setting it to "vector".
-   + Rename `value` to `vector`.
-   + Optionally, add `exhaustive` to invoke comprehensive scans over all neighbors in an HNSW index. 
-   + Optionally, add `vectorFilterMode` if you're using [filter expressions](vector-search-filters.md) (default is prefilter, you can change it to postfilter).
+   + For each vector query, add `kind`, setting it to "vector".
+   + For each vector query, rename `value` to `vector`.
+   + Optionally, add `vectorFilterMode` if you're using [filter expressions](vector-search-filters.md) (default is now prefilter, you can change it to postfilter). 
 
     **Before (2023-07-01-preview)**:
 
@@ -175,11 +165,11 @@ Here are the steps for migrating from 2023-07-01-preview:
         "search": (this parameter is ignored in vector search),
         "vectors": [{
             "value": [
-                -0.009154141,
-                0.018708462,
-                . . . 
-                -0.02178128,
-                -0.00086512347
+                0.103,
+                0.0712,
+                0.0852,
+                0.1547,
+                0.1183
             ],
             "fields": "contentVector",
             "k": 5
@@ -203,9 +193,8 @@ Here are the steps for migrating from 2023-07-01-preview:
             0.1547,
             0.1183
           ],
-          "fields": "descriptionEmbedding",
-          "k": 5,
-          "exhaustive": true
+          "fields": "contentVector",
+          "k": 5
         }
       ],
       "vectorFilterMode": "preFilter",

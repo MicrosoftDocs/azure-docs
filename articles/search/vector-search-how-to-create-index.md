@@ -65,12 +65,13 @@ A vector configuration specifies the [vector search algorithm](vector-search-ran
 
 If you choose HNSW on a field, you can opt in for exhaustive KNN at query time. But the other direction won’t work: if you choose exhaustive, you can’t later request HNSW search because the extra data structures that enable approximate search don’t exist.
 
+Looking for preview-to-stable version migration guidance? See [Upgrade REST APIs](search-api-migration.md) for steps. 
+
 ### [**2023-11-01**](#tab/config-2023-11-01)
 
 REST API version [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) supports a vector configuration having:
 
-+ `hnsw` and `exhaustiveKnn` nearest neighbors algorithm for indexing vector content.
-+ Parameters for specifying the similarity metric used for scoring.
++ `vectorSearch` algorithms, `hnsw` and `exhaustiveKnn` nearest neighbors, with parameters for indexing and scoring.
 + `vectorProfiles` for multiple combinations of algorithm configurations.
 
 Be sure to have a strategy for [vectorizing your content](vector-search-how-to-generate-embeddings.md). The stable version doesn't provide [vectorizers](vector-search-how-to-configure-vectorizer.md) for built-in embedding.
@@ -134,8 +135,7 @@ Be sure to have a strategy for [vectorizing your content](vector-search-how-to-g
 
 REST API version [**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) supports external and [internal vectorization](vector-search-how-to-configure-vectorizer.md). This section assumes an external vectorization strategy. This API supports:
 
-+ `hnsw` and `exhaustiveKnn` nearest neighbors algorithm for indexing vector content.
-+ Parameters for specifying the similarity metric used for scoring.
++ `vectorSearch` algorithms, `hnsw` and `exhaustiveKnn` nearest neighbors, with parameters for indexing and scoring.
 + `vectorProfiles` for multiple combinations of algorithm configurations.
 
 1. Use the [Create or Update Index Preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) to create the index.
