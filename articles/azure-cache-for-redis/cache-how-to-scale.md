@@ -43,7 +43,6 @@ You can monitor the following metrics to determine if you need to scale.
   - High Redis server load means that the server is unable to keep pace with requests from all the clients. Because a Redis server is a single threaded process, it's typically more helpful to _scale out_ rather than _scale up_. Scaling out by enabling clustering helps distribute overhead functions across multiple Redis processes. Scaling out also helps distribute TLS encryption/decryption and connection/disconnection, speeding up cache instances using TLS. 
   - Scaling up can still be helpful in reducing server load because background tasks can take advantage of the more vCPUs and free up the thread for the main Redis server process.
   - The Enterprise and Enterprise Flash tiers use Redis Enterprise rather than open source Redis. One of the advantages of these tiers is that the Redis server process can take advantage of multiple vCPUs. Because of that, both scaling up and scaling out in these tiers can be helpful in reducing server load. For more information, see [Best Practices for the Enterprise and Enterprise Flash tiers of Azure Cache for Redis](cache-best-practices-enterprise-tiers.md).
-  - For more information, see [Set up clustering](cache-how-to-premium-clustering.md#set-up-clustering).
 - **Memory Usage**
   - High memory usage indicates that your data size is too large for the current cache size. Consider scaling to a cache size with larger memory. Either _scaling up_ or _scaling out_ is effective here.
 - **Client connections**
@@ -148,13 +147,13 @@ Clustering is enabled during cache creation from the working pane, when you crea
 
 1. In the **Advanced** tab for a **premium** cache instance, configure the settings for non-TLS port, clustering, and data persistence. To enable clustering, select **Enable**.
 
-    :::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering.png" alt-text="Clustering toggle.":::
+    :::image type="content" source="media/cache-how-to-scale/redis-cache-clustering.png" alt-text="Screenshot showing the clustering toggle.":::
 
     You can have up to 10 shards in the cluster. After selecting **Enable**, slide the slider or type a number between 1 and 10 for **Shard count** and select **OK**.
 
     Each shard is a primary/replica cache pair managed by Azure. The total size of the cache is calculated by multiplying the number of shards by the cache size selected in the pricing tier.
 
-    :::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png" alt-text="Clustering toggle selected.":::
+    :::image type="content" source="media/cache-how-to-scale/redis-cache-clustering-selected.png" alt-text="Screenshot showing the clustering toggle selected.":::
 
     Once the cache is created, you connect to it and use it just like a nonclustered cache. Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics), metrics are captured separately for each shard, and can be [viewed](cache-how-to-monitor.md) in Azure Cache for Redis using the Resource menu.
 
@@ -174,7 +173,7 @@ For sample code on working with clustering with the StackExchange.Redis client, 
 
 To change the cluster size on a premium cache that you created earlier, and is already running with clustering enabled, select **Cluster size** from the Resource menu.
 
-:::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png" alt-text="Screenshot of working pane with Cluster size selected. ":::
+:::image type="content" source="media/cache-how-to-scale/redis-cache-redis-cluster-size.png" alt-text="Screenshot of working pane with Cluster size selected. ":::
 
 To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box. Then, select **OK** to save.
 
@@ -296,7 +295,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 - You can scale from one **Premium** cache pricing tier to another.
 - You can't scale from a **Basic** cache directly to a **Premium** cache. First, scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a later scaling operation.
 - You can't scale from a **Premium** cache to an **Enterprise** or **Enterprise Flash** cache.
-- If you enabled clustering when you created your **Premium** cache, you can [change the cluster size](cache-how-to-premium-clustering.md#set-up-clustering). If your cache was created without clustering enabled, you can configure clustering at a later time.
+- If you enabled clustering when you created your **Premium** cache, you can change the cluster size. If your cache was created without clustering enabled, you can configure clustering at a later time.
 
 ### After scaling, do I have to change my cache name or access keys?
 
