@@ -55,7 +55,7 @@ Here are the steps for migrating from 2023-07-01-preview:
 
 1. Call [Get Index](/rest/api/searchservice/indexes/get?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true) to retrieve the existing definition.
 
-1. Modify the vector search configuration. This api introduces the concept of "vector profiles" which bundles together vector-related configurations under one name. It also renames `algorithmConfigurations` to `algorithms`.
+1. Modify the vector search configuration. This API introduces the concept of "vector profiles" which bundles together vector-related configurations under one name. It also renames `algorithmConfigurations` to `algorithms`.
 
    + Rename `algorithmConfigurations` to `algorithms`. This is only a renaming of the array. The contents are backwards compatible. This means your existing HNSW configuration parameters can be used.
 
