@@ -34,7 +34,7 @@ pip install -r requirements.txt
 
 ## Set up and host your Azure DevTunnel
 
-[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands to connect your local development environment to the public internet. DevTunnels creates a tunnel with a persistent endpoint URL and which allows anonymous access. We use this endpoint to notify your application of calling events from the ACS Call Automation service.
+[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands to connect your local development environment to the public internet. DevTunnels creates a tunnel with a persistent endpoint URL and which allows anonymous access. We use this endpoint to notify your application of calling events from the Azure Communication Services Call Automation service.
 
 ```bash
 devtunnel create --allow-anonymous
@@ -46,16 +46,16 @@ devtunnel host
 
 Then update your `main.py` file with the following values:
 
-- `ACS_CONNECTION_STRING`: The connection string for your ACS resource. You can find your ACS connection string using the instructions [here](../../create-communication-resource.md). 
+- `ACS_CONNECTION_STRING`: The connection string for your Azure Communication Services resource. You can find your Azure Communication Services connection string using the instructions [here](../../create-communication-resource.md). 
 - `CALLBACK_URI_HOST`: Once you have your DevTunnel host initialized, update this field with that URI.
 - `TARGET_PHONE_NUMBER`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
-- `ACS_PHONE_NUMBER`: update this field with the ACS phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+- `ACS_PHONE_NUMBER`: update this field with the Azure Communication Services phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 
 ```python
-# Your ACS resource connection string
+# Your Azure Communication Services resource connection string
 ACS_CONNECTION_STRING = "<ACS_CONNECTION_STRING>"
 
-# Your ACS resource phone number will act as source number to start outbound call
+# Your Azure Communication Services resource phone number will act as source number to start outbound call
 ACS_PHONE_NUMBER = "<ACS_PHONE_NUMBER>"
 
 # Target phone number you want to receive the call.
@@ -105,13 +105,13 @@ def callback_events_handler():
 
 ## Play welcome message and recognize 
 
-With the `file_source` parameter, you can provide the service the audio file you want to use for your welcome message. Finally, the ACS Call Automation service plays the message upon detecting the `CallConnected` event. 
+With the `file_source` parameter, you can provide the service the audio file you want to use for your welcome message. Finally, the Azure Communication Services Call Automation service plays the message upon detecting the `CallConnected` event. 
 
 We pass the audio file into the `play_prompt` parameter and then call `start_recognizing_media`. The API enables the telephony client to send DTMF tones that we can recognize.
 
 ```python
 file_source = FileSource(MAIN_MENU_PROMPT_URI)
-call_connection_client.start_recognizing_media(input_type=RecognizeInputType.DTMF,
+call_automation_client.start_recognizing_media(input_type=RecognizeInputType.DTMF,
         target_participant=target_participant,
         play_prompt=file_source,
         interrupt_prompt=True,
@@ -123,10 +123,12 @@ call_connection_client.start_recognizing_media(input_type=RecognizeInputType.DTM
 
 ## Recognize DTMF Events
 
-When the telephony endpoint selects a DTMF tone, ACS Call Automation triggers the webhook we have set up and notify us with the `RECOGNIZE_COMPLETED_EVENT` event. This event gives us the ability to respond to a specific DTMF tone and trigger an action. 
+When the telephony endpoint selects a DTMF tone, Azure Communication Services Call Automation triggers the webhook we have set up and notify us with the `RECOGNIZE_COMPLETED_EVENT` event. This event gives us the ability to respond to a specific DTMF tone and trigger an action. 
 
 ```python
 event = CloudEvent.from_dict(event_dict)
+call_connection_id = event.data['callConnectionId']
+call_connection_client = call_automation_client.get_call_connection(call_connection_id)
 if event.type == "Microsoft.Communication.RecognizeCompleted":
     selected_tone = event.data['dtmfResult']['tones'][0]
     if selected_tone == DtmfTone.ONE:

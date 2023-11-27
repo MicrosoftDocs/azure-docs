@@ -7,7 +7,7 @@ ms.service: ddos-protection
 ms.topic: tutorial
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 10/12/2022
+ms.date: 11/06/2023
 ms.author: abell
 ---
 # Tutorial: View and configure Azure DDoS protection telemetry
@@ -24,8 +24,9 @@ In this tutorial, you'll learn how to:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
-* Before you can complete the steps in this tutorial, you must first create an [Azure DDoS Protection plan](manage-ddos-protection.md). DDoS Network Protection must be enabled on a virtual network or DDoS IP Protection must be enabled on a public IP address.  
-* DDoS monitors public IP addresses assigned to resources within a virtual network. If you don't have any resources with public IP addresses in the virtual network, you must first create a resource with a public IP address. You can monitor the public IP address of all resources deployed through Resource Manager (not classic) listed in [Virtual network for Azure services](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (including Azure Load Balancers where the backend virtual machines are in the virtual network), except for Azure App Service Environments. To continue with this tutorial, you can quickly create a [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine.  
+
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* Before you can complete the steps in this tutorial, you must first create a DDoS simulation attack to generate the telemetry. Telemetry data is recorded during an attack. For more information, see [Test DDoS Protection through simulation](test-through-simulations.md).
 
 ## View Azure DDoS Protection telemetry
 

@@ -76,7 +76,7 @@ The following steps describe the actions to enable Hyper-V on Windows Server usi
 
 2. On the **Before you begin** page, select **Next**.
 3. On the **Select installation type** page, keep the default selection of Role-based or feature-based installation and then select **Next**.
-4. On the **Select destination server** page, select Select a server from the server pool.   The current server is already selected.  Select **Next**.
+4. On the **Select destination server** page, select a server from the server pool.   The current server is already selected.  Select **Next**.
 5. On the **Select server roles** page, select **Hyper-V**.  
 6. The **Add Roles and Features Wizard** pop-up appears.  Select **Include management tools (if applicable)**.  Select the **Add Features** button.
 7. On the **Select server roles** page, select **Next**.

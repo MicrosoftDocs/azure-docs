@@ -1,6 +1,6 @@
 ---
 title: "Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters."
-ms.date: 10/12/2023
+ms.date: 10/27/2023
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 description: "With cluster connect, you can securely connect to Azure Arc-enabled Kubernetes clusters from anywhere without requiring any inbound port to be enabled on the firewall."
@@ -19,9 +19,14 @@ Before you begin, review the [conceptual overview of the cluster connect feature
 
 ## Prerequisites
 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- An existing Azure Arc-enabled Kubernetes connected cluster.
+  - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
+  - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
+
 ### [Azure CLI](#tab/azure-cli)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - [Install](/cli/azure/install-azure-cli) or [update](/cli/azure/update-azure-cli) Azure CLI to the latest version.
 
@@ -37,20 +42,6 @@ Before you begin, review the [conceptual overview of the cluster connect feature
    az extension update --name connectedk8s
    ```
 
-- An existing Azure Arc-enabled Kubernetes connected cluster.
-  - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
-  - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
-
-- In addition to meeting the [network requirements for Arc-enabled Kubernetes](network-requirements.md), enable these endpoints for outbound access:
-
-  | Endpoint | Port |
-  |----------------|-------|
-  |`*.servicebus.windows.net` | 443 |
-  |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
-
-  > [!NOTE]
-  > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
-
 - Replace the placeholders and run the below command to set the environment variables used in this document:
 
   ```azurecli
@@ -61,23 +52,7 @@ Before you begin, review the [conceptual overview of the cluster connect feature
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
 - Install [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-azure-powershell).
-
-- An existing Azure Arc-enabled Kubernetes connected cluster.
-  - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
-  - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
-
-- In addition to meeting the [network requirements for Arc-enabled Kubernetes](network-requirements.md), enable these endpoints for outbound access:
-
-  | Endpoint | Port |
-  |----------------|-------|
-  |`*.servicebus.windows.net` | 443 |
-  |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
-  
-  > [!NOTE]
-  > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
 
 - Replace the placeholders and run the below command to set the environment variables used in this document:
 
@@ -88,6 +63,16 @@ Before you begin, review the [conceptual overview of the cluster connect feature
   ```
 
 ---
+
+- In addition to meeting the [network requirements for Arc-enabled Kubernetes](network-requirements.md), enable these endpoints for outbound access:
+
+  | Endpoint | Port |
+  |----------------|-------|
+  |`*.servicebus.windows.net` | 443 |
+  |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
+
+  > [!NOTE]
+  > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
 
 [!INCLUDE [arc-region-note](../includes/arc-region-note.md)]
 
@@ -117,13 +102,13 @@ On the existing Arc-enabled cluster, create the ClusterRoleBinding with either M
 
 1. Authorize the entity with appropriate permissions.
 
-   - If you are using Kubernetes native ClusterRoleBinding or RoleBinding for authorization checks on the cluster, with the `kubeconfig` file pointing to the `apiserver` of your cluster for direct access, you can create one mapped to the Microsoft Entra entity (service principal or user) that needs to access this cluster. Example:
+   - If you're using Kubernetes native ClusterRoleBinding or RoleBinding for authorization checks on the cluster, with the `kubeconfig` file pointing to the `apiserver` of your cluster for direct access, you can create one mapped to the Microsoft Entra entity (service principal or user) that needs to access this cluster. For example:
 
       ```console
       kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --user=$AAD_ENTITY_OBJECT_ID
       ```
 
-   - If you are using Azure RBAC for authorization checks on the cluster, you can create an Azure role assignment mapped to the Microsoft Entra entity. Example:
+   - If you're using Azure RBAC for authorization checks on the cluster, you can create an applicable [Azure role assignment](azure-rbac.md#built-in-roles) mapped to the Microsoft Entra entity. For example:
 
      ```azurecli
      az role assignment create --role "Azure Arc Kubernetes Viewer" --assignee $AAD_ENTITY_OBJECT_ID --scope $ARM_ID_CLUSTER
@@ -148,15 +133,16 @@ On the existing Arc-enabled cluster, create the ClusterRoleBinding with either M
 
 1. Authorize the entity with appropriate permissions.
 
-   - If you are using Kubernetes native ClusterRoleBinding or RoleBinding for authorization checks on the cluster, with the `kubeconfig` file pointing to the `apiserver` of your cluster for direct access, you can create one mapped to the Microsoft Entra entity (service principal or user) that needs to access this cluster. Example:
+   - If you're using Kubernetes native ClusterRoleBinding or RoleBinding for authorization checks on the cluster, with the `kubeconfig` file pointing to the `apiserver` of your cluster for direct access, you can create one mapped to the Microsoft Entra entity (service principal or user) that needs to access this cluster. For example:
 
       ```console
       kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --user=$AAD_ENTITY_OBJECT_ID
       ```
 
-   - If you are using [Azure RBAC for authorization checks](azure-rbac.md) on the cluster, you can create an Azure role assignment mapped to the Microsoft Entra entity. Example:
+   - If you're using [Azure RBAC for authorization checks](azure-rbac.md) on the cluster, you can create an applicable [Azure role assignment](azure-rbac.md#built-in-roles) mapped to the Microsoft Entra entity. For example:
 
-     ```azurecli
+     ```azurepowershell
+     
      az role assignment create --role "Azure Arc Kubernetes Viewer" --assignee $AAD_ENTITY_OBJECT_ID --scope $ARM_ID_CLUSTER
      az role assignment create --role "Azure Arc Enabled Kubernetes Cluster User Role" --assignee $AAD_ENTITY_OBJECT_ID --scope $ARM_ID_CLUSTER
      ```
@@ -278,7 +264,7 @@ Use `az connectedk8s show` to check your Arc-enabled Kubernetes agent version.
 
 ### [Agent version < 1.11.7](#tab/agent-version)
 
-When making requests to the Kubernetes cluster, if the Microsoft Entra entity used is a part of more than 200 groups, you may see the following error:
+When making requests to the Kubernetes cluster, if the Microsoft Entra entity used is a part of more than 200 groups, you might see the following error:
 
 `You must be logged in to the server (Error:Error while retrieving group info. Error:Overage claim (users with more than 200 group membership) is currently not supported.`
 
@@ -289,7 +275,7 @@ This is a known limitation. To get past this error:
 
 ### [Agent version >= 1.11.7](#tab/agent-version-latest)
 
-When making requests to the Kubernetes cluster, if the Microsoft Entra service principal used is a part of more than 200 groups, you may see the following error:
+When making requests to the Kubernetes cluster, if the Microsoft Entra service principal used is a part of more than 200 groups, you might see the following error:
 
 `Overage claim (users with more than 200 group membership) for SPN is currently not supported. For troubleshooting, please refer to aka.ms/overageclaimtroubleshoot`
 

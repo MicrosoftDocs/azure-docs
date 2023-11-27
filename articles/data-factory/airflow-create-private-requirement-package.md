@@ -71,7 +71,7 @@ When performing the import of your folder into an Airflow IR environment, ensure
 
 :::image type="content" source="media/airflow-create-private-requirement-package/import-requirements-checkbox.png" alt-text="Screenshot showing the import dialog for an Airflow integrated runtime environment, with the Import requirements checkbox checked.":::
 
-:::image type="content" source="media/airflow-create-private-requirement-package/import-requirements-airflow-env.png" alt-text="Screenshot showing the imported requirements dialog in an Airflow integrated runtime environment." lightbox="media/airflow-create-private-requirement-package/import-requirements-airflow-env.png":::
+:::image type="content" source="media/airflow-create-private-requirement-package/import-requirements-airflow-environment.png" alt-text="Screenshot showing the imported requirements dialog in an Airflow integrated runtime environment." lightbox="media/airflow-create-private-requirement-package/import-requirements-airflow-environment.png":::
 
 ### Step 6: Inside Airflow UI, you can run your dag file created at step 1, to check if import is successful.
 

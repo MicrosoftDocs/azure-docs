@@ -74,7 +74,7 @@ There are cases in which the best approach is to create one popup and reuse it. 
 
 For a fully functional sample that shows how to create one popup and reuse it rather than creating a popup for each point feature, see [Reusing Popup with Multiple Pins] in the [Azure Maps Samples]. For the source code for this sample, see [Reusing Popup with Multiple Pins source code].
 
-:::image type="content" source="./media/map-add-popup/reusing-popup-with-multiple-pins.png"alt-text="A screenshot of map with three blue pins.":::
+:::image type="content" source="./media/map-add-popup/reusing-popup-with-multiple-pins.png" lightbox="./media/map-add-popup/reusing-popup-with-multiple-pins.png" alt-text="A screenshot of map with three blue pins.":::
 
 <!-----------------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true]
@@ -86,7 +86,7 @@ By default, the popup has a white background, a pointer arrow on the bottom, and
 
 For a fully functional sample that shows how to customize the look of a popup, see [Customize a popup] in the [Azure Maps Samples]. For the source code for this sample, see [Customize a popup source code].
 
-:::image type="content" source="./media/map-add-popup/customize-popup.png"alt-text="A screenshot of map with a custom popup in the center of the map with the caption 'hello world'.":::
+:::image type="content" source="./media/map-add-popup/customize-popup.png" lightbox="./media/map-add-popup/customize-popup.png" alt-text="A screenshot of map with a custom popup in the center of the map with the caption 'hello world'.":::
 
 <!-----------------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=result]
@@ -404,7 +404,7 @@ function InitMap()
 }
 ```
 
-:::image type="content" source="./media/map-add-popup/points-without-defined-template.png"alt-text="A screenshot of map with six blue dots.":::
+:::image type="content" source="./media/map-add-popup/points-without-defined-template.png" lightbox="./media/map-add-popup/points-without-defined-template.png" alt-text="A screenshot of map with six blue dots.":::
 
 <!-----------------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/dyovrzL/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true]
@@ -415,7 +415,7 @@ Similar to reusing a popup, you can reuse popup templates. This approach is usef
 
 For a fully functional sample that shows hot to reuse a single popup template with multiple features that share a common set of property fields, see [Reuse a popup template] in the [Azure Maps Samples]. For the source code for this sample, see [Reuse a popup template source code].
 
-:::image type="content" source="./media/map-add-popup/reuse-popup-template.png"alt-text="A screenshot of a map showing Seattle with three blue pins to demonstrating how to reuse popup templates.":::
+:::image type="content" source="./media/map-add-popup/reuse-popup-template.png" lightbox="./media/map-add-popup/reuse-popup-template.png" alt-text="A screenshot of a map showing Seattle with three blue pins to demonstrating how to reuse popup templates.":::
 
 <!-----------------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/WNvjxGw/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true]
@@ -427,7 +427,7 @@ Popups can be opened, closed, and dragged. The popup class provides events to he
 
 For a fully functional sample that shows how to add events to popups, see [Popup events] in the [Azure Maps Samples]. For the source code for this sample, see [Popup events source code].
 
-:::image type="content" source="./media/map-add-popup/popup-events.png" alt-text="A screenshot of a map of the world with a popup in the center and a list of events in the upper left that are highlighted when the user opens, closes, or drags the popup.":::
+:::image type="content" source="./media/map-add-popup/popup-events.png" lightbox="./media/map-add-popup/popup-events.png" alt-text="A screenshot of a map of the world with a popup in the center and a list of events in the upper left that are highlighted when the user opens, closes, or drags the popup.":::
 
 <!-----------------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=result]

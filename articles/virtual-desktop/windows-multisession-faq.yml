@@ -97,7 +97,6 @@ sections:
       - question: Can Windows Enterprise multi-session and 11 Enterprise multi-session receive feature updates through Windows Server Update Services (WSUS)?
         answer: |
           Yes. You can update Windows Enterprise multi-session and Windows 11 Enterprise multi-session with the appropriate feature updates published to WSUS.
-                   
           
 additionalContent: |
 

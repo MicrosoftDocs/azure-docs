@@ -30,7 +30,7 @@ Firewall rules are used by both the [logical SQL server](/azure/azure-sql/databa
 
 As a best practice, you should restrict the IP address ranges allowed through your server-level firewall as much as possible.  To access your dedicated SQL pool (formerly SQL DW) from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.  
 
-Dedicated SQL pool (formerly SQL DW) uses server-level IP firewall rules. It doesn't support database-level IP firewall rules. For more information, see see [Azure SQL Database firewall rules](/azure/azure-sql/database/firewall-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Dedicated SQL pool (formerly SQL DW) uses server-level IP firewall rules. It doesn't support database-level IP firewall rules. For more information, see [Azure SQL Database firewall rules](/azure/azure-sql/database/firewall-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 Connections to your dedicated SQL pool (formerly SQL DW) are encrypted by default.  Modifying connection settings to disable encryption are ignored.
 

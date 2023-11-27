@@ -78,7 +78,7 @@ az group create --name $RG --location $LOC
 
 Create a virtual network with two subnets to host the AKS cluster and the Azure Firewall. Each has their own subnet. Let's start with the AKS network.
 
-```
+```azurecli
 # Dedicated virtual network with AKS subnet
 
 az network vnet create \

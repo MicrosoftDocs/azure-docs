@@ -6,8 +6,10 @@
   items:
     - name: About Azure Container Apps
       href: overview.md
-    - name: Overview
-      href: start.md
+    - name: Introduction to containers
+      href: start-containers.md
+    - name: Introduction to serverless containers
+      href: start-serverless-containers.md
     - name: Quickstarts
       items: 
       - name: Deploy from an existing container image
@@ -24,6 +26,10 @@
           href: deploy-visual-studio.md
         - name: Visual Studio Code
           href: deploy-visual-studio-code.md
+      - name: Deploy from artifact
+        items:
+        - name: Command line
+          href: deploy-artifact.md
       - name: Run a job
         items:
         - name: Azure portal
@@ -62,14 +68,18 @@
       items:
         - name: Connect to services
           items:
-            - name: Connect to services
+            - name: Overview
               href: services.md
-            - name: Apache Kafka
-              href: tutorial-dev-services-kafka.md
-            - name: PostgreSQL
-              href: tutorial-dev-services-postgresql.md
-            - name: Redis
-              href: connect-services.md
+            - name: Tutorials
+              items:
+              - name: Apache Kafka
+                href: tutorial-dev-services-kafka.md
+              - name: PostgreSQL
+                href: tutorial-dev-services-postgresql.md
+              - name: Qdrant
+                href: add-ons-qdrant.md
+              - name: Redis
+                href: connect-services.md
         - name: Connect multiple apps
           href: connect-apps.md
         - name: Connect to a cloud service using Service Connector
@@ -113,7 +123,7 @@
         - name: With a job
           href: tutorial-event-driven-jobs.md
     - name: Reliability in Azure Container Apps
-      href: ../reliability/reliability-azure-container-apps.md
+      href: ../reliability/reliability-azure-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
 - name: Observability
   items:
     - name: Overview
@@ -177,6 +187,16 @@
           href: managed-identity.md
         - name: Azure Container Registry image pull with managed identity
           href: managed-identity-image-pull.md
+- name: Resiliency (preview)
+  items:
+    - name: Service discovery resiliency
+      href: service-discovery-resiliency.md
+    - name: Dapr component resiliency
+      href: dapr-component-resiliency.md
+- name: Reliability
+  items:
+  - name: Reliability in Azure Container Apps
+    href: ../reliability/reliability-azure-container-apps.md
 - name: Dedicated hardware
   items:
     - name: Workload profiles
@@ -197,6 +217,8 @@
       href: microservices-dapr-bindings.md
     - name: Microservices communication using Dapr Service Invocation
       href: microservices-dapr-service-invoke.md
+    - name: Dapr component resiliency (preview)
+      href: dapr-component-resiliency.md
     - name: Scale Dapr apps with KEDA using Bicep
       href: dapr-keda-scaling.md
     - name: Connect to Azure services via Dapr components
@@ -249,7 +271,7 @@
           href: waf-app-gateway.md
         - name: Enable User Defined Routes (UDR)
           href: user-defined-routes.md
-        - name: Securing a custom VNET
+        - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
     - name: Network proxying
       href: network-proxy.md

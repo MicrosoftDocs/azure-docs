@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 11/30/2022
+ms.date: 10/20/2023
 ---
 # Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 
@@ -25,7 +25,7 @@ This connector is supported for the following activities:
 |[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 
 For a list of data stores that a copy activity supports as sources and sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.

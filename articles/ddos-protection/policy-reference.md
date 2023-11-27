@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.workload: infrastructure-services
-ms.date: 10/10/2023
+ms.date: 11/21/2023
 ms.author: abell
 ms.custom: subject-policy-reference
 ms.topic: include

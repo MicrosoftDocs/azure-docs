@@ -2,7 +2,7 @@
 title: "Overview: Generate alt text of images with Image Analysis"
 titleSuffix: Azure AI services
 description: Grow your customer base by making your products and services more accessible. Generate a description of an image in human-readable language, using complete sentences. 
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 

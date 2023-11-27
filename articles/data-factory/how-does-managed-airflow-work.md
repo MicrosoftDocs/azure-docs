@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 01/20/2023
+ms.date: 10/20/2023
 ---
 
 # How does Azure Data Factory Managed Airflow work? 
@@ -131,3 +131,4 @@ If you're using Airflow version 1.x, delete DAGs that are deployed on any Airflo
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
 - [Managed Airflow pricing](airflow-pricing.md)
 - [How to change the password for Managed Airflow environments](password-change-airflow.md)
+

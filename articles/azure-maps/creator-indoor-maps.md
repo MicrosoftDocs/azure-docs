@@ -337,7 +337,6 @@ The following example shows how to update a dataset, create a new tileset, and d
 
 <!--- learn.microsoft.com Links ------------>
 [Authorization with role-based access control]: azure-maps-authentication.md#authorization-with-role-based-access-control
-[Azure AD authentication]: azure-maps-authentication.md#azure-ad-authentication
 [Azure Maps Drawing Error Visualizer]: drawing-error-visualizer.md
 [Azure Maps services]: index.yml
 [Azure Maps Web SDK]: how-to-use-map-control.md
@@ -345,6 +344,7 @@ The following example shows how to update a dataset, create a new tileset, and d
 [Create custom styles for indoor maps]: how-to-create-custom-styles.md
 [Drawing package requirements]: drawing-requirements.md
 [Drawing package warnings and errors]: drawing-conversion-error-codes.md
+[Microsoft Entra authentication]: ../active-directory/fundamentals/active-directory-whatis.md
 [How to create data registry]: how-to-create-data-registries.md
 [Indoor maps wayfinding service]: how-to-creator-wayfinding.md
 [Instantiate the Indoor Manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager

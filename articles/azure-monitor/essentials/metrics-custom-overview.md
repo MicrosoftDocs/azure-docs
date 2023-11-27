@@ -33,7 +33,7 @@ For details on when billing is enabled for custom metrics and metrics queries, c
 Custom metrics are retained for the [same amount of time as platform metrics](../essentials/data-platform-metrics.md#retention-of-metrics).
 
 > [!NOTE]
-> Metrics sent to Azure Monitor via the Application Insights SDK are billed as ingested log data. They incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) has been selected. This checkbox sends data to the Azure Monitor metrics database by using the custom metrics API to allow the more complex alerting. Learn more about the [Application Insights pricing model](../usage-estimated-costs.md) and [prices in your region](https://azure.microsoft.com/pricing/details/monitor/).
+> Metrics sent to Azure Monitor via the Application Insights SDK are billed as ingested log data. They incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) has been selected. This checkbox sends data to the Azure Monitor metrics database by using the custom metrics API to allow the more complex alerting. Learn more about the [Application Insights pricing model](../cost-usage.md) and [prices in your region](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## How to send custom metrics
 
@@ -197,7 +197,7 @@ After custom metrics are submitted to Azure Monitor, you can browse through them
 1. Select the metrics namespace for your custom metric.
 1. Select the custom metric.
 
-For more information on viewing metrics in the Azure portal, see [Getting started with Azure Metrics Explorer](./metrics-getting-started.md).
+For more information on viewing metrics in the Azure portal, see [Analyze metrics with Azure Monitor metrics explorer](./analyze-metrics.md).
 
 ## Supported regions
 

@@ -184,7 +184,31 @@ System.out.println("\nCreated a room with id: " + roomCreated.getRoomId());
 
 ```
 
+*setPstnDialOutEnabled is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+
 Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object.
+
+### Enable PSTN Dial Out Capability for a Room (Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/))
+Each `room` has PSTN dial out disabled by default. The PSTN dial out can be enabled for a `room` at creation, by defining the `pstnDialOutEnabled` parameter as true. This capability may also be modified for a `room` by issuing an update request for the `pstnDialOutEnabled` parameter.
+
+```java
+boolean pstnDialOutEnabled = true;
+// Create a room with PSTN dial out capability
+CreateRoomOptions createRoomOptions = new CreateRoomOptions()
+    .setPstnDialOutEnabled(pstnDialOutEnabled)
+
+CommunicationRoom roomCreated = roomsClient.createRoom(createRoomOptions);
+System.out.println("\nCreated a room with PSTN dial out enabled: " + roomCreated.getPstnDialOutEnabled());
+
+// Update a room to enable or disable PSTN dial out capability
+pstnDialOutEnabled = false;
+UpdateRoomOptions updateRoomOptions = new UpdateRoomOptions()
+    .setPstnDialOutEnabled(pstnDialOutEnabled);
+
+CommunicationRoom roomUpdated = roomsClient.updateRoom(roomId, updateRoomOptions);
+System.out.println("\nUpdated a room with PSTN dial out enabled: " + roomUpdated.getPstnDialOutEnabled());
+
+```
 
 ## Get properties of an existing room
 
@@ -281,7 +305,7 @@ System.out.println("Participant(s) removed");
 
 ### List all active rooms
 
-Retrieve all active `rooms` under your ACS resource.
+Retrieve all active `rooms` under your Azure Communication Services resource.
 
 ```java
 try {

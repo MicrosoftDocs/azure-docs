@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 10/17/2023
+ms.date: 11/20/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -17,14 +17,35 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 1.2.4677       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.4677       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Public  | 1.2.4763       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.5018       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+
+## Updates for version 1.2.5018 (Insider) 
+
+*Date published: November 20, 2023*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)   
+
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.4763
+
+*Date published: November 7, 2023*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+
+- Added a link to the troubleshooting documentation to error messages to help users resolve minor issues without needing to contact Microsoft Support. 
+- Improved the connection bar user interface (UI). 
+- Fixed an issue that caused the client to stop responding when a user tries to resize the client window during a Teams video call. 
+- Fixed a bug that prevented the client from loading more than 255 workspaces.  
+- Fixed an authentication issue that allowed users to choose a different account whenever the client required more interaction. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
 ## Updates for version 1.2.4677
 
 *Date published: October 17, 2023*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1d1KN), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1d1KO), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1cRm0)
 
 - Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](uri-scheme.md).
 - Added support for the following languages: Czech (Czechia), Hungarian (Hungary), Indonesian (Indonesia), Korean (Korea), Portuguese (Portugal), Turkish (Türkiye).
@@ -32,13 +53,11 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
 >[!NOTE]
->This Insiders release was originally version 1.2.4675, but we've replaced it with version 1.2.4677, which fixes the [CVE-2023-5217](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-5217) security vulnerability. 
+>This Insiders release was originally version 1.2.4675, but we made a hotfix for the vulnerability known as [CVE-2023-5217](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-5217). 
 
 ## Updates for version 1.2.4583
 
 *Date published: October 6, 2023*
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1cTP6), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1cTP7), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1cRlf)
 
 - Fixed the [CVE-2023-5217](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-5217) security vulnerability.
 

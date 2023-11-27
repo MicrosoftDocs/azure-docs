@@ -6,7 +6,7 @@ ms.custom: references_regions, ignite-2022
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 10/09/2023
+ms.date: 10/23/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -71,7 +71,7 @@ An inbound endpoint enables name resolution from on-premises or other private lo
 The inbound endpoint requires a subnet in the VNet where it’s provisioned. The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and can't be used for other services. DNS queries received by the inbound endpoint ingress to Azure. You can resolve names in scenarios where you have Private DNS zones, including VMs that are using auto registration, or Private Link enabled services.
 
 > [!NOTE]
-> The IP address assigned to an inbound endpoint can be static if you use [PowerShell to provison the endpoint](dns-private-resolver-get-started-powershell.md#create-the-inbound-endpoint). The IP address that you choose can't be a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets). If you use another method to provision the inbound endpoint, then typically the fifth IP address in the subnet is dynamically assigned. If the inbound endpoint is reprovisioned, this IP address might change, but normally the 5th IP address in the subnet is used again. The IP address does not change unless the inbound endpoint is reprovisioned.
+> The IP address assigned to an inbound endpoint can be specified as **static** or **dynamic**. For more information, see [static and dynamic endpoint IP addresses](private-resolver-endpoints-rulesets.md#static-and-dynamic-endpoint-ip-addresses).
 
 ## Outbound endpoints
 
@@ -111,6 +111,7 @@ Subnets used for DNS resolver have the following limitations:
 - A subnet can't be shared between multiple DNS resolver endpoints. A single subnet can only be used by a single DNS resolver endpoint.
 - All IP configurations for a DNS resolver inbound endpoint must reference the same subnet. Spanning multiple subnets in the IP configuration for a single DNS resolver inbound endpoint isn't allowed.
 - The subnet used for a DNS resolver inbound endpoint must be within the virtual network referenced by the parent DNS resolver.
+- The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and can't be used for other services.
 
 ### Outbound endpoint restrictions
 

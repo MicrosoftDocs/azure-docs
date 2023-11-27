@@ -1,7 +1,7 @@
 ---
 title: License provisioning guidelines for Extended Security Updates for Windows Server 2012
 description: Learn about license provisioning guidelines for Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 10/10/2023
+ms.date: 10/24/2023
 ms.topic: conceptual
 ---
 
@@ -28,15 +28,14 @@ If you choose to license based on physical cores, the licensing requires a minim
 
 If you choose to license based on virtual cores, the licensing requires a minimum of eight virtual cores per Virtual Machine. There are two main scenarios where this model is advisable:
 
-1. If the VM is running on a third-party host or hyper scaler like AWS, GCP, or OCI.
+1. If the VM is running on a third-party host or cloud service provider like AWS, GCP, or OCI.
 
-1. The Windows Server was licensed on a virtualization basis. In most cases, customers elect the Standard edition for virtual core-based licenses.
+1. The Windows Server operating system was licensed on a virtualization basis.
 
 An additional scenario (scenario 1, below) is a candidate for VM/Virtual core licensing when the WS2012 VMs are running on a newer Windows Server host (that is, Windows Server 2016 or later).
 
 > [!IMPORTANT]
-> Customers that choose virtual core licensing will always be charged at the Standard edition rate, even if the actual operating system used is Datacenter edition. Additionally, virtual core licensing is not available for physical servers.
-> 
+> Virtual core licensing can't be used on physical servers. When creating a license with virtual cores, always select the standard edition instead of datacenter, even if the operating system is datacenter edition.
 
 ### License limits
 
@@ -50,11 +49,11 @@ In all cases, you're required to attest to conformance with SA or SPLA. There is
 
 As you migrate and modernize your Windows Server 2012 and Windows 2012 R2 infrastructure through the end of 2023, you can utilize the flexibility of monthly billing with Windows Server 2012 ESUs enabled by Azure Arc for cost savings benefits.
 
-As servers no longer require ESUs because they've been migrated to Azure, Azure VMware Solution (AVS), or Azure Stack HCI (where they’re eligible for free ESUs), or updated to Windows Server 2016 or higher, you can modify the number of cores associated with a license or delete/deactivate licenses. You can also link the license to a new scope of additional servers. See [Programmatically deploy and manage Azure Arc Extended Security Updates licenses](api-extended-security-updates.md) to learn more.
+As servers no longer require ESUs because they've been migrated to Azure, Azure VMware Solution (AVS), or Azure Stack HCI (where they’re eligible for free ESUs), or updated to Windows Server 2016 or higher, you can modify the number of cores associated with a license or delete/deactivate licenses. You can also link the license to a new scope of additional servers. See [Programmatically deploy and manage Azure Arc Extended Security Updates licenses](api-extended-security-updates.md) to learn more. For information about no-cost ESUs through Azure Stack HCI, see [Free Extended Security Updates through Azure Stack HCI](/azure-stack/hci/manage/azure-benefits-esu?tabs=windows-server-2012).
 
 > [!NOTE]
 > This process is not automatic; billing is tied to the activated licenses and you are responsible for modifying your provisioned licensing to take advantage of cost savings.
-> 
+
 ## Scenario based examples: Compliant and Cost Effective Licensing
 
 ### Scenario 1: Eight modern 32-core hosts (not Windows Server 2012). While each of these hosts are running four 8-core VMs, only one VM on each host is running Windows Server 2012 R2

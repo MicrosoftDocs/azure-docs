@@ -24,7 +24,7 @@ The following services are currently supported for Customer Lockbox:
 
 - Azure API Management
 - Azure App Service
-- Azure Cognitive Search
+- Azure AI Search
 - Azure Cognitive Services
 - Azure Container Registry
 - Azure Data Box
@@ -52,7 +52,6 @@ The following services are currently supported for Customer Lockbox:
 - Azure Storage
 - Azure Subscription Transfers
 - Azure Synapse Analytics
-- Azure Unified Vision Service
 - Commerce AI (Intelligent Recommendations)
 - DevCenter / DevBox
 - ElasticSan

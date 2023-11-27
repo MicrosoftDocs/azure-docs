@@ -8,6 +8,7 @@ ms.date: 10/05/2023
 ms.author: dacurwin
 ms.custom: generated
 ---
+
 # Security recommendations - a reference guide
 
 This article lists the recommendations you might see in Microsoft Defender for Cloud. The recommendations
@@ -68,23 +69,23 @@ impact on your secure score.
 
 |Recommendation|Description & related policy|Severity|
 |----|----|----|
-|(Preview) Microsoft Defender for APIs should be enabled|Enable the Defender for APIs plan to discover and protect API resources against attacks and security misconfigurations. [Learn more](defender-for-apis-deploy.md)|High|
-(Preview) Azure API Management APIs should be onboarded to Defender for APIs. | Onboarding APIs to Defender for APIs requires compute and memory utilization on the Azure API Management service. Monitor performance of your Azure API Management service while onboarding APIs, and scale out your Azure API Management resources as needed.|High|
-(Preview) API endpoints that are unused should be disabled and removed from the Azure API Management service|As a security best practice, API endpoints that haven't received traffic for 30 days are considered unused, and should be removed from the Azure API Management service. Keeping unused API endpoints might pose a security risk. These might be APIs that should have been deprecated from the Azure API Management service, but have accidentally been left active. Such APIs typically do not receive the most up-to-date security coverage.|Low|
-(Preview) API endpoints in Azure API Management should be authenticated|API endpoints published within Azure API Management should enforce authentication to help minimize security risk. Authentication mechanisms are sometimes implemented incorrectly or are missing. This allows attackers to exploit implementation flaws and to access data. For APIs published in Azure API Management, this recommendation assesses the execution of authentication via the Subscription Keys, JWT, and Client Certificate configured within Azure API Management. If none of these authentication mechanisms are executed during the API call, the API will receive this recommendation.|High
+|Microsoft Defender for APIs should be enabled|Enable the Defender for APIs plan to discover and protect API resources against attacks and security misconfigurations. [Learn more](defender-for-apis-deploy.md)|High|
+|Azure API Management APIs should be onboarded to Defender for APIs. | Onboarding APIs to Defender for APIs requires compute and memory utilization on the Azure API Management service. Monitor performance of your Azure API Management service while onboarding APIs, and scale out your Azure API Management resources as needed.|High|
+|API endpoints that are unused should be disabled and removed from the Azure API Management service|As a security best practice, API endpoints that haven't received traffic for 30 days are considered unused, and should be removed from the Azure API Management service. Keeping unused API endpoints might pose a security risk. These might be APIs that should have been deprecated from the Azure API Management service, but have accidentally been left active. Such APIs typically do not receive the most up-to-date security coverage.|Low|
+|API endpoints in Azure API Management should be authenticated|API endpoints published within Azure API Management should enforce authentication to help minimize security risk. Authentication mechanisms are sometimes implemented incorrectly or are missing. This allows attackers to exploit implementation flaws and to access data. For APIs published in Azure API Management, this recommendation assesses authentication though verifying the presence of Azure API Management subscription keys for APIs or products where subscription is required, and the execution of policies for validating [JWT](/azure/api-management/validate-jwt-policy), [client certificates](/azure/api-management/validate-client-certificate-policy), and [Microsoft Entra](/azure/api-management/validate-azure-ad-token-policy) tokens. If none of these authentication mechanisms are executed during the API call, the API will receive this recommendation.|High|
 
 ## API management recommendations
 
 |Recommendation|Description & related policy|Severity|
 |----|----|----|
-|(Preview) API Management subscriptions should not be scoped to all APIs|API Management subscriptions should be scoped to a product or an individual API instead of all APIs, which could result in excessive data exposure.|Medium|
-(Preview) API Management calls to API backends should not bypass certificate thumbprint or name validation| API Management should validate the backend server certificate for all API calls. Enable SSL certificate thumbprint and name validation to improve the API security.|Medium|
-(Preview) API Management direct management endpoint should not be enabled|The direct management REST API in Azure API Management bypasses Azure Resource Manager role-based access control, authorization, and throttling mechanisms, thus increasing the vulnerability of your service.|Low|
-(Preview) API Management APIs should use only encrypted protocols|APIs should be available only through encrypted protocols, like HTTPS or WSS. Avoid using unsecured protocols, such as HTTP or WS to ensure security of data in transit.|High
-(Preview) API Management secret named values should be stored in Azure Key Vault|Named values are a collection of name and value pairs in each API Management service. Secret values can be stored either as encrypted text in API Management (custom secrets) or by referencing secrets in Azure Key Vault. Reference secret named values from Azure Key Vault to improve security of API Management and secrets. Azure Key Vault supports granular access management and secret rotation policies.|Medium
-(Preview) API Management should disable public network access to the service configuration endpoints|To improve the security of API Management services, restrict connectivity to service configuration endpoints, like direct access management API, Git configuration management endpoint, or self-hosted gateways configuration endpoint.| Medium
-(Preview) API Management minimum API version should be set to 2019-12-01 or higher|To prevent service secrets from being shared with read-only users, the minimum API version should be set to 2019-12-01 or higher.|Medium
-(Preview) API Management calls to API backends should be authenticated|Calls from API Management to backends should use some form of authentication, whether via certificates or credentials. Does not apply to Service Fabric backends.|Medium
+|API Management subscriptions should not be scoped to all APIs|API Management subscriptions should be scoped to a product or an individual API instead of all APIs, which could result in excessive data exposure.|Medium|
+|API Management calls to API backends should not bypass certificate thumbprint or name validation| API Management should validate the backend server certificate for all API calls. Enable SSL certificate thumbprint and name validation to improve the API security.|Medium|
+|API Management direct management endpoint should not be enabled|The direct management REST API in Azure API Management bypasses Azure Resource Manager role-based access control, authorization, and throttling mechanisms, thus increasing the vulnerability of your service.|Low|
+|API Management APIs should use only encrypted protocols|APIs should be available only through encrypted protocols, like HTTPS or WSS. Avoid using unsecured protocols, such as HTTP or WS to ensure security of data in transit.|High|
+|API Management secret named values should be stored in Azure Key Vault|Named values are a collection of name and value pairs in each API Management service. Secret values can be stored either as encrypted text in API Management (custom secrets) or by referencing secrets in Azure Key Vault. Reference secret named values from Azure Key Vault to improve security of API Management and secrets. Azure Key Vault supports granular access management and secret rotation policies.|Medium|
+|API Management should disable public network access to the service configuration endpoints|To improve the security of API Management services, restrict connectivity to service configuration endpoints, like direct access management API, Git configuration management endpoint, or self-hosted gateways configuration endpoint.| Medium|
+|API Management minimum API version should be set to 2019-12-01 or higher|To prevent service secrets from being shared with read-only users, the minimum API version should be set to 2019-12-01 or higher.|Medium|
+|API Management calls to API backends should be authenticated|Calls from API Management to backends should use some form of authentication, whether via certificates or credentials. Does not apply to Service Fabric backends.|Medium|
 
 ## AI recommendations
 
@@ -124,3 +125,5 @@ To learn more about recommendations, see the following:
 
 - [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
 - [Review your security recommendations](review-security-recommendations.md)
+
+

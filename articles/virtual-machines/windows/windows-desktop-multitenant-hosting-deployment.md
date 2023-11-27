@@ -71,6 +71,9 @@ win11-22h2-pron      Windows-11 MicrosoftWindowsDesktop westus
 
 For more information on available images, see [Find and use Azure Marketplace VM images with Azure PowerShell](./cli-ps-findimage.md)
 
+> [!NOTE]
+> If you are upgrading to a newer version of Windows 11 with Trusted launch enabled and you are currently on a Windows 11 version without Trusted Launch enabled, the VM needs to be deallocated before proceeding with the upgrade. For more information, see [Enabling Trusted Launch on existing Azure VMs](../../virtual-machines/trusted-launch-existing-vm.md)
+
 ## Uploading Windows 11 VHD to Azure
 If you're uploading a generalized Windows 11 VHD,  note Windows 11 doesn't have built-in administrator account enabled by default. To enable the built-in administrator account, include the following command as part of the Custom Script extension.
 

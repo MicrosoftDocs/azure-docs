@@ -21,7 +21,7 @@ When you want the function to process a batch of messages, the Service Bus trigg
 | --- | --- |
 | `T[]` where `T` is one of the single message types  | An array of events from the batch. Each entry represents one event.<br/><br/>When binding to `ServiceBusReceivedMessage[]`, you can optionally also include a parameter of type [ServiceBusMessageActions]<sup>1</sup> to perform [message settlement] actions.|
 
-<sup>1</sup> To use these types, you need to reference [Microsoft.Azure.Functions.Worker.Extensions.ServiceBus 5.14.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus/5.14.0) and the [common dependencies for SDK type bindings](../articles/azure-functions/dotnet-isolated-process-guide.md#sdk-types).
+<sup>1</sup> To use these types, you need to reference [Microsoft.Azure.Functions.Worker.Extensions.ServiceBus 5.14.1 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus/5.14.1) and the [common dependencies for SDK type bindings](../articles/azure-functions/dotnet-isolated-process-guide.md#sdk-types).
 
 [ServiceBusReceivedMessage]: /dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage
 [ServiceBusMessageActions]: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.ServiceBus/src/ServiceBusMessageActions.cs

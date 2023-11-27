@@ -9,6 +9,9 @@
   - name: Terminology
     displayName: azure virtul desktop, avd, overview, what is
     href: terminology.md
+  - name: Service architecture and resilience
+    displayName: architecture
+    href: service-architecture-resilience.md
   - name: Prerequisites
     displayName: overview, get started
     href: prerequisites.md
@@ -61,9 +64,9 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Create and connect to a Windows 11 desktop
+  - name: Deploy a Windows 11 desktop
     displayName: tutorial
-    href: tutorial-create-connect-personal-desktop.md
+    href: tutorial-try-deploy-windows-11-desktop.md
 - name: Concepts
   items:
   - name: Deploy
@@ -95,9 +98,9 @@
       - name: Azure Private Link
         displayName: network connectivity, connections, private endpoints
         href: private-link-overview.md
-      - name: Required URL list
-        displayName: network, urls, firewall, connections, connectivity
-        href: safe-url-list.md
+      - name: Required FQDNs and endpoints
+        displayName: network, fqdn, endpoint, urls, firewall, connections, connectivity
+        href: required-fqdn-endpoint.md
       - name: Bandwidth considerations
         displayName: network, throughput, latency
         href: rdp-bandwidth.md
@@ -235,21 +238,42 @@
   items:
   - name: Deploy
     items:
-      - name: Create a host pool
-        displayName: deploy, get started
-        href: create-host-pool.md
-      - name: Create application group, workspace, and assign users
-        displayName: deploy, get started
-        href: create-application-group-workspace.md
-      - name: Add session hosts to a host pool
-        displayName: deploy, get started
-        href: add-session-hosts-host-pool.md
+      - name: Deploy Azure Virtual Desktop
+        displayName: deploy, create, get started, host pool, application group, workspace, assign users, azure stack hci
+        href: deploy-azure-virtual-desktop.md
       - name: Use the getting started feature
-        displayName: deploy, get started
+        displayName: deploy, create, get started
         href: getting-started-feature.md
-      - name: Enable GPU acceleration
-        displayName: graphics, multimedia, videos, cad
-        href: enable-gpu-acceleration.md
+      - name: Session hosts
+        items:
+        - name: Add session hosts to a host pool
+          displayName: deploy, get started
+          href: add-session-hosts-host-pool.md
+        - name: Enable GPU acceleration
+          displayName: graphics, multimedia, videos, cad, session hosts
+          href: enable-gpu-acceleration.md
+        - name: Customize session host images
+          items:
+          - name: Create custom images with Custom image templates
+            displayName: session hosts, virtual machines, vms, vhd, vhdx
+            href: create-custom-image-templates.md
+          - name: Set up golden image in Azure
+            displayName: session hosts, virtual machines, vms, vhd, vhdx
+            href: set-up-golden-image.md
+          - name: Set up a master VHD image
+            displayName: session hosts, virtual machines, vms, vhd, vhdx
+            href: set-up-customize-master-image.md
+          - name: Install Office on a master VHD image
+            displayName: session hosts, virtual machines, vms, vhd, vhdx
+            href: install-office-on-wvd-master-image.md
+        - name: Add languages
+          items:
+          - name: Windows 10 multi-session images
+            displayName: languages, language packs
+            href: language-packs.md
+          - name: Windows 11 Enterprise images
+            displayName: languages, language packs
+            href: windows-11-language-packs.md
       - name: Applications
         items:
         - name: Publish applications using Azure portal
@@ -295,20 +319,6 @@
           - name: Set up Windows Sandbox
             displayName: applications, apps
             href: sandbox.md
-      - name: Customize session host images
-        items:
-        - name: Create custom images with Custom image templates
-          displayName: session hosts, virtual machines, vms, vhd, vhdx
-          href: create-custom-image-templates.md
-        - name: Set up golden image in Azure
-          displayName: session hosts, virtual machines, vms, vhd, vhdx
-          href: set-up-golden-image.md
-        - name: Set up a master VHD image
-          displayName: session hosts, virtual machines, vms, vhd, vhdx
-          href: set-up-customize-master-image.md
-        - name: Install Office on a master VHD image
-          displayName: session hosts, virtual machines, vms, vhd, vhdx
-          href: install-office-on-wvd-master-image.md
       - name: Identity and access management
         items:
         - name: Enforce Microsoft Entra multifactor authentication
@@ -328,9 +338,9 @@
           href: key-distribution-center-proxy.md
       - name: Network connectivity
         items:
-        - name: Check access to required URLs
-          displayName: network, urls, firewall
-          href: required-url-check-tool.md
+        - name: Check access to required FQDNs and endpoints
+          displayName: network, fqdn, endpoint, urls, connections, connectivity
+          href: check-access-validate-required-fqdn-endpoint.md
         - name: Configure RDP Shortpath
           displayName: network, udp
           href: configure-rdp-shortpath.md
@@ -357,14 +367,6 @@
         - name: Use Azure Files and Microsoft Entra ID
           displayName: fslogix, user profiles
           href: create-profile-container-azure-ad.md
-      - name: Language packs
-        items:
-        - name: Windows 10 multi-session images
-          displayName: languages, language packs
-          href: language-packs.md
-        - name: Windows 11 Enterprise images
-          displayName: languages, language packs
-          href: windows-11-language-packs.md
       - name: Migrate from classic
         items:
         - name: Migrate automatically 
@@ -373,8 +375,6 @@
         - name: Migrate manually
           displayName: classic
           href: manual-migration.md
-      - name: Deploy on Azure Stack HCI
-        href: azure-stack-hci.md
   - name: Manage
     items:
     - name: Use Azure CLI and Azure PowerShell
@@ -580,6 +580,9 @@
     href: troubleshoot-service-connection.md
   - name: Remote Desktop clients
     items:
+    - name: Windows Desktop client basic troubleshooting
+      displayName: troubleshooting, apps, clients, remote desktop, rdp
+      href: troubleshoot-client-windows-basic-shared.md
     - name: Windows Desktop client
       displayName: troubleshooting, apps, clients, remote desktop, rdp
       href: troubleshoot-client-windows.md

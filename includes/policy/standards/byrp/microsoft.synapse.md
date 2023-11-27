@@ -2,7 +2,7 @@
 author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/18/2023
+ms.date: 11/21/2023
 ms.author: davidsmatlak
 ms.custom: generated
 ---
@@ -68,7 +68,7 @@ standard, see
 
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Data Protection |DP-4 |Enable data at rest encryption by default |[Synapse Workspaces should use only Azure Active Directory identities for authentication](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2158ddbe-fefa-408e-b43f-d4faef8ff3b8) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynaspeWorkspaceAadOnlyAuthentication_Audit.json) |
+|Data Protection |DP-4 |Enable data at rest encryption by default |[Synapse Workspaces should use only Microsoft Entra identities for authentication](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2158ddbe-fefa-408e-b43f-d4faef8ff3b8) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynaspeWorkspaceAadOnlyAuthentication_Audit.json) |
 
 ## NIST SP 800-171 R2
 

@@ -1,14 +1,14 @@
 ---
-title: Snapshots in Azure App Configuration (preview)
+title: Snapshots in Azure App Configuration
 description: Details of Snapshots in Azure App Configuration
 author: Muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
 ms.topic: conceptual 
-ms.date: 05/16/2023
+ms.date: 11/15/2023
 ---
 
-# Snapshots (preview)
+# Snapshots
 
 A snapshot is a named, immutable subset of an App Configuration store's key-values. The key-values that make up a snapshot are chosen during creation time through the usage of key and label filters. Once a snapshot is created, the key-values within are guaranteed to remain unchanged.
 
@@ -74,8 +74,6 @@ To  list all snapshots, or get all the key-values in an individual snapshot by n
 For stores that use HMAC authentication, both the "read snapshot" operation (to read the key-values from a snapshot) and the "list snapshots" operation can be performed using either the read-write access keys or the read-only access keys.
 
 ## Billing considerations and limits
-
-The storage quota for snapshots is detailed in the "storage per resource section" of the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration/) There's no extra charge for snapshots before the included snapshot storage quota is exhausted.
 
 App Configuration has two tiers, Free and Standard. Check the following details for snapshot quotas in each tier.
 
