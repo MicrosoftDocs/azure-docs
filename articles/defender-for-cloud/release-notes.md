@@ -49,7 +49,7 @@ We're announcing the General Availability (GA) of agentless secret scanning, whi
 
 Agentless secret scanning utilizes cloud APIs to capture snapshots of your disks, conducting out-of-band analysis that ensures that there is no effect on your VM's performance. Agentless secret scanning broadens the coverage offered by Defender for Cloud over cloud assets across Azure, AWS, and GCP environments to enhance your cloud security.
 
-With this release, Defender for Cloud's detection capabilities have been expanded to support other database types, data store signed URLs, access tokens, and more.
+With this release, Defender for Cloud's detection capabilities now support additional database types, data store signed URLs, access tokens, and more.
 
 Learn how to [manage secrets with agentless secret scanning](secret-scanning.md).
 
