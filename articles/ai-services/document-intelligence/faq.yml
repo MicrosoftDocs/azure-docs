@@ -471,7 +471,7 @@ sections:
           Why am I receiving a Storage error on Project Sharing, Auto Label, or OCR Upgrade when my Storage Account resource is configured with a firewall or virtual network?
         answer: |
 
-          Please refer to [Managed identities for Document Intelligence](managed-identities.md) to setup up your Azure resources.
+          Please refer to [Managed identities for Document Intelligence](managed-identities.md) to set up up your Azure resources.
 
       - question: |
           Why am I receiving 'Access denied due to Virtual Network/Firewall rules' on Auto Label or OCR Upgrading when my Document Intelligence resource is configured with a firewall or virtual network?
