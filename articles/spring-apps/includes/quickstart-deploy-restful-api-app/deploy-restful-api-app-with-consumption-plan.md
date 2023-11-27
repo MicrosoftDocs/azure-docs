@@ -49,7 +49,7 @@ Use the following steps to initialize the web application from Azure Developer C
    The following list describes the command interactions:
 
    - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
-   - **Please enter a new environment name**: Provide an environment name. This name is used as a suffix for the resource group that's created to hold all the Azure resources. This name should be unique within your Azure subscription.
+   - **Please enter a new environment name**: Provide an environment name. This name is used as a suffix for the resource group created to hold all the Azure resources. This name should be unique within your Azure subscription.
 
    The console outputs messages similar to the following example:
 
@@ -86,8 +86,6 @@ Use the following steps to create a service instance:
 
 1. Select **Compute** > **Azure Spring Apps**.
 
-   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-service-instance.png" alt-text="Screenshot of the Azure portal that shows the Create a resource page with Azure Spring Apps highlighted." lightbox="../../media/quickstart-deploy-restful-api-app/create-service-instance.png":::
-
 1. Fill out the **Basics** form. Use the following table as a guide for completing the form. The recommended **Plan** value is **Standard consumption & dedicated (preview)**.
 
    | Setting                        | Suggested value                                | Description                                                                                                                                                                                                                                                                                        |
@@ -98,8 +96,6 @@ Use the following steps to create a service instance:
    | **Plan**                       | **Standard consumption & dedicated (preview)** | The pricing plan determines the resources and cost associated with your instance.                                                                                                                                                                                                                  |
    | **Region**                     | The region closest to your users.              | The location that's closest to your users.                                                                                                                                                                                                                                                         |
    | **Container Apps Environment** | *myenvironment*                                | The option to select which Container Apps environment instance to share the same virtual network with other services and resources.                                                                                                                                                                |
-
-   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-consumption-service-basics.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Spring Apps consumption plan page." lightbox="../../media/quickstart-deploy-restful-api-app/create-consumption-service-basics.png":::
 
    Use the following table as a guide for the Container Apps Environment creation:
 
@@ -164,7 +160,7 @@ Use the following steps to connect your service instances:
 
 Use the following steps to provision the required Azure resources:
 
-1. Run the following command to log in to Azure with OAuth2. Ignore this step if you've already logged in.
+1. Run the following command to log in to Azure with OAuth2. Ignore this step if you already logged in.
 
    ```bash
    azd auth login
@@ -263,6 +259,5 @@ Use the following steps to package the app, provision the Azure resources requir
    The output **Endpoint** is the base endpoint to access the ToDo API application.
 
 > [!NOTE]
-> You can also use `azd up` to combine the previous three commands: `azd provision` (provisions Azure resources), `azd package` (packages a deployable copy of your application), and `azd deploy` (deploys application code). For more information, see [Azure-Samples/ASA-Samples-API-Application](https://github.com/Azure-Samples/ASA-Samples-API-Application).
-
+> You can also use `azd up` to combine the previous three commands: `azd provision` (provisions Azure resources), `azd package` (packages a deployable copy of your application), and `azd deploy` (deploys application code).
 ---

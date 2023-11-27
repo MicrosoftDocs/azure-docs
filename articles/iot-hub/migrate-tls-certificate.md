@@ -7,7 +7,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 11/03/2023
 ---
 
 # Migrate IoT Hub resources to a new TLS certificate root
@@ -23,11 +23,11 @@ You should start planning now for the effects of migrating your IoT hubs to the 
 
 ## Timeline
 
-The IoT Hub team began migrating IoT hubs in February, 2023 and all IoT hubs have been migrated except for those that have already been approved for a later migration.
+The IoT Hub team began migrating IoT hubs in February, 2023 and the migration is complete except for hubs that have already been approved for a later migration. If your IoT hub is found to be using the Baltimore certificate without an agreement in place with the product team, your hub will be migrated without any further notice.
 
 After all IoT hubs have migrated, DPS will perform its migration between January 15 and February 15, 2024.
 
-For each IoT hub, you can expect the following:
+For each IoT hub with an extension agreement in place, you can expect the following:
 
 * **One to two weeks before migration**: The subscription owners of each IoT hub receive an email notification informing them of their migration date. This notification doesn't apply to hubs that are manually migrated.
 * **Day of the migration**: The IoT hub switches its TLS certificate to the DigiCert Global Root G2, which results in no downtime for the IoT hub. IoT Hub doesn't force device reconnections.
@@ -35,7 +35,7 @@ For each IoT hub, you can expect the following:
 
 ### Request an extension
 
-As of  August, 2023 the extension request process is closed for IoT Hub and IoT Central.
+As of August, 2023 the extension request process is closed for IoT Hub and IoT Central. If your IoT hub is found to be using the Baltimore certificate without an extension agreement in place with the product team, your hub will be migrated without any further notice.
 
 ## Required steps
 

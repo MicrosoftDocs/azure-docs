@@ -71,6 +71,15 @@ This version of the Azure Cosmos DB bindings extension introduces the ability to
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/), version 4.x.
 
+If you're writing your application using F#, you must also configure this extension as part of the app's [startup configuration](./dotnet-isolated-process-guide.md#start-up-and-configuration). In the call to `ConfigureFunctionsWorkerDefaults()` or `ConfigureFunctionsWebApplication()`, add a delegate that takes an `IFunctionsWorkerApplication` parameter. Then within the body of that delegate, call `ConfigureCosmosDBExtension()` on the object:
+
+```fsharp
+let hostBuilder = new HostBuilder()
+hostBuilder.ConfigureFunctionsWorkerDefaults(fun (context: HostBuilderContext) (appBuilder: IFunctionsWorkerApplicationBuilder) ->
+    appBuilder.ConfigureCosmosDBExtension() |> ignore
+) |> ignore
+```
+
 # [Functions 2.x+](#tab/functionsv2/isolated-process)
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/), version 3.x.

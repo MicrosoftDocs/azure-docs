@@ -3,7 +3,7 @@ title: Choose a deployment method for the MedTech service - Azure Health Data Se
 description: Learn about the different methods for deploying the MedTech service.
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-bicep
 ms.topic: quickstart
 ms.date: 07/05/2023
@@ -11,9 +11,6 @@ ms.author: jasteppe
 ---
 
 # Quickstart: Choose a deployment method for the MedTech service
-
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 The MedTech service provides multiple methods for deployment into Azure. Each deployment method has different advantages that allow you to customize your deployment to suit your needs and use cases.
 
@@ -27,13 +24,13 @@ In this quickstart, learn about these deployment methods:
 
 ## Deployment overview
 
-The following diagram outlines the basic steps of the MedTech service deployment. These steps may help you analyze the deployment options and determine which deployment method is best for you.
+The following diagram outlines the basic steps of the MedTech service deployment. These steps might help you analyze the deployment options and determine which deployment method is best for you.
 
 :::image type="content" source="media/get-started/get-started-with-medtech-service.png" alt-text="Diagram showing MedTech service deployment overview." lightbox="media/get-started/get-started-with-medtech-service.png":::
 
 ## ARM template including an Azure Iot Hub using the Deploy to Azure button
 
-Using an ARM template with the **Deploy to Azure** button is an easy and fast deployment method because it automates the deployment, most configuration steps, and uses the Azure portal. The deployed MedTech service and Azure IoT Hub are fully functional including conforming and valid device and FHIR destination mappings. Use the Azure IoT Hub to create devices and send device messages to the MedTech service.
+Using an ARM template with the **Deploy to Azure** button is an easy and fast deployment method because it automates the deployment, most configuration steps, and uses the Azure portal. The deployed MedTech service and Azure IoT Hub are fully functional including conforming and valid device and FHIR&reg; destination mappings. Use the Azure IoT Hub to create devices and send device messages to the MedTech service.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors-with-iothub%2Fazuredeploy.json)
 
@@ -61,7 +58,7 @@ To learn more about deploying the MedTech service using a Bicep file and Azure P
 
 ## Azure portal
 
-Using the Azure portal allows you to see the details of each deployment step. The Azure portal deployment has many steps, but it provides valuable technical information that may be useful for customizing and troubleshooting your MedTech service.
+Using the Azure portal allows you to see the details of each deployment step. The Azure portal deployment has many steps, but it provides valuable technical information that might be useful for customizing and troubleshooting your MedTech service.
 
 To learn more about deploying the MedTech service using the Azure portal, see [Deploy the MedTech service using the Azure portal](deploy-manual-portal.md).
 
@@ -78,21 +75,10 @@ To learn more about deploying the MedTech service using the Azure portal, see [D
 
 ## Next steps
 
-In this quickstart, you learned about the different types of deployment methods for the MedTech service. 
+[Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
-To learn about other methods of deploying the MedTech service, see
+[Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
 
-> [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+[Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
-For an overview of the MedTech service device data processing stages, see
-
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
-
-For frequently asked questions (FAQs) about the MedTech service, see
-
-> [!div class="nextstepaction"]
-> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

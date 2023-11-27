@@ -120,7 +120,7 @@ Deploy an app with the language framework of your choice to App Service. To foll
 
 1. In the search box, search for **response**, then select the **Response** action.
 
-   ![Screenshot that shows the the search bar and Response action highlighted.](./media/tutorial-send-email/choose-response-action.png)
+   ![Screenshot that shows the search bar and Response action highlighted.](./media/tutorial-send-email/choose-response-action.png)
 
    By default, the response action sends an HTTP 200. That's good enough for this tutorial. For more information, see the [HTTP request/response reference](../connectors/connectors-native-reqres.md).
 

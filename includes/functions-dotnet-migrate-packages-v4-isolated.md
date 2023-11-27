@@ -30,10 +30,11 @@ Depending on the triggers and bindings your app uses, your app might need to ref
 | SendGrid bindings| Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.SendGrid`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.SendGrid][sendgrid] | 
 | Kafka bindings | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.Kafka`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.Kafka][kafka] |
 | RabbitMQ bindings | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.RabbitMQ`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.RabbitMQ][rabbitmq] |
+| Dependency injection<br/>and startup config | Remove references to<br/>`Microsoft.Azure.Functions.Extensions`<br/>(The isolated worker model provides this functionality by default.) |
 
 See [Supported bindings](../articles/azure-functions/functions-triggers-bindings.md#supported-bindings) for a complete list of extensions to consider, and consult each extension's documentation for full installation instructions for the isolated process model. Be sure to install the latest stable version of any packages you are targeting.
 
-**Your isolated worker model application should not reference any packages in the `Microsoft.Azure.WebJobs.*` namespaces.** If you have any remaining references to these, they should be removed.
+**Your isolated worker model application should not reference any packages in the `Microsoft.Azure.WebJobs.*` namespaces or `Microsoft.Azure.Functions.Extensions`.** If you have any remaining references to these, they should be removed.
 
 > [!TIP]
 > Your app might also depend on Azure SDK types, either as part of your triggers and bindings or as a standalone dependency. You should take this opportunity to upgrade these as well. The latest versions of the Functions extensions work with the latest versions of the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet), almost all of the packages for which are the form `Azure.*`.

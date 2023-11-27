@@ -2,7 +2,7 @@
 title: Spatial Analysis zone and line placement
 titleSuffix: Azure AI services
 description: Learn how to set up zones and lines with Spatial Analysis
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision

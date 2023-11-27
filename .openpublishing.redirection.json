@@ -1,6 +1,861 @@
 {
     "redirections": [
     {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/bing-autosuggest-upgrade-guide-v5-to-v7.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Autosuggest/bing-autosuggest-upgrade-guide-v5-to-v7",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/get-suggested-search-terms.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Autosuggest/get-suggested-search-terms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/language-support.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Autosuggest/language-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/concepts/get-suggestions.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Autosuggest/concepts/get-suggestions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/concepts/sending-requests.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Autosuggest/concepts/sending-requests",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/quickstarts/client-libraries.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Autosuggest/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/quickstarts/csharp.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Autosuggest/quickstarts/csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/quickstarts/java.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Autosuggest/quickstarts/java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/quickstarts/nodejs.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Autosuggest/quickstarts/nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/quickstarts/php.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Autosuggest/quickstarts/php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/quickstarts/python.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Autosuggest/quickstarts/python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/quickstarts/ruby.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Autosuggest/quickstarts/ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/tutorials/autosuggest.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Autosuggest/tutorials/autosuggest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/call-endpoint-csharp.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Custom-Search/call-endpoint-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/call-endpoint-java.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Custom-Search/call-endpoint-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/call-endpoint-nodejs.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Custom-Search/call-endpoint-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/call-endpoint-python.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Custom-Search/call-endpoint-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/define-custom-suggestions.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Custom-Search/define-custom-suggestions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/define-your-custom-view.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Custom-Search/define-your-custom-view",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/endpoint-custom.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Custom-Search/endpoint-custom",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/get-images-from-instance.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Custom-Search/get-images-from-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/get-videos-from-instance.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Custom-Search/get-videos-from-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/hosted-ui.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Custom-Search/hosted-ui",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/language-support.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Custom-Search/language-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/overview.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Custom-Search/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/quick-start.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Custom-Search/quick-start",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/search-your-custom-view.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Custom-Search/search-your-custom-view",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/share-your-custom-search.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Custom-Search/share-your-custom-search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/quickstarts/client-libraries.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Custom-Search/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/tutorials/custom-search-web-page.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Custom-Search/tutorials/custom-search-web-page",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/entity-search-endpoint.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Entities-Search/entity-search-endpoint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/overview.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Entities-Search/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/rank-results.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Entities-Search/rank-results",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/tutorial-bing-entities-search-single-page-app.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Entities-Search/tutorial-bing-entities-search-single-page-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/concepts/search-for-entities.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Entities-Search/concepts/search-for-entities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/concepts/sending-requests.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Entities-Search/concepts/sending-requests",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/client-libraries.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Entities-Search/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/csharp.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Entities-Search/quickstarts/csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/java.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Entities-Search/quickstarts/java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/nodejs.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Entities-Search/quickstarts/nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/php.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Entities-Search/quickstarts/php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/python.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Entities-Search/quickstarts/python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/ruby.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Entities-Search/quickstarts/ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/bing-image-search-resource-faq.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/bing-image-search-resource-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/bing-image-upgrade-guide-v5-to-v7.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/bing-image-upgrade-guide-v5-to-v7",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/gif-images.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/gif-images",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/image-insights.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/image-insights",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/image-search-endpoint.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/image-search-endpoint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/language-support.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/language-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/overview.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/trending-images.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/trending-images",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/tutorial-bing-image-search-single-page-app.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/tutorial-bing-image-search-single-page-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/tutorial-image-post.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/tutorial-image-post",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/concepts/bing-image-search-get-images.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/concepts/bing-image-search-get-images",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/concepts/bing-image-search-sending-queries.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/concepts/bing-image-search-sending-queries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/quickstarts/client-libraries.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/quickstarts/csharp.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/quickstarts/csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/quickstarts/java.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/quickstarts/java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/quickstarts/nodejs.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/quickstarts/nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/quickstarts/php.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/quickstarts/php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/quickstarts/python.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/quickstarts/python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/quickstarts/ruby.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Image-Search/quickstarts/ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/bing-news-upgrade-guide-v5-to-v7.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-News-Search/bing-news-upgrade-guide-v5-to-v7",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/csharp.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-News-Search/csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/endpoint-news.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-News-Search/endpoint-news",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/go.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-News-Search/go",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/java.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-News-Search/java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/language-support.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-News-Search/language-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/nodejs.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-News-Search/nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/php.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-News-Search/php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/python.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-News-Search/python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/ruby.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-News-Search/ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/search-the-web.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-News-Search/search-the-web",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/tutorial-bing-news-search-single-page-app.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-News-Search/tutorial-bing-news-search-single-page-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/concepts/search-for-news.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-News-Search/concepts/search-for-news",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/concepts/send-search-queries.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-News-Search/concepts/send-search-queries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/quickstarts/client-libraries.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-News-Search/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/bing-spell-check-upgrade-guide-v5-to-v7.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Spell-Check/bing-spell-check-upgrade-guide-v5-to-v7",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/language-support.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Spell-Check/language-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/overview.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Spell-Check/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/sdk-quickstart-spell-check.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Spell-Check/sdk-quickstart-spell-check",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/concepts/sending-requests.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Spell-Check/concepts/sending-requests",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/concepts/using-spell-check.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Spell-Check/concepts/using-spell-check",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/quickstarts/csharp.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Spell-Check/quickstarts/csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/quickstarts/java.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Spell-Check/quickstarts/java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/quickstarts/nodejs.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Spell-Check/quickstarts/nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/quickstarts/php.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Spell-Check/quickstarts/php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/quickstarts/python.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Spell-Check/quickstarts/python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/quickstarts/ruby.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Spell-Check/quickstarts/ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/tutorials/spellcheck.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Spell-Check/tutorials/spellcheck",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/bing-video-upgrade-guide-v5-to-v7.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Video-Search/bing-video-upgrade-guide-v5-to-v7",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/overview.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Video-Search/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/trending-videos.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Video-Search/trending-videos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/tutorial-bing-video-search-single-page-app.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Video-Search/tutorial-bing-video-search-single-page-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/video-insights.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Video-Search/video-insights",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/concepts/get-videos.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Video-Search/concepts/get-videos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/concepts/sending-requests.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Video-Search/concepts/sending-requests",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/quickstarts/client-libraries.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Video-Search/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/quickstarts/csharp.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Video-Search/quickstarts/csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/quickstarts/java.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Video-Search/quickstarts/java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/quickstarts/nodejs.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Video-Search/quickstarts/nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/quickstarts/php.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Video-Search/quickstarts/php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/quickstarts/python.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Video-Search/quickstarts/python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/quickstarts/ruby.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Video-Search/quickstarts/ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/autosuggest-bing-search-terms.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/autosuggest-bing-search-terms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/bing-api-comparison.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/bing-api-comparison",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/bing-web-stats.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/bing-web-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/bing-web-upgrade-guide-v5-to-v7.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/bing-web-upgrade-guide-v5-to-v7",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/csharp-ranking-tutorial.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/csharp-ranking-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/filter-answers.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/filter-answers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/hit-highlighting.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/hit-highlighting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/index.yml",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/language-support.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/language-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/overview.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/paging-search-results.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/paging-search-results",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/rank-results.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/rank-results",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/resize-and-crop-thumbnails.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/resize-and-crop-thumbnails",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/sdk-samples.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/sdk-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/search-responses.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/search-responses",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/throttling-requests.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/throttling-requests",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/tutorial-bing-web-search-single-page-app.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/tutorial-bing-web-search-single-page-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/use-display-requirements.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/web-search-endpoints.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/web-search-endpoints",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/quickstarts/client-libraries.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/quickstarts/csharp.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/quickstarts/csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/quickstarts/go.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/quickstarts/go",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/quickstarts/java.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/quickstarts/java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/quickstarts/nodejs.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/quickstarts/nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/quickstarts/php.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/quickstarts/php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/quickstarts/python.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/quickstarts/python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/quickstarts/ruby.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Bing-Web-Search/quickstarts/ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-local-business-search/local-categories.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-local-business-search/local-categories",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-local-business-search/local-search-query-response.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-local-business-search/local-search-query-response",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-local-business-search/local-search-reference.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-local-business-search/local-search-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-local-business-search/overview.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-local-business-search/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-local-business-search/specify-geographic-search.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-local-business-search/specify-geographic-search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-local-business-search/quickstarts/local-quickstart.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-local-business-search/quickstarts/local-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-local-business-search/quickstarts/local-search-java-quickstart.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-local-business-search/quickstarts/local-search-java-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-local-business-search/quickstarts/local-search-node-quickstart.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-local-business-search/quickstarts/local-search-node-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-local-business-search/quickstarts/local-search-python-quickstart.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-local-business-search/quickstarts/local-search-python-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/bing-insights-usage.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/bing-insights-usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/default-insights-tag.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/default-insights-tag",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/language-support.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/language-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/overview.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/tutorial-bing-visual-search-single-page-app.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/tutorial-bing-visual-search-single-page-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/tutorial-visual-search-crop-area-results.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/tutorial-visual-search-crop-area-results",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/tutorial-visual-search-image-upload.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/tutorial-visual-search-image-upload",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/tutorial-visual-search-insights-token.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/tutorial-visual-search-insights-token",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/use-insights-token.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/use-insights-token",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/concepts/sending-queries.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/concepts/sending-queries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/quickstarts/client-libraries.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/quickstarts/csharp.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/quickstarts/csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/quickstarts/go.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/quickstarts/go",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/quickstarts/java.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/quickstarts/java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/quickstarts/nodejs.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/quickstarts/nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/quickstarts/python.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/quickstarts/python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/quickstarts/ruby.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/quickstarts/ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-api-templates.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-api-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-application-templates.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-application-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-customize-styles.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-customize-styles",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-developer-portal-templates-reference.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-developer-portal-templates-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-developer-portal-templates.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-developer-portal-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-issue-templates.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-issue-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-modify-content-layout.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-modify-content-layout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-page-controls.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-page-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-page-templates.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-page-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-product-templates.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-product-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-template-data-model-reference.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-template-data-model-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-template-resources.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-template-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-user-profile-templates.md",
+      "redirect_url": "/previous-versions/azure/api-management/api-management-user-profile-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/developer-portal-deprecated-migration.md",
+      "redirect_url": "/previous-versions/azure/api-management/developer-portal-deprecated-migration",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/azuread-dev/about-microsoft-identity-platform.md",
       "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/about-microsoft-identity-platform",
       "redirect_document_id": false
@@ -9,6 +864,16 @@
       "source_path": "articles/active-directory/azuread-dev/active-directory-acs-migration.md",
       "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/active-directory-acs-migration",
       "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-preview-version.md",
+        "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version-vmware",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-version-vmware.md",
+        "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version",
+        "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/azuread-dev/active-directory-authentication-libraries.md",
@@ -144,6 +1009,11 @@
           "source_path": "articles/azure-resource-manager/bicep/bicep-import-providers.md",
           "redirect_URL": "bicep-import",
           "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version.md",
+            "redirect_URL": "/azure/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version-scvmm",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/migrate/tutorial-assess-webapps-physical.md",
@@ -8199,6 +9069,16 @@
             "redirect_document_id": false
         },
         {
+          "source_path_from_root": "/articles/azure-cache-for-redis/cache-how-to-premium-clustering.md",
+          "redirect_url": "/azure/azure-cache-for-redis/-how-to-scale",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/azure-cache-for-redis/cache-how-to-version.md",
+          "redirect_url": "/azure/azure-cache-for-redis/-how-to-upgrade",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/app-service/app-service-export-api-to-powerapps-and-flow.md",
             "redirect_url": "/azure/azure-functions/app-service-export-api-to-powerapps-and-flow",
             "redirect_document_id": false
@@ -9363,6 +10243,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/tutorial-protect-vpn-gateway.md",
+            "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn-clients.md",
             "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
             "redirect_document_id": false
@@ -9664,6 +10549,11 @@
         },
         {
             "source_path_from_root": "/articles/bastion/bastion-create-host-portal.md",
+            "redirect_url": "/azure/bastion/tutorial-create-host-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/bastion/tutorial-protect-bastion-host-ddos.md",
             "redirect_url": "/azure/bastion/tutorial-create-host-portal",
             "redirect_document_id": false
         },
@@ -23701,7 +24591,13 @@
             "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-governance-application-migration-integration.md",
             "redirect_url": "/azure/devtest-labs/devtest-lab-guidance-governance-resources",
             "redirect_document_id": false
-        },        {
+        },        
+        {
+            "source_path_from_root": "/articles/devtest-labs/lab-services-overview.md",
+            "redirect_url": "/azure/devtest-labs/devtest-lab-overview",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
             "redirect_url": "/azure/advisor/advisor-overview",
             "redirect_document_id": false
@@ -24850,6 +25746,18 @@
             "source_path_from_root": "/articles/operator-service-manager/overview.md",
 	        "redirect_url": "azure/operator-service-manager/azure-operator-service-manager-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/kubernetes-fleet/configuration-propagation.md",
+            "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
+        },
+        {
+            "source_path_from_root": "/articles/automation/dsc-linux-powershell.md",
+            "redirect_url": "/azure/automation/automation-dsc-overview"
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/extensions/dsc-linux.md",
+            "redirect_url": "/azure/virtual-machines/extensions/dsc-overview"
         }
     ]
 }

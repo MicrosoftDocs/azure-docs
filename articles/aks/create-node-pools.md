@@ -3,7 +3,7 @@ title: Create node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create multiple node pools for a cluster in Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, build-2023
-ms.date: 07/18/2023
+ms.date: 11/06/2023
 ---
 
 # Create node pools for a cluster in Azure Kubernetes Service (AKS)
@@ -13,7 +13,7 @@ In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped t
 To support applications that have different compute or storage demands, you can create *user node pools*. System node pools serve the primary purpose of hosting critical system pods such as CoreDNS and `konnectivity`. User node pools serve the primary purpose of hosting your application pods. For example, use more user node pools to provide GPUs for compute-intensive applications, or access to high-performance SSD storage. However, if you wish to have only one pool in your AKS cluster, you can schedule application pods on system node pools.
 
 > [!NOTE]
-> This feature enables more control over creating and managing multiple node pools and requires separate commands for create/update/delete operations. Previously, cluster operations through `az aks create` or `az aks update` used the managedCluster API and were the only options to change your control plane and a single node pool. This feature exposes a separate operation set for agent pools through the agentPool API and requires use of the `az aks nodepool` command set to execute operations on an individual node pool.
+> This feature enables more control over creating and managing multiple node pools and requires separate commands for *create/update/delete* (CRUD) operations. Previously, cluster operations through [`az aks create`][az-aks-create] or [`az aks update`][az-aks-update] used the managedCluster API and were the only options to change your control plane and a single node pool. This feature exposes a separate operation set for agent pools through the agentPool API and requires use of the [`az aks nodepool`][az-aks-nodepool] command set to execute operations on an individual node pool.
 
 This article shows you how to create one or more node pools in an AKS cluster.
 
@@ -29,7 +29,7 @@ The following limitations apply when you create AKS clusters that support multip
 * See [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)](quotas-skus-regions.md).
 * You can delete system node pools if you have another system node pool to take its place in the AKS cluster.
 * System pools must contain at least one node, and user node pools may contain zero or more nodes.
-* The AKS cluster must use the Standard SKU load balancer to use multiple node pools. The feature isn't supported with Basic SKU load balancers.
+* The AKS cluster must use the Standard SKU load balancer to use multiple node pools. This feature isn't supported with Basic SKU load balancers.
 * The AKS cluster must use Virtual Machine Scale Sets for the nodes.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter.
   * For Linux node pools, the length must be between 1-11 characters.
@@ -182,8 +182,8 @@ A workload may require splitting cluster nodes into separate pools for logical i
 
 * All subnets assigned to node pools must belong to the same virtual network.
 * System pods must have access to all nodes and pods in the cluster to provide critical functionality, such as DNS resolution and tunneling kubectl logs/exec/port-forward proxy.
-* If you expand your VNET after creating the cluster, you must update your cluster before adding a subnet outside the original CIDR block. While AKS errors-out on the agent pool add, the `aks-preview` Azure CLI extension (version 0.5.66+) now supports running `az aks update -g <resourceGroup> -n <clusterName>` without any optional arguments. This command performs an update operation without making any changes, which can recover a cluster stuck in a failed state.
-* In clusters with Kubernetes version < 1.23.3, kube-proxy will SNAT traffic from new subnets, which can cause Azure Network Policy to drop the packets.
+* If you expand your VNET after creating the cluster, you must update your cluster before adding a subnet outside the original CIDR block. While AKS errors-out on the agent pool add, the `aks-preview` Azure CLI extension (version 0.5.66 and higher) now supports running [`az aks update`][az-aks-update] command with only the required `-g <resourceGroup> -n <clusterName>` arguments. This command performs an update operation without making any changes, which can recover a cluster stuck in a failed state.
+* In clusters with Kubernetes version less than 1.23.3, kube-proxy SNATs traffic from new subnets, which can cause Azure Network Policy to drop the packets.
 * Windows nodes SNAT traffic to the new subnets until the node pool is reimaged.
 * Internal load balancers default to one of the node pool subnets.
 
@@ -212,8 +212,8 @@ Beginning in Kubernetes version 1.20 and higher, you can specify `containerd` as
 > When using `containerd` with Windows Server 2019 node pools:
 >
 > * Both the control plane and Windows Server 2019 node pools must use Kubernetes version 1.20 or greater.
-> * When you create or update a node pool to run Windows Server containers, the default value for `--node-vm-size` is *Standard_D2s_v3*, which was minimum recommended size for Windows Server 2019 node pools prior to Kubernetes 1.20. The minimum recommended size for Windows Server 2019 node pools using `containerd` is *Standard_D4s_v3*. When setting the `--node-vm-size` parameter, please check the list of [restricted VM sizes][restricted-vm-sizes].
-> * We highly recommended using [taints or labels][aks-taints] with your Windows Server 2019 node pools running `containerd` and tolerations or node selectors with your deployments to guarantee your workloads are scheduled correctly.
+> * When you create or update a node pool to run Windows Server containers, the default value for `--node-vm-size` is *Standard_D2s_v3*, which was minimum recommended size for Windows Server 2019 node pools prior to Kubernetes version 1.20. The minimum recommended size for Windows Server 2019 node pools using `containerd` is *Standard_D4s_v3*. When setting the `--node-vm-size` parameter, check the list of [restricted VM sizes][restricted-vm-sizes].
+> * We recommended using [taints or labels][aks-taints] with your Windows Server 2019 node pools running `containerd` and tolerations or node selectors with your deployments to guarantee your workloads are scheduled correctly.
 
 ### Add a Windows Server node pool with `containerd`
 
@@ -285,7 +285,9 @@ In this article, you learned how to create multiple node pools in an AKS cluster
 [arm-sku-vm3]: ../virtual-machines/epsv5-epdsv5-series.md
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-update]: /cli/azure/aks#az_aks_update
 [az-aks-delete]: /cli/azure/aks#az_aks_delete
+[az-aks-nodepool]: /cli/azure/aks/nodepool
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-aks-nodepool-list]: /cli/azure/aks/nodepool#az_aks_nodepool_list
 [az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az_aks_nodepool_upgrade

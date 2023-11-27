@@ -49,7 +49,7 @@ This table summarizes Azure cloud support for Defender for Servers features.
 [Adaptive application controls](./adaptive-application-controls.md)  | GA | GA | GA
 [Adaptive network hardening](./adaptive-network-hardening.md) | GA | NA | NA
 [Docker host hardening](./harden-docker-hosts.md)  | GA | GA | GA 
-[Agentless secret scanning](secret-scanning.md) | Preview | NA | NA
+[Agentless secret scanning](secret-scanning.md) | GA | NA | NA
 
 ## Windows machine support
 
@@ -126,7 +126,7 @@ The following table shows feature support for AWS and GCP machines.
 | Third-party vulnerability assessment | - | - |
 | [Network security assessment](protect-network-resources.md) | - | - |
 | [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | ✔ | - |
-| [Agentless secret scanning](secret-scanning.md) | ✔ | - |
+| [Agentless secret scanning](secret-scanning.md) | ✔ | ✔ |
 
 ## Endpoint protection support
 

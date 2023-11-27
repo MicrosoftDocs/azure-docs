@@ -6,7 +6,7 @@ ms.author: settiy
 ms.date: 09/11/2023
 ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: devx-track-python, mode-api
+ms.custom: mode-api, devx-track-js
 ---
 
 # Quickstart: Create an Azure Managed CCF resource using the Azure SDK for JavaScript and TypeScript
@@ -21,6 +21,7 @@ Microsoft Azure Managed CCF (Managed CCF) is a new and highly secure service for
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Node.js versions supported by the [Azure SDK for JavaScript](/javascript/api/overview/azure/arm-confidentialledger-readme#currently-supported-environments).
+- [OpenSSL](https://www.openssl.org/) on a computer running Windows or Linux.
 
 ## Setup
 

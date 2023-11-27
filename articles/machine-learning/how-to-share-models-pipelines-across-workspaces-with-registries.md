@@ -610,7 +610,7 @@ Fetch the scoring URI and submit a sample scoring request. Sample data for the s
 
 ```azurecli
 ENDPOINT_KEY=$(az ml online-endpoint get-credentials -n reg-ep-1234 -o tsv --query primaryKey)
-SCORING_URI=$(az ml online-endpoint show -n $ep_name -o tsv --query scoring_uri)
+SCORING_URI=$(az ml online-endpoint show -n reg-ep-1234 -o tsv --query scoring_uri)
 curl --request POST "$SCORING_URI" --header "Authorization: Bearer $ENDPOINT_KEY" --header 'Content-Type: application/json' --data @./scoring-data.json
 ```
 

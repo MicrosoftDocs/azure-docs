@@ -3,7 +3,7 @@ title: Azure Virtual Desktop terminology - Azure
 description: Learn about the basic elements of Azure Virtual Desktop, like host pools, application groups, and workspaces.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 02/03/2023
+ms.date: 11/01/2023
 ms.author: helohr
 manager: femila
 ---
