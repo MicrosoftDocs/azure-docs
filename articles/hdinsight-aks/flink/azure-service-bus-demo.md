@@ -17,15 +17,15 @@ This Java class, `ServiceBusToAdlsgen2`, orchestrates the entire Flink job for t
 
 1. **Setting up the execution environment**
 
-   The `StreamExecutionEnvironment.getExecutionEnvironment()` method is used to set up the execution environment for the Flink job.
+      The `StreamExecutionEnvironment.getExecutionEnvironment()` method is used to set up the execution environment for the Flink job.
 
 1. **Creating a source function for Azure Service Bus**
 
-   A `SessionBasedServiceBusSource` object is created with the connection string, topic name, and subscription name for your Azure Service Bus. This object is a source function that can be used to create a data stream.
+      A `SessionBasedServiceBusSource` object is created with the connection string, topic name, and subscription name for your Azure Service Bus. This object is a source function that can be used to create a data stream.
 
 1. **Creating a data stream**
 
-   The `env.addSource(sourceFunction)` method is used to create a data stream from the source function. Each message from the Azure Service Bus topic becomes an element in this stream.
+      The `env.addSource(sourceFunction)` method is used to create a data stream from the source function. Each message from the Azure Service Bus topic becomes an element in this stream.
 
 1. **Processing the data**
 
@@ -33,15 +33,15 @@ This Java class, `ServiceBusToAdlsgen2`, orchestrates the entire Flink job for t
 
 1. **Creating a sink for Azure Data Lake Storage Gen2**
 
-   A `FileSink object` is created with the output path and a `SimpleStringEncoder`. The `withRollingPolicy` method is used to set a rolling policy for the sink.
+      A `FileSink object` is created with the output path and a `SimpleStringEncoder`. The `withRollingPolicy` method is used to set a rolling policy for the sink.
 
 1. **Adding the sink function to the processed stream**
    
-   The `processedStream.sinkTo(sink)` method is used to add the sink function to the processed stream. Each processed element is written to a file in Azure Data Lake Storage Gen2.
+      The `processedStream.sinkTo(sink)` method is used to add the sink function to the processed stream. Each processed element is written to a file in Azure Data Lake Storage Gen2.
 
 1. **Executing the job**
 
-   Finally, the `env.execute("ServiceBusToDataLakeJob")` method is used to execute the Flink job. This starts reading messages from the Azure Service Bus topic, process them, and write them to Azure Data Lake Storage Gen2.
+      Finally, the `env.execute("ServiceBusToDataLakeJob")` method is used to execute the Flink job. This starts reading messages from the Azure Service Bus topic, process them, and write them to Azure Data Lake Storage Gen2.
 
 ### Flink source function: SessionBasedServiceBusSource.java
 
