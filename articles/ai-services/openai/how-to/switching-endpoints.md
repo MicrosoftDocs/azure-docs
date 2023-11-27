@@ -111,8 +111,8 @@ client = AzureOpenAI(
 
 ## Keyword argument for model
 
-OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of unique model [deployments](create-resource.md?pivots=web-portal#deploy-a-model). When using Azure OpenAI `model=` should refer to the underling deployment name you chose when you deployed the model.
- 
+OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of unique model [deployments](create-resource.md?pivots=web-portal#deploy-a-model). When using Azure OpenAI `model` should refer to the underling deployment name you chose when you deployed the model. 
+
 <table>
 <tr>
 <td> OpenAI </td> <td> Azure OpenAI </td>
