@@ -43,7 +43,7 @@ Once a Managed Application is created, you're able to then connect the Managed A
 
 The Managed Application uses an Azure Service Bus Queue to track and record all **Create Blob** events. You can add this Queue as an Event Subscriber for any storage account that you're creating blobs for.
 
-#### Azure portal
+### [Azure portal](#tab/azure-portal)
 
 :::image type="content" source="./media/managed-application/managed-app-event-subscription-inline.png" alt-text="Screenshot of the Azure portal in a web browser, showing how to set up a storage event subscription." lightbox="./media/managed-application/managed-app-event-subscription-enhanced.png":::
 
@@ -53,11 +53,11 @@ On the Azure portal, you can navigate to the storage account that you would like
 
 The queue uses sessions to maintain ordering across multiple storage accounts so you will also need to navigate to the `Delivery Properties` tab and to enter a unique session ID for this event subscription.
 
-#### Azure CLI
+### [CLI](#tab/cli)
 
 **Creating the Event Topic:**
 
-```bash
+```azurecli
 az eventgrid system-topic create \
 --resource-group {resource_group} \
 --name {sample_topic_name} \
@@ -76,7 +76,7 @@ az eventgrid system-topic create \
 
 **Creating the Event Subscription:**
 
-```bash
+```azurecli
 az eventgrid system-topic event-subscription create \
 --name {sample_subscription_name} \
 --system-topic-name {sample_topic_name} \
@@ -102,13 +102,13 @@ az eventgrid system-topic event-subscription create \
 
 The Managed Application requires the `Storage Blob Data Owner` role to read and create hashes for each blob and this role is required to be added in order for the digest to be calculated correctly.
 
-#### Azure portal
+### [Azure portal](#tab/azure-portal)
 
 :::image type="content" source="./media/managed-application/managed-app-managed-identity-inline.png" alt-text="Screenshot of the Azure portal in a web browser, showing how to set up a managed identity for the managed app." lightbox="./media/managed-application/managed-app-managed-identity-enhanced.png":::
 
-#### Azure CLI
+### [CLI](#tab/cli)
 
-```bash
+```azurecli
 az role assignment create \
 --role "Storage Blob Data Owner" \
 --assignee-object-id {function_oid} \
@@ -162,13 +162,13 @@ An audit can be triggered by including the following message to the Service Bus 
 }
 ```
 
-#### Azure portal
+### [Azure portal](#tab/azure-portal)
 
 :::image type="content" source="./media/managed-application/managed-app-queue-trigger-audit-inline.png" alt-text="Screenshot of the Azure portal in a web browser, how to trigger an audit by adding a message to the queue." lightbox="./media/managed-application/managed-app-queue-trigger-audit-enhanced.png":::
 
 Be sure to include a `Session ID` as the queue has sessions enabled.
 
-#### Azure Service Bus Python SDK
+### [Python SDK](#tab/python-sdk)
 
 ```python
 import json
