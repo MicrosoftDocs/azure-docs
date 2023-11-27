@@ -1,3 +1,11 @@
+---
+title: Windows AKS Customer Stories
+titleSuffix: Windows AKS Customer Stories
+description: Learn how customers are using Windows Containers on AKS.
+ms.topic: article
+ms.date: 11/27/2023
+---
+
 # Windows AKS Customer Stories 
 
 Explore how various industries are using Windows Containers on Azure Kubernetes Service (AKS) for seamless Kubernetes integration with minimal code modifications. 
