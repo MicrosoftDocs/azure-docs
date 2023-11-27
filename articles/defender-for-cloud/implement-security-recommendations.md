@@ -58,19 +58,23 @@ In addition to risk level, we recommend that you prioritize the security control
 
 ## Use the Fix option
 
-To simplify remediation and improve your environment's security (and increase your secure score), many recommendations include a **Fix** option to help you quickly remediate a recommendation on multiple resources.
+To simplify remediation and improve your environment's security (and increase your secure score), many recommendations include a **Fix** option to help you quickly remediate a recommendation on multiple resources. If the Fix button is not present in the recommendation, then there is no option to apply a quick fix. 
 
 **To remediate a recommendation with the Fix button**:
 
-1. In the **Recommendations**  page, select a recommendation that shows the **Fix** action icon: :::image type="icon" source="media/implement-security-recommendations/fix-icon.png" border="false":::.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-    :::image type="content" source="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png" alt-text="This screenshot shows recommendations with the Fix action" lightbox="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png":::
+1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
+
+1. Select a recommendation to remediate.
 
 1. Select **Take action** > **Fix**.
 
+    :::image type="content" source="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png" alt-text="This screenshot shows recommendations with the Fix action" lightbox="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png":::
+
 1. Follow the rest of the remediation steps.
 
-After remediation completes, it can take several minutes to see the resources appear in the **Findings** tab when the status is filtered to view **Healthy** resources. 
+After remediation completes, it can take several minutes for the change to take place.
 
 ## Next steps
 

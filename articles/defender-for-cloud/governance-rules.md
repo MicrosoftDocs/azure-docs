@@ -4,7 +4,7 @@ description: Learn how to drive remediation of security recommendations with gov
 services: defender-for-cloud
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 11/23/2023
+ms.date: 11/27/2023
 ---
 
 # Drive remediation with governance rules
@@ -35,80 +35,102 @@ For tracking, you can review the progress of the remediation tasks by subscripti
 
 ## Before you begin
 
-- To use governance rules, the [Defender Cloud Security Posture Management (CSPM) plan](concept-cloud-security-posture-management.md) must be enabled.
-- You need **Contributor**, **Security Admin**, or **Owner** permissions on Azure subscriptions.
-- For AWS accounts and GCP projects,  you need **Contributor**, **Security Admin**, or **Owner** permissions on the Defender for Cloud AWS/GCP connectors. 
+- The [Defender Cloud Security Posture Management (CSPM) plan](concept-cloud-security-posture-management.md) must be enabled.
+- You need **Contributor**, **Security Admin**, or **Owner** permissions on the Azure subscriptions.
+- For AWS accounts and GCP projects,  you need **Contributor**, **Security Admin**, or **Owner** permissions on the Defender for Cloud AWS or GCP connectors. 
 
 
 ## Define a governance rule
 
-Define a governance rule as follows.
+**You can define a governance rule as follows**:
 
-1. In Defender for Cloud, open the **Environment settings** page, and select **Governance rules**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings** > **Governance rules**.
+
 1. Select **Create governance rule**.
-1. In **Create governance rule** > **General details**, specify a rule name, and the scope in which the rule applies.
+
+    :::image type="content" source="./media/governance-rules/add-rule.png" alt-text="Screenshot of page for adding a governance rule." lightbox="media/governance-rules/add-rule.png":::
+
+1. Specify a rule name and scope in which to apply the rule.
 
     - Rules for management scope (Azure management groups, AWS master accounts, GCP organizations) are applied prior to the rules on a single scope.
     - You can define exclusions within the scope as needed.
 
-1. Priority is assigned automatically. Rules are run in priority order from the highest (1) to the lowest (1000).
-1. Specify a description to help you identify the rule. Then select **Next**.
+1. Set a priority level.
 
-    :::image type="content" source="./media/governance-rules/add-rule.png" alt-text="Screenshot of page for adding a governance rule." lightbox="media/governance-rules/add-rule.png":::
+    Rules are run in priority order from the highest (1) to the lowest (1000).
 
-1. In the **Conditions** tab, specify how recommendations are impacted by the rule.
+1. Specify a description to help you identify the rule.
+
+1. Select **Next**
+
+1. Specify how recommendations are impacted by the rule.
+
     - **By severity** - The rule assigns the owner and due date to any recommendation in the subscription that doesn't already have them assigned.
     - **By specific recommendations** - Select the specific built-in or custom recommendations that the rule applies to. 
-1. In **Set owner**, specify who's responsible for fixing recommendations covered by the rule.
-    - **By resource tag** - Enter the resource tag on your resources that defines the resource owner.
-    - **By email address** - Enter the email address of the owner to assign to the recommendations.
-
-1. In **Set remediation timeframe**, specify the time that can elapse between when resources are identified as requiring remediation, and the time that the remediation is due.
-1. For recommendations issued by MCSB, if you don't want the resources to affect your secure score until they're overdue, select **Apply grace period**.
-1. By default owners and their managers are notified weekly about open and overdue tasks. If you don't want them to receive these weekly emails, clear the notification options.
-1. Select **Create**.
 
     :::image type="content" source="./media/governance-rules/create-rule-conditions.png" alt-text="Screenshot of page for adding conditions for a governance rule." lightbox="media/governance-rules/create-rule-conditions.png":::
 
+1. Set the owner to specify who's responsible for fixing recommendations covered by the rule.
 
-- If there are existing recommendations that match the definition of the governance rule, you can either:
+    - **By resource tag** - Enter the resource tag on your resources that defines the resource owner.
+    - **By email address** - Enter the email address of the owner to assign to the recommendations.
 
-    - Assign an owner and due date to recommendations that don't already have an owner or due date.
-    - Overwrite the owner and due date of existing recommendations.
-- When you delete or disable a rule, all existing assignments and notifications remain.
+1. Specify  remediation time frame to set the time that can elapse between when resources are identified as requiring remediation, and the time that the remediation is due.
 
+    For recommendations issued by MCSB, if you don't want the resources to affect your secure score until they're overdue, select **Apply grace period**.
+
+1. (Optional) By default owners and their managers are notified weekly about open and overdue tasks. If you don't want them to receive these weekly emails, clear the notification options.
+
+1. Select **Create**.
+
+If there are existing recommendations that match the definition of the governance rule, you can either:
+
+- Assign an owner and due date to recommendations that don't already have an owner or due date.
+
+- Overwrite the owner and due date of existing recommendations.
+
+When you delete or disable a rule, all existing assignments and notifications remain.
 
 ## View effective rules
 
 You can view the effect of government rules in your environment.
 
-1. In the Defender for Cloud portal, open the **Governance rules** page.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings** > **Governance rules**.
+
 1. Review governance rules. The default list shows all the governance rules applicable in your environment.
+
 1. You can search for rules, or filter rules.
+
      - Filter on **Environment** to identify rules for Azure, AWS, and GCP.
+     
      - Filter on rule name, owner, or time between the recommendation being issued and due date.
+     
      - Filter on **Grace period** to find MCSB recommendations that won't affect your secure score.
+     
      - Identify by status.
 
         :::image type="content" source="./media/governance-rules/view-filter-rules.png" alt-text="Screenshot of page for viewing and filtering rules." lightbox="media/governance-rules/view-filter-rules.png":::
-
-
-
-
 
 ## Review the governance report
 
 The governance report lets you select subscriptions that have governance rules and, for each rule and owner, shows you how many recommendations are completed, on time, overdue, or unassigned.
 
-1. In Defender for Cloud > **Environment settings** > **Governance rules**, select **Governance report**.
-1. In **Governance**, select a subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings** > **Governance rules** >**Governance report**.
+
+    :::image type="content" source="media/governance-rules/governance-report.png" alt-text="Screenshot of the  governance rules page that shows where the governance report button is located." lightbox="media/governance-rules/governance-report.png":::
+
+1. Select a subscription.
 
      :::image type="content" source="./media/governance-rules/governance-in-workbook.png" alt-text="Screenshot of governance status by rule and owner in the governance workbook." lightbox="media/governance-rules/governance-in-workbook.png":::
 
-1. From the governance report, you drill down into recommendations by rule and owner.
-
+From the governance report, you can drill down into recommendations by scope, display name, priority, remediation timeframe, owner type, owner details, grace period and cloud.
 
 ## Next steps
-
 
 Learn how to [Implement security recommendations](implement-security-recommendations.md).
