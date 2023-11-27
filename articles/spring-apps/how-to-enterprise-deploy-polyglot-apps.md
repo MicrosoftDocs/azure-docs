@@ -71,17 +71,17 @@ You can't delete a builder when existing active deployments are being built with
 
 In Azure Spring Apps, we recommend using `Jammy OS Stack` to create your builder because `Bioinic OS Stack` is in line for deprecation by VMware. The following list describes the options available:
 
-- Jammy Tiny - suitable for building a minimal image for the smallest possible size and security footprint. Like building a Java Native Image, it can make the final container image smaller. The integrated libraries are limited. For example, you can't [connect to an app instance for troubleshooting](how-to-connect-to-app-instance-for-troubleshooting.md) because there's no `shell` library.
-    - Most Go apps
-    - Java apps (as Tiny has no shell, some Apache Tomcat config options are not available, such as setting bin/setenv.sh)
+- Jammy Tiny: Suitable for building a minimal image for the smallest possible size and security footprint. Like building a Java Native Image, it can make the final container image smaller. The integrated libraries are limited. For example, you can't [connect to an app instance for troubleshooting](how-to-connect-to-app-instance-for-troubleshooting.md) because there's no `shell` library.
+   - Most Go apps.
+   - Java apps. Note that some Apache Tomcat config options are not available, such as setting bin/setenv.sh, because Tiny has no shell.
 
-- Jammy Base - suitable for most apps without native extensions.
-    - Java apps and .Net Core apps
-    - Go apps that require some C libraries
-    - Node.js, Python, or Web Servers apps without native extensions
+- Jammy Base: Suitable for most apps without native extensions.
+   - Java apps and .NET Core apps.
+   - Go apps that require some C libraries.
+   - Node.js, Python, or Web Servers apps without native extensions.
 
-- Jammy Full - includes the most libraries, and is suitable for apps with native extensions. For example, it includes a more complete library of fonts. If your app relies on the native extension, then use the `Full` stack.
-    - Node.js, or Python apps with native extensions
+- Jammy Full: Includes most libraries, and is suitable for apps with native extensions. For example, it includes a more complete library of fonts. If your app relies on the native extension, then use the `Full` stack.
+   - Node.js or Python apps with native extensions.
 
 For more information, see [Ubuntu Stacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-stacks.html#ubuntu-stacks) in the VMware documentation.
 
