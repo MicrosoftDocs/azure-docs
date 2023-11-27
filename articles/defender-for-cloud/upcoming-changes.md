@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Deprecation of two DevOps security recommendations](#deprecation-of-two-devops-security-recommendations) | November 30, 2023 | January 2024 |
 | [Consolidation of Defender for Cloud's Service Level 2 names](#consolidation-of-defender-for-clouds-service-level-2-names) | November 1, 2023 | December 2023 |
 | [Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management](#changes-to-how-microsoft-defender-for-clouds-costs-are-presented-in-microsoft-cost-management) | October 25, 2023 | November 2023 |
 | [Four alerts are set to be deprecated](#four-alerts-are-set-to-be-deprecated) | October 23, 2023 | November 23, 2023 |
@@ -35,6 +36,21 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## Deprecation of two DevOps security recommendations 
+
+**Announcement date: November 30, 2023**
+
+**Estimated date for change: January 2024** 
+
+With the general availability of DevOps environment posture management, we're updating our approach to having recommendations displayed in the subassessment format. Previously, we had broad recommendations encompassing multiple findings. Now, we're shifting to individual recommendations for each specific finding. With this change, the two broad recommendations will be deprecated:
+
+- `Azure DevOps Posture Management findings should be resolved`
+- `GitHub Posture Management findings should be resolved`
+
+This means instead of a singular recommendation for all discovered misconfigurations, we'll provide distinct recommendations for each issue, such as "Azure DevOps service connections should not grant access to all pipelines". This change aims to enhance clarity and visibility of specific issues. 
+
+The new recommendations can be found [here](https://learn.microsoft.com/en-us/azure/defender-for-cloud/recommendations-reference-devops).
 
 ## Consolidation of Defender for Cloud's Service Level 2 names
 
