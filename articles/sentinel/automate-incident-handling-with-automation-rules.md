@@ -259,11 +259,11 @@ In order for an automation rule to run a playbook, this account must be granted 
 
 When you're configuring an automation rule and adding a **run playbook** action, a drop-down list of playbooks will appear. Playbooks to which Microsoft Sentinel does not have permissions will show as unavailable ("grayed out"). You can grant Microsoft Sentinel permission to the playbooks' resource groups on the spot by selecting the **Manage playbook permissions** link. To grant those permissions, you'll need **Owner** permissions on those resource groups. [See the full permissions requirements](tutorial-respond-threats-playbook.md#respond-to-incidents).
 
-#### Permissions in a multi-tenant architecture
+#### Permissions in a multitenant architecture
 
-Automation rules fully support cross-workspace and [multi-tenant deployments](extend-sentinel-across-workspaces-tenants.md#manage-workspaces-across-tenants-using-azure-lighthouse) (in the case of multi-tenant, using [Azure Lighthouse](../lighthouse/index.yml)).
+Automation rules fully support cross-workspace and [multitenant deployments](extend-sentinel-across-workspaces-tenants.md#manage-workspaces-across-tenants-using-azure-lighthouse) (in the case of multitenant, using [Azure Lighthouse](../lighthouse/index.yml)).
 
-Therefore, if your Microsoft Sentinel deployment uses a multi-tenant architecture, you can have an automation rule in one tenant run a playbook that lives in a different tenant, but permissions for Sentinel to run the playbooks must be defined in the tenant where the playbooks reside, not in the tenant where the automation rules are defined.
+Therefore, if your Microsoft Sentinel deployment uses a multitenant architecture, you can have an automation rule in one tenant run a playbook that lives in a different tenant, but permissions for Sentinel to run the playbooks must be defined in the tenant where the playbooks reside, not in the tenant where the automation rules are defined.
 
 In the specific case of a Managed Security Service Provider (MSSP), where a service provider tenant manages a Microsoft Sentinel workspace in a customer tenant, there are two particular scenarios that warrant your attention:
 
@@ -277,7 +277,7 @@ In the specific case of a Managed Security Service Provider (MSSP), where a serv
 
     The scenario looks like this:
 
-    :::image type="content" source="./media/automate-incident-handling-with-automation-rules/automation-rule-multi-tenant.png" alt-text="Multi-tenant automation rule architecture":::
+    :::image type="content" source="./media/automate-incident-handling-with-automation-rules/automation-rule-multitenant.png" alt-text="Multi-tenant automation rule architecture":::
 
     See [our instructions](tutorial-respond-threats-playbook.md#permissions-to-run-playbooks) for setting this up.
 
