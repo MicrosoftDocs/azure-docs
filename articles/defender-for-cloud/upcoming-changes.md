@@ -50,7 +50,7 @@ With the general availability of DevOps environment posture management, we're up
 
 This means instead of a singular recommendation for all discovered misconfigurations, we'll provide distinct recommendations for each issue, such as "Azure DevOps service connections should not grant access to all pipelines". This change aims to enhance clarity and visibility of specific issues. 
 
-The new recommendations can be found [here](https://learn.microsoft.com/en-us/azure/defender-for-cloud/recommendations-reference-devops).
+The new recommendations can be found [here](includes/defender-for-devops-recommendations.md).
 
 ## Consolidation of Defender for Cloud's Service Level 2 names
 
