@@ -44,7 +44,7 @@ sections:
         answer: |
           1. **Hybrid approach:** offers flexible deployments options, by utilizing a consistent vulnerability scanner across various use cases. It's applicable in multicloud environments and different host runtimes: 
           
-            - ** Agentless vulnerability assessment:**  Enabling agentless scanning on a subscription automatically scan all virtual machines in Azure, AWS, and GCP for software inventory and vulnerabilities, powered by MDVM. 
+            - **Agentless vulnerability assessment:**  Enabling agentless scanning on a subscription automatically scan all virtual machines in Azure, AWS, and GCP for software inventory and vulnerabilities, powered by MDVM. 
             
             - **Consolidated agent:** MDVM uses the same agent as Microsoft Defender for Endpoints (MDE) to protect servers, so, if you're an existing MDE customer, you're automatically covered by MDVM.
           
@@ -75,4 +75,3 @@ sections:
           :::image type="content" source="media/faq-scanner-detection/mdvm-dashboard.png" alt-text="Screenshot of the MDVM dashboard.":::
 
           Learn more about [MDVM's premium capabilities](https://learn.microsoft.com/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities?view=o365-worldwide).
-          
