@@ -17,20 +17,20 @@ ms.date: 11/27/2023
 
 Use this article to migrate data plane REST API calls to newer *stable* versions of the [**Search REST API**](/rest/api/searchservice/).
 
-+ **2023-11-01** is the most recent stable version. Semantic ranking and vector search support are generally available in this version.
++ [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the most recent stable version. Semantic ranking and vector search support are generally available in this version.
 
-+ **2023-10-01-preview** is the most recent preview version. Integrated data chunking and vectorization using the [Text Split](cognitive-search-skill-textsplit.md) skill and [AzureOpenAiEmbedding](cognitive-search-skill-azure-openai-embedding.md) skill are in this version. There's no migration guidance to preview API versions, but you can review samples and walkthroughs for guidance. See [Integrated vectorization (preview)](vector-search-integrated-vectorization.md) for your first step.
++ [**2023-10-01-preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) is the most recent preview version. Integrated data chunking and vectorization using the [Text Split](cognitive-search-skill-textsplit.md) skill and [AzureOpenAiEmbedding](cognitive-search-skill-azure-openai-embedding.md) skill are introduced in this version. There's no migration guidance for preview API versions, but you can review code samples and walkthroughs for guidance. See [Integrated vectorization (preview)](vector-search-integrated-vectorization.md) for your first step.
 
 > [!NOTE]
-> Filter controls on the table of contents provide version-specific API reference pages.
+> New filter controls on the table of contents provide version-specific API reference pages. To get the right information, open a reference page and then apply the filter.
 
 <a name="UpgradeSteps"></a>
 
 ## How to upgrade
 
-Azure AI Search strives for backward compatibility. To upgrade and continue with existing functionality, you probably won't have to make many changes beyond the version number. Situations calling for change codes include:
+Azure AI Search strives for backward compatibility. To upgrade and continue with existing functionality, you can usually just change the API version number. Conversely, situations calling for change codes include:
 
-+ Your code fails when unrecognized properties are returned in an API response. By default your application should ignore properties that it doesn't understand.
++ Your code fails when unrecognized properties are returned in an API response. As a best practice, your application should ignore properties that it doesn't understand.
 
 + Your code persists API requests and tries to resend them to the new API version. For example, this might happen if your application persists continuation tokens returned from the Search API (for more information, look for `@search.nextPageParameters` in the [Search API Reference](/rest/api/searchservice/Search-Documents)).
 
@@ -44,9 +44,9 @@ This version has breaking changes and behavioral differences for semantic rankin
 
 [Semantic ranking](semantic-search-overview.md) no longer uses `queryLanguage`. It also requires a `semanticConfiguration` definition. If you're migrating from 2020-06-30-preview, a semantic configuration replaces `searchFields`. See [Migrate from preview version](semantic-how-to-query-request.md#migrate-from-preview-versions) for steps.
 
-[Vector search](vector-search-overview.md) support was introduced in [Create or Update Index (2023-07-01-preview](/rest/api/searchservice/preview-api/create-or-update-index). If you're migrating from that version, there are new options and several breaking changes. New options include vector filter mode, vector profiles, and an exhaustive K-nearest neighbors algorithm. Breaking changes include renaming and restructuring the vector configuration in the index, and vector query syntax.
+[Vector search](vector-search-overview.md) support was introduced in [Create or Update Index (2023-07-01-preview)](/rest/api/searchservice/preview-api/create-or-update-index). If you're migrating from that version, there are new options and several breaking changes. New options include vector filter mode, vector profiles, and an exhaustive K-nearest neighbors algorithm. Breaking changes include renaming and restructuring the vector configuration in the index, and vector query syntax.
 
-If you added vector support using 2023-10-01-preview, there are no breaking changes or behavior differences. Change the API version and test your code to confirm the migration.
+If you added vector support using 2023-10-01-preview, there are no breaking changes. There's one behavior difference: the `vectorFilterMode` default changed from postfilter to prefilter. Change the API version and test your code to confirm the migration.
 
 Here are the steps for migrating from 2023-07-01-preview:
 
