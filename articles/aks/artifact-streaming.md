@@ -94,14 +94,14 @@ Enablement on ACR is a prerequisite for Artifact Streaming on AKS. For more info
 
 ### Enable Artifact Streaming on a new node pool
 
-* Create a new node pool with Artifact Streaming enabled using the [`az aks nodepool add`][az-aks-nodepool-add] command with the `--enable-artifact-streaming` flag set to `true`.
+* Create a new node pool with Artifact Streaming enabled using the [`az aks nodepool add`][az-aks-nodepool-add] command with the `--enable-artifact-streaming`.
 
     ```azurecli-interactive
     az aks nodepool add \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
         --name myNodePool \
-        --enable-artifact-streaming true
+        --enable-artifact-streaming
     ```
 
 ## Check if Artifact Streaming is enabled
