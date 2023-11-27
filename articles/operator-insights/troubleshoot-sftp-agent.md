@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: operator-insights
 ms.topic: troubleshooting-general
-ms.date: 11/23/2023
+ms.date: 12/06/2023
 ---
 
 # Monitor and troubleshoot SFTP Ingestion Agents for Azure Operator Insights

@@ -52,7 +52,7 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 
 1. Obtain a certificate. We strongly recommend using trusted certificate(s) from a certificate authority.
 1. Add the certificate(s) as credential(s) to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
-1. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key vault.  Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire.  Once a certificate has expired, the agent is unable to authenticate to Azure and no longer uploads data.  For details of this approach see [Renew your Azure Key Vault certificates Azure portal](../key-vault/certificates/overview-renew-certificate.md).
+1. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key Vault.  Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire.  Once a certificate has expired, the agent is unable to authenticate to Azure and no longer uploads data.  For details of this approach see [Renew your Azure Key Vault certificates](../key-vault/certificates/overview-renew-certificate.md).
     - You'll need the 'Key Vault Certificates Officer' role on the Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 
 1. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
@@ -99,7 +99,7 @@ Create the following resources from a virtual network that is peered to your ing
 Steps:
 
 1. Note the IP addresses of these two connections.
-2. Note the ingestion URL for your Data Product.  You can find the ingestion URL on your Data Product overview page in the Azure portal, in the form *\<account name\>.blob.core.windows.net*
+2. Note the ingestion URL for your Data Product.  You can find the ingestion URL on your Data Product overview page in the Azure portal, in the form *\<account name\>.blob.core.windows.net*.
 3. Note the URL of the Data Product Key Vault.  The URL appears as *\<vault name\>.vault.azure.net*
 4. Add a line to */etc/hosts* on the VM linking the two values in this format, for each of the storage and Key Vault:
 

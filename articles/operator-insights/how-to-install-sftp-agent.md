@@ -42,7 +42,7 @@ You must have a service principal with a certificate credential that can access 
 #### Create a service principal
 
 > [!IMPORTANT]
-> You may need a Microsoft Entra tenant administrator in your organization to perform this setup for you.
+> You might need a Microsoft Entra tenant administrator in your organization to perform this setup for you.
 
 1. Create or obtain a Microsoft Entra ID service principal. Follow the instructions detailed in [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
 1. Note the Application (client) ID, and your Microsoft Entra Directory (tenant) ID (these IDs are UUIDs of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit).
@@ -54,7 +54,7 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 1. Obtain a certificate. We strongly recommend using trusted certificate(s) from a certificate authority.
 1. Add the certificate(s) as credential(s) to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
 1. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key vault.  Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire.  Once a certificate has expired, the agent  is unable to authenticate to Azure and no longer uploads data.  For details of this approach see [Renew your Azure Key Vault certificates Azure portal](../key-vault/certificates/overview-renew-certificate.md).
-    - You'll need the 'Key Vault Certificates Officer' role on the Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
+    - You need the 'Key Vault Certificates Officer' role on the Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 
 1. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
 
@@ -66,7 +66,7 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 
 #### Grant permissions for the Data Product Key Vault
 
-1. Find the Azure Key Vault that holds the storage credentials for the input storage account. This Key vault is in a resource group named *\<data-product-name\>-HostedResources-\<unique-id\>*.
+1. Find the Azure Key Vault that holds the storage credentials for the input storage account. This Key Vault is in a resource group named *\<data-product-name\>-HostedResources-\<unique-id\>*.
 1. Grant your service principal the 'Key Vault Secrets User' role on this Key Vault.  You need Owner level permissions on your Azure subscription.  See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 1. Note the name of the Key Vault.
 
@@ -75,7 +75,7 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 Repeat these steps for each VM onto which you want to install the agent:
 
 1. Ensure you have an SSH session open to the VM, and that you have `sudo` permissions.
-2. Create a directory to use for storing secrets for the agent. Note the path of this directory. This is the 'secrets directory' and it is the directory where you will add secrets for connecting to the SFTP server.
+2. Create a directory to use for storing secrets for the agent. Note the path of this directory. This is the _secrets directory_ and it is the directory where you will add secrets for connecting to the SFTP server.
 3. Verify that the VM has the following ports open:
     - Port 443/TCP outbound to Azure
     - Port 22/TCP outbound to the SFTP server
@@ -87,7 +87,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 7. Ensure the SFTP server's public SSH key is listed on the VM's `known_hosts` file.
 
 > [!TIP]
-> A servers SSH key can be added to a VM's `known_hosts` file manually using the `ssh-keygen` command on linux. E.g. `ssh-keygen -192.0.2.0 ~/.ssh/known_hosts`
+> Use the Linux command `ssh-keygen` to add a server's SSH key to a VM's `known_hosts` file manually. For example, `ssh-keygen -192.0.2.0 ~/.ssh/known_hosts`
 
 ### Configure the connection between the SFTP server and VM
 Follow these steps on the SFTP server:
@@ -105,7 +105,7 @@ Follow these steps on the SFTP server:
 
 #### Running without public DNS
 
-**If your agent VMs have access to public DNS, then you can skip this step and continue to [Install and configure agent software](#install-and-configure-agent-software).**
+**If your agent VMs have access to public DNS, skip this step and continue to [Install and configure agent software](#install-and-configure-agent-software).**
 
 If your agent VMs don't have access to public DNS, then you need to add entries on each agent VM to map the Azure host names to IP addresses.
 
@@ -119,8 +119,8 @@ Create the following resources from a virtual network that is peered to your ing
 Steps:
 
 1. Note the IP addresses of these two connections.
-2. Note the ingestion URL for your Data Product.  You can find the ingestion URL on your Data Product overview page in the Azure portal, in the form *\<account name\>.blob.core.windows.net*
-3. Note the URL of the Data Product Key Vault.  The URL appears as *\<vault name\>.vault.azure.net*
+2. Note the ingestion URL for your Data Product.  You can find the ingestion URL on your Data Product overview page in the Azure portal, in the form *\<account name\>.blob.core.windows.net*.
+3. Note the URL of the Data Product Key Vault.  The URL appears as *\<vault name\>.vault.azure.net*.
 4. Add a line to */etc/hosts* on the VM linking the two values in this format, for each of the storage and Key Vault:
 
     *\<Storage private IP\>*   *\<ingestion URL\>*
@@ -144,7 +144,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 
             1. **tenant\_id** as your Microsoft Entra ID tenant.
 
-            2. **identity\_name** as the application ID of the service principle that you created in [Create a service principle](#create-a-service-principal).
+            2. **identity\_name** as the application ID of the service principal that you created in [Create a service principal](#create-a-service-principal).
 
             3. **cert\_path** as the path on disk to the location of the base64-encoded certificate and private key for the service principal to authenticate with.
     1. For the secret provider with name `local_file_system`, set the following fields:
@@ -166,7 +166,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 
             1. **user** the name of the user on the SFTP server that the agent should use to connect.
 
-            1. **auth** must be filled according to which authentication method was chosen in the [Configure the connection between the SFTP server and VM](#configure-the-connection-between-the-sftp-server-and-vm) step. The required fields depend on which authentication type is specified:
+            1. **auth** must be filled according to the authentication method that you chose in [Configure the connection between the SFTP server and VM](#configure-the-connection-between-the-sftp-server-and-vm). The required fields depend on which authentication type is specified:
 
                 - Password:
 
@@ -205,7 +205,7 @@ For the **Monitoring - Affirmed MCC** Data Product, set the following parameters
 
 2. Check that the agent is running: `sudo systemctl status az-sftp-uploader`
 
-    1. If you see any status other than "active (running)", look at the logs as described in the [Monitor and troubleshoot SFTP Ingestion Agents for Azure Operator Insights](troubleshoot-sftp-agent.md) article to understand the error.  It's likely that some configuration is incorrect.
+    1. If you see any status other than "active (running)", look at the logs as described in [Monitor and troubleshoot SFTP Ingestion Agents for Azure Operator Insights](troubleshoot-sftp-agent.md) to understand the error.  It's likely that some configuration is incorrect.
 
     2. Once you resolve the issue,  attempt to start the agent again.
 
@@ -237,7 +237,7 @@ The VM used for the SFTP agent should be set up following best practice for secu
 
 The SFTP agent is designed to be highly reliable and resilient to low levels of network disruption. If an unexpected error occurs, the agent restarts and provides service again as soon as it's running.
 
-If a persistent error or extended connectivity problems occur, some files might not be uploaded. However, if the error suggests that the upload might be successful if retried, the agent will attempt to upload the file on the next scheduled run.
+If a persistent error or extended connectivity problems occur, some files might not be uploaded. However, if the error suggests that the upload might be successful if retried, the agent tries to upload the file on the next scheduled run.
 
 ## Related content
 

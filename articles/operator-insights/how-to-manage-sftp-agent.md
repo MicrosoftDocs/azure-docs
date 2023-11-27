@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: operator-insights
 ms.topic: how-to #Required; leave this attribute/value as-is
-ms.date: 11/23/2023
+ms.date: 12/06/2023
 ---
 
 # Manage SFTP Ingestion Agents for Azure Operator Insights
@@ -39,7 +39,7 @@ If you need to change the agent's configuration, perform the following steps:
 2. Edit the configuration file to change the config values.  
 
 > [!WARNING]
-> If you change the `source_id` for a file source, the agent will treat it as a new file source and may upload duplicate files with the new `source_id`. To avoid this, add the `exclude_before_time` parameter to the file source configuration. For example, if you configure `exclude_before_time: "2024-01-01T00:00:00-00:00"` then any files last modified before midnight on January 1, 2024 UTC will be ignored by the agent.
+> If you change the `source_id` for a file source, the agent  treats it as a new file source and might upload duplicate files with the new `source_id`. To avoid this, add the `exclude_before_time` parameter to the file source configuration. For example, if you configure `exclude_before_time: "2024-01-01T00:00:00-00:00"` then any files last modified before midnight on January 1, 2024 UTC will be ignored by the agent.
 
 3. Restart the agent: `sudo systemctl restart az-sftp-uploader.service`
 
