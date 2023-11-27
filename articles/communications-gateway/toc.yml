@@ -16,6 +16,8 @@ items:
     href: role-in-network.md
   - name: Onboarding and Included Benefits
     href: onboarding.md
+  - name: Connectivity
+    href: connectivity.md
   - name: Reliability
     href: reliability-communications-gateway.md
   - name: Security

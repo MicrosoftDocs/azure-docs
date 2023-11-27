@@ -972,7 +972,7 @@
           href: ./v1/how-to-deploy-local-container-notebook-vm.md
         - name: GPU inference
           href: ./v1/how-to-deploy-inferencing-gpus.md
-        - name: Azure Cognitive Search
+        - name: Azure AI Search
           href: ./v1/how-to-deploy-model-cognitive-search.md
         - name: FPGA inference
           href: ./v1/how-to-deploy-fpga-web-service.md

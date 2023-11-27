@@ -2,7 +2,7 @@
 author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 11/15/2023
+ms.date: 11/21/2023
 ms.author: davidsmatlak
 ms.custom: generated
 ---
@@ -15,4 +15,4 @@ ms.custom: generated
 |[Configure Advanced Threat Protection to be enabled on open-source relational databases](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/ASC_AtpForOssDatabases.json) |Enable Advanced Threat Protection on your non-Basic tier open-source relational databases to detect anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. See [https://aka.ms/AzDforOpenSourceDBsDocu](https://aka.ms/AzDforOpenSourceDBsDocu). |3 |1.0.1 |
 |[Configure Azure Defender to be enabled on SQL Servers and SQL Managed Instances](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/ASC_AzureDefenderForSql.json) |Enable Azure Defender on your SQL Servers and SQL Managed Instances to detect anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. |3 |3.0.0 |
 |[Configure Microsoft Defender for Databases to be enabled](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/MDC_DefenderForDatabases.json) |Configure Microsoft Defender for Databases to protect your Azure SQL Databases, Managed Instances, Open-source relational databases and Cosmos DB. |4 |1.0.0 |
-|[Microsoft cloud security benchmark](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/AzureSecurityCenter.json) |The Microsoft cloud security benchmark initiative represents the policies and controls implementing security recommendations defined in Microsoft cloud security benchmark, see [https://aka.ms/azsecbm](https://aka.ms/azsecbm). This also serves as the Microsoft Defender for Cloud default policy initiative. You can directly assign this initiative, or manage its policies and compliance results within Microsoft Defender for Cloud. |235 |57.23.2 |
+|[Microsoft cloud security benchmark](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/AzureSecurityCenter.json) |The Microsoft cloud security benchmark initiative represents the policies and controls implementing security recommendations defined in Microsoft cloud security benchmark, see [https://aka.ms/azsecbm](https://aka.ms/azsecbm). This also serves as the Microsoft Defender for Cloud default policy initiative. You can directly assign this initiative, or manage its policies and compliance results within Microsoft Defender for Cloud. |235 |57.24.0 |

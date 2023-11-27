@@ -219,6 +219,9 @@ __Outbound__ service tag rules:
 __Inbound__ service tag rules:
 * `AzureMachineLearning`
 
+> [!NOTE]
+> For an Azure AI resource using a managed virtual network, a private endpoint is automatically created for a connection if the target resource is an Azure Private Link supported resource (Key Vault, Storage Account, Container Registry, Azure AI, Azure OpenAI, Azure Cognitive Search). For more on connections, see [How to add a new connection in Azure AI Studio](connections-add.md). 
+
 ## List of scenario specific outbound rules
 
 ### Scenario: Access public machine learning packages

@@ -3,7 +3,7 @@ title: Enable partitioning in Azure Service Bus Premium namespaces
 description: This article explains how to enable partitioning in Azure Service Bus Premium namespaces by using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
 ms.date: 10/23/2023 
-ms.custom: ignite-2022, ignite-2023, devx-track-arm-template, devx-track-python
+ms.custom: ignite-2022, ignite-2023, devx-track-arm-template, devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
 
@@ -18,15 +18,19 @@ Service Bus partitions enable queues and topics, or messaging entities, to be pa
 > - When creating a partitioned namespace in a region [that supports Availability Zones](service-bus-outages-disasters.md#availability-zones), this will automatically enabled on the namespace.
 > - Multiple partitions with lower messaging units (MU) give you a better performance over a single partition with higher MUs.
 > - When using the Service Bus [Geo-disaster recovery](service-bus-geo-dr.md) feature, ensure not to pair a partitioned namespace with a non-partitioned namespace.
+> - It is not possible to [migrate](service-bus-migrate-standard-premium.md) a standard SKU namespace to a Premium SKU partitioned namespace.
+> - JMS is currently not supported on partitioned namespaces.
 > - The feature is currently available in the regions noted below. New regions will be added regularly, we will keep this article updated with the latest regions as they become available.
 > 
 > |  |  |  |  |  |
-> |-----------------------|----------------|----------------------|------------------|-----------------|
-> | Australia   Central   | Central US     | Germany West Central | South Central US | West Central US |
-> | Australia   Southeast | East Asia      | Japan West           | South India      | West Europe     |
-> | Canada   Central      | East US        | North Central US     | UAE North        | West US         |
-> | Canada   East         | East US 2 EUAP | North Europe         | UK South         | West US 3       |
-> | Central   India       | France Central | Norway East          | UK West          |                 |
+> |-----------------------|----------------------|------------------|-------------------|-----------------|
+> | Australia Central     | Central US           | Italy North      | Poland Central    | UK South        |
+> | Australia East        | East Asia            | Japan West       | South Central US  | UK West         |
+> | Australia Southeast   | East US              | Malaysia South   | South India       | West Central US |
+> | Brazil Southeast      | East US 2 EUAP       | Mexico Central   | Spain Central     | West Europe     |
+> | Canada Central        | France Central       | North Central US | Switzerland North | West US         |
+> | Canada East           | Germany West Central | North Europe     | Switzerland West  | West US 3       |
+> | Central India         | Israel Central       | Norway East      | UAE North         |                 |
 
 ## Use Azure portal
 When creating a **namespace** in the Azure portal, set the **Partitioning** to **Enabled** and choose the number of partitions, as shown in the following image. 
