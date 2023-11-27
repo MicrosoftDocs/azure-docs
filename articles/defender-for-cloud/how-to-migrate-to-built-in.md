@@ -76,8 +76,8 @@ In the Defender for Cloud portal, you have the ability to change the Vulnerabili
 
 After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current VA solution. There are three ways to offboard a VM:
 
-- Delete the VM extension.
-- REST API DELETE request.
+- [Delete the VM extension](/powershell/module/az.compute/remove-azvmextension?view=azps-11.0.0).
+- [REST API DELETE request](/rest/api/compute/virtual-machine-extensions/delete?view=rest-compute-2023-07-01&tabs=HTTP).
 - Delete custom policy at scale.
 
 ## Migrate with REST API
@@ -99,8 +99,8 @@ Using this REST API, you can easily migrate your subscription, at scale, from an
 
 After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current VA solution. There are three ways to offboard a VM:
 
-- Delete the VM extension.
-- REST API DELETE request.
+- [Delete the VM extension](/powershell/module/az.compute/remove-azvmextension?view=azps-11.0.0).
+- [REST API DELETE request](/rest/api/compute/virtual-machine-extensions/delete?view=rest-compute-2023-07-01&tabs=HTTP).
 - Delete custom policy at scale.
 
 ### REST API for multicloud VMs
@@ -163,8 +163,8 @@ Using this REST API, you can easily migrate your subscription, at scale, from an
 
 After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current VA solution. There are three ways to offboard a VM:
 
-- Delete the VM extension.
-- REST API DELETE request.
+- [Delete the VM extension](/powershell/module/az.compute/remove-azvmextension?view=azps-11.0.0).
+- [REST API DELETE request](/rest/api/compute/virtual-machine-extensions/delete?view=rest-compute-2023-07-01&tabs=HTTP).
 - Delete custom policy at scale.
 
 ## Next steps
