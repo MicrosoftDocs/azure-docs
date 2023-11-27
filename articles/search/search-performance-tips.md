@@ -116,9 +116,9 @@ Consider the following topology as an example of a service that has taken on inc
 + Partition Count: 8 (on S1, partition size is 25 GB per partition)
 + Replica Count: 2
 + Total Search Units: 16 (8 partitions x 2 replicas)
-+ Hypothetical Retail Price: ~\$4,000 USD / month (assume \$250 USD x 16 search units)
++ Hypothetical Retail Price: ~&dollar;4,000 USD / month (assume &dollar;250 USD x 16 search units)
 
-Suppose the service administrator is still seeing higher latency rates and is considering adding another replica. This would change the replica count from 2 to 3 and as a result change the Search Unit count to 24 and a resulting price of \$6,000 USD/month.
+Suppose the service administrator is still seeing higher latency rates and is considering adding another replica. This would change the replica count from 2 to 3 and as a result change the Search Unit count to 24 and a resulting price of &dollar;6,000 USD/month.
 
 However, if the administrator chose to move to a Standard S2 tier the topology would look like:
 
@@ -127,7 +127,7 @@ However, if the administrator chose to move to a Standard S2 tier the topology w
 + Partition Count: 2 (on S2, partition size is 100 GB per partition)
 + Replica Count: 2
 + Total Search Units: 4 (2 partitions x 2 replicas)
-+ Hypothetical Retail Price: ~\$4,000 USD / month (\$1,000 USD x 4 search units)
++ Hypothetical Retail Price: ~&dollar;4,000 USD / month (&dollar;1,000 USD x 4 search units)
 
 As this hypothetical scenario illustrates, you can have configurations on lower tiers that result in similar costs as if you had opted for a higher tier in the first place. However, higher tiers come with premium storage, which makes indexing faster. Higher tiers also have much more compute power, as well as extra memory. For the same costs, you could have more powerful infrastructure backing the same index.
 
