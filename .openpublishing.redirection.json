@@ -783,7 +783,7 @@
     {
       "source_path": "articles/cognitive-services/bing-visual-search/quickstarts/ruby.md",
       "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/quickstarts/ruby",
-      "redirect_document_id": false,
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/api-management/api-management-api-templates.md",
@@ -9067,6 +9067,16 @@
             "source_path_from_root": "/articles/azure-cache-for-redis/scripts/show-cache.md",
             "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
             "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/azure-cache-for-redis/cache-how-to-premium-clustering.md",
+          "redirect_url": "/azure/azure-cache-for-redis/-how-to-scale",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/azure-cache-for-redis/cache-how-to-version.md",
+          "redirect_url": "/azure/azure-cache-for-redis/-how-to-upgrade",
+          "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service/app-service-export-api-to-powerapps-and-flow.md",

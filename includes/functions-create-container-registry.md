@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/15/2023
+ms.date: 11/24/2023
 ms.author: glenga
 ---
 
@@ -340,7 +340,7 @@ To make your container image available for deployment to a hosting environment, 
 
 # [Azure Container Registry](#tab/acr)
 
-Azure Container Apps is a private registry service for building, storing, and managing container images and related artifacts. You should use a private registry service for publishing your containers to Azure services.
+Azure Container Registry is a private registry service for building, storing, and managing container images and related artifacts. You should use a private registry service for publishing your containers to Azure services.
 
 1. Use the following command to sign in to your registry instance:
 
