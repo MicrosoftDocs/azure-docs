@@ -68,9 +68,9 @@ Azure Arc-enabled SCVMM works with VMM 2019 and 2022 versions and supports SCVMM
 Azure Arc-enabled SCVMM is currently supported in the following regions:
 
 - East US
-- East US2
-- West US2
-- West US3
+- East US 2
+- West US 2
+- West US 3
 - Central US
 - South Central US
 - UK South
