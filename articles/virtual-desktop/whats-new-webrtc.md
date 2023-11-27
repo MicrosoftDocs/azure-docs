@@ -55,8 +55,6 @@ Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/bin
 
 Date published: June 20, 2022
 
-Download: [MSI installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4YM8L)
-
 - Fixed an issue that made the WebRTC redirector service disconnect from Teams on Azure Virtual Desktop.
 - Added keyboard shortcut detection for Shift+Ctrl+; that lets users turn on a diagnostic overlay during calls on Teams for Azure Virtual Desktop. This feature is supported in version 1.2.3313 or later of the Windows Desktop client.
 - Added further stability and reliability improvements to the service.
@@ -64,8 +62,6 @@ Download: [MSI installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/bin
 ## Updates for version 1.4.2111.18001
 
 Date published: December 2, 2021
-
-Download: [MSI installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWQ1UW)
 
 - Fixed a mute notification problem.
 - Multiple z-ordering fixes in Teams on Azure Virtual Desktop and Teams on Microsoft 365.
