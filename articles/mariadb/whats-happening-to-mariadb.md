@@ -52,7 +52,7 @@ A. Your existing Azure Database for MariaDB workloads will continue to function 
 
 A. Unfortunately, we don't plan to support Azure Database for MariaDB beyond the sunset date of September 19, 2025. Hence, we advise that you start planning your migration as soon as possible.
 
-**Q. How do manage reserved instances for MariaDB?**
+**Q. How do I manage my reserved instances for MariaDB?**
 
 A. You will not be able to purchase or renew MariaDB reserved instances starting **December 1 2023**. You can renew the reserved instances before December first using Azure portal. For any reserved instances expiring after *December 1 2023*, will be converted to Pay As You Go billing model. After migrating your workload to Azure Database for MySQL Flexible server, you can [purchase reserved instances](../mysql/single-server/concept-reserved-pricing.md) for MySQL Flexible Server.
 
