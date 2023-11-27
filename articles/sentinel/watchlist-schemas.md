@@ -41,9 +41,9 @@ The VIP Users watchlist lists user accounts of employees that have high impact v
 | **Tags**                | List   | `["SAW user","Blue Ocean team"]`                      | Optional           |
 
 
-## Network Mapping
+## Network Addresses
 
-The Network Mapping watchlist lists IP subnets and their respective organizational contexts, and includes the following fields:
+The Network Addresses watchlist lists IP subnets and their respective organizational contexts, and includes the following fields:
 
 | Field name | Format       | Example                      | Mandatory/Optional |
 | ---------- | ------------ | ---------------------------- | ------------------ |
