@@ -101,7 +101,7 @@ Enablement on ACR is a prerequisite for Artifact Streaming on AKS. For more info
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
         --name myNodePool \
-        --enable-artifact-streaming true
+        --enable-artifact-streaming
     ```
 
 ## Check if Artifact Streaming is enabled
