@@ -1,5 +1,5 @@
 ---
-title: Migrate to the built-in MDVM solution in Defender for Cloud
+title: Migration from Qualys to Microsoft Defender Vulnerability Management
 description: Learn how to migrate to the built-in Microsoft Defender Vulnerability Management solution in Microsoft Defender for Cloud
 services: defender-for-cloud
 ms.service: defender-for-cloud
@@ -7,10 +7,22 @@ ms.topic: how-to
 ms.date: 11/27/2023
 ---
 
-# Migrate to the built-in MDVM solution in Defender for Cloud
+# Migration from Qualys to Microsoft Defender Vulnerability Management
+
+> [!IMPORTANT]
+> Microsoft Defender for Cloud made a strategic decision to unify all vulnerability assessment solutions to use an in-house vulnerability scanner, Microsoft Defender Vulnerability Management (MDVM). MDVM provides consistent integration across all cloud native use cases, including workload types, multicloud, on-premises, agentless and agent offering and throughout the software development lifecycle. For more information about [the strategic decision to invest in Microsoft Defender Vulnerability Management](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
+>
+> As part of this change, the built-in vulnerability assessments offering powered by Qualys is set to be retired. This allows Defender for Cloud to focus on the new unified vulnerability assessments offering, and ensure the best customer value.
+>
+> The Defender for Cloud Servers Vulnerability Assessment powered by Qualys is now on a retirement path starting on November 27th and completed on **May 1st, 2024**.
+>
+> Customers that use the built-in Qualys on at least one machine within a tenant with Defender for Servers prior to **December 15th, 2023** will be able to continue to use Servers Vulnerability Assessment powered by Qualys until **May 1st, 2024**.
+>
+> We encourage our customers that are currently using the built vulnerability assessment solution powered by Qualys to start planning for the upcoming deprecations by following the steps on this page.
+>
+> Defender for Servers supports Bring Your Own License (BYOL) VA solutions powered by either Qualys or Rapid7 and will continue to support them. This allows customers to continue to use these vendors.
 
 There are three recommended methods to enable the built-in Microsoft Defender Vulnerability Management (MDVM) solution within Defender for Cloud:
-
 
 ## Azure policy (for Azure VMs) 
 
