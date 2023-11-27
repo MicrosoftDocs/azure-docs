@@ -9,7 +9,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Update language versions in Azure Functions 
 
-The Azure Functions supports specific versions of each native language. This support changes based on the support of specific versions of each language. As these supported versions change, you need to update your function app to stay on a supported version. You can also want to update your apps to take advantage of features in newer supported versions of your language. For more information, see [Languages](functions-versions.md#languages).   
+The Azure Functions supports specific versions of each native language. This support changes based on the support of specific versions of each language or language stack. As these supported versions change, you need to update your function app to stay on a supported version. You can also want to update your apps to take advantage of features in newer supported versions of your language. For more information, see [Languages](functions-versions.md#languages).   
 
 The way that you update your function app depends on: 
 
@@ -68,7 +68,7 @@ When publishing your updated app to a staging slot, make sure to follow the slot
 
 ## Update the language version
 
-The way that you update the language version depends on whether you're running on Windows or on Linux in Azure.  
+The way that you update the language or language-stack version depends on whether you're running on Windows or on Linux in Azure.  
 
 When using a [staging slot](functions-deployment-slots.md), make sure to target your updates to the correct slot.  
 
@@ -97,8 +97,11 @@ When using a [staging slot](functions-deployment-slots.md), make sure to target 
 ::: zone-end 
 
 ### [Windows](#tab/windows/azure-cli)
-::: zone pivot="programming-language-java,programming-language-csharp,programming-language-python,programming-language-powershell" 
-First, use the the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported version values for your language. Then, run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the language version of your function app:  
+::: zone pivot="programming-language-java,programming-language-python,programming-language-powershell" 
+First, use the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported version values for your language. Then, run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the language version of your function app:  
+::: zone-end  
+::: zone pivot="programming-language-csharp" 
+First, use the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported version values for your language stack (.NET). Then, run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the .NET version of your function app:  
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 ```azurecli
@@ -115,7 +118,7 @@ az functionapp config set --net-framework-version "<VERSION>" --name "<APP_NAME>
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript" 
-First, use the the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported version values for your language. Then, run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the language version of your function app:
+First, use the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported version values for your language stack (Node.js). Then, run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the Node.js version of your function app:
 
 ```azurecli
 az functionapp list-runtimes --os "windows" --query "[?runtime == 'node'].{Version:version}" --output table
@@ -137,7 +140,12 @@ In this example, replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the name of yo
 > [!NOTE]   
 > You can't change the Python version when running in a Consumption plan. 
 ::: zone-end  
+::: zone pivot="programming-language-java,programming-language-python,programming-language-powershell"
 Run the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) site setting for your language version:
+::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-javascript"
+Run the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) site setting for your language stack version:
+::: zone-end  
 ::: zone pivot="programming-language-java"  
 ```azurecli
 az functionapp list-runtimes --os linux --query "[?runtime == 'python'].{Version:version, linuxFxVersion:linux_fx_version}" --output table
@@ -163,9 +171,12 @@ az functionapp list-runtimes --os linux --query "[?runtime == 'python'].{Version
 az functionapp list-runtimes --os linux --query "[?runtime == 'powershell'].{Version:version, linuxFxVersion:linux_fx_version}" --output table
 ```
 ::: zone-end 
-
+::: zone pivot="programming-language-java,programming-language-python,programming-language-powershell"  
 Run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the site setting for the new language version of your function app: 
-
+::: zone-end 
+::: zone pivot="programming-language-csharp,programming-language-javascript" 
+Run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the site setting for the new stack version of your function app: 
+::: zone-end  
 ```azurecli
 az functionapp config set --linux-fx-version "<LANGUAGE|VERSION>" --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" --slot "staging"  
 ```
@@ -174,7 +185,7 @@ In this example, replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the name of yo
 
 ---
 
-Your function app restarts after you update the language version. To learn more about Functions support policies for native languages, see [Language runtime support policy](language-support-policy.md). 
+Your function app restarts after you update the version. To learn more about Functions support policies for native languages, see [Language runtime support policy](language-support-policy.md). 
 
 ## Swap slots
 
