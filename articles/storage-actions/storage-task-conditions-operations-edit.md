@@ -3,7 +3,7 @@ title: Define storage task conditions & operations
 titleSuffix: Azure Storage Tasks
 description: Learn how to define the conditions and operations of a storage task by using a visual editor.
 author: normesta
-ms.service: azure-storage
+ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: how-to
 ms.author: normesta

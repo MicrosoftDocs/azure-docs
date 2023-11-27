@@ -3,7 +3,7 @@ title: Analyze Azure Storage Task runs
 titleSuffix: Azure Storage Tasks
 description: Learn how to view lists of runs and review run reports.
 author: normesta
-ms.service: azure-storage
+ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: how-to
 ms.author: normesta

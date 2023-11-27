@@ -4,7 +4,7 @@ titleSuffix: Azure Storage Tasks
 description: Learn how to create your first storage task. You'll also assign that task to a storage account, queue the task to run, and then view the results of the run.
 services: storage
 author: normesta
-ms.service: azure-storage
+ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: quickstart
 ms.date: 05/16/2023

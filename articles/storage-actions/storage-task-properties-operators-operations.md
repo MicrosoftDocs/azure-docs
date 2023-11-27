@@ -5,7 +5,7 @@ description: Learn about the elements of conditions and operations in a storage 
 services: storage
 author: normesta
 
-ms.service: azure-storage
+ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: conceptual
 ms.date: 05/10/2023
