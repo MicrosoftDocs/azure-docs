@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 10/09/2023
+ms.date: 11/27/2023
 
 #CustomerIntent: As an Azure administrator, I want to know the required Azure role-based access control (Azure RBAC) permissions to use each of the Network Watcher capabilities, so I can assign them correctly to users using any of those capabilities.
 ---
@@ -69,7 +69,8 @@ Since traffic analytics is enabled as part of the Flow log resource, the followi
 > | Microsoft.Network/virtualNetworkGateways/read                       | Get a VirtualNetworkGateway                                    |
 > | Microsoft.Network/virtualNetworks/read                              | Get a virtual network definition                               |
 > | Microsoft.Network/expressRouteCircuits/read                         | Get an ExpressRouteCircuit                                     |
-> | Microsoft.OperationalInsights/workspaces/*                          | Perform actions on a workspace                                 |
+> | Microsoft.OperationalInsights/workspaces/read                       | Get an existing workspace                                      |
+> | Microsoft.OperationalInsights/workspaces/sharedkeys/action          | Retrieve the shared keys for the workspace                     |
 > | Microsoft.Insights/dataCollectionRules/read <sup>1</sup>            | Read a data collection rule                                    |
 > | Microsoft.Insights/dataCollectionRules/write <sup>1</sup>           | Create or update a data collection rule                        |
 > | Microsoft.Insights/dataCollectionRules/delete <sup>1</sup>          | Delete a data collection rule                                  |

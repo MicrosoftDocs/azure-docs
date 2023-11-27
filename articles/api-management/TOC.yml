@@ -206,6 +206,8 @@
         href: import-api-from-odata.md
       - name: Import SAP OData metadata
         href: sap-api.md
+    - name: Import gRPC API
+      href: grpc-api.md    
     - name: Azure OpenAI
       items:
       - name: Protect Azure OpenAI keys
@@ -244,6 +246,8 @@
     href: api-management-howto-policies.md
   - name: Set or edit policies
     href: set-edit-policies.md
+  - name: Author policies using Microsoft Copilot for Azure
+    href: ../copilot/author-api-management-policies.md?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
   - name: Debug policies in VS Code
     href: api-management-debug-policies.md
   - name: Policy expressions
@@ -316,24 +320,28 @@
       href: api-management-howto-ca-certificates.md
     - name: Manage protocols and ciphers
       href: api-management-howto-manage-protocols-ciphers.md
-    - name: Protect with Defender for APIs (preview)
+    - name: Protect with Defender for APIs
       href: protect-with-defender-for-apis.md
     - name: Mitigate OWASP API threats
       displayName: OWASP top 10, vulnerability, vulnerabilities
       href: mitigate-owasp-api-threats.md
-  - name: Manage API authorizations
+  - name: Manage API credentials 
     items:
-    - name: API authorizations
-      displayName: OAuth
-      href: authorizations-overview.md
-    - name: Configure common authorization providers
-      href: authorizations-configure-common-providers.md
-    - name: Configure and use authorization - Microsoft Entra ID
-      href: authorizations-how-to-azure-ad.md
-    - name: Configure and use authorization - GitHub
-      href: authorizations-how-to-github.md
-    - name: Configure multiple authorization connections
-      href: configure-authorization-connection.md
+    - name: Credential manager overview
+      displayName: OAuth, authorizations, SaaS, token
+      href: credentials-overview.md
+    - name: Managed connections - process flows
+      href: credentials-process-flow.md
+    - name: Configure common credential providers
+      href: credentials-configure-common-providers.md
+    - name: Configure credential manager - Microsoft Entra ID
+      href: credentials-how-to-azure-ad.md
+    - name: Configure credential manager - GitHub
+      href: credentials-how-to-github.md
+    - name: Configure credential manager - user-delegated permissions
+      href: credentials-how-to-user-delegated.md
+    - name: Configure multiple connections
+      href: configure-credential-connection.md
   - name: Set up backend authentication
     items:
     - name: Mutual certificate authentication
@@ -589,48 +597,47 @@
     href: diagnostic-logs-reference.md
 - name: Resources
   items:
-  - name: FAQ
-    href: api-management-faq.yml
-  - name: Pricing
-    href: https://aka.ms/apimpricing
-  - name: Product updates
-    href: https://aka.ms/apimupdates
-  - name: Release notes
-    href: https://aka.ms/apim/releases
-  - name: API design
-    items:
-    - name: API design ebook
-      href: https://azure.microsoft.com/mediahandler/files/resourcefiles/api-design/Azure_API-Design_Guide_eBook.pdf?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
-    - name: RESTful web API design
-      href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
-    - name: Web API implementation
-      href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
-  - name: Breaking changes
-    items:
-    - name: Breaking changes overview
-      href: breaking-changes/overview.md
-    - name: Virtual network changes (March 2023)
-      href: breaking-changes/rp-source-ip-address-change-mar-2023.md
-    - name: Metrics retirements (August 2023)
-      href: breaking-changes/metrics-retirement-aug-2023.md
-    - name: Virtual network changes (September 2023)
-      href: breaking-changes/rp-source-ip-address-change-sep-2023.md
-    - name: API version retirements (September 2023)
-      href: breaking-changes/api-version-retirement-sep-2023.md
-    - name: Self-hosted gateway v0/v1 retirements (October 2023)
-      href: breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md
-    - name: Deprecated (legacy) developer portal (October 2023)
-      items:
-      - name: Deprecated portal templates
-    - name: stv1 compute platform retirement (August 2024)
-      href: breaking-changes/stv1-platform-retirement-august-2024.md
-    - name: ADAL-based identity provider retirement (September 2025)
-      href: breaking-changes/identity-provider-adal-retirement-sep-2025.md
-    - name: CAPTCHA endpoint update (September 2025)
-      href: breaking-changes/captcha-endpoint-change-sep-2025.md
-  - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Microsoft Q&A question page
-    href: /answers/tags/29/azure-api-management
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-api-management
+      - name: FAQ
+        href: api-management-faq.yml
+      - name: Pricing
+        href: https://aka.ms/apimpricing
+      - name: Product updates
+        href: https://aka.ms/apimupdates
+      - name: Release notes
+        href: https://aka.ms/apim/releases
+      - name: API design
+        items:
+        - name: API design ebook
+          href: https://azure.microsoft.com/mediahandler/files/resourcefiles/api-design/Azure_API-Design_Guide_eBook.pdf?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+        - name: RESTful web API design
+          href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+        - name: Web API implementation
+          href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+      - name: Breaking changes
+        items:
+            - name: Breaking changes overview
+              href: breaking-changes/overview.md
+            - name: Virtual network changes (March 2023)
+              href: breaking-changes/rp-source-ip-address-change-mar-2023.md
+            - name: Metrics retirements (August 2023)
+              href: breaking-changes/metrics-retirement-aug-2023.md
+            - name: Virtual network changes (September 2023)
+              href: breaking-changes/rp-source-ip-address-change-sep-2023.md
+            - name: API version retirements (September 2023)
+              href: breaking-changes/api-version-retirement-sep-2023.md
+            - name: Self-hosted gateway v0/v1 retirements (October 2023)
+              href: breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md
+            - name: Deprecated (legacy) developer portal (October 2023)
+              href: breaking-changes/legacy-portal-retirement-oct-2023.md
+            - name: stv1 compute platform retirement (August 2024)
+              href: breaking-changes/stv1-platform-retirement-august-2024.md
+            - name: ADAL-based identity provider retirement (September 2025)
+              href: breaking-changes/identity-provider-adal-retirement-sep-2025.md
+            - name: CAPTCHA endpoint update (September 2025)
+              href: breaking-changes/captcha-endpoint-change-sep-2025.md       
+      - name: Regional availability
+        href: https://azure.microsoft.com/global-infrastructure/services/
+      - name: Microsoft Q&A question page
+        href: /answers/tags/29/azure-api-management
+      - name: Stack Overflow
+        href: https://stackoverflow.com/questions/tagged/azure-api-management

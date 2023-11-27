@@ -1,7 +1,7 @@
 ---
 title: Index of policy samples
 description: Index of built-ins for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 09/14/2023
+ms.date: 11/21/2023
 ms.topic: sample
 ms.author: davidsmatlak
 author: davidsmatlak
@@ -59,6 +59,7 @@ Azure:
 - [RBI ITF NBFC v2017](./rbi-itf-nbfc-2017.md)
 - [RMIT Malaysia](./rmit-malaysia.md)
 - [SWIFT CSP-CSCF v2021](./swift-csp-cscf-2021.md)
+- [SWIFT CSP-CSCF v2022](./swift-csp-cscf-2022.md)
 - [UK OFFICIAL and UK NHS](./ukofficial-uknhs.md)
 
 The following are the [Regulatory Compliance](../concepts/regulatory-compliance.md) built-ins in

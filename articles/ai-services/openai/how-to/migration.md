@@ -5,15 +5,15 @@ description: Learn about migrating to the latest release of the OpenAI Python li
 author: mrbullwinkle 
 ms.author: mbullwin 
 ms.service: azure-ai-openai
-ms.custom: 
+ms.custom: devx-track-python
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 11/15/2023
 manager: nitinme
 ---
 
 # Migrating to the OpenAI Python API library 1.x
 
-OpenAI has just released a new version of the [OpenAI Python API library](https://github.com/openai/openai-python/). This guide is supplemental to [OpenAI's migration guide](https://github.com/openai/openai-python/discussions/631) and will help bring you up to speed on the changes specific to Azure OpenAI.
+OpenAI has just released a new version of the [OpenAI Python API library](https://github.com/openai/openai-python/). This guide is supplemental to [OpenAI's migration guide](https://github.com/openai/openai-python/discussions/742) and will help bring you up to speed on the changes specific to Azure OpenAI.
 
 ## Updates
 
@@ -28,9 +28,9 @@ OpenAI has just released a new version of the [OpenAI Python API library](https:
 
 ## Known issues
 
-- The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) doesn't currently support DALL-E when used with Azure OpenAI. DALL-E with Azure OpenAI is still supported with `0.28.1`.
+- **`DALL-E3` is [fully supported with the latest 1.x release](../dall-e-quickstart.md).** `DALL-E2` can be used with 1.x by making the [following modifications to your code](#dall-e-fix).
 - `embeddings_utils.py` which was used to provide functionality like cosine similarity for semantic text search is [no longer part of the OpenAI Python API library](https://github.com/openai/openai-python/issues/676).
-- You should also check the active [GitHub Issues](https://github.com/openai/openai-python/issues/703) for the OpenAI Python library.
+- You should also check the active [GitHub Issues](https://github.com/openai/openai-python/issues/) for the OpenAI Python library.
 
 ## Test before you migrate
 
@@ -206,6 +206,23 @@ Additional examples including how to handle semantic text search without `embedd
 
 ---
 
+## Async
+
+OpenAI doesn't support calling asynchronous methods in the module-level client, instead you should instantiate an async client.
+
+```python
+from openai import AsyncAzureOpenAI
+
+client = AsyncAzureOpenAI(  
+  api_key = os.getenv("AZURE_OPENAI_KEY"),  
+  api_version = "2023-10-01-preview",
+  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+)
+response = await client.chat.completions.create(model="gpt-35-turbo", messages=[{"role": "user", "content": "Hello world"}])
+
+print(response.model_dump_json(indent=2))
+```
+
 ## Authentication
 
 ```python
@@ -235,6 +252,280 @@ completion = client.chat.completions.create(
 print(completion.model_dump_json(indent=2))
 ```
 
+## Use your data
+
+For the full configuration steps that are required to make these code examples work, please consult the [use your data quickstart](../use-your-data-quickstart.md).
+# [OpenAI Python 0.28.1](#tab/python)
+
+```python
+import os
+import openai
+import dotenv
+import requests
+
+dotenv.load_dotenv()
+
+openai.api_base = os.environ.get("AOAIEndpoint")
+openai.api_version = "2023-08-01-preview"
+openai.api_type = 'azure'
+openai.api_key = os.environ.get("AOAIKey")
+
+def setup_byod(deployment_id: str) -> None:
+    """Sets up the OpenAI Python SDK to use your own data for the chat endpoint.
+
+    :param deployment_id: The deployment ID for the model to use with your own data.
+
+    To remove this configuration, simply set openai.requestssession to None.
+    """
+
+    class BringYourOwnDataAdapter(requests.adapters.HTTPAdapter):
+
+     def send(self, request, **kwargs):
+         request.url = f"{openai.api_base}/openai/deployments/{deployment_id}/extensions/chat/completions?api-version={openai.api_version}"
+         return super().send(request, **kwargs)
+
+    session = requests.Session()
+
+    # Mount a custom adapter which will use the extensions endpoint for any call using the given `deployment_id`
+    session.mount(
+        prefix=f"{openai.api_base}/openai/deployments/{deployment_id}",
+        adapter=BringYourOwnDataAdapter()
+    )
+
+    openai.requestssession = session
+
+aoai_deployment_id = os.environ.get("AOAIDeploymentId")
+setup_byod(aoai_deployment_id)
+
+completion = openai.ChatCompletion.create(
+    messages=[{"role": "user", "content": "What are the differences between Azure Machine Learning and Azure AI services?"}],
+    deployment_id=os.environ.get("AOAIDeploymentId"),
+    dataSources=[  # camelCase is intentional, as this is the format the API expects
+        {
+            "type": "AzureCognitiveSearch",
+            "parameters": {
+                "endpoint": os.environ.get("SearchEndpoint"),
+                "key": os.environ.get("SearchKey"),
+                "indexName": os.environ.get("SearchIndex"),
+            }
+        }
+    ]
+)
+print(completion)
+```
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+import os
+import openai
+import dotenv
+
+dotenv.load_dotenv()
+
+endpoint = os.environ.get("AOAIEndpoint")
+api_key = os.environ.get("AOAIKey")
+deployment = os.environ.get("AOAIDeploymentId")
+
+client = openai.AzureOpenAI(
+    base_url=f"{endpoint}/openai/deployments/{deployment}/extensions",
+    api_key=api_key,
+    api_version="2023-08-01-preview",
+)
+
+completion = client.chat.completions.create(
+    model=deployment,
+    messages=[
+        {
+            "role": "user",
+            "content": "How is Azure machine learning different than Azure OpenAI?",
+        },
+    ],
+    extra_body={
+        "dataSources": [
+            {
+                "type": "AzureCognitiveSearch",
+                "parameters": {
+                    "endpoint": os.environ["SearchEndpoint"],
+                    "key": os.environ["SearchKey"],
+                    "indexName": os.environ["SearchIndex"]
+                }
+            }
+        ]
+    }
+)
+
+print(completion.model_dump_json(indent=2))
+```
+
+---
+
+## DALL-E fix
+
+# [DALLE-Fix](#tab/dalle-fix)
+
+```python
+import time
+import json
+import httpx
+import openai
+
+
+class CustomHTTPTransport(httpx.HTTPTransport):
+    def handle_request(
+        self,
+        request: httpx.Request,
+    ) -> httpx.Response:
+        if "images/generations" in request.url.path and request.url.params[
+            "api-version"
+        ] in [
+            "2023-06-01-preview",
+            "2023-07-01-preview",
+            "2023-08-01-preview",
+            "2023-09-01-preview",
+            "2023-10-01-preview",
+        ]:
+            request.url = request.url.copy_with(path="/openai/images/generations:submit")
+            response = super().handle_request(request)
+            operation_location_url = response.headers["operation-location"]
+            request.url = httpx.URL(operation_location_url)
+            request.method = "GET"
+            response = super().handle_request(request)
+            response.read()
+
+            timeout_secs: int = 120
+            start_time = time.time()
+            while response.json()["status"] not in ["succeeded", "failed"]:
+                if time.time() - start_time > timeout_secs:
+                    timeout = {"error": {"code": "Timeout", "message": "Operation polling timed out."}}
+                    return httpx.Response(
+                        status_code=400,
+                        headers=response.headers,
+                        content=json.dumps(timeout).encode("utf-8"),
+                        request=request,
+                    )
+
+                time.sleep(int(response.headers.get("retry-after")) or 10)
+                response = super().handle_request(request)
+                response.read()
+
+            if response.json()["status"] == "failed":
+                error_data = response.json()
+                return httpx.Response(
+                    status_code=400,
+                    headers=response.headers,
+                    content=json.dumps(error_data).encode("utf-8"),
+                    request=request,
+                )
+
+            result = response.json()["result"]
+            return httpx.Response(
+                status_code=200,
+                headers=response.headers,
+                content=json.dumps(result).encode("utf-8"),
+                request=request,
+            )
+        return super().handle_request(request)
+
+
+client = openai.AzureOpenAI(
+    azure_endpoint="<azure_endpoint>",
+    api_key="<api_key>",
+    api_version="<api_version>",
+    http_client=httpx.Client(
+        transport=CustomHTTPTransport(),
+    ),
+)
+image = client.images.generate(prompt="a cute baby seal")
+
+print(image.data[0].url)
+```
+
+# [DALLE-Fix Async](#tab/dalle-fix-async)
+
+```python
+import time
+import asyncio
+import json
+import httpx
+import openai
+
+
+class AsyncCustomHTTPTransport(httpx.AsyncHTTPTransport):
+    async def handle_async_request(
+        self,
+        request: httpx.Request,
+    ) -> httpx.Response:
+        if "images/generations" in request.url.path and request.url.params[
+            "api-version"
+        ] in [
+            "2023-06-01-preview",
+            "2023-07-01-preview",
+            "2023-08-01-preview",
+            "2023-09-01-preview",
+            "2023-10-01-preview",
+        ]:
+            request.url = request.url.copy_with(path="/openai/images/generations:submit")
+            response = await super().handle_async_request(request)
+            operation_location_url = response.headers["operation-location"]
+            request.url = httpx.URL(operation_location_url)
+            request.method = "GET"
+            response = await super().handle_async_request(request)
+            await response.aread()
+
+            timeout_secs: int = 120
+            start_time = time.time()
+            while response.json()["status"] not in ["succeeded", "failed"]:
+                if time.time() - start_time > timeout_secs:
+                    timeout = {"error": {"code": "Timeout", "message": "Operation polling timed out."}}
+                    return httpx.Response(
+                        status_code=400,
+                        headers=response.headers,
+                        content=json.dumps(timeout).encode("utf-8"),
+                        request=request,
+                    )
+
+                await asyncio.sleep(int(response.headers.get("retry-after")) or 10)
+                response = await super().handle_async_request(request)
+                await response.aread()
+
+            if response.json()["status"] == "failed":
+                error_data = response.json()
+                return httpx.Response(
+                    status_code=400,
+                    headers=response.headers,
+                    content=json.dumps(error_data).encode("utf-8"),
+                    request=request,
+                )
+
+            result = response.json()["result"]
+            return httpx.Response(
+                status_code=200,
+                headers=response.headers,
+                content=json.dumps(result).encode("utf-8"),
+                request=request,
+            )
+        return await super().handle_async_request(request)
+
+
+async def dall_e():
+    client = openai.AsyncAzureOpenAI(
+        azure_endpoint="<azure_endpoint>",
+        api_key="<api_key>",
+        api_version="<api_version>",
+        http_client=httpx.AsyncClient(
+            transport=AsyncCustomHTTPTransport(),
+        ),
+    )
+    image = await client.images.generate(prompt="a cute baby seal")
+
+    print(image.data[0].url)
+
+asyncio.run(dall_e())
+```
+
+---
+
 ## Name changes
 
 > [!NOTE]
@@ -243,7 +534,7 @@ print(completion.model_dump_json(indent=2))
 | OpenAI Python 0.28.1 | OpenAI Python 1.x |
 | --------------- | --------------- |
 | `openai.api_base` | `openai.base_url` |
-| `openai.proxy` | `openai.proxies (docs)` |
+| `openai.proxy` | `openai.proxies` |
 | `openai.InvalidRequestError` | `openai.BadRequestError` |
 | `openai.Audio.transcribe()` | `client.audio.transcriptions.create()` |
 | `openai.Audio.translate()` | `client.audio.translations.create()` |
@@ -279,22 +570,22 @@ print(completion.model_dump_json(indent=2))
 
 ### Removed
 
-`openai.api_key_path`
-`openai.app_info`
-`openai.debug`
-`openai.log`
-`openai.OpenAIError`
-`openai.Audio.transcribe_raw()`
-`openai.Audio.translate_raw()`
-`openai.ErrorObject`
-`openai.Customer`
-`openai.api_version`
-`openai.verify_ssl_certs`
-`openai.api_type`
-`openai.enable_telemetry`
-`openai.ca_bundle_path`
-`openai.requestssession` (OpenAI now uses `httpx`)
-`openai.aiosession` (OpenAI now uses `httpx`)
-`openai.Deployment` (Previously used for Azure OpenAI)
-`openai.Engine`
-`openai.File.find_matching_files()`
+- `openai.api_key_path`
+- `openai.app_info`
+- `openai.debug`
+- `openai.log`
+- `openai.OpenAIError`
+- `openai.Audio.transcribe_raw()`
+- `openai.Audio.translate_raw()`
+- `openai.ErrorObject`
+- `openai.Customer`
+- `openai.api_version`
+- `openai.verify_ssl_certs`
+- `openai.api_type`
+- `openai.enable_telemetry`
+- `openai.ca_bundle_path`
+- `openai.requestssession` (OpenAI now uses `httpx`)
+- `openai.aiosession` (OpenAI now uses `httpx`)
+- `openai.Deployment` (Previously used for Azure OpenAI)
+- `openai.Engine`
+- `openai.File.find_matching_files()`

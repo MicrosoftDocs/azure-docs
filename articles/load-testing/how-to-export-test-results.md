@@ -14,7 +14,7 @@ ms.topic: how-to
 
 In this article, you learn how to download the test results from Azure Load Testing in the Azure portal. You might use these results for reporting in third-party tools or for diagnosing test failures. Azure Load Testing generates the test results in comma-separated values (CSV) file format, and provides details of each application request for the load test.
 
-You can also use the test results to diagnose errors during a load test. The `responseCode` and `responseMessage` fields give you more information about failed requests. For more information about investigating errors, see [Troubleshoot test execution errors](./how-to-troubleshoot-failing-test.md).
+You can also use the test results to diagnose errors during a load test. The `responseCode` and `responseMessage` fields give you more information about failed requests. For more information about investigating errors, see [Diagnose failing load tests](./how-to-diagnose-failing-load-test.md).
 
 You can generate the Apache JMeter dashboard from the CSV log file following the steps mentioned [here](https://jmeter.apache.org/usermanual/generating-dashboard.html#report).
 
@@ -146,6 +146,6 @@ The following code snippet shows an example of a backend listener, for Azure App
 
 ## Next steps
 
-- Learn more about [Troubleshooting test execution errors](./how-to-troubleshoot-failing-test.md).
+- Learn more about [Diagnosing failing load tests](./how-to-diagnose-failing-load-test.md).
 - For information about comparing test results, see [Compare multiple test results](./how-to-compare-multiple-test-runs.md).
 - To learn about performance test automation, see [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
