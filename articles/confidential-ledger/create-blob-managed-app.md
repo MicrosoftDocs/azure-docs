@@ -104,9 +104,6 @@ az eventgrid system-topic event-subscription create \
 
 The Managed Application requires the `Storage Blob Data Owner` role to read and create hashes for each blob and this role is required to be added in order for the digest to be calculated correctly.
 
-> [!NOTE]
-> Multiple storage accounts can be connected to a single Managed Application instance. We currently recommend a maximum of **10 storage accounts** that contain high usage blob containers.
-
 ### [Azure portal](#tab/azure-portal)
 
 :::image type="content" source="./media/managed-application/managed-app-managed-identity-inline.png" alt-text="Screenshot of the Azure portal in a web browser, showing how to set up a managed identity for the managed app." lightbox="./media/managed-application/managed-app-managed-identity-enhanced.png":::
@@ -126,6 +123,9 @@ az role assignment create \
 `scope` - Resource ID of storage account to create the role for
 
 ---
+
+> [!NOTE]
+> Multiple storage accounts can be connected to a single Managed Application instance. We currently recommend a maximum of **10 storage accounts** that contain high usage blob containers.
 
 ## Adding blobs and digest creation
 
