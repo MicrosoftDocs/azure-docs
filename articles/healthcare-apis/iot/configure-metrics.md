@@ -13,9 +13,26 @@ ms.author: jasteppe
 # Configure service metrics for the MedTech service
 Gain insights into the health, availability, latency, traffic, and errors of your organization's MedTech services by displaying MedTech service metrics in the Azure portal. To help you identify patterns or trends, pin tiles for the metrics to an Azure portal dashboard for easy access and visualization.
 
-## Metric types for the MedTech service
+## Configure service metrics
 
-This table shows MedTech service metrics and what they measure in the Azure portal.  
+1. In the Azure portal, go to the Azure Health Data Services workspace. Go to **Services** > **MedTech service**.
+
+   :::image type="content" source="media\configure-metrics\select-medtech-service-crop.png" alt-text="Screenshot showing how to open the MedTech service in a workspace." lightbox="media\configure-metrics\select-medtech-service.png":::
+
+2. Select the MedTech service that you want to monitor metrics for. In this example, the MedTech service is named **mt-azuredocsdemo**. 
+
+   :::image type="content" source="media\configure-metrics\select-medtech-service2-crop.png" alt-text="Screenshot showing the MedTech service to display metrics for." lightbox="media\configure-metrics\select-medtech-service2.png":::
+
+3. On the **Metrics** page in the left pane, select **Metrics**.
+
+   :::image type="content" source="media\configure-metrics\monitor-metrics-crop.png" alt-text="Screenshot showing the selection of the Metrics menu item in the MedTech service." lightbox="media\configure-metrics\monitor-metrics.png":::
+
+4. Choose **Add metric**.
+
+5. Select a metric from the drop-down list. 
+:::image type="content" source="media\configure-metrics\add-metric-crop.png" alt-text="Screenshot showing drop-down list of available metrics." lightbox="media\configure-metrics\add-metric.png":::
+
+The metrics are:
 
 Metric category|Metric name|Metric description|
 |--------------|-----------|--------------|
@@ -29,44 +46,16 @@ Metric category|Metric name|Metric description|
 |Traffic|Number of Message Groups|The number of groups that have messages aggregated in the designated time window.|
 |Traffic|Number of Normalized Messages|The number of normalized messages.|
 
-## Configure service metrics
-
-1. In the Azure portal, go to the Azure Health Data Services workspace. Select **Services** > **MedTech service**.
-
-   :::image type="content" source="media\configure-metrics\select-medtech-service-crop.png" alt-text="Screenshot showing how to open the MedTech service in a workspace." lightbox="media\configure-metrics\select-medtech-service.png":::
-
-2. Select the MedTech service that you want to display metrics for. In this example, the MedTech service is named **mt-azuredocsdemo**. 
-
-   :::image type="content" source="media\configure-metrics\select-medtech-service2-crop.png" alt-text="Screenshot showing the MedTech service to display metrics for." lightbox="media\configure-metrics\select-medtech-service2.png":::
-
-3. On the **Metrics** page in the left pane, select **Metrics**.
-
-   :::image type="content" source="media\configure-metrics\monitor-metrics-crop.png" alt-text="Screenshot showing the selection of the Metrics menu item in the MedTech service." lightbox="media\configure-metrics\monitor-metrics.png":::
-
-4. Choose **Add metric**.
-5. Select a metric from the drop-down list. 
-:::image type="content" source="media\configure-metrics\add-metric-crop.png" alt-text="Screenshot showing drop-down list of available metrics." lightbox="media\configure-metrics\add-metric.png":::
-
-The metrics are:
-
-   * **Scope** = The MedTech service name (**Default**)
-   * **Metric Namespace** = Standard metrics (**Default**)
-   * **Metric** = The MedTech service metrics you want to display. For example, select **Number of Incoming Messages**.
-   * **Aggregation** = How you would like to display the metrics. For example, select **Count**.
-
 You can now see your MedTech service metrics for **Number of Incoming Messages** displayed on the MedTech service metrics page.
 
    :::image type="content" source="media\configure-metrics\select-metrics-being-displayed.png" alt-text="Screenshot showing the selection of metrics to display." lightbox="media\configure-metrics\select-metrics-being-displayed.png":::
 
-   > [!IMPORTANT]
-   > Before you leave the MedTech service metrics page, save the metrics by pinning them as a tile on an Azure dashboard. Otherwise, the metrics settings will be lost and you'll need to recreate them. 
+## Save metrics as a tile on an Azure dashboard
 
-   > [!TIP]
-   > To learn more about advanced metrics display and sharing options, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
+To keep your MedTech service metrics settings and view the metrics again later, pin them as a tile on an Azure dashboard. For more information, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md)
 
-## Create a dashboard and pin tiles
+To learn more about advanced metrics display and sharing options, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
 
-For more information, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md)
 
 ## Next steps
 
