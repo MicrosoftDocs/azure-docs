@@ -406,9 +406,10 @@ All clients establish WebSocket connections with Azure SignalR Service. Then som
 |----------------------------|-------|-------|--------|--------|---------|---------|---------|----------|
 | Connections                | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000|
 | Inbound messages per second| 2     | 2     | 2      | 2      | 2       | 2       | 2       | 2        |
-| Outbound messages per second | 2,000 | 4,000 | 10,000 | 20,000 | 40,000 | 100,000 | 200,000 | 400,000  |
-| Inbound bandwidth          | 4 KBps| 4 KBps| 4 KBps | 4 KBps | 4 KBps  | 4 KBps  | 4 KBps  | 4 KBps   |
-| Outbound bandwidth         | 4 MBps| 8 MBps| 20 MBps| 40 MBps| 80 MBps | 200 MBps| 400 MBps| 800 MBps |
+| Outbound messages per second | 2,000 | 4,000 | 20,000 | 100,000 | 200,000 | 400,000 | 1,000,000 | 2,000,000  |
+| Inbound bandwidth        | 4 KBps| 4 KBps| 4 KBps | 4 KBps | 4 KBps  | 4 KBps  | 4 KBps  | 4 KBps   |
+| **Outbound bandwidth**   | **4 MBps**| **8 MBps**| **40 MBps** | **200 MBps** | **400 MBps**| **800 MBps** | **2,000 MBps**| **4,000 MBps**|
+
 
 
 #### Send to user through REST API
