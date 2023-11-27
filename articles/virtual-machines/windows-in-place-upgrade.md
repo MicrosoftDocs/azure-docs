@@ -235,4 +235,5 @@ If the in-place upgrade process failed to complete successfully you can return t
 
 ## Next steps
 
-For more information, see [Perform an in-place upgrade of Windows Server](/windows-server/get-started/perform-in-place-upgrade)
+- For more information, see [Perform an in-place upgrade of Windows Server](/windows-server/get-started/perform-in-place-upgrade)
+- For information about using Azure Migrate to upgrade, see [Azure Migrate Windows Server upgrade](/azure/migrate/how-to-upgrade-windows)
