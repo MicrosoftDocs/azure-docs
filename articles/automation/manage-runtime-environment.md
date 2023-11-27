@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 
 # Manage runbooks in Runtime environment
 
-This article provides information on how to create Runtime Environment and  perform various operations through portal and REST API.  
+This article provides information on how to create Runtime Environment and perform various operations through portal and REST API.  
 
 
 ## Prerequisites
