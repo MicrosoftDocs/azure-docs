@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 11/22/2023
+ms.date: 11/27/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,10 +24,11 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
+| November 27 | [General availability of agentless secret scanning in Defender for Servers and Defender CSPM](#general-availability-of-agentless-secret-scanning-in-defender-for-servers-and-defender-cspm) |
 | November 22 | [Enable permissions management with Defender for Cloud (Preview)](#enable-permissions-management-with-defender-for-cloud-preview) |
 | November 22 | [Defender for Cloud integration with ServiceNow](#defender-for-cloud-integration-with-servicenow) |
 | November 20| [General Availability of the autoprovisioning process for SQL Servers on machines plan](#general-availability-of-the-autoprovisioning-process-for-sql-servers-on-machines-plan)|
-| November 15 | [Defender for Cloud is now integrated with Microsoft 365 Defender](#defender-for-cloud-is-now-integrated-with-microsoft-365-defender) |
+| November 15 | [Defender for Cloud is now integrated with Microsoft 365 Defender (Preview)](#defender-for-cloud-is-now-integrated-with-microsoft-365-defender-preview) |
 | November 15 | [General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries](#general-availability-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries) |
 | November 15 | [Change to Container Vulnerability Assessments recommendation names](#change-to-container-vulnerability-assessments-recommendation-names) |
 | November 15 | [Risk prioritization is now available for recommendations](#risk-prioritization-is-now-available-for-recommendations) |
@@ -37,6 +38,20 @@ If you're looking for items older than six months, you can find them in the [Arc
 | November 15 | [General Availability release of Data security dashboard](#general-availability-release-of-data-security-dashboard) |
 | November 15 | [General Availability release of sensitive data discovery for databases](#general-availability-release-of-sensitive-data-discovery-for-databases) |
 | November 6 | [New version of the recommendation to find missing system updates is now GA](#new-version-of-the-recommendation-to-find-missing-system-updates-is-now-ga) |
+
+### General availability of agentless secret scanning in Defender for Servers and Defender CSPM
+
+November 27, 2023
+
+Agentless secret scanning enhances the security cloud based Virtual Machines (VM) by identifying plaintext secrets on VM disks. Agentless secret scanning provides comprehensive information to help prioritize detected findings and mitigate lateral movement risks before they occur. This proactive approach prevents unauthorized access, ensuring your cloud environment remains secure.
+
+We're announcing the General Availability (GA) of agentless secret scanning, which is included in both the [Defender for Servers P2](tutorial-enable-servers-plan.md) and the [Defender CSPM](tutorial-enable-cspm-plan.md) plans. 
+
+Agentless secret scanning utilizes cloud APIs to capture snapshots of your disks, conducting out-of-band analysis that ensures that there is no effect on your VM's performance. Agentless secret scanning broadens the coverage offered by Defender for Cloud over cloud assets across Azure, AWS, and GCP environments to enhance your cloud security.
+
+With this release, Defender for Cloud's detection capabilities now support additional database types, data store signed URLs, access tokens, and more.
+
+Learn how to [manage secrets with agentless secret scanning](secret-scanning.md).
 
 ### Enable permissions management with Defender for Cloud (Preview)
 
@@ -66,13 +81,13 @@ In preparation for the Microsoft Monitoring Agent (MMA) deprecation in August 20
 
 Customers using the MMA autoprovisioning process are requested to [migrate to the new Azure Monitoring Agent for SQL server on machines autoprovisioning process](/azure/defender-for-cloud/defender-for-sql-autoprovisioning). The migration process is seamless and provides continuous protection for all machines.  
 
-### Defender for Cloud is now integrated with Microsoft 365 Defender
+### Defender for Cloud is now integrated with Microsoft 365 Defender (Preview)
 
 November 15, 2023
 
 Businesses can protect their cloud resources and devices with the new integration between Microsoft Defender for Cloud and Microsoft 365 Defender. This integration connects the dots between cloud resources, devices, and identities, which previously required multiple experiences. 
 
-The integration also brings competitive cloud protection capabilities into the Security Operations Center (SOC) day-to-day. With XDR as their single pane of glass, SOC teams can easily discover attacks that combine detections from multiple pillars, including Cloud, Endpoint, Identity, Office 365, and more.
+The integration also brings competitive cloud protection capabilities into the Security Operations Center (SOC) day-to-day. With Microsoft 365 Defender, SOC teams can easily discover attacks that combine detections from multiple pillars, including Cloud, Endpoint, Identity, Office 365, and more.
 
 Some of the key benefits include:
 

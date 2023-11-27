@@ -190,7 +190,7 @@ ErGwScale is free of charge during public preview. For information about Express
 
 * For more information about creating ExpressRoute gateways, see [Create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md).
 
-* For more information on how to deploy ErGwScale, see [How to configure ErGwScale]().
+* For more information on how to deploy ErGwScale, see [Configure a virtual network gateway for ExpressRoute using the Azure portal](https://learn.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager).
 
 * For more information about configuring zone-redundant gateways, see [Create a zone-redundant virtual network gateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
 

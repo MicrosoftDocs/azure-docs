@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: The prompt tool in prompt flow offers a collection of textual templates that serve as a starting point for creating prompts.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
 ms.topic: reference
