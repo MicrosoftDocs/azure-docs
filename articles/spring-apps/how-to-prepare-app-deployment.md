@@ -153,6 +153,7 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 | Spring Boot version | Spring Cloud version            | End of commercial support |
 |---------------------|---------------------------------|---------------------------|
+| 3.2.x               | 2022.0.3+ also known as Kilburn | 2026-02-23                |
 | 3.1.x               | 2022.0.3+ also known as Kilburn | 2025-08-18                |
 | 3.0.x               | 2022.0.3+ also known as Kilburn | 2025-02-24                |
 | 2.7.x               | 2021.0.3+ also known as Jubilee | 2025-08-24                |
@@ -162,6 +163,7 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 | Spring Boot version | Spring Cloud version            | End of support |
 |---------------------|---------------------------------|----------------|
+| 3.2.x               | 2022.0.3+ also known as Kilburn | 2024-11-23     |
 | 3.1.x               | 2022.0.3+ also known as Kilburn | 2024-05-18     |
 | 3.0.x               | 2022.0.3+ also known as Kilburn | 2023-11-24     |
 | 2.7.x               | 2021.0.3+ also known as Jubilee | 2023-11-24     |
