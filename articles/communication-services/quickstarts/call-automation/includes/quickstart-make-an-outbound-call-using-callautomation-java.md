@@ -140,7 +140,7 @@ private List < RecognitionChoice > getChoices() {
 
 ## Handle Choice Events
 
-Azure Communication Services Call Automation triggers the `api/callbacks` to the webhook we have setup and will notify us with the `RecognizeCompleted` event. The event gives us the ability to respond to input recieved and trigger an action. The application then plays a message to the caller based on the specific input received.
+Azure Communication Services Call Automation triggers the `api/callbacks` to the webhook we have setup and will notify us with the `RecognizeCompleted` event. The event gives us the ability to respond to input received and trigger an action. The application then plays a message to the caller based on the specific input received.
 
 ```java
 else if (event instanceof RecognizeCompleted) {
