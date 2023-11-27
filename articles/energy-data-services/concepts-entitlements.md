@@ -23,7 +23,7 @@ The entitlements service enables three use cases for authorization:
 - **Service groups** used for service authorization (for example, service.storage.user, service.storage.admin)
 - **User groups** used for hierarchical grouping of user and service identities (for example, users.datalake.viewers, users.datalake.editors)
 
-Some user, data, and service groups are created by default when a data partition is provisioned with details in [Bootstrapped OSDU Entitlements Groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md).
+Some user, data, and service groups are created by default when a data partition is provisioned. Details of these groups and their hierarchy scope is in [Bootstrapped OSDU Entitlements Groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md).
 
 ## Group naming
 
