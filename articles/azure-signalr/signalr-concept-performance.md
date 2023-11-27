@@ -174,7 +174,7 @@ The real use case is more complicated. It might send a message larger than 2,048
 
 The following table shows a real use case of **broadcast**. But the message size, connection count, and message sending rate are different from what we assumed in the previous section. The question is how we can deduce any of those items (message size, connection count, or message sending rate) if we know only two of them.
 
-| Broadcast  | Message size | Inbound messages per second | Connections | Send intervals |
+| Broadcast  | Message size | Concurrent Inbound messages  | Connections | Send intervals |
 |---|---------------------|--------------------------|-------------|-------------------------|
 | 1 | 20 KB                | 1                        | 100,000     | 5 sec                      |
 | 2 | 256 KB               | 1                        | 8,000       | 5 sec                      |
@@ -229,11 +229,14 @@ In the following diagram, 5 through 8 (red highlighted traffic) are in a loop. T
 
 The behavior of **echo** determines that the maximum inbound bandwidth is equal to the maximum outbound bandwidth. For details, see the following table.
 
-|       Echo                        | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
-|-----------------------------------|-------|-------|-------|--------|--------|--------|---------|---------|
-| Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
-| Inbound/outbound messages per second | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
-| Inbound/outbound bandwidth | 2 MBps   | 4 MBps   | 20 MBps   | 100 MBps  | 200 MBps   | 400 MBps   | 1,000 MBps  | 2,000 MBps   |
+| Echo                               | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | [Unit200](#premium-p2-details) | [Unit500](#premium-p2-details) | [Unit1000](#premium-p2-details) |
+|------------------------------------|-------|-------|--------|--------|---------|---------|----------------------------------|-----------------------------------|
+| Connections                        | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000                          | 1,000,000                         |
+| Inbound/outbound messages per second | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000                          | 1,000,000                         |
+| Inbound/outbound bandwidth         | 2 MBps| 4 MBps| 20 MBps| 100 MBps| 200 MBps| 400 MBps| 1,000 MBps                       | 2,000 MBps                       |
+
+...
+
 
 In this use case, every client invokes the hub defined in the app server. The hub just calls the method defined in the original client side. This hub is the most lightweight hub for **echo**.
 
@@ -420,6 +423,9 @@ The benchmark assigns usernames to all of the clients before they start connecti
 | Connections                   | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000|
 | Inbound/Outbound messages per second   | 200   | 400   | 2,000  | 10,000 | 20,000  | 40,000  | 100,000 | 200,000  |
 | Inbound/Outbound bandwidth             | 400 KBps| 800 KBps| 4 MBps| 20 MBps| 40 MBps | 80 MBps | 200 MBps| 400 MBps|
+
+## Premium P2 
+Units greater than 200 are only available in tier Premium_P2.
 
 ## Performance test environments
 

@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 This article shows you how to scale your instance of Azure SignalR Service. There are two scenarios for scaling, scale up and scale out.
 
 * [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more units, connections, messages, and more. You scale up by changing the pricing tier from Free to Standard.
-* [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increase the number of SignalR units. You can scale out to as many as 100 units. There are limited unit options to select for the scaling: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90 and 100 units for a single SignalR Service instance.
+* [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increase the number of SignalR units. You can scale out to as many as 100 units. There are limited unit options to select for the scaling: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90 and 100 units for a single SignalR Service instance. If you want to scale beyond 100 units, the [Premium_P2](#enhanced-large-instance-support-with-premium_p2-sku) SKU offers expanded capabilities.
 
 The scale settings take a few minutes to apply. In rare cases, it may take around 30 minutes to apply. Scaling doesn't require you to change your code or redeploy your server application.
 
@@ -92,6 +92,17 @@ Make a note of the actual name generated for the new resource group. You'll use 
 For detailed information, such as included messages and connections for each pricing tier, see [SignalR Service Pricing Details](https://azure.microsoft.com/pricing/details/signalr-service/).
 
 For a table of service limits, quotas, and constraints in each tier, see [SignalR Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits).
+
+
+## Enhanced Large Instance Support with Premium_P2 SKU
+The new Premium_P2 SKU (currently in Preview) is designed to facilitate extensive scalability for high-demand scenarios.  This SKU allows scaling among 100, 200, 300, 400, 500, 600. 700, 800, 900, 1000 units for a single SignalR Service instance. This enhancement enables the handling of up to **one million** concurrent connections, catering to large-scale, real-time communication needs.
+
+You can scale up the SKU to Premium_P2 using Azure Portal or Azure CLI.
+
+The Premium_P2 tier uses a different architecture internally to manage a large amount of underlying resources. Thus, it's expected that scaling operations of this tier might take longer compared to those in smaller SKUs.
+
+> [!NOTE]
+> Be aware that there is a default quota limit capping the number of SignalR units at **150** per subscription per region. This is a soft limit and can be increased upon request. To do so, simply submit a support ticket to request an adjustment to this quota.
 
 ## Next steps
 
