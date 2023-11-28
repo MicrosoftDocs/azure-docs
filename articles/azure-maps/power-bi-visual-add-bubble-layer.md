@@ -86,14 +86,14 @@ Azure Maps Power BI visual offers a range of configuration options to provide fl
 
 :::image type="content" source="./media/power-bi-visual/visualizations-settings-cluster-bubbles.png" alt-text="A screenshot showing the format visual options for a cluster bubble layer.":::
 
-| Setting       | Description                                     | Values |
-|---------------|-------------------------------------------------|--------|
-| Bubble Size   | The size of each cluster bubble. Default: 12 px  | 1-50 px |
-| Cluster Color | Fill color of each cluster bubble.              |        |
+| Setting       | Description                                       | Values  |
+|---------------|---------------------------------------------------|---------|
+| Bubble Size   | The size of each cluster bubble. Default: 12 px   | 1-50 px |
+| Cluster Color | Fill color of each cluster bubble.                |         |
 | Text Size     | The size of the number indicating the quantity of clustered bubbles. Default: 18 px.| 1-100 px|
 | Text Color    | Text color of the number displayed in the cluster bubbles.| |
 | Boarder Color | The color of the bubbles outline. Unavailable when the **High-contrast outline** option is enabled. ||
-| Boarder Width | The width of the border in pixels.              |         |
+| Boarder Width | The width of the border in pixels. Default: 2 px  |         |
 
 ## Next steps
 
