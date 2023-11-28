@@ -112,7 +112,7 @@ sections:
           Yes, though it depends on how you configured your DigiCert account.
       - question: How can I create an OV SSL or EV SSL certificate with DigiCert?
         answer: |
-          Key Vault supports the creation of OV and EV SSL certificates. When you create a certificate, select **Advanced Policy Configuration** and then specify the certificate type. Supported values: OV SSL, EV SSL
+          Key Vault supports the creation of OV and EV SSL certificates. When you create a certificate, select **Advanced Policy Configuration** and then specify the certificate type. Supported values: `OV-SSL`, `EV-SSL`
    
           You can create this type of certificate in Key Vault if your DigiCert account allows it. For this type of certificate, validation is performed by DigiCert. If validation fails, the DigiCert support team can help. You can add information when you create a certificate by defining the information in `subjectName`.
 
