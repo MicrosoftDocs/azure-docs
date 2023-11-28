@@ -102,7 +102,6 @@ import json
 
 # Import required libraries
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
-from azure.ai.ml import MLClient
 
 # azure version promptflow apis
 from promptflow.azure import PFClient
@@ -116,10 +115,10 @@ except Exception as ex:
     # Fall back to InteractiveBrowserCredential in case DefaultAzureCredential not work
     credential = InteractiveBrowserCredential()
 
-# Get a handle to workspace
-ml_client = MLClient.from_config(credential=credential)
-
-pf = PFClient(ml_client)
+# Get a handle to workspace, it will use config.json in current and parent directory.
+pf = PFClient.from_config(
+    credential=credential,
+)
 ```
 
 ---
@@ -137,7 +136,15 @@ column_mapping:
   url: ${data.url}
 
 # define cloud resource
-runtime: <runtime_name>
+# if ommited, it will use the automatic runtime, you can also specify the runtime name, specif automatic will also use the automatic runtime.
+runtime: <runtime_name> 
+
+
+# define instance type only work for automatic runtime, will be ignored if you specify the runtime name.
+# resources:
+#   instance_type: <instance_type>
+
+# overrides connections 
 connections:
   classify_with_llm:
     connection: <connection_name>
@@ -170,8 +177,13 @@ pfazure run create --file run.yml
 flow = "<path_to_flow>"
 data = "<path_to_flow>/data.jsonl"
 
+
 # define cloud resource
 runtime = <runtime_name>
+# define instance type
+# resources = {"instance_type": <instance_type>}
+
+# overrides connections 
 connections = {"classify_with_llm":
                   {"connection": <connection_name>,
                   "deployment_name": <deployment_name>},
@@ -183,7 +195,8 @@ connections = {"classify_with_llm":
 base_run = pf.run(
     flow=flow,
     data=data,
-    runtime=runtime, 
+    runtime=runtime, # if ommited, it will use the automatic runtime, you can also specify the runtime name, specif automatic will also use the automatic runtime.
+#    resources = resources, # only work for automatic runtime, will be ignored if you specify the runtime name.
     column_mapping={
         "url": "${data.url}"
     }, 
@@ -209,7 +222,15 @@ column_mapping:
   prediction: ${run.outputs.category}
 
 # define cloud resource
-runtime: <runtime_name>
+# if ommited, it will use the automatic runtime, you can also specify the runtime name, specif automatic will also use the automatic runtime.
+runtime: <runtime_name> 
+
+
+# define instance type only work for automatic runtime, will be ignored if you specify the runtime name.
+# resources:
+#   instance_type: <instance_type>
+
+# overrides connections 
 connections:
   classify_with_llm:
     connection: <connection_name>
@@ -233,6 +254,10 @@ data = "<path_to_flow>/data.jsonl"
 
 # define cloud resource
 runtime = <runtime_name>
+# define instance type
+# resources = {"instance_type": <instance_type>}
+
+# overrides connections 
 connections = {"classify_with_llm":
                   {"connection": <connection_name>,
                   "deployment_name": <deployment_name>},
@@ -250,7 +275,8 @@ eval_run = pf.run(
         "groundtruth": "${data.answer}",
         "prediction": "${run.outputs.category}",
     },
-    runtime=runtime,
+    runtime=runtime, # if ommited, it will use the automatic runtime, you can also specify the runtime name, specif automatic will also use the automatic runtime.
+#    resources = resources, # only work for automatic runtime, will be ignored if you specify the runtime name.
     connections=connections
 )
 ```
