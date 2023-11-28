@@ -40,7 +40,7 @@ Long running job [Satellite ingestion](/rest/api/data-manager-for-agri/#satellit
  
 ## Basic version API limits
  
-### Total available units
+### Total available units per category
 Operation | Throttling time window | Units reset after each time window.|
 ----------| -------------------------- | ------------------------------ |
 Write/Read| per 1 Minute    | 25,000 |
@@ -52,7 +52,7 @@ Long running job| per one Month| 100,000 |
 ## Standard version API limits
 Standard version offers a five times increase in API quota per month compared to the Basic version, while all other quota limits remain unchanged.
 
-### Total available units
+### Total available units per category
 Operation | Throttling time window | Units reset after each time window.|
 ----------| -------------------------- | ------------------------------ |
 Write/Read| per 1 Minute    | 25,000 |
@@ -75,7 +75,7 @@ After the specified time elapses, you can make requests again to the Azure Data 
 The quota limits are shared among the listed operation categories. Using the entire quota for write operations implies no remaining quota for other operations. The specific quota units consumed for each operation are detailed in this article.
 
 ### 2. How can I calculate the total number of successful requests allowed for a particular time window?
-The total allowed number of successful API requests depends on the specific version provisioned and the time window in which requests are made. For instance, with the Standard version, you can make 25,000 (Units reset after each time window) / 5 (Units cost for each request) = 5,000 write operation APIs within a 1-minute time window. Similarly, for the Basic version, you can perform 5,000,000 (Units reset after each time window) / 1 (Units cost for each request) = 5,000,000 read operation APIs within a one month time window.
+The total allowed number of successful API requests depends on the specific version provisioned and the time window in which requests are made. For instance, with the Standard version, you can make 25,000 (Units reset after each time window) / 5 (Units cost for each request) = 5,000 write operation APIs within a 1-minute time window. Or combination of 4000 write operations & 5000 read operations which results in total 4000 * 5 + 5000 * 1 = 25000 total units consumption. Similarly, for the Basic version, you can perform 5,000,000 (Units reset after each time window) / 1 (Units cost for each request) = 5,000,000 read operation APIs within a one month time window.
 
 ### 3. How many sensor events can a customer ingest as the maximum number?
 The system allows a maximum limit of 100,000 event ingestions per hour. While new events are continually accepted, there might be a delay in processing, resulting in these events not being immediately available for real-time egress scenarios alongside the ingestion.
