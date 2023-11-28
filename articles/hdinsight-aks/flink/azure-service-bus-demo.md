@@ -9,7 +9,7 @@ ms.date: 11/27/2023
 
 [!INCLUDE feature-in-preview]
 
-This page provides an overview and demonstration of `DStreamAPI AzureServiceBusDemo`, a Flink job demonstration is designed to read messages from an Azure Service Bus topic and writes them to Data Lake Storage Gen2 (ADLS Gen2).
+This page provides an overview and demonstration of `DStreamAPI AzureServiceBusDemo`, a Flink job demonstration is designed to read messages from an [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) and writes them to [Data Lake Storage Gen2](./assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md) (ADLS Gen2).
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ This page provides an overview and demonstration of `DStreamAPI AzureServiceBusD
 
 ## Running Flink jobs
 
-This job is designed to read messages from an Azure Service Bus topic and write them to Data Lake Storage Gen2 (ADLS Gen2).
+This job is designed to read messages from an [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) and writes them to [Data Lake Storage Gen2](./assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md) (ADLS Gen2).
 
 ### Submit the JAR into Azure HDInsight on AKS with Flink
 
