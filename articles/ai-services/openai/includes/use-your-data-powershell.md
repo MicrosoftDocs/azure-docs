@@ -29,9 +29,9 @@ To trigger a response from the model, you should end with a user message indicat
    }
 
    $acs = @{
-       search_endpoint     = 'YOUR ACS ENDPOINT' # your endpoint should look like the following https://YOUR_RESOURCE_NAME.search.windows.net/
-       search_key    = 'YOUR-ACS-KEY-HERE' # or use the Get-Secret cmdlet to retrieve the value
-       search_index = 'YOUR-INDEX-NAME-HERE' # the name of your ACS index
+       search_endpoint     = 'YOUR AZURE AI SEARCH ENDPOINT' # your endpoint should look like the following https://YOUR_RESOURCE_NAME.search.windows.net/
+       search_key    = 'YOUR-AZURE-AI-SEARCH-KEY-HERE' # or use the Get-Secret cmdlet to retrieve the value
+       search_index = 'YOUR-INDEX-NAME-HERE' # the name of your Azure AI Search index
    }
 
    # Completion text
