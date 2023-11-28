@@ -472,7 +472,7 @@ All other components are the same as previously released.
 
 ## July 30, 2021
 
-This release introduces general availability for Azure Arc-enabled SQL Managed Instance General Purpose and Azure Arc-enabled SQL Server. The following table describes the components in this release.
+This release introduces general availability for SQL Managed Instance enabled by Azure Arc General Purpose and SQL Server enabled by Azure Arc. The following table describes the components in this release.
 
 |Component  |Value  |
 |--------------------------------------------------------|---------|
