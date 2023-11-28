@@ -19,7 +19,7 @@ ms.author: kpunjabi
 - For Translated captions, you need to have a [Teams premium](/MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings) license.  
 
 >[!NOTE]
->Please note that you will need to have a voice calling app using ACS calling SDKs to access the closed captions feature that is described in this guide.
+>Please note that you will need to have a voice calling app using Azure Communication Services calling SDKs to access the closed captions feature that is described in this guide.
 
 ## Models
 | Name | Description |
@@ -33,7 +33,7 @@ ms.author: kpunjabi
 ## Get closed captions feature
 
 ### External Identity users
-If you're building an application that allows ACS users to join a Teams meeting.
+If you're building an application that allows Azure Communication Services users to join a Teams meeting.
 ``` typescript
 let captionsCallFeature: SDK.CaptionsCallFeature = call.feature(SDK.Features.Captions);
 ```

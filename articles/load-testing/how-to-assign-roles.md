@@ -6,7 +6,7 @@ ms.author: nicktrog
 services: load-testing
 ms.service: load-testing
 ms.topic: how-to 
-ms.date: 11/07/2022
+ms.date: 11/24/2023
 ms.custom: template-how-to
 ---
 
@@ -32,7 +32,7 @@ In Azure Load Testing, access is granted by assigning the appropriate Azure role
 
 If you have the **Owner**, **Contributor**, or **Load Test Owner** role at the subscription level, you automatically have the same permissions as the **Load Test Owner** at the resource level.
 
-You'll encounter this message if your account doesn't have the necessary permissions to manage tests.
+You encounter this message if your account doesn't have the necessary permissions to manage tests.
 
 :::image type="content" source="media/how-to-assign-roles/azure-load-testing-not-authorized.png" lightbox="media/how-to-assign-roles/azure-load-testing-not-authorized.png" alt-text="Screenshot that shows an error message in the Azure portal that you're not authorized to use the Azure Load Testing resource.":::
 
@@ -41,7 +41,7 @@ You'll encounter this message if your account doesn't have the necessary permiss
 
 ## Role permissions
 
-The following tables describe the specific permissions given to each role. This can include Actions, which give permissions, and Not Actions, which restrict them.
+The following tables describe the specific permissions given to each role. These permissions can include *Actions*, which give permissions, and *Not Actions*, which restrict them.
 
 ### Load Test Owner
 
@@ -119,13 +119,13 @@ You can remove the access permission for a user who isn't managing the Azure loa
 
 You can also configure role-based access to a load testing resource using the following [Azure PowerShell cmdlets](/azure/role-based-access-control/role-assignments-powershell):
 
-* [Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition) lists all Azure roles that are available in Azure Active Directory. You can use this cmdlet with the Name parameter to list all the actions that a specific role can perform.
+* [Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition) lists all Azure roles that are available in Microsoft Entra ID. You can use this cmdlet with the Name parameter to list all the actions that a specific role can perform.
 
     ```azurepowershell-interactive
     Get-AzRoleDefinition -Name 'Load Test Contributor'
     ```
     
-    The following is the example output:
+    The following snippet is the example output:
 
     ```output
     Name             : Load Test Contributor
@@ -139,7 +139,7 @@ You can also configure role-based access to a load testing resource using the fo
     AssignableScopes : {/}
     ```
 
-* [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) lists Azure role assignments at the specified scope. Without any parameters, this cmdlet returns all the role assignments made under the subscription. Use the `ExpandPrincipalGroups` parameter to list access assignments for the specified user, as well as the groups that the user belongs to.
+* [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) lists Azure role assignments at the specified scope. Without any parameters, this cmdlet returns all the role assignments made under the subscription. Use the `ExpandPrincipalGroups` parameter to list access assignments for the specified user, and the groups that the user belongs to.
 
     **Example**: Use the following cmdlet to list all the users and their roles within a load testing resource.
 
@@ -163,7 +163,7 @@ You can also configure role-based access to a load testing resource using the fo
     Remove-AzRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Load Test Reader' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.LoadTestService/loadtests/<Load Testing resource name>'
     ```
 
-## Next steps
+## Related content
 
 * Learn more about [Using managed identities](./how-to-use-a-managed-identity.md).
 * Learn more about [Identifying performance bottlenecks (tutorial)](./tutorial-identify-bottlenecks-azure-portal.md).

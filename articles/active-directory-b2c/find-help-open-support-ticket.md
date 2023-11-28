@@ -2,12 +2,12 @@
 title: Find help and open a support ticket for Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to find technical, pre-sales, billing, and subscription help and open a support ticket for Azure Active Directory B2C 
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: troubleshooting
 ms.date: 03/13/2023
 ms.author: kengaderdus
@@ -37,11 +37,7 @@ If you're unable to find answers by using self-help resources, you can open an o
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Make sure you're using the Microsoft Entra tenant that contains your Azure subscription:
-
-    1. In the Azure portal toolbar, select the **Directories + subscriptions** (:::image type="icon" source="./../active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false":::) icon.
-    
-    1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the **Directory name** list, and then select **Switch** button next to it.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
      
 1. In the Azure portal, search for and select **Microsoft Entra ID**.
 

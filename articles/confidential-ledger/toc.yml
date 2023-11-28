@@ -23,7 +23,7 @@
   items:
   - name: Architecture
     href: architecture.md
-  - name: Authentication with Azure AD
+  - name: Authentication with Microsoft Entra ID
     href: authentication-azure-ad.md
   - name: Authenticating ledger nodes
     href: authenticate-ledger-nodes.md
@@ -33,15 +33,17 @@
   items:
   - name: Create a client certificate
     href: create-client-certificate.md 
+  - name: Create a managed application to store blob digests
+    href: create-blob-managed-app.md
   - name: Register the confidential ledger resource provider
     href: register-ledger-resource-provider.md
-  - name: Register an ACL app with Azure AD
+  - name: Register an ACL app with Microsoft Entra ID
     href: register-application.md
   - name: Verify write transaction receipts
     href: verify-write-transaction-receipts.md
   - name: Establish trust on Azure confidential ledger
     href: verify-node-quotes.md
-  - name: Manage Azure AD token-based users
+  - name: Manage Microsoft Entra token-based users
     href: manage-azure-ad-token-based-users.md
   - name: Manage certificate-based users
     href: manage-certificate-based-users.md

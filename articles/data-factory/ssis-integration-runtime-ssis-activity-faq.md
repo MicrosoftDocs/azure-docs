@@ -122,7 +122,7 @@ This error occurs when the SSIS integration runtime can't access the storage con
 
 ### Error message: "Microsoft OLE DB Provider for Analysis Services. 'Hresult: 0x80004005 Description:' COM error: COM error: mscorlib; Exception has been thrown by the target of an invocation "
 
-One potential cause is that the username or password with Azure AD Multi-Factor Authentication enabled is configured for Azure Analysis Services authentication. This authentication isn't supported in the SSIS integration runtime. Try to use a service principal for Azure Analysis Services authentication:
+One potential cause is that the username or password with Microsoft Entra multifactor authentication enabled is configured for Azure Analysis Services authentication. This authentication isn't supported in the SSIS integration runtime. Try to use a service principal for Azure Analysis Services authentication:
 
 1. Prepare a service principal as described in [Automation with service principals](../analysis-services/analysis-services-service-principal.md).
 2. In the Connection Manager, configure **Use a specific user name and password:** set **app:*&lt;AppID&gt;*@*&lt;TenantID&gt;*** as the username and clientSecret as the password. Here is an example of a correctly formatted user name:

@@ -158,9 +158,9 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 
 ## Import from an Azure container registry in the same AD tenant
 
-You can import an image from an Azure container registry in the same AD tenant using integrated Azure Active Directory permissions.
+You can import an image from an Azure container registry in the same AD tenant using integrated Microsoft Entra permissions.
 
-* Your identity must have Azure Active Directory permissions to read from the source registry (Reader role) and to import to the target registry (Contributor role, or a [custom role](container-registry-roles.md#custom-roles) that allows the importImage action).
+* Your identity must have Microsoft Entra permissions to read from the source registry (Reader role) and to import to the target registry (Contributor role, or a [custom role](container-registry-roles.md#custom-roles) that allows the importImage action).
 
 * The registry can be in the same or a different Azure subscription in the same Active Directory tenant.
 
@@ -269,7 +269,7 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 
 ## Import from an Azure container registry in a different AD tenant
 
-To import from an Azure container registry in a different Azure Active Directory tenant, specify the source registry by login server name, and provide credentials that enable pull access to the registry. 
+To import from an Azure container registry in a different Microsoft Entra tenant, specify the source registry by login server name, and provide credentials that enable pull access to the registry. 
 
 ### Cross-tenant import with username and password
 
@@ -376,7 +376,7 @@ In this article, you learned about importing container images to an Azure contai
 
 ---
 
-* Image import can help you move content to a container registry in a different Azure region, subscription, or Azure AD tenant. For more information, see [Manually move a container registry to another region](manual-regional-move.md).
+* Image import can help you move content to a container registry in a different Azure region, subscription, or Microsoft Entra tenant. For more information, see [Manually move a container registry to another region](manual-regional-move.md).
 
 * Learn how to [disable artifact export](data-loss-prevention.md) from a network-restricted container registry.
 

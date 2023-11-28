@@ -2,15 +2,18 @@
 title: Create an Azure AI services resource using Azure PowerShell
 titleSuffix: Azure AI services
 description: Get started with Azure AI services by using Azure PowerShell commands to create and subscribe to a resource.
-services: cognitive-services
+#services: cognitive-services
 author: mgreenegit
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 keywords: Azure AI services, cognitive intelligence, cognitive solutions, ai services
 ms.topic: include
 ms.date: 08/29/2022
 ms.author: migreene
-ms.custom: mode-api, devx-track-azurepowershell
+ms.custom:
+  - mode-api
+  - devx-track-azurepowershell
+  - ignite-2023
 ms.devlang: azurepowershell
 ---
 
@@ -118,5 +121,3 @@ To remove the resource group and its associated resources, use the [Remove-AzRes
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name ai-services-resource-group
 ```
-
-If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](../../manage-resources.md).

@@ -86,7 +86,7 @@ To edit an existing rule:
 
 1. Select the IP filter rule data you want to change.
 
-    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-rule-edit.png" alt-text="Edit an an IP filter rule.":::
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-rule-edit.png" alt-text="Edit an IP filter rule.":::
 
 2. Make the change.
 

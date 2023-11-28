@@ -38,7 +38,7 @@ A combination of the resource type (available in the `resourceId` property) and 
 | `callerIpAddress` | Optional | The caller IP address, if the operation corresponds to an API call that would come from an entity with a publicly available IP address. |
 | `correlationId` | Optional | A GUID that's used to group together a set of related events. Typically, if two events have the same `operationName` value but two different statuses (for example, `Started` and `Succeeded`), they share the same `correlationID` value. This might also represent other relationships between events. |
 | `identity` | Optional | A JSON blob that describes the identity of the user or application that performed the operation. Typically, this field includes the authorization and claims or JWT token from Active Directory. |
-| `Level` | Optional | The severity level of the event. Must be one of `Informational`, `Warning`, `Error`, or `Critical`. |
+| `level` | Optional | The severity level of the event. Must be one of `Informational`, `Warning`, `Error`, or `Critical`. |
 | `location` | Optional | The region of the resource emitting the event; for example, `East US` or `France South`. |
 | `properties` | Optional | Any extended properties related to this category of events. All custom or unique properties must be put inside this "Part B" of the schema. |
 
@@ -48,14 +48,14 @@ The schema for resource logs varies depending on the resource and log category. 
 
 | Service or feature | Schema and documentation |
 | --- | --- |
-| Azure Active Directory | [Overview](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../../active-directory/reports-monitoring/overview-reports.md), [Sign-ins schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Microsoft Entra ID | [Overview](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../../active-directory/reports-monitoring/overview-reports.md), [Sign-ins schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Azure Analysis Services | [Azure Analysis Services: Set up diagnostic logging](../../analysis-services/analysis-services-logging.md) |
 | Azure API Management | [API Management resource logs](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Azure App Service | [App Service logs](../../app-service/troubleshoot-diagnostic-logs.md)
 | Azure Application Gateway |[Logging for Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics for Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch logging](../../batch/batch-diagnostics.md) |
-| Azure Cognitive Search | [Cognitive Search monitoring data reference (schemas)](../../search/monitor-azure-cognitive-search-data-reference.md#schemas) |
+| Azure AI Search | [Cognitive Search monitoring data reference (schemas)](../../search/monitor-azure-cognitive-search-data-reference.md#schemas) |
 | Azure AI services | [Logging for Azure AI services](../../ai-services/diagnostic-logging.md) |
 | Azure Container Instances | [Logging for Azure Container Instances](../../container-instances/container-instances-log-analytics.md#log-schema) |
 | Azure Container Registry | [Logging for Azure Container Registry](../../container-registry/monitor-service.md) |
@@ -93,7 +93,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Storage | [Blobs](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [Files](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [Queues](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview),  [Tables](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
 | Azure Stream Analytics |[Job logs](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Azure Traffic Manager | [Traffic Manager log schema](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
-| Azure Video Indexer|[Monitor Azure Video Indexer data reference](../../azure-video-indexer/monitor-video-indexer-data-reference.md)|
+| Azure Video Indexer|[Monitor Azure Video Indexer data reference](/azure/azure-video-indexer/monitor-video-indexer-data-reference)|
 | Azure Virtual Network | Schema not available |
 | Azure Web PubSub | [Monitoring Azure Web PubSub data reference](../../azure-web-pubsub/howto-monitor-data-reference.md) |
 | Virtual network gateways | [Logging for Virtual Network Gateways](../../vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md)|

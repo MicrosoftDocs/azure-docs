@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Files on Azure Kub
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: devx-track-linux
-ms.date: 09/12/2023
+ms.date: 11/20/2023
 ---
 
 # Use Azure Files Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
@@ -46,7 +46,7 @@ A storage class is used to define how an Azure file share is created. A storage 
 * **Premium_ZRS**: Premium zone-redundant storage
 
 > [!NOTE]
-> Azure Files supports Azure Premium Storage. The minimum premium file share capacity is 100 GiB.
+> Azure Files supports Azure Premium file shares. The minimum file share capacity is 100 GiB. We recommend using Azure Premium file shares instead of Standard file shares because Premium file shares offers higher performance, low-latency disk support for I/O-intensive workloads.
 
 When you use storage CSI drivers on AKS, there are two more built-in `StorageClasses` that uses the Azure Files CSI storage drivers. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
@@ -336,6 +336,8 @@ parameters:
   protocol: nfs
 mountOptions:
   - nconnect=4
+  - noresvport
+  - actimeo=30
   - rsize=262144
   - wsize=262144
 ```
@@ -355,6 +357,8 @@ parameters:
   protocol: nfs
 mountOptions:
   - nconnect=4
+  - noresvport
+  - actimeo=30
 ```
 
 After editing and saving the file, create the storage class with the [kubectl apply][kubectl-apply] command:

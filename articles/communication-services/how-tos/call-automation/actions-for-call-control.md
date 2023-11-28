@@ -64,7 +64,7 @@ To place a call to a Communication Services user, you need to provide a Communic
 
 ```csharp
 Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events 
-var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller  
+var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the Azure Communication Services provisioned phone number for the caller  
 var callThisPerson = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber); // person to call
 CreateCallResult response = await client.CreateCallAsync(callThisPerson, callbackUri);
 ```
@@ -73,7 +73,7 @@ CreateCallResult response = await client.CreateCallAsync(callThisPerson, callbac
 
 ```java
 String callbackUri = "https://<myendpoint>/Events"; //the callback endpoint where you want to receive subsequent events
-PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+18001234567"); // This is the ACS provisioned phone number for the caller  
+PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+18001234567"); // This is the Azure Communication Services provisioned phone number for the caller  
 CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier("+16471234567"), callerIdNumber); // person to call
 CreateCallResult response = client.createCall(callInvite, callbackUri).block();
 ```
@@ -83,7 +83,7 @@ CreateCallResult response = client.createCall(callInvite, callbackUri).block();
 ```javascript
 const callInvite = {
     targetParticipant: { phoneNumber: "+18008008800" }, // person to call
-    sourceCallIdNumber: { phoneNumber: "+18888888888" } // This is the ACS provisioned phone number for the caller
+    sourceCallIdNumber: { phoneNumber: "+18888888888" } // This is the Azure Communication Services provisioned phone number for the caller
 };
 const callbackUri = "https://<myendpoint>/Events"; // the callback endpoint where you want to receive subsequent events 
 const response = await client.createCall(callInvite, callbackUri);
@@ -95,7 +95,7 @@ const response = await client.createCall(callInvite, callbackUri);
 callback_uri = "https://<myendpoint>/Events"  # the callback endpoint where you want to receive subsequent events
 caller_id_number = PhoneNumberIdentifier(
     "+18001234567"
-)  # This is the ACS provisioned phone number for the caller
+)  # This is the Azure Communication Services provisioned phone number for the caller
 call_invite = CallInvite(
     target=PhoneNumberIdentifier("+16471234567"),
     source_caller_id_number=caller_id_number,
@@ -114,7 +114,7 @@ var pstnEndpoint = new PhoneNumberIdentifier("+16041234567");
 var voipEndpoint = new CommunicationUserIdentifier("<user_id_of_target>"); //user id looks like 8:a1b1c1-...
 var groupCallOptions = new CreateGroupCallOptions(new List<CommunicationIdentifier>{ pstnEndpoint, voipEndpoint }, callbackUri)
 {
-    SourceCallerIdNumber = new PhoneNumberIdentifier("+16044561234"), // This is the ACS provisioned phone number for the caller
+    SourceCallerIdNumber = new PhoneNumberIdentifier("+16044561234"), // This is the Azure Communication Services provisioned phone number for the caller
 };
 CreateCallResult response = await client.CreateGroupCallAsync(groupCallOptions);
 ```
@@ -123,7 +123,7 @@ CreateCallResult response = await client.CreateGroupCallAsync(groupCallOptions);
 
 ```java
 String callbackUri = "https://<myendpoint>/Events"; //the callback endpoint where you want to receive subsequent events
-PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+18001234567"); // This is the ACS provisioned phone number for the caller
+PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+18001234567"); // This is the Azure Communication Services provisioned phone number for the caller
 List<CommunicationIdentifier> targets = new ArrayList<>(Arrays.asList(new PhoneNumberIdentifier("+16471234567"), new CommunicationUserIdentifier("<user_id_of_target>")));
 CreateGroupCallOptions groupCallOptions = new CreateGroupCallOptions(targets, callbackUri);
 groupCallOptions.setSourceCallIdNumber(callerIdNumber);
@@ -139,7 +139,7 @@ const participants = [
     { communicationUserId: "<user_id_of_target>" }, //user id looks like 8:a1b1c1-...
 ];
 const createCallOptions = {
-    sourceCallIdNumber: { phoneNumber: "+18888888888" }, // This is the ACS provisioned phone number for the caller
+    sourceCallIdNumber: { phoneNumber: "+18888888888" }, // This is the Azure Communication Services provisioned phone number for the caller
 };
 const response = await client.createGroupCall(participants, callbackUri, createCallOptions);
 ```
@@ -150,7 +150,7 @@ const response = await client.createGroupCall(participants, callbackUri, createC
 callback_uri = "https://<myendpoint>/Events"  # the callback endpoint where you want to receive subsequent events
 caller_id_number = PhoneNumberIdentifier(
     "+18888888888"
-)  # This is the ACS provisioned phone number for the caller
+)  # This is the Azure Communication Services provisioned phone number for the caller
 pstn_endpoint = PhoneNumberIdentifier("+18008008800")
 voip_endpoint = CommunicationUserIdentifier(
     "<user_id_of_target>"
@@ -313,14 +313,14 @@ To redirect the call to a phone number, construct the target and caller ID with 
 # [csharp](#tab/csharp)
 
 ```csharp
-var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller
+var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the Azure Communication Services provisioned phone number for the caller
 var target = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
 ```
 
 # [Java](#tab/java)
 
 ```java
-PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller
+PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the Azure Communication Services provisioned phone number for the caller
 CallInvite target = new CallInvite(new PhoneNumberIdentifier("+18001234567"), callerIdNumber);
 ```
 
@@ -339,7 +339,7 @@ const target = {
 ```python
 caller_id_number = PhoneNumberIdentifier(
     "+18888888888"
-)  # This is the ACS provisioned phone number for the caller
+)  # This is the Azure Communication Services provisioned phone number for the caller
 call_invite = CallInvite(
     target=PhoneNumberIdentifier("+16471234567"),
     source_caller_id_number=caller_id_number,
@@ -415,7 +415,7 @@ When your application answers a group call or places an outbound group call to a
 # [csharp](#tab/csharp)
 
 ```csharp
-// Transfer ACS User
+// Transfer User
 var transferDestination = new CommunicationUserIdentifier("<user_id>");
 var transferee = new CommunicationUserIdentifier("<transferee_user_id>"); 
 var transferOption = new TransferToParticipantOptions(transferDestination);
@@ -450,7 +450,7 @@ TransferCallToParticipantResult result = await callConnection.TransferCallToPart
 # [Java](#tab/java)
 
 ```java
-// Transfer ACS User
+// Transfer User
 CommunicationIdentifier transferDestination = new CommunicationUserIdentifier("<user_id>");
 CommunicationIdentifier transferee = new CommunicationUserIdentifier("<transferee_user_id>"); 
 TransferCallToParticipantOptions options = new TransferCallToParticipantOptions(transferDestination);
@@ -481,7 +481,7 @@ Response<TransferCallResult> transferResponse = callConnectionAsync.transferToPa
 # [JavaScript](#tab/javascript)
 
 ```javascript
-// Transfer Acs User
+// Transfer User
 const transferDestination = { communicationUserId: "<user_id>" };
 const transferee = { communicationUserId: "<transferee_user_id>" };
 const options = { transferee: transferee, operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };
@@ -511,7 +511,7 @@ const result = await callConnection.transferCallToParticipant(transferDestinatio
 # [Python](#tab/python)
 
 ```python
-# Transfer to ACS user
+# Transfer to user
 transfer_destination = CommunicationUserIdentifier("<user_id>")
 transferee = CommnunicationUserIdentifer("transferee_user_id")
 call_connection_client = call_automation_client.get_call_connection("<call_connection_id_from_ongoing_call>")
@@ -559,14 +559,14 @@ You can add a participant (Communication Services user or phone number) to an ex
 # [csharp](#tab/csharp)
 
 ```csharp
-// Add ACS user
+// Add user
 var addThisPerson = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
 // add custom calling context
 addThisPerson.CustomCallingContext.AddVoip("myHeader", "myValue");
 AddParticipantsResult result = await callConnection.AddParticipantAsync(addThisPerson);
 
 // Add PSTN user
-var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller
+var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the Azure Communication Services provisioned phone number for the caller
 var addThisPerson = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
 // add custom calling context
 addThisPerson.CustomCallingContext.AddSipUui("value");
@@ -586,7 +586,7 @@ AddParticipantsResult result = await callConnection.AddParticipantAsync(addParti
 # [Java](#tab/java)
 
 ```java
-// Add ACS user
+// Add user
 CallInvite callInvite = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
 // add custom calling context
 callInvite.getCustomCallingContext().addVoip("voipHeaderName", "voipHeaderValue");
@@ -596,7 +596,7 @@ AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvi
 Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
 
 // Add PSTN user
-PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller
+PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the Azure Communication Services provisioned phone number for the caller
 CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
 // add custom calling context
 callInvite.getCustomCallingContext().addSipUui("value");
@@ -610,7 +610,7 @@ Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsyn
 # [JavaScript](#tab/javascript)
 
 ```javascript
-// Add ACS user
+// Add user
 // add custom calling context
 const customCallingContext: CustomCallingContext = [];
 customContext.push({ kind: "voip", key: "voipHeaderName", value: "voipHeaderValue" })
@@ -625,7 +625,7 @@ const addParticipantResult = await callConnection.addParticipant(addThisPerson, 
 });
 
 // Add PSTN user
-const callerIdNumber = { phoneNumber: "+16044561234" }; // This is the ACS provisioned phone number for the caller
+const callerIdNumber = { phoneNumber: "+16044561234" }; // This is the Azure Communication Services provisioned phone number for the caller
 // add custom calling context
 const customCallingContext: CustomCallingContext = [];
 customContext.push({ kind: "sipuui", key: "", value: "value" });
@@ -644,7 +644,7 @@ const addParticipantResult = await callConnection.addParticipant(addThisPerson, 
 # [Python](#tab/python)
 
 ```python
-# Add ACS user
+# Add user
 voip_headers = {"voipHeaderName", "voipHeaderValue"}
 target = CommunicationUserIdentifier("<acs_user_id>")
 
@@ -661,7 +661,7 @@ result = call_connection_client.add_participant(
 # Add PSTN user
 caller_id_number = PhoneNumberIdentifier(
     "+18888888888"
-) # This is the ACS provisioned phone number for the caller
+) # This is the Azure Communication Services provisioned phone number for the caller
 sip_headers = {}
 sip_headers.add("User-To-User", "value")
 sip_headers.add("X-MS-Custom-headerName", "headerValue")
@@ -707,7 +707,7 @@ await callConnection.CancelAddParticipantOperationAsync(cancelAddParticipantOper
 # [Java](#tab/java)
 
 ```java
-// Add ACS user
+// Add user
 CallInvite callInvite = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
 AddParticipantOperationOptions addParticipantOperationOptions = new AddParticipantOptions(callInvite);
 Response<AddParticipantResult> addParticipantOperationResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
@@ -722,7 +722,7 @@ callConnectionAsync.cancelAddParticipantOperationWithResponse(cancelAddParticipa
 # [JavaScript](#tab/javascript)
 
 ```javascript
-// Add ACS user
+// Add user
 const addThisPerson = {
     targetParticipant: { communicationUserId: "<acs_user_id>" },
 };
@@ -741,7 +741,7 @@ await callConnection.cancelAddParticipantOperation(invitationId, {
 # [Python](#tab/python)
 
 ```python
-# Add ACS user
+# Add user
 target = CommunicationUserIdentifier("<acs_user_id>")
 
 call_connection_client = call_automation_client.get_call_connection(

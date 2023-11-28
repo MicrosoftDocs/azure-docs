@@ -55,7 +55,7 @@ The _default_ maximum number of connections per pricing tier and vCores are show
 
 Customers can change the value maximum number of connections using either of the following methods:
 
-* Change the default value for the `max_connections` parameter using server parameter. This parameter is static and will require an instance restart. 
+* Change the default value for the `max_connections` parameter using server parameter. This parameter is static and requires an instance restart.
 
 > [!CAUTION]
 > While it is possible to increase the value of "max_connections" beyond the default setting, it is not advisable. The rationale behind this recommendation is that instances may encounter difficulties when the workload expands and demands more memory. As the number of connections increases, memory usage also rises. Instances with limited memory may face issues such as crashes or high latency. Although a higher value for "max_connections" might be acceptable when most connections are idle, it can lead to significant performance problems once they become active. Instead, if you require additional connections, we suggest utilizing pgBouncer, Azure's built-in connection pool management solution, in transaction mode. To start, it is recommended to use conservative values by multiplying the vCores within the range of 2 to 5. Afterward, carefully monitor resource utilization and application performance to ensure smooth operation. For detailed information on pgBouncer, please refer to the [PgBouncer in Azure Database for PostgreSQL - Flexible Server](concepts-pgbouncer.md) documentation.
@@ -69,7 +69,7 @@ When connections exceed the limit, you may receive the following error:
 
 `FATAL:  sorry, too many clients already.`
 
-When using PostgreSQL for a busy database with a large number of concurrent connections, there may be a significant strain on resources. This strain can result in high CPU utilization, particularly when many connections are established simultaneously and when connections have short durations (less than 60 seconds). These factors can negatively impact overall database performance by increasing the time spent on processing connections and disconnections. It's important to note that each connection in Postgres, regardless of whether it is idle or active, consumes a significant amount of resources from your database. This can lead to performance issues beyond high CPU utilization, such as disk and lock contention, which are discussed in more detail in the PostgreSQL Wiki article on the [Number of Database Connections](https://wiki.postgresql.org/wiki/Number_Of_Database_Connections). To learn more about identifying and solving connection performance issues in Azure Database for Postgres, visit our [Identify and solve connection performance in Azure Postgres](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/identify-and-solve-connection-performance-in-azure-postgres/ba-p/3698375).
+When using PostgreSQL for a busy database with a large number of concurrent connections, there may be a significant strain on resources. This strain can result in high CPU utilization, particularly when many connections are established simultaneously and when connections have short durations (less than 60 seconds). These factors can negatively impact overall database performance by increasing the time spent on processing connections and disconnections. It's important to note that each connection in Postgres, regardless of whether it is idle or active, consumes a significant amount of resources from your database. This consumption can lead to performance issues beyond high CPU utilization, such as disk and lock contention. The topic is discussed in more detail in the PostgreSQL Wiki article on the [Number of Database Connections](https://wiki.postgresql.org/wiki/Number_Of_Database_Connections). To learn more, visit [Identify and solve connection performance in Azure Postgres](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/identify-and-solve-connection-performance-in-azure-postgres/ba-p/3698375).
 
 ## Functional limitations
 
@@ -88,8 +88,9 @@ When using PostgreSQL for a busy database with a large number of concurrent conn
 - Once configured, storage size can't be reduced. You have to create a new server with desired storage size, perform manual [dump and restore](../howto-migrate-using-dump-and-restore.md) and migrate your database(s) to the new server.
 - Currently, storage auto-grow feature isn't available. You can monitor the usage and increase the storage to a higher size. 
 - When the storage usage reaches 95% or if the available capacity is less than 5 GiB whichever is more, the server is automatically switched to **read-only mode** to avoid errors associated with disk-full situations. In rare cases, if the rate of data growth outpaces the time it takes switch to read-only mode, your Server may still run out of storage.
-- We recommend to set alert rules for `storage used` or `storage percent` when they exceed certain thresholds so that you can proactively take action such as increasing the storage size. For example, you can set an alert if the storage percent exceeds 80% usage.
+- We recommend setting alert rules for `storage used` or `storage percent` when they exceed certain thresholds so that you can proactively take action such as increasing the storage size. For example, you can set an alert if the storage percent exceeds 80% usage.
 - If you're using logical replication, then you must drop the logical replication slot in the primary server if the corresponding subscriber no longer exists. Otherwise the WAL files start to get accumulated in the primary filling up the storage. If the storage threshold exceeds certain threshold and if the logical replication slot isn't in use (due to non-available subscriber), Flexible server automatically drops that unused logical replication slot. That action releases accumulated WAL files and avoids your server becoming unavailable due to storage getting filled situation. 
+- We don't support the creation of tablespaces, so if you're creating a database, don’t provide a tablespace name. PostgreSQL will use the default one that is inherited from the template database. It's unsafe to provide a tablespace like the temporary one because we can't ensure that such objects will remain persistent after server restarts, HA failovers, etc.
    
 ### Networking
 
@@ -104,14 +105,13 @@ When using PostgreSQL for a busy database with a large number of concurrent conn
 
 ### Availability zones
 
-- Manually moving servers to a different availability zone is currently not supported. However, you can enable HA using the preferred AZ as the standby zone. Once established, you can fail over to the standby and subsequently disable HA. 
+- Manually moving servers to a different availability zone is currently not supported. However, you can enable HA using the preferred AZ as the standby zone. Once established, you can fail over to the standby and then disable HA.
 
 ### Postgres engine, extensions, and PgBouncer
 
-- Postgres 10 and older aren't supported as those are already retired by the open-source community. If you must use one of these versions, you'll need to use the [Single Server](../overview-single-server.md) option which supports the older major versions 95, 96 and 10.
+- Postgres 10 and older aren't supported as those are already retired by the open-source community. If you must use one of these versions, you need to use the [Single Server](../overview-single-server.md) option, which supports the older major versions 95, 96 and 10.
 - Flexible Server supports all `contrib` extensions and more. Please refer to [PostgreSQL extensions](/azure/postgresql/flexible-server/concepts-extensions).
 - Built-in PgBouncer connection pooler is currently not available for Burstable servers.
-- SCRAM authentication isn't supported with connectivity using built-in PgBouncer.
    
 ### Stop/start operation
 
@@ -124,16 +124,14 @@ When using PostgreSQL for a busy database with a large number of concurrent conn
 ### Backing up a server
 
 - Backups are managed by the system, there's currently no way to run these backups manually. We recommend using `pg_dump` instead.
-- The first snapshot is a full backup and consecutive snapshots are differential backups. The differential backups only back up the changed data since the last snapshot backup. For example, if the size of your database is 40GB and your provisioned storage is 64GB, the first snapshot backup will be 40GB. Now, if you change 4GB of data, then the next differential snapshot backup size will only be 4GB. The transaction logs (write ahead logs - WAL) are separate from the full/differential backups, and are archived continuously.
+- The first snapshot is a full backup and consecutive snapshots are differential backups. The differential backups only back up the changed data since the last snapshot backup. For example, if the size of your database is 40 GB and your provisioned storage is 64 GB, the first snapshot backup will be 40 GB. Now, if you change 4 GB of data, then the next differential snapshot backup size will only be 4 GB. The transaction logs (write ahead logs - WAL) are separate from the full/differential backups, and are archived continuously.
    
 ### Restoring a server
 
-- When using the Point-in-time-Restore feature, the new server is created with the same compute and storage configurations as the server isn't based on.
+- When using the Point-in-time-Restore feature, the new server is created with the same compute and storage configurations as the server it is based on.
 - VNET based database servers are restored into the same VNET when you restore from a backup.
 - The new server created during a restore doesn't have the firewall rules that existed on the original server. Firewall rules need to be created separately for the new server.
-- Restoring a deleted server isn't supported.
-- Cross region restore isn't supported.
-- Restore to a different subscription is not supported but as a workaround, you can restore the server within the same subscription and then migrate the restored server to a different subscription.
+- Restore to a different subscription isn't supported but as a workaround, you can restore the server within the same subscription and then migrate the restored server to a different subscription.
    
 ## Next steps
 

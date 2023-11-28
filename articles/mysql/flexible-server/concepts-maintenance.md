@@ -20,7 +20,7 @@ Azure Database for MySQL - Flexible server performs periodic maintenance to keep
 
 ## Select a maintenance window
 
-You can schedule maintenance during a specific day of the week and a time window within that day. Or you can let the system pick a day and a time window time for you automatically. Either way, the system will alert you five days before running any maintenance. The system will also let you know when maintenance is started, and when it is successfully completed.
+You can schedule maintenance during a specific day of the week and a time window within that day. Or you can let the system pick a day and a time window time for you automatically. Either way, the system will alert you seven days before running any maintenance. The system will also let you know when maintenance is started, and when it is successfully completed.
 
 Notifications about upcoming scheduled maintenance can be:
 
@@ -35,7 +35,7 @@ When specifying preferences for the maintenance schedule, you can pick a day of 
 > [!IMPORTANT]
 > Normally there are at least 30 days between successful scheduled maintenance events for a server.
 >
-> However, in case of a critical emergency update such as a severe vulnerability, the notification window could be shorter than five days. The critical update may be applied to your server even if a successful scheduled maintenance was performed in the last 30 days.
+> However, in case of a critical emergency update such as a severe vulnerability, the notification window could be shorter than seven days. The critical update may be applied to your server even if a successful scheduled maintenance was performed in the last 30 days.
 
 You can update scheduling settings at any time. If there is a maintenance scheduled for your Flexible server and you update scheduling preferences, the current rollout will proceed as scheduled and the scheduling settings change will become effective upon its successful completion for the next scheduled maintenance.
 
@@ -46,7 +46,7 @@ You can define system-managed schedule or custom schedule for each flexible serv
 > [!IMPORTANT]
 > Previously, a 7-day deployment gap between system-managed and custom-managed schedules was maintained. Due to evolving maintenance demands and the introduction of the [maintenance reschedule feature (preview)](#maintenance-reschedule-preview), we can no longer guarantee this 7-day gap.
 
-In rare cases, maintenance event can be canceled by the system or may fail to complete successfully. If the update fails, the update will be reverted, and the previous version of the binaries is restored. In such failed update scenarios, you may still experience restart of the server during the maintenance window. If the update is canceled or failed, the system will create a notification about canceled or failed maintenance event respectively notifying you. The next attempt to perform maintenance will be scheduled as per your current scheduling settings and you will receive notification about it five days in advance.
+In rare cases, maintenance event can be canceled by the system or may fail to complete successfully. If the update fails, the update will be reverted, and the previous version of the binaries is restored. In such failed update scenarios, you may still experience restart of the server during the maintenance window. If the update is canceled or failed, the system will create a notification about canceled or failed maintenance event respectively notifying you. The next attempt to perform maintenance will be scheduled as per your current scheduling settings and you will receive notification about it 5 days in advance.
 
 ## Maintenance reschedule (preview)
 

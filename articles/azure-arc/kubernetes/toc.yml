@@ -17,7 +17,7 @@
     href: quickstart-connect-cluster.md
 - name: Tutorials
   items:
-  - name: Deploy configurations using GitOps
+  - name: Deploy applications using GitOps
     displayName: flux, tutorial, controller
     href: tutorial-use-gitops-flux2.md
   - name: Implement CI/CD with GitOps
@@ -172,7 +172,7 @@
 - name: Resources
   items:
   - name: Azure Arc Jumpstart
-    href: https://azurearcjumpstart.io
+    href: https://aka.ms/AzureArcJumpstart
   - name: Microsoft Q&A for Azure Arc
     href: /answers/tags/146/azure-arc
   - name: Azure updates

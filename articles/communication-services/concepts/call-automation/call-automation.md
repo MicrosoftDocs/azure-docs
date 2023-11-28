@@ -21,13 +21,13 @@ Azure Communication Services Call Automation provides developers the ability to 
 Some of the common use cases that can be built using Call Automation include:
 
 - Program VoIP or PSTN calls for transactional workflows such as click-to-call and appointment reminders to improve customer service.
-- Build interactive interaction workflows to self-serve customers for use cases like order bookings and updates, using Play (Audio URL) and Recognize (DTMF) actions.
+- Build interactive interaction workflows to self-serve customers for use cases like order bookings and updates, using Play (Audio URL, Text-to-Speech and SSML) and Recognize (DTMF and Voice) actions.
 - Integrate your communication applications with Contact Centers and your private telephony networks using Direct Routing.
 - Protect your customer's identity by building number masking services to connect buyers to sellers or users to partner vendors on your platform.
 - Increase engagement by building automated customer outreach programs for marketing and customer service.
 - Analyze in a post-call process your unmixed audio recordings for quality assurance purposes.  
 
-Azure Communication Services Call Automation can be used to build calling workflows for customer service scenarios, as depicted in the high-level architecture. You can answer inbound calls or make outbound calls. Execute actions like playing a welcome message, connecting the customer to a live agent on an ACS Calling SDK client app to answer the incoming call request. With support for ACS PSTN or Direct Routing, you can then connect this workflow back to your contact center.  
+Azure Communication Services Call Automation can be used to build calling workflows for customer service scenarios, as depicted in the high-level architecture. You can answer inbound calls or make outbound calls. Execute actions like playing a welcome message, connecting the customer to a live agent on an Azure Communication Services Calling SDK client app to answer the incoming call request. With support for Azure Communication Services PSTN or Direct Routing, you can then connect this workflow back to your contact center.  
 
 ![Diagram of calling flow for a customer service scenario.](./media/call-automation-architecture.png)
 
@@ -44,7 +44,13 @@ The following list presents the set of features that are currently available in 
 |                       | Reject an incoming call                           | ✔️    | ✔️    |     ✔️         |    ✔️   |
 | Mid-call scenarios    | Add one or more endpoints to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Play Audio from an audio file                     | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Play Audio using Text-to-Speech                   | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Recognize user input through DTMF                 | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Recognize user voice inputs                       | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Start continuous DTMF recognition                 | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Stop continuous DTMF recognition                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Send DTMF                                         | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Mute participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer* a 1:1 call to another endpoint    | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Hang up a call (remove the call leg)              | ✔️    | ✔️    |     ✔️         |    ✔️   |
@@ -95,6 +101,15 @@ When your application answers a call or places an outbound call, you can play an
 
 **Recognize input**
 After your application has played an audio prompt, you can request user input to drive business logic and navigation in your application. To learn more, view our [concepts](./recognize-action.md) and how-to guide for [Gathering user input](../../how-tos/call-automation/recognize-action.md).
+
+**Continuous DTMF recognition**
+When your application needs to be able to receive DTMF tones at any point in the call without the application needing to trigger a specific recognize action. This can be useful in scenarios where an agent is on a call and needs the user to enter in some kind of ID or tracking number. To learn more about how to use this view our [guide](../../how-tos/call-automation/control-mid-call-media-actions.md).
+
+**Send DTMF**
+When your application needs to send DTMF tones to an external participant, this could be for purposes like dialing out to an external agent and providing the extension number, or something like navigating an external IVR menu.
+
+**Mute**
+Your application can mute certain users based on your business logic. The user would then need to unmute themselves manually if they want to speak. 
 
 **Transfer**
 When your application answers a call or places an outbound call to an endpoint, that call can be transferred to another destination endpoint. Transferring a 1:1 call removes your application's ability to control the call using the Call Automation SDKs.
@@ -152,11 +167,16 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | ParticipantsUpdated    | The status of a participant changed while your application’s call leg was connected to a call  |
 | PlayCompleted | Your application successfully played the audio file provided |
 | PlayFailed | Your application failed to play audio |
-| PlayCanceled | The requested play action has been canceled. |
+| PlayCanceled | The requested play action has been canceled |
 | RecognizeCompleted | Recognition of user input was successfully completed |
-| RecognizeCanceled | The requested recognize action has been canceled. |
+| RecognizeCanceled | The requested recognize action has been canceled |
 | RecognizeFailed | Recognition of user input was unsuccessful <br/>*to learn more about recognize action events view our how-to guide for [gathering user input](../../how-tos/call-automation/recognize-action.md)*|
-|RecordingStateChanged | Status of recording action has changed from active to inactive or vice versa. |
+|RecordingStateChanged | Status of recording action has changed from active to inactive or vice versa |
+| ContinuousDtmfRecognitionToneReceived | StartContinuousDtmfRecognition completed successfully and a DTMF tone was received from the participant |
+| ContinuousDtmfRecognitionToneFailed | StartContinuousDtmfRecognition completed but an error occurred while handling a DTMF tone from the participant |
+| ContinuousDtmfRecognitionStopped | Successfully executed StopContinuousRecognition |
+| SendDtmfCompleted | SendDTMF completed successfully and the DTMF tones were sent to the target participant |
+| SendDtmfFailed | An error occurred while sending the DTMF tones |
 
 To understand which events are published for different actions, refer to [this guide](../../how-tos/call-automation/actions-for-call-control.md) that provides code samples and sequence diagrams for various call control flows. 
 
@@ -171,7 +191,7 @@ It is an optional parameter in some mid-call APIs that use events as their async
 | AddParticipant      | AddParticipantSucceed / AddParticipantFailed  |
 | RemoveParticipant       | RemoveParticipantSucceed / RemoveParticipantFailed  |
 | TransferCall         | CallTransferAccepted / CallTransferFailed  |
-| CancelAddParticipant  | AddParticipantCancelled / CancelAddParticipantFailed |
+| CancelAddParticipant  | CancelAddParticipantSucceeded / CancelAddParticipantFailed |
 | Play | PlayCompleted / PlayFailed / PlayCanceled  |
 | PlayToAll | PlayCompleted / PlayFailed / PlayCanceled  |
 | Recognize | RecognizeCompleted / RecognizeFailed / RecognizeCanceled  |

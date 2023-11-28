@@ -56,15 +56,15 @@ For recording rules traffic:
 | Data returned per Azure Monitor workspace | 1 GB |
 
 **Query pre-parsing limits**<br>
-Based on query time range and request type over a 30-second window (for client traffic):
+Based on query time range and request type, over a 30-second window (for client traffic):
 
 | Limit | Value |
 |:---|:---|
-| Query hours per user (Azure Active Directory, managed identity, Azure Managed Grafana workspace) | 30,000 |
+| Query hours per user (Microsoft Entra ID, managed identity, Azure Managed Grafana workspace) | 30,000 |
 | Query hours per Azure Monitor workspace | 60,000 |
 | Query hours per Azure tenant | 600,000 |
 
-Based on query time range and request type over a 3-minute window (for recording rules traffic):
+Based on query time range and request type, over a 3-minute window (for recording rules traffic):
 
 | Limit | Value |
 |:---|:---|
@@ -76,7 +76,7 @@ Based on query time range and range vectors in query over a 30-second window (fo
 
 | Limit | Value |
 |:---|:---|
-| Query hours per user (Azure Active Directory, managed identity, Azure Managed Grafana workspace) | 2,000,000 |
+| Query hours per user (Microsoft Entra ID, managed identity, Azure Managed Grafana workspace) | 2,000,000 |
 | Query hours per Azure Monitor workspace | 2,000,000 |
 | Query hours per Azure tenant | 20,000,000 |
 
@@ -96,7 +96,7 @@ Based on query time range and range vectors in query over a 3-minute window (for
 
 Query cost calculation is done as follows:
 
-Query Cost = (Number of time series requested * (queried time duration in seconds / *Inferred time resolution of queried data*) ) / 5000
+Query Cost = (Number of time series requested * (queried time duration in seconds / *Inferred time resolution of queried data*)) / 5000
 
 *Inferred time resolution of queried data* = Number of data points stored in any one randomly selected time series keys of queried metric / queried time duration in seconds
 
@@ -106,7 +106,7 @@ Prometheus alert rules and recording rules are defined in PromQL. They're perfor
 | Limit | Value |
 |:---|:---|
 | Rule groups per Azure Monitor workspace, in an Azure subscription  | 500<br>You can request an increase. |
-| Rules per rule group | 20<br>You can request an increase. |
+| Rules per rule group | 20<br> This limit can't be increased. |
 | Rule group evaluation interval | Between 1-15 minutes.<br>Default is 1 minute. |
 | Active alerts | No limit at this time. |
 

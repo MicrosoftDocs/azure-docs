@@ -5,22 +5,24 @@ description: Understand how to create and  use managed identity with Document In
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
+monikerRange: '<=doc-intel-4.0.0'
 ---
 
 
 # Managed identities for Document Intelligence
 
-[!INCLUDE [applies to v3.1, v3.0, v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
+[!INCLUDE [applies to v4.0, v3.1, v3.0, v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 
-Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources:
+Managed identities for Azure resources are service principals that create a Microsoft Entra identity and specific permissions for Azure managed resources:
 
 :::image type="content" source="media/managed-identities/rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
 
-* You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Unlike security keys and authentication tokens, managed identities eliminate the need for developers to manage credentials.
+* You can use managed identities to grant access to any resource that supports Microsoft Entra authentication, including your own applications. Unlike security keys and authentication tokens, managed identities eliminate the need for developers to manage credentials.
 
 * To grant access to an Azure resource, assign an Azure role to a managed identity using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
@@ -93,7 +95,7 @@ In the following steps, we enable a system-assigned managed identity and grant D
 
 ## Grant access to your storage account
 
-You need to grant Document Intelligence access to your storage account before it can create, read, or delete blobs. Now that you've enabled Document Intelligence with a system-assigned managed identity, you can use Azure role-based access control (Azure RBAC), to give Document Intelligence access to Azure storage. The **Storage Blob Data Reader** role gives Document Intelligence (represented by the system-assigned managed identity) read and list access to the blob container and data.
+You need to grant Document Intelligence access to your storage account before it can read blobs. Now that you've enabled Document Intelligence with a system-assigned managed identity, you can use Azure role-based access control (Azure RBAC), to give Document Intelligence access to Azure storage. The **Storage Blob Data Reader** role gives Document Intelligence (represented by the system-assigned managed identity) read and list access to the blob container and data.
 
 1. Under **Permissions** select **Azure role assignments**:
 
@@ -127,6 +129,10 @@ You need to grant Document Intelligence access to your storage account before it
     :::image type="content" source="media/managed-identities/assigned-roles-window.png" alt-text="Screenshot of Azure role assignments window.":::
 
  That's it! You've completed the steps to enable a system-assigned managed identity. With managed identity and Azure RBAC, you granted Document Intelligence specific access rights to your storage resource without having to manage credentials such as SAS tokens.
+
+### Additional role assignment for Document Intelligence Studio
+
+If you are going to use Document Intelligence Studio and your storage account is configured with network restriction such as firewall or virtual network, an additional role, **Storage Blob Data Contributor**, needs to be assigned to your Document Intelligence service. Document Intelligence Studio requires this role to write blobs to your storage account when you perform Auto label, OCR upgrade, Human in the loop, or Project sharing operations.
 
 ## Next steps
 > [!div class="nextstepaction"]

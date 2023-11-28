@@ -1,12 +1,12 @@
 ---
 title: Connect Azure Communication Services to Azure AI services
 titleSuffix: An Azure Communication Services how-to document
-description: Provides a how-to guide for connecting ACS to Azure AI services.
+description: Provides a how-to guide for connecting Azure Communication Services to Azure AI services.
 author: kunaal
 ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.topic: include
-ms.date: 08/17/2023
+ms.date: 11/27/2023
 ms.author: kpunjabi
 ms.custom: references_regions
 services: azure-communication-services
@@ -14,17 +14,14 @@ services: azure-communication-services
 
 # Connect Azure Communication Services with Azure AI services
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+Azure Communication Services Call Automation APIs provide developers the ability to steer and control the Azure Communication Services Telephony, VoIP or WebRTC calls using real-time event triggers to perform actions based on custom business logic specific to their domain. Within the Call Automation APIs developers can use simple AI powered APIs, which can be used to play personalized greeting messages, recognize conversational voice inputs to gather information on contextual questions to drive a more self-service model with customers, use sentiment analysis to improve customer service overall. These content specific APIs are orchestrated through **Azure AI Services** with support for customization of AI models without developers needing to terminate media streams on their services and streaming back to Azure for AI functionality. 
 
-
-Azure Communication Services Call Automation APIs provide developers the ability to steer and control the Azure Communication Services Telephony, VoIP or WebRTC calls using real-time event triggers to perform actions based on custom business logic specific to their domain. Within the Call Automation APIs developers can use simple AI powered APIs, which can be used to play personalized greeting messages, recognize conversational voice inputs to gather information on contextual questions to drive a more self-service model with customers, use sentiment analysis to improve customer service overall. These content specific APIs are orchestrated through **Azure Cognitive Services** with support for customization of AI models without developers needing to terminate media streams on their services and streaming back to Azure for AI functionality. 
-
-All this is possible with one-click where enterprises can access a secure solution and link their models through the portal. Furthermore, developers and enterprises don't need to manage credentials. Connecting your Azure AI services uses managed identities to access user-owned resources. Developers can use managed identities to authenticate any resource that supports Azure Active Directory authentication.
+All this is possible with one-click where enterprises can access a secure solution and link their models through the portal. Furthermore, developers and enterprises don't need to manage credentials. Connecting your Azure AI services uses managed identities to access user-owned resources. Developers can use managed identities to authenticate any resource that supports Microsoft Entra authentication.
 
 BYO Azure AI services can be easily integrated into any application regardless of the programming language. When creating an Azure Resource in Azure portal, enable the BYO option and provide the URL to the Azure AI services. This simple experience allows developers to meet their needs, scale, and avoid investing time and resources into designing and maintaining a custom solution.
 
 > [!NOTE]
-> This integration is only supported in limited regions for Azure AI services, for more information about which regions are supported please view the limitations section at the bottom of this document. It is also recommended that when you're creating a new Azure Cognitive Service resource that you create a Multi-service Cognitive Service resource.
+> This integration is supported in limited regions for Azure AI services, for more information about which regions are supported please view the limitations section at the bottom of this document. This integration only supports Multi-service Cognitive Service resource, we recommend if you're creating a new Azure AI Service resource you create a Multi-service Cognitive Service resource or when you're connecting an existing resource confirm that it is a Multi-service Cognitive Service resource.
 
 ## Common use cases
 
@@ -124,8 +121,17 @@ This integration between Azure Communication Services and Azure AI services is o
 - northcentralus
 - southcentralus
 - westcentralus
-- westeu
+- westeurope
 - uksouth
+- northeurope
+- southafricanorth
+- canadacentral
+- centralindia
+- eastasia
+- southeastasia
+- australiaeast
+- brazilsouth
+- uaenorth
 
 ## Next steps
 - Learn about [playing audio](../../concepts/call-automation/play-action.md) to callers using Text-to-Speech.

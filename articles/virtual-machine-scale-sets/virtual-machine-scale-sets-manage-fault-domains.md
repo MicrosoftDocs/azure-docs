@@ -21,15 +21,17 @@ You can also consider aligning the number of scale set fault domains with the nu
 You can set the property `properties.platformFaultDomainCount` to 1, 2, or 3 (default of 3 if not specified). Refer to the documentation for REST API [here](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 ## Azure CLI
+
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 You can set the parameter `--platform-fault-domain-count` to 1, 2, or 3 (default of 3 if not specified). Refer to the documentation for Azure CLI [here](/cli/azure/vmss#az-vmss-create).
 
 ```azurecli-interactive
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --orchestration-mode Flexible \
   --image Ubuntu2204 \
-  --upgrade-policy-mode automatic \
   --admin-username azureuser \
   --platform-fault-domain-count 3\
   --generate-ssh-keys

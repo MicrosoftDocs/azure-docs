@@ -31,7 +31,7 @@ Log alerts provide an option to mute fired alert actions for a set amount of tim
 
 A common issue is that you think that the alert didn't fire, but it was actually the rule configuration.
 
-![Suppress alerts](media/alerts-troubleshoot-log/LogAlertSuppress.png)
+:::image type="content" source="media/alerts-troubleshoot-log/LogAlertSuppress.png" lightbox="media/alerts-troubleshoot-log/LogAlertSuppress.png" alt-text="Suppress alerts":::
 
 ### Alert scope resource has been moved, renamed, or deleted
 
@@ -54,7 +54,7 @@ The alert time range is limited to a maximum of two days. Even if the query cont
 If the query requires more data than the alert evaluation, you can change the time range manually.
 If there's ago command in the query, it will be changed automatically to be 2 days (48 hours).
 
-:::image type="content" source="media/alerts-troubleshoot-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of advanced settings for log alerts.":::
+:::image type="content" source="media/alerts-troubleshoot-log/alerts-rule-preview-advanced-options.png" lightbox="media/alerts-troubleshoot-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of advanced settings for log alerts.":::
 
 ## Log alert fired unnecessarily
 

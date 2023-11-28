@@ -14,7 +14,7 @@ This article describes steps to subscribe to events published by Microsoft Graph
 
 |Microsoft event source |Resource(s) | Available event types | 
 |:--- | :--- | :----|
-|Azure Active Directory| [User](/graph/api/resources/user), [Group](/graph/api/resources/group) | [Azure AD event types](azure-active-directory-events.md) |
+|Microsoft Entra ID| [User](/graph/api/resources/user), [Group](/graph/api/resources/group) | [Microsoft Entra event types](microsoft-entra-events.md) |
 |Microsoft Outlook|[Event](/graph/api/resources/event) (calendar meeting), [Message](/graph/api/resources/message) (email), [Contact](/graph/api/resources/contact) | [Microsoft Outlook event types](outlook-events.md) |
 |Microsoft Teams|[ChatMessage](/graph/api/resources/callrecords-callrecord), [CallRecord](/graph/api/resources/callrecords-callrecord) (meeting) | [Microsoft Teams event types](teams-events.md) |
 |Microsoft SharePoint and OneDrive| [DriveItem](/graph/api/resources/driveitem)| |
@@ -29,7 +29,7 @@ This article describes steps to subscribe to events published by Microsoft Graph
 ## Why should I use Microsoft Graph API as a destination?
 Besides the ability to subscribe to Microsoft Graph API events via Event Grid, you have [other options](/graph/webhooks#receiving-change-notifications) through which you can receive similar notifications (not events). Consider using Microsoft Graph API to deliver events to Event Grid if you have at least one of the following requirements:
 
-- You're developing an event-driven solution that requires events from Azure Active Directory, Outlook, Teams, etc. to react to resource changes. You require the robust eventing model and publish-subscribe capabilities that Event Grid provides. For an overview of Event Grid, see [Event Grid concepts](concepts.md).
+- You're developing an event-driven solution that requires events from Microsoft Entra ID, Outlook, Teams, etc. to react to resource changes. You require the robust eventing model and publish-subscribe capabilities that Event Grid provides. For an overview of Event Grid, see [Event Grid concepts](concepts.md).
 - You want to use Event Grid to route events to multiple destinations using a single Graph API subscription and you want to avoid managing multiple Graph API subscriptions.
 - You require to route events to different downstream applications, webhooks or Azure services depending on some of the properties in the event. For example, you may want to route event types such as `Microsoft.Graph.UserCreated` and `Microsoft.Graph.UserDeleted` to a specialized application that processes users' onboarding and off-boarding. You may also want to send `Microsoft.Graph.UserUpdated` events to another application that syncs contacts information, for example. You can achieve that using a single Graph API subscription when using Event Grid as a notification destination. For more information, see [event filtering](event-filtering.md) and [event handlers](event-handlers.md).
 - Interoperability is important to you. You want to forward and handle events in a standard way using CNCF's [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md) specification standard, to which Event Grid fully complies.
@@ -116,4 +116,3 @@ See the following articles:
 - [Best practices for working with Microsoft Graph API](/graph/best-practices-concept)
 - [Microsoft Graph API SDKs](/graph/sdks/sdks-overview)
 - [Microsoft Graph API tutorials](/graph/tutorials), which shows how to use Graph API in different programming languages.This doesn't necessarily include examples for sending events to Event Grid.
-

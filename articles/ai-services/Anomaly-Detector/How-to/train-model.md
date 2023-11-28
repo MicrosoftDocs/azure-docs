@@ -2,7 +2,7 @@
 title: Train a Multivariate Anomaly Detection model
 titleSuffix: Azure AI services
 description: Train a Multivariate Anomaly Detection model
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-anomaly-detector
@@ -12,6 +12,8 @@ ms.author: mbullwin
 ---
 
 # Train a Multivariate Anomaly Detection model
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 To test out Multivariate Anomaly Detection quickly, try the [Code Sample](https://github.com/Azure-Samples/AnomalyDetector)! For more instructions on how to run a Jupyter notebook, please refer to [Install and Run a Jupyter Notebook](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/install.html#).
 

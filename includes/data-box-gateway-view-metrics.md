@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 10/16/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 You can also view the metrics to monitor the performance of the device and in some instances for troubleshooting device issues.
@@ -43,3 +43,4 @@ Take the following steps in the Azure portal to create a chart for selected devi
 8. To export chart data to an Excel spreadsheet or get a link to the chart that you can share, select the share option from the command bar.
 
     ![Export data](media/data-box-gateway-view-metrics/view-metrics-export-data.png)
+

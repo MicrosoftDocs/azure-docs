@@ -40,13 +40,21 @@ For more information on Red Hat support policies for all versions of RHEL, see [
 
 ## Image update behavior
 
-As of April 2019, Azure offers RHEL images that are connected to Extended Update Support (EUS) repositories by default and RHEL images that come connected to the regular (non-EUS) repositories by default. The default behavior of `sudo yum update` varies depending which RHEL image you provisioned from because different images are connected to different repositories. For more information on RHEL EUS, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) and [Red Hat Enterprise Linux Extended Update Support Overview](https://access.redhat.com/articles/rhel-eus).
+The Red Hat images provided in Azure Marketplace are connected by default to one of two different types of life-cycle repositories:
+
+- Non-EUS: Will have the latest available software published by Red Hat for their particular Red Hat Enterprise Linux (RHEL) repositories.
+- Extended Update Support (EUS): Updates won't go beyond a specific RHEL minor release. 
+
+> [!NOTE]
+> For more information on RHEL EUS, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) and [Red Hat Enterprise Linux Extended Update Support Overview](https://access.redhat.com/articles/rhel-eus).
+
+The packages contained in the Red Hat Update Infrastructure repositories are published and maintained exclusively by Red Hat, extra packages to support custom Azure services, are published in independent repositories maintained by Microsoft.
 
 For a full image list, run `az vm image list --offer RHEL --all -p RedHat --output table` using the Azure CLI.
 
 ### Images connected to non-EUS repositories
 
-If you provision a VM from a RHEL image that is connected to non-EUS repositories, it's upgraded to the latest RHEL minor version when you run `sudo yum update`. For example, if you provision a VM from a RHEL 8.4 PAYG image and run `sudo yum update`, you end up with a RHEL 8.8 VM, the latest minor version in the RHEL8 family.
+RHEL VM images connected to non-EUS repositories, it will upgrade to the latest RHEL minor version when you run `sudo yum update`. For example, if you provision a VM from a RHEL 8.4 PAYG image and run `sudo yum update`, you end up with a RHEL 8.9 VM, the latest minor version in the RHEL8 family.
 
 Images that are connected to non-EUS repositories don't contain a minor version number in the SKU. The SKU is the third element in the image name. For example, all of the following images come attached to non-EUS repositories:
 
@@ -68,10 +76,13 @@ If you provision a VM from a RHEL image that is connected to EUS repositories, i
 Images connected to EUS repositories contain a minor version number in the SKU. For example, all of the following images come attached to EUS repositories:
 
 ```output
-RedHat:RHEL:7_9:7.9.20230301107
-RedHat:RHEL:8_7:8.7.2023022801
-RedHat:RHEL:9_1:9.1.2022112113 
+RedHat:RHEL:7.7:7.7.2022051301
+RedHat:RHEL:8_4:latest
+RedHat:RHEL:9_0:9.0.2023061412
 ```
+
+> [!NOTE]
+> Not all minor versions are valid EUS stops, for example, for RHEL8 only 8.1, 8.2, 8.4, 8.6 and 8.8 are valid EUS releases, while 8.3, 8.5 and 8.7 are not.
 
 ## RHEL EUS and version-locking RHEL VMs
 
@@ -167,7 +178,7 @@ To remove the version lock, use the following commands. Run the commands as `roo
    ```
 
 ### Switch a RHEL 7.x VM back to non-EUS (remove a version lock)
-Run the following as root:
+Run the following commands as root:
 1. Remove the `releasever` file:
     ```bash
     rm /etc/yum/vars/releasever
@@ -192,7 +203,7 @@ Run the following as root:
 
 RHUI is available in all regions where RHEL on-demand images are available. Availability currently includes all public regions listed in the [Azure status dashboard](https://azure.microsoft.com/status/), Azure US Government, and Microsoft Azure Germany regions.
 
-If you're using a network configuration to further restrict access from RHEL PAYG VMs, make sure the following IPs are allowed for `yum update` to work depending on your environment:
+If you're using a network configuration (custom Firewall or UDR configurations) to further restrict `https` access from RHEL PAYG VMs, make sure the following IPs are allowed for `yum update` to work depending on your environment:
 
 ```output
 # Azure Global
@@ -203,6 +214,7 @@ RHUI 3
 52.174.163.213
 52.237.203.198
 
+# For RHUI 4 connections, You are required to allow all IPs in your firewall/UDR configuration as updates are delivered from the nearest healthy region.
 RHUI 4
 westeurope - 52.136.197.163
 southcentralus - 20.225.226.182
@@ -212,15 +224,19 @@ southeastasia - 20.24.186.80
 
 # Azure US Government.
 # To be deprecated after 10th April 2023.
+# Newer RHEL images are already redirected to Public region for updates. If you have already added below IPs to your UDR/firewall, you are not required to remove these IPs until next update on this doc.
 # For RHUI 4 connections, use public RHUI IPs as provided above.
 13.72.186.193
 13.72.14.155
 52.244.249.194
-
 ```
 
 > [!NOTE]
-> The new Azure US Government images, as of January 2020, uses Public IP mentioned previously under the Azure Global header.
+> 
+> - As of October 12, 2023, all pay-as-you-go (PAYG) clients will be directed to the Red Hat Update Infrastructure (RHUI) 4 IPs in phase over the next two months. During this time, the RHUI3 IPs will remain for continued updates but will be removed at a future time. Existing routes and rules allowing access to RHUI3 IPs must be updated to also include RHUI4 IP addresses for uninterrupted access to packages and updates. Do not remove RHUI3 IPs to continue receiving updates during the transition period.
+>
+> - Also, the new Azure US Government images, as of January 2020, uses Public IP mentioned previously under the Azure Global header.
+
 >
 > Also, Azure Germany is deprecated in favor of public Germany regions. We recommend for Azure Germany customers to start pointing to public RHUI by using the steps in [Manual update procedure to use the Azure RHUI servers](#manual-update-procedure-to-use-the-azure-rhui-servers).
 
@@ -248,7 +264,7 @@ If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM
 
 In September 2016, Azure deployed an updated Azure RHUI. In April 2017, the old Azure RHUI was shut down. If you have been using the RHEL PAYG images or their snapshots from September 2016 or later, you're automatically connecting to the new Azure RHUI. If, however, you have older snapshots on your VMs, you need to manually update their configuration to access the Azure RHUI as described in a following section.
 
-The new Azure RHUI servers are deployed with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). In Traffic Manager, any VM can use a single endpoint, rhui-1.microsoft.com, regardless of region.
+The new Azure RHUI servers are deployed with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). In Traffic Manager, any VM can use a single endpoint, rhui-1.microsoft.com and rhui4-1.microfot.com, regardless of region.
 
 ### Manual update procedure to use the Azure RHUI servers
 

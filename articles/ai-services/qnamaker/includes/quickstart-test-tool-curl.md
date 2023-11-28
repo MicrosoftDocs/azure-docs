@@ -1,7 +1,7 @@
 ---
 title: include file
 description: include file
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
@@ -18,7 +18,7 @@ This cURL-based quickstart walks you through getting an answer from your knowled
     * Latest [**cURL**](https://curl.haxx.se/).
     * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
-> * A [QnA Maker resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+> * A [QnA Maker resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Microsoft Entra ID, Subscription, QnA resource name you selected when you created the resource.
 
    * A trained and published knowledge base with questions and answers, from the previous [quickstart](../quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
 

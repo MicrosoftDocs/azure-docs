@@ -2,7 +2,7 @@
 title: "How to synthesize speech from text - Speech service"
 titleSuffix: Azure AI services
 description: Learn how to convert text to speech, including object construction and design patterns, supported audio output formats, and custom configuration options.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 ms.author: eur
 manager: nitinme

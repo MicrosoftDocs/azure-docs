@@ -2,12 +2,12 @@
 title: Best practices for Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Recommendations and best practices to consider when working with Azure Active Directory B2C (Azure AD B2C).
-services: active-directory-b2c
+
 author: kengaderdus
 ms.author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: conceptual
 ms.date: 07/13/2023
 ms.subservice: B2C
@@ -40,7 +40,7 @@ Define your application and service architecture, inventory current systems, and
 | Move on-premises dependencies to the cloud | To help ensure a resilient solution, consider moving existing application dependencies to the cloud. |
 | Migrate existing apps to b2clogin.com | The deprecation of login.microsoftonline.com will go into effect for all Azure AD B2C tenants on 04 December 2020. [Learn more](b2clogin.md). |
 | Use Identity Protection and Conditional Access | Use these capabilities for significantly greater control over risky authentications and access policies. Azure AD B2C Premium P2 is required. [Learn more](conditional-access-identity-protection-overview.md). |
-|Tenant size | You need to plan with Azure AD B2C tenant size in mind. By default, Azure AD B2C tenant can accommodate 1 million objects (user accounts and applications). You can increase this limit to 5 million objects by adding a custom domain to your tenant, and verifying it. If you need a bigger tenant size, you need to contact [Support](find-help-open-support-ticket.md).|
+|Tenant size | You need to plan with Azure AD B2C tenant size in mind. By default, Azure AD B2C tenant can accommodate 1.25 million objects (user accounts and applications). You can increase this limit to 5.25 million objects by adding a custom domain to your tenant, and verifying it. If you need a bigger tenant size, you need to contact [Support](find-help-open-support-ticket.md).|
 | Use Identity Protection and Conditional Access | Use these capabilities for greater control over risky authentications and access policies. Azure AD B2C Premium P2 is required. [Learn more](conditional-access-identity-protection-overview.md). |
 
 ## Implementation
