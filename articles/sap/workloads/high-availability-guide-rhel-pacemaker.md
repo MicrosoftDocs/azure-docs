@@ -448,7 +448,8 @@ When the cluster health attribute is set for a node, the location constraint tri
 1. **[A]** Make sure that the package for the `azure-events-az` agent is already installed and up to date.
 
    ```bash
-   sudo dnf info resource-agents
+   RHEL 8.x: sudo dnf info resource-agents
+   RHEL 9.x: sudo dnf info resource-agents-cloud
    ```
 
    Minimum version requirements:
