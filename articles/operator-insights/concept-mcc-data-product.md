@@ -28,8 +28,8 @@ The Affirmed Networks Mobile Content Cloud (MCC) is a virtualized Evolved Packet
 
 The data produced by the MCC varies according to the functionality.  This variation affects the enrichments and visualizations that are relevant.  Azure Operator Insights provides the following Quality of Experience Data Products to support specific MCC functions.
 
-- Quality of Experience - Affirmed MCC GIGW
-- Quality of Experience - Affirmed MCC PGW/GGSN
+- **Quality of Experience - Affirmed MCC GIGW**
+- **Quality of Experience - Affirmed MCC PGW/GGSN**
 
 ## Data types
 
