@@ -13,7 +13,7 @@ Microsoft Defender for Cloud is now [integrated with Microsoft Defender XDR](../
 
 Thanks to this integration, Microsoft Sentinel customers who have enabled [Defender XDR incident integration](microsoft-365-defender-sentinel-integration.md) will now be able to ingest and synchronize Defender for Cloud incidents, with all their alerts, through Microsoft Defender XDR.
 
-To support this integration, Microsoft has added a new **Tenant-based Microsoft Defender for Cloud (Preview)** connector. This connector will allow Microsoft Sentinel customers to receive Defender for Cloud alerts and incidents across their entire tenants, without having to monitor and maintain the connector's enrollment to all their Defender for Cloud subscriptions.
+To support this integration, Microsoft Sentinel has added a new **Tenant-based Microsoft Defender for Cloud (Preview)** connector. This connector will allow Microsoft Sentinel customers to receive Defender for Cloud alerts and incidents across their entire tenants, without having to monitor and maintain the connector's enrollment to all their Defender for Cloud subscriptions.
 
 This connector can be used to ingest Defender for Cloud alerts, regardless of whether you have Defender XDR incident integration enabled.
 
@@ -28,11 +28,11 @@ How you choose to use this integration, and whether you want to ingest complete 
 
     If, in this situation, you remain with the legacy subscription-based Defender for Cloud connector and don't connect the new tenant-based one, you may receive Defender for Cloud incidents that contain empty alerts (in the case of a subscription to which the connector isn't enrolled).
 
-- If you don't intend to enable [Microsoft Defender XDR incident integration](microsoft-365-defender-sentinel-integration.md), you'll still receive Defender for Cloud *alerts*, regardless of which version of the connector you enable. However, the new tenant-based connector still affords you the advantage of not needing the permissions to monitor and maintain your list of Defender for Cloud subscriptions in the connector.
+- If you don't intend to enable [Microsoft Defender XDR incident integration](microsoft-365-defender-sentinel-integration.md), you can still receive Defender for Cloud *alerts*, regardless of which version of the connector you enable. However, the new tenant-based connector still affords you the advantage of not needing the permissions to monitor and maintain your list of Defender for Cloud subscriptions in the connector.
 
-- If you *have* enabled Defender XDR integration, but you only want to receive Defender for Cloud *alerts* but not *incidents*, you'll need to opt-out of the integration in the Microsoft 365 Defender portal. You'll also have to use the legacy, subscription-based version of the Defender for Cloud connector to receive those alerts.
+- If you *have* enabled Defender XDR integration, but you only want to receive Defender for Cloud *alerts* but not *incidents*, you can use [automation rules](create-manage-use-automation-rules.md) to immediately close Defender for Cloud incidents as they arrive.
 
-    In this scenario, if you still want to use the new tenant-based connector to collect alerts from Defender for Cloud, you can use the filtering and tuning capabilities in Defender XDR to suppress Defender for Cloud incidents.
+    If that's not an adequate solution, or if you still want to collect alerts from Defender for Cloud on a per-subscription basis, you can completely opt-out of the Defender for Cloud integration in the Microsoft Defender XDR portal, and then use the legacy, subscription-based version of the Defender for Cloud connector to receive those alerts.
 
 ## Set up the integration in Microsoft Sentinel
 
@@ -50,5 +50,6 @@ If there are specific types of Defender for Cloud alerts for which you don't wan
 
 In this article, you learned how to use Microsoft Defender for Cloud's integration with Microsoft Defender XDR to ingest incidents and alerts into Microsoft Sentinel.
 
-- Learn how to set up the connector to [ingest tenant-wide Microsoft Defender for Cloud incidents and alerts to Microsoft Sentinel](connect-defender-for-cloud-tenant.md).
-- 
+Learn more about the Microsoft Defender for Cloud integration with Microsoft Defender XDR.
+- See [Microsoft Defender for Cloud in Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-security-center-defender-cloud), and particularly the [Impact to Microsoft Sentinel users](/microsoft-365/security/defender/microsoft-365-security-center-defender-cloud#impact-to-microsoft-sentinel-users) section, from the Microsoft Defender XDR documentation.
+- See [Alerts and incidents in Microsoft 365 Defender (Preview)](../defender-for-cloud/concept-integration-365.md) from the Microsoft Defender for Cloud documentation.

@@ -39,7 +39,9 @@ This connector can be used to ingest Defender for Cloud alerts, regardless of wh
 
 - Learn more about [Microsoft Defender for Cloud integration with Microsoft Defender XDR](../defender-for-cloud/release-notes.md#defender-for-cloud-is-now-integrated-with-microsoft-365-defender-preview).
 - Learn more about [ingesting Defender for Cloud incidents into Microsoft Sentinel](ingest-defender-for-cloud-incidents.md).
+<!--
 - Learn how to [connect the tenant-based Defender for Cloud data connector](connect-defender-for-cloud-tenant.md) (in Preview).
+-->
 
 ### Near-real-time rules now generally available
 

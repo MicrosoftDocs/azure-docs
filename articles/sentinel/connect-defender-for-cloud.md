@@ -16,7 +16,7 @@ This connector allows you to ingest [security alerts from Defender for Cloud](..
 
 As [Microsoft Defender for Cloud Defender plans](../defender-for-cloud/defender-for-cloud-introduction.md#protect-cloud-workloads) are enabled per subscription, this data connector is also enabled or disabled separately for each subscription.
 
-The new **Tenant-based Microsoft Defender for Cloud connector**, in PREVIEW, allows you to collect Defender for Cloud alerts over your entire tenant, without having to enable each subscription separately. It also ensures that all of your Defender for Cloud alerts are fully included in any incidents you receive through Microsoft Defender XDR incident integration.
+The new **Tenant-based Microsoft Defender for Cloud connector**, in PREVIEW, allows you to collect Defender for Cloud alerts over your entire tenant, without having to enable each subscription separately. It also leverages [Defender for Cloud's integration with Microsoft Defender XDR](ingest-defender-for-cloud-incidents.md) (formerly Microsoft 365 Defender) to ensure that all of your Defender for Cloud alerts are fully included in any incidents you receive through [Microsoft Defender XDR incident integration](microsoft-365-defender-sentinel-integration.md).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
