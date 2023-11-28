@@ -5,18 +5,18 @@
  author: spelluru
  ms.service: service-bus-messaging
  ms.topic: include
- ms.date: 10/28/2022
+ ms.date: 11/28/2023
  ms.author: spelluru
  ms.custom: include file
 ---
 
 ## Create a namespace in the Azure portal
-To begin using Service Bus messaging entities in Azure, you must first create a namespace with a name that is unique across Azure. A namespace provides a scoping container for Service Bus resources within your application.
+To begin using Service Bus messaging entities in Azure, you must first create a namespace with a name that is unique across Azure. A namespace provides a scoping container for Service Bus resources (queues, topics, etc.) within your application.
 
 To create a namespace:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the left navigation pane of the portal, select **All services**, select **Integration** from the list of categories, hover the mouse over **Service Bus**, and then select **Create** on the Service Bus tile. 
+2. In the left navigation pane of the portal, select **All services**, select **Integration** from the list of categories, hover the mouse over **Service Bus**, and then select **+** button on the Service Bus tile. 
     
     :::image type="content" source="./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png" alt-text="Image showing selection of Create a resource, Integration, and then Service Bus in the menu.":::
 3. In the **Basics** tag of the **Create namespace** page, follow these steps: 
