@@ -28,7 +28,7 @@ Currently, the `dapr-component init` command supports the following Dapr compone
 -	Apache Kafka for pub/sub
 -	PostgreSQL for state stores
 
-[The sample provided](https://github.com/Azure-Samples/containerapps-dapr-components-init) uses the default Redis pub/sub components, but you can plug in your own Kafka or PostgreSQL components. 
+[The sample provided](https://github.com/Azure-Samples/containerapps-dapr-components-init) uses the default Redis pub/sub components. 
 
 ## Prerequisites
 
@@ -52,9 +52,9 @@ cd containerapps-dapr-components-init
 
 ## (Optional) Build and run Docker images
 
-This sample comes with prebuilt Docker images. 
+This sample comes with prebuilt Docker images. If you'd like to use the prebuilt images, move on to the next step.
 
-If you'd like to build custom images:
+If you'd like to use your own custom images:
 - Update the [`containerApps.bicep`](https://github.com/Azure-Samples/containerapps-dapr-components-init/blob/main/deploy/containerApps.bicep) file with your Docker image name.
 - Package the `order-processor` and `order-publisher` services into your custom Docker images and build the images with commands like the following.
 
@@ -63,7 +63,6 @@ If you'd like to build custom images:
    docker buildx build --platform linux/amd64 -t $MY_CONTAINER_REGISTRY/python-order-processor:latest --push ./order-processor:latest
    ```
 
-If you'd like to use the prebuilt images, move on to the next step.
 
 ## Set the environment variables
 
@@ -85,7 +84,7 @@ az group create --name "$VAR_RESOURCE_GROUP" --location "$VAR_LOCATION"
 
 ## Create the managed environment 
 
-Deploy and create the managed environment to the resource group you just created, using the environment name you set earlier.
+Create the managed environment in the resource group you just created, using the environment name you set earlier.
 
 ```shell
 az deployment group create --resource-group "$VAR_RESOURCE_GROUP" --template-file ./deploy/managedEnvironment.bicep --parameters environment_name="$VAR_ENVIRONMENT" --parameters location="$VAR_LOCATION"
@@ -93,13 +92,14 @@ az deployment group create --resource-group "$VAR_RESOURCE_GROUP" --template-fil
 
 ## Initialize Dapr components
 
-Run the new `dapr-component init` command to initialize managed Dapr components in your container app environment.
+Run the `dapr-component init` command to initialize managed Dapr components in your container app environment. 
 
 ```shell
 az containerapp env dapr-component init -g $VAR_RESOURCE_GROUP --name $VAR_ENVIRONMENT 
 ```
 
-If you're using Kafka or PostgreSQL components instead of the default Redis, specify which components you're using with extra parameters. For example, for a Kafka pub/sub component and a PostgreSQL state store, run the following command:
+> [!NOTE]
+> Using the default Redis compnents doesn't require any extra parameters. If you're using Kafka or PostgreSQL components instead of the default Redis, you need to specify which components you're using. For example, for a Kafka pub/sub component and a PostgreSQL state store, run the following command:
 
 ```shell
 az containerapp env dapr-component init -g $VAR_RESOURCE_GROUP --name $VAR_ENVIRONMENT --statestore postgres --pubsub kafka
@@ -109,7 +109,7 @@ az containerapp env dapr-component init -g $VAR_RESOURCE_GROUP --name $VAR_ENVIR
 
 ## Deploy your container apps
 
-Now that your container app environment and Dapr components are prepared, deploy the sample `order-processor` and `order-publisher` container apps.
+Now that you created a container app environment and initialized the Dapr components, deploy the sample `order-processor` and `order-publisher` container apps.
 
 ```shell
 az deployment group create --resource-group "$VAR_RESOURCE_GROUP" --template-file ./deploy/containerApps.bicep --parameters environment_name="$VAR_ENVIRONMENT" --parameters location="$VAR_LOCATION"

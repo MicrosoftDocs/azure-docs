@@ -211,7 +211,7 @@
   items:
     - name: Dapr integration
       href: dapr-overview.md
-    - name: Initialize Dapr in a container app environment (preview)
+    - name: Initialize Dapr (preview)
       href: dapr-init.md
     - name: Microservices communication using Dapr Pub/Sub
       href: microservices-dapr-pubsub.md
