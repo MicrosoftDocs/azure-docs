@@ -16,7 +16,7 @@ The contact profile resource stores pass requirements such as links and endpoint
 
 You can create many contact profiles to represent different types of passes depending on your mission operations. For example, you can create a contact profile for a command and control pass or a contact profile for a downlink-only pass. 
 
-These resources are mutable and do not undergo an authorization process like the spacecraft resources do. One contact profile can be used with many spacecraft resources. 
+These resources are mutable and don't undergo an authorization process like the spacecraft resources do. One contact profile can be used with many spacecraft resources. 
 
 See [how to configure a contact profile](contact-profile.md) for a full list of parameters.
 
@@ -37,11 +37,11 @@ The minimum pass time and minimum elevation parameters are used by Azure Orbital
 
 ## Understanding links and channels
 
-A whole band, unique in direction and polarity, is called a link. Channels, which are children under links, specify the center frequency, bandwidth, and endpoints. Typically there is only one channel per link, but some applications require multiple channels per link. 
+A whole band, unique in direction and polarity, is called a link. Channels, which are children under links, specify the center frequency, bandwidth, and endpoints. Typically there's only one channel per link, but some applications require multiple channels per link. 
 
 You can specify EIRP and G/T requirements for each link. EIRP applies to uplinks and G/T applies to downlinks. You can provide a name for each link and channel to keep track of these properties. Each channel has a modem associated with it. Follow the steps in [how to setup software modem](modem-chain.md) to understand the options.
 
-Refer to the example below to understand how to specify an RHCP channel and an LHCP channel if your mission requires dual-polarization on downlink. To find this information about your contact profile, navigate to the contact profile resource overview and click 'JSON view'.
+Refer to the example below to understand how to specify an RHCP channel and an LHCP channel if your mission requires dual-polarization on downlink. To find this information about your contact profile, navigate to the contact profile resource overview and click 'JSON view.'
 
 ```json
 {
@@ -118,10 +118,10 @@ Refer to the example below to understand how to specify an RHCP channel and an L
 You can modify or delete the contact profile via the [Azure portal](https://aka.ms/orbital/portal) or [Azure Orbital Ground Station API](/rest/api/orbital/). 
 
 In the Azure portal, navigate to the contact profile resource. 
-- To modify minimum viable contact duration, minimum elevation, auto tracking, or events hubs telemetry, click 'Overview' on the left panel then click 'Edit properties'.
+- To modify minimum viable contact duration, minimum elevation, auto tracking, or events hubs telemetry, click 'Overview' on the left panel then click 'Edit properties.'
 - To edit links and channels, click 'Links' under 'Configurations' on the left panel then click 'Edit link' on the desired link.
 - To edit third-party configurations, click 'Third-Party Configurations' under 'Configurations' on the left panel then click 'Edit' on the desired configuration.
-- To delete a contact profile, click 'Overview' on the left panel then click 'Delete'.
+- To delete a contact profile, click 'Overview' on the left panel then click 'Delete.'
 
 ## Configuring a contact profile for applicable partner ground stations
 
