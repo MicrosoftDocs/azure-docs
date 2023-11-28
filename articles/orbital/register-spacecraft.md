@@ -21,6 +21,8 @@ To contact a satellite, it must be registered and authorized as a spacecraft res
 - [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher to submit a spacecraft authorization request.
 - Private spacecraft: an active spacecraft license and [relevant ground station licenses](initiate-licensing.md).
 - An active contract with the partner network(s) you wish to integrate with Azure Orbital Ground Station.
+     - [KSAT Lite](https://azuremarketplace.microsoft.com/marketplace/apps/kongsbergsatelliteservicesas1657024593438.ksatlite?exp=ubp8&tab=Overview)
+     - [Viasat RTE](https://azuremarketplace.microsoft.com/marketplace/apps/viasatinc1628707641775.viasat-real-time-earth?tab=overview)
 
 ## Sign in to Azure
 
