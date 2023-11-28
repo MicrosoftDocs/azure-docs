@@ -1111,7 +1111,7 @@ Azure service: [Azure Relay](../../../azure-relay/relay-what-is-it.md)
 > | Microsoft.Relay/namespaces/read | Get the list of Namespace Resource Description |
 > | Microsoft.Relay/namespaces/Delete | Delete Namespace Resource |
 > | Microsoft.Relay/namespaces/authorizationRules/action | Updates Namespace Authorization Rule. This API is deprecated. Please use a PUT call to update the Namespace Authorization Rule instead.. This operation is not supported on API version 2017-04-01. |
-> | Microsoft.Relay/namespaces/removeAcsNamepsace/action | Remove ACS namespace |
+> | Microsoft.Relay/namespaces/removeAcsNamespace/action | Remove Access Control Service namespace |
 > | Microsoft.Relay/namespaces/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
 > | Microsoft.Relay/namespaces/authorizationRules/read | Get the list of Namespaces Authorization Rules description. |
 > | Microsoft.Relay/namespaces/authorizationRules/write | Create a Namespace level Authorization Rules and update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated. |
@@ -1186,7 +1186,7 @@ Azure service: [Service Bus](../../../service-bus-messaging/index.yml)
 > | Microsoft.ServiceBus/namespaces/Delete | Delete Namespace Resource |
 > | Microsoft.ServiceBus/namespaces/authorizationRules/action | Updates Namespace Authorization Rule. This API is deprecated. Please use a PUT call to update the Namespace Authorization Rule instead.. This operation is not supported on API version 2017-04-01. |
 > | Microsoft.ServiceBus/namespaces/migrate/action | Migrate namespace operation |
-> | Microsoft.ServiceBus/namespaces/removeAcsNamepsace/action | Remove ACS namespace |
+> | Microsoft.ServiceBus/namespaces/removeAcsNamespace/action | Remove Access Control Service namespace |
 > | Microsoft.ServiceBus/namespaces/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
 > | Microsoft.ServiceBus/namespaces/authorizationRules/write | Create a Namespace level Authorization Rules and update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated. |
 > | Microsoft.ServiceBus/namespaces/authorizationRules/read | Get the list of Namespaces Authorization Rules description. |

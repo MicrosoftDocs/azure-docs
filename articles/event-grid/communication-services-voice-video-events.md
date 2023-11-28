@@ -275,10 +275,10 @@ This section contains an example of what that data would look like for each even
 ```
 
 ## Limitations
-Aside from `IncomingCall`, Calling events are only available for ACS VoIP users. PSTN, bots, echo bot and Teams users events are excluded.
-No calling events will be available for ACS - Teams meeting interop call.
+Aside from `IncomingCall`, Calling events are only available for Azure Communication Services VoIP users. PSTN, bots, echo bot and Teams users events are excluded.
+No calling events will be available for Azure Communication Services - Teams meeting interop call.
 
-`IncomingCall` events have support for ACS VoIP users and PSTN numbers. For more details on which scenarios can trigger `IncomingCall` events, see the following [Incoming call concepts](../communication-services/concepts/call-automation/incoming-call-notification.md) documentation. 
+`IncomingCall` events have support for Azure Communication Services VoIP users and PSTN numbers. For more details on which scenarios can trigger `IncomingCall` events, see the following [Incoming call concepts](../communication-services/concepts/call-automation/incoming-call-notification.md) documentation. 
 
 ## Next steps
 See the following tutorial: [Quickstart: Handle voice and video calling events](../communication-services/quickstarts/voice-video-calling/handle-calling-events.md).
