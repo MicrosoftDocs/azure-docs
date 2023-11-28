@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 11/28/2023
 ---
 
 # Kafka output from Azure Stream Analytics (Preview)
@@ -163,10 +163,10 @@ Visit the [Run your Azure Stream Analytics job in an Azure Virtual Network docum
 
 
 ## Next steps
-> [!div class="nextstepaction"]
-> [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
-> [Stream data from confluent cloud Kafka with Azure Stream Analytics](confluent-kafka-input.md)
-> [Stream data from Azure Stream Analytics into confluent cloud](confluent-kafka-output.md)
+
+* [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
+* [Stream data from confluent cloud Kafka with Azure Stream Analytics](confluent-kafka-input.md)
+* [Stream data from Azure Stream Analytics into confluent cloud](confluent-kafka-output.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
