@@ -18,7 +18,7 @@ You can use a catalog to provide your development teams with a curated set of in
 
 Deployment Environments supports catalogs hosted in Azure Repos (the repository service in Azure, commonly referred to as Azure DevOps) and catalogs hosted in GitHub. Azure DevOps supports authentication by assigning permissions to a managed identity. Azure DevOps and GitHub both support the use of PATs for authentication. To further secure your templates, the catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which Microsoft for Azure Services manages.
 
-A catalog is a repository that's hosted in [GitHub](https://github.com) or [Azure DevOps](https://dev.azure.com/).
+A catalog is a repository hosted in [GitHub](https://github.com) or [Azure DevOps](https://dev.azure.com/).
 
 - To learn how to host a repository in GitHub, see [Get started with GitHub](https://docs.github.com/get-started).
 - To learn how to host a Git repository in an Azure DevOps project, see [Azure Repos](https://azure.microsoft.com/services/devops/repos/).
@@ -183,7 +183,7 @@ Get the path to the secret you created in the key vault.
 ### Add your repository as a catalog
 
 1. In the [Azure portal](https://portal.azure.com/), go to your dev center.
-1. Ensure that the [identity](./how-to-configure-managed-identity.md) that's attached to the dev center has [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
+1. Ensure that the [identity](./how-to-configure-managed-identity.md) attached to the dev center has [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
 1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
 1. In **Add catalog**, enter the following information, and then select **Add**:
 
@@ -220,6 +220,8 @@ To add a catalog, you complete these tasks:
 
 ### Create a personal access token in GitHub
 
+Azure Deployment Environments supports authenticating to GitHub repositories by using either classic tokens or fine-grained tokens. In this example, you create a fine-grained token. 
+
 1. Go to the home page of the GitHub repository that contains the template definitions.
 1. In the upper-right corner of GitHub, select the profile image, and then select **Settings**.
 1. On the left sidebar, select **Developer settings** > **Personal access tokens** > **Fine-grained tokens**.
@@ -231,11 +233,22 @@ To add a catalog, you complete these tasks:
     |**Token name**|Enter a descriptive name for the token.|
     |**Expiration**|Select the token expiration period in days.|
     |**Description**|Enter a description for the token.|
-    |**Repository access**|Select **Public Repositories (read-only)**.|
-    
-    Leave the other options at their defaults.
+    |**Resource owner**|Select the owner of the repository.|
+    |**Repository access**|Select **Only select repositories**.|
+    |**Select repositories**|Select the repository that contains the environment definitions.|
+    |**Repository permissions**|Expand **Repository permissions**, and for **Contents**, from the **Access** list, select **Code read**.|
+
+    :::image type="content" source="media/how-to-configure-catalog/github-repository-permissions.png" alt-text="Screenshot of the GitHub New fine-grained personal access token page, showing the Repository permissions with Contents highlighted."  lightbox="media/how-to-configure-catalog/github-repository-permissions.png":::
+
 1. Select **Generate token**.
 1. Save the generated token. You use the token later.
+
+> [!IMPORTANT]
+> When working with a private repository stored within a GitHub organization, you must ensure that the GitHub PAT is configured to give access to the correct organization and the repositories within it. 
+> - Classic tokens within the organization must be SSO authorized to the specific organization after they are created.
+> - Fine grained tokens must have the owner of the token set as the organization itself to be authorized.
+>
+> Incorrectly configured PATs can result in a *Repository not found* error.   
 
 
 ### Create a Key Vault
@@ -285,7 +298,7 @@ Get the path to the secret you created in the key vault.
 ### Add your repository as a catalog
 
 1. In the [Azure portal](https://portal.azure.com/), go to your dev center.
-1. Ensure that the [identity](./how-to-configure-managed-identity.md) that's attached to the dev center has [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
+1. Ensure that the [identity](./how-to-configure-managed-identity.md) attached to the dev center has [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
 1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
 1. In **Add catalog**, enter the following information, and then select **Add**:
 
@@ -295,7 +308,7 @@ Get the path to the secret you created in the key vault.
     | **Catalog location**  | Select **GitHub**. |
     | **Repo**  | Enter or paste the clone URL for either your GitHub repository or your Azure DevOps repository.<br />*Sample catalog example:* `https://github.com/Azure/deployment-environments.git` |
     | **Branch**  | Enter the repository branch to connect to.<br />*Sample catalog example:* `main`|
-    | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders that hold your environment definitions. <br /> The folder path is for the folder with subfolders containing environment definition manifests, not for the folder with the environment definition manifest itself. The following image shows the sample catalog folder structure.<br />*Sample catalog example:* `/Environments`<br /> :::image type="content" source="media/how-to-configure-catalog/github-folders.png" alt-text="Screenshot showing Environments sample folder in GitHub."::: The folder path can begin with or without a forward slash (`/`).|
+    | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders that hold your environment definitions. <br /> The folder path is for the folder with subfolders containing environment definition environment files, not for the folder with the environment definition environment file itself. The following image shows the sample catalog folder structure.<br />*Sample catalog example:* `/Environments`<br /> :::image type="content" source="media/how-to-configure-catalog/github-folders.png" alt-text="Screenshot showing Environments sample folder in GitHub."::: The folder path can begin with or without a forward slash (`/`).|
     | **Secret identifier**| Enter the secret identifier that contains your personal access token for the repository.<br /> When you copy a secret identifier, the connection string includes a version identifier at the end, like in this example: `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a`.<br />Removing the version identifier ensures that Deployment Environments fetch the latest version of the secret from the key vault. If your personal access token expires, only the key vault needs to be updated. <br />*Example secret identifier:* `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat`|
 
     :::image type="content" source="media/how-to-configure-catalog/add-github-catalog-pane.png" alt-text="Screenshot that shows how to add a catalog to a dev center." lightbox="media/how-to-configure-catalog/add-github-catalog-pane.png":::
@@ -338,15 +351,15 @@ An ignored environment definition error occurs if you add two or more environmen
 
 An invalid environment definition error might occur for various reasons:
 
-- **Manifest schema errors**. Ensure that your environment definition manifest matches the [required schema](configure-environment-definition.md#add-an-environment-definition).
+- **Manifest schema errors**. Ensure that your environment definition environment file matches the [required schema](configure-environment-definition.md#add-an-environment-definition).
 
 - **Validation errors**. Check the following items to resolve validation errors:
 
-  - Ensure that the manifest's engine type is correctly configured as `ARM`.
+  - Ensure that the environment file's engine type is correctly configured as `ARM`.
   - Ensure that the environment definition name is between 3 and 63 characters.
   - Ensure that the environment definition name includes only characters that are valid for a URL, which are alphanumeric characters and these symbols: `~` `!` `,` `.` `'` `;` `:` `=` `-` `_` `+` `(` `)` `*` `&` `$` `@`
   
-- **Reference errors**. Ensure that the template path that the manifest references is a valid relative path to a file in the repository.
+- **Reference errors**. Ensure that the template path that the environment file references is a valid relative path to a file in the repository.
 
 ## Related content
 

@@ -33,6 +33,9 @@ New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 
 Now create a Virtual Machine Scale Set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, you can set your own administrative credentials for the VM instances in the scale set:
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 ```azurepowershell-interactive
 New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
@@ -42,6 +45,7 @@ New-AzVmss `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
   -LoadBalancerName "myLoadBalancer" `
+  -OrchestrationMode 'Uniform' `
   -UpgradePolicyMode "Automatic"
 ```
 

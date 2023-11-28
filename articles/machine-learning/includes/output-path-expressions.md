@@ -19,4 +19,4 @@ ms.date: 07/26/2023
 | `${{name}}` | The job name. For pipelines, it's the step job name, not the pipeline job name. | Works for all jobs |
 | `${{output_name}}` | The job output name | Works for all jobs |
 
-For example, if `azureml://datastores/${{default_datastore}}/paths/{{$name}}/${{output_name}}` is used as the output path, at runtime it's resolved as a path of `azureml://datastores/workspaceblobstore/paths/<job-name>/model_path`.
+For example, if `azureml://datastores/${{default_datastore}}/paths/${{name}}/${{output_name}}` is used as the output path, at runtime it's resolved as a path of `azureml://datastores/workspaceblobstore/paths/<job-name>/model_path`.

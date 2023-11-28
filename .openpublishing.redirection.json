@@ -783,7 +783,7 @@
     {
       "source_path": "articles/cognitive-services/bing-visual-search/quickstarts/ruby.md",
       "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/quickstarts/ruby",
-      "redirect_document_id": false,
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/api-management/api-management-api-templates.md",
@@ -868,6 +868,11 @@
     {
         "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-preview-version.md",
         "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version-vmware",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-version-vmware.md",
+        "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version",
         "redirect_document_id": false
     },
     {
@@ -1004,6 +1009,11 @@
           "source_path": "articles/azure-resource-manager/bicep/bicep-import-providers.md",
           "redirect_URL": "bicep-import",
           "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version.md",
+            "redirect_URL": "/azure/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version-scvmm",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/migrate/tutorial-assess-webapps-physical.md",
@@ -9059,6 +9069,16 @@
             "redirect_document_id": false
         },
         {
+          "source_path_from_root": "/articles/azure-cache-for-redis/cache-how-to-premium-clustering.md",
+          "redirect_url": "/azure/azure-cache-for-redis/-how-to-scale",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/azure-cache-for-redis/cache-how-to-version.md",
+          "redirect_url": "/azure/azure-cache-for-redis/-how-to-upgrade",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/app-service/app-service-export-api-to-powerapps-and-flow.md",
             "redirect_url": "/azure/azure-functions/app-service-export-api-to-powerapps-and-flow",
             "redirect_document_id": false
@@ -10223,6 +10243,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/tutorial-protect-vpn-gateway.md",
+            "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn-clients.md",
             "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
             "redirect_document_id": false
@@ -10524,6 +10549,11 @@
         },
         {
             "source_path_from_root": "/articles/bastion/bastion-create-host-portal.md",
+            "redirect_url": "/azure/bastion/tutorial-create-host-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/bastion/tutorial-protect-bastion-host-ddos.md",
             "redirect_url": "/azure/bastion/tutorial-create-host-portal",
             "redirect_document_id": false
         },
@@ -24561,7 +24591,13 @@
             "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-governance-application-migration-integration.md",
             "redirect_url": "/azure/devtest-labs/devtest-lab-guidance-governance-resources",
             "redirect_document_id": false
-        },        {
+        },        
+        {
+            "source_path_from_root": "/articles/devtest-labs/lab-services-overview.md",
+            "redirect_url": "/azure/devtest-labs/devtest-lab-overview",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
             "redirect_url": "/azure/advisor/advisor-overview",
             "redirect_document_id": false
@@ -25710,6 +25746,18 @@
             "source_path_from_root": "/articles/operator-service-manager/overview.md",
 	        "redirect_url": "azure/operator-service-manager/azure-operator-service-manager-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/kubernetes-fleet/configuration-propagation.md",
+            "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
+        },
+        {
+            "source_path_from_root": "/articles/automation/dsc-linux-powershell.md",
+            "redirect_url": "/azure/automation/automation-dsc-overview"
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/extensions/dsc-linux.md",
+            "redirect_url": "/azure/virtual-machines/extensions/dsc-overview"
         }
     ]
 }

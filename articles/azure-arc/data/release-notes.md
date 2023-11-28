@@ -7,15 +7,25 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 10/10/2023
+ms.date: 11/14/2023
 ms.topic: conceptual
-ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
+ms.custom:
+  - references_regions
+  - devx-track-azurecli
+  - event-tier1-build-2022
+  - ignite-2023
 #Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
 ---
 
 # Release notes - Azure Arc-enabled data services
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
+
+## November 14, 2023
+
+**Image tag**: `v1.25.0_2023-11-14`
+
+For complete release version information, review [Version log](version-log.md#november-14-2023).
 
 ## October 10, 2023
 
@@ -41,7 +51,7 @@ For complete release version information, review [Version log](version-log.md#au
 
 ### Release notes
 
-- Support for configuring and managing Azure Failover groups between two Azure Arc-enabled SQL managed instances using Azure portal. For details, review [Configure failover group - portal](managed-instance-disaster-recovery-portal.md).
+- Support for configuring and managing Azure Failover groups between two instances using Azure portal. For details, review [Configure failover group - portal](managed-instance-disaster-recovery-portal.md).
 - Upgraded OpenSearch and OpenSearch Dashboards from 2.7.0 to 2.8.0
 - Improvements and examples to [Back up and recover controller database](backup-controller-database.md).
 
@@ -63,7 +73,7 @@ For complete release version information, review [Version log](version-log.md#ju
 
 ### Release notes
 
-- Azure Arc-enabled SQL Managed Instance
+- SQL Managed Instance enabled by Azure Arc
     -  [Added Azure CLI support to manage transparent data encryption (TDE)](configure-transparent-data-encryption-sql-managed-instance.md).
 
 ## May 9, 2023
@@ -88,10 +98,10 @@ New for this release:
   - Error-handling in the `az` CLI is improved during data controller upgrade
   - Fixed a bug to preserve the resource limits for Azure Arc Data Controller where the resource limits could get reset during an upgrade.
 
-- Azure Arc-enabled SQL Managed Instance
-  - General Purpose: Customer-managed TDE encryption keys (preview). For information, review [Enable transparent data encryption on Azure Arc-enabled SQL Managed Instance](configure-transparent-data-encryption-sql-managed-instance.md).
-  - Support for customer-managed keytab rotation. For information, review [Rotate Azure Arc-enabled SQL Managed Instance customer-managed keytab](rotate-customer-managed-keytab.md).
-  - Support for `sp_configure` to manage configuration. For information, review [Configure Azure Arc-enabled SQL managed instance](configure-managed-instance.md).
+- SQL Managed Instance enabled by Azure Arc
+  - General Purpose: Customer-managed TDE encryption keys (preview). For information, review [Enable transparent data encryption on SQL Managed Instance enabled by Azure Arc](configure-transparent-data-encryption-sql-managed-instance.md).
+  - Support for customer-managed keytab rotation. For information, review [Rotate SQL Managed Instance enabled by Azure Arc customer-managed keytab](rotate-customer-managed-keytab.md).
+  - Support for `sp_configure` to manage configuration. For information, review [Configure SQL Managed Instance enabled by Azure Arc](configure-managed-instance.md).
   - Service-managed credential rotation. For information, review [How to rotate service-managed credentials in a managed instance](rotate-sql-managed-instance-credentials.md#how-to-rotate-service-managed-credentials-in-a-managed-instance).
 
 ## April 12, 2023
@@ -102,7 +112,7 @@ For complete release version information, see [Version log](version-log.md#april
 
 New for this release:
 
-- Azure Arc-enabled SQL Managed Instance
+- SQL Managed Instance enabled by Azure Arc
   - Direct mode for failover groups is generally available az CLI
   - Schedule the HA orchestrator replicas on different nodes when available
 
@@ -121,11 +131,11 @@ For complete release version information, see [Version log](version-log.md#march
 
 New for this release:
 
-- Azure Arc-enabled SQL Managed Instance 
-  - [Rotate Azure Arc-enabled SQL Managed Instance service-managed credentials (preview)](rotate-sql-managed-instance-credentials.md) 
+- SQL Managed Instance enabled by Azure Arc 
+  - [Rotate SQL Managed Instance enabled by Azure Arc service-managed credentials (preview)](rotate-sql-managed-instance-credentials.md) 
 - Azure Arc-enabled PostgreSQL 
   - Require client connections to use SSL
-  - Extended Azure Arc-enabled SQL Managed Instance authentication control plane to PostgreSQL
+  - Extended SQL Managed Instance enabled by Azure Arc authentication control plane to PostgreSQL
 
 ## February 14, 2023
 
@@ -352,7 +362,7 @@ Reminders and warnings are implemented in Azure portal, custom resource status, 
 
 ### SQL Managed Instance
 
-General Availability of Business Critical service tier.  Azure Arc-enabled SQL Managed Instance instances that have a version greater than or equal to v1.7.0 will be charged through Azure billing meters.
+General Availability of Business Critical service tier.  SQL Managed Instance enabled by Azure Arc instances that have a version greater than or equal to v1.7.0 will be charged through Azure billing meters.
 
 ### User experience improvements
 
@@ -360,13 +370,13 @@ General Availability of Business Critical service tier.  Azure Arc-enabled SQL M
 
 Added ability to create AD Connectors from Azure portal.
 
-Preview expected costs for Azure Arc-enabled SQL Managed Instance Business Critical tier when you create new instances.
+Preview expected costs for SQL Managed Instance enabled by Azure Arc Business Critical tier when you create new instances.
 
 #### Azure Data Studio
 
-Added ability to upgrade Azure Arc-enabled SQL Managed Instances from Azure Data Studio in the indirect and direct connectivity modes.
+Added ability to upgrade instances from Azure Data Studio in the indirect and direct connectivity modes.
 
-Preview expected costs for Azure Arc-enabled SQL Managed Instance Business Critical tier when you create new instances.
+Preview expected costs for SQL Managed Instance enabled by Azure Arc Business Critical tier when you create new instances.
 
 ## May 4, 2022
 
@@ -436,7 +446,7 @@ For complete release version information, see [Version log](version-log.md#april
          Not supported because one or more minor versions are skipped.
 - Updates to open source projects included in Azure Arc-enabled data services to patch vulnerabilities.
 
-### Azure Arc-enabled SQL Managed Instance
+### SQL Managed Instance enabled by Azure Arc
 
 You can create a maintenance window on the data controller, and if you have SQL managed instances with a desired version set to `auto`, they will be upgraded in the next maintenance windows after a data controller upgrade. 
 
@@ -449,7 +459,7 @@ AD authentication connectors can now be set up in an `automatic mode` or *system
 
 Backup and point-in-time-restore when a database has Transparent Data Encryption (TDE) enabled is now supported.
 
-Change Data Capture (CDC) is now enabled in Azure Arc-enabled SQL Managed Instance.
+Change Data Capture (CDC) is now enabled in SQL Managed Instance enabled by Azure Arc.
 
 Bug fixes for replica scaling in Arc SQL MI Business Critical and database restore when there is insufficient disk space.
 
@@ -504,7 +514,7 @@ For complete release version information, see [Version log](version-log.md#febru
 - [ReadWriteMany (RWX) capable storage class](../../aks/concepts-storage.md#azure-disk) is required for backups, for both General Purpose and Business Critical service tiers. Specifying a non-ReadWriteMany storage class will cause the SQL Managed Instance to be stuck in "Pending" status during deployment.
 - Billing support when using multiple read replicas.
 
-For additional information about service tiers, see [High Availability with Azure Arc-enabled SQL Managed Instance (preview)](managed-instance-high-availability.md).
+For additional information about service tiers, see [High Availability with SQL Managed Instance enabled by Azure Arc (preview)](managed-instance-high-availability.md).
 
 ### User experience improvements
 
@@ -531,7 +541,7 @@ For complete release version information, see [Version log](version-log.md#janua
 
 ### SQL Managed Instance
 
-- Azure Arc-enabled SQL Managed Instance Business Critical instances can be upgraded from the January release and going forward (preview)
+- SQL Managed Instance enabled by Azure Arc Business Critical instances can be upgraded from the January release and going forward (preview)
 - Business critical distributed availability group failover can now be done through a Kubernetes-native experience or the Azure CLI (indirect mode only) (preview)
 - Added support for `LicenseType: DisasterRecovery` which will ensure that instances which are used for Business Critical distributed availability group secondary replicas:
     - Are not billed for
@@ -612,9 +622,9 @@ This release introduces directly connected mode availability in the following Az
 
 For complete list, see [Supported regions](overview.md#supported-regions).
 
-### Azure Arc-enabled SQL Managed Instance
+### SQL Managed Instance enabled by Azure Arc
 
-- Upgrade instances of Azure Arc-enabled SQL Managed Instance General Purpose in-place
+- Upgrade instances of SQL Managed Instance enabled by Azure Arc General Purpose in-place
 - The SQL binaries are updated to a new version
 - Direct connected mode deployment of Azure Arc enabled SQL Managed Instance using Azure CLI
 - Point in time restore for Azure Arc enabled SQL Managed Instance is being made generally available with this release. Currently point in time restore is only supported for the General Purpose SQL Managed Instance. Point in time restore for Business Critical SQL Managed Instance is still under preview.
@@ -664,7 +674,7 @@ az arcdata sql mi-arc update
 
 - Passing an invalid value to the `--extensions` parameter when editing the configuration of a server group to enable additional extensions incorrectly resets the list of enabled extensions to what it was at the create time of the server group and prevents user from creating additional extensions. The only workaround available when that happens is to delete the server group and redeploy it.
 
-#### Azure Arc-enabled SQL Managed Instance
+#### SQL Managed Instance enabled by Azure Arc
 
 - When a pod is re-provisioned, SQL Managed Instance starts a new set of full backups for all databases.
 - If your data controller is directly connected, before you can provision a SQL Managed Instance, you must upgrade your data controller to the most recent version first. Attempting to provision a SQL Managed Instance with a data controller imageVersion of `v1.0.0_2021-07-30` will not succeed.
@@ -679,7 +689,7 @@ az arcdata sql mi-arc update
 
 This release is published July 30, 2021.
 
-This release announces general availability for Azure Arc-enabled SQL Managed Instance [General Purpose service tier](service-tiers.md) in indirectly connected mode.
+This release announces general availability for SQL Managed Instance enabled by Azure Arc [General Purpose service tier](service-tiers.md) in indirectly connected mode.
 
    > [!NOTE]
    > In addition, this release provides the following Azure Arc-enabled services in preview: 
@@ -733,13 +743,13 @@ Use the following tools:
 
 - Exporting usage/billing information, metrics, and logs using the command `az arcdata dc export` requires bypassing SSL verification for now.  You will be prompted to bypass SSL verification or you can set the `AZDATA_VERIFY_SSL=no` environment variable to avoid prompting.  There is no way to configure an SSL certificate for the data controller export API currently.
 
-#### Azure Arc-enabled SQL Managed Instance
+#### SQL Managed Instance enabled by Azure Arc
 
 - Automated backup and point-in-time restore is in preview.
-- Supports point-in-time restore from an existing database in an Azure Arc-enabled SQL Managed Instance to a new database within the same instance.
+- Supports point-in-time restore from an existing database in a SQL Managed Instance enabled by Azure Arc to a new database within the same instance.
 - If the current datetime is given as point-in-time in UTC format, it resolves to the latest valid restore time and restores the given database until last valid transaction.
 - A database can be restored to any point-in-time where the transactions took place.
-- To set a specific recovery point objective for an Azure Arc-enabled SQL Managed Instance, edit the SQL Managed Instance CRD to set the `recoveryPointObjectiveInSeconds` property. Supported values are from 300 to 600.
+- To set a specific recovery point objective for a SQL Managed Instance enabled by Azure Arc, edit the SQL Managed Instance CRD to set the `recoveryPointObjectiveInSeconds` property. Supported values are from 300 to 600.
 - To disable the automated backups, edit the SQL instance CRD and set the `recoveryPointObjectiveInSeconds` property to 0.
 
 ### Known issues
@@ -757,12 +767,12 @@ Use the following tools:
 
 - In directly connected mode, upload of usage, metrics, and logs using `az arcdata dc upload` is blocked by design. Usage is automatically uploaded. Upload for data controller created in indirect connected mode should continue to work.
 - Automatic upload of usage data in direct connectivity mode will not succeed if using proxy via `–proxy-cert <path-t-cert-file>`.
-- Azure Arc-enabled SQL Managed instance and Azure Arc-enabled PostgreSQL server are not GB18030 certified.
+- SQL Managed Instance enabled by Azure Arc and Azure Arc-enabled PostgreSQL server are not GB18030 certified.
 - Currently, only one Azure Arc data controller per Kubernetes cluster is supported.
 
 #### Data controller
 
-- When Azure Arc data controller is deleted from Azure portal, validation is done to block the delete if there any Azure Arc-enabled SQL Managed Instances deployed on this Arc data controller. Currently, this validation is applied only when the delete is performed from the Overview page of the Azure Arc data controller. 
+- When Azure Arc data controller is deleted from Azure portal, validation is done to block the delete if there any instances deployed on this Arc data controller. Currently, this validation is applied only when the delete is performed from the Overview page of the Azure Arc data controller. 
 
 #### Azure Arc-enabled PostgreSQL server
 
@@ -791,14 +801,14 @@ Use the following tools:
 
 - Point in time restore is not supported for now on NFS storage.
 
-#### Azure Arc-enabled SQL Managed Instance
+#### SQL Managed Instance enabled by Azure Arc
 
 ##### Can't see resources in portal
 
-- Portal does not show Azure Arc-enabled SQL Managed Instance resources created in the June release. Delete the SQL Managed Instance resources from the resource group list view. You may need to delete the custom location resource first.
+- Portal does not show SQL Managed Instance enabled by Azure Arc resources created in the June release. Delete the SQL Managed Instance resources from the resource group list view. You may need to delete the custom location resource first.
 
 ##### Point-in-time restore(PITR) supportability and limitations:
-- Doesn't support restore from one Azure Arc-enabled SQL Managed Instance to another Azure Arc-enabled SQL Managed Instance.  The database can only be restored to the same Azure Arc-enabled SQL Managed Instance where the backups were created.
+- Doesn't support restore from one SQL Managed Instance enabled by Azure Arc to another SQL Managed Instance enabled by Azure Arc.  The database can only be restored to the same SQL Managed Instance enabled by Azure Arc where the backups were created.
 - Renaming a database is currently not supported, for point in time restore purposes.
 - Currently there is no CLI command or an API to provide the allowed time window information for point-in-time restore. You can provide a time within a reasonable window, since the time the database was created, and if the timestamp is valid the restore would work. If the timestamp is not valid, the allowed time window will be provided via an error message.
 - No support for restoring a TDE enabled database.
@@ -830,7 +840,7 @@ This preview release is published July 13, 2021.
 
 - Kubernetes native deployment templates have been modified for data controller, bootstrapper, & SQL Managed Instance. Update your .yaml templates. [Sample yaml files](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml)
 
-#### New Azure CLI extension for data controller and Azure Arc-enabled SQL Managed Instance
+#### New Azure CLI extension for data controller and SQL Server Managed Instance enabled by Azure Arc
 
 This release introduces the `arcdata` extension to the Azure CLI. To add the extension, run the following command:
 
@@ -864,7 +874,7 @@ The OpenDistro security pack has been removed. Log in to Kibana is now done thro
 
 All CRDs have had the version bumped from `v1alpha1` to `v1beta1` for this release. Be sure to delete all CRDs as part of the uninstall process if you have deployed a version of Azure Arc-enabled data services prior to the June 2021 release. The new CRDs deployed with the June 2021 release will have v1beta1 as the version.
 
-#### Azure Arc-enabled SQL Managed Instance
+#### SQL Managed Instance enabled by Azure Arc
 
 Automated backup service is available and on by default. Keep a close watch on space availability on the backup volume.
 
@@ -895,13 +905,13 @@ This release introduces `az` CLI extensions for Azure Arc-enabled data services.
 - From the Azure portal, you can now view the list of PostgreSQL extensions created on your PostgreSQL server.
 - From the Azure portal, you can delete Azure Arc-enabled PostgreSQL server groups on a data controller that is directly connected to Azure.
 
-#### Azure Arc-enabled SQL Managed Instance
+#### SQL Managed Instance enabled by Azure Arc
 
 - Automated backups are now enabled.
 - You can now restore a database backup as a new database on the same SQL instance by creating a new custom resource based on the `sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com` custom resource definition (CRD). See documentation for details. There is no command-line interface (`azdata` or `az`), Azure portal, or Azure Data Studio experience for restoring a database yet.
 - The version of SQL engine binaries included in this release is aligned to the latest binaries that are deployed globally in Azure SQL Managed Instance (PaaS in Azure). This alignment enables backup/restore back and forth between Azure SQL Managed Instance PaaS and Azure Arc-enabled Azure SQL Managed Instance. More details on the compatibility will be provided later.
 - You can now delete Azure Arc SQL Managed Instances from the Azure portal in direct connected mode.
-- You can now configure a SQL Managed Instance to have a pricing tier (`GeneralPurpose`, `BusinessCritical`), license type (`LicenseIncluded`, `BasePrice` (used for AHB pricing), and `developer`. There will be no charges incurred for using Azure Arc-enabled SQL Managed Instance until the General Availability date (publicly announced as scheduled for July 30, 2021) and until you upgrade to the General Availability version of the service.
+- You can now configure a SQL Managed Instance to have a pricing tier (`GeneralPurpose`, `BusinessCritical`), license type (`LicenseIncluded`, `BasePrice` (used for AHB pricing), and `developer`. There will be no charges incurred for using SQL Managed Instance enabled by Azure Arc until the General Availability date (publicly announced as scheduled for July 30, 2021) and until you upgrade to the General Availability version of the service.
 - The `arcdata` extension for Azure Data Studio now has additional parameters that can be configured for deploying and editing SQL Managed Instances: enable/disable agent, admin login secret, annotations, labels, service annotations, service labels, SSL/TLS configuration settings, collation, language, and trace flags.
 - New commands in `azdata`/custom resource tasks for setting up distributed availability groups. These commands are in early stages of preview, documentation will be provided soon.
 
@@ -942,9 +952,9 @@ This release introduces the following features or capabilities:
 - Specify storage classes and PostgreSQL extensions when deploying Azure Arc-enabled PostgreSQL server from the Azure portal.
 - Reduce the number of worker nodes in your Azure Arc-enabled PostgreSQL server. You can do this operation (known as scale in as opposed to scale out when you increase the number of worker nodes) from `azdata` command-line.
 
-#### Azure Arc-enabled SQL Managed Instance
+#### SQL Managed Instance enabled by Azure Arc
 
-- New [Azure CLI extension](/cli/azure/azure-cli-extensions-overview) for Azure Arc-enabled SQL Managed Instance has the same commands as `az sql mi-arc <command>`. All Azure Arc-enabled SQL Managed Instance commands are located at `az sql mi-arc`. All Arc related `azdata` commands will be deprecated and moved to Azure CLI in a future release.
+- New [Azure CLI extension](/cli/azure/azure-cli-extensions-overview) for SQL Managed Instance enabled by Azure Arc has the same commands as `az sql mi-arc <command>`. All SQL Managed Instance enabled by Azure Arc commands are located at `az sql mi-arc`. All Arc related `azdata` commands will be deprecated and moved to Azure CLI in a future release.
 
    To add the extension:
 
@@ -990,20 +1000,18 @@ This section describes the new features introduced or enabled for this release.
 - Azure Arc-enabled PostgreSQL server  now supports configuring vCore and memory settings per role of the PostgreSQL instance in the server group.
 - Azure Arc-enabled PostgreSQL server  now supports configuring database engine/server settings per role of the PostgreSQL instance in the server group.
 
-#### Azure Arc-enabled SQL Managed Instance
+#### SQL Managed Instance enabled by Azure Arc
 
 - Restore a database to SQL Managed Instance with three replicas and it will be automatically added to the availability group.
 - Connect to a secondary read-only endpoint on SQL Managed Instances deployed with three replicas. Use `azdata arc sql endpoint list` to see the secondary read-only connection endpoint.
 
-## Next steps
+## Related content
 
 > **Just want to try things out?**
-> Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on AKS, AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
+> Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data) on AKS, AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
 - [Install the client tools](install-client-tools.md)
 - [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md) (requires installing the client tools first)
 - [Create an Azure SQL Managed Instance on Azure Arc](create-sql-managed-instance.md) (requires creation of an Azure Arc data controller first)
 - [Create an Azure Database for PostgreSQL server on Azure Arc](create-postgresql-server.md) (requires creation of an Azure Arc data controller first)
 - [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md)
-
-

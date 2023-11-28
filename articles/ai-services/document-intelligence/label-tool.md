@@ -5,6 +5,8 @@ description: How to use the Document Intelligence sample tool to analyze documen
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -17,7 +19,7 @@ monikerRange: 'doc-intel-2.1.0'
 <!-- markdownlint-disable MD034 -->
 # Train a custom model using the Sample Labeling tool
 
-**This article applies to:** ![Document Intelligence v2.1 checkmark](media/yes-icon.png) **Document Intelligence v2.1**.
+**This content applies to:** ![Document Intelligence v2.1 checkmark](media/yes-icon.png) **v2.1**.
 
 >[!TIP]
 >

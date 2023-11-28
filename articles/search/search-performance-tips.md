@@ -1,15 +1,17 @@
 ---
 title: Performance tips
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn about tips and best practices for maximizing performance on a search service.
-author: LiamCavanagh
-ms.author: liamca
+author: mattmsft
+ms.author: magottei
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 04/20/2023
 ---
 
-# Tips for better performance in Azure Cognitive Search
+# Tips for better performance in Azure AI Search
 
 This article is a collection of tips and best practices that are often recommended for boosting performance. Knowing which factors are most likely to impact search performance can help you avoid inefficiencies and get the most out of your search service. Some key factors include:
 
@@ -18,7 +20,7 @@ This article is a collection of tips and best practices that are often recommend
 + Service capacity (tier, and the number of replicas and partitions)
 
 > [!NOTE]
-> Looking for strategies on high volume indexing? See [Index large data sets in Azure Cognitive Search](search-howto-large-index.md).
+> Looking for strategies on high volume indexing? See [Index large data sets in Azure AI Search](search-howto-large-index.md).
 
 ## Index size and schema
 
@@ -141,7 +143,7 @@ An important benefit of added memory is that more of the index can be cached, re
 Review these other articles related to service performance:
 
 + [Analyze performance](search-performance-analysis.md)
-+ [Index large data sets in Azure Cognitive Search](search-howto-large-index.md)
++ [Index large data sets in Azure AI Search](search-howto-large-index.md)
 + [Choose a service tier](search-sku-tier.md)
 + [Plan or add capacity](search-capacity-planning.md#adjust-capacity)
 + [Case Study: Use Cognitive Search to Support Complex AI Scenarios](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078)

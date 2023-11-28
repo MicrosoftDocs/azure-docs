@@ -1,8 +1,8 @@
 ﻿---
 title: Use Microsoft Purview with an Azure Operator Insights Data Product
 description: In this article, learn how to set up Microsoft Purview to explore an Azure Operator Insights Data Product.
-author: HollyCl
-ms.author: HollyCl
+author: rcdun
+ms.author: rdunstan
 ms.service: operator-insights
 ms.topic: how-to
 ms.date: 11/02/2023

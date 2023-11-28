@@ -277,7 +277,7 @@
     href: variables.md
     displayName: configuration
   - name: Import (import)
-    href: bicep-import-providers.md
+    href: bicep-import.md
   - name: Resources (resource)
     href: resource-declaration.md
   - name: Existing resources (existing)
@@ -447,6 +447,9 @@
       - name: Decompiler cleanup
         displayName: linter
         href: linter-rule-decompiler-cleanup.md
+      - name: Explicit values for module location parameters
+        displayName: linter
+        href: linter-rule-explicit-values-for-loc-params.md
       - name: Max outputs
         displayName: linter
         href: linter-rule-max-outputs.md
@@ -516,9 +519,6 @@
       - name: Simplify JSON null
         displayName: linter
         href: linter-rule-simplify-json-null.md
-      - name: Use explicit values for module location parameters
-        displayName: linter
-        href: linter-rule-explicit-values-for-loc-params.md
       - name: Use parent property
         displayName: linter
         href: linter-rule-use-parent-property.md

@@ -1,6 +1,6 @@
 ---
-title: Limitations of Azure Arc-enabled SQL Managed Instance
-description: Limitations of Azure Arc-enabled SQL Managed Instance
+title: Limitations of SQL Server Managed Instance enabled by Azure Arc
+description: Limitations of SQL Server Managed Instance enabled by Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
@@ -12,9 +12,9 @@ ms.date: 09/07/2021
 ms.topic: conceptual
 ---
 
-# Limitations of Azure Arc-enabled SQL Managed Instance
+# Limitations of SQL Server Managed Instance enabled by Azure Arc
 
-This article describes limitations of Azure Arc-enabled SQL Managed Instance. 
+This article describes limitations of SQL Managed Instance enabled by Azure Arc. 
 
 ## Back up and restore
 
@@ -25,7 +25,7 @@ This article describes limitations of Azure Arc-enabled SQL Managed Instance.
 
 ### Point-in-time restore (PITR)
 
--  Doesn't support restore from one Azure Arc-enabled SQL Managed Instance to another Azure Arc-enabled SQL Managed Instance.  The database can only be restored to the same Arc-enabled SQL Managed Instance where the backups were created.
+-  Doesn't support restore from one SQL Managed Instance enabled by Azure Arc to another SQL Managed Instance enabled by Azure Arc.  The database can only be restored to the same Arc-enabled SQL Managed Instance where the backups were created.
 -  Renaming databases is currently not supported, during point in time restore.
 -  No support for restoring a TDE enabled database currently.
 -  A deleted database cannot be restored currently.
@@ -38,7 +38,7 @@ This article describes limitations of Azure Arc-enabled SQL Managed Instance.
 
 ## Roles and responsibilities
 
-The roles and responsibilities between Microsoft and its customers differ between Azure PaaS services (Platform As A Service) and Azure hybrid (like Azure Arc-enabled SQL Managed Instance). 
+The roles and responsibilities between Microsoft and its customers differ between Azure PaaS services (Platform As A Service) and Azure hybrid (like SQL Managed Instance enabled by Azure Arc). 
 
 ### Frequently asked questions
 
@@ -56,14 +56,14 @@ This table summarizes answers to frequently asked questions regarding support ro
 
 __Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Customers and their partners own and operate the infrastructure that Azure Arc hybrid services run on so Microsoft can't provide the SLA.
 
-## Next steps
+## Related content
 
-- **Try it out.** Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM. 
+- **Try it out.** Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM. 
 
 - **Create your own.** Follow these steps to create on your own Kubernetes cluster: 
    1. [Install the client tools](install-client-tools.md)
    2. [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)
-   3. [Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md) 
+   3. [Deploy SQL Managed Instance enabled by Azure Arc](create-sql-managed-instance.md) 
 
 - **Learn**
    - [Read more about Azure Arc-enabled data services](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)

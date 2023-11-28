@@ -12,6 +12,8 @@ ms.reviewer: cithomas
 
 [Application Insights SDK for Worker Service](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) is a new SDK, which is best suited for non-HTTP workloads like messaging, background tasks, and console applications. These types of applications don't have the notion of an incoming HTTP request like a traditional ASP.NET/ASP.NET Core web application. For this reason, using Application Insights packages for [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) applications isn't supported.
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 The new SDK doesn't do any telemetry collection by itself. Instead, it brings in other well-known Application Insights auto collectors like [DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/), and [ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights). This SDK exposes extension methods on `IServiceCollection` to enable and configure telemetry collection.
 
 ## Supported scenarios

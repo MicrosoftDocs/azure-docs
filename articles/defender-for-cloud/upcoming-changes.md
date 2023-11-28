@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 10/26/2023
+ms.date: 11/07/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,8 +25,8 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Deprecation of two DevOps security recommendations](#deprecation-of-two-devops-security-recommendations) | November 30, 2023 | January 2024 |
 | [Consolidation of Defender for Cloud's Service Level 2 names](#consolidation-of-defender-for-clouds-service-level-2-names) | November 1, 2023 | December 2023 |
-| [General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries](#general-availability-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries) | October 30, 2023 | November 15, 2023 |
 | [Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management](#changes-to-how-microsoft-defender-for-clouds-costs-are-presented-in-microsoft-cost-management) | October 25, 2023 | November 2023 |
 | [Four alerts are set to be deprecated](#four-alerts-are-set-to-be-deprecated) | October 23, 2023 | November 23, 2023 |
 | [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) |  | June 2023|
@@ -34,9 +34,23 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Classic connectors for multicloud will be retired](#classic-connectors-for-multicloud-will-be-retired) |  | September 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) |  | September 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
-| [Changes to Attack Path's Azure Resource Graph table scheme](#changes-to-attack-paths-azure-resource-graph-table-scheme) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## Deprecation of two DevOps security recommendations 
+
+**Announcement date: November 30, 2023**
+
+**Estimated date for change: January 2024** 
+
+With the general availability of DevOps environment posture management, we're updating our approach to having recommendations displayed in the subassessment format. Previously, we had broad recommendations encompassing multiple findings. Now, we're shifting to individual recommendations for each specific finding. With this change, the two broad recommendations will be deprecated:
+
+- `Azure DevOps Posture Management findings should be resolved`
+- `GitHub Posture Management findings should be resolved`
+
+This means instead of a singular recommendation for all discovered misconfigurations, we'll provide distinct recommendations for each issue, such as "Azure DevOps service connections should not grant access to all pipelines". This change aims to enhance clarity and visibility of specific issues. 
+
+For more information, see the [new recommendations](recommendations-reference-devops.md).
 
 ## Consolidation of Defender for Cloud's Service Level 2 names
 
@@ -52,7 +66,7 @@ The change will simplify the process of reviewing Defender for Cloud charges and
 
 To ensure a smooth transition, we've taken measures to maintain the consistency of the Product/Service name, SKU, and Meter IDs. Impacted customers will receive an informational Azure Service Notification to communicate the changes. 
 
-Organizations that retrieve cost data by calling our APIs, will need to update the values in their calls to accomodate the change. For example, in this filter function, the values will return no information: 
+Organizations that retrieve cost data by calling our APIs, will need to update the values in their calls to accommodate the change. For example, in this filter function, the values will return no information: 
 
 ```json
 "filter": {
@@ -89,35 +103,6 @@ The change is planned to go into effect on December 1, 2023.
 |Security Center           |Microsoft Defender for Cloud|Defender for App Service|
 |Security Center           |Microsoft Defender for Cloud|Defender for Servers|
 |Security Center           |Microsoft Defender for Cloud|Defender CSPM |
-
-
-
-## General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries
-
-**Announcement date: October 30, 2023**
-
-**Estimated date for change: November 15, 2023**
-
-Vulnerability assessment (VA) for Linux container images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM) will soon be released for General Availability (GA) in Defender for Containers and Defender for Container Registries.
-
-As part of this change, the following recommendations will also be released for GA and renamed:
-
-|Current recommendation name|New recommendation name|Description|Assessment key|
-|--|--|--|--|
-|Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)|Azure registry container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)|Container image vulnerability assessments scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment. |c0b7cfc6-3172-465a-b378-53c7ff2cc0d5|
-|Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)|Azure running container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management|Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads.|c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5|
-
-Once the recommendations are released for GA, they will be included in the secure score calculation, and will also incur charges as per [plan pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h#pricing).  
-
-> [!NOTE]
-> Images scanned both by our container VA offering powered by Qualys and Container VA offering powered by MDVM, will only be billed once. 
-
-The below Qualys recommendations for Containers Vulnerability Assessment will be renamed and will continue to be availible for customers that enabled Defender for Containers on any of their subscriptions. New customers onboarding to Defender for Containers after November 15th will only see the new Container vulnerability assessment recommendations powered by Microsoft Defender Vulnerability Management. 
-
-|Current recommendation name|New recommendation name|Description|Assessment key|
-|--|--|--|--|
-|Container registry images should have vulnerability findings resolved (powered by Qualys)|Azure registry container images should have vulnerabilities resolved (powered by Qualys)|Container image vulnerability assessment scans your registry for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks. |dbd0cb49-b563-45e7-9724-889e799fa648|
-|Running container images should have vulnerability findings resolved (powered by Qualys)|Azure running container images should have vulnerabilities resolved - (powered by Qualys)|Container image vulnerability assessment scans container images running on your Kubernetes clusters for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks.|41503391-efa5-47ee-9282-4eff6131462|
 
 ## Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management
 
@@ -185,7 +170,7 @@ The following table lists the alerts to be deprecated:
 
 The classic multicloud connectors will be retiring on September 15, 2023 and no data will be streamed to them after this date. These classic connectors were used to connect AWS Security Hub and GCP Security Command Center recommendations to Defender for Cloud and onboard AWS EC2s to Defender for Servers.
 
-The full value of these connectors has been replaced with the native multicloud security connectors experience, which has been Generally Available for AWS and GCP since March 2022 at no additional cost.
+The full value of these connectors has been replaced with the native multicloud security connectors experience, which has been Generally Available for AWS and GCP since March 2022 at no extra cost.
 
 The new native connectors are included in your plan and offer an automated onboarding experience with options to onboard single accounts, multiple accounts (with Terraform), and organizational onboarding with auto provisioning for the following Defender plans: free foundational CSPM capabilities, Defender Cloud Security Posture Management (CSPM), Defender for Servers, Defender for SQL, and Defender for Containers.
 
@@ -198,7 +183,7 @@ How to migrate to the native security connectors:
 
 ## Change to the Log Analytics daily cap
 
-Azure monitor offers the capability to [set a daily cap](../azure-monitor/logs/daily-cap.md) on the data that is ingested on your Log analytics workspaces. However, Defender for Cloud security events are currently not supported in those exclusions.
+Azure monitor offers the capability to [set a daily cap](../azure-monitor/logs/daily-cap.md) on the data that is ingested on your Log analytics workspaces. However, Defenders for Cloud security events are currently not supported in those exclusions.
 
 Starting on September 18, 2023 the Log Analytics Daily Cap will no longer exclude the following set of data types:
 
@@ -232,12 +217,6 @@ If you don't have an instance of a DevOps organization onboarded more than once 
 
 Customers will have until November 14, 2023 to resolve this issue. After this date, only the most recent DevOps Connector created where an instance of the DevOps organization exists will remain onboarded to Defender for DevOps. For example, if Organization Contoso exists in both connectorA and connectorB, and connectorB was created after connectorA, then connectorA will be removed from Defender for DevOps.
 
-## Changes to Attack Path's Azure Resource Graph table scheme
-
-**Estimated date for change: November 2023**
-
-The Attack Path's Azure Resource Graph (ARG) table scheme will be updated. The `attackPathType` property will be removed and additional properties will be added.
-
 ## Defender for Cloud plan and strategy for the Log Analytics agent deprecation
 
 **Estimated date for change: August 2024**
@@ -269,11 +248,11 @@ The following table explains how each capability will be provided after the Log 
 
 The current provisioning process that provides the installation and configuration of both agents (MMA/AMA), will be adjusted according to the plan mentioned above:
 
-1. MMA auto-provisioning mechanism and its related policy initiative will remain optional and supported until August 2024 through the Defender for Cloud platform.
+1. MMA autoprovisioning mechanism and its related policy initiative will remain optional and supported until August 2024 through the Defender for Cloud platform.
 1. In October 2023:
-   1. The current shared ‘Log Analytics agent’/’Azure Monitor agent’ auto-provisioning mechanism will be updated and applied to ‘Log Analytics agent’ only.
+   1. The current shared ‘Log Analytics agent’/’Azure Monitor agent’ autoprovisioning mechanism will be updated and applied to ‘Log Analytics agent’ only.
 
-      1. **Azure Monitor agent** (AMA) related Public Preview policy initiatives will be deprecated and replaced with the new auto-provisioning process for Azure Monitor agent (AMA), targeting only Azure registered SQL servers (SQL Server on Azure VM/ Arc-enabled SQL Server).
+      1. **Azure Monitor agent** (AMA) related Public Preview policy initiatives will be deprecated and replaced with the new autoprovisioning process for Azure Monitor agent (AMA), targeting only Azure registered SQL servers (SQL Server on Azure VM/ Arc-enabled SQL Server).
 
 1. Current customers with AMA with the Public Preview policy initiative enabled will still be supported but are recommended to migrate to the new policy.
 
@@ -281,7 +260,7 @@ To ensure the security of your servers and receive all the security updates from
 
 ### Agents migration planning
 
-**First, all Defender for Servers customers are advised to enable Defender for Endpoint integration and agentless disk scanning as part of the Defender for Servers offering, at no additional cost.** This will ensure you are automatically covered with the new alternative deliverables, with no additional onboarding required.
+**First, all Defender for Servers customers are advised to enable Defender for Endpoint integration and agentless disk scanning as part of the Defender for Servers offering, at no additional cost.** This will ensure you're automatically covered with the new alternative deliverables, with no extra onboarding required.
 
 Following that, plan your migration plan according to your organization requirements:
 
@@ -298,7 +277,7 @@ Following that, plan your migration plan according to your organization requirem
 
 - If the features mentioned above are required in your organization, and Azure Monitor agent (AMA) is required for other services as well, you can start migrating from MMA to AMA in April 2024. Alternatively, use both MMA and AMA to get all GA features, then remove MMA in April 2024.
 
-- If the features mentioned above are not required, and Azure Monitor agent (AMA) is required for other services, you can start migrating from MMA to AMA now. However, note that the preview Defender for Servers capabilities over AMA will be deprecated in April 2024.
+- If the features mentioned above aren't required, and Azure Monitor agent (AMA) is required for other services, you can start migrating from MMA to AMA now. However, note that the preview Defender for Servers capabilities over AMA will be deprecated in April 2024.
 
 **Customers with Azure Monitor agent (AMA) enabled**
 

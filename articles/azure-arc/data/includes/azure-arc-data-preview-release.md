@@ -2,14 +2,15 @@
 author: jkleinschnitz-msft
 ms.author: jameskl
 ms.service: azure-arc
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 11/1/2023
 ---
 
-<!--
 At this time, a test or preview build is not available for the next release.
 
--->
+<!--
  
 Nov 2023 test release is now available.
 
@@ -42,12 +43,12 @@ Nov 2023 test release is now available.
 
 #### Arc-enabled SQL Server
 
-- Configure backups at instance level using custom schedule for Azure Arc-enabled SQL Server instances for both portal and CLI - public preview.
+- Configure backups at instance level using custom schedule for SQL Server enabled by Azure Arc instances for both portal and CLI - public preview.
   - Configure Automated Backups with a custom schedule and custom retention period, on an Arc enabled SQL Server.
 - Point-in-time-restore using Azure CLI and Azure portal - public preview.
   - Restore a database to a point-in-time restore of their databases, if automatic backups are enabled. Restore can be done either from Azure portal or via az CLI.
 
-- Monitoring | Performance dashboards of an individual Azure Arc-enabled SQL Server instance in the Azure portal - public preview.
+- Monitoring | Performance dashboards of an individual SQL Server enabled by Azure Arc in the Azure portal - public preview.
 
 - Track the provision state and (extension service) status of Azure extension for SQL Server - general availability.
   - Beginning with this release, you can track the provisioning status of Azure Arc extension for SQL Server and Azure Arc guest agent in the properties tab for Arc enabled SQL Server. 
@@ -57,3 +58,5 @@ Nov 2023 test release is now available.
 - Availability group status - Track the availability upload status | public preview.
   - Beginning with this release, track the status and see the last time that the availability group inventory data is updated.  The portal shows two new properties, **Upload status** and **Last collected time**" in the **Availability Groups** tab of the Arc-enabled SQL Server. 
 - Support for separate proxy bypass value for Arc SQL Server only - general availability.
+
+-->

@@ -4,7 +4,9 @@ titleSuffix: Azure Machine Learning
 description: This article addresses frequent questions about tool usage.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 author: ChenJieting
 ms.author: chenjieting
@@ -75,7 +77,7 @@ Use  `docker images`  to check if the image was pulled successfully. If your ima
 
 ### Run failed due to "No module named XXX"
 
-This type error related to runtime lack required packages. If you're using default environment, make sure image of your runtime is using the latest version, learn more: [runtime update](../how-to-create-manage-runtime.md#update-runtime-from-ui), if you're using custom image and you're using conda environment, make sure you have installed all required packages in your conda environment, learn more: [customize Prompt flow environment](../how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
+This type error related to runtime lack required packages. If you're using default environment, make sure image of your runtime is using the latest version, learn more: [runtime update](../how-to-create-manage-runtime.md#update-runtime-from-ui), if you're using custom image and you're using conda environment, make sure you have installed all required packages in your conda environment, learn more: [customize prompt flow environment](../how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
 
 ### Request timeout issue
 
@@ -123,7 +125,7 @@ Error in the example says "UserError: Invoking runtime gega-ci timeout, error me
 
 3. If you can't find anything in runtime logs to indicate it's a specific node issue
 
-    Contact the Prompt Flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We try to identify the root cause.
+    Contact the prompt flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We try to identify the root cause.
 
 ### How to find the compute instance runtime log for further investigation?
 
