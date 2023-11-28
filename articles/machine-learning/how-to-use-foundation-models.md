@@ -42,12 +42,7 @@ You can filter the list of models in the model catalog by Task, or by license. S
 You can quickly test out any pre-trained model using the Sample Inference widget on the model card, providing your own sample input to test the result. Additionally, the model card for each model includes a brief description of the model and links to samples for code based inferencing, finetuning and evaluation of the model.
 
 > [!IMPORTANT]
-> Deploying foundational models to a managed online endpoint is currently supported with __public workspaces__ (and their public associated resources) only.
->
-> * When `egress_public_network_access` is set to `disabled`, the deployment can only access the workspace-associated resources secured in the virtual network. 
-> * When `egress_public_network_access` is set to `enabled` for a managed online endpoint deployment, the deployment can only access the resources with public access. Which means that it cannot access resources secured in the virtual network.
->
-> For more information, see [Secure outbound access with legacy network isolation method](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method).
+> __Workspaces without public network access:__ Deploying foundational models to online endpoints without egress connectivity requires [packaging the models (preview)](how-to-package-models.md) first. By using model packaging, you can avoid the need for an internet connection, which Azure Machine Learning would otherwise require to dynamically install necessary Python packages for the MLflow models.
 
 ## How to evaluate foundation models using your own test data
 
@@ -161,7 +156,7 @@ If you're looking to use an open source model that isn't included in the model c
 * text-to-image
 
 > [!NOTE] 
->Models from Hugging Face are subject to third-party license terms available on the Hugging Face model details page. It is your responsibility to comply with the model's license terms.
+> Models from Hugging Face are subject to third-party license terms available on the Hugging Face model details page. It is your responsibility to comply with the model's license terms.
 
 You can select the "Import" button on the top-right of the model catalog to use the Model Import Notebook.
 
