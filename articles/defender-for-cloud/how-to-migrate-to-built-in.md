@@ -14,15 +14,15 @@ Microsoft Defender for Cloud is unifying all vulnerability assessment solutions 
 MDVM integrates across many cloud native use cases, such as containers build/runtime scenarios, agentless scanning for Virtual Machines (VM) and more. 
 
 > [!NOTE]
-> The Defender for Cloud Servers Vulnerability Assessment (VA) powered by Qualys is now on a retirement path starting on November 27th and completed on **May 1st, 2024**.
+> The Defender for Cloud Servers vulnerability assessment powered by Qualys is now on a retirement path starts on November 27th and will be completed on **May 1st, 2024**.
 >
-> If you are using the VA powered by Qualys on at least one machine within a tenant with either Defender for Servers plans enabled prior to **December 15th, 2023**, you will be able to continue to use the VA powered by Qualys until **May 1st, 2024**.
+> If you are using the vulnerability assessment powered by Qualys on at least one machine within a tenant with either Defender for Servers plans enabled prior to **December 15th, 2023**, you can continue to use the vulnerability assessment powered by Qualys until **May 1st, 2024**.
 >
 > Learn more about [the change to Microsoft Defender Vulnerability Management](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
 >
->The Bring Your Own License VA solution, powered by Qualys or Rapid7 isn't included in the retirement path.
+> The Bring Your Own License vulnerability assessment solution, which can be powered by Qualys or Rapid7, isn't included in the retirement path.
 
-If you're currently using the [built-in VA solution powered by Qualys](deploy-vulnerability-assessment-vm.md) to start planning for the upcoming deprecations by following the steps on this page.
+If you're currently using the [built-in vulnerability assessment solution powered by Qualys](deploy-vulnerability-assessment-vm.md) to start planning for the upcoming deprecations by following the steps on this page.
 
 There are three recommended methods to enable the built-in Microsoft Defender Vulnerability Management (MDVM) solution within Defender for Cloud:
 
@@ -46,7 +46,7 @@ This policy ensures that all Virtual Machines (VM) within a selected subscriptio
 
 ## Defender for Cloud’s portal 
 
-In the Defender for Cloud portal, you have the ability to change the Vulnerability Assessment (VA) solution to the built-in MDVM solution. 
+In the Defender for Cloud portal, you have the ability to change the vulnerability assessment solution to the built-in MDVM solution. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -76,7 +76,7 @@ In the Defender for Cloud portal, you have the ability to change the Vulnerabili
 
 1. Select **Save**.
 
-After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current VA solution. There are three ways to offboard a VM:
+After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current vulnerability assessment solution. There are three ways to offboard a VM:
 
 - [Delete the VM extension](/powershell/module/az.compute/remove-azvmextension?view=azps-11.0.0).
 - [REST API DELETE request](/rest/api/compute/virtual-machine-extensions/delete?view=rest-compute-2023-07-01&tabs=HTTP).
@@ -86,7 +86,7 @@ After migrating to the built-in MDVM solution in Defender for Cloud, offboard ea
 
 ### REST API for Azure VMs
 
-Using this REST API, you can easily migrate your subscription, at scale, from any VA solution to Microsoft Defender Vulnerability Management.
+Using this REST API, you can easily migrate your subscription, at scale, from any vulnerability assessment solution to Microsoft Defender Vulnerability Management.
 
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Security/serverVulnerabilityAssessmentsSettings/AzureServersSetting?api-version=2022-01-01-preview`
 
@@ -99,7 +99,7 @@ Using this REST API, you can easily migrate your subscription, at scale, from an
  }
 ```
 
-After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current VA solution. There are three ways to offboard a VM:
+After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current vulnerability assessment solution. There are three ways to offboard a VM:
 
 - [Delete the VM extension](/powershell/module/az.compute/remove-azvmextension?view=azps-11.0.0).
 - [REST API DELETE request](/rest/api/compute/virtual-machine-extensions/delete?view=rest-compute-2023-07-01&tabs=HTTP).
@@ -107,7 +107,7 @@ After migrating to the built-in MDVM solution in Defender for Cloud, offboard ea
 
 ### REST API for multicloud VMs
 
-Using this REST API, you can easily migrate your subscription, at scale, from any VA solution to Microsoft Defender Vulnerability Management.
+Using this REST API, you can easily migrate your subscription, at scale, from any vulnerability assessment solution to Microsoft Defender Vulnerability Management.
 
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Security/securityconnectors/{connectorName}?api-version=2022-08-01-preview`
 
@@ -163,7 +163,7 @@ Using this REST API, you can easily migrate your subscription, at scale, from an
 }
 ```
 
-After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current VA solution. There are three ways to offboard a VM:
+After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current vulnerability assessment solution. There are three ways to offboard a VM:
 
 - [Delete the VM extension](/powershell/module/az.compute/remove-azvmextension?view=azps-11.0.0).
 - [REST API DELETE request](/rest/api/compute/virtual-machine-extensions/delete?view=rest-compute-2023-07-01&tabs=HTTP).
