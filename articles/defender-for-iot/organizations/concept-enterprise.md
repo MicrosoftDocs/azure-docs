@@ -13,31 +13,31 @@ The number of IoT devices continues to grow exponentially across enterprise netw
 
 While the number of IoT devices continues to grow, they often lack the security safeguards that are common on managed endpoints like laptops and mobile phones. To bad actors, these unmanaged devices can be used as a point of entry for lateral movement or evasion, and too often, the use of such tactics leads to the exfiltration of sensitive information.
 
-[Microsoft Defender for IoT](./index.yml) seamlessly integrates with [Microsoft 365 Defender](/microsoft-365/security/defender) and [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) to provide both IoT device discovery and security value for IoT devices, including purpose-built alerts, recommendations, and vulnerability data.
+[Microsoft Defender for IoT](./index.yml) seamlessly integrates with [Microsoft Defender XDR](/microsoft-365/security/defender) and [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) to provide both IoT device discovery and security value for IoT devices, including purpose-built alerts, recommendations, and vulnerability data.
 
-## Enterprise IoT security in Microsoft 365 Defender
+## Enterprise IoT security in Microsoft Defender XDR
 
-Enterprise IoT security in Microsoft 365 Defender provides IoT-specific security value, including alerts, risk and exposure levels, vulnerabilities, and recommendations in Microsoft 365 Defender.
+Enterprise IoT security in Microsoft Defender XDR provides IoT-specific security value, including alerts, risk and exposure levels, vulnerabilities, and recommendations in Microsoft Defender XDR.
 
-- If you're a Microsoft 365 E5 (ME5)/ E5 Security and Defender for Endpoint P2 customer, [toggle on support](eiot-defender-for-endpoint.md) for **Enterprise IoT Security** in the Microsoft 365 Defender portal.
+- If you're a Microsoft 365 E5 (ME5)/ E5 Security and Defender for Endpoint P2 customer, [toggle on support](eiot-defender-for-endpoint.md) for **Enterprise IoT Security** in the Microsoft Defender XDR portal.
 
 - If you don't have ME5/E5 Security licenses, but you're a Microsoft Defender for Endpoint customer, start with a [free trial](billing.md#free-trial) or purchase standalone, per-device licenses to gain the same IoT-specific security value.
 
-The following image shows the architecture and extra features added with **Enterprise IoT security** in Microsoft 365 Defender:
+The following image shows the architecture and extra features added with **Enterprise IoT security** in Microsoft Defender XDR:
 
 :::image type="content" source="media/enterprise-iot/architecture-endpoint-only.png" alt-text="Diagram of the service architecture when you have an Enterprise IoT plan added to Defender for Endpoint." border="false":::
 
 
 For more information, see:
 
-- [Get started with enterprise IoT monitoring in Microsoft 365 Defender](eiot-defender-for-endpoint.md)
+- [Get started with enterprise IoT monitoring in Microsoft Defender XDR](eiot-defender-for-endpoint.md)
 - [Defender for IoT subscription billing](billing.md)
 - [Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery)
-- [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response)
+- [Alerts queue in Microsoft Defender XDR](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response)
 - [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
 - [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses)
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
-- [Proactively hunt with advanced hunting in Microsoft 365 Defender](/microsoft-365/security/defender/advanced-hunting-overview)
+- [Proactively hunt with advanced hunting in Microsoft Defender XDR](/microsoft-365/security/defender/advanced-hunting-overview)
 
 ## Frequently asked questions
 
@@ -63,7 +63,7 @@ Microsoft E5 (ME5) and E5 Security customers already have devices supported for 
 
 For more information, see:
 
-- [Get started with enterprise IoT monitoring in Microsoft 365 Defender](eiot-defender-for-endpoint.md)
+- [Get started with enterprise IoT monitoring in Microsoft Defender XDR](eiot-defender-for-endpoint.md)
 - [Manage enterprise IoT monitoring support with Microsoft Defender for IoT](manage-subscriptions-enterprise.md)
 
 ### What permissions do I need to use Enterprise IoT security with Defender for IoT?
@@ -90,8 +90,8 @@ For more information, see [Defender for IoT subscription billing](billing.md).
 
 ### How can I resolve billing issues associated with my Defender for IoT plan?
 
-For any billing or technical issues, open a support ticket for Microsoft 365 Defender.
+For any billing or technical issues, open a support ticket for Microsoft Defender XDR.
 
 ## Next steps
 
-Start securing your Enterprise IoT network resources with by [onboarding to Defender for IoT from Microsoft 365 Defender](eiot-defender-for-endpoint.md).
+Start securing your Enterprise IoT network resources with by [onboarding to Defender for IoT from Microsoft Defender XDR](eiot-defender-for-endpoint.md).

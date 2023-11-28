@@ -10,7 +10,7 @@ ms.custom: enterprise-iot
 
 This article describes how to register an Enterprise IoT network sensor in Microsoft Defender for IoT.
 
-Microsoft 365 Defender customers with an Enterprise IoT network sensor can see all discovered devices in the **Device inventory** in either Microsoft 365 Defender or Defender for IoT. You'll also get extra security value from more alerts, vulnerabilities, and recommendations in Microsoft 365 Defender for the newly discovered devices.
+Microsoft Defender XDR customers with an Enterprise IoT network sensor can see all discovered devices in the **Device inventory** in either Microsoft Defender XDR or Defender for IoT. You'll also get extra security value from more alerts, vulnerabilities, and recommendations in Microsoft Defender XDR for the newly discovered devices.
 
 If you're a Defender for IoT customer working solely in the Azure portal, an Enterprise IoT network sensor provides extra device visibility to Enterprise IoT devices, such as Voice over Internet Protocol (VoIP) devices, printers, and cameras, which might not be covered by your OT network sensors.
 
@@ -27,9 +27,9 @@ This section describes the prerequisites required before deploying an Enterprise
 
 ### Azure requirements
 
-- To view Defender for IoT data in Microsoft 365 Defender, including devices, alerts, recommendations, and vulnerabilities, you must have **Enterprise IoT security** turned on in [Microsoft 365 Defender](eiot-defender-for-endpoint.md).  
+- To view Defender for IoT data in Microsoft Defender XDR, including devices, alerts, recommendations, and vulnerabilities, you must have **Enterprise IoT security** turned on in [Microsoft Defender XDR](eiot-defender-for-endpoint.md).  
 
-    If you only want to view data in the Azure portal, you don't need Microsoft 365 Defender. You can also turn on **Enterprise IoT security** in Microsoft 365 Defender after registering your network sensor to bring [extra device visibility and security value](concept-enterprise.md#enterprise-iot-security-in-microsoft-365-defender) to your organization.
+    If you only want to view data in the Azure portal, you don't need Microsoft Defender XDR. You can also turn on **Enterprise IoT security** in Microsoft Defender XDR after registering your network sensor to bring [extra device visibility and security value](concept-enterprise.md#enterprise-iot-security-in-microsoft-365-defender) to your organization.
 
 - Make sure you can access the Azure portal as a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user. If you don't already have an Azure account, you can [create your free Azure account today](https://azure.microsoft.com/free/).
 
@@ -177,9 +177,9 @@ In the **Sites and sensors** page, Enterprise IoT sensors are all automatically 
 
 Once you've validated your setup, the Defender for IoT **Device inventory** page will start to populate with new devices detected by your sensor after 15 minutes.
 
-If you're a Defender for Endpoint customer with a [legacy Enterprise IoT plan](whats-new.md#enterprise-iot-protection-now-included-in-microsoft-365-e5-and-e5-security-licenses), you're able to view all detected devices in the **Device inventory** pages, in both Defender for IoT and Microsoft 365 Defender. Detected devices include both devices detected by Defender for Endpoint and devices detected by the Enterprise IoT sensor.
+If you're a Defender for Endpoint customer with a [legacy Enterprise IoT plan](whats-new.md#enterprise-iot-protection-now-included-in-microsoft-365-e5-and-e5-security-licenses), you're able to view all detected devices in the **Device inventory** pages, in both Defender for IoT and Microsoft Defender XDR. Detected devices include both devices detected by Defender for Endpoint and devices detected by the Enterprise IoT sensor.
 
-For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md) and [Microsoft 365 Defender device discovery](/microsoft-365/security/defender-endpoint/machines-view-overview).
+For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md) and [Microsoft Defender XDR device discovery](/microsoft-365/security/defender-endpoint/machines-view-overview).
 
 
 ## Delete an Enterprise IoT network sensor
@@ -195,7 +195,7 @@ For more information, see [Manage sensors with Defender for IoT in the Azure por
 > [!TIP]
 > You can also remove your sensor manually from the CLI. For more information, see [Extra steps and samples for Enterprise IoT deployment](extra-deploy-enterprise-iot.md#remove-an-enterprise-iot-network-sensor-optional).
 
-If you want to cancel enterprise IoT security with Microsoft 365 Defender, do so from the Microsoft 365 Defender portal. For more information, see [Turn off enterprise IoT security](manage-subscriptions-enterprise.md#turn-off-enterprise-iot-security).
+If you want to cancel enterprise IoT security with Microsoft Defender XDR, do so from the Microsoft Defender XDR portal. For more information, see [Turn off enterprise IoT security](manage-subscriptions-enterprise.md#turn-off-enterprise-iot-security).
 
 ## Next steps
 

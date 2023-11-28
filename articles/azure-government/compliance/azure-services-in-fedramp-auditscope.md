@@ -186,7 +186,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Managed Applications](../../azure-resource-manager/managed-applications/index.yml) | &#x2705; | &#x2705; |
 | [Media Services](/azure/media-services/) | &#x2705; | &#x2705; |
 | [Metrics Advisor](../../ai-services/metrics-advisor/index.yml) | &#x2705; | &#x2705; |
-| [Microsoft 365 Defender](/microsoft-365/security/defender/) (formerly Microsoft Threat Protection) | &#x2705; | &#x2705; |
+| [Microsoft Defender XDR](/microsoft-365/security/defender/) (formerly Microsoft Threat Protection) | &#x2705; | &#x2705; |
 | [Microsoft Azure Attestation](../../attestation/index.yml)| &#x2705; | &#x2705; |
 | [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/)| &#x2705; | &#x2705; |
 | [Microsoft Defender for Cloud](../../defender-for-cloud/index.yml) (formerly Azure Security Center) | &#x2705; | &#x2705; |
@@ -388,7 +388,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Machine Learning](../../machine-learning/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Managed Applications](../../azure-resource-manager/managed-applications/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Media Services](/azure/media-services/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Microsoft 365 Defender](/microsoft-365/security/defender/) (formerly Microsoft Threat Protection) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Microsoft Defender XDR](/microsoft-365/security/defender/) (formerly Microsoft Threat Protection) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Microsoft Azure portal](../../azure-portal/index.yml) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Microsoft Azure Government portal](../documentation-government-get-started-connect-with-portal.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | |

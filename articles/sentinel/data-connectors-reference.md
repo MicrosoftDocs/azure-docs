@@ -400,7 +400,7 @@ Data connectors are available as part of the following offerings:
 - [DNS](data-connectors/dns.md)
 - [Fortinet FortiWeb Web Application Firewall](data-connectors/fortinet-fortiweb-web-application-firewall.md)
 - [Microsoft 365 (formerly, Office 365)](data-connectors/microsoft-365.md)
-- [Microsoft 365 Defender](data-connectors/microsoft-365-defender.md)
+- [Microsoft Defender XDR](data-connectors/microsoft-365-defender.md)
 - [Microsoft 365 Insider Risk Management](data-connectors/microsoft-365-insider-risk-management.md)
 - [Microsoft Defender for Cloud](data-connectors/microsoft-defender-for-cloud.md)
 - [Microsoft Defender for Cloud Apps](data-connectors/microsoft-defender-for-cloud-apps.md)

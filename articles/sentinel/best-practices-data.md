@@ -68,7 +68,7 @@ Standard configuration for data collection may not work well for your organizati
 
 If you need to collect logs from Endpoint solutions, such as EDR, other security events, Sysmon, and so on, use one of the following methods:
 
-- **MTP connector** to collect logs from Microsoft 365 Defender for Endpoint. This option incurs extra costs for the data ingestion.
+- **MTP connector** to collect logs from Microsoft Defender XDR for Endpoint. This option incurs extra costs for the data ingestion.
 - **Windows Event Forwarding**.
 
 > [!NOTE]

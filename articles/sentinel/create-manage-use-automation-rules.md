@@ -46,7 +46,7 @@ The following table shows the different possible scenarios that will cause an au
 
 | Trigger type | Events that cause the rule to run |
 | --------- | ------------ |
-| **When incident is created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft 365 Defender.<br>- A new incident is created manually. |
+| **When incident is created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft Defender XDR.<br>- A new incident is created manually. |
 | **When incident is updated**<br> | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
 | **When alert is created**<br> | - An alert is created by a scheduled analytics rule.
 
@@ -75,11 +75,11 @@ From the **Trigger** drop-down, select the appropriate trigger according to the 
 
 #### Base conditions
 
-1. **Incident provider**: Incidents can have two possible sources: they can be created inside Microsoft Sentinel, and they can also be [imported from&mdash;and synchronized with&mdash;Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md).
+1. **Incident provider**: Incidents can have two possible sources: they can be created inside Microsoft Sentinel, and they can also be [imported from&mdash;and synchronized with&mdash;Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md).
 
-    If you selected one of the incident triggers and you want the automation rule to take effect only on incidents created in Microsoft Sentinel, or alternatively, only on those imported from Microsoft 365 Defender, specify the source in the **If Incident provider equals** condition. (This condition will be displayed only if an incident trigger is selected.)
+    If you selected one of the incident triggers and you want the automation rule to take effect only on incidents created in Microsoft Sentinel, or alternatively, only on those imported from Microsoft Defender XDR, specify the source in the **If Incident provider equals** condition. (This condition will be displayed only if an incident trigger is selected.)
 
-1. **Analytics rule name**: For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition. (This condition will *not* be displayed if Microsoft 365 Defender is selected as the incident provider.)
+1. **Analytics rule name**: For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition. (This condition will *not* be displayed if Microsoft Defender XDR is selected as the incident provider.)
 
 #### Other conditions (incidents only)
 

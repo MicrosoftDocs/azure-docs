@@ -61,4 +61,4 @@ The following table lists the most important types of logs available in Azure:
 
 - [Configure audit settings for a site collection](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US): If you're a site collection administrator, retrieve the history of individual users' actions and the history of actions taken during a particular date range.
 
-- [Search the audit log in the Microsoft 365 Defender portal](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance): Use the Microsoft 365 Defender portal to search the unified audit log and view user and administrator activity in your organization.
+- [Search the audit log in the Microsoft Defender XDR portal](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance): Use the Microsoft Defender XDR portal to search the unified audit log and view user and administrator activity in your organization.

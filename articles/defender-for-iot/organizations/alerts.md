@@ -51,11 +51,11 @@ Alert options also differ depending on your location and user role. For more inf
 
 ### Enterprise IoT alerts and Microsoft Defender for Endpoint
 
-If you're using [Enterprise IoT security](eiot-defender-for-endpoint.md) in Microsoft 365 Defender, alerts for Enterprise IoT devices detected by Microsoft Defender for Endpoint are available in Microsoft 365 Defender only.
+If you're using [Enterprise IoT security](eiot-defender-for-endpoint.md) in Microsoft Defender XDR, alerts for Enterprise IoT devices detected by Microsoft Defender for Endpoint are available in Microsoft Defender XDR only.
 
 Alerts triggered by [Enterprise IoT sensors](eiot-sensor.md) are shown in the Azure portal only.
 
-For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md) and the [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
+For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md) and the [Alerts queue in Microsoft Defender XDR](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
 
 ## Managing OT alerts in a hybrid environment
 

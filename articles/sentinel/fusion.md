@@ -47,7 +47,7 @@ The Fusion engine's ML algorithms constantly learn from existing attacks and app
   - Microsoft Entra ID Protection
   - Microsoft Defender for Cloud
   - Microsoft Defender for IoT
-  - Microsoft 365 Defender
+  - Microsoft Defender XDR
   - Microsoft Defender for Cloud Apps
   - Microsoft Defender for Endpoint
   - Microsoft Defender for Identity

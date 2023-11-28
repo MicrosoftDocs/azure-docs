@@ -39,13 +39,13 @@
       expanded: false
       items:
         - name: Connect your Azure subscriptions
-          displayName: enable, defender for cloud, activate, turn on, Microsoft 365 Defender, alerts, integration, m365, m365d, m365 defender
+          displayName: enable, defender for cloud, activate, turn on, Microsoft Defender XDR, alerts, integration, m365, m365d, m365 defender
           href: connect-azure-subscription.md
         - name: Connect your AWS accounts
-          displayName: hybrid, multicloud, multicloud, amazon, arc, AWS, accounts, Microsoft 365 Defender, alerts, integration, m365, m365d, m365 defender
+          displayName: hybrid, multicloud, multicloud, amazon, arc, AWS, accounts, Microsoft Defender XDR, alerts, integration, m365, m365d, m365 defender
           href: quickstart-onboard-aws.md
         - name: Connect your GCP projects
-          displayName: hybrid, multicloud, multicloud, google, gcp, Microsoft 365 Defender, alerts, integration, m365, m365d, m365 defender
+          displayName: hybrid, multicloud, multicloud, google, gcp, Microsoft Defender XDR, alerts, integration, m365, m365d, m365 defender
           href: quickstart-onboard-gcp.md
         - name: Connect individual non-Azure machines
           items:
@@ -53,7 +53,7 @@
               displayName: azure stack, ash, windows, linux, hybrid, defender for endpoint
               href: onboard-machines-with-defender-for-endpoint.md
             - name: Connect machines with Azure Arc
-              displayName: azure stack, ash, windows, linux, hybrid, arc, on-premises, Microsoft 365 Defender, alerts, integration, m365, m365d, m365 defender
+              displayName: azure stack, ash, windows, linux, hybrid, arc, on-premises, Microsoft Defender XDR, alerts, integration, m365, m365d, m365 defender
               href: quickstart-onboard-machines.md
     - name: Enable specific Defender plans
       expanded: false
@@ -256,8 +256,8 @@
           displayName: security, alerts, classification, incident, threat, detection,
             analytics,
           href: alerts-overview.md
-        - name: Alerts and incidents in Microsoft 365 Defender
-          displayName: Microsoft 365 Defender, alerts, integration, m365, m365d, m365 defender
+        - name: Alerts and incidents in Microsoft Defender XDR
+          displayName: Microsoft Defender XDR, alerts, integration, m365, m365d, m365 defender
           href: concept-integration-365.md
         - name: Security alerts
           items:

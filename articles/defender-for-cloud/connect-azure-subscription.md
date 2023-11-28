@@ -16,7 +16,7 @@ Microsoft Defender for Cloud is a cloud-native application protection platform (
 - A cloud security posture management (CSPM) solution that surfaces actions that you can take to prevent breaches
 - A cloud workload protection platform (CWPP) with specific protections for servers, containers, storage, databases, and other workloads
 
-Defender for Cloud includes Foundational CSPM capabilities and access to [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide) for free. You can add additional paid plans to secure all aspects of your cloud resources. To learn more about these plans and their costs, see the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+Defender for Cloud includes Foundational CSPM capabilities and access to [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide) for free. You can add additional paid plans to secure all aspects of your cloud resources. To learn more about these plans and their costs, see the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 Defender for Cloud helps you find and fix security vulnerabilities. Defender for Cloud also applies access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack.
 
@@ -95,13 +95,13 @@ If you want to disable any of the plans, toggle the individual plan to **off**. 
 > [!TIP]
 > To enable Defender for Cloud on all subscriptions within a management group, see [Enable Defender for Cloud on multiple Azure subscriptions](onboard-management-group.md).
 
-## Integrate with Microsoft 365 Defender (Preview)
+## Integrate with Microsoft Defender XDR (Preview)
 
-When you enable Defender for Cloud, Defender for Cloud's alerts are automatically integrated into the Microsoft 365 Defender portal. No further steps are needed.
+When you enable Defender for Cloud, Defender for Cloud's alerts are automatically integrated into the Microsoft Defender XDR portal. No further steps are needed.
 
-The integration between Microsoft Defender for Cloud and Microsoft 365 Defender brings your cloud environments into Microsoft 365 Defender. With Defender for Cloud's alerts and cloud correlations integrated into Microsoft 365 Defender, SOC teams can now access all security information from a single interface. 
+The integration between Microsoft Defender for Cloud and Microsoft Defender XDR brings your cloud environments into Microsoft Defender XDR. With Defender for Cloud's alerts and cloud correlations integrated into Microsoft Defender XDR, SOC teams can now access all security information from a single interface. 
 
-Learn more about Defender for Cloud's [alerts in Microsoft 365 Defender](concept-integration-365.md).
+Learn more about Defender for Cloud's [alerts in Microsoft Defender XDR](concept-integration-365.md).
 
 ## Next steps
 

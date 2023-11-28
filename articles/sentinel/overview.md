@@ -42,7 +42,7 @@ To on-board Microsoft Sentinel, you first need to [connect to your data sources]
 
 Microsoft Sentinel comes with many connectors for Microsoft solutions that are available out of the box and provide real-time integration. Some of these connectors include:
 
-- Microsoft sources like Microsoft 365 Defender, Microsoft Defender for Cloud, Office 365, Microsoft Defender for IoT, and more.
+- Microsoft sources like Microsoft Defender XDR, Microsoft Defender for Cloud, Office 365, Microsoft Defender for IoT, and more.
 - Azure service sources like Microsoft Entra ID, Azure Activity, Azure Storage, Azure Key Vault, Azure Kubernetes service, and more.
 
 Microsoft Sentinel has built-in connectors to the broader security and applications ecosystems for non-Microsoft solutions. You can also use common event format, Syslog, or REST-API to connect your data sources with Microsoft Sentinel.

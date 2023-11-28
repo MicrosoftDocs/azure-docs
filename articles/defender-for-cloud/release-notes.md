@@ -28,7 +28,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 | November 22 | [Enable permissions management with Defender for Cloud (Preview)](#enable-permissions-management-with-defender-for-cloud-preview) |
 | November 22 | [Defender for Cloud integration with ServiceNow](#defender-for-cloud-integration-with-servicenow) |
 | November 20| [General Availability of the autoprovisioning process for SQL Servers on machines plan](#general-availability-of-the-autoprovisioning-process-for-sql-servers-on-machines-plan)|
-| November 15 | [Defender for Cloud is now integrated with Microsoft 365 Defender (Preview)](#defender-for-cloud-is-now-integrated-with-microsoft-365-defender-preview) |
+| November 15 | [Defender for Cloud is now integrated with Microsoft Defender XDR (Preview)](#defender-for-cloud-is-now-integrated-with-microsoft-365-defender-preview) |
 | November 15 | [General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries](#general-availability-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries) |
 | November 15 | [Change to Container Vulnerability Assessments recommendation names](#change-to-container-vulnerability-assessments-recommendation-names) |
 | November 15 | [Risk prioritization is now available for recommendations](#risk-prioritization-is-now-available-for-recommendations) |
@@ -81,13 +81,13 @@ In preparation for the Microsoft Monitoring Agent (MMA) deprecation in August 20
 
 Customers using the MMA autoprovisioning process are requested to [migrate to the new Azure Monitoring Agent for SQL server on machines autoprovisioning process](/azure/defender-for-cloud/defender-for-sql-autoprovisioning). The migration process is seamless and provides continuous protection for all machines.  
 
-### Defender for Cloud is now integrated with Microsoft 365 Defender (Preview)
+### Defender for Cloud is now integrated with Microsoft Defender XDR (Preview)
 
 November 15, 2023
 
-Businesses can protect their cloud resources and devices with the new integration between Microsoft Defender for Cloud and Microsoft 365 Defender. This integration connects the dots between cloud resources, devices, and identities, which previously required multiple experiences. 
+Businesses can protect their cloud resources and devices with the new integration between Microsoft Defender for Cloud and Microsoft Defender XDR. This integration connects the dots between cloud resources, devices, and identities, which previously required multiple experiences. 
 
-The integration also brings competitive cloud protection capabilities into the Security Operations Center (SOC) day-to-day. With Microsoft 365 Defender, SOC teams can easily discover attacks that combine detections from multiple pillars, including Cloud, Endpoint, Identity, Office 365, and more.
+The integration also brings competitive cloud protection capabilities into the Security Operations Center (SOC) day-to-day. With Microsoft Defender XDR, SOC teams can easily discover attacks that combine detections from multiple pillars, including Cloud, Endpoint, Identity, Office 365, and more.
 
 Some of the key benefits include:
 
@@ -95,11 +95,11 @@ Some of the key benefits include:
 
 - **One attack story**: Customers are able to understand the complete attack story, including their cloud environment, by using prebuilt correlations that combine security alerts from multiple sources.
 
-- **New cloud entities in Microsoft 365 Defender**: Microsoft 365 Defender now supports new cloud entities that are unique to Microsoft Defender for Cloud, such as cloud resources. Customers can match Virtual Machine (VM) entities to device entities, providing a unified view of all relevant information about a machine, including alerts and incidents that were triggered on it.
+- **New cloud entities in Microsoft Defender XDR**: Microsoft Defender XDR now supports new cloud entities that are unique to Microsoft Defender for Cloud, such as cloud resources. Customers can match Virtual Machine (VM) entities to device entities, providing a unified view of all relevant information about a machine, including alerts and incidents that were triggered on it.
 
-- **Unified API for Microsoft Security products**: Customers can now export their security alerts data into their systems of choice using a single API, as Microsoft Defender for Cloud alerts and incidents are now part of Microsoft 365 Defender's public API.
+- **Unified API for Microsoft Security products**: Customers can now export their security alerts data into their systems of choice using a single API, as Microsoft Defender for Cloud alerts and incidents are now part of Microsoft Defender XDR's public API.
 
-The integration between Defender for Cloud and Microsoft 365 Defender is available to all new and existing Defender for Cloud customers.
+The integration between Defender for Cloud and Microsoft Defender XDR is available to all new and existing Defender for Cloud customers.
 
 ### General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries
 

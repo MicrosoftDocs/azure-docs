@@ -155,8 +155,8 @@ This table shows how Microsoft Sentinel and Log Analytics no charge costs appear
  Cost description | Service name | Meter |
 |--|--|--|
 | Microsoft Sentinel Free Trial – Sentinel Analysis| `Sentinel` |**Free trial Analysis**|
-| Microsoft 365 Defender Benefit – Data Ingestion| `Azure Monitor` |**Free Benefit - M365 Defender Data Ingestion**|
-| Microsoft 365 Defender Benefit – Data Analysis| `Sentinel` |**Free Benefit - M365 Defender Analysis**|
+| Microsoft Defender XDR Benefit – Data Ingestion| `Azure Monitor` |**Free Benefit - M365 Defender Data Ingestion**|
+| Microsoft Defender XDR Benefit – Data Analysis| `Sentinel` |**Free Benefit - M365 Defender Analysis**|
 
 
 # [Free data meters](#tab/free-data-meters/classic)
@@ -167,8 +167,8 @@ This table shows how Microsoft Sentinel and Log Analytics no charge costs appear
 |--|--|--|
 | Microsoft Sentinel Free Trial – Log Analytics data ingestion| `Azure Monitor` |**Free Benefit - Az Sentinel Trial Data Ingestion**|
 | Microsoft Sentinel Free Trial – Sentinel Analysis| `Sentinel` |**Free trial Analysis**|
-| Microsoft 365 Defender Benefit – Data Ingestion| `Azure Monitor` |**Free Benefit - M365 Defender Data Ingestion**|
-| Microsoft 365 Defender Benefit – Data Analysis| `Sentinel` |**Free Benefit - M365 Defender Analysis**|
+| Microsoft Defender XDR Benefit – Data Ingestion| `Azure Monitor` |**Free Benefit - M365 Defender Data Ingestion**|
+| Microsoft Defender XDR Benefit – Data Analysis| `Sentinel` |**Free Benefit - M365 Defender Analysis**|
 
 ---
 
@@ -213,10 +213,10 @@ The following data sources are free with Microsoft Sentinel:
 
 - Azure Activity Logs.
 - Office 365 Audit Logs, including all SharePoint activity, Exchange admin activity, and Teams.
-- Security alerts, including alerts from Microsoft Defender for Cloud, Microsoft 365 Defender, Microsoft Defender for Office 365, Microsoft Defender for Identity, and Microsoft Defender for Endpoint.
+- Security alerts, including alerts from Microsoft Defender for Cloud, Microsoft Defender XDR, Microsoft Defender for Office 365, Microsoft Defender for Identity, and Microsoft Defender for Endpoint.
 - Microsoft Defender for Cloud and Microsoft Defender for Cloud Apps alerts. 
 
-Although alerts are free, the raw logs for some Microsoft 365 Defender, Defender for Cloud Apps, Microsoft Entra ID, and Azure Information Protection (AIP) data types are paid.
+Although alerts are free, the raw logs for some Microsoft Defender XDR, Defender for Cloud Apps, Microsoft Entra ID, and Azure Information Protection (AIP) data types are paid.
 
 The following table lists the data sources in Microsoft Sentinel that aren't charged. This is the same list as Log Analytics. For more information, see [excluded tables](../azure-monitor/logs/cost-logs.md#excluded-tables).
 
@@ -229,7 +229,7 @@ The following table lists the data sources in Microsoft Sentinel that aren't cha
 || OfficeActivity (Teams)          | 
 | **Microsoft Defender for Cloud**                  | SecurityAlert (Defender for Cloud)             | 
 | **Microsoft Defender for IoT**          | SecurityAlert (Defender for IoT)     | 
-| **Microsoft 365 Defender**          | SecurityIncident | 
+| **Microsoft Defender XDR**          | SecurityIncident | 
 ||SecurityAlert|
 | **Microsoft Defender for Endpoint** | SecurityAlert (MDATP)          | 
 | **Microsoft Defender for Identity** | SecurityAlert (AATP)           | 
