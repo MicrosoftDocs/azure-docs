@@ -1,0 +1,57 @@
+- name: Azure Operational Excellence
+  href: index.yml
+- name: Overview
+  href: overview.md
+- name: Azure region relocation
+  items:
+  - name: What are Azure availability zones?
+    href: availability-zones-overview.md
+  - name: Services and regions with availability zone support
+    href: availability-zones-service-support.md
+  - name: Migrate to availability zone support
+    items:
+    - name: Overview
+      href: availability-zones-migration-overview.md
+    - name: Azure availability zone migration baseline
+      href: availability-zones-baseline.md
+    - name: Migration guides by service
+      items:
+      - name: Azure API Management
+        href: migrate-api-mgt.md
+      - name: Azure App Configuration
+        href: migrate-app-configuration.md
+      - name: Azure Application Gateway
+        href: migrate-app-gateway-v2.md
+      - name: Azure Functions
+        href: migrate-functions.md
+      - name: Azure Cache for Redis
+        href: migrate-cache-redis.md
+      - name: Azure AI Search
+        href: migrate-search-service.md
+      - name: Azure Container instances
+        href: migrate-container-instances.md
+      - name: Azure Database for MySQL - Flexible Server
+        href: migrate-database-mysql-flex.md
+      - name: Azure Load Balancer 
+        href: migrate-load-balancer.md
+      - name: Azure Log Analytics workspaces
+        href: migrate-monitor-log-analytics.md
+      - name: Azure Recovery Services vault
+        href: migrate-recovery-services-vault.md
+      - name: Azure Service Fabric
+        href: migrate-service-fabric.md
+      - name: Azure SQL Database
+        href: migrate-sql-database.md
+      - name: Azure Storage accounts
+        href: migrate-storage.md
+      - name: Azure SQL managed instance
+        href: migrate-sql-managed-instance.md
+      - name: Azure Virtual Machines and Virtual Machine Scale Sets
+        href: migrate-vm.md
+      - name: Workload - Azure Kubernetes and MySQL
+        href: migrate-workload-aks-mysql.md
+- name: Resources
+  items:
+  - name: Operational Excellence in Microsoft Azure Well-Architected Framework
+    href: /azure/well-architected/operational-excellence/principles
+
