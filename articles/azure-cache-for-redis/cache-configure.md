@@ -15,7 +15,7 @@ ms.custom: engagement-fy23
 This article describes the configurations available for your Azure Cache for Redis instances. This article also covers the [default Redis server configuration](#default-redis-server-configuration) for Azure Cache for Redis instances.
 
 > [!NOTE]
-> For more information on configuring and using premium cache features, see [How to configure persistence](cache-how-to-premium-persistence.md), [How to configure clustering](cache-how-to-premium-clustering.md), and [How to configure Virtual Network support](cache-how-to-premium-vnet.md).
+> For more information on configuring and using premium cache features, see [How to configure persistence](cache-how-to-premium-persistence.md) and [How to configure Virtual Network support](cache-how-to-premium-vnet.md).
 >
 
 ## Configure Azure Cache for Redis settings
@@ -231,9 +231,6 @@ Select **Cluster Size** to change the cluster size for a running premium cache w
 :::image type="content" source="media/cache-configure/redis-cache-redis-cluster-size.png" alt-text="Cluster size":::
 
 To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box. Then, select **OK** to save.
-
-> [!IMPORTANT]
-> Redis clustering is only available for Premium caches. For more information, see [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md).
 
 ### Data persistence
 
@@ -496,7 +493,7 @@ New Azure Cache for Redis instances are configured with the following default Re
   - P3 (26 GB - 260 GB) - up to 48 databases
   - P4 (53 GB - 530 GB) - up to 64 databases
   - P5 (120 GB - 1200 GB) - up to 64 databases
-  - All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](https://redis.io/commands/select) command isn't allowed. For more information, see [Do I need to make any changes to my client application to use clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+  - All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](https://redis.io/commands/select) command isn't allowed.
 
 For more information about databases, see [What are Redis databases?](cache-development-faq.yml#what-are-redis-databases-)
 

@@ -43,9 +43,9 @@ Once you've put together the set of forms or documents for training, you need to
 
 ## Video: Train your custom model
 
-* Once you've gathered and uploaded your training dataset, you're ready to train your custom model. In the following video, we create a project and explore some of the fundamentals for successfully labeling and training a model.</br></br>
+* Once you've gathered and uploaded your training dataset, you're ready to train your custom model. In the following video, we create a project and explore some of the fundamentals for successfully labeling and training a model.
 
-  [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1c]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1c]
 
 ## Create a project in the Document Intelligence Studio
 

@@ -1,8 +1,9 @@
 ---
 title: Quality of Experience - Affirmed MCC Data Products - Azure Operator Insights
 description: This article gives an overview of the Azure Operator Insights Data Products provided to monitor the Quality of Experience for the Affirmed Mobile Content Cloud (MCC) 
-author: bettylew
-ms.author: rathishr
+author: rcdun
+ms.author: rdunstan
+ms.reviewer: rathishr
 ms.service: operator-insights
 ms.topic: concept-article
 ms.date: 10/25/2023
