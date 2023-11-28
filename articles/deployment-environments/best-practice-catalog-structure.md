@@ -16,7 +16,7 @@ ms.date: 11/27/2023
 This article describes the best practice guidelines for structuring an Azure Deployment Environments catalog.
 
 ## Structure the catalog for efficient caching
-As a platform engineer, you should structure your catalog in a way that makes it easier and quicker for Azure Deployment Environments to find and cache environment defintions efficiently. By organizing the repository into a specific structure, you can better target files for caching and improve the overall performance of the deployment process. It's essential for platform engineers to understand these guidelines and structure their repositories accordingly to ensure optimal results.
+As a platform engineer, you should structure your catalog in a way that makes it easier and quicker for Azure Deployment Environments to find and cache environment definitions efficiently. By organizing the repository into a specific structure, you can better target files for caching and improve the overall performance of the deployment process. It's essential for platform engineers to understand these guidelines and structure their repositories accordingly to ensure optimal results.
 
 When you attach a catalog to a dev center, Deployment Environments scans the catalog for an environment.yaml file. On locating the file, ADE assumes the files in that folder and subfolders form an environment definition. ADE caches only the required files, not the entire repository. 
 
