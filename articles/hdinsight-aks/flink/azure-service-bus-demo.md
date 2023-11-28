@@ -1,11 +1,11 @@
 ---
-title: DStreamAPI AzureServiceBusDemo
-description: DStreamAPI AzureServiceBusDemo
+title: DStreamAPI Azure Service Bus demo
+description: DStreamAPI Azure Service Bus demo
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 11/27/2023
 ---
-# DStreamAPI AzureServiceBusDemo
+# DStreamAPI Azure Service Bus demo
 
 [!INCLUDE feature-in-preview]
 
