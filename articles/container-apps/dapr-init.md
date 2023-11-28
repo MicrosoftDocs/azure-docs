@@ -52,7 +52,7 @@ cd containerapps-dapr-components-init
 
 ## (Optional) Build and run Docker images
 
-This sample comes with pre-built Docker images. 
+This sample comes with prebuilt Docker images. 
 
 If you'd like to build custom images:
 - Update the [`containerApps.bicep`](https://github.com/Azure-Samples/containerapps-dapr-components-init/blob/main/deploy/containerApps.bicep) file with your Docker image name.
@@ -63,11 +63,11 @@ If you'd like to build custom images:
    docker buildx build --platform linux/amd64 -t $MY_CONTAINER_REGISTRY/python-order-processor:latest --push ./order-processor:latest
    ```
 
-If you'd like to use the pre-built images, move on to the next step.
+If you'd like to use the prebuilt images, move on to the next step.
 
 ## Set the environment variables
 
-In the terminal, set the environment variables. You can replace the values below with something more unique.
+In the terminal, set the environment variables. You can replace the values in the following example with something more unique.
 
 ```shell
 VAR_RESOURCE_GROUP="myResourceGroup"
@@ -99,7 +99,7 @@ Run the new `dapr-component init` command to initialize managed Dapr components 
 az containerapp env dapr-component init -g $VAR_RESOURCE_GROUP --name $VAR_ENVIRONMENT 
 ```
 
-If you're using Kafka or PostgreSQL components instead of the default Redis, specify which components you're using with additional parameters. For example, for a Kafka pub/sub component and a PostgreSQL statestore, run the following command:
+If you're using Kafka or PostgreSQL components instead of the default Redis, specify which components you're using with extra parameters. For example, for a Kafka pub/sub component and a PostgreSQL state store, run the following command:
 
 ```shell
 az containerapp env dapr-component init -g $VAR_RESOURCE_GROUP --name $VAR_ENVIRONMENT --statestore postgres --pubsub kafka
