@@ -41,7 +41,7 @@ A whole band, unique in direction and polarity, is called a link. Channels, whic
 
 You can specify EIRP and G/T requirements for each link. EIRP applies to uplinks and G/T applies to downlinks. You can provide a name for each link and channel to keep track of these properties. Each channel has a modem associated with it. Follow the steps in [how to setup software modem](modem-chain.md) to understand the options.
 
-Refer to the example below to understand how to specify an RHCP channel and an LHCP channel if your mission requires dual-polarization on downlink.  
+Refer to the example below to understand how to specify an RHCP channel and an LHCP channel if your mission requires dual-polarization on downlink. To find this information about your contact profile, navigate to the contact profile resource overview and click 'JSON view'.
 
 ```json
 {
@@ -115,7 +115,13 @@ Refer to the example below to understand how to specify an RHCP channel and an L
 
 ## Modifying or deleting a contact profile
 
-You can modify or delete the contact profile via the [Azure portal](https://aka.ms/orbital/portal) or [Azure Orbital Ground Station API](/rest/api/orbital/).
+You can modify or delete the contact profile via the [Azure portal](https://aka.ms/orbital/portal) or [Azure Orbital Ground Station API](/rest/api/orbital/). 
+
+In the Azure portal, navigate to the contact profile resource. 
+- To modify minimum viable contact duration, minimum elevation, auto tracking, or events hubs telemetry, click 'Overview' on the left panel then click 'Edit properties'.
+- To edit links and channels, click 'Links' under 'Configurations' on the left panel then click 'Edit link' on the desired link.
+- To edit third-party configurations, click 'Third-Party Configurations' under 'Configurations' on the left panel then click 'Edit' on the desired configuration.
+- To delete a contact profile, click 'Overview' on the left panel then click 'Delete'.
 
 ## Configuring a contact profile for applicable partner ground stations
 
