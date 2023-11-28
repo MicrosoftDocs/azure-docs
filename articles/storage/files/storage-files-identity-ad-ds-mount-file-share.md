@@ -4,7 +4,7 @@ description: Learn how to mount an Azure file share to your on-premises Active D
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/27/2023
+ms.date: 11/28/2023
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -36,7 +36,7 @@ Before you can mount the Azure file share, make sure you've gone through the fol
 
 Run the PowerShell script below or [use the Azure portal](storage-files-quick-create-use-windows.md#map-the-azure-file-share-to-a-windows-drive) to persistently mount the Azure file share and map it to drive Z: on Windows. If Z: is already in use, replace it with an available drive letter. The script will check to see if this storage account is accessible via TCP port 445, which is the port SMB uses. Remember to replace the placeholder values with your own values. For more information, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
 
-Unless you're using [custom domain names](#mount-file-shares-using-custom-domain-names), you should always mount Azure file shares using the suffix `file.core.windows.net`, even if you set up a private endpoint for your share.
+Unless you're using [custom domain names](#mount-file-shares-using-custom-domain-names), you should mount Azure file shares using the suffix `file.core.windows.net`, even if you set up a private endpoint for your share.
 
 ```powershell
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
