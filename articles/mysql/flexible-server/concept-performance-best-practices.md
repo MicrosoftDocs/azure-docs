@@ -1,5 +1,5 @@
 ---
-title: Performance best practices - Azure Database for MySQL flexible server
+title: Performance best practices - Azure Database for MySQL - Flexible Server
 description: This article describes some recommendations to monitor and tune performance for Azure Database for MySQL flexible server.
 ms.service: mysql
 ms.subservice: flexible-server
