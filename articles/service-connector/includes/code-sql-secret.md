@@ -2,7 +2,7 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/26/2023
+ms.date: 11/28/2023
 ms.author: wchi
 ---
 
@@ -26,28 +26,38 @@ ms.author: wchi
 
 ### [Java](#tab/sql-secret-java)
 
-Get the Azure SQL Database connection string from the environment variable added by Service Connector.
+1. Add the following dependencies in your *pom.xml* file:
 
-```java
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.sqlserver</groupId>
+        <artifactId>mssql-jdbc</artifactId>
+        <version>10.2.0.jre11</version>
+    </dependency>
+    ```
 
-import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
+1. Get the Azure SQL Database connection string from the environment variable added by Service Connector.
 
-public class Main {
-    public static void main(String[] args) {
-        String connectionString = System.getenv("AZURE_SQL_CONNECTIONSTRING");
-        SQLServerDataSource ds = new SQLServerDataSource();
-        ds.setURL(connectionString);
-        try (Connection connection = ds.getConnection()) {
-            System.out.println("Connected successfully.");
-        } catch (SQLException e) {
-            e.printStackTrace();
+    ```java
+    import java.sql.Connection;
+    import java.sql.ResultSet;
+    import java.sql.Statement;
+    
+    import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
+    
+    public class Main {
+        public static void main(String[] args) {
+            String connectionString = System.getenv("AZURE_SQL_CONNECTIONSTRING");
+            SQLServerDataSource ds = new SQLServerDataSource();
+            ds.setURL(connectionString);
+            try (Connection connection = ds.getConnection()) {
+                System.out.println("Connected successfully.");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
-}
-```
+    ```
 
 ### [SpringBoot](#tab/sql-secret-spring)
 1. Add dependency in your 'pom.xml' file:
