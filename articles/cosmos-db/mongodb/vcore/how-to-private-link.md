@@ -117,7 +117,8 @@ SubnetName="mySubnet"
 # Name of the private endpoint to create  
 PrivateEndpointName="myPrivateEndpoint"  
 
-# Name of the private endpoint connection to create PrivateConnectionName="myConnection" 
+# Name of the private endpoint connection to create 
+PrivateConnectionName="myConnection" 
 
 az network vnet create \
   --name $VNetName \
