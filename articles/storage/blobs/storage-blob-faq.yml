@@ -21,7 +21,7 @@ sections:
       - question: |
           If I update an existing policy, how long does it take for the actions to run?
         answer: |
-          The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, the time that it takes for the actions to run varies depending on size of the storage account and operations that are performed. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, then auto-tiering to the hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled or deleted, and a blob is currently in the cool or cold tier and then accessed, it will move back to the hot tier as that is applied on access outside of lifecycle management. The blob won't then move from hot to cool or cold given the the lifecycle management rule is disabled or deleted. The only way to prevent autoTierToHotFromCool is to turn off last access time tracking.  
+          The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, the time that it takes for the actions to run varies depending on size of the storage account and operations that are performed. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, then auto-tiering to the hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled or deleted, and a blob is currently in the cool or cold tier and then accessed, it will move back to the hot tier as that is applied on access outside of lifecycle management. The blob won't then move from hot to cool or cold given the lifecycle management rule is disabled or deleted. The only way to prevent autoTierToHotFromCool is to turn off last access time tracking.  
       - question: |
           The run completes but doesn't move or delete some blobs
         answer: |
@@ -55,48 +55,58 @@ sections:
           Is there a way to identify the time at which the policy will be executing?
         answer: |
           Unfortunately, there's no way to track the time at which the policy will be executing, as it's a background scheduling process. However, the platform will run the policy once per day.     
-  - name: Multiple inventory file output
+  - name: Azure Storage blob inventory
     questions:
       - question: |
-          What has changed with respect to the number of inventory files produced?
+          I created a new inventory rule. Will it run at the same time every day?
         answer: |
-          Blob Inventory report produces three types of files. See [Inventory files](blob-inventory.md#inventory-files). Existing customers using blob inventory might see a change in the number of inventory files, from one file to multiple files. Today, we already have manifest file that provides the list of files. This behavior remains unchanged, so these files are listed in the manifest file.    
+          The daily inventory rule is designed to run once every day. Additionally, there is a weekly inventory rule scheduled for every Sunday. 
       - question: |
-          Why was the change made?
+          Can I expect the rules to run at a fixed time?
         answer: |
-          The change was implemented to enhance blob inventory performance, particularly for large storage accounts containing over five million objects. Now, results are written in parallel to multiple files, eliminating the bottleneck of using a single inventory file. This change was prompted by customer feedback, as they reported difficulties in opening and working with the excessively large single inventory file.
-      - question: |
-          How does this change affect me as a user?
-        answer: |
-          As a user, this change has a positive impact on your experience with blob inventory runs. It's expected to enhance performance and reduce the overall running time. However, to fully benefit from this improvement, you must ensure that your code is updated to process multiple results files instead of just one. This adjustment aligns your code with the new approach and optimizes the handling of inventory data.  
-      - question: |
-          Is my existing data affected?
-        answer: |
-          No, existing data isn't affected. Only new blob inventory results have multiple inventory files.  
-      - question: |
-          Will there be any downtime or service interruptions?
-        answer: |
-          No, the change happens seamlessly.  
-      - question: |
-          Is there anything I need to do differently now?
-        answer: |
-          Your required actions depend on how you currently process blob inventory results:
+          While we strive to provide a consistent experience, we can't guarantee the exact execution time for each run. The inventory rule's execution time might vary. For example, if today's policy is scheduled for 12:05 am, it might kick in at 12:07 am, 12:15 am, or any other time on the following day.
+  - name: Multiple inventory file output
+    questions:
+    - question: |
+        What has changed with respect to the number of inventory files produced?
+      answer: |
+        Blob Inventory report produces three types of files. See [Inventory files](blob-inventory.md#inventory-files). Existing customers using blob inventory might see a change in the number of inventory files, from one file to multiple files. Today, we already have manifest file that provides the list of files. This behavior remains unchanged, so these files are listed in the manifest file.    
+    - question: |
+        Why was the change made?
+      answer: |
+        The change was implemented to enhance blob inventory performance, particularly for large storage accounts containing over five million objects. Now, results are written in parallel to multiple files, eliminating the bottleneck of using a single inventory file. This change was prompted by customer feedback, as they reported difficulties in opening and working with the excessively large single inventory file.
+    - question: |
+        How does this change affect me as a user?
+      answer: |
+        As a user, this change has a positive impact on your experience with blob inventory runs. It's expected to enhance performance and reduce the overall running time. However, to fully benefit from this improvement, you must ensure that your code is updated to process multiple results files instead of just one. This adjustment aligns your code with the new approach and optimizes the handling of inventory data.  
+    - question: |
+        Is my existing data affected?
+      answer: |
+        No, existing data isn't affected. Only new blob inventory results have multiple inventory files.  
+    - question: |
+        Will there be any downtime or service interruptions?
+      answer: |
+        No, the change happens seamlessly.  
+    - question: |
+        Is there anything I need to do differently now?
+      answer: |
+        Your required actions depend on how you currently process blob inventory results:
 
-          - If your current processing assumes a single inventory results file, then you need to modify your code to accommodate multiple inventory results files.
+        - If your current processing assumes a single inventory results file, then you need to modify your code to accommodate multiple inventory results files.
 
-          - However, if your current processing involves reading the list of results files from the manifest file, there's no need to make any changes to how you process the results. The existing approach continues to work seamlessly with the updated feature.  
-      - question: |
-          Can I revert to the previous behavior if I don't like the change?
-        answer: |
-          This isn't recommended, but it's possible. Please work through your support channels to ask to turn off this feature.  
-      - question: |
-          How can I provide feedback or report issues related to the changes?
-        answer: |
-          Please work through your current account team and support channels.  
-      - question: |
-          When will this change take effect?
-        answer: |
-          This change will start gradual rollout starting September 1, 2023.  
+        - However, if your current processing involves reading the list of results files from the manifest file, there's no need to make any changes to how you process the results. The existing approach continues to work seamlessly with the updated feature.  
+    - question: |
+        Can I revert to the previous behavior if I don't like the change?
+      answer: |
+        This isn't recommended, but it's possible. Please work through your support channels to ask to turn off this feature.  
+    - question: |
+        How can I provide feedback or report issues related to the changes?
+      answer: |
+        Please work through your current account team and support channels.  
+    - question: |
+        When will this change take effect?
+      answer: |
+        This change will start gradual rollout starting September 1, 2023.  
   - name: Metrics and Logs
     questions:
       - question: |
@@ -118,7 +128,7 @@ sections:
         answer: |
           Analytics logs have records of all read, write, list, and delete operations with successful and failed requests across all operations. Analytics logs are best-effort and no ordering is guaranteed.
 
-          The change feed is a solution that provides transactional log of successful mutations or changes to your account such as blob creation, modification, and deletions. The change feed guarantees all events to be recorded and displayed in the order of successful changes per blob, thus you do not have to filter out noise from a huge volume of read operations or failed requests. The change feed is fundamentally designed and optimized for application development that require certain guarantees.
+          The change feed is a solution that provides transactional log of successful mutations or changes to your account such as blob creation, modification, and deletions. The change feed guarantees all events to be recorded and displayed in the order of successful changes per blob, thus you do not have to filter out noise from a huge volume of read operations or failed requests. The change feed is fundamentally designed and optimized for application development that requires certain guarantees.
       - question: |
           Should I use the change feed or Storage events?
         answer: |
@@ -153,7 +163,6 @@ sections:
          Why isn't the root directory of the website not redirecting to the default index page?
         answer: |
          In the Azure portal, open the static website configuration page of your account and locate the name and extension that is set in the **Index document name** field. Ensure that this name is exactly the same as the name of the file located in the **$web** container of the storage account. File names and extensions in the url of a static website are case-sensitive even though they're served over HTTP.
-
   - name: Blob index tags
     questions:
       - question: |
@@ -168,7 +177,6 @@ sections:
          Are blob index tags and Azure Resource Manager tags related?
         answer: |
          No, Resource Manager tags help organize control plane resources such as subscriptions, resource groups, and storage accounts. Index tags provide blob management and discovery on the data plane.
-  
   - name: Managing costs
     questions:
       - question: |

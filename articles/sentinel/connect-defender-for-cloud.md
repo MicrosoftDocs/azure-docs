@@ -1,5 +1,5 @@
 ---
-title: Connect Microsoft Defender for Cloud alerts to Microsoft Sentinel
+title: Ingest Microsoft Defender for Cloud subscription-based alerts to Microsoft Sentinel
 description: Learn how to connect security alerts from Microsoft Defender for Cloud and stream them into Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
@@ -8,16 +8,15 @@ ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
-# Connect Microsoft Defender for Cloud alerts to Microsoft Sentinel
+# Ingest Microsoft Defender for Cloud alerts to Microsoft Sentinel
 
-[Microsoft Defender for Cloud](../defender-for-cloud/index.yml)'s integrated cloud workload protections allow you to detect and quickly respond to threats across hybrid and multi-cloud workloads.
+[Microsoft Defender for Cloud](../defender-for-cloud/index.yml)'s integrated cloud workload protections allow you to detect and quickly respond to threats across hybrid and multicloud workloads.
 
-This connector allows you to stream [security alerts from Defender for Cloud](../defender-for-cloud/alerts-reference.md) into Microsoft Sentinel, so you can view, analyze, and respond to Defender alerts, and the incidents they generate, in a broader organizational threat context.
+This connector allows you to ingest [security alerts from Defender for Cloud](../defender-for-cloud/alerts-reference.md) into Microsoft Sentinel, so you can view, analyze, and respond to Defender alerts, and the incidents they generate, in a broader organizational threat context.
 
 As [Microsoft Defender for Cloud Defender plans](../defender-for-cloud/defender-for-cloud-introduction.md#protect-cloud-workloads) are enabled per subscription, this data connector is also enabled or disabled separately for each subscription.
 
-Microsoft Defender for Cloud was formerly known as Azure Security Center. Defender for Cloud's enhanced security features were formerly known collectively as Azure Defender.
-
+The new **Tenant-based Microsoft Defender for Cloud connector**, in PREVIEW, allows you to collect Defender for Cloud alerts over your entire tenant, without having to enable each subscription separately. It also leverages [Defender for Cloud's integration with Microsoft Defender XDR](ingest-defender-for-cloud-incidents.md) (formerly Microsoft 365 Defender) to ensure that all of your Defender for Cloud alerts are fully included in any incidents you receive through [Microsoft Defender XDR incident integration](microsoft-365-defender-sentinel-integration.md).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -42,6 +41,7 @@ Enabling **bi-directional sync** will automatically sync the status of original 
 - You will need the `SecurityInsights` resource provider to be registered for each subscription where you want to enable the connector. Review the guidance on the [resource provider registration status](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) and the ways to register it.
 
 - To enable bi-directional sync, you must have the **Contributor** or **Security Admin** role on the relevant subscription.
+
 - Install the solution for **Microsoft Defender for Cloud** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 ## Connect to Microsoft Defender for Cloud

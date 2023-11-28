@@ -1,6 +1,6 @@
 ---
-title: Deploy Active Directory-integrated Azure Arc-enabled SQL Managed Instance
-description: Learn how to deploy Azure Arc-enabled SQL Managed Instance with Active Directory authentication.
+title: Deploy Active Directory-integrated SQL Server Managed Instance enabled by Azure Arc
+description: Learn how to deploy SQL Server Managed Instance enabled by Azure Arc with Active Directory authentication.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
@@ -11,7 +11,7 @@ ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
-# Deploy Active Directory-integrated Azure Arc-enabled SQL Managed Instance
+# Deploy Active Directory-integrated SQL Server Managed Instance enabled by Azure Arc
 
 In this article, learn how to deploy Azure Arc-enabled Azure SQL Managed Instance with Active Directory authentication.
 
@@ -226,7 +226,7 @@ To prepare for deployment in system-managed keytab mode:
 
 ## Set properties for Active Directory authentication
 
-To deploy an Azure Arc-enabled SQL Managed Instance for Azure Arc Active Directory authentication, update your deployment specification file to reference the Active Directory connector instance to use. Referencing the Active Directory connector in the SQL specification file automatically sets up SQL for Active Directory authentication.
+To deploy SQL Managed Instance enabled by Azure Arc for Azure Arc Active Directory authentication, update your deployment specification file to reference the Active Directory connector instance to use. Referencing the Active Directory connector in the SQL specification file automatically sets up SQL for Active Directory authentication.
 
 ### [Customer-managed keytab mode](#tab/customer-managed-keytab-mode)
 
@@ -271,7 +271,7 @@ To support Active Directory authentication on SQL in system-managed keytab mode,
 Next, prepare a YAML specification file to deploy SQL Managed Instance. For the mode you use, enter your deployment values in the specification file.
 
 > [!NOTE]
-> In the specification file for both modes, the `admin-login-secret` value in the YAML example provides basic authentication. You can use the parameter value to log in to the managed instance, and then create logins for Active Directory users and groups. For more information, see [Connect to Active Directory-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md).
+> In the specification file for both modes, the `admin-login-secret` value in the YAML example provides basic authentication. You can use the parameter value to log in to the managed instance, and then create logins for Active Directory users and groups. For more information, see [Connect to Active Directory-integrated SQL Managed Instance enabled by Azure Arc](connect-active-directory-sql-managed-instance.md).
 
 ### [Customer-managed keytab mode](#tab/customer-managed-keytab-mode)
 
@@ -406,7 +406,7 @@ For both customer-managed keytab mode and system-managed keytab mode, deploy the
     kubectl apply -f sqlmi.yaml
     ```
 
-## Next steps
+## Related content
 
-- [Connect to Active Directory-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md)
+- [Connect to Active Directory-integrated SQL Managed Instance enabled by Azure Arc](connect-active-directory-sql-managed-instance.md)
 - [Upgrade your Active Directory connector](upgrade-active-directory-connector.md)

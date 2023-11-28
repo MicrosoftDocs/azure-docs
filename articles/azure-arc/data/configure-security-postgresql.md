@@ -173,6 +173,6 @@ For audit scenarios please configure your server group to use the `pgaudit` exte
 
 SSL is required for client connections. In connection string, the SSL mode parameter should not be disabled. [Form connection strings](get-connection-endpoints-and-connection-strings-postgresql-server.md#form-connection-strings).
 
-## Next steps
+## Related content
 - See [`pgcrypto` extension](https://www.postgresql.org/docs/current/pgcrypto.html)
 - See [Use PostgreSQL extensions](using-extensions-in-postgresql-server.md)

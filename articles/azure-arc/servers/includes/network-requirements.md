@@ -58,7 +58,7 @@ The table below lists the URLs that must be available in order to install and us
 |`*.waconazure.com`|For Windows Admin Center connectivity|If using Windows Admin Center|Public|
 |`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.services.visualstudio.com`|Agent telemetry|Optional, not used in agent versions 1.24+| Public |
-| `san-af-<region>-prod.azurewebsites.net` | Azure Arc data processing service | For Azure Arc-enabled SQL Server. The Azure Extension for SQL Server uploads inventory and billing information to the data processing service. | Public |
+| `san-af-<region>-prod.azurewebsites.net` | Azure Arc data processing service | For SQL Server enabled by Azure Arc. The Azure Extension for SQL Server uploads inventory and billing information to the data processing service. | Public |
 | `telemetry.<region>.arcdataservices.com` | For Arc SQL Server. Sends service telemetry and performance monitoring to Azure | Always | Public |
 |`microsoft.com/pkiops/certs`| Certificate download for ESUs |ESUs enabled by Azure Arc | Public |
 
