@@ -3,7 +3,7 @@ author: bwren
 ms.author: bwren
 ms.service: azure-monitor
 ms.topic: include
-ms.date: 09/17/2021
+ms.date: 11/28/2023
 ---
 
 Select the **Details** tab and configure different settings for the alert rule.

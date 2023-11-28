@@ -3,7 +3,7 @@ author: bwren
 ms.author: bwren
 ms.service: azure-monitor
 ms.topic: include
-ms.date: 09/17/2021
+ms.date: 11/28/2023
 ---
 
 When an alert fires, it will send any notifications in its action groups. You can also view the alert in the Azure portal. 
