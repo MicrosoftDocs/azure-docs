@@ -77,7 +77,7 @@ Azure Communication Services allows the credentials for an Entra application to 
 
 **Format:**
 ```
-username: <Azure Communication Services Resource name>|<Entra Application ID>|<Entra Tenant ID>
+username: <Azure Communication Services Resource name>.<Entra Application ID>.<Entra Tenant ID>
 ```
 #### SMTP Authentication Password
 The password is one of the Entra application's client secrets.
