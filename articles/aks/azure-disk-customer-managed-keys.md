@@ -64,7 +64,7 @@ az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  
 ```
 
 > [!IMPORTANT]
-> Ensure your AKS cluster identity has **read** permission of DiskEncryptionSet
+> Make sure that the DiskEncryptionSet is located in the same region as your AKS cluster and that the AKS cluster identity has **read** access to the DiskEncryptionSet.
 
 ## Grant the DiskEncryptionSet access to key vault
 
