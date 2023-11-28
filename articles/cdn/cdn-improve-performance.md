@@ -116,8 +116,9 @@ These profiles support the following compression encodings:
 - gzip (GNU zip)
 - DEFLATE
 - bzip2
+- brotli
 
-Azure CDN from Edgio supports brotli compression. When the HTTP request has the header `Accept-Encoding: br`, the CDN responds with an uncompressed response.
+When the HTTP request has the header `Accept-Encoding: br`, the CDN responds with an uncompressed response.
 
 ### Azure CDN Standard from Akamai profiles
 
