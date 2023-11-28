@@ -2,7 +2,7 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/26/2023
+ms.date: 11/28/2023
 ms.author: wchi
 ---
 
@@ -32,7 +32,7 @@ ms.author: wchi
     <dependency>
         <groupId>com.microsoft.sqlserver</groupId>
         <artifactId>mssql-jdbc</artifactId>
-        <version>6.2.1.jre8</version>
+        <version>10.2.0.jre11</version>
     </dependency>
     ```
 
