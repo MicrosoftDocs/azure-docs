@@ -3,14 +3,14 @@ title: Deploy Citrix on Azure VMware Solution
 description: Learn how to deploy VMware Citrix on Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/24/2022
+ms.date: 11/27/2023
 ms.custom: engagement-fy23
 ---
 
 
 # Deploy Citrix on Azure VMware Solution
 
-Citrix Virtual Apps and Desktop service supports Azure VMware Solution. Azure VMware Solution provides cloud infrastructure containing vSphere clusters created by Azure infrastructure. You can leverage the Citrix Virtual Apps and Desktop Service to use Azure VMware Solution for provisioning your [Virtual Delivery Agent (VDA)](https://www.citrix.com/downloads/xendesktop/components/xendesktop-and-xenapp-76-VDA.html) workload in the same way you would using vSphere in on-premises environments. 
+Citrix Virtual Apps and Desktop service supports Azure VMware Solution. Azure VMware Solution provides cloud infrastructure containing vSphere clusters created by Azure infrastructure. You can leverage the Citrix Virtual Apps and Desktop Service to use Azure VMware Solution for provisioning your [Virtual Delivery Agent (VDA)](https://www.citrix.com/downloads/xendesktop/components/xendesktop-and-xenapp-76-VDA.html) workload in the same way you'd use vSphere in on-premises environments. 
 
 [Learn more about Citrix virtual apps and desktops](https://www.citrix.com/products/citrix-virtual-apps-and-desktops/)
 
@@ -36,7 +36,7 @@ Citrix Virtual Apps and Desktop service supports Azure VMware Solution. Azure VM
 
     A. Not at this time. However, Citrix workloads on Microsoft Azure support GPU if that use case is important to you.
 
-- Q. Is Azure VMware Solution supported with on-premesis Citrix deployments or LTSR?  
+- Q. Is Azure VMware Solution supported with on-premises Citrix deployments or LTSR?  
 
     A. No.  Azure VMware Solution is only supported with the Citrix Virtual Apps and Desktops service offerings.  
 
