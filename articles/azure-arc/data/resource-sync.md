@@ -71,7 +71,7 @@ https://management.azure.com/subscriptions/{{subscription}}/resourcegroups/{{res
 - Resource sync rule does not project Azure Arc Active Directory connector
 - Resource sync rule does not project Azure Arc Instance Failover Groups
 
-## Next steps
+## Related content
 
 [Create Azure Arc data controller in direct connectivity mode using CLI](create-data-controller-direct-cli.md)
 

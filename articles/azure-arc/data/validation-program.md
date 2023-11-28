@@ -18,7 +18,7 @@ Azure Arc-enabled data services team has worked with industry partners to valida
 To see how all Azure Arc-enabled components are validated, see [Validation program overview](../validation-program/overview.md)
 
 > [!NOTE]
-> At the current time, Azure Arc-enabled SQL Managed Instance is generally available in select regions.
+> At the current time, SQL Managed Instance enabled by Azure Arc is generally available in select regions.
 >
 > Azure Arc-enabled PostgreSQL server is available for preview in select regions.
 
@@ -130,7 +130,7 @@ These tests verify that the product is compliant with the requirements of runnin
 The tests for data services cover the following in indirectly connected mode
 
 1. Deploy data controller in indirect mode
-2. Deploy [Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)
+2. Deploy [SQL Managed Instance enabled by Azure Arc](create-sql-managed-instance.md)
 3. Deploy [Azure Arc-enabled PostgreSQL server](create-postgresql-server.md)
 
 More tests will be added in future releases of Azure Arc-enabled data services.
@@ -141,7 +141,7 @@ More tests will be added in future releases of Azure Arc-enabled data services.
 - [Azure Arc-enabled Kubernetes validation](../kubernetes/validation-program.md)
 - [Azure Arc validation program - GitHub project](https://github.com/Azure/azure-arc-validation/)
 
-## Next steps
+## Related content
 
 - [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)
 - [Create a data controller - indirectly connected with the CLI](create-data-controller-indirect-cli.md)
