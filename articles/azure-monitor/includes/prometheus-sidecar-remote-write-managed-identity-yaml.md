@@ -2,7 +2,7 @@
 prometheus:
   prometheusSpec:
     externalLabels:
-          cluster: AKS-CLUSTER-NAME
+          cluster: <AKS-CLUSTER-NAME>
 
     ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write    
     remoteWrite:
