@@ -44,6 +44,37 @@ When you're running Azure Database for PostgreSQL - Flexible Server, you have tw
 
   IP firewall rules grant access to servers based on the originating IP address of each request. For more information, see the [overview of firewall rules](concepts-firewall-rules.md).
 
+## Microsoft Defender for Cloud support
+
+**[Defender for Cloud](../../defender-for-cloud/defender-for-databases-introduction.md)** detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Defender for Cloud provides [security alerts](../../defender-for-cloud/alerts-reference.md#alerts-osrdb) on anomalous activities so that you can detect potential threats and respond to them as they occur.
+When you enable this plan, Defender for Cloud will provide alerts when it detects anomalous database access and query patterns as well as suspicious database activities.
+
+These alerts appear in Defender for Cloud's security alerts page and include:
+
+* details of the suspicious activity that triggered them
+* the associated MITRE ATT&CK tactic
+* recommended actions for how to investigate and mitigate the threat
+* options for continuing your investigations with Microsoft Sentinel
+
+> [!NOTE]
+> Microsoft Defender for Azure Database for PostgreSQL - Flexible Server currently has following limitations:
+> 1. No Azure CLI or PowerShell support.
+> 2. No ability to enable Cloud Defender for Azure Database for PostgreSQL - Flexible Server on subscription level.
+
+### Microsoft Defender for Cloud and Brute Force Attacks
+
+A brute force attack is among the most common and fairly successful hacking methods, despite being least sophisticated hacking methods. The theory behind such an attack is that if you take an infinite number of attempts to guess a password, you are bound to be right eventually. When Microsoft Defender for Cloud detects a brute force attack, it triggers an [alert](../../defender-for-cloud/defender-for-databases-introduction.md#what-kind-of-alerts-does-microsoft-defender-for-open-source-relational-databases-provide) to bring you awareness that a brute force attack took place. It also can separate  simple brute force attack from brute force attack on a valid user or a successful brute force attack.
+
+To get alerts from the Microsoft Defender plan you'll first need to **enable it** as shown in the next section.
+
+### Enable enhanced security with Microsoft Defender for Cloud
+1. From the [Azure portal](https://portal.azure.com), navigate to Security menu in the left pane
+2. Pick Microsoft Defender for Cloud 
+4. Click Enable in the right pane.
+
+:::image type="content" source="./media/concepts-security/defender-for-cloud-azure-portal-postgresql.png" alt-text="Screenshot of Azure Portal showing how to enable Cloud Defender.":::
+
+
 ## Access management
 
 Best way to manage PostgreSQL database access permissions at scale is using the concept of [roles](https://www.postgresql.org/docs/current/user-manag.html). A role can be either a database user or a group of database users.  Roles can own the database objects and assign privileges on those objects to other roles to control who has access to which objects. It is also possible to grant membership in a role to another role, thus allowing the member role to use privileges assigned to another role.
