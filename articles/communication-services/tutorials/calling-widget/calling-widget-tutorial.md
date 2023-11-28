@@ -101,13 +101,13 @@ function App() {
   /**
    * Token for local user.
    */
-  const token = "<Enter your Azure Communication Services token here>";
+  const token = "<Enter your ACS token here>";
 
   /**
    * User identifier for local user.
    */
   const userId: CommunicationIdentifier = {
-    communicationUserId: "<Enter your Azure Communication Services ID here>",
+    communicationUserId: "<Enter your ACS ID here>",
   };
 
   /**

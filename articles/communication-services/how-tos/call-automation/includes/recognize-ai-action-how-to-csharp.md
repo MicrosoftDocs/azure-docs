@@ -62,7 +62,7 @@ During the preview phase, the NuGet package can be obtained by configuring your 
 By this point you should be familiar with starting calls, if you need to learn more about how to start a call view our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this instance, we'll answer an incoming call.
 
 ``` csharp
-var callAutomationClient = new CallAutomationClient("<Azure Communication Services connection string>");
+var callAutomationClient = new CallAutomationClient("<ACS connection string>");
 
 var answerCallOptions = new AnswerCallOptions("<Incoming call context once call is connected>", new Uri("<https://sample-callback-uri>"))
     {

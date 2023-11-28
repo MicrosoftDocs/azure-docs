@@ -139,7 +139,7 @@ namespace CallingQuickstart
 {
     public sealed partial class MainPage : Page
     {
-        private const string authToken = "<Azure Communication Services auth token>";
+        private const string authToken = "<ACS auth token>";
     
         private CallClient callClient;
         private CallTokenRefreshOptions callTokenRefreshOptions;

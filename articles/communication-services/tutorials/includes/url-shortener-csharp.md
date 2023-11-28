@@ -42,8 +42,8 @@ Once the Azure Function is set up, go to the `local.settings.json` file and add 
     "Values": {
     "AzureWebJobsStorage": "",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-    "ACS_CONNECTIONSTRING": "<AZURE COMMUNICATION SERVICES CONNECTION STRING>",
-    "ACS_PHONE_NUMBER": "<AZURE COMMUNICATION SERVICES PHONE NUMBER>",
+    "ACS_CONNECTIONSTRING": "<ACS CONNECTION STRING>",
+    "ACS_PHONE_NUMBER": "<ACS PHONE NUMBER>",
     "URL_SHORTENER": "<URL SHORTENER ENDPOINT>" 
     }
 }
