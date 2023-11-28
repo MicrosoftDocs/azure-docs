@@ -70,7 +70,7 @@ Steps to fix:
 
 - Check that the agent is running on all VMs and isn't reporting errors in logs.
 
-- Check that files exist in the correct location on the SFTP server, and that they aren't being excluded due to file source config (see [Data missing or incomplete](#data-missing-or-incomplete)).
+- Check that files exist in the correct location on the SFTP server, and that they aren't being excluded due to file source config (see [Files are missing](#files-are-missing)).
 
 - Check the network connectivity and firewall configuration between the ingestion agent and Azure Operator Insights.
 

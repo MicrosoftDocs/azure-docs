@@ -32,7 +32,7 @@ To deploy the agent on your VMs, follow the procedures outlined in the following
 
 ### Acquire the agent RPM
 
-A link to download the MCC EDR agent RPM is provided as part of the Azure Operator Insights onboarding process. See [How do I get access to Azure Operator Insights?](/articles/operator-insights/overview.md#how-do-i-get-access-to-azure-operator-insights) for details.
+A link to download the MCC EDR agent RPM is provided as part of the Azure Operator Insights onboarding process. See [How do I get access to Azure Operator Insights?](/articles/operator-insights/overview#how-do-i-get-access-to-azure-operator-insights) for details.
 
 ### Authentication
 
@@ -85,7 +85,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 
 #### Running without public DNS
 
-**If your agent VMs have access to public DNS, then you can skip this step and continue to [Install and configure agent software](#install-and-configure-agent-software).**
+**If your agent VMs have access to public DNS, then you can skip this step and continue to [Install agent software](#install-agent-software).**
 
 If your agent VMs don't have access to public DNS, then you need to add entries on each agent VM to map the Azure host names to IP addresses.
 
