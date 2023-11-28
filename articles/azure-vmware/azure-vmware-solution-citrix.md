@@ -10,7 +10,7 @@ ms.custom: engagement-fy23
 
 # Deploy Citrix on Azure VMware Solution
 
-Citrix Virtual Apps and Desktop service supports Azure VMware Solution. Azure VMware Solution provides cloud infrastructure containing vSphere clusters created by Azure infrastructure. You can leverage the Citrix Virtual Apps and Desktop Service to use Azure VMware Solution for provisioning your [Virtual Delivery Agent (VDA)](https://www.citrix.com/downloads/xendesktop/components/xendesktop-and-xenapp-76-VDA.html) workload in the same way you'd use vSphere in on-premises environments. 
+Citrix Virtual Apps and Desktop service supports Azure VMware Solution. Azure VMware Solution provides cloud infrastructure containing vSphere clusters created by Azure infrastructure. You can apply the Citrix Virtual Apps and Desktop Service to use Azure VMware Solution for provisioning your [Virtual Delivery Agent (VDA)](https://www.citrix.com/downloads/xendesktop/components/xendesktop-and-xenapp-76-VDA.html) workload in the same way you'd use vSphere in on-premises environments. 
 
 [Learn more about Citrix virtual apps and desktops](https://www.citrix.com/products/citrix-virtual-apps-and-desktops/)
 

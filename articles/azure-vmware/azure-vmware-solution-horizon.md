@@ -3,7 +3,8 @@ title: Deploy Horizon on Azure VMware Solution
 description: Learn how to deploy VMware Horizon on Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 04/11/2022
+ms.date: 11/27/2023\
+ms.custom: engagement-fy23
 ---
 
 
@@ -35,7 +36,7 @@ You can deploy Horizon in a hybrid cloud environment by using Horizon Cloud Pod 
 >[!IMPORTANT]
 >CPA is not a stretched deployment; each Horizon pod is distinct, and all Connection Servers that belong to each of the individual pods are required to be located in a single location and run on the same broadcast domain from a network perspective.
 
-Like on-premises or private data centers, you can deploy Horizon in an Azure VMware Solution private cloud. We'll discuss key differences in deploying Horizon on-premises and Azure VMware Solution in the following sections.
+Like on-premises or private data centers, you can deploy Horizon in an Azure VMware Solution private cloud. Key differences in deploying Horizon on-premises and Azure VMware Solution will be discussed in the following sections.
 
 The _Azure private cloud_ is conceptually the same as the _VMware SDDC_, a term typically used in Horizon documentation. The rest of this document uses both terms interchangeably.
 
@@ -107,7 +108,7 @@ You connect your AD domain controller in Azure Virtual Network with your on-prem
 
 A variation on the basic example might be to support connectivity for on-premises resources. For example, users access desktops and generate virtual desktop application traffic or connect to an on-premises Horizon pod using CPA.
 
-The diagram shows how to support connectivity for on-premises resources. To connect to your corporate network to the Azure Virtual Network, you'll need an ExpressRoute circuit. You'll also need to connect your corporate network with each of the private cloud and SDDCs using ExpressRoute Global Reach. It allows the connectivity from the SDDC to the ExpressRoute circuit and on-premises resources. 
+The diagram shows how to support connectivity for on-premises resources. To connect to your corporate network to the Azure Virtual Network, you need an ExpressRoute circuit. You'll also need to connect your corporate network with each of the private cloud and SDDCs using ExpressRoute Global Reach. It allows the connectivity from the SDDC to the ExpressRoute circuit and on-premises resources. 
 
 :::image type="content" source="media/vmware-horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Diagram showing the connection of a corporate network to an Azure Virtual Network." border="false":::
 
