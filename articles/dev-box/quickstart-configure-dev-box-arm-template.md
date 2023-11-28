@@ -17,10 +17,14 @@ This quickstart describes how to use an Azure Resource Manager (ARM) template to
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+This [Dev Box with customized image](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter/devbox-with-customized-image) template deploys a simple Dev Box environment that you can use for testing and exploring the service.
+
+It creates the following Dev Box resources: dev center, project, network connection, dev box definition, and dev box pool. Once the template is deployed, you can go to the [developer portal](https://aka.ms/devbox-portal) to [create your dev box](quickstart-create-dev-box.md).
+
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the
 **Deploy to Azure** button. The template opens in the Azure portal.
 
-:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Screenshot of the Deploy to Azure button to deploy resources with a template." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devcenter%2Fdevbox-with-builtin-image%2Fazuredeploy.json":::
+:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Screenshot of the Deploy to Azure button to deploy resources with a template." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devcenter%2Fdevbox-with-customized-image%2Fazuredeploy.json":::
 
 ## Prerequisites 
 
@@ -30,9 +34,9 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template 
 
-The template used in this QuickStart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/devbox-with-builtin-image/)
+The template used in this QuickStart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/devbox-with-customized-image/)
 
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devcenter/devbox-with-builtin-image/azuredeploy.json":::
+The template for this article is too long to show here. To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.devcenter/devbox-with-customized-image/azuredeploy.json)
 
 Multiple Azure resources are defined in the template: 
 
@@ -48,9 +52,7 @@ Multiple Azure resources are defined in the template:
 
 To find more templates that are related to Microsoft Dev Box, see [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter).
 
-For example, the [Dev Box with customized image](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter/devbox-with-customized-image) template creates the following Dev Box resources: dev center, project, network connection, dev box definition, and dev box pool. You can then go to the [developer portal](https://aka.ms/devbox-portal) to [create your dev box](quickstart-create-dev-box.md).
-
-Next, you can use a template to [add other customized images for Base, Java, .NET and Data](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter/devbox-with-customized-image#add-other-customized-image-for-base-java-net-and-data). These images have the following software and tools installed:
+For example, you can use a template to [add other customized images for Base, Java, .NET and Data](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter/devbox-with-customized-image#add-other-customized-image-for-base-java-net-and-data). These images have the following software and tools installed:
 
 
 |Image type  |Software and tools  |
@@ -90,7 +92,7 @@ It takes about 10 minutes to deploy the template. When completed, the output is 
 
 Azure PowerShell is used to deploy the template. You can also use the Azure portal and Azure CLI. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md). 
 
-#### Depending on your configuration, you may want to change the following parameters:  
+#### Depending on your configuration, you might want to change the following parameters:  
 
 - *Resource group name:* The default resource group name is “rg-devbox-test”; you can change it by editing `$resourceGroupName = "rg-devbox-test` in the template. 
 
