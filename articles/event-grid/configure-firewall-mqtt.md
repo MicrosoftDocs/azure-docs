@@ -10,7 +10,7 @@ ms.author: veyaddan
 ---
 
 # Configure IP firewall for Azure Event Grid namespaces
-By default, Event Grid namespaces and entities in them such as Message Queuing Telemetry Transport (MQTT) topic spaces are accessible from internet as long as the request comes with valid authentication (access key) and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation. Publishers originating from any other IP address are rejected and receive a 403 (Forbidden) response. For more information about network security features supported by Event Grid, see [Network security for Event Grid](network-security.md).
+By default, Event Grid namespaces and entities in them such as Message Queuing Telemetry Transport (MQTT) topic spaces are accessible from internet as long as the request comes with valid authentication (access key) and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation. Only the MQTT clients that fall into the allowed IP range can connect to publish and subscribe.  Clients originating from any other IP address are rejected and receive a 403 (Forbidden) response. For more information about network security features supported by Event Grid, see [Network security for Event Grid](network-security.md).
 
 This article describes how to configure IP firewall settings for an Event Grid namespace. For complete steps for creating a namespace, see [Create and manage namespaces](create-view-manage-namespaces.md).
 
