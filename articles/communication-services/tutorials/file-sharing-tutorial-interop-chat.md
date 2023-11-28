@@ -15,7 +15,7 @@ ms.subservice: chat
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-In a Teams Interoperability Chat ("Interop Chat"), we can enable file sharing between Azure Communication Service end users and Teams users. Note, Interop Chat is different from the Azure Communication Service Chat. If you want to enable file sharing in an Azure Communication Services Chat, refer to [Add file sharing with UI Library in Azure Communication Service Chat](./file-sharing-tutorial-acs-chat.md). Currently, the Azure Communication Service end user is only able to receive file attachments from the Teams user. Please refer to [UI Library Use Cases](../concepts/ui-library/ui-library-use-cases.md) to learn more.
+In a Teams Interoperability Chat ("Interop Chat"), we can enable file sharing between Azure Communication Services end users and Teams users. Note, Interop Chat is different from the Azure Communication Services Chat. If you want to enable file sharing in an Azure Communication Services Chat, refer to [Add file sharing with UI Library in Azure Communication Services Chat](./file-sharing-tutorial-acs-chat.md). Currently, the Azure Communication Services end user is only able to receive file attachments from the Teams user. Please refer to [UI Library Use Cases](../concepts/ui-library/ui-library-use-cases.md) to learn more.
 
 >[!IMPORTANT]
 >
@@ -40,9 +40,9 @@ Access the code for this tutorial on [GitHub](https://github.com/Azure-Samples/c
 
 ## Background
 
-First of all, we need to understand that Teams Interop Chat has to part of a Teams meeting currently. When the Teams user creates an online meeting, a chat thread would be created and associated with the meeting. To enable the Azure Communication Service end user joining the chat and starting to send/receive messages, a meeting participant (a Teams user) would need to admit them to the call first. Otherwise, they don't have access to the chat.
+First of all, we need to understand that Teams Interop Chat has to part of a Teams meeting currently. When the Teams user creates an online meeting, a chat thread would be created and associated with the meeting. To enable the Azure Communication Services end user joining the chat and starting to send/receive messages, a meeting participant (a Teams user) would need to admit them to the call first. Otherwise, they don't have access to the chat.
 
-Once the Azure Communication Service end user is admitted to the call, they would be able to start to chat with other participants on the call. In this tutorial, we're checking out how inline image works in Interop chat.
+Once the Azure Communication Services end user is admitted to the call, they would be able to start to chat with other participants on the call. In this tutorial, we're checking out how inline image works in Interop chat.
 
 ## Overview
 
@@ -76,7 +76,7 @@ To be able to start the Composite for meeting chat, we need to pass `TeamsMeetin
 
 Note that meeting link should look something like `https://teams.microsoft.com/l/meetup-join/19%3ameeting_XXXXXXXXXXX%40thread.v2/XXXXXXXXXXX`
 
-And this is all you need! And there's no other setup needed to enable the Azure Communication Service end user to receive file attachments from the Teams user. 
+And this is all you need! And there's no other setup needed to enable the Azure Communication Services end user to receive file attachments from the Teams user. 
 
 ## Permissions
 
@@ -87,7 +87,7 @@ When file is shared from a Teams client, the Teams user has options to set the f
  - "People with existing access"
  - "People you choose"
 
-Specifically, the UI library currently only supports "Anyone" and "People you choose" (with email address) and all other permissions aren't supported. If Teams user sent a file with unsupported permissions, the Azure Communication Service end user might be prompted to a login page or denied access when they click on the file attachment in the chat thread.
+Specifically, the UI library currently only supports "Anyone" and "People you choose" (with email address) and all other permissions aren't supported. If Teams user sent a file with unsupported permissions, the Azure Communication Services end user might be prompted to a login page or denied access when they click on the file attachment in the chat thread.
 
 
 ![Screenshot of a Teams client listing out file permissions.](./media/file-sharing-tutorial-interop-chat-0.png "Screenshot of a Teams client listing out file permissions.")
@@ -109,7 +109,7 @@ Simply click on the chat button located in the bottom to reveal the chat panel a
 
 And now if the user click on the file attachment card, a new tab would be opened like the following where the user can download the file:
 
-![creenshot of Sharepoint webpage that shows the file content.](./media/file-sharing-tutorial-interop-chat-3.png "Screenshot of Sharepoint webpage that shows the file content.")
+![Screenshot of Sharepoint webpage that shows the file content.](./media/file-sharing-tutorial-interop-chat-3.png "Screenshot of Sharepoint webpage that shows the file content.")
 
 
 ## Next steps
@@ -124,5 +124,5 @@ You may also want to:
 - [Creating user access tokens](../quickstarts/identity/access-tokens.md)
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
 - [Learn about authentication](../concepts/authentication.md)
-- [Add file sharing with UI Library in Azure Azure Communication Service end user Service Chat](./file-sharing-tutorial-acs-chat.md)
+- [Add file sharing with UI Library in Azure Azure Communication Services end user Service Chat](./file-sharing-tutorial-acs-chat.md)
 - [Add inline image with UI Library in Teams Interoperability Chat](./inline-image-tutorial-interop-chat.md)

@@ -13,11 +13,11 @@ ms.service: azure-communication-services
 ms.subservice: chat
 ---
 
-# Enable file sharing using UI Library in Azure Communication Service Chat with Azure Blob storage
+# Enable file sharing using UI Library in Azure Communication Services Chat with Azure Blob storage
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-In an Azure Communication Service Chat, we can enable file sharing between communication users. Note, Azure Communication Services Chat is different from the Teams Interoperability Chat ("Interop Chat"). If you want to enable file sharing in an Interop Chat, refer to [Add file sharing with UI Library in Teams Interoperability Chat](./file-sharing-tutorial-interop-chat.md).
+In an Azure Communication Services Chat, we can enable file sharing between communication users. Note, Azure Communication Services Chat is different from the Teams Interoperability Chat ("Interop Chat"). If you want to enable file sharing in an Interop Chat, refer to [Add file sharing with UI Library in Teams Interoperability Chat](./file-sharing-tutorial-interop-chat.md).
 
 In this tutorial, we're configuring the Azure Communication Services UI Library Chat Composite to enable file sharing. The UI Library Chat Composite provides a set of rich components and UI controls that can be used to enable file sharing. We're using Azure Blob Storage to enable the storage of the files that are shared through the chat thread.
 
@@ -331,7 +331,7 @@ Download errors are displayed to users in an error bar on top of the Chat Compos
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about [cleaning up Azure Communication Service resources](../quickstarts/create-communication-resource.md#clean-up-resources) and [cleaning Azure Function Resources](../../azure-functions/create-first-function-vs-code-csharp.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about [cleaning up Azure Communication Services resources](../quickstarts/create-communication-resource.md#clean-up-resources) and [cleaning Azure Function Resources](../../azure-functions/create-first-function-vs-code-csharp.md#clean-up-resources).
 
 ## Next steps
 
@@ -345,5 +345,5 @@ You may also want to:
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
 - [Learn about authentication](../concepts/authentication.md)
 - [Add file sharing with UI Library in Teams Interoperability Chat](./file-sharing-tutorial-interop-chat.md)
-- [Add file sharing with UI Library in Azure Communication Service Chat](./file-sharing-tutorial-acs-chat.md)
+- [Add file sharing with UI Library in Azure Communication Services Chat](./file-sharing-tutorial-acs-chat.md)
 - [Add inline image with UI Library in Teams Interoperability Chat](./inline-image-tutorial-interop-chat.md)
