@@ -6,7 +6,7 @@ ms.author: apsinhar
 ms.service: hdinsight
 ms.custom: hdinsightactive, ignite-2022, devx-track-python
 ms.topic: how-to
-ms.date: 10/18/2022
+ms.date: 11/23/2023
 #Customer intent: As a developer for Apache Spark and Apache Spark in Azure HDInsight, I want to learn how to manage my Spark application dependencies and install packages on my HDInsight cluster.
 ---
 
