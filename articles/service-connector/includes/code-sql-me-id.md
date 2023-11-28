@@ -2,7 +2,7 @@
 author: xiaofanzhou
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/26/2023
+ms.date: 11/28/2023
 ms.author: xiaofanzhou
 ---
 
@@ -29,33 +29,48 @@ ms.author: xiaofanzhou
 
 ### [Java](#tab/sql-me-id-java)
 
-Get the Azure SQL Database connection string from the environment variable added by Service Connector.
+1. Add the following dependencies in your *pom.xml* file:
 
-```java
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.sqlserver</groupId>
+        <artifactId>mssql-jdbc</artifactId>
+        <version>10.2.0.jre11</version>
+    </dependency>
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-identity</artifactId>
+        <version>1.7.0</version>
+    </dependency>
+    ```
 
-import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
+1. Get the Azure SQL Database connection string from the environment variable added by Service Connector.
 
-public class Main {
-    public static void main(String[] args) {
-        // AZURE_SQL_CONNECTIONSTRING should be one of the following:
-        // For system-assigned managed identity: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};authentication=ActiveDirectoryMSI;"
-        // For user-assigned managed identity: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};msiClientId={UserAssignedMiClientId};authentication=ActiveDirectoryMSI;"
-        // For service principal: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};user={ServicePrincipalClientId};password={spSecret};authentication=ActiveDirectoryServicePrincipal;"
-        String connectionString = System.getenv("AZURE_SQL_CONNECTIONSTRING");
-        SQLServerDataSource ds = new SQLServerDataSource();
-        ds.setURL(connectionString);
-        try (Connection connection = ds.getConnection()) {
-            System.out.println("Connected successfully.");
-        } catch (SQLException e) {
-            e.printStackTrace();
+    ```java
+    import java.sql.Connection;
+    import java.sql.ResultSet;
+    import java.sql.Statement;
+    
+    import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
+    
+    public class Main {
+        public static void main(String[] args) {
+            // AZURE_SQL_CONNECTIONSTRING should be one of the following:
+            // For system-assigned managed identity: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};authentication=ActiveDirectoryMSI;"
+            // For user-assigned managed identity: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};msiClientId={UserAssignedMiClientId};authentication=ActiveDirectoryMSI;"
+            // For service principal: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};user={ServicePrincipalClientId};password={spSecret};authentication=ActiveDirectoryServicePrincipal;"
+            String connectionString = System.getenv("AZURE_SQL_CONNECTIONSTRING");
+            SQLServerDataSource ds = new SQLServerDataSource();
+            ds.setURL(connectionString);
+            try (Connection connection = ds.getConnection()) {
+                System.out.println("Connected successfully.");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
-}
-```
-For more information, see [Connect using Microsoft Entra authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication).
+    ```
+    For more information, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase%2Csystemassigned%2Cjava%2Cwindowsclient#3-modify-your-code).
 
 ### [SpringBoot](#tab/sql-me-id-spring)
 
