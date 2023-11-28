@@ -126,7 +126,7 @@ Outbound endpoints have the following limitations:
 
 - IPv6 enabled subnets aren't supported.
 - DNS private resolver does not support Azure ExpressRoute FastPath.
-- DNS private resolver isn't compatible with [Azure Lighthouse](../lighthouse/overview.md).
+- DNS private resolver inbound endpoint provisioning isn't compatible with [Azure Lighthouse](../lighthouse/overview.md).
     - To see if Azure Lighthouse is in use, search for **Service providers** in the Azure portal and select **Service provider offers**. 
 
 
