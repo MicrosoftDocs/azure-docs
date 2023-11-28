@@ -1249,7 +1249,7 @@
       - name: Upload indicator API reference
         href: upload-indicators-api.md
     - name: Defender for Cloud Apps alerts not onboarded to Microsoft 365 Defender
-      href: ./microsoft-365-defender-sentinel-integration.md#microsoft-365-defender-incidents-and-microsoft-incident-creation-rules
+      href: ./microsoft-365-defender-sentinel-integration.md#microsoft-defender-xdr-incidents-and-microsoft-incident-creation-rules
   - name: Automation and response references
     items:
     - name: SOAR content catalog
