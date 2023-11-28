@@ -308,6 +308,12 @@ The AKS Microsoft Entra ID Server application ID used by the server side is: `6d
 
 The AKS Microsoft Entra ID client application ID used by kubelogin to perform public client authentication on behalf of the user is: `80faf920-1908-4b52-b5ef-a8e7bedfc67a`. The client application ID is used as part of device code and web browser interactive authentication methods.
 
+## Next steps
+
+* Learn how to integrate AKS with Microsoft Entra ID with our [AKS-managed Microsoft Entra integration][aks-managed-microsoft-entra-integration-guide] how-to guide.
+* To get started with managed identities in AKS, see [Use a managed identity in AKS][use-managed-identity-aks].
+* To get started with workload identities in AKS, see [Use a workload identity in AKS][use-workload-identity-aks].
+
 <!-- LINKS - internal -->
 [aks-managed-microsoft-entra-id]: managed-azure-ad.md
 [oauth-on-behalf-of]: ../active-directory/develop/v2-oauth2-on-behalf-of-flow.md
@@ -316,6 +322,9 @@ The AKS Microsoft Entra ID client application ID used by kubelogin to perform pu
 [managed-identity-overview]: /entra/identity/managed-identities-azure-resources/overview
 [workload-identity]: /entra/workload-id/workload-identities-overview
 [entra-id-application-roles]: /entra/external-id/customers/how-to-use-app-roles-customers
+[aks-managed-microsoft-entra-integration-guide]: managed-azure-ad.md
+[use-managed-identity-aks]: use-managed-identity.md
+[use-workload-identity-aks]: workload-identity-overview.md
 
 <!-- LINKS - external -->
 [client-go-cred-plugin]: https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins
