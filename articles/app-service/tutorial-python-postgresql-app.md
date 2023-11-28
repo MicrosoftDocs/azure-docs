@@ -36,7 +36,6 @@ zone_pivot_groups: app-service-portal-azd
 
 -----
 
-::: zone pivot="azure-portal"  
 In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](../postgresql/index.yml)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment.
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an App Service with a PostgreSQL database in Azure.":::
@@ -50,23 +49,30 @@ In this tutorial, you'll deploy a data-driven Python web app (**[Django](https:/
 
 Sample Python applications using the Flask and Django framework are provided to help you follow along with this tutorial. To deploy them without running them locally, skip this part. 
 
-To run the application locally, make sure you have [Python 3.7 or higher](https://www.python.org/downloads/) and [PostgreSQL](https://www.postgresql.org/download/) installed locally. Then, download or clone the app and go to the application folder:
+To run the application locally, make sure you have [Python 3.7 or higher](https://www.python.org/downloads/) and [PostgreSQL](https://www.postgresql.org/download/) installed locally. Then, clone the sample repository's `starter-no-infra` branch and change to the repository root.
 
 ### [Flask](#tab/flask)
 
 ```bash
-git clone git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
+git clone -b starter-no-infra https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
 cd msdocs-flask-postgresql-sample-app
+```
+
+Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
+
+```
+DBNAME=<database name>
+DBHOST=<database-hostname>
+DBUSER=<db-user-name>
+DBPASS=<db-password>
 ```
 
 ### [Django](#tab/django)
 
 ```bash
-git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.git
+git clone -b starter-no-infra https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app
 cd msdocs-django-postgresql-sample-app
 ```
-
------
 
 Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 
@@ -84,6 +90,8 @@ Set the returned value as the value of `SECRET_KEY` in the .env file.
 ```
 SECRET_KEY=<secret-key>
 ```
+
+-----
 
 Create a virtual environment for the app:
 
@@ -116,6 +124,8 @@ python manage.py runserver
 ```
 
 -----
+
+::: zone pivot="azure-portal"  
 
 ## 1. Create App Service and PostgreSQL
 
@@ -535,57 +545,6 @@ When you're finished, you can delete all of the resources from your Azure subscr
 ::: zone-end
 
 ::: zone pivot="azure-developer-cli"
-In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](../postgresql/index.yml)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment.
-
-:::image type="content" border="False" source="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an App Service with a PostgreSQL database in Azure.":::
-
-**To complete this tutorial, you'll need:**
-
-* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
-* [Git](https://git-scm.com/downloads) installed locally.
-* [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed locally.
-* Knowledge of Python with Flask development or [Python with Django development](/training/paths/django-create-data-driven-websites/).
-
-> [!NOTE]
-> If you want, you can follow the steps using the [Azure Cloud Shell](https://shell.azure.com). It has all tools you need to follow this tutorial. 
-
-## Sample application
-
-A sample Python application using the Flask framework is provided to help you follow along with this tutorial. To deploy it without running it locally, skip this part. 
-
-> [!NOTE]
-> To run the sample application locally, you need [Python 3.7 or higher](https://www.python.org/downloads/) and [PostgreSQL](https://www.postgresql.org/download/) installed locally.
-
-Clone the sample repository's `starter-no-infra` branch and change to the repository root.
-
-```bash
-git clone -b starter-no-infra https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
-cd msdocs-flask-postgresql-sample-app
-```
-
-Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the values of `DBNAME`, `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
-
-```
-DBNAME=<database name>
-DBHOST=<database-hostname>
-DBUSER=<db-user-name>
-DBPASS=<db-password>
-```
-
-Create a virtual environment for the app.
-
-[!INCLUDE [Virtual environment setup](<./includes/quickstart-python/virtual-environment-setup.md>)]
-
-Run the sample.
-
-```bash
-# Install dependencies
-pip install -r requirements.txt
-# Run database migrations
-flask db upgrade
-# Run the app at http://127.0.0.1:5000
-flask run
-```
 
 ## 1. Create Azure resources and deploy a sample app
 
@@ -593,10 +552,21 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
 
 1. If you haven't already, clone the sample repository's `starter-no-infra` branch in a local terminal.
 
+    ### [Flask](#tab/flask)
+    
     ```bash
     git clone -b starter-no-infra https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
     cd msdocs-flask-postgresql-sample-app
     ```
+
+    ### [Django](#tab/django)
+    
+    ```bash
+    git clone -b starter-no-infra https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app
+    cd msdocs-django-postgresql-sample-app
+    ```
+
+    -----
 
     This cloned branch is your starting point. It contains a simple data-drive Flask application.
 
@@ -636,23 +606,25 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
 
 The azd template you use generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings) and outputs the them to the terminal for your convenience. App settings are one way to keep connection secrets out of your code repository.
 
-1. In the azd output, find the app settings and find the `AZURE_POSTGRESQL_CONNECTIONSTRING`. To keep secrets safe, only the setting names are displayed. They look like this in the azd output:
+1. In the azd output, find the app settings and find the settings `AZURE_POSTGRESQL_CONNECTIONSTRING` and `AZURE_REDIS_CONNECTIONSTRING`. To keep secrets safe, only the setting names are displayed. They look like this in the azd output:
 
     <pre>
     App Service app has the following settings:
     
             - AZURE_POSTGRESQL_CONNECTIONSTRING
+            - AZURE_REDIS_CONNECTIONSTRING
             - FLASK_DEBUG
             - SCM_DO_BUILD_DURING_DEPLOYMENT
             - SECRET_KEY
     </pre>
 
-1. `AZURE_POSTGRESQL_CONNECTIONSTRING` contains the connection string to the Postgres database in Azure, and you can use it in your code to connect to it. Open *azureproject/production.py*, uncomment the following lines, and save the file:
+1. `AZURE_POSTGRESQL_CONNECTIONSTRING` contains the connection string to the Postgres database in Azure, and `AZURE_REDIS_CONNECTIONSTRING` contains the connection string to the Redis cache in Azure. You need to use them your code to connect to it. Open *azureproject/production.py*, uncomment the following lines, and save the file:
+
+    ### [Flask](#tab/flask)
 
     ```python
     conn_str = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
     conn_str_params = {pair.split('=')[0]: pair.split('=')[1] for pair in conn_str.split(' ')}
-    
     DATABASE_URI = 'postgresql+psycopg2://{dbuser}:{dbpass}@{dbhost}/{dbname}'.format(
         dbuser=conn_str_params['user'],
         dbpass=conn_str_params['password'],
@@ -660,10 +632,41 @@ The azd template you use generated the connectivity variables for you already as
         dbname=conn_str_params['dbname']
     )
     ```
-
+    
     Your application code is now configured to connect to the PostgreSQL database in Azure. If you want, open `app.py` and see how the `DATABASE_URI` environment variable is used.
 
-2. In the terminal, run `azd deploy`
+    ### [Django](#tab/django)
+    
+    ```python
+    conn_str = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
+    conn_str_params = {pair.split('=')[0]: pair.split('=')[1] for pair in conn_str.split(' ')}    
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': conn_str_params['dbname'],
+            'HOST': conn_str_params['host'],
+            'USER': conn_str_params['user'],
+            'PASSWORD': conn_str_params['password'],
+        }
+    }
+
+    CACHES = {
+            "default": {  
+                "BACKEND": "django_redis.cache.RedisCache",
+                "LOCATION": os.environ.get('AZURE_REDIS_CONNECTIONSTRING'),
+                "OPTIONS": {
+                    "CLIENT_CLASS": "django_redis.client.DefaultClient",
+                    "COMPRESSOR": "django_redis.compressors.zlib.ZlibCompressor",
+            },
+        }
+    }
+    ```
+
+    Your application code is now configured to connect to the PostgreSQL database and Redis cache in Azure.  
+
+    -----
+    
+1. In the terminal, run `azd deploy`
  
     ```bash
     azd deploy
@@ -681,7 +684,15 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 1. In the SSH terminal, run `flask db upgrade`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
 
+    ### [Flask](#tab/flask)
+
     :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-2.png":::
+
+    ### [Django](#tab/django)
+    
+    :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-2.png":::
+
+    -----
 
     > [!NOTE]
     > Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
@@ -710,7 +721,15 @@ Azure App Service can capture console logs to help you diagnose issues with your
 
 The sample app includes `print()` statements to demonstrate this capability as shown in the following snippet.
 
+### [Flask](#tab/flask)
+
 :::code language="python" source="~/msdocs-flask-postgresql-sample-app/app.py" range="37-41" highlight="3":::
+
+### [Django](#tab/django)
+
+:::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="2":::
+
+-----
 
 - In the azd output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the azd output:
 
