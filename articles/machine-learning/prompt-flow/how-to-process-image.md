@@ -53,7 +53,7 @@ Add the GPT-4V tool to the flow. Make sure you have an AOAI connection, with the
 
 The Jinja template for composing prompts in the GPT-4V tool follows a similar structure to the chat API in the LLM tool. To represent an image input within your prompt, you can use the syntax `![image]({{INPUT NAME}})`. Image input can be passed in the `user`, `system` and `assistant` messages.
 
-Once you've composed the prompt, click the **Validate and parse input** button to parse the input placeholders. The image input represented by `![image]({{INPUT NAME}})` will be parsed as image type with the input name as INPUT NAME. 
+Once you've composed the prompt, select the **Validate and parse input** button to parse the input placeholders. The image input represented by `![image]({{INPUT NAME}})` will be parsed as image type with the input name as INPUT NAME. 
 
 You can assign a value to the image input through the following ways:
 - Reference from the flow input of Image type.
