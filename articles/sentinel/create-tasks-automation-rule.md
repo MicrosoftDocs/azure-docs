@@ -13,10 +13,6 @@ This article explains how to use automation rules to create lists of incident ta
 
 [Incident tasks](incident-tasks.md) can be created automatically not only by automation rules, but also by playbooks, and also manually, ad-hoc, from within an incident.
 
-> [!IMPORTANT]
->
-> The **Incident tasks** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Use cases for different roles
 
 This article addresses the following scenarios that apply to SOC managers, senior analysts, and automation engineers:
@@ -48,7 +44,7 @@ In the **Automation** page, you can filter the view of automation rules to see o
 
 1. Unmark the **Select all** checkbox.
 
-1. Scroll down and mark the **Add task (Preview)** checkbox.
+1. Scroll down and mark the **Add task** checkbox.
 
 1. Select **OK** and see the results.
 
@@ -82,7 +78,7 @@ Give your automation rule a name that describes what it does.
 
     :::image type="content" source="media/create-tasks-automation-rule/create-new-automation-rule.png" alt-text="Screenshot of first part of automation rule wizard.":::
 
-1. Under **Actions**, select **Add task (preview)**.
+1. Under **Actions**, select **Add task**.
 
     :::image type="content" source="media/create-tasks-automation-rule/add-task-action.png" alt-text="Screenshot of choosing the Add Task action in an automation rule.":::
 

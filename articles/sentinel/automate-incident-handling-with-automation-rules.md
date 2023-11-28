@@ -19,7 +19,7 @@ Automation rules are a way to centrally manage automation in Microsoft Sentinel,
 Automation rules apply to the following categories of use cases:
 
 - Perform basic automation tasks for incident handling without using playbooks. For example:
-    - [Add incident tasks](incident-tasks.md) (in Preview) for analysts to follow.
+    - [Add incident tasks](incident-tasks.md) for analysts to follow.
     - Suppress noisy incidents.
     - Triage new incidents by changing their status from New to Active and assigning an owner.
     - Tag incidents to classify them.
@@ -133,7 +133,7 @@ Currently the only condition that can be configured for the alert creation trigg
 
 Actions can be defined to run when the conditions (see above) are met. You can define many actions in a rule, and you can choose the order in which they’ll run (see below). The following actions can be defined using automation rules, without the need for the [advanced functionality of a playbook](automate-responses-with-playbooks.md):
 
-- Adding a task to an incident - you can create a [checklist of tasks for analysts to follow](incident-tasks.md) throughout the processes of triage, investigation, and remediation of the incident, to ensure that no critical steps are missed.
+- Adding a task to an incident – you can create a [checklist of tasks for analysts to follow](incident-tasks.md) throughout the processes of triage, investigation, and remediation of the incident, to ensure that no critical steps are missed.
 
 - Changing the status of an incident, keeping your workflow up to date.
 
