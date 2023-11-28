@@ -135,8 +135,8 @@ You can choose from the following categories of enhanced metrics:
 
 - Enhanced metrics that use the DatabaseName dimension have a *50-database* limit.
 - On the *Burstable* SKU, the limit is 10 databases for metrics that use the DatabaseName dimension.
-- The DatabaseName dimension limit is applied on the object identifier (OID) column, which reflects the order of creation for the database.
-- The DatabaseName in the metrics dimension is *case insensitive*. The metrics for database names that are the same except for case (for example, *contoso_database* and *Contoso_database*) will be merged and might not show accurate data.
+- The DatabaseName dimension limit is applied on the database identifier (datid) column of the pg_stat_database system view, which reflects the order of creation for the database.
+- The DatabaseName in the metrics dimension is *case insensitive*. That means that after querying pg_catalog.pg_stat_database, filtering out rows in which datname is either "template1" or "template0", ordering by datid, and limiting the returned rows to the first 50 (or 10 in the case of *Burstable* SKU), the metrics for database names in that result set, that are the same except for case (for example, *contoso_database* and *Contoso_database*) will be merged and might not show accurate data.
 
 ### Autovacuum metrics
 
