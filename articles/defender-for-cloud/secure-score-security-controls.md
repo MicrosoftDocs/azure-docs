@@ -2,7 +2,7 @@
 title: Secure score in Microsoft Defender for Cloud
 description: Learn about the Microsoft Cloud Security Benchmark secure score in Microsoft Defender for Cloud
 ms.topic: conceptual
-ms.date: 11/16/2023
+ms.date: 11/27/2023
 ---
 
 # Secure score
