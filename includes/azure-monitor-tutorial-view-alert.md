@@ -12,9 +12,9 @@ Select **Alerts** from the resource's menu. If there are any open alerts for the
 
 :::image type="content" source="./media/azure-monitor-tutorial-view-alert/alerts-view.png" lightbox="./media/azure-monitor-tutorial-view-alert/alerts-view.png" alt-text="Alerts view":::
 
-Click on a severity to show the alerts with that severity. Select the **Alert state** and unselect **Closed** to view only open alerts.
+Click on a severity to show the alerts with that severity. Select the **User response** and unselect **Closed** to view only open alerts.
 
-:::image type="content" source="./media/azure-monitor-tutorial-view-alert/alert-state.png" lightbox="./media/azure-monitor-tutorial-view-alert/alert-state.png" alt-text="Alert state filter":::
+:::image type="content" source="./media/azure-monitor-tutorial-view-alert/user-response.png" lightbox="./media/azure-monitor-tutorial-view-alert/user-response.png" alt-text="Screenshot that shows the User response filter.":::
 
 Click on the name of an alert to view its detail.
 
