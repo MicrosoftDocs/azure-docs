@@ -16,21 +16,8 @@ This article describes how to enable and configure OpenTelemetry-based data coll
 
 OpenTelemetry offerings are available for .NET, Node.js, Python and Java applications.
 
-|Language        |Release Status                          |
-|----------------|----------------------------------------|
-|.NET (Exporter) | :white_check_mark: ¹ |
-|Java            | :white_check_mark: ¹ |
-|Node.js         | :white_check_mark: ¹ |
-|Python          | :white_check_mark: ¹ |
-|ASP.NET Core    | :warning: ²     |
-
-**Footnotes**
-- ¹ :white_check_mark: : OpenTelemetry is available to all customers with formal support.
-- ² :warning: : OpenTelemetry is available as a public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
-
 > [!NOTE]
 > For a feature-by-feature release status, see the [FAQ](#whats-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro).
-> The ASP.NET Core Distro is undergoing additional stability testing prior to GA. You can use the .NET Exporter if you need a fully supported OpenTelemetry solution for your ASP.NET Core application.
 
 ## Get started
 
