@@ -70,7 +70,7 @@ ms.author: xiaofanzhou
         }
     }
     ```
-    For more information, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?branch=pr-en-us-252964&tabs=sqldatabase%2Csystemassigned%2Cjava%2Cwindowsclient#3-modify-your-code).
+    For more information, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase%2Csystemassigned%2Cjava%2Cwindowsclient#3-modify-your-code).
 
 ### [SpringBoot](#tab/sql-me-id-spring)
 
