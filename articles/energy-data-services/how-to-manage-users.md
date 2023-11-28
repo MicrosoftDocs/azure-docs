@@ -113,14 +113,12 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 
 ## First time addition of users in a new data partition
 1. In order to add entitlements to a new data partition of Azure Data Manager for Energy instance, use the access token of the app that was used to provision the instance.
-2. Get the service principal access token using [Generate service princpal access token](how-to-manage-users##generate-service-principal-access-token).
+2. Get the service principal access token using [Generate service princpal access token](how-to-manage-users.md##generate-service-principal-access-token).
 3. If you try to directly use user tokens for adding entitlements, it results in 401 error. The service principal access token must be used to add initial users in the system and those users (with admin access) can then manage additional users.
 4. Use the service principal access token to do below three steps using the commands outlined in the below sections:
-   
    5. Add the users to the `users@<data-partition-id>.<domain>` OSDU group.
-      
-   7. Get the OSDU group such as `service.legal.editor@<data-partition-id>.<domain>` you want to add the user to.
-   8. Add the users to that group.
+   6. Get the OSDU group such as `service.legal.editor@<data-partition-id>.<domain>` you want to add the user to.
+   7. Add the users to that group.
 
 ## Get the list of all available groups in a data partition
 
@@ -138,7 +136,7 @@ Run the below curl command in Azure Cloud Bash to get all the groups that are av
 2. The value to be sent for the param **"email"** is the **Object_ID (OID)** of the user and not the user's email.
 
 ```bash
-    curl --location --request POST 'https://<URI>/api/entitlements/v2/groups/users@<data-partition-id>.dataservices.energy/members' \
+    curl --location --request POST 'https://<URI>/api/entitlements/v2/groups/<group-name>@<data-partition-id>.dataservices.energy/members' \
     --header 'data-partition-id: <data-partition-id>' \
     --header 'Authorization: Bearer <access_token>' \
     --header 'Content-Type: application/json' \
@@ -148,7 +146,7 @@ Run the below curl command in Azure Cloud Bash to get all the groups that are av
                 }'
 ```
 
-**Sample request for users OSDU group**
+**Sample request for `users` OSDU group**
 
 Consider an Azure Data Manager for Energy instance named "medstest" with a data partition named "dp1"
 
@@ -171,7 +169,7 @@ Consider an Azure Data Manager for Energy instance named "medstest" with a data 
         "role": "MEMBER"
     }
 ```
-**Sample request for legal service editor OSDU group**
+**Sample request for `legal service editor` OSDU group**
 ```bash
     curl --location --request POST 'https://medstest.energy.azure.com/api/entitlements/v2/groups/service.legal.editor@medstest-dp1.dataservices.energy/members' \
     --header 'data-partition-id: medstest-dp1' \
