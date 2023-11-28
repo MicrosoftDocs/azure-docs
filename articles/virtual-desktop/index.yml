@@ -36,7 +36,7 @@ landingContent:
         links:
           - text: Create and connect to a Windows 11 desktop with Azure Virtual Desktop
             url: tutorial-create-connect-personal-desktop.md
-      - linkListType: get-start
+      - linkListType: get-started
         links:
           - text: Prerequisites
             url: prerequisites.md
