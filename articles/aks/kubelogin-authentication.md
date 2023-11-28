@@ -12,7 +12,14 @@ Kubelogin is a client-go credential [plugin][client-go-cred-plugin] that impleme
 
 Azure Kubernetes Service (AKS) clusters integrated with Microsoft Entra ID, running Kubernetes versions 1.24 and higher, automatically use the `kubelogin` format.
 
-This article provides an overview of the different authentication methods and examples on how to use them.
+This article provides an overview of the following authentication methods and examples on how to use them:
+
+* Device code
+* The Azure CLI
+* Interactive web browser
+* Service principal
+* Managed identity
+* Workflow identity
 
 ## Limitations
 
@@ -25,8 +32,6 @@ This article provides an overview of the different authentication methods and ex
 
 Most of the interaction with `kubelogin` is specific to the `convert-kubeconfig` subcommand, which uses the input kubeconfig specified in `--kubeconfig` or `KUBECONFIG` environment variable to convert to the final kubeconfig in exec format based on the specified authentication mode.
 
-In this section, the authentication modes are explained in detail.
-
 ### How authentication works
 
 The authentication modes that `kubelogin` implements are Microsoft Entra ID OAuth 2.0 token grant flows. Throughout `kubelogin` subcommands, you see below common flags. In general, these flags are already set up when you get the kubeconfig from AKS.
@@ -38,7 +43,7 @@ The authentication modes that `kubelogin` implements are Microsoft Entra ID OAut
 > [!NOTE]
 > With each authentication method, the token isn't cached on the file system.
 
-### Using device code
+## Using device code
 
 Device code is the default authentication mode in `convert-kubeconfig` subcommand. The `-l devicecode` is optional. This authentication method prompts the device code for user to sign in from a browser session.
 
@@ -70,7 +75,7 @@ kubelogin remove-tokens
 > [!NOTE]
 > Device code sign in method doesn't work when Conditional Access policy is configured on Microsoft Entra tenant. Use the [web browser interactive mode][web-browser-interactive-mode] instead.
 
-### Using the Azure CLI
+## Using the Azure CLI
 
 Authenticating using the Azure CLI method uses the already signed in context performed by the Azure CLI to get the access token. The token is issued in the same Microsoft Entra tenant as with `az login`.
 
@@ -95,7 +100,7 @@ kubectl get nodes
 
 When the Azure CLI's config directory is outside the $`{HOME}` directory, specify the parameter `--azure-config-dir` in `convert-kubeconfig` subcommand. It generates the `kubeconfig` with the environment variable configured. You can achieve the same configuration by setting the environment variable `AZURE_CONFIG_DIR` to this directory while running `kubectl` command.
 
-### Interactive web browser
+## Using an interactive web browser
 
 Interactive web browser authentication automatically opens a web browser to log in the user. Once authenticated, the browser redirects back to a local web server with the credentials. This authentication method complies with Conditional Access policy.
 
@@ -129,7 +134,7 @@ Run `kubectl` command to get node information.
 kubectl get nodes
 ```
 
-### Service principal
+## Using a service principal
 
 This authentication method uses a service principal to sign in. The credential may be provided using an environment variable or command-line argument. The supported credentials are password and pfx client certificate.
 
@@ -238,7 +243,7 @@ Run `kubectl` command to get node information.
 kubectl get nodes
 ```
 
-### Managed identity
+## Using a managed identity
 
 The [managed identity][managed-identity-overview] authentication method should be used for applications to use when connecting to resources that support Microsoft Entra authentication. For example, accessing Azure services such as Azure Virtual Machine, Azure Virtual Machine Scale Sets, Azure Cloud Shell, etc.
 
@@ -270,7 +275,7 @@ Run `kubectl` command to get node information.
 kubectl get nodes
 ```
 
-### Workload identity
+## Using a workload identity
 
 This authentication method uses Microsoft Entra ID federated identity credentials to authenticate to Kubernetes clusters with Microsoft Entra ID integration. It works by setting the environment variables:
 
@@ -306,7 +311,7 @@ The AKS Microsoft Entra ID client application ID used by kubelogin to perform pu
 <!-- LINKS - internal -->
 [aks-managed-microsoft-entra-id]: managed-azure-ad.md
 [oauth-on-behalf-of]: ../active-directory/develop/v2-oauth2-on-behalf-of-flow.md
-[web-browser-interactive-mode]: #interactive-web-browser
+[web-browser-interactive-mode]: #using-an-interactive-web-browser
 [microsoft-entra-group-membership]: /entra/identity/hybrid/connect/how-to-connect-fed-group-claims
 [managed-identity-overview]: /entra/identity/managed-identities-azure-resources/overview
 [workload-identity]: /entra/workload-id/workload-identities-overview
