@@ -25762,13 +25762,13 @@
 	    ,
         {
             "source_path_from_root": "/articles/orbital/license-spacecraft.md",
-            "redirect_url": "/azure/orbital/initiate-licensing.md",
+            "redirect_url": "/azure/orbital/initiate-licensing",
             "redirect_document_id": false
         }
 	,
 	{
             "source_path_from_root": "/articles/orbital/partner-network-integration.md",
-            "redirect_url": "/azure/orbital/about-ground-stations.md#partner-ground-stations",
+            "redirect_url": "/azure/orbital/about-ground-stations#partner-ground-stations",
             "redirect_document_id": false
         }    
     ]
