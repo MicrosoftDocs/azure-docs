@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-disk-storage
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/18/2023
+ms.date: 11/28/2023
 ms.author: rogarana
 ---
 
@@ -13,7 +13,7 @@ ms.author: rogarana
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows 
 
-There are five disk types of Azure managed disks: Azure Ultra Disks, Premium SSD v2, premium SSD, Standard SSD, and Standard HDD. You can easily switch between Premium SSD, Standard SSD, and Standard HDD based on your performance needs. Premium SSD and Standard SSD are also available with [Zone-redundant storage](disks-redundancy.md#zone-redundant-storage-for-managed-disks). You aren't yet able to switch from or to an Ultra Disk or a Premium SSD v2, you must deploy a new one.
+There are five disk types of Azure managed disks: Azure Ultra Disks, Premium SSD v2, premium SSD, Standard SSD, and Standard HDD. You can easily switch between Premium SSD, Standard SSD, and Standard HDD based on your performance needs. Premium SSD and Standard SSD are also available with [Zone-redundant storage](disks-redundancy.md#zone-redundant-storage-for-managed-disks). You can't yet switch from or to an Ultra Disk or a Premium SSD v2, you must deploy a new one with a snapshot of an existing disk. See [Migrate to Premium SSD v2 or Ultra Disk](#migrate-to-premium-ssd-v2-or-ultra-disk) for details.
 
 This functionality isn't supported for unmanaged disks. But you can easily convert an unmanaged disk to a managed disk with [CLI](linux/convert-unmanaged-to-managed-disks.md) or [PowerShell](windows/convert-unmanaged-to-managed-disks.md) to be able to switch between disk types.
 
@@ -153,16 +153,6 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 
 # [Azure CLI](#tab/azure-cli)
 
-
-
-
-
-
-
-
-
-
-
  ```azurecli
 
 #resource group that contains the managed disk
@@ -213,7 +203,7 @@ The disk type conversion is instantaneous. You can start your VM after the conve
 
 ## Migrate to Premium SSD v2 or Ultra Disk
 
-Currently, you can only migrate an existing disk to either an Ultra Disk or a Premium SSD v2 through snapshots stored on Standard Storage (Incremental Standard HDD Snapshot). Migration with snapshots stored on Premium storage and other options is not supported.
+Currently, you can only migrate an existing disk to either an Ultra Disk or a Premium SSD v2 through snapshots stored on Standard Storage (Incremental Standard HDD Snapshot). Migration with snapshots stored on Premium storage and other options isn't supported.
 
 Both Premium SSD v2 disks and Ultra Disks have their own set of restrictions. For example, neither can be used as an OS disk, and also aren't available in all regions. See the [Premium SSD v2 limitations](disks-deploy-premium-v2.md#limitations) and [Ultra Disk GA scope and limitations](disks-enable-ultra-ssd.md#ga-scope-and-limitations) sections of their articles for more information.
 
