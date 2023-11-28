@@ -43,6 +43,7 @@ The following list presents the set of features that are currently available in 
 |                       | Redirect* (forward) a call to one or more endpoints  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Reject an incoming call                           | ✔️    | ✔️    |     ✔️         |    ✔️   |
 | Mid-call scenarios    | Add one or more endpoints to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Cancel adding an endpoint to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Play Audio from an audio file                     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Play Audio using Text-to-Speech                   | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Recognize user input through DTMF                 | ✔️    | ✔️    |     ✔️         |    ✔️   |
@@ -53,6 +54,7 @@ The following list presents the set of features that are currently available in 
 |                       | Mute participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer* a 1:1 call to another endpoint    | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Blind Transfer* a participant from group call to another endpoint |  ✔️    | ✔️    |     ✔️         |   ✔️ |
 |                       | Hang up a call (remove the call leg)              | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Terminate a call (remove all participants and end call)| ✔️ | ✔️  |     ✔️         |    ✔️   |
 |                       | Cancel media operations                           | ✔️    |  ✔️   |     ✔️         |    ✔️   |
