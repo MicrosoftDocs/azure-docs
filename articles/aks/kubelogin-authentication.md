@@ -1,20 +1,22 @@
 ---
 title: Using Kubelogin with Azure Kubernetes Service (AKS)
-description: Learn about using Kubelogin to enable authentication with Azure Active Directory authentication with Azure Kubernetes Service (AKS) 
+description: Learn about using Kubelogin to enable all of the supported Azure Active Directory authentication methods with Azure Kubernetes Service (AKS). 
 ms.topic: article
-ms.date: 11/27/2023
+ms.date: 11/28/2023
 
 ---
 
 # Use Kubelogin with Azure Kubernetes Service (AKS)
 
-Kubelogin is a client-go credential [plugin][client-go-cred-plugin] that implements Microsoft Entra ID authentication. Azure Kubernetes Service (AKS) clusters integrated with Microsoft Entra ID running Kubernetes versions 1.24 and higher automatically use the `kubelogin` format.
+Kubelogin is a client-go credential [plugin][client-go-cred-plugin] that implements Microsoft Entra ID authentication. This plugin provides features that are not available in kubectl.
+
+Azure Kubernetes Service (AKS) clusters integrated with Microsoft Entra ID, running Kubernetes versions 1.24 and higher, automatically use the `kubelogin` format.
 
 This article provides an overview of the different authentication methods and examples on how to use them.
 
 ## Limitations
 
-* A maximum of 200 groups are included in the Microsoft Entra ID JWT. For more than 200 groups, consider using [Application Roles][entra-id-application-roles].
+* A maximum of 200 groups are included in the Microsoft Entra ID JSON Web Token (JWT). For more than 200 groups, consider using [Application Roles][entra-id-application-roles].
 * Groups created in Microsoft Entra ID can only be included by their ObjectID and not by their display name. `sAMAccountName` is only available for groups synchronized from on-premises Active Directory.
 * On AKS, service principal authentication method only works with managed Entra ID, not legacy Azure Active Directory.
 * Device code authentication method doesn't work when Conditional Access policy is configured on a Microsoft Entra tenant. Use web browser interactive authentication instead.
@@ -34,7 +36,7 @@ The authentication modes that `kubelogin` implements are Microsoft Entra ID OAut
 * **--server-id**: The application ID of the web app, or resource server. The token should be issued to this resource.
 
 > [!NOTE]
-> With each authentication method, the token isn't cached on the filesystem.
+> With each authentication method, the token isn't cached on the file system.
 
 ### Using device code
 
@@ -51,9 +53,17 @@ If your Azure AD integrated cluster uses Kubernetes version 1.24 or earlier, you
 ```bash
 export KUBECONFIG=/path/to/kubeconfig
 kubelogin convert-kubeconfig
-kubectl get nodes
+```
 
-# clean up cached token
+Run `kubectl` command to get node information.
+
+```bash
+kubectl get nodes
+```
+
+To clean up cached tokens, run the following command.
+
+```bash
 kubelogin remove-tokens
 ```
 
@@ -75,7 +85,11 @@ az login
 export KUBECONFIG=/path/to/kubeconfig
 
 kubelogin convert-kubeconfig -l azurecli
+```
 
+Run `kubectl` command to get node information.
+
+```bash
 kubectl get nodes
 ```
 
@@ -93,7 +107,11 @@ The following example shows how to use a bearer token with interactive flow.
 export KUBECONFIG=/path/to/kubeconfig
 
 kubelogin convert-kubeconfig -l interactive
+```
 
+Run `kubectl` command to get node information.
+
+```bash
 kubectl get nodes
 ```
 
@@ -103,7 +121,11 @@ The following example shows how to use Proof-of-Possession (PoP) tokens with int
 export KUBECONFIG=/path/to/kubeconfig
 
 kubelogin convert-kubeconfig -l interactive --pop-enabled --pop-claims "u=/ARM/ID/OF/CLUSTER"
+```
 
+Run `kubectl` command to get node information.
+
+```bash
 kubectl get nodes
 ```
 
@@ -125,7 +147,11 @@ kubelogin convert-kubeconfig -l spn
 
 export AAD_SERVICE_PRINCIPAL_CLIENT_ID=<spn client id>
 export AAD_SERVICE_PRINCIPAL_CLIENT_SECRET=<spn secret>
+```
 
+Run `kubectl` command to get node information.
+
+```bash
 kubectl get nodes
 ```
 
@@ -136,7 +162,11 @@ kubelogin convert-kubeconfig -l spn
 
 export AZURE_CLIENT_ID=<spn client id>
 export AZURE_CLIENT_SECRET=<spn secret>
+```
 
+Run `kubectl` command to get node information.
+
+```bash
 kubectl get nodes
 ```
 
@@ -146,7 +176,11 @@ The following example shows how to set up a client secret in a command-line argu
 export KUBECONFIG=/path/to/kubeconfig
 
 kubelogin convert-kubeconfig -l spn --client-id <spn client id> --client-secret <spn client secret>
+```
 
+Run `kubectl` command to get node information.
+
+```bash
 kubectl get nodes
 ```
 
@@ -163,7 +197,11 @@ kubelogin convert-kubeconfig -l spn
 export AAD_SERVICE_PRINCIPAL_CLIENT_ID=<spn client id>
 export AAD_SERVICE_PRINCIPAL_CLIENT_CERTIFICATE=/path/to/cert.pfx
 export AAD_SERVICE_PRINCIPAL_CLIENT_CERTIFICATE_PASSWORD=<pfx password>
+```
 
+Run `kubectl get nodes` command to get node information in ps output format.
+
+```bash
 kubectl get nodes
 ```
 
@@ -175,7 +213,11 @@ kubelogin convert-kubeconfig -l spn
 export AZURE_CLIENT_ID=<spn client id>
 export AZURE_CLIENT_CERTIFICATE_PATH=/path/to/cert.pfx
 export AZURE_CLIENT_CERTIFICATE_PASSWORD=<pfx password>
+```
 
+Run `kubectl` command to get node information.
+
+```bash
 kubectl get nodes
 ```
 
@@ -188,7 +230,11 @@ kubelogin convert-kubeconfig -l spn --pop-enabled --pop-claims "u=/ARM/ID/OF/CLU
 
 export AAD_SERVICE_PRINCIPAL_CLIENT_ID=<spn client id>
 export AAD_SERVICE_PRINCIPAL_CLIENT_SECRET=<spn secret>
+```
 
+Run `kubectl` command to get node information.
+
+```bash
 kubectl get nodes
 ```
 
@@ -202,7 +248,11 @@ The following example shows how to use the default managed identity.
 export KUBECONFIG=/path/to/kubeconfig
 
 kubelogin convert-kubeconfig -l msi
+```
 
+Run `kubectl` command to get node information.
+
+```bash
 kubectl get nodes
 ```
 
@@ -212,7 +262,11 @@ The following example shows how to use a managed identity with a specific identi
 export KUBECONFIG=/path/to/kubeconfig
 
 kubelogin convert-kubeconfig -l msi --client-id <msi-client-id>
+```
 
+Run `kubectl` command to get node information.
+
+```bash
 kubectl get nodes
 ```
 
@@ -233,7 +287,11 @@ The following example shows how to use a workload identity.
 export KUBECONFIG=/path/to/kubeconfig
 
 kubelogin convert-kubeconfig -l workloadidentity
+```
 
+Run `kubectl` command to get node information.
+
+```bash
 kubectl get nodes
 ```
 
