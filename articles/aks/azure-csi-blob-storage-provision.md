@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-linux
-ms.date: 11/24/2023
+ms.date: 11/28/2023
 ---
 
 # Create and use a volume with Azure Blob storage in Azure Kubernetes Service (AKS)
@@ -326,10 +326,9 @@ The following example demonstrates how to mount a Blob storage container as a pe
         - nconnect=4
       csi:
         driver: blob.csi.azure.com
-        readOnly: false
         # make sure volumeid is unique for every identical storage blob container in the cluster
         # character `#` and `/` are reserved for internal use and cannot be used in volumehandle
-        volumeHandle: unique-volumeid
+        volumeHandle: account-name_container-name
         volumeAttributes:
           resourceGroup: resourceGroupName
           storageAccount: storageAccountName
@@ -419,10 +418,9 @@ Kubernetes needs credentials to access the Blob storage container created earlie
         - --file-cache-timeout-in-seconds=120
       csi:
         driver: blob.csi.azure.com
-        readOnly: false
         # volumeid has to be unique for every identical storage blob container in the cluster
         # character `#`and `/` are reserved for internal use and cannot be used in volumehandle
-        volumeHandle: unique-volumeid
+        volumeHandle: account-name_container-name
         volumeAttributes:
           containerName: containerName
         nodeStageSecretRef:
