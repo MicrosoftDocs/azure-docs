@@ -25,7 +25,7 @@ This article provides an overview of the following authentication methods and ex
 
 * A maximum of 200 groups are included in the Microsoft Entra ID JSON Web Token (JWT). For more than 200 groups, consider using [Application Roles][entra-id-application-roles].
 * Groups created in Microsoft Entra ID are only included by their ObjectID and not by their display name. `sAMAccountName` is only available for groups synchronized from on-premises Active Directory.
-* On AKS, service principal authentication method only works with managed Entra ID, not legacy Azure Active Directory.
+* On AKS, service principal authentication method only works with managed Microsoft Entra ID, not legacy Azure Active Directory.
 * Device code authentication method doesn't work when Conditional Access policy is configured on a Microsoft Entra tenant. Use web browser interactive authentication instead.
 
 ## Authentication modes
@@ -47,7 +47,7 @@ The authentication modes that `kubelogin` implements are Microsoft Entra ID OAut
 
 Device code is the default authentication mode in `convert-kubeconfig` subcommand. The `-l devicecode` is optional. This authentication method prompts the device code for user to sign in from a browser session.
 
-Before `kubelogin` and Exec plugin were introduced, the Azure authentication mode in `kubectl` only supported device code flow. It used an old library that produces the token with `audience` claim that has the `spn:` prefix, which isn't compatible with [AKS-managed Entra ID][aks-managed-microsoft-entra-id] using [on-behalf-of][oauth-on-behalf-of] (OBO) flow. When you run the `convert-kubeconfig` subcommand, `kubelogin` removes the `spn:` (prefix in audience claim). If you require using the original functionality, add the `--legacy` argument.
+Before `kubelogin` and Exec plugin were introduced, the Azure authentication mode in `kubectl` only supported device code flow. It used an old library that produces the token with `audience` claim that has the `spn:` prefix, which isn't compatible with [AKS-managed Microsoft Entra ID][aks-managed-microsoft-entra-id] using [on-behalf-of][oauth-on-behalf-of] (OBO) flow. When you run the `convert-kubeconfig` subcommand, `kubelogin` removes the `spn:` (prefix in audience claim). If you require using the original functionality, add the `--legacy` argument.
 
 If you're using `kubeconfig` from legacy Azure AD cluster, `kubelogin` automatically adds the `--legacy` flag.
 
