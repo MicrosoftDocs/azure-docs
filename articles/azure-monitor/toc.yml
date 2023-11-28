@@ -456,17 +456,42 @@ items:
     - name: Best practices
       displayName: containers, kubernetes
       href: best-practices-containers.md
+    - name: Onboarding
+      items:
+      - name: Overview
+        href: containers/container-insights-onboard.md
+      - name: AKS cluster
+        items:
+        - name: Prometheus
+          href: containers/prometheus-metrics-enable.md
+        - name: Container insights
+          href: containers/container-insights-enable-aks.md
+      - name: Arc-enabled Kubernetes cluster
+        items:
+        - name: Prometheus
+          href: containers/prometheus-metrics-from-arc-enabled-cluster.md 
+        - name: Container insights
+          href: containers/container-insights-enable-arc-enabled-clusters.md
+      - name: Legacy authentication
+        href: containers/container-insights-authentication.md
+      - name: Supported region mappings
+        href: containers/container-insights-region-mapping.md
+      - name: Transition from Container monitoring solution
+        href: containers/container-insights-transition-solution.md
+      - name: Configure private Link
+        items:
+        - name: Prometheus
+          displayName: Private link data ingestion
+          href: essentials/private-link-data-ingestion.md
+        - name: Private link data query
+          displayName: Private link data query
+          href: ../managed-grafana/how-to-connect-to-data-source-privately.md
+        - name: Container insights
+          href: containers/container-insights-private-link.md
+    - name: Configuration
+      items:  
     - name: Prometheus
       items:
-      - name: Enable on AKS cluster
-        displayName: Prometheus
-        href: containers/prometheus-metrics-enable.md
-      - name: Disable on AKS cluster
-        displayName: Prometheus
-        href: containers/prometheus-metrics-disable.md
-      - name: Enable on Arc-enabled Kubernetes cluster
-        displayName: Prometheus
-        href: containers/prometheus-metrics-from-arc-enabled-cluster.md    
       - name: Customize collection
         items:
         - name: Default configuration
@@ -513,12 +538,6 @@ items:
       - name: Prometheus Microsoft Entra authorization proxy
         displayName: Prometheus
         href: containers/prometheus-authorization-proxy.md
-      - name: Private link data ingestion
-        displayName: Private link data ingestion
-        href: essentials/private-link-data-ingestion.md
-      - name: Private link data query
-        displayName: Private link data query
-        href: ../managed-grafana/how-to-connect-to-data-source-privately.md
     - name: Container insights
       items:
       - name: Overview
@@ -528,27 +547,12 @@ items:
       - name: Enable
         displayName: container insights
         items:
-        - name: Overview
-          displayName: container insights
-          href: containers/container-insights-onboard.md
-        - name: AKS cluster
-          href: containers/container-insights-enable-aks.md
-        - name: Azure Arc-enabled cluster
-          href: containers/container-insights-enable-arc-enabled-clusters.md
         - name: AKS hybrid cluster
           href: containers/container-insights-enable-provisioned-clusters.md
         - name: Hybrid cluster
           href: containers/container-insights-hybrid-setup.md          
         - name: Enable with Azure Policy
           href: containers/container-insights-enable-aks-policy.md
-        - name: Configure private link
-          href: containers/container-insights-private-link.md
-        - name: Legacy authentication
-          href: containers/container-insights-authentication.md
-        - name: Supported region mappings
-          href: containers/container-insights-region-mapping.md
-        - name: Transition from Container monitoring solution
-          href: containers/container-insights-transition-solution.md
       - name: Configure
         items:
         - name: Agent management
