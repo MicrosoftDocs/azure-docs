@@ -1,12 +1,12 @@
 ---
 title: Secure an Azure API Management API by using Azure Active Directory B2C
 description: Learn how to use access tokens issued by Azure Active Directory B2C to secure an Azure API Management API endpoint.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 09/20/2021
 ms.author: kengaderdus
@@ -36,8 +36,7 @@ To register an application in your Azure AD B2C tenant, you can use our new, uni
 # [App registrations](#tab/app-reg-ga/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. On the left pane, select **Azure AD B2C**. Alternatively, you can select **All services** and then search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select the **Owned applications** tab.
 1. Record the value in the **Application (client) ID** column for *webapp1* or for another application you've previously created.
@@ -45,8 +44,7 @@ To register an application in your Azure AD B2C tenant, you can use our new, uni
 # [Applications (Legacy)](#tab/applications-legacy/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. On the left pane, select **Azure AD B2C**. Alternatively, you can select **All services** and then search for and select **Azure AD B2C**.
 1. Under **Manage**, select **Applications (Legacy)**.
 1. Record the value in the **Application ID** column for *webapp1* or for another application you've previously created.

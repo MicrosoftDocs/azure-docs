@@ -70,7 +70,7 @@ Request body parameters:
     az aks update --disable-defender --resource-group <your-resource-group> --name <your-cluster-name>
     ```
 
-    Removing the extension may take a few minutes.
+    Removing the extension might take a few minutes.
 
 1. To verify that the extension was successfully removed, run the following command:
 

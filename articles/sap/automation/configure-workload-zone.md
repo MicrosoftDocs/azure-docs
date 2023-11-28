@@ -42,6 +42,7 @@ This table contains the parameters that define the environment settings.
 > | `environment`           | Identifier for the workload zone (max five characters)   | Mandatory  | For example, `PROD` for a production environment and `QA` for a Quality Assurance environment. |
 > | `location`              | The Azure region in which to deploy                      | Required   |                                                                                                |
 > | `name_override_file`    | Name override file                                       | Optional   | See [Custom naming](naming-module.md).                                                         |
+> | `tags`                  | A dictionary of tags to associate with all resources.    | Optional   |                                                                                                |
 
 ## Resource group parameters
 
@@ -156,10 +157,10 @@ This table defines the parameters used for defining the key vault information.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                         | Description                                                                    | Type         | Notes                               |
 > | ------------------------------------------------ | ------------------------------------------------------------------------------ | ------------ | ----------------------------------- |
-> | `user_keyvault_id`	                             | Azure resource identifier for existing system credentials key vault            | Optional	 |                                     | 
-> | `spn_keyvault_id`                                | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	 |                                     | 
-> | `enable_purge_control_for_keyvaults`             | Disables the purge protection for Azure key vaults                            | Optional     | Use only for test environments. |
 > | `additional_users_to_add_to_keyvault_policies`	 | A list of user object IDs to add to the deployment key vault access policies    | Optional	 |                                     | 
+> | `enable_purge_control_for_keyvaults`             | Disables the purge protection for Azure key vaults                            | Optional     | Use only for test environments. |
+> | `spn_keyvault_id`                                | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	 |                                     | 
+> | `user_keyvault_id`	                             | Azure resource identifier for existing system credentials key vault            | Optional	 |                                     | 
 
 ## Private DNS
 
@@ -176,11 +177,14 @@ This table defines the parameters used for defining the key vault information.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                             | Type        | Notes  |
 > | ---------------------------------- | ----------------------------------------------------------------------- | ----------- | ------ |
+> | `create_transport_storage`         | If defined, create storage for the transport directories.               | Optional    | |
+> | `export_install_path`              | If provided, export mount path for the installation media.              | Optional    | |
+> | `export_transport_path`            | If provided, export mount path for the transport share.                 | Optional    | |
+> | `install_private_endpoint_id`      | Azure resource ID for the `install` private endpoint.                   | Optional    | For existing endpoints|
+> | `install_volume_size`              | Defines the size (in GB) for the `install` volume.                      | Optional    | |
 > | `NFS_provider`                     | Defines what NFS back end to use. The options are `AFS` for Azure Files NFS or `ANF` for Azure NetApp Files, `NONE` for NFS from the SCS server, or `NFS` for an external NFS solution.  | Optional | |
-> | `install_volume_size`              | Defines the size (in GB) for the `install` volume.                        | Optional    | |
-> | `install_private_endpoint_id`      | Azure resource ID for the `install` private endpoint.                     | Optional    | For existing endpoints|
-> | `transport_volume_size`            | Defines the size (in GB) for the `transport` volume.                      | Optional    | |
-> | `transport_private_endpoint_id`    | Azure resource ID for the `transport` private endpoint.                   | Optional    | For existing endpoints|
+> | `transport_volume_size`            | Defines the size (in GB) for the `transport` volume.                    | Optional    | |
+> | `use_AFS_for_installation_media    | If provided, uses AFS for the installation media.                       | Optional    | |
 
 ### Azure Files NFS support
 
@@ -235,19 +239,19 @@ ANF_service_level         = "Ultra"
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                            | Description                                                              | Type     |
 > | ----------------------------------- | ------------------------------------------------------------------------ | -------- |
-> | `use_custom_dns_a_registration`	    | Use an existing private DNS zone.                                        | Optional |
-> | `management_dns_subscription_id`    | Subscription ID for the subscription that contains the private DNS zone. | Optional |
-> | `management_dns_resourcegroup_name`	| Resource group that contains the private DNS zone.                       | Optional |
 > | `dns_label`	                        | DNS name of the private DNS zone.                                        | Optional |
+> | `management_dns_resourcegroup_name`	| Resource group that contains the private DNS zone.                       | Optional |
+> | `management_dns_subscription_id`    | Subscription ID for the subscription that contains the private DNS zone. | Optional |
+> | `use_custom_dns_a_registration`	    | Use an existing private DNS zone.                                        | Optional |
 
 ## Other parameters
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                             | Description                                                            | Type     | Notes                                 |
 > | ------------------------------------ | ---------------------------------------------------------------------- | -------- | ------------------------------------- |
-> | `place_delete_lock_on_resources`     | Places delete locks on the key vaults and the virtual network          | Optional |                                       |
-> | `enable_purge_control_for_keyvaults` | If purge control is enabled on the key vault.                          | Optional | Use only for test deployments.        |
 > | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account.     | Required | For brown-field deployments.          |
+> | `enable_purge_control_for_keyvaults` | If purge control is enabled on the key vault.                          | Optional | Use only for test deployments.        |
+> | `place_delete_lock_on_resources`     | Places delete locks on the key vaults and the virtual network          | Optional |                                       |
 > | `witness_storage_account_arm_id`     | The Azure resource identifier for the witness storage account.         | Required | For brown-field deployments.          |
 
 ## iSCSI parameters
@@ -255,17 +259,18 @@ ANF_service_level         = "Ultra"
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                         | Description                                                               | Type      | Notes                                  |
 > | -------------------------------- | ------------------------------------------------------------------------- | --------- | -------------------------------------- |
-> | `iscsi_subnet_name`              | The name of the `iscsi` subnet                                           | Optional  |                                        |
-> | `iscsi_subnet_address_prefix`    | The address range for the `iscsi` subnet                                 | Mandatory | For green-field deployments        |
-> | `iscsi_subnet_arm_id`	         | The Azure resource identifier for the `iscsi` subnet                     | Mandatory | For brown-field deployments   |
-> | `iscsi_subnet_nsg_name`          | The name of the `iscsi` network security group                       | Optional  |                                        |
-> | `iscsi_subnet_nsg_arm_id`        | The Azure resource identifier for the `iscsi` network security group      | Mandatory | For brown-field deployments   |
-> | `iscsi_count`                    | The number of iSCSI virtual machines                                      | Optional  |                                        |   
-> | `iscsi_use_DHCP`                 | Controls whether to use dynamic IP addresses provided by the Azure subnet | Optional  |                                        |
-> | `iscsi_image`	                 | Defines the virtual machine image to use (next table)                       | Optional  |                                        |
 > | `iscsi_authentication_type`      | Defines the default authentication for the iSCSI virtual machines         | Optional  |                                        |
-> | `iscsi__authentication_username` | Administrator account name                                                | Optional  |                                        |
+> | `iscsi_authentication_username`  | Administrator account name                                                | Optional  |                                        |
+> | `iscsi_count`                    | The number of iSCSI virtual machines                                      | Optional  |                                        |   
+> | `iscsi_image`	                 | Defines the virtual machine image to use (next table)                     | Optional  |                                        |
 > | `iscsi_nic_ips`                  | IP addresses for the iSCSI virtual machines                               | Optional  | Ignored if `iscsi_use_DHCP` is defined |
+> | `iscsi_subnet_address_prefix`    | The address range for the `iscsi` subnet                                  | Mandatory | For green-field deployments            |
+> | `iscsi_subnet_arm_id`	         | The Azure resource identifier for the `iscsi` subnet                      | Mandatory | For brown-field deployments            |
+> | `iscsi_subnet_name`              | The name of the `iscsi` subnet                                            | Optional  |                                        |
+> | `iscsi_subnet_nsg_arm_id`        | The Azure resource identifier for the `iscsi` network security group      | Mandatory | For brown-field deployments            |
+> | `iscsi_subnet_nsg_name`          | The name of the `iscsi` network security group                            | Optional  |                                        |
+> | `iscsi_use_DHCP`                 | Controls whether to use dynamic IP addresses provided by the Azure subnet | Optional  |                                        |
+> | `iscsi_vm_zones`                 | Availability zones for the iSCSI Virtual Machines                         | Optional  |                                        |
 
 ## Utility VM parameters
 
@@ -273,10 +278,10 @@ ANF_service_level         = "Ultra"
 > | Variable                         | Description                                                               | Type      | Notes                                          |
 > | -------------------------------- | ------------------------------------------------------------------------- | --------- | ---------------------------------------------- |
 > | `utility_vm_count`               | Defines the number of utility virtual machines to deploy                 | Optional  | Use the utility virtual machine to host SAPGui |
-> | `utility_vm_size`                | Defines the SKU for the utility virtual machines                         | Optional  | Default: Standard_D4ds_v4                      |
-> | `utility_vm_useDHCP`             | Defines if Azure subnet provided IPs should be used                      | Optional  |                                                |
 > | `utility_vm_image`               | Defines the virtual machine image to use                                 | Optional  | Default: Windows Server 2019                   |
 > | `utility_vm_nic_ips`             | Defines the IP addresses for the virtual machines                        | Optional  |                                                |
+> | `utility_vm_size`                | Defines the SKU for the utility virtual machines                         | Optional  | Default: Standard_D4ds_v4                      |
+> | `utility_vm_useDHCP`             | Defines if Azure subnet provided IPs should be used                      | Optional  |                                                |
 
 ## Terraform parameters
 

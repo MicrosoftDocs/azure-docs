@@ -66,7 +66,7 @@ A private-link resource is the destination target of a specified private endpoin
  
 | Private-link resource name | Resource type | Sub-resources |
 | ---------------------------| ------------- | ------------- |
-| Application Gateway | Microsoft.Network/applicationgateways | application gateway |
+| Application Gateway | Microsoft.Network/applicationgateways |Frontend IP Configuration name|
 | Azure AI services | Microsoft.CognitiveServices/accounts | account |
 | Azure API for FHIR (Fast Healthcare Interoperability Resources) | Microsoft.HealthcareApis/services | fhir |
 | Azure App Configuration | Microsoft.Appconfiguration/configurationStores | configurationStores |
@@ -77,7 +77,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Batch | Microsoft.Batch/batchAccounts | batchAccount, nodeManagement |
 | Azure Cache for Redis | Microsoft.Cache/Redis | redisCache |
 | Azure Cache for Redis Enterprise | Microsoft.Cache/redisEnterprise | redisEnterprise |
-| Azure Cognitive Search | Microsoft.Search/searchServices | searchService |
+| Azure AI Search | Microsoft.Search/searchServices | searchService |
 | Azure Container Registry | Microsoft.ContainerRegistry/registries | registry |
 | Azure Cosmos DB | Microsoft.AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table |
 | Azure Cosmos DB for PostgreSQL | Microsoft.DBforPostgreSQL/serverGroupsv2 | coordinator |
@@ -126,7 +126,7 @@ A private-link resource is the destination target of a specified private endpoin
 
 > [!NOTE]
 > You can create private endpoints only on a General Purpose v2 (GPv2) storage account.
- 
+
 ## Network security of private endpoints 
 
 When you use private endpoints, traffic is secured to a private-link resource. The platform validates network connections, allowing only those that reach the specified private-link resource. To access more subresources within the same Azure service, more private endpoints with corresponding targets are required. In the case of Azure Storage, for instance, you would need separate private endpoints to access the _file_ and _blob_ subresources.
@@ -183,7 +183,7 @@ The following information lists the known limitations to the use of private endp
 
 | Limitation | Description |
 | --------- | ------------ |
-| Static IP address configuration currently unsupported. | **Azure Kubernetes Service (AKS)** </br> **Azure Application Gateway** </br> **HD Insight**. |
+| Static IP address configuration currently unsupported. | **Azure Kubernetes Service (AKS)** </br> **Azure Application Gateway** </br> **HD Insight** </br> **Recovery Services Vaults** </br> **Third party Private Link services** |
 
 ### Network security group
 

@@ -18,47 +18,62 @@ items:
     - name: Create and access an environment
       href: quickstart-create-access-environments.md
 - name: Concepts
-  expanded: true
+  expanded: false
   items:
     - name: Key concepts
       href: concept-environments-key-concepts.md
     - name: Usage scenarios
       href: concept-environments-scenarios.md
+    - name: Parameters and data types in environment.yaml
+      href: concept-environment-yaml.md  
     - name: Reliability in Azure Deployment Environments
-      href: concept-environments-reliability-availability.md  
+      href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json  
 - name: How-to guides
   expanded: true
   items:
-    - name: Add & configure a catalog
-      href: how-to-configure-catalog.md
-    - name: Add & configure an environment definition
-      href: configure-environment-definition.md
-    - name: Configure a managed identity
-      href: how-to-configure-managed-identity.md
-    - name: Configure dev center environment types
-      href: how-to-configure-devcenter-environment-types.md
-    - name: Add & delete project environment types
-      href: how-to-configure-project-environment-types.md
-    - name: Request a quota limit increase
-      href: how-to-request-quota-increase.md  
-    - name: Provide access to dev managers
-      href: how-to-configure-project-admin.md
-    - name: Provide access to developers
-      href: how-to-configure-deployment-environments-user.md
-    - name: Authenticate to REST APIs
-      href: how-to-authenticate.md
+    - name: Configure resources in the Azure Portal
+      expanded: false
+      items:
+       - name: Add & configure a catalog
+         href: how-to-configure-catalog.md
+       - name: Add & configure an environment definition
+         href: configure-environment-definition.md
+       - name: Configure a managed identity
+         href: how-to-configure-managed-identity.md
+       - name: Configure dev center environment types
+         href: how-to-configure-devcenter-environment-types.md
+       - name: Add & delete project environment types
+         href: how-to-configure-project-environment-types.md
+       - name: Provide access to dev managers
+         href: how-to-configure-project-admin.md
+       - name: Provide access to developers
+         href: how-to-configure-deployment-environments-user.md         
+    - name: Configure resources from the CLI
+      expanded: false
+      items:
+       - name: Install Azure CLI dev center extension
+         href: how-to-install-devcenter-cli-extension.md
+       - name: Create and configure a dev center
+         href: how-to-create-configure-dev-center.md
+       - name: Create and configure a project
+         href: how-to-create-configure-projects.md
+       - name: Create environments
+         href: how-to-create-access-environments.md
+    - name: Manage costs
+      expanded: false
+      items:         
+      - name: Request a quota limit increase
+        href: how-to-request-quota-increase.md  
+    - name: Create an environment with AZD
+      href: how-to-create-environment-with-azure-developer.md
     - name: Manage environments as a developer
       href: how-to-manage-environments.md
-    - name: Install Azure CLI dev center extension
-      href: how-to-install-devcenter-cli-extension.md
-    - name: Create and configure a dev center with the CLI
-      href: how-to-create-configure-dev-center.md
-    - name: Create and configure a project with the CLI
-      href: how-to-create-configure-projects.md
-    - name: Create environments with the CLI
-      href: how-to-create-access-environments.md
+    - name: Automatic deletion of an environment
+      href: how-to-schedule-environment-deletion.md  
+    - name: Authenticate to REST APIs
+      href: how-to-authenticate.md
 - name: Tutorials
-  expanded: true
+  expanded: false
   items:
     - name: Deploy environments in CI/CD with GitHub
       href: tutorial-deploy-environments-in-cicd-github.md  

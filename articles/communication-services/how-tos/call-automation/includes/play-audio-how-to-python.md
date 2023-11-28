@@ -5,7 +5,7 @@ services: azure-communication-services
 author: Kunaal Punjabi
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/10/2023
+ms.date: 11/20/2023
 ms.topic: include
 ms.topic: include file
 ms.author: kpunjabi
@@ -18,10 +18,9 @@ ms.author: kpunjabi
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - Have Python installed, you can install from the [official site](https://www.python.org/).
 
-### For AI features (Public preview)
+### For AI features 
 - Create and connect [Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
-
 
 ## Create a new Python application
 
@@ -55,11 +54,11 @@ python app.py
 
 ## (Optional) Prepare your audio file if you wish to use audio files for playing prompts
 
-Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file that ACS supports needs to be **WAV, mono and 16 KHz sample rate**. 
+Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to Azure Communication Services with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. Azure Communication Services supports both file types of **MP3** and **WAV files, mono 16-bit PCM at 16 KHz sample rate**. . 
 
 You can test creating your own audio file using our [Speech synthesis with Audio Content Creation tool](../../../../ai-services/Speech-Service/how-to-audio-content-creation.md).
 
-## (Optional) Connect your Azure Cognitive Service to your Azure Communication Service (Public Preview)
+## (Optional) Connect your Azure Cognitive Service to your Azure Communication Service
 
 If you would like to use Text-To-Speech capabilities, then it's required for you to connect your [Azure Cognitive Service to your Azure Communication Service](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 
@@ -81,13 +80,13 @@ Once the call has been established, there are multiple options for how you may w
 
 ### Play source - Audio file
 
-To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files, you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
+To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files, you need to make sure you provide Azure Communication Services with a uri to a file you host in a location where Azure Communication Services can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
 
 ``` python
 play_source = FileSource(url=audioUri)
 ```
 
-### Play source - Text-To-Speech (Public Preview)
+### Play source - Text-To-Speech 
 
 To play audio using Text-To-Speech through Azure AI services, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](../../../../ai-services/Speech-Service/language-support.md?tabs=tts).
 
@@ -115,7 +114,7 @@ call_automation_client.get_call_connection(call_connection_id).play_media(
 )
 ```
 
-### Play source - Text-To-Speech with SSML (Public Preview)
+### Play source - Text-To-Speech with SSML 
 
 If you want to customize your Text-To-Speech output even more with Azure AI services you can use [Speech Synthesis Markup Language SSML](../../../../ai-services/Speech-Service/speech-synthesis-markup.md) when invoking your play action through Call Automation. With SSML you can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume and attribute multiple voices.
 
@@ -202,7 +201,7 @@ call_automation_client.get_call_connection(call_connection_id).play_media(
 
 ## Enhance play with audio file caching
 
-If you're playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour. 
+If you're playing the same audio file multiple times, your application can provide Azure Communication Services with the sourceID for the audio file. Azure Communication Services caches this audio file for 1 hour. 
 > [!Note]
 > Caching audio files isn't suitable for dynamic prompts. If you change the URL provided to ACS, it does not update the cached URL straight away. The update will occur after the existing cache expires.
 

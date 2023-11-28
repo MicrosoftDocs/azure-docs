@@ -231,6 +231,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "function-app-arm-templates",
+      "url": "https://github.com/Azure-Samples/function-app-arm-templates",
+      "branch": "main",
+      "branch_mapping": {}
+    },    
+    {
       "path_to_root": "functions-azure-product",
       "url": "https://github.com/Azure/Azure-Functions",
       "branch": "main",
@@ -489,12 +495,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-batch-pup",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "santiagxf/batch-pup",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "azureml-examples-mavaisma-r-azureml",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "mavaisma-r-azureml",
@@ -504,24 +504,6 @@
       "path_to_root": "azureml-examples-v2samplesreorg",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "v2samplesreorg",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "azureml-examples-sdk-preview",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "sdk-preview",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "azureml-examples-online-endpoint-vnet",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "azureml-examples-featurestore",
-      "url": "https://github.com/Azure/azureml-examples",
-      "branch": "featurestore/pup",
       "branch_mapping": {}
     },
     {
@@ -987,6 +969,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "cosmos-db-nosql-dotnet-quickstart",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-dotnet-quickstart",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cosmos-db-nosql-javascript-samples",
       "url": "https://github.com/azure-samples/cosmos-db-nosql-javascript-samples",
       "branch": "main",
@@ -1141,6 +1129,12 @@
       "url": "https://github.com/MicrosoftDocs/azure-reference-other-pr",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-iot-operations-samples",
+      "url": "https://github.com/Azure-Samples/explore-iot-operations",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
@@ -1222,6 +1216,7 @@
   "articles/iot-edge/.openpublishing.redirection.iot-edge.json",
   "articles/iot/.openpublishing.redirection.iot.json",
   "articles/iot-hub/.openpublishing.redirection.iot-hub.json",
+  "articles/iot-operations/.openpublishing.redirection.iot-operations.json",
   "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
   "articles/logic-apps/.openpublishing.redirection.logic-apps.json",
   "articles/machine-learning/.openpublishing.redirection.machine-learning.json",

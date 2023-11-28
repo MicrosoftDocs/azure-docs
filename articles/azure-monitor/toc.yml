@@ -10,7 +10,7 @@ items:
     - name: What's new?
       href: whats-new.md
     - name: FAQ
-      href: faq.yml
+      href: overview.md#frequently-asked-questions
 - name: Getting started
   items:
   - name: Get started with Azure Monitor
@@ -191,7 +191,7 @@ items:
             href: app/asp-net-trace-logs.md
           - name: Sampling
             displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
-            href: app/sampling.md
+            href: app/sampling-classic-api.md
           - name: SDK support policy
             href: app/sdk-support-guidance.md
           - name: Statsbeat
@@ -266,7 +266,7 @@ items:
       - name: Release and work item insights
         href: app/release-and-work-item-insights.md
       - name: Transaction Search and Diagnostics
-        href: app/search-and-transaction-diagnostics.md
+        href: app/transaction-search-and-diagnostics.md
     - name: Code analysis
       items:
       - name: Profiler
@@ -359,27 +359,15 @@ items:
         href: app/powershell.md
       - name: Access control
         href: app/resources-roles-access-control.md
-      - name: Application data collection, retention, and storage
-        href: app/data-retention-privacy.md
       - name: IP addresses, ports, and firewall settings
         href: app/ip-addresses.md
         displayName: firewall, firewall exceptions, whitelist
-      - name: Separate development, test, and production
-        href: app/separate-resources.md
-    - name: Tutorials
-      items:
-      - name: Application Insights SDK for ASP.NET Core applications
-        href: app/tutorial-asp-net-core.md
-      - name: Custom metrics with .NET and .NET Core
-        href: app/tutorial-asp-net-custom-metrics.md
-      - name: Dashboard with application data
-        href: app/tutorial-app-dashboards.md
     - name: Help and support
       items:
       - name: Create an Azure support ticket
         href: https://azure.microsoft.com/support/create-ticket
       - name: Q&A forum (general questions)
-        href: https://learn.microsoft.com/answers/tags/20/azure-monitor
+        href: /answers/tags/20/azure-monitor
       - name: Stack Overflow (coding questions)
         href: https://stackoverflow.com/questions/tagged/azure-application-insights
       - name: Application Insights product feedback
@@ -406,8 +394,6 @@ items:
       items:
       - name: Overview
         href: vm/vminsights-overview.md
-      - name: FAQ
-        href: /azure/azure-monitor/faq#vm-insights
       - name: Enable and configure
         items:
         - name: Overview
@@ -446,7 +432,7 @@ items:
       items:
       - name: Migrate from Operations Manager
         href: azure-monitor-operations-manager.md
-      - name: Azure Monitor SCOM Managed Instance (preview)
+      - name: Azure Monitor SCOM Managed Instance
         href: vm/scom-managed-instance-overview.md
       - name: Connect Operations Manager
         href: agents/om-agents.md
@@ -454,13 +440,13 @@ items:
         href: insights/scom-assessment.md
     - name: Tutorials
       items:
-      - name: Enable recommended alerts
+      - name: Enable recommended alerts for VMs
         href: vm/tutorial-monitor-vm-alert-recommended.md
-      - name: Create availability alert
+      - name: Create an availability alert for VMs
         href: vm/tutorial-monitor-vm-alert-availability.md
       - name: Enable VM insights
         href: vm/tutorial-monitor-vm-enable-insights.md
-      - name: Collect guest logs and metrics
+      - name: Collect VM guest logs and metrics
         href: vm/tutorial-monitor-vm-guest.md
   - name: Monitor containers
     items:
@@ -538,7 +524,7 @@ items:
       - name: Overview
         href: containers/container-insights-overview.md
       - name: FAQ
-        href: /azure/azure-monitor/faq#container-insights
+        href: containers/container-insights-overview.md#frequently-asked-questions
       - name: Enable
         displayName: container insights
         items:
@@ -555,6 +541,10 @@ items:
           href: containers/container-insights-hybrid-setup.md          
         - name: Enable with Azure Policy
           href: containers/container-insights-enable-aks-policy.md
+        - name: Configure private link
+          href: containers/container-insights-private-link.md
+        - name: Legacy authentication
+          href: containers/container-insights-authentication.md
         - name: Supported region mappings
           href: containers/container-insights-region-mapping.md
         - name: Transition from Container monitoring solution
@@ -571,6 +561,9 @@ items:
           href: containers/container-insights-v2-migration.md
         - name: Enable cost optimization settings
           href: containers/container-insights-cost-config.md
+        - name: Data Transformations
+          displayName: Container insights
+          href: containers/container-insights-transformations.md
         - name: Authentication
           href: containers/container-insights-authentication.md
         - name: Send Prometheus metrics to Logs
@@ -632,7 +625,7 @@ items:
         href: ../network-watcher/network-insights-overview.md
       - name: Topology
         displayName: Network Insights, Network
-        href: ../network-watcher/network-insights-topology.md
+        href: ../network-watcher/network-insights-topology.md?toc=/azure/azure-monitor/toc.json
       - name: Troubleshooting
         displayName: Network Insights, Network
         href: ../network-watcher/network-insights-troubleshooting.md
@@ -665,12 +658,15 @@ items:
     - name: Best practices
       displayName: data collection, data collection rules
       href: essentials/data-collection-rule-best-practices.md
+    - name: Create and edit
+      displayName: Data collection rules
+      href: essentials/data-collection-rule-create-edit.md
+    - name: Edit tutorial
+      displayName: data collection rules
+      href: essentials/data-collection-rule-edit.md
     - name: Structure
       displayName: Data collection rules
       href: essentials/data-collection-rule-structure.md
-    - name: Edit a data collection rule
-      displayName: data collection rules
-      href: essentials/data-collection-rule-edit.md
   - name: Transformations
     items:
       - name: Overview
@@ -697,6 +693,9 @@ items:
     - name: Overview 
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings.md
+    - name: Create Diagnostic Settings in Azure Monitor 
+      displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+      href: essentials/create-diagnostic-settings.md      
     - name: Create Diagnostic Settings with Azure Policy
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings-policy.md
@@ -727,7 +726,7 @@ items:
       - name: Collect IIS logs
         displayName: data collection rule,Azure Monitor Agent,IIS logs
         href: agents/data-collection-iis.md
-      - name: Collect text logs
+      - name: Collect logs from text or JSON files 
         displayName: data collection rule,Azure Monitor Agent,text logs,file-based logs
         href: agents/data-collection-text-log.md
       - name: Collect SNMP traps
@@ -737,6 +736,8 @@ items:
         href: agents/data-collection-syslog.md
       - name: Forward syslog data with Sentinel
         href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json        
+      - name: Send data to Event Hubs and Storage
+        href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
     - name: Define network settings
       href: agents/azure-monitor-agent-data-collection-endpoint.md
     - name: Migrate from Log Analytics Agent
@@ -752,7 +753,7 @@ items:
       href: agents/azure-monitor-agent-performance.md
     - name: FAQ
       displayName: Azure Monitor agent FAQ
-      href: /azure/azure-monitor/faq#azure-monitor-agent
+      href: agents/agents-overview.md#frequently-asked-questions
     - name: Legacy agents
       items:
       - name: Log Analytics agent
@@ -872,6 +873,9 @@ items:
     - name: Overview
       displayName: data ingestion
       href: logs/logs-ingestion-api-overview.md
+    - name: Configure with PowerShell
+      displayName: logs ingestion
+      href: logs/set-up-logs-ingestion-api-prerequisites.md
     - name: Migrate from Data Collector API
       href: logs/custom-logs-migrate.md
     - name: Tutorials
@@ -882,9 +886,6 @@ items:
       - name: Configure with ARM templates
         displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-api.md
-      - name: Configure with PowerShell
-        displayName: logs ingestion
-        href: logs/set-up-logs-ingestion-api-prerequisites.md
       - name: Sample code
         displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-code.md    
@@ -924,7 +925,7 @@ items:
         displayName: Prometheus
         href: essentials/prometheus-metrics-overview.md
       - name: FAQ
-        href: /azure/azure-monitor/faq#prometheus
+        href: essentials/prometheus-metrics-overview.md#frequently-asked-questions
       - name: Azure Monitor workspace
         items: 
         - name: Overview
@@ -1164,20 +1165,14 @@ items:
     items:
      - name: Dashboard using log data
        href: visualize/tutorial-logs-dashboards.md
-     - name: Dashboard using application data
-       href: app/tutorial-app-dashboards.md
   - name: Power BI
     href: logs/log-powerbi.md
 - name: Analyze
   items:
   - name: Metrics explorer
     items:
-      - name: Getting started with Metrics Explorer
-        href: essentials/metrics-getting-started.md
-      - name: Advanced features of Metrics Explorer
-        href: essentials/metrics-charts.md
-      - name: Viewing multiple resources in Metric Explorer
-        href: essentials/metrics-dynamic-scope.md
+      - name: Analyze metrics
+        href: essentials/analyze-metrics.md
       - name: Understanding metrics aggregation
         href: essentials/metrics-aggregation-explained.md
       - name: Examples of metric charts
@@ -1291,106 +1286,98 @@ items:
       href: alerts/alerts-types.md
     - name: Best practices
       href: best-practices-alerts.md
-    - name: Alert rules
+    - name: Set up alerts
       items:
-        - name: Create or edit an alert rule
-          href: alerts/alerts-create-new-alert-rule.md
+        - name: Set up alert rules
+          items:
+          - name: Create or edit an alert rule
+            href: alerts/alerts-create-new-alert-rule.md
+          - name: Create Prometheus alert rules
+            href: alerts/prometheus-alerts.md
+          - name: Create a metric alert rule with dynamic thresholds
+            href: alerts/alerts-dynamic-thresholds.md
+          - name: Create a metric alert on Azure Monitor Logs
+            href: alerts/alerts-metric-logs.md
+          - name: Create one alert rule for multiple time series
+            href: alerts/alerts-metric-multiple-time-series-single-rule.md
+          - name: Optimize log alert queries
+            href: alerts/alerts-log-query.md
+        - name: Set up action groups
+          href: alerts/action-groups.md
+        - name: Set up alert processing rules
+          href: alerts/alerts-processing-rules.md
+          displayName: Azure CLI, az monitor action rule
+        - name: Set up alert integrations
+          items:
+          - name: The alerts common schema
+            href: alerts/alerts-common-schema.md
+          - name: Integrate with Logic apps
+            href: alerts/alerts-logic-apps.md
+          - name: Integrate with webhooks
+            href: alerts/activity-log-alerts-webhook.md
+          - name: Integrate with ITSM providers
+            items:
+            - name: ITSM overview
+              href: alerts/itsmc-overview.md
+            - name: Connect using a Secure Webhook action
+              items:
+              - name: Overview
+                href: alerts/it-service-management-connector-secure-webhook-connections.md
+              - name: Configure Azure for a Secure Webhook
+                href: alerts/itsm-connector-secure-webhook-connections-azure-configuration.md
+              - name: ITSM Connector Partners Setup
+                items:
+                - name: BMC Helix
+                  href: alerts/itsmc-secure-webhook-connections-bmc.md
+                - name: ServiceNow ITOM
+                  href: alerts/itsmc-secure-webhook-connections-servicenow.md
+            - name: Connect using an ITSM action
+              items:
+              - name: Connect ServiceNow with an ITSM Connector
+                href: alerts/itsmc-connections-servicenow.md
+              - name: Configure Azure for an ITSM Connector
+                href: alerts/itsmc-definition.md
+              - name: Data Synced From Your ITSM Product
+                href: alerts/itsmc-synced-data.md
+              - name: Convert ITSM ServiceNow actions to secure webhook actions 
+                href: alerts/itsm-convert-servicenow-to-webhook.md   
+              - name: Troubleshooting problems in ITSM Connector
+                items:
+                - name: Overview
+                  href: alerts/itsmc-troubleshoot-overview.md
+                - name: Dashboard Investigation
+                  href: alerts/itsmc-dashboard.md
+                - name: Common Errors
+                  href: alerts/itsmc-dashboard-errors.md
+                - name: Sync ITSM Connector
+                  href: alerts/itsmc-resync-servicenow.md
+                - name: Connector deletion
+                  href: alerts/itsmc-connector-deletion.md
+    - name: Manage alerts
+      items:
         - name: Manage alert rules
           href: alerts/alerts-manage-alert-rules.md
-        - name: Metric alert rules
-          items:
-          - name: Dynamic thresholds
-            href: alerts/alerts-dynamic-thresholds.md
-          - name: Single alert for multiple time series
-            href: alerts/alerts-metric-multiple-time-series-single-rule.md
-          - name: Metric alerts on logs
-            href: alerts/alerts-metric-logs.md
-          - name: Troubleshoot metric alerts
-            href: alerts/alerts-troubleshoot-metric.md
-        - name: Log alert rules
-          items:
-          - name: Edit log alerts created in previous versions
-            href: alerts/alerts-manage-alerts-previous-version.md
-          - name: Optimizing alert queries
-            href: alerts/alerts-log-query.md
-          - name: Troubleshoot log alerts
-            href: alerts/alerts-troubleshoot-log.md
-          - name: Webhook actions
-            href: alerts/alerts-log-webhook.md
-          - name: Legacy Log Analytics alerts API
-            href: alerts/api-alerts.md
-          - name: Upgrade from the legacy Log Analytics alerts API
-            href: alerts/alerts-log-api-switch.md
-    - name: Manage alert instances
-      href: alerts/alerts-manage-alert-instances.md
-    - name: Prometheus metric alerts
-      href: alerts/prometheus-alerts.md
-    - name: Service health alerts
+        - name: Manage alert instances
+          href: alerts/alerts-manage-alert-instances.md
+        - name: Update alerts for region moves
+          href: alerts/alerts-resource-move.md
+    - name: Tutorials
       items:
-      - name: View notifications
-        href: ../service-health/service-notifications.md
-      - name: Configure alerts on notification events
-        href: ../service-health/alerts-activity-log-service-notifications-portal.md
-    - name: Respond to an alert
+      - name: Create a metric alert
+        href: alerts/tutorial-metric-alert.md
+      - name: Create a log query alert
+        href: alerts/tutorial-log-alert.md
+    - name: Troubleshooting
       items:
-      - name: Common schema for alerts
-        href: alerts/alerts-common-schema.md
-      - name: Action groups
-        href: alerts/action-groups.md
-      - name: Alert processing rules
-        href: alerts/alerts-processing-rules.md
-        displayName: Azure CLI, az monitor action rule
-      - name: Configure the schema to get activity log alerts
-        href: alerts/activity-log-alerts-webhook.md        
-      - name: Non-common alert schema definition
-        href: alerts/alerts-non-common-schema-definitions.md
-      - name: Customize alert notifications using Logic apps
-        href: alerts/alerts-logic-apps.md
+      - name: Troubleshoot alerts
+        href: alerts/alerts-troubleshoot.md
+      - name: Troubleshoot metric alerts
+        href: alerts/alerts-troubleshoot-metric.md
+      - name: Troubleshoot log alerts
+        href: alerts/alerts-troubleshoot-log.md
       - name: Test notification troubleshooting guide
         href: alerts/test-action-group-errors.md
-    - name: Troubleshoot alerts
-      href: alerts/alerts-troubleshoot.md
-    - name: Alerts and region moves
-      href: alerts/alerts-resource-move.md
-    - name: IT Service Management
-      items:
-      - name: Integrate with ITSM Providers
-        href: alerts/itsmc-overview.md
-      - name: Connect using a Secure Webhook action
-        items:
-        - name: Overview
-          href: alerts/it-service-management-connector-secure-webhook-connections.md
-        - name: Configure Azure for a Secure Webhook
-          href: alerts/itsm-connector-secure-webhook-connections-azure-configuration.md
-        - name: ITSM Connector Partners Setup
-          items:
-          - name: BMC Helix
-            href: alerts/itsmc-secure-webhook-connections-bmc.md
-          - name: ServiceNow ITOM
-            href: alerts/itsmc-secure-webhook-connections-servicenow.md
-      - name: Connect using an ITSM action
-        items:
-          - name: Connect ServiceNow with an ITSM Connector
-            href: alerts/itsmc-connections-servicenow.md
-          - name: Configure Azure for an ITSM Connector
-            href: alerts/itsmc-definition.md
-          - name: Data Synced From Your ITSM Product
-            href: alerts/itsmc-synced-data.md
-          - name: Convert ITSM ServiceNow actions to secure webhook actions 
-            href: alerts/itsm-convert-servicenow-to-webhook.md   
-          - name: Troubleshooting problems in ITSM Connector
-            items:
-            - name: Overview
-              href: alerts/itsmc-troubleshoot-overview.md
-            - name: Dashboard Investigation
-              href: alerts/itsmc-dashboard.md
-            - name: Common Errors
-              href: alerts/itsmc-dashboard-errors.md
-            - name: Sync ITSM Connector
-              href: alerts/itsmc-resync-servicenow.md
-            - name: Connector deletion
-              href: alerts/itsmc-connector-deletion.md
-    - name: Migrate classic alert rules
+    - name: Legacy alerts
       items:
       - name: About classic alerts
         href: alerts/alerts-classic.overview.md
@@ -1406,12 +1393,17 @@ items:
         href: alerts/alerts-enable-template.md
       - name: Classic metric alert calling a webhook
         href: alerts/alerts-webhooks.md
-    - name: Tutorials
-      items:
-      - name: Create a metric alert
-        href: alerts/tutorial-metric-alert.md
-      - name: Create a log query alert
-        href: alerts/tutorial-log-alert.md
+      - name: Legacy Log Analytics alerts API
+        href: alerts/api-alerts.md
+      - name: Upgrade from the legacy Log Analytics alerts API
+        href: alerts/alerts-log-api-switch.md
+      - name: Edit log alerts created in previous versions
+        href: alerts/alerts-manage-alerts-previous-version.md
+
+
+
+
+ 
   - name: AutoScale
     items:
       - name: Overview
@@ -1498,14 +1490,14 @@ items:
       href: visualize/resource-manager-workbooks.md
     - name: VM insights
       href: vm/resource-manager-vminsights.md
-  - name: Alerts 
-    href: alerts/alerts-payload-samples.md
-  - name: Data collection rules
+  - name: Alerts
     items:
-    - name: Agent
-      href: agents/data-collection-rule-sample-agent.md
-    - name: Custom logs
-      href: logs/data-collection-rule-sample-custom-logs.md
+      - name: Alerts payloads
+        href: alerts/alerts-payload-samples.md
+      - name: Log alert payloads with webhooks
+        href: alerts/alerts-log-webhook.md
+  - name: Data collection rules
+    href: essentials/data-collection-rule-samples.md
   - name: Monitor Logs in Azure CLI
     href: logs\azure-cli-log-analytics-workspace-sample.md
   - name: Configure workspaces using PowerShell
@@ -1610,8 +1602,12 @@ items:
     href: https://azure.microsoft.com/updates/?category=management-tools
   - name: Pricing 
     items:
-    - name: View and estimate charges
-      href: usage-estimated-costs.md
+    - name: Analyze usage and cost
+      href: cost-usage.md
+    - name: Billing meters
+      href: cost-meters.md
+    - name: Estimate cost
+      href: cost-estimate.md
     - name: Azure Monitor Pricing page
       href: https://azure.microsoft.com/pricing/details/monitor/
     - name: Pricing calculator

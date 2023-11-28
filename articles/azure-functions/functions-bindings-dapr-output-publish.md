@@ -4,7 +4,7 @@ description: Learn how to provide Dapr Publish output binding data using Azure F
 ms.topic: reference
 ms.date: 10/11/2023
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: devx-track-csharp, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -356,4 +356,3 @@ The Python v1 model requires no additional changes, aside from setting up the ou
 ## Next steps
 
 [Learn more about Dapr publish and subscribe.](https://docs.dapr.io/developing-applications/building-blocks/pubsub/)
-

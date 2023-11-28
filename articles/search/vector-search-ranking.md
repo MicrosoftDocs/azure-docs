@@ -1,25 +1,24 @@
 ---
 title: Vector relevance and ranking
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Explains the concepts behind vector relevance, scoring, including how matches are found in vector space and ranked in search results.
 
 author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 10/13/2023
+ms.date: 10/24/2023
 ---
 
 # Relevance and ranking in vector search
-
-> [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 In vector query execution, the search engine looks for similar vectors to find the best candidates to return in search results. Depending on how you indexed the vector content, the search for relevant matches is either exhaustive, or constrained to near neighbors for faster processing. Once candidates are found, similarity metrics are used to score each result based on the strength of the match. This article explains the algorithms used to determine relevance and the similarity metrics used for scoring.
 
 ## Determine relevance in vector search
 
-The algorithms that determine relevance are exhaustive k-nearest neighbors (KNN) and Hierarchical Navigable Small World (HNSW). 
+The algorithms used in vector search are used to navigate the vector database and find matching vectors. Supported algorithms include exhaustive k-nearest neighbors (KNN) and Hierarchical Navigable Small World (HNSW). 
 
 Exhaustive KNN performs a brute-force search that enables users to search the entire vector space for matches that are most similar to the query. It does this by calculating the distances between all pairs of data points and finding the exact `k` nearest neighbors for a query point. 
 
@@ -33,7 +32,7 @@ This algorithm is intended for scenarios where high recall is of utmost importan
 
 Another use is to build a dataset to evaluate approximate nearest neighbor algorithm recall. Exhaustive KNN can be used to build the ground truth set of nearest neighbors.
 
-Exhaustive KNN support is available through [2023-10-01-Preview REST API](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) and in Azure SDK client libraries that target that REST API version.
+Exhaustive KNN support is available through [2023-11-01 REST API](/rest/api/searchservice/search-service-api-versions#2023-11-01), [2023-10-01-Preview REST API](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview), and in Azure SDK client libraries that target either REST API version.
 
 ### When to use HNSW
 
@@ -81,7 +80,7 @@ In the HNSW algorithm, a vector query search operation is executed by navigating
 
 ## Similarity metrics used to measure nearness
 
-A similarity metric measures the distance between neighboring vectors.
+The algorithm finds candidate vectors to evaluate similarity. To perform this task, a similarity metric calculation compares the candidate vector to the query vector and measures the similarity. The algorithm keeps track of the ordered set of most similar vectors that its found, which forms the ranked result set when the algorithm has reached completion.
 
 | Metric | Description |
 |--------|-------------|
@@ -93,11 +92,11 @@ A similarity metric measures the distance between neighboring vectors.
 
 Whenever results are ranked, **`@search.score`** property contains the value used to order the results. 
 
-| Search method | Parameter | Scoring algorithm | Range |
+| Search method | Parameter | Scoring metric | Range |
 |---------------|-----------|-------------------|-------|
-| vector search | `@search.score` | HNSW or KNN algorithm, using the similarity metric specified in the algorithm configuration. | 0.333 - 1.00 (Cosine) | 
+| vector search | `@search.score` | Cosine | 0.333 - 1.00 | 
 
-If you're using the `cosine` metric, it's important to note that the calculated `@search.score` isn't the cosine value between the query vector and the document vectors. Instead, Cognitive Search applies transformations such that the score function is monotonically decreasing, meaning score values will always decrease in value as the similarity becomes worse. This transformation ensures that search scores are usable for ranking purposes.
+If you're using the `cosine` metric, it's important to note that the calculated `@search.score` isn't the cosine value between the query vector and the document vectors. Instead, Azure AI Search applies transformations such that the score function is monotonically decreasing, meaning score values will always decrease in value as the similarity becomes worse. This transformation ensures that search scores are usable for ranking purposes.
 
 There are some nuances with similarity scores: 
 

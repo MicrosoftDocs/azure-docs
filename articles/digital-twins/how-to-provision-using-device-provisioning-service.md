@@ -29,7 +29,7 @@ Before you can set up the provisioning, you'll need to set up the following reso
 * An IoT hub. For instructions, see the "Create an IoT Hub" section of [the IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
 * An [Azure function](../azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Follow the instructions in [Ingest IoT hub data](how-to-ingest-iot-hub-data.md) to create this Azure function. Gather the function **name** to use it in this article.
 
-This sample also uses a *device simulator* that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the **Browse code** button underneath the title. This button will take you to the GitHub repo for the sample, which you can download as a .zip file by selecting the **Code** button and **Download ZIP**. 
+This sample also uses a *device simulator* that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](https://github.com/Azure-Samples/digital-twins-iothub-integration). Get the sample project on your machine by navigating to the GitHub repo for the sample, which you can download as a .zip file by selecting the **Code** button and **Download ZIP**.
 
 :::image type="content" source="media/how-to-provision-using-device-provisioning-service/download-repo-zip.png" alt-text="Screenshot of the digital-twins-iothub-integration repo on GitHub, highlighting the steps to download it as a zip." lightbox="media/how-to-provision-using-device-provisioning-service/download-repo-zip.png":::
 
@@ -125,7 +125,7 @@ After creating the enrollment, select it to view its settings. Copy the **Primar
 
 ### Set up the device simulator
 
-This sample uses a device simulator that includes provisioning using the Device Provisioning Service. The device simulator is located in the [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/) that you downloaded in the [Prerequisites section](#prerequisites).
+This sample uses a device simulator that includes provisioning using the Device Provisioning Service. The device simulator is located in the [Azure Digital Twins and IoT Hub Integration Sample](https://github.com/Azure-Samples/digital-twins-iothub-integration) that you downloaded in the [Prerequisites section](#prerequisites).
 
 #### Upload the model
 

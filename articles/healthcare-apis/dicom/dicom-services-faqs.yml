@@ -5,7 +5,7 @@ metadata:
   services: healthcare-apis
   author: mmitrik
   ms.service: healthcare-apis
-  ms.subservice: fhir
+  ms.subservice: dicom
   ms.topic: reference
   ms.date: 10/13/2023
 
@@ -16,7 +16,7 @@ sections:
   - name: Ignored
     questions:
       - question: What is the DICOM service?
-        answer: The DICOM&reg; service is a managed service within [Azure Health Data Services](../healthcare-apis-overview.md) that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb&trade; enabled systems or applications via DICOMweb Standard APIs like [Store (STOW-RS)](dicom-services-conformance-statement-v2.md#store-stow-rs), [Search (QIDO-RS)](dicom-services-conformance-statement-v2.md#search-qido-rs), [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs). It's backed by a managed Platform-as-a Service (PaaS) offering in the cloud with complete [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) compliance that you can upload PHI data to the DICOM service and exchange it through secure networks.
+        answer: The DICOM&reg; service is a managed service within [Azure Health Data Services](../healthcare-apis-overview.md) that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb enabled systems or applications via DICOMweb Standard APIs like [Store (STOW-RS)](dicom-services-conformance-statement-v2.md#store-stow-rs), [Search (QIDO-RS)](dicom-services-conformance-statement-v2.md#search-qido-rs), [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs). It's backed by a managed Platform-as-a Service (PaaS) offering in the cloud with complete [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) compliance that you can upload PHI data to the DICOM service and exchange it through secure networks.
 
       - question: What are the key requirements to use the DICOM service?
         answer: The DICOM service needs an Azure subscription to configure and run the required components. These components are, by default, created inside of an existing or new Azure Resource Group to simplify management. Additionally, a Microsoft Entra account is required.
@@ -31,9 +31,9 @@ sections:
           
       - question: What data formats are compatible with the DICOM service?
         answer: |
-          The DICOM service exposes a REST API that is compatible with the [DICOMweb&trade; Standards](https://www.dicomstandard.org/using/dicomweb) specified and maintained by NEMA.
+          The DICOM service exposes a REST API that is compatible with the [DICOMweb Standards](https://www.dicomstandard.org/using/dicomweb) specified and maintained by NEMA.
           
-          The server doesn't support DICOM DIMSE, which works primarily over a local area network and is unsuited for modern internet-based APIs. DIMSE is an incredibly popular standard used by nearly all medical imaging devices to communicate with other components of a provider’s medical imaging solution, such as PACS (Picture Archiving and Communication Systems) and medical imaging viewers. However, many modern systems, especially PACS and viewers, have begun to also support the related (and compatible) DICOMweb&trade; Standard. For those systems which only speak DICOM DIMSE, there are adapters available which allow for seamless communication between the local DIMSE-supporting systems and the DICOM service.
+          The server doesn't support DICOM DIMSE, which works primarily over a local area network and is unsuited for modern internet-based APIs. DIMSE is an incredibly popular standard used by nearly all medical imaging devices to communicate with other components of a provider’s medical imaging solution, such as PACS (Picture Archiving and Communication Systems) and medical imaging viewers. However, many modern systems, especially PACS and viewers, have begun to also support the related (and compatible) DICOMweb Standard. For those systems which only speak DICOM DIMSE, there are adapters available which allow for seamless communication between the local DIMSE-supporting systems and the DICOM service.
           
       - question: What version of DICOM does the DICOM service support?
         answer: |
@@ -57,7 +57,7 @@ sections:
           
       - question: What is the difference between Retrieve, Query, and Store?
         answer: |
-          Query, Retrieve, and store are standard DICOMweb&trade; verbs. Query (QIDO) searches for DICOM objects. QIDO enables you to search for studies, series and instances by patient ID. Retrieve (WADO) enables you to retrieve specific studies, series, and instances by reference. Store (STOW-RS) enables you to store specific instances to a DICOM server. For more information about the specifics of QIDO, WADO, and STOW, see [DICOMweb&trade;](https://www.dicomstandard.org/using/dicomweb).
+          Query, Retrieve, and store are standard DICOMweb verbs. Query (QIDO) searches for DICOM objects. QIDO enables you to search for studies, series and instances by patient ID. Retrieve (WADO) enables you to retrieve specific studies, series, and instances by reference. Store (STOW-RS) enables you to store specific instances to a DICOM server. For more information about the specifics of QIDO, WADO, and STOW, see [DICOMweb](https://www.dicomstandard.org/using/dicomweb).
       
       - question: What is REST API versioning in the DICOM service?
         answer: |

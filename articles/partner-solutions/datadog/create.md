@@ -6,7 +6,7 @@ author: flang-msft
 ms.topic: quickstart
 ms.date: 01/06/2023
 ms.author: franlanglois
-ms.custom: references_regions, mode-other
+ms.custom: references_regions
 
 ---
 

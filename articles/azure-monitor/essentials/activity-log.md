@@ -25,6 +25,7 @@ For details on how to create a diagnostic setting, see [Create diagnostic settin
 > [!NOTE]
 > * Entries in the Activity Log are system generated and can't be changed or deleted.
 > * Entries in the Activity Log are representing control plane changes like a virtual machine restart, any non related entries should be written into [Azure Resource Logs](resource-logs.md)
+> * Entries in the Activity Log are typically a result of changes (create, update or delete operations) or an action having been initiated.  Operations focused on reading details of a resource are not typically captured.
 
 ## Retention period
 
@@ -33,26 +34,26 @@ Activity log events are retained in Azure for *90 days* and then deleted. There'
 ## View the activity log
 
 You can access the activity log from most menus in the Azure portal. The menu that you open it from determines its initial filter. If you open it from the **Monitor** menu, the only filter is on the subscription. If you open it from a resource's menu, the filter is set to that resource. You can always change the filter to view all other entries. Select **Add Filter** to add more properties to the filter.
-
-![Screenshot that shows the activity log.](./media/activity-log/view-activity-log.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/activity-log/view-activity-log.png" lightbox="./media/activity-log/view-activity-log.png" alt-text="Screenshot that shows the activity log." border="false":::
 
 For a description of activity log categories, see [Azure activity log event schema](activity-log-schema.md#categories).
 
 ## Download the activity log
 
 Select **Download as CSV** to download the events in the current view.
-
-![Screenshot that shows downloading the activity log.](media/activity-log/download-activity-log.png)
+<!-- convertborder later -->
+:::image type="content" source="media/activity-log/download-activity-log.png" lightbox="media/activity-log/download-activity-log.png" alt-text="Screenshot that shows downloading the activity log." border="false":::
 
 ### View change history
 
 For some events, you can view the change history, which shows what changes happened during that event time. Select an event from the activity log you want to look at more deeply. Select the **Change history** tab to view any changes on the resource up to 30 minutes before and after the time of the operation.
 
-![Screenshot that shows the Change history list for an event.](media/activity-log/change-history-event.png)
+:::image type="content" source="media/activity-log/change-history-event.png" lightbox="media/activity-log/change-history-event.png" alt-text="Screenshot that shows the Change history list for an event.":::
 
 If any changes are associated with the event, you'll see a list of changes that you can select. Selecting a change opens the **Change history** page. This page displays the changes to the resource. In the following example, you can see that the VM changed sizes. The page displays the VM size before the change and after the change. To learn more about change history, see [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md).
 
-![Screenshot that shows the Change history page showing differences.](media/activity-log/change-history-event-details.png)
+:::image type="content" source="media/activity-log/change-history-event-details.png" lightbox="media/activity-log/change-history-event-details.png" alt-text="Screenshot that shows the Change history page showing differences.":::
 
 ### Other methods to retrieve activity log events
 
@@ -76,7 +77,7 @@ You can also access activity log events by using the following methods:
 
  Select **Export Activity Logs** to send the activity log to a Log Analytics workspace.
 
-   ![Screenshot that shows exporting activity logs.](media/activity-log/diagnostic-settings-export.png)
+   :::image type="content" source="media/activity-log/diagnostic-settings-export.png" lightbox="media/activity-log/diagnostic-settings-export.png" alt-text="Screenshot that shows exporting activity logs.":::
 
 You can send the activity log from any single subscription to up to five workspaces.
 
@@ -277,6 +278,7 @@ If a log profile already exists, you first must remove the existing log profile,
     |enabled | Yes |True or False. Used to enable or disable the retention policy. If True, then the `days` parameter must be a value greater than zero.
     | categories |Yes |Space-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
 
+
 ---
 
 ### Data structure changes
@@ -309,3 +311,4 @@ Learn more about:
 * [Platform logs](./platform-logs-overview.md)
 * [Activity log event schema](activity-log-schema.md)
 * [Activity log insights](activity-log-insights.md)
+

@@ -95,7 +95,7 @@ To stage packages at boot with PowerShell version 5.1 or earlier, run this comma
 Now that you've prepared your machine to stage MSIX app attach packages, you'll need to mount your disk image. This process will vary depending on whether you're using the *VHD(X)* or *CimFs* format for your disk image.
 
 >[!NOTE]
->Make sure to record the the *Device Id* for each application in the command output. You'll need this information to follow directions later in this article.
+>Make sure to record the *Device Id* for each application in the command output. You'll need this information to follow directions later in this article.
 
 ### [CimFS](#tab/cimfs)
 

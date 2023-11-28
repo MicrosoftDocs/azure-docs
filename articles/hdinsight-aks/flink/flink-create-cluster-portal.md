@@ -1,16 +1,16 @@
 ---
-title: Create an Apache Flink cluster - Azure portal
-description: Creating an Apache Flink cluster in HDInsight on AKS in the Azure portal.
+title: Create an Apache Flink® cluster in HDInsight on AKS using Azure portal
+description: Creating an Apache Flink cluster in HDInsight on AKS with Azure portal.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/27/2023
 ---
 
-# Create an Apache Flink cluster in the Azure portal
+# Create an Apache Flink® cluster in HDInsight on AKS with Azure portal
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-Complete the following steps to create an Apache Flink cluster by using the Azure portal.
+Complete the following steps to create an Apache Flink cluster on Azure portal.
 
 ## Prerequisites
 
@@ -123,3 +123,6 @@ Flink clusters can be created once cluster pool deployment has been completed, l
 1. On the **Review + create** page, look for the **Validation succeeded** message at the top of the page and then click **Create**.
 
 The **Deployment is in process** page is displayed which the cluster is created. It takes 5-10 minutes to create the cluster. Once the cluster is created, the **"Your deployment is complete"** message is displayed. If you navigate away from the page, you can check your Notifications for the current status.
+
+> [!NOTE]
+> Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

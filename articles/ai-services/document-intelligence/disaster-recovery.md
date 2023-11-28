@@ -5,10 +5,11 @@ description: Learn how to use the copy model API to back up your Document Intell
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 11/21/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
 ---
 
 <!-- markdownlint-disable MD036 -->
@@ -16,12 +17,20 @@ monikerRange: '<=doc-intel-3.1.0'
 
 # Disaster recovery
 
-::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](includes/applies-to-v31.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+[!INCLUDE [applies to v3.0](includes/applies-to-v30.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 ::: moniker-end
 
 ::: moniker range=">= doc-intel-2.1.0"
@@ -123,7 +132,7 @@ Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}
 
 ### Track the target model ID
 
-You can also use the **[Get model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/GetModel)** API to track the status of the operation by querying the target model. Call the API using the target model ID that you copied down from the [Generate Copy authorization request](#generate-copy-authorization-request) response.
+You can also use the **[Get model](/rest/api/aiservices/document-models/get-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)** API to track the status of the operation by querying the target model. Call the API using the target model ID that you copied down from the [Generate Copy authorization request](#generate-copy-authorization-request) response.
 
 ```http
 GET https://{YOUR-ENDPOINT}/formrecognizer/documentModels/{modelId}?api-version=2023-07-31" -H "Ocp-Apim-Subscription-Key: {YOUR-KEY}
@@ -196,7 +205,7 @@ Operation-Location: https://{source-resource}.cognitiveservices.azure.com/formre
 
 ### Track copy operation progress
 
-You can use the [**Get operation**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/GetOperation) API to list all document model operations (succeeded, in-progress, or failed) associated with your Document Intelligence resource. Operation information only persists for 24 hours. Here's a list of the operations (operationId) that can be returned:
+You can use the [**Get operation**](/rest/api/aiservices/miscellaneous/get-operation?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to list all document model operations (succeeded, in-progress, or failed) associated with your Document Intelligence resource. Operation information only persists for 24 hours. Here's a list of the operations (operationId) that can be returned:
 
 * documentModelBuild
 * documentModelCompose
@@ -204,7 +213,7 @@ You can use the [**Get operation**](https://westus.dev.cognitive.microsoft.com/d
 
 ### Track the target model ID
 
-If the operation was successful, the document model can be accessed using the [**getModel**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/GetModel) (get a single model), or [**GetModels**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/GetModels) (get a list of models) APIs.
+If the operation was successful, the document model can be accessed using the [**getModel**](/rest/api/aiservices/document-models/get-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) (get a single model), or [**GetModels**](/rest/api/aiservices/document-models/get-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTPs) (get a list of models) APIs.
 
 ::: moniker-end
 
@@ -342,7 +351,7 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 
 In this guide, you learned how to use the Copy API to back up your custom models to a secondary Document Intelligence resource. Next, explore the API reference docs to see what else you can do with Document Intelligence.
 
-* [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
+* [REST API reference documentation](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)
 
 ::: moniker-end
 

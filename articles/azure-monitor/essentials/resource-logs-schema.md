@@ -38,7 +38,7 @@ A combination of the resource type (available in the `resourceId` property) and 
 | `callerIpAddress` | Optional | The caller IP address, if the operation corresponds to an API call that would come from an entity with a publicly available IP address. |
 | `correlationId` | Optional | A GUID that's used to group together a set of related events. Typically, if two events have the same `operationName` value but two different statuses (for example, `Started` and `Succeeded`), they share the same `correlationID` value. This might also represent other relationships between events. |
 | `identity` | Optional | A JSON blob that describes the identity of the user or application that performed the operation. Typically, this field includes the authorization and claims or JWT token from Active Directory. |
-| `Level` | Optional | The severity level of the event. Must be one of `Informational`, `Warning`, `Error`, or `Critical`. |
+| `level` | Optional | The severity level of the event. Must be one of `Informational`, `Warning`, `Error`, or `Critical`. |
 | `location` | Optional | The region of the resource emitting the event; for example, `East US` or `France South`. |
 | `properties` | Optional | Any extended properties related to this category of events. All custom or unique properties must be put inside this "Part B" of the schema. |
 
@@ -55,7 +55,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Application Gateway |[Logging for Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics for Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch logging](../../batch/batch-diagnostics.md) |
-| Azure Cognitive Search | [Cognitive Search monitoring data reference (schemas)](../../search/monitor-azure-cognitive-search-data-reference.md#schemas) |
+| Azure AI Search | [Cognitive Search monitoring data reference (schemas)](../../search/monitor-azure-cognitive-search-data-reference.md#schemas) |
 | Azure AI services | [Logging for Azure AI services](../../ai-services/diagnostic-logging.md) |
 | Azure Container Instances | [Logging for Azure Container Instances](../../container-instances/container-instances-log-analytics.md#log-schema) |
 | Azure Container Registry | [Logging for Azure Container Registry](../../container-registry/monitor-service.md) |

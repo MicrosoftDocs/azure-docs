@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/22/2022
+ms.date: 10/17/2023
 ms.author: cherylmc
 
 ---
@@ -35,6 +35,9 @@ After your Azure VPN Gateway P2S configuration is complete, your next steps are 
 1. Download and extract the VPN client profile configuration files.
 
 ## <a name="import"></a>Import VPN client profile configuration files
+
+> [!NOTE]
+> [!INCLUDE [Entra VPN client note](../../includes/vpn-gateway-entra-vpn-client-note.md)]
 
 For Microsoft Entra authentication configurations, the **azurevpnconfig.xml** is used. The file is located in the **AzureVPN** folder of the VPN client profile configuration package.
 

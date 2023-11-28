@@ -1,7 +1,7 @@
 ---
-title: Create & configure a dev box by using the developer portal
+title: Manage a dev box in the developer portal
 titleSuffix: Microsoft Dev Box
-description: Learn how to create, delete, and connect to Microsoft Dev Box dev boxes by using the developer portal.
+description: Learn how to create, delete, and connect to a dev box by using the Microsoft Dev Box developer portal.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -10,9 +10,11 @@ ms.date: 09/11/2023
 ms.topic: how-to
 ---
 
-# Manage a dev box by using the developer portal
+# Manage a dev box by using the Microsoft Dev Box developer portal
 
-Developers can manage their dev boxes through the developer portal. As a developer, you can view information about your dev boxes. You can also connect to, start, stop, restart, and delete them.
+In this article, you learn how to manage a dev box by using the Microsoft Dev Box developer portal. Developers can access their dev boxes directly in the developer portal, instead of having to use the Azure portal.
+
+As a developer, you can view information about your dev boxes. You can also connect to, start, stop, restart, and delete them.
 
 ## Permissions
 
@@ -24,11 +26,10 @@ As a dev box developer, you can:
 
 ## Create a dev box
 
-You can create as many dev boxes as you need through the developer portal, but there are common ways to split up your workload.
+You can create as many dev boxes as you need through the Microsoft Dev Box developer portal. You might create a separate dev box for different scenarios, for example:
 
-You could create a dev box for your front-end work and a separate dev box for your back-end work. You could also create multiple dev boxes for your back end.
-
-For example, say you're working on a bug. You could use a separate dev box for the bug fix to work on the specific task and troubleshoot the issue without impacting your primary machine.
+- **Dev box per workload**: you could create a dev box for your front-end work and a separate dev box for your back-end work. You could also create multiple dev boxes for your back end.
+- **Dev box for bug fixing**: you could use a separate dev box for the bug fix to work on the specific task and troubleshoot the issue without impacting your primary machine.
 
 You can create a dev box by using:
 
@@ -37,15 +38,15 @@ You can create a dev box by using:
 
 ## Connect to a dev box
 
-After you create your dev box, you can connect to it through a Remote Desktop app or through a browser.
+After you create your dev box, you can connect to it in two ways:
 
-Remote Desktop provides the highest performance and best user experience for heavy workloads. Remote Desktop also supports multi-monitor configuration. For more information, see [Tutorial: Use a Remote Desktop client to connect to a dev box](./tutorial-connect-to-dev-box-with-remote-desktop-app.md).
+- **Remote desktop client application**: remote desktop provides the highest performance and best user experience for heavy workloads. Remote Desktop also supports multi-monitor configuration. For more information, see [Tutorial: Use a Remote Desktop client to connect to a dev box](./tutorial-connect-to-dev-box-with-remote-desktop-app.md).
 
-Use the browser for lighter workloads. When you access your dev box via your phone or laptop, you can use the browser. The browser is useful for tasks such as a quick bug fix or a review of a GitHub pull request. For more information, see the [steps for using a browser to connect to a dev box](./quickstart-create-dev-box.md#connect-to-a-dev-box).
+- **Browser**: use the browser for lighter workloads. When you access your dev box via your phone or laptop, you can use the browser. The browser is useful for tasks such as a quick bug fix or a review of a GitHub pull request. For more information, see the [steps for using a browser to connect to a dev box](./quickstart-create-dev-box.md#connect-to-a-dev-box).
 
 ## Shutdown, restart or start a dev box
 
-You can perform many actions on a dev box through the developer portal by using the actions menu on the dev box tile. The options you see depend on the state of the dev box, and the configuration of the dev box pool it belongs to. For example, you can shut down or restart a running dev box, or start a stopped dev box.
+You can perform many actions on a dev box in the Microsoft Dev Box developer portal by using the actions menu on the dev box tile. The available options depend on the state of the dev box and the configuration of the dev box pool it belongs to. For example, you can shut down or restart a running dev box, or start a stopped dev box.
 
 To shut down or restart a dev box.
 
@@ -67,7 +68,7 @@ To start a dev box:
 
 ## Get information about a dev box
 
-You can view information about a dev box, like the creation date, the dev center it belongs to, and the dev box pool it belongs to. You can also check the source image in use.
+You can use the Microsoft Dev Box developer portal to view information about a dev box, such as the creation date, and the dev center and dev box pool it belongs to. You can also check the source image in use.
 
 To get more information about your dev box:
 
@@ -82,7 +83,7 @@ To get more information about your dev box:
 
 ## Delete a dev box
 
-When you no longer need a dev box, you can delete it.
+When you no longer need a dev box, you can delete it in the developer portal.
 
 There are many reasons why you might not need a dev box anymore. Maybe you finished testing, or you finished working on a specific project within your product.
 

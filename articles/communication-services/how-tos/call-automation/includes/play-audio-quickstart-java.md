@@ -4,8 +4,8 @@ description: play audio quickstart java
 services: azure-communication-services
 author: Kunaal
 ms.service: azure-communication-services
-ms.subservice: azure-communication-services
-ms.date: 09/06/2022
+ms.subservice: call-automation
+ms.date: 11/20/2023
 ms.topic: include
 ms.topic: include file
 ms.author: kpunjabi
@@ -19,7 +19,7 @@ ms.author: kpunjabi
 - [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
   
-### For AI features (Public preview)
+### For AI features
 - Create and connect [Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
 
@@ -46,10 +46,6 @@ Update your applications POM file to use Java 8 or higher.
 </properties>
 ```
 
-## Configure Azure SDK Dev Feed
-
-For AI features in public preview, add the [azure-sdk-for-java feed](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java) to your `pom.xml`. Follow the instructions after clicking the "Connect to Feed" button.
-
 ## Add package references
 
 In your POM file, add the following reference for the project. 
@@ -68,11 +64,11 @@ Azure Communication Services Call Automation SDK package is retrieved from the A
 
 ## (Optional) Prepare your audio file if you wish to use audio files for playing prompts
 
-Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file that ACS supports needs to be **WAV, mono and 16 KHz sample rate**. 
+Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to Azure Communication Services with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. Azure Communication Services supports both file types of **MP3 files with ID3V2TAG** and **WAV files, mono 16-bit PCM at 16 KHz sample rate**. . 
     
 You can test creating your own audio file using our [Speech synthesis with Audio Content Creation tool](../../../../ai-services/Speech-Service/how-to-audio-content-creation.md).
 
-## (Optional) Connect your Azure Cognitive Service to your Azure Communication Service (Public Preview)
+## (Optional) Connect your Azure Cognitive Service to your Azure Communication Service
 
 If you would like to use Text-To-Speech capabilities, then it's required for you to connect your [Azure Cognitive Service to your Azure Communication Service](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 
@@ -85,8 +81,8 @@ In your editor of choice, open App.java file and update it with the code provide
 By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).  You can also use the code snippet provided here to understand how to answer a call.
 
 ``` java
-AnswerCallOptions answerCallOptions = new AnswerCallOptions("<Incoming call context>", "<https://sample-callback-uri>"); 
-answerCallOptions.setCognitiveServicesEndpoint("https://sample-cognitive-service-resource.cognitiveservices.azure.com/"); //Optional step for Text-To-Speech 
+CallIntelligenceOptions callIntelligenceOptions = new CallIntelligenceOptions().setCognitiveServicesEndpoint("https://sample-cognitive-service-resource.cognitiveservices.azure.com/"); 
+answerCallOptions = new AnswerCallOptions("<Incoming call context>", "<https://sample-callback-uri>").setCallIntelligenceOptions(callIntelligenceOptions); 
 Response<AnswerCallResult> answerCallResult = callAutomationClient 
     .answerCallWithResponse(answerCallOptions) 
     .block(); 
@@ -98,13 +94,13 @@ Once the call has been established, there are multiple options for how you may w
 
 ### Play source - Audio file
 
-To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files, you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
+To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files, you need to make sure you provide Azure Communication Services with a uri to a file you host in a location where Azure Communication Services can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
 
 ``` java
 var playSource = new FileSource(new Uri(audioUri));
 ```
 
-### Play source - Text-To-Speech (Public Preview)
+### Play source - Text-To-Speech
 
 To play audio using Text-To-Speech through Azure AI services, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](../../../../ai-services/Speech-Service/language-support.md?tabs=tts).
 
@@ -123,7 +119,7 @@ var playSource = new TextSource()
     .setVoiceName("en-US-ElizabethNeural"); 
 ```
 
-### Play source - Text-to-Speech SSML (Public Preview)
+### Play source - Text-to-Speech SSML
 
 ``` java
 String ssmlToPlay = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-JennyNeural\">Hello World!</voice></speak>"; 
@@ -192,7 +188,7 @@ var playResponse = callAutomationClient.getCallConnectionAsync(callConnectionId)
 
 ## Enhance play with audio file caching
 
-If you're playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour.
+If you're playing the same audio file multiple times, your application can provide Azure Communication Services with the sourceID for the audio file. Azure Communication Services caches this audio file for 1 hour.
 > [!Note]
 > Caching audio files isn't suitable for dynamic prompts. If you change the URL provided to ACS, it does not update the cached URL straight away. The update will occur after the existing cache expires.
 

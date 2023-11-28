@@ -1,12 +1,12 @@
 ---
 title: Add Conditional Access to a user flow in Azure AD B2C
 description: Learn how to add Conditional Access to your Azure AD B2C user flows. Configure multifactor authentication (MFA) settings and Conditional Access policies in your user flows to enforce policies and remediate risky sign-ins.
-services: active-directory
+
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
 ms.date: 04/10/2022
-ms.custom: project-no-code
+ms.custom: 
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
@@ -89,8 +89,7 @@ Azure AD B2C **Premium P2** is required to create risky sign-in policies. **Prem
 To add a Conditional Access policy, disable security defaults:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Microsoft Entra ID**. Or use the search box to find and select **Microsoft Entra ID**.
 1. Select **Properties**, and then select **Manage Security defaults**.
 
@@ -362,8 +361,7 @@ When adding Conditional Access to a user flow, consider using **Multi-factor aut
 To enable Conditional Access for a user flow, make sure the version supports Conditional Access. These user flow versions are labeled **Recommended**.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Policies**, select **User flows**. Then select the user flow.
 1. Select **Properties** and make sure the user flow supports Conditional Access by looking for the setting labeled **Conditional Access**.
@@ -422,8 +420,7 @@ The claims transformation isn't limited to the `strongAuthenticationPhoneNumber`
 To review the result of a Conditional Access event:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Activities**, select **Audit logs**.
 1. Filter the audit log by setting **Category** to **B2C** and setting **Activity Resource Type** to **IdentityProtection**. Then select **Apply**.

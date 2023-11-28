@@ -57,7 +57,7 @@ As a part of setting up OAuth, we recommend:
       
       1. Select the old token from the list according to the OAuth name and expiration date.
 
-         ![Screenshot that shows a list of tokens for OAuth.](media/itsmc-connections-servicenow/snow-system-oauth.png)
+         :::image type="content" source="media/itsmc-connections-servicenow/snow-system-oauth.png" lightbox="media/itsmc-connections-servicenow/snow-system-oauth.png" alt-text="Screenshot that shows a list of tokens for OAuth.":::
       1. Select **Revoke Access** > **Revoke**.
 
 ## Install the user app and create the user role
@@ -106,7 +106,7 @@ Use the following procedure to create a ServiceNow connection.
 
 2. Under **Workspace Data Sources**, select **ITSM Connections**.
 
-   ![Screenshot that shows selection of a data source.](media/itsmc-overview/add-new-itsm-connection.png)
+   :::image type="content" source="media/itsmc-overview/add-new-itsm-connection.png" lightbox="media/itsmc-overview/add-new-itsm-connection.png" alt-text="Screenshot that shows selection of a data source.":::
 
 3. At the top of the right pane, select **Add**.
 
@@ -125,7 +125,7 @@ Use the following procedure to create a ServiceNow connection.
    | **Work Items To Sync**   | Select the ServiceNow work items that you want to sync to Azure Log Analytics, through ITSMC. The selected values are imported into Log Analytics. Options are incidents and change requests.|
    | **Create New Configuration Item in ITSM Product** | Select this option if you want to create the configuration items in the ITSM product. When it's selected, ITSMC creates configuration items (if none exist) in the supported ITSM system. It's disabled by default. |
 
-![Screenshot of boxes and options for adding a ServiceNow connection.](media/itsmc-connections-servicenow/itsm-connection-servicenow-connection-latest.png)
+:::image type="content" source="media/itsmc-connections-servicenow/itsm-connection-servicenow-connection-latest.png" lightbox="media/itsmc-connections-servicenow/itsm-connection-servicenow-connection-latest.png" alt-text="Screenshot of boxes and options for adding a ServiceNow connection.":::
 
 When you're successfully connected and synced:
 
@@ -142,7 +142,7 @@ The payload that is sent to ServiceNow has a common structure. The structure has
 
 The structure of the payload for all alert types except log search alert is [common schema](./alerts-common-schema.md).
 
-For Log Search Alerts, the structure is:
+For Log Search Alerts (V1 and V2), the structure is:
 
 - Alert  (alert rule name) : \<value>
 - Search Query : \<value>

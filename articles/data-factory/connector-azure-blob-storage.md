@@ -13,10 +13,6 @@ ms.date: 09/29/2023
 
 # Copy and transform data in Azure Blob Storage by using Azure Data Factory or Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> - [Version 1](v1/data-factory-azure-blob-connector.md)
-> - [Current version](connector-azure-blob-storage.md)
-
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Azure Blob Storage. It also describes how to use the Data Flow activity to transform data in Azure Blob Storage. To learn more, read the [Azure Data Factory](introduction.md) and the [Azure Synapse Analytics](..\synapse-analytics\overview-what-is.md) introduction articles.
@@ -36,7 +32,7 @@ This Azure Blob Storage connector is supported for the following capabilities:
 |[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
 |[Delete activity](delete-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For the Copy activity, this Blob storage connector supports:
 

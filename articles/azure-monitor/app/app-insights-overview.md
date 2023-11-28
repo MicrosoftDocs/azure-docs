@@ -19,7 +19,7 @@ Application Insights provides many experiences to enhance the performance, relia
 - [Application dashboard](overview-dashboard.md): An at-a-glance assessment of your application's health and performance.
 - [Application map](app-map.md): A visual overview of application architecture and components' interactions.
 - [Live metrics](live-stream.md): A real-time analytics dashboard for insight into application activity and performance.
-- [Transaction search](search-and-transaction-diagnostics.md?tabs=transaction-search): Trace and diagnose transactions to identify issues and optimize performance.
+- [Transaction search](transaction-search-and-diagnostics.md?tabs=transaction-search): Trace and diagnose transactions to identify issues and optimize performance.
 - [Availability view](availability-overview.md): Proactively monitor and test the availability and responsiveness of application endpoints.
 - Performance view: Review application performance metrics and potential bottlenecks.
 - Failures view: Identify and analyze failures in your application to minimize downtime.
@@ -162,7 +162,7 @@ From [client webpages](./javascript-sdk.md):
   > [!Note]
   > For some applications, such as single-page applications (SPAs), the duration may not be recorded and will default to 0.
 
-    For more information, see [Data collection, retention, and storage in Application Insights](./data-retention-privacy.md).
+    For more information, see [Data collection, retention, and storage in Application Insights](/previous-versions/azure/azure-monitor/app/data-retention-privacy).
           
 From other sources, if you configure them:
           
@@ -173,7 +173,7 @@ From other sources, if you configure them:
 
 
 ### How many Application Insights resources should I deploy?
-To understand the number of Application Insights resources required to cover your application or components across environments, see the [Application Insights deployment planning guide](separate-resources.md).
+To understand the number of Application Insights resources required to cover your application or components across environments, see the [Application Insights deployment planning guide](create-workspace-resource.md#how-many-application-insights-resources-should-i-deploy).
 
 ### How can I manage Application Insights resources with PowerShell?
           
@@ -199,6 +199,22 @@ We recommend that you use our SDKs and use the [SDK API](./api-custom-events-met
 
 Most Application Insights data has a latency of under 5 minutes. Some data can take longer, which is typical for larger log files. See the [Application Insights service-level agreement](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/).    
           
+### How does Application Insights handle data collection, retention, storage, and privacy?
+
+#### Collection
+
+Application Insights collects telemetry about your app, including web server telemetry, web page telemetry, and performance counters. This data can be used to monitor your app's performance, health, and usage. You can select the location when you [create a new Application Insights resource](./create-workspace-resource.md).
+
+#### Retention and Storage
+
+Data is sent to an Application Insights [Log Analytics workspace](../logs/log-analytics-workspace-overview.md). You can choose the retention period for raw data, from 30 to 730 days. Aggregated data is retained for 90 days, and debug snapshots are retained for 15 days.
+
+#### Privacy
+
+Application Insights doesn't handle sensitive data by default, as long as you don't put sensitive data in URLs as plain text and ensure your custom code doesn't collect personal or other sensitive details. During development and testing, check the sent data in your IDE and browser's debugging output windows.
+
+For archived information on this topic, see [Data collection, retention, and storage in Application Insights](/previous-versions/azure/azure-monitor/app/data-retention-privacy).
+
 ## Help and support
 
 ### Azure technical support
@@ -229,6 +245,6 @@ Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/we
 - [Application dashboard](overview-dashboard.md)
 - [Application Map](app-map.md)
 - [Live metrics](live-stream.md)
-- [Transaction search](search-and-transaction-diagnostics.md?tabs=transaction-search)
+- [Transaction search](transaction-search-and-diagnostics.md?tabs=transaction-search)
 - [Availability overview](availability-overview.md)
 - [Users, sessions, and events](usage-segmentation.md)

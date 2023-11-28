@@ -69,6 +69,8 @@ Azure NetApp Files datastores for Azure VMware Solution are currently supported 
 * Switzerland West
 * UK South
 * UK West
+* US Gov Arizona
+* US Gov Virginia
 * West Europe 
 * West US
 * West US 2
@@ -85,7 +87,7 @@ There are some important best practices to follow for optimal performance of NFS
   >[!IMPORTANT]
   > If you've changed the Azure NetApp Files volumes performance tier after creating the volume and datastore, see [Service level change for Azure NetApp files datastore](#service-level-change-for-azure-netapp-files-datastore) to ensure that volume/datastore metadata is in sync to avoid unexpected behavior in the portal or the API due to metadata mismatch.
 
-- Create one or more volumes based on the required throughput and capacity. See [Performance considerations](../azure-netapp-files/azure-netapp-files-performance-considerations.md) for Azure NetApp Files to understand how volume size, service level, and capacity pool QoS type will determine volume throughput. For assistance calculating workload capacity and performance requirements, contact your Azure VMware Solution or Azure NetApp Files field expert. The default maximum number of Azure NetApp Files datastores is 64, but it can be increased to a maximum of 256 by submitting a support ticket. To submit a support ticket, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+- Create one or more volumes based on the required throughput and capacity. See [Performance considerations](../azure-netapp-files/azure-netapp-files-performance-considerations.md) for Azure NetApp Files to understand how volume size, service level, and capacity pool QoS type will determine volume throughput. For assistance calculating workload capacity and performance requirements, contact your Azure VMware Solution or Azure NetApp Files field expert. The default maximum number of Azure NetApp Files datastores is 8, but it can be increased to a maximum of 256 by submitting a support ticket. To submit a support ticket, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 -  Ensure that the Azure VMware Solution private cloud and the Azure NetApp Files volumes are deployed within the same [availability zone](../availability-zones/az-overview.md#availability-zones) using the [the availability zone volume placement](../azure-netapp-files/manage-availability-zone-volume-placement.md) in the same subscription. Information regarding your AVS private cloud's availability zone can be viewed from the overview pane within the AVS private cloud.
  
 For performance benchmarks that Azure NetApp Files datastores deliver for VMs on Azure VMware Solution, see [Azure NetApp Files datastore performance benchmarks for Azure VMware Solution](../azure-netapp-files/performance-benchmarks-azure-vmware-solution.md).  
@@ -228,7 +230,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **How many datastores are we supporting with Azure VMware Solution?**
 
-    The default limit is 64 but it can be increased up to a maximum of 256 by submitting a support ticket. To submit a support ticket, go to [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+    The default maximum is 8 but it can be increased to 256 by submitting a support ticket. To submit a support ticket, go to [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 - **What latencies and bandwidth can be expected from the datastores backed by Azure NetApp Files?** 
 
@@ -260,4 +262,4 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **Can a single Azure NetApp Files datastore be added to multiple clusters within different Azure VMware Solution SDDCs?**
 
-    Yes, you can connect an Azure NetApp Files volume as a datastore to multiple clusters in different SDDCs. Each SDDC will need connectivity via the ExpressRoute gateway in the Azure NetApp Files virtual network.
+    Yes, you can connect an Azure NetApp Files volume as a datastore to multiple clusters in different SDDCs. Each SDDC will need connectivity via the ExpressRoute gateway in the Azure NetApp Files virtual network. Latency considerations apply.

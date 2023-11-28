@@ -43,12 +43,14 @@
       href: concepts-index-and-search.md
     - name: Domain Data Management Services (DDMS)
       href: concepts-ddms.md
+    - name: Authentication
+      href: concepts-authentication.md
     - name: Entitlements
       href: concepts-entitlements.md
     - name: Reliability
       items:
         - name: Reliability overview 
-          href: reliability-energy-data-services.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+          href: ../reliability/reliability-energy-data-services.md?toc=/azure/energy-data-services/toc.json&bc=/azure/energy-data-services/breadcrumb/toc.json
           displayName: availability zones, high-availability, zone redundancy
     - name: Tier details
       href: concepts-tier-details.md

@@ -85,7 +85,12 @@ sections:
           How do I register a server to another region?
         answer: |
           Backup data is sent to the datacenter of the vault in which the server is registered. The easiest way to change the datacenter is to uninstall and reinstall the agent, and then register the machine to a new vault in the region you need.
-
+      
+      - question: |
+          How can I cancel an ongoing backup job for the MARS agent?
+        answer: |
+          Though you can view ongoing MARS backup jobs through the portal, you can only cancel them through the MARS console.
+      
       - question: |
           Does the MARS agent support Windows Server 2012 deduplication?
         answer: |

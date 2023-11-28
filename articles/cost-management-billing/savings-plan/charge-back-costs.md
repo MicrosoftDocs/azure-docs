@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 06/14/2023
+ms.date: 11/17/2023
 ms.author: banders
 ---
 
@@ -44,7 +44,7 @@ The *EffectivePrice* for the usage that gets savings plan discount is the prorat
 
 You can get the data using the API or download it from Azure portal.
 
-You call the [Usage Details API](/rest/api/consumption/usagedetails/list) to get the new data. For for information about terminology, see [Usage terms](../understand/understand-usage.md).
+You call the [Usage Details API](/rest/api/consumption/usagedetails/list) to get the new data. For more information about terminology, see [Usage terms](../understand/understand-usage.md).
 
 Here's an example call to the Usage Details API:
 

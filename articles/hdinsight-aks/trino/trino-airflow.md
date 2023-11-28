@@ -1,21 +1,21 @@
 ---
-title: Use Airflow with Trino cluster
-description: How to create Airflow DAG connecting to Azure HDInsight on AKS Trino
+title: Use Apache Airflow with Trino cluster
+description: How to create Apache Airflow DAG to connect to Trino cluster with HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/19/2023
 ---
 
-# Use Airflow with Trino cluster
+# Use Apache Airflow™ with Trino cluster
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-This article demonstrates how to configure available open-source [Airflow Trino provider](https://airflow.apache.org/docs/apache-airflow-providers-trino/stable/index.html) to connect to HDInsight on AKS Trino cluster.
-The objective is to show how you can connect Airflow to HDInsight on AKS Trino considering main steps as obtaining access token and running query.
+This article demonstrates how to configure available open-source [Apache Airflow Trino provider](https://airflow.apache.org/docs/apache-airflow-providers-trino/stable/index.html) to connect to your Trino cluster with HDInsight on AKS.
+The objective is to show how you can connect Airflow to Trino with HDInsight on AKS considering main steps as obtaining access token and running query.
 
 ## Prerequisites
 
-* An operational HDInsight on AKS Trino cluster.
+* An operational Trino cluster with HDInsight on AKS.
 * Airflow cluster.
 * Azure service principal client ID and secret to use for authentication.
 * [Allow access to the service principal to Trino cluster](../hdinsight-on-aks-manage-authorization-profile.md).
@@ -44,11 +44,11 @@ Now let's create simple DAG performing those steps. Complete code as follows
 
 1. Copy the [following code](#example-code) and save it in $AIRFLOW_HOME/dags/example_trino.py, so Airlift can discover the DAG.
 1. Update the script entering your Trino cluster endpoint and authentication details.
-1. Trino endpoint (`trino_endpoint`) - HDInsight on AKS Trino cluster endpoint from Overview page in the Azure portal.
+1. Trino endpoint (`trino_endpoint`) - Trino cluster endpoint from Overview page in the Azure portal.
 1. Azure Tenant ID (`azure_tenant_id`) - Identifier of your Azure Tenant, which can be found in Azure portal.
 1. Service Principal Client ID - Client ID of an application or service principal to use in Airlift for authentication to your Trino cluster.
 1. Service Principal Secret - Secret for the service principal.
-1. Pay attention to connection properties, which configure JWT authentication type, https and port. These values are required to connect to HDInsight on AKS Trino cluster.
+1. Pay attention to connection properties, which configure JWT authentication type, https and port. These values are required to connect to your Trino cluster.
 
 > [!NOTE]
 > Give access to the service principal ID (object ID) to your Trino cluster. Follow the steps to [grant access](../hdinsight-on-aks-manage-authorization-profile.md).
@@ -66,11 +66,11 @@ After restarting Airflow, find and run example_trino DAG. Results of the sample 
 > For production scenarios, you should choose to handle connection and secrets diffirently, using Airflow secrets management.
 
 ## Next steps
-This example demonstrates basic steps required to connect Airflow to HDInsight on AKS Trino. Main steps are obtaining access token and running query.
+This example demonstrates basic steps required to connect Airflow to Trino with HDInsight on AKS. Main steps are obtaining access token and running query.
 
 ## See also
 * [Getting started with Airflow](https://airflow.apache.org/docs/apache-airflow/stable/start.html)
 * [Airflow Trino provider](https://airflow.apache.org/docs/apache-airflow-providers-trino/stable/index.html)
 * [Airflow secrets](https://airflow.apache.org/docs/apache-airflow/stable/security/secrets/index.html)
-* [HDInsight on AKS Trino authentication](./trino-authentication.md)
+* [Trino authentication for HDInsight on AKS](./trino-authentication.md)
 * [MSAL for Python](/entra/msal/python)

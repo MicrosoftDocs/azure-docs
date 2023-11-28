@@ -5,12 +5,20 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: whats-new
-ms.date: 09/06/2023
+ms.date: 11/06/2023
 ---
 
 # What's new in Azure Communications Gateway?
 
 This article covers new features and improvements for Azure Communications Gateway.
+
+## November 2023
+
+### Support for Zoom Phone Cloud Peering
+
+From November 2023, Azure Communications Gateway supports providing PSTN connectivity to Zoom with Zoom Phone Cloud Peering. You can provide Zoom Phone calling services to many customers, each with many users, with minimal disruption to your existing network.
+
+For more information about Zoom Phone Cloud Peering with Azure Communications Gateway, see [Overview of interoperability of Azure Communications Gateway with Zoom Phone Cloud Peering](interoperability-zoom.md). For an overview of deploying and configuring Azure Communications Gateway for Zoom, see [Get started with Azure Communications Gateway](get-started.md).
 
 ## October 2023
 
@@ -26,7 +34,7 @@ For more information about Direct Routing with Azure Communications Gateway, see
 
 ### ExpressRoute Microsoft Peering between Azure and operator networks
 
-From September 2023, you can use ExpressRoute Microsoft Peering to connect operator networks to Azure Communications Gateway as an alternative to Peering Services Voice (also known as MAPS for voice). We recommend that most deployments use MAPS for voice unless there's a specific reason that ExpressRoute Microsoft Peering is preferable. For example, you might have existing ExpressRoute connectivity to your network that you can reuse. For details and examples of when ExpressRoute might be preferable to MAPS, see [Using ExpressRoute for Microsoft PSTN Services](../../articles/expressroute/using-expressroute-for-microsoft-pstn.md).
+From September 2023, you can use ExpressRoute Microsoft Peering to connect operator networks to Azure Communications Gateway as an alternative to Microsoft Azure Peering Services Voice (also known as MAPS Voice). We recommend that most deployments use MAPS for voice unless there's a specific reason that ExpressRoute Microsoft Peering is preferable. For example, you might have existing ExpressRoute connectivity to your network that you can reuse. For details and examples of when ExpressRoute might be preferable to MAPS, see [Using ExpressRoute for Microsoft PSTN services](../../articles/expressroute/using-expressroute-for-microsoft-pstn.md).
 
 ## May 2023
 

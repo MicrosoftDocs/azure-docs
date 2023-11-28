@@ -3,8 +3,6 @@ items:
   href: index.yml
 - name: Switch to Data Factory in Microsoft Fabric documentation
   href: /fabric/data-factory
-- name: Switch to version 1 documentation
-  href: v1/data-factory-introduction.md
 - name: Overview
   items:
   - name: Introduction to Data Factory
@@ -14,8 +12,6 @@ items:
     href: whats-new.md
   - name: What's new (archived months)
     href: whats-new-archive.md
-  - name: Compare current version to version 1
-    href: compare-versions.md
     displayName: timeout
 - name: Quickstarts
   expanded: true
@@ -394,7 +390,7 @@ items:
     - name: Azure Blob Storage
       href: connector-azure-blob-storage.md
       displayName: timeout
-    - name: Azure Cognitive Search
+    - name: Azure AI Search
       href: connector-azure-search.md
     - name: Azure Cosmos DB analytical store
       href: connector-azure-cosmos-analytical-store.md
@@ -511,6 +507,8 @@ items:
       displayName: active directory
     - name: Microsoft Access
       href: connector-microsoft-access.md
+    - name: Microsoft Fabric Lakehouse
+      href: connector-microsoft-fabric-lakehouse.md
     - name: MongoDB
       href: connector-mongodb.md
       items:
@@ -1318,10 +1316,16 @@ items:
       href: tutorial-run-existing-pipeline-with-airflow.md
   - name: Concepts
     href: concept-managed-airflow.md
+  - name: Get Started with Managed Airflow
+    href: get-started-with-managed-airflow.md
   - name: How-to
     items:
-    - name: How does Managed Airflow work
-      href: how-does-managed-airflow-work.md
+    - name: Create Managed Airflow Environment
+      href: create-managed-airflow-environment.md
+    - name: Import Dags using Azure Blob Storage
+      href: airflow-import-dags-blob-storage.md
+    - name: Delete Dags 
+      href: delete-dags-in-managed-airflow.md
     - name: How to change the Airflow password
       href: password-change-airflow.md
     - name: Create a private requirement Package
@@ -1338,6 +1342,8 @@ items:
       href: airflow-sync-github-repository.md
     - name: Diagnostic logs and metrics
       href: how-to-diagnostic-logs-and-metrics-for-managed-airflow.md
+    - name: CI/CD Patterns with Managed Airflow
+      href: ci-cd-pattern-with-airflow.md
   - name: Pricing
     href: airflow-pricing.md
 - name: Reference

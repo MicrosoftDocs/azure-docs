@@ -8,7 +8,7 @@ ms.reviewer: mopeakande
 author: dem108
 ms.author: sehan
 ms.subservice: mlops
-ms.date: 09/18/2023
+ms.date: 10/24/2023
 ms.topic: conceptual
 ms.custom: how-to, devplatv2, event-tier1-build-2022
 ---
@@ -86,7 +86,7 @@ For example, you can split along the deployment dimension to compare the request
 
 **Bandwidth throttling**
 
-Bandwidth will be throttled if the quota limits are exceeded for _managed_ online endpoints. For more information on limits, see the article on [managing and increasing quotas for managed online endpoints](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)). To determine if requests are throttled:
+Bandwidth will be throttled if the quota limits are exceeded for _managed_ online endpoints. For more information on limits, see the article on [limits for online endpoints](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints). To determine if requests are throttled:
 - Monitor the "Network bytes" metric
 - The response trailers will have the fields: `ms-azureml-bandwidth-request-delay-ms` and `ms-azureml-bandwidth-response-delay-ms`. The values of the fields are the delays, in milliseconds, of the bandwidth throttling.
 For more information, see [Bandwidth limit issues](how-to-troubleshoot-online-endpoints.md#bandwidth-limit-issues).
@@ -112,7 +112,7 @@ Azure Monitor allows you to create dashboards and alerts, based on metrics.
 
 #### Create dashboards and visualize queries
 
-You can create custom dashboards and visualize metrics from multiple sources in the Azure portal, including the metrics for your online endpoint. For more information on creating dashboards and visualizing queries, see [Dashboards using log data](../azure-monitor/visualize/tutorial-logs-dashboards.md) and [Dashboards using application data](../azure-monitor/app/tutorial-app-dashboards.md).
+You can create custom dashboards and visualize metrics from multiple sources in the Azure portal, including the metrics for your online endpoint. For more information on creating dashboards and visualizing queries, see [Dashboards using log data](../azure-monitor/visualize/tutorial-logs-dashboards.md) and [Dashboards using application data](../azure-monitor/app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights).
     
 #### Create alerts
 
@@ -149,15 +149,15 @@ There are three logs that can be enabled for online endpoints:
 
 * **AMLOnlineEndpointConsoleLog**: Contains logs that the containers output to the console. Below are some cases: 
 
-    * If the container fails to start, the console log may be useful for debugging. 
+    * If the container fails to start, the console log can be useful for debugging. 
 
     * Monitor container behavior and make sure that all requests are correctly handled. 
 
     * Write request IDs in the console log. Joining the request ID, the AMLOnlineEndpointConsoleLog, and AMLOnlineEndpointTrafficLog in the Log Analytics workspace, you can trace a request from the network entry point of an online endpoint to the container.  
 
-    * You may also use this log for performance analysis in determining the time required by the model to process each request. 
+    * You can also use this log for performance analysis in determining the time required by the model to process each request. 
 
-* **AMLOnlineEndpointEventLog**: Contains event information regarding the container’s life cycle. Currently, we provide information on the following types of events: 
+* **AMLOnlineEndpointEventLog**: Contains event information regarding the container's life cycle. Currently, we provide information on the following types of events: 
 
     | Name | Message |
     | ----- | ----- | 
@@ -228,8 +228,12 @@ Curated environments include integration with Application Insights, and you can 
 
 See [Application Insights overview](../azure-monitor/app/app-insights-overview.md) for more.
 
+In the studio, you can use the **Monitoring** tab on an online endpoint's page to see high-level activity monitor graphs for the managed online endpoint. To use the monitoring tab, you must select **Enable Application Insight diagnostic and data collection** when you create your endpoint.
 
-## Next steps
+:::image type="content" source="media/how-to-monitor-online-endpoints/monitor-endpoint.png" lightbox="media/how-to-monitor-online-endpoints/monitor-endpoint.png" alt-text="A screenshot of monitoring endpoint-level metrics in the studio.":::
+
+
+## Related content
 
 * Learn how to [view costs for your deployed endpoint](./how-to-view-online-endpoints-costs.md).
 * Read more about [metrics explorer](../azure-monitor/essentials/metrics-charts.md).

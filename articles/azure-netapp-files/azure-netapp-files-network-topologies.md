@@ -71,8 +71,9 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   UAE North
 *   UK South
 *   UK West
-*   US Gov Texas (public preview)
-*	US Gov Virginia (public preview)
+*   US Gov Arizona 
+*   US Gov Texas
+*	US Gov Virginia
 *	West Europe
 *   West US
 *   West US 2
@@ -164,7 +165,7 @@ The following table describes the network topologies supported by each network f
 |     [Connectivity over Virtual WAN (VWAN)](configure-virtual-wan.md)    |    Yes    |     No    |
 
 
-\* This option will incur a charge on ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/). For more general information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md). 
+\* This option incurs a charge on ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/). For more general information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md). 
 
 ## Virtual network for Azure NetApp Files volumes
 
@@ -261,3 +262,5 @@ In the topology illustrated above, the on-premises network is connected to a hub
 * [Configure network features for an Azure NetApp Files volume](configure-network-features.md) 
 * [Virtual network peering](../virtual-network/virtual-network-peering-overview.md)
 * [Configure Virtual WAN for Azure NetApp Files](configure-virtual-wan.md)
+* [Standard storage with cool access in Azure NetApp Files](cool-access-introduction.md)
+* [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md)

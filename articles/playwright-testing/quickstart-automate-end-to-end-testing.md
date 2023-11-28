@@ -114,52 +114,11 @@ If you haven't configured your Playwright tests yet for running them on cloud-ho
 
 1. Create a new file `playwright.service.config.ts` alongside the `playwright.config.ts` file.
 
+    Optionally, use the `playwright.service.config.ts` file in the [sample repository](https://github.com/microsoft/playwright-testing-service/blob/main/samples/get-started/playwright.service.config.ts).
+
 1. Add the following content to it:
 
-    ```typescript
-    import { defineConfig } from '@playwright/test';
-    import config from './playwright.config';
-    import dotenv from 'dotenv';
-    
-    dotenv.config();
-    
-    // Name the test run if it's not named yet.
-    process.env.PLAYWRIGHT_SERVICE_RUN_ID = process.env.PLAYWRIGHT_SERVICE_RUN_ID || new Date().toISOString();
-    
-    // Can be 'linux' or 'windows'.
-    const os = process.env.PLAYWRIGHT_SERVICE_OS || 'linux';
-    
-    export default defineConfig(config, {
-        // Define more generous timeout for the service operation if necessary.
-        // timeout: 60000,
-        // expect: {
-        //   timeout: 10000,
-        // },
-        workers: 20,
-
-        // Enable screenshot testing and configure directory with expectations.
-        // https://learn.microsoft.com/azure/playwright-testing/how-to-configure-visual-comparisons
-        ignoreSnapshots: false,
-        snapshotPathTemplate: `{testDir}/__screenshots__/{testFilePath}/${os}/{arg}{ext}`,
-
-        use: {
-            // Specify the service endpoint.
-            connectOptions: {
-                wsEndpoint: `${process.env.PLAYWRIGHT_SERVICE_URL}?cap=${JSON.stringify({
-                    // Can be 'linux' or 'windows'.
-                    os,
-                    runId: process.env.PLAYWRIGHT_SERVICE_RUN_ID
-                })}`,
-                timeout: 30000,
-                headers: {
-                    'x-mpt-access-key': process.env.PLAYWRIGHT_SERVICE_ACCESS_TOKEN!
-                },
-                // Allow service to access the localhost.
-                exposeNetwork: '<loopback>'
-            }
-        }
-    });
-    ```
+    :::code language="typescript" source="~/playwright-testing-service/samples/get-started/playwright.service.config.ts":::
 
 1. Save and commit the file to your source code repository.
 
@@ -179,6 +138,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
     - name: Install dependencies
       working-directory: path/to/playwright/folder # update accordingly
       run: npm ci
+
     - name: Run Playwright tests
       working-directory: path/to/playwright/folder # update accordingly
       env:
@@ -187,6 +147,14 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
         PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
         PLAYWRIGHT_SERVICE_RUN_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }}
       run: npx playwright test -c playwright.service.config.ts --workers=20
+
+    - name: Upload Playwright report
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: playwright-report
+        path: path/to/playwright/folder/playwright-report/ # update accordingly
+        retention-days: 10
     ```
 
     # [Azure Pipelines](#tab/pipelines)
@@ -210,6 +178,13 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
         targetType: 'inline'
         script: 'npx playwright test -c playwright.service.config.ts --workers=20'
         workingDirectory: path/to/playwright/folder # update accordingly
+
+    - task: PublishPipelineArtifact@1
+      displayName: Upload Playwright report
+      inputs:
+        targetPath: path/to/playwright/folder/playwright-report/ # update accordingly
+        artifact: 'Playwright tests'
+        publishLocation: 'pipeline'
     ```
 
     ---
@@ -217,6 +192,15 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 1. Save and commit your changes.
 
     When the CI workflow is triggered, your Playwright tests will run in your Microsoft Playwright Testing workspace on cloud-hosted browsers, across 20 parallel workers.
+
+> [!CAUTION]
+> With Microsoft Playwright Testing, you get charged based on the number of total test minutes. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with running a single test at scale instead of your full test suite to avoid exhausting your free test minutes.
+>
+> After you validate that the test runs successfully, you can gradually increase the test load by running more tests with the service.
+>
+> You can run a single test with the service by using the following command-line:
+>
+> ```npx playwright test {name-of-file.spec.ts} --config=playwright.service.config.ts```
 
 ## Related content
 

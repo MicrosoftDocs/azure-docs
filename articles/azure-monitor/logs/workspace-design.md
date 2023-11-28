@@ -28,10 +28,11 @@ The following table presents criteria to consider when you design your workspace
 | [Azure regions](#azure-regions) | Each workspace resides in a particular Azure region. You might have regulatory or compliance requirements to store data in specific locations. |
 | [Data ownership](#data-ownership) | You might choose to create separate workspaces to define data ownership. For example, you might create workspaces by subsidiaries or affiliated companies. | 
 | [Split billing](#split-billing) | By placing workspaces in separate subscriptions, they can be billed to different parties. |
-| [Data retention and archive](#data-retention-and-archive) | You can set different retention settings for each table in a workspace. You need a separate workspace if you require different retention settings for different resources that send data to the same tables. |
+| [Data retention and archive](#data-retention-and-archive) | You can set different retention settings for each workspace and each table in a workspace. You need a separate workspace if you require different retention settings for different resources that send data to the same tables. |
 | [Commitment tiers](#commitment-tiers) | Commitment tiers allow you to reduce your ingestion cost by committing to a minimum amount of daily data in a single workspace. |
 | [Legacy agent limitations](#legacy-agent-limitations) | Legacy virtual machine agents have limitations on the number of workspaces they can connect to. |
 | [Data access control](#data-access-control) | Configure access to the workspace and to different tables and data from different resources. |
+|[Resilience](#resilience)| To ensure that data in your workspace is available in the event of a region failure, you can ingest data into multiple workspaces in different regions.|
 
 ### Operational and security data
 The decision whether to combine your operational data from Azure Monitor in the same workspace as security data from Microsoft Sentinel or separate each into their own workspace depends on your security requirements and the potential cost implications for your environment.
@@ -64,7 +65,7 @@ Each Log Analytics workspace resides in a [particular Azure region](https://azur
 - **If you have requirements for keeping data in a particular geography:** Create a separate workspace for each region with such requirements.
 - **If you don't have requirements for keeping data in a particular geography:** Use a single workspace for all regions.
 
-Also consider potential [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that might apply when you're sending data to a workspace from a resource in another region. These charges are usually minor relative to data ingestion costs for most customers. These charges typically result from sending data to the workspace from a virtual machine. Monitoring data from other Azure resources by using [diagnostic settings](../essentials/diagnostic-settings.md) doesn't [incur egress charges](../usage-estimated-costs.md#data-transfer-charges).
+Also consider potential [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that might apply when you're sending data to a workspace from a resource in another region. These charges are usually minor relative to data ingestion costs for most customers. These charges typically result from sending data to the workspace from a virtual machine. Monitoring data from other Azure resources by using [diagnostic settings](../essentials/diagnostic-settings.md) doesn't [incur egress charges](../cost-usage.md#data-transfer-charges).
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost and determine which regions you need. Consider workspaces in multiple regions if bandwidth charges are significant.
 
@@ -78,10 +79,10 @@ You might have a requirement to segregate data or define boundaries based on own
 - **If you don't require data segregation:** Use a single workspace for all data owners.
 
 ### Split billing
-You might need to split billing between different parties or perform charge back to a customer or internal business unit. You can use [Azure Cost Management + Billing](../usage-estimated-costs.md#azure-cost-management--billing) to view charges by workspace. You can also use a log query to view [billable data volume by Azure resource, resource group, or subscription](analyze-usage.md#data-volume-by-azure-resource-resource-group-or-subscription). This approach might be sufficient for your billing requirements.
+You might need to split billing between different parties or perform charge back to a customer or internal business unit. You can use [Azure Cost Management + Billing](../cost-usage.md#azure-cost-management--billing) to view charges by workspace. You can also use a log query to view [billable data volume by Azure resource, resource group, or subscription](analyze-usage.md#data-volume-by-azure-resource-resource-group-or-subscription). This approach might be sufficient for your billing requirements.
 
 - **If you don't need to split billing or perform charge back:** Use a single workspace for all cost owners.
-- **If you need to split billing or perform charge back:** Consider whether [Azure Cost Management + Billing](../usage-estimated-costs.md#azure-cost-management--billing) or a log query provides cost reporting that's granular enough for your requirements. If not, use a separate workspace for each cost owner.
+- **If you need to split billing or perform charge back:** Consider whether [Azure Cost Management + Billing](../cost-usage.md#azure-cost-management--billing) or a log query provides cost reporting that's granular enough for your requirements. If not, use a separate workspace for each cost owner.
 
 ### Data retention and archive
 You can configure default [data retention and archive settings](data-retention-archive.md) for a workspace or [configure different settings for each table](data-retention-archive.md#configure-retention-and-archive-at-the-table-level). You might require different settings for different sets of data in a particular table. If so, you need to separate that data into different workspaces, each with unique retention settings.
@@ -118,6 +119,12 @@ For example, you might grant access to only specific tables collected by Microso
 
 - **If you don't require granular access control by table:** Grant the operations and security team access to their resources and allow resource owners to use resource-context RBAC for their resources.
 - **If you require granular access control by table:** Grant or deny access to specific tables by using table-level RBAC.
+
+### Resilience
+
+To ensure that critical data in your workspace is available in the event of a region failure, you can ingest some or all of your data into multiple workspaces in different regions.
+
+This option requires managing integration with other services and products separately for each workspace. Even though the data will be available in the alternate workspace in case of failure, resources that rely on the data, such as alerts and workbooks, won't know to switch over to the alternate workspace. Consider storing ARM templates for critical resources with configuration for the alternate workspace in Azure DevOps, or as disabled policies that can quickly be enabled in a failover scenario.
 
 ## Work with multiple workspaces
 Many designs will include multiple workspaces, so Azure Monitor and Microsoft Sentinel include features to assist you in analyzing this data across workspaces. For more information, see:

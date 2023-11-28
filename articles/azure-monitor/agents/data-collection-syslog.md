@@ -104,59 +104,64 @@ If your VM doesn't have Azure Monitor Agent installed, the DCR deployment trigge
 When Azure Monitor Agent is installed on a Linux machine, it installs a default Syslog configuration file that defines the facility and severity of the messages that are collected if Syslog is enabled in a DCR. The configuration file is different depending on the Syslog daemon that the client has installed.
 
 ### Rsyslog
-On many Linux distributions, the rsyslogd daemon is responsible for consuming, storing, and routing log messages sent by using the Linux Syslog API. Azure Monitor Agent uses the UNIX domain socket output module (`omuxsock`) in rsyslog to forward log messages to Azure Monitor Agent.
+On many Linux distributions, the rsyslogd daemon is responsible for consuming, storing, and routing log messages sent by using the Linux Syslog API. Azure Monitor Agent uses the TCP forward output module (`omfwd`) in rsyslog to forward log messages to Azure Monitor Agent.
 
 The Azure Monitor Agent installation includes default config files that get placed under the following directory: `/etc/opt/microsoft/azuremonitoragent/syslog/rsyslogconf/`
 
 When Syslog is added to a DCR, these configuration files are installed under the `etc/rsyslog.d` system directory and rsyslog is automatically restarted for the changes to take effect. These files are used by rsyslog to load the output module and forward the events to the Azure Monitor Agent daemon by using defined rules.
 
-The built-in `omuxsock` module can't be loaded more than once. For this reason, the configurations for loading of the module and forwarding of the events with corresponding forwarding format template are split in two different files. Its default contents are shown in the following example. This example collects Syslog messages sent from the local agent for all facilities with all log levels.
+Its default contents are shown in the following example. This example collects Syslog messages sent from the local agent for all facilities with all log levels.
 ```
-$ cat /etc/rsyslog.d/10-azuremonitoragent.conf
+$ cat /etc/rsyslog.d/10-azuremonitoragent-omfwd.conf
 # Azure Monitor Agent configuration: forward logs to azuremonitoragent
-$OMUxSockSocket /run/azuremonitoragent/default_syslog.socket
-template(name="AMA_RSYSLOG_TraditionalForwardFormat" type="string" string="<%PRI%>%TIMESTAMP% %HOSTNAME% %syslogtag%%msg:::sp-if-no-1st-sp%%msg%") 
-$OMUxSockDefaultTemplate AMA_RSYSLOG_TraditionalForwardFormat
-# Forwarding all events through Unix Domain Socket
-*.* :omuxsock: 
+
+template(name="AMA_RSYSLOG_TraditionalForwardFormat" type="string" string="<%PRI%>%TIMESTAMP% %HOSTNAME% %syslogtag%%msg:::sp-if-no-1st-sp%%msg%")
+# queue.workerThreads sets the maximum worker threads, it will scale back to 0 if there is no activity
+# Forwarding all events through TCP port
+*.* action(type="omfwd"
+template="AMA_RSYSLOG_TraditionalForwardFormat"
+queue.type="LinkedList"
+queue.filename="omfwd-azuremonitoragent"
+queue.maxFileSize="32m"
+action.resumeRetryCount="-1"
+action.resumeInterval="5"
+action.reportSuspension="on"
+action.reportSuspensionContinuation="on"
+queue.size="25000"
+queue.workerThreads="100"
+queue.dequeueBatchSize="2048"
+queue.saveonshutdown="on"
+target="127.0.0.1" Port="28330" Protocol="tcp")
 ```
  
-```
-$ cat /etc/rsyslog.d/05-azuremonitoragent-loadomuxsock.conf
-# Azure Monitor Agent configuration: load rsyslog forwarding module. 
-$ModLoad omuxsock
-```
-
 On some legacy systems, such as CentOS 7.3, we've seen rsyslog log formatting issues when a traditional forwarding format is used to send Syslog events to Azure Monitor Agent. For these systems, Azure Monitor Agent automatically places a legacy forwarder template instead:
 
 `template(name="AMA_RSYSLOG_TraditionalForwardFormat" type="string" string="%TIMESTAMP% %HOSTNAME% %syslogtag%%msg:::sp-if-no-1st-sp%%msg%\n")`
 
 ### Syslog-ng
 
-The configuration file for syslog-ng is installed at `/etc/opt/microsoft/azuremonitoragent/syslog/syslog-ngconf/azuremonitoragent.conf`. When Syslog collection is added to a DCR, this configuration file is placed under the `/etc/syslog-ng/conf.d/azuremonitoragent.conf` system directory and syslog-ng is automatically restarted for the changes to take effect.
+The configuration file for syslog-ng is installed at `/etc/opt/microsoft/azuremonitoragent/syslog/syslog-ngconf/azuremonitoragent-tcp.conf`. When Syslog collection is added to a DCR, this configuration file is placed under the `/etc/syslog-ng/conf.d/azuremonitoragent-tcp.conf` system directory and syslog-ng is automatically restarted for the changes to take effect.
 
 The default contents are shown in the following example. This example collects Syslog messages sent from the local agent for all facilities and all severities.
 ```
-$ cat /etc/syslog-ng/conf.d/azuremonitoragent.conf 
-# Azure MDSD configuration: syslog forwarding config for mdsd agent options {}; 
+$ cat /etc/syslog-ng/conf.d/azuremonitoragent-tcp.conf 
+# Azure MDSD configuration: syslog forwarding config for mdsd agent
+options {};
 
-# during install time, we detect if s_src exist, if it does then we 
+# during install time, we detect if s_src exist, if it does then we
+# replace it by appropriate source name like in redhat 's_sys'
+# Forwrding using tcp
+destination d_azure_mdsd {
+	network("127.0.0.1" 
+	port(28330)
+	log-fifo-size(25000));			
+};
 
-# replace it by appropriate source name like in redhat 's_sys' 
-
-# Forwrding using unix domain socket 
-
-destination d_azure_mdsd { 
-
-unix-dgram("/run/azuremonitoragent/default_syslog.socket" 
-
-flags(no_multi_line) 
-
-); 
-}; 
-
-log {	source(s_src); # will be automatically parsed from /etc/syslog-ng/syslog-ng.conf 
-destination(d_azure_mdsd); }; 
+log {
+	source(s_src); # will be automatically parsed from /etc/syslog-ng/syslog-ng.conf
+	destination(d_azure_mdsd);
+	flags(flow-control);
+};
 ```
 
 >[!Note]
@@ -169,7 +174,7 @@ You need:
 
 - A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - A [data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
-- [Permissions to create DCR objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- [Permissions to create DCR objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
 
 ## Syslog record properties
 
