@@ -24,7 +24,7 @@ This article provides an overview of the following authentication methods and ex
 ## Limitations
 
 * A maximum of 200 groups are included in the Microsoft Entra ID JSON Web Token (JWT). For more than 200 groups, consider using [Application Roles][entra-id-application-roles].
-* Groups created in Microsoft Entra ID can only be included by their ObjectID and not by their display name. `sAMAccountName` is only available for groups synchronized from on-premises Active Directory.
+* Groups created in Microsoft Entra ID are only included by their ObjectID and not by their display name. `sAMAccountName` is only available for groups synchronized from on-premises Active Directory.
 * On AKS, service principal authentication method only works with managed Entra ID, not legacy Azure Active Directory.
 * Device code authentication method doesn't work when Conditional Access policy is configured on a Microsoft Entra tenant. Use web browser interactive authentication instead.
 
@@ -51,7 +51,7 @@ Before `kubelogin` and Exec plugin were introduced, the Azure authentication mod
 
 If you're using `kubeconfig` from legacy Azure AD cluster, `kubelogin` automatically adds the `--legacy` flag.
 
-In this sign in mode, the access token and refresh token are cached in the `${HOME}/.kube/cache/kubelogin` directory. This path can be overriden specifying the `--token-cache-dir` parameter.
+In this sign in mode, the access token and refresh token are cached in the `${HOME}/.kube/cache/kubelogin` directory. This path can be overridden specifying the `--token-cache-dir` parameter.
 
 If your Azure AD integrated cluster uses Kubernetes version 1.24 or earlier, you need to manually convert the kubeconfig format by running the following commands.
 
@@ -79,7 +79,7 @@ kubelogin remove-tokens
 
 Authenticating using the Azure CLI method uses the already signed in context performed by the Azure CLI to get the access token. The token is issued in the same Microsoft Entra tenant as with `az login`.
 
-`kubelogin` doesn't cache any token since it's already managed by the Azure CLI.
+`kubelogin` doesn't write the tokens to the token cache file. It's already managed by the Azure CLI.
 
 > [!NOTE]
 > This authentication method only works with AKS-managed Microsoft Entra ID.
@@ -104,7 +104,7 @@ When the Azure CLI's config directory is outside the $`{HOME}` directory, specif
 
 Interactive web browser authentication automatically opens a web browser to log in the user. Once authenticated, the browser redirects back to a local web server with the credentials. This authentication method complies with Conditional Access policy.
 
-When you authenticate using this method, the access token is cached in the `${HOME}/.kube/cache/kubelogin` directory. This path can be overriden by specifying the `--token-cache-dir` parameter.
+When you authenticate using this method, the access token is cached in the `${HOME}/.kube/cache/kubelogin` directory. This path can be overridden by specifying the `--token-cache-dir` parameter.
 
 The following example shows how to use a bearer token with interactive flow.
 
@@ -192,7 +192,7 @@ kubectl get nodes
 > [!WARNING]
 > This method leaves the secret in the kubeconfig file.
 
-The following examples show how to setup a client secret using a client certificate.
+The following examples show how to set up a client secret using a client certificate.
 
 ```bash
 export KUBECONFIG=/path/to/kubeconfig
