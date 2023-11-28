@@ -29,21 +29,21 @@ From metrics explorer, click **New alert rule**. The rule will be preconfigured 
 ## Configure alert logic
 The resource will already be selected. You need to modify the signal logic to specify the threshold value and any other details for the alert rule. 
 
-Click on the **Condition name** to view these settings. 
+View these settings on the **Condition** tab. 
 
 :::image type="content" source="./media/tutorial-metric-alert/configuration.png" lightbox="./media/tutorial-metric-alert/configuration.png" alt-text="Alert rule configuration":::
 
-The chart shows the value of the selected signal over time so that you can see when the alert would have been fired. This chart will update as you specify the signal logic.
+The chart on the **Condition** tab shows the value of the selected signal over time so that you can see when the alert would have been fired. This chart will update as you specify the signal logic.
 
 :::image type="content" source="./media/tutorial-metric-alert/signal-logic.png" lightbox="./media/tutorial-metric-alert/signal-logic.png" alt-text="Alert rule signal logic":::
 
-The **Alert logic** is defined by the condition and the evaluation time. The alert fires when this condition is true. Provide a **Threshold value** for your alert rule and modify the **Operator** and **Aggregation type** to define the logic you need.
+The **Alert logic** on the **Condition** tab is defined by the condition and the evaluation time. The alert fires when this condition is true. Provide a **Threshold value** for your alert rule and modify the **Operator** and **Aggregation type** to define the logic you need.
 
 :::image type="content" source="./media/tutorial-metric-alert/alert-logic.png" lightbox="./media/tutorial-metric-alert/alert-logic.png" alt-text="Alert rule alert logic":::
 
-You can accept the default time granularity or modify it to your requirements. **Frequency of evaluation** defines how often the alert logic is evaluated. **Aggregation granularity** defines the time interval over which the collected values are aggregated.
+You can accept the default time granularity or modify it to your requirements. **Check every** defines how often the alert rule will check if the condition is met. **Lookback period** defines the time interval over which the collected values are aggregated. For example, every 1 minute, you’ll be looking at the past 5 minutes.
 
-Click **Done** when you're done configuring the signal logic.
+When you're done configuring the signal logic, click **Next: Actions >** or the **Actions** tab to configure actions.
 
 ## Configure actions
 [!INCLUDE [Action groups](../../../includes/azure-monitor-tutorial-action-group.md)]
