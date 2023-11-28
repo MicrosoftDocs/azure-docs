@@ -76,8 +76,8 @@ By default, the "Try it out" button is enabled for each API group configured. Th
 Use the following steps to enable or disable API try-out feature using the Azure portal:
 
 1. Navigate to your service resource, and then select **API portal**.
-1. Select **Configuration**.
-1. Select or unselect the **Enable API try-out**, and then select **Save**.
+1. Select **Configuration** tab.
+1. Select or unselect the **Enable API try-out**, and then click **Save** button.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
