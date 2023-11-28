@@ -56,12 +56,6 @@ public class Main {
 ```
 For more information, see [Connect using Microsoft Entra authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication).
 
-### [SpringBoot](#tab/spring)
-
-For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector sets the properties `spring.datasource.url` with value format `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryMSI;` to Azure Spring Apps.
-
-Update your application following the tutorial [Migrate a Java application to use passwordless connections with Azure SQL Database](/azure/developer/java/spring-framework/migrate-sql-database-to-passwordless-connection?tabs=spring%2Capp-service%2Cassign-role-service-connector#2-migrate-the-app-code-to-use-passwordless-connections). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies.
-
 ### [Python](#tab/python)
 
 1. Install dependencies.
@@ -144,3 +138,4 @@ Update your application following the tutorial [Migrate a Java application to us
 ---
 
 For more information, see [Homepage for client programming to Microsoft SQL Server](/sql/connect/homepage-sql-connection-programming).
+For more code samples, see [Create a passwordless connection to a database service via Service Connector](/azure/service-connector/tutorial-passwordless?tabs=user%2Cappservice&pivots=sql#connect-to-a-database-with-microsoft-entra-authentication).

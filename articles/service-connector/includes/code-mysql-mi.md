@@ -67,14 +67,6 @@ await connection.OpenAsync();
 
 For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/connect-java.md?tabs=passwordless).
 
-# [SpringBoot](#tab/spring-mysql-mi)
-
-For a Spring application, if you create a connection with the option `--client-type springboot`, Service Connector will set the properties `spring.datasource.azure.passwordless-enabled`, `spring.datasource.url`, and `spring.datasource.username` to Azure Spring Apps. 
-
-Update your application following the tutorial [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../../spring-apps/how-to-bind-mysql.md#prepare-your-project). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies to your Spring application.
-
-For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql?tabs=passwordless%2Cservice-connector&pivots=mysql-passwordless-flexible-server#store-data-from-azure-database-for-mysql)
-
 # [Python](#tab/python-mysql-mi)
 
 1. Install dependencies.
@@ -166,4 +158,4 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
 
 -----
 
-For more code samples, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=mysql#3-modify-your-code).
+For more code samples, see [Create a passwordless connection to a database service via Service Connector](/azure/service-connector/tutorial-passwordless?tabs=user%2Cappservice&pivots=mysql#connect-to-a-database-with-microsoft-entra-authentication).
