@@ -4,8 +4,8 @@ description: This article describes the scheduled maintenance feature in Azure D
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-author: code-sidd
-ms.author: sisawant
+author: xboxeer
+ms.author: yuzheng1
 ms.custom: event-tier1-build-2022
 ms.date: 05/24/2022
 ---
@@ -48,7 +48,18 @@ You can define system-managed schedule or custom schedule for each flexible serv
 
 In rare cases, maintenance event can be canceled by the system or may fail to complete successfully. If the update fails, the update will be reverted, and the previous version of the binaries is restored. In such failed update scenarios, you may still experience restart of the server during the maintenance window. If the update is canceled or failed, the system will create a notification about canceled or failed maintenance event respectively notifying you. The next attempt to perform maintenance will be scheduled as per your current scheduling settings and you will receive notification about it 5 days in advance.
 
-## Maintenance reschedule (preview)
+## Near zero downtime maintenance (Public preview)
+
+Azure Database for MySQL Flexible Server's "Near Zero Downtime Maintenance" feature is a groundbreaking development for **HA (High Availability) enabled servers**. This feature is designed to substantially reduce maintenance downtime, ensuring that in most cases, the downtime is less than 30 seconds. This capability is pivotal for businesses that demand high availability and minimal interruption in their database operations.
+
+### Limitations and Pre-requisites ###
+To achieve the optimal performance promised by this feature, certain conditions and limitations should be noted:
+
+ - **Primary Keys in All Tables:** Ensuring that every table has a primary key is critical. Lack of primary keys can significantly increase replication lag, impacting the downtime.
+ - **Low Workload During Maintenance Times:** Maintenance periods should coincide with times of low workload on the server to ensure the downtime remains minimal.
+ - **Enabling GTID (Global Transaction Identifiers):** For efficient transaction handling and replication, activating GTID is recommended.
+
+## Maintenance reschedule (Public preview)
 
 > [!IMPORTANT]
 > The maintenance reschedule feature is currently in preview. It is subject to limitations and ongoing development. We value your feedback to help enhance this feature. Please note that this feature is not available for servers using the burstable SKU.
