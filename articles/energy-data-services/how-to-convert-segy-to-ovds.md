@@ -92,7 +92,7 @@ If the user isn't part of the required group, you can add the required entitleme
 
 [![Screenshot that shows the API call to get register a user as an admin in Postman.](media/how-to-convert-segy-to-vds/postman-api-add-user-to-admins.png)](media/how-to-convert-segy-to-vds/postman-api-add-user-to-admins.png#lightbox)
 
-If you haven't yet created entitlements groups, follow the directions as outlined in [How to manage users](how-to-manage-users.md). If you would like to see what groups you have, use [Get entitlements groups for a given user](how-to-manage-users.md#get-entitlements-groups-for-a-given-user-in-a-data-partition). Data access isolation is achieved with this dedicated ACL (access control list) per object within a given data partition. 
+If you haven't yet created entitlements groups, follow the directions as outlined in [How to manage users](how-to-manage-users.md). If you would like to see what groups you have, use [Get entitlements groups for a given user](how-to-manage-users.md#get-OSDU-groups-for-a-given-user-in-a-data-partition). Data access isolation is achieved with this dedicated ACL (access control list) per object within a given data partition. 
 
 ### Prepare Subproject
 
