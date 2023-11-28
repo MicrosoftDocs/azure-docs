@@ -38,11 +38,7 @@ You can filter the list of models in the model catalog by Task, or by license. S
 > [!NOTE] 
 >Models from Hugging Face are subject to third party license terms available on the Hugging Face model details page. It is your responsibility to comply with the model's license terms.
 
-
 You can quickly test out any pre-trained model using the Sample Inference widget on the model card, providing your own sample input to test the result. Additionally, the model card for each model includes a brief description of the model and links to samples for code based inferencing, finetuning and evaluation of the model.
-
-> [!IMPORTANT]
-> __Workspaces without public network access:__ Deploying foundational models to online endpoints without egress connectivity requires [packaging the models (preview)](how-to-package-models.md) first. By using model packaging, you can avoid the need for an internet connection, which Azure Machine Learning would otherwise require to dynamically install necessary Python packages for the MLflow models.
 
 ## How to evaluate foundation models using your own test data
 
@@ -80,6 +76,7 @@ To enable users to get started with model evaluation, we have published samples 
 In order to improve model performance in your workload, you might want to fine tune a foundation model using your own training data. You can easily finetune these foundation models by using either the finetune settings in the studio or by using the code based samples linked from the model card.
         
 ### Finetune using the studio
+
 You can invoke the finetune settings form by selecting on the **Finetune** button on the model card for any foundation model. 
 
 **Finetune Settings:**
@@ -122,16 +119,24 @@ To enable users to quickly get started with finetuning, we have published sample
 
 You can deploy foundation models (both pre-trained models from the model catalog, and finetuned models, once they're registered to your workspace) to an endpoint that can then be used for inferencing. Deployment to both real time endpoints and batch endpoints is supported. You can deploy these models by using either the Deploy UI wizard or by using the code based samples linked from the model card.
 
+> [!IMPORTANT]
+> __Workspaces without public network access:__ Deploying foundational models to online endpoints without egress connectivity requires [packaging the models (preview)](how-to-package-models.md) first. By using model packaging, you can avoid the need for an internet connection, which Azure Machine Learning would otherwise require to dynamically install necessary Python packages for the MLflow models.
+
 ### Deploying using the studio
 
 You can invoke the Deploy UI wizard by clicking on the 'Deploy' button on the model card for any foundation model, and selecting either Real-time endpoint or Batch endpoint
 
 :::image type="content" source="./media/how-to-use-foundation-models/deploy-button.png" lightbox="./media/how-to-use-foundation-models/deploy-button.png" alt-text="Screenshot showing the deploy button on the foundation model card.":::
 
-Deployment Settings:
+#### Deployment Settings
+
 Since the scoring script and environment are automatically included with the foundation model, you only need to specify the Virtual machine SKU to use, number of instances and the endpoint name to use for the deployment.
 
 :::image type="content" source="./media/how-to-use-foundation-models/deploy-options.png" alt-text="Screenshot showing the deploy options on the foundation model card after user selects the deploy button.":::
+
+Curated models from the Azure Machine Learning are in MLflow format. If you are planning to deploy this models under an online endpoints without network connectivity, you need to package the model first. Packaging is not required for models in the HuggingFace format.
+
+:::image type="content" source="./media/how-to-use-foundation-models/studio-deploy-package.png" alt-text="Screenshot showing the package option for model deployment.":::
 
 If you're deploying a Llama model from the model catalog but don't have enough quota available for the deployment, Azure Machine Learning allows you to use quota from a shared quota pool for a limited time. For _Llama-2-70b_ and _Llama-2-70b-chat_ model deployment, access to the shared quota is available only to customers with [Enterprise Agreement subscriptions](/azure/cost-management-billing/manage/create-enterprise-subscription). For more information on shared quota, see [Azure Machine Learning shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota).
 
