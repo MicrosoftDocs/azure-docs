@@ -113,9 +113,9 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 
 ## First time addition of users in a new data partition
 1. In order to add entitlements to a new data partition of Azure Data Manager for Energy instance, use the access token of the app that was used to provision the instance.
-2. Get the service principal access token using [Generate service princpal access token](how-to-manage-users.md##generate-service-principal-access-token).
-3. If you try to directly use user tokens for adding entitlements, it results in 401 error. The service principal access token must be used to add initial users in the system and those users (with admin access) can then manage additional users.
-4. Use the service principal access token to do below three steps using the commands outlined in the below sections.
+2. Get the service principal access token using [Generate service principal access token](how-to-manage-users.md##generate-service-principal-access-token).
+3. If you try to directly use user tokens for adding entitlements, it results in 401 error. The service principal access token must be used to add initial users in the system and those users (with admin access) can then manage more users.
+4. Use the service principal access token to do these three steps using the commands outlined in the follwoing sections.
 5. Add the users to the `users@<data-partition-id>.<domain>` OSDU group.
 6. Get the OSDU group such as `service.legal.editor@<data-partition-id>.<domain>` you want to add the user to.
 7. Add the users to that group.
@@ -228,7 +228,7 @@ Consider an Azure Data Manager for Energy instance named "medstest" with a data 
 ## Delete OSDU groups of a given user in a data partition
 
 1. Run the below curl command in Azure Cloud Bash to delete a given user from a given data partition.
-2. As stated above, **DO NOT** delete the OWNER of a group unless you have another OWNER who can manage users in that group.
+2. **DO NOT** delete the OWNER of a group unless you have another OWNER who can manage users in that group.
 
 ```bash
     curl --location --request DELETE 'https://<URI>/api/entitlements/v2/members/<OBJECT_ID>' \
