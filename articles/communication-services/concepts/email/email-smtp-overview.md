@@ -38,7 +38,7 @@ Key features include:
 
 ## Next steps
 
-* [Configuring SMTP Authetication with a Azure Communication Service resource](../../quickstarts/email/send-email-smtp/smtp-authentication.md)
+* [Configuring SMTP Authentication with a Azure Communication Service resource](../../quickstarts/email/send-email-smtp/smtp-authentication.md)
   
 * [Get started with send email with SMTP](../../quickstarts/email/send-email-smtp/send-email-smtp.md)
 
