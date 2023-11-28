@@ -29,7 +29,7 @@ Both approach requires you to configure a custom DNS in the isolated network lay
 
 The following example configuration is a simple isolated network with minimum physical devices.
 
-![Diagram of a physical device isolated network configuration.](./media/howto-configure-layered-network/physical-device-isolated.png)
+![Diagram of a physical device isolated network configuration.](./media/howto-configure-layered-network/physical-network-segmentation.png)
 
 - The wireless access point is used for setting up a local network and doesn't provide internet access.
 - **Level 4 cluster** is a single node cluster hosted on a dual network interface card (NIC) physical machine that connects to internet and the local network.
@@ -41,7 +41,7 @@ Layered Network Management is deployed to the dual NIC cluster. The cluster in t
 
 The following diagram illustrates an isolated network environment where each level is logically segmented with subnets. In this test environment, there are multiple clusters one at each level. The clusters can be AKS Edge Essentials or K3S. The Kubernetes cluster in the level 4 network has direct internet access. The Kubernetes clusters in level 3 and below don't have internet access.
 
-![Diagram of a logical segmentation isolated network](./media/howto-configure-layered-network/nested-edge.png)
+![Diagram of a logical segmentation isolated network](./media/howto-configure-layered-network/logical-network-segmentation-subnets.png)
 
 The multiple levels of networks in this test setup are accomplished using subnets within a network:
 
@@ -54,6 +54,8 @@ Please refer to the following examples for setup this type of network environmen
 ### Example of logical isolated network with minimum hardware
 In this example, both machines are connect to an AP (Access Point) which connects to the internet. The level 4 host machine can access internet. The level 3 host is blocked for accessing internet with AP's configuration (e.g. firewall, client control...). As both machines are in the same network, Layered Network Management instance hosted on level 4 cluster is by defauly visible to the level 3 machine and cluster.
 An additional custom DNS needs to be setup in the local network to provide domain name resolution and point the traffic to Layered Network Management. For more information, see [Configure custom DNS](#configure-custom-dns).
+
+![Diagram of a logical isolated network configuration.](./media/howto-configure-layered-network/logical-network-segmentation.png)
 
 ### Example of logical isolated network in Azure
 In this example, a test environment is created with [Virtual Network](/azure/virtual-network/virtual-networks-overview) and [Linux Virtual Machine](/azure/virtual-machines/linux/quick-create-portal) in Azure environment.
