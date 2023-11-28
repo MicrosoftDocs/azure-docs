@@ -28,7 +28,7 @@ The following diagram shows the recommended structure for a repo. Each template 
 In a linked environment definitions scenario, multiple .json files can point to a single ARM template. ADE checks linked  environment definitions sequentially and retrieves the linked files and  environment definitions from the repository. For best performance, these interactions should be minimized. 
 
 ## Update  environment definitions and sync changes
-Over time, environment definitions  environment definitions need updates. You make those updates in your Git repository, and then you must manually sync the catalog up to update the changes to ADE. 
+Over time, environment definitions need updates. You make those updates in your Git repository, and then you must manually sync the catalog up to update the changes to ADE. 
 
 ## Files outside recommended structure
 In the following example, the Azuredeploy.json file is above the environment.yaml file in the folder structure. This structure is not valid Azure Deployment Environments catalogs. Environment definitions cannot reference content outside of the catalog item folder.
