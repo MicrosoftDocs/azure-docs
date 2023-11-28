@@ -99,9 +99,17 @@ Ensure that you have completed the [subscription prerequisites](prerequisites-su
      > [!TIP]
      > For troubleshooting any deployment errors, you can refer this [page](./create-cluster-error-dictionary.md).
 
-## Create a cluster
+Once the cluster pool deployment completes, continue to use the Azure portal to create a [Trino](./trino/trino-create-cluster.md#create-a-trino-cluster), [Flink](./flink/flink-create-cluster-portal.md#create-an-apache-flink-cluster), and [Spark](./spark/hdinsight-on-aks-spark-overview.md) cluster.
 
-Once the cluster pool deployment completes, continue to use the Azure portal to create a [Trino](./trino/trino-create-cluster.md#create-a-trino-cluster), [Flink](./flink/flink-create-cluster-portal.md#create-an-apache-flink-cluster), and [Spark](./spark/hdinsight-on-aks-spark-overview.md) cluster. 
+## Create a cluster
+There are 3 ways to create an Azure HDInsight on AKS cluster from the Azure portal:
+1.	Search and create “Azure HDInsight on AKS cluster” from the marketplace.
+1.	Search and select “Azure HDInsight on AKS clusters” in the Azure portal to create cluster from the page listing all HDInsight on AKS clusters.
+1.	Create cluster by selecting New in the Overview page of an existing cluster pool. In this option you have 2 ways of creating clusters.
+    1.	Create cluster by providing minimum number of inputs by not using advanced configuration. This option prefills the pre-requisite configuration fields with smart defaults and auto-creates mandatory resources.
+  Virtual Machine SKU size is pre-filled with the least costing recommended SKU. In the absence of any recommended SKU, it will be pre-filled with the SKU with the least vCores and maximum quota available at the time of cluster creation. The cluster would be created with a default constant number of 5 nodes. Flink and Trino clusters would have 2 head nodes while Spark clusters would have 3 head nodes. 
+  The user assigned managed identity and storage account will be auto-created in the managed resource group. You can review the configurations of the cluster which would be created on the Review+create tab. Once you click Create, “The Deployment is in progress” page is displayed while the cluster is being created. A message that "Your deployment is complete" would be displayed once the cluster is fully deployed and ready for use.
+    1.	If you wish to have more flexibility to customize the cluster configurations, toggle “Use advanced configuration” to On.
 
 > [!IMPORTANT]
 > For creating a cluster in a new cluster pool, assign AKS agentpool MSI "Managed Identity Operator" role on the user-assigned managed identity created as part of resource prerequisites.
@@ -109,8 +117,6 @@ Once the cluster pool deployment completes, continue to use the Azure portal to 
 > 
 > AKS agentpool managed identity is created during cluster pool creation. You can identify the AKS agentpool managed identity by **(your clusterpool name)-agentpool**.
 > Follow these steps to [assign the role](/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page).
-
-For a quickstart, refer to the following steps.
 
 1. When the cluster pool creation completes, click **Go to resource** from the **Your deployment is complete** page or the **Notifications** area. If the **Go to resource option** isn't available, type *HDInsight on AKS cluster pool* in the search bar on the Azure portal, and then select the cluster pool you created.
 
