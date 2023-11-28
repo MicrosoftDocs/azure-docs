@@ -9,7 +9,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: ynpandey
 ms.author: yogipandey
-ms.date: 10/27/2023
+ms.date: 11/28/2023
 ms.reviewer: franksolomon
 ms.custom:
   - sdkv2
@@ -22,7 +22,7 @@ ms.custom:
 
 An Azure Machine Learning managed feature store lets you discover, create, and operationalize features. Features serve as the connective tissue in the machine learning lifecycle, starting from the prototyping phase, where you experiment with various features. That lifecycle continues to the operationalization phase, where you deploy your models, and inference steps look up the feature data. For more information about feature stores, see [feature store concepts](./concept-what-is-managed-feature-store.md).
 
-Part 1 of this tutorial series showed how to create a feature set specification with custom transformations, enable materialization and perform a backfill. Part 2 of this tutorial series showed how to experiment with features in the experimentation and training flows. Part 4 described how to run batch inference.
+Part 1 of this tutorial series showed how to create a feature set specification with custom transformations, enable materialization and perform a backfill. Part 2 showed how to experiment with features in the experimentation and training flows. Part 3 explained recurrent materialization for the `transactions` feature set, and showed how to run a batch inference pipeline on the registered model. Part 4 described how to run batch inference.
 
 In this tutorial, you'll
 
@@ -36,7 +36,7 @@ In this tutorial, you'll
 > [!NOTE]
 > This tutorial uses an Azure Machine Learning notebook with **Serverless Spark Compute**.
 
-* Make sure you execute the notebook from Tutorial 1. That notebook includes creation of a feature store and a feature set, followed by enabling of materialization and performance of backfill.
+* Make sure you complete the previous tutorials in this series. This tutorial reuses feature store and other resources created in those earlier tutorials.
 
 ## Set up
 
@@ -44,7 +44,7 @@ This tutorial uses the Python feature store core SDK (`azureml-featurestore`). T
 
 You don't need to explicitly install these resources for this tutorial, because in the set-up instructions shown here, the `conda.yml` file covers them.
 
-### Configure the Azure Machine Learning Spark notebook.
+### Configure the Azure Machine Learning Spark notebook
 
 You can create a new notebook and execute the instructions in this tutorial step by step. You can also open and run the existing notebook *featurestore_sample/notebooks/sdk_only/5. Develop a feature set with custom source.ipynb*. Keep this tutorial open and refer to it for documentation links and more explanation.
 
@@ -52,10 +52,11 @@ You can create a new notebook and execute the instructions in this tutorial step
 
 2. Configure the session:
 
-    1. When the toolbar displays **Configure session**, select it.
-    2. On the **Python packages** tab, select **Upload Conda file**.
-    3. Upload the *conda.yml* file that you [uploaded in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment).
-    4. Optionally, increase the session time-out (idle time) to avoid frequent prerequisite reruns.
+    1. Select **Configure session** in the top status bar.
+    2. Select the **Python packages** tab, s
+    3. Select **Upload Conda file**.
+    4. Upload the *conda.yml* file that you [uploaded in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment).
+    5. Optionally, increase the session time-out (idle time) to avoid frequent prerequisite reruns.
 
 ## Set up the root directory for the samples
 This code cell sets up the root directory for the samples. It needs about 10 minutes to install all dependencies and start the Spark session.

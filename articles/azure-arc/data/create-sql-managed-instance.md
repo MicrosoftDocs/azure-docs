@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Arc-enabled SQL Managed Instance
-description: Deploy Azure Arc-enabled SQL Managed Instance
+title: Create a SQL Server Managed Instance enabled by Azure Arc
+description: Deploy SQL Server Managed Instance enabled by Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
@@ -12,7 +12,7 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Create an Azure Arc-enabled SQL Managed Instance
+# Create a SQL Server Managed Instance enabled by Azure Arc
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
@@ -85,7 +85,7 @@ You can copy the external IP and port number from here and connect to it using y
 
 [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
-## Next steps
-- [Connect to Azure Arc-enabled SQL Managed Instance](connect-managed-instance.md)
+## Related content
+- [Connect to SQL Managed Instance enabled by Azure Arc](connect-managed-instance.md)
 - [Register your instance with Azure and upload metrics and logs about your instance](upload-metrics-and-logs-to-azure-monitor.md)
 - [Deploy Azure SQL Managed Instance using Azure Data Studio](create-sql-managed-instance-azure-data-studio.md)
