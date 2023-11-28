@@ -30,7 +30,7 @@ If you don't migrate your gateway by September 30, 2025, your gateway will be au
 
 Important Dates:
 
-* **1 December 2023**: No new gateway creations possible on Standard / High Performance SKUs
+* **December 1, 2023**: No new gateway creations possible on Standard / High Performance SKUs
 * **November 30, 2024**: Begin migrating gateways to other SKUs
 * **September 30, 2025**: Standard/High Performance SKUs will be retired and gateways will be automatically migrated
 
