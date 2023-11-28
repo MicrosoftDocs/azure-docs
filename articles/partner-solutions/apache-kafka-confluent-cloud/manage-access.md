@@ -11,25 +11,27 @@ ms.date: 11/27/2023
 
 # How to manage user permissions in a Confluent organization
 
-This guide presents step by step instructions to manage user permissions in Apache Kafka on Confluent Cloud, in the Azure portal. User access management enables the organization admin to add, view and remove users and roles inside a Confluent organization.
+User access management is a feature that enables the organization admin to add, view and remove users and roles inside a Confluent organization. By managing user permissions, you can ensure that only authorized users can access and perform actions on your Confluent Cloud resources.
+
+This guide presents step by step instructions to manage users and roles in Apache Kafka on Confluent Cloud, in the Azure portal.
 
 The following actions are supported:
 
 * Adding a user to the Confluent Organization
-* Viewing role permissions for a user.
-* Adding or removing role permissions for a user.
+* Viewing a user's role permissions.
+* Adding or removing role permissions assigned to a user.
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
 * An existing Confluent organization.
-* Required permission: Subscription Owner or Contributor.
+* Required permission: subscription Owner or Contributor.
 
-## Add users to a Confluent Organization
+## Add a user to a Confluent Organization
 
-Follow the steps below to add users to a Confluent Organization.
+Follow the steps below to add a user to a Confluent Organization.
 
-1. In your Confluent Organization in the Azure portal, select **Confluent Account and Access** from the left menu. The page shows a list of users who currently belong to this Confluent organization. The same list is visible under **Accounts & access** in the Confluent portal.
+1. Open a Confluent Organization in the Azure portal and select **Confluent Account and Access** from the left menu. The page shows a list of users who currently belong to this Confluent organization. The same list is visible under **Accounts & access** in the Confluent portal.
 
     :::image type="content" source="media/manage-access/account-and-access.png" alt-text="Screenshot of the Azure platform showing the Confluent Account and Access menu.":::
 
@@ -41,9 +43,9 @@ Follow the steps below to add users to a Confluent Organization.
 
     :::image type="content" source="media/manage-access/select-user-to-add.png"alt-text="Screenshot of the Azure platform showing choosing a user to add.":::
 
-1. A notification appears, stating that the user has been added. The newly added user is listed in **Confluent Account and Access** and in the Confluent portal.
+1. A notification indicates that the user has been added. The newly added user is listed in the Confluent Account and Access page and in the Confluent portal.
 
-## View role permissions for a user
+## View a user's permissions
 
 Review permissions assigned to a user.
 
@@ -52,7 +54,7 @@ Review permissions assigned to a user.
 
     :::image type="content" source="media/manage-access/view-roles.png"alt-text="Screenshot of the Azure platform showing roles attributed to a user.":::
 
-## Assign a role permissions to a user in Confluent Organization
+## Assign a permission to a user
 
 Give the new user some permissions in your Confluent Organization.
 
@@ -66,9 +68,9 @@ Give the new user some permissions in your Confluent Organization.
 
 1. A notification indicates that the new user role has been added. The list of assigned roles for the user is updated with the newly added role.
 
-## Remove Role permissions for a user in Confluent Organization 
+## Remove a user's permissions
 
-Remove a permission assigned to a user. 
+Remove a permission assigned to a user in the Confluent organization.
 
 1. In **Manage Permissions**, select **Remove Role**.
 
@@ -78,7 +80,7 @@ Remove a permission assigned to a user.
   
     :::image type="content" source="media/manage-access/confirm-role-removal.png"alt-text="Screenshot of the Azure platform showing selecting a Confluent organization role to remove.":::
 
-1. The role has now been removed and you see the refreshed roles.
+1. The role is removed and you see the refreshed roles.
 
 ## Next steps
 
