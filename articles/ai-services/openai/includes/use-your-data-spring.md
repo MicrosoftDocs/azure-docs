@@ -5,17 +5,16 @@ author: gm2552
 ms.author: travisw
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 08/29/2023
+ms.date: 11/27/2023
 ---
 
 [!INCLUDE [Set up required variables](./use-your-data-spring-common-variables.md)]
 
 ## Create a new Spring application
 
-Spring AI does not currently support the *AzureCognitiveSearchChatExtensionConfiguration* options which allows an Azure AI query to encapsulate the [Retrieval Augmented Generation](../../../search/retrieval-augmented-generation-overview.md) (RAG) method and hide the details from the user.  As an alternative, you can still invoke the RAG method directly in your application to query data in your Azure Cognative Search index and use retrieved documents to augment your query.
+Spring AI does not currently support the *AzureCognitiveSearchChatExtensionConfiguration* options which allows an Azure AI query to encapsulate the [Retrieval Augmented Generation](../../../search/retrieval-augmented-generation-overview.md) (RAG) method and hide the details from the user. As an alternative, you can still invoke the RAG method directly in your application to query data in your Azure Cognative Search index and use retrieved documents to augment your query.
 
-Spring AI supports an VectorStore abstraction, and Azure Cognative Search can be wrapped in a Spring AI VectorStore implementation for querying your custom data.  The following project implements a custom VectorStore backed
-by Azure Cognitive Search and directly executes RAG operations.
+Spring AI supports an VectorStore abstraction, and Azure Cognative Search can be wrapped in a Spring AI VectorStore implementation for querying your custom data. The following project implements a custom VectorStore backed by Azure Cognitive Search and directly executes RAG operations.
 
 In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
 
@@ -59,7 +58,7 @@ ai-custom-data-demo/
 
 1. Edit pom.xml file.
 
-   From the root of the project directory, open the *pom.xml* file in your preferred editor or IDE and overwrite the file with following content: 
+   From the root of the project directory, open the *pom.xml* file in your preferred editor or IDE and overwrite the file with following content:
 
    ```xml
    <?xml version="1.0" encoding="UTF-8"?>
@@ -85,7 +84,7 @@ ai-custom-data-demo/
                <groupId>org.springframework.boot</groupId>
                <artifactId>spring-boot-starter</artifactId>
            </dependency>
-           <dependency>                 
+           <dependency>
                <groupId>org.springframework.experimental.ai</groupId>
                <artifactId>spring-ai-azure-openai-spring-boot-starter</artifactId>
                <version>0.7.0-SNAPSHOT</version>
@@ -106,14 +105,14 @@ ai-custom-data-demo/
                <groupId>org.projectlombok</groupId>
                <artifactId>lombok</artifactId>
                <optional>true</optional>
-           </dependency>              
+           </dependency>
            <dependency>
                <groupId>org.springframework.boot</groupId>
                <artifactId>spring-boot-starter-test</artifactId>
                <scope>test</scope>
            </dependency>
        </dependencies>
-   
+
        <build>
            <plugins>
                <plugin>
@@ -139,13 +138,13 @@ ai-custom-data-demo/
 
    ```java
    package com.example.aicustomdatademo;
-   
+
    import java.util.Collections;
    import java.util.List;
    import java.util.Map;
    import java.util.Optional;
    import java.util.stream.Collectors;
-   
+
    import org.springframework.ai.client.AiClient;
    import org.springframework.ai.document.Document;
    import org.springframework.ai.embedding.EmbeddingClient;
@@ -160,7 +159,7 @@ ai-custom-data-demo/
    import org.springframework.boot.SpringApplication;
    import org.springframework.boot.autoconfigure.SpringBootApplication;
    import org.springframework.context.annotation.Bean;
-   
+
    import com.azure.core.credential.AzureKeyCredential;
    import com.azure.core.util.Context;
    import com.azure.search.documents.SearchClient;
@@ -168,81 +167,80 @@ ai-custom-data-demo/
    import com.azure.search.documents.models.IndexingResult;
    import com.azure.search.documents.models.SearchOptions;
    import com.azure.search.documents.models.RawVectorQuery;
-   
+
    import lombok.AllArgsConstructor;
    import lombok.NoArgsConstructor;
    import lombok.Builder;
    import lombok.Data;
    import lombok.extern.jackson.Jacksonized;
-   
+
    @SpringBootApplication
    public class AiCustomDataApplication implements CommandLineRunner
    {
        private static final String ROLE_INFO_KEY = "role";
-       
+
        private static final String template = """
                You are a helpful assistant. Use the information from the DOCUMENTS section to augment answers.
-   
+
                DOCUMENTS:
                {documents}
-               """;    
-       
-       
+               """;
+
        @Value("${spring.ai.azure.cognitive-search.endpoint}")
        private String acsEndpoint;
-   
+
        @Value("${spring.ai.azure.cognitive-search.api-key}")
        private String acsApiKey;
-   
+
        @Value("${spring.ai.azure.cognitive-search.index}")
-       private String acsIndexName;    
-       
+       private String acsIndexName;
+
        @Autowired
        private AiClient aiClient;
-       
+
        @Autowired
        private EmbeddingClient embeddingClient;
-       
+
        public static void main(String[] args) {
            SpringApplication.run(AiCustomDataApplication.class, args);
        }
-   
+
        @Override
-       public void run(String... args) throws Exception 
+       public void run(String... args) throws Exception
        {
-           System.out.println(String.format("Sending custom data prompt to AI service.  One moment please...\r\n"));
-           
+           System.out.println(String.format("Sending custom data prompt to AI service. One moment please...\r\n"));
+
            final var store = vectorStore(embeddingClient);
-           
+
            final String question = "What are the differences between Azure Machine Learning and Azure AI services?";
-           
+
            final var candidateDocs = store.similaritySearch(question);
-           
+
            final var userMessage = new UserMessage(question);
-           
-           final String docPrompts = 
+
+           final String docPrompts =
                    candidateDocs.stream().map(entry -> entry.getContent()).collect(Collectors.joining("\n"));
-           
+
            final SystemPromptTemplate promptTemplate = new SystemPromptTemplate(template);
            final var systemMessage = promptTemplate.createMessage(Map.of("documents", docPrompts));
-           
+
            final var prompt = new Prompt(List.of(systemMessage, userMessage));
-           
+
            final var resps = aiClient.generate(prompt);
-   
+
            System.out.println(String.format("Prompt created %d generated response(s).", resps.getGenerations().size()));
-           
+
            resps.getGenerations().stream()
              .forEach(gen -> {
                  final var role = gen.getInfo().getOrDefault(ROLE_INFO_KEY, MessageType.ASSISTANT.getValue());
-                 
+
                  System.out.println(String.format("Generated respose from \"%s\": %s", role, gen.getText()));
              });
-           
+
        }
-   
+
        @Bean
-       public VectorStore vectorStore(EmbeddingClient embeddingClient) 
+       public VectorStore vectorStore(EmbeddingClient embeddingClient)
        {
            final SearchClient searchClient = new SearchClientBuilder()
                    .endpoint(acsEndpoint)
@@ -251,118 +249,117 @@ ai-custom-data-demo/
                    .buildClient();
            return new AzureCognitiveSearchVectorStore(searchClient, embeddingClient);
        }
-       
+
        public static class AzureCognitiveSearchVectorStore implements VectorStore
        {
            private static final int DEFAULT_TOP_K = 4;
-           
+
            private static final Double DEFAULT_SIMILARITY_THRESHOLD = 0.0;
-           
+
            private SearchClient searchClient;
-           
+
            private final EmbeddingClient embeddingClient;
-           
+
            public AzureCognitiveSearchVectorStore(SearchClient searchClient, EmbeddingClient embeddingClient)
            {
                this.searchClient = searchClient;
                this.embeddingClient = embeddingClient;
            }
-   
+
            @Override
-           public void add(List<Document> documents) 
+           public void add(List<Document> documents)
            {
                final var docs = documents.stream().map(document -> {
-                   
+
                    final var embeddings = embeddingClient.embed(document);
-                   
+
                    return new DocEntry(document.getId(), "", document.getContent(), embeddings);
-                   
+
                }).toList();
-               
+
                searchClient.uploadDocuments(docs);
            }
-   
+
            @Override
-           public Optional<Boolean> delete(List<String> idList) 
+           public Optional<Boolean> delete(List<String> idList)
            {
                final List<DocEntry> docIds = idList.stream().map(id -> DocEntry.builder().id(id).build())
                    .toList();
-               
+
                var results = searchClient.deleteDocuments(docIds);
-               
+
                boolean resSuccess = true;
-               
+
                for (IndexingResult result : results.getResults())
                    if (!result.isSucceeded()) {
                        resSuccess = false;
                        break;
                    }
-               
+
                return Optional.of(resSuccess);
            }
-   
+
            @Override
-           public List<Document> similaritySearch(String query) 
+           public List<Document> similaritySearch(String query)
            {
                return similaritySearch(query, DEFAULT_TOP_K);
            }
-   
+
            @Override
-           public List<Document> similaritySearch(String query, int k) 
+           public List<Document> similaritySearch(String query, int k)
            {
                return similaritySearch(query, k, DEFAULT_SIMILARITY_THRESHOLD);
            }
-   
+
            @Override
-           public List<Document> similaritySearch(String query, int k, double threshold) 
+           public List<Document> similaritySearch(String query, int k, double threshold)
            {
                final var searchQueryVector = new RawVectorQuery()
                        .setVector(toFloatList(embeddingClient.embed(query)))
                        .setKNearestNeighborsCount(k)
                        .setFields("contentVector");
-   
+
                final var searchResults = searchClient.search(null,
                        new SearchOptions().setVectorQueries(searchQueryVector), Context.NONE);
-               
+
                return searchResults.stream()
                        .filter(r -> r.getScore() >= threshold)
                        .map(r -> {
-                           
+
                            final DocEntry entry = r.getDocument(DocEntry.class);
-                           
+
                            final Document doc = new Document(entry.getId(), entry.getContent(), Collections.emptyMap());
                            doc.setEmbedding(entry.getContentVector());
-                           
+
                            return doc;
                        })
                        .collect(Collectors.toList());
            }
-           
-           private List<Float> toFloatList(List<Double> doubleList) 
+
+           private List<Float> toFloatList(List<Double> doubleList)
            {
                return doubleList.stream().map(Double::floatValue).toList();
            }
-           
+
        }
-       
+
        @Data
        @Builder
        @Jacksonized
        @AllArgsConstructor
        @NoArgsConstructor
-       static class DocEntry 
+       static class DocEntry
        {
            private String id;
-   
+
            private String hash;
-   
+
            private String content;
-   
+
            private List<Double> contentVector;
        }
-   
+
    }
-   
    ```
 
    > [!IMPORTANT]
@@ -372,13 +369,13 @@ ai-custom-data-demo/
 
    # [Command Line](#tab/command-line)
 
-   ```CMD
+   ```cmd
    mvnw spring-boot:run
    ```
 
    # [Bash](#tab/bash)
 
-   ```Bash
+   ```bash
    ./mvnw spring-boot:run
    ```
 
@@ -395,7 +392,7 @@ ai-custom-data-demo/
 
 2023-11-07T14:40:45.250-06:00  INFO 18557 --- [           main] c.e.a.AiCustomDataApplication            : No active profile set, falling back to 1 default profile: "default"
 2023-11-07T14:40:46.035-06:00  INFO 18557 --- [           main] c.e.a.AiCustomDataApplication            : Started AiCustomDataApplication in 1.095 seconds (process running for 1.397)
-Sending custom data prompt to AI service.  One moment please...
+Sending custom data prompt to AI service. One moment please...
 
 Prompt created 1 generated response(s).
 Generated respose from "assistant": Azure Machine Learning is a cloud-based service that allows users to build, deploy, and manage machine learning models. It provides a range of tools and capabilities for data scientists and developers to train models, automate the machine learning workflow, and deploy models as web services.

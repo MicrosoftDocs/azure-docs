@@ -5,7 +5,7 @@ author: gm2552
 ms.author: travisw
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 08/29/2023
+ms.date: 11/27/2023
 ---
 
 ## Retrieve required variables
@@ -14,11 +14,11 @@ To successfully make a call against Azure OpenAI, you need the following variabl
 
 | Variable name      | Value                                                                                                                                                                                                                                                                                                                     |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `AOAIEndpoint`     | This value can be found in the **Keys & Endpoint** section when examining your Azure OpenAI resource from the Azure portal. Alternatively, you can find the value in **Azure AI studio** > **Chat playground** > **Code view**. An example endpoint is: `https://my-resoruce.openai.azure.com`.                           |
-| `AOAIKey`          | This value can be found in **Resource management** > **Keys & Endpoint** section when examining your Azure OpenAI resource from the Azure portal. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.                     |
-| `AOAIDeploymentId` | This value corresponds to the custom name you chose for your deployment when you deployed a model. This value can be found under **Resource Management** > **Deployments** in the Azure portal or alternatively under **Management** > **Deployments** in Azure AI studio.                                                |
-| `SearchEndpoint`   | This value can be found in the **Overview** section when examining your Azure Cognitive Search resource from the Azure portal.                                                                                                                                                                                            |
-| `SearchKey`        | This value can be found in the **Settings** > **Keys** section when examining your Azure Cognitive Search resource from the Azure portal. You can use either the primary admin key or secondary admin key. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption. |
+| `AOAIEndpoint`     | You can find this value in the **Keys & Endpoint** section when examining your Azure OpenAI resource from the Azure portal. Alternatively, you can find the value in **Azure AI studio** > **Chat playground** > **Code view**. An example endpoint is: `https://my-resource.openai.azure.com`.                           |
+| `AOAIKey`          | You can find this value in **Resource management** > **Keys & Endpoint** section when examining your Azure OpenAI resource from the Azure portal. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.                     |
+| `AOAIDeploymentId` | This value corresponds to the custom name you chose for your deployment when you deployed a model. You can find this value under **Resource Management** > **Deployments** in the Azure portal or alternatively under **Management** > **Deployments** in Azure AI studio.                                                |
+| `SearchEndpoint`   | You can find this value in the **Overview** section when examining your Azure Cognitive Search resource from the Azure portal.                                                                                                                                                                                            |
+| `SearchKey`        | You can find this value in the **Settings** > **Keys** section when examining your Azure Cognitive Search resource from the Azure portal. You can use either the primary admin key or secondary admin key. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption. |
 | `SearchIndex`      | This value corresponds to the name of the index you created to store your data. You can find it in the **Overview** section when examining your Azure Cognitive Search resource from the Azure portal.                                                                                                                    |
 
 ### Environment variables
@@ -27,9 +27,21 @@ To successfully make a call against Azure OpenAI, you need the following variabl
 
 ```cmd
 setx SPRING_AI_AZURE_OPENAI_API_KEY REPLACE_WITH_YOUR_AOAI_KEY_VALUE_HERE
+```
+
+```cmd
 setx SPRING_AI_AZURE_OPENAI_ENDPOINT REPLACE_WITH_YOUR_AOAI_ENDPOINT_VALUE_HERE
+```
+
+```cmd
 setx SPRING_AI_AZURE_COGNITIVE_SEARCH_ENDPOINT REPLACE_WITH_YOUR_AZURE_SEARCH_RESOURCE_VALUE_HERE
+```
+
+```cmd
 setx SPRING_AI_AZURE_COGNITIVE_SEARCH_API_KEY REPLACE_WITH_YOUR_AZURE_SEARCH_RESOURCE_KEY_VALUE_HERE
+```
+
+```cmd
 setx SPRING_AI_AZURE_COGNITIVE_SEARCH_INDEX REPLACE_WITH_YOUR_INDEX_NAME_HERE
 ```
 
@@ -37,9 +49,21 @@ setx SPRING_AI_AZURE_COGNITIVE_SEARCH_INDEX REPLACE_WITH_YOUR_INDEX_NAME_HERE
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable('SPRING_AI_AZURE_OPENAI_ENDPOINT', 'REPLACE_WITH_YOUR_AOAI_ENDPOINT_VALUE_HERE', 'User')
+```
+
+```powershell
 [System.Environment]::SetEnvironmentVariable('SPRING_AI_AZURE_OPENAI_API_KEY', 'REPLACE_WITH_YOUR_AOAI_KEY_VALUE_HERE', 'User')
+```
+
+```powershell
 [System.Environment]::SetEnvironmentVariable('SPRING_AI_AZURE_COGNITIVE_SEARCH_ENDPOINT', 'REPLACE_WITH_YOUR_AZURE_SEARCH_RESOURCE_VALUE_HERE', 'User')
+```
+
+```powershell
 [System.Environment]::SetEnvironmentVariable('SPRING_AI_AZURE_COGNITIVE_SEARCH_API_KEY', 'REPLACE_WITH_YOUR_AZURE_SEARCH_RESOURCE_KEY_VALUE_HERE', 'User')
+```
+
+```powershell
 [System.Environment]::SetEnvironmentVariable('SPRING_AI_AZURE_COGNITIVE_SEARCH_INDEX', 'REPLACE_WITH_YOUR_INDEX_NAME_HERE', 'User')
 ```
 
@@ -47,9 +71,21 @@ setx SPRING_AI_AZURE_COGNITIVE_SEARCH_INDEX REPLACE_WITH_YOUR_INDEX_NAME_HERE
 
 ```bash
 export SPRING_AI_AZURE_OPENAI_ENDPOINT=REPLACE_WITH_YOUR_AOAI_ENDPOINT_VALUE_HERE
+```
+
+```bash
 export SPRING_AI_AZURE_OPENAI_API_KEY=REPLACE_WITH_YOUR_AOAI_KEY_VALUE_HERE
+```
+
+```bash
 export SPRING_AI_AZURE_COGNITIVE_SEARCH_ENDPOINT=REPLACE_WITH_YOUR_AZURE_SEARCH_RESOURCE_VALUE_HERE
+```
+
+```bash
 export SPRING_AI_AZURE_COGNITIVE_SEARCH_API_KEY=REPLACE_WITH_YOUR_AZURE_SEARCH_RESOURCE_KEY_VALUE_HERE
+```
+
+```bash
 export SPRING_AI_AZURE_COGNITIVE_SEARCH_INDEX=REPLACE_WITH_YOUR_INDEX_NAME_HERE
 ```
 
