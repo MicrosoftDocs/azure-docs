@@ -53,6 +53,13 @@ To update the **slow\_query\_log** server parameter of server **mydemoserver.mys
 ```azurecli-interactive
 az mysql flexible-server parameter set --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver --value ON
 ```
+
+To update multiple server parameters like **slow\_query\_log** and **audit\_log\_enabled** of server **mydemoserver.mysql.database.azure.com** under resource group **myresourcegroup.**
+```azurecli-interactive
+az mysql flexible-server parameter set-batch -resource-group myresourcegroup --server-name mydemoserver --source "user-override" --args slow_query_log="ON" audit_log_enabled="ON"
+```
+
+
 If you want to reset the value of a parameter, omit the optional `--value` parameter, and the service applies the default value. For the example above, it would look like:
 ```azurecli-interactive
 az mysql flexible-server parameter set --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver
