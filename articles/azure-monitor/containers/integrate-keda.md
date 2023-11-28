@@ -29,7 +29,7 @@ This article walks you through the steps to integrate KEDA into your AKS cluster
 
 + Azure Kubernetes Service (AKS) cluster
 + Prometheus sending metrics to an Azure Monitor workspace. For more information, see [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
-+ Microsoft Entra Workload ID, see [Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/).
++ Microsoft Entra Workload ID. For more information, see [Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/).
 
 ## Set up a workload identity
 
