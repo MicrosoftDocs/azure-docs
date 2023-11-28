@@ -10,6 +10,7 @@ author: eric-urban
 ms.author: eur
 ms.date: 09/15/2023
 recommendations: false
+zone_pivot_groups: openai-whisper
 ---
 
 # Quickstart: Speech to text with the Azure OpenAI Whisper model
@@ -75,9 +76,17 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ```
 ---
 
+::: zone pivot="programming-language-powershell"
+
+[!INCLUDE [PowerShell quickstart](includes/whisper-powershell.md)]
+
+::: zone-end
+
+::: zone pivot="rest-api"
 
 [!INCLUDE [REST API quickstart](includes/whisper-rest.md)]
 
+::: zone-end
 
 ## Clean up resources
 

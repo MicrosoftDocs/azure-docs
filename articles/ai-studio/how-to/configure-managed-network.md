@@ -303,6 +303,8 @@ When you create a private endpoint, you provide the _resource type_ and _subreso
 
 When you create a private endpoint for Azure AI dependency resources, such as Azure Storage, Azure Container Registry, and Azure Key Vault, the resource can be in a different Azure subscription. However, the resource must be in the same tenant as the Azure AI.
 
+A private endpoint is automatically created for a connection if the target resource is an Azure resource listed above. A valid target ID is expected for the private endpoint. A valid target ID for the connection can be the ARM ID of a parent resource. The target ID is also expected in the target of the connection or in `metadata.resourceid`. For more on connections, see [How to add a new connection in Azure AI Studio](connections-add.md).
+
 ## Pricing
 
 The Azure AI managed VNet feature is free. However, you're charged for the following resources that are used by the managed VNet:

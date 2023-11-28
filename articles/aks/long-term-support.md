@@ -90,7 +90,7 @@ Using LTS is a way to extend your window to plan a Kubernetes version upgrade. Y
 To move from an LTS enabled cluster to a version of Kubernetes that is within the standard support window, you need to disable LTS on the cluster:
 
 ```
-az aks update --resource-group myResourceGroup --name myAKSCluster --tier [free|standard] --k8s-support KubernetesCommunitySupport
+az aks update --resource-group myResourceGroup --name myAKSCluster --tier [free|standard] --k8s-support-plan KubernetesOfficial
 ```
 
 And then upgrade the cluster to a later supported version:

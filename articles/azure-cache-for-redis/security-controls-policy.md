@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Cache for Redis
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Cache for Redis. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 11/06/2023
+ms.date: 11/21/2023
 ms.topic: sample
 author: flang-msft
 ms.author: franlanglois

@@ -43,7 +43,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
 
-- [Nubeva Prisms](https://www.nubeva.com/azurevtap)
+- [cPacket Cloud Visbility](https://www.cpacket.com/solutions/cloud-visibility/)
 
 - [Big Switch Big Monitoring Fabric](https://www.arista.com/en/bigswitch)
 
