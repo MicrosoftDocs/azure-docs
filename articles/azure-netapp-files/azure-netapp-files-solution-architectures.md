@@ -213,6 +213,7 @@ This section provides references for High Performance Computing (HPC) solutions.
 
 ### Electronic design automation (EDA)
 
+* [Azure Modeling and Simulation Workbench](../modeling-simulation-workbench/)
 * [EDA workloads on Azure NetApp Files - Performance Best Practice](https://techcommunity.microsoft.com/t5/azure-global/eda-workloads-on-azure-netapp-files-performance-best-practice/ba-p/2119979)
 * [Benefits of using Azure NetApp Files for electronic design automation](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
 * [Azure CycleCloud: EDA HPC Lab with Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
