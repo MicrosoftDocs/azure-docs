@@ -1,7 +1,7 @@
 ---
 title: Email SMTP as service overview in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: Learn about Communication Services Email concepts.
+description: Learn about Communication Services Email SMTP suppprt.
 author: bashan-git
 manager: darmour
 services: azure-communication-services
