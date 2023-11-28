@@ -16,37 +16,37 @@ Simplify your Dapr development experience by initializing Dapr components direct
 Initially, deploying and running your Dapr-enabled container apps on the Azure Container Apps platform required a significant amount of time around configuring the infrastructure and Dapr components. Due to this complexity, when migrating your local workload to Azure Container Apps, you redid much of the setup.  
 
 The `az containerapp env dapr-component init` command:
--	Seamlessly transitions from code to cloud, bringing the local dev experience to ACA using either the Azure CLI or the Dapr CLI.
--	Deploys the application code without any changes specific to ACA.
--	Implements lightweight development-grade services powering the infrastructure.
--	Automatically manages secrets via the service binding.
+- Seamlessly transitions from code to cloud, bringing the local development experience to Azure Container Apps using either the Azure CLI or the Dapr CLI.
+- Deploys the application code without needing to make any changes.
+- Implements lightweight development-grade services powering the infrastructure.
+- Automatically manages secrets via the service binding.
 
 ## Supported Dapr components
 
 Currently, the `dapr-component init` command supports the following Dapr components:
--	Redis for state stores and pub/sub (default component)
--	Apache Kafka for pub/sub
--	PostgreSQL for state stores
+- Redis for state stores and pub/sub (default component)
+- Apache Kafka for pub/sub
+- PostgreSQL for state stores
 
-[The sample provided](https://github.com/Azure-Samples/containerapps-dapr-components-init) uses the default Redis pub/sub components. 
+[The sample provided for this tutorial](https://github.com/Azure-Samples/containerapps-dapr-components-init) uses the default Redis pub/sub component. 
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have one yet, [you can create a free Azure account.](https://azure.microsoft.com/free)
-- Install the [Azure CLI](/cli/azure/install-azure-cli).
+- Install and log-in to the [Azure CLI](/cli/azure/install-azure-cli).
 - Sign into [Docker Hub](https://www.docker.com/products/docker-hub/)
 
 ## Clone the sample repository
 
 Clone the [sample project](https://github.com/Azure-Samples/containerapps-dapr-components-init) to your local machine.
 
-```shell
+```azurecli
 git clone https://github.com/Azure-Samples/containerapps-dapr-components-init.git
 ```
 
 Navigate to the root directory.
 
-```shell
+```azurecli
 cd containerapps-dapr-components-init
 ```
 
@@ -58,17 +58,16 @@ If you'd like to use your own custom images:
 - Update the [`containerApps.bicep`](https://github.com/Azure-Samples/containerapps-dapr-components-init/blob/main/deploy/containerApps.bicep) file with your Docker image name.
 - Package the `order-processor` and `order-publisher` services into your custom Docker images and build the images with commands like the following.
 
-   ```shell
+   ```azurecli
    docker buildx build --platform linux/amd64 -t $MY_CONTAINER_REGISTRY/python-order-publisher:latest --push ./order-publisher:latest
    docker buildx build --platform linux/amd64 -t $MY_CONTAINER_REGISTRY/python-order-processor:latest --push ./order-processor:latest
    ```
-
 
 ## Set the environment variables
 
 In the terminal, set the environment variables. You can replace the values in the following example with something more unique.
 
-```shell
+```azurecli
 VAR_RESOURCE_GROUP="myResourceGroup"
 VAR_ENVIRONMENT="myAcaEnv"
 VAR_LOCATION="eastus"
@@ -78,7 +77,7 @@ VAR_LOCATION="eastus"
 
 Create the resource group to which you'd like to deploy your container app managed environment.
 
-```shell
+```azurecli
 az group create --name "$VAR_RESOURCE_GROUP" --location "$VAR_LOCATION"
 ```
 
@@ -86,7 +85,7 @@ az group create --name "$VAR_RESOURCE_GROUP" --location "$VAR_LOCATION"
 
 Create the managed environment in the resource group you just created, using the environment name you set earlier.
 
-```shell
+```azurecli
 az deployment group create --resource-group "$VAR_RESOURCE_GROUP" --template-file ./deploy/managedEnvironment.bicep --parameters environment_name="$VAR_ENVIRONMENT" --parameters location="$VAR_LOCATION"
 ```
 
@@ -94,14 +93,14 @@ az deployment group create --resource-group "$VAR_RESOURCE_GROUP" --template-fil
 
 Run the `dapr-component init` command to initialize managed Dapr components in your container app environment. 
 
-```shell
+```azurecli
 az containerapp env dapr-component init -g $VAR_RESOURCE_GROUP --name $VAR_ENVIRONMENT 
 ```
 
 > [!NOTE]
 > Using the default Redis compnents doesn't require any extra parameters. If you're using Kafka or PostgreSQL components instead of the default Redis, you need to specify which components you're using. For example, for a Kafka pub/sub component and a PostgreSQL state store, run the following command:
 > 
-> ```shell
+> ```azurecli
 > az containerapp env dapr-component init -g $VAR_RESOURCE_GROUP --name $VAR_ENVIRONMENT --statestore postgres --pubsub kafka
 > ```
 
@@ -111,7 +110,7 @@ az containerapp env dapr-component init -g $VAR_RESOURCE_GROUP --name $VAR_ENVIR
 
 Now that you created a container app environment and initialized the Dapr components, deploy the sample `order-processor` and `order-publisher` container apps.
 
-```shell
+```azurecli
 az deployment group create --resource-group "$VAR_RESOURCE_GROUP" --template-file ./deploy/containerApps.bicep --parameters environment_name="$VAR_ENVIRONMENT" --parameters location="$VAR_LOCATION"
 ```
 
@@ -138,7 +137,7 @@ Verify the `order-processor` container app recieved the messages from `order-pub
 
 When you're finished experimenting with this tutorial, remove the sample resources with the following command.
 
-```shell
+```azurecli
 az group delete --name "$VAR_RESOURCE_GROUP"
 ```
 
