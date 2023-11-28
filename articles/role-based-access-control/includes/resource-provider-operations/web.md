@@ -285,8 +285,8 @@ Azure service: [Media Services](/azure/media-services/)
 > | Microsoft.Media/mediaservices/read | Read any Media Services Account |
 > | Microsoft.Media/mediaservices/write | Create or Update any Media Services Account |
 > | Microsoft.Media/mediaservices/delete | Delete any Media Services Account |
-> | Microsoft.Media/mediaservices/regenerateKey/action | Regenerate a Media Services Access Control Services key |
-> | Microsoft.Media/mediaservices/listKeys/action | List the Access Control Services keys for the Media Services account |
+> | Microsoft.Media/mediaservices/regenerateKey/action | Regenerate a Media Services Access Control Service key |
+> | Microsoft.Media/mediaservices/listKeys/action | List the Access Control Service keys for the Media Services account |
 > | Microsoft.Media/mediaservices/syncStorageKeys/action | Synchronize the Storage Keys for an attached Azure Storage account |
 > | Microsoft.Media/mediaservices/listEdgePolicies/action | List policies for an edge device. |
 > | Microsoft.Media/mediaservices/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connections |
