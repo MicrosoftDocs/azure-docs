@@ -102,9 +102,11 @@ Submit a spacecraft authorization request in order to schedule [contacts](concep
 
 | **Field** | **Value** |
 | --- | --- |
-| When did the problem start? |	Select the current date & time |
-| Description |	List your spacecraft's **frequency bands** and **desired ground stations** |
-| File upload |	Upload any **pertinent licensing material**, if applicable |
+| When did the problem start? | Select the **current date & time**. |
+| Select Ground Stations | Select all desired **Microsoft or partner ground stations** that you are licensed for. If you do not see appropriate partner ground station(s), your subscription must be approved to access those sites by the Azure Orbital Ground Station team. |
+| Do you Accept and Acknowledge the Azure Orbital Supplemental Terms? | Review the terms in the link by hovering over the information icon then select **Yes**. |
+| Description | List your spacecraft's **frequency band(s)**. |
+| File upload | Upload any **pertinent licensing material**, if applicable. |
 
 6. Complete the **Advanced diagnostic information** and **Support method** sections of the **Details** tab.
 7. Select the **Review + create** tab, or select the **Review + create** button.
