@@ -1,5 +1,5 @@
 ---
-title: Use Ledger Explorer to visually verify your transactions
+title: Use Ledger explorer to visually verify your transactions
 description: Learn to use the Microsoft Azure confidential ledger through Azure portal
 author: taicchoumsft
 ms.author: tachou
@@ -27,7 +27,7 @@ To use the ledger explorer, follow these steps:
 
 1) Open the Azure portal and log in as an Entra ID user who has a Reader, Contributor or Administrator role assigned for the confidential ledger resource. 
 1) On the Overview page, navigate to the "Ledger explorer (preview)" tab
-![Ledger Explorer Item in the Menu bar](./media/ledger-explorer-entry.png)
+![Screenshot of Ledger explorer Item in the Menu bar.](./media/ledger-explorer-entry.png)
 
 ### Searching for a transaction
 [CCF Transaction IDs](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#verifying-transactions) require both a view and a sequence number, separated by a `.`. e.g. `2.15`
@@ -36,7 +36,7 @@ Valid Transaction IDs start at `2.1`. Your transactions will receive a unique se
 
 If you have previously recorded the specific Transaction ID of a past transaction, you may enter that Transaction ID in the search box to locate that transaction. 
 
-- Search: You can use the filters and the search box to start your transaction search from any Transaction ID. ![Ledger Explorer Search](./media/ledger-explorer-search.png) 
+- Search: You can use the filters and the search box to start your transaction search from any Transaction ID. ![Screenshot of how to search for a transaction in Ledger explorer.](./media/ledger-explorer-search.png) 
 
 ### Creating an entry
 Entries can be created from ledger explorer if you have Administrator or Contributor roles.  You can use Ledger explorer to quickly create a new ledger entry by clicking on the `Create` button in the command bar. 
@@ -45,7 +45,7 @@ Every entry requires a `Collection ID` along with some content. A default Collec
 
 You can change the Collection ID using the dropdown, or specify a completely new collection by typing it in the `Collection Id` field. 
 
-![Ledger Explorer Post](./media/ledger-explorer-post.png)
+![Screenshot of how to post an entry in Ledger explorer.](./media/ledger-explorer-post.png)
 
 > [!WARNING]
 > Ledger entries are immutable. Once you have committed a transaction you cannot delete it. 
@@ -65,14 +65,14 @@ To begin verifying a transaction:
 ### 1. Leaf node computation: 
 The transaction digest is computed from the `Claims Digest`, `Commit Evidence` and `Write Set Digest`. This transaction digest is inserted as a leaf node into the merkle tree.
 
-![Ledger Explorer Transaction Digest](./media/ledger-explorer-transaction-digest.png)
+![Screenshot of the calculated transaction digest in Ledger explorer.](./media/ledger-explorer-transaction-digest.png)
 
 This step corresponds to [Leaf Node Computation](./verify-write-transaction-receipts.md#leaf-node-computation) in [Verify Azure Confidential Ledger write transaction receipts](./verify-write-transaction-receipts.md).
 
 ### 2. Root node computation
 The transaction receipt provides a cryptographic proof with the Merkle tree branches that leads to the root of the Merkle tree. 
 
-![Ledger Explorer Merkle root calculation](./media/ledger-explorer-calculated-root.png)
+![Screenshot of the calculated Merkle root in Ledger explorer.](./media/ledger-explorer-calculated-root.png)
 
 This step corresponds to [Root node Computation](./verify-write-transaction-receipts.md#root-node-computation) in [Verify Azure Confidential Ledger write transaction receipts](./verify-write-transaction-receipts.md)
 
@@ -81,7 +81,7 @@ When this transaction is committed, the primary node signs the Merkle root. To v
 
 Finally, we check that the signing node is endorsed by the ledger. If the transaction is committed and has not been tampered with, Ledger explorer will indicate that the `Globally Committed Status` is `verified`.
 
-![Ledger Explorer verified signature](./media/ledger-explorer-committed-status.png)
+![Screenshot of a verfified signature in Ledger explorer.](./media/ledger-explorer-committed-status.png)
 
 This step corresponds to [Verify signature over root node](./verify-write-transaction-receipts.md#verify-signature-over-root-node) and [Verify signing node certificate endorsement](./verify-write-transaction-receipts.md#verify-signing-node-certificate-endorsement) in [Verify Azure Confidential Ledger write transaction receipts](./verify-write-transaction-receipts.md)
 
