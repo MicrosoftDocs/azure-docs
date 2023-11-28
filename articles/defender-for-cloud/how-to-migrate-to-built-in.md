@@ -13,10 +13,10 @@ Microsoft Defender for Cloud is unifying all vulnerability assessment solutions 
 
 MDVM integrates across many cloud native use cases, such as containers build/runtime scenarios, agentless scanning for Virtual Machines (VM) and more. 
 
-> [!NOTE]
+> [!IMPORTANT]
 > The Defender for Cloud servers vulnerability assessment powered by Qualys is now on a retirement path that starts on November 27th and completes on **May 1st, 2024**.
 >
-> If you are currently using the vulnerability assessment powered by Qualys on at least one machine within a tenant with either of the Defender for Servers plans enabled prior to **December 15th, 2023**, you can continue to use the vulnerability assessment powered by Qualys until **May 1st, 2024**.
+> If you are currently using the built-invulnerability assessment powered by Qualys on at least one machine within a tenant with either of the Defender for Servers plans enabled prior to **December 15th, 2023**, you can continue to use the vulnerability assessment powered by Qualys until **May 1st, 2024**.
 >
 > Check out this blog, to learn more about [the change to Microsoft Defender Vulnerability Management](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
 >
