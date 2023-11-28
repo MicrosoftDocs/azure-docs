@@ -169,7 +169,7 @@ The `--pod-cidr` parameter is required when upgrading from legacy CNI because th
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
-You must register the `Microsoft.ContainerService` `AzureOverlayDualStackPreview` feature flag.
+You must register the `Microsoft.ContainerService` `AzureOverlayDualStackPreview` feature flag and have the latest aks-preview Azure CLI extension installed.
 
 Update an existing Kubenet cluster to use Azure CNI Overlay using the [`az aks update`][az-aks-update] command.
 
