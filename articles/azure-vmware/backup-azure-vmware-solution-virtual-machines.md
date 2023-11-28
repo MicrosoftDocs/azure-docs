@@ -3,7 +3,7 @@ title: Back up Azure VMware Solution VMs with Azure Backup Server
 description: Configure your Azure VMware Solution environment to back up virtual machines by using Azure Backup Server.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 11/28/2022
+ms.date: 11/28/2023
 ms.custom: engagement-fy23
 ---
 
@@ -307,7 +307,7 @@ In the Azure Backup Server Administrator Console, there are two ways to find rec
 
 ### Restore an individual file from a VM
 
-You can restore individual files from a protected VM recovery point. This feature is only available for Windows Server VMs. Restoring individual files is similar to restoring the entire VM, except you browse into the VMDK and find the files you want before you start the recovery process. 
+You can restore individual files from a protected VM recovery point. This feature is only available for Windows Server VMs. Restoring individual files is similar to restoring the entire VM, except you browse in the VMDK and find the files you want before you start the recovery process. 
 
 > [!NOTE]
 > Restoring an individual file from a VM is available only for Windows VM and disk recovery points.
