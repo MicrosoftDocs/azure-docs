@@ -115,7 +115,7 @@ To edit an existing alert rule:
         |---------|---------|
         |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.|
         |Operator|The operator used on the dimension name and value.|
-        |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.|
+        |Dimension values|The dimension values are based on data from the last 24 hours. Select **Add custom value** to add custom dimension values.|
         |Include all future values| Select this field to include any future values added to the selected dimension.|
 
     1. (Optional) In the **When to evaluate** section: 
