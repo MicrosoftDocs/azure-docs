@@ -220,7 +220,7 @@ az aro create \
 ```
 
 > [!NOTE]
-> The UserDefinedRouting flag can only be used when creating clusters with `--apiserver-visibility Private` and `--ingress-visibility Private` parameters. Ensure you are using the latest az cli. Clusters deployed with az-cli 2.52.0 and older, will get deployed with public IPs.
+> The UserDefinedRouting flag can only be used when creating clusters with `--apiserver-visibility Private` and `--ingress-visibility Private` parameters. Ensure you are using the latest Azure CLI. Clusters deployed with Azure CLI 2.52.0 and older will get deployed with public IPs.
 > 
 
 This User Defined Routing option prevents a public IP address from being provisioned. User Defined Routing (UDR) allows you to create custom routes in Azure to override the default system routes or to add more routes to a subnet's route table. See 
