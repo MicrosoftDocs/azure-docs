@@ -105,7 +105,7 @@ If you're using Kafka or PostgreSQL components instead of the default Redis, spe
 az containerapp env dapr-component init -g $VAR_RESOURCE_GROUP --name $VAR_ENVIRONMENT --statestore postgres --pubsub kafka
 ```
 
-[Learn more about the `az containerapp env dapr-component init` command via the Azure CLI reference documentation.](/cli/azure/containerapp/env/dapr-component?view=azure-cli-latest#az-containerapp-env-dapr-component-init)
+[Learn more about the `az containerapp env dapr-component init` command via the Azure CLI reference documentation.](/cli/azure/containerapp/env/dapr-component#az-containerapp-env-dapr-component-init)
 
 ## Deploy your container apps
 
