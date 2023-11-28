@@ -57,7 +57,7 @@ The following steps will walk you through creating an App Configuration store an
 Creating an App Configuration store with a user-assigned identity requires that you create the identity and then assign its resource identifier to your store.
 
 > [!NOTE]
-> You can add up to 10 user assigned managed identities to your app configuration.
+> You can add up to 10 user-assigned managed identities to an App Configuration store.
 
 ### Using the Azure CLI
 
