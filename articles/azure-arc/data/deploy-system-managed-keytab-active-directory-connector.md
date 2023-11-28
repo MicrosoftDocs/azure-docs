@@ -14,7 +14,7 @@ ms.topic: how-to
 
 # Tutorial – Deploy Active Directory connector in system-managed keytab mode
 
-This article explains how to deploy Active Directory connector in system-managed keytab mode. It is a key component to enable Active Directory authentication on Azure Arc-enabled SQL Managed Instance.
+This article explains how to deploy Active Directory connector in system-managed keytab mode. It is a key component to enable Active Directory authentication on SQL Managed Instance enabled by Azure Arc.
 
 ## Active Directory connector in system-managed keytab mode
 
@@ -170,7 +170,7 @@ After submitting the deployment for the AD connector instance, you may check the
 kubectl get adc -n <namespace>
 ```
 
-## Next steps
+## Related content
 * [Deploy a customer-managed keytab Active Directory connector](deploy-customer-managed-keytab-active-directory-connector.md)
 * [Deploy SQL Managed Instance with Active Directory Authentication](deploy-active-directory-sql-managed-instance.md).
-* [Connect to AD-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md).
+* [Connect to AD-integrated SQL Managed Instance enabled by Azure Arc](connect-active-directory-sql-managed-instance.md).

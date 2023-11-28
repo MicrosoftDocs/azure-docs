@@ -4,7 +4,6 @@ titleSuffix: Azure AI Search
 description: Set up a SharePoint indexer to automate indexing of document library content in Azure AI Search.
 author: gmndrg
 ms.author: gimondra
-manager: liamca
 
 ms.service: cognitive-search
 ms.custom:
