@@ -21,7 +21,7 @@ sections:
       - question: |
           If I update an existing policy, how long does it take for the actions to run?
         answer: |
-          The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, the time that it takes for the actions to run varies depending on size of the storage account and operations that are performed. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, then auto-tiering to the hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled or deleted, and a blob is currently in the cool or cold tier and then accessed, it will move back to the hot tier as that is applied on access outside of lifecycle management. The blob won't then move from hot to cool or cold given the the lifecycle management rule is disabled or deleted. The only way to prevent autoTierToHotFromCool is to turn off last access time tracking.  
+          The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, the time that it takes for the actions to run varies depending on size of the storage account and operations that are performed. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, then auto-tiering to the hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled or deleted, and a blob is currently in the cool or cold tier and then accessed, it will move back to the hot tier as that is applied on access outside of lifecycle management. The blob won't then move from hot to cool or cold given the lifecycle management rule is disabled or deleted. The only way to prevent autoTierToHotFromCool is to turn off last access time tracking.  
       - question: |
           The run completes but doesn't move or delete some blobs
         answer: |
@@ -128,7 +128,7 @@ sections:
         answer: |
           Analytics logs have records of all read, write, list, and delete operations with successful and failed requests across all operations. Analytics logs are best-effort and no ordering is guaranteed.
 
-          The change feed is a solution that provides transactional log of successful mutations or changes to your account such as blob creation, modification, and deletions. The change feed guarantees all events to be recorded and displayed in the order of successful changes per blob, thus you do not have to filter out noise from a huge volume of read operations or failed requests. The change feed is fundamentally designed and optimized for application development that require certain guarantees.
+          The change feed is a solution that provides transactional log of successful mutations or changes to your account such as blob creation, modification, and deletions. The change feed guarantees all events to be recorded and displayed in the order of successful changes per blob, thus you do not have to filter out noise from a huge volume of read operations or failed requests. The change feed is fundamentally designed and optimized for application development that requires certain guarantees.
       - question: |
           Should I use the change feed or Storage events?
         answer: |
