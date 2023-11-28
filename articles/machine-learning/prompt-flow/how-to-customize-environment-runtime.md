@@ -106,11 +106,11 @@ az ml environment create -f environment.yaml --subscription <sub-id> -g <resourc
 > [!NOTE]
 > Building the image may take several minutes.
 
-Go to your workspace UI page, then go to the **environment** page, and locate the custom environment you created. You can now use it to create a compute instance runtime in your prompt flow. To learn more, see [Create compute instance runtime in UI](how-to-create-manage-runtime.md#create-compute-instance-runtime-in-ui).
+Go to your workspace UI page, then go to the **environment** page, and locate the custom environment you created. You can now use it to create a compute instance runtime in your prompt flow. To learn more, see [Create compute instance runtime in UI](how-to-create-manage-runtime.md#create-compute-instance-runtime-in-runtime-page).
 
 You can also find the image in environment detail page and use it as base image in automatic runtime in `flow.dag.yaml` file in prompt flow folder. This image will also used to build environment for flow deployment from UI.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-image-environment.png" alt-text="Screenshot of image name in environment detail page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-image-environment.png":::
+:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-image-environment.png" alt-text="Screenshot of image name in environment detail page. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-image-environment.png":::
 
 To learn more about environment CLI, see [Manage environments](../how-to-manage-environments-v2.md#manage-environments).
 
