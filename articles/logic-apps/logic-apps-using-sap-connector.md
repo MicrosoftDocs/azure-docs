@@ -249,23 +249,13 @@ For more information about SAP services and ports, review the [TCP/IP Ports of A
 
 ### SAP NCo client library prerequisites
 
-To use the SAP connector, based on whether you have a Consumption or Standard workflow, you'll need install the SAP Connector NCo client library for Microsoft .NET 3.0 or 3.1, respectively. The following list describes the prerequisites for the SAP NCo client library, based on which workflow where you're using with the SAP connector:
+To use the SAP connector you'll need install the SAP Connector NCo client library for Microsoft .NET 3.1. The following list describes the prerequisites for the SAP NCo client library, based on which workflow where you're using with the SAP connector:
 
 * Version:
 
-  * For Consumption logic app workflows that use the on-premises data gateway, make sure that you install the latest 64-bit version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.25.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). SAP Connector (NCo 3.1) isn't currently supported as dual-version capability is unavailable. The data gateway runs only on 64-bit systems. Installing the unsupported 32-bit version results in a **"bad image"** error.
-
-    Earlier versions of SAP NCo might experience the following issues:
-
-    * When more than one IDoc message is sent at the same time, this condition blocks all later messages that are sent to the SAP destination, causing messages to time out.
-
-    * Session activation might fail due to a leaked session. This condition might block calls sent by SAP to the logic app workflow trigger.
-
-    * The on-premises data gateway (June 2021 release and newer releases) depends on the `SAP.Middleware.Connector.RfcConfigParameters.Dispose()` method in SAP NCo to free up resources.
-
-    * After you upgrade the SAP server environment, you get the following exception message: **"The only destination &lt;some-GUID&gt; available failed when retrieving metadata from &lt;SAP-system-ID&gt; -- see log for details"**.
-
-  * For Standard logic app workflows, you can install the latest 64-bit or 32-bit version for [SAP Connector (NCo 3.1) for Microsoft .NET 3.1.2.0 compiled with .NET Framework 4.6.2](https://support.sap.com/en/product/connectors/msnet.html). However, make sure that you install the version that matches the configuration in your Standard logic app resource. To check the version used by your logic app, follow these steps:
+  * For Consumption logic app workflows that use the on-premises data gateway, make sure that you install the latest 64-bit version, [SAP Connector for Microsoft .NET 3.1.3.0 for Windows 64bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). The data gateway runs only on 64-bit systems. Installing the unsupported 32-bit version results in a **"bad image"** error.
+    
+  * For Standard logic app workflows, you can install the latest 64-bit or 32-bit version for [SAP Connector (NCo 3.1) for Microsoft .NET 3.1.3.0 compiled with .NET Framework 4.6.2](https://support.sap.com/en/product/connectors/msnet.html). However, make sure that you install the version that matches the configuration in your Standard logic app resource. To check the version used by your logic app, follow these steps:
 
     1. In the [Azure portal](https://portal.azure.com), open your Standard logic app.
 
@@ -273,7 +263,7 @@ To use the SAP connector, based on whether you have a Consumption or Standard wo
 
     1. On the **Configuration** pane, under **Platform settings**, check whether the **Platform** value is set to 64-bit or 32-bit.
 
-    1. Make sure to install the version of the [SAP Connector (NCo 3.1) for Microsoft .NET 3.1.2.0 compiled with .NET Framework 4.6.2](https://support.sap.com/en/product/connectors/msnet.html) that matches your platform configuration.
+    1. Make sure to install the version of the [SAP Connector (NCo 3.1) for Microsoft .NET 3.1.3.0 compiled with .NET Framework 4.6.2](https://support.sap.com/en/product/connectors/msnet.html) that matches your platform configuration.
 
 * From the client library's default installation folder, copy the assembly (.dll) files to another location, based on your scenario as follows. Or, optionally, if you're using only the SAP managed connector, when you install the SAP NCo client library, select **Global Assembly Cache registration**. The ISE zip archive and SAP built-in connector currently doesn't support GAC registration.
 
