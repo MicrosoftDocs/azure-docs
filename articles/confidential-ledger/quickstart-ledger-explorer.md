@@ -27,7 +27,7 @@ To use the ledger explorer, follow these steps:
 
 1) Open the Azure portal and log in as an Entra ID user who has a Reader, Contributor or Administrator role assigned for the confidential ledger resource. 
 1) On the Overview page, navigate to the "Ledger explorer (preview)" tab
-![Screenshot of Ledger explorer Item in the Menu bar.](./media/ledger-explorer-entry.png)
+:::image type="content" source="./media/ledger-explorer-entry.png" alt-text="Screenshot of Ledger explorer Item in the Menu bar." lightbox="./media/ledger-explorer-entry.png":::
 
 ### Searching for a transaction
 [CCF Transaction IDs](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#verifying-transactions) require both a view and a sequence number, separated by a `.`. e.g. `2.15`
@@ -36,7 +36,8 @@ Valid Transaction IDs start at `2.1`. Your transactions will receive a unique se
 
 If you have previously recorded the specific Transaction ID of a past transaction, you may enter that Transaction ID in the search box to locate that transaction. 
 
-- Search: You can use the filters and the search box to start your transaction search from any Transaction ID. ![Screenshot of how to search for a transaction in Ledger explorer.](./media/ledger-explorer-search.png) 
+- Search: You can use the filters and the search box to start your transaction search from any Transaction ID.
+:::image type="content" source="./media/ledger-explorer-search.png" alt-text="Screenshot of how to search for a transaction in Ledger explorer." lightbox="./media/ledger-explorer-search.png":::
 
 ### Creating an entry
 Entries can be created from ledger explorer if you have Administrator or Contributor roles.  You can use Ledger explorer to quickly create a new ledger entry by clicking on the `Create` button in the command bar. 
