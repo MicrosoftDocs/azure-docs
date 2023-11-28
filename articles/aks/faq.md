@@ -354,7 +354,7 @@ The AKS Linux Extension is an Azure VM extension that installs and configures mo
 
 - [Node-exporter](https://github.com/prometheus/node_exporter): Collects hardware telemetry from the virtual machine and makes it available using a metrics endpoint. Then, a monitoring tool, such as Prometheus, is able to scrap these metrics.
 - [Node-problem-detector](https://github.com/kubernetes/node-problem-detector): Aims to make various node problems visible to upstream layers in the cluster management stack. It's a systemd unit that runs on each node, detects node problems, and reports them to the cluster’s API server using Events and NodeConditions.
-- [ig](https://inspektor-gadget.io/docs/latest/ig/): an eBPF-powered open-source framework for debugging and observing Linux and Kubernetes systems. It provides a set of tools (or gadgets) designed to gather relevant information, allowing users to identify the cause of performance issues, crashes, or other anomalies. Notably, its independence from Kubernetes enables users to employ it also for debugging control plane issues.
+- [ig](https://inspektor-gadget.io/docs/latest/ig/): An eBPF-powered open-source framework for debugging and observing Linux and Kubernetes systems. It provides a set of tools (or gadgets) designed to gather relevant information, allowing users to identify the cause of performance issues, crashes, or other anomalies. Notably, its independence from Kubernetes enables users to employ it also for debugging control plane issues.
 
 These tools help provide observability around many node health related problems, such as:
 
