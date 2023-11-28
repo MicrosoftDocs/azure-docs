@@ -100,10 +100,10 @@ az containerapp env dapr-component init -g $VAR_RESOURCE_GROUP --name $VAR_ENVIR
 
 > [!NOTE]
 > Using the default Redis compnents doesn't require any extra parameters. If you're using Kafka or PostgreSQL components instead of the default Redis, you need to specify which components you're using. For example, for a Kafka pub/sub component and a PostgreSQL state store, run the following command:
-
-```shell
-az containerapp env dapr-component init -g $VAR_RESOURCE_GROUP --name $VAR_ENVIRONMENT --statestore postgres --pubsub kafka
-```
+> 
+> ```shell
+> az containerapp env dapr-component init -g $VAR_RESOURCE_GROUP --name $VAR_ENVIRONMENT --statestore postgres --pubsub kafka
+> ```
 
 [Learn more about the `az containerapp env dapr-component init` command via the Azure CLI reference documentation.](/cli/azure/containerapp/env/dapr-component#az-containerapp-env-dapr-component-init)
 
