@@ -140,7 +140,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 ## Frequently asked questions
 
 - [How much does this setup cost?](#how-much-does-this-setup-cost)
-- [How do I connect to the MySQL database that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-mysql-database-thats-secured-behind-the-virtual-network-with-other-tools)
+- [How do I connect to a MySQL database that's secured behind a virtual network?](#how-do-i-connect-to-a-mysql-database-thats-secured-behind-a-virtual-network)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
 - [Why is the GitHub Actions deployment so slow?](#why-is-the-github-actions-deployment-so-slow)
 
@@ -154,22 +154,22 @@ Pricing for the create resources is as follows:
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 
 
-### Connecting to a MySQL Database Secured Behind a Virtual Network
+### How do I connect to a MySQL database that's secured behind a virtual network?
 
-To connect to the MySQL database, you have several methods based on the tools and environments at your disposal:
+To connect to a MySQL database, you can use several methods based on the tools and environments at your disposal:
 
-1. **Command-line Tool Access**: 
+1. **Command-line tool access**: 
    - Use the `mysql` command from the app's SSH terminal for basic access.
-2. **Desktop Tools (e.g., MySQL Workbench)**:
-   - **Using SSH Tunnel with Azure CLI**:
-     - Create an [SSH session](../../app-service/configure-linux-open-ssh-session.md#open-ssh-session-from-remote-shell) to the web app using Azure's CLI.
+2. **Desktop tools (for example, MySQL Workbench)**:
+   - **Using SSH tunneling with Azure CLI**:
+     - Create an [SSH session](../../app-service/configure-linux-open-ssh-session.md#open-ssh-session-from-remote-shell) to the web app by using the Azure CLI.
      - Use the SSH session to tunnel the traffic to MySQL.
    - **Using site-to-site VPN or Azure VM**:
      - Your machine must be part of the virtual network.
      - Consider using:
        - An Azure VM linked to one of the subnets.
-       - A machine in an on-premises network with a [site-to-site VPN connection](../../vpn-gateway/vpn-gateway-about-vpngateways.md) to the Azure virtual network.
-4. **Azure Cloud Shell Integration**:
+       - A machine in an on-premises network that has a [site-to-site VPN connection](../../vpn-gateway/vpn-gateway-about-vpngateways.md) to the Azure virtual network.
+4. **Azure Cloud Shell integration**:
    - [Integrate Azure Cloud Shell](../../cloud-shell/private-vnet.md) with the virtual network for direct access.
 
 
