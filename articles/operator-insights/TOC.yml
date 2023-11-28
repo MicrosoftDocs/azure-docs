@@ -23,8 +23,10 @@
     href: concept-data-types.md
   - name: Data visualization
     href: concept-data-visualization.md 
-  - name: MCC Data Product
+  - name: Quality of Experience - Affirmed MCC Data Product
     href: concept-mcc-data-product.md
+  - name: Monitoring - Affirmed MCC Data Product
+    href: concept-monitoring-mcc-data-product.md
 - name: How-to guides
   expanded: false
   items:
