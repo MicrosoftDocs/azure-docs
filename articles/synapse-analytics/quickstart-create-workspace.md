@@ -24,7 +24,7 @@ This quickstart describes the steps to create an Azure Synapse workspace by usin
 1. OPTION 1 Creating a new ADLSGEN2 account 
     1. Under **Select Data Lake Storage Gen 2 / Account Name**, click **Create New** and provide a global unique name, such as **contosolake**.
     1. Under **Select Data Lake Storage Gen 2 / File system name**, click **File System** and name it **users**.
-1. OPTION 2 See the [**Prepare a Storage Account**](/azure/synapse-analytics/quickstart-create-workspace#prepare-an-existing-storage-account-for-use-with-azure-synapse-analytics) instructions at the bottom of this document.
+1. OPTION 2 See the [**Prepare a Storage Account**](#prepare-an-existing-storage-account-for-use-with-azure-synapse-analytics) instructions at the bottom of this document.
 1. Your Azure Synapse workspace will use this storage account as the "primary" storage account and the container to store workspace data. The workspace stores data in Apache Spark tables. It stores Spark application logs under a folder called **/synapse/workspacename**.
 1. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
 
