@@ -28,32 +28,46 @@ ms.author: xiaofanzhou
     For more information, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-managed-identity-authentication).
 
 ### [Java](#tab/java)
+1. Add the following dependencies in your *pom.xml* file:
 
-Get the Azure SQL Database connection string from the environment variable added by Service Connector.
+    ```java
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-identity</artifactId>
+        <version>1.4.6</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.sqlserver</groupId>
+        <artifactId>mssql-jdbc</artifactId>
+        <version>10.2.0.jre11</version>
+    </dependency>
+    ```
 
-```java
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+1. Get the Azure SQL Database connection string from the environment variable added by Service Connector.
 
-import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
-
-public class Main {
-    public static void main(String[] args) {
-        // AZURE_SQL_CONNECTIONSTRING should be one of the following:
-        // For system-assigned managed identity: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};authentication=ActiveDirectoryMSI;"
-        // For user-assigned managed identity: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};msiClientId={UserAssignedMiClientId};authentication=ActiveDirectoryMSI;"
-        String connectionString = System.getenv("AZURE_SQL_CONNECTIONSTRING");
-        SQLServerDataSource ds = new SQLServerDataSource();
-        ds.setURL(connectionString);
-        try (Connection connection = ds.getConnection()) {
-            System.out.println("Connected successfully.");
-        } catch (SQLException e) {
-            e.printStackTrace();
+    ```java
+    import java.sql.Connection;
+    import java.sql.ResultSet;
+    import java.sql.Statement;
+    
+    import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
+    
+    public class Main {
+        public static void main(String[] args) {
+            // AZURE_SQL_CONNECTIONSTRING should be one of the following:
+            // For system-assigned managed identity: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};authentication=ActiveDirectoryMSI;"
+            // For user-assigned managed identity: "jdbc:sqlserver://{SQLName}.database.windows.net:1433;databaseName={SQLDbName};msiClientId={UserAssignedMiClientId};authentication=ActiveDirectoryMSI;"
+            String connectionString = System.getenv("AZURE_SQL_CONNECTIONSTRING");
+            SQLServerDataSource ds = new SQLServerDataSource();
+            ds.setURL(connectionString);
+            try (Connection connection = ds.getConnection()) {
+                System.out.println("Connected successfully.");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
-}
-```
+    ```
 For more information, see [Connect using Microsoft Entra authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication).
 
 ### [Python](#tab/python)
