@@ -129,7 +129,10 @@ Log alerts can measure two different things, which can be used for different mon
 - **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, Syslog, and application exceptions.
 - **Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. An example is CPU percentage.
 
-You can configure if log alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). This feature is currently in preview.
+You can configure if log alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). This feature is currently in preview. 
+Note that stateful log alerts have these limitations:
+    - they can trigger up to 300 alerts per evaluation.
+    - you can have a maximum of 5000 alerts with the `fired` alert condition.
 
 > [!NOTE]
 > Log alerts work best when you're trying to detect specific data in the logs, as opposed to when you're trying to detect a lack of data in the logs. Because logs are semi-structured data, they're inherently more latent than metric data on information like a VM heartbeat. To avoid misfires when you're trying to detect a lack of data in the logs, consider using [metric alerts](#metric-alerts). You can send data to the metric store from logs by using [metric alerts for logs](alerts-metric-logs.md).
