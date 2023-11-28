@@ -1,16 +1,17 @@
 ---
-title: Quick Start for Azure Arc-enabled System Center Virtual Machine Manager (preview)
-description: In this QuickStart, you will learn how to use the helper script to connect your System Center Virtual Machine Manager management server to Azure Arc (preview).
-author: jyothisuri
-ms.author: jsuri
+title: Quick Start for Azure Arc-enabled System Center Virtual Machine Manager
+description: In this QuickStart, you learn how to use the helper script to connect your System Center Virtual Machine Manager management server to Azure Arc.
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
+manager: jsuri
 ms.topic: quickstart
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-ms.date: 10/31/2023
+ms.date: 11/27/2023
 ms.custom: references_regions
 ---
 
-# QuickStart: Connect your System Center Virtual Machine Manager management server to Azure Arc (preview)
+# QuickStart: Connect your System Center Virtual Machine Manager management server to Azure Arc
 
 Before you can start using the Azure Arc-enabled SCVMM features, you need to connect your VMM management server to Azure Arc.
 
@@ -19,15 +20,15 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 ## Prerequisites
 
 >[!Note]
->- If VMM server is running on Windows Server 2016 machine, ensure that [Open SSH package](https://github.com/PowerShell/Win32-OpenSSH/releases) is installed. 
->- If you deploy an older version of appliance (version lesser than 0.2.25), Arc operation fails with the error *Appliance cluster is not deployed with AAD authentication*. To fix this issue, download the latest version of the onboarding script and deploy the resource bridge again.
->- Azure Arc Resource Bridge deployment using private link is currently not supported.
+> - If VMM server is running on Windows Server 2016 machine, ensure that [Open SSH package](https://github.com/PowerShell/Win32-OpenSSH/releases) is installed. 
+> - If you deploy an older version of appliance (version lesser than 0.2.25), Arc operation fails with the error *Appliance cluster is not deployed with AAD authentication*. To fix this issue, download the latest version of the onboarding script and deploy the resource bridge again.
+> - Azure Arc Resource Bridge deployment using private link is currently not supported.
 
 | **Requirement** | **Details** |
 | --- | --- |
 | **Azure** | An Azure subscription  <br/><br/> A resource group in the above subscription where you have the *Owner/Contributor* role. |
-| **SCVMM** | You need an SCVMM management server running version 2019 or later.<br/><br/> A private cloud with minimum free capacity of 32 GB of RAM, 4 vCPUs with 100 GB of free disk space. <br/><br/> A VM network with internet access, directly or through proxy. Appliance VM will be deployed using this VM network.<br/><br/> Only Static IP allocation is supported and VMM Static IP Pool is required. Follow [these steps](https://learn.microsoft.com/system-center/vmm/network-pool?view=sc-vmm-2022) to create a VMM Static IP Pool and ensure that the Static IP Pool has at least four IP addresses. Dynamic IP allocation using DHCP is not supported. |
-| **SCVMM accounts** | An SCVMM admin account that can perform all administrative actions on all objects that VMM manages. <br/><br/> The user should be part of local administrator account in the SCVMM server. <br/><br/>This will be used for the ongoing operation of Azure Arc-enabled SCVMM as well as the deployment of the Arc Resource bridge VM. |
+| **SCVMM** | You need an SCVMM management server running version 2019 or later.<br/><br/> A private cloud with minimum free capacity of 32 GB of RAM, 4 vCPUs with 100 GB of free disk space. <br/><br/> A VM network with internet access, directly or through proxy. Appliance VM will be deployed using this VM network.<br/><br/> Only Static IP allocation is supported and VMM Static IP Pool is required. Follow [these steps](https://learn.microsoft.com/system-center/vmm/network-pool?view=sc-vmm-2022) to create a VMM Static IP Pool and ensure that the Static IP Pool has at least four IP addresses. Dynamic IP allocation using DHCP isn't supported. |
+| **SCVMM accounts** | An SCVMM admin account that can perform all administrative actions on all objects that VMM manages. <br/><br/> The user should be part of local administrator account in the SCVMM server. If the SCVMM server is installed in a High Availability configuration, the user should be a part of the local administrator accounts in all the SCVMM cluster nodes. <br/><br/>This will be used for the ongoing operation of Azure Arc-enabled SCVMM and the deployment of the Arc Resource bridge VM. |
 | **Workstation** | The workstation will be used to run the helper script.<br/><br/> A Windows/Linux machine that can access both your SCVMM management server and internet, directly or through proxy.<br/><br/> The helper script can be run directly from the VMM server machine as well.<br/><br/> To avoid network latency issues, we recommend executing the helper script directly in the VMM server machine.<br/><br/> Note that when you execute the script from a Linux machine, the deployment takes a bit longer and you might experience performance issues. |
 
 ## Prepare SCVMM management server
@@ -96,28 +97,28 @@ The script execution will take up to half an hour and you'll be prompted for var
 
 | **Parameter** | **Details** |
 | --- | --- |
-| **Azure login** | You would be asked to log in to Azure by visiting [this site](https://www.microsoft.com/devicelogin) and pasting the prompted code. |
+| **Azure login** | You would be asked to sign in to Azure by visiting [this site](https://www.microsoft.com/devicelogin) and pasting the prompted code. |
 | **SCVMM management server FQDN/Address** | FQDN for the VMM server (or an IP address). </br> Provide role name if it’s a Highly Available VMM deployment. </br> For example: nyc-scvmm.contoso.com or 10.160.0.1 |
 | **SCVMM Username**</br> (domain\username) | Username for the SCVMM administrator account. The required permissions for the account are listed in the prerequisites above.</br> Example: contoso\contosouser |
 | **SCVMM password** | Password for the SCVMM admin account |
 | **Private cloud selection** | Select the name of the private cloud where the Arc resource bridge VM should be deployed. |
 | **Virtual Network selection** | Select the name of the virtual network to which *Arc resource bridge VM* needs to be connected. This network should allow the appliance to talk to the VMM management server and the Azure endpoints (or internet). |
-| **Static IP pool** | Select the VMM static IP pool that will be used to allot IP address. |
+| **Static IP pool** | Select the VMM static IP pool that will be used to allot the IP address. |
 | **Control Plane IP** | Provide a reserved IP address in the same subnet as the static IP pool used for Resource Bridge deployment. This IP address should be outside of the range of static IP pool used for Resource Bridge deployment and shouldn't be assigned to any other machine on the network. |
-| **Appliance proxy settings** | Type ‘Y’ if there's a proxy in your appliance network, else type ‘N’.|
+| **Appliance proxy settings** | Enter *Y* if there's a proxy in your appliance network, else enter *N*.|
 | **http** | Address of the HTTP proxy server. |
 | **https** | Address of the HTTPS proxy server.|
 | **NoProxy** | Addresses to be excluded from proxy.|
 |**CertificateFilePath** | For SSL based proxies, provide the path to the certificate. |
 
-Once the command execution is completed, your setup is complete, and you can try out the capabilities of Azure Arc- enabled SCVMM.
+Once the command execution is completed, your setup is complete, and you can try out the capabilities of Azure Arc-enabled SCVMM.
 
 ### Retry command - Windows
 
 If for any reason, the appliance creation fails, you need to retry it. Run the command with ```-Force``` to clean up and onboard again.
 
 ```powershell-interactive
- ./resource-bridge-onboarding-script.ps1-Force -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VMMservername <VMMservername>
+ ./resource-bridge-onboarding-script.ps1 -Force -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VMMservername <VMMservername>
 ```
 
 ### Retry command - Linux
@@ -130,7 +131,7 @@ If for any reason, the appliance creation fails, you need to retry it. Run the c
 >[!NOTE]
 > - After successful deployment, we recommend maintaining the state of **Arc Resource Bridge VM** as *online*.
 > - Intermittently appliance might become unreachable when you shut down and restart the VM.
->- After successful deployment, save the config YAML files in a secure location. The config files are required to perform management operations on the resource bridge.   
+> - After successful deployment, save the config YAML files in a secure location. The config files are required to perform management operations on the resource bridge.   
 > - After the execution of command, your setup is complete, and you can try out the capabilities of Azure Arc-enabled SCVMM. 
 
 

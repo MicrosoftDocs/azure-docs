@@ -6,7 +6,7 @@ ms.custom: references_regions, ignite-2022
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 10/23/2023
+ms.date: 11/27/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -111,6 +111,7 @@ Subnets used for DNS resolver have the following limitations:
 - A subnet can't be shared between multiple DNS resolver endpoints. A single subnet can only be used by a single DNS resolver endpoint.
 - All IP configurations for a DNS resolver inbound endpoint must reference the same subnet. Spanning multiple subnets in the IP configuration for a single DNS resolver inbound endpoint isn't allowed.
 - The subnet used for a DNS resolver inbound endpoint must be within the virtual network referenced by the parent DNS resolver.
+- The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and can't be used for other services.
 
 ### Outbound endpoint restrictions
 
@@ -125,6 +126,8 @@ Outbound endpoints have the following limitations:
 
 - IPv6 enabled subnets aren't supported.
 - DNS private resolver does not support Azure ExpressRoute FastPath.
+- DNS private resolver inbound endpoint provisioning isn't compatible with [Azure Lighthouse](../lighthouse/overview.md).
+    - To see if Azure Lighthouse is in use, search for **Service providers** in the Azure portal and select **Service provider offers**. 
 
 
 ## Next steps

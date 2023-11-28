@@ -45,7 +45,7 @@ Install and configure the Linux agent to collect your Common Event Format (CEF) 
 
 1.1 Select or create a Linux machine
 
-Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-prem environment, Azure or other clouds.
+Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-premises environment, Azure or other clouds.
 
 1.2 Install the CEF collector on the Linux machine
 
@@ -99,9 +99,3 @@ Make sure to configure the machine's security according to your organization's s
 
 
 [Learn more >](https://aka.ms/SecureCEF)
-
-
-
-## Next steps
-
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/darktrace1655286944672.darktrace_mss?tab=Overview) in the Azure Marketplace.

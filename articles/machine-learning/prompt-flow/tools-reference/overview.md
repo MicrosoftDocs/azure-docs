@@ -4,7 +4,9 @@ titleSuffix: Azure Machine Learning
 description: The overview of tools in prompt flow displays an index table for tools and the instructions for custom tool package creation and tool package usage.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 author: ChenJieting
 ms.author: chenjieting
@@ -12,12 +14,9 @@ ms.reviewer: lagayhar
 ms.date: 10/24/2023
 ---
 
-# The overview of tools in prompt flow (preview)
+# The overview of tools in prompt flow
 This table provides an index of tools in prompt flow. If existing tools can't meet your requirements, you can [develop your own custom tool and make a tool package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html). 
 
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 | Tool name | Description | Environment | Package Name |
 |------|-----------|-------------|--------------|
@@ -35,4 +34,3 @@ This table provides an index of tools in prompt flow. If existing tools can't me
 To discover more custom tools that developed by the open source community, see [more custom tools](https://microsoft.github.io/promptflow/integrations/tools/index.html).
 
 For the tools that should be utilized in the custom environment, see [Custom tool package creation and usage](../how-to-custom-tool-package-creation-and-usage.md#prepare-runtime) to prepare the runtime. Then the tools can be displayed in the tool list.
-

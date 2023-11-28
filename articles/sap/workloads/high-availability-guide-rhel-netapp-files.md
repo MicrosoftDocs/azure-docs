@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 08/23/2023
+ms.date: 11/20/2023
 ms.author: radeltch
 ---
 
@@ -226,9 +226,9 @@ Follow the steps in [Set up Pacemaker on Red Hat Enterprise Linux in Azure](high
 
 The following items are prefixed with either:
 
-- **[A]**: Applicable to all nodes
-- **[1]**: Only applicable to node 1
-- **[2]**: Only applicable to node 2
+* **[A]**: Applicable to all nodes
+* **[1]**: Only applicable to node 1
+* **[2]**: Only applicable to node 2
 
 1. **[A]** Set up hostname resolution.
 
@@ -568,14 +568,21 @@ The following items are prefixed with either:
    ```bash
    sudo vi /usr/sap/sapservices
    
-   # On the node where you installed the ASCS, comment out the following line
+   # Depending on whether the SAP Startup framework is integrated with systemd, you will observe one of the two entries on the ASCS node. You should comment out the line(s). 
    # LD_LIBRARY_PATH=/usr/sap/QAS/ASCS00/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/QAS/ASCS00/exe/sapstartsrv pf=/usr/sap/QAS/SYS/profile/QAS_ASCS00_anftstsapvh -D -u qasadm
+   # systemctl --no-ask-password start SAPQAS_00 # sapstartsrv pf=/usr/sap/QAS/SYS/profile/QAS_ASCS00_anftstsapvh
    
-   # On the node where you installed the ERS, comment out the following line
+   # Depending on whether the SAP Startup framework is integrated with systemd, you will observe one of the two entries on the ASCS node. You should comment out the line(s). 
    # LD_LIBRARY_PATH=/usr/sap/QAS/ERS01/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/QAS/ERS01/exe/sapstartsrv pf=/usr/sap/QAS/ERS01/profile/QAS_ERS01_anftstsapers -D -u qasadm
+   # systemctl --no-ask-password start SAPQAS_01 # sapstartsrv pf=/usr/sap/QAS/ERS01/profile/QAS_ERS01_anftstsapers
    ```
 
-1. **[1]** Create the SAP cluster resources.
+   > [!IMPORTANT]
+   > With the systemd based SAP Startup Framework, SAP instances can now be managed by systemd. The minimum required Red Hat Enterprise Linux (RHEL) version is RHEL 8 for SAP. As described in SAP Note [3115048](https://me.sap.com/notes/3115048), a fresh installation of a SAP kernel with integrated systemd based SAP Startup Framework support will always result in a systemd controlled SAP instance. After an SAP kernel upgrade of an existing SAP installation to a kernel which has systemd based SAP Startup Framework support, however, some manual steps have to be performed as documented in SAP Note [3115048](https://me.sap.com/notes/3115048) to convert the existing SAP startup environment to one which is systemd controlled.
+   >
+   > When utilizing Red Hat HA services for SAP (cluster configuration) to manage SAP application server instances such as SAP ASCS and SAP ERS, additional modifications will be necessary to ensure compatibility between the SAPInstance resource agent and the new systemd-based SAP startup framework. So once the SAP application server instances has been installed or switched to a systemd enabled SAP Kernel as per SAP Note [3115048](https://me.sap.com/notes/3115048), the steps mentioned in [Red Hat KBA 6884531](https://access.redhat.com/articles/6884531) must be completed successfully on all cluster nodes.
+   
+2. **[1]** Create the SAP cluster resources.
 
    If you use enqueue server 1 architecture (ENSA1), define the resources as shown here:
 
@@ -704,7 +711,7 @@ The following items are prefixed with either:
     #      rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
     ```
 
-1. **[1]** Run the following step to configure `priority-fencing-delay` (applicable only as of pacemaker-2.0.4-6.el8 or higher).
+3. **[1]** Run the following step to configure `priority-fencing-delay` (applicable only as of pacemaker-2.0.4-6.el8 or higher).
 
     > [!NOTE]
     > If you have a two-node cluster, you have the option to configure the `priority-fencing-delay` cluster property. This property introduces more delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521).
@@ -718,7 +725,7 @@ The following items are prefixed with either:
     sudo pcs property set priority-fencing-delay=15s
     ```
 
-1. **[A]** Add firewall rules for ASCS and ERS on both nodes.
+4. **[A]** Add firewall rules for ASCS and ERS on both nodes.
 
     ```bash
     # Probe Port of ASCS

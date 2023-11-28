@@ -1,15 +1,17 @@
 ---
-title: Manage Azure Kubernetes Service (AKS) backups using Azure Backup 
+title: Manage Azure Kubernetes Service (AKS) backups using Azure Backup
 description: This article explains how to manage Azure Kubernetes Service (AKS) backups using Azure Backup.
 ms.topic: how-to
 ms.service: backup
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023
 ms.date: 04/26/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Manage Azure Kubernetes Service backups using Azure Backup (preview) 
+# Manage Azure Kubernetes Service backups using Azure Backup 
 
 This article describes how to register resource providers on your subscriptions for using Backup Extension and Trusted Access. Also, it provides you with the Azure CLI commands to manage them.
 
@@ -139,6 +141,6 @@ Learn more about [other commands related to Trusted Access](../aks/trusted-acces
 
 ## Next steps
 
-- [Back up Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-backup.md)
-- [Restore Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-restore.md)
-- [Supported scenarios for backing up Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-backup-support-matrix.md)
+- [Back up Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-backup.md)
+- [Restore Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-restore.md)
+- [Supported scenarios for backing up Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-backup-support-matrix.md)

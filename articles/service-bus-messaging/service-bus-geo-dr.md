@@ -31,7 +31,7 @@ The Geo-Disaster recovery feature ensures that the entire configuration of a nam
     - Identities and encryption settings (customer-managed key encryption or bring your own key (BYOK) encryption)
     - Enable auto scale
     - Disable local authentication
-
+- Pairing a [partitioned namespace](enable-partitions-premium.md) with a non-partitioned namespace is not supported.
  
 > [!TIP]
 > For replicating the contents of queues and topic subscriptions and operating corresponding namespaces in active/active configurations to cope with outages and disasters, don't lean on this Geo-disaster recovery feature set, but follow the [replication guidance](service-bus-federation-overview.md).  

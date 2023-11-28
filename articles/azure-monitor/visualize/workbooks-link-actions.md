@@ -45,8 +45,8 @@ Link actions can be accessed through workbook link components or through column 
 ## Link settings
 
 When you use the link renderer, the following settings are available:
-
-![Screenshot that shows Link Settings.](./media/workbooks-link-actions/link-settings.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-link-actions/link-settings.png" lightbox="./media/workbooks-link-actions/link-settings.png" alt-text="Screenshot that shows Link Settings." border="false":::
 
 | Setting | Description |
 |:------------- |:-------------|
@@ -77,8 +77,8 @@ This section defines where the template should come from and the parameters used
 |Resource group id comes from| The resource ID is used to manage deployed resources. The subscription is used to manage deployed resources and costs. The resource groups are used like folders to organize and manage all your resources. If this value isn't specified, the deployment will fail. Select from **Cell**, **Column**, **Parameter**, and **Static Value** in [Link sources](#link-sources).|
 |ARM template URI from| The URI to the ARM template itself. The template URI needs to be accessible to the users who will deploy the template. Select from **Cell**, **Column**, **Parameter**, and **Static Value** in [Link sources](#link-sources). For more information, see [Azure quickstart templates](https://azure.microsoft.com/resources/templates/).|
 |ARM Template Parameters|Defines the template parameters used for the template URI defined earlier. These parameters are used to deploy the template on the run page. The grid contains an **Expand** toolbar button to help fill the parameters by using the names defined in the template URI and set to static empty values. This option can only be used when there are no parameters in the grid and the template URI has been set. The lower section is a preview of what the parameter output looks like. Select **Refresh** to update the preview with current changes. Parameters are typically values. References are something that could point to key vault secrets that the user has access to. <br/><br/> **Template Viewer pane limitation** doesn't render reference parameters correctly and will show up as null/value. As a result, users won't be able to correctly deploy reference parameters from the **Template Viewer** tab.|
-
-![Screenshot that shows the Template Settings tab.](./media/workbooks-link-actions/template-settings.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-link-actions/template-settings.png" lightbox="./media/workbooks-link-actions/template-settings.png" alt-text="Screenshot that shows the Template Settings tab." border="false":::
 
 ### UX settings
 
@@ -89,12 +89,12 @@ This section configures what you'll see before you run the Resource Manager depl
 |Title from| Title used on the run view. Select from **Cell**, **Column**, **Parameter**, and **Static Value** in [Link sources](#link-sources).|
 |Description from| The Markdown text used to provide a helpful description to users when they want to deploy the template. Select from **Cell**, **Column**, **Parameter**, and **Static Value** in [Link sources](#link-sources). <br/><br/> If you select **Static Value**, a multi-line text box appears. In this text box, you can resolve parameters by using `"{paramName}"`. Also, you can treat columns as parameters by appending `"_column"` after the column name like `{columnName_column}`. In the following example image, you can reference the column `"VMName"` by writing `"{VMName_column}"`. The value after the colon is the [parameter formatter](../visualize/workbooks-parameters.md#parameter-formatting-options). In this case, it's **value**.|
 |Run button text from| Label used on the run (execute) button to deploy the ARM template. Users will select this button to start deploying the ARM template.|
-
-![Screenshot that shows the Resource Manager UX Settings tab.](./media/workbooks-link-actions/ux-settings.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-link-actions/ux-settings.png" lightbox="./media/workbooks-link-actions/ux-settings.png" alt-text="Screenshot that shows the Resource Manager UX Settings tab." border="false":::
 
 After these configurations are set, when you select the link, the view opens with the UX described in the UX settings. If you select **Run button text from**, an ARM template is deployed by using the values from [Template Settings](#template-settings). **View template** opens the **Template Viewer** tab so that you can examine the template and the parameters before you deploy.
-
-![Screenshot that shows running Resource Manager view.](./media/workbooks-link-actions/run-tab.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-link-actions/run-tab.png" lightbox="./media/workbooks-link-actions/run-tab.png" alt-text="Screenshot that shows running Resource Manager view." border="false":::
 
 ## Custom view link settings
 
@@ -121,18 +121,18 @@ There are two types of inputs: grids and JSON. Use a grid for simple key and val
     > If you select **Static Value**, the parameters can be resolved by using brackets to link `"{paramName}"` in the text box. Columns can be treated as parameters columns by appending `_column` after the column name like `"{columnName_column}"`.
 
     - **Parameter Value**: Depending on the value in **Parameter Comes From**, this dropdown contains available parameters, columns, or a static value.
-
-    ![Screenshot that shows the Edit column settings pane that shows the Get Custom View settings from form.](./media/workbooks-link-actions/custom-tab-settings.png)
+    <!-- convertborder later -->
+    :::image type="content" source="./media/workbooks-link-actions/custom-tab-settings.png" lightbox="./media/workbooks-link-actions/custom-tab-settings.png" alt-text="Screenshot that shows the Edit column settings pane that shows the Get Custom View settings from form." border="false":::
 - JSON
     - Specify your tab input in a JSON format on the editor. Like the **Grid** mode, parameters and columns can be referenced by using `{paramName}` for parameters and `{columnName_column}` for columns. Selecting **Show JSON Sample** shows the expected output of all resolved parameters and columns used for the view input.
-
-    ![Screenshot that shows the Open Custom View settings pane with view input on JSON.](./media/workbooks-link-actions/custom-tab-json.png)
+    <!-- convertborder later -->
+    :::image type="content" source="./media/workbooks-link-actions/custom-tab-json.png" lightbox="./media/workbooks-link-actions/custom-tab-json.png" alt-text="Screenshot that shows the Open Custom View settings pane with view input on JSON." border="false":::
 
 ### URL
 
 Paste a portal URL that contains the extension, name of the view, and any inputs needed to open the view. After you select **Initialize Settings**, the form is populated so that you can add, modify, or remove any of the view inputs.
-
-![Screenshot that shows the Edit column settings pane that shows the Get Custom View Settings from URL.](./media/workbooks-link-actions/custom-tab-settings-url.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-link-actions/custom-tab-settings-url.png" lightbox="./media/workbooks-link-actions/custom-tab-settings-url.png" alt-text="Screenshot that shows the Edit column settings pane that shows the Get Custom View Settings from URL." border="false":::
 
 ## Workbook (Template) link settings
 
@@ -152,10 +152,10 @@ If the selected link type is **Workbook (Template)**, you must specify more sett
 For each of the preceding settings, you must choose where the value in the linked workbook will come from. See [Link sources](#link-sources).
 
 When the workbook link is opened, the new workbook view is passed to all the values configured from the preceding settings.
-
-![Screenshot that shows Workbook Link Settings.](./media/workbooks-link-actions/workbook-link-settings.png)
-
-![Screenshot that shows Workbook Template Parameters settings.](./media/workbooks-link-actions/workbook-template-link-settings-parameter.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-link-actions/workbook-link-settings.png" lightbox="./media/workbooks-link-actions/workbook-link-settings.png" alt-text="Screenshot that shows Workbook Link Settings." border="false":::
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-link-actions/workbook-template-link-settings-parameter.png" lightbox="./media/workbooks-link-actions/workbook-template-link-settings-parameter.png" alt-text="Screenshot that shows Workbook Template Parameters settings." border="false":::
 
 ## Link sources
 

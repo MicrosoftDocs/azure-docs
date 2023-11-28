@@ -1,9 +1,8 @@
 ---
 title: What is Microsoft Defender for Cloud?
-
 description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multicloud resources and workloads.
 ms.topic: overview
-ms.date: 07/24/2023
+ms.date: 11/02/2023
 ---
 
 # What is Microsoft Defender for Cloud?
@@ -14,24 +13,31 @@ Microsoft Defender for Cloud is a cloud-native application protection platform (
 - A cloud security posture management (CSPM) solution that surfaces actions that you can take to prevent breaches
 - A cloud workload protection platform (CWPP) with specific protections for servers, containers, storage, databases, and other workloads
 
-![Diagram that shows the core functionality of Microsoft Defender for Cloud.](media/defender-for-cloud-introduction/defender-for-cloud-pillars.png)
+:::image type="content" source="media/defender-for-cloud-introduction/defender-for-cloud-pillars.png" alt-text="Diagram that shows the core functionality of Microsoft Defender for Cloud.":::
 
 > [!NOTE]
 > For Defender for Cloud pricing information, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
+When you [enable Defender for Cloud on your](connect-azure-subscription.md), you'll automatically gain access to Microsoft 365 Defender.
+
+The Microsoft 365 Defender portal provides richer context to investigations that span cloud resources, devices, and identities. In addition, security teams are able to get the complete picture of an attack, including suspicious and malicious events that happen in their cloud environment, through the immediate correlation of all alerts and incidents, including cloud alerts and incidents.
+
+You can learn more about the [integration between Microsoft Defender for Cloud and Microsoft 365 Defender](concept-integration-365.md).
+
+
 ## Secure cloud applications
 
-Defender for Cloud helps you to incorporate good security practices early during the software development process, or DevSecOps. You can protect your code management environments and your code pipelines, and get insights into your development environment security posture from a single location. Defender for DevOps, a service available in Defender for Cloud, empowers security teams to manage DevOps security across multi-pipeline environments.
+Defender for Cloud helps you to incorporate good security practices early during the software development process, or DevSecOps. You can protect your code management environments and your code pipelines, and get insights into your development environment security posture from a single location. Defender for Cloud empowers security teams to manage DevOps security across multi-pipeline environments.
 
 Today’s applications require security awareness at the code, infrastructure, and runtime levels to make sure that deployed applications are hardened against attacks.
 
 | Capability                                                   | What problem does it solve?                                  | Get started                                                  | Defender plan       |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------- |
-| [Code pipeline insights](defender-for-devops-introduction.md) | Empowers security teams with the ability to protect applications and resources from code to cloud across multi-pipeline environments, including GitHub and Azure DevOps. Findings from Defender for DevOps, such as IaC misconfigurations and exposed secrets, can then be correlated with other contextual cloud security insights to prioritize remediation in code. | Connect [Azure DevOps](quickstart-onboard-devops.md) and [GitHub](quickstart-onboard-github.md) repositories to Defender for Cloud | Defender for DevOps |
+| [Code pipeline insights](defender-for-devops-introduction.md) | Empowers security teams with the ability to protect applications and resources from code to cloud across multi-pipeline environments, including GitHub, Azure DevOps, and GitLab. DevOps security findings, such as Infrastructure as Code (IaC) misconfigurations and exposed secrets, can then be correlated with other contextual cloud security insights to prioritize remediation in code. | Connect [Azure DevOps](quickstart-onboard-devops.md), [GitHub](quickstart-onboard-github.md), and [GitLab](quickstart-onboard-gitlab.md) repositories to Defender for Cloud | Foundational CSPM (Free) and Defender CSPM |
 
 ## Improve your security posture
 
-The security of your cloud and on-premises resources depends on proper configuration and deployment. Defender for Cloud recommendations identify the steps that you can take to secure your environment.
+The security of your cloud and on-premises resources depends on proper configuration and deployment. Defender for Cloud recommendations identifies the steps that you can take to secure your environment.
 
 Defender for Cloud includes Foundational CSPM capabilities for free. You can also enable advanced CSPM capabilities by enabling the Defender CSPM plan.
 
@@ -45,7 +51,7 @@ Defender for Cloud includes Foundational CSPM capabilities for free. You can als
 | [Data-aware Security Posture](concept-data-security-posture.md) | Data-aware security posture automatically discovers datastores containing sensitive data, and helps reduce risk of data breaches. | [Enable data-aware security posture](data-security-posture-enable.md) | Defender CSPM or Defender for Storage |
 | [Attack path analysis](concept-attack-path.md#what-is-attack-path-analysis) | Model traffic on your network to identify potential risks before you implement changes to your environment. | [Build queries to analyze paths](how-to-manage-attack-path.md) | Defender CSPM |
 | [Cloud Security Explorer](concept-attack-path.md#what-is-cloud-security-explorer) | A map of your cloud environment that lets you build queries to find security risks. | [Build queries to find security risks](how-to-manage-cloud-security-explorer.md) | Defender CSPM |
-| [Security governance](governance-rules.md#building-an-automated-process-for-improving-security-with-governance-rules) | Drive security improvements through your organization by assigning tasks to resource owners and tracking progress in aligning your security state with your security policy. | [Define governance rules](governance-rules.md#defining-governance-rules-to-automatically-set-the-owner-and-due-date-of-recommendations) | Defender CSPM |
+| [Security governance](governance-rules.md) | Drive security improvements through your organization by assigning tasks to resource owners and tracking progress in aligning your security state with your security policy. | [Define governance rules](governance-rules.md) | Defender CSPM |
 | [Microsoft Entra Permissions Management](../active-directory/cloud-infrastructure-entitlement-management/index.yml) | Provide comprehensive visibility and control over permissions for any identity and any resource in Azure, AWS, and GCP. | [Review your Permission Creep Index (CPI)](other-threat-protections.md#entra-permission-management-formerly-cloudknox) | Defender CSPM |
 
 ## Protect cloud workloads
@@ -60,7 +66,7 @@ When your environment is threatened, security alerts right away indicate the nat
 | Identify threats to your storage resources | Detect unusual and potentially harmful attempts to access or exploit your storage accounts using advanced threat detection capabilities and Microsoft Threat Intelligence data to provide contextual security alerts. | [Protect your cloud storage resources](defender-for-storage-introduction.md) | Defender for Storage |
 | Protect cloud databases | Protect your entire database estate with attack detection and threat response for the most popular database types in Azure to protect the database engines and data types, according to their attack surface and security risks. | [Deploy specialized protections for cloud and on-premises databases](quickstart-enable-database-protections.md) | - Defender for Azure SQL Databases</br>- Defender for SQL servers on machines</br>- Defender for Open-source relational databases</br>- Defender for Azure Cosmos DB |
 | Protect containers | Secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications with environment hardening, vulnerability assessments, and run-time protection. | [Find security risks in your containers](defender-for-containers-introduction.md) | Defender for Containers |
-| [Infrastructure service insights](asset-inventory.md) | Diagnose weaknesses in your application infrastructure that can leave your environment susceptible to attack. | - [Identify attacks targeting applications running over App Service](defender-for-app-service-introduction.md)</br>- [Detect attempts to exploit Key Vault accounts](defender-for-key-vault-introduction.md)</br>- [Get alerted on suspicious Resource Manager operations](defender-for-resource-manager-introduction.md)</br>- [Expose anomalous DNS activities](defender-for-dns-introduction.md) | - Defender for App Service</br></br>- Defender for Key Vault</br></br>- Defender for Resource Manager</br></br>- Defender for DNS |
+| [Infrastructure service insights](asset-inventory.md) | Diagnose weaknesses in your application infrastructure that can leave your environment susceptible to attack. | - [Identify attacks targeting applications running over App Service](defender-for-app-service-introduction.md)</br>- [Detect attempts to exploit Key Vault accounts](defender-for-key-vault-introduction.md)</br>- [Get alerted on suspicious Resource Manager operations](defender-for-resource-manager-introduction.md)</br>- [Expose anomalous DNS activities](defender-for-dns-introduction.md) | - Defender for App Service</br>- Defender for Key Vault</br>- Defender for Resource Manager</br>- Defender for DNS |
 | [Security alerts](alerts-overview.md) | Get informed of real-time events that threaten the security of your environment. Alerts are categorized and assigned severity levels to indicate proper responses. | [Manage security alerts]( managing-and-responding-alerts.md) | Any workload protection Defender plan |
 | [Security incidents](alerts-overview.md#what-are-security-incidents) | Correlate alerts to identify attack patterns and integrate with Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR), and IT Service Management (ITSM) solutions to respond to threats and limit the risk to your resources. | [Export alerts to SIEM, SOAR, or ITSM systems](export-to-siem.md) | Any workload protection Defender plan |
 
