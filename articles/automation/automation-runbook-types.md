@@ -64,7 +64,7 @@ The following are the current limitations and known issues with PowerShell runbo
 > [!NOTE]
 > Currently, PowerShell 7.2 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Central India, UAE Central, Israel  Central, Italy North, Germany North and Gov clouds.
 
-- Use [Azure Automation extension for VS code](automation-runbook-authoring.md) to simplify runbook authoring experience. 
+- For the PowerShell 7.2 runtime version, the module activities aren't extracted for the imported modules. Use [Azure Automation extension for VS code](automation-runbook-authoring.md) to simplify runbook authoring experience. 
 - PowerShell 7.x doesn't support workflows. For more information, see [PowerShell workflow](/powershell/scripting/whats-new/differences-from-windows-powershell#powershell-workflow) for more details.
 - PowerShell 7.x currently doesn't support signed runbooks.
 - Source control integration doesn't support PowerShell 7.2. Also, PowerShell 7.2 runbooks in source control get created in Automation account as Runtime 5.1.
