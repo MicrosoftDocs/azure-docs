@@ -28,6 +28,11 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 ## November 2023
 
+
+- **Accelerated logs in Azure Database for MySQL - Flexible Server (Preview)**
+
+We're excited to announce preview of the accelerated logs feature for Azure Database for MySQL – Flexible Server. This feature is available within the Business Critical service tier. Accelerated logs significantly enhances the performance of MySQL flexible servers, offering a dynamic solution that is designed for high throughput needs that also reduces latency and optimizes cost efficiency.[Learn more](./concepts-accelerated-logs.md).
+
 - **Universal Geo Restore in Azure Database for MySQL - Flexible Server (General Availability)**
 Universal Geo Restore feature will allow you to restore a source server instance to an alternate region from the list of Azure supported regions where flexible server is [available](./overview.md#azure-regions). If a large-scale incident in a region results in unavailability of database application, then you can use this feature as a disaster recovery option to restore the server to an Azure supported target region, which is different than the source server region. [Learn more](concepts-backup-restore.md#restore)
 

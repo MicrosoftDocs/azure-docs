@@ -50,6 +50,8 @@ We recommend the following limits for the indicators.
 | Resource associations on each dynamic scope    | 1,000 |
 | Number of dynamic scopes per resource group or subscription per region     | 250  |
 
+For more information, see the [service limits for Dynamic scope](dynamic-scope-overview.md#service-limits).
+
 ## Schedule recurring updates on a single VM
 
 You can schedule updates from the **Overview** or **Machines** pane on the **Update Manager** page or from the selected VM.

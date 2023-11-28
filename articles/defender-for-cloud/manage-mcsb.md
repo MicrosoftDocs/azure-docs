@@ -24,6 +24,8 @@ This article describes how you can manage recommendations provided by MCSB.
 
 - **Enforce** lets you take advantage of the **DeployIfNotExist** effect in Azure Policy, and automatically remediate non-compliant resources upon creation.
 
+    > [!NOTE]
+    > Enforce and Deny are applicable to Azure recommendations and are supported on a subset of recommendations.
 
 To review which recommendations you can deny and enforce, in the **Security policies** page, on the **Standards** tab, select **Microsoft cloud security benchmark** and drill into a recommendation to see if the deny/enforce actions are available.
 

@@ -27,6 +27,8 @@ sections:
       - question: How does Defender for APIs handle support for API revisions in Azure API Management?
         answer: API revisions in Azure API Management are shown as separate API endpoints within Defender for APIs because each API revision is unique and might have its own security insights. 
                 Offline Azure API Management API revisions aren't shown in the onboarding or security insights blades of Defender for APIs because offline revisions don't allow any traffic to be sent to them and pose no security risk.
+      - question: Does Defender for APIs collect API traffic logs from Azure API Management?
+        answer: Defender for APIs receives a copy of all of the HTTP request and response traffic sent to the API management service for all onboarded APIs. This includes the request URL, the response status code and a subset of HTTP headers for the requests and responses. Also, Defender for APIs receives a copy of some of the HTTP request and response bodies. The request and response bodies received by Defender for APIs are capped at a size of 64KB.
               
   - name: Questions related to region/geo 
     questions:

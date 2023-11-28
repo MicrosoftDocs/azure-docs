@@ -251,6 +251,8 @@ items:
         href: map-rest-apis-transaction-categories.md
       - name: Azure Storage reserved capacity
         href: storage-blob-reserved-capacity.md
+      - name: Estimate the cost of AzCopy transfers 
+        href: azcopy-cost-estimation.md
       - name: Estimate the cost to archive data
         href: archive-cost-estimation.md
     - name: Find, search, and understand blob data
