@@ -3,7 +3,7 @@ title: Understand service health events and status using Microsoft Copilot for A
 description: Learn about scenarios where Microsoft Copilot for Azure (preview) can provide information about service health events.
 ms.date: 11/15/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
@@ -16,6 +16,8 @@ author: JnHs
 You can ask Microsoft Copilot for Azure (preview) questions to get information from [Azure Service Health](/azure/service-health/overview). This provides a quick way to find out if there are any service health events impacting your Azure subscriptions. You can also get more information about a known service health event.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
+
+[!INCLUDE [preview-note](includes/preview-note.md)]
 
 ## Sample prompts
 

@@ -11,6 +11,8 @@ ms.reviewer: vitalyg
 
 Standard metrics are pre-aggregated during collection, they have better performance at query time. This makes them the best choice for dashboards and real-time alerting.
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 ## Availability metrics
 
 Metrics in the Availability category enable you to see the health of your web application as observed from points around the world. [Configure the availability tests](../app/availability-overview.md) to start using any metrics from this category.

@@ -4,7 +4,7 @@ description: This article describes how to use service tags for egress, IP firew
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 10/06/2023
+ms.date: 11/15/2023
 author: veyaddan
 ms.author: veyaddan
 ---

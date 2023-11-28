@@ -3,11 +3,11 @@ metadata:
   title: Azure OpenAI Service frequently asked questions
   titleSuffix: Azure AI services
   description: Get answers to the most popular questions about Azure OpenAI Service
-  services: cognitive-services
+  #services: cognitive-services
   manager: nitinme
   ms.service: azure-ai-openai
   ms.topic: faq
-  ms.date: 11/15/2023
+  ms.date: 11/22/2023
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -25,7 +25,11 @@ sections:
       - question: |
           Does Azure OpenAI work with the latest Python library released by OpenAI (version>=1.0)?
         answer: |
-          Azure OpenAI is supported by the latest release of the [OpenAI Python library (version>=1.0)](https://pypi.org/project/openai/). However, it is important to note migration of your codebase using `openai migrate` is not supported and will not work with code that targets Azure OpenAI.  
+          Azure OpenAI is supported by the latest release of the [OpenAI Python library (version>=1.0)](https://pypi.org/project/openai/). However, it's important to note migration of your codebase using `openai migrate` is not supported and will not work with code that targets Azure OpenAI.  
+      - question: |
+          I can't find GPT-4 Turbo Preview?
+        answer:
+          GPT-4 Turbo Preview is the `gpt-4` (1106-preview) model. To deploy this model, under **Deployments** select model **gpt-4**. For **Model version** select **1106-preview**. To check which regions this model is available, refer to the [models page](./concepts/models.md).
       - question: |
           Does Azure OpenAI support GPT-4?
         answer: |
@@ -86,6 +90,20 @@ sections:
           If you wanted to help a GPT based model to accurately respond to the question "what model are you running?", you would need to provide that information to the model through techniques like [prompt engineering of the model's system message](/azure/ai-services/openai/concepts/advanced-prompt-engineering?pivots=programming-language-chat-completions), [Retrieval Augmented Generation (RAG)](/azure/machine-learning/concept-retrieval-augmented-generation?view=azureml-api-2) which is the technique used by [Azure OpenAI on your data](/azure/ai-services/openai/concepts/use-your-data) where up-to-date information is injected to the system message at query time, or via [fine-tuning](/azure/ai-services/openai/how-to/fine-tuning?pivots=programming-language-studio) where you could fine-tune specific versions of the model to answer that question in a certain way based on model version. 
 
           To learn more about how GPT models are trained and work we recommend watching [Andrej Karpathy's talk from Build 2023 on the state of GPT](https://www.youtube.com/watch?v=bZQun8Y4L2A).
+      - question: |
+          I asked the model when it's knowledge cutoff is and it gave me a different answer than what is on the Azure OpenAI model's page. Why does this happen?
+        answer:
+          This is expected behavior. The models aren't able to answer questions about themselves. If you want to know when the knowledge cutoff for the model's training data is, consult the [models page](./concepts/models.md).
+      - question: |
+          I asked the model a question about something that happened recently before the knowledge cutoff and it got the answer wrong. Why does this happen?
+        answer: |
+          This is expected behavior. First there's no guarantee that every recent event that has occurred was part of the model's training data. And even when information was part of the training data, without using additional techniques like Retrieval Augmented Generation (RAG) to help ground the model's responses there's always a chance of ungrounded responses occurring. Both Azure OpenAI's [use your data feature](./concepts/use-your-data.md) and [Bing Chat](https://www.microsoft.com/edge/features/bing-chat?form=MT00D8) use Azure OpenAI models combined with Retrieval Augmented Generation to help further ground model responses. 
+          
+          The frequency that a given piece of information appeared in the training data can also impact the likelihood that the model will respond in a certain way. 
+
+          Asking the latest GPT-4 Turbo Preview model about something that changed more recently like "Who is the prime minister of New Zealand?", is likely to result in the fabricated response `Jacinda Ardern`. However, asking the model "When did `Jacinda Ardern` step down as prime minister?" Tends to yield an accurate response which demonstrates training data knowledge going to at least January of 2023.   
+                    
+          So while it is possible to probe the model with questions to guess its training data knowledge cutoff, the [model's page](./concepts/models.md) is the best place to check a model's knowledge cutoff.       
       - question: |
           Where do I access pricing information for legacy models which are no longer available for new deployments? 
         answer: | 

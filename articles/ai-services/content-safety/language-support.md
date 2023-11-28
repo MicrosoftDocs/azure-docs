@@ -2,7 +2,7 @@
 title: Language support - Azure AI Content Safety
 titleSuffix: Azure AI services
 description: This is a list of natural languages that the Azure AI Content Safety API supports.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety

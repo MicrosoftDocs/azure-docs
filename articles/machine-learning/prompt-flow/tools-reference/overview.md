@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: The overview of tools in prompt flow displays an index table for tools and the instructions for custom tool package creation and tool package usage.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
 ms.topic: reference

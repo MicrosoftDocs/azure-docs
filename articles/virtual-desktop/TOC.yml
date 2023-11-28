@@ -98,9 +98,9 @@
       - name: Azure Private Link
         displayName: network connectivity, connections, private endpoints
         href: private-link-overview.md
-      - name: Required URL list
-        displayName: network, urls, firewall, connections, connectivity
-        href: safe-url-list.md
+      - name: Required FQDNs and endpoints
+        displayName: network, fqdn, endpoint, urls, firewall, connections, connectivity
+        href: required-fqdn-endpoint.md
       - name: Bandwidth considerations
         displayName: network, throughput, latency
         href: rdp-bandwidth.md
@@ -338,9 +338,9 @@
           href: key-distribution-center-proxy.md
       - name: Network connectivity
         items:
-        - name: Check access to required URLs
-          displayName: network, urls, firewall
-          href: required-url-check-tool.md
+        - name: Check access to required FQDNs and endpoints
+          displayName: network, fqdn, endpoint, urls, connections, connectivity
+          href: check-access-validate-required-fqdn-endpoint.md
         - name: Configure RDP Shortpath
           displayName: network, udp
           href: configure-rdp-shortpath.md

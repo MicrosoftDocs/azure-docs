@@ -91,7 +91,7 @@ This architecture can be implemented if you have configured connectivity with yo
 
 If your security requirements require client traffic to services exposed via private endpoints to be routed through a security appliance, deploy this scenario.
 
-The same considerations as in scenario 2 above apply. In this scenario, there aren't virtual network peering charges. For more information about how to configure your DNS servers to allow on-premises workloads to access private endpoints, see [on-premises workloads using a DNS forwarder](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
+The same considerations as in scenario 2 above apply. In this scenario, there aren't virtual network peering charges. For more information about how to configure your DNS servers to allow on-premises workloads to access private endpoints, see [on-premises workloads using a DNS forwarder](./private-endpoint-dns-integration.md#on-premises-workloads-using-a-dns-forwarder).
 
 ## Next steps
 

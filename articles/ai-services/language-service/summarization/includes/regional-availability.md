@@ -1,5 +1,5 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
@@ -13,6 +13,8 @@ ms.custom:
 ---
 
 > [!IMPORTANT]
+> One preview region, Sweden Central, showcases our latest and continually evolving LLM fine tuning techniques, where all summarization capabilities are available. We welcome customers to join our early adopter community by filling out the [access request form](https://aka.ms/applyforgatedsummarizationfeatures).
+. Your valuable feedback is vital to our continuous enhancement.
 > Conversation summarization is only available using:
 >  - REST API
 >  - Python

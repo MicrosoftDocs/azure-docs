@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Analyze text content with Java"
 description: In this quickstart, get started using the Azure AI Content Safety Java SDK to analyze text content for objectionable material.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
