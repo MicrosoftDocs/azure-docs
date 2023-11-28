@@ -16,7 +16,9 @@ ms.custom: mode-other
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - A [phone number](../../telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. If you have a free subscription, you can [get a trial phone number](../../telephony/get-trial-phone-number.md).
-- Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started)
+- Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started).
+- Create and connect [a Multi-service Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
+- Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
 - [Python](https://www.python.org/downloads/) 3.7+.
 
 ## Sample code
@@ -50,19 +52,25 @@ Then update your `main.py` file with the following values:
 - `CALLBACK_URI_HOST`: Once you have your DevTunnel host initialized, update this field with that URI.
 - `TARGET_PHONE_NUMBER`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `ACS_PHONE_NUMBER`: update this field with the Azure Communication Services phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+- `COGNITIVE_SERVICES_ENDPOINT`: update field with your cognitive services endpoint.
+
 
 ```python
-# Your Azure Communication Services resource connection string
-ACS_CONNECTION_STRING = "<ACS_CONNECTION_STRING>"
+# Your ACS resource connection string 
+ACS_CONNECTION_STRING = "<ACS_CONNECTION_STRING>" 
 
-# Your Azure Communication Services resource phone number will act as source number to start outbound call
-ACS_PHONE_NUMBER = "<ACS_PHONE_NUMBER>"
+# Your ACS resource phone number will act as source number to start outbound call 
+ACS_PHONE_NUMBER = "<ACS_PHONE_NUMBER>" 
 
-# Target phone number you want to receive the call.
-TARGET_PHONE_NUMBER = "<TARGET_PHONE_NUMBER>"
+# Target phone number you want to receive the call. 
+TARGET_PHONE_NUMBER = "<TARGET_PHONE_NUMBER>" 
 
-# Callback events URI to handle callback events.
-CALLBACK_URI_HOST = "<CALLBACK_URI_HOST_WITH_PROTOCOL>"
+# Callback events URI to handle callback events. 
+CALLBACK_URI_HOST = "<CALLBACK_URI_HOST_WITH_PROTOCOL>" 
+CALLBACK_EVENTS_URI = CALLBACK_URI_HOST + "/api/callbacks" 
+
+#Your Cognitive service endpoint 
+COGNITIVE_SERVICES_ENDPOINT = "<COGNITIVE_SERVICES_ENDPOINT>" 
 ```
 
 ## Make an outbound call
@@ -72,11 +80,14 @@ To make the outbound call from Azure Communication Services, first you provide t
 Make an outbound call using the target_phone_number you've provided: 
 
 ```python
-target_participant = PhoneNumberIdentifier(TARGET_PHONE_NUMBER)
-source_caller = PhoneNumberIdentifier(ACS_PHONE_NUMBER)
-call_invite = CallInvite(target=target_participant, source_caller_id_number=source_caller)
-call_automation_client = CallAutomationClient.from_connection_string(ACS_CONNECTION_STRING)
-call_connection_properties = call_automation_client.create_call(call_invite, CALLBACK_EVENTS_URI)
+target_participant = PhoneNumberIdentifier(TARGET_PHONE_NUMBER) 
+source_caller = PhoneNumberIdentifier(ACS_PHONE_NUMBER) 
+call_invite = CallInvite(target=target_participant, source_caller_id_number=source_caller) 
+call_connection_properties = call_automation_client.create_call(call_invite, CALLBACK_EVENTS_URI, 
+cognitive_services_endpoint=COGNITIVE_SERVICES_ENDPOINT) 
+    app.logger.info("Created call with connection id: %s",
+call_connection_properties.call_connection_id) 
+return redirect("/") 
 ```
 
 ## Start recording a call
@@ -105,38 +116,58 @@ def callback_events_handler():
 
 ## Play welcome message and recognize 
 
-With the `file_source` parameter, you can provide the service the audio file you want to use for your welcome message. Finally, the Azure Communication Services Call Automation service plays the message upon detecting the `CallConnected` event. 
+Using the `TextSource`, you can provide the service with the text you want synthesized and used for your welcome message. The Azure Communication Services Call Automation service plays this message upon the `CallConnected` event. 
 
-We pass the audio file into the `play_prompt` parameter and then call `start_recognizing_media`. The API enables the telephony client to send DTMF tones that we can recognize.
+Next, we pass the text into the `CallMediaRecognizeChoiceOptions` and then call `StartRecognizingAsync`. This allows your application to recognize the option the caller chooses.
 
 ```python
-file_source = FileSource(MAIN_MENU_PROMPT_URI)
-call_automation_client.start_recognizing_media(input_type=RecognizeInputType.DTMF,
+
+get_media_recognize_choice_options( 
+    call_connection_client=call_connection_client, 
+    text_to_play=MainMenu,  
+    target_participant=target_participant, 
+    choices=get_choices(),context="") 
+
+def get_media_recognize_choice_options(call_connection_client: CallConnectionClient, text_to_play: str, target_participant:str, choices: any, context: str): 
+    play_source =  TextSource (text= text_to_play, voice_name= SpeechToTextVoice) 
+    call_connection_client.start_recognizing_media( 
+        input_type=RecognizeInputType.CHOICES, 
+
         target_participant=target_participant,
-        play_prompt=file_source,
-        interrupt_prompt=True,
-        initial_silence_timeout=10,
-        dtmf_inter_tone_timeout=10,
-        dtmf_max_tones_to_collect=1,
-        dtmf_stop_tones=[DtmfTone.POUND])
+        choices=choices, 
+        play_prompt=play_source, 
+        interrupt_prompt=False, 
+        initial_silence_timeout=10, 
+        operation_context=context 
+    ) 
+
+def get_choices(): 
+    choices = [ 
+        RecognitionChoice(label = ConfirmChoiceLabel, phrases= ["Confirm", "First", "One"], tone = DtmfTone.ONE), 
+        RecognitionChoice(label = CancelChoiceLabel, phrases= ["Cancel", "Second", "Two"], tone = DtmfTone.TWO) 
+    ] 
+return choices 
 ```
 
-## Recognize DTMF Events
+## Handle Choice Events
 
-When the telephony endpoint selects a DTMF tone, Azure Communication Services Call Automation triggers the webhook we have set up and notify us with the `RECOGNIZE_COMPLETED_EVENT` event. This event gives us the ability to respond to a specific DTMF tone and trigger an action. 
+Azure Communication Services Call Automation triggers the `api/callbacks` to the webhook we have setup and will notify us with the `RecognizeCompleted` event. The event gives us the ability to respond to input received and trigger an action. The application then plays a message to the caller based on the specific input recieved.
 
 ```python
-event = CloudEvent.from_dict(event_dict)
-call_connection_id = event.data['callConnectionId']
-call_connection_client = call_automation_client.get_call_connection(call_connection_id)
-if event.type == "Microsoft.Communication.RecognizeCompleted":
-    selected_tone = event.data['dtmfResult']['tones'][0]
-    if selected_tone == DtmfTone.ONE:
-        app.logger.info("Playing confirmed prompt")
-        call_connection_client.play_media_to_all([FileSource(CONFIRMED_PROMPT_URI)])
-    elif selected_tone == DtmfTone.TWO:
-        # Handle other options
-        ...
+elif event.type == "Microsoft.Communication.RecognizeCompleted":
+	app.logger.info("Recognize completed: data=%s", event.data)
+if event.data['recognitionType'] == "choices":
+	labelDetected = event.data['choiceResult']['label'];
+phraseDetected = event.data['choiceResult']['recognizedPhrase'];
+app.logger.info("Recognition completed, labelDetected=%s, phraseDetected=%s, context=%s", labelDetected, phraseDetected, event.data.get('operationContext'))
+if labelDetected == ConfirmChoiceLabel:
+	textToPlay = ConfirmedText
+else:
+	textToPlay = CancelText
+handle_play(call_connection_client = call_connection_client, text_to_play = textToPlay)
+def handle_play(call_connection_client: CallConnectionClient, text_to_play: str):
+	play_source = TextSource(text = text_to_play, voice_name = SpeechToTextVoice)
+call_connection_client.play_media_to_all(play_source)
 ```
 
 ## Hang up the call
