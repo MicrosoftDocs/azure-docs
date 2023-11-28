@@ -83,12 +83,6 @@ This type error related to runtime lack required packages. If you're using defau
 
 #### Request timeout error shown in UI
 
-**MIR runtime request timeout error in the UI:**
-
-:::image type="content" source="../media/how-to-create-manage-runtime/mir-runtime-request-timeout.png" alt-text="Screenshot of a MIR runtime timeout error in the studio UI. " lightbox = "../media/how-to-create-manage-runtime/mir-runtime-request-timeout.png":::
-
-Error in the example says "UserError: Upstream request timeout".
-
 **Compute instance runtime request timeout error:**
 
 :::image type="content" source="../media/how-to-create-manage-runtime/ci-runtime-request-timeout.png" alt-text="Screenshot of a compute instance runtime timeout error in the studio UI. " lightbox = "../media/how-to-create-manage-runtime/ci-runtime-request-timeout.png":::
