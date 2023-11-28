@@ -54,12 +54,12 @@ A successful response is returned in JSON, similar to the following example:
 
 ```json
 {
+    "modelVersion": "2023-10-01",
     "captionResult":
     {
         "text": "a man pointing at a screen",
-        "confidence": 0.4891590476036072
+        "confidence": 0.7767987847328186
     },
-    "modelVersion": "2023-10-01",
     "metadata":
     {
         "width": 1038,
@@ -67,89 +67,94 @@ A successful response is returned in JSON, similar to the following example:
     },
     "readResult":
     {
-        "stringIndexType": "TextElements",
-        "content": "9:35 AM\nE Conference room 154584354\n#: 555-173-4547\nTown Hall\n9:00 AM - 10:00 AM\nAaron Buaion\nDaily SCRUM\n10:00 AM 11:00 AM\nChurlette de Crum\nQuarterly NI Hands\n11.00 AM-12:00 PM\nBebek Shaman\nWeekly stand up\n12:00 PM-1:00 PM\nDelle Marckre\nProduct review",
-        "pages":
+        "blocks":
         [
             {
-                "height": 692,
-                "width": 1038,
-                "angle": 0.3048,
-                "pageNumber": 1,
-                "words":
-                [
-                    {"content":"9:35","boundingBox":[131,130,171,130,171,149,130,149],"confidence":0.993,"span":{"offset":0,"length":4}},
-                    {"content":"AM","boundingBox":[179,130,204,130,203,149,178,149],"confidence":0.998,"span":{"offset":5,"length":2}},
-                    {"content":"E","boundingBox":[131,154,135,154,135,161,131,161],"confidence":0.104,"span":{"offset":8,"length":1}},
-                    {"content":"Conference","boundingBox":[142,154,174,154,173,161,141,161],"confidence":0.902,"span":{"offset":10,"length":10}},
-                    {"content":"room","boundingBox":[175,154,189,155,188,161,175,161],"confidence":0.796,"span":{"offset":21,"length":4}},
-                    {"content":"154584354","boundingBox":[192,155,224,154,223,162,191,161],"confidence":0.864,"span":{"offset":26,"length":9}},
-                    {"content":"#:","boundingBox":[131,163,139,164,139,171,131,171],"confidence":0.036,"span":{"offset":36,"length":2}},
-                    {"content":"555-173-4547","boundingBox":[142,164,182,165,181,171,142,171],"confidence":0.597,"span":{"offset":39,"length":12}},
-                    {"content":"Town","boundingBox":[547,181,568,181,568,190,546,191],"confidence":0.981,"span":{"offset":52,"length":4}},
-                    {"content":"Hall","boundingBox":[570,181,590,181,590,191,570,190],"confidence":0.991,"span":{"offset":57,"length":4}},
-                    {"content":"9:00","boundingBox":[546,192,555,192,555,200,546,200],"confidence":0.09,"span":{"offset":62,"length":4}},
-                    {"content":"AM","boundingBox":[557,192,565,192,565,200,557,200],"confidence":0.991,"span":{"offset":67,"length":2}},
-                    {"content":"-","boundingBox":[567,192,569,192,569,200,567,200],"confidence":0.691,"span":{"offset":70,"length":1}},
-                    {"content":"10:00","boundingBox":[570,192,585,193,584,200,570,200],"confidence":0.885,"span":{"offset":72,"length":5}},
-                    {"content":"AM","boundingBox":[586,193,593,194,593,200,586,200],"confidence":0.991,"span":{"offset":78,"length":2}},
-                    {"content":"Aaron","boundingBox":[545,202,560,202,559,208,544,208],"confidence":0.602,"span":{"offset":81,"length":5}},
-                    {"content":"Buaion","boundingBox":[561,202,580,202,579,208,560,208],"confidence":0.291,"span":{"offset":87,"length":6}},
-                    {"content":"Daily","boundingBox":[538,259,551,260,550,266,538,265],"confidence":0.175,"span":{"offset":94,"length":5}},
-                    {"content":"SCRUM","boundingBox":[552,260,570,260,570,266,551,266],"confidence":0.114,"span":{"offset":100,"length":5}},
-                    {"content":"10:00","boundingBox":[539,267,553,267,552,273,538,272],"confidence":0.857,"span":{"offset":106,"length":5}},
-                    {"content":"AM","boundingBox":[554,267,561,267,560,273,553,273],"confidence":0.998,"span":{"offset":112,"length":2}},
-                    {"content":"11:00","boundingBox":[564,267,578,267,577,273,563,273],"confidence":0.479,"span":{"offset":115,"length":5}},
-                    {"content":"AM","boundingBox":[579,267,586,267,585,273,578,273],"confidence":0.994,"span":{"offset":121,"length":2}},
-                    {"content":"Churlette","boundingBox":[539,274,562,274,561,279,538,279],"confidence":0.464,"span":{"offset":124,"length":9}},
-                    {"content":"de","boundingBox":[563,274,569,274,568,279,562,279],"confidence":0.81,"span":{"offset":134,"length":2}},
-                    {"content":"Crum","boundingBox":[570,274,582,273,581,279,569,279],"confidence":0.885,"span":{"offset":137,"length":4}},
-                    {"content":"Quarterly","boundingBox":[540,296,562,296,562,302,539,302],"confidence":0.523,"span":{"offset":142,"length":9}},
-                    {"content":"NI","boundingBox":[563,296,570,296,570,302,563,302],"confidence":0.303,"span":{"offset":152,"length":2}},
-                    {"content":"Hands","boundingBox":[572,296,588,296,588,302,571,302],"confidence":0.613,"span":{"offset":155,"length":5}},
-                    {"content":"11.00","boundingBox":[538,304,552,304,552,310,538,310],"confidence":0.618,"span":{"offset":161,"length":5}},
-                    {"content":"AM-12:00","boundingBox":[554,304,578,304,577,310,553,310],"confidence":0.27,"span":{"offset":167,"length":8}},
-                    {"content":"PM","boundingBox":[579,304,586,304,586,309,578,310],"confidence":0.662,"span":{"offset":176,"length":2}},
-                    {"content":"Bebek","boundingBox":[539,310,554,310,554,317,539,316],"confidence":0.611,"span":{"offset":179,"length":5}},
-                    {"content":"Shaman","boundingBox":[555,310,576,311,576,317,555,317],"confidence":0.605,"span":{"offset":185,"length":6}},
-                    {"content":"Weekly","boundingBox":[538,332,557,333,556,339,538,338],"confidence":0.606,"span":{"offset":192,"length":6}},
-                    {"content":"stand","boundingBox":[558,333,572,334,571,340,557,339],"confidence":0.489,"span":{"offset":199,"length":5}},
-                    {"content":"up","boundingBox":[574,334,580,334,580,340,573,340],"confidence":0.815,"span":{"offset":205,"length":2}},
-                    {"content":"12:00","boundingBox":[539,341,553,341,552,347,538,347],"confidence":0.826,"span":{"offset":208,"length":5}},
-                    {"content":"PM-1:00","boundingBox":[554,341,575,341,574,347,553,347],"confidence":0.209,"span":{"offset":214,"length":7}},
-                    {"content":"PM","boundingBox":[576,341,583,341,582,347,575,347],"confidence":0.039,"span":{"offset":222,"length":2}},
-                    {"content":"Delle","boundingBox":[540,348,559,347,558,353,539,353],"confidence":0.58,"span":{"offset":225,"length":5}},
-                    {"content":"Marckre","boundingBox":[560,347,582,348,582,353,559,353],"confidence":0.275,"span":{"offset":231,"length":7}},
-                    {"content":"Product","boundingBox":[539,370,559,371,558,376,539,376],"confidence":0.615,"span":{"offset":239,"length":7}},
-                    {"content":"review","boundingBox":[560,371,576,371,575,376,559,376],"confidence":0.04,"span":{"offset":247,"length":6}}
-                ],
-                "spans":
-                [
-                    {"offset":0,"length":253}
-                ],
                 "lines":
                 [
-                    {"content":"9:35 AM","boundingBox":[130,129,215,130,215,149,130,148],"spans":[{"offset":0,"length":7}]},
-                    {"content":"E Conference room 154584354","boundingBox":[130,153,224,154,224,161,130,161],"spans":[{"offset":8,"length":27}]},
-                    {"content":"#: 555-173-4547","boundingBox":[130,163,182,164,181,171,130,170],"spans":[{"offset":36,"length":15}]},
-                    {"content":"Town Hall","boundingBox":[546,180,590,180,590,190,546,190],"spans":[{"offset":52,"length":9}]},
-                    {"content":"9:00 AM - 10:00 AM","boundingBox":[546,191,596,192,596,200,546,199],"spans":[{"offset":62,"length":18}]},
-                    {"content":"Aaron Buaion","boundingBox":[543,201,581,201,581,208,543,208],"spans":[{"offset":81,"length":12}]},
-                    {"content":"Daily SCRUM","boundingBox":[537,259,575,260,575,266,537,265],"spans":[{"offset":94,"length":11}]},
-                    {"content":"10:00 AM 11:00 AM","boundingBox":[536,266,590,266,590,272,536,272],"spans":[{"offset":106,"length":17}]},
-                    {"content":"Churlette de Crum","boundingBox":[538,273,584,273,585,279,538,279],"spans":[{"offset":124,"length":17}]},
-                    {"content":"Quarterly NI Hands","boundingBox":[538,295,588,295,588,301,538,302],"spans":[{"offset":142,"length":18}]},
-                    {"content":"11.00 AM-12:00 PM","boundingBox":[536,304,588,303,588,309,536,310],"spans":[{"offset":161,"length":17}]},
-                    {"content":"Bebek Shaman","boundingBox":[538,310,577,310,577,316,538,316],"spans":[{"offset":179,"length":12}]},
-                    {"content":"Weekly stand up","boundingBox":[537,332,582,333,582,339,537,338],"spans":[{"offset":192,"length":15}]},
-                    {"content":"12:00 PM-1:00 PM","boundingBox":[537,340,583,340,583,347,536,346],"spans":[{"offset":208,"length":16}]},
-                    {"content":"Delle Marckre","boundingBox":[538,347,582,347,582,352,538,353],"spans":[{"offset":225,"length":13}]},
-                    {"content":"Product review","boundingBox":[538,370,577,370,577,376,538,375],"spans":[{"offset":239,"length":14}]}
+                    {
+                        "text": "9:35 AM",
+                        "boundingPolygon": [{"x":131,"y":130},{"x":214,"y":130},{"x":214,"y":148},{"x":131,"y":148}],
+                        "words": [{"text":"9:35","boundingPolygon":[{"x":132,"y":130},{"x":172,"y":131},{"x":171,"y":149},{"x":131,"y":148}],"confidence":0.977},{"text":"AM","boundingPolygon":[{"x":180,"y":131},{"x":203,"y":131},{"x":202,"y":149},{"x":180,"y":149}],"confidence":0.998}]
+                    },
+                    {
+                        "text": "Conference room 154584354",
+                        "boundingPolygon": [{"x":132,"y":153},{"x":224,"y":153},{"x":224,"y":161},{"x":132,"y":160}],
+                        "words": [{"text":"Conference","boundingPolygon":[{"x":143,"y":153},{"x":174,"y":154},{"x":174,"y":161},{"x":143,"y":161}],"confidence":0.693},{"text":"room","boundingPolygon":[{"x":176,"y":154},{"x":188,"y":154},{"x":188,"y":161},{"x":176,"y":161}],"confidence":0.959},{"text":"154584354","boundingPolygon":[{"x":192,"y":154},{"x":224,"y":154},{"x":223,"y":161},{"x":192,"y":161}],"confidence":0.705}]
+                    },
+                    {
+                        "text": ": 555-123-4567",
+                        "boundingPolygon": [{"x":133,"y":164},{"x":183,"y":164},{"x":183,"y":170},{"x":133,"y":170}],
+                        "words": [{"text":":","boundingPolygon":[{"x":134,"y":165},{"x":137,"y":165},{"x":136,"y":171},{"x":133,"y":171}],"confidence":0.162},{"text":"555-123-4567","boundingPolygon":[{"x":143,"y":165},{"x":182,"y":165},{"x":181,"y":171},{"x":143,"y":171}],"confidence":0.653}]
+                    },
+                    {
+                        "text": "Town Hall",
+                        "boundingPolygon": [{"x":545,"y":178},{"x":588,"y":179},{"x":588,"y":190},{"x":545,"y":190}],
+                        "words": [{"text":"Town","boundingPolygon":[{"x":545,"y":179},{"x":569,"y":180},{"x":569,"y":190},{"x":545,"y":190}],"confidence":0.988},{"text":"Hall","boundingPolygon":[{"x":571,"y":180},{"x":589,"y":180},{"x":589,"y":190},{"x":571,"y":190}],"confidence":0.99}]
+                    },
+                    {
+                        "text": "9:00 AM - 10:00 AM",
+                        "boundingPolygon": [{"x":545,"y":191},{"x":596,"y":191},{"x":596,"y":199},{"x":545,"y":198}],
+                        "words": [{"text":"9:00","boundingPolygon":[{"x":546,"y":191},{"x":556,"y":192},{"x":556,"y":199},{"x":546,"y":199}],"confidence":0.758},{"text":"AM","boundingPolygon":[{"x":558,"y":192},{"x":565,"y":192},{"x":564,"y":199},{"x":558,"y":199}],"confidence":0.989},{"text":"-","boundingPolygon":[{"x":567,"y":192},{"x":570,"y":192},{"x":569,"y":199},{"x":567,"y":199}],"confidence":0.896},{"text":"10:00","boundingPolygon":[{"x":571,"y":192},{"x":585,"y":192},{"x":585,"y":199},{"x":571,"y":199}],"confidence":0.797},{"text":"AM","boundingPolygon":[{"x":587,"y":192},{"x":594,"y":193},{"x":593,"y":199},{"x":586,"y":199}],"confidence":0.994}]
+                    },
+                    {
+                        "text": "Aaron Blaion",
+                        "boundingPolygon": [{"x":542,"y":201},{"x":581,"y":201},{"x":581,"y":207},{"x":542,"y":207}],
+                        "words": [{"text":"Aaron","boundingPolygon":[{"x":545,"y":201},{"x":560,"y":202},{"x":560,"y":208},{"x":545,"y":208}],"confidence":0.718},{"text":"Blaion","boundingPolygon":[{"x":562,"y":202},{"x":579,"y":202},{"x":579,"y":207},{"x":562,"y":207}],"confidence":0.274}]
+                    },
+                    {
+                        "text": "Daily SCRUM",
+                        "boundingPolygon": [{"x":537,"y":258},{"x":574,"y":259},{"x":574,"y":266},{"x":537,"y":265}],
+                        "words": [{"text":"Daily","boundingPolygon":[{"x":538,"y":259},{"x":551,"y":259},{"x":551,"y":266},{"x":538,"y":265}],"confidence":0.404},{"text":"SCRUM","boundingPolygon":[{"x":553,"y":259},{"x":570,"y":260},{"x":570,"y":265},{"x":553,"y":266}],"confidence":0.697}]
+                    },
+                    {
+                        "text": "10:00 AM-11:00 AM",
+                        "boundingPolygon": [{"x":535,"y":266},{"x":589,"y":265},{"x":589,"y":272},{"x":535,"y":273}],
+                        "words": [{"text":"10:00","boundingPolygon":[{"x":539,"y":267},{"x":553,"y":266},{"x":552,"y":273},{"x":539,"y":274}],"confidence":0.219},{"text":"AM-11:00","boundingPolygon":[{"x":554,"y":266},{"x":578,"y":266},{"x":578,"y":272},{"x":554,"y":273}],"confidence":0.175},{"text":"AM","boundingPolygon":[{"x":580,"y":266},{"x":587,"y":266},{"x":586,"y":272},{"x":580,"y":272}],"confidence":1}]
+                    },
+                    {
+                        "text": "Charlene de Crum",
+                        "boundingPolygon": [{"x":538,"y":272},{"x":588,"y":273},{"x":588,"y":279},{"x":538,"y":279}],
+                        "words": [{"text":"Charlene","boundingPolygon":[{"x":538,"y":273},{"x":562,"y":273},{"x":562,"y":280},{"x":538,"y":280}],"confidence":0.322},{"text":"de","boundingPolygon":[{"x":563,"y":273},{"x":569,"y":273},{"x":569,"y":280},{"x":563,"y":280}],"confidence":0.91},{"text":"Crum","boundingPolygon":[{"x":570,"y":273},{"x":582,"y":273},{"x":583,"y":280},{"x":571,"y":280}],"confidence":0.871}]
+                    },
+                    {
+                        "text": "Quarterly NI Handa",
+                        "boundingPolygon": [{"x":537,"y":295},{"x":588,"y":295},{"x":588,"y":302},{"x":537,"y":302}],
+                        "words": [{"text":"Quarterly","boundingPolygon":[{"x":539,"y":296},{"x":563,"y":296},{"x":563,"y":302},{"x":538,"y":302}],"confidence":0.603},{"text":"NI","boundingPolygon":[{"x":564,"y":296},{"x":570,"y":296},{"x":571,"y":302},{"x":564,"y":302}],"confidence":0.73},{"text":"Handa","boundingPolygon":[{"x":572,"y":296},{"x":588,"y":296},{"x":588,"y":302},{"x":572,"y":302}],"confidence":0.905}]
+                    },
+                    {
+                        "text": "11.00 AM-12:00 PM",
+                        "boundingPolygon": [{"x":538,"y":303},{"x":587,"y":303},{"x":587,"y":309},{"x":538,"y":309}],
+                        "words": [{"text":"11.00","boundingPolygon":[{"x":539,"y":303},{"x":552,"y":303},{"x":553,"y":309},{"x":539,"y":310}],"confidence":0.671},{"text":"AM-12:00","boundingPolygon":[{"x":554,"y":303},{"x":578,"y":303},{"x":578,"y":309},{"x":554,"y":309}],"confidence":0.656},{"text":"PM","boundingPolygon":[{"x":579,"y":303},{"x":586,"y":303},{"x":586,"y":309},{"x":580,"y":309}],"confidence":0.454}]
+                    },
+                    {
+                        "text": "Bobek Shemar",
+                        "boundingPolygon": [{"x":538,"y":310},{"x":577,"y":310},{"x":577,"y":316},{"x":538,"y":316}],
+                        "words": [{"text":"Bobek","boundingPolygon":[{"x":539,"y":310},{"x":554,"y":311},{"x":554,"y":317},{"x":539,"y":317}],"confidence":0.632},{"text":"Shemar","boundingPolygon":[{"x":556,"y":311},{"x":576,"y":311},{"x":577,"y":317},{"x":556,"y":317}],"confidence":0.219}]
+                    },
+                    {
+                        "text": "Weekly aband up",
+                        "boundingPolygon": [{"x":538,"y":332},{"x":583,"y":333},{"x":583,"y":339},{"x":538,"y":338}],
+                        "words": [{"text":"Weekly","boundingPolygon":[{"x":539,"y":333},{"x":557,"y":333},{"x":557,"y":339},{"x":539,"y":339}],"confidence":0.575},{"text":"aband","boundingPolygon":[{"x":558,"y":334},{"x":573,"y":334},{"x":573,"y":339},{"x":558,"y":339}],"confidence":0.475},{"text":"up","boundingPolygon":[{"x":574,"y":334},{"x":580,"y":334},{"x":580,"y":339},{"x":574,"y":339}],"confidence":0.865}]
+                    },
+                    {
+                        "text": "12:00 PM-1:00 PM",
+                        "boundingPolygon": [{"x":538,"y":339},{"x":585,"y":339},{"x":585,"y":346},{"x":538,"y":346}],
+                        "words": [{"text":"12:00","boundingPolygon":[{"x":539,"y":339},{"x":553,"y":340},{"x":553,"y":347},{"x":539,"y":346}],"confidence":0.709},{"text":"PM-1:00","boundingPolygon":[{"x":554,"y":340},{"x":575,"y":340},{"x":575,"y":346},{"x":554,"y":347}],"confidence":0.908},{"text":"PM","boundingPolygon":[{"x":576,"y":340},{"x":583,"y":340},{"x":583,"y":346},{"x":576,"y":346}],"confidence":0.998}]
+                    },
+                    {
+                        "text": "Danielle MarchTe",
+                        "boundingPolygon": [{"x":538,"y":346},{"x":583,"y":346},{"x":583,"y":352},{"x":538,"y":352}],
+                        "words": [{"text":"Danielle","boundingPolygon":[{"x":539,"y":347},{"x":559,"y":347},{"x":559,"y":352},{"x":539,"y":353}],"confidence":0.196},{"text":"MarchTe","boundingPolygon":[{"x":560,"y":347},{"x":582,"y":347},{"x":582,"y":352},{"x":560,"y":352}],"confidence":0.571}]
+                    },
+                    {
+                        "text": "Product reviret",
+                        "boundingPolygon": [{"x":537,"y":370},{"x":578,"y":370},{"x":578,"y":375},{"x":537,"y":375}],
+                        "words": [{"text":"Product","boundingPolygon":[{"x":539,"y":370},{"x":559,"y":370},{"x":559,"y":376},{"x":539,"y":375}],"confidence":0.7},{"text":"reviret","boundingPolygon":[{"x":560,"y":370},{"x":578,"y":371},{"x":578,"y":375},{"x":560,"y":376}],"confidence":0.218}]
+                    }
                 ]
             }
-        ],
-        "styles": [],
-        "modelVersion": "2022-04-30"
+        ]
     }
 }
 ```
