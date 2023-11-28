@@ -34,24 +34,39 @@ Currently, the `dapr-component init`` command supports the following Dapr compon
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 - Sign into [Docker Hub](https://www.docker.com/products/docker-hub/)
 
-## Build and run the Docker images
+## Clone the sample repository
 
-In the terminal, package the `order-processor` and `order-publisher` services into Docker images and build the images to your Docker Hub account.
+Clone the [sample project](https://github.com/Azure-Samples/containerapps-dapr-components-init) to your local machine.
 
 ```shell
-docker buildx build --platform linux/amd64 -t daprms.azurecr.io/public/daprio/samples/azcli-capps/python-order-publisher:latest --push ./order-publisher
-docker buildx build --platform linux/amd64 -t daprms.azurecr.io/public/daprio/samples/azcli-capps/python-order-processor:latest --push ./order-processor
+git clone https://github.com/Azure-Samples/containerapps-dapr-components-init.git
 ```
+
+Navigate to the root directory.
+
+```shell
+cd containerapps-dapr-components-init
+```
+
+## (Optional) Build and run Docker images
+
+This sample comes with pre-built Docker images. If you'd like to use your own images, you can package the `order-processor` and `order-publisher` services into Docker images and build the images to your Docker Hub account.
+
+```shell
+docker buildx build --platform linux/amd64 -t $MY_CONTAINER_REGISTRY/python-order-publisher:latest --push ./order-publisher:latest
+docker buildx build --platform linux/amd64 -t $MY_CONTAINER_REGISTRY/python-order-processor:latest --push ./order-processor:latest
+```
+
+If you'd like to use the pre-built images, move on to the next step.
 
 ## Set the environment variables
 
-In the terminal, set the environment variables. Replace the text within brackets below to values applicable to your scenario.
+In the terminal, set the environment variables. You can replace the values below with something more unique.
 
 ```shell
-VAR_RESOURCE_GROUP="{PREFIX}-$(uuidgen | cut -c1-4)"
-VAR_ENVIRONMENT="{YOUR-ACA-ENVIRONMENT}"
-VAR_LOCATION="{YOUR LOCATION}"
-echo $VAR_RESOURCE_GROUP
+VAR_RESOURCE_GROUP="myResourceGroup"
+VAR_ENVIRONMENT="myAcaEnv"
+VAR_LOCATION="eastus"
 ```
 
 ## Create the resource group
@@ -90,26 +105,21 @@ You're up and running with Dapr in Azure Container Apps!
 
 ## View logs
 
-In the Azure portal, navigate to your container app. 
+In the Azure portal, navigate to your resource group. Select either the `order-processor` or `order-publisher` container apps to view their log streams.
 
-NEED SCREENSHOT
+:::image type="content" source="media/dapr-init/view-resource-group.png" alt-text="Screenshot showing the resource group just created in the tutorial with all of the resources included with the sample.":::
 
-Use the following query to view console logs.
+**`order-processor` log streams:**  
 
-```
-ContainerAppConsoleLogs_CL
-// | summarize min(time_t), max(time_t) by RevisionName_s
-| where RevisionName_s in ("order-publisher--fi3vasv", "order-processor--c236r52")
-| where ContainerName_s == "daprd"
-| project time_t, RevisionName_s, Log_s
-| order by time_t asc
-```
+:::image type="content" source="media/dapr-init/order-processor-log-stream.png" alt-text="Screenshot showing the log streams for the order processor container app.":::
 
-NEED SCREENSHOT OF RESULTS
+**`order-publisher` log streams:**
+
+:::image type="content" source="media/dapr-init/order-publisher-log-stream.png" alt-text="Screenshot showing the log streams for the order publisher container app.":::
 
 ## Clean up resources
 
-When you're finished experimenting with this tutorial, remove lingering resources with the following command.
+When you're finished experimenting with this tutorial, remove the sample resources with the following command.
 
 ```shell
 az group delete --name "$VAR_RESOURCE_GROUP"
