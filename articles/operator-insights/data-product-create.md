@@ -56,7 +56,7 @@ You create the Azure Operator Insights Data Product resource.
    1. Under the Instance details, complete the following fields:
       - Name - Enter the name for your Data Product resource. The name must start with a lowercase letter and can contain only lowercase letters and numbers.
       - Publisher - Select Microsoft.
-      - Product - Select Quality of Experience - Affirmed MCC.
+      - Product - Select Quality of Experience - Affirmed MCC GIGW.
       - Version - Select the version.
 
      Select **Next**.

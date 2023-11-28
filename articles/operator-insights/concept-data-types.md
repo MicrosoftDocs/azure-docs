@@ -14,16 +14,16 @@ ms.date: 10/25/2023
 
 A Data Product ingests data from one or more sources, digests and enriches this data, and presents this data to provide domain-specific insights and to support further data analysis.
 
-A data type is used to refer to an individual data source.  The data types can be from outside the Data Product, such as from a network element. The data types can also be created within the Data Product itself by aggregating or enriching the data from other data types.
+A data type is used to refer to an individual data source.  Data types can be from outside the Data Product, such as from a network element. Data types can also be created within the Data Product itself by aggregating or enriching information from other data types.
 
 Data Product operators can choose which data types to use and the data retention period for each data type.
 
 ## Data type contents
 
-Each data type contains data from a specific source. The primary source for a data type might be a network element within the subject domain. Some data types are derived by aggregating or enriching the data from other data types.
+Each data type contains data from a specific source. The primary source for a data type might be a network element within the subject domain. Some data types are derived by aggregating or enriching information from other data types.
 
 - The **Quality of Experience – Affirmed MCC** Data Product includes the *edr* data type that handles Event Data Records from the MCC.  
-- The same Data Product includes a derived *edr-sanitized* data type. This data type contains the same information as  *edr* but with personal data suppressed to support operators' compliance with privacy legislation.
+- The **Quality of Experience – Affirmed MCC** Data Product also includes a derived *edr-sanitized* data type. This data type contains the same information as  *edr* but with personal data suppressed to support operators' compliance with privacy legislation.
 - The **Monitoring – Affirmed MCC** Data Product includes the *pmstats* data type that contains performance management statistics from the MCC EMS.
 
 ## Data type settings
