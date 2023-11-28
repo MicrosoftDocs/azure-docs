@@ -33,6 +33,7 @@ Azure Virtual Machines supports enabling Trusted launch on existing [Azure Gener
 - Azure Generation 2 VM(s) is not using [features currently not supported with Trusted launch](trusted-launch.md#unsupported-features).
 - Azure Generation 2 VM(s) should be **stopped and deallocated** before enabling Trusted launch security type.
 - Azure Backup if enabled for Generation 2 VM(s) should be configured with [Enhanced Backup Policy](../backup/backup-azure-vms-enhanced-policy.md). Trusted launch security type cannot be enabled for Generation 2 VM(s) configured with *Standard Policy* backup protection.
+- Remove any previously created Restore Points (from the Restore Point Collection) that were created via Standard Policy if you want to recreate\convert the existing VM as TVM else the conversion operation will fail with **OperationNotAllowed** with Status Code 409 and ErrorMessage: "'VMName' cannot be upgraded to Trusted Launch as it is configured for Azure Backup using standard policy. Trusted Launch Backup is supported using Enhanced policy. Learn more about supported Trusted Launch upgrade scenarios at https://aka.ms/TrustedLaunchUpgrade".
 
 ## Best practices
 
