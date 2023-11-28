@@ -171,6 +171,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Key Vault (Microsoft.KeyVault/vaults) | vault | privatelink.vaultcore.azure.net | vault.azure.net <br> vaultcore.azure.net |
 >| Azure Key Vault (Microsoft.KeyVault/managedHSMs) | managedhsm | privatelink.managedhsm.azure.net | managedhsm.azure.net 
 >| Azure App Configuration (Microsoft.AppConfiguration/configurationStores) | configurationStores | privatelink.azconfig.io | azconfig.io |
+>| Azure Attestation (Microsoft.Attestation/attestationProviders) | standard | privatelink.attest.azure.net | attest.azure.net |
 
 ### Storage
 
