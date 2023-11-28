@@ -7,10 +7,10 @@ ms.author: rosouz
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/11/2023
+ms.date: 11/28/2023
 ---
 
-# Change Data Capture in Azure Cosmos DB analytical store (preview)
+# Change Data Capture in Azure Cosmos DB analytical store
 
 [!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
 
