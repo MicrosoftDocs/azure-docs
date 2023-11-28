@@ -83,7 +83,6 @@ username: <Azure Communication Services Resource name>|<Entra Application ID>|<E
 ```
 #### SMTP Authentication Password
 The password is one of the Entra application's client secrets.
-
     :::image type="content" source="../media/email-smtp-entra-secret.png" alt-text="Screenshot that shows finding the Entra client secret.":::
 
 ### Requirements for SMTP AUTH client submission
