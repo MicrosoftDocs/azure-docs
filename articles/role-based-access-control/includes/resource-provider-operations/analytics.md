@@ -186,7 +186,7 @@ Azure service: [Event Hubs](../../../event-hubs/index.yml)
 > | Microsoft.EventHub/namespaces/read | Get the list of Namespace Resource Description |
 > | Microsoft.EventHub/namespaces/Delete | Delete Namespace Resource |
 > | Microsoft.EventHub/namespaces/authorizationRules/action | Updates Namespace Authorization Rule. This API is deprecated. Please use a PUT call to update the Namespace Authorization Rule instead.. This operation is not supported on API version 2017-04-01. |
-> | Microsoft.EventHub/namespaces/removeAcsNamepsace/action | Remove Access Control Service namespace |
+> | Microsoft.EventHub/namespaces/removeAcsNamepsace/action | Remove ACS namespace |
 > | Microsoft.EventHub/namespaces/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
 > | Microsoft.EventHub/namespaces/joinPerimeter/action | Action to Join the Network Security Perimeter. This action is used to perform linked access by NSP RP. |
 > | Microsoft.EventHub/namespaces/authorizationRules/read | Get the list of Namespaces Authorization Rules description. |
