@@ -144,10 +144,10 @@ sections:
         answer: |
           The autoinflate feature lets you scale up your throughput units (TUs). It means that you can start by purchasing low TUs and autoinflate scales up your TUs as your ingress increases. It gives you a cost-effective option and complete control of the number of TUs to manage. This feature is a **scale-up only** feature, and you can completely control the scaling down of the number of TUs by updating it. 
           
-          You might want to start with low throughput units (TUs), for example, 2 TUs. If you predict that your traffic might grow to 15 TUs, turn-on the autoinflate feature on your namespace, and set the max limit to 15 TUs. You can now grow your TUs automatically as your traffic grows.
+          You might want to start with low throughput units (TUs), for example, 2 TUs. If you predict that your traffic might grow to 15 TUs, enable the auto inflate feature on your namespace, and set the max limit to 15 TUs. You can now grow your TUs automatically as your traffic grows.
           
       - question: |
-          Is there a cost associated when I turn on the autoinflate feature?
+          Is there a cost associated when I enable the auto inflate feature?
         answer: |
           There's **no cost** associated with this feature. 
           
