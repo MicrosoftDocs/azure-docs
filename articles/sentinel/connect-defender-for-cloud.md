@@ -41,6 +41,7 @@ Enabling **bi-directional sync** will automatically sync the status of original 
 - You will need the `SecurityInsights` resource provider to be registered for each subscription where you want to enable the connector. Review the guidance on the [resource provider registration status](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) and the ways to register it.
 
 - To enable bi-directional sync, you must have the **Contributor** or **Security Admin** role on the relevant subscription.
+
 - Install the solution for **Microsoft Defender for Cloud** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 ## Connect to Microsoft Defender for Cloud
