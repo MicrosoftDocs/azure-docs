@@ -2,15 +2,12 @@
 title: Performance evaluations for Embedded Speech - Speech service
 titleSuffix: Azure AI services
 description: Learn how to evaluate performance of embedded speech models on your target devices.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
-ms.custom: devx-track-extended-java
 ms.topic: how-to
-ms.date: 10/10/2023
+ms.date: 11/28/2023
 ms.author: eur
-zone_pivot_groups: programming-languages-set-thirteen
 ---
 
 # Evaluating performance of Embedded Speech
