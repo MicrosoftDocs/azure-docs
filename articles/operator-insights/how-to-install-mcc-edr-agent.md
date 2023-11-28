@@ -32,7 +32,7 @@ To deploy the agent on your VMs, follow the procedures outlined in the following
 
 ### Acquire the agent RPM
 
-A link to download the MCC EDR agent RPM is provided as part of the Azure Operator Insights onboarding process. See [How do I get access to Azure Operator Insights?](/articles/operator-insights/overview#how-do-i-get-access-to-azure-operator-insights) for details.
+A link to download the MCC EDR agent RPM is provided as part of the Azure Operator Insights onboarding process. See [How do I get access to Azure Operator Insights?](overview.md#how-do-i-get-access-to-azure-operator-insights) for details.
 
 ### Authentication
 
