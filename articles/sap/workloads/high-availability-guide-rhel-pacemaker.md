@@ -455,7 +455,7 @@ When the cluster health attribute is set for a node, the location constraint tri
    Minimum version requirements:
    * RHEL 8.4: `resource-agents-4.1.1-90.13`
    * RHEL 8.6: `resource-agents-4.9.0-16.9`
-   * RHEL 8.8 and newer: `resource-agents-4.9.0-40.1`
+   * RHEL 8.8: `resource-agents-4.9.0-40.1`
    * RHEL 9.0: `resource-agents-cloud-4.10.0-9.6`
    * RHEL 9.2 and newer: `resource-agents-cloud-4.10.0-34.1`
 
