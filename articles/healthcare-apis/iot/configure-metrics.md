@@ -10,7 +10,7 @@ ms.date: 11/21/2023
 ms.author: jasteppe
 ---
 
-# Monitor service performance metrics for the MedTech service
+# Monitor performance metrics for the MedTech service
 Gain insights into the health, availability, latency, traffic, and errors of your organization's MedTech services by monitoring MedTech service metrics in the Azure portal. To help you identify patterns or trends, pin tiles for the metrics to an Azure portal dashboard for easy access and visualization.
 
 ## Configure service metrics
@@ -23,7 +23,7 @@ Gain insights into the health, availability, latency, traffic, and errors of you
 
    :::image type="content" source="media\configure-metrics\select-medtech-service2.png" alt-text="Screenshot showing the MedTech service to display metrics for." lightbox="media\configure-metrics\select-medtech-service2.png":::
 
-3. On the **Metrics** page in the left pane, select **Metrics**.
+3. On the **Metrics** page, in the left pane select **Metrics**.
 
    :::image type="content" source="media\configure-metrics\monitor-metrics.png" alt-text="Screenshot showing the selection of the Metrics menu item in the MedTech service." lightbox="media\configure-metrics\monitor-metrics.png":::
 
@@ -32,7 +32,7 @@ Gain insights into the health, availability, latency, traffic, and errors of you
 5. Select a metric from the drop-down list. 
 :::image type="content" source="media\configure-metrics\add-metric.png" alt-text="Screenshot showing drop-down list of available metrics." lightbox="media\configure-metrics\add-metric.png":::
 
-The metrics are:
+The service performance metrics you can monitor are:
 
 Metric category|Metric name|Metric description|
 |--------------|-----------|--------------|
@@ -46,13 +46,13 @@ Metric category|Metric name|Metric description|
 |Traffic|Number of Message Groups|The number of groups that have messages aggregated in the designated time window.|
 |Traffic|Number of Normalized Messages|The number of normalized messages.|
 
-The screenshot shows an example of the **Number of Incoming Messages** metric.
+The screenshot shows an example of a line chart that monitors the **Number of Incoming Messages**.
 
-   :::image type="content" source="media\configure-metrics\incoming-messages-line-chart.png" alt-text="Screenshot showing the selection of metrics to display." lightbox="media\configure-metrics\select-metrics-being-displayed.png":::
+   :::image type="content" source="media\configure-metrics\incoming-messages-line-chart.png" alt-text="Screenshot showing the number of incoming messages line chart." lightbox="media\configure-metrics\incoming-messages-line-chart.png":::
 
 ## Save metrics as a tile on an Azure dashboard
 
-To keep your MedTech service metrics settings and view the metrics again later, pin them as a tile on an Azure dashboard. For more information, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md)
+To keep your MedTech service metrics settings and view the metrics again later, pin them as a tile on an Azure dashboard. For steps, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md)
 
 To learn more about advanced metrics display and sharing options, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
 
