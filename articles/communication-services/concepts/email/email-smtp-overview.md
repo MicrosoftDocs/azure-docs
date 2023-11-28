@@ -10,6 +10,8 @@ ms.date:  12/01/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 # Azure Communication Services Email SMTP as Service
 Email is still a vital channel for global businesses to connect with customers, and it is an essential part of smooth business operations. Many businesses have made large investments in on-premises infrastructures to support the strong SMTP email needs of their line-of-business (LOB) applications. However, delivering and securing outgoing emails from these existing LOB applications poses a varied challenge. As outgoing emails become more numerous and important, the difficulties of managing this critical aspect of communication become more obvious. Organizations often face problems such as email deliverability, security risks, and the need for centralized control over outgoing communications.
 
