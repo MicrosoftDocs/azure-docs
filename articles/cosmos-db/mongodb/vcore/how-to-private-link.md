@@ -91,6 +91,86 @@ Follow these steps to create a private endpoint for an existing Azure Cosmos DB 
 
 When you have an approved Private Endpoint for an Azure Cosmos DB account, in the Azure portal, the **All networks** option in the **Firewall and virtual networks** pane is unavailable.
 
+## Create a private endpoint by using Azure CLI
+
+Run the following Azure CLI script to create a private endpoint named *myPrivateEndpoint* for an existing Azure Cosmos DB account. Replace the variable values with the details for your environment.
+
+```azurecli-interactive
+# Resource group where the Azure Cosmos DB account and virtual network resources are located  
+ResourceGroupName="myResourceGroup" 
+
+# Name of the existing Azure Cosmos DB account  
+MongovCoreClusterName="myMongoCluster" 
+
+# Subscription ID where the Azure Cosmos DB account and virtual network resources are located  
+SubscriptionId="<your Azure subscription ID>"  
+
+# API type of your Azure Cosmos DB account: Sql, SqlDedicated, MongoDB, Cassandra, Gremlin, or Table CosmosDbSubResourceType="Sql"  
+
+# Name of the virtual network to create  
+VNetName="myVnet"  
+
+# Name of the subnet to create  
+SubnetName="mySubnet"  
+
+# Name of the private endpoint to create  
+PrivateEndpointName="myPrivateEndpoint"  
+
+# Name of the private endpoint connection to create PrivateConnectionName="myConnection" 
+
+az network vnet create \
+  --name $VNetName \
+  --resource-group $ResourceGroupName \
+  --subnet-name $SubnetName 
+
+az network vnet subnet update \
+  --name <name> \
+  --resource-group $ResourceGroupName \
+  --vnet-name $VNetName \
+  --disable-private-endpoint-network-policies true 
+
+az network private-endpoint create \
+  --name $PrivateEndpointName \
+  --resource-group $ResourceGroupName \
+  --vnet-name $VNetName \
+  --subnet $SubnetName \
+  --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DocumentDB/mongoClusters/$MongovCoreClusterName" \
+  --group-ids MongoCluster --connection-name $PrivateConnectionName 
+```
+
+### Integrate the private endpoint with a private DNS zone
+After you create the private endpoint, you can integrate it with a private DNS zone by using the following Azure CLI script:
+
+```azurecli-interactive
+#Zone name differs based on the API type and group ID you are using. zoneName="privatelink.mongocluster.azure.com" 
+
+az network private-dns zone create \
+  --resource-group $ResourceGroupName \
+  --name $zoneName 
+
+az network private-dns link vnet create --resource-group $ResourceGroupName \
+  --zone-name $zoneName \
+  --name <dns-link-name> \
+  --virtual-network $VNetName \
+  --registration-enabled false 
+
+#Create a DNS zone group
+az network private-endpoint dns-zone-group create \
+  --resource-group $ResourceGroupName \
+  --endpoint-name <pe-name> \
+  --name <zone-group-name> \
+  --private-dns-zone $zoneName \
+  --zone-name mongocluster 
+```
+
+## MongoClusters Commands on Private Link 
+```azurecli-interactive
+az network private-link-resource list \
+  -g <rg-name> \
+  -n <resource-name> \
+  --type Microsoft.DocumentDB/mongoClusters 
+```
+
 ## View private endpoints by using the Azure portal
 
 Follow these steps to view a private endpoint for an existing Azure Cosmos DB account by using the Azure portal:
