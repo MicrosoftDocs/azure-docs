@@ -2,7 +2,7 @@
 title: Kubernetes on Azure tutorial - Create an Azure Container Registry and build images
 description: In this Azure Kubernetes Service (AKS) tutorial, you create an Azure Container Registry instance and upload sample application container images.
 ms.topic: tutorial
-ms.date: 11/02/2023
+ms.date: 11/28/2023
 ms.custom: mvc, devx-track-azurecli, devx-track-azurepowershell
 
 #Customer intent: As a developer, I want to learn how to create and use a container registry so that I can deploy my own applications to Azure Kubernetes Service.
@@ -73,9 +73,10 @@ Before creating an ACR instance, you need a resource group. An Azure resource gr
 
 ## Build and push container images to registry
 
-* Build and push the images to your ACR using the [`az acr build`][az-acr-build] command.
+* Build and push the images to your ACR using the Azure CLI [`az acr build`][az-acr-build] command.
 
     > [!NOTE]
+    > For this step, there isn't an equivalent Azure PowerShell cmdlet that performs this task.
     > In the following example, we don't build the `rabbitmq` image. This image is available from the Docker Hub public repository and doesn't need to be built or pushed to your ACR instance.
 
     ```azurecli-interactive
