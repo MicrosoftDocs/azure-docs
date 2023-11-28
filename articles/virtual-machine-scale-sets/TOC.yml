@@ -198,7 +198,7 @@
     maintainContext: true
   - name: Terminate notifications
     href: virtual-machine-scale-sets-terminate-notification.md
-  - name: Monitor automatic instance repairs service state
+  - name: Monitor automatic repairs service state
     href: alert-rules-automatic-repairs-service-state.md
   - name: Instance Metadata service
     items:
