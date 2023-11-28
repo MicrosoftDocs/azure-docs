@@ -54,11 +54,11 @@ Tanzu Build Service allows at most one pool-sized build task to build and twice 
 
 When you create a new Azure Spring Apps Enterprise service instance using the Azure portal, you can use the **VMware Tanzu settings** tab to configure the number of resources given to the build agent pool.
 
-:::image type="content" source="media/how-to-enterprise-build-service/agent-pool.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page with V M ware Tanzu settings highlighted and Allocated Resources dropdown showing." lightbox="media/how-to-enterprise-build-service/agent-pool.png":::
+:::image type="content" source="media/how-to-enterprise-build-service/agent-pool.png" alt-text="Screenshot of Azure portal that shows the Azure Spring Apps Create page with VMware Tanzu settings highlighted and Allocated Resources dropdown showing." lightbox="media/how-to-enterprise-build-service/agent-pool.png":::
 
-The following image shows the resources given to the Tanzu Build Service Agent Pool after you've successfully provisioned the service instance. You can also update the configured agent pool size here after you've created the service instance.
+The following image shows the resources given to the Tanzu Build Service Agent Pool after you successfully provisioned the service instance. You can also update the configured agent pool size here after you created the service instance.
 
-:::image type="content" source="media/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Screenshot of Azure portal showing the Build Service page with the dropdown menu to edit allocate resources showing." lightbox="media/how-to-enterprise-build-service/agent-pool-size.png":::
+:::image type="content" source="media/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Screenshot of Azure portal that shows the Build Service page with the dropdown menu to edit allocate resources showing." lightbox="media/how-to-enterprise-build-service/agent-pool-size.png":::
 
 ## Build service on demand
 
@@ -93,15 +93,15 @@ Use the following steps to enable Tanzu Build Service when provisioning an Azure
 1. Select **Next: VMware Tanzu settings**.
 1. On the **VMware Tanzu settings** tab, select **Enable Build Service**. For **Container registry**, the default setting is **Use a managed Azure Container Registry to store built images**.
 
-   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png" alt-text="Screenshot of the Azure portal showing V M ware Tanzu Settings for the Azure Spring Apps Create page with default Build Service settings highlighted." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png":::
+   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png" alt-text="Screenshot of the Azure portal that shows the VMware Tanzu Settings for the Azure Spring Apps Create page with default Build Service settings highlighted." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png":::
 
 1. If you select **Use your own container registry to store built images (preview)** for **Container registry**, provide your container registry's server, username, and password.
 
-   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png" alt-text="Screenshot of the Azure portal showing V M ware Tanzu Settings for the Azure Spring Apps Create page with use your own container registry highlighted." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png":::
+   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png" alt-text="Screenshot of the Azure portal that shows VMware Tanzu Settings for the Azure Spring Apps Create page with use your own container registry highlighted." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png":::
 
 1. If you disable **Enable Build Service**, the container registry options aren't provided but you can deploy applications with container images.
 
-   :::image type="content" source="media/how-to-enterprise-build-service/disable-build-service.png" alt-text="Screenshot of the Azure portal showing V M ware Tanzu Settings for the Azure Spring Apps Create page with the Enable Build Service not selected." lightbox="media/how-to-enterprise-build-service/disable-build-service.png":::
+   :::image type="content" source="media/how-to-enterprise-build-service/disable-build-service.png" alt-text="Screenshot of the Azure portal that shows VMware Tanzu Settings for the Azure Spring Apps Create page with the Enable Build Service not selected." lightbox="media/how-to-enterprise-build-service/disable-build-service.png":::
 
 1. Select **Review and create**.
 
@@ -123,7 +123,7 @@ Use the following steps to enable Tanzu Build Service when provisioning an Azure
    az provider register --namespace Microsoft.SaaS
    ```
 
-1. Use the following command to accept the legal terms and privacy statements for the Azure Spring Apps Enterprise plan. This step is necessary only if your subscription has never been used to create an Enterprise plan instance.
+1. Use the following command to accept the legal terms and privacy statements for the Azure Spring Apps Enterprise plan. This step is necessary only if you never used your subscription to create an Enterprise plan instance.
 
    ```azurecli
    az term accept \
@@ -200,7 +200,7 @@ You can see all the build resources in the **Builds** section of the Azure Sprin
 :::image type="content" source="media/how-to-enterprise-build-service/build-table.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Build Service page with Builds highlighted." lightbox="media/how-to-enterprise-build-service/build-table.png":::
 
 - **Build Name**: The name of the build.
-- **Provisioning State**: The provisioning state of the build. The values are **Succeeded**, **Failed**, **Updating** and **Creating**. Provisioning state `Updating` or `Creating` means the build can't be updated until the current build finishes. Provisioning state is **Failed** means your latest source code build failed to generate a new build result.
+- **Provisioning State**: The provisioning state of the build. The values are **Succeeded**, **Failed**, **Updating** and **Creating**. Provisioning state `Updating` or `Creating` means the build can't be updated until the current build finishes. Provisioning state **Failed** means your latest source code build has failed to generate a new build result.
 - **Resource Quota**: The resource quota in build pod of the build.
 - **Builder**: The builder used in the build.
 - **Latest Build Result**: The latest build result image tag of the build.
@@ -213,7 +213,7 @@ For `Provisioning State`, when the value is **Failed**, deploy the source code a
 
 For `Latest Build Result Provisioning State`, when the value is **Failed**, check the build logs. For more information, see [Troubleshoot common build issues in Azure Spring Apps](troubleshoot-build-exit-code.md). 
 
-For `Latest Build Result Last Transition Status`, when the value is **Failed**, see the **Latest Build Result Last Transition Reason** column. If the reason is `BUILDPACK` or `STACK`, the failure won't affect the deployment. If the reason is `CONFIG`, deploy the source code again. If the error persists, create a support ticket.
+For `Latest Build Result Last Transition Status`, when the value is **Failed**, see the **Latest Build Result Last Transition Reason** column. If the reason is `BUILDPACK` or `STACK`, no step is necessary. But, if the reason is `CONFIG`, deploy the source code again. If the error persists, create a support ticket.
 
 ## Next steps
 
