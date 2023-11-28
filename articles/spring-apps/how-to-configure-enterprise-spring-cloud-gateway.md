@@ -422,7 +422,7 @@ az monitor autoscale rule create \
 For more information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
 
 ## Configure response cache
-There are some scenarios in which you can use the response cache feature:
+This configuration provides a way to define a HTTP response cache that can be applied at route-level or globally. There are some scenarios in which you can use the response cache feature:
 1. Configure `LocalResponseCache` filter at the per-route level with explict `size` and `timeToLive` parameters.
 1. Set the default values for the parameters, and then configure `LocalResponseCache` filter with no parameters.
 1. Enable response cache globally at the per-gateway-instance level, so you can remove the `LocalResponseCache` filter from each route.
