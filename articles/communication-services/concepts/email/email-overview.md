@@ -35,7 +35,7 @@ Key features include:
 - **Custom Domain** - 	Customers can send mail from their own verified domain(notify.contoso.com).
 - **Sender Authentication Support** - 	Platform Enables support for SPF(Sender Policy Framework) and DKIM(Domain Keys Identified Mail) settings for both Azure managed and Custom Domains with ARC (Authenticated Received Chain) support that preserves the Email authentication result during transitioning.
 - **Email Spam Protection and Fraud Detection** - Platform performs email hygiene for all messages and offers comprehensive email protection using Microsoft Defender components by enabling the existing transport rules for detecting malware's, URL Blocking and Content Heuristic. 
-- **Email Analytics** -	 Email Analytics through Azure Insights. To meet GDPR requirements, we emit logs at the request level that will contain messageId and recipient information for diagnostic and auditing purposes. 
+- **Email Analytics** -	 Email Analytics through Azure Insights. To meet GDPR requirements, we emit logs at the request level that has a messageId and recipient information for diagnostic and auditing purposes. 
 - **Engagement Tracking** - Bounce, Blocked, Open and Click Tracking.
 
 ## Next steps
