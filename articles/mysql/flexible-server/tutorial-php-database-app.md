@@ -158,9 +158,9 @@ Pricing for the create resources is as follows:
 
 To connect to a MySQL database, you can use several methods based on the tools and environments at your disposal:
 
-1. **Command-line tool access**: 
+- **Command-line tool access**: 
    - Use the `mysql` command from the app's SSH terminal for basic access.
-2. **Desktop tools (for example, MySQL Workbench)**:
+- **Desktop tools (for example, MySQL Workbench)**:
    - **Using SSH tunneling with Azure CLI**:
      - Create an [SSH session](../../app-service/configure-linux-open-ssh-session.md#open-ssh-session-from-remote-shell) to the web app by using the Azure CLI.
      - Use the SSH session to tunnel the traffic to MySQL.
@@ -169,7 +169,7 @@ To connect to a MySQL database, you can use several methods based on the tools a
      - Consider using:
        - An Azure VM linked to one of the subnets.
        - A machine in an on-premises network that has a [site-to-site VPN connection](../../vpn-gateway/vpn-gateway-about-vpngateways.md) to the Azure virtual network.
-4. **Azure Cloud Shell integration**:
+- **Azure Cloud Shell integration**:
    - [Integrate Azure Cloud Shell](../../cloud-shell/private-vnet.md) with the virtual network for direct access.
 
 
