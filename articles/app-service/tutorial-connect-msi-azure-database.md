@@ -218,15 +218,15 @@ In this section, connectivity to the Azure database in your code follows the `De
 
 # [Azure SQL Database](#tab/sqldatabase-sc)
 
-[!INCLUDE [code sample for postgres managed identity authentication connection](../service-connector/includes/code-sql-mi.md)]
+[!INCLUDE [code sample for postgres managed identity authentication connection](./includes/tutorial-connect-msi-azure-database/code-sql-mi.md)]
 
 # [Azure Database for MySQL](#tab/mysql-sc)
 
-[!INCLUDE [code sample for mysql managed identity authentication connection](../service-connector/includes/code-mysql-mi.md)]
+[!INCLUDE [code sample for mysql managed identity authentication connection](./includes/tutorial-connect-msi-azure-database/code-mysql-mi.md)]
 
 # [Azure Database for PostgreSQL](#tab/postgresql-sc)
 
-[!INCLUDE [code sample for sql managed identity authentication connection](../service-connector/includes/code-postgres-mi)]
+[!INCLUDE [code sample for sql managed identity authentication connection](./includes/tutorial-connect-msi-azure-database/code-postgres-mi.md)]
 
 -----
 
