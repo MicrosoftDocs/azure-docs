@@ -24,5 +24,5 @@ In the OSDU instance,
 2. The first Service Principal is used for API access. It can also manage infrastructure resources. 
 3. The second Service Principal is used for service-to-service (S2S) communications. 
 
-## Refresh Token
+## Refresh Auth Token
 You can refresh the authorization token using the steps outlined in [Generate a refresh token]. (https://learn.microsoft.com/en-us/azure/energy-data-services/how-to-generate-refresh-token) 
