@@ -160,7 +160,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Site Recovery (Microsoft.RecoveryServices/vaults) | AzureSiteRecovery | privatelink.siterecovery.windowsazure.com | {regionCode}.siterecovery.windowsazure.com |
 >| Azure Monitor (Microsoft.Insights/privateLinkScopes) | azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net <br/> privatelink.blob.core.windows.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net <br/> blob.core.windows.net |
 >| Microsoft Purview (Microsoft.Purview/accounts) | account | privatelink.purview.azure.com | purview.azure.com |
->| Microsoft Purview (Microsoft.Purview/accounts) | portal | privatelink.purviewstudio.azure.com | purview.azure.com </br> purviewstudio.azure.com |
+>| Microsoft Purview (Microsoft.Purview/accounts) | portal | privatelink.purviewstudio.azure.com | purviewstudio.azure.com |
 >| Azure Migrate (Microsoft.Migrate/migrateProjects) | Default | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
 >| Azure Migrate (Microsoft.Migrate/assessmentProjects) | Default | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
 >| Azure Resource Manager (Microsoft.Authorization/resourceManagementPrivateLinks) | ResourceManagement | privatelink.azure.com | azure.com |
