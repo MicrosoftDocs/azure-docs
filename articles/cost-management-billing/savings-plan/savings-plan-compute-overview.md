@@ -22,7 +22,7 @@ You can buy savings plans in the [Azure portal](https://portal.azure.com/) or wi
 
 ## Why buy a savings plan?
 
-If you have consistent compute spend, but your use of disparate resources makes reservations infeasible, buying a savings plan gives you the ability to reduce your costs. For example, If you consistently spend at least $X every hour, but your usage comes from different resources and/or different datacenter regions, you likely can't effectively cover these costs with reservations. When you buy a savings plan, your hourly usage, up to your commitment amount, is discounted. For this usage, you no longer charged at the pay-as-you-go rates.
+If you have consistent compute spend, but your use of disparate resources makes reservations infeasible, buying a savings plan gives you the ability to reduce your costs. For example, if you consistently spend at least $X every hour, but your usage comes from different resources and/or different datacenter regions, you likely can't effectively cover these costs with reservations. When you buy a savings plan, your hourly usage, up to your commitment amount, is discounted. For this usage, you no longer charged at the pay-as-you-go rates.
 
 ## How savings plan benefits are applied
 
