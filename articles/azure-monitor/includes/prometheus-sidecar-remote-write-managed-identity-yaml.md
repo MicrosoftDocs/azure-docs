@@ -1,3 +1,4 @@
+```yml
 prometheus:
   prometheusSpec:
     externalLabels:
@@ -53,3 +54,4 @@ prometheus:
       # Optional parameter
       - name: CLUSTER
         value: <CLUSTER-NAME>
+```
