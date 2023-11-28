@@ -14,6 +14,8 @@
     href: whats-new-archive.md
 - name: Quickstarts
   items:
+    - name: Create Runtime environment - Azure portal
+      href: quickstart-update-runbook-in-runtime-environment.md
     - name: Create Automation account - Azure portal
       href: quickstarts/create-azure-automation-account-portal.md
     - name: Enable managed identities - Azure portal

@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Update a runbook from PowerShell 5.1 to PowerShell 7.2 in Azure Runtime environment
 
-Using the Runtime environment, you can upgrade a runbook from one version to the other by creating a different runtime environment and then link the runbook.
+Using the Runtime environment, you can upgrade a runbook from one version to the other by creating a different runtime environment and then linking the runbook.
 
 > [!NOTE]
 > A runbook can be mapped to a single runtime environment, while a specific runtime environment can be mapped to multiple runbooks.
@@ -48,8 +48,8 @@ Using the Runtime environment, you can upgrade a runbook from one version to the
 
 ## Update Runtime environment of runbook
 
-1. In the Automation account | Runbooks page, select **Update**.
-1. In the **Update Runtime Environment** pop-up window, select **Runtime environment** to view the list of compatible runtime environments that you can link to the runbook. Here, select the Runtime environment that you created in [step 1](#create-runtime-environment) - PowerShell 7.2(preview).
+1. In the **Automation account | Runbooks** page, select **Update**.
+1. In the **Update Runtime Environment** pop-up window, select **Runtime environment** to view the list of compatible runtime environments that you can link to the runbook. Here, select the Runtime environment - PowerShell 7.2 (preview) that you created in [Runtime environment](#create-runtime-environment).
 
    In the **Automation | Runbooks** page, you can view the details under the **Runtime environment** column.
 
