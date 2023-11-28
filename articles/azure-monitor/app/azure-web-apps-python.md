@@ -25,7 +25,7 @@ The integration instruments popular Python libraries in your code, letting you a
 | [OpenTelemetry UrlLib3 Instrumentation][ot_instrumentation_urllib3] | [`urllib3`][pypi_urllib3] | [link][ot_instrumentation_urllib3_version]
 
 > [!NOTE]
-> If using Django, see the additional[Django Instrumentation](#Django-Instrumentation) section in this article.
+> If using Django, see the additional[Django Instrumentation](#django-instrumentation) section in this article.
 
 Logging telemetry is also collected with your logs that use the standard Python logging library.
 
