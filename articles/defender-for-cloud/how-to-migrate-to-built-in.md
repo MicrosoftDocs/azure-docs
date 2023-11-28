@@ -14,15 +14,15 @@ Microsoft Defender for Cloud is unifying all vulnerability assessment solutions 
 MDVM integrates across many cloud native use cases, such as containers build/runtime scenarios, agentless scanning for Virtual Machines (VM) and more. 
 
 > [!NOTE]
-> The Defender for Cloud Servers vulnerability assessment powered by Qualys is now on a retirement path starts on November 27th and will be completed on **May 1st, 2024**.
+> The Defender for Cloud servers vulnerability assessment powered by Qualys is now on a retirement path that starts on November 27th and completes on **May 1st, 2024**.
 >
-> If you are using the vulnerability assessment powered by Qualys on at least one machine within a tenant with either Defender for Servers plans enabled prior to **December 15th, 2023**, you can continue to use the vulnerability assessment powered by Qualys until **May 1st, 2024**.
+> If you are currently using the vulnerability assessment powered by Qualys on at least one machine within a tenant with either of the Defender for Servers plans enabled prior to **December 15th, 2023**, you can continue to use the vulnerability assessment powered by Qualys until **May 1st, 2024**.
 >
-> Learn more about [the change to Microsoft Defender Vulnerability Management](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
+> Check out this blog, to learn more about [the change to Microsoft Defender Vulnerability Management](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
 >
 > The Bring Your Own License vulnerability assessment solution, which can be powered by Qualys or Rapid7, isn't included in the retirement path.
 
-If you're currently using the [built-in vulnerability assessment solution powered by Qualys](deploy-vulnerability-assessment-vm.md) to start planning for the upcoming deprecations by following the steps on this page.
+If you're currently using the [built-in vulnerability assessment solution powered by Qualys](deploy-vulnerability-assessment-vm.md), you should start planning for the upcoming deprecations by following the steps on this page.
 
 There are three recommended methods to enable the built-in Microsoft Defender Vulnerability Management (MDVM) solution within Defender for Cloud:
 
