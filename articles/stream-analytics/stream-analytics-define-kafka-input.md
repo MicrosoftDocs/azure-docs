@@ -43,7 +43,7 @@ You can use four types of security protocols to connect to your Kafka clusters:
 
 > [!NOTE]
 > For SASL_SSL and SASL_PLAINTEXT, Azure Stream Analytics supports only PLAIN SASL mechanism.
-> > You must upload certificates as secrets to key vault using Azure CLI.
+> You must upload certificates as secrets to key vault using Azure CLI.
 
 |Property name   |Description   |
 |----------|-----------|
@@ -175,10 +175,10 @@ Visit the [Run your Azure Stream Analytics job in an Azure Virtual Network docum
 
 
 ## Next steps
-> [!div class="nextstepaction"]
-> [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
-> [Stream data from confluent cloud Kafka with Azure Stream Analytics](confluent-kafka-input.md)
-> [Stream data from Azure Stream Analytics into confluent cloud](confluent-kafka-output.md)
+
+* [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
+* [Stream data from confluent cloud Kafka with Azure Stream Analytics](confluent-kafka-input.md)
+* [Stream data from Azure Stream Analytics into confluent cloud](confluent-kafka-output.md)
 
 
 <!--Link references-->

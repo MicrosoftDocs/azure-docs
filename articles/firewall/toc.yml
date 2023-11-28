@@ -131,6 +131,8 @@ items:
       href: firewall-multi-hub-spoke.md
     - name: Azure Firewall with Microsoft Sentinel
       href: firewall-sentinel-overview.md
+    - name: Best practices for performance
+      href: firewall-best-practices.md
 - name: How-to guides
   items:
   - name: Deploy
