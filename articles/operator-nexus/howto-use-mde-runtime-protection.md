@@ -50,7 +50,7 @@ az networkcloud cluster update \
 --subscription ${SUBSCRIPTION_ID} \
 --resource-group ${RESOURCE_GROUP} \
 --cluster-name ${CLUSTER_NAME} \
---runtime-protection-configuration enforcement-level="Disabled"
+--runtime-protection enforcement-level="Disabled"
 ```
 
 Upon execution, inspect the output for the following:
@@ -65,12 +65,12 @@ Running this command will make the Cluster aware of the MDE runtime protection s
 to a value other than `Disabled` in the next section
 
 > [!NOTE]
->As you have noted, the argument `--runtime-protection-configuration enforcement-level="<enforcement level>"` serves two purposes: enabling/disabling MDE service and updating the enforcement level.
+>As you have noted, the argument `--runtime-protection enforcement-level="<enforcement level>"` serves two purposes: enabling/disabling MDE service and updating the enforcement level.
 
 If you want to disable the MDE service across your Cluster, use an `<enforcement level>` of `Disabled`.
 
 ## Configuring enforcement level
-The `az networkcloud cluster update` allows you to update of the settings for Cluster runtime protection *enforcement level* by using the argument `--runtime-protection-configuration enforcement-level="<enforcement level>"`.
+The `az networkcloud cluster update` allows you to update of the settings for Cluster runtime protection *enforcement level* by using the argument `--runtime-protection enforcement-level="<enforcement level>"`.
 
 The following command configures the `enforcement level` for your Cluster.
 
@@ -79,7 +79,7 @@ az networkcloud cluster update \
 --subscription ${SUBSCRIPTION_ID} \
 --resource-group ${RESOURCE_GROUP} \
 --cluster-name ${CLUSTER_NAME} \
---runtime-protection-configuration enforcement-level="<enforcement level>"
+--runtime-protection enforcement-level="<enforcement level>"
 ```
 
 Allowed values for `<enforcement level>`: `Audit`, `Disabled`, `OnDemand`, `Passive`, `RealTime`. 
