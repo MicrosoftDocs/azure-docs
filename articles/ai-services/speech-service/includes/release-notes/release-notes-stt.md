@@ -12,7 +12,7 @@ ms.author: eur
 We're thrilled to unveil a groundbreaking addition to our real-time speech modeling—Bilingual Speech Modeling. This significant enhancement allows our speech model to seamlessly support bilingual language pairs, such as English and Spanish, as well as English and French. This feature empowers users to effortlessly switch between languages during real-time interactions, marking a pivotal moment in our commitment to enhancing communication experiences.
  
 Key Highlights:
-- Bilingual Support: With our latest release, users can seamlessly switch between English and Spanish during real-time speech interactions. This functionality is tailored to accommodate bilingual speakers who frequently transition between these two languages.
+- Bilingual Support: With our latest release, users can seamlessly switch between English and Spanish or between English and French during real-time speech interactions. This functionality is tailored to accommodate bilingual speakers who frequently transition between these two languages.
 - Enhanced User Experience: Bilingual speakers, whether at work, home, or in various community settings, will find this feature immensely beneficial. The model's ability to comprehend and respond to both English and Spanish in real time opens up new possibilities for effective and fluid communication.
  
 How to Use:
