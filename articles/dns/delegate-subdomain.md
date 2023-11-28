@@ -5,36 +5,34 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.date: 09/27/2022
+ms.date: 11/27/2023
 ms.author: greglin
 ---
 
 # Delegate an Azure DNS subdomain
 
-You can use the Azure portal to delegate a DNS subdomain. For example, if you own the contoso.com domain, you may delegate a subdomain called *engineering* to another separate zone that you can administer separately from the contoso.com zone.
+You can use the Azure portal to delegate a DNS subdomain. For example, if you own the adatum.com domain, you may delegate a subdomain called *engineering* to another separate zone that you can administer separately from the adatum.com zone.
 
 If you prefer, you can also delegate a subdomain using [Azure PowerShell](delegate-subdomain-ps.md).
 
 ## Prerequisites
 
-To delegate an Azure DNS subdomain, you must first delegate your public domain to Azure DNS. See [Delegate a domain to Azure DNS](./dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation. Once your domain is delegated to your Azure DNS zone, you can delegate your subdomain.
+To delegate an Azure DNS subdomain, you must first delegate your parent public domain to Azure DNS. See [Delegate a domain to Azure DNS](./dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation. Once your domain is delegated to Azure DNS, you can delegate your subdomain.
 
 > [!NOTE]
-> Contoso.com is used as an example throughout this article. Substitute your own domain name for contoso.com.
+> Adatum.com is used as an example of a parent DNS zone. Substitute your own domain name for adatum.com.
 
 ## Create a zone for your subdomain
 
 First, create the zone for the **engineering** subdomain.
 
 1. From the Azure portal, select **+ Create a resource**.
-
-1. Search for **DNS zone** and then select **Create**.
-
-1. On the **Create DNS zone** page, select the resource group for your zone. You may want to use the same resource group as the parent zone to keep similar resources together.
-
-1.  Enter `engineering.contoso.com` for the **Name** and then select **Create**.
-
-1. After the deployment succeeds, go to the new zone.
+2. Search for **DNS zone** and then select **Create**.
+3. On the **Create DNS zone** page, select the resource group for your zone. to keep similar resources together, use the same resource group as the parent zone . You can also choose a different resource group if desired.
+4. Under **Instance details**, select **This zohne is a child of an existing zone already hosted in Azure DNS**. 
+5. Select the parent zone subscription and name.
+6. Enter `engineering` next to **Name**, select **Review create** and then select **Create**.
+7. After the deployment succeeds, go to the new zone.
 
 ## Note the name servers
 
@@ -51,26 +49,19 @@ Create an **A** record to use for testing. For example, create a **www** A recor
 Next, create a name server (NS) record  for the **engineering** zone.
 
 1. Navigate to the zone for the parent domain.
-
-1. Select **+ Record set** at the top of the overview page.
-
-1. On the **Add record set** page, type **engineering** in the **Name** text box.
-
-1. For **Type**, select **NS**.
-
-1. Under **Name server**, enter the four name servers that you noted previously from the **engineering** zone.
-
-1. Select **OK** to save the record.
+2. Select **+ Record set** at the top of the overview page.
+3. On the **Add record set** page, type **engineering** in the **Name** text box.
+4. For **Type**, select **NS**.
+5. Under **Name server**, enter the four name servers that you noted previously from the **engineering** zone.
+6. Select **OK** to save the record.
 
 ## Test the delegation
 
 Use nslookup to test the delegation.
 
-1. Open a PowerShell window.
-
-1. At command prompt, type `nslookup www.engineering.contoso.com.`
-
-1. You should receive a non-authoritative answer showing the address **10.10.10.10**.
+1. Open a command prompt.
+2. At command prompt, type `nslookup www.engineering.contoso.com.`
+3. You should receive a non-authoritative answer showing the address **10.10.10.10**.
 
 ## Next steps
 
