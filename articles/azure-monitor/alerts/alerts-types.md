@@ -131,8 +131,8 @@ Log alerts can measure two different things, which can be used for different mon
 
 You can configure if log alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). This feature is currently in preview. 
 Note that stateful log alerts have these limitations:
-    - they can trigger up to 300 alerts per evaluation.
-    - you can have a maximum of 5000 alerts with the `fired` alert condition.
+- they can trigger up to 300 alerts per evaluation.
+- you can have a maximum of 5000 alerts with the `fired` alert condition.
 
 > [!NOTE]
 > Log alerts work best when you're trying to detect specific data in the logs, as opposed to when you're trying to detect a lack of data in the logs. Because logs are semi-structured data, they're inherently more latent than metric data on information like a VM heartbeat. To avoid misfires when you're trying to detect a lack of data in the logs, consider using [metric alerts](#metric-alerts). You can send data to the metric store from logs by using [metric alerts for logs](alerts-metric-logs.md).
