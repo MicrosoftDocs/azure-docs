@@ -71,7 +71,7 @@ The following table compares the features available with each product.
 | Easy integration with Azure services, such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md), and [Media Services](/azure/media-services/previous/media-services-portal-manage-streaming-endpoints)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Management via [REST API](/rest/api/cdn/), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md), or [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Compression MIME types](./cdn-improve-performance.md)  |Configurable |Configurable |Configurable  |Configurable  |
-| Compression encodings  |gzip, brotli |gzip |gzip, deflate, bzip2  |gzip, deflate, bzip2  |
+| Compression encodings  |gzip, brotli |gzip |gzip, deflate, bzip2, brotli  |gzip, deflate, bzip2, brotli  |
 
 ## Migration
 

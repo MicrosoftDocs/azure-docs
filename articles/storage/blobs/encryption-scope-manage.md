@@ -6,7 +6,7 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.date: 05/10/2023
+ms.date: 11/07/2023
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: ozgun
@@ -22,7 +22,9 @@ This article shows how to create an encryption scope. It also shows how to speci
 
 ## Create an encryption scope
 
-You can create an encryption scope that is protected with a Microsoft-managed key or with a customer-managed key that is stored in an Azure Key Vault or in an Azure Key Vault Managed Hardware Security Model (HSM). To create an encryption scope with a customer-managed key, you must first create a key vault or managed HSM and add the key you intend to use for the scope. The key vault or managed HSM must have purge protection enabled. The storage account and key vault can be in different regions.
+You can create an encryption scope that is protected with a Microsoft-managed key or with a customer-managed key that is stored in an Azure Key Vault or in an Azure Key Vault Managed Hardware Security Model (HSM). To create an encryption scope with a customer-managed key, you must first create a key vault or managed HSM and add the key you intend to use for the scope. The key vault or managed HSM must have purge protection enabled.
+
+The storage account and the key vault can be in the same tenant, or in different tenants. In either case, the storage account and key vault can be in different regions.
 
 An encryption scope is automatically enabled when you create it. After you create the encryption scope, you can specify it when you create a blob. You can also specify a default encryption scope when you create a container, which automatically applies to all blobs in the container.
 
@@ -50,16 +52,16 @@ To create an encryption scope with PowerShell, install the [Az.Storage](https://
 
 ### Create an encryption scope protected by Microsoft-managed keys
 
-To create a new encryption scope that is protected by Microsoft-managed keys, call the [New-AzStorageEncryptionScope](/powershell/module/az.storage/new-azstorageencryptionscope) command with the `-StorageEncryption` parameter.
+To create an encryption scope that is protected by Microsoft-managed keys, call the [New-AzStorageEncryptionScope](/powershell/module/az.storage/new-azstorageencryptionscope) command with the `-StorageEncryption` parameter.
 
 If infrastructure encryption is enabled for the storage account, then it will automatically be enabled for the new encryption scope. Otherwise, you can choose whether to enable infrastructure encryption for the encryption scope. To create the new scope with infrastructure encryption enabled, include the `-RequireInfrastructureEncryption` parameter.
 
 Remember to replace the placeholder values in the example with your own values:
 
-```powershell
+```azurepowershell
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
-$scopeName1 = "customer1scope"
+$scopeName = "<encryption-scope>"
 
 New-AzStorageEncryptionScope -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
@@ -67,43 +69,84 @@ New-AzStorageEncryptionScope -ResourceGroupName $rgName `
     -StorageEncryption
 ```
 
-### Create an encryption scope protected by customer-managed keys
+### Create an encryption scope protected by customer-managed keys in the same tenant
 
-To create a new encryption scope that is protected by customer-managed keys stored in a key vault or managed HSM, first configure customer-managed keys for the storage account. You must assign a managed identity to the storage account and then use the managed identity to configure the access policy for the key vault or managed HSM so that the storage account has permissions to access it.
+To create an encryption scope that is protected by customer-managed keys stored in a key vault or managed HSM that is in the same tenant as the storage account, first configure customer-managed keys for the storage account. You must assign a managed identity to the storage account that has permissions to access the key vault. The managed identity can be either a user-assigned managed identity or a system-assigned managed identity. To learn more about configuring customer-managed keys, see [Configure customer-managed keys in the same tenant for an existing storage account](../common/customer-managed-keys-configure-existing-account.md).
 
-To configure customer-managed keys for use with an encryption scope, purge protection must be enabled on the key vault or managed HSM. The key vault or managed HSM can be in a different region from the storage account.
+To grant the managed identity permissions to access the key vault, assign the **Key Vault Crypto Service Encryption User** role the managed identity.
 
-Remember to replace the placeholder values in the example with your own values:
+To configure customer-managed keys for use with an encryption scope, purge protection must be enabled on the key vault or managed HSM.
 
-```powershell
+The following example shows how to configure an encryption scope with a system-assigned managed identity. Remember to replace the placeholder values in the example with your own values:
+
+```azurepowershell
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
 $keyVaultName = "<key-vault>"
-$keyUri = "<key-uri>"
-$scopeName2 = "customer2scope"
+$scopeName = "<encryption-scope>"
 
-# Assign a system managed identity to the storage account.
+# Assign a system-assigned managed identity to the storage account.
 $storageAccount = Set-AzStorageAccount -ResourceGroupName $rgName `
     -Name $accountName `
     -AssignIdentity
 
-# Configure the access policy for the key vault.
-Set-AzKeyVaultAccessPolicy `
-    -VaultName $keyVaultName `
-    -ObjectId $storageAccount.Identity.PrincipalId `
-    -PermissionsToKeys wrapkey,unwrapkey,get
+# Assign the necessary permissions to the managed identity 
+# so that it can access the key vault.
+$principalId = $storageAccount.Identity.PrincipalId
+$keyVault = Get-AzKeyVault $keyVaultName
+
+New-AzRoleAssignment -ObjectId $storageAccount.Identity.PrincipalId `
+    -RoleDefinitionName "Key Vault Crypto Service Encryption User" `
+    -Scope $keyVault.ResourceId
 ```
 
 Next, call the [New-AzStorageEncryptionScope](/powershell/module/az.storage/new-azstorageencryptionscope) command with the `-KeyvaultEncryption` parameter, and specify the key URI. Including the key version on the key URI is optional. If you omit the key version, then the encryption scope will automatically use the most recent key version. If you include the key version, then you must update the key version manually to use a different version.
+
+The format of the key URI is similar to the following examples, and can be constructed from the key vault's [VaultUri](/dotnet/api/microsoft.azure.commands.keyvault.models.pskeyvault.vaulturi) property and the key name:
+
+```http
+# Without the key version
+https://<key-vault>.vault.azure.net/keys/<key>
+
+# With the key version
+https://<key-vault>.vault.azure.net/keys/<key>/<version>
+```
 
 If infrastructure encryption is enabled for the storage account, then it will automatically be enabled for the new encryption scope. Otherwise, you can choose whether to enable infrastructure encryption for the encryption scope. To create the new scope with infrastructure encryption enabled, include the `-RequireInfrastructureEncryption` parameter.
 
 Remember to replace the placeholder values in the example with your own values:
 
-```powershell
+```azurepowershell
+$keyUri = $keyVault.VaultUri + "keys/" + $keyName
+
 New-AzStorageEncryptionScope -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -EncryptionScopeName $scopeName2 `
+    -EncryptionScopeName $scopeName `
+    -KeyUri $keyUri `
+    -KeyvaultEncryption
+```
+
+### Create an encryption scope protected by customer-managed keys in a different tenant
+
+To create an encryption scope that is protected by customer-managed keys stored in a key vault or managed HSM that is in a different tenant than the storage account, first configure customer-managed keys for the storage account. You must configure a user-assigned managed identity for the storage account that has permissions to access the key vault in the other tenant. To learn more about configuring cross-tenant customer-managed keys, see [Configure cross-tenant customer-managed keys for an existing storage account](../common/customer-managed-keys-configure-cross-tenant-existing-account.md).
+
+To configure customer-managed keys for use with an encryption scope, purge protection must be enabled on the key vault or managed HSM.
+
+After you have configured cross-tenant customer-managed keys for the storage account, you can create an encryption scope on the storage account in one tenant that is scoped to a key in a key vault in the other tenant. You will need the key URI to create the cross-tenant encryption scope.
+
+Remember to replace the placeholder values in the example with your own values:
+
+```azurepowershell
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+$scopeName = "<encryption-scope>"
+
+# Construct the key URI from the key vault URI and key name.
+$keyUri = $kvUri + "keys/" + $keyName
+
+New-AzStorageEncryptionScope -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -EncryptionScopeName $scopeName `
     -KeyUri $keyUri `
     -KeyvaultEncryption
 ```
@@ -114,73 +157,97 @@ To create an encryption scope with Azure CLI, first install Azure CLI version 2.
 
 ### Create an encryption scope protected by Microsoft-managed keys
 
-To create a new encryption scope that is protected by Microsoft-managed keys, call the [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) command, specifying the `--key-source` parameter as `Microsoft.Storage`.
+To create an encryption scope that is protected by Microsoft-managed keys, call the [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) command, specifying the `--key-source` parameter as `Microsoft.Storage`.
 
 If infrastructure encryption is enabled for the storage account, then it will automatically be enabled for the new encryption scope. Otherwise, you can choose whether to enable infrastructure encryption for the encryption scope. To create the new scope with infrastructure encryption enabled, include the `--require-infrastructure-encryption` parameter and set its value to `true`.
 
 Remember to replace the placeholder values with your own values:
 
-```azurecli-interactive
+```azurecli
 az storage account encryption-scope create \
     --resource-group <resource-group> \
     --account-name <storage-account> \
-    --name <scope> \
+    --name <encryption-scope> \
     --key-source Microsoft.Storage
 ```
 
-### Create an encryption scope protected by customer-managed keys
+### Create an encryption scope protected by customer-managed keys in the same tenant
 
-To create a new encryption scope that is protected by customer-managed keys in a key vault or managed HSM, first configure customer-managed keys for the storage account. You must assign a managed identity to the storage account and then use the managed identity to configure the access policy for the key vault so that the storage account has permissions to access it. For more information, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md).
+To create an encryption scope that is protected by customer-managed keys stored in a key vault or managed HSM that is in the same tenant as the storage account, first configure customer-managed keys for the storage account. You must assign a managed identity to the storage account that has permissions to access the key vault. The managed identity can be either a user-assigned managed identity or a system-assigned managed identity. To learn more about configuring customer-managed keys, see [Configure customer-managed keys in the same tenant for an existing storage account](../common/customer-managed-keys-configure-existing-account.md).
 
-To configure customer-managed keys for use with an encryption scope, purge protection must be enabled on the key vault or managed HSM. The key vault or managed HSM can be in a different region from the storage account.
+To grant the managed identity permissions to access the key vault, assign the **Key Vault Crypto Service Encryption User** role the managed identity.
 
-Remember to replace the placeholder values in the example with your own values:
+To configure customer-managed keys for use with an encryption scope, purge protection must be enabled on the key vault or managed HSM.
 
-```azurecli-interactive
-az login
-az account set --subscription <subscription-id>
+The following example shows how to configure an encryption scope with a system-assigned managed identity. Remember to replace the placeholder values in the example with your own values:
 
+```azurecli
 az storage account update \
     --name <storage-account> \
     --resource-group <resource_group> \
     --assign-identity
 
-storage_account_principal=$(az storage account show \
-    --name <storage-account> \
-    --resource-group <resource-group> \
+principalId=$(az storage account show --name <storage-account> \
+    --resource-group <resource_group> \
     --query identity.principalId \
     --output tsv)
 
-az keyvault set-policy \
+$kvResourceId=$(az keyvault show \
+    --resource-group <resource-group> \
     --name <key-vault> \
-    --resource-group <resource_group> \
-    --object-id $storage_account_principal \
-    --key-permissions get unwrapKey wrapKey
+    --query id \
+    --output tsv)
+
+az role assignment create --assignee-object-id $principalId \
+    --role "Key Vault Crypto Service Encryption User" \
+    --scope $kvResourceId
 ```
 
 Next, call the [az storage account encryption-scope](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) command with the `--key-uri` parameter, and specify the key URI. Including the key version on the key URI is optional. If you omit the key version, then the encryption scope will automatically use the most recent key version. If you include the key version, then you must update the key version manually to use a different version.
+
+The format of the key URI is similar to the following examples, and can be constructed from the key vault's **vaultUri** property and the key name:
+
+```http
+# Without the key version
+https://<key-vault>.vault.azure.net/keys/<key>
+
+# With the key version
+https://<key-vault>.vault.azure.net/keys/<key>/<version>
+```
 
 If infrastructure encryption is enabled for the storage account, then it will automatically be enabled for the new encryption scope. Otherwise, you can choose whether to enable infrastructure encryption for the encryption scope. To create the new scope with infrastructure encryption enabled, include the `--require-infrastructure-encryption` parameter and set its value to `true`.
 
 Remember to replace the placeholder values in the example with your own values:
 
-```azurecli-interactive
+```azurecli
 az storage account encryption-scope create \
     --resource-group <resource-group> \
     --account-name <storage-account> \
-    --name <scope> \
+    --name <encryption-scope> \
+    --key-source Microsoft.KeyVault \
+    --key-uri <key-uri>
+```
+
+### Create an encryption scope protected by customer-managed keys in a different tenant
+
+To create an encryption scope that is protected by customer-managed keys stored in a key vault or managed HSM that is in a different tenant than the storage account, first configure customer-managed keys for the storage account. You must configure a user-assigned managed identity for the storage account that has permissions to access the key vault in the other tenant. To learn more about configuring cross-tenant customer-managed keys, see [Configure cross-tenant customer-managed keys for an existing storage account](../common/customer-managed-keys-configure-cross-tenant-existing-account.md).
+
+To configure customer-managed keys for use with an encryption scope, purge protection must be enabled on the key vault or managed HSM.
+
+After you have configured cross-tenant customer-managed keys for the storage account, you can create an encryption scope on the storage account in one tenant that is scoped to a key in a key vault in the other tenant. You will need the key URI to create the cross-tenant encryption scope.
+
+Remember to replace the placeholder values in the example with your own values:
+
+```azurecli
+az storage account encryption-scope create \
+    --resource-group <resource-group> \
+    --account-name <storage-account> \
+    --name <encryption-scope> \
     --key-source Microsoft.KeyVault \
     --key-uri <key-uri>
 ```
 
 ---
-
-To learn how to configure Azure Storage encryption with customer-managed keys in a key vault or managed HSM, see the following articles:
-
-- [Configure encryption with customer-managed keys stored in Azure Key Vault](../common/customer-managed-keys-configure-key-vault.md)
-- [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](../common/customer-managed-keys-configure-key-vault-hsm.md)
-
-To learn more about infrastructure encryption, see [Enable infrastructure encryption for double encryption of data](../common/infrastructure-encryption-enable.md).
 
 ## List encryption scopes for storage account
 
@@ -198,14 +265,14 @@ To view details for a customer-managed key, including the key URI and version an
 
 To list the encryption scopes available for a storage account with PowerShell, call the **Get-AzStorageEncryptionScope** command. Remember to replace the placeholder values in the example with your own values:
 
-```powershell
+```azurepowershell
 Get-AzStorageEncryptionScope -ResourceGroupName $rgName `
     -StorageAccountName $accountName
 ```
 
 To list all encryption scopes in a resource group by storage account, use the pipeline syntax:
 
-```powershell
+```azurepowershell
 Get-AzStorageAccount -ResourceGroupName $rgName | Get-AzStorageEncryptionScope
 ```
 
@@ -213,7 +280,7 @@ Get-AzStorageAccount -ResourceGroupName $rgName | Get-AzStorageEncryptionScope
 
 To list the encryption scopes available for a storage account with Azure CLI, call the [az storage account encryption-scope list](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-list) command. Remember to replace the placeholder values in the example with your own values:
 
-```azurecli-interactive
+```azurecli
 az storage account encryption-scope list \
     --account-name <storage-account> \
     --resource-group <resource-group>
@@ -231,7 +298,7 @@ An individual blob can be created with its own encryption scope, unless the cont
 
 To create a container with a default encryption scope in the Azure portal, first create the encryption scope as described in [Create an encryption scope](#create-an-encryption-scope). Next, follow these steps to create the container:
 
-1. Navigate to the list of containers in your storage account, and select the **Add** button to create a new container.
+1. Navigate to the list of containers in your storage account, and select the **Add** button to create a container.
 1. Expand the **Advanced** settings in the **New Container** pane.
 1. In the **Encryption scope** drop-down, select the default encryption scope for the container.
 1. To require that all blobs in the container use the default encryption scope, select the checkbox to **Use this encryption scope for all blobs in the container**. If this checkbox is selected, then an individual blob in the container cannot override the default encryption scope.
@@ -242,7 +309,7 @@ To create a container with a default encryption scope in the Azure portal, first
 
 To create a container with a default encryption scope with PowerShell, call the [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) command, specifying the scope for the `-DefaultEncryptionScope` parameter. To force all blobs in a container to use the container's default scope, set the `-PreventEncryptionScopeOverride` parameter to `true`.
 
-```powershell
+```azurepowershell
 $containerName1 = "container1"
 $ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
 
@@ -259,12 +326,12 @@ To create a container with a default encryption scope with Azure CLI, call the [
 
 The following example uses your Microsoft Entra account to authorize the operation to create the container. You can also use the account access key. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
 
-```azurecli-interactive
+```azurecli
 az storage container create \
     --account-name <storage-account> \
     --resource-group <resource-group> \
     --name <container> \
-    --default-encryption-scope <scope> \
+    --default-encryption-scope <encryption-scope> \
     --prevent-encryption-scope-override true \
     --auth-mode login
 ```
@@ -296,12 +363,12 @@ To upload a blob with an encryption scope via the Azure portal, first create the
 
 To upload a blob with an encryption scope via PowerShell, call the [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) command and provide the encryption scope for the blob.
 
-```powershell
+```azurepowershell
 $containerName2 = "container2"
 $localSrcFile = "C:\temp\helloworld.txt"
 $ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
 
-# Create a new container with no default scope defined.
+# Create a container with no default scope defined.
 New-AzStorageContainer -Name $containerName2 -Context $ctx
 
 # Upload a block upload with an encryption scope specified.
@@ -319,13 +386,13 @@ To upload a blob with an encryption scope via Azure CLI, call the [az storage bl
 
 If you are using Azure Cloud Shell, follow the steps described in [Upload a blob](storage-quickstart-blobs-cli.md#upload-a-blob) to create a file in the root directory. You can then upload this file to a blob using the following sample.
 
-```azurecli-interactive
+```azurecli
 az storage blob upload \
     --account-name <storage-account> \
     --container-name <container> \
     --file <file> \
     --name <file> \
-    --encryption-scope <scope>
+    --encryption-scope <encryption-scope>
 ```
 
 ---
@@ -347,7 +414,7 @@ To change the key that protects a scope in the Azure portal, follow these steps:
 
 To change the key that protects an encryption scope from a customer-managed key to a Microsoft-managed key with PowerShell, call the **Update-AzStorageEncryptionScope** command and pass in the `-StorageEncryption` parameter:
 
-```powershell
+```azurepowershell
 Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -EncryptionScopeName $scopeName2 `
@@ -356,7 +423,7 @@ Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 Next, call the **Update-AzStorageEncryptionScope** command and pass in the `-KeyUri` and `-KeyvaultEncryption` parameters:
 
-```powershell
+```azurepowershell
 Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -EncryptionScopeName $scopeName1 `
@@ -368,11 +435,11 @@ Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 To change the key that protects an encryption scope from a customer-managed key to a Microsoft-managed key with Azure CLI, call the [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-update) command and pass in the `--key-source` parameter with the value `Microsoft.Storage`:
 
-```azurecli-interactive
+```azurecli
 az storage account encryption-scope update \
     --account-name <storage-account> \
     --resource-group <resource-group>
-    --name <scope> \
+    --name <encryption-scope> \
     --key-source Microsoft.Storage
 ```
 
@@ -382,7 +449,7 @@ Next, call the **az storage account encryption-scope update** command, pass in t
 az storage account encryption-scope update \
     --resource-group <resource-group> \
     --account-name <storage-account> \
-    --name <scope> \
+    --name <encryption-scope> \
     --key-source Microsoft.KeyVault \
     --key-uri <key-uri>
 ```
@@ -401,7 +468,7 @@ To disable an encryption scope in the Azure portal, navigate to the **Encryption
 
 To disable an encryption scope with PowerShell, call the Update-AzStorageEncryptionScope command and include the `-State` parameter with a value of `disabled`, as shown in the following example. To re-enable an encryption scope, call the same command with the `-State` parameter set to `enabled`. Remember to replace the placeholder values in the example with your own values:
 
-```powershell
+```azurepowershell
 Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -EncryptionScopeName $scopeName1 `
@@ -412,11 +479,11 @@ Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 To disable an encryption scope with Azure CLI, call the [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-update) command and include the `--state` parameter with a value of `Disabled`, as shown in the following example. To re-enable an encryption scope, call the same command with the `--state` parameter set to `Enabled`. Remember to replace the placeholder values in the example with your own values:
 
-```azurecli-interactive
+```azurecli
 az storage account encryption-scope update \
     --account-name <storage-account> \
     --resource-group <resource-group> \
-    --name <scope> \
+    --name <encryption-scope> \
     --state Disabled
 ```
 

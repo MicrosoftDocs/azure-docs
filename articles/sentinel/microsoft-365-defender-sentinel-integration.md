@@ -41,9 +41,10 @@ In addition to collecting alerts from these components and other services, Micro
 ## Connecting to Microsoft 365 Defender
 
 Install the Microsoft 365 Defender solution for Microsoft Sentinel and enable the Microsoft 365 Defender data connector to [collect incidents and alerts](connect-microsoft-365-defender.md). Microsoft 365 Defender incidents appear in the Microsoft Sentinel incidents queue, with **Microsoft 365 Defender** in the **Product name** field, shortly after they are generated in Microsoft 365 Defender.
+
 - It can take up to 10 minutes from the time an incident is generated in Microsoft 365 Defender to the time it appears in Microsoft Sentinel.
 
-- Incidents will be ingested and synchronized at no extra cost.
+- Alerts and incidents from Microsoft 365 Defender (those items which populate the *SecurityAlert* and *SecurityIncident* tables) are ingested into and synchronized with Microsoft Sentinel at no charge. For all other data types from individual Defender components (such as DeviceInfo, DeviceFileEvents, EmailEvents, and so on), ingestion will be charged.
 
 Once the Microsoft 365 Defender integration is connected, the connectors for all the integrated components and services (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps, Microsoft Entra ID Protection) will be automatically connected in the background if they weren't already. If any component licenses were purchased after Microsoft 365 Defender was connected, the alerts and incidents from the new product will still flow to Microsoft Sentinel with no additional configuration or charge.
 

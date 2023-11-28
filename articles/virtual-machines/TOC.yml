@@ -227,6 +227,8 @@
         href: dcasv5-dcadsv5-series.md
       - name: DCas_cc_v5 and DCads_cc_v5-series
         href: dcasccv5-dcadsccv5-series.md
+      - name: DCesv5 and DCedsv5-series
+        href: dcesv5-dcedsv5-series.md
       - name: Dpsv5 and Dpdsv5-series
         href: dpsv5-dpdsv5-series.md
       - name: Dplsv5 and Dpldsv5-series
@@ -274,6 +276,8 @@
         href: ecasv5-ecadsv5-series.md
       - name: ECas_cc_v5 and ECads_cc_v5-series
         href: ecasccv5-ecadsccv5-series.md
+      - name: ECesv5 and ECedsv5-series
+        href: ecesv5-ecedsv5-series.md
       - name: Epsv5 and Epdsv5-series
         href: epsv5-epdsv5-series.md
       - name: M-series
@@ -312,6 +316,8 @@
         href: sizes-gpu.md
       - name: NC-series
         href: nc-series.md
+      - name: NCads_H100_v5-series
+        href: ncads-h100-v5.md
       - name: NCv2-series
         href: ncv2-series.md
       - name: NCv3-series
@@ -328,9 +334,9 @@
         href: nd-series.md
       - name: NDv2-series
         href: ndv2-series.md
-      - name: NDm-H100-v5-series
+      - name: ND-H100-v5-series
         href: nd-h100-v5-series.md
-      - name: NGads V620-series (preview)
+      - name: NGads V620-series
         href: ngads-v-620-series.md
       - name: NV-series
         href: nv-series.md
@@ -657,6 +663,9 @@
           href: ./windows/image-builder-virtual-desktop.md
       - name: Security
         items:
+        - name: Security mechanisms
+          displayName: Image builder, images, building
+          href: ./security-isolated-image-builds-image-builder.md
         - name: Security controls by Azure Policy
           displayName: Image builder, images, building
           href: ./security-controls-policy-image-builder.md
@@ -787,6 +796,9 @@
       displayName: pre-empt, preempt, spot, low priority, low-priority
       href: /azure/architecture/guide/spot/spot-eviction
       maintainContext: true
+  - name: Azure Boost
+    displayname: Boost, Azure Boost, boost vm, boost virtual machine
+    href: ../azure-boost/overview.md
   - name: Azure Hybrid Benefit
     items:
     - name: Linux
@@ -1048,9 +1060,6 @@
     - name: PowerShell DSC
       href: ./extensions/dsc-overview.md
       items:
-      - name: DSC and Linux
-        displayName: Desired state configuration, dsc
-        href: ./extensions/dsc-linux.md
       - name: DSC and Windows
         displayName: Desired state configuration, dsc
         href: ./extensions/dsc-windows.md
@@ -1060,8 +1069,8 @@
       - name: Use templates
         displayName: Desired state configuration, dsc
         href: ./extensions/dsc-template.md
-    - name: Virtual machine access
-      href: ./extensions/vmaccess.md
+    - name: VMAccess for Linux
+      href: ./extensions/vmaccess-linux.md
     - name: Third-party extensions
       items:
       - name: Chef

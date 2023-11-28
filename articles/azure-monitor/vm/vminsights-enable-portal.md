@@ -12,10 +12,12 @@ ms.date: 09/28/2023
 # Enable VM insights in the Azure portal
 This article describes how to enable VM insights using the Azure portal for Azure virtual machines, Azure Virtual Machine Scale Sets, and hybrid virtual machines connected with [Azure Arc](../../azure-arc/overview.md).
 
+> [!NOTE]
+> Azure portal no longer supports enabling VM insights using the legacy Log Analytics agent. 
+
 ## Prerequisites
 
 - [Log Analytics workspace](./vminsights-configure-workspace.md).
-- To enable VM insights for Log Analytics agent, [configure your Log Analytics workspace for VM insights](../vm/vminsights-configure-workspace.md). This prerequisite isn't relevant if you're using Azure Monitor Agent.  
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or Virtual Machine Scale Set you're enabling is supported. 
 - See [Manage the Azure Monitor agent](../agents/azure-monitor-agent-manage.md#prerequisites) for prerequisites related to Azure Monitor agent.
 
@@ -66,31 +68,6 @@ To enable VM insights on an unmonitored virtual machine or Virtual Machine Scale
 1. Select **Configure** to start the configuration process. It takes several minutes to install the agent and start collecting data. You'll receive status messages as the configuration is performed.
  
 1. If you use a manual upgrade model for your Virtual Machine Scale Set, upgrade the instances to complete the setup. You can start the upgrades from the **Instances** page, in the **Settings** section.
-
-
-## Enable VM insights for Log Analytics agent
-
-To enable VM insights on an unmonitored virtual machine or Virtual Machine Scale Set using Log Analytics agent:
-
-1. From the **Monitor** menu in the Azure portal, select **Virtual Machines** > **Overview** > **Not Monitored**. 
- 
-1. Select **Enable** next to any machine that you want to enable. If a machine is currently running, then you must start it to enable it.
-
-    :::image type="content" source="media/vminsights-enable-portal/enable-unmonitored.png" lightbox="media/vminsights-enable-portal/enable-unmonitored.png" alt-text="Screenshot with unmonitored machines in V M insights.":::
- 
-1. On the **Insights Onboarding** page, select **Enable**. 
- 
-1. On the **Monitoring configuration** page, select **Log Analytics agent**. 
-
-    If the virtual machine isn't already connected to a Log Analytics workspace, then you'll be prompted to select one. If you haven't previously [created a workspace](../logs/quick-create-workspace.md), then you can select a default for the location where the virtual machine or Virtual Machine Scale Set is deployed in the subscription. This workspace will be created and configured if it doesn't already exist. If you select an existing workspace, it will be configured for VM insights if it wasn't already.
-
-    > [!NOTE]
-    > If you select a workspace that wasn't previously configured for VM insights, the *VMInsights* management pack will be added to this workspace. This will be applied to any agent already connected to the workspace, whether or not it's enabled for VM insights. Performance data will be collected from these virtual machines and stored in the *InsightsMetrics* table.
-
-1. Select **Configure** to modify the configuration. The only option you can modify is the workspace. You'll receive status messages as the configuration is performed.
- 
-1. If you use a manual upgrade model for your Virtual Machine Scale Set, upgrade the instances to complete the setup. You can start the upgrades from the **Instances** page, in the **Settings** section.
-
 
 ## Enable Azure Monitor Agent on monitored machines
 

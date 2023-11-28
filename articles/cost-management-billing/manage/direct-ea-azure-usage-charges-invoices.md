@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for EA enrollm
 description: This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/14/2023
+ms.date: 11/08/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -31,7 +31,7 @@ To review and verify the charges on your invoice, you must be an Enterprise Admi
 
 ## Review usage charges
 
-To view detailed usage for specific accounts, download the usage detail report. Usage files may be large. If you prefer, you can use the exports feature to get the same data exported to an Azure Storage account. For more information, see [Export usage details to a storage account](../costs/tutorial-export-acm-data.md).
+To view detailed usage for specific accounts, download the usage detail report. Usage files can be large. If you prefer, you can use the exports feature to get the same data exported to an Azure Storage account. For more information, see [Export usage details to a storage account](../costs/tutorial-export-acm-data.md).
 
 As an enterprise administrator:
 
@@ -179,7 +179,7 @@ Enterprise administrators and partner administrators can also view an overall su
 
 ## Download or view your Azure billing invoice
 
-An EA administrator can download the invoice from the [Azure portal](https://portal.azure.com) or have it sent in email. Invoices are sent to whoever is set up to receive invoices for the enrollment. If someone other than an EA administrator needs an email copy of the invoice, an EA administrator can send them a copy.
+An EA administrator can download the invoice from the [Azure portal](https://portal.azure.com) or send it in email. Invoices are sent to whoever is set up to receive invoices for the enrollment. If someone other than an EA administrator needs an email copy of the invoice, an EA administrator can send them a copy.
 
 Only an Enterprise Administrator has permission to view and download the billing invoice. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](manage-billing-access.md).
 
@@ -200,7 +200,26 @@ You receive an Azure invoice when any of the following events occur during your 
   - Visual Studio Professional (Annual)
 - **Marketplace charges** - Azure Marketplace purchases and usage aren't covered by your organization's credit. So, you're invoiced for Marketplace charges despite your credit balance. In the Azure portal, an Enterprise Administrator can enable and disable Marketplace purchases.
 
-Your invoice displays Azure usage charges with costs associated to them first, followed by any Marketplace charges. If you have a credit balance, it's applied to Azure usage. Your invoice shows Azure usage and Marketplace usage without any cost last.
+Your invoice displays Azure usage charges with costs associated to them first, followed by any Marketplace charges. If you have a credit balance, it gets applied to Azure usage. Your invoice shows Azure usage and Marketplace usage without any cost last.
+
+### Advanced report download
+
+You can use the Download Advanced Report to get reports that cover specific date ranges for the selected accounts. The output file is in CSV format to accommodate large record sets.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for **Cost Management + Billing** and select it.
+1. Select **Billing scopes** from the navigation menu and then select the billing account that you want to work with.4.	In the left navigation menu, select Billing profiles and select the billing profile that you want to work with.
+1.	In the navigation menu, select **Usage + Charges**.
+1.	At the top of the Usage + charges page, select **Download Advanced report**.
+1.	Select a date range and the accounts to include in the report.
+1.	Select **Download**.
+1.	You can also download files from the **Report History**. It shows the latest reports that you downloaded.
+
+:::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/download-advanced-report.png" alt-text="Screenshot showing the Download Advanced Report page." lightbox="./media/direct-ea-azure-usage-charges-invoices/download-advanced-report.png" :::
+
+> [!NOTE]
+> - Inactive accounts for the selected time range aren't shown.
+> - The download start date must be within 90 days of the end date. You can’t select a range longer than 90 days.
 
 ### Download your Azure invoices (.pdf)
 
@@ -402,14 +421,14 @@ However, you *should* see:
 
 The formatting issue occurs because of default settings in Excel's import functionality. Excel imports all fields as *General* text and assumes that a number is separated in the mathematical standard. For example: *1,000.00*.
 
-If your currency uses a period (**.**) for the thousandth place separator and a comma (**,**) for the decimal place separator, it's displayed incorrectly. For example: *1.000,00*. The import results may vary depending on your regional language setting.
+If your currency uses a period (**.**) for the thousandth place separator and a comma (**,**) for the decimal place separator, it gets displayed incorrectly. For example: *1.000,00*. The import results might vary depending on your regional language setting.
 
 To import the CSV file without formatting issues:
 
 1. In Microsoft Excel, go to **File** > **Open**. The Text Import Wizard appears.
 1. Under **Original Data Type**, choose **delimited**. Default is **Fixed Width**.
 1. Select **Next**.
-1. Under **Delimiters**, select the box for **Comma**. Clear **Tab** if it's selected.
+1. Under **Delimiters**, select the box for **Comma**. Clear **Tab** if selected.
 1. Select **Next**.
 1. Scroll over to the **ResourceRate** and **ExtendedCost** columns.
 1. Select the **ResourceRate** column. It appears highlighted in black.

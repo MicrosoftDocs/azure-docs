@@ -2,7 +2,7 @@
 title: Set up and manage self-service access to VMware resources through Azure RBAC
 description: Learn how to manage access to your on-premises VMware resources through Azure role-based access control (Azure RBAC). 
 ms.topic: how-to
-ms.date: 08/21/2023
+ms.date: 11/06/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 # Customer intent: As a VI admin, I want to manage access to my vCenter resources in Azure so that I can keep environments secure
@@ -25,7 +25,7 @@ To provision VMware VMs and change their size, add disks, change network interfa
 
 You must assign this role on individual resource pool (or cluster or host), network, datastore, and template that a user or a group needs to access.   
 
-1. Go to the [**VMware vCenters (preview)** list in Arc center](https://portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/vCenter).
+1. Go to the [**VMware vCenters** list in Arc center](https://portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/vCenter).
 
 2. Search and select your vCenter. 
 

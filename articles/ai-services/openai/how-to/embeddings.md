@@ -2,13 +2,13 @@
 title: 'How to generate embeddings with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Learn how to generate embeddings with Azure OpenAI
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 9/12/2023
-author: ChrisHMSFT
-ms.author: chrhoder
+ms.date: 11/06/2023
+author: mrbullwinkle
+ms.author: mbullwin
 recommendations: false
 keywords: 
 
@@ -30,7 +30,8 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
   -d '{"input": "Sample Document goes here"}'
 ```
 
-# [python](#tab/python)
+# [OpenAI Python 0.28.1](#tab/python)
+
 ```python
 import openai
 
@@ -47,6 +48,26 @@ embeddings = response['data'][0]['embedding']
 print(embeddings)
 ```
 
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+import os
+from openai import AzureOpenAI
+
+client = AzureOpenAI(
+  api_key = os.getenv("AZURE_OPENAI_KEY"),  
+  api_version = "2023-05-15",
+  azure_endpoint =os.getenv("AZURE_OPENAI_ENDPOINT") 
+)
+
+response = client.embeddings.create(
+    input = "Your text string goes here",
+    model= "text-embedding-ada-002"
+)
+
+print(response.model_dump_json(indent=2))
+```
+
 # [C#](#tab/csharp)
 ```csharp
 using Azure;
@@ -59,14 +80,44 @@ AzureKeyCredential credentials = new (oaiKey);
 
 OpenAIClient openAIClient = new (oaiEndpoint, credentials);
 
-EmbeddingsOptions embeddingOptions = new ("Your text string goes here");
+EmbeddingsOptions embeddingOptions = new()
+{
+    DeploymentName = "text-embedding-ada-002",
+    Input = { "Your text string goes here" },
+};
 
-var returnValue = openAIClient.GetEmbeddings("YOUR_DEPLOYMENT_NAME", embeddingOptions);
+var returnValue = openAIClient.GetEmbeddings(embeddingOptions);
 
-foreach (float item in returnValue.Value.Data[0].Embedding)
+foreach (float item in returnValue.Value.Data[0].Embedding.ToArray())
 {
     Console.WriteLine(item);
 }
+```
+
+# [PowerShell](#tab/PowerShell)
+```powershell-interactive
+# Azure OpenAI metadata variables
+$openai = @{
+    api_key     = $Env:AZURE_OPENAI_KEY
+    api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
+    api_version = '2023-05-15' # this may change in the future
+    name        = 'YOUR-DEPLOYMENT-NAME-HERE' #This will correspond to the custom name you chose for your deployment when you deployed a model.
+}
+
+$headers = [ordered]@{
+    'api-key' = $openai.api_key
+}
+
+$text = 'Your text string goes here'
+
+$body = [ordered]@{
+    input = $text
+} | ConvertTo-Json
+
+$url = "$($openai.api_base)/openai/deployments/$($openai.name)/embeddings?api-version=$($openai.api_version)"
+
+$response = Invoke-RestMethod -Uri $url -Headers $headers -Body $body -Method Post -ContentType 'application/json'
+return $response.data.embedding
 ```
 
 ---
@@ -75,15 +126,7 @@ foreach (float item in returnValue.Value.Data[0].Embedding)
 
 ### Verify inputs don't exceed the maximum length
 
-The maximum length of input text for our embedding models is 2048 tokens (equivalent to around 2-3 pages of text). You should verify that your inputs don't exceed this limit before making a request.
-
-### Choose the best model for your task
-
-For the search models, you can obtain embeddings in two ways. The `<search_model>-doc` model is used for longer pieces of text (to be searched over) and the `<search_model>-query` model is used for shorter pieces of text, typically queries or class labels in zero shot classification. You can read more about all of the Embeddings models in our [Models](../concepts/models.md) guide.
-
-### Replace newlines with a single space
-
-Unless you're embedding code, we suggest replacing newlines (\n) in your input with a single space, as we have observed inferior results when newlines are present.
+The maximum length of input text for our latest embedding models is 8192 tokens. You should verify that your inputs don't exceed this limit before making a request.
 
 ## Limitations & risks
 
@@ -94,7 +137,7 @@ Our embedding models may be unreliable or pose social risks in certain cases, an
 * Learn more about using Azure OpenAI and embeddings to perform document search with our [embeddings tutorial](../tutorials/embeddings.md).
 * Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
 * Store your embeddings and perform vector (similarity) search using your choice of Azure service:
-  * [Azure Cognitive Search](../../../search/vector-search-overview.md)
+  * [Azure AI Search](../../../search/vector-search-overview.md)
   * [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md)
   * [Azure Cosmos DB for NoSQL](../../../cosmos-db/vector-search.md)
   * [Azure Cosmos DB for PostgreSQL](../../../cosmos-db/postgresql/howto-use-pgvector.md)

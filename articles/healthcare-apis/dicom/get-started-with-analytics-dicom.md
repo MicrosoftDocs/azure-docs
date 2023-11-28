@@ -4,7 +4,7 @@ description: This article demonstrates how to use Azure Data Factory and Microso
 services: healthcare-apis
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: quickstart
 ms.date: 10/13/2023
 ms.author: mmitrik
@@ -16,11 +16,12 @@ This article describes how to get started by using DICOM&reg; data in analytics 
 
 ## Prerequisites
 
-Before you get started, ensure that you've done the following steps:
+Before you get started, complete these steps:
 
-* Deploy an instance of the [DICOM service](deploy-dicom-services-in-azure.md).
 * Create a [storage account with Azure Data Lake Storage Gen2 capabilities](../../storage/blobs/create-data-lake-storage-account.md) by enabling a hierarchical namespace:
     * Create a container to store DICOM metadata, for example, named `dicom`.
+* Deploy an instance of the [DICOM service](deploy-dicom-services-in-azure.md).
+   * (_Optional_) Deploy the [DICOM service with Data Lake Storage (Preview)](deploy-dicom-services-in-azure-data-lake.md) to enable direct access to DICOM files.
 * Create a [Data Factory](../../data-factory/quickstart-create-data-factory.md) instance:
     * Enable a [system-assigned managed identity](../../data-factory/data-factory-service-identity.md).
 * Create a [lakehouse](/fabric/data-engineering/tutorial-build-lakehouse) in Fabric.
@@ -104,9 +105,25 @@ Data Factory pipelines are a collection of _activities_ that perform a task, lik
 
 1. Select **Use this template** to create the new pipeline.
 
+### Create a pipeline for DICOM data (Preview)
+
+If you created the DICOM service with Azure Data Lake Storage (Preview), you need to use a custom template to include a new `fileName` parameter in the metadata pipeline.  Instead of using the template from the template gallery, follow these steps to configure the pipeline.
+
+1. Download the [preview template](https://github.com/microsoft/dicom-server/blob/main/samples/templates/Copy%20DICOM%20Metadata%20Changes%20to%20ADLS%20Gen2%20in%20Delta%20Format.zip) from GitHub. The template file is a compressed (zipped) folder. You don't need to extract the files because they're already uploaded in compressed form.  
+
+1. In Azure Data Factory, select **Author** from the left menu. On the **Factory Resources** pane, select the plus sign (+) to add a new resource. Select **Pipeline** and then select **Import from pipeline template**.
+
+1. In the **Open** window, select the preview template that you downloaded. Select **Open**.
+
+1. In the **Inputs** section, select the linked services created for the DICOM service and Azure Data Lake Storage Gen2 account.
+
+   :::image type="content" source="media/data-factory-create-pipeline.png" alt-text="Screenshot showing the Inputs section with linked services selected." lightbox="media/data-factory-create-pipeline.png":::
+
+1. Select **Use this template** to create the new pipeline.
+
 ## Schedule a pipeline
 
-Pipelines are scheduled by _triggers_. There are different types of triggers. _Schedule triggers_ allow pipelines to be triggered on a wall-clock schedule. _Manual triggers_ trigger pipelines on demand.
+Pipelines are scheduled by _triggers_. There are different types of triggers. _Schedule triggers_ allow pipelines to be triggered on a wall-clock schedule, which means they run at specific times of the day, such as every hour or every day at midnight. _Manual triggers_ trigger pipelines on demand, which means they run whenever you want them to.
 
 In this example, a _tumbling window trigger_ is used to periodically run the pipeline given a starting point and regular time interval. For more information about triggers, see [Pipeline execution and triggers in Azure Data Factory or Azure Synapse Analytics](../../data-factory/concepts-pipeline-execution-triggers.md).
 
@@ -183,7 +200,7 @@ You can monitor trigger runs and their associated pipeline runs on the **Monitor
 
 [Fabric](https://www.microsoft.com/microsoft-fabric) is an all-in-one analytics solution that sits on top of [Microsoft OneLake](/fabric/onelake/onelake-overview). With the use of a [Fabric lakehouse](/fabric/data-engineering/lakehouse-overview), you can manage, structure, and analyze data in OneLake in a single location. Any data outside of OneLake, written to Data Lake Storage Gen2, can be connected to OneLake as shortcuts to take advantage of Fabric's suite of tools.
 
-### Create shortcuts
+### Create shortcuts to metadata tables
 
 1. Go to the lakehouse created in the prerequisites. In the **Explorer** view, select the ellipsis menu (**...**) next to the **Tables** folder.
 
@@ -214,9 +231,39 @@ You can monitor trigger runs and their associated pipeline runs on the **Monitor
 
 1. Repeat steps 2 to 9 to add the remaining shortcuts to the other Delta tables in the storage account (for example, `series` and `study`).
 
-After you've created the shortcuts, expand a table to show the names and types of the columns.
+After you create the shortcuts, expand a table to show the names and types of the columns.
 
 :::image type="content" source="media/fabric-shortcut-schema.png" alt-text="Screenshot that shows the table columns listed in the Explorer view." lightbox="media/fabric-shortcut-schema.png":::
+
+### Create shortcuts to files
+
+If you're using a [DICOM service with Data Lake Storage](dicom-data-lake.md), you can additionally create a shortcut to the DICOM file data stored in the data lake.  
+
+1. Go to the lakehouse created in the prerequisites. In the **Explorer** view, select the ellipsis menu (**...**) next to the **Files** folder.
+
+1. Select **New shortcut** to create a new shortcut to the storage account that contains the DICOM data.
+
+   :::image type="content" source="media/fabric-new-shortcut-files.png" alt-text="Screenshot that shows the New shortcut option of the Files menu in the Explorer view." lightbox="media/fabric-new-shortcut-files.png":::
+
+1. Select **Azure Data Lake Storage Gen2** as the source for the shortcut.
+
+   :::image type="content" source="media/fabric-new-shortcut.png" alt-text="Screenshot that shows the New shortcut view with the Azure Data Lake Storage Gen2 tile." lightbox="media/fabric-new-shortcut.png":::
+
+1. Under **Connection settings**, enter the **URL** you used in the [Linked services](#create-a-linked-service-for-azure-data-lake-storage-gen2) section.
+
+   :::image type="content" source="media/fabric-connection-settings.png" alt-text="Screenshot that shows the connection settings for the Azure Data Lake Storage Gen2 account." lightbox="media/fabric-connection-settings.png":::
+
+1. Select an existing connection or create a new connection by selecting the **Authentication kind** you want to use.
+
+1. Select **Next**.
+
+1. Enter a **Shortcut Name** that describes the DICOM data. For example, **contoso-dicom-files**.
+
+1. Enter the **Sub Path** that matches the name of the storage container and folder used by the DICOM service. For example, if you wanted to link to the root folder the Sub Path would be **/dicom/AHDS**.  Note, the root folder will always be `AHDS`, but you can optionally link to a child folder for a specific workspace or DICOM service instance.  
+
+1. Select **Create** to create the shortcut.
+
+:::image type="content" source="media/fabric-shortcut-files-complete.png" alt-text="Screenshot that shows the shortcut to the DICOM files." lightbox="media/fabric-shortcut-files-complete.png":::
 
 ### Run notebooks
 
@@ -239,6 +286,16 @@ This query selects all the contents from the `instance` table. When you're ready
 After a few seconds, the results of the query appear in a table underneath the cell like the example shown here. The amount of time might be longer if this Spark query is the first in the session because the Spark context needs to be initialized.
 
 :::image type="content" source="media/fabric-notebook-results.png" alt-text="Screenshot that shows a notebook with a sample Spark SQL query and results." lightbox="media/fabric-notebook-results.png":::
+
+#### Access DICOM file data in notebooks
+
+If you used the preview template to create the pipeline and created a shortcut to the DICOM file data, you can use the `filePath` column in the `instance` table to correlate instance metadata to file data.  
+
+``` SQL
+SELECT sopInstanceUid, filePath from instance
+```
+:::image type="content" source="media/fabric-notebook-filepath.png" alt-text="Screenshot that shows a notebook with a sample Spark SQL query and results that includes the filePath." lightbox="media/fabric-notebook-filepath.png":::
+
 
 ## Summary
 
