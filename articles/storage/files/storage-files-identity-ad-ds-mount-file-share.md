@@ -100,6 +100,8 @@ To use this method, complete the following steps:
    1. For the target host FQDN, enter **`<storage-account-name>`.file.core.windows.net**
    1. Select **OK**.
 
+You should now be able to mount the file share using either *storageaccount.domainname.com* or *storageaccount.file.core.windows.net*. You can also mount the file share using the storage account key.
+
 ## Next steps
 
 If the identity you created in AD DS to represent the storage account is in a domain or OU that enforces password rotation, you might need to [update the password of your storage account identity in AD DS](storage-files-identity-ad-ds-update-password.md).
