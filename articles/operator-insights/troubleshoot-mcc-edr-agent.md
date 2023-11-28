@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: operator-insights
 ms.topic: troubleshooting-general #Don't change.
-ms.date: 10/30/2023
+ms.date: 12/06/2023
 ---
 
 # Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights
@@ -39,7 +39,7 @@ If none of these suggested remediation steps help, or you're unsure how to proce
 
 Symptoms: `sudo systemctl status az-mcc-edr-uploader` shows that the service is in failed state.
 
-Steps to remediate:
+Steps to fix:
 
 - Ensure the service is running: `sudo systemctl start az-mcc-edr-uploader`.
 
@@ -49,7 +49,7 @@ Steps to remediate:
 
 Symptoms: MCC reports alarms about MSFs being unavailable.
 
-Steps to remediate:
+Steps to fix:
 
 - Check that the agent is running.
 - Ensure that MCC is configured with the correct IP and port.
@@ -62,7 +62,7 @@ Steps to remediate:
 
 Symptoms: no data appears in Azure Data Explorer.
 
-Steps to remediate:
+Steps to fix:
 
 - Check that the MCC is healthy and ingestion bus agents are running.
 
@@ -74,7 +74,7 @@ Steps to remediate:
 
 Symptoms: Azure Monitor shows a lower incoming EDR rate in ADX than expected.
 
-Steps to remediate:
+Steps to fix:
 
 - Check that the agent is running on all VMs and isn't reporting errors in logs.
 
