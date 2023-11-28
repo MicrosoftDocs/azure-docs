@@ -93,7 +93,7 @@ Azure Maps Power BI visual offers a range of configuration options to provide fl
 | Text Size     | The size of the number indicating the quantity of clustered bubbles. Default: 18 px.| 1-100 px|
 | Text Color    | Text color of the number displayed in the cluster bubbles.| |
 | Boarder Color | The color of the bubbles outline. Unavailable when the **High-contrast outline** option is enabled. ||
-| Boarder Width | The width of the border in pixels. Default: 2 px  |         |
+| Boarder Width | The width of the border in pixels. Default: 2 px  | 1-20 px |
 
 ## Next steps
 
