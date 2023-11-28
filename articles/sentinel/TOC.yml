@@ -224,6 +224,8 @@
       href: ../defender-for-iot/organizations/iot-advanced-threat-monitoring.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
   - name: Integrate Microsoft 365 Defender
     href: microsoft-365-defender-sentinel-integration.md
+  - name: Integrate Microsoft Defender for Cloud
+    href: ingest-defender-for-cloud-incidents.md
 - name: Collect data
   items:
   - name: Overview
