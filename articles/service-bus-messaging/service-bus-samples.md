@@ -4,7 +4,7 @@ description: Azure Service Bus messaging samples or examples that demonstrate ke
 author: spelluru
 ms.topic: article
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 10/19/2022
+ms.date: 11/28/2023
 ms.author: spelluru
 ---
 
