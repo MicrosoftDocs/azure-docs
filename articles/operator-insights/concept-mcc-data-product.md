@@ -28,12 +28,12 @@ The Affirmed Networks Mobile Content Cloud (MCC) is a virtualized Evolved Packet
 
 The data produced by the MCC varies according to the functionality.  This variation affects the enrichments and visualizations that are relevant.  Azure Operator Insights provides the following Quality of Experience Data Products to support specific MCC functions.
 
-- Quality of Experience - Affirmed MCC *(for GIGW function)*
+- Quality of Experience - Affirmed MCC GIGW
 - Quality of Experience - Affirmed MCC PGW/GGSN
 
 ## Data types
 
-The following data types are provided for all variants of the Quality of Experience - Affirmed MCC Data Product.
+The following data types are provided for all Quality of Experience - Affirmed MCC Data Products.
 
 - *edr* contains data from the Event Data Records (EDRs) written by the MCC network elements.  EDRs record each significant event arising during calls or sessions handled by the MCC. They provide a comprehensive record of what happened, allowing operators to explore both individual problems and more general patterns.
 - *edr-sanitized* contains data from the *edr* data type but with personal data suppressed. Sanitized data types can be used to support data analysis whilst also enforcing subscriber privacy.
