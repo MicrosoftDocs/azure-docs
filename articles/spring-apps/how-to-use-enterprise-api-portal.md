@@ -81,16 +81,18 @@ Use the following steps to enable or disable API try-out feature using the Azure
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following Azure CLI commands to enable or disable API try-out feature:
+To enable API try-out feature, please use following command.
 
 ```azurecli
-az spring api-portal update --enabled-api-try-out \
+az spring api-portal update --enable-api-try-out \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
 
+To disable API try-out feature, please use following command and set `--enable-api-try-out` to `false`.
+
 ```azurecli
-az spring api-portal update --enabled-api-try-out false \
+az spring api-portal update --enable-api-try-out false \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
