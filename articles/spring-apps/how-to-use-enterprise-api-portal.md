@@ -69,10 +69,7 @@ az spring api-portal update --assign-endpoint
 ```
 
 ## Configure API try-out feature
-This section describes how to enable or disable API try-out feature for API portal. For how to use this feature, see [Try out APIs in API portal](#try-out-apis-in-api-portal).
-
-> [!NOTE]
-> API try-out feature is enabled by default.
+By default, the "Try it out" button is enabled for each API group configured. This configuration can support you to turn it off across the whole API portal instance. For how to use this feature, see [Try out APIs in API portal](#try-out-apis-in-api-portal).
 
 ### [Azure portal](#tab/Portal)
 
