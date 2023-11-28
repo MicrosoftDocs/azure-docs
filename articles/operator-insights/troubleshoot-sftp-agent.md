@@ -39,7 +39,7 @@ If none of these suggested remediation steps help, or you're unsure how to proce
 
 Symptoms: `sudo systemctl status az-sftp-uploader` shows that the service is in failed state.
 
-Steps to remediate:
+Steps to fix:
 
 - Ensure the service is running: `sudo systemctl start az-sftp-uploader`.
 
@@ -49,7 +49,7 @@ Steps to remediate:
 
 Symptoms: No files are uploaded to AOI. The agent log file, */var/log/az-sftp-uploader/stdout.log*, contains errors about connecting the SFTP server.
 
-Steps to remediate:
+Steps to fix:
 
 - Verify the SFTP user and credentials used by the agent are valid for the SFTP server.
 
@@ -66,7 +66,7 @@ Symptoms:
 - No data appears in Azure Data Explorer.
 - The AOI *Data Ingested* metric for the relevant data type is zero. 
 
-Steps to remediate:
+Steps to fix:
 
 - Check that the agent is running on all VMs and isn't reporting errors in logs.
 
@@ -81,7 +81,7 @@ Symptoms:
 - Data is missing from Azure Data Explorer.
 - The AOI *Data Ingested* and *Processed File Count* metrics for the relevant data type are lower than expected. 
 
-Steps to remediate:
+Steps to fix:
 
 - Check that the agent is running on all VMs and isn't reporting errors in logs. Search the logs for the name of the missing file to find errors related to that file.
 
@@ -101,7 +101,7 @@ Steps to remediate:
 Symptoms:
 - Duplicate data appears in Azure Operator Insights
 
-Steps to remediate:
+Steps to fix:
 
 - Check that the file sources defined in the config file refer to non-overlapping sets of files. If multiple file sources are configured to pull files from the same location on the SFTP server, use the `include_pattern` and `exclude_pattern` config fields to specify distinct sets of files that each file source should consider.
 
