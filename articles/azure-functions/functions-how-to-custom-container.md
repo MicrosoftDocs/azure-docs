@@ -195,6 +195,7 @@ Azure Functions lets you work with application settings for containerized functi
 ## Enable continuous deployment to Azure
 
 You can enable Azure Functions to automatically update your deployment of an image whenever you update the image in the registry.
+> Note: Continuous Deployment from an image registery is currently not supported for Functions Elastic Premium plan.
 
 1. Use the following command to enable continuous deployment and to get the webhook URL:
 
