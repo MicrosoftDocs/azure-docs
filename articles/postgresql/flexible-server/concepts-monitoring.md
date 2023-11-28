@@ -129,7 +129,7 @@ You can choose from the following categories of enhanced metrics:
 |---|---|---|---|---|---|
 |**Max Connections** ^|`max_connections`|Count|Number of maximum connections. |Doesn't apply|Yes |
 
-^ **Max Connections** represents the configured value for the `_max_connections_ server` parameter. This metric is pooled every 30 minutes.
+^ **Max Connections** represents the configured value for the `max_connections` server parameter. This metric is pooled every 30 minutes.
 
 ##### Considerations for using enhanced metrics
 
