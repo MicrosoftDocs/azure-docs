@@ -23,7 +23,7 @@ Make sure that you have:
 
 - IoT devices in your network, visible in the Microsoft Defender XDR **Device inventory**
 
-- Access to the Microsoft Defender XDR portal as a [Security administrator](../../active-directory/roles/permissions-reference.md#security-administrator)
+- Access to the Microsoft Defender Portal as a [Security administrator](../../active-directory/roles/permissions-reference.md#security-administrator)
 
 - One of the following licenses:
 

@@ -195,7 +195,7 @@ For more information, see [Manage sensors with Defender for IoT in the Azure por
 > [!TIP]
 > You can also remove your sensor manually from the CLI. For more information, see [Extra steps and samples for Enterprise IoT deployment](extra-deploy-enterprise-iot.md#remove-an-enterprise-iot-network-sensor-optional).
 
-If you want to cancel enterprise IoT security with Microsoft Defender XDR, do so from the Microsoft Defender XDR portal. For more information, see [Turn off enterprise IoT security](manage-subscriptions-enterprise.md#turn-off-enterprise-iot-security).
+If you want to cancel enterprise IoT security with Microsoft Defender XDR, do so from the Microsoft Defender Portal. For more information, see [Turn off enterprise IoT security](manage-subscriptions-enterprise.md#turn-off-enterprise-iot-security).
 
 ## Next steps
 

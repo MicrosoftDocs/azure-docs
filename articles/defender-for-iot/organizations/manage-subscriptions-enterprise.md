@@ -29,7 +29,7 @@ Before performing the procedures in this article, make sure that you have:
 
     For more information, see [Enterprise IoT security in Microsoft Defender XDR](concept-enterprise.md#enterprise-iot-security-in-microsoft-365-defender).
 
-- Access to the Microsoft Defender XDR portal as a [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator)
+- Access to the Microsoft Defender Portal as a [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator)
 
 ## Obtain a standalone, Enterprise IoT trial license
 

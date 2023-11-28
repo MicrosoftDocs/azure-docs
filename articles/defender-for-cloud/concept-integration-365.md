@@ -7,7 +7,7 @@ ms.date: 11/23/2023
 
 # Alerts and incidents in Microsoft Defender XDR (Preview)
 
-Microsoft Defender for Cloud's integration with Microsoft Defender XDR allows security teams to access Defender for Cloud alerts and incidents within the Microsoft Defender XDR portal. This integration provides richer context to investigations that span cloud resources, devices, and identities. 
+Microsoft Defender for Cloud's integration with Microsoft Defender XDR allows security teams to access Defender for Cloud alerts and incidents within the Microsoft Defender Portal. This integration provides richer context to investigations that span cloud resources, devices, and identities. 
 
 The partnership with Microsoft Defender XDR allows security teams to get the complete picture of an attack, including suspicious and malicious events that happen in their cloud environment. This is achieved through immediate correlations of alerts and incidents. 
 

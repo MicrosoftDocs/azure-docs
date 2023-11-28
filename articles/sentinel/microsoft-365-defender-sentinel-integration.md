@@ -60,7 +60,7 @@ Once the Microsoft Defender XDR integration is connected, the connectors for all
 
 ## Working with Microsoft Defender XDR incidents in Microsoft Sentinel and bi-directional sync
 
-Microsoft Defender XDR incidents will appear in the Microsoft Sentinel incidents queue with the product name **Microsoft Defender XDR**, and with similar details and functionality to any other Sentinel incidents. Each incident contains a link back to the parallel incident in the Microsoft Defender XDR portal.
+Microsoft Defender XDR incidents will appear in the Microsoft Sentinel incidents queue with the product name **Microsoft Defender XDR**, and with similar details and functionality to any other Sentinel incidents. Each incident contains a link back to the parallel incident in the Microsoft Defender Portal.
 
 As the incident evolves in Microsoft Defender XDR, and more alerts or entities are added to it, the Microsoft Sentinel incident will update accordingly.
 
@@ -73,7 +73,7 @@ In Microsoft Defender XDR, all alerts from one incident can be transferred to an
 
 ## Advanced hunting event collection
 
-The Microsoft Defender XDR connector also lets you stream **advanced hunting** events - a type of raw event data - from Microsoft Defender XDR and its component services into Microsoft Sentinel. You can now *(as of April 2022)* collect [advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) events from *all* Microsoft Defender XDR components, and stream them straight into purpose-built tables in your Microsoft Sentinel workspace. These tables are built on the same schema that is used in the Microsoft Defender XDR portal, giving you complete access to the full set of advanced hunting events, and allowing you to do the following:
+The Microsoft Defender XDR connector also lets you stream **advanced hunting** events - a type of raw event data - from Microsoft Defender XDR and its component services into Microsoft Sentinel. You can now *(as of April 2022)* collect [advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) events from *all* Microsoft Defender XDR components, and stream them straight into purpose-built tables in your Microsoft Sentinel workspace. These tables are built on the same schema that is used in the Microsoft Defender Portal, giving you complete access to the full set of advanced hunting events, and allowing you to do the following:
 
 - Easily copy your existing Microsoft Defender for Endpoint/Office 365/Identity/Cloud Apps advanced hunting queries into Microsoft Sentinel.
 
