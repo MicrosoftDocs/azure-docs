@@ -140,11 +140,11 @@ To enable full Nebula compatibility with PyTorch-based training scripts, modify 
       nm.init(persistent_storage_path, persistent_time_interval=2)
     ```
 
-1. To save checkpoints, replace the original `torch.save()` statement to save your checkpoint with Nebula:
+1. To save checkpoints, replace the original `torch.save()` statement to save your checkpoint with Nebula. Please ensure that your checkpoint instance begins with "global_step", such as "global_step500" or "global_step1000":
 
     ```python
-    checkpoint = nm.Checkpoint()
-    checkpoint.save(<'CKPT_NAME'>, model)
+    checkpoint = nm.Checkpoint('global_step500')  
+    checkpoint.save('<CKPT_NAME>', model)  
     ```
     > [!NOTE]
     > ``<'CKPT_TAG_NAME'>`` is the unique ID for the checkpoint. A tag is usually the number of steps, the epoch number, or any user-defined name. The optional ``<'NUM_OF_FILES'>`` optional parameter specifies the state number which you would save for this tag.
@@ -163,13 +163,13 @@ To enable full Nebula compatibility with PyTorch-based training scripts, modify 
     - list all checkpoints
     - get latest checkpoints
 
-```python
-# Managing checkpoints
-## List all checkpoints
-ckpts = nm.list_checkpoints()
-## Get Latest checkpoint path
-latest_ckpt_path = nm.get_latest_checkpoint_path("checkpoint", persisted_storage_path)
-```
+    ```python
+    # Managing checkpoints
+    ## List all checkpoints
+    ckpts = nm.list_checkpoints()
+    ## Get Latest checkpoint path
+    latest_ckpt_path = nm.get_latest_checkpoint_path("checkpoint", persisted_storage_path)
+    ```
 
 # [Using DeepSpeed](#tab/DEEPSPEED)
 
