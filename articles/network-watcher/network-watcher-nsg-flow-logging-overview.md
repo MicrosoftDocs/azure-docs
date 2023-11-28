@@ -564,5 +564,5 @@ Storage of logs is charged separately. For relevant prices, see [Azure Blob Stor
 ## Related content
 
 - To learn how to manage NSG flow logs, see [Create, change, disable, or delete NSG flow logs using the Azure portal](nsg-flow-logging.md).
-- To find answers to some of the most frequently asked questions about NSG flow logs, see [NSG flow logs FAQ](frequently-asked-questions.yml#nsg-flow-logs).
+- To find answers to some of the most frequently asked questions about NSG flow logs, see [Flow logs FAQ](frequently-asked-questions.yml#flow-logs).
 - To learn about traffic analytics, see [Traffic analytics overview](traffic-analytics.md).
