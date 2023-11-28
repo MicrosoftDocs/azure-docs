@@ -94,7 +94,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 |[Cross-tenant/Cross-workspace incidents view](multiple-workspace-view.md)     |GA         |&#x2705; |&#x2705; |&#x2705;         |
 |[Incident advanced search](investigate-cases.md#search-for-incidents) |GA |&#x2705; |&#x2705;| &#x2705; |
 |[Incident tasks](incident-tasks.md) |Public preview |&#x2705; |&#x2705;| &#x2705; |
-|[Microsoft Defender XDR incident integration](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-365-defender-incidents-in-microsoft-sentinel-and-bi-directional-sync) |GA |&#x2705; |&#x2705;| &#10060; |
+|[Microsoft Defender XDR incident integration](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-defender-xdr-incidents-in-microsoft-sentinel-and-bi-directional-sync) |GA |&#x2705; |&#x2705;| &#10060; |
 |[Microsoft Teams integrations](collaborate-in-microsoft-teams.md) |Public preview |&#x2705; |&#x2705;| &#10060; |
 |[Playbook template gallery](use-playbook-templates.md) |Public preview |&#x2705; |&#x2705;| &#10060; |
 |[Run playbooks on entities](respond-threats-during-investigation.md) |Public preview |&#x2705; |&#x2705; |&#10060; |
