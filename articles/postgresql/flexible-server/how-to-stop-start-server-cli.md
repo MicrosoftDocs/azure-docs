@@ -51,7 +51,7 @@ az postgres flexible-server stop  [--name]
 
 **Example without local context:**
 ```azurecli
-az postgres flexible-server stop  --resource-group --name myservername
+az postgres flexible-server stop  --resource-group resourcegroupname --name myservername
 ```
 
 **Example with local context:**
