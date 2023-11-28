@@ -188,6 +188,9 @@ You can achieve high availability by connecting up to 4 ExpressRoute circuits in
 > [!NOTE]
 > Although it is possible to connect up to 16 circuits to your virtual network, the outgoing traffic from your virtual network will be load-balanced using Equal-Cost Multipath (ECMP) across a maximum of 4 circuits.
 
+> [!NOTE] 
+> Equal-Cost Multipath (ECMP) in ExpressRoute uses the Per-Destination (Per-Flow) Load Balancing method. In this method packets for a given source and destination host pairs are guaranteed to take the same path, even if multiple ECMP paths are available.
+
 ### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering or public peering is preferred on the ExpressRoute path?
 
 You must implement the *Local Preference* attribute on your router(s) to ensure that the path from on-premises to Azure is always preferred on your ExpressRoute circuit(s).
