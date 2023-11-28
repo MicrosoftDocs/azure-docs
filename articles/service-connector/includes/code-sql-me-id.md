@@ -35,7 +35,7 @@ ms.author: xiaofanzhou
     <dependency>
         <groupId>com.microsoft.sqlserver</groupId>
         <artifactId>mssql-jdbc</artifactId>
-        <version>6.2.1.jre8</version>
+        <version>10.2.0.jre11</version>
     </dependency>
     <dependency>
         <groupId>com.azure</groupId>
@@ -70,7 +70,7 @@ ms.author: xiaofanzhou
         }
     }
     ```
-    For more information, see [Connect using Microsoft Entra authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication).
+    For more information, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?branch=pr-en-us-252964&tabs=sqldatabase%2Csystemassigned%2Cjava%2Cwindowsclient#3-modify-your-code).
 
 ### [SpringBoot](#tab/sql-me-id-spring)
 
