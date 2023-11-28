@@ -131,7 +131,7 @@ az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-
     - Template file: [Template without Syslog](https://aka.ms/enable-monitoring-msi-bicep-template)
     - Parameter file: [Parameter without Syslog](https://aka.ms/enable-monitoring-msi-bicep-parameters)
 
-3.	Edit the following values in the parameter file:
+2.	Edit the following values in the parameter file:
  
     | Parameter | Description |
     |:---|:---|
@@ -143,7 +143,7 @@ az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-
     | `enabledContainerLogV2` | Set this parameter value to be true to use the default recommended ContainerLogV2 schema
     | Cost optimization parameters | Refer to [Data collection parameters](container-insights-cost-config.md#data-collection-parameters) |
 
-4. Deploy the template with the parameter file by using any valid method for deploying Resource Manager templates. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
+3. Deploy the template with the parameter file by using any valid method for deploying Resource Manager templates. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
 
 
 ### New cluster
