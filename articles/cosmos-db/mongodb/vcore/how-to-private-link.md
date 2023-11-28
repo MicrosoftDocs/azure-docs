@@ -144,7 +144,8 @@ az network private-endpoint create \
 After you create the private endpoint, you can integrate it with a private DNS zone by using the following Azure CLI script:
 
 ```azurecli-interactive
-#Zone name differs based on the API type and group ID you are using. zoneName="privatelink.mongocluster.azure.com" 
+#Zone name differs based on the API type and group ID you are using. 
+zoneName="privatelink.mongocluster.azure.com" 
 
 az network private-dns zone create \
   --resource-group $ResourceGroupName \
