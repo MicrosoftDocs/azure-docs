@@ -27,7 +27,7 @@ Before performing the procedures in this article, make sure that you have:
     - A Microsoft 365 E5 (ME5) or E5 Security license and a Microsoft Defender for Endpoint P2 license
     - A Microsoft Defender for Endpoint P2 license alone
 
-    For more information, see [Enterprise IoT security in Microsoft Defender XDR](concept-enterprise.md#enterprise-iot-security-in-microsoft-365-defender).
+    For more information, see [Enterprise IoT security in Microsoft Defender XDR](concept-enterprise.md#enterprise-iot-security-in-microsoft-defender-xdr).
 
 - Access to the Microsoft Defender Portal as a [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator)
 
