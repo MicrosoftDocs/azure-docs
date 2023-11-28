@@ -19,7 +19,7 @@ When you complete the steps in this article, you will have:
 
 - A Kubernetes cluster on Azure Kubernetes Services (AKS).
 - A data controller in indirectly connected mode.
-- An instance of Azure Arc-enabled SQL Managed Instance.
+- SQL Managed Instance enabled by Azure Arc.
 - A connection to the instance with Azure Data Studio.
 
 Use these objects to experience Azure Arc-enabled data services. 
@@ -162,7 +162,7 @@ NAME          STATE
 <namespace>   Ready
 ```
 
-## Create an instance of Azure Arc-enabled SQL Managed Instance
+## Deploy an instance of SQL Managed Instance enabled by Azure Arc
 
 Now, we can create the Azure MI for indirectly connected mode with the following command: 
 
@@ -185,7 +185,7 @@ NAME          STATE
 
 ## Connect to managed instance on Azure Data Studio
 
-To connect with Azure Data Studio, see [Connect to Azure Arc-enabled SQL Managed Instance](connect-managed-instance.md). 
+To connect with Azure Data Studio, see [Connect to SQL Managed Instance enabled by Azure Arc](connect-managed-instance.md). 
 
 ## Upload usage and metrics to Azure portal
 
@@ -197,7 +197,7 @@ After you are done with the resources you created in this article.
 
 Follow the steps in [Delete data controller in indirectly connected mode](uninstall-azure-arc-data-controller.md#delete-data-controller-in-indirectly-connected-mode).
 
-## Next steps
+## Related content
 
 > [!div class="nextstepaction"]
 > [Quickstart: Deploy Azure Arc-enabled data services - directly connected mode - Azure portal](create-complete-managed-instance-directly-connected.md).

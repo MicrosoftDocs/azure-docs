@@ -114,6 +114,12 @@ If the CPU is only high for a few nodes, but low for the others, it indicates a 
 > - Standard_D8s_v4
 > - Standard_D16s_v4
 > - Standard_D32s_v4
+> - Standard_L8s_v3
+> - Standard_L16s_v3
+> - Standard_L32s_v3
+> - Standard_L8as_v3
+> - Standard_L16as_v3
+> - Standard_L32as_v3
 
 
 

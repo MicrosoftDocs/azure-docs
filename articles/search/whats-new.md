@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 11/15/2023
+ms.date: 11/27/2023
 ms.custom:
   - references_regions
   - ignite-2023
@@ -26,7 +26,7 @@ ms.custom:
 | [**Integrated vectorization (preview)**](vector-search-integrated-vectorization.md) | Feature | Adds data chunking and text-to-vector conversions during indexing, and also adds text-to-vector conversions at query time. |
 | [**Import and vectorize data wizard (preview)**](search-get-started-portal-import-vectors.md) | Feature | A new wizard in the Azure portal that automates data chunking and vectorization. It targets the [2023-10-01-Preview](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) REST API. | 
 | [**Index projections (preview)**](index-projections-concept-intro.md) | Feature | A component of a skillset definition that defines the shape of a secondary index. Index projections are used for a one-to-many index pattern, where content from an enrichment pipeline can target multiple indexes. You can define index projections using the [2023-10-01-Preview](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) REST API, the Azure portal, and any Azure SDK beta packages that are updated to use this feature. | 
-| [**2023-11-01 Search REST API**](/rest/api/searchservice/search-service-api-versions#2023-11-01) | API | New stable version of the Search REST APIs for [vector fields](vector-search-how-to-create-index.md), [vector queries](vector-search-how-to-query.md), and [semantic ranking](semantic-how-to-query-request.md). |
+| [**2023-11-01 Search REST API**](/rest/api/searchservice/search-service-api-versions#2023-11-01) | API | New stable version of the Search REST APIs for [vector fields](vector-search-how-to-create-index.md), [vector queries](vector-search-how-to-query.md), and [semantic ranking](semantic-how-to-query-request.md). See [Upgrade REST APIs](search-api-migration.md) for migration steps to generally available features.|
 | [**2023-11-01 Management REST API**](/rest/api/searchmanagement/operation-groups?view=rest-searchmanagement-2023-11-01&preserve-view=true) | API | New stable version of the Management REST APIs for control plane operations. This version adds APIs that [enable or disable semantic ranking](/rest/api/searchmanagement/services/create-or-update#searchsemanticsearch). |
 | [**Azure OpenAI Embedding skill (preview)**](cognitive-search-skill-azure-openai-embedding.md) | Skill | Connects to a deployed embedding model on your Azure OpenAI resource to generate embeddings during skillset execution. This skill is available through the [2023-10-01-Preview](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) REST API, the Azure portal, and any Azure SDK beta packages that are updated to use this feature.|
 | [**Text Split skill (preview)**](cognitive-search-skill-textsplit.md) | Skill | Updated in [2023-10-01-Preview](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) to support native data chunking. |

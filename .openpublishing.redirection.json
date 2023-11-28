@@ -783,7 +783,7 @@
     {
       "source_path": "articles/cognitive-services/bing-visual-search/quickstarts/ruby.md",
       "redirect_url": "/previous-versions/azure/cognitive-services/bing-visual-search/quickstarts/ruby",
-      "redirect_document_id": false,
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/api-management/api-management-api-templates.md",
@@ -9069,6 +9069,16 @@
             "redirect_document_id": false
         },
         {
+          "source_path_from_root": "/articles/azure-cache-for-redis/cache-how-to-premium-clustering.md",
+          "redirect_url": "/azure/azure-cache-for-redis/-how-to-scale",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/azure-cache-for-redis/cache-how-to-version.md",
+          "redirect_url": "/azure/azure-cache-for-redis/-how-to-upgrade",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/app-service/app-service-export-api-to-powerapps-and-flow.md",
             "redirect_url": "/azure/azure-functions/app-service-export-api-to-powerapps-and-flow",
             "redirect_document_id": false
@@ -10233,6 +10243,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/tutorial-protect-vpn-gateway.md",
+            "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn-clients.md",
             "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
             "redirect_document_id": false
@@ -10534,6 +10549,11 @@
         },
         {
             "source_path_from_root": "/articles/bastion/bastion-create-host-portal.md",
+            "redirect_url": "/azure/bastion/tutorial-create-host-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/bastion/tutorial-protect-bastion-host-ddos.md",
             "redirect_url": "/azure/bastion/tutorial-create-host-portal",
             "redirect_document_id": false
         },
@@ -25730,6 +25750,14 @@
         {
             "source_path_from_root": "/articles/kubernetes-fleet/configuration-propagation.md",
             "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
+        },
+        {
+            "source_path_from_root": "/articles/automation/dsc-linux-powershell.md",
+            "redirect_url": "/azure/automation/automation-dsc-overview"
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/extensions/dsc-linux.md",
+            "redirect_url": "/azure/virtual-machines/extensions/dsc-overview"
         }
     ]
 }

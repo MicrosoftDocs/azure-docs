@@ -43,6 +43,8 @@
       href: concepts-index-and-search.md
     - name: Domain Data Management Services (DDMS)
       href: concepts-ddms.md
+    - name: Authentication
+      href: concepts-authentication.md
     - name: Entitlements
       href: concepts-entitlements.md
     - name: Reliability

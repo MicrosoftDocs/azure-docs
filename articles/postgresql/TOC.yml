@@ -310,6 +310,10 @@
           href: flexible-server/how-to-stop-start-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-stop-start-server-cli.md
+      - name: Configure Server Logs
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-server-logs-portal.md
     - name: Encryption with CMK
       items:
       - name: Azure CLI
@@ -387,12 +391,9 @@
             href: flexible-server/how-to-enable-intelligent-performance-cli.md
     - name: Replication
       items:
-      - name: Azure portal
+      - name: Azure portal, REST API
         href: flexible-server/how-to-read-replicas-portal.md
         displayName: replica
-      - name: Azure REST API
-        href: flexible-server/how-to-read-replicas-rest-api.md
-        displayName: replica rest api
   - name: Extensions
     items:
     - name: Overview

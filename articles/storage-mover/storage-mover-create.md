@@ -4,7 +4,7 @@ description: Learn how to create a top-level Azure Storage Mover resource
 author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/07/2022
 ---

@@ -48,7 +48,7 @@ Yes. Virtual network connectivity can be used simultaneously with multi-site VPN
 
 ### How many on-premises sites and virtual networks can one virtual network connect to?
 
-See the [Gateway requirements](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#benchmark) table.
+See the [Gateway requirements](../articles/vpn-gateway/about-gateway-skus.md#benchmark) table.
 
 ### Can I use VNet-to-VNet to connect VMs or cloud services outside of a VNet?
 

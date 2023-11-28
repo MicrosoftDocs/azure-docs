@@ -37,8 +37,6 @@ Repository names can also include [namespaces](container-registry-best-practices
 
 Repository names can only include lowercase alphanumeric characters, periods, dashes, underscores, and forward slashes. 
 
-For complete repository naming rules, see the [Open Container Initiative Distribution Specification](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
-
 ## Artifact
 
 A container image or other artifact within a registry is associated with one or more tags, has one or more layers, and is identified by a manifest. Understanding how these components relate to each other can help you manage your registry effectively.
