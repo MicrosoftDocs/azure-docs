@@ -23,7 +23,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## November 2023
 
-### General Availability: Azure Automation support for PowerShell 7.2 runbooks
+### General Availability: Azure Automation supports PowerShell 7.2 runbooks
 
 Azure Automation announces General Availability of PowerShell 7.2 runbooks. This enables you to author runbooks in the long-term supported version of PowerShell using [Azure Automation extension for VS code](how-to/runbook-authoring-extension-for-vscode.md) and execute them on a secure and reliable platform. [Learn more](automation-runbook-types.md).
 
