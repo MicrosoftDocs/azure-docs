@@ -12,7 +12,7 @@ ms.custom: devx-track-dotnet
 zone_pivot_groups: acs-smtp-sending-method
 ---
 # Quickstart: Send email with SMTP
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-document.md)]
+[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include-document.md)]
 
 In this quick start, you learn about how to send email using SMTP.
 
