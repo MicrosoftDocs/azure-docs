@@ -77,6 +77,7 @@ Before creating an ACR instance, you need a resource group. An Azure resource gr
 
     > [!NOTE]
     > For this step, there isn't an equivalent Azure PowerShell cmdlet that performs this task.
+    >
     > In the following example, we don't build the `rabbitmq` image. This image is available from the Docker Hub public repository and doesn't need to be built or pushed to your ACR instance.
 
     ```azurecli-interactive
