@@ -2,7 +2,7 @@
 title: Tutorial - Create a metric alert for an Azure resource
 description: Learn how to create a metric chart with Azure metrics explorer.
 ms.topic: tutorial
-ms.date: 11/08/2021
+ms.date: 11/28/2023
 ---
 
 # Tutorial: Create a metric alert for an Azure resource
@@ -54,7 +54,7 @@ When you're done configuring the signal logic, click **Next: Actions >** or the 
 :::image type="content" source="./media/tutorial-metric-alert/alert-details.png" lightbox="./media/tutorial-metric-alert/alert-details.png" alt-text="Alert rule details":::
 
 
-Click **Create alert rule** to create the alert rule.
+Click **Review + create** and then **Create** to create the alert rule.
 
 
 ## View the alert
