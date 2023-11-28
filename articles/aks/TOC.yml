@@ -422,7 +422,7 @@
                 - name: AKS-managed Microsoft Entra ID
                   items: 
                     - name: Enable AKS-managed Microsoft Entra integration
-                      href: managed-azure-ad.md
+                      href: enable-authentication-microsoft-entra-id.md
                     - name: Manage local accounts
                       href: manage-local-accounts-managed-azure-ad.md
                     - name: Cluster access control

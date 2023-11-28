@@ -10,7 +10,7 @@ ms.author: veyaddan
 ---
 
 # Configure private endpoints for Azure Event Grid namespaces with MQTT enabled
-You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow ingress of events directly from your virtual network to entities in your Event Grid namespaces securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. The private endpoint uses an IP address from the virtual network address space for your namespace. For more conceptual information, see [Network security](network-security.md).
+You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow ingress of events directly from your virtual network to entities in your Event Grid namespaces securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. The private endpoint uses an IP address from the virtual network address space for your namespace.  When an MQTT client on a private network connects to the MQTT broker on a private link, the client can publish and subscribe to MQTT messages.  For more conceptual information, see [Network security](network-security.md).
 
 This article shows you how to enable private network access for an Event Grid namespace. For complete steps for creating a namespace, see [Create and manage namespaces](create-view-manage-namespaces.md).
 

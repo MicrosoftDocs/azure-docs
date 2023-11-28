@@ -32,7 +32,8 @@ The following table lists the runtime name, Apache Spark version, and release da
 
 | Runtime name                                                               | Release date      | Release stage                   | End of life announcement date | End of life effective date |
 |----------------------------------------------------------------------------|-------------------|---------------------------------|-------------------------------|----------------------------|
-| [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) | Nov 17, 2022      | GA (as of Feb 23, 2023)         | Nov 17, 2023                  | Nov 17, 2024               |
+| [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) | Nov 21, 2023      | Public Preview (GA expected in Q1 2024) | 
+| [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) | Nov 17, 2022      | GA (as of Feb 23, 2023)         | Q1/Q2 2024  |   Q1 2025              |
 | [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | July 8, 2022      | __End of Life Announced (EOLA)__ | July 8, 2023                  | July 8, 2024               |
 | [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md)  | May 26, 2021      | __End of Life Announced (EOLA)__ | January 26, 2023              | January 26, 2024           |
 | [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | __End of Life (EOL)__           | __July 29, 2022__             | __September 29, 2023__     |
@@ -72,3 +73,22 @@ The patch policy differs based on the [runtime lifecycle stage](./runtime-for-ap
 2. Preview runtime: No major version upgrades unless strictly necessary. Minor versions (3.x -> 3.y) will be upgraded to add latest features to a runtime.
 3. Long Term Support (LTS) runtime will be patched with security fixes only.
 4. End of life announced (EOLA) runtime will not have bug and feature fixes. Security fixes will be backported based on risk assessment.
+
+## Migration between Apache Spark versions - support
+
+General Upgrade guidelines/ FAQ's:
+
+Question: If a customer is seeking advice on how to migrate from 2.4 to 3.X, what steps should be taken?
+
+Answer:   Refer to the following migration guide: https://spark.apache.org/docs/latest/sql-migration-guide.html
+
+Question: I get an error when I try to upgrade Spark pool runtime using PowerShell commandlet when they have attached libraries
+
+Answer:   Do not use PowerShell Commandlet if you have custom libraries installed in your synapse workspace. Instead follow these steps:
+          -Recreate Spark Pool 3.3 from the ground up.
+          -Downgrade the current Spark Pool 3.3 to 3.1, remove any packages attached, and then upgrade again to 3.3
+
+
+
+
+

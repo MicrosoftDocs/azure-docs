@@ -220,7 +220,7 @@ This article lists all sensitive information types supported by Microsoft Defend
 | [Sweden tax identification number](/purview/sit-defn-sweden-tax-identification-number) | YES |
 | [SWIFT code](/purview/sit-defn-swift-code) | YES |
 | [Switzerland SSN AHV number](/purview/sit-defn-switzerland-ssn-ahv-number) | NO |
-| [Taiwan national identification number](/purview/sit-defn-taiwan-national-identification-number) | NO |
+| [Taiwanese identification number](/purview/sit-defn-taiwan-national-identification-number) | NO |
 | [Taiwan passport number](/purview/sit-defn-taiwan-passport-number) | NO |
 | [Taiwan-resident certificate (ARC/TARC) number](/purview/sit-defn-taiwan-resident-certificate-number) | NO |
 | [U.K. electoral roll number](/purview/sit-defn-uk-electoral-roll-number) | NO |
