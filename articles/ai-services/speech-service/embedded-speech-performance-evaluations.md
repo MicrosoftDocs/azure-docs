@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-set-thirteen
 
 # Evaluating performance of Embedded Speech
 
-Embedded speech models run fully on your target devices. Understanding the performance characteristics of these models on your devices’ hardware can be critical to delivering low latency experiences within your products and applications. This guide provides information to help answer the question, "Is my device suitable to run embedded speech recognition and speech translation models?"
+Embedded speech models run fully on your target devices. Understanding the performance characteristics of these models on your devices’ hardware can be critical to delivering low latency experiences within your products and applications. This guide provides information to help answer the question, "Is my device suitable to run embedded speech to text and speech translation models?"
 
 ## Metrics & terminology
 
@@ -23,13 +23,13 @@ Embedded speech models run fully on your target devices. Understanding the perfo
 
 To support real-time & interactive speech experiences, the device should have an RTF of 1 or lower. An RTF value higher than 1 means that the device cannot keep up with the audio input and will cause poor user experiences. 
 
-When measuring the RTF of a device, it is important to measure multiple samples and analyze the distribution across percentiles. This allows you to capture the effect of variations in the device's behavior like different CPU clock speeds due to thermal throttling. The predefined measurement tests outlined in Measuring the real-time factor on your device automatically take care of measuring the RTF for each speech recognition result, yielding a sufficiently large sample size. 
+When measuring the RTF of a device, it is important to measure multiple samples and analyze the distribution across percentiles. This allows you to capture the effect of variations in the device's behavior like different CPU clock speeds due to thermal throttling. The predefined measurement tests outlined in [Measuring the real-time factor on your device](#measuring-the-real-time-factor-on-your-device) automatically measure the RTF for each speech recognition result, yielding a sufficiently large sample size. 
 
 **User-perceived latency (UPL)** – The User-perceived Latency (UPL) of speech to text is the time between a word being spoken and the word being shown in the recognition results.
 
 ## Factors that impact performance 
 
-**Device specifications** – The specifications of your device play a key role in whether embedded speech models can run without performance issues. CPU clock speed, architecture (x64, ARM, etc.), and memory can all impact model inference speed.  
+**Device specifications** – The specifications of your device play a key role in whether embedded speech models can run without performance issues. CPU clock speed, architecture (e.g., x64, ARM, etc.), and memory can all impact model inference speed.  
 
 **CPU load** – In most cases, your device will be running other applications in parallel to the application where embedded speech models are integrated. The amount of CPU load your device experiences when idle and at peak can also impact performance. 
 
@@ -55,7 +55,7 @@ For all embedded speech supported platforms, a code sample is available on GitHu
 
 This measurement should be done with the sample running directly on your target device(s), with no code changes other than specifying your model paths & encryption key. The device should be in a state that represents a real end-user state when embedded speech would be used (e.g., other active applications, CPU & memory load, etc.).  
 
-Running the sample will yield performance metrics being outputted to the console. The full suite of metrics includes the real-time factor along with other properties like CPU usage, memory consumption, etc. Each metric is defined and explained below.
+Running the sample will yield performance metrics outputted to the console. The full suite of metrics includes the real-time factor along with other properties like CPU usage and memory consumption. Each metric is defined and explained below.
 
 ### Instruction set metrics
 
@@ -83,10 +83,3 @@ Running the sample will yield performance metrics being outputted to the console
 |--------|-------------|-------|
 | RealTimeFactor | Measures how much faster than real-time the embedded speech engine is processing audio. Includes audio loading time. | Values greater than 1 indicate that the engine is processing audio slower than real-time. Values less than 1 indicate the engine is processing audio faster than real-time. This value should only be analyzed in file-based input mode. It should not be analyzed in streaming input mode. |
 | StreamingRealTimeFactor | Measures how much faster than real-time the engine is processing audio. Excludes audio loading time.  | Values greater than 1 indicate that the engine is processing audio slower than real-time. Values less than 1 indicate the engine is processing audio faster than real-time. |
-
-## Diagnosing performance issues for your scenarios 
-
-The section above described how to baseline the real-time factor on your target device(s) with many important factors controlled. If that measurement yielded positive results but you observe performance issues once embedded speech is integrated within your application and used for your specific scenarios, you can enable additional logging to help diagnose potential causes: 
-
-1. Enable performance measurements by setting this property: ...
-2. Analyze the performance metrics by ...  
