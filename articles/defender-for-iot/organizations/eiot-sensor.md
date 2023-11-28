@@ -29,7 +29,7 @@ This section describes the prerequisites required before deploying an Enterprise
 
 - To view Defender for IoT data in Microsoft Defender XDR, including devices, alerts, recommendations, and vulnerabilities, you must have **Enterprise IoT security** turned on in [Microsoft Defender XDR](eiot-defender-for-endpoint.md).  
 
-    If you only want to view data in the Azure portal, you don't need Microsoft Defender XDR. You can also turn on **Enterprise IoT security** in Microsoft Defender XDR after registering your network sensor to bring [extra device visibility and security value](concept-enterprise.md#enterprise-iot-security-in-microsoft-365-defender) to your organization.
+    If you only want to view data in the Azure portal, you don't need Microsoft Defender XDR. You can also turn on **Enterprise IoT security** in Microsoft Defender XDR after registering your network sensor to bring [extra device visibility and security value](concept-enterprise.md#enterprise-iot-security-in-microsoft-defender-xdr) to your organization.
 
 - Make sure you can access the Azure portal as a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user. If you don't already have an Azure account, you can [create your free Azure account today](https://azure.microsoft.com/free/).
 
