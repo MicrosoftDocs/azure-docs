@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn about private IP addresses in Azure.
 author: mbender-ms
 ms.author: mbender
-ms.date: 08/24/2023
+ms.date: 11/28/2023
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
