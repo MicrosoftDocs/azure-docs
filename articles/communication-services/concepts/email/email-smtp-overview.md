@@ -1,7 +1,7 @@
 ---
 title: Email SMTP as service overview in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: Learn about Communication Services Email SMTP suppprt.
+description: Learn about Communication Services Email SMTP support.
 author: bashan-git
 manager: darmour
 services: azure-communication-services
@@ -33,7 +33,7 @@ Key features include:
 - **Custom Domain** - 	Customers can send mail from their own verified domain(notify.contoso.com).
 - **Sender Authentication Support** - 	Platform Enables support for SPF(Sender Policy Framework) and DKIM(Domain Keys Identified Mail) settings for both Azure managed and Custom Domains with ARC (Authenticated Received Chain) support that preserves the Email authentication result during transitioning.
 - **Email Spam Protection and Fraud Detection** - Platform performs email hygiene for all messages and offers comprehensive email protection leveraging Microsoft Defender components by enabling the existing transport rules for detecting malware's, URL Blocking and Content Heuristic. 
-- **Email Analytics** -	 Email Analytics through Azure Insights. To meet GDPR requirements we will emit logs at the request level which will contain messageId and recipient information for diagnostic and auditing purposes. 
+- **Email Analytics** -	 Email Analytics through Azure Insights. To meet GDPR requirements we emit logs at the request level that will contain messageId and recipient information for diagnostic and auditing purposes. 
 - **Engagement Tracking** - Bounce, Blocked, Open and Click Tracking.
 
 ## Next steps
