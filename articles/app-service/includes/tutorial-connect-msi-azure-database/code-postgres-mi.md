@@ -74,10 +74,8 @@ using (var connection = new NpgsqlConnection(connectionString))
 
 For more information, see the following resources:
 
-* [Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity](../../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md)
-* [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](../../app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database.md)
-* [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
-* [Migrate an application to use passwordless connections with Azure Database for PostgreSQL](/azure/developer/java/spring-framework/migrate-postgresql-to-passwordless-connection?tabs=sign-in-azure-cli%2Cjava%2Cservice-connector%2Cassign-role-service-connector)
+* [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](../../tutorial-java-tomcat-connect-managed-identity-postgresql-database.md)
+* [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../../../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
 
 
 # [Python](#tab/python-postgres-mi)

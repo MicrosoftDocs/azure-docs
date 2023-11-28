@@ -65,7 +65,7 @@ await connection.OpenAsync();
         pluginName + "&authenticationPlugins=" + pluginName);
     ```
 
-For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/connect-java.md?tabs=passwordless).
+For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../../../mysql/flexible-server/connect-java.md?tabs=passwordless).
 
 # [Python](#tab/python-mysql-mi)
 
