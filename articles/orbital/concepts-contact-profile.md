@@ -1,5 +1,5 @@
 ---
-title: Azure Orbital Ground Station - contact profile
+title: Azure Orbital Ground Station - Contact profile resource
 description: Learn more about the contact profile resource, including how to create, modify, and delete the profile.
 author: hrshelar
 ms.service: orbital
@@ -117,9 +117,9 @@ Refer to the example below to understand how to specify an RHCP channel and an L
 
 You can modify or delete the contact profile via the [Azure portal](https://aka.ms/orbital/portal) or [Azure Orbital Ground Station API](/rest/api/orbital/).
 
-## Configuring a contact profile for third party ground stations
+## Configuring a contact profile for applicable partner ground stations
 
-When you onboard a third party network, you will receive a token that identifies your profile. Use this token in the contact profile resource to link a contact profile to the third party network.
+After onboarding with a partner ground station network, you receive a name that identifies your configuration file. When [creating your contact profile](contact-profile.md#create-a-contact-profile-resource), add this configuration name to your link in the 'Third-Party Configuration" parameter. This links your contact profile to the partner network.
 
 ## Next steps
 
