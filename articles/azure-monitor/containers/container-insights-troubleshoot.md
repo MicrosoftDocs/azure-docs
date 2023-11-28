@@ -87,7 +87,8 @@ To diagnose the problem if you can't view status information or no results are r
     ama-logs-fkq7g                      1/1       Running   0          1d
     ama-logs-windows-6drwq                  1/1       Running   0          1d
     ```
-1. If the pods are in a running state but there is no data in Log Analytics or data appears to only send during a certain part of the day this may be an indication that the daily cap has been met. When this limit is met each day, data will stop ingesting into the Log Analytics Workspace and reset at the reset time. For more information please visit [Log Analytics Daily Cap](../../azure-monitor/logs/daily-cap.md#determine-your-daily-cap).
+
+1. If the pods are in a running state, but there is no data in Log Analytics or data appears to only send during a certain part of the day, it might be an indication that the daily cap has been met. When this limit is met each day, data stops ingesting into the Log Analytics Workspace and resets at the reset time. For more information, see [Log Analytics Daily Cap](../../azure-monitor/logs/daily-cap.md#determine-your-daily-cap).
 
 ## Container insights agent ReplicaSet Pods aren't scheduled on a non-AKS cluster
 
