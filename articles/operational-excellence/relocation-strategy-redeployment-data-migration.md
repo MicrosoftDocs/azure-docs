@@ -28,21 +28,21 @@ With ARM, you can:
 
 ### Supported use cases
 
-You can move the following resources across regions with [Azure Resource Mover](/azure/resource-mover/overview)::
+You can move the following resources across regions with Azure Resource Mover:
 
 - Azure VMs and associated disks
-- Encrypted Azure VMs and associated disks. This use case includes VMs with Azure disk encryption enabled and Azure VMs using default server-side encryption (with platform-managed keys and customer-managed keys)
-- NICs
-- Availability sets
-- Azure virtual networks
-- Public IP addresses
-- Network security groups (NSGs)
-- Internal and public load balancers
-- Azure SQL databases and elastic pools
+Encrypted Azure VMs and associated disks. This use case includes VMs with Azure disk encryption enabled and Azure VMs using default server-side encryption (with platform-managed keys and customer-managed keys)
+NICs
+Availability sets
+Azure virtual networks
+Public IP addresses
+Network security groups (NSGs)
+Internal and public load balancers
+Azure SQL databases and elastic pools
 
 ### The ARM relocation process
 
-How you move resources across regions depends on the type of resources moved. Regardless, the following process for moving resource is typical:
+How you move resources across regions depends on the type of resources moved. That said, the following process for moving resource is typical:
 
 1. **Verify prerequisites** by ensuring that:
     
@@ -63,15 +63,3 @@ How you move resources across regions depends on the type of resources moved. Re
 
 1. **Clean up the source:** After everything’s up and running in the new region, decommission the resources you created for the move and the resources in the primary region.
 Supported use
-
-## Next Steps
-
-For more information about Azure Resource Mover and moving resources across
-regions, see the following resources:
-
-- What is [Azure Resource Mover](/azure/resource-mover/overview)?
-- Review options and [tools for moving Azure resources across regions](/azure/resource-mover/select-move-tool).
-- Learn about [the process for moving resources across regions](/azure/resource-mover/about-move-process) with Azure Resource Mover.
-- Get answers to [common questions about Azure Resource Mover](/azure/resource-mover/common-questions).
-- Learn when and how to use [Zone to Zone Disaster Recovery for Azure VMs, and Azure Site Recovery](/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery).
-- Discover if an Azure resource type supports the move operation and find more [information about special conditions to consider when moving a resource.](/azure/azure-resource-manager/management/move-support-resources?view=azure-devops)

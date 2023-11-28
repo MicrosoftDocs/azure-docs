@@ -4,11 +4,16 @@
   href: overview.md
 - name: Azure region relocation
   items:
-  - name: What are Azure availability zones?
+  - name: Overview
     href: availability-zones-overview.md
-  - name: Services and regions with availability zone support
-    href: availability-zones-service-support.md
-  - name: Migrate to availability zone support
+  - name: Relocation Strategies
+    items:
+    - name: Resource Mover
+      href: relocation-strategy-resource-mover.md
+    - name: Redeployment
+      href: relocation-strategy-redeployment.md
+    - name: Redeployment with data migration
+      href: relocation-strategy-redeployment-data-migration.md
     items:
     - name: Overview
       href: availability-zones-migration-overview.md
