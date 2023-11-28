@@ -25,4 +25,4 @@ In the OSDU instance,
 3. The second Service Principal is used for service-to-service (S2S) communications. 
 
 ## Refresh Auth Token
-You can refresh the authorization token using the steps outlined in [Generate a refresh token]. (https://learn.microsoft.com/en-us/azure/energy-data-services/how-to-generate-refresh-token) 
+You can refresh the authorization token using the steps outlined in [Generate a refresh token] (https://learn.microsoft.com/en-us/azure/energy-data-services/how-to-generate-refresh-token). 
