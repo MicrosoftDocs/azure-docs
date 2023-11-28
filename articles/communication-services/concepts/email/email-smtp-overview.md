@@ -10,9 +10,10 @@ ms.date:  12/01/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 # Azure Communication Services Email SMTP as Service
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 Email is still a vital channel for global businesses to connect with customers, and it is an essential part of smooth business operations. Many businesses have made large investments in on-premises infrastructures to support the strong SMTP email needs of their line-of-business (LOB) applications. However, delivering and securing outgoing emails from these existing LOB applications poses a varied challenge. As outgoing emails become more numerous and important, the difficulties of managing this critical aspect of communication become more obvious. Organizations often face problems such as email deliverability, security risks, and the need for centralized control over outgoing communications.
 
 The Azure Communication Services Email SMTP as a Service offers a strategic solution to simplify the sending of emails, strengthen security features, and unify control over outbound communications. As a bridge between email clients and mail servers, the SMTP Relay Service improves the effectiveness of email delivery. It creates a specialized relay infrastructure that not only increases the chances of successful email delivery but also enhances authentication to secure communication. In addition, this service provides business with a centralized platform that gives the power to manage outgoing emails for all B2C Communications and gain insights into email traffic.
