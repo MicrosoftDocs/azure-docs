@@ -35,9 +35,9 @@ sections:
       
 additionalContent: |
 
-  ## Next steps
+  ## Related content
   
   - Learn more about [Azure Arc-enabled data services](overview.md)
-  - Learn more about [Azure Arc-enabled SQL Server](/sql/sql-server/azure-arc/overview)
-  - Learn more about [Azure Arc-enabled SQL Managed Instance](managed-instance-overview.md)
-  - Learn more about [Azure Arc-enabled PostgreSQL server](what-is-azure-arc-enabled-postgresql.md)
+  - Learn more about [SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/overview)
+  - Learn more about [SQL Managed Instance enabled by Azure Arc](managed-instance-overview.md)
+  - Learn more about [Azure Arc-enabled PostgreSQL](what-is-azure-arc-enabled-postgresql.md)
