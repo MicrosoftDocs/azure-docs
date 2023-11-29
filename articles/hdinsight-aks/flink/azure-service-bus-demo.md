@@ -13,10 +13,11 @@ This page provides an overview and demonstration of DStreamAPI Azure Service Bus
 
 ## Prerequisites
 
--  Ensure that you have an Azure HDInsight cluster with Flink
+-  [Flink cluster 1.16.0 on HDInsight on AKS](./flink-create-cluster-portal.md)
+-  For this demonstration, use a Window VM as maven project develop env in the same VNET as HDInsight on AKS.
 -  During the [creation](./flink-create-cluster-portal.md) of the Flink cluster, make sure to select SSH access. This will enable you to access the cluster using Secure Shell (SSH).
--  Set up an [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) instance. [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is a fully managed enterprise message broker that provides message queues and publish-subscribe topics.
-
+-  Set up an [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) instance.
+-  To proceed with the integration, obtain the necessary connection string, topic name, and subscription name for your [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview).
 
 ## Running Flink jobs
 
@@ -331,17 +332,10 @@ This Flink source function, encapsulated within the `SessionBasedServiceBusSourc
    
 ## Reference
 
-- To learn more about Azure Service Bus, refer to the [What is Azure Service Bus?](/azure/service-bus-messaging/service-bus-messaging-overview)
+- To learn more about Azure Service Bus, refer to the [What is Azure Service Bus?](/azure/service-bus-messaging/service-bus-messaging-overview).
+- For guidance on creating topics, consult the [Service Bus Explorer](/azure/service-bus-messaging/explorer).
+- Apache, Apache Flink, Flink, and associated open source project names are [trademarks](./trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
 
-- For guidance on creating topics and subscriptions, consult the [Service Bus Explorer](/azure/service-bus-messaging/explorer)
-
-  :::image type="content" source="./media/azure-service-bus-demo/subscription-topic-1.png" alt-text="Screenshot shows subscription." lightbox="./media/azure-service-bus-demo/subscription-topic-1.png":::
-
-- **Getting the connection string, topic name, and subscription name** 
-
-  To proceed with the integration, obtain the necessary connection string, topic name, and subscription name for your Azure Service Bus. This information is crucial for configuring your Flink job.
-      
-  :::image type="content" source="./media/azure-service-bus-demo/subscription-name.png" alt-text="Screenshot shows getting the connection string, topic name, and subscription name for your Azure Service Bus." lightbox="./media/azure-service-bus-demo/subscription-name.png":::
 
 
 
