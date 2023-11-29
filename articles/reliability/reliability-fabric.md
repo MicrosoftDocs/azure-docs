@@ -94,8 +94,7 @@ For more information, see the [Power BI high availability, failover, and disas
 
 
 >[!IMPORTANT]
-> For customers whose home regions don't have an Azure pair region and are affected by a disaster, the ability to utilize Fabric capacities may be compromised—even if the data within those capacities is replicated. This limitation is tied to the home region’s infrastructure, essential for the capacities' operation. For a detailed explanation and potential mitigation strategies, please refer to our [Link to the documentation].
-
+> For customers whose home regions don't have an Azure pair region and are affected by a disaster, the ability to utilize Fabric capacities may be compromised—even if the data within those capacities is replicated. This limitation is tied to the home region’s infrastructure, essential for the capacities' operation. 
 
 #### Disaster recovery capacity setting
 
