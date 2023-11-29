@@ -9,7 +9,7 @@ ms.date: 11/29/2023
 
 Microsoft Defender for Cloud is now integrated with Microsoft Defender XDR (Preview). This integration allows security teams to access Defender for Cloud alerts and incidents within the Microsoft Defender Portal. This integration provides richer context to investigations that span cloud resources, devices, and identities. 
 
-The partnership with Microsoft 365 Defender allows security teams to get the complete picture of an attack, including suspicious and malicious events that happen in their cloud environment. Security teams can accomplish this goal through immediate correlations of alerts and incidents. 
+The partnership with Microsoft Defender XDR allows security teams to get the complete picture of an attack, including suspicious and malicious events that happen in their cloud environment. Security teams can accomplish this goal through immediate correlations of alerts and incidents. 
 
 Microsoft 365 Defender offers a comprehensive solution that combines protection, detection, investigation, and response capabilities. The solution protects against attacks on devices, email, collaboration, identity, and cloud apps. Our detection and investigation capabilities are now extended to cloud entities, offering security operations teams a single pane of glass to significantly improve their operational efficiency.
 
