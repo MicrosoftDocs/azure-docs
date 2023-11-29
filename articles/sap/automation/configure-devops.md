@@ -188,7 +188,7 @@ Copy the content from the .zip file to the root folder of your local clone.
 
 Open the local folder in Visual Studio Code. You should see that changes need to be synchronized by the indicator by the source control icon shown here.
 
-:::image type="content" source="./media/devops/automation-vscode-changes.png" alt-text="Screenshot that shows that source code has changed.":::
+:::image type="content" source="./media/devops/automation-vscode-changes.png" alt-text="Screenshot that shows that source code is changed.":::
 
 Select the source control icon and provide a message about the change. For example, enter **Import from GitHub** and select Ctrl+Enter to commit the changes. Next, select **Sync Changes** to synchronize the changes back to the repository.
 
@@ -261,9 +261,9 @@ del manifest.json
 
 Save the app registration ID and password values for later use.
 
-## Create Azure pipelines
+## Create Azure Pipelines
 
-Azure pipelines are implemented as YAML files. They're stored in the *deploy/pipelines* folder in the repository.
+Azure Pipelines are implemented as YAML files. They're stored in the *deploy/pipelines* folder in the repository.
 
 ## Control plane deployment pipeline
 
@@ -271,7 +271,7 @@ Create the control plane deployment pipeline. Under the **Pipelines** section, s
 
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
-| Repo    | "Root repo", same as project name               |
+| Repo    | "Root repo" (same as project name)              |
 | Branch  | main                                            |
 | Path    | `pipelines/01-deploy-control-plane.yml`         |
 | Name    | Control plane deployment                        |
@@ -284,7 +284,7 @@ Create the SAP workload zone pipeline. Under the **Pipelines** section, select *
 
 | Setting | Value                                        |
 | ------- | -------------------------------------------- |
-| Repo    | "Root repo", same as project name            |
+| Repo    | "Root repo" (same as project name)           |
 | Branch  | main                                         |
 | Path    | `pipelines/02-sap-workload-zone.yml`         |
 | Name    | SAP workload zone deployment                 |
@@ -297,7 +297,7 @@ Create the SAP system deployment pipeline. Under the **Pipelines** section, sele
 
 | Setting | Value                                            |
 | ------- | ------------------------------------------------ |
-| Repo    | "Root repo", same as project name                |
+| Repo    | "Root repo" (same as project name)               |
 | Branch  | main                                             |
 | Path    | `pipelines/03-sap-system-deployment.yml`         |
 | Name    | SAP system deployment (infrastructure)           |
@@ -310,7 +310,7 @@ Create the SAP software acquisition pipeline. Under the **Pipelines** section, s
 
 | Setting | Value                                            |
 | ------- | ------------------------------------------------ |
-| Repo    | "Root repo", same as project name                |
+| Repo    | "Root repo" (same as project name)               |
 | Branch  | main                                             |
 | Path    | `deploy/pipelines/04-sap-software-download.yml`  |
 | Name    | SAP software acquisition                         |
@@ -323,7 +323,7 @@ Create the SAP configuration and software installation pipeline. Under the **Pip
 
 | Setting | Value                                              |
 | ------- | -------------------------------------------------- |
-| Repo    | "Root repo", same as project name                  |
+| Repo    | "Root repo" (same as project name)                 |
 | Branch  | main                                               |
 | Path    | `pipelines/05-DB-and-SAP-installation.yml`         |
 | Name    | Configuration and SAP installation                 |
@@ -336,7 +336,7 @@ Create the deployment removal pipeline. Under the **Pipelines** section, select 
 
 | Setting | Value                                        |
 | ------- | -------------------------------------------- |
-| Repo    | "Root repo", same as project name            |
+| Repo    | "Root repo" (same as project name)           |
 | Branch  | main                                         |
 | Path    | `pipelines/10-remover-terraform.yml`         |
 | Name    | Deployment removal                           |
@@ -349,7 +349,7 @@ Create the control plane deployment removal pipeline. Under the **Pipelines** se
 
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
-| Repo    | "Root repo", same as project name               |
+| Repo    | "Root repo" (same as project name)              |
 | Branch  | main                                            |
 | Path    | `pipelines/12-remove-control-plane.yml`         |
 | Name    | Control plane removal                           |
@@ -362,10 +362,10 @@ Create the deployment removal Azure Resource Manager pipeline. Under the **Pipel
 
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
-| Repo    | "Root repo", same as project name               |
+| Repo    | "Root repo" (same as project name)              |
 | Branch  | main                                            |
 | Path    | `pipelines/11-remover-arm-fallback.yml`         |
-| Name    | Deployment removal using ARM                    |
+| Name    | Deployment removal using Azure Resource Manager |
 
 Save the pipeline. To see **Save**, select the chevron next to **Run**. Go to the **Pipelines** section and select the pipeline. Choose **Rename/Move** from the ellipsis menu on the right and rename the pipeline as **Deployment removal using ARM processor**.
 
@@ -378,7 +378,7 @@ Create the repository updater pipeline. Under the **Pipelines** section, select 
 
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
-| Repo    | "Root repo", same as project name               |
+| Repo    | "Root repo" (same as project name)              |
 | Branch  | main                                            |
 | Path    | `pipelines/20-update-ado-repository.yml`        |
 | Name    | Repository updater                              |
@@ -497,7 +497,7 @@ Enter a **Service connection name**, for instance, use `Connection to MGMT subsc
 
 ## Permissions
 
-Most of the pipelines add files to the Azure repos and therefore require pull permissions. On **Project Settings**, under the **Repositories** section, select the **Security** tab of the source code repository and assign Contribute permissions to the `Build Service`.
+Most of the pipelines add files to the Azure Repos and therefore require pull permissions. On **Project Settings**, under the **Repositories** section, select the **Security** tab of the source code repository and assign Contribute permissions to the `Build Service`.
 
 :::image type="content" source="./media/devops/automation-repo-permissions.png" alt-text="Screenshot that shows repository permissions.":::
 
@@ -563,7 +563,7 @@ Selecting the `deploy the web app infrastructure` parameter when you run the con
 
 Wait for the deployment to finish. Select the **Extensions** tab and follow the instructions to finalize the configuration. Update the `reply-url` values for the app registration.
 
-As a result of running the control plane pipeline, part of the web app URL that's needed is stored in a variable named `WEBAPP_URL_BASE` in your environment-specific variable group. At any time, you can update the URLs of the registered application web app by using the following command.
+As a result of running the control plane pipeline, part of the web app URL that is needed is stored in a variable named `WEBAPP_URL_BASE` in your environment-specific variable group. At any time, you can update the URLs of the registered application web app by using the following command.
 
 # [Linux](#tab/linux)
 
@@ -579,7 +579,7 @@ $webapp_url_base="<WEBAPP_URL_BASE>"
 az ad app update --id $TF_VAR_app_registration_app_id --web-home-page-url https://${webapp_url_base}.azurewebsites.net --web-redirect-uris https://${webapp_url_base}.azurewebsites.net/ https://${webapp_url_base}.azurewebsites.net/.auth/login/aad/callback
 ```
 ---
-You also need to grant reader permissions to the app service system-assigned managed identity. Go to the app service resource. On the left side, select **Identity**. On the **System assigned** tab, select **Azure role assignments** > **Add role assignment**. Select **Subscription** as the scope and **Reader** as the role. Then select **Save**. Without this step, the web app dropdown functionality won't work.
+You also need to grant reader permissions to the app service system-assigned managed identity. Go to the app service resource. On the left side, select **Identity**. On the **System assigned** tab, select **Azure role assignments** > **Add role assignment**. Select **Subscription** as the scope and **Reader** as the role. Then select **Save**. Without this step, the web app dropdown functionality will not work.
 
 You should now be able to visit the web app and use it to deploy SAP workload zones and SAP system infrastructure.
 
