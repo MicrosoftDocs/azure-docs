@@ -5,7 +5,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
-author: gm2552
+author: mrbullwinkle # external contributor: gm2552
 ms.author: mbullwin
 ms.date: 11/27/2023
 ---
@@ -198,14 +198,6 @@ ai-chat-demo/
    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
 1. Navigate back to the project root folder, and run the app with:
-
-   # [Command Line](#tab/command-line)
-
-   ```cmd
-   mvnw spring-boot:run
-   ```
-
-   # [Bash](#tab/bash)
 
    ```bash
    ./mvnw spring-boot:run

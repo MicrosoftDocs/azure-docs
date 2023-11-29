@@ -1,7 +1,8 @@
 ---
 services: cognitive-services
 manager: nitinme
-author: gm2552
+author: mrbullwinkle # external contributor: gm2552
+# ms.author: mbullwin
 ms.author: travisw
 ms.service: azure-ai-openai
 ms.topic: include
@@ -23,73 +24,13 @@ To successfully make a call against Azure OpenAI, you need the following variabl
 
 ### Environment variables
 
-# [Command Line](#tab/command-line)
-
-```cmd
-setx SPRING_AI_AZURE_OPENAI_API_KEY REPLACE_WITH_YOUR_AOAI_KEY_VALUE_HERE
-```
-
-```cmd
-setx SPRING_AI_AZURE_OPENAI_ENDPOINT REPLACE_WITH_YOUR_AOAI_ENDPOINT_VALUE_HERE
-```
-
-```cmd
-setx SPRING_AI_AZURE_COGNITIVE_SEARCH_ENDPOINT REPLACE_WITH_YOUR_AZURE_SEARCH_RESOURCE_VALUE_HERE
-```
-
-```cmd
-setx SPRING_AI_AZURE_COGNITIVE_SEARCH_API_KEY REPLACE_WITH_YOUR_AZURE_SEARCH_RESOURCE_KEY_VALUE_HERE
-```
-
-```cmd
-setx SPRING_AI_AZURE_COGNITIVE_SEARCH_INDEX REPLACE_WITH_YOUR_INDEX_NAME_HERE
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-[System.Environment]::SetEnvironmentVariable('SPRING_AI_AZURE_OPENAI_ENDPOINT', 'REPLACE_WITH_YOUR_AOAI_ENDPOINT_VALUE_HERE', 'User')
-```
-
-```powershell
-[System.Environment]::SetEnvironmentVariable('SPRING_AI_AZURE_OPENAI_API_KEY', 'REPLACE_WITH_YOUR_AOAI_KEY_VALUE_HERE', 'User')
-```
-
-```powershell
-[System.Environment]::SetEnvironmentVariable('SPRING_AI_AZURE_COGNITIVE_SEARCH_ENDPOINT', 'REPLACE_WITH_YOUR_AZURE_SEARCH_RESOURCE_VALUE_HERE', 'User')
-```
-
-```powershell
-[System.Environment]::SetEnvironmentVariable('SPRING_AI_AZURE_COGNITIVE_SEARCH_API_KEY', 'REPLACE_WITH_YOUR_AZURE_SEARCH_RESOURCE_KEY_VALUE_HERE', 'User')
-```
-
-```powershell
-[System.Environment]::SetEnvironmentVariable('SPRING_AI_AZURE_COGNITIVE_SEARCH_INDEX', 'REPLACE_WITH_YOUR_INDEX_NAME_HERE', 'User')
-```
-
-# [Bash](#tab/bash)
-
 ```bash
 export SPRING_AI_AZURE_OPENAI_ENDPOINT=REPLACE_WITH_YOUR_AOAI_ENDPOINT_VALUE_HERE
-```
-
-```bash
 export SPRING_AI_AZURE_OPENAI_API_KEY=REPLACE_WITH_YOUR_AOAI_KEY_VALUE_HERE
-```
-
-```bash
 export SPRING_AI_AZURE_COGNITIVE_SEARCH_ENDPOINT=REPLACE_WITH_YOUR_AZURE_SEARCH_RESOURCE_VALUE_HERE
-```
-
-```bash
 export SPRING_AI_AZURE_COGNITIVE_SEARCH_API_KEY=REPLACE_WITH_YOUR_AZURE_SEARCH_RESOURCE_KEY_VALUE_HERE
-```
-
-```bash
 export SPRING_AI_AZURE_COGNITIVE_SEARCH_INDEX=REPLACE_WITH_YOUR_INDEX_NAME_HERE
 ```
-
----
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=SPRING&Pillar=AOAI&Product=ownData&Page=quickstart&Section=Set-up)

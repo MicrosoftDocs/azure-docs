@@ -367,14 +367,6 @@ ai-custom-data-demo/
 
 1. Navigate back to the project root folder, and run the app with:
 
-   # [Command Line](#tab/command-line)
-
-   ```cmd
-   mvnw spring-boot:run
-   ```
-
-   # [Bash](#tab/bash)
-
    ```bash
    ./mvnw spring-boot:run
    ```
