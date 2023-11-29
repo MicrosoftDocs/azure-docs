@@ -43,12 +43,12 @@ Nov 2023 test release is now available.
 
 #### Arc-enabled SQL Server
 
-- Configure backups at instance level using custom schedule for Azure Arc-enabled SQL Server instances for both portal and CLI - public preview.
+- Configure backups at instance level using custom schedule for SQL Server enabled by Azure Arc instances for both portal and CLI - public preview.
   - Configure Automated Backups with a custom schedule and custom retention period, on an Arc enabled SQL Server.
 - Point-in-time-restore using Azure CLI and Azure portal - public preview.
   - Restore a database to a point-in-time restore of their databases, if automatic backups are enabled. Restore can be done either from Azure portal or via az CLI.
 
-- Monitoring | Performance dashboards of an individual Azure Arc-enabled SQL Server instance in the Azure portal - public preview.
+- Monitoring | Performance dashboards of an individual SQL Server enabled by Azure Arc in the Azure portal - public preview.
 
 - Track the provision state and (extension service) status of Azure extension for SQL Server - general availability.
   - Beginning with this release, you can track the provisioning status of Azure Arc extension for SQL Server and Azure Arc guest agent in the properties tab for Arc enabled SQL Server. 

@@ -1,6 +1,6 @@
 ---
 title: Configure failover group - CLI
-description: Describes how to configure disaster recovery with a failover group for Azure Arc-enabled SQL Managed Instance with the CLI
+description: Describes how to configure disaster recovery with a failover group for SQL Managed Instance enabled by Azure Arc with the CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 # Configure failover group - CLI
 
-This article explains how to configure disaster recovery for Azure Arc-enabled SQL Managed Instance with the CLI. Before you proceed, review the information and prerequisites in [Azure Arc-enabled SQL Managed Instance - disaster recovery](managed-instance-disaster-recovery.md).
+This article explains how to configure disaster recovery for SQL Managed Instance enabled by Azure Arc with the CLI. Before you proceed, review the information and prerequisites in [SQL Managed Instance enabled by Azure Arc - disaster recovery](managed-instance-disaster-recovery.md).
 
 [!INCLUDE [failover-group-prerequisites](includes/failover-group-prerequisites.md)]
 
@@ -22,7 +22,7 @@ This article explains how to configure disaster recovery for Azure Arc-enabled S
 
 Follow the steps below if the Azure Arc data services  are deployed in `directly` connected mode. 
 
-Once the prerequisites are met, run the below command to set up Azure failover group between the two Azure Arc-enabled SQL managed instances:
+Once the prerequisites are met, run the below command to set up Azure failover group between the two instances:
 
 ```azurecli
 az sql instance-failover-group-arc create --name <name of failover group> --mi <primary SQL MI> --partner-mi <Partner MI> --resource-group <name of RG> --partner-resource-group <name of partner MI RG>
@@ -141,14 +141,14 @@ Once the failover group is set up between the managed instances, different failo
 
 Possible failover scenarios are:
 
-- The Azure Arc-enabled SQL managed instances at both sites are in healthy state and a failover needs to be performed: 
+- The instances at both sites are in healthy state and a failover needs to be performed: 
     + perform a manual failover from primary to secondary without data loss by setting `role=secondary` on the primary SQL MI.
    
 - Primary site is unhealthy/unreachable and a failover needs to be performed:
    
-   + the primary Azure Arc-enabled SQL managed instance is down/unhealthy/unreachable
-   + the secondary Azure Arc-enabled SQL managed instance needs to be force-promoted to primary with potential data loss 
-   + when the original primary Azure Arc-enabled SQL managed instance comes back online, it will report as `Primary` role and unhealthy state and needs to be forced into a `secondary` role so it can join the failover group and data can be synchronized.
+   + the primary SQL Managed Instance enabled by Azure Arc is down/unhealthy/unreachable
+   + the secondary SQL Managed Instance enabled by Azure Arc needs to be force-promoted to primary with potential data loss 
+   + when the original primary SQL Managed Instance enabled by Azure Arc comes back online, it will report as `Primary` role and unhealthy state and needs to be forced into a `secondary` role so it can join the failover group and data can be synchronized.
     
 
 ## Manual failover (without data loss)
@@ -221,7 +221,7 @@ Once you perform a failover from primary site to secondary site, either with or 
 - Update the connection string for your applications to connect to the newly promoted primary Arc SQL managed instance
 - If you plan to continue running the production workload off of the secondary site, update the `--license-type` to either `BasePrice` or `LicenseIncluded` to initiate billing for the vCores consumed.
 
-## Next steps
+## Related content
 
-- [Overview: Azure Arc-enabled SQL Managed Instance business continuity](managed-instance-business-continuity-overview.md)
+- [Overview: SQL Managed Instance enabled by Azure Arc business continuity](managed-instance-business-continuity-overview.md)
 - [Configure failover group - portal](managed-instance-disaster-recovery-portal.md)
