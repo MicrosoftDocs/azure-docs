@@ -1966,6 +1966,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-use-managed-online-endpoint-studio.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-model-designer.md",
         "redirect_url": "/azure/machine-learning/how-to-deploy-model-designer",
         "redirect_document_id": true
