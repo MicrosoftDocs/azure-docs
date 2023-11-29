@@ -472,12 +472,6 @@ items:
           href: containers/prometheus-metrics-from-arc-enabled-cluster.md 
         - name: Container insights
           href: containers/container-insights-enable-arc-enabled-clusters.md
-      - name: Legacy authentication
-        href: containers/container-insights-authentication.md
-      - name: Supported region mappings
-        href: containers/container-insights-region-mapping.md
-      - name: Transition from Container monitoring solution
-        href: containers/container-insights-transition-solution.md
       - name: Configure private Link
         items:
         - name: Prometheus
@@ -488,11 +482,15 @@ items:
           href: ../managed-grafana/how-to-connect-to-data-source-privately.md
         - name: Container insights
           href: containers/container-insights-private-link.md
+      - name: Legacy authentication
+        href: containers/container-insights-authentication.md
+      - name: Supported region mappings
+        href: containers/container-insights-region-mapping.md
+      - name: Transition from Container monitoring solution
+        href: containers/container-insights-transition-solution.md
     - name: Configuration
-      items:  
-    - name: Prometheus
       items:
-      - name: Customize collection
+      - name: Customize Prometheus collection
         items:
         - name: Default configuration
           displayName: Prometheus
@@ -512,6 +510,33 @@ items:
         - name: Send to multiple metric workspaces
           displayName: Prometheus
           href: containers/prometheus-metrics-multiple-workspaces.md
+      - name: Customize Container insights collection
+        items:
+        - name: Agent management
+          href: containers/container-insights-manage-agent.md
+        - name: Agent collection settings
+          href: containers/container-insights-agent-config.md
+        - name: Enable ContainerLogv2
+          href: containers/container-insights-logging-v2.md
+        - name: Migrate from ContainerLog to ContainerLogV2
+          href: containers/container-insights-v2-migration.md
+        - name: Enable cost optimization settings
+          href: containers/container-insights-cost-config.md
+        - name: Data Transformations
+          displayName: Container insights
+          href: containers/container-insights-transformations.md
+        - name: Authentication
+          href: containers/container-insights-authentication.md
+        - name: Send Prometheus metrics to Logs
+          href: containers/container-insights-prometheus-logs.md
+    - name: Alerting
+      items:
+      - name: Create metric alert rules
+        href: containers/container-insights-metric-alerts.md
+      - name: Create log alert rules
+        href: containers/container-insights-log-alerts.md
+    - name: Prometheus
+      items:
       - name: Troubleshoot collection
         displayName: Prometheus
         href: containers/prometheus-metrics-troubleshoot.md
@@ -553,25 +578,6 @@ items:
           href: containers/container-insights-hybrid-setup.md          
         - name: Enable with Azure Policy
           href: containers/container-insights-enable-aks-policy.md
-      - name: Configure
-        items:
-        - name: Agent management
-          href: containers/container-insights-manage-agent.md
-        - name: Agent collection settings
-          href: containers/container-insights-agent-config.md
-        - name: Enable ContainerLogv2
-          href: containers/container-insights-logging-v2.md
-        - name: Migrate from ContainerLog to ContainerLogV2
-          href: containers/container-insights-v2-migration.md
-        - name: Enable cost optimization settings
-          href: containers/container-insights-cost-config.md
-        - name: Data Transformations
-          displayName: Container insights
-          href: containers/container-insights-transformations.md
-        - name: Authentication
-          href: containers/container-insights-authentication.md
-        - name: Send Prometheus metrics to Logs
-          href: containers/container-insights-prometheus-logs.md
       - name: Monitor
         items:
         - name: Monitor performance
@@ -600,12 +606,6 @@ items:
           href: containers/container-insights-livedata-setup.md
         - name: View cluster metrics
           href: containers/container-insights-livedata-metrics.md
-      - name: Alerting
-        items:
-        - name: Create metric alert rules
-          href: containers/container-insights-metric-alerts.md
-        - name: Create log alert rules
-          href: containers/container-insights-log-alerts.md
       - name: Manage cost and usage
         href: containers/container-insights-cost.md
       - name: Disable monitoring
