@@ -59,7 +59,7 @@ Azure Database for MySQL Flexible Server's "Near Zero Downtime Maintenance" feat
 ### Limitations and Prerequisites ###
 To achieve the optimal performance promised by this feature, certain conditions and limitations should be noted:
 
- - **Primary Keys in All Tables:** Ensuring that every table has a primary key is critical. Lack of primary keys can significantly increase replication lag, impacting the downtime.
+ - **Primary Keys in All Tables:** Ensuring that every table has a primary key is critical. Not having primary keys can result in a substantial increase in replication lag, which in turn, can negatively impact the total failover time.
  - **Low Workload During Maintenance Times:** Maintenance periods should coincide with times of low workload on the server to ensure the downtime remains minimal. We encourage you to use the custom maintenance window feature to schedule maintenance during off-peak hours.
 
 ## Maintenance reschedule (Public preview)
