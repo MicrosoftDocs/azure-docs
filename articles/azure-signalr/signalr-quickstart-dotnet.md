@@ -108,7 +108,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 > [!IMPORTANT]
 > Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
 
-Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
+Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
 
 In the **Filter by name...** textbox, type the name of your resource group. The instructions for this quickstart used a resource group named *SignalRTestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
 
