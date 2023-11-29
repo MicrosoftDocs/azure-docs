@@ -149,7 +149,7 @@ client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_KEY"),  
     api_version="2023-10-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-    )
+)
     
 deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
     

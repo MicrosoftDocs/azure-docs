@@ -41,9 +41,9 @@ Once a Managed Application is created, you're able to then connect the Managed A
 
 ### Create a topic and event subscription for the storage account
 
-The Managed Application uses an Azure Service Bus Queue to track and record all **Create Blob** events. You can add this Queue as an Event Subscriber for any storage account that you're creating blobs for.
+The Managed Application uses an Azure Service Bus Queue to track and record all **Create Blob** events. You will use the Queue created in the Managed Resource Group by the Managed Application and add it as an Event Subscriber for any storage account that you're creating blobs for.
 
-#### Azure portal
+### [Azure portal](#tab/azure-portal)
 
 :::image type="content" source="./media/managed-application/managed-app-event-subscription-inline.png" alt-text="Screenshot of the Azure portal in a web browser, showing how to set up a storage event subscription." lightbox="./media/managed-application/managed-app-event-subscription-enhanced.png":::
 
@@ -53,11 +53,11 @@ On the Azure portal, you can navigate to the storage account that you would like
 
 The queue uses sessions to maintain ordering across multiple storage accounts so you will also need to navigate to the `Delivery Properties` tab and to enter a unique session ID for this event subscription.
 
-#### Azure CLI
+### [CLI](#tab/cli-or-sdk)
 
 **Creating the Event Topic:**
 
-```bash
+```azurecli
 az eventgrid system-topic create \
 --resource-group {resource_group} \
 --name {sample_topic_name} \
@@ -76,7 +76,7 @@ az eventgrid system-topic create \
 
 **Creating the Event Subscription:**
 
-```bash
+```azurecli
 az eventgrid system-topic event-subscription create \
 --name {sample_subscription_name} \
 --system-topic-name {sample_topic_name} \
@@ -98,17 +98,19 @@ az eventgrid system-topic event-subscription create \
 
 `endpoint` - Resource ID of the service bus queue that is subscribing to the storage account Topic
 
+---
+
 ### Add required role to storage account
 
 The Managed Application requires the `Storage Blob Data Owner` role to read and create hashes for each blob and this role is required to be added in order for the digest to be calculated correctly.
 
-#### Azure portal
+### [Azure portal](#tab/azure-portal)
 
 :::image type="content" source="./media/managed-application/managed-app-managed-identity-inline.png" alt-text="Screenshot of the Azure portal in a web browser, showing how to set up a managed identity for the managed app." lightbox="./media/managed-application/managed-app-managed-identity-enhanced.png":::
 
-#### Azure CLI
+### [CLI](#tab/cli-or-sdk)
 
-```bash
+```azurecli
 az role assignment create \
 --role "Storage Blob Data Owner" \
 --assignee-object-id {function_oid} \
@@ -119,6 +121,8 @@ az role assignment create \
 `assignee-object-id` - OID of the Azure Function created with the Managed Application. Can be found under the 'Identity' blade
 
 `scope` - Resource ID of storage account to create the role for
+
+---
 
 > [!NOTE]
 > Multiple storage accounts can be connected to a single Managed Application instance. We currently recommend a maximum of **10 storage accounts** that contain high usage blob containers.
@@ -139,6 +143,8 @@ The transaction table holds information about each blob and a unique hash that i
 
 The block table holds information related to every digest this is created for the blob container and the associated transaction ID for the digest is stored in Azure Confidential Ledger.
 
+> [!NOTE]
+> Every blob creation event will not result in a digest being created. Digests are created after a certain block size is reached. Currently, a digest will be created for every **4 blob creation events**.
 
 ### Viewing digest on Azure Confidential Ledger
 
@@ -162,13 +168,13 @@ An audit can be triggered by including the following message to the Service Bus 
 }
 ```
 
-#### Azure portal
+### [Azure portal](#tab/azure-portal)
 
 :::image type="content" source="./media/managed-application/managed-app-queue-trigger-audit-inline.png" alt-text="Screenshot of the Azure portal in a web browser, how to trigger an audit by adding a message to the queue." lightbox="./media/managed-application/managed-app-queue-trigger-audit-enhanced.png":::
 
 Be sure to include a `Session ID` as the queue has sessions enabled.
 
-#### Azure Service Bus Python SDK
+### [Python SDK](#tab/cli-or-sdk)
 
 ```python
 import json
@@ -193,6 +199,7 @@ message = {
 message = ServiceBusMessage(json.dumps(message), session_id=SESSION_ID)
 sender.send_messages(message)
 ```
+---
 
 ### Viewing audit results
 

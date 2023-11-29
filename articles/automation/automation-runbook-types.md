@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/21/2023
+ms.date: 11/28/2023
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-python
 ---
@@ -56,6 +56,29 @@ For example: if you're executing a runbook for a SharePoint automation scenario 
 ### Limitations and Known issues
 
 The following are the current limitations and known issues with PowerShell runbooks:
+
+# [PowerShell 7.2](#tab/lps72)
+
+**Limitations**
+
+> [!NOTE]
+> Currently, PowerShell 7.2 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Central India, UAE Central, Israel  Central, Italy North, Germany North and Gov clouds.
+
+- For the PowerShell 7.2 runtime version, the module activities aren't extracted for the imported modules. Use [Azure Automation extension for VS code](automation-runbook-authoring.md) to simplify runbook authoring experience. 
+- PowerShell 7.x doesn't support workflows. For more information, see [PowerShell workflow](/powershell/scripting/whats-new/differences-from-windows-powershell#powershell-workflow) for more details.
+- PowerShell 7.x currently doesn't support signed runbooks.
+- Source control integration doesn't support PowerShell 7.2. Also, PowerShell 7.2 runbooks in source control get created in Automation account as Runtime 5.1.
+- Az module 8.3.0 is installed by default. The complete list of component modules of selected Az module version is shown once Az version is configured again using Azure portal or API.
+- The imported PowerShell 7.2 module would be validated during job execution. Ensure that all dependencies for the selected module are also imported for successful job execution.
+- Azure runbook doesn't support `Start-Job` with `-credential`. 
+- Azure doesn't support all PowerShell input parameters. [Learn more](runbook-input-parameters.md).
+
+**Known issues**
+- Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required module information.
+- `Get-AzStorageAccount` cmdlet might fail with an error: *The `Get-AzStorageAccount` command was found in the module `Az.Storage`, but the module could not be loaded*.
+- Executing child scripts using `.\child-runbook.ps1` is not supported in this preview.
+  **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
+- When you use [ExchangeOnlineManagement](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true) module version: 3.0.0 or higher, you can experience errors. To resolve the issue, ensure that you explicitly upload [PowerShellGet](/powershell/module/powershellget/) and [PackageManagement](/powershell/module/packagemanagement/) modules.
 
 # [PowerShell 5.1](#tab/lps51)
 
@@ -156,30 +179,6 @@ The following are the current limitations and known issues with PowerShell runbo
 - When you start PowerShell 7 runbook using the webhook, it auto-converts the webhook input parameter to an invalid JSON.
 - We recommend that you use [ExchangeOnlineManagement](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true) module version: 3.0.0 or lower because version: 3.0.0 or higher may lead to job failures.
 - If you import module Az.Accounts with version 2.12.3 or newer, ensure that you import the **Newtonsoft.Json** v10 module explicitly if PowerShell 7.1 runbooks have a dependency on this version of the module. The workaround for this issue is to use PowerShell 7.2 runbooks.
-
-
-# [PowerShell 7.2](#tab/lps72)
-
-**Limitations**
-
-> [!NOTE]
-> Currently, PowerShell 7.2 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Central India, UAE Central, Israel  Central, Italy North, Germany North and Gov clouds.
-
-- For the PowerShell 7.2 runtime version, the module activities aren't extracted for the imported modules.
-- PowerShell 7.x doesn't support workflows. For more information, see [PowerShell workflow](/powershell/scripting/whats-new/differences-from-windows-powershell#powershell-workflow) for more details.
-- PowerShell 7.x currently doesn't support signed runbooks.
-- Source control integration doesn't support PowerShell 7.2. Also, PowerShell 7.2 runbooks in source control get created in Automation account as Runtime 5.1.
-- Az module 8.3.0 is installed by default. The complete list of component modules of selected Az module version is shown once Az version is configured again using Azure portal or API.
-- The imported PowerShell 7.2 module would be validated during job execution. Ensure that all dependencies for the selected module are also imported for successful job execution.
-- Azure runbook doesn't support `Start-Job` with `-credential`. 
-- Azure doesn't support all PowerShell input parameters. [Learn more](runbook-input-parameters.md).
-
-**Known issues**
-- Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required module information.
-- `Get-AzStorageAccount` cmdlet might fail with an error: *The `Get-AzStorageAccount` command was found in the module `Az.Storage`, but the module could not be loaded*.
-- Executing child scripts using `.\child-runbook.ps1` is not supported in this preview.
-  **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
-- When you use [ExchangeOnlineManagement](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true) module version: 3.0.0 or higher, you can experience errors. To resolve the issue, ensure that you explicitly upload [PowerShellGet](/powershell/module/powershellget/) and [PackageManagement](/powershell/module/packagemanagement/) modules.
 ---
 
 ## PowerShell Workflow runbooks

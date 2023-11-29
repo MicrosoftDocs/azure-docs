@@ -52,22 +52,26 @@ Database servers with mission-critical workloads demand robust performance, requ
 
 ## The accelerated logs feature is available in the following regions
 
-- South Africa North
-- East Asia
+- Australia East
 - Canada Central
-- North Europe
-- West Europe
 - Central India
-- Sweden Central
-- Switzerland North
-- UK South
+- China North 3
+- East Asia
 - East US
 - East US 2
+- France Central
+- North Europe
+- Norway East
+- South Africa North
 - South Central US
+- Sweden Central
+- Switzerland North
+- UAE North
+- UK South
+- US Gov Virginia
+- West Europe
 - West US 2
 - West US 3
-- Australia East
-- UAE North
 
 ## Enable accelerated logs feature (preview)
 
@@ -76,6 +80,9 @@ The enable accelerated logs feature is available during the preview phase. You c
 ### Enable accelerated logs during server creation
 
 This section provides details specifically for enabling the accelerated logs feature. You can follow these steps to enable Accelerated logs while creating your flexible server.
+
+> [!IMPORTANT]  
+> The accelerated logs feature is only available for servers based on the Business Critical service tier. It is recommended to disable the feature when scaling down to any other service tier.
 
 1. In the [Azure portal](https://portal.azure.com/), choose flexible Server and Select **Create**.  For details on how to fill details such as **Subscription**, **Resource group**, **Server name**, **Region**, and other fields, see [how-to documentation](./quickstart-create-server-portal.md) for the server creation.
 

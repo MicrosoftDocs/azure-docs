@@ -539,7 +539,7 @@
           displayName: ATP, mdatp, wdatp, mde, mdfe, defender for endpoint, endpoint, edr
           href: integration-defender-for-endpoint.md
         - name: Define lists of safe applications for machines
-          displayName: aac, whitelist, allowlist, reviewgroup, adaptive application controls
+          displayName: aac, allowlist, reviewgroup, adaptive application controls
           href: adaptive-application-controls.md
         - name: Review applications and software installed on your machines
           displayName: inventory, apps, software inventory, mde, tvm

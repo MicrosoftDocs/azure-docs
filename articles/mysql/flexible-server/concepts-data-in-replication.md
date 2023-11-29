@@ -39,7 +39,7 @@ The [*mysql system database*](https://dev.mysql.com/doc/refman/5.7/en/system-sch
 
 Support for data-in replication for high availability (HA) enabled server is available only through GTID-based replication.
 
-The stored procedure for replication using GTID is available on all HA-enabled servers by the name `mysql.az_replication_with_gtid`.
+The stored procedure for replication using GTID is available on all HA-enabled servers by the name `mysql.az_replication_change_master_with_gtid`.
 
 ### Filter
 
