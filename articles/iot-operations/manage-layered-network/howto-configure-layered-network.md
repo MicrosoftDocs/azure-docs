@@ -47,13 +47,13 @@ The multiple levels of networks in this test setup are accomplished using subnet
 
 - **Level 4 subnet (10.104.0.0/16)** - This subnet has access to the internet. All the requests are sent to the destinations on the internet. This subnet has a single Windows 11 machine with the IP address 10.104.0.10.
 - **Level 3 subnet (10.103.0.0/16)** - This subnet doesn't have access to the internet and is configured to only have access to the IP address 10.104.0.10 in Level 4. This subnet contains a Windows 11 machine with the IP address 10.103.0.33 and a Linux machine that hosts a DNS server. The DNS server is configured using the steps in [Configure custom DNS](#configure-custom-dns). All the domains in the DNS configuration must be mapped to the address 10.104.0.10.
-- **Level 2 subnet (10.102.0.0/16)** - Like Level 3, this subnet doesn't have access to the internet. It's configured to only have access to the IP address 10.103.0.33 in Level 3. This subnet contains a Windows 11 machine with the IP address 10.102.0.28 and a Linux machine that hosts a DNS server. There's one Windows 11 machine (node) in this network with IP address 10.102.0.28. All the domains in the DNS configuration must be mapped to the address 10.103.0.33.
+- **Level 2 subnet (10.102.0.0/16)** - Like Level 3, this subnet doesn't have access to the internet. It is configured to only have access to the IP address 10.103.0.33 in Level 3. This subnet contains a Windows 11 machine with the IP address 10.102.0.28 and a Linux machine that hosts a DNS server. There's one Windows 11 machine (node) in this network with IP address 10.102.0.28. All the domains in the DNS configuration must be mapped to the address 10.103.0.33.
 
 Refer to the following examples for setup this type of network environment.
 
 ### Example of logical segmentation with minimum hardware
 In this example, both machines are connected to an AP (Access Point) which connects to the internet. The level 4 host machine can access internet. The level 3 host is blocked for accessing internet with AP's configuration (for example, firewall, client control...). As both machines are in the same network, Layered Network Management instance hosted on level 4 cluster is by default visible to the level 3 machine and cluster.
-An extra custom DNS needs to be setup in the local network to provide domain name resolution and point the traffic to Layered Network Management. For more information, see [Configure custom DNS](#configure-custom-dns).
+An extra custom DNS needs to be set up in the local network to provide domain name resolution and point the traffic to Layered Network Management. For more information, see [Configure custom DNS](#configure-custom-dns).
 
 ![Diagram of a logical isolated network configuration.](./media/howto-configure-layered-network/logical-network-segmentation.png)
 
@@ -64,7 +64,7 @@ In this example, a test environment is created with [Virtual Network](/azure/vir
 
 1. Create a virtual network in your Azure subscription. Create subnets for at least two layers (level 4 and level 3).
 ![Screenshot for virtual network in Azure](./media/howto-configure-layered-network/lnm-vnet-subnet.png)
-1. It's optional to create an extra subnet for the "jumpbox" or "developer" machine to remotely access the machine or cluster across layers. This setup will be convenient if you plan to create more than two network layers. Otherwise, you can connect the jumpbox machine to level 4 network.
+1. It's optional to create an extra subnet for the "jumpbox" or "developer" machine to remotely access the machine or cluster across layers. This setup is convenient if you plan to create more than two network layers. Otherwise, you can connect the jumpbox machine to level 4 network.
 1. Create [network security groups](/azure/virtual-network/network-security-groups-overview) for each level and attach to the subnet accordingly.
 1. You can use the default value for level 4 security group.
 1. You need to config additional inbound and outbound rules for level 3 (and lower level) security group.
@@ -85,7 +85,7 @@ A custom DNS is needed for level 3 and below. It ensures that DNS resolution for
 
 ### Configure CoreDNS
 
-While the DNS setup can be achieved many different ways, this example uses an extension mechanism provided by CoreDNS that is the default DNS server for K3S clusters. URLs on the allow list, which need to be resolved are added to the CoreDNS.
+While the DNS setup can be achieved many different ways, this example uses an extension mechanism provided by CoreDNS that is the default DNS server for K3S clusters. URLs on the allowlist, which need to be resolved are added to the CoreDNS.
 > [!IMPORTANT]
 > The CoreDNS approach is only applicable to K3S cluster on Ubuntu host at level 3.
 
