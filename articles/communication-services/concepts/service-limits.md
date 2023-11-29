@@ -99,7 +99,10 @@ Sending a high volume of messages has a set of limitations on the number of emai
 |Total email request size (including attachments) |10 MB |
 
 ### Action to take
-This sandbox setup is designed to help developers begin building the application. Once the application is ready for production, you can gradually request to increase the sending volume. If you need to send more messages than the rate limits allow, submit a support request to raise your desired email sending limit. The reviewing team will consider your overall sender reputation, which includes factors such as your email delivery failure rates, your domain reputation, and reports of spam and abuse, when determining approval status.
+This sandbox setup is to help developers start building the application. Once you have established a sender reputation by sending mails, you can request to increase the sending volume limits. Submit a [support request](https://azure.microsoft.com/support/create-ticket/) to raise your desired email sending limit if you require sending a volume of messages exceeding the rate limits. Email quota increase requests are not automatically approved. The reviewing team will consider your overall sender reputation, which includes factors such as your email delivery failure rates, your domain reputation, and reports of spam and abuse when determining approval status.
+
+> [!NOTE]
+> Email quota increase requests may take up to 72 hours to be evaluated and approved, especially for requests that come in on Friday afernoon.
 
 ## Chat
 

@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/20/2023
+ms.date: 11/28/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to delegate the Azure role assignment task to other users who are closer to the decision, but want to limit the scope of the role assignments.
@@ -60,7 +60,9 @@ Instead of assigning the Owner or User Access Administrator roles, a more secure
 
 Delegating role assignments with conditions is a way to restrict the role assignments a user can create. In the preceding example, Alice can allow Dara to create some role assignments on her behalf, but not all role assignments. For example, Alice can constrain the roles that Dara can assign and constrain the principals that Dara can assign roles to. This delegation with conditions is sometimes referred to as *constrained delegation* and is implemented with [Azure attribute-based access control (Azure ABAC) conditions](conditions-overview.md).
 
-To watch an overview video, see [Delegate Azure role assignments with conditions](https://youtu.be/3eDf2thqeO4?si=rBPW9BxRNtISkAGG).
+This video provides an overview of delegating role assignments with conditions.
+
+>[!VIDEO https://www.youtube.com/embed/3eDf2thqeO4]
 
 ## Why delegate role assignments with conditions?
 
