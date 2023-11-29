@@ -26,13 +26,13 @@ Based on your preferences, the following scenarios are available with DNS resolu
 
 - [Virtual network workloads without Azure Private Resolver](#virtual-network-workloads-without-azure-private-resolver)
   
-- [Peered virtual network workloads without Azure Private Resolver](#peered-virtual-network-workloads-without-azure-private-resolver)
+- [Peered virtual network workloads without Azure Private Resolver](#virtual-network-workloads-without-custom-dns-server)
    
 - [Azure Private Resolver for on-premises workloads](#azure-private-resolver-for-on-premises-workloads)
   
 - [Azure Private Resolver with on-premises DNS forwarder](#on-premises-workloads-using-a-dns-forwarder)
   
-- [Azure Private Resolver for virtual network and on-premises workloads](#azure-private-resolver-for-virtual-network-and-on-premises-workloads)
+- [Azure Private Resolver for virtual network and on-premises workloads](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder)
 
 ## Virtual network workloads without Azure Private Resolver
 
@@ -68,12 +68,12 @@ In this scenario, there's a [hub and spoke](/azure/architecture/reference-archit
 
 ## Azure Private Resolver for on-premises workloads
 
-For on-premises workloads to resolve the FQDN of a private endpoint, use Azure Private Resolver to resolve the Azure service [public DNS zone](#azure-services-dns-zone-configuration) in Azure. Azure Private Resolver is an Azure managed service that can resolve DNS queries without the need for a virtual machine acting as a DNS forwarder.
+For on-premises workloads to resolve the FQDN of a private endpoint, use Azure Private Resolver to resolve the Azure service public DNS zone in Azure. Azure Private Resolver is an Azure managed service that can resolve DNS queries without the need for a virtual machine acting as a DNS forwarder.
 
 The following scenario is for an on-premises network configured to use an Azure Private Resolver. The private resolver forwards the request for the private endpoint to Azure DNS.
 
 > [!NOTE]
-> This scenario uses the Azure SQL Database-recommended private DNS zone. For other services, you can adjust the model using the following reference: [Azure services DNS zone configuration](#azure-services-dns-zone-configuration).
+> This scenario uses the Azure SQL Database-recommended private DNS zone. For other services, you can adjust the model using the following reference: [Azure services DNS zone values](private-endpoint-dns.md).
 
 The following resources are required for a proper configuration:
 
@@ -97,7 +97,7 @@ This configuration can be extended for an on-premises network that already has a
 The on-premises DNS solution is configured to forward DNS traffic to Azure DNS via a [conditional forwarder](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). The conditional forwarder references the Private Resolver deployed in Azure.
 
 > [!NOTE]
-> This scenario uses the Azure SQL Database-recommended private DNS zone. For other services, you can adjust the model using the following reference: [Azure services DNS zone configuration](#azure-services-dns-zone-configuration)
+> This scenario uses the Azure SQL Database-recommended private DNS zone. For other services, you can adjust the model using the following reference: [Azure services DNS zone values](private-endpoint-dns.md)
 
 To configure properly, you need the following resources:
 
@@ -114,7 +114,7 @@ To configure properly, you need the following resources:
 The following diagram illustrates the DNS resolution from an on-premises network. DNS resolution is conditionally forwarded to Azure. The resolution is made by a private DNS zone [linked to a virtual network](../dns/private-dns-virtual-network-links.md).
 
 > [!IMPORTANT]
-> The conditional forwarding must be made to the recommended [public DNS zone forwarder](#azure-services-dns-zone-configuration). For example: `database.windows.net` instead of **privatelink**.database.windows.net.
+> The conditional forwarding must be made to the recommended [public DNS zone forwarder](private-endpoint-dns.md). For example: `database.windows.net` instead of **privatelink**.database.windows.net.
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Diagram of on-premises forwarding to Azure DNS.":::
 
