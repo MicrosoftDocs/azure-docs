@@ -13,13 +13,13 @@ ms.date: 11/29/2023
 
 User access management is a feature that enables the organization admin to add, view and remove users and roles inside a Confluent organization. By managing user permissions, you can ensure that only authorized users can access and perform actions on your Confluent Cloud resources.
 
-This guide presents step by step instructions to manage users and roles in Apache Kafka on Confluent Cloud, in the Azure portal.
+This guide presents step by step instructions to manage users and roles in Apache Kafka on Confluent Cloud - An Azure Native ISV Service, via Azure portal.
 
 The following actions are supported:
 
-* Adding a user to the Confluent Organization
-* Viewing a user's role permissions.
-* Adding or removing role permissions assigned to a user.
+* Adding a user to a Confluent organization.
+* Viewing a user's role permissions in a Confluent organization.
+* Adding or removing role permissions assigned to a user in a Confluent organization.
 
 ## Prerequisites
 
@@ -27,15 +27,18 @@ The following actions are supported:
 * An existing Confluent organization.
 * Required permission: subscription Owner or Contributor.
 
-## Add a user to a Confluent Organization
+## Add a user to a Confluent organization
 
-Follow the steps below to add a user to a Confluent Organization.
+Follow the steps below to add a user to a Confluent organization.
 
-1. Open a Confluent Organization in the Azure portal and select **Confluent Account and Access** from the left menu. The page shows a list of users who currently belong to this Confluent organization. The same list is visible under **Accounts & access** in the Confluent portal.
+1. Open your Confluent organization in the Azure portal and select **Confluent Account and Access** from the left menu. The page shows a list of users who currently belong to this Confluent organization. The same list is visible under **Accounts & access** in the Confluent portal.
 
     :::image type="content" source="media/manage-access/account-and-access.png" alt-text="Screenshot of the Azure platform showing the Confluent Account and Access menu.":::
 
-1. Select **Add User**. A new blade opens with a list of users who belong to your tenant.
+   > [!TIP]
+   > If you get the error "You do not have enough permissions on the organization to perform this operation", make sure that you have the required permissions. You must be a subscription Owner or Contributor.
+
+1. Select **Add User**. A new pane opens with a list of users who belong to your tenant.
 
     :::image type="content" source="media/manage-access/add-user.png" alt-text="Screenshot of the Azure platform showing the Add user option.":::
 
@@ -47,17 +50,18 @@ Follow the steps below to add a user to a Confluent Organization.
 
 ## View a user's permissions
 
-Review permissions assigned to a user.
+Review permissions assigned to a user in their Confluent resource.
 
-1. The Confluent Account and Access page shows the list of users in your current Confluent organization. Open the context menu on the right end of the user you want to see the permissions for and select **Manage Permissions**.
-1. A page opens, showing permissions. It shows that the newly added user doesn't have any permission in this Confluent organization yet. Optionally select the chevron next to the organization to expand into user permissions view for all environments and clusters.
+1. The Confluent Account and Access page shows the list of users in your current Confluent organization. Select **Manage Permissions** on the right end of the user you want to see the permissions for.
+1. A pane opens, showing permissions. It shows that the newly added user doesn't have any permission in this Confluent organization yet. Optionally select the chevron next to the organization to expand into user permissions view for all environments and clusters.
 
     :::image type="content" source="media/manage-access/view-roles.png"alt-text="Screenshot of the Azure platform showing roles attributed to a user.":::
 
 ## Assign a permission to a user
 
-Give the new user some permissions in your Confluent Organization.
+Give the new user some permissions in your Confluent organization.
 
+1. In your Confluent organization, select **Confluent Account and Access** from the left menu and select **Manage Permissions** on the right end of the user you want to assign a permission to.
 1. Select **Add Role** to get a list of role permissions available.  
 
     :::image type="content" source="media/manage-access/add-role.png"alt-text="Screenshot of the Azure platform showing the Add Role option.":::
@@ -72,6 +76,7 @@ Give the new user some permissions in your Confluent Organization.
 
 Remove a permission assigned to a user in the Confluent organization.
 
+1. In your Confluent organization, select **Confluent Account and Access** from the left menu and select **Manage Permissions** on the right end of the user whose permission you want to remove.
 1. In **Manage Permissions**, select **Remove Role**.
 
     :::image type="content" source="media/manage-access/remove-role.png"alt-text="Screenshot of the Azure platform showing selecting a Confluent organization role to remove.":::
