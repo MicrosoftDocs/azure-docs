@@ -77,7 +77,7 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 - **Nominate eligible Azure DB for MySQL Single Server instance for in-place automigration to Flexible Server**
 
-  If you own a Azure DB for MySQL Single Server workload with Basic or GP SKU, data storage used < 10 GiB and no complex features (CMK, AAD, Read Replica, Private Link) enabled, you can now nominate yourself (if not already scheduled by the service) for in-place automigration to Flexible Server by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u)
+  If you own an Azure DB for MySQL Single Server workload with Basic or GP SKU, data storage used < 10 GiB and no complex features (CMK, Microsoft Entra ID, Read Replica, Private Link) enabled, you can now nominate yourself (if not already scheduled by the service) for in-place automigration to Flexible Server by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u)
 
 ## August 2023
   
