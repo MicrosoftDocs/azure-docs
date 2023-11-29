@@ -23,27 +23,28 @@ Besides capturing metrics, it’s important to also trace the workload to unders
 
 ## High CPU causes
 
-Most CPU spikes raises for two reasons, **connections spikes** and **bad written SQL queries** or **both**:
+CPU spikes can occur for various reasons, primarily due to spikes in connections and poorly written SQL queries, or a combination of both:
 
-* **Connections Spike.**
+**Spike in Connections**
 
-When connections increases, that will increase number of threads which will cause CPU increases to handle these connections with their queries and resources, to troubleshoot connections spike, check [Total Connections](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-monitoring#list-of-metrics) metrics and next section for details about these connections.   
-You can use performance_schema to get hosts and users that are currerntly connected to server.
+An increase in connections can lead to an increase in threads, which in turn can cause a rise in CPU usage as it has to manage these connections along with their queries and resources. To troubleshoot a spike in connections, you should check the [Total Connections](./../concepts-monitoring.md#list-of-metrics) metric and refer to the next section for more details about these connections. You can utilize the performance_schema to identify the hosts and users currently connected to the server with the following commands:
 
+Current connected hosts
 ```
    select HOST,CURRENT_CONNECTIONS From performance_schema.hosts
    where CURRENT_CONNECTIONS > 0
    and host not in ('NULL','localhost');
 ```
+Current connected users
 ```
    select USER,CURRENT_CONNECTIONS from performance_schema.users
    where CURRENT_CONNECTIONS >0
    and USER not in ('NULL','azure_superuser');
 ```
-  
-* **Bad written SQL queries.**
 
-If queries have an expensive cost and scans a lot of rows with no index, or doing temporary sort along with other bad plans, will lead to CPU spikes, some queries when executed in single session, will be fast, with 100 session, will cause CPU spikes, always explain your queries that you capture from [show processlist](https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html) and make sure their execution plans is effecient, by making sure, they scans low number of rows and uses indexes, more info about execution plan [here](https://dev.mysql.com/doc/refman/5.7/en/explain-output.html)
+**Poorly Written SQL Queries**
+
+Queries that are expensive to execute and scan a large number of rows without an index, or those that perform temporary sorts along with other inefficient plans, can lead to CPU spikes. While some queries may execute quickly in a single session, they can cause CPU spikes when run in multiple sessions. Therefore, it’s crucial to always explain your queries that you capture from the [show processlist](https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html) and ensure their execution plans are efficient. This can be achieved by ensuring they scan a minimal number of rows by using filters/where cluase, utilize indexes and avoid using large temporary sort along with other bad execution plans. You can find more information about execution plans [here](https://dev.mysql.com/doc/refman/5.7/en/explain-output.html).
 
 ## Capturing details of the current workload
 
