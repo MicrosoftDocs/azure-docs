@@ -48,16 +48,19 @@ You can define system-managed schedule or custom schedule for each flexible serv
 
 In rare cases, maintenance event can be canceled by the system or may fail to complete successfully. If the update fails, the update will be reverted, and the previous version of the binaries is restored. In such failed update scenarios, you may still experience restart of the server during the maintenance window. If the update is canceled or failed, the system will create a notification about canceled or failed maintenance event respectively notifying you. The next attempt to perform maintenance will be scheduled as per your current scheduling settings and you will receive notification about it 5 days in advance.
 
-## Near zero downtime maintenance (Public preview)
+## Near zero downtime maintenance (Public preview) ##
 
-Azure Database for MySQL Flexible Server's "Near Zero Downtime Maintenance" feature is a groundbreaking development for **HA (High Availability) enabled servers**. This feature is designed to substantially reduce maintenance downtime, ensuring that in most cases, the downtime is less than 30 seconds. This capability is pivotal for businesses that demand high availability and minimal interruption in their database operations.
+Azure Database for MySQL Flexible Server's "Near Zero Downtime Maintenance" feature is a groundbreaking development for **HA (High Availability) enabled servers**. This feature is designed to substantially reduce maintenance downtime, ensuring that in most cases, maintenance downtime is expected to be between 40 to 60 seconds. This capability is pivotal for businesses that demand high availability and minimal interruption in their database operations.
 
-### Limitations and Pre-requisites ###
+### Precise Downtime Expectations ###
+ - **Downtime Duration:** In most cases, the downtime during maintenance ranges from 10 to 30 seconds.
+ - **Additional Considerations:** After a failover event, there's an inherent DNS Time-To-Live (TTL) period of approximately 30 seconds. This period isn't directly controlled by the maintenance process but is a standard part of DNS behavior. So, from a customer's perspective, the total downtime experienced during maintenance could be in the range of 40 to 60 seconds.
+
+### Limitations and Prerequisites ###
 To achieve the optimal performance promised by this feature, certain conditions and limitations should be noted:
 
  - **Primary Keys in All Tables:** Ensuring that every table has a primary key is critical. Lack of primary keys can significantly increase replication lag, impacting the downtime.
- - **Low Workload During Maintenance Times:** Maintenance periods should coincide with times of low workload on the server to ensure the downtime remains minimal.
- - **Enabling GTID (Global Transaction Identifiers):** For efficient transaction handling and replication, activating GTID is recommended.
+ - **Low Workload During Maintenance Times:** Maintenance periods should coincide with times of low workload on the server to ensure the downtime remains minimal. We encourage you to use the custom maintenance window feature to schedule maintenance during off-peak hours.
 
 ## Maintenance reschedule (Public preview)
 
