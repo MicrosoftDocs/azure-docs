@@ -122,7 +122,7 @@ To regenerate primary and secondary keys in the **Azure portal**, follow these s
 1. Navigate to the Service Bus namespace in the [Azure portal](https://portal.azure.com).
 1. Select **Shared Access Policies** on the left menu.
 1. Select the policy from the list. In the following example, **RootManageSharedAccessKey** is selected. 
-1. To regenerate the primary key, on the **SAS Policy: RootManageSharedAccessKey** page, select **Regenerate primary key** on the commandbar. 
+1. To regenerate the primary key, on the **SAS Policy: RootManageSharedAccessKey** page, select **Regenerate primary key** on the command bar. 
 
     :::image type="content" source="./media/service-bus-sas/regenerate-primary-key.png" alt-text="Screenshot that shows how to regenerate a primary key.":::
 1. To regenerate the secondary key, on the **SAS Policy: RootManageSharedAccessKey** page, select **...** from the command bar, and then select **Regenerate secondary key**. 
