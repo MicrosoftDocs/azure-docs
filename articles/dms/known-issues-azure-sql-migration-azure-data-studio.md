@@ -291,7 +291,7 @@ exec sp_addRoleMember 'loginmanager', 'testuser'
 
 - **Cause**: The customer's SHIR fails to connect data factory.
 
-- **Recommendation**: This is sample doc how to solve it: [Integration runtime Unable to connect to Data Factory](https://learn.microsoft.com/answers/questions/139976/integration-runtime-unable-to-connect-to-data-fact)
+- **Recommendation**: This is sample doc how to solve it: [Integration runtime Unable to connect to Data Factory](/answers/questions/139976/integration-runtime-unable-to-connect-to-data-fact)
 
 
 
@@ -306,29 +306,29 @@ exec sp_addRoleMember 'loginmanager', 'testuser'
 
 - **Cause**: This is the most common error customers might encounter. It means that the object cannot be deployed to the target because it is unsupported on the target.
 
-- **Recommendation**: Customers need to check the assessment results ([Assessment rules](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql)). This is the list of assessment issues that might fail the schema migration:
+- **Recommendation**: Customers need to check the assessment results ([Assessment rules](/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql)). This is the list of assessment issues that might fail the schema migration:
   
-[BUIK INSERT](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#BulkInsert)
+[BUIK INSERT](/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#BulkInsert)
 
-[COMPUTE clause](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#ComputeClause)
+[COMPUTE clause](/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#ComputeClause)
 
-[Cryptographic provider](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#CryptographicProvider)
+[Cryptographic provider](/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#CryptographicProvider)
 
-[Cross database references](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#CrossDatabaseReferences)
+[Cross database references](/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#CrossDatabaseReferences)
 
-[Database principal alias](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#DatabasePrincipalAlias)
+[Database principal alias](/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#DatabasePrincipalAlias)
 
-[DISABLE_DEF_CNST_CHK option](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#DisableDefCNSTCHK)
+[DISABLE_DEF_CNST_CHK option](/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#DisableDefCNSTCHK)
 
-[FASTFIRSTROW hint](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#FastFirstRowHint)
+[FASTFIRSTROW hint](/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#FastFirstRowHint)
 
-[FILESTREAM](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#FileStream)
+[FILESTREAM](/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#FileStream)
 
-[MS DTC](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#MSDTCTransactSQL)
+[MS DTC](/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#MSDTCTransactSQL)
 
-[OPENROWSET (bulk)](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#OpenRowsetWithNonBlobDataSourceBulk)
+[OPENROWSET (bulk)](/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#OpenRowsetWithNonBlobDataSourceBulk)
 
-[OPENROWSET (provider)](https://learn.microsoft.com/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#OpenRowsetWithSQLAndNonSQLProvider)
+[OPENROWSET (provider)](/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules?view=azuresql#OpenRowsetWithSQLAndNonSQLProvider)
 
 Note: To view error detail, Open Microsoft Integration runtime configurtion manager > Diagnostics > logging > view logs. 
 It will open the Event viewer > Application and Service logs > Connectors - Integration runtime and now filter for errors.
@@ -339,7 +339,7 @@ It will open the Event viewer > Application and Service logs > Connectors - Inte
 
 - **Cause**: All function references in the computed column must have the same owner as the table.
 
-- **Recommendation**: Check the doc [Ownership Requirement](https://learn.microsoft.com/sql/relational-databases/indexes/indexes-on-computed-columns?view=sql-server-ver16#ownership-requirements).
+- **Recommendation**: Check the doc [Ownership Requirement](/sql/relational-databases/indexes/indexes-on-computed-columns?view=sql-server-ver16#ownership-requirements).
 
 
 ## Error code: Ext_RestoreSettingsError
