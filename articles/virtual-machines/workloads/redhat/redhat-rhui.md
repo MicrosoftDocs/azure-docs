@@ -93,16 +93,22 @@ Extended Update Support (EUS) repositories are available to customers who might 
 
 Currently, EUS support has ended for RHEL <= 7.7. For more information, see [Red Hat Enterprise Linux Extended Maintenance](https://access.redhat.com/support/policy/updates/errata/#Long_Support).
 
-- RHEL 7.4 EUS support ends August 31, 2019
-- RHEL 7.5 EUS support ends April 30, 2020
-- RHEL 7.6 EUS support ends May 31, 2021
-- RHEL 7.7 EUS support ends August 30, 2021
-- RHEL 8.4 EUS support ends May 31, 2023
+- RHEL 7.4 EUS support ended August 31, 2019
+- RHEL 7.5 EUS support ended April 30, 2020
+- RHEL 7.6 EUS support ended May 31, 2021
+- RHEL 7.7 EUS support ended August 30, 2021
+- RHEL 8.4 EUS support ended May 31, 2023
 - RHEL 8.6 EUS support ends May 31, 2024
 - RHEL 9.0 EUS support ends May 31, 2024
 
 ### Switch a RHEL Server to EUS Repositories.
 
+#### [Switching to EUS repositories on RHEL8](#tab/rhel7) 
+
+>[!NOTE]
+>Support for RHEL7 EUS ended in August 30, 2021. It is not recommended, nor supported to use EUS repos with Red Hat Enterprise Linux 7 anymore.
+
+ 
 #### [Switching to EUS repositories on RHEL8](#tab/rhel8) 
 Use the following procedure to lock a RHEL 8.x VM to a particular minor release. Run the commands as `root`:
 
