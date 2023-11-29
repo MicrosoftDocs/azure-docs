@@ -328,7 +328,7 @@ If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM
 
 1. Inspect the VM configuration for the Azure RHUI endpoint:
 
-   - Check whether the `/etc/yum.repos.d/rh-cloud.repo` file contains a reference to `rhui-[1-3].microsoft.com` in the `baseurl` of the `[rhui-microsoft-azure-rhel*]` section of the file. If it does, you're using the new Azure RHUI.
+   - Check whether the `/etc/yum.repos.d/rh-cloud.repo` file contains a reference to `rhui-[1-4].microsoft.com` in the `baseurl` of the `[rhui-microsoft-azure-rhel*]` section of the file. If it does, you're using the new Azure RHUI.
 
    - If the reference points to a location with the following pattern, `mirrorlist.*cds[1-4].cloudapp.net`, a configuration update is required. You're using the old VM snapshot, and you need to update it to point to the new Azure RHUI.
 
