@@ -1,5 +1,5 @@
 ---
-title: "Initialize Dapr in a container app environment using the Azure CLI (preview)"
+title: "Initialize Dapr Components in a container app environment using the Azure CLI (preview)"
 titleSuffix: "Azure Container Apps"
 description: Learn how to initialize your Dapr components using the Azure CLI.
 author: hhunter-ms
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 11/27/2023
 ---
 
-# Initialize Dapr in a container app environment using the Azure CLI (preview)
+# Initialize Dapr Components in a container app environment using the Azure CLI (preview)
 
 Simplify your Dapr development experience by initializing Dapr components directly in your Azure Container Apps environment with one command. 
 
