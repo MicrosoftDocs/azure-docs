@@ -88,7 +88,7 @@ Azure reliability guidance contains the following:
 [Azure Web Application Firewall](../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 
 
-### ![An icon that signifies this service is mainstream.](media/icon-strategic.svg) Strategic services
+### ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic services
 
 | **Products**  | 
 | --- | 
