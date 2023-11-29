@@ -116,9 +116,9 @@ When you [create a new connection](#create-a-new-connection), you enter the foll
 
 ---
 
-
 ## Next steps
 
 - [Connections in Azure AI Studio](../concepts/connections.md)
 - [How to create vector indexes](../how-to/index-add.md)
+- [How to configure a managed network](configure-managed-network.md)
 
