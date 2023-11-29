@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Quota monitoring and alerting
 
-Monitoring and alerting in Azure provides real-time insights into resource utilization, enabling proactive issue resolution and resource optimization.It helps detect anomalies and potential issues before they impact services, ensuring uninterrupted operations.
+Monitoring and alerting in Azure provides real-time insights into resource utilization, enabling proactive issue resolution and resource optimization. Use monitoring and alerting to help detect anomalies and potential issues before they impact services.
 
 To view the features on **Quotas** page, sign in to the [Azure portal](https://portal.azure.com) and enter "quotas" into the search box, then select **Quotas**.
 
