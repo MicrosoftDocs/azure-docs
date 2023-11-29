@@ -12,7 +12,7 @@ ms.author: angour
 This article provides information about the Azure FarmBeats **Translator** component, which enables sensor partner integration.
 
 > [!IMPORTANT]
-> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/en-us/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
 >
 > We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
