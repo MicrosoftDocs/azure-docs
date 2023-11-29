@@ -26,11 +26,7 @@ This article shows you how to use API portal for VMware Tanzu with the Azure Spr
 - An already provisioned Azure Spring Apps Enterprise plan instance with API portal enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 - [Spring Cloud Gateway for Tanzu](./how-to-use-enterprise-spring-cloud-gateway.md) is enabled during provisioning and the corresponding API metadata is configured.
 
-## Configure API portal
-
-The following sections describe configuration in API portal.
-
-### Configure single sign-on (SSO)
+## Configure single sign-on (SSO)
 
 API portal supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) that supports the OpenID Connect Discovery protocol.
 
@@ -48,10 +44,6 @@ To set up SSO with Microsoft Entra ID, see [How to set up single sign-on with Mi
 
 > [!NOTE]
 > If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration.
-
-### Configure the instance count
-
-Configuration of the instance count for API portal is supported, unless you're using SSO. If you're using the SSO feature, only one instance count is supported.
 
 ## Assign a public endpoint for API portal
 
