@@ -24,7 +24,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
-| November 28 | [Recommendations released for preview: Nine new Azure security recommendations](#recommendations-released-for-preview-nine-new-azure-security-recommendations)|
+| November 29 | [Recommendations released for preview: Nine new Azure security recommendations](#recommendations-released-for-preview-nine-new-azure-security-recommendations)|
 | November 27 | [General availability of agentless secret scanning in Defender for Servers and Defender CSPM](#general-availability-of-agentless-secret-scanning-in-defender-for-servers-and-defender-cspm) |
 | November 22 | [Enable permissions management with Defender for Cloud (Preview)](#enable-permissions-management-with-defender-for-cloud-preview) |
 | November 22 | [Defender for Cloud integration with ServiceNow](#defender-for-cloud-integration-with-servicenow) |
@@ -42,7 +42,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ### Recommendations released for preview: Nine new Azure security recommendations
 
-November 28, 2023
+November 29, 2023
 
 We have added nine recommendations to the Microsoft Cloud Security Benchmark. These new recommendations are currently in public preview.
 
