@@ -123,6 +123,8 @@ The following functions are available for working with objects. All of these fun
 
 ## Parameters file functions
 
+The [getSecret function](./bicep-functions-parameters-file.md) is available in Bicep to get secure value from a KeyVault. This function is in the `az` namespace.
+
 The [readEnvironmentVariable function](./bicep-functions-parameters-file.md) is available in Bicep to read environment variable values. This function is in the `sys` namespace.
 
 ## Resource functions

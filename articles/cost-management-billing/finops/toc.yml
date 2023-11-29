@@ -36,7 +36,7 @@
     - name: Managing anomalies
       href: capabilities-anomalies.md
     - name: Establishing a decision and accountability structure
-      href: capabilities-commitment-discounts.md
+      href: capabilities-structure.md
   - name: Cloud usage optimization
     items:
     - name: Resource utilization and efficiency
@@ -48,7 +48,7 @@
   - name: Cloud rate optimization
     items:
     - name: Managing commitment-based discounts
-      href: capabilities-anomalies.md
+      href: capabilities-commitment-discounts.md
   - name: Organizational alignment
     items:
     - name: Cloud policy and governance
@@ -61,6 +61,10 @@
       href: capabilities-culture.md
     - name: FinOps and intersecting frameworks
       href: capabilities-frameworks.md
+- name: How-to guides
+  items:
+  - name: Use Cost optimization workbook
+    href: cost-optimization-workbook.md
 - name: Resources
   items:
   - name: FinOps with Azure e-book

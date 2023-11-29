@@ -5,7 +5,7 @@ ms.service: azure-redhat-openshift
 ms.topic: article
 author: johnmarco
 ms.author: johnmarc
-ms.date: 02/01/2022
+ms.date: 08/24/2023
 keywords: azure, openshift, aro, red hat, service, definition
 #Customer intent: I need to understand Azure Red Hat OpenShift service definitions to manage my subscription.
 ---
@@ -172,6 +172,10 @@ No monitoring of these private network connections is provided by Red Hat SRE. M
 
 Azure Red Hat OpenShift customers can specify their own DNS servers. For more information, see [Configure custom DNS for your Azure Red Hat OpenShift cluster](./howto-custom-dns.md).
 
+### Container Network Interface
+
+Azure Red Hat OpenShift comes with OVN (Open Virtual Network) as the Container Network Interface (CNI). Replacing the CNI is not a supported operation. For more information, see [OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters](concepts-ovn-kubernetes.md).
+
 ## Storage
 
 The following sections provide information about Azure Red Hat OpenShift storage.
@@ -246,9 +250,9 @@ The following sections provide information about Azure OpenShift security.
 
 Azure Red Hat OpenShift clusters aren't configured with any authentication providers.
 
-Customers need to configure their own providers, such as Azure Active Directory. For information about configuring providers, see the following articles:
+Customers need to configure their own providers, such as Microsoft Entra ID. For information about configuring providers, see the following articles:
 
-* [Azure Active Directory Authentication](./configure-azure-ad-cli.md)
+* [Microsoft Entra authentication](./configure-azure-ad-cli.md)
 * [OpenShift identity providers](https://docs.openshift.com/container-platform/4.7/authentication/understanding-identity-provider.html)
 
 ### Regulatory compliance

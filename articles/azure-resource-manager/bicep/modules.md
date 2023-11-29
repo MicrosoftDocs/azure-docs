@@ -3,7 +3,7 @@ title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/04/2022
+ms.date: 10/13/2023
 ---
 
 # Bicep modules
@@ -46,13 +46,13 @@ You can also use an ARM JSON template as a module:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/local-file-definition-json.bicep" :::
 
-Use the symbolic name to reference the module in another part of the Bicep file. For example, you can use the symbolic name to get the output from a module. The symbolic name may contain a-z, A-Z, 0-9, and underscore (`_`). The name can't start with a number. A module can't have the same name as a parameter, variable, or resource.
+Use the symbolic name to reference the module in another part of the Bicep file. For example, you can use the symbolic name to get the output from a module. The symbolic name might contain a-z, A-Z, 0-9, and underscore (`_`). The name can't start with a number. A module can't have the same name as a parameter, variable, or resource.
 
 The path can be either a local file or a file in a registry. The local file can be either a Bicep file or an ARM JSON template. For more information, see [Path to module](#path-to-module).
 
 The **name** property is required. It becomes the name of the nested deployment resource in the generated template.
 
-If a module with a static name is deployed concurrently to the same scope, there's the potential for one deployment to interfere with the output from the other deployment. For example, if two Bicep files use the same module with the same static name (`examplemodule`) and targeted to the same resource group, one deployment may show the wrong output. If you're concerned about concurrent deployments to the same scope, give your module a unique name.
+If a module with a static name is deployed concurrently to the same scope, there's the potential for one deployment to interfere with the output from the other deployment. For example, if two Bicep files use the same module with the same static name (`examplemodule`) and targeted to the same resource group, one deployment might show the wrong output. If you're concerned about concurrent deployments to the same scope, give your module a unique name.
 
 The following example concatenates the deployment name to the module name. If you provide a unique name for the deployment, the module name is also unique.
 
@@ -95,11 +95,11 @@ For example, to deploy a file that is up one level in the directory from your ma
 
 #### Public module registry
 
-The public module registry is hosted in a Microsoft container registry (MCR). The source code and the modules are stored in [GitHub](https://github.com/azure/bicep-registry-modules). The [README file](https://github.com/azure/bicep-registry-modules#readme) in the GitHub repo lists the available modules and their latest versions:
+The public module registry is hosted in a Microsoft container registry (MCR). The source code and the modules are stored in [GitHub](https://github.com/azure/bicep-registry-modules). To view the available modules and their versions, see [Bicep registry Module Index](https://aka.ms/br-module-index). 
 
 :::image type="content" source="./media/modules/bicep-public-module-registry-modules.png" alt-text="The screenshot of public module registry.":::
 
-Select the versions to see the available versions. You can also select **Code** to see the module source code, and open the Readme files.
+Select the versions to see the available versions. You can also select **Source code** to see the module source code, and open the Readme files.
 
 There are only a few published modules currently. More modules are coming. If you like to contribute to the registry, see the [contribution guide](https://github.com/Azure/bicep-registry-modules/blob/main/CONTRIBUTING.md).
 

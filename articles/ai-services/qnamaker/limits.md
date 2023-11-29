@@ -1,11 +1,11 @@
 ---
 title: Limits and boundaries - QnA Maker
 description: QnA Maker has meta-limits for parts of the knowledge base and service. It is important to keep your knowledge base within those limits in order to test and publish.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: reference
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
@@ -13,13 +13,13 @@ ms.custom: ignite-fall-2021
 
 # QnA Maker knowledge base limits and boundaries
 
-QnA Maker limits provided below are a combination of the [Azure Cognitive Search pricing tier limits](../../search/search-limits-quotas-capacity.md) and the [QnA Maker pricing tier limits](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). You need to know both sets of limits to understand how many knowledge bases you can create per resource and how large each knowledge base can grow.
+QnA Maker limits provided below are a combination of the [Azure AI Search pricing tier limits](../../search/search-limits-quotas-capacity.md) and the [QnA Maker pricing tier limits](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). You need to know both sets of limits to understand how many knowledge bases you can create per resource and how large each knowledge base can grow.
 
 ## Knowledge bases
 
-The maximum number of knowledge bases is based on [Azure Cognitive Search tier limits](../../search/search-limits-quotas-capacity.md).
+The maximum number of knowledge bases is based on [Azure AI Search tier limits](../../search/search-limits-quotas-capacity.md).
 
-|**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Azure AI Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Maximum number of published knowledge bases allowed|2|14|49|199|199|2,999|
 
@@ -56,11 +56,11 @@ The maximum number of deep-links that can be crawled for extraction of QnAs from
 
 ## Metadata Limits
 
-Metadata is presented as a text-based key: value pair, such as `product:windows 10`. It is stored and compared in lower case. Maximum number of metadata fields is based on your **[Azure Cognitive Search tier limits](../../search/search-limits-quotas-capacity.md)**.
+Metadata is presented as a text-based key: value pair, such as `product:windows 10`. It is stored and compared in lower case. Maximum number of metadata fields is based on your **[Azure AI Search tier limits](../../search/search-limits-quotas-capacity.md)**.
 
 For GA version, since the test index is shared across all the KBs, the limit is applied across all KBs in the QnA Maker service.
 
-|**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Azure AI Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Maximum metadata fields per QnA Maker service (across all KBs)|1,000|100*|1,000|1,000|1,000|1,000|
 
@@ -85,7 +85,7 @@ Overall limits on the content in the knowledge base:
 * Length of file name: 200
 * Supported file formats: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Maximum number of alternate questions: 300
-* Maximum number of question-answer pairs: Depends on the **[Azure Cognitive Search tier](../../search/search-limits-quotas-capacity.md#document-limits)** chosen. A question and answer pair maps to a document on Azure Cognitive Search index.
+* Maximum number of question-answer pairs: Depends on the **[Azure AI Search tier](../../search/search-limits-quotas-capacity.md#document-limits)** chosen. A question and answer pair maps to a document on Azure AI Search index.
 * URL/HTML page: 1 million characters
 
 ## Create Knowledge base call limits:

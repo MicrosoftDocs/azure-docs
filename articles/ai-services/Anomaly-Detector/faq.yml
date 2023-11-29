@@ -3,8 +3,7 @@ metadata:
   title: Frequently asked questions - Anomaly Detector
   titleSuffix: Azure AI services
   description: Get answers to frequently asked questions about the Anomaly Detector Service in Azure AI services.
-  ms.service: cognitive-services
-  ms.subservice: anomaly-detector
+  ms.service: azure-ai-anomaly-detector
   ms.topic: faq
   ms.date: 11/1/2022
   ms.author: jingruhan
@@ -13,11 +12,14 @@ metadata:
 title: Anomaly Detector frequently asked questions
 summary: This article contains answers to frequently asked troubleshooting questions about the Anomaly Detector service.
 
-
 sections:
 
   - name: Anomaly Detector frequently asked questions
     questions: 
+      - question: |
+          When will Anomaly Detector be deprecated?
+        answer:  |
+          Starting on the 20th of September, 2023 you won’t be able to create new Anomaly Detector resources. The Anomaly Detector service is being retired on the 1st of October, 2026.
       - question: |
           When to use Univariate Anomaly Detection v.s. Multivariate Anomaly Detection?
         answer:  |

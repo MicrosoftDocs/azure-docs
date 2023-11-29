@@ -53,7 +53,7 @@ Let's configure Global VNet peering between the VNets in Contoso and Fabrikam Az
 
 The following picture shows the network architecture after configuring Global VNet peering.
 
-![The Architecture after VNet-peering](./media/cross-network-connectivity/vnet-peering.png )
+![The Architecture after VNet-peering](./media/cross-network-connectivity/vnet-peering.png)
 
 The following table shows the routes known to the Contoso subscription VM. Pay attention to the last entry of the table. This entry is the result of cross connecting the virtual networks.
 

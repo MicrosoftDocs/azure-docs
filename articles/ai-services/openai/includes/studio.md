@@ -2,12 +2,11 @@
 title: 'Quickstart: Use Azure OpenAI Service via the Azure OpenAI Studio'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with Azure OpenAI Studio. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 03/01/2023
+ms.date: 11/15/2023
 keywords: 
 ---
 
@@ -22,6 +21,9 @@ keywords:
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Prerequisites)
 
+> [!TIP]
+> Try out the new unified [Azure AI Studio (preview)](../../../ai-studio/what-is-ai-studio.md) which brings together capabilities from across multiple Azure AI services.
+
 ## Go to the Azure OpenAI Studio
 
 Navigate to Azure OpenAI Studio at <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a> and sign-in with credentials that have access to your OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
@@ -30,7 +32,7 @@ From the Azure OpenAI Studio landing page navigate further to explore examples f
 
 :::image type="content" source="../media/quickstarts/studio-start.png" alt-text="Screenshot of the Azure OpenAI Studio landing page." lightbox="../media/quickstarts/studio-start.png":::
 
-Go to the [Playground](#playground) for experimentation and fine-tuning workflow. 
+Go to the [Playground](#playground) for experimentation and fine-tuning workflow.
 
 ## Playground
 

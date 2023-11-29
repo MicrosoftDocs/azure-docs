@@ -104,7 +104,7 @@ An HTTP 404 response can be returned if a request is sent to an application gate
 
 #### 408 – Request Timeout
 
-An HTTP 408 response can be observed when client requests to the frontend listener of application gateway don't respond back within 60 seconds.  This error can be observed due to traffic congestion between on-premises networks and Azure, when virtual appliance inspects the traffic traffic, or the client itself becomes overwhelmed.
+An HTTP 408 response can be observed when client requests to the frontend listener of application gateway don't respond back within 60 seconds.  This error can be observed due to traffic congestion between on-premises networks and Azure, when virtual appliance inspects the traffic, or the client itself becomes overwhelmed.
 
 #### 413 – Request Entity Too Large
 
@@ -131,7 +131,7 @@ HTTP 502 errors can have several root causes, for example:
 - Invalid or improper configuration of custom health probes.
 - Azure Application Gateway's [backend pool isn't configured or empty](application-gateway-troubleshooting-502.md#empty-backendaddresspool).
 - None of the VMs or instances in [virtual machine scale set are healthy](application-gateway-troubleshooting-502.md#unhealthy-instances-in-backendaddresspool).
-- [Request time-out or connectivity issues](application-gateway-troubleshooting-502.md#request-time-out) with user requests.
+- [Request time-out or connectivity issues](application-gateway-troubleshooting-502.md#request-time-out) with user requests-Azure application Gateway V1 SKU sent HTTP 502 errors if the backend response time exceeds the time-out value that is configured in the Backend Setting.
 
 For information about scenarios where 502 errors occur, and how to troubleshoot them, see [Troubleshoot Bad Gateway errors](application-gateway-troubleshooting-502.md).
 

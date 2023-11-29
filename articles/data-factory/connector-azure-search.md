@@ -11,25 +11,21 @@ ms.custom: synapse
 ms.date: 07/13/2023
 ---
 
-# Copy data to an Azure Cognitive Search index using Azure Data Factory or Synapse Analytics
-
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-azure-search-connector.md)
-> * [Current version](connector-azure-search.md)
+# Copy data to an Azure AI Search index using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data into Azure Cognitive Search index. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data into Azure AI Search index. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
-This Azure Cognitive Search connector is supported for the following capabilities:
+This Azure AI Search connector is supported for the following capabilities:
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|
 |[Copy activity](copy-activity-overview.md) (-/sink)|&#9312; &#9313;|✓ |
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 You can copy data from any supported source data store into search index. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -62,11 +58,11 @@ Use the following steps to create a linked service to Azure Search in the Azure 
 
 ## Connector configuration details
 
-The following sections provide details about properties that are used to define Data Factory entities specific to Azure Cognitive Search connector.
+The following sections provide details about properties that are used to define Data Factory entities specific to Azure AI Search connector.
 
 ## Linked service properties
 
-The following properties are supported for Azure Cognitive Search linked service:
+The following properties are supported for Azure AI Search linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -76,7 +72,7 @@ The following properties are supported for Azure Cognitive Search linked service
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 > [!IMPORTANT]
-> When copying data from a cloud data store into search index, in Azure Cognitive Search linked service, you need to refer an Azure Integration Runtime with explicit region in connactVia. Set the region as the one where your search service resides. Learn more from [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
+> When copying data from a cloud data store into search index, in Azure AI Search linked service, you need to refer an Azure Integration Runtime with explicit region in connactVia. Set the region as the one where your search service resides. Learn more from [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Example:**
 
@@ -102,14 +98,14 @@ The following properties are supported for Azure Cognitive Search linked service
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Azure Cognitive Search dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Azure AI Search dataset.
 
-To copy data into Azure Cognitive Search, the following properties are supported:
+To copy data into Azure AI Search, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **AzureSearchIndex** | Yes |
-| indexName | Name of the search index. The service does not create the index. The index must exist in Azure Cognitive Search. | Yes |
+| indexName | Name of the search index. The service does not create the index. The index must exist in Azure AI Search. | Yes |
 
 **Example:**
 
@@ -123,7 +119,7 @@ To copy data into Azure Cognitive Search, the following properties are supported
         },
         "schema": [],
         "linkedServiceName": {
-            "referenceName": "<Azure Cognitive Search linked service name>",
+            "referenceName": "<Azure AI Search linked service name>",
             "type": "LinkedServiceReference"
         }
    }
@@ -132,11 +128,11 @@ To copy data into Azure Cognitive Search, the following properties are supported
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Azure Cognitive Search source.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Azure AI Search source.
 
-### Azure Cognitive Search as sink
+### Azure AI Search as sink
 
-To copy data into Azure Cognitive Search, set the source type in the copy activity to **AzureSearchIndexSink**. The following properties are supported in the copy activity **sink** section:
+To copy data into Azure AI Search, set the source type in the copy activity to **AzureSearchIndexSink**. The following properties are supported in the copy activity **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -147,7 +143,7 @@ To copy data into Azure Cognitive Search, set the source type in the copy activi
 
 ### WriteBehavior property
 
-AzureSearchSink upserts when writing data. In other words, when writing a document, if the document key already exists in the search index, Azure Cognitive Search updates the existing document rather than throwing a conflict exception.
+AzureSearchSink upserts when writing data. In other words, when writing a document, if the document key already exists in the search index, Azure AI Search updates the existing document rather than throwing a conflict exception.
 
 The AzureSearchSink provides the following two upsert behaviors (by using AzureSearch SDK):
 
@@ -158,7 +154,7 @@ The default behavior is **Merge**.
 
 ### WriteBatchSize Property
 
-Azure Cognitive Search service supports writing documents as a batch. A batch can contain 1 to 1,000 Actions. An action handles one document to perform the upload/merge operation.
+Azure AI Search service supports writing documents as a batch. A batch can contain 1 to 1,000 Actions. An action handles one document to perform the upload/merge operation.
 
 **Example:**
 
@@ -175,7 +171,7 @@ Azure Cognitive Search service supports writing documents as a batch. A batch ca
         ],
         "outputs": [
             {
-                "referenceName": "<Azure Cognitive Search output dataset name>",
+                "referenceName": "<Azure AI Search output dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -194,9 +190,9 @@ Azure Cognitive Search service supports writing documents as a batch. A batch ca
 
 ## Data type support
 
-The following table specifies whether an Azure Cognitive Search data type is supported or not.
+The following table specifies whether an Azure AI Search data type is supported or not.
 
-| Azure Cognitive Search data type | Supported in Azure Cognitive Search Sink |
+| Azure AI Search data type | Supported in Azure AI Search Sink |
 | ---------------------- | ------------------------------ |
 | String | Y |
 | Int32 | Y |
@@ -207,7 +203,7 @@ The following table specifies whether an Azure Cognitive Search data type is sup
 | String Array | N |
 | GeographyPoint | N |
 
-Currently other data types e.g. ComplexType are not supported. For a full list of Azure Cognitive Search supported data types, see [Supported data types (Azure Cognitive Search)](/rest/api/searchservice/supported-data-types).
+Currently other data types e.g. ComplexType are not supported. For a full list of Azure AI Search supported data types, see [Supported data types (Azure AI Search)](/rest/api/searchservice/supported-data-types).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

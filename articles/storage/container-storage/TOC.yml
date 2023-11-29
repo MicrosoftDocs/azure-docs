@@ -21,6 +21,12 @@
     href: use-container-storage-with-elastic-san.md
   - name: Use volume snapshot and restore
     href: volume-snapshot-restore.md
+  - name: Expand a persistent volume
+    href: resize-volume.md
+  - name: Clone a persistent volume
+    href: clone-volume.md
+  - name: Enable multi-zone storage redundancy
+    href: enable-multi-zone-redundancy.md
   - name: Remove Azure Container Storage
     href: remove-container-storage.md
 - name: Concepts

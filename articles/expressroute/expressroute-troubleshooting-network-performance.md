@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
-ms.date: 12/22/2022
+ms.date: 08/25/2022
 ms.author: duau
 ms.custom: seodec18
 ---
@@ -109,7 +109,7 @@ There are three basic steps to use this toolkit for Performance testing.
 If the performance test isn't giving you expected results, figuring out why should be a progressive step-by-step process. Given the number of components in the path, a systematic approach will provide a faster path to resolution than jumping around. By troubleshooting systematically, you can prevent doing unnecessary testing multiple times.
 
 >[!NOTE]
->The scenario here is a performance issue, not a connectivity issue. The steps would be different if traffic wasn't passing at all.
+>The scenario here is a performance issue, not a connectivity issue. To isolate the connectivity problem to Azure network, follow [Verifying ExpressRotue connectivity](expressroute-troubleshooting-expressroute-overview.md) article.
 >
 
 First, challenge your assumptions. Is your expectation reasonable? For instance, if you have a 1-Gbps ExpressRoute circuit and 100 ms of latency. It's not reasonable to expect the full 1 Gbps of traffic given the performance characteristics of TCP over high latency links. See the [References section](#references) for more on performance assumptions.
@@ -208,7 +208,7 @@ Test setup:
 \* The latency to Brazil is a good example where the straight-line distance significantly differs from the fiber run distance. The expected latency would be in the neighborhood of 160 ms, but is actually 189 ms. The difference in latency would seem to indicate a network issue somewhere. But the reality is the fiber line doesn't go to Brazil in a straight line. So you should expect an extra 1,000 km or so of travel to get to Brazil from Seattle.
 
 >[!NOTE]
->While these numbers should be taken into consideration, they were tested using AzureCT which is based in IPERF in Windows via PowerShell. In this scenario, IPERF does not honor default Windows TCP options for Scaling Factor and uses a much lower Shift Count for the TCP Window size. The numbers represented here were performed using default IPERF values and are for general reference only. By tuning IPERF commands with `-w` switch and a big TCP Window size, better throughput can be obtained over long distances, showing significantly better throughput figures. Also, to ensure an ExpressRoute is using the full bandwidth, it's ideal to run the IPERF in multi-threaded option from multiple machines simultaneously to ensure computing capacity is able to reach maximum link performance and is not limited by processing capacity of a single VM.
+>While these numbers should be taken into consideration, they were tested using AzureCT which is based in IPERF in Windows via PowerShell. In this scenario, IPERF does not honor default Windows TCP options for Scaling Factor and uses a much lower Shift Count for the TCP Window size. The numbers represented here were performed using default IPERF values and are for general reference only. By tuning IPERF commands with `-w` switch and a big TCP Window size, better throughput can be obtained over long distances, showing significantly better throughput figures. Also, to ensure an ExpressRoute is using the full bandwidth, it's ideal to run the IPERF in multi-threaded option from multiple machines simultaneously to ensure computing capacity is able to reach maximum link performance and is not limited by processing capacity of a single VM. To get the best Iperf results on Windows, use "Set-NetTCPSetting -AutoTuningLevelLocal Experimental". Please check your organizational policies before making any changes. 
 
 ## Next steps
 

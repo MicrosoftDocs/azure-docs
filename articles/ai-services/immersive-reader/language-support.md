@@ -2,11 +2,10 @@
 title: Language support - Immersive Reader
 titleSuffix: Azure AI services
 description: Learn more about the human languages that are available with Immersive Reader.
-services: cognitive-services
+#services: cognitive-services
 author: rwallerms
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: immersive-reader
+ms.service: azure-ai-immersive-reader
 ms.topic: conceptual
 ms.date: 11/15/2021
 ms.author: rwaller
@@ -95,7 +94,7 @@ This article lists supported human languages for Immersive Reader features.
 | French (France) | fr-FR |
 | French (Switzerland) | fr-CH |
 | Galician | gl |
-| Galician (Spain) | gl-ES |
+| Galician | gl-ES |
 | Georgian | ka |
 | Georgian (Georgia) | ka-GE |
 | German | de |

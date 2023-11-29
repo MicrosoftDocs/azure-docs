@@ -1,5 +1,5 @@
 ---
-title: Update the spacecraft TLE on Azure Orbital Earth Observation service
+title: Azure Orbital Ground Station - update spacecraft TLE
 description: Update the TLE of an existing spacecraft resource.
 author: apoorvanori
 ms.service: orbital
@@ -10,7 +10,7 @@ ms.author: apoorvanori
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
-# Tutorial: Update the spacecraft TLE
+# Update the spacecraft TLE
 
 Update the TLE of an existing spacecraft resource.
 
@@ -43,5 +43,4 @@ Update the TLE of an existing spacecraft resource.
 
 ## Next steps
 
-- [Tutorial: Schedule a contact](schedule-contact.md)
-- [Tutorial: Cancel a scheduled contact](delete-contact.md)
+- [Schedule a contact](schedule-contact.md)

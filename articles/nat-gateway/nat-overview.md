@@ -23,7 +23,7 @@ NAT Gateway provides dynamic SNAT port functionality to automatically scale outb
 *Figure: Azure NAT Gateway*
 
 Azure NAT Gateway provides outbound connectivity for many Azure resources, including: 
-* Azure virtual machine (VM) instances in a private subnet
+* Azure virtual machines or virtual machine scale-sets in a private subnet
 * [Azure Kubernetes Services (AKS) clusters](/azure/aks/nat-gateway)
 * [Azure Function Apps](/azure/azure-functions/functions-how-to-use-nat-gateway)
 * [Azure Firewall subnet](/azure/firewall/integrate-with-nat-gateway)
@@ -70,6 +70,9 @@ A NAT gateway doesn't affect the network bandwidth of your compute resources. Le
 * NAT gateway is the recommended method for outbound connectivity.
    * To migrate outbound access to a NAT gateway from default outbound access or load balancer outbound rules, see [Migrate outbound access to Azure NAT Gateway](./tutorial-migrate-outbound-nat.md).
 
+>[!NOTE]
+>On September 30th, 2025, [default outbound access](/azure/virtual-network/ip-services/default-outbound-access#when-is-default-outbound-access-provided) for new deployments will be retired. It is recommended to use an explicit form of outbound connectivity instead, like NAT gateway. 
+
 * Outbound connectivity with NAT gateway is defined at a per subnet level. NAT gateway replaces the default Internet destination of a subnet.
 
 * No traffic routing configurations are required to use NAT gateway.
@@ -86,14 +89,14 @@ A NAT gateway doesn't affect the network bandwidth of your compute resources. Le
 
 ### Traffic routes
 
-* NAT gateway replaces a subnet’s default route to the internet when configured. All traffic within the 0.0.0.0/0 prefix has a next hop type to NAT gateway before connecting outbound to the internet. 
+* NAT gateway replaces a subnet’s [system default route](/azure/virtual-network/virtual-networks-udr-overview#default) to the internet when configured. When NAT gateway is attached to the subnet, all traffic within the 0.0.0.0/0 prefix will route to NAT gateway before connecting outbound to the internet. 
 
-* You can override NAT gateway as a subnet’s next hop to the internet with the creation of a custom user-defined route (UDR). 
+* You can override NAT gateway as a subnet’s system default route to the internet with the creation of a custom user-defined route (UDR) for 0.0.0.0/0 traffic. 
 
-* Presence of custom UDRs for virtual appliances and ExpressRoute override NAT gateway for directing internet bound traffic (route to the 0.0.0.0/0 address prefix).
+* Presence of UDRs for virtual appliances, VPN Gateway and ExpressRoute for a subnet's 0.0.0.0/0 traffic will cause traffic to route to these services instead of NAT gateway.
 
 * Outbound connectivity follows this order of precedence among different routing and outbound connectivity methods: 
-Virtual appliance UDR / ExpressRoute >> NAT gateway >> Instance-level public IP address on a virtual machine >> Load balancer outbound rules >> default system route to the internet
+Virtual appliance UDR / VPN Gateway / ExpressRoute >> NAT gateway >> Instance-level public IP address on a virtual machine >> Load balancer outbound rules >> default system route to the internet
 
 ### NAT gateway configurations
 
@@ -135,7 +138,7 @@ Virtual appliance UDR / ExpressRoute >> NAT gateway >> Instance-level public IP 
 
 * Basic SKU resources, such as basic load balancer or basic public IPs aren't compatible with NAT gateway.  NAT gateway can't be used with subnets where basic SKU resources exist. Basic load balancer and basic public IP can be upgraded to standard to work with a NAT gateway
   
-  * Upgrade a load balancer from basic to standard, see [Upgrade a public basic Azure Load Balancer](../load-balancer/upgrade-basic-standard.md).
+  * Upgrade a load balancer from basic to standard, see [Upgrade a public basic Azure Load Balancer](/azure/load-balancer/upgrade-basic-standard-with-powershell).
 
   * Upgrade a public IP from basic to standard, see [Upgrade a public IP address](../virtual-network/ip-services/public-ip-upgrade-portal.md).
   
@@ -159,7 +162,7 @@ Virtual appliance UDR / ExpressRoute >> NAT gateway >> Instance-level public IP 
 
 ## Pricing and SLA
 
-For Azure NAT Gateway pricing, see [NAT gateway pricing](https://azure.microsoft.com/pricing/details/virtual-network/#pricing).
+For Azure NAT Gateway pricing, see [NAT gateway pricing](https://azure.microsoft.com/pricing/details/azure-nat-gateway/).
 
 For information on the SLA, see [SLA for Azure NAT Gateway](https://azure.microsoft.com/support/legal/sla/virtual-network-nat/v1_0/).
 

@@ -241,9 +241,9 @@ Remove-AzDataFactoryV2IntegrationRuntime `
 
 * To grant permission, you need the Owner role or the inherited Owner role in the data factory where the shared IR exists.
 
-* The sharing feature works only for data factories within the same Azure AD tenant.
+* The sharing feature works only for data factories within the same Microsoft Entra tenant.
 
-* For Azure AD [guest users](../active-directory/governance/manage-guest-access-with-access-reviews.md), the search functionality in the UI, which lists all data factories by using a search keyword, doesn't work. But as long as the guest user is the owner of the data factory, you can share the IR without the search functionality. For the Managed Identity of the data factory that needs to share the IR, enter that Managed Identity in the **Assign Permission** box and select **Add** in the Data Factory UI.
+* For Microsoft Entra ID [guest users](../active-directory/governance/manage-guest-access-with-access-reviews.md), the search functionality in the UI, which lists all data factories by using a search keyword, doesn't work. But as long as the guest user is the owner of the data factory, you can share the IR without the search functionality. For the Managed Identity of the data factory that needs to share the IR, enter that Managed Identity in the **Assign Permission** box and select **Add** in the Data Factory UI.
 
   > [!NOTE]
   > This feature is available only in Data Factory V2.

@@ -1,108 +1,150 @@
-### YamlMime:Landing
+### YamlMime:Hub
 
-title: Azure Health Data Services documentation
-summary: Documentation for all of Azure Health Data Services capabilities, including features from FHIR, DICOM, and MedTech service.
+title: Azure Health Data Services documentation # < 60 chars
+summary: Collect, transform, and analyze health data that meets privacy and compliance requirements. # < 160 chars
+brand: azure # brand: aspnet | azure | bash | bizapps | bot-framework | dotnet | dynamics | education | enterprise-mobility | gaming | graph | m365 | nuget | office | powershell | playfab | power-apps | power-automate | power-bi | power-platform | power-virtual-agents | project | sharepoint | sql | surface | system-center | teams | visual-studio | windows | workplace-analytics | xamarin
 
 metadata:
-  title: Azure Health Data Services documentation
-  description: documentation for all of Azure Health Data Services products and services, including FHIR, DICOM, and MedTech service
-  services: healthcare-apis
-  ms.service: healthcare-apis
-  ms.topic: landing-page 
-  ms.collection: collection
-  author: msjasteppe
-  ms.author: jasteppe
-  ms.date: 12/15/2022
+  title: Azure Health Data Services documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn how to use Azure Health Data Services to collect, transform, and analyze health data that meets privacy and compliance requirements for the healthcare industry. # Required; article description that is displayed in search results. < 159/160 chars.
+  ms.service: healthcare-apis #Required; use either service or product per approved list. 
+  ms.topic: hub-page # Required
+  author: msjasteppe #Required; your GitHub user alias, with correct capitalization.
+  ms.author: jasteppe #Required; microsoft alias of author; optional team alias.
+  ms.date: 09/27/2023 #Required; mm/dd/yyyy format.
 
-# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+highlightedContent:
+  items:
+       - title: What is Azure Health Data Services?
+         itemType: overview
+         url: ./healthcare-apis-overview.md
+       - title: Release notes
+         itemType: whats-new
+         url: ./release-notes.md          
+       - title: Get an access token
+         itemType: how-to-guide
+         url: ./get-access-token.md
+       - title: Migrate your data from Azure API for FHIR
+         itemType: how-to-guide
+         url: ./fhir/migration-strategies.md    
+       - title: Azure Health Data Services 
+         itemType: learn
+         url: /training/browse/?term=iot&terms=health%20data%20services
 
-landingContent:
+conceptualContent:
+  items: 
+        # Card
+        - title: Get started with Azure Health Data Services
+          links:
+            - url: ./get-started-with-health-data-services.md
+              itemType: how-to-guide
+              text: Set up a workspace
+            - url: ./healthcare-apis-quickstart.md 
+              itemType: how-to-guide
+              text: Deploy Azure Health Data Services
+            - url: ./register-application.md
+              itemType: how-to-guide
+              text: Register your application
+            - url: ./authentication-authorization.md
+              itemType: how-to-guide
+              text: Set up user access and permissions 
+            - url: ./authentication-authorization.md
+              itemType: how-to-guide
+              text: Grant permissions to a managed identity  
+                   
+        # Card
+        - title: FHIR data
+          links:
+            - url: ./fhir/overview.md
+              itemType: overview
+              text: FHIR service overview
+            - url: ./fhir/get-started-with-fhir.md
+              itemType: how-to-guide
+              text: Deploy the FHIR service
+            - url: ./fhir/configure-cross-origin-resource-sharing.md
+              itemType: how-to-guide
+              text: Configure settings
+            - url: ./fhir/centers-for-medicare-tutorial-introduction.md
+              itemType: how-to-guide
+              text: CMS operability and patient access
 
-  - title: What is Azure Health Data Services?
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: About Azure Health Data Services
-            url: healthcare-apis-overview.md
-          - text: About workspace
-            url: workspace-overview.md
-      - linkListType: quickstart
-        links:
-          - text: Get started with Azure Health Data Services
-            url: get-started-with-health-data-services.md
-      - linkListType: deploy
-        links:
-          - text: Deploy Azure Health Data Services workspace
-            url: healthcare-apis-quickstart.md
-  
-  - title: Using Azure Health Data Services
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Authentication & Authorization
-            url: authentication-authorization.md
-      - linkListType: reference
-        links:
-          - text: Azure Health Data Services FAQs
-            url: healthcare-apis-faqs.md
-  
-  - title: FHIR service
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: About FHIR service
-            url: ./fhir/overview.md
-      - linkListType: quickstart
-        links:
-          - text: Get started with FHIR service
-            url: ./fhir/get-started-with-fhir.md
-      - linkListType: deploy
-        links:
-          - text: Deploy FHIR service using portal
-            url: ./fhir/fhir-portal-quickstart.md
-      - linkListType: tutorial
-        links:
-          - text: Interoperability and Patient Access
-            url: ./fhir/cms-tutorial-introduction.md
-          - text: FHIR search operation
-            url: ./fhir/overview-of-search.md
+        # Card
+        - title: Imaging data
+          links:
+            - url: ./dicom/dicom-services-overview.md
+              itemType: overview
+              text: DICOM service overview
+            - url: ./dicom/deploy-dicom-services-in-azure.md
+              itemType: how-to-guide
+              text: Deploy the DICOM service
+            - url: ./dicom/get-started-with-analytics-dicom.md
+              itemType: how-to-guide
+              text: Use image data for analytics
+            - url: ./dicom/dicom-digital-pathology.md
+              itemType: how-to-guide
+              text: Use image data for digital pathology  
+            
+        # Card
+        - title: Device data
+          links:
+            - url: ./iot/overview.md
+              itemType: overview
+              text: MedTech service overview
+            - url: ./iot/deploy-choose-method.md          
+              itemType: how-to-guide
+              text: Choose a deployment method
+            - url: ./iot/how-to-use-monitoring-and-health-checks-tabs.md
+              itemType: how-to-guide
+              text: Monitor service health in Azure portal 
+            - url: ./iot/how-to-use-mapping-debugger.md
+              itemType: how-to-guide
+              text: Troubleshoot with the Mapping debugger 
+            - url: ./iot/troubleshoot-errors-logs.md
+              itemType: how-to-guide
+              text: Troubleshoot service log errors   
 
-  - title: DICOM service
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: About DICOM service 
-            url: ./dicom/dicom-services-overview.md
-      - linkListType: quickstart
-        links:
-          - text: Get started with DICOM service
-            url: ./dicom/get-started-with-dicom.md
-      - linkListType: deploy
-        links:
-          - text: Deploy DICOM service using portal
-            url: ./dicom/deploy-dicom-services-in-azure.md
-      - linkListType: tutorial
-        links:
-          - text: DICOMweb Standard APIs
-            url: ./dicom/dicomweb-standard-apis-with-dicom-services.md
-          - text: DICOM change feed
-            url: ./dicom/pull-dicom-changes-from-change-feed.md
-  
-  - title: MedTech service
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: About the MedTech service
-            url: ./iot/overview.md
-      - linkListType: quickstart
-        links:
-          - text: Get started with the MedTech service
-            url: ./iot/get-started.md
-      - linkListType: deploy
-        links:
-          - text: Deploy the MedTech service using portal
-            url: ./iot/deploy-iot-connector-in-azure.md
-      - linkListType: tutorial
-        links:
-          - text: Receive device data through Azure IoT Hub
-            url: ./iot/device-data-through-iot-hub.md
+        # Card
+        - title: Automate and optimize data workflows
+          links:
+            - url: ./events/events-overview.md
+              itemType: overview
+              text: Events overview
+            - url: ./events/events-deploy-portal.md
+              itemType: how-to-guide
+              text: Deploy events in Azure portal
+            - url: ./events/events-use-metrics.md
+              itemType: how-to-guide
+              text: Use event metrics
+            - url: ./events/events-disable-delete-workspace.md
+              itemType: how-to-guide
+              text: Disable events 
+            - url: ./events/events-troubleshooting-guide.md
+              itemType: how-to-guide
+              text: Troubleshoot events
+             
+additionalContent:
+  sections:
+    - title: Tools & resources 
+      items:
+        # Card
+        - title: Azure Health Data & AI workflows
+          summary: Sample apps and code
+          url: https://github.com/Azure-Samples/azure-health-data-services-samples
+        # Card
+        - title: REST API for Azure Health Data Services
+          summary: REST API reference for Healthcare APIs
+          url: https://learn.microsoft.com/en-us/rest/api/healthcareapis/?view=rest-healthcareapis-2022-06-01
+        # Card
+        - title: Quickstart templates
+          summary: Sample Azure Resource Manager (ARM) templates
+          url: https://learn.microsoft.com/samples/browse/?terms=azure%20health%20data%20services
+        # Card
+        - title: Healthcare & Life Sciences blog
+          summary: Insights, best practices, and innovations
+          url: https://techcommunity.microsoft.com/t5/healthcare-and-life-sciences/bg-p/HealthcareAndLifeSciencesBlog 
+    - title: Other services 
+      items:
+        # Card
+        - title: Azure API for FHIR
+          summary: This service is being retired on September 30, 2026.
+          url: ./azure-api-for-fhir/overview.md

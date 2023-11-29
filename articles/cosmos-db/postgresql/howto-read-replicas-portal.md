@@ -37,7 +37,7 @@ To create a read replica, follow these steps:
 
 4. Under **Cluster name**, enter a name for the read replica.
 
-5. Select a value from the **Location (preview)** drop-down.
+5. Select a value from the **Location** drop-down.
 
 6. Select **OK**.
 
@@ -51,6 +51,21 @@ After the read replica is created, you can see it listed on the **Replicate data
 > Before a primary cluster setting is updated to a new value, update the
 > replica setting to an equal or greater value. This action helps the replica
 > keep up with any changes made to the master.
+
+## Promote a read replica
+
+To [promote a cluster read replica](./concepts-read-replicas.md#replica-promotion-to-independent-cluster) to an independent read-write cluster, follow these steps:
+
+1. Select the read replica you would like to promote in the portal. 
+
+2. On the cluster sidebar, under **Cluster management**, select
+   **Replicate data globally**.
+
+3. On the **Replicate data globally** page, find the read replica in the list of clusters under the map and click the promote icon. 
+
+4. On the **Promote \<cluster name>** screen, double check the read replica's name, confirm that you understand that promotion is irreversible by setting the checkbox, and select **Promote**.
+
+After the read replica is promoted, it becomes an independent readable and writable cluster with the same connection string. 
 
 ## Delete a primary cluster
 

@@ -56,7 +56,7 @@ You can create a workspace [directly in Azure Machine Learning studio](../quicks
     ```
     Set `create_resource_group` to False if you have an existing Azure resource group that you want to use for the workspace.
 
-* **Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
+* **Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Microsoft Entra ID you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Microsoft Entra ID, External Identities**.
 
     [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
@@ -199,7 +199,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-* **Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
+* **Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Microsoft Entra ID you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Microsoft Entra ID, External Identities**.
     
     [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 

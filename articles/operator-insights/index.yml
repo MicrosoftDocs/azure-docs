@@ -1,0 +1,74 @@
+### YamlMime:Landing
+
+title: Azure Operator Insights documentation
+summary: Learn how to use Azure Operator Insights to analyze network data from multiple sources.
+
+metadata:
+  title: Azure Operator Insights documentation
+  description: Learn about Azure Operator Insights for analyzing network data from multiple sources.
+  ms.service: operator-insights
+  ms.topic: landing-page
+  author: rcdun
+  ms.author: rdunstan
+  ms.date: 11/02/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Operator Insights
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Operator Insights?
+            url: overview.md
+          - text: Azure Operator Insights FAQ
+            url: operator-insights-faq.yml
+      - linkListType: concept
+        links:
+          - text: Managed identity
+            url: managed-identity.md
+          - text: Data quality and data monitoring 
+            url: concept-data-quality-monitoring.md
+          - text: Data types 
+            url: concept-data-types.md
+          - text: Data visualization
+            url: concept-data-visualization.md 
+          - text: MCC Data Product 
+            url: concept-mcc-data-product.md
+
+  # Card 
+  - title: Get started with Azure Operator Insights
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an Azure Operator Insights Data Product
+            url: data-product-create.md
+
+  # Card 
+  - title: How to use Azure Operator Insights
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use Microsoft Purview with an Azure Operator Insights Data Product
+            url: purview-setup.md
+          - text: Use Data Product dashboards to visualize data
+            url: dashboards-use.md
+          - text: Query data in the Data Product
+            url: data-query.md
+
+  # Card 
+  - title: How to Deploy Ingestion Agents for MCC protobuf EDRs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create and configure MCC EDR Ingestion Agents
+            url: how-to-install-mcc-edr-agent.md
+          - text: Manage MCC EDR Agents
+            url: how-to-manage-mcc-edr-agent.md
+          - text: Monitor and troubleshoot MCC EDR Ingestion Agents
+            url: troubleshoot-mcc-edr-agent.md
+          - text: MCC EDR Ingestion Agent configuration reference
+            url: mcc-edr-agent-configuration.md

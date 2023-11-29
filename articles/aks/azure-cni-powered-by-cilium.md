@@ -29,9 +29,9 @@ By making use of eBPF programs loaded into the Linux kernel and a more efficient
 
 Azure CNI Powered by Cilium can be deployed using two different methods for assigning pod IPs: 
 
-- Assign IP addresses from a virtual network (similar to existing Azure CNI with Dynamic Pod IP Assignment)
-
 - Assign IP addresses from an overlay network (similar to Azure CNI Overlay mode)
+
+- Assign IP addresses from a virtual network (similar to existing Azure CNI with Dynamic Pod IP Assignment)
 
 If you aren't sure which option to select, read ["Choosing a network model to use"](./azure-cni-overlay.md#choosing-a-network-model-to-use).
 
@@ -68,7 +68,22 @@ Azure CNI powered by Cilium currently has the following limitations:
 
 ## Create a new AKS Cluster with Azure CNI Powered by Cilium
 
-### Option 1: Assign IP addresses from a virtual network
+### Option 1: Assign IP addresses from an overlay network
+
+Use the following commands to create a cluster with an overlay network and Cilium. Replace the values for `<clusterName>`, `<resourceGroupName>`, and `<location>`:
+
+```azurecli-interactive
+az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
+  --network-plugin azure \
+  --network-plugin-mode overlay \
+  --pod-cidr 192.168.0.0/16 \
+  --network-dataplane cilium
+```
+
+> [!NOTE]
+> The `--network-dataplane cilium` flag replaces the deprecated `--enable-ebpf-dataplane` flag used in earlier versions of the aks-preview CLI extension.
+
+### Option 2: Assign IP addresses from a virtual network
 
 Run the following commands to create a resource group and virtual network with a subnet for nodes and a subnet for pods.
 
@@ -95,18 +110,25 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
   --network-dataplane cilium
 ```
 
+## Upgrade an existing cluster to Azure CNI Powered by Cilium
+
 > [!NOTE]
-> The `--network-dataplane cilium` flag replaces the deprecated `--enable-ebpf-dataplane` flag used in earlier versions of the aks-preview CLI extension.
+> You can update an existing cluster to Azure CNI Powered by Cilium if the cluster meets the following criteria:
+>
+> - The cluster uses either [Azure CNI Overlay](./azure-cni-overlay.md) or [Azure CNI with dynamic IP allocation](./configure-azure-cni-dynamic-ip-allocation.md). This does **not** include [Azure CNI](./configure-azure-cni.md).
+> - The cluster does not have Azure NPM or Calico enabled.
+> - The cluster does not have any Windows node pools.
 
-### Option 2: Assign IP addresses from an overlay network
+The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or [Kubernetes version upgrade](./upgrade-cluster.md) where each node in a node pool is re-imaged.
 
-Use the following commands to create a cluster with an overlay network and Cilium. Replace the values for `<clusterName>`, `<resourceGroupName>`, and `<location>`:
+Cilium will begin enforcing network policies only after all nodes have been re-imaged.
+
+To perform the upgrade, you will need Azure CLI version 2.52.0 or later. Run `az --version` to see the currently installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+
+Use the following command to upgrade an existing cluster to Azure CNI Powered by Cilium. Replace the values for `<clusterName>` and `<resourceGroupName>`:
 
 ```azurecli-interactive
-az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
-  --network-plugin azure \
-  --network-plugin-mode overlay \
-  --pod-cidr 192.168.0.0/16 \
+az aks update -n <clusterName> -g <resourceGroupName> \
   --network-dataplane cilium
 ```
 
@@ -123,6 +145,11 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
 - **Does AKS configure CPU or memory limits on the Cilium `daemonset`?**
 
     No, AKS doesn't configure CPU or memory limits on the Cilium `daemonset` because Cilium is a critical system component for pod networking and network policy enforcement.
+
+- **Does Azure CNI powered by Cilium use Kube-Proxy?**
+
+    No, AKS clusters created with network dataplane as Cilium don't use Kube-Proxy.
+    If the AKS clusters are on [Azure CNI Overlay](./azure-cni-overlay.md) or [Azure CNI with dynamic IP allocation](./configure-azure-cni-dynamic-ip-allocation.md) and are upgraded to AKS clusters running Azure CNI powered by Cilium, new nodes workloads are created without kube-proxy. Older workloads are also migrated to run without kube-proxy as a part of this upgrade process.
 
 ## Next steps
 

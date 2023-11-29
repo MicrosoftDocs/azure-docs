@@ -1,7 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.date: 02/23/2023
 ms.topic: include
 ms.author: eur
@@ -23,7 +22,7 @@ ms.author: eur
 | `ar-LY` | Arabic (Libya) | Plain text |
 | `ar-MA` | Arabic (Morocco) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `ar-OM` | Arabic (Oman) | Plain text |
-| `ar-PS` | Arabic (Palestinian Territories) | Plain text |
+| `ar-PS` | Arabic (Palestinian Authority) | Plain text |
 | `ar-QA` | Arabic (Qatar) | Plain text |
 | `ar-SA` | Arabic (Saudi Arabia) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `ar-SY` | Arabic (Syria) | Plain text |
@@ -33,7 +32,7 @@ ms.author: eur
 | `bg-BG` | Bulgarian (Bulgaria) | Plain text |
 | `bn-IN` | Bengali (India) | Plain text |
 | `bs-BA` | Bosnian (Bosnia and Herzegovina) | Plain text |
-| `ca-ES` | Catalan (Spain) | Plain text<br/><br/>Pronunciation |
+| `ca-ES` | Catalan | Plain text<br/><br/>Pronunciation |
 | `cs-CZ` | Czech (Czechia) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation |
 | `cy-GB` | Welsh (United Kingdom) | Plain text |
 | `da-DK` | Danish (Denmark) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation |
@@ -75,7 +74,7 @@ ms.author: eur
 | `es-PR` | Spanish (Puerto Rico) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `es-PY` | Spanish (Paraguay) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `es-SV` | Spanish (El Salvador) | Plain text<br/><br/>Pronunciation |
-| `es-US` | Spanish (United States) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
+| `es-US`<sup>1</sup> | Spanish (United States) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `es-UY` | Spanish (Uruguay) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `es-VE` | Spanish (Venezuela) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `et-EE` | Estonian (Estonia) | Plain text<br/><br/>Pronunciation |
@@ -84,7 +83,7 @@ ms.author: eur
 | `fi-FI` | Finnish (Finland) | Plain text<br/><br/>Pronunciation |
 | `fil-PH` | Filipino (Philippines) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation |
 | `fr-BE` | French (Belgium) | Audio + human-labeled transcript<br/><br/>Plain text |
-| `fr-CA` | French (Canada) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation<br/><br/>Phrase list |
+| `fr-CA`<sup>1</sup> | French (Canada) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation<br/><br/>Phrase list |
 | `fr-CH` | French (Switzerland) | Plain text<br/><br/>Pronunciation |
 | `fr-FR` | French (France) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation<br/><br/>Phrase list |
 | `ga-IE` | Irish (Ireland) | Plain text<br/><br/>Pronunciation |
@@ -139,7 +138,7 @@ ms.author: eur
 | `ta-IN` | Tamil (India) | Plain text |
 | `te-IN` | Telugu (India) | Plain text |
 | `th-TH` | Thai (Thailand) | Audio + human-labeled transcript<br/><br/>Plain text |
-| `tr-TR` | Turkish (Turkey) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text |
+| `tr-TR` | Turkish (Türkiye) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text |
 | `uk-UA` | Ukrainian (Ukraine) | Plain text |
 | `ur-IN` | Urdu (India) | Audio + human-labeled transcript |
 | `uz-UZ` | Uzbek (Latin, Uzbekistan) | Plain text |
@@ -152,3 +151,5 @@ ms.author: eur
 | `zh-HK` | Chinese (Cantonese, Traditional) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `zh-TW` | Chinese (Taiwanese Mandarin, Traditional) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `zu-ZA` | Zulu (South Africa) | Plain text |
+
+<sup>1</sup> It is a bilingual model with support for the English language as well.

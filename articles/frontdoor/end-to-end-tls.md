@@ -99,6 +99,9 @@ For your own custom TLS/SSL certificate:
 
 1. If a specific version is selected, autorotation isn’t supported. You've will have to reselect the new version manually to rotate certificate. It takes up to 24 hours for the new version of the certificate/secret to be deployed.
 
+    > [!NOTE]
+    > Azure Front Door (Standard and Premium) managed certificates are automatically rotated if the domain CNAME record points directly to a Front Door endpoint or points indirectly to a Traffic Manager endpoint. Otherwise, you need to re-validate the domain ownership to rotate the certificates.
+
     You'll need to ensure that the service principal for Front Door has access to the key vault. Refer to how to grant access to your key vault. The updated certificate rollout operation by Azure Front Door won't cause any production downtime, as long as the subject name or subject alternate name (SAN) for the certificate hasn't changed.
 
 ## Supported cipher suites
@@ -139,7 +142,8 @@ Azure Front Door doesn’t support disabling or configuring specific cipher suit
 ::: zone pivot="front-door-standard-premium"
 
 * [Understand custom domains](domain.md) on Azure Front Door.
-* [Configure a custom domain on Azure Front Door using the Azure portal](standard-premium/how-to-add-custom-domain.md).
+* [Configure a custom domain](standard-premium/how-to-add-custom-domain.md) on Azure Front Door using the Azure portal.
+* Learn about [End-to-end TLS with Azure Front Door](end-to-end-tls.md).
 
 ::: zone-end
 

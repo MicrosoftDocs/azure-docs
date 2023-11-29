@@ -60,7 +60,7 @@ sections:
             To find the details of the image versions that are being used by VMs: 
           
           ```
-          Resources 
+          resources 
           |where type == "microsoft.compute/virtualmachines" 
           //| where properties.storageProfile.imageReference.publisher =~ 'Windows' //optional filter, uncomment this line to filter for a specific publisher.
           //| where properties.storageProfile.imageReference.sku =~ '2016-Datacenter' //optional filter, uncomment this line to filter for a specific deprecated SKU (Plan).
@@ -72,7 +72,7 @@ sections:
           To find details of the image versions that are being used by a scale set:  
           
           ```
-          Resources 
+          resources 
           |where type == "microsoft.compute/virtualmachinescalesets" 
           //| where properties.virtualMachineProfile.storageProfile.imageReference.publisher =~ 'Windows' //optional filter, uncomment this line to filter for a specific publisher.
           //| where properties.virtualMachineProfile.storageProfile.imageReference.sku =~ '2016-Datacenter' //optional filter, uncomment this line to filter for a specific deprecated SKU (Plan).

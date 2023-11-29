@@ -70,15 +70,18 @@ Depending on the view and scope you're using, you may also see cost insights bel
 
 :::image type="content" source="./media/quick-acm-cost-analysis/see-insights.png" alt-text="Screenshot showing insights." lightbox="./media/quick-acm-cost-analysis/see-insights.png" :::
 
-Lastly, use the table to find your top cost contributors and expand each row to understand how costs are broken down to the next level. Examples include resources with their product meters and services with a breakdown of products.
+Lastly, use the table to identify and review your top cost contributors and drill in for more details.
 
 :::image type="content" source="./media/quick-acm-cost-analysis/table-show-cost-contributors.png" alt-text="Screenshot showing a table view of subscription costs with their nested resources." lightbox="./media/quick-acm-cost-analysis/table-show-cost-contributors.png" :::
 
 This view is where you spend most of your time in Cost analysis. To explore further:
 
-1. Open other smart views to get different perspectives on your cost.
-2. If you want to drill into data further, you might need to [Change scope](understand-work-scopes.md#switch-between-scopes-in-cost-management) to a lower level. For example, you can't view the Subscriptions smart view if your current scope is a subscription.
-3. Open a custom view and apply other filters or group the data to explore.
+1. Expand rows to take a quick peek and see how costs are broken down to the next level. Examples include resources with their product meters and services with a breakdown of products.
+2. Select the name to drill down and see the next level details in a full view. From there, you can drill down again and again, to get down to the finest level of detail, based on what you're interested in. Examples include selecting a subscription, then a resource group, and then a resource to view the specific product meters for that resource.
+3. Select the shortcut menu (⋯) to see related costs. Examples include filtering the list of resource groups to a subscription or filtering resources to a specific location or tag.
+4. Select the shortcut menu (⋯) to open the management screen for that resource, resource group, or subscription. From this screen, you can stop or delete resources to avoid future charges.
+5. Open other smart views to get different perspectives on your costs.
+6. Open a customizable view and apply other filters or group the data to explore further.
 
 > [!NOTE]
 > If you want to visualize and monitor daily trends within the period, enable the [chart preview feature](enable-preview-features-cost-management-labs.md#chartsfeature) in Cost Management Labs, available from the **Try preview** command.

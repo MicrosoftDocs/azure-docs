@@ -12,9 +12,6 @@ ms.date: 07/13/2023
 ---
 
 # Copy data from Amazon Redshift using Azure Data Factory or Synapse Analytics
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-amazon-redshift-connector.md)
-> * [Current version](connector-amazon-redshift.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -29,7 +26,7 @@ This Amazon Redshift connector is supported for the following capabilities:
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 

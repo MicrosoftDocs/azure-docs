@@ -2,12 +2,12 @@
 title: Tutorial to configure Keyless with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Tutorial to configure Sift Keyless with Azure Active Directory B2C for passwordless authentication 
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 03/06/2023
 ms.author: gasinh
@@ -31,7 +31,7 @@ To get started, you'll need:
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Azure subscription
 * A Keyless cloud tenant
-  * Go to keyless.io to [Request a demo](https://keyless.io/go)
+  * Go to keyless.io to [Request a demo](https://keyless.io/demo-request)
 * The Keyless Authenticator app installed on a user device
 
 ## Scenario description
@@ -107,7 +107,7 @@ Keyless appears as a new OpenID Connect (OIDC) IdP with B2C identity providers.
 12. Leave the **Multi-factor Authentication** field.
 13. Select **Enforce conditional access policies**.
 14. Under **User attributes and token claims**, in the **Collect attribute** option, select **Email Address**. 
-15. Add user attributes Azure AD collects with claims Azure AD B2C returns to the client application.
+15. Add user attributes Microsoft Entra ID collects with claims Azure AD B2C returns to the client application.
 16. Select **Create**.
 17. Select the new **User flow**.
 18. On the left panel, select **Application Claims**. 

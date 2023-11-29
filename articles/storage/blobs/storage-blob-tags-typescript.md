@@ -14,6 +14,8 @@ ms.custom: devx-track-ts, devguide-ts, devx-track-js
 
 # Use blob index tags to manage and find data with TypeScript
 
+[!INCLUDE [storage-dev-guide-selector-index-tags](../../../includes/storage-dev-guides/storage-dev-guide-selector-index-tags.md)]
+
 This article shows how to use blob index tags to manage and find data using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
 ## Prerequisites
@@ -55,8 +57,7 @@ You can delete all tags by passing an empty JSON object into the setTags method.
 
 To get tags, create a [BlobClient](storage-blob-typescript-get-started.md#create-a-blobclient-object) then use the following method: 
 
-- [BlobClient.getTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-gettags
-)
+- [BlobClient.getTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-gettags)
 
 The following example shows how to get and iterate over the blob's tags.
 

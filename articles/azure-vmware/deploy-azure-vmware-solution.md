@@ -1,25 +1,24 @@
 ---
 title: Deploy and configure Azure VMware Solution
-description: Learn how to use the information gathered in the planning stage to deploy and configure the Azure VMware Solution private cloud.
+description: In this tutorial, learn how to use the information gathered in the planning stage to deploy and configure the Azure VMware Solution private cloud.
 ms.topic: tutorial
 ms.custom: "engagement-fy23, devx-track-azurecli"
 ms.service: azure-vmware
 ms.date: 7/13/2023
-
 ---
 
 # Deploy and configure Azure VMware Solution
 
-Once you've [planned your deployment](plan-private-cloud-deployment.md), you'll deploy and configure your Azure VMware Solution private cloud. 
+After you [plan your deployment](plan-private-cloud-deployment.md), deploy and configure your Azure VMware Solution private cloud. 
 
-In this how-to, you'll:
+In this tutorial, you'll:
 
 > [!div class="checklist"]
 > * Register the resource provider and create a private cloud
 > * Connect to a new or existing ExpressRoute virtual network gateway
-> * Validate the network connect
+> * Validate the network connection
 
-After you're finished, follow the recommended next steps at the end to continue with the steps of this getting started guide.
+Once you've completed this section, follow the next steps provided at the end of this tutorial.
 
 ## Register the Microsoft.AVS resource provider
 
@@ -54,23 +53,23 @@ In the planning phase, you defined whether to use an *existing* or *new* Express
 
 ## Validate the connection
 
-You should have connectivity between the Azure Virtual Network where the ExpressRoute terminates and the Azure VMware Solution private cloud. 
+Ensure connectivity between the Azure Virtual Network where the ExpressRoute terminates and the Azure VMware Solution private cloud. 
 
 1. Use a [virtual machine](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) within the Azure Virtual Network where the Azure VMware Solution ExpressRoute terminates. For more information, see [Connect to Azure Virtual Network with ExpressRoute](#connect-to-azure-virtual-network-with-expressroute).  
 
    1. Log into the Azure [portal](https://portal.azure.com).
 
-   1. Navigate to a VM that is in the running state, and under **Settings**, select **Networking** and select the network interface resource.
+   1. Navigate to a running VM, and under **Settings**, select **Networking** and the network interface resource.
 
-      :::image type="content" source="../virtual-network/media/diagnose-network-routing-problem/view-nics.png" alt-text="Screenshot showing virtual network interface settings.":::
+      :::image type="content" source="../virtual-network/media/diagnose-network-routing-problem/view-nics.png" alt-text="Screenshot showing virtual network interface settings in Azure portal.":::
 
-   1. On the left, select **Effective routes**. You'll see a list of address prefixes that are contained within the `/22` CIDR block you entered during the deployment phase.
+   1. On the left, select **Effective routes**. A list of address prefixes that are contained within the `/22` CIDR block you entered during the deployment phase displays.
 
-1. If you want to log into both vCenter Server and NSX-T Manager, open a web browser and log into the same virtual machine used for network route validation.  
+1. To log into both vCenter Server and NSX-T Manager, open a web browser and log into the same virtual machine used for network route validation.  
 
-   You can identify the vCenter Server and NSX-T Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then **Manage** > **VMware credentials**.
+   Find the vCenter Server and NSX-T Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then **Manage** > **VMware credentials**.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot showing the private cloud vCenter and NSX Manager URLs and credentials." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot displaying private cloud vCenter and NSX Manager URLs and credentials in Azure portal.":::
 
 
 ## Next steps

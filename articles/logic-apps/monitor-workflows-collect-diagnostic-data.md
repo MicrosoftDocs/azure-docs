@@ -64,7 +64,7 @@ This how-to guide shows how to complete the following tasks, based on whether yo
 
   * [Permission to purchase - Azure Marketplace purchasing](/marketplace/azure-purchasing-invoicing#permission-to-purchase)
 
-  * [Azure roles, Azure AD roles, and classic subscription administrator roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)
+  * [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)
 
 * The destination resource for where you want to send diagnostic data:
 

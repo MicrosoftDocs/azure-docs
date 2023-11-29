@@ -2,11 +2,10 @@
 title: Prepare your data and upload to Storage Account
 titleSuffix: Azure AI services
 description: Prepare your data and upload to Storage Account
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: how-to
 ms.date: 11/01/2022
 ms.author: mbullwin
@@ -14,6 +13,8 @@ ms.author: mbullwin
 
 
 # Prepare your data and upload to Storage Account
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 Multivariate Anomaly Detection requires training to process your data, and an Azure Storage Account to store your data for further training and inference steps.
 

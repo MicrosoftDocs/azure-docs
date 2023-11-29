@@ -2,15 +2,18 @@
 title: Security options and features
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Review security options and built-in security mechanisms for Azure Cosmos DB for MongoDB vCore accounts.
-ms.service: cosmos-db
-ms.subservice: mongodb
-ms.topic: conceptual
 author: gahl-levy
 ms.author: gahllevy
-ms.date: 02/07/2023
+ms.reviewer: sidandrews
+ms.service: cosmos-db
+ms.subservice: mongodb-vcore
+ms.topic: conceptual
+ms.date: 08/28/2023
 ---
 
 # Security in Azure Cosmos DB for MongoDB vCore
+
+[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
 This page outlines the multiple layers of security available to protect the data in your cluster.
 

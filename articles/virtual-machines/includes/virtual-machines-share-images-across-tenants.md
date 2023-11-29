@@ -23,7 +23,7 @@ Create an application registration that will be used by both tenants to share th
 1. Open the [App registrations in the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType//sourceType/).    
 1. Select **New registration** from the menu at the top of the page.
 1. In **Name**, type *myGalleryApp*.
-1. In **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
+1. In **Supported account types**, select **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
 1. In **Redirect URI**, select *Web* from the **Select a platform** dropdown and type *https://www.microsoft.com*, then select **Register**. After the app registration has been created, the overview page will open.
 1. On the overview page, copy the **Application (client) ID** and save for use later.   
 1. Select **Certificates & secrets**, and then select **New client secret**.
@@ -36,7 +36,7 @@ Give the app registration permission to use the gallery.
 1. In the Azure portal, select the Azure Compute Gallery that you want to share with another tenant.
 1. Select **select Access control (IAM)**, and under **Add role assignment** select *Add*. 
 1. Under **Role**, select **Reader**.
-1. Under **Assign access to:**, leave this as **Azure AD user, group, or service principal**.
+1. Under **Assign access to:**, leave this as **Microsoft Entra user, group, or service principal**.
 1. Under **Select members**, type *myGalleryApp* and select it when it shows up in the list. When you are done, select **Review + assign**.
 
 
@@ -54,9 +54,8 @@ In the [Azure portal](https://portal.azure.com) sign in as Tenant 2 and give the
 
 1. Select the resource group and then select **Access control (IAM)**. Under **Add role assignment** select **Add**. 
 1. Under **Role**, type **Contributor**.
-1. Under **Assign access to:**, leave this as **Azure AD user, group, or service principal**.
+1. Under **Assign access to:**, leave this as **Microsoft Entra user, group, or service principal**.
 1. Under **Select members** type *myGalleryApp* then select it when it shows up in the list. When you are done, select **Review + assign**.
 
 > [!NOTE]
 > You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.
-

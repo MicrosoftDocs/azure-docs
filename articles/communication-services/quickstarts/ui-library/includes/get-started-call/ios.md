@@ -215,11 +215,11 @@ The Communication Services Call SDK accepts a full Microsoft Teams meeting link.
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-To set up a ACS Rooms call, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.roomCall` locator. Replace `<ROOM_ID>` with the Room ID for your call. Initialize a `LocalOptions` instance with `roleHint`.
+To set up a Azure Communication Services Rooms call, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.roomCall` locator. Replace `<ROOM_ID>` with the Room ID for your call. Initialize a `LocalOptions` instance with `roleHint`.
 
 Replace `<DISPLAY_NAME>` with your name.
 
-`CallComposite` will use role hint before connecting to the call. Once call is connected, actual up-to-date participant role is retrieved from ACS.
+`CallComposite` will use role hint before connecting to the call. Once call is connected, actual up-to-date participant role is retrieved from Azure Communication Services.
 
 
 For more information about Rooms, how to create and manage one see [Rooms Quickstart](../../../rooms/get-started-rooms.md)
@@ -296,6 +296,30 @@ let callCompositeOptions = CallCompositeOptions(localization: localizationOption
 ```
 
 For more information about localization and for a list of supported languages, see the [localization guide](../../../../how-tos/ui-library-sdk/localization.md).
+
+### Subscribe to CallComposite call state changed event
+
+You can implement closures to act on composite events. The call states will be sent to the call state changed handler.
+
+The following example shows an event for a call state changed.
+
+```swift
+callComposite?.events.onCallStateChanged = { callStateEvent in
+   print("CallComposite call state changed:\(callStateEvent.requestString)")
+}
+```
+
+### Dismiss CallComposite and subscribe to dismissed event
+
+To dismiss CallComposite, call `dismiss`. The following dismiss event be sent on call composite dismissed:
+
+```swift
+callComposite?.events.onDismissed = { dismissed in
+   print("CallComposite dismissed:\(dismissed.errorCode)")
+}
+
+callComposite.dismiss()
+```
 
 ## Add notifications to your mobile app
 

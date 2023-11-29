@@ -116,7 +116,7 @@ Start with the first step, to configure your virtual network connections to prop
 $VnetRoutingConfig = $Spoke1Connection.RoutingConfiguration    # We take $Spoke1Connection as baseline for the future vnet config, all vnets will have an identical config
 $NoneRT = Get-AzVhubRouteTable -ResourceGroupName $RG -HubName $HubName -Name "noneRouteTable"
 $NewPropRT = @{}
-$NewPropRT.Add('Id', $NoneRT.id)
+$NewPropRT.Add('Id', $NoneRT.Id)
 $PropRTList = @()
 $PropRTList += $NewPropRT
 $VnetRoutingConfig.PropagatedRouteTables.Ids = $PropRTList
@@ -230,7 +230,7 @@ $SSHRule = New-AzFirewallPolicyNetworkRule -Name PermitSSH -Protocol TCP `
         -SourceAddress "10.0.0.0/8" -DestinationAddress "10.0.0.0/8" -DestinationPort 22
 $NetCollection = New-AzFirewallPolicyFilterRuleCollection -Name "Management" -Priority 100 -ActionType Allow -Rule $SSHRule
 $NetGroup = New-AzFirewallPolicyRuleCollectionGroup -Name "Management" -Priority 200 -RuleCollection $NetCollection -FirewallPolicyObject $FWPolicy
-# Add Application Rul
+# Add Application Rule
 $ifconfigRule = New-AzFirewallPolicyApplicationRule -Name PermitIfconfig -SourceAddress "10.0.0.0/8" -TargetFqdn "ifconfig.co" -Protocol "http:80","https:443"
 $AppCollection = New-AzFirewallPolicyFilterRuleCollection -Name "TargetURLs" -Priority 300 -ActionType Allow -Rule $ifconfigRule
 $NetGroup = New-AzFirewallPolicyRuleCollectionGroup -Name "TargetURLs" -Priority 300 -RuleCollection $AppCollection -FirewallPolicyObject $FWPolicy

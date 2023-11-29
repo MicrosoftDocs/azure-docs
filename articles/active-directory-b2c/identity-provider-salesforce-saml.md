@@ -2,15 +2,15 @@
 title: Set up sign-in with a Salesforce SAML provider by using SAML protocol
 titleSuffix: Azure AD B2C
 description: Set up sign-in with a Salesforce SAML provider by using SAML protocol in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.custom: project-no-code
+ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -34,8 +34,8 @@ This article shows you how to enable sign-in for users from a Salesforce organiz
 ## Prerequisites
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites-custom-policy](../../includes/active-directory-b2c-customization-prerequisites-custom-policy.md)]
-- If you haven't already done so, sign up for a [free Developer Edition account](https://developer.salesforce.com/signup). This article uses the [Salesforce Lightning Experience](https://developer.salesforce.com/page/Lightning_Experience_FAQ).
-- [Set up a My Domain](https://help.salesforce.com/articleView?id=domain_name_setup.htm&language=en_US&type=0) for your Salesforce organization.
+- If you haven't already done so, sign up for a [free Developer Edition account](https://developer.salesforce.com/signup). This article uses the [Salesforce Lightning Experience](https://trailhead.salesforce.com/content/learn/trails/lex_admin_implementation).
+- [Set up a My Domain](https://help.salesforce.com/s/articleView?id=domain_name_setup.htm&language=en_US&type=0) for your Salesforce organization.
 
 ## Set up Salesforce as an identity provider
 
@@ -95,8 +95,7 @@ This article shows you how to enable sign-in for users from a Salesforce organiz
 You need to store the certificate that you created in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. On the Overview page, select **Identity Experience Framework**.
 1. Select **Policy Keys** and then select **Add**.

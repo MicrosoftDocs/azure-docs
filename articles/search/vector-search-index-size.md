@@ -1,21 +1,20 @@
 ---
 title: Vector index size limit
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Explanation of the factors affecting the size of a vector index.
 
 author: robertklee
 ms.author: robertlee
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 08/09/2023
+ms.date: 11/16/2023
 ---
 
 # Vector index size limit
 
-> [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
-
-When you index documents with vector fields, Azure Cognitive Search constructs internal vector indexes using the algorithm parameters that you specified for the field. Because Cognitive Search imposes limits on vector index size, it's important that you know how to retrieve metrics about the vector index size, and how to estimate the vector index size requirements for your use case.
+When you index documents with vector fields, Azure AI Search constructs internal vector indexes using the algorithm parameters that you specified for the field. Because Azure AI Search imposes limits on vector index size, it's important that you know how to retrieve metrics about the vector index size, and how to estimate the vector index size requirements for your use case.
 
 ## Key points about vector size limits
 
@@ -23,38 +22,38 @@ The size of vector indexes is measured in bytes. The size constraints are based 
 
 The service enforces a vector index size quota **based on the number of partitions** in your search service, where the quota per partition varies by tier and also by service creation date (see [Vector index size limits](search-limits-quotas-capacity.md#vector-index-size-limits) in service limits). 
 
-Each extra partition that you add to your service increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy. It also means that if vector size exceeds this limit, any further indexing requests will result in failure. You can resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
+Each extra partition that you add to your service increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy. It also means that if vector size exceeds this limit, any further indexing requests result in failure. You can resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
 
-The following table repurposes information from [Search service limits](search-limits-quotas-capacity.md). The limits are for newer search services. 
+The following table shows vector quotas by partition, and by service if all partitions are in use. This table is for newer search services created *after July 1, 2023*. For more information, including limits for older search services and also limits on the approximate number of embeddings per partition, see [Search service limits](search-limits-quotas-capacity.md). 
 
-| Tier   | Storage (GB) |Partitions | Vector quota per partition (GB) | Vector quota per service (GB) |
-| ----- | ------------- | ----------|-------------------------- | ---------------------------- |
-| Basic | 2             | 1         | 1                         | 1                |
-| S1    | 25            | 12        | 3                         | 36               |
-| S2    | 100           | 12        |12                         | 144              |
-| S3    | 200           | 12        |36                         | 432              |
-| L1    | 1,000         | 12        |12                         | 144              |
-| L2    | 2,000         | 12        |36                         | 432              |
+| Tier  | Partitions | Storage (GB)  | Vector quota per partition (GB) | Vector quota per service (GB) |
+| ----- | ---------- | --------------|-------------------------- | ----------------------------------- |
+| Basic | 1          | 2             | 1                         | 1                |
+| S1    | 12         | 25            | 3                         | 36               |
+| S2    | 12         | 100           | 12                        | 144              |
+| S3    | 12         | 200           | 36                        | 432              |
+| L1    | 12         | 1,000         | 12                        | 144              |
+| L2    | 12         | 2,000         | 36                        | 432              |
 
 **Key points**:
 
-+ Storage quota is the physical storage available to the search service for all search data. Basic has one partition sized at 2 GB that must accommodate all of the data on the service. S1 can have 12 partitions sized at 25 GB each, for a maximum limit of 300 GB for all search data. 
++ Storage quota is the physical storage available to the search service for all search data. Basic has one partition sized at 2 GB that must accommodate all of the data on the service. S1 can have up to 12 partitions, sized at 25 GB each, for a maximum limit of 300 GB for all search data. 
 
-+ Vector quotas for are the vector indexes created for each vector field, and they're enforced at the partition level. On Basic, the sum total of all vector fields can't be more than 1 GB because Basic only has one partition. On S1, which can have up to 12 partitions, the quota for vector data is 3 GB if you've only allocated one partition, or up to 36 GB if you've allocated 12 partitions. For more information about partitions and replicas, see [Estimate and manage capacity](search-capacity-planning.md).
++ Vector quotas for are the vector indexes created for each vector field, and they're enforced at the partition level. On Basic, the sum total of all vector fields can't be more than 1 GB because Basic only has one partition. On S1, which can have up to 12 partitions, the quota for vector data is 3 GB if you allocate just one partition, or up to 36 GB if you allocate all 12 partitions. For more information about partitions and replicas, see [Estimate and manage capacity](search-capacity-planning.md).
 
 ## How to get vector index size
 
-Use the preview REST APIs to return vector index size:
+Use the REST APIs to return vector index size:
 
-+ [GET Index Statistics](/rest/api/searchservice/preview-api/get-index-statistics) returns usage for a given index.
++ [GET Index Statistics](/rest/api/searchservice/indexes/get-statistics) returns usage for a given index.
 
-+ [GET Service Statistics](/rest/api/searchservice/preview-api/get-service-statistics) returns quota and usage for the search service all-up.
++ [GET Service Statistics](/rest/api/searchservice/get-service-statistics/get-service-statistics) returns quota and usage for the search service all-up.
 
-For a visual, here's the sample response for a Basic search service that has the quickstart vector search index. `storageSize` and `vectorIndexSize` are reported in bytes. Notice that you'll need the preview API to return vector statistics.
+For a visual, here's the sample response for a Basic search service that has the quickstart vector search index. `storageSize` and `vectorIndexSize` are reported in bytes. 
 
 ```json
 {
-    "@odata.context": "https://my-demo.search.windows.net/$metadata#Microsoft.Azure.Search.V2023_07_01_Preview.IndexStatistics",
+    "@odata.context": "https://my-demo.search.windows.net/$metadata#Microsoft.Azure.Search.V2023_11_01.IndexStatistics",
     "documentCount": 108,
     "storageSize": 5853396,
     "vectorIndexSize": 1342756
@@ -65,7 +64,7 @@ Return service statistics to compare usage against available quota at the servic
 
 ```json
 {
-    "@odata.context": "https://my-demo.search.windows.net/$metadata#Microsoft.Azure.Search.V2023_07_01_Preview.ServiceStatistics",
+    "@odata.context": "https://my-demo.search.windows.net/$metadata#Microsoft.Azure.Search.V2023_11_01.ServiceStatistics",
     "counters": {
         "documentCount": {
             "usage": 15377,
@@ -115,23 +114,32 @@ The storage size of one vector is determined by its dimensionality. Multiply the
 
 For `Edm.Single`, the size of the data type is 4 bytes.
 
-### Overhead from the selected algorithm
+### Memory Overhead from the Selected Algorithm  
+  
+Every approximate nearest neighbor (ANN) algorithm generates extra data structures in memory to enable efficient searching. These structures consume extra space within memory.  
+  
+**For the HNSW algorithm, the memory overhead ranges between 1% and 20%.**  
+  
+The memory overhead is lower for higher dimensions because the raw size of the vectors increases, while the extra data structures remain a fixed size since they store information on the connectivity within the graph. Consequently, the contribution of the extra data structures constitutes a smaller portion of the overall size.  
+  
+The memory overhead is higher for larger values of the HNSW parameter `m`, which determines the number of bi-directional links created for every new vector during index construction. This is because `m` contributes approximately 8 to 10 bytes per document multiplied by `m`.  
+  
+The following table summarizes the overhead percentages observed in internal tests:  
+  
+| Dimensions | HNSW Parameter (m) | Overhead Percentage |  
+|-------------------|--------------------|---------------------|
+| 96                | 4                  | 20%              |    
+| 200               | 4                  | 8%               |  
+| 768               | 4                  | 2%               |  
+| 1536              | 4                  | 1%               |  
 
-Each approximate-nearest-neighbor algorithm creates other data structures in memory to enable efficient searching. These consume extra space within memory. 
-
-**For HNSW algorithm, this overhead is between 5% to 20%.** 
-
-Overhead is lower for higher dimensions because the raw size of the vectors is larger, but the extra data structures remain a fixed size since they store information on connectivity within the graph. As a result, the contribution of the extra data structures makes up a smaller portion of the overall size. 
-
-Overhead is higher for larger values of the HNSW parameter `m`, which sets the number of bi-directional links created for every new vector during index construction. (The reason is because _m_ contributes roughly _m times 8 to 10_ bytes per document.)
-
-Based on internal tests, a model with _m=4_ and _dims=96_ has an overhead of ~17%, and a model with _m=4_ and _dims=768_ has an overhead of ~5%.
+These results demonstrate the relationship between dimensions, HNSW parameter `m`, and memory overhead for the HNSW algorithm.  
 
 ### Overhead from deleting or updating documents within the index
 
 When a document with a vector field is either deleted or updated (updates are internally represented as a delete and insert operation), the underlying document is marked as deleted and skipped during subsequent queries. As new documents are indexed and the internal vector index grows, the system cleans up these deleted documents and reclaims the resources. This means you'll likely observe a lag between deleting documents and the underlying resources being freed.
 
-We refer to this as the "deleted documents ratio". Since the deleted documents ratio depends on the indexing characteristics of your service, there's no universal heuristic to estimate this parameter, and there's no API or script that returns the ratio in effect for your service. We observe that half of our customers have a deleted documents ratio less than 10%. If you tend to perform high-frequency deletions or updates, then you may observe a higher deleted documents ratio.
+We refer to this as the "deleted documents ratio". Since the deleted documents ratio depends on the indexing characteristics of your service, there's no universal heuristic to estimate this parameter, and there's no API or script that returns the ratio in effect for your service. We observe that half of our customers have a deleted documents ratio less than 10%. If you tend to perform high-frequency deletions or updates, then you might observe a higher deleted documents ratio.
 
 This is another factor impacting the size of your vector index. Unfortunately, we don't have a mechanism to surface your current deleted documents ratio.
 

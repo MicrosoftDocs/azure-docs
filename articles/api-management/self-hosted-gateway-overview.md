@@ -100,21 +100,21 @@ To operate properly, each self-hosted gateway needs outbound connectivity on por
 
 | Description | Required for v1 | Required for v2 | Notes |
 |:------------|:---------------------|:---------------------|:------|
-| Hostname of the configuration endpoint | `<apim-service-name>.management.azure-api.net` | `<apim-service-name>.configuration.azure-api.net` | Connectivity to v2 endpoint requires DNS resolution of the default hostname. |
+| Hostname of the configuration endpoint | `<apim-service-name>.management.azure-api.net` | `<apim-service-name>.configuration.azure-api.net` | Custom hostnames are also supported and can be used instead of the default hostname. |
 | Public IP address of the API Management instance | ✔️ | ✔️ | IP address of primary location is sufficient. |
 | Public IP addresses of Azure Storage [service tag](../virtual-network/service-tags-overview.md) | ✔️ | Optional<sup>2</sup> | IP addresses must correspond to primary location of API Management instance. |
 | Hostname of Azure Blob Storage account | ✔️ | Optional<sup>2</sup> | Account associated with instance (`<blob-storage-account-name>.blob.core.windows.net`) |
 | Hostname of Azure Table Storage account | ✔️ | Optional<sup>2</sup> | Account associated with instance (`<table-storage-account-name>.table.core.windows.net`) |
 | Endpoints for Azure Resource Manager | ✔️ | Optional<sup>3</sup> | Required endpoints are `management.azure.com`. |
-| Endpoints for Azure Active Directory integration | ✔️ | Optional<sup>4</sup> | Required endpoints are `<region>.login.microsoft.com` and `login.microsoftonline.com`. |
+| Endpoints for Microsoft Entra integration | ✔️ | Optional<sup>4</sup> | Required endpoints are `<region>.login.microsoft.com` and `login.microsoftonline.com`. |
 | Endpoints for [Azure Application Insights integration](api-management-howto-app-insights.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | Minimal required endpoints are:<ul><li>`rt.services.visualstudio.com:443`</li><li>`dc.services.visualstudio.com:443`</li><li>`{region}.livediagnostics.monitor.azure.com:443`</li></ul>Learn more in [Azure Monitor docs](../azure-monitor/app/ip-addresses.md#outgoing-ports) |
 | Endpoints for [Event Hubs integration](api-management-howto-log-event-hubs.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | Learn more in [Azure Event Hubs docs](../event-hubs/network-security.md) |
 | Endpoints for [external cache integration](api-management-howto-cache-external.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | This requirement depends on the external cache that is being used |
 
 <sup>1</sup>For an API Management instance in an internal virtual network, enable private connectivity to the v2 configuration endpoint from the location of the self-hosted gateway, for example, using a private DNS in a peered network.<br/> 
 <sup>2</sup>Only required in v2 when API inspector or quotas are used in policies.<br/>
-<sup>3</sup>Only required when using Azure AD authentication to verify RBAC permissions.<br/>
-<sup>4</sup>Only required when using Azure AD authentication or Azure AD-related policies.<br/>
+<sup>3</sup>Only required when using Microsoft Entra authentication to verify RBAC permissions.<br/>
+<sup>4</sup>Only required when using Microsoft Entra authentication or Microsoft Entra related policies.<br/>
 <sup>5</sup>Only required when feature is used and requires public IP address, port, and hostname information.<br/>
 
 > [!IMPORTANT]
@@ -128,7 +128,7 @@ To authenticate the connection between the self-hosted gateway and the cloud-bas
 
 |Option  |Considerations  |
 |---------|---------|
-| [Azure Active Directory authentication](self-hosted-gateway-enable-azure-ad.md)   | Configure one or more Azure AD apps for access to gateway<br/><br/>Manage access separately per app<br/><br/>Configure longer expiry times for secrets in accordance with your organization's policies<br/><br/>Use standard Azure AD procedures to assign or revoke user or group permissions to app and to rotate secrets<br/><br/>        |
+| [Microsoft Entra authentication](self-hosted-gateway-enable-azure-ad.md)   | Configure one or more Microsoft Entra apps for access to gateway<br/><br/>Manage access separately per app<br/><br/>Configure longer expiry times for secrets in accordance with your organization's policies<br/><br/>Use standard Microsoft Entra procedures to assign or revoke user or group permissions to app and to rotate secrets<br/><br/>        |
 | Gateway access token (also called authentication key)    |  Token expires every 30 days at maximum and must be renewed in the containers<br/><br/>Backed by a gateway key that can be rotated independently (for example, to revoke access) <br/><br/>Regenerating gateway key invalidates all access tokens created with it        |
 
 ### Connectivity failures

@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/21/2023
+ms.date: 09/08/2023
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -310,309 +310,334 @@ Run the following cmdlets in PowerShell:
    Here's sample output:
 
    ```output
-			{
-			    "device":  {
-			                   "deviceInfo":  {
-			                                      "model":  "Azure Stack Edge",
-			                                      "softwareVersion":  "2.2.2162.730",
-			                                      "serialNumber":  "1D9NHQ2",
-			                                      "isActivated":  true,
-			                                      "nodes":  [
-			                                                    {
-			                                                        "id":  "3b8a2f2b-ff99-4a9e-93ed-7679c55a78de",
-			                                                        "name":  "HWDH1T2"
-			                                                    },
-			                                                    {
-			                                                        "id":  "f11b175c-4c6b-4952-95f3-1b131a1f1556",
-			                                                        "name":  "1D9NHQ2"
-			                                                    }
-			                                                ]
-			                                  },
-			                   "deviceEndpoint":  {
-			                                          "name":  "DBE-1D9NHQ2",
-			                                          "dnsDomain":  "microsoftdatabox.com"
-			                                      },
-			                   "encryptionAtRestKeys":  null,
-			                   "network":  {
-			                                   "dhcpPolicy":  "AttemptRenew",
-			                                   "interfaces":  [
-			                                                      {
-			                                                          "name":  "Port1",
-			                                                          "nodeName":  "1D9NHQ2",
-			                                                          "nodeId":  "f11b175c-4c6b-4952-95f3-1b131a1f1556",
-			                                                          "isDhcpEnabled":  false,
-			                                                          "iPv4":  {
-			                                                                       "address":  "192.168.100.10",
-			                                                                       "subnetMask":  "255.255.255.0",
-			                                                                       "gateway":  null
-			                                                                   },
-			                                                          "iPv6":  null,
-			                                                          "dnsServerAddresses":  null,
-			                                                          "dnsSuffix":  null,
-			                                                          "routes":  null,
-			                                                          "ipConfigType":  "IP"
-			                                                      },
-			                                                      {
-			                                                          "name":  "Port1",
-			                                                          "nodeName":  "HWDH1T2",
-			                                                          "nodeId":  "3b8a2f2b-ff99-4a9e-93ed-7679c55a78de",
-			                                                          "isDhcpEnabled":  false,
-			                                                          "iPv4":  {
-			                                                                       "address":  "192.168.100.10",
-			                                                                       "subnetMask":  "255.255.255.0",
-			                                                                       "gateway":  null
-			                                                                   },
-			                                                          "iPv6":  null,
-			                                                          "dnsServerAddresses":  null,
-			                                                          "dnsSuffix":  null,
-			                                                          "routes":  null,
-			                                                          "ipConfigType":  "IP"
-			                                                      },
-			                                                      {
-			                                                          "name":  "Port2",
-			                                                          "nodeName":  "1D9NHQ2",
-			                                                          "nodeId":  "f11b175c-4c6b-4952-95f3-1b131a1f1556",
-			                                                          "isDhcpEnabled":  true,
-			                                                          "iPv4":  {
-			                                                                       "address":  "10.126.77.23",
-			                                                                       "subnetMask":  "255.255.248.0",
-			                                                                       "gateway":  "10.126.72.1"
-			                                                                   },
-			                                                          "iPv6":  null,
-			                                                          "dnsServerAddresses":  [
-			                                                                                     "10.50.50.50",
-			                                                                                     "10.50.10.50"
-			                                                                                 ],
-			                                                          "dnsSuffix":  "corp.microsoft.com",
-			                                                          "routes":  null,
-			                                                          "ipConfigType":  "IP"
-			                                                      },
-			                                                      {
-			                                                          "name":  "Port2",
-			                                                          "nodeName":  "HWDH1T2",
-			                                                          "nodeId":  "3b8a2f2b-ff99-4a9e-93ed-7679c55a78de",
-			                                                          "isDhcpEnabled":  true,
-			                                                          "iPv4":  {
-			                                                                       "address":  "10.126.76.65",
-			                                                                       "subnetMask":  "255.255.248.0",
-			                                                                       "gateway":  "10.126.72.1"
-			                                                                   },
-			                                                          "iPv6":  null,
-			                                                          "dnsServerAddresses":  [
-			                                                                                     "10.50.50.50",
-			                                                                                     "10.50.10.50"
-			                                                                                 ],
-			                                                          "dnsSuffix":  "corp.microsoft.com",
-			                                                          "routes":  null,
-			                                                          "ipConfigType":  "IP"
-			                                                      },
-			                                                      {
-			                                                          "name":  "Port3",
-			                                                          "nodeName":  "1D9NHQ2",
-			                                                          "nodeId":  "f11b175c-4c6b-4952-95f3-1b131a1f1556",
-			                                                          "isDhcpEnabled":  true,
-			                                                          "iPv4":  {
-			                                                                       "address":  "192.168.5.238",
-			                                                                       "subnetMask":  "255.255.0.0",
-			                                                                       "gateway":  null
-			                                                                   },
-			                                                          "iPv6":  null,
-			                                                          "dnsServerAddresses":  [
-			                                                                                     "192.168.0.1"
-			                                                                                 ],
-			                                                          "dnsSuffix":  "wdshcsso.com",
-			                                                          "routes":  null,
-			                                                          "ipConfigType":  "IP"
-			                                                      },
-			                                                      {
-			                                                          "name":  "Port3",
-			                                                          "nodeName":  "HWDH1T2",
-			                                                          "nodeId":  "3b8a2f2b-ff99-4a9e-93ed-7679c55a78de",
-			                                                          "isDhcpEnabled":  true,
-			                                                          "iPv4":  {
-			                                                                       "address":  "192.168.1.166",
-			                                                                       "subnetMask":  "255.255.0.0",
-			                                                                       "gateway":  null
-			                                                                   },
-			                                                          "iPv6":  null,
-			                                                          "dnsServerAddresses":  [
-			                                                                                     "192.168.0.1"
-			                                                                                 ],
-			                                                          "dnsSuffix":  "wdshcsso.com",
-			                                                          "routes":  null,
-			                                                          "ipConfigType":  "IP"
-			                                                      },
-			                                                      {
-			                                                          "name":  "Port4",
-			                                                          "nodeName":  "1D9NHQ2",
-			                                                          "nodeId":  "f11b175c-4c6b-4952-95f3-1b131a1f1556",
-			                                                          "isDhcpEnabled":  true,
-			                                                          "iPv4":  {
-			                                                                       "address":  "192.168.5.239",
-			                                                                       "subnetMask":  "255.255.0.0",
-			                                                                       "gateway":  null
-			                                                                   },
-			                                                          "iPv6":  null,
-			                                                          "dnsServerAddresses":  [
-			                                                                                     "192.168.0.1"
-			                                                                                 ],
-			                                                          "dnsSuffix":  "wdshcsso.com",
-			                                                          "routes":  null,
-			                                                          "ipConfigType":  "IP"
-			                                                      },
-			                                                      {
-			                                                          "name":  "Port4",
-			                                                          "nodeName":  "HWDH1T2",
-			                                                          "nodeId":  "3b8a2f2b-ff99-4a9e-93ed-7679c55a78de",
-			                                                          "isDhcpEnabled":  true,
-			                                                          "iPv4":  {
-			                                                                       "address":  "192.168.1.165",
-			                                                                       "subnetMask":  "255.255.0.0",
-			                                                                       "gateway":  null
-			                                                                   },
-			                                                          "iPv6":  null,
-			                                                          "dnsServerAddresses":  [
-			                                                                                     "192.168.0.1"
-			                                                                                 ],
-			                                                          "dnsSuffix":  "wdshcsso.com",
-			                                                          "routes":  null,
-			                                                          "ipConfigType":  "IP"
-			                                                      },
-			                                                      {
-			                                                          "name":  "Port5",
-			                                                          "nodeName":  "1D9NHQ2",
-			                                                          "nodeId":  "f11b175c-4c6b-4952-95f3-1b131a1f1556",
-			                                                          "isDhcpEnabled":  true,
-			                                                          "iPv4":  {
-			                                                                       "address":  "192.168.1.208",
-			                                                                       "subnetMask":  "255.255.0.0",
-			                                                                       "gateway":  null
-			                                                                   },
-			                                                          "iPv6":  null,
-			                                                          "dnsServerAddresses":  [
-			                                                                                     "192.168.0.1"
-			                                                                                 ],
-			                                                          "dnsSuffix":  "wdshcsso.com",
-			                                                          "routes":  null,
-			                                                          "ipConfigType":  "IP"
-			                                                      },
-			                                                      {
-			                                                          "name":  "Port5",
-			                                                          "nodeName":  "HWDH1T2",
-			                                                          "nodeId":  "3b8a2f2b-ff99-4a9e-93ed-7679c55a78de",
-			                                                          "isDhcpEnabled":  true,
-			                                                          "iPv4":  {
-			                                                                       "address":  "192.168.4.120",
-			                                                                       "subnetMask":  "255.255.0.0",
-			                                                                       "gateway":  null
-			                                                                   },
-			                                                          "iPv6":  null,
-			                                                          "dnsServerAddresses":  [
-			                                                                                     "192.168.0.1"
-			                                                                                 ],
-			                                                          "dnsSuffix":  "wdshcsso.com",
-			                                                          "routes":  null,
-			                                                          "ipConfigType":  "IP"
-			                                                      },
-			                                                      {
-			                                                          "name":  "Port6",
-			                                                          "nodeName":  "1D9NHQ2",
-			                                                          "nodeId":  "f11b175c-4c6b-4952-95f3-1b131a1f1556",
-			                                                          "isDhcpEnabled":  true,
-			                                                          "iPv4":  {
-			                                                                       "address":  "192.168.5.227",
-			                                                                       "subnetMask":  "255.255.0.0",
-			                                                                       "gateway":  null
-			                                                                   },
-			                                                          "iPv6":  null,
-			                                                          "dnsServerAddresses":  [
-			                                                                                     "192.168.0.1"
-			                                                                                 ],
-			                                                          "dnsSuffix":  "wdshcsso.com",
-			                                                          "routes":  null,
-			                                                          "ipConfigType":  "IP"
-			                                                      },
-			                                                      {
-			                                                          "name":  "Port6",
-			                                                          "nodeName":  "HWDH1T2",
-			                                                          "nodeId":  "3b8a2f2b-ff99-4a9e-93ed-7679c55a78de",
-			                                                          "isDhcpEnabled":  true,
-			                                                          "iPv4":  {
-			                                                                       "address":  "192.168.4.100",
-			                                                                       "subnetMask":  "255.255.0.0",
-			                                                                       "gateway":  null
-			                                                                   },
-			                                                          "iPv6":  null,
-			                                                          "dnsServerAddresses":  [
-			                                                                                     "192.168.0.1"
-			                                                                                 ],
-			                                                          "dnsSuffix":  "wdshcsso.com",
-			                                                          "routes":  null,
-			                                                          "ipConfigType":  "IP"
-			                                                      }
-			                                                  ],
-			                                   "vSwitches":  [
-			                                                     {
-			                                                         "name":  "vSwitch1",
-			                                                         "interfaceName":  "Port2",
-			                                                         "enabledForCompute":  false,
-			                                                         "enabledForStorage":  false,
-			                                                         "enabledForMgmt":  true,
-			                                                         "supportsAcceleratedNetworking":  false,
-			                                                         "enableEmbeddedTeaming":  true,
-			                                                         "ipAddressPools":  [
-			
-			                                                                            ]
-			                                                     },
-			                                                     {
-			                                                         "name":  "vSwitch2",
-			                                                         "interfaceName":  "Port3",
-			                                                         "enabledForCompute":  false,
-			                                                         "enabledForStorage":  true,
-			                                                         "enabledForMgmt":  false,
-			                                                         "supportsAcceleratedNetworking":  false,
-			                                                         "enableEmbeddedTeaming":  true,
-			                                                         "ipAddressPools":  [
-			
-			                                                                            ]
-			                                                     },
-			                                                     {
-			                                                         "name":  "vSwitch3",
-			                                                         "interfaceName":  "Port4",
-			                                                         "enabledForCompute":  false,
-			                                                         "enabledForStorage":  true,
-			                                                         "enabledForMgmt":  false,
-			                                                         "supportsAcceleratedNetworking":  false,
-			                                                         "enableEmbeddedTeaming":  true,
-			                                                         "ipAddressPools":  [
-			
-			                                                                            ]
-			                                                     }
-			                                                 ],
-			                                   "virtualNetworks":  [
-			
-			                                                       ]
-			                               },
-			                   "time":  {
-			                                "timeZone":  "Alaskan Standard Time",
-			                                "primaryTimeServer":  "time.windows.com",
-			                                "secondaryTimeServer":  ""
-			                            },
-			                   "update":  {
-			                                  "serverType":  "None",
-			                                  "wsusServerURI":  null
-			                              },
-			                   "webProxy":  {
-			                                    "isEnabled":  false,
-			                                    "connectionURI":  null,
-			                                    "authentication":  "None",
-			                                    "username":  null,
-			                                    "password":  null
-			                                }
-			               }
-			}
-    PS C:\>
-    ```
+      PS C:\> Get-DeviceConfiguration | To-json
+      {
+      "device":  {
+                   "deviceInfo":  {
+                                            "model":  "Azure Stack Edge",
+                                            "softwareVersion":  "3.2.2380.1548",
+                                            "serialNumber":  "1HXG613",
+                                            "isActivated":  true,
+                                            "nodes":  [
+                                                    {
+                                                        "id":  "9b1817b9-67f5-4631-8466-447b89b829f3",
+                                                        "name":  "HW6C1T2"
+                                                    },
+                                                    {
+                                                        "id":  "b4eeebad-9395-4aa8-b6b4-2f2d66eccf58",
+                                                        "name":  "1HXG613"
+                                                    }
+                                                ]
+                                  },
+                   "deviceEndpoint":  {
+                                          "name":  "DBE-1HXG613",
+                                          "dnsDomain":  "microsoftdatabox.com"
+                                      },
+                   "encryptionAtRestKeys":  null,
+                   "network":  {
+                                   "dhcpPolicy":  "AttemptRenew",
+                                   "interfaces":  [
+                                                      {
+                                                          "name":  "Port1",
+                                                          "nodeName":  "1HXG613",
+                                                          "nodeId":  "b4eeebad-9395-4aa8-b6b4-2f2d66eccf58",
+                                                          "isDhcpEnabled":  false,
+                                                          "iPv4":  {
+                                                                       "address":  "192.0.2.0/24",
+                                                                       "subnetMask":  "255.255.255.0",
+                                                                       "gateway":  null
+                                                                   },
+                                                          "iPv6":  null,
+                                                          "dnsServerAddresses":  null,
+                                                          "dnsSuffix":  null,
+                                                          "routes":  null,
+                                                          "ipConfigType":  "IP"
+                                                      },
+                                                      {
+                                                          "name":  "Port1",
+                                                          "nodeName":  "HW6C1T2",
+                                                          "nodeId":  "9b1817b9-67f5-4631-8466-447b89b829f3",
+                                                          "isDhcpEnabled":  false,
+                                                          "iPv4":  {
+                                                                       "address":  "192.0.2.0/24",
+                                                                       "subnetMask":  "255.255.255.0",
+                                                                       "gateway":  null
+                                                                   },
+                                                          "iPv6":  null,
+                                                          "dnsServerAddresses":  null,
+                                                          "dnsSuffix":  null,
+                                                          "routes":  null,
+                                                          "ipConfigType":  "IP"
+                                                      },
+                                                      {
+                                                          "name":  "Port2",
+                                                          "nodeName":  "1HXG613",
+                                                          "nodeId":  "b4eeebad-9395-4aa8-b6b4-2f2d66eccf58",
+                                                          "isDhcpEnabled":  true,
+                                                          "iPv4":  {
+                                                                       "address":  "192.0.2.0/24",
+                                                                       "subnetMask":  "255.255.248.0",
+                                                                       "gateway":  "10.126.72.1"
+                                                                   },
+                                                          "iPv6":  null,
+                                                          "dnsServerAddresses":  [
+                                                                                     "10.50.50.50",
+                                                                                     "10.50.10.50"
+                                                                                 ],
+                                                          "dnsSuffix":  "corp.microsoft.com",
+                                                          "routes":  null,
+                                                          "ipConfigType":  "IP"
+                                                      },
+                                                      {
+                                                          "name":  "Port2",
+                                                          "nodeName":  "HW6C1T2",
+                                                          "nodeId":  "9b1817b9-67f5-4631-8466-447b89b829f3",
+                                                          "isDhcpEnabled":  true,
+                                                          "iPv4":  {
+                                                                       "address":  "192.0.2.0/24",
+                                                                       "subnetMask":  "255.255.248.0",
+                                                                       "gateway":  "10.126.72.1"
+                                                                   },
+                                                          "iPv6":  null,
+                                                          "dnsServerAddresses":  [
+                                                                                     "10.50.50.50",
+                                                                                     "10.50.10.50"
+                                                                                 ],
+                                                          "dnsSuffix":  "corp.microsoft.com",
+                                                          "routes":  null,
+                                                          "ipConfigType":  "IP"
+                                                      },
+                                                      {
+                                                          "name":  "Port3",
+                                                          "nodeName":  "1HXG613",
+                                                          "nodeId":  "b4eeebad-9395-4aa8-b6b4-2f2d66eccf58",
+                                                          "isDhcpEnabled":  true,
+                                                          "iPv4":  {
+                                                                       "address":  "192.0.2.0/24",
+                                                                       "subnetMask":  "255.255.0.0",
+                                                                       "gateway":  null
+                                                                   },
+                                                          "iPv6":  null,
+                                                          "dnsServerAddresses":  [
+                                                                                     "192.168.0.1"
+                                                                                 ],
+                                                          "dnsSuffix":  "wdshcsso.com",
+                                                          "routes":  null,
+                                                          "ipConfigType":  "IP"
+                                                      },
+                                                      {
+                                                          "name":  "Port3",
+                                                          "nodeName":  "HW6C1T2",
+                                                          "nodeId":  "9b1817b9-67f5-4631-8466-447b89b829f3",
+                                                          "isDhcpEnabled":  true,
+                                                          "iPv4":  {
+                                                                       "address":  "192.0.2.0/24",
+                                                                       "subnetMask":  "255.255.0.0",
+                                                                       "gateway":  null
+                                                                   },
+                                                          "iPv6":  null,
+                                                          "dnsServerAddresses":  [
+                                                                                     "192.168.0.1"
+                                                                                 ],
+                                                          "dnsSuffix":  "wdshcsso.com",
+                                                          "routes":  null,
+                                                          "ipConfigType":  "IP"
+                                                      },
+                                                      {
+                                                          "name":  "Port4",
+                                                          "nodeName":  "1HXG613",
+                                                          "nodeId":  "b4eeebad-9395-4aa8-b6b4-2f2d66eccf58",
+                                                          "isDhcpEnabled":  true,
+                                                          "iPv4":  {
+                                                                       "address":  "192.0.2.0/24",
+                                                                       "subnetMask":  "255.255.0.0",
+                                                                       "gateway":  null
+                                                                   },
+                                                          "iPv6":  null,
+                                                          "dnsServerAddresses":  [
+                                                                                     "192.168.0.1"
+                                                                                 ],
+                                                          "dnsSuffix":  "wdshcsso.com",
+                                                          "routes":  null,
+                                                          "ipConfigType":  "IP"
+                                                      },
+                                                      {
+                                                          "name":  "Port4",
+                                                          "nodeName":  "HW6C1T2",
+                                                          "nodeId":  "9b1817b9-67f5-4631-8466-447b89b829f3",
+                                                          "isDhcpEnabled":  true,
+                                                          "iPv4":  {
+                                                                       "address":  "192.168.6.99",
+                                                                       "subnetMask":  "255.255.0.0",
+                                                                       "gateway":  null
+                                                                   },
+                                                          "iPv6":  null,
+                                                          "dnsServerAddresses":  [
+                                                                                     "192.168.0.1"
+                                                                                 ],
+                                                          "dnsSuffix":  "wdshcsso.com",
+                                                          "routes":  null,
+                                                          "ipConfigType":  "IP"
+                                                      },
+                                                      {
+                                                          "name":  "Port5",
+                                                          "nodeName":  "1HXG613",
+                                                          "nodeId":  "b4eeebad-9395-4aa8-b6b4-2f2d66eccf58",
+                                                          "isDhcpEnabled":  true,
+                                                          "iPv4":  {
+                                                                       "address":  "192.0.2.0/24",
+                                                                       "subnetMask":  "255.255.0.0",
+                                                                       "gateway":  null
+                                                                   },
+                                                          "iPv6":  null,
+                                                          "dnsServerAddresses":  [
+                                                                                     "192.168.0.1"
+                                                                                 ],
+                                                          "dnsSuffix":  "wdshcsso.com",
+                                                          "routes":  null,
+                                                          "ipConfigType":  "IP"
+                                                      },
+                                                      {
+                                                          "name":  "Port5",
+                                                          "nodeName":  "HW6C1T2",
+                                                          "nodeId":  "9b1817b9-67f5-4631-8466-447b89b829f3",
+                                                          "isDhcpEnabled":  true,
+                                                          "iPv4":  {
+                                                                       "address":  "192.0.2.0/24",
+                                                                       "subnetMask":  "255.255.0.0",
+                                                                       "gateway":  null
+                                                                   },
+                                                          "iPv6":  null,
+                                                          "dnsServerAddresses":  [
+                                                                                     "192.168.0.1"
+                                                                                 ],
+                                                          "dnsSuffix":  "wdshcsso.com",
+                                                          "routes":  null,
+                                                          "ipConfigType":  "IP"
+                                                      },
+                                                      {
+                                                          "name":  "Port6",
+                                                          "nodeName":  "1HXG613",
+                                                          "nodeId":  "b4eeebad-9395-4aa8-b6b4-2f2d66eccf58",
+                                                          "isDhcpEnabled":  true,
+                                                          "iPv4":  {
+                                                                       "address":  "192.0.2.0/24",
+                                                                       "subnetMask":  "255.255.0.0",
+                                                                       "gateway":  null
+                                                                   },
+                                                          "iPv6":  null,
+                                                          "dnsServerAddresses":  [
+                                                                                     "192.168.0.1"
+                                                                                 ],
+                                                          "dnsSuffix":  "wdshcsso.com",
+                                                          "routes":  null,
+                                                          "ipConfigType":  "IP"
+                                                      },
+                                                      {
+                                                          "name":  "Port6",
+                                                          "nodeName":  "HW6C1T2",
+                                                          "nodeId":  "9b1817b9-67f5-4631-8466-447b89b829f3",
+                                                          "isDhcpEnabled":  true,
+                                                          "iPv4":  {
+                                                                       "address":  "192.0.2.0/24",
+                                                                       "subnetMask":  "255.255.0.0",
+                                                                       "gateway":  null
+                                                                   },
+                                                          "iPv6":  null,
+                                                          "dnsServerAddresses":  [
+                                                                                     "192.168.0.1"
+                                                                                 ],
+                                                          "dnsSuffix":  "wdshcsso.com",
+                                                          "routes":  null,
+                                                          "ipConfigType":  "IP"
+                                                      }
+                                                  ],
+                                   "vSwitches":  [
+                                                     {
+                                                         "name":  "vSwitch1",
+                                                         "interfaceName":  "Port2",
+                                                         "enabledForCompute":  true,
+                                                         "enabledForStorage":  false,
+                                                         "enabledForMgmt":  true,
+                                                         "supportsAcceleratedNetworking":  false,
+                                                         "enableEmbeddedTeaming":  true,
+                                                         "ipAddressPools":  [
+                                                                                {
+                                                                                    "name":  "KubernetesNodeIPs",
+                                                                                    "ipAddressRange":  "10.126.75.200-10.126.75.202"
+                                                                                },
+                                                                                {
+                                                                                    "name":  "KubernetesServiceIPs",
+                                                                                    "ipAddressRange":  "10.126.75.206-10.126.75.208"
+                                                                                }
+                                                                            ],
+                                                         "mtu":  1500
+                                                     },
+                                                     {
+                                                         "name":  "vSwitch2",
+                                                         "interfaceName":  "Port3",
+                                                         "enabledForCompute":  false,
+                                                         "enabledForStorage":  true,
+                                                         "enabledForMgmt":  false,
+                                                         "supportsAcceleratedNetworking":  false,
+                                                         "enableEmbeddedTeaming":  true,
+                                                         "ipAddressPools":  [
+
+                                                                            ],
+                                                         "mtu":  1500
+                                                     },
+                                                     {
+                                                         "name":  "TestvSwitch",
+                                                         "interfaceName":  "Port5",
+                                                         "enabledForCompute":  false,
+                                                         "enabledForStorage":  false,
+                                                         "enabledForMgmt":  false,
+                                                         "supportsAcceleratedNetworking":  true,
+                                                         "enableEmbeddedTeaming":  false,
+                                                         "ipAddressPools":  [
+
+                                                                            ],
+                                                         "mtu":  9000
+                                                     }
+                                                 ],
+                                   "virtualNetworks":  [
+                                                           {
+                                                               "name":  "TestvSwitch-internal",
+                                                               "vSwitchName":  "TestvSwitch",
+                                                               "vlanId":  0,
+                                                               "subnetMask":  "255.255.255.0",
+                                                               "gateway":  "192.0.2.0/24",
+                                                               "network":  "192.0.2.0/24",
+                                                               "enabledForKubernetes":  false,
+                                                               "ipAddressPools":  [
+                                                                                      {
+                                                                                          "name":  "VirtualMachineIPs",
+                                                                                          "ipAddressRange":  "192.0.2.0/24"
+                                                                                      }
+                                                                                  ]
+                                                           }
+                                                       ]
+                               },
+                   "time":  {
+                                "timeZone":  "Pacific Standard Time",
+                                "primaryTimeServer":  "time.windows.com",
+                                "secondaryTimeServer":  null
+                            },
+                   "update":  {
+                                  "serverType":  "None",
+                                  "wsusServerURI":  null
+                              },
+                   "webProxy":  {
+                                    "isEnabled":  false,
+                                    "connectionURI":  null,
+                                    "authentication":  "None",
+                                    "username":  null,
+                                    "password":  null
+                                }
+               }
+      }
+      PS C:\> 
+      ```
 
 ## Activate a device
 

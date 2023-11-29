@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Manage blobs with PowerShell 
 author: StevenMatthew
 ms.author: shaas
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 05/02/2023
 ms.devlang: powershell
@@ -23,18 +23,18 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 ### Configure a context object to encapsulate credentials
 
-Every request to Azure Storage must be authorized. You can authorize a request made from PowerShell with your Azure AD account or by using the account access keys. The examples in this article use Azure AD authorization with context objects. Context objects encapsulate your Azure AD credentials and pass them during subsequent data operations.
+Every request to Azure Storage must be authorized. You can authorize a request made from PowerShell with your Microsoft Entra account or by using the account access keys. The examples in this article use Microsoft Entra authorization with context objects. Context objects encapsulate your Microsoft Entra credentials and pass them during subsequent data operations.
 
-To sign in to your Azure account with an Azure AD account, open PowerShell and call the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+To sign in to your Azure account with a Microsoft Entra account, open PowerShell and call the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ```azurepowershell
 #Connect to your Azure subscription
 Connect-AzAccount
 ```
 
-After the connection has been established, create the Azure context. Authenticating with Azure AD automatically creates an Azure context for your default subscription. In some cases, you may need to access resources in a different subscription after authenticating. You can change the subscription associated with your current Azure session by modifying the active session context.
+After the connection has been established, create the Azure context. Authenticating with Microsoft Entra ID automatically creates an Azure context for your default subscription. In some cases, you may need to access resources in a different subscription after authenticating. You can change the subscription associated with your current Azure session by modifying the active session context.
 
-To use your default subscription, create the context by calling the `New-AzStorageContext` cmdlet. Include the `-UseConnectedAccount` parameter so that data operations are performed using your Azure AD credentials.
+To use your default subscription, create the context by calling the `New-AzStorageContext` cmdlet. Include the `-UseConnectedAccount` parameter so that data operations are performed using your Microsoft Entra credentials.
 
 ```azurepowershell
 #Create a context object using Azure AD credentials
@@ -384,11 +384,11 @@ $blob.BlobClient.CreateSnapshot()
 
 ## Set blob tier
 
-When you change a blob's tier, you move the blob and all of its data to the target tier. To make the change, retrieve a blob with the `Get-AzStorageBlob` cmdlet, and call the `BlobClient.SetAccessTier` method. This approach can be used to change the tier between **Hot**, **Cool**, and **Archive**.  
+When you change a blob's tier, you move the blob and all of its data to the target tier. To make the change, retrieve a blob with the `Get-AzStorageBlob` cmdlet, and call the `BlobClient.SetAccessTier` method. This approach can be used to change the tier between **hot**, **cool**, and **archive**.  
 
-Changing tiers from **Cool** or **Hot** to **Archive** take place almost immediately. After a blob is moved to the **Archive** tier, it's considered to be offline, and can't be read or modified. Before you can read or modify an archived blob's data, you need to rehydrate it to an online tier. Read more about [Blob rehydration from the Archive tier](archive-rehydrate-overview.md).
+Changing tiers from **cool** or **hot** to **archive** take place almost immediately. After a blob is moved to the **archive** tier, it's considered to be offline, and can't be read or modified. Before you can read or modify an archived blob's data, you need to rehydrate it to an online tier. Read more about [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
-The following sample code sets the tier to **Hot** for all blobs within the `archive` container.
+The following sample code sets the tier to **hot** for all blobs within the `archive` container.
 
 ```azurepowershell
 $blobs = Get-AzStorageBlob -Container archive -Context $ctx
@@ -584,6 +584,6 @@ else
 
 ## Next steps
 
-- [Run PowerShell commands with Azure AD credentials to access blob data](./authorize-data-operations-powershell.md)
+- [Run PowerShell commands with Microsoft Entra credentials to access blob data](./authorize-data-operations-powershell.md)
 - [Create a storage account](../common/storage-account-create.md?tabs=azure-portal&toc=/azure/storage/blobs/toc.json)
 - [Manage blob containers using PowerShell](blob-containers-powershell.md)

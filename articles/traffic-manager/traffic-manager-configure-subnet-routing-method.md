@@ -190,9 +190,9 @@ Add the two VMs running the IIS servers - *myIISVMEastUS* & *myIISVMWEurope* to 
     | Name           | myTestWebSiteEndpoint                                        |
     | Target resource type           | Public IP Address                          |
     | Target resource          | **Choose a Public IP address** to show the listing of resources with Public IP addresses under the same subscription. In **Resource**, select the public IP address named *myIISVMEastUS-ip*. This is the public IP address of the IIS server VM in East US.|
-    |  Subnet routing settings    |   Add the IP address of *myVMEastUS* test VM. Any user query originating from this VM will be directed to the *myTestWebSiteEndpoint*.    |
+    |  Subnet routing settings    |   Add the IP address of the recursive DNS resolver used by *myVMEastUS* test VM. Any user query originating from this VM will be directed to the *myTestWebSiteEndpoint*.    |
 
-4. Repeat steps 2 and 3 to add another endpoint named *myProductionEndpoint* for the public IP address *myIISVMWEurope-ip* that is associated with the IIS server VM named *myIISVMWEurope*. For **Subnet routing settings**, add the IP address of the test VM - *myVMWestEurope*. Any user query from this test VM will be routed to the endpoint - *myProductionWebsiteEndpoint*.
+4. Repeat steps 2 and 3 to add another endpoint named *myProductionEndpoint* for the public IP address *myIISVMWEurope-ip* that is associated with the IIS server VM named *myIISVMWEurope*. For **Subnet routing settings**, add the IP address of the recursive DNS resolver used by test VM - *myVMWestEurope*. Any user query from this test VM via its DNS resolver will be routed to the endpoint - *myProductionWebsiteEndpoint*.
 5. When the addition of both endpoints is complete, they are displayed in **Traffic Manager profile** along with their monitoring status as **Online**.
 
     ![Add a Traffic Manager endpoint](./media/traffic-manager-subnet-routing-method/customize-endpoint-with-subnet-routing-eastus.png)

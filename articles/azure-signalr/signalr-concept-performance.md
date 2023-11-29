@@ -21,12 +21,12 @@ This article describes:
 
 You can easily monitor your service in the Azure portal. From the **Metrics** page of your SignalR instance, you can select the **Server Load** metrics to see the "pressure" of your service.
    
-<kbd>![Screenshot of the Server Load metric of Azure SignalR on Portal. The metrics shows Server Load is at about 8 percent usage. ](./media/signalr-concept-performance/server-load.png  "Server Load")</kbd>
+<kbd>![Screenshot of the Server Load metric of Azure SignalR on Portal. The metrics shows Server Load is at about 8 percent usage. ](./media/signalr-concept-performance/server-load.png "Server Load")</kbd>
 
 The chart shows the computing pressure of your SignalR service. You can test your scenario and check this metric to decide whether to scale up. The latency inside SignalR service remains low if the Server Load is below 70%. 
    
 > [!NOTE]
-> If you are using unit 50 or unit 100 **and** your scenario is mainly sending to small groups (group size <100) or single connection, you need to check [sending to small group](#small-group) or [sending to connection](#send-to-connection) for reference. In those scenarios there is large routing cost which is not included in the Server Load.
+> If you are using unit 50 or unit 100 **and** your scenario is mainly sending to small groups (group size <20) or single connection, you need to check [sending to small group](#small-group) or [sending to connection](#send-to-connection) for reference. In those scenarios there is large routing cost which is not included in the Server Load.
 
 ## Term definitions
 
@@ -323,6 +323,8 @@ Many client connections are calling the hub, so the app server number is also cr
 
 > [!NOTE]
 > The client connection number, message size, message sending rate, routing cost, SKU tier, and CPU/memory of the app server affect the overall performance of **send to small group**.
+>
+> The group count, group member count listed in the table are **not hard limits**. These parameter values are selected to establish a stable benchmark scenario. For example, it is OK to assign each conneciton to a distinct group. Under this configuration, the performance is close to [send to connection](#send-to-connection).
 
 ##### Big group
 

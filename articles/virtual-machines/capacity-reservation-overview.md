@@ -62,9 +62,11 @@ From this example accumulation of Minutes Not Available, here's the calculation 
     - E series, all versions; AMD and Intel 
     - F series, all versions 
     - Lsv3 (Intel) and Lasv3 (AMD)
-    - At VM deployment, Fault Domain (FD) count of up to 3 may be set as desired using Virtual Machine Scale Sets. A deployment with more than 3 FDs will fail to deploy against a Capacity Reservation. 
-- Support for other VM Series isn't currently available: 
-    - Ls and Lsv2 series  
+    - At VM deployment, Fault Domain (FD) count of up to 3 may be set as desired using Virtual Machine Scale Sets. A deployment with more than 3 FDs will fail to deploy against a Capacity Reservation.
+- Support for below VM Series for Capacity Reservation is in Public Preview: 
+    - Lsv2
+    - At VM deployment, Fault Domain (FD) count of 1 can be set using Virtual Machine Scale Sets. A deployment with more than 1 FD will fail to deploy against a Capacity Reservation.
+- Support for other VM Series isn't currently available:  
     - M series, any version 
     - NC-series, v3 and newer 
     - NV-series, v2 and newer 
@@ -96,7 +98,7 @@ Capacity Reservations are priced at the same rate as the underlying VM size. For
 
 If you then deploy a D2s_v3 VM and specify reservation property, the Capacity Reservation gets used. Once in use, you pay for only VM and not the Capacity Reservation. Let’s say you deploy six D2s_v3 VMs against the previously mentioned Capacity Reservation. You see a bill for six D2s_v3 VMs and four unused Capacity Reservation, both charged at the same rate as a D2s_v3 VM.  
 
-Both used and unused Capacity Reservation and Saving Plan are eligible for Reserved Instances term commitment discounts. In the previous example, if you have Reserved Instances for two D2s_v3 VMs in the same Azure region, the billing for two resources (either VM or unused Capacity Reservation) will be zeroed out. The remaining eight D2s_v3 is billed normally. The term commitment discounts could be applied on either the VM or the unused Capacity Reservation. 
+Both used and unused Capacity Reservation are eligible for Saving Plan and Reserved Instances term commitment discounts. In the previous example, if you have Reserved Instances for two D2s_v3 VMs in the same Azure region, the billing for two resources (either VM or unused Capacity Reservation) will be zeroed out. The remaining eight D2s_v3 is billed normally. The term commitment discounts could be applied on either the VM or the unused Capacity Reservation. 
 
 ## Difference between On-demand Capacity Reservation and Reserved Instances 
 

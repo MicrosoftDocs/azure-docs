@@ -5,10 +5,10 @@ author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ms.author: franlanglois
-ms.service: cache
-ms.topic: conceptual
+ms.service: azure-functions
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.topic: reference
 ms.date: 08/07/2023
-
 ---
 
 # RedisPubSubTrigger Azure Function (preview)
@@ -31,7 +31,15 @@ Redis features [publish/subscribe functionality](https://redis.io/docs/interact/
 
 [!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
 
-### [In-process](#tab/in-process)
+### [Isolated worker model](#tab/isolated-process)
+
+The isolated process examples aren't available in preview.
+
+```csharp
+//TBD
+```
+
+### [In-process model](#tab/in-process)
 
 This sample listens to the channel `pubsubTest`.
 
@@ -68,14 +76,6 @@ public static void KeyeventTrigger(
 {
     logger.LogInformation(message);
 }
-```
-
-### [Isolated process](#tab/isolated-process)
-
-The isolated process examples aren't available in preview.
-
-```csharp
-//TBD
 ```
 
 ---
@@ -131,9 +131,9 @@ This sample listens to any `keyevent` notifications for the delete command [`DEL
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 
-### [v3](#tab/javasscript-v1)
+### [v3](#tab/node-v3)
 
-Each sample uses the same `index.js` file, with binding data in the `function.json` file determining on which channel the trigger occurs.
+This sample uses the same `index.js` file, with binding data in the `function.json` file determining on which channel the trigger occurs.
 
 Here's the `index.js` file:
 
@@ -195,7 +195,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
   "scriptFile": "index.js"
 }
 ```
-### [v4](#tab/javascript-v2)
+### [v4](#tab/node-v4)
 
 The JavaScript v4 programming model example isn't available in preview.
 
@@ -203,7 +203,7 @@ The JavaScript v4 programming model example isn't available in preview.
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 
-Each sample uses the same `run.ps1` file, with binding data in the `function.json` file determining on which channel the trigger occurs.
+This sample uses the same `run.ps1` file, with binding data in the `function.json` file determining on which channel the trigger occurs.
 
 Here's the `run.ps1` file:
 
@@ -272,7 +272,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
 
 The Python v1 programming model requires you to define bindings in a separate _function.json_ file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
 
-Each sample uses the same `__init__.py` file, with binding data in the `function.json` file determining on which channel the trigger occurs.
+This sample uses the same `__init__.py` file, with binding data in the `function.json` file determining on which channel the trigger occurs.
 
 Here's the `__init__.py` file:
 

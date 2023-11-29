@@ -2,12 +2,11 @@
 title: What is Azure AI Immersive Reader?
 titleSuffix: Azure AI services
 description: Immersive Reader is a tool that is designed to help people with learning differences or help new readers and language learners with reading comprehension.
-services: cognitive-services
+#services: cognitive-services
 author: rwallerms
 manager: nitinme
 
-ms.service: applied-ai-services
-ms.subservice: immersive-reader
+ms.service: azure-ai-immersive-reader
 ms.topic: overview
 ms.date: 11/15/2021
 ms.author: rwaller
@@ -69,7 +68,7 @@ With Immersive Reader you can break words into syllables to improve readability 
 
 ## How does Immersive Reader work?
 
-Immersive Reader is a standalone web application. When invoked using the Immersive Reader client library is displayed on top of your existing web application in an `iframe`. When your wep application calls the Immersive Reader service, you specify the content to show the reader. The Immersive Reader client library handles the creation and styling of the `iframe` and communication with the Immersive Reader backend service. The Immersive Reader service processes the content for parts of speech, text to speech, translation, and more.
+Immersive Reader is a standalone web application. When invoked using the Immersive Reader client library is displayed on top of your existing web application in an `iframe`. When your web application calls the Immersive Reader service, you specify the content to show the reader. The Immersive Reader client library handles the creation and styling of the `iframe` and communication with the Immersive Reader backend service. The Immersive Reader service processes the content for parts of speech, text to speech, translation, and more.
 
 ## Get started with Immersive Reader
 

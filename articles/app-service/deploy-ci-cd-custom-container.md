@@ -137,6 +137,14 @@ App Service supports CI/CD integration with Azure Container Registry and Docker 
 
 When you enable this option, App Service adds a webhook to your repository in Azure Container Registry or Docker Hub. Your repository posts to this webhook whenever your selected image is updated with `docker push`. The webhook causes your App Service app to restart and run `docker pull` to get the updated image.
 
+> [!NOTE]
+> 
+> To ensure the proper functioning of the webhook, it's essential to enable the **Basic Auth Publishing Credentials** option within your Web App. Failure to do so may result in a 401 unauthorized error for the webhook.
+>To verify whether **Basic Auth Publishing Credentials** is enabled, follow these steps:
+> 
+> - Navigate to your Web App's **Configuration > General Settings**.
+> - Look for the **Platform Setting** section, where you will find the **Basic Auth Publishing Credentials** option.
+
 **For other private registries**, your can post to the webhook manually or as a step in a CI/CD pipeline. In **Webhook URL**, **click** the **Copy** button to get the webhook URL.
 
 ::: zone pivot="container-linux"
@@ -170,7 +178,7 @@ You can customize the GitHub Actions build provider in the following ways:
 
 - Customize the workflow file after it's generated in your GitHub repository. For more information, see [Workflow syntax for GitHub Actions](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions). Just make sure that the workflow ends with the [Azure/webapps-deploy](https://github.com/Azure/webapps-deploy) action to trigger an app restart.
 - If the selected branch is protected, you can still preview the workflow file without saving the configuration, then add it and the required GitHub secrets into your repository manually. This method doesn't give you the log integration with the Azure portal.
-- Instead of a publishing profile, deploy using a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) in Azure Active Directory.
+- Instead of a publishing profile, deploy using a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) in Microsoft Entra ID.
 
 #### Authenticate with a service principal
 

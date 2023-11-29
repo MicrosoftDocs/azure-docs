@@ -11,10 +11,10 @@ After you've set up your user access for the [Azure portal](manage-users-portal.
 
 ## Audit Azure user activity
 
-Use Azure Active Directory user auditing resources to audit Azure user activity across Defender for IoT. For more information, see:
+Use Microsoft Entra user auditing resources to audit Azure user activity across Defender for IoT. For more information, see:
 
-- [Audit logs in Azure Active directory](../../active-directory/reports-monitoring/concept-audit-logs.md)
-- [Azure AD audit activity reference](../../active-directory/reports-monitoring/reference-audit-activities.md)
+- [Audit logs in Microsoft Entra ID](../../active-directory/reports-monitoring/concept-audit-logs.md)
+- [Microsoft Entra audit activity reference](../../active-directory/reports-monitoring/reference-audit-activities.md)
 
 ## Audit user activity on an OT network sensor
 

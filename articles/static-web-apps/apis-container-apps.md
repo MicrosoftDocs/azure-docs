@@ -35,7 +35,7 @@ To link a container app to your static web app, you need to have an existing Con
 
 ## Example
 
-Consider an existing Azure App Service instance that exposes an endpoint via the following location.
+Consider an existing Azure Container App instance that exposes an endpoint via the following location.
 
 ```url
 https://my-container-app.red-river-123.eastus2.azurecontainerapps.io/api/getProducts

@@ -10,14 +10,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/30/2023
 ms.topic: how-to
-ms.custom: prompt-flow
+ms.custom:
+  - prompt-flow
+  - ignite-2023
 ---
 
 # Create a vector index in an Azure Machine Learning prompt flow (preview)
 
-You can use Azure Machine Learning to create a vector index from files or folders on your machine, a location in cloud storage, an Azure Machine Learning data asset, a Git repository, or a SQL database. Azure Machine Learning can currently process .txt, .md, .pdf, .xls, and .docx files. You can also reuse an existing Azure Cognitive Search index instead of creating a new index.
+You can use Azure Machine Learning to create a vector index from files or folders on your machine, a location in cloud storage, an Azure Machine Learning data asset, a Git repository, or a SQL database. Azure Machine Learning can currently process .txt, .md, .pdf, .xls, and .docx files. You can also reuse an existing Azure AI Search (formerly Cognitive Search) index instead of creating a new index.
 
-When you create a vector index, Azure Machine Learning chunks the data, creates embeddings, and stores the embeddings in a Faiss index or Azure Cognitive Search index. In addition, Azure Machine Learning creates:
+When you create a vector index, Azure Machine Learning chunks the data, creates embeddings, and stores the embeddings in a Faiss index or Azure AI Search index. In addition, Azure Machine Learning creates:
 
 * Test data for your data source.
 
@@ -77,7 +79,17 @@ After you create a vector index, you can add it to a prompt flow from the prompt
 
     :::image type="content" source="media/how-to-create-vector-index/vector-index-lookup-tool.png" alt-text="Screenshot that shows the Vector Index Lookup tool.":::
 
-1. Enter the path to your vector index, along with the query that you want to perform against the index.
+1. Enter the path to your vector index, along with the query that you want to perform against the index. The 'path' is the location for the MLIndex created in the create a vector index section of this tutorial. To know this location select the desired Vector Index, select 'Details', and select 'Index Data'. Then on the 'Index data' page, copy the 'Datasource URI' in the Data sources section.
+
+1. Enter a query that you want to perform against the index. A query is a question either as plain string or an embedding from the input cell of the previous step. If you choose to enter an embedding, be sure your query is defined in the input section of your prompt flow like the example here:
+
+   :::image type="content" source="media/how-to-create-vector-index/query-example.png" alt-text="Screenshot that shows the Vector Index Lookup tool query.":::
+   
+   An example of a plain string you can input in this case would be: `How to use SDK V2?'. Here is an example of an embedding as an input: `${embed_the_question.output}`. Passing a plain string will only work when the Vector Index is getting used on the workspace which created it.
+
+## Supported File Types
+
+Supported file types for creating a vector index job: `.txt`, `.md`, `.html`, `.htm`, `.py`, `.pdf`, `.ppt`, `.pptx`, `.doc`, `.docx`, `.xls`, `.xlsx`. Any other file types will be ignored during creation.
 
 ## Next steps
 

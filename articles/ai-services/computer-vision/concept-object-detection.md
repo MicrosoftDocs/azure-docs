@@ -2,12 +2,11 @@
 title: Object detection - Azure AI Vision
 titleSuffix: Azure AI services
 description: Learn concepts related to the object detection feature of the Azure AI Vision API - usage and limits.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 11/03/2022
 ms.author: pafarley

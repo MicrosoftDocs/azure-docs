@@ -89,13 +89,13 @@ Because you're using an Azure SQL output binding, you must have the correspondin
 
 With the exception of HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Azure SQL extension package to your project.
 
-# [In-process](#tab/in-process)
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql
-```
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 ```bash
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql
+```
+# [In-process model](#tab/in-process)
+```bash
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql
 ```
 ---
 ::: zone-end
@@ -131,14 +131,7 @@ Open the *HttpExample.cs* project file and add the following `ToDoItem` class, w
 
 In a C# class library project, the bindings are defined as binding attributes on the function method. The *function.json* file required by Functions is then auto-generated based on these attributes.
 
-# [In-process](#tab/in-process)
-Open the *HttpExample.cs* project file and add the following parameter to the `Run` method definition:
-
-:::code language="csharp" source="~/functions-sql-todo-sample/PostToDo.cs" range="25":::
-
-The `toDoItems` parameter is an `IAsyncCollector<ToDoItem>` type, which represents a collection of ToDo items that are written to your Azure SQL Database when the function completes. Specific attributes indicate the names of the database table (`dbo.ToDo`) and the connection string for your Azure SQL Database (`SqlConnectionString`).
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Open the *HttpExample.cs* project file and add the following output type class, which defines the combined objects that will be output from our function for both the HTTP response and the SQL output:
 
@@ -156,6 +149,13 @@ Add a using statement to the `Microsoft.Azure.Functions.Worker.Extensions.Sql` l
 ```cs
 using Microsoft.Azure.Functions.Worker.Extensions.Sql;
 ```
+
+# [In-process model](#tab/in-process)
+Open the *HttpExample.cs* project file and add the following parameter to the `Run` method definition:
+
+:::code language="csharp" source="~/functions-sql-todo-sample/PostToDo.cs" range="25":::
+
+The `toDoItems` parameter is an `IAsyncCollector<ToDoItem>` type, which represents a collection of ToDo items that are written to your Azure SQL Database when the function completes. Specific attributes indicate the names of the database table (`dbo.ToDo`) and the connection string for your Azure SQL Database (`SqlConnectionString`).
 
 ---
 
@@ -247,7 +247,40 @@ In this code, `arg_name` identifies the binding parameter referenced in your cod
 
 ::: zone pivot="programming-language-csharp"  
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+Replace the existing Run method with the following code:
+
+```cs
+[Function("HttpExample")]
+public static OutputType Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
+    FunctionContext executionContext)
+{
+    var logger = executionContext.GetLogger("HttpExample");
+    logger.LogInformation("C# HTTP trigger function processed a request.");
+
+    var message = "Welcome to Azure Functions!";
+
+    var response = req.CreateResponse(HttpStatusCode.OK);
+    response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+    response.WriteString(message);
+
+    // Return a response to both HTTP trigger and Azure SQL output binding.
+    return new OutputType()
+    {
+         ToDoItem = new ToDoItem
+        {
+            id = System.Guid.NewGuid().ToString(),
+            title = message,
+            completed = false,
+            url = ""
+        },
+        HttpResponse = response
+    };
+}
+```
+
+# [In-process model](#tab/in-process)
 
 Add code that uses the `toDoItems` output binding object to create a new `ToDoItem`. Add this code before the method returns.
 
@@ -301,39 +334,6 @@ public static async Task<IActionResult> Run(
         : $"Hello, {name}. This HTTP triggered function executed successfully.";
 
     return new OkObjectResult(responseMessage);
-}
-```
-
-# [Isolated process](#tab/isolated-process)
-
-Replace the existing Run method with the following code:
-
-```cs
-[Function("HttpExample")]
-public static OutputType Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
-    FunctionContext executionContext)
-{
-    var logger = executionContext.GetLogger("HttpExample");
-    logger.LogInformation("C# HTTP trigger function processed a request.");
-
-    var message = "Welcome to Azure Functions!";
-
-    var response = req.CreateResponse(HttpStatusCode.OK);
-    response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
-    response.WriteString(message);
-
-    // Return a response to both HTTP trigger and Azure SQL output binding.
-    return new OutputType()
-    {
-         ToDoItem = new ToDoItem
-        {
-            id = System.Guid.NewGuid().ToString(),
-            title = message,
-            completed = false,
-            url = ""
-        },
-        HttpResponse = response
-    };
 }
 ```
 

@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/01/2023
+ms.date: 09/13/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -41,6 +41,13 @@ Azure service: [Container Instances](../../../container-instances/index.yml)
 > | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the container group. |
 > | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the container group. |
 > | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for container group. |
+> | Microsoft.ContainerInstance/containerScaleSets/read | Get details of a container scale set. |
+> | Microsoft.ContainerInstance/containerScaleSets/write | Create or update a specific container scale set. |
+> | Microsoft.ContainerInstance/containerScaleSets/delete | Delete Container Scale Set |
+> | Microsoft.ContainerInstance/containerScaleSets/containerGroups/restart/action | Restart specific container groups in a container scale set. |
+> | Microsoft.ContainerInstance/containerScaleSets/containerGroups/start/action | Start specific container groups in a container scale set. |
+> | Microsoft.ContainerInstance/containerScaleSets/containerGroups/stop/action | Stop specific container groups in a container scale set. |
+> | Microsoft.ContainerInstance/containerScaleSets/containerGroups/delete/action | Delete specific container groups in a container scale set. |
 > | Microsoft.ContainerInstance/locations/validateDeleteVirtualNetworkOrSubnets/action | Notifies Microsoft.ContainerInstance that virtual network or subnet is being deleted. |
 > | Microsoft.ContainerInstance/locations/deleteVirtualNetworkOrSubnets/action | Notifies Microsoft.ContainerInstance that virtual network or subnet is being deleted. |
 > | Microsoft.ContainerInstance/locations/cachedImages/read | Gets the cached images for the subscription in a region. |
@@ -80,6 +87,8 @@ Azure service: [Container Registry](../../../container-registry/index.yml)
 > | Microsoft.ContainerRegistry/registries/agentpools/write | Create or Update an agentpool for a container registry. |
 > | Microsoft.ContainerRegistry/registries/agentpools/delete | Delete an agentpool for a container registry. |
 > | Microsoft.ContainerRegistry/registries/agentpools/listQueueStatus/action | List all queue status of an agentpool for a container registry. |
+> | Microsoft.ContainerRegistry/registries/agentpools/operationResults/status/read | Gets an agentpool async operation result status |
+> | Microsoft.ContainerRegistry/registries/agentpools/operationStatuses/read | Gets an agentpool async operation status |
 > | Microsoft.ContainerRegistry/registries/artifacts/delete | Delete artifact in a container registry. |
 > | Microsoft.ContainerRegistry/registries/builds/read | Gets the properties of the specified build or lists all the builds for the specified container registry. |
 > | Microsoft.ContainerRegistry/registries/builds/write | Updates a build for a container registry with the specified parameters. |
@@ -93,10 +102,18 @@ Azure service: [Container Registry](../../../container-registry/index.yml)
 > | Microsoft.ContainerRegistry/registries/buildTasks/steps/write | Creates or updates a build step for a build task with the specified parameters. |
 > | Microsoft.ContainerRegistry/registries/buildTasks/steps/delete | Deletes a build step from a build task. |
 > | Microsoft.ContainerRegistry/registries/buildTasks/steps/listBuildArguments/action | Lists the build arguments for a build step including the secret arguments. |
+> | Microsoft.ContainerRegistry/registries/cacheRules/read | Gets the properties of the specified cache rule or lists all the cache rules for the specified container registry |
+> | Microsoft.ContainerRegistry/registries/cacheRules/write | Creates or updates a cache rule for a container registry with the specified parameters |
+> | Microsoft.ContainerRegistry/registries/cacheRules/delete | Deletes a cache rule from a container registry |
+> | Microsoft.ContainerRegistry/registries/cacheRules/operationStatuses/read | Gets a cache rule async operation status |
 > | Microsoft.ContainerRegistry/registries/connectedRegistries/read | Gets the properties of the specified connected registry or lists all the connected registries for the specified container registry. |
 > | Microsoft.ContainerRegistry/registries/connectedRegistries/write | Creates or updates a connected registry for a container registry with the specified parameters. |
 > | Microsoft.ContainerRegistry/registries/connectedRegistries/delete | Deletes a connected registry from a container registry. |
 > | Microsoft.ContainerRegistry/registries/connectedRegistries/deactivate/action | Deactivates a connected registry for a container registry |
+> | Microsoft.ContainerRegistry/registries/credentialSets/read | Gets the properties of the specified credential set or lists all the credential sets for the specified container registry |
+> | Microsoft.ContainerRegistry/registries/credentialSets/write | Creates or updates a credential set for a container registry with the specified parameters |
+> | Microsoft.ContainerRegistry/registries/credentialSets/delete | Deletes a credential set from a container registry |
+> | Microsoft.ContainerRegistry/registries/credentialSets/operationStatuses/read | Gets a credential set async operation status |
 > | Microsoft.ContainerRegistry/registries/deleted/read | Gets the deleted artifacts in a container registry |
 > | Microsoft.ContainerRegistry/registries/deleted/restore/action | Restores deleted artifacts in a container registry |
 > | Microsoft.ContainerRegistry/registries/eventGridFilters/read | Gets the properties of the specified event grid filter or lists all the event grid filters for the specified container registry. |
@@ -113,6 +130,13 @@ Azure service: [Container Registry](../../../container-registry/index.yml)
 > | Microsoft.ContainerRegistry/registries/metadata/read | Gets the metadata of a specific repository for a container registry |
 > | Microsoft.ContainerRegistry/registries/metadata/write | Updates the metadata of a repository for a container registry |
 > | Microsoft.ContainerRegistry/registries/operationStatuses/read | Gets a registry async operation status |
+> | Microsoft.ContainerRegistry/registries/packages/archives/read | Get all the properties of Archive |
+> | Microsoft.ContainerRegistry/registries/packages/archives/write | Creates or updates a Archive for a container registry with the specified parameters |
+> | Microsoft.ContainerRegistry/registries/packages/archives/delete | Delete an Archive from a container registry |
+> | Microsoft.ContainerRegistry/registries/packages/archives/versions/read | Get all the properties of Archive version |
+> | Microsoft.ContainerRegistry/registries/packages/archives/versions/write | Creates or updates a Archive version for an Archive with the specified parameter |
+> | Microsoft.ContainerRegistry/registries/packages/archives/versions/delete | Delete an Archive version from an Archive |
+> | Microsoft.ContainerRegistry/registries/packages/archives/versions/operationStatuses/read | Get Archive version async Operation Status |
 > | Microsoft.ContainerRegistry/registries/pipelineRuns/read | Gets the properties of the specified pipeline run or lists all the pipeline runs for the specified container registry. |
 > | Microsoft.ContainerRegistry/registries/pipelineRuns/write | Creates or updates a pipeline run for a container registry with the specified parameters. |
 > | Microsoft.ContainerRegistry/registries/pipelineRuns/delete | Deletes a pipeline run from a container registry. |
@@ -151,6 +175,7 @@ Azure service: [Container Registry](../../../container-registry/index.yml)
 > | Microsoft.ContainerRegistry/registries/taskruns/write | Create or Update a taskrun for a container registry. |
 > | Microsoft.ContainerRegistry/registries/taskruns/delete | Delete a taskrun for a container registry. |
 > | Microsoft.ContainerRegistry/registries/taskruns/listDetails/action | List all details of a taskrun for a container registry. |
+> | Microsoft.ContainerRegistry/registries/taskruns/operationStatuses/read | Gets a taskrun async operation status |
 > | Microsoft.ContainerRegistry/registries/tasks/read | Gets a task for a container registry or list all tasks. |
 > | Microsoft.ContainerRegistry/registries/tasks/write | Creates or Updates a task for a container registry. |
 > | Microsoft.ContainerRegistry/registries/tasks/delete | Deletes a task for a container registry. |
@@ -194,6 +219,13 @@ Azure service: [Azure Kubernetes Service (AKS)](../../../aks/index.yml)
 > | Microsoft.ContainerService/fleets/members/read | Get a fleet member |
 > | Microsoft.ContainerService/fleets/members/write | Create or Update a fleet member |
 > | Microsoft.ContainerService/fleets/members/delete | Delete a fleet member |
+> | Microsoft.ContainerService/fleets/updateRuns/read | Get a fleet update run |
+> | Microsoft.ContainerService/fleets/updateRuns/write | Create or Update a fleet update run |
+> | Microsoft.ContainerService/fleets/updateRuns/delete | Delete a fleet update run |
+> | Microsoft.ContainerService/fleets/updateRuns/start/action | Starts a fleet update run |
+> | Microsoft.ContainerService/fleets/updateRuns/stop/action | Stops a fleet update run |
+> | Microsoft.ContainerService/locations/guardrailsVersions/read | Get Guardrails Versions |
+> | Microsoft.ContainerService/locations/meshRevisionProfiles/read | Read service mesh revision profiles in a location |
 > | Microsoft.ContainerService/locations/operationresults/read | Gets the status of an asynchronous operation result |
 > | Microsoft.ContainerService/locations/operations/read | Gets the status of an asynchronous operation |
 > | Microsoft.ContainerService/locations/orchestrators/read | Lists the supported orchestrators |
@@ -208,7 +240,7 @@ Azure service: [Azure Kubernetes Service (AKS)](../../../aks/index.yml)
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | List the clusterUser credential of a managed cluster |
 > | Microsoft.ContainerService/managedClusters/listClusterMonitoringUserCredential/action | List the clusterMonitoringUser credential of a managed cluster |
 > | Microsoft.ContainerService/managedClusters/resetServicePrincipalProfile/action | Reset the service principal profile of a managed cluster |
-> | Microsoft.ContainerService/managedClusters/unpinManagedCluster/action | Reset the service principal profile of a managed cluster |
+> | Microsoft.ContainerService/managedClusters/unpinManagedCluster/action | Unpin a managed cluster |
 > | Microsoft.ContainerService/managedClusters/resolvePrivateLinkServiceId/action | Resolve the private link service id of a managed cluster |
 > | Microsoft.ContainerService/managedClusters/resetAADProfile/action | Reset the AAD profile of a managed cluster |
 > | Microsoft.ContainerService/managedClusters/rotateClusterCertificates/action | Rotate certificates of a managed cluster |
@@ -219,6 +251,7 @@ Azure service: [Azure Kubernetes Service (AKS)](../../../aks/index.yml)
 > | Microsoft.ContainerService/managedClusters/agentPools/read | Gets an agent pool |
 > | Microsoft.ContainerService/managedClusters/agentPools/write | Creates a new agent pool or updates an existing one |
 > | Microsoft.ContainerService/managedClusters/agentPools/delete | Deletes an agent pool |
+> | Microsoft.ContainerService/managedClusters/agentPools/upgradeNodeImageVersion/action | Upgrade the node image version of agent pool |
 > | Microsoft.ContainerService/managedClusters/agentPools/abort/action | Latest ongoing operation on agent pool gets aborted |
 > | Microsoft.ContainerService/managedClusters/agentPools/upgradeNodeImageVersion/write | Upgrade the node image version of agent pool |
 > | Microsoft.ContainerService/managedClusters/agentPools/upgradeProfiles/read | Gets the upgrade profile of the Agent Pool |
@@ -232,10 +265,10 @@ Azure service: [Azure Kubernetes Service (AKS)](../../../aks/index.yml)
 > | Microsoft.ContainerService/managedClusters/extensionaddons/read | Gets an extension addon |
 > | Microsoft.ContainerService/managedClusters/extensionaddons/write | Creates a new extension addon or updates an existing one |
 > | Microsoft.ContainerService/managedClusters/extensionaddons/delete | Deletes an extension addon |
-> | Microsoft.ContainerService/managedClusters/guardrailsVersions/read | List Guardrails Versions |
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/read | Gets a maintenance configuration |
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/write | Creates a new MaintenanceConfiguration or updates an existing one |
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/delete | Deletes a maintenance configuration |
+> | Microsoft.ContainerService/managedClusters/meshUpgradeProfiles/read | Read service mesh upgrade profiles for a managed cluster |
 > | Microsoft.ContainerService/managedClusters/networkSecurityPerimeterAssociationProxies/read | Get ManagedCluster NetworkSecurityPerimeter Association |
 > | Microsoft.ContainerService/managedClusters/networkSecurityPerimeterAssociationProxies/write | Create or update ManagedCluster NetworkSecurityPerimeter Association |
 > | Microsoft.ContainerService/managedClusters/networkSecurityPerimeterAssociationProxies/delete | Delete ManagedCluster NetworkSecurityPerimeter Association |

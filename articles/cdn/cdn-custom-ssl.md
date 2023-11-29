@@ -70,8 +70,8 @@ To enable HTTPS on a custom domain, follow these steps:
 2. Choose your profile:
     * **Azure CDN Standard from Microsoft**
     * **Azure CDN Standard from Akamai**
-    * **Azure CDN Standard from Verizon**
-    * **Azure CDN Premium from Verizon**
+    * **Azure CDN Standard from Edgio**
+    * **Azure CDN Premium from Edgio**
 
 3. In the list of CDN endpoints, select the endpoint containing your custom domain.
 
@@ -97,10 +97,10 @@ To enable HTTPS on a custom domain, follow these steps:
 # [Option 2: Enable HTTPS with your own certificate](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> This option is available only with **Azure CDN from Microsoft** and **Azure CDN from Verizon** profiles.
+> This option is available only with **Azure CDN from Microsoft** and **Azure CDN from Edgio** profiles.
 >
 
-You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few extra steps. When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected.  If a certificate without complete chain is presented, the requests which involve that certificate are not guaranteed to work as expected. For Azure CDN from Verizon, any valid CA will be accepted.
+You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few extra steps. When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected.  If a certificate without complete chain is presented, the requests which involve that certificate are not guaranteed to work as expected. For Azure CDN from Edgio, any valid CA will be accepted.
 
 ### Prepare your Azure Key vault account and certificate
 
@@ -114,7 +114,7 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 
 ### Register Azure CDN
 
-Register Azure CDN as an app in your Azure Active Directory.
+Register Azure CDN as an app in your Microsoft Entra ID.
 
 > [!NOTE]
 > * `205478c0-bd83-4e1b-a9d6-db63a3e1e1c8` is the service principal for `Microsoft.AzureFrontDoor-Cdn`.
@@ -236,7 +236,7 @@ If your CNAME record is in the correct format, DigiCert automatically verifies y
 Automatic validation typically takes a few hours. If you don’t see your domain validated in 24 hours, open a support ticket.
 
 >[!NOTE]
->If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include the appropriate CA(s) for authorization. DigiCert is the CA for Microsoft and Verizon profiles. Akamai profile obtains certificates from three CAs: GeoTrust, Let's Encrypt and DigiCert. If a CA receives an order for a certificate for a domain that has a CAA record and that CA is not listed as an authorized issuer, it is prohibited from issuing the certificate to that domain or subdomain. For  information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).
+>If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include the appropriate CA(s) for authorization. DigiCert is the CA for Microsoft and Edgio profiles. Akamai profile obtains certificates from three CAs: GeoTrust, Let's Encrypt and DigiCert. If a CA receives an order for a certificate for a domain that has a CAA record and that CA is not listed as an authorized issuer, it is prohibited from issuing the certificate to that domain or subdomain. For  information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).
 
 ### Custom domain isn't mapped to your CDN endpoint
 
@@ -311,7 +311,7 @@ In this section, you learn how to disable HTTPS for your custom domain.
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **CDN profiles**.
 
-2. Choose your **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, or **Azure CDN Premium from Verizon** profile.
+2. Choose your **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Edgio**, or **Azure CDN Premium from Edgio** profile.
 
 3. In the list of endpoints, pick the endpoint containing your custom domain.
 
@@ -345,12 +345,12 @@ The following table shows the operation progress that occurs when you disable HT
 
     A dedicated certificate provided by Digicert is used for your custom domain for:
 
-    * **Azure CDN from Verizon**
+    * **Azure CDN from Edgio**
     * **Azure CDN from Microsoft**
 
 2. *Do you use IP-based or SNI TLS/SSL?*
 
-    Both **Azure CDN from Verizon** and **Azure CDN Standard from Microsoft** use SNI TLS/SSL.
+    Both **Azure CDN from Edgio** and **Azure CDN Standard from Microsoft** use SNI TLS/SSL.
 
 3. *What if I don't receive the domain verification email from DigiCert?*
 
@@ -366,7 +366,7 @@ The following table shows the operation progress that occurs when you disable HT
 
     Certificate Authority Authorization record isn't currently required. However, if you do have one, it must include DigiCert as a valid CA.
 
-6. *On June 20, 2018, Azure CDN from Verizon started using a dedicated certificate with SNI TLS/SSL by default. What happens to my existing custom domains using Subject Alternative Names (SAN) certificate and IP-based TLS/SSL?*
+6. *On June 20, 2018, Azure CDN from Edgio started using a dedicated certificate with SNI TLS/SSL by default. What happens to my existing custom domains using Subject Alternative Names (SAN) certificate and IP-based TLS/SSL?*
 
     Your existing domains will be gradually migrated to single certificate in the upcoming months if Microsoft analyzes that only SNI client requests are made to your application.
 
@@ -376,7 +376,7 @@ The following table shows the operation progress that occurs when you disable HT
 
     To ensure a newer certificate is deployed to PoP infrastructure, upload your new certificate to Azure KeyVault. In your TLS settings on Azure CDN, choose the newest certificate version and select save. Azure CDN will then propagate your new updated cert.
     
-    For **Azure CDN from Verizon** profiles, if you use the same Azure Key Vault certificate on several custom domains (e.g. a wildcard certificate), ensure you update all of your custom domains that use that same certificate to the newer certificate version.
+    For **Azure CDN from Edgio** profiles, if you use the same Azure Key Vault certificate on several custom domains (e.g. a wildcard certificate), ensure you update all of your custom domains that use that same certificate to the newer certificate version.
 
 8. *Do I need to re-enable HTTPS after the endpoint restarts?*
 

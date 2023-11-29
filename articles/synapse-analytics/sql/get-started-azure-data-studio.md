@@ -21,7 +21,7 @@ ms.reviewer: sngun
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-You can use [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio?view=azure-sqldw-latest&preserve-view=true) to connect to and query Synapse SQL in Azure Synapse Analytics. 
+You can use [Azure Data Studio](/azure-data-studio/download-azure-data-studio?view=azure-sqldw-latest&preserve-view=true) to connect to and query Synapse SQL in Azure Synapse Analytics. 
 
 ## Connect
 
@@ -45,16 +45,16 @@ The connection requires the following parameters:
 >
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
-Choose **Windows Authentication**, **Azure Active Directory**, or **SQL Login** as the **Authentication Type**.
+Choose **Windows Authentication**, **Microsoft Entra ID**, or **SQL Login** as the **Authentication Type**.
 
 To use **SQL Login** as the authentication type, add the username/password parameters:
 
 * **User:** Server user in the form `<User>`
 * **Password:** Password associated with the user
 
-To use Azure Active Directory, you need to choose the needed authentication type.
+To use Microsoft Entra ID, you need to choose the needed authentication type.
 
-![AAD Authentication](./media/get-started-azure-data-studio/3-aad-auth.png)
+![Microsoft Entra authentication](./media/get-started-azure-data-studio/3-aad-auth.png)
 
 The following screenshot shows the **Connection Details** for **Windows Authentication**:
 
@@ -91,4 +91,4 @@ Explore other ways to connect to Synapse SQL:
 - [Visual Studio](..//sql/get-started-visual-studio.md)
 - [sqlcmd](get-started-connect-sqlcmd.md)
 
-Visit [Use Azure Data Studio to connect and query data using a dedicated SQL pool in Azure Synapse Analytics](/sql/azure-data-studio/quickstart-sql-dw), for more information.
+Visit [Use Azure Data Studio to connect and query data using a dedicated SQL pool in Azure Synapse Analytics](/azure-data-studio/quickstart-sql-dw), for more information.

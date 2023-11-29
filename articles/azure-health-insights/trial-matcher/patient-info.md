@@ -1,6 +1,6 @@
 ---
 title: Trial Matcher patient info 
-titleSuffix: Project Health Insights
+titleSuffix: Azure AI Health Insights
 description: This article describes how and which patient information can be sent to the Trial Matcher
 services: azure-health-insights
 author: iBoonZ
@@ -96,7 +96,7 @@ The value of the ```fhirBundle``` should be provided as a reference with the con
 
 The following example shows how to provide patient information as a FHIR Bundle:
 
- ```json
+```json
 {
   "configuration": {
     "clinicalTrials": {

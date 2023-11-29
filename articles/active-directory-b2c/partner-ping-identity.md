@@ -2,12 +2,12 @@
 title: Tutorial to configure Azure Active Directory B2C with Ping Identity
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Ping Identity
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 01/20/2023
 ms.author: gasinh
@@ -16,11 +16,11 @@ ms.subservice: B2C
 
 # Tutorial: Configure Ping Identity with Azure Active Directory B2C for secure hybrid access
 
-In this tutorial, learn how to extend the capabilities of Azure Active Directory B2C (Azure AD B2C) with [PingAccess](https://www.pingidentity.com/en/software/pingaccess.html) and [PingFederate](https://www.pingidentity.com/en/software/pingfederate.html). PingAccess provides access to applications and APIs, and a policy engine for authorized user access. PingFederate is an enterprise federation server for user authentication and single sign-on, an authority that permits customers, employees, and partners to access applications from devices. Use them together to enable secure hybrid access (SHA).
+In this tutorial, learn how to extend the capabilities of Azure Active Directory B2C (Azure AD B2C) with [PingAccess](https://www.pingidentity.com/en/platform/capabilities/web-api-access/pingaccess.html) and [PingFederate](https://www.pingidentity.com/en/platform/capabilities/authentication-authority/pingfederate.html). PingAccess provides access to applications and APIs, and a policy engine for authorized user access. PingFederate is an enterprise federation server for user authentication and single sign-on, an authority that permits customers, employees, and partners to access applications from devices. Use them together to enable secure hybrid access (SHA).
 
 Many e-commerce sites and web applications exposed to the internet are deployed behind proxy systems, or a reverse-proxy system. These proxy systems pre-authenticate, enforce policy, and route traffic. Typical scenarios include protecting web applications from inbound web traffic and providing a uniform session management across distributed server deployments.
 
-Generally, configurations include an authentication translation layer that externalizes the authentication from the web application. Reverse proxies provide the authenticated user context to the web applications, such as a header value in clear or digest form. The applications aren't using industry standard tokens such as Security Assertion Markup Language (SAML), OAuth, or Open ID Connect (OIDC). Instead, the proxy provides authentication context and maintains the session with the end-user agent such as browser or native application. As a service running as a man-in-the-middle, proxies provide significant session control. The proxy service is efficient and scalable, not a bottleneck for applications behind the proxy service. The diagram is a reverse-proxy implementation and communications flow.
+Generally, configurations include an authentication translation layer that externalizes the authentication from the web application. Reverse proxies provide the authenticated user context to the web applications, such as a header value in clear or digest form. The applications aren't using industry standard tokens such as Security Assertion Markup Language (SAML), OAuth, or OpenID Connect (OIDC). Instead, the proxy provides authentication context and maintains the session with the end-user agent such as browser or native application. As a service running as a man-in-the-middle, proxies provide significant session control. The proxy service is efficient and scalable, not a bottleneck for applications behind the proxy service. The diagram is a reverse-proxy implementation and communications flow.
 
    ![Diagram of the reverse proxy implementation.](./media/partner-ping/reverse-proxy.png)
 
@@ -33,7 +33,7 @@ If you want to modernize an identity platform in such configurations, there migh
   - Drive the end-user experience consistency
   - Provide a single sign-in experience across applications
 
-In answer to these concerns, the approach in this tutorial is an Azure AD B2C, [PingAccess](https://www.pingidentity.com/en/software/pingaccess.html), and [PingFederate](https://www.pingidentity.com/en/software/pingfederate.html) integration.
+In answer to these concerns, the approach in this tutorial is an Azure AD B2C, [PingAccess](https://www.pingidentity.com/en/platform/capabilities/web-api-access/pingaccess.html), and [PingFederate](https://www.pingidentity.com/en/platform/capabilities/authentication-authority/pingfederate.html) integration.
 
 ## Shared environment
 
@@ -135,9 +135,9 @@ To create a web session:
 3. Enter a **Name** for the web session.
 4. Select the **Cookie Type**: **Signed JWT** or **Encrypted JWT**.
 5. Enter a unique value for **Audience**.
-6. For **Client ID**, enter the **Azure AD Application ID**.
-7. For **Client Secret**, enter the **Key** you generated for the application in Azure AD.
-8. (Optional) Create and use custom claims with the Microsoft Graph API: Select **Advanced**. Deselect **Request Profile** and **Refresh User Attributes**. Learn more about custom claims: [Header-based single sign-on for on-premises apps with Azure AD App Proxy](../active-directory/app-proxy/application-proxy-configure-single-sign-on-with-headers.md).
+6. For **Client ID**, enter the **Microsoft Entra Application ID**.
+7. For **Client Secret**, enter the **Key** you generated for the application in Microsoft Entra ID.
+8. (Optional) Create and use custom claims with the Microsoft Graph API: Select **Advanced**. Deselect **Request Profile** and **Refresh User Attributes**. Learn more about custom claims: [Header-based single sign-on for on-premises apps with Microsoft Entra application proxy](../active-directory/app-proxy/application-proxy-configure-single-sign-on-with-headers.md).
 9. Select **Save**
 
 #### Create identity mapping

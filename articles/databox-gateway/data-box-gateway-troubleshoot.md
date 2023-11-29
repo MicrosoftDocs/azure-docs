@@ -2,13 +2,13 @@
 title: Use the Azure portal to troubleshoot Azure Data Box Gateway | Microsoft Docs 
 description: Learn how to troubleshoot issues on your Azure Data Box Gateway. You can run diagnostics, collect information for Support, and use logs to troubleshoot.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2021
-ms.author: alkohli
+ms.author: shaas
 ---
 # Troubleshoot your Azure Data Box Gateway issues
 

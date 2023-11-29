@@ -2,11 +2,10 @@
 title: Quickstart - Custom summarization (preview)
 titleSuffix: Azure AI services
 description: Quickly start building an AI model to summarize text.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: quickstart
 ms.date: 05/26/2023
 ms.author: jboback

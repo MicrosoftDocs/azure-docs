@@ -12,9 +12,6 @@ ms.author: jasteppe
 
 # How to use the MedTech service monitoring and health checks tabs
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
-
 In this article, learn how to use the MedTech service monitoring and health check tabs in the Azure portal. The monitoring and health check tabs provide access to crucial MedTech service metrics and health checks. These metrics and health checks can be used in assessing the health and performance of your MedTech service and can be useful seeing patterns and/or trends or assisting with troubleshooting your MedTech service.
 
 ## Use the MedTech service monitoring tab
@@ -41,7 +38,7 @@ In this article, learn how to use the MedTech service monitoring and health chec
    :::image type="content" source="media\how-to-use-monitoring-and-health-checks-tabs\pin-metrics-to-dashboard.png" alt-text="Screenshot the MedTech service monitoring tile with red box around the pin icon." lightbox="media\how-to-use-monitoring-and-health-checks-tabs\pin-metrics-to-dashboard.png":::
    
    > [!TIP]
-   > To learn more about advanced metrics display and sharing options, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md)
+   > To learn more about advanced metrics display and sharing options, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
 
 ## Available metrics for the MedTech service
 
@@ -53,7 +50,7 @@ Metric category|Metric name|Metric description|
 |Errors|**Total Error Count**|The total number of errors.|
 |Latency|**Average Group Stage Latency**|The average latency of the group stage. The [group stage](overview-of-device-data-processing-stages.md#group---optional) performs buffering, aggregating, and grouping on normalized messages.|
 |Latency|**Average Normalize Stage Latency**|The average latency of the normalized stage. The [normalized stage](overview-of-device-data-processing-stages.md#normalize) performs normalization on raw incoming messages.|
-|Traffic|Number of Fhir resources saved|The total number of FHIR resources [updated or persisted](overview-of-device-data-processing-stages.md#persist) by the MedTech service.|
+|Traffic|Number of Fhir resources saved|The total number of FHIR&reg; resources [updated or persisted](overview-of-device-data-processing-stages.md#persist) by the MedTech service.|
 |Traffic|**Number of Incoming Messages**|The number of received raw [incoming messages](overview-of-device-data-processing-stages.md#ingest) (for example, the device events) from the configured source event hub.|
 |Traffic|**Number of Measurements**|The number of normalized value readings received by the FHIR [transformation stage](overview-of-device-data-processing-stages.md#transform) of the MedTech service.|
 |Traffic|**Number of Message Groups**|The number of groups that have messages aggregated in the designated time window.|
@@ -65,22 +62,14 @@ Metric category|Metric name|Metric description|
 
    :::image type="content" source="media\how-to-use-monitoring-and-health-checks-tabs\health-checks-without-errors.png" alt-text="Screenshot of the MedTech service health checks tab without errors." lightbox="media\how-to-use-monitoring-and-health-checks-tabs\health-checks-without-errors.png":::
 
-2. In this example, we can see that the MedTech service is indicating that the **Health check** for **Event hub connection** is showing a **Status** of **Disconnected**. To find out how to troubleshoot this failed health check, you may select the **Accessing the MedTech service from the event hub** link under the **Learn more** row to be directed to the MedTech service troubleshooting guide section for addressing this failed health check.
+2. In this example, we can see that the MedTech service is indicating that the **Health check** for **Event hub connection** is showing a **Status** of **Disconnected**. To find out how to troubleshoot this failed health check, you can select the **Accessing the MedTech service from the event hub** link under the **Learn more** row to be directed to the MedTech service troubleshooting guide section for addressing this failed health check.
  
     :::image type="content" source="media\how-to-use-monitoring-and-health-checks-tabs\health-checks-with-error.png" alt-text="Screenshot of the MedTech service health checks tab with errors." lightbox="media\how-to-use-monitoring-and-health-checks-tabs\health-checks-with-error.png":::
 
 ## Next steps
 
-In this article, you learned how to use the MedTech service monitoring and health check tab.
+[How to configure the MedTech service metrics](how-to-configure-metrics.md)
 
-To learn how to configure the MedTech service metrics, see
+[How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)
 
-> [!div class="nextstepaction"]
-> [How to configure the MedTech service metrics](how-to-configure-metrics.md)
-
-To learn how to enable the MedTech service diagnostic settings, see
-
-> [!div class="nextstepaction"]
-> [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

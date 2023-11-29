@@ -2,11 +2,10 @@
 title: Preview API overview
 titleSuffix: Azure AI services
 description: Learn about the NER preview API.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 06/14/2023
 ms.author: jboback

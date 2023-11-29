@@ -10,6 +10,8 @@ ms.date: 06/24/2022
 ---
 # Auto-grow Azure Database for MariaDB storage using the Azure CLI
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 This article describes how you can configure an Azure Database for MariaDB server storage to grow without impacting the workload.
 
 The server [reaching the storage limit](concepts-pricing-tiers.md#reaching-the-storage-limit), is set to read-only. If storage auto grow is enabled then for servers with less than 100 GB provisioned storage, the provisioned storage size is increased by 5 GB as soon as the free storage is below the greater of 1 GB or 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 10GB of the provisioned storage size. Maximum storage limits as specified [here](concepts-pricing-tiers.md#storage) apply.

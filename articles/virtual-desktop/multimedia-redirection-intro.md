@@ -43,7 +43,7 @@ The following sites work with video playback redirection:
       - Bleacher Report
       - Brightcove
       - CNBC
-      - Coursera
+      - Coursera\*
       - Daily Mail
       - Facebook
       - Fidelity
@@ -54,8 +54,8 @@ The following sites work with video playback redirection:
       - Fox Weather
       - IMDB
       - Infosec Institute
-      - LinkedIn Learning
-      - Microsoft Learn
+      - LinkedIn Learning\*
+      - Microsoft Learn\*
       - Microsoft Stream
       - NBC Sports
       - The New York Times
@@ -68,7 +68,7 @@ The following sites work with video playback redirection:
       - The Guardian
       - Twitch
       - Twitter
-      - Udemy
+      - Udemy\*
       - UMU
       - U.S. News
       - Vidazoo
@@ -80,11 +80,14 @@ The following sites work with video playback redirection:
    :::column-end:::
 :::row-end:::
 
+\* Multimedia redirection only supports non-DRM content on these sites. Any digital rights managed content can only be played with regular video playback without multimedia redirection.
+
 ### Call redirection
 
 The following websites work with call redirection:
 
 - [WebRTC Sample Site](https://webrtc.github.io/samples)
+- [Content Guru Storm App](https://www.contentguru.com/en-us/news/content-guru-announces-its-storm-ccaas-solution-is-now-compatible-with-microsoft-azure-virtual-desktop/)
 
 Microsoft Teams live events aren't media-optimized for Azure Virtual Desktop and Windows 365 when using the native Teams app. However, if you use Teams live events with a browser that supports Teams live events and multimedia redirection, multimedia redirection is a workaround that provides smoother Teams live events playback on Azure Virtual Desktop. Multimedia redirection supports Enterprise Content Delivery Network (ECDN) for Teams live events.
 

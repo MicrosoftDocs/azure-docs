@@ -11,6 +11,8 @@ ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 
 # How to connect applications to Azure Database for MariaDB
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 This topic lists the connection string types that are supported by Azure Database for MariaDB, together with templates and examples. You might have different parameters and settings in your connection string.
 
 - To obtain the certificate, see [How to configure SSL](./howto-configure-ssl.md).

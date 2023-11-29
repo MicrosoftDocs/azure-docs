@@ -194,7 +194,7 @@ Metrics are a feature for certain Azure resources that allow you to view perform
 Activity logs provide information about the operations done on an Azure Front Door (classic) profile. They also determine the what, who, and when for any write operations (put, post, or delete) done against an Azure Front Door (classic) profile.
 
 >[!NOTE]
->If a request to the the origin times out, the value for HttpStatusCode is set to **0**.
+>If a request to the origin times out, the value for HttpStatusCode is set to **0**.
 
 Access activity logs in your Front Door or all the logs of your Azure resources in Azure Monitor. To view activity logs:
 

@@ -2,11 +2,10 @@
 title: "Quickstart: Optical character recognition (OCR)"
 titleSuffix: Azure AI services
 description: Learn how to use Optical character recognition (OCR) in your application through a native client library in the language of your choice.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: quickstart
 ms.date: 08/07/2023
 ms.author: pafarley

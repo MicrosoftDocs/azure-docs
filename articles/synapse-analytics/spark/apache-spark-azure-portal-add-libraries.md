@@ -75,7 +75,7 @@ To learn more about these capabilities, see [Manage Spark pool packages](./apach
 
 If you're having trouble identifying required dependencies, follow these steps:
 
-1. Run the following script to set up a local Python environment that's the same as the Azure Synapse Spark environment. The script requires [Synapse-Python38-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python38-CPU.yml), which is the list of libraries shipped in the default Python environment in Azure Synapse Spark.
+1. Run the following script to set up a local Python environment that's the same as the Azure Synapse Spark environment. This script requires a YAML file containing a list of all the libraries included in the default Python environment for Azure Synapse Spark. You can find this YAML file in the documentation for specific runtime versions, such as [Apache Spark 3.2 (EOLA)](./apache-spark-32-runtime.md) and [Apache Spark 3.3 (GA)](./apache-spark-33-runtime.md).
 
    ```powershell
       # One-time Azure Synapse Python setup

@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
 ms.custom: seo-lt-2019
-ms.date: 01/20/2023
+ms.date: 10/20/2023
 ---
 
 # Manage packages with Azure-SSIS Integration Runtime package store
@@ -27,7 +27,7 @@ Once your Azure-SSIS IR is provisioned, you can connect to it to browse its pack
 
 :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-connect.png" alt-text="Connect to Azure-SSIS IR":::
 
-On the **Object Explorer** window of SSMS, select **Azure-SSIS Integration Runtime** in the **Connect** drop-down menu. Next, sign in to Azure and select the relevant subscription, ADF, and Azure-SSIS IR that you've provisioned with package stores. Your Azure-SSIS IR will appear with **Running Packages** and **Stored Packages** nodes underneath. Expand the **Stored Packages** node to see your package stores underneath. Expand your package stores to see folders and packages underneath. You may be asked to enter the access credentials for your package stores, if SSMS fails to connect to them automatically. For example, if you expand a package store on top of MSDB, you may be asked to connect to your Azure SQL Managed Instance first.
+On the **Object Explorer** window of SSMS, select **Azure-SSIS Integration Runtime** in the **Connect** drop-down menu. Next, sign in to Azure and select the relevant subscription, ADF, and Azure-SSIS IR that you've provisioned with package stores. Your Azure-SSIS IR will appear with **Running Packages** and **Stored Packages** nodes underneath. Expand the **Stored Packages** node to see your package stores underneath. Expand your package stores to see folders and packages underneath. You might be asked to enter the access credentials for your package stores, if SSMS fails to connect to them automatically. For example, if you expand a package store on top of MSDB, you might be asked to connect to your Azure SQL Managed Instance first.
 
 :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-connect2.png" alt-text="Connect to Azure SQL Managed Instance":::
 

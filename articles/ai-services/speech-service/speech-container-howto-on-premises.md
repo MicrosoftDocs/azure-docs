@@ -2,11 +2,10 @@
 title: Use Speech service containers with Kubernetes and Helm
 titleSuffix: Azure AI services
 description: Using Kubernetes and Helm to define the speech to text and text to speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 07/22/2021
 ms.author: eur

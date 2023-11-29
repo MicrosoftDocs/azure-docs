@@ -29,7 +29,7 @@ In this section, we review the step-by-step process of setting up a private link
 1. Give the AMPLS a name. Use a meaningful and clear name like *AppServerProdTelem*.
 1. Select **Review + create**.
 
-   ![Screenshot that shows creating an Azure Monitor Private Link Scope.](./media/private-link-security/ampls-create-1d.png)
+   :::image type="content" source="./media/private-link-security/ampls-create-1d.png" lightbox="./media/private-link-security/ampls-create-1d.png" alt-text="Screenshot that shows creating an Azure Monitor Private Link Scope.":::
 
 1. Let the validation pass and select **Create**.
 
@@ -40,7 +40,7 @@ Connect Azure Monitor resources like Log Analytics workspaces, Application Insig
 1. In your AMPLS, select **Azure Monitor Resources** in the menu on the left. Select **Add**.
 1. Add the workspace or component. Selecting **Add** opens a dialog where you can select Azure Monitor resources. You can browse through your subscriptions and resource groups. You can also enter their names to filter down to them. Select the workspace or component and select **Apply** to add them to your scope.
 
-    ![Screenshot that shows selecting a scope.](./media/private-link-security/ampls-select-2.png)
+    :::image type="content" source="./media/private-link-security/ampls-select-2.png" lightbox="./media/private-link-security/ampls-select-2.png" alt-text="Screenshot that shows selecting a scope.":::
 
 > [!NOTE]
 > Deleting Azure Monitor resources requires that you first disconnect them from any AMPLS objects they're connected to. It's not possible to delete resources connected to an AMPLS.
@@ -98,7 +98,7 @@ So far we've covered the configuration of your network. But you should also cons
 
 Go to the Azure portal. On your resource's menu, find **Network Isolation** on the left side. This page controls which networks can reach the resource through a private link and whether other networks can reach it or not.
 
-![Screenshot that shows Network Isolation.](./media/private-link-security/ampls-network-isolation.png)
+:::image type="content" source="./media/private-link-security/ampls-network-isolation.png" lightbox="./media/private-link-security/ampls-network-isolation.png" alt-text="Screenshot that shows Network Isolation.":::
 
 ### Connected Azure Monitor Private Link Scopes
 Here you can review and configure the resource's connections to an AMPLS. Connecting to an AMPLS allows traffic from the virtual network connected to each AMPLS to reach the resource. It has the same effect as connecting it from the scope as we did in the section [Connect Azure Monitor resources](#connect-azure-monitor-resources).
@@ -281,8 +281,8 @@ This zone also covers the resource-specific endpoints for [data collection endpo
 
 * `<unique-dce-identifier>.<regionname>.handler.control`: Private configuration endpoint, part of a DCE resource.
 * `<unique-dce-identifier>.<regionname>.ingest`: Private ingestion endpoint, part of a DCE resource.
-
-[![Screenshot that shows Private DNS zone monitor-azure-com.](./media/private-link-security/dns-zone-privatelink-monitor-azure-com-with-endpoint.png)](./media/private-link-security/dns-zone-privatelink-monitor-azure-com-expanded-with-endpoint.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="./media/private-link-security/dns-zone-privatelink-monitor-azure-com-with-endpoint.png" lightbox="./media/private-link-security/dns-zone-privatelink-monitor-azure-com-with-endpoint.png" alt-text="Screenshot that shows Private DNS zone monitor-azure-com." border="false":::
 
 #### Log Analytics endpoints
 > [!IMPORTANT]
@@ -297,7 +297,7 @@ Log Analytics uses four DNS zones:
 
 The following screenshot shows endpoints mapped for an AMPLS with two workspaces in East US and one workspace in West Europe. Notice the East US workspaces share the IP addresses. The West Europe workspace endpoint is mapped to a different IP address. The blob endpoint doesn't appear in this image but it's configured.
 
-[![Screenshot that shows private link compressed endpoints.](./media/private-link-security/dns-zone-privatelink-compressed-endpoints.png)](./media/private-link-security/dns-zone-privatelink-compressed-endpoints.png#lightbox)
+:::image type="content" source="./media/private-link-security/dns-zone-privatelink-compressed-endpoints.png" lightbox="./media/private-link-security/dns-zone-privatelink-compressed-endpoints.png" alt-text="Screenshot that shows private link compressed endpoints.":::
 
 ### Validate that you're communicating over a private link
 

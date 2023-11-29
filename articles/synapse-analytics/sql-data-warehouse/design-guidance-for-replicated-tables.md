@@ -1,15 +1,15 @@
 ---
 title: Design guidance for replicated tables
-description: Recommendations for designing replicated tables in Synapse SQL pool  
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 09/27/2022
+description: Recommendations for designing replicated tables in Synapse SQL pool
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: 
-ms.custom: seo-lt-2019, azure-synapse
+ms.date: 09/27/2022
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - seo-lt-2019
+  - azure-synapse
 ---
 
 # Design guidance for using replicated tables in Synapse SQL pool

@@ -81,8 +81,8 @@ The following sections list limitations for Azure Synapse Link for SQL.
 * Service principal isn't supported for authenticating to source Azure SQL DB, so when creating Azure SQL DB linked Service, choose SQL authentication, user-assigned managed identity (UAMI) or service assigned managed Identity (SAMI).
 * If the Azure SQL Database logical server has both a SAMI and UAMI configured, Azure Synapse Link uses SAMI. 
 * Azure Synapse Link can't be enabled on the secondary database once a GeoDR failover has happened if the secondary database has a different name from the primary database.
-* If you enable Azure Synapse Link for SQL on your database as a Microsoft Azure Active Directory (Azure AD) user, Point-in-time restore (PITR) will fail. PITR only works when you enable Azure Synapse Link for SQL on your database as a SQL user.
-* If you create a database as an Azure AD user and enable Azure Synapse Link for SQL, a SQL authentication user (for example, even sysadmin role) won't be able to disable/make changes to Azure Synapse Link for SQL artifacts.  However, another Azure AD user is able to enable/disable Azure Synapse Link for SQL on the same database. Similarly, if you create a database as an SQL authentication user, enabling/disabling Azure Synapse Link for SQL as an Azure AD user won't work.
+* If you enable Azure Synapse Link for SQL on your database as a Microsoft Entra user, Point-in-time restore (PITR) will fail. PITR only works when you enable Azure Synapse Link for SQL on your database as a SQL user.
+* If you create a database as a Microsoft Entra user and enable Azure Synapse Link for SQL, a SQL authentication user (for example, even sysadmin role) won't be able to disable/make changes to Azure Synapse Link for SQL artifacts.  However, another Microsoft Entra user is able to enable/disable Azure Synapse Link for SQL on the same database. Similarly, if you create a database as an SQL authentication user, enabling/disabling Azure Synapse Link for SQL as a Microsoft Entra user won't work.
 * Cross-tenant data replication is not supported where an Azure SQL Database and the Azure Synapse workspace are in separate tenants.
 
 

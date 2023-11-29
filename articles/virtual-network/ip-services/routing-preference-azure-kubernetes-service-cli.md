@@ -2,12 +2,12 @@
 title: 'Tutorial: Configure routing preference for an Azure Kubernetes Service - Azure CLI'
 titlesuffix: Azure virtual network
 description: Use this tutorial to learn how to configure routing preference for an Azure Kubernetes Service.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
+ms.date: 08/24/2023
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
-ms.date: 10/01/2021
 ms.custom: template-tutorial, devx-track-azurecli
 ms.devlang: azurecli
 ---

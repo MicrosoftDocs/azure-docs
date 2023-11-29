@@ -19,7 +19,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 |---------|---------|---------|---------|---------|
 |[Analytics rules health](monitor-analytics-rule-integrity.md) |Public preview |&#x2705; |&#10060; |&#10060; |
 |[MITRE ATT&CK dashboard](mitre-coverage.md)	|Public preview |&#x2705; |&#10060; |&#10060; |
-|[NRT rules](near-real-time-rules.md) |Public preview |&#x2705; |&#x2705; |&#x2705; |
+|[NRT rules](near-real-time-rules.md) |GA |&#x2705; |&#x2705; |&#x2705; |
 |[Recommendations](detection-tuning.md) |Public preview |&#x2705; |&#x2705; |&#10060; |
 |[Scheduled](detect-threats-built-in.md) and [Microsoft rules](create-incidents-from-alerts.md) |GA |&#x2705; |&#x2705; |&#x2705; |
 
@@ -37,8 +37,8 @@ This article describes the features available in Microsoft Sentinel across diffe
 |---------|---------|---------|---------|---------|
 |[Amazon Web Services](connect-aws.md?tabs=ct) |GA |&#x2705; |&#10060; |&#10060; |
 |[Amazon Web Services S3 (Preview)](connect-aws.md?tabs=s3) |Public preview |&#x2705; |&#10060; |&#10060; |
-|[Azure Active Directory](connect-azure-active-directory.md) |GA |&#x2705; |&#x2705;|&#x2705; <sup>[1](#logsavailable)</sup> |
-|[Azure Active Directory Identity Protection](connect-services-api-based.md) |GA |&#x2705;| &#x2705; |&#10060; |
+|[Microsoft Entra ID](connect-azure-active-directory.md) |GA |&#x2705; |&#x2705;|&#x2705; <sup>[1](#logsavailable)</sup> |
+|[Microsoft Entra ID Protection](connect-services-api-based.md) |GA |&#x2705;| &#x2705; |&#10060; |
 |[Azure Activity](data-connectors/azure-activity.md) |GA |&#x2705;| &#x2705;|&#x2705; |
 |[Azure DDoS Protection](connect-services-diagnostic-setting-based.md) |GA |&#x2705;| &#x2705;|&#10060; |
 |[Azure Firewall](data-connectors/azure-firewall.md) |GA |&#x2705;| &#x2705;|&#x2705; |

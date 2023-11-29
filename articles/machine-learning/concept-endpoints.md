@@ -10,7 +10,9 @@ author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
-ms.custom: devplatv2
+ms.custom:
+  - devplatv2
+  - ignite-2023
 ms.date: 07/12/2023
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
@@ -61,7 +63,7 @@ Use [online endpoints](concept-endpoints-online.md) to operationalize models for
 > * Your model's inputs fit on the HTTP payload of the request.
 > * You need to scale up in terms of number of requests.
 
-Use [batch endpoints](concept-endpoints-batch.md) to operationalize models or pipelines (preview) for long-running asynchronous inference. We recommend using them when:
+Use [batch endpoints](concept-endpoints-batch.md) to operationalize models or pipelines for long-running asynchronous inference. We recommend using them when:
 
 > [!div class="checklist"]
 > * You have expensive models or pipelines that require a longer time to run.
@@ -86,13 +88,11 @@ The following table shows a summary of the different features available to onlin
 | Deployment's routing                  | Traffic split                                   | Switch to default                             |
 | Mirror traffic for safe rollout       | Yes                                             | No                                            |
 | Swagger support                       | Yes                                             | No                                            |
-| Authentication                        | Key and token                                   | Azure AD                                      |
+| Authentication                        | Key and token                                   | Microsoft Entra ID                                      |
 | Private network support               | Yes                                             | Yes                                           |
-| Managed network isolation<sup>1</sup> | Yes                                             | No                                            |
+| Managed network isolation | Yes                                             | No                                            |
 | Customer-managed keys                 | Yes                                             | No                                            |
 | Cost basis                            | None                                            | None                                          |
-
-<sup>1</sup> [*Managed network isolation*](how-to-secure-online-endpoint.md) allows you to manage the networking configuration of the endpoint independently of the configuration of the Azure Machine Learning workspace.
 
 #### Deployments
 
@@ -100,24 +100,27 @@ The following table shows a summary of the different features available to onlin
 
 | Feature                       | [Online Endpoints](concept-endpoints-online.md) | [Batch endpoints](concept-endpoints-batch.md) |
 |-------------------------------|-------------------------------------------------|-----------------------------------------------|
-| Deployment types              | Models                                          | Models and Pipeline components (preview)      |
-| MLflow model deployment       | Yes (requires public networking)                | Yes                                           |
+| Deployment types              | Models                                          | Models and Pipeline components      |
+| MLflow model deployment       | Yes                                             | Yes                                           |
 | Custom model deployment       | Yes, with scoring script                        | Yes, with scoring script                      |
-| Inference server <sup>1</sup> | - Azure Machine Learning Inferencing Server<br /> - Triton<br /> - Custom (using BYOC)  | Batch Inference        |
+| Model package deployment  <sup>1</sup>    | Yes (preview)                                   | No                                            |
+| Inference server <sup>2</sup> | - Azure Machine Learning Inferencing Server<br /> - Triton<br /> - Custom (using BYOC)  | Batch Inference        |
 | Compute resource consumed     | Instances or granular resources                 | Cluster instances                             |
 | Compute type                  | Managed compute and Kubernetes                  | Managed compute and Kubernetes                |
 | Low-priority compute          | No                                              | Yes                                           |
 | Scaling compute to zero       | No                                              | Yes                                           |
-| Autoscaling compute<sup>2</sup> | Yes, based on resources' load                 | Yes, based on job count                       |
+| Autoscaling compute<sup>3</sup> | Yes, based on resources' load                 | Yes, based on job count                       |
 | Overcapacity management       | Throttling                                      | Queuing                                       |
-| Cost basis<sup>3</sup>        | Per deployment: compute instances running       | Per job: compute instanced consumed in the job  (capped to the maximum number of instances of the cluster). |
+| Cost basis<sup>4</sup>        | Per deployment: compute instances running       | Per job: compute instanced consumed in the job  (capped to the maximum number of instances of the cluster). |
 | Local testing of deployments  | Yes                                             | No                                            |
 
-<sup>1</sup> *Inference server* refers to the serving technology that takes requests, processes them, and creates responses. The inference server also dictates the format of the input and the expected outputs.
+<sup>1</sup> Deploying MLflow models to endpoints without outbound internet connectivity or private networks requires [packaging the model](concept-package-models.md) first.
 
-<sup>2</sup> *Autoscaling* is the ability to dynamically scale up or scale down the deployment's allocated resources based on its load. Online and batch deployments use different strategies for autoscaling. While online deployments scale up and down based on the resource utilization (like CPU, memory, requests, etc.), batch endpoints scale up or down based on the number of jobs created.
+<sup>2</sup> *Inference server* refers to the serving technology that takes requests, processes them, and creates responses. The inference server also dictates the format of the input and the expected outputs.
 
-<sup>3</sup> Both online and batch deployments charge by the resources consumed. In online deployments, resources are provisioned at deployment time. However, in batch deployment, no resources are consumed at deployment time but when the job runs. Hence, there is no cost associated with the deployment itself. Notice that queued jobs do not consume resources either.
+<sup>3</sup> *Autoscaling* is the ability to dynamically scale up or scale down the deployment's allocated resources based on its load. Online and batch deployments use different strategies for autoscaling. While online deployments scale up and down based on the resource utilization (like CPU, memory, requests, etc.), batch endpoints scale up or down based on the number of jobs created.
+
+<sup>4</sup> Both online and batch deployments charge by the resources consumed. In online deployments, resources are provisioned at deployment time. However, in batch deployment, no resources are consumed at deployment time but when the job runs. Hence, there is no cost associated with the deployment itself. Notice that queued jobs do not consume resources either.
 
 ## Developer interfaces
 
@@ -136,7 +139,7 @@ You can create and manage batch and online endpoints with multiple developer too
 
 - [How to deploy online endpoints with the Azure CLI and Python SDK](how-to-deploy-online-endpoints.md)
 - [How to deploy models with batch endpoints](how-to-use-batch-model-deployments.md)
-- [How to deploy pipelines with batch endpoints (preview)](how-to-use-batch-pipeline-deployments.md)
+- [How to deploy pipelines with batch endpoints](how-to-use-batch-pipeline-deployments.md)
 - [How to use online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
-- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints)

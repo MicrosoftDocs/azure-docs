@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - The latest version of Azure Account modules. Currently this is 2.2.8. (See [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/) for details about this version.)
 
-- An Azure resource that you want to access from your Automation runbook. This resource needs to have a role defined for the user-assigned managed identity, which helps the Automation runbook authenticate access to the resource. To add roles, you need to be an owner for the resource in the corresponding Azure AD tenant.
+- An Azure resource that you want to access from your Automation runbook. This resource needs to have a role defined for the user-assigned managed identity, which helps the Automation runbook authenticate access to the resource. To add roles, you need to be an owner for the resource in the corresponding Microsoft Entra tenant.
 
 - To assign an Azure role, you must have ```Microsoft.Authorization/roleAssignments/write``` permissions, such as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
 
@@ -288,7 +288,7 @@ Perform the following steps.
 
 ## Assign a role to a user-assigned managed identity
 
-An Automation account can use its user-assigned managed identity to obtain tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens don't represent any specific user of the application. Instead, they represent the application that is accessing the resource. In this case, for example, the token represents an Automation account.
+An Automation account can use its user-assigned managed identity to obtain tokens to access other resources protected by Microsoft Entra ID, such as Azure Key Vault. These tokens don't represent any specific user of the application. Instead, they represent the application that is accessing the resource. In this case, for example, the token represents an Automation account.
 
 Before you can use your user-assigned managed identity for authentication, set up access for that identity on the Azure resource where you plan to use the identity. To complete this task, assign the appropriate role to that identity on the target Azure resource.
 

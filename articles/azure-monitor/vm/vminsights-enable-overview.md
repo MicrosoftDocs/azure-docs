@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: xpathak
-ms.date: 06/24/2022
+ms.date: 09/28/2023
 ms.custom: references_regions
 
 ---
@@ -29,8 +29,8 @@ The following table shows the installation methods available for enabling VM ins
 | [Azure portal](vminsights-enable-portal.md) | Enable individual machines with the Azure portal. |
 | [Azure Policy](vminsights-enable-policy.md) | Create policy to automatically enable when a supported machine is created. |
 | [Azure Resource Manager templates](../vm/vminsights-enable-resource-manager.md) | Enable multiple machines by using any of the supported methods to deploy a Resource Manager template, such as the Azure CLI and PowerShell. |
-| [PowerShell](vminsights-enable-powershell.md) | Use a PowerShell script to enable multiple machines. Log Analytics agent only. |
-| [Manual install](vminsights-enable-hybrid.md) | Virtual machines or physical computers on-premises with other cloud environments. Log Analytics agent only. |
+| [PowerShell](vminsights-enable-powershell.md) | Use a PowerShell script to enable multiple machines. Currently only supported for Log Analytics agent. |
+| [Manual install](vminsights-enable-hybrid.md) | Virtual machines or physical computers on-premises with other cloud environments.|
 
 ## Supported Azure Arc machines
 
@@ -97,7 +97,7 @@ The DCR is defined by the options in the following table.
 
 | Option | Description |
 |:---|:---|
-| Guest performance | Specifies whether to collect [performance data](https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-performance) from the guest operating system. This option is required for all machines. The collection interval for performance data is every 60 seconds.|
+| Guest performance | Specifies whether to collect [performance data](/azure/azure-monitor/vm/vminsights-performance) from the guest operating system. This option is required for all machines. The collection interval for performance data is every 60 seconds.|
 | Processes and dependencies | Collects information about processes running on the virtual machine and dependencies between machines. This information enables the [Map feature in VM insights](vminsights-maps.md). This is optional and enables the [VM insights Map feature](vminsights-maps.md) for the machine. |
 | Log Analytics workspace | Workspace to store the data. Only workspaces with VM insights are listed. |
 

@@ -18,7 +18,7 @@ Now you can open your `Unity-iPhone.xcodeproj` project in Xcode.
 
 You can either launch Xcode and open the exported `Unity-iPhone.xcodeproj` project or launch the project in Xcode by running the following command from the location where you exported the project:
 
- ```bash
+```bash
 open ./Unity-iPhone.xcodeproj
 ```
 

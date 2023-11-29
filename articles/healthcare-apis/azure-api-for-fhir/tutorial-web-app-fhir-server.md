@@ -7,12 +7,14 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ms.custom: devx-track-js
 
 ---
 
 # Deploy JavaScript app to read data from Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 In this tutorial, you'll deploy a small JavaScript app, which reads data from a FHIR service. The steps in this tutorial are:
 
@@ -25,11 +27,11 @@ In this tutorial, you'll deploy a small JavaScript app, which reads data from a 
 
 Before starting this set of tutorials, you'll need the following items:
 1. An Azure subscription
-1. An Azure Active Directory tenant
+1. A Microsoft Entra tenant
 1. [Postman](https://www.getpostman.com/) installed
 
 > [!NOTE]
-> For this tutorial, the FHIR service, Azure AD application, and Azure AD users are all in the same Azure AD tenant. If this is not the case, you can still follow along with this tutorial, but may need to dive into some of the referenced documents to do additional steps.
+> For this tutorial, the FHIR service, Microsoft Entra application, and Microsoft Entra users are all in the same Microsoft Entra tenant. If this is not the case, you can still follow along with this tutorial, but may need to dive into some of the referenced documents to do additional steps.
 
 ## Deploy Azure API for FHIR
 

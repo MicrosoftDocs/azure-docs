@@ -110,7 +110,7 @@ The following instructions describe how to provision an Azure Cache for Redis an
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-You can find the template used in this quickstart in the [fitness store sample GitHub repository](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-spring-apps-enterprise/resources/json/deploy/azuredeploy.json).
+You can find the template used in this quickstart in the [fitness store sample GitHub repository](https://github.com/Azure-Samples/acme-fitness-store/blob/HEAD/azure-spring-apps-enterprise/resources/json/deploy/azuredeploy.json).
 
 To deploy this template, follow these steps:
 
@@ -226,11 +226,15 @@ The following steps show how to bind applications running in the Azure Spring Ap
        --app cart-service \
        --connection cart_service_cache | jq -r '.configurations[0].value')
 
+   export GATEWAY_URL=$(az spring gateway show \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
+    
    az spring app update \
        --resource-group <resource-group-name> \
        --name cart-service \
        --service <Azure-Spring-Apps-service-instance-name> \
-       --env "CART_PORT=8080" "REDIS_CONNECTIONSTRING=${REDIS_CONN_STR}"
+       --env "CART_PORT=8080" "REDIS_CONNECTIONSTRING=${REDIS_CONN_STR}" "AUTH_URL=https://${GATEWAY_URL}"
    ```
 
 ## Access the application
@@ -265,3 +269,4 @@ Continue on to any of the following optional quickstarts:
 - [Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
 - [Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
 - [Automate deployments](quickstart-automate-deployments-github-actions-enterprise.md)
+- [Integrate Azure OpenAI](quickstart-fitness-store-azure-openai.md)

@@ -2,11 +2,10 @@
 title: 'Tutorial: Integrate Power BI with key phrase extraction'
 titleSuffix: Azure AI services
 description: Learn how to use the key phrase extraction feature to get text stored in Power BI.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: tutorial
 ms.date: 09/28/2022
 ms.author: jboback
@@ -249,7 +248,7 @@ Here are two versions of a Language Detection function. The first returns the IS
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
+    language    jsonresp [documents]{0}[detectedLanguage] [Name] in language 
 ```
 
 Finally, here's a variant of the Key Phrases function already presented that returns the phrases as a list object, rather than as a single string of comma-separated phrases. 

@@ -6,7 +6,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 12/30/2021
+ms.date: 09/29/2023
 ---
 
 # Troubleshoot Azure Cache for Redis latency and timeouts
@@ -31,7 +31,7 @@ This section discusses troubleshooting for latency and timeout issues that occur
   - [StackExchange.Redis timeout exceptions](#stackexchangeredis-timeout-exceptions)
 
 > [!NOTE]
-> Several of the troubleshooting steps in this guide include instructions to run Redis commands and monitor various performance metrics. For more information and instructions, see the articles in the [Additional information](#additional-information) section.
+> Several of the troubleshooting steps in this guide include instructions to run Redis commands and monitor various performance metrics. For more information and instructions, see the articles in the [Additional information](#related-content) section.
 >
 
 ## Client-side troubleshooting
@@ -98,7 +98,6 @@ Because of optimistic TCP settings in Linux, client applications hosted on Linux
 If you're using `RedisSessionStateProvider`, ensure you have set the retry timeout correctly. The `retryTimeoutInMilliseconds` value should be higher than the `operationTimeoutInMilliseconds` value. Otherwise, no retries occur. In the following example, `retryTimeoutInMilliseconds` is set to 3000. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](cache-aspnet-session-state-provider.md) and [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
  ```xml
- 
  <add 
     name="AFRedisCacheSessionStateProvider"
     type="Microsoft.Web.Redis.RedisSessionStateProvider"
@@ -120,9 +119,9 @@ If you're using `RedisSessionStateProvider`, ensure you have set the retry timeo
 
 Planned or unplanned maintenance can cause disruptions with client connections. The number and type of exceptions depends on the location of the request in the code path, and when the cache closes its connections. For instance, an operation that sends a request but hasn't received a response when the failover occurs might get a time-out exception. New requests on the closed connection object receive connection exceptions until the reconnection happens successfully.
 
-For information, check these other sections:
+For more information, check these other sections:
 
-- [Scheduling updates](cache-administration.md#schedule-updates)
+- [Update channel and Schedule updates](cache-administration.md#update-channel-and-schedule-updates)
 - [Connection resilience](cache-best-practices-connection.md#connection-resilience)
 - `AzureRedisEvents` [notifications](cache-failover.md#can-i-be-notified-in-advance-of-planned-maintenance)
 
@@ -191,9 +190,7 @@ To mitigate situations where network bandwidth usage is close to maximum capacit
 
 For more specific information to address timeouts when using StackExchange.Redis, see [Investigating timeout exceptions in StackExchange.Redis](https://azure.microsoft.com/blog/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
 
-## Additional information
-
-See these articles for additional information about latency issues and timeouts.
+## Related content
 
 - [Troubleshoot Azure Cache for Redis client-side issues](cache-troubleshoot-client.md)
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)

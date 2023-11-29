@@ -77,12 +77,14 @@ When creating a new scale set, you can enable termination notifications on the s
 
 This sample script walks through the creation of a scale set and associated resources using the configuration file: [Create a complete Virtual Machine Scale Set](./scripts/powershell-sample-create-complete-scale-set.md). You can provide "configure terminate" notifications by adding the parameters *TerminateScheduledEvents* and *TerminateScheduledEventNotBeforeTimeoutInMinutes* to the configuration object for creating scale set. The following example enables the feature with a delay timeout of 10 minutes.
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 ```azurepowershell-interactive
 New-AzVmssConfig `
   -Location "VMSSLocation" `
   -SkuCapacity 2 `
   -SkuName "Standard_DS2" `
-  -UpgradePolicyMode "Automatic" `
   -TerminateScheduledEvents $true `
   -TerminateScheduledEventNotBeforeTimeoutInMinutes 10
 ```
@@ -109,7 +111,7 @@ az group create --name <myResourceGroup> --location <VMSSLocation>
 az vmss create \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username <azureuser> \
   --generate-ssh-keys \
   --terminate-notification-time 10

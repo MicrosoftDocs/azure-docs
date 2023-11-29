@@ -248,7 +248,7 @@ landingContent:
   #         #   url: file2.md
   #     - linkListType: how-to-guide
   #       links:
-  #         - text: Configure Azure Active Directory authentication
+  #         - text: Configure Microsoft Entra authentication
   #           url: /azure/sql-database/sql-database-aad-authentication-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
   #     #     - text: linktext2
   #     #       url: file2.md

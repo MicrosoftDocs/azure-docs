@@ -91,12 +91,12 @@ Open the Power BI desktop application and select the **Get data** option.
 
 ![Open Power BI desktop application and select get data.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
 
-### Step 1 - Select data source
+### Step 1: Select data source
 
 Select **Azure** in the menu and then **Azure SQL Database**.
 ![Select data source.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
-### Step 2 - Select database
+### Step 2: Select database
 
 Write the URL for the database and the name of the database where the view resides.
 ![Select database on the endpoint.](./media/get-started-power-bi-professional/step-2-db.png)

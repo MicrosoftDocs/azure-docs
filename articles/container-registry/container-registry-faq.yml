@@ -392,7 +392,7 @@ sections:
         answer: |
           When you grant new permissions (new roles) to a service principal, the change might not take effect immediately. There are two possible reasons:
           
-          * Azure Active Directory role assignment delay. Normally it's fast, but it could take minutes due to propagation delay.
+          * Microsoft Entra role assignment delay. Normally it's fast, but it could take minutes due to propagation delay.
           * Permission delay on ACR token server could take up to 10 minutes. To mitigate, you can `docker logout` and then authenticate again with the same user after 1 minute:
           
             ```bash
@@ -475,8 +475,6 @@ sections:
           Repository format is invalid or unsupported
         answer: |
           If you see an error such as "unsupported repository format", "invalid format", or "the requested data does not exist" when specifying a repository name in repository operations, check the spelling and case of the name. Valid repository names can only include lowercase alphanumeric characters, periods, dashes, underscores, and forward slashes. 
-          
-          For complete repository naming rules, see the [Open Container Initiative Distribution Specification](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
           
       - question:  |
           How do I collect http traces on Windows?

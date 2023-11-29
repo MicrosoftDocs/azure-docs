@@ -85,10 +85,20 @@ The general layer section of the **Format** pane are common settings that apply 
 | Setting        | Description                            |
 |----------------|----------------------------------------|
 | Unselected transparency | The transparency of shapes that aren't selected, when one or more shapes are selected.  |
-| Show zeros     | Specifies if points that have a size value of zero should be shown on the map using the minimum radius. |
-| Show negatives | Specifies if absolute value of negative size values should be plotted.   |
+| Show zeros     | (Deprecated) Specifies if points that have a size value of zero should be shown on the map using the minimum radius. |
+| Show negatives | (Deprecated) Specifies if absolute value of negative size values should be plotted.   |
 | Min data value | The minimum value of the input data to scale against. Good for clipping outliers.  |
 | Max data value | The maximum value of the input data to scale against. Good for clipping outliers.  |
+
+> [!NOTE]
+>
+> **General layer settings retirement**
+>
+> The **Show zeros** and **Show negatives** Power BI Visual General layer settings were deprecated starting in the September 2023 release of Power BI. You can no longer create new reports using these settings, but existing reports will continue to work. It is recomended that you upgrade existing reports. To upgrade to the new **range scaling** property, select the desired option in the **Range scaling** drop-down list:
+>
+> :::image type="content" source="./media/power-bi-visual/range-scaling-drop-down.png" alt-text="A screenshot of the range scaling drop-down":::
+>
+> For more information on the range scaling option, see **Range scaling** in the properties table of the [Add a bubble layer] article.
 
 ## Next steps
 
@@ -110,3 +120,5 @@ Add more context to the map:
 
 > [!div class="nextstepaction"]
 > [Show real-time traffic](power-bi-visual-show-real-time-traffic.md)
+
+ [Add a bubble layer]: power-bi-visual-add-bubble-layer.md

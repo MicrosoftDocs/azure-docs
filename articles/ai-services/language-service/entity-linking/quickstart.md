@@ -2,11 +2,10 @@
 title: "Quickstart: Entity linking using the client library and REST API"
 titleSuffix: Azure AI services
 description: 'Use this quickstart to perform Entity Linking, using C#, Python, Java, JavaScript, and the REST API.'
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: quickstart
 ms.date: 02/17/2023
 ms.author: aahi

@@ -4,7 +4,7 @@ description: Learn how to migrate Apache HBase clusters in Azure HDInsight to a 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 08/26/2022
+ms.date: 09/19/2023
 ---
 
 # Migrate an Apache HBase cluster to a new version

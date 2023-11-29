@@ -42,8 +42,8 @@ Moving an Azure Synapse workspace from one region to another region is a multist
 1. Create serverless SQL pool and Spark pool databases and objects.
 1. Add an Azure DevOps Service Principal to the Azure Synapse role-based access control (RBAC) Synapse Artifact Publisher role if you're using an Azure DevOps release pipeline to deploy the artifacts.
 1. Deploy code artifact (SQL Scripts, Notebooks), linked services, pipelines, datasets, Spark Job definitions triggers, and credentials from Azure DevOps release pipelines to the target region Azure Synapse workspace.
-1. Add Azure Active Directory (Azure AD) users or groups to Azure Synapse RBAC roles. Granting Storage Blob Contributor access to system-assigned managed identity (SA-MI) on Azure Storage and Azure Key Vault if you're authenticating by using managed identity.
-1. Grant Storage Blob Reader or Storage Blob Contributor roles to required Azure AD users on default attached storage or on the Storage account that has data to be queried by using a serverless SQL pool.
+1. Add Microsoft Entra users or groups to Azure Synapse RBAC roles. Granting Storage Blob Contributor access to system-assigned managed identity (SA-MI) on Azure Storage and Azure Key Vault if you're authenticating by using managed identity.
+1. Grant Storage Blob Reader or Storage Blob Contributor roles to required Microsoft Entra users on default attached storage or on the Storage account that has data to be queried by using a serverless SQL pool.
 1. Re-create self-hosted integration runtime (SHIR).
 1. Manually upload all required libraries and jars in the target Azure Synapse workspace.
 1. Create all managed private endpoints if the workspace is deployed in a managed virtual network.
@@ -382,7 +382,7 @@ To create a SHIR, follow the steps in [Create and configure a self-hosted integr
 
 ## Step 8: Assign an Azure role to managed identity
 
- Assign `Storage Blob Contributor` access to the managed identity of the new workspace on the default attached Data Lake Storage Gen2 account. Also assign access on other storage accounts where SA-MI is used for authentication. Assign `Storage Blob Contributor` or `Storage Blob Reader` access to Azure AD users and groups for all the required storage accounts.
+ Assign `Storage Blob Contributor` access to the managed identity of the new workspace on the default attached Data Lake Storage Gen2 account. Also assign access on other storage accounts where SA-MI is used for authentication. Assign `Storage Blob Contributor` or `Storage Blob Reader` access to Microsoft Entra users and groups for all the required storage accounts.
 
 ### Azure portal
 Follow the steps in [Grant permissions to workspace managed identity](security/how-to-grant-workspace-managed-identity-permissions.md) to assign a Storage Blob Data Contributor role to the managed identity of the workspace.
@@ -424,7 +424,7 @@ az role assignment create --assignee $workSpaceIdentityObjectID `
 
 ## Step 9: Assign Azure Synapse RBAC roles
 
-Add all the users who need access to the target workspace with separate roles and permissions. The following PowerShell and CLI script adds an Azure AD user to the Synapse Administrator role in the target region workspace. 
+Add all the users who need access to the target workspace with separate roles and permissions. The following PowerShell and CLI script adds a Microsoft Entra user to the Synapse Administrator role in the target region workspace. 
 
 To get all the Azure Synapse RBAC role names, see [Azure Synapse RBAC roles](security/synapse-workspace-synapse-rbac-roles.md).
 
@@ -435,7 +435,7 @@ To add or delete Azure Synapse RBAC assignments from Synapse Studio, follow the 
 
 ### Azure PowerShell
 
-The following PowerShell script adds the Synapse Administrator role assignment to an Azure AD user or group. You can use -RoleDefinitionId instead of -RoleDefinitionName with the following command to add the users to the workspace:
+The following PowerShell script adds the Synapse Administrator role assignment to a Microsoft Entra user or group. You can use -RoleDefinitionId instead of -RoleDefinitionName with the following command to add the users to the workspace:
 
 
 ```powershell
@@ -447,13 +447,13 @@ New-AzSynapseRoleAssignment `
 Get-AzSynapseRoleAssignment -WorkspaceName $workspaceName  
 ```
 
-To get the ObjectIds and RoleIds in the source region workspace, run the `Get-AzSynapseRoleAssignment` command. Assign the same Azure Synapse RBAC roles to the Azure AD users or groups in the target region workspace.
+To get the ObjectIds and RoleIds in the source region workspace, run the `Get-AzSynapseRoleAssignment` command. Assign the same Azure Synapse RBAC roles to the Microsoft Entra users or groups in the target region workspace.
 
 Instead of using `-ObjectId` as the parameter, you can also use `-SignInName`, where you provide the email address or the user principal name of the user. To find out more about the available options, see [Azure Synapse RBAC - PowerShell cmdlet](/powershell/module/az.synapse/new-azsynapseroleassignment). 
 
 ### Azure CLI
 
-Get the Object ID of the user and assign the required Azure Synapse RBAC permissions to the Azure AD user. You can provide the email address of the user (username@contoso.com) for the `--assignee` parameter.
+Get the Object ID of the user and assign the required Azure Synapse RBAC permissions to the Microsoft Entra user. You can provide the email address of the user (username@contoso.com) for the `--assignee` parameter.
 
 ```azurecli
 az synapse role assignment create `

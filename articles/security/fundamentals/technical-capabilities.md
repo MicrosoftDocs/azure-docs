@@ -37,29 +37,29 @@ With Microsoft Azure, you can:
 
 Azure helps you protect business and personal information by enabling you to manage user identities and credentials and control access.
 
-### Azure Active Directory
+<a name='azure-active-directory'></a>
 
-Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud, enabling additional levels of validation such as multi-factor authentication and Conditional Access policies. Monitoring suspicious activity through advanced security reporting, auditing and alerting helps mitigate potential security issues. [Azure Active Directory Premium](../../active-directory/fundamentals/active-directory-get-started-premium.md) provides single sign-on to thousands of cloud apps and access to web apps you run on-premises.
+### Microsoft Entra ID
 
-Security benefits of Azure Active Directory (Azure AD) include the ability to:
+Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud, enabling additional levels of validation such as multifactor authentication and Conditional Access policies. Monitoring suspicious activity through advanced security reporting, auditing and alerting helps mitigate potential security issues. [Microsoft Entra ID P1 or P2](../../active-directory/fundamentals/active-directory-get-started-premium.md) provides single sign-on to thousands of cloud apps and access to web apps you run on-premises.
+
+Security benefits of Microsoft Entra ID include the ability to:
 
 - Create and manage a single identity for each user across your hybrid enterprise, keeping users, groups, and devices in sync.
 
 - Provide single sign-on access to your applications including thousands of pre-integrated SaaS apps.
 
-- Enable application access security by enforcing rules-based Multi-Factor Authentication for both on-premises and cloud applications.
+- Enable application access security by enforcing rules-based multifactor authentication for both on-premises and cloud applications.
 
-- Provision secure remote access to on-premises web applications through Azure AD Application Proxy.
+- Provision secure remote access to on-premises web applications through Microsoft Entra application proxy.
 
-The [Azure Active Directory portal](https://aad.portal.azure.com/) is available as part of the Azure portal. From this dashboard, you can get an overview of the state of your organization, and easily manage the directory, users, or application access.
-
-![Azure Active Directory](./media/technical-capabilities/azure-security-technical-capabilities-fig2.png)
+![Microsoft Entra ID](./media/technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
 The following are core Azure identity management capabilities:
 
 - Single sign-on
 
-- Multi-factor authentication
+- Multifactor authentication
 
 - Security monitoring, alerts, and machine learning-based reports
 
@@ -77,23 +77,25 @@ The following are core Azure identity management capabilities:
 
 Many organizations rely upon software as a service (SaaS) applications such as Microsoft 365, Box, and Salesforce for end-user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users had to remember a password for each SaaS application.
 
-Azure AD extends on-premises Active Directory into the cloud, enabling users to use their primary organizational account to not only sign in to their domain-joined devices and company resources, but also all the web and SaaS applications needed for their job.
+Microsoft Entra ID extends on-premises Active Directory into the cloud, enabling users to use their primary organizational account to not only sign in to their domain-joined devices and company resources, but also all the web and SaaS applications needed for their job.
 
-Not only do users not have to manage multiple sets of usernames and passwords, application access can be automatically provisioned or de-provisioned based on organizational groups and their status as an employee. Azure AD introduces security and access governance controls that enable you to centrally manage users' access across SaaS applications.
+Not only do users not have to manage multiple sets of usernames and passwords, application access can be automatically provisioned or de-provisioned based on organizational groups and their status as an employee. Microsoft Entra ID introduces security and access governance controls that enable you to centrally manage users' access across SaaS applications.
 
-#### Multi-factor authentication
+<a name='multi-factor-authentication'></a>
 
-[Azure AD Multi-Factor Authentication (MFA)](../../active-directory/authentication/overview-authentication.md#azure-ad-multi-factor-authentication) is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions. [MFA helps safeguard](../../active-directory/authentication/concept-mfa-howitworks.md) access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options—phone call, text message, or mobile app notification or verification code and third-party OAuth tokens.
+#### Multifactor authentication
+
+[Microsoft Entra multifactor authentication (MFA)](../../active-directory/authentication/overview-authentication.md#azure-ad-multi-factor-authentication) is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions. [MFA helps safeguard](../../active-directory/authentication/concept-mfa-howitworks.md) access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options—phone call, text message, or mobile app notification or verification code and third-party OAuth tokens.
 
 #### Security monitoring, alerts, and machine learning-based reports
 
-Security monitoring and alerts and machine learning-based reports that identify inconsistent access patterns can help you protect your business. You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
+Security monitoring and alerts and machine learning-based reports that identify inconsistent access patterns can help you protect your business. You can use Microsoft Entra ID's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
 
-In the Azure portal or through the [Azure Active Directory portal](https://aad.portal.azure.com/), [reports](../../active-directory/reports-monitoring/overview-reports.md) are categorized in the following ways:
+In the [Azure portal](https://portal.azure.com), [reports](../../active-directory/reports-monitoring/overview-reports.md) are categorized in the following ways:
 
 - Anomaly reports – contain sign in events that we found to be anomalous. Our goal is to make you aware of such activity and enable you to be able to decide about whether an event is suspicious.
 
-- Integrated application reports – provide insights into how cloud applications are being used in your organization. Azure Active Directory offers integration with thousands of cloud applications.
+- Integrated application reports – provide insights into how cloud applications are being used in your organization. Microsoft Entra ID offers integration with thousands of cloud applications.
 
 - Error reports – indicate errors that may occur when provisioning accounts to external applications.
 
@@ -111,19 +113,19 @@ When you use Azure Active Directory B2C, your consumers can sign up for your app
 
 #### Device registration
 
-[Azure AD device registration](../../active-directory/devices/overview.md) is the foundation for device-based [Conditional Access](../../active-directory/devices/overview.md) scenarios. When a device is registered, Azure AD device registration provides the device with an identity that is used to authenticate the device when the user signs in. The authenticated device, and the attributes of the device, can then be used to enforce Conditional Access policies for applications that are hosted in the cloud and on-premises.
+[Microsoft Entra device registration](../../active-directory/devices/overview.md) is the foundation for device-based [Conditional Access](../../active-directory/devices/overview.md) scenarios. When a device is registered, Microsoft Entra device registration provides the device with an identity that is used to authenticate the device when the user signs in. The authenticated device, and the attributes of the device, can then be used to enforce Conditional Access policies for applications that are hosted in the cloud and on-premises.
 
-When combined with a [mobile device management (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) solution such as Intune, the device attributes in Azure Active Directory are updated with additional information about the device. This allows you to create Conditional Access rules that enforce access from devices to meet your standards for security and compliance.
+When combined with a [mobile device management (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) solution such as Intune, the device attributes in Microsoft Entra ID are updated with additional information about the device. This allows you to create Conditional Access rules that enforce access from devices to meet your standards for security and compliance.
 
 #### Privileged identity management
 
-[Azure Active Directory (AD) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) lets you manage, control, and monitor your privileged identities and access to resources in Azure AD as well as other Microsoft online services like Microsoft 365 or Microsoft Intune.
+[Microsoft Entra Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) lets you manage, control, and monitor your privileged identities and access to resources in Microsoft Entra ID as well as other Microsoft online services like Microsoft 365 or Microsoft Intune.
 
-Sometimes users need to carry out privileged operations in Azure or Microsoft 365 resources, or other SaaS apps. This often means organizations have to give them permanent privileged access in Azure AD. This is a growing security risk for cloud-hosted resources because organizations can't sufficiently monitor what those users are doing with their admin privileges. Additionally, if a user account with privileged access is compromised, that one breach could impact their overall cloud security. Azure AD Privileged Identity Management helps to resolve this risk.
+Sometimes users need to carry out privileged operations in Azure or Microsoft 365 resources, or other SaaS apps. This often means organizations have to give them permanent privileged access in Microsoft Entra ID. This is a growing security risk for cloud-hosted resources because organizations can't sufficiently monitor what those users are doing with their admin privileges. Additionally, if a user account with privileged access is compromised, that one breach could impact their overall cloud security. Microsoft Entra Privileged Identity Management helps to resolve this risk.
 
-Azure AD Privileged Identity Management lets you:
+Microsoft Entra Privileged Identity Management lets you:
 
-- See which users are Azure AD admins
+- See which users are Microsoft Entra admins
 
 - Enable on-demand, "just in time" administrative access to Microsoft Online Services like Microsoft 365 and Intune
 
@@ -133,7 +135,7 @@ Azure AD Privileged Identity Management lets you:
 
 #### Identity protection
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) is a security service that provides a consolidated view into risk detections and potential vulnerabilities affecting your organization’s identities. Identity Protection uses existing Azure Active Directory’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk detection types that can detect anomalies in real time.
+[Microsoft Entra ID Protection](../../active-directory/identity-protection/overview-identity-protection.md) is a security service that provides a consolidated view into risk detections and potential vulnerabilities affecting your organization’s identities. Identity Protection uses existing Microsoft Entra ID’s anomaly detection capabilities (available through Microsoft Entra ID’s Anomalous Activity Reports), and introduces new risk detection types that can detect anomalies in real time.
 
 ## Secure resource access
 

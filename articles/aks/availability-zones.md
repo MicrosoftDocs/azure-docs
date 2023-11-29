@@ -31,7 +31,7 @@ The following limitations apply when you create an AKS cluster using availabilit
 
 ### Azure disk availability zone support
 
- - Volumes that use Azure managed LRS disks aren't zone-redundant resources, attaching across zones and aren't supported. You need to co-locate volumes in the same zone as the specified node hosting the target pod.
+ - Volumes that use Azure managed LRS disks aren't zone-redundant resources, attaching across zones isn't supported. You need to co-locate volumes in the same zone as the specified node hosting the target pod.
  - Volumes that use Azure managed ZRS disks (supported by Azure Disk CSI driver v1.5.0 and later) are zone-redundant resources. You can schedule those volumes on all zone and non-zone agent nodes.
 
 Kubernetes is aware of Azure availability zones since version 1.12. You can deploy a PersistentVolumeClaim object referencing an Azure Managed Disk in a multi-zone AKS cluster and [Kubernetes takes care of scheduling](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) any pod that claims this PVC in the correct availability zone.
@@ -110,7 +110,7 @@ As you add more nodes to an agent pool, the Azure platform automatically distrib
 
 With Kubernetes versions 1.17.0 and later, AKS uses the newer label `topology.kubernetes.io/zone` and the deprecated `failure-domain.beta.kubernetes.io/zone`. You can get the same result from running the `kubelet describe nodes` command in the previous step, by running the following script:
 
- ```bash
+```bash
 kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'
 ```
 

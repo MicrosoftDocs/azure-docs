@@ -14,6 +14,8 @@ ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 
 # Copy a blob with .NET
 
+[!INCLUDE [storage-dev-guide-selector-copy](../../../includes/storage-dev-guides/storage-dev-guide-selector-copy.md)]
+
 This article provides an overview of copy operations using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 ## About copy operations

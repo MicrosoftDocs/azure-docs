@@ -48,7 +48,7 @@ This dashboard consists of:
 ### Accessing the edge performance dashboard
 1. From the CDN profile page, select the **Manage** button.
 
-    :::image type="content" source="./media/cdn-edge-performance/cdn-manage-btn.png" alt-text="Screenshot of the manage button from an Azure CDN Verizon Premium profile.":::
+    :::image type="content" source="./media/cdn-edge-performance/cdn-manage-btn.png" alt-text="Screenshot of the manage button from an Azure CDN Edgio Premium profile.":::
    
     The CDN management portal opens.
 2. Hover over the **Analytics** tab, then hover over the **Edge Performance Analytics** flyout.  Select on **Dashboard**.
@@ -138,7 +138,7 @@ Each report in this module contains a chart and statistics on bandwidth and traf
 
 1. From the CDN profile page, select the **Manage** button.
    
-    :::image type="content" source="./media/cdn-edge-performance/cdn-manage-btn.png" alt-text="Screenshot of the manage button from an Azure CDN Verizon Premium profile.":::
+    :::image type="content" source="./media/cdn-edge-performance/cdn-manage-btn.png" alt-text="Screenshot of the manage button from an Azure CDN Edgio Premium profile.":::
    
     The CDN management portal opens.
 2. Hover over the **Analytics** tab, then hover over the **Edge Performance Analytics** flyout.  Select on **HTTP Large Object**.

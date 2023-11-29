@@ -5,6 +5,7 @@ description: This article describes customer responsibilities developing Azure S
 author: KarlErickson
 ms.author: zhiyongli
 ms.service: spring-apps
+ms.custom: devx-track-extended-java
 ms.topic: conceptual
 ms.date: 08/10/2023
 ---
@@ -48,17 +49,17 @@ The following sections describe the version support that applies to the Enterpri
 
 You can deploy polyglot applications to the Enterprise plan with source code. To enjoy the best stability, use SDKs with LTS versions that are officially supported.
 
-When you deploy your polyglot applications to the Enterprise plan, assign specific LTS versions for the SDKs. Otherwise, the default SDK version might change during the regular upgrades for builder components. For more information about deploying polygot apps, see [How to deploy polyglot apps in the Azure Spring Apps Enterprise plan](how-to-enterprise-deploy-polyglot-apps.md).
+When you deploy your polyglot applications to the Enterprise plan, assign specific LTS versions for the SDKs. Otherwise, the default SDK version might change during the regular upgrades for builder components. For more information about deploying polyglot apps, see [How to deploy polyglot apps in the Azure Spring Apps Enterprise plan](how-to-enterprise-deploy-polyglot-apps.md).
 
-| Type   | Support policy                                                                                              |
-|--------|-------------------------------------------------------------------------------------------------------------|
-| Java   | [Java support on Azure](/azure/developer/java/fundamentals/java-support-on-azure)                           |
-| Tomcat | [Tomcat versions](https://tomcat.apache.org/whichversion.html)                                              |
-| .NET   | [.NET and .NET core support policy](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) |
-| Python | [Status of Python versions](https://devguide.python.org/versions/)                                          |
-| Go     | [Go release history](https://go.dev/doc/devel/release)                                                      |
-| NodeJS | [Nodejs releases](https://nodejs.dev/en/about/releases/)                                                    |
-| PHP    | [PHP supported versions](https://www.php.net/supported-versions.php)                                        |
+| Type   | Support policy                                                                                        |
+|--------|-------------------------------------------------------------------------------------------------------|
+| Java   | [Java support on Azure](/azure/developer/java/fundamentals/java-support-on-azure)                     |
+| Tomcat | [Tomcat versions](https://tomcat.apache.org/whichversion.html)                                        |
+| .NET   | [.NET and .NET core support policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) |
+| Python | [Status of Python versions](https://devguide.python.org/versions/)                                    |
+| Go     | [Go release history](https://go.dev/doc/devel/release)                                                |
+| NodeJS | [Nodejs releases](https://nodejs.org/en/about/previous-releases/)                                     |
+| PHP    | [PHP supported versions](https://www.php.net/supported-versions.php)                                  |
 
 ### Stack image support
 

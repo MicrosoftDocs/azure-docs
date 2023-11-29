@@ -1,18 +1,20 @@
 ---
 title: Data import and data ingestion
-titleSuffix: Azure Cognitive Search
-description: Populate and upload data to an index in Azure Cognitive Search from external data sources.
+titleSuffix: Azure AI Search
+description: Populate and upload data to an index in Azure AI Search from external data sources.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 12/15/2022
 ---
-# Data import in Azure Cognitive Search
+# Data import in Azure AI Search
 
-In Azure Cognitive Search, queries execute over user-owned content that's loaded into a [search index](search-what-is-an-index.md). This article describes the two basic workflows for populating an index: *push* your data into the index programmatically, or *pull* in the data using a [search indexer](search-indexer-overview.md).
+In Azure AI Search, queries execute over user-owned content that's loaded into a [search index](search-what-is-an-index.md). This article describes the two basic workflows for populating an index: *push* your data into the index programmatically, or *pull* in the data using a [search indexer](search-indexer-overview.md).
 
 With either approach, the objective is to load data from an external data source. Although you can create an empty index, it's not queryable until you add the content.
 
@@ -21,7 +23,7 @@ With either approach, the objective is to load data from an external data source
 
 ## Pushing data to an index
 
-The push model, used to programmatically send your data to Azure Cognitive Search, is the most flexible approach for the following reasons:
+The push model, used to programmatically send your data to Azure AI Search, is the most flexible approach for the following reasons:
 
 + First, there are no restrictions on data source type. The dataset must be composed of JSON documents that map to your index schema, but the data can come from anywhere. 
 
@@ -29,9 +31,9 @@ The push model, used to programmatically send your data to Azure Cognitive Searc
 
 + Third, you can upload documents individually or in batches up to 1000 per batch, or 16 MB per batch, whichever limit comes first.
 
-+ Fourth, connectivity and the secure retrieval of documents are fully under your control. In contrast, indexer connections are authenticated using the security features provided in Cognitive Search.
++ Fourth, connectivity and the secure retrieval of documents are fully under your control. In contrast, indexer connections are authenticated using the security features provided in Azure AI Search.
 
-### How to push data to an Azure Cognitive Search index
+### How to push data to an Azure AI Search index
 
 You can use the following APIs to load single or multiple documents into an index:
 
@@ -44,7 +46,7 @@ For an introduction to the push APIs, see:
 
 + [Quickstart: Full text search using the Azure SDKs](search-get-started-text.md)
 + [C# Tutorial: Optimize indexing with the push API](tutorial-optimize-indexing-push-api.md)
-+ [REST Quickstart: Create an Azure Cognitive Search index using PowerShell](search-get-started-powershell.md)
++ [REST Quickstart: Create an Azure AI Search index using PowerShell](search-get-started-powershell.md)
 
 <a name="indexing-actions"></a>
 
@@ -64,7 +66,7 @@ Whether you use the REST API or an SDK, the following document operations are su
 
 ## Pulling data into an index
 
-The pull model crawls a supported data source and automatically uploads the data into your index. In Azure Cognitive Search, this capability is implemented through *indexers*, currently available for these platforms:
+The pull model crawls a supported data source and automatically uploads the data into your index. In Azure AI Search, this capability is implemented through *indexers*, currently available for these platforms:
 
 + [Azure Blob storage](search-howto-indexing-azure-blob-storage.md)
 + [Azure Table storage](search-howto-indexing-azure-tables.md)
@@ -76,11 +78,11 @@ The pull model crawls a supported data source and automatically uploads the data
 
 Indexers connect an index to a data source (usually a table, view, or equivalent structure), and map source fields to equivalent fields in the index. During execution, the rowset is automatically transformed to JSON and loaded into the specified index. All indexers support schedules so that you can specify how frequently the data is to be refreshed. Most indexers provide change tracking if the data source supports it. By tracking changes and deletes to existing documents in addition to recognizing new documents, indexers remove the need to actively manage the data in your index.
 
-### How to pull data into an Azure Cognitive Search index
+### How to pull data into an Azure AI Search index
 
-Indexer functionality is exposed in the [Azure portal](search-import-data-portal.md), the [REST API](/rest/api/searchservice/Indexer-operations), and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.searchindexerclient).
+Indexer functionality is exposed in the [Azure portal](search-import-data-portal.md), the [REST API](/rest/api/searchservice/create-indexer), and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.searchindexerclient).
 
-An advantage to using the portal is that Azure Cognitive Search can usually generate a default index schema by reading the metadata of the source dataset. You can modify the generated index until the index is processed, after which the only schema edits allowed are those that do not require reindexing. If the changes affect the schema itself, you would need to rebuild the index. 
+An advantage to using the portal is that Azure AI Search can usually generate a default index schema by reading the metadata of the source dataset. You can modify the generated index until the index is processed, after which the only schema edits allowed are those that do not require reindexing. If the changes affect the schema itself, you would need to rebuild the index. 
 
 ## Verify data import with Search explorer
 

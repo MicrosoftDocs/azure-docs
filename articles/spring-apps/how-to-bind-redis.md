@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, se
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Java ❌ C#
+**This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
@@ -28,7 +28,9 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 
 If you don't have a deployed Azure Spring Apps instance, follow the steps in the [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
 
-## Prepare your Java project
+## Prepare your project
+
+### [Java](#tab/Java)
 
 1. Add the following dependency to your project's *pom.xml* file:
 
@@ -43,9 +45,20 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 1. Update the current deployment using `az spring app update` or create a new deployment using `az spring app deployment create`.
 
+### [Polyglot](#tab/Polyglot)
+
+All the connection strings and credentials are injected as environment variables, which you can reference in your application code.
+
+For the default environment variable names, see [Integrate Azure Cache for Redis with Service Connector](../service-connector/how-to-integrate-redis-cache.md#default-environment-variable-names-or-application-properties-and-sample-code).
+
+---
+
 ## Connect your app to the Azure Cache for Redis
 
 ### [Service Connector](#tab/Service-Connector)
+
+> [!NOTE]
+> Service Connectors are created at the deployment level. So, if another deployment is created, you need to create the connections again.
 
 1. Use the Azure CLI to configure your Spring app to connect to a Redis database with an access key using the `az spring connection create` command, as shown in the following example.
 

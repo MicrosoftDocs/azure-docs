@@ -2,13 +2,13 @@
 title: Audit logs for Azure Data Box, Azure Data Box Heavy events| Microsoft Docs 
 description: Describes the full audit logs for Data Box that are collected at the various stages of your Azure Data Box and Azure Data Box Heavy order.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Audit logs for your Azure Data Box and Azure Data Box Heavy

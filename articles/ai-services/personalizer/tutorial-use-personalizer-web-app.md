@@ -4,14 +4,15 @@ description: Customize a C# .NET web app with a Personalizer loop to provide the
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 # Tutorial: Add Personalizer to a .NET web app
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Customize a C# .NET web app with a Personalizer loop to provide the correct content to a user based on actions (with features) and context features.
 

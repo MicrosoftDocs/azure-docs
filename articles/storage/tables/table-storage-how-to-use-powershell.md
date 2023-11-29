@@ -1,12 +1,12 @@
 ---
 title: Perform Azure Table storage operations with PowerShell
 description: Learn how to run common tasks such as creating, querying, deleting data from Azure Table storage account by using PowerShell.
-author: tamram
+author: akashdubey-ms
 
 ms.service: azure-table-storage
 ms.topic: article
 ms.date: 06/23/2022
-ms.author: tamram
+ms.author: akashdubey
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -44,7 +44,7 @@ Install-Module AzTable
 
 The AzTable PowerShell module supports authorization with the account access key via Shared Key authorization. The examples in this article show how to authorize table data operations via Shared Key.
 
-Azure Table Storage supports authorization with Azure AD. However, the AzTable PowerShell module does not natively support authorization with Azure AD. Using Azure AD with the AzTable module requires that you call methods in the .NET client library from PowerShell.
+Azure Table Storage supports authorization with Microsoft Entra ID. However, the AzTable PowerShell module does not natively support authorization with Microsoft Entra ID. Using Microsoft Entra ID with the AzTable module requires that you call methods in the .NET client library from PowerShell.
 
 ## Sign in to Azure
 

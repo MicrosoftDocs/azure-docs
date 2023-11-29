@@ -2,11 +2,10 @@
 title: Conversational Language Understanding - Azure AI services
 titleSuffix: Azure AI services
 description: Customize an AI model to predict the intentions of utterances, and extract important information from them.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: overview
 ms.date: 10/26/2022
 ms.author: aahi

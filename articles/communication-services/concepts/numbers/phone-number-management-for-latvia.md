@@ -20,7 +20,7 @@ Use the below tables to find all the relevant information on number availability
 
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
-| Alphanumeric Sender ID\*       | Public Preview                    | -                    | - | - |
+| Alphanumeric Sender ID\*       | General Availability                  | -                    | - | - |
 
 
 \* Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
@@ -39,7 +39,7 @@ More details on eligible subscription types are as follows:
 \* Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
 
 
-## Azure subscription billing locations where Alphanumeric Sender ID is available
+## Azure subscription billing locations where Latvia Alphanumeric Sender ID is available
 | Country/Region |
 | :---------- |
 |Australia|

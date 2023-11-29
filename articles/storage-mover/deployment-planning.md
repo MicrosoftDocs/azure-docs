@@ -24,20 +24,20 @@ EDIT PASS: not started
 
 # Plan a successful Azure Storage Mover deployment
 
-Deploying Azure Storage Mover in one of your Azure subscriptions is the first step in realizing your migration goals. Azure Storage Mover can help you with the migration of your files and folders into Azure Storage. This article discusses the important decisions and best practices for a Storage Mover deployment.
+Deploying Azure Storage Mover in one of your Azure subscriptions is the first step in realizing your migration goals. Azure Storage Mover can help you migrate your files and folders into Azure Storage. This article discusses the important decisions and best practices for a Storage Mover deployment.
 
 ## Make sure the service works for your scenario
 
-Azure Storage Mover aspires to work for a wide range of migration scenarios. However, the service is new and therefore supports a relatively limited number of migration scenarios. Ensure that the service works for you by consulting the [supported sources and targets section](service-overview.md#supported-sources-and-targets) in the [Azure Storage Mover overview article](service-overview.md).
+Azure Storage Mover aspires to work for a wide range of migration scenarios. However, the service is relatively new and therefore presently supports a limited number of migration scenarios. Ensure that the service works for your specific scenario by consulting the [supported sources and targets section](service-overview.md#supported-sources-and-targets) in the [Azure Storage Mover overview article](service-overview.md).
 
 ## Deployment basics
 
 A deployment of Azure Storage Mover consists out of cloud service components and one or more migration agents you run in your environment, close to the source storage.
 
-A storage mover resource comprises the cloud service component. This resource is deployed within your choice of Azure subscription and resource group. Identify a subscription in the same Azure Active Directory (Azure AD) tenant as the Azure storage accounts you want to migrate into.
+A storage mover resource comprises the cloud service component. This resource is deployed within your choice of Azure subscription and resource group. Identify a subscription in the same Microsoft Entra tenant as the Azure storage accounts you want to migrate into.
 
 > [!NOTE]
-> An Azure storage mover resource can orchestrate migrations into Azure Storage in other subscriptions, as long as they are governed by the same Azure Active Directory tenant.
+> An Azure storage mover resource can orchestrate migrations into Azure Storage in other subscriptions, as long as they are governed by the same Microsoft Entra tenant.
 
 ## Select an Azure region for your deployment
 
@@ -53,7 +53,7 @@ Deploying a Storage Mover agent as an Azure VM hasn't been tested and is current
 
 ## Getting your subscription ready
 
-Your subscription must be in the same Azure Active Directory tenant as the target Azure storage accounts you want to migrate into. When you've decided on an Azure subscription and resource group for your storage mover resource, you need to prepare a few things depending on how you deploy and which actions you or another admin perform.
+Your subscription must be in the same Microsoft Entra tenant as the target Azure storage accounts you want to migrate into. When you've decided on an Azure subscription and resource group for your storage mover resource, you need to prepare a few things depending on how you deploy and which actions you or another admin perform.
 
 ### Resource provider namespaces
 
@@ -90,6 +90,7 @@ If you want to learn more about how the agent gets access to migrate the data, r
 ## Next steps
 <!-- Add a context sentence for the following links -->
 These articles can help you become more familiar with the Storage Mover service.
+
 - [Understanding the Storage Mover resource hierarchy](resource-hierarchy.md)
 - [Deploying a Storage Mover resource](storage-mover-create.md)
 - [Deploying a Storage Mover agent](agent-deploy.md)

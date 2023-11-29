@@ -25,4 +25,4 @@ In Azure, single region data residency is currently provided by default only in 
 
 ## Next steps
 
-To learn more about Network Watcher features and capabilities, see [Network Watcher overview](./network-watcher-monitoring-overview.md).
+To learn more about Network Watcher features and capabilities, see [What is Azure Network Watcher?](network-watcher-overview.md)

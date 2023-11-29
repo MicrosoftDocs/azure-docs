@@ -41,7 +41,9 @@ To start, deploy the following resources if you haven't created them already. Yo
 
 ## <a name="DisableNetworkPolicy"></a>Step 2: Configure HDInsight subnet
 
-In order to choose a source IP address for your Private Link service, an explicit disable setting ```privateLinkServiceNetworkPolicies``` is required on the subnet. Follow the instructions here to [disable network policies for Private Link services](../private-link/disable-private-link-service-network-policy.md).
+- **Disable privateLinkServiceNetworkPolicies on subnet.** In order to choose a source IP address for your Private Link service, an explicit disable setting ```privateLinkServiceNetworkPolicies``` is required on the subnet. Follow the instructions here to [disable network policies for Private Link services](../private-link/disable-private-link-service-network-policy.md).
+- **Enable Service Endpoints on subnet.** For successful deployment of a Private Link HDInsight cluster, we recommend that you add the *Microsoft.SQL*, *Microsoft.Storage*, and *Microsoft.KeyVault* service endpoint(s) to your subnet prior to cluster deployment.  [Service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) route traffic directly from your virtual network to the service on the Microsoft Azure backbone network. Keeping traffic on the Azure backbone network allows you to continue auditing and monitoring outbound Internet traffic from your virtual networks, through forced-tunneling, without impacting service traffic. 
+
 
 ## <a name="NATorFirewall"></a>Step 3: Deploy NAT gateway *or* firewall
 
@@ -79,7 +81,7 @@ For more information on setting up a firewall, see [Control network traffic in A
 
 ## <a name="deployCluster"></a>Step 4: Deploy private link cluster
 
-At this point, all prerequisites should be taken care of and you're ready to deploy the Private Link cluster. The following diagram shows an example of the networking configuration that's required before you create the cluster. In this example, all outbound traffic is forced to Azure Firewall through a user-defined route. The required outbound dependencies should be allowed on the firewall before cluster creation. For Enterprise Security Package clusters, virtual network peering can provide the network connectivity to Azure Active Directory Domain Services.
+At this point, all prerequisites should be taken care of and you're ready to deploy the Private Link cluster. The following diagram shows an example of the networking configuration that's required before you create the cluster. In this example, all outbound traffic is forced to Azure Firewall through a user-defined route. The required outbound dependencies should be allowed on the firewall before cluster creation. For Enterprise Security Package clusters, virtual network peering can provide the network connectivity to Microsoft Entra Domain Services.
 
 :::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="Diagram of the Private Link environment before cluster creation.":::
 

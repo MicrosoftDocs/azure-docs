@@ -36,7 +36,7 @@ You buy a reserved VM instance with the size Standard_DS4_v2 where the ratio or 
 - Scenario 3: Run one Standard_DS5_v2 with a ratio of 16. Your reservation discount applies to half that VM's compute cost.
 - Scenario 4: Run one Standard_DS5_v2 with a ratio of 16 and purchase an additional Standard_DS4_v2 reservation with a ratio of 8. Both reservations combine and apply the discount to entire VM.
 
-The following sections show what sizes are in the same size series group when you buy a reserved VM instance optimized for instance size flexibility.
+The following sections show what sizes are in the same size series group when you buy a reserved VM instance optimized for instance size flexibility. SKUs that have same ratio and are in same size series group, would have no additional cost if you purchase reservation for any of those SKUs for same number of VMs running.
 
 ## Instance size flexibility ratio for VMs 
 
@@ -48,7 +48,7 @@ Azure keeps link and schema updated so that you can use the file programmaticall
 
 ## View VM size recommendations
 
-Azure shows VM size recommendations in the purchase experience. To view the smallest size recommendations, select **Group by smallest size**.
+Azure shows VM size recommendations in the purchase experience. When enabled, the **Optimize for instance size flexibility (preview)** option groups and sorts recommendations by instance size flexibility.
 
 :::image type="content" source="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" alt-text="Screenshot showing recommended quantities." lightbox="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" :::
 

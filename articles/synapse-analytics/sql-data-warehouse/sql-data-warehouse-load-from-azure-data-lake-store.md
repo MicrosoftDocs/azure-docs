@@ -32,7 +32,7 @@ Before you begin this tutorial, download and install the newest version of [SQL 
 To run this tutorial, you need:
 
 * A dedicated SQL pool. See [Create a dedicated SQL pool and query data](create-data-warehouse-portal.md).
-* A Data Lake Storage account. See [Get started with Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). For this storage account, you will need to configure or specify one of the following credentials to load: A storage account key, shared access signature (SAS) key, an Azure Directory Application user, or an Azure AD user that has the appropriate Azure role to the storage account.
+* A Data Lake Storage account. See [Get started with Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). For this storage account, you will need to configure or specify one of the following credentials to load: A storage account key, shared access signature (SAS) key, an Azure Directory Application user, or a Microsoft Entra user that has the appropriate Azure role to the storage account.
 * Currently, ingesting data using the COPY command into an Azure Storage account that is using the new [Azure Storage DNS partition feature](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-create-additional-5000-azure-storage-accounts/ba-p/3465466) results in an error. Provision a storage account in a subscription that does not use DNS partitioning for this tutorial.
 
 ## Create the target table

@@ -1,11 +1,11 @@
 ---
 title: Markdown format - QnA Maker
 description: Following is the list of markdown formats that you can use in QnA Maker's answer text.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: reference
 ms.date: 03/19/2020
 ---

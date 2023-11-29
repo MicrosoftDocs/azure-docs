@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 01/20/2023
+ms.date: 10/20/2023
 ---
 
 # Copy data from Amazon Marketplace Web Service using Azure Data Factory or Synapse Analytics
@@ -26,7 +26,7 @@ This Amazon Marketplace Web Service connector is supported for the following cap
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
  For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
@@ -70,7 +70,7 @@ The following properties are supported for Amazon Marketplace Web Service linked
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AmazonMWS** | Yes |
-| endpoint | The endpoint of the Amazon MWS server, (that is, mws.amazonservices.com)  | Yes |
+| endpoint | The endpoint of the Amazon MWS Server (that is, mws.amazonservices.com)  | Yes |
 | marketplaceID | The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (`,`). (that is, A2EUQ1WTGCTBG2)  | Yes |
 | sellerID | The Amazon seller ID.  | Yes |
 | mwsAuthToken | The Amazon MWS authentication token. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |

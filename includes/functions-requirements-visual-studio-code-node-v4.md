@@ -2,7 +2,7 @@
 author: lilyjma
 ms.service: azure-functions
 ms.topic: include
-ms.date: 02/06/2023
+ms.date: 07/06/2023
 ms.author: jiayma
 ---
 
@@ -12,6 +12,4 @@ ms.author: jiayma
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-+ The [Azure Functions extension v1.10.4](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) or above for Visual Studio Code.
-
-+ [Azure Functions Core Tools v4.0.5095 or above](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
++ The [Azure Functions extension v1.10.4](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) or above for Visual Studio Code. This extension installs [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md) for you the first time you locally run your functions. Node.js v4 requires version 4.0.5382, or a later version of Core Tools.

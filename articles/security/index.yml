@@ -15,7 +15,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 07/15/2022
+  ms.date: 09/14/2023
 
 highlightedContent:
   items:
@@ -175,8 +175,9 @@ additionalContent:
               text: Overview
             - url: ../defender-for-cloud/tutorial-protect-resources.md
               text: Protect your resources
-            - url: /training/modules/microsoft-cloud-app-security/
-              text: "Learn: Secure your cloud apps and services"
+            - url: /training/paths/sc-200-mitigate-threats-using-azure-defender/
+              text: "Learn: Mitigate threats using Microsoft Defender for Cloud"
+
 
         - title: Microsoft Defender for Identity
           summary: Improve security of hybrid environments from cyber attacks and insider threats                 
@@ -213,6 +214,8 @@ additionalContent:
               text: Get started 
             - url: /defender-cloud-apps/tutorial-suspicious-activity
               text: Detect and manage suspicious activity
+            - url: /training/modules/microsoft-cloud-app-security/
+              text: "Learn: Secure your cloud apps and services"
 
         - title: Microsoft Defender for IoT
           summary: Threat detection for IoT/OT environments
@@ -234,7 +237,7 @@ additionalContent:
             - url: /azure/information-protection/tutorial-scan-networks-and-content
               text: Discovering your sensitive content
 
-        - title: Azure Active Directory
+        - title: Microsoft Entra ID
           summary: Multi-tenant, cloud-based identity and access management service
           links: 
             - url: ../active-directory/fundamentals/active-directory-whatis.md
@@ -242,7 +245,7 @@ additionalContent:
             - url: ../active-directory/fundamentals/security-operations-introduction.md
               text: Security operations guide
             - url: /training/modules/secure-aad-users-with-mfa/
-              text: "Learn: Secure Azure Active Directory users with Multi-Factor Authentication"
+              text: "Learn: Secure Microsoft Entra users with Multi-Factor Authentication"
 
         - title: Microsoft 365 Defender
           summary: Security solutions that protect your enterprise across attack surfaces

@@ -1,11 +1,10 @@
 ---
 title: 'Quickstart: Create a custom voice assistant - Speech service'
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 author: trrwilson
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 03/20/2020
 ms.author: travisw

@@ -2,12 +2,11 @@
 title: Frequently asked questions - Translator
 titleSuffix: Azure AI services
 description: Get answers to frequently asked questions about the Translator API in Azure AI services.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar

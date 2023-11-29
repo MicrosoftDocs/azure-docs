@@ -48,4 +48,4 @@ for await (const message of messages) {
 ```
 
 ## Next steps
-- [Learn how to enable Microsoft Teams Data Loss Prevention](/microsoft-365/compliance/dlp-microsoft-teams?view=o365-worldwide)
+- [Learn how to enable Microsoft Teams Data Loss Prevention](/microsoft-365/compliance/dlp-microsoft-teams)

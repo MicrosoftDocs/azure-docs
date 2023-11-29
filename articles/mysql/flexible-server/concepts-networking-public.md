@@ -57,7 +57,7 @@ Consider the following points when access to the Microsoft Azure Database for My
 - **Firewall rule is not available for IPv6 format:** The firewall rules must be in IPv4 format. If you specify firewall rules in IPv6 format, it shows the validation error.
 
 > [!NOTE]  
-> We recommend you use the fully qualified domain name (FQDN) '<servername>.mysql.database.azure.com' in connection strings when connecting to your flexible server. The server's IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string.
+> We recommend you use the fully qualified domain name (FQDN) `<servername>.mysql.database.azure.com` in connection strings when connecting to your flexible server. The server's IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string.
 
 ## Next steps
 

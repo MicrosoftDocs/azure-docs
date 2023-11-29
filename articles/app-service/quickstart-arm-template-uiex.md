@@ -13,7 +13,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 
 # Quickstart: Create App Service app using an ARM template
 
-Get started with [Azure App Service](overview.md) by deploying a app to the cloud using an <abbr title="A JSON file that declaratively defines one or more Azure resources and dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly.">ARM template</abbr> and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart. <abbr title="In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.">The template uses declarative syntax.</abbr>
+Get started with [Azure App Service](overview.md) by deploying a app to the cloud using an ARM template (A JSON file that declaratively defines one or more Azure resources and dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly.) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart. The template uses declarative syntax. (In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.)
 
  If your environment meets the prerequisites and you're familiar with using [ARM templates](../azure-resource-manager/templates/overview.md), select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -101,7 +101,7 @@ The following table details defaults parameters and their descriptions:
 ::: zone pivot="platform-windows"
 Run the code below to deploy a .NET framework app on Windows using Azure CLI. 
 
-Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`."> \<app-name> </abbr> with a globally unique app name. To learn other <abbr title="You can also use the Azure portal, Azure PowerShell, and REST API.">deployment methods</abbr>, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md). You can find more [Azure App Service template samples here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
+Replace \<app-name> (Valid characters characters are `a-z`, `0-9`, and `-`.) with a globally unique app name. To learn other deployment methods (You can also use the Azure portal, Azure PowerShell, and REST API.), see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md). You can find more [Azure App Service template samples here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -126,16 +126,16 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <summary>What's the code doing?</summary>
 <p>The commands do the following actions:</p>
 <ul>
-<li>Create a default <abbr title="A logical container for related Azure resources that you can manage as a unit.">resource group</abbr>.</li>
-<li>Create a default <abbr title="The plan that specifies the location, size, and features of the web server farm that hosts your app.">App Service plan</abbr>.</li>
-<li><a href="/cli/azure/webapp#az-webapp-create">Create an <abbr title="The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.">App Service app</abbr></a> with the specified name.</li>
+<li>Create a default resource group (A logical container for related Azure resources that you can manage as a unit.).</li>
+<li>Create a default App Service plan (The plan that specifies the location, size, and features of the web server farm that hosts your app.).</li>
+<li><a href="/cli/azure/webapp#az-webapp-create">Create an App Service app (The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.)</a> with the specified name.</li>
 </ul>
 </details>
 
 ::: zone pivot="platform-windows"
 <details>
 <summary>How do I deploy a different language stack?</summary>
-To deploy a different language stack, update <abbr title="This template is compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps.">language parameter</abbr> with appropriate values. For Java, see <a href="/azure/app-service/quickstart-java-uiex">Create Java app</a>.
+To deploy a different language stack, update language parameter (This template is compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps.) with appropriate values. For Java, see <a href="/azure/app-service/quickstart-java-uiex">Create Java app</a>.
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
@@ -181,8 +181,8 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 
 ## Next steps
 
-- [Deploy from local Git](deploy-local-git.md)
-- [ASP.NET Core with SQL Database](tutorial-dotnetcore-sqldb-app.md)
-- [Python with Postgres](tutorial-python-postgresql-app.md)
-- [PHP with MySQL](tutorial-php-mysql-app.md)
-- [Connect to Azure SQL database with Java](/azure/azure-sql/database/connect-query-java?toc=%2fazure%2fjava%2ftoc.json)
+- [Deploy from local Git](deploy-local-git.md)
+- [ASP.NET Core with SQL Database](tutorial-dotnetcore-sqldb-app.md)
+- [Python with Postgres](tutorial-python-postgresql-app.md)
+- [PHP with MySQL](tutorial-php-mysql-app.md)
+- [Connect to Azure SQL database with Java](/azure/azure-sql/database/connect-query-java?toc=%2fazure%2fjava%2ftoc.json)

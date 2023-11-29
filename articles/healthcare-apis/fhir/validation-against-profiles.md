@@ -19,16 +19,18 @@ Per specification, Mode can be specified with `$validate`, such as create and up
 - `update`: Checks that the profile is an update against the nominated existing resource (that is no changes are made to the immutable fields).
 
 There are different ways provided for you to validate resource:
-- Validate an existing resource with validate operation.
-- Validate a new resource with validate operation.
-- Validate on resource CREATE/ UPDATE using header.
+- Option 1: Validate an existing resource with validate operation.
+- Option 2: Validate a new resource with validate operation.
+- Option 3: Validate on resource CREATE/ UPDATE using header.
+
+On the successful validation of an existing/ new resource with the validate operation, resource is not persisted into the FHIR service. Use Option 3: Validate on resource CREATE/ UPDATE using header, to persist successfully validated resource to the FHIR service.
 
 FHIR Service will always return an `OperationOutcome` as the validation results for $validate operation. FHIR service does two step validation, once a resource is passed into $validate endpoint - the first step is a basic validation to ensure resource can be parsed. During resource parsing, individual errors need to be fixed before proceeding further to next step. Once resource is successfully parsed, full validation is conducted as second step.
 
 > [!NOTE]
 > Any valuesets that are to be used for validation must be uploaded to the FHIR server.  This includes any Valuesets which are part of the FHIR specification,  as well as any ValueSets defined in Implementation Guides.  Only fully expanded Valuesets which contain a full list of all codes are supported.  Any     ValueSet definitions which reference external sources are not supported.
 
-## Validating an existing resource
+## Option 1: Validating an existing resource
 
 To validate an existing resource, use `$validate` in a `GET` request:
 
@@ -100,7 +102,7 @@ If you'd like to specify a profile as a parameter, you can specify the canonical
 
 `GET https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/Observation/12345678/$validate?profile=http://hl7.org/fhir/StructureDefinition/heartrate`
 
-## Validating a new resource
+## Option 2: Validating a new resource
 
 If you'd like to validate a new resource that you're uploading to the server, you can do a `POST` request:
 
@@ -113,7 +115,7 @@ For example:
 This request will first validate the resource. New resource you're specifying in the request will be created after validation.
 The server will always return an `OperationOutcome` as the result.
 
-## Validate on resource CREATE/UPDATE using header
+## Option 3: Validate on resource CREATE/UPDATE using header
 
 You can choose when you'd like to validate your resource, such as on resource `CREATE` or `UPDATE`. By default, the FHIR service is configured to opt out of validation on resource `Create/Update`. This capability allows to validate on `Create/Update`, using the `x-ms-profile-validation` header. Set `x-ms-profile-validation' to true for validation.
 
@@ -130,6 +132,7 @@ You can choose when you'd like to validate your resource, such as on resource `C
         }
 }
 ```
+To enable strict validation, use 'Prefer: handling' header with value strict. By setting this header, validation warning will be reported as an error. 
 
 ## Next steps
 

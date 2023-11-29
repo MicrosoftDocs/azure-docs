@@ -35,7 +35,7 @@ You can connect to your VM using a remote desktop tool like Remote Desktop (Wind
 ### Azure API
 From a REST client, follow these instructions:
 
-1. Ensure that you have an authenticated connection to the Azure portal. Follow the steps presented in [Create an Azure Active Directory application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). 
+1. Ensure that you have an authenticated connection to the Azure portal. Follow the steps presented in [Create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). 
 2. Send a request in the following format:
 
     ```http

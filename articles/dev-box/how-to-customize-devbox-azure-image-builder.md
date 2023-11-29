@@ -1,7 +1,7 @@
 ---
 title: Configure a dev box by using Azure VM Image Builder
 titleSuffix: Microsoft Dev Box
-description: Learn how to create a custom image by using Azure VM Image Builder, and then create a dev box by using the image.
+description: Learn how to use Azure VM Image Builder to build a custom image for configuring dev boxes with Microsoft Dev Box.
 services: dev-box
 ms.service: dev-box
 ms.custom: devx-track-azurepowershell
@@ -11,13 +11,11 @@ ms.date: 04/25/2023
 ms.topic: how-to
 ---
 
-# Configure a dev box by using Azure VM Image Builder
+# Configure a dev box by using Azure VM Image Builder and Microsoft Dev Box
 
-When your organization uses standardized virtual machine (VM) images, it can more easily migrate to the cloud and help ensure consistency in your deployments.
+In this article, you use Azure VM Image Builder to create a customized dev box in Microsoft Dev Box by using a template. The template includes a customization step to install Visual Studio Code (VS Code).
 
-Images ordinarily include predefined security, configuration settings, and any necessary software. Setting up your own imaging pipeline requires time, infrastructure, and many other details. With Azure VM Image Builder, you can create a configuration that describes your image. The service then builds the image and submits it to a dev box project.
-
-In this article, you create a customized dev box by using a template. The template includes a customization step to install Visual Studio Code (VS Code).
+When your organization uses standardized virtual machine (VM) images, it can more easily migrate to the cloud and help ensure consistency in your deployments. Images ordinarily include predefined security, configuration settings, and any necessary software. Setting up your own imaging pipeline requires time, infrastructure, and many other details. With Azure VM Image Builder, you can create a configuration that describes your image. The service then builds the image and submits it to a dev box project.
 
 Although it's possible to create custom VM images by hand or by using other tools, the process can be cumbersome and unreliable. VM Image Builder, which is built on HashiCorp Packer, gives you the benefits of a managed service.
 
@@ -44,7 +42,7 @@ To provision a custom image that you created by using VM Image Builder, you need
 
 ## Create a Windows image and distribute it to Azure Compute Gallery
 
-The next step is to use Azure VM Image Builder and Azure PowerShell to create an image version in Azure Compute Gallery and then distribute the image globally. You can also do this by using the Azure CLI.
+The first step is to use Azure VM Image Builder and Azure PowerShell to create an image version in Azure Compute Gallery and then distribute the image globally. You can also do this by using the Azure CLI.
 
 1. To use VM Image Builder, you need to register the features.
 
@@ -157,7 +155,7 @@ $features = @($SecurityType)
 New-AzGalleryImageDefinition -GalleryName $galleryName -ResourceGroupName $imageResourceGroup -Location $location -Name $imageDefName -OsState generalized -OsType Windows -Publisher 'myCompany' -Offer 'vscodebox' -Sku '1-0-0' -Feature $features -HyperVGeneration "V2" 
 ```
 
-1. Copy the following Azure Resource Manger template for VM Image Builder. This template indicates the source image and the customizations applied. This template installs Choco and VS Code. It also indicates where the image will be distributed.
+1. Copy the following Azure Resource Manger template for VM Image Builder. This template indicates the source image and the customizations applied. This template installs Choco and VS Code. It also indicates where the image is distributed.
 
     ```json
     {
@@ -281,10 +279,10 @@ Alternatively, you can view the provisioning state of your image in the Azure po
 
 After your custom image has been provisioned in the gallery, you can configure the gallery to use the images in the dev center. For more information, see [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).
 
-## Set up the Dev Box service with a custom image
+## Set up Microsoft Dev Box with a custom image
 
-After the gallery images are available in the dev center, you can use the custom image with the Microsoft Dev Box  service. For more information, see [Quickstart: Configure Microsoft Dev Box ](./quickstart-configure-dev-box-service.md).
+After the gallery images are available in the dev center, you can use the custom image with Microsoft Dev Box. For more information, see [Quickstart: Configure Microsoft Dev Box](./quickstart-configure-dev-box-service.md).
 
-## Next steps
+## Related content
 
 - [3. Create a dev box definition](quickstart-configure-dev-box-service.md#3-create-a-dev-box-definition)

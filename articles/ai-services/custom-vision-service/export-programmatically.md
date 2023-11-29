@@ -2,12 +2,11 @@
 title: "Export a model programmatically"
 titleSuffix: Azure AI services
 description: Use the Custom Vision client library to export a trained model.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: custom-vision
+ms.service: azure-ai-custom-vision
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.author: pafarley

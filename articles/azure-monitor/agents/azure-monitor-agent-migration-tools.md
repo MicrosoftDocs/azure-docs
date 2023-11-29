@@ -14,7 +14,7 @@ ms.custom:
 
 [Azure Monitor Agent (AMA)](./agents-overview.md) replaces the Log Analytics agent (also known as MMA and OMS) for Windows and Linux machines, in Azure and non-Azure environments, including on-premises and third-party clouds. The [benefits of migrating to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) include enhanced security, cost-effectiveness, performance, manageability and reliability. This article explains how to use the AMA Migration Helper and DCR Config Generator tools to help automate and track the migration from Log Analytics Agent to Azure Monitor Agent.
 
-![Flow diagram that shows the steps involved in agent migration and how the migration tools help in generating DCRs and tracking the entire migration process.](media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png)  
+:::image type="content" source="media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png" lightbox="media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png" alt-text="Flow diagram that shows the steps involved in agent migration and how the migration tools help in generating DCRs and tracking the entire migration process.":::  
 
 > [!IMPORTANT]
 > Do not remove legacy agents being used by other [Azure solutions or services](./azure-monitor-agent-migration.md#migrate-additional-services-and-features). Use the migration helper to discover which solutions and services you use today.
@@ -31,8 +31,8 @@ You can access the workbook **[here](https://portal.azure.com/#view/AppInsightsE
 :::image type="content" source="media/azure-monitor-migration-tools/ama-migration-helper.png" lightbox="media/azure-monitor-migration-tools/ama-migration-helper.png" alt-text="Screenshot of the Azure Monitor Agent Migration Helper workbook. The screenshot highlights the Subscription and Workspace dropdowns and shows the Azure Virtual Machines tab, on which you can track which agent is deployed on each virtual machine.":::
 
 **Automatic Migration Recommendations**
-
-:::image type="content" source="media/azure-monitor-migration-tools/ama-migration-helper-recommendations.png" lightbox="media/azure-monitor-migration-tools/ama-migration-helper-recommendations.png" alt-text="Screenshot of the Azure Monitor Agent Migration Helper workbook. The screenshot highlights the automatic migration recommendations based on sample usage across machines within selected scope.":::
+<!-- convertborder later -->
+:::image type="content" source="media/azure-monitor-migration-tools/ama-migration-helper-recommendations.png" lightbox="media/azure-monitor-migration-tools/ama-migration-helper-recommendations.png" alt-text="Screenshot of the Azure Monitor Agent Migration Helper workbook. The screenshot highlights the automatic migration recommendations based on sample usage across machines within selected scope." border="false":::
 
 ## Installing and using DCR Config Generator 
 Azure Monitor Agent relies only on [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) for configuration, whereas Log Analytics Agent inherits its configuration from Log Analytics workspaces. 

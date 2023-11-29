@@ -16,15 +16,15 @@ zone_pivot_groups: passwordless-postgresql
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Java ❌ C#
+**This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 With Azure Spring Apps, you can bind select Azure services to your applications automatically, instead of having to configure your Spring Boot application manually. This article shows you how to bind your application to your Azure Database for PostgreSQL instance.
 
-In this article, we include two authentication methods: Azure Active Directory (Azure AD) authentication and PostgreSQL authentication. The Passwordless tab shows the Azure AD authentication and the Password tab shows the PostgreSQL authentication.
+In this article, we include two authentication methods: Microsoft Entra authentication and PostgreSQL authentication. The Passwordless tab shows the Microsoft Entra authentication and the Password tab shows the PostgreSQL authentication.
 
-Azure AD authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
 PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to use passwords as credentials for the accounts, these credentials are stored in the user table. Because these passwords are stored in PostgreSQL, you need to manage the rotation of the passwords by yourself.
 
@@ -36,7 +36,9 @@ PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to u
 * An Azure Database for PostgreSQL Flexible Server instance.
 * [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 
-## Prepare your Java project
+## Prepare your project
+
+### [Java](#tab/JavaFlex)
 
 Use the following steps to prepare your project.
 
@@ -57,10 +59,21 @@ Use the following steps to prepare your project.
 
 1. Update the current app by running `az spring app deploy`, or create a new deployment for this change by running `az spring app deployment create`.
 
+### [Polyglot](#tab/PolyglotFlex)
+
+All the connection strings and credentials are injected as environment variables, which you can reference in your application code.
+
+For the default environment variable names, see [Integrate Azure Database for PostgreSQL with Service Connector](../service-connector/how-to-integrate-postgres.md#default-environment-variable-names-or-application-properties-and-sample-code).
+
+---
+
 ## Bind your app to the Azure Database for PostgreSQL instance
 
 > [!NOTE]
 > Be sure to select only one of the following approaches to create a connection. If you've already created tables with one connection, other users can't access or modify the tables. When you try the other approach, the application will throw errors such as "Permission denied". To fix this issue, connect to a new database or delete and recreate an existing one.
+
+> [!NOTE]
+> Service Connectors are created at the deployment level. So, if another deployment is created, you need to create the connections again.
 
 ### [Passwordless (Recommended)](#tab/Passwordlessflex)
 
@@ -118,7 +131,9 @@ Use the following steps to bind your app using a secret.
 * An Azure Database for PostgreSQL Single Server instance.
 * [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 
-## Prepare your Java project
+## Prepare your project
+
+### [Java](#tab/JavaSingle)
 
 Use the following steps to prepare your project.
 
@@ -139,7 +154,18 @@ Use the following steps to prepare your project.
 
 1. Update the current app by running `az spring app deploy`, or create a new deployment for this change by running `az spring app deployment create`.
 
+### [Polyglot](#tab/PolyglotSingle)
+
+All the connection strings and credentials will be injected as the environment variables, which can be referenced in your application codes.
+
+You can find the default environment variable names in this doc: [Integrate Azure Database for PostgreSQL with Service Connector](../service-connector/how-to-integrate-postgres.md#default-environment-variable-names-or-application-properties-and-sample-code)
+
+---
+
 ## Bind your app to the Azure Database for PostgreSQL instance
+
+> [!NOTE]
+> Service Connectors are created at the deployment level. So if another deployment is created, you need to create the connections again.
 
 ### [Passwordless](#tab/PasswordlessSingle)
 

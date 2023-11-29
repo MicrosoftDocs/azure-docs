@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/17/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -52,7 +52,7 @@ In this example, the function is used to average the values of a specific field 
 - If any arguments in `AVG` are string, boolean, or null; the entire aggregate system function returns `undefined`.
 - If any individual argument has an `undefined` value that value isn't included in the `AVG` calculation.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`SUM`](sum.md)

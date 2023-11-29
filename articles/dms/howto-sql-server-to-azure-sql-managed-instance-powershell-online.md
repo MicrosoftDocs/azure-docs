@@ -2,13 +2,15 @@
 title: "PowerShell: Migrate SQL Server to SQL Managed Instance online"
 titleSuffix: Azure Database Migration Service
 description: Learn to online migrate from SQL Server to Azure SQL Managed Instance by using Azure PowerShell and the Azure Database Migration Service.
-author: croblesm
-ms.author: roblescarlos
-ms.reviewer: craigg
+author: abhims14
+ms.author: abhishekum
+ms.reviewer: randolphwest
 ms.date: 12/16/2020
 ms.service: dms
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sql-migration-content
 ---
 
 # Migrate SQL Server to SQL Managed Instance online with PowerShell & Azure Database Migration Service
@@ -46,7 +48,7 @@ To complete these steps, you need:
 * To ensure that the credentials used to connect to target SQL Managed Instance has the CONTROL DATABASE permission on the target SQL Managed Instance databases.
 
     > [!IMPORTANT]
-    > For online migrations, you must already have set up your Azure Active Directory credentials. For more information, see the article [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
+    > For online migrations, you must already have set up your Microsoft Entra credentials. For more information, see the article [Use the portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## Create a resource group
 
@@ -184,9 +186,11 @@ $storageAccountResourceId = "/subscriptions/<subscriptionname>/resourceGroups/<r
 ```
 
 
-### Configure Azure Active Directory App
+<a name='configure-azure-active-directory-app'></a>
 
-Provide the required details for Azure Active Directory for an online SQL Managed Instance migration: 
+### Configure Microsoft Entra App
+
+Provide the required details for Microsoft Entra ID for an online SQL Managed Instance migration: 
 
 ```powershell
 # AAD properties

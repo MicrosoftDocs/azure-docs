@@ -164,8 +164,12 @@
     href: ./shared/manage-policies.md
   - name: Protect APIs hosted in APIM using Web Application Firewall
     href: ./afds/protect-api-hosted-apim-by-waf.md
+  - name: Protect Azure OpenAI using Azure Web Application Firewall
+    href: ./afds/protect-azure-open-ai.md
   - name: Using Microsoft Sentinel with Web Application Firewall
     href: waf-sentinel.md
+  - name: Automated detection and response
+    href: ./afds/automated-detection-response-with-sentinel.md
   - name: Troubleshoot
     items:
      - name: Application Gateway

@@ -2,11 +2,10 @@
 title: What is Image Analysis?
 titleSuffix: Azure AI services
 description: The Image Analysis service uses pretrained AI models to extract many different visual features from images. 
-services: cognitive-services 
+#services: cognitive-services 
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services 
-ms.subservice: computer-vision 
+ms.service: azure-ai-vision
 ms.custom: ignite-2022, references_regions, build-2023, build-2023-dataai
 ms.topic: overview
 ms.date: 07/04/2023
@@ -69,13 +68,13 @@ The Product Recognition APIs let you analyze photos of shelves in a retail store
 
 [Product Recognition](./concept-shelf-analysis.md)
 
-## Image Retrieval (v4.0 preview only)
+## Multi-modal embeddings (v4.0 preview only)
 
-The Image Retrieval APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without the need to use image tags or other metadata. Semantic closeness often produces better results in search.
+The multi-modal embeddings APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without needing to use image tags or other metadata. Semantic closeness often produces better results in search.
 
 These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
-[Image Retrieval](./concept-image-retrieval.md)
+[Multi-modal embeddings](./concept-image-retrieval.md)
 
 ## Background removal (v4.0 preview only)
 

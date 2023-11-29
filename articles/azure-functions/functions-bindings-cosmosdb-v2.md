@@ -4,7 +4,7 @@ description: Understand how to use Azure Cosmos DB triggers and bindings in Azur
 ms.topic: reference
 ms.custom: ignite-2022, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 11/29/2022
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Cosmos DB trigger and bindings for Azure Functions 2.x and higher overview
@@ -35,15 +35,15 @@ This set of articles explains how to work with [Azure Cosmos DB](../cosmos-db/se
 
 The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
+
+# [In-process model](#tab/in-process)
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
 In a variation of this model, Functions can be run using [C# scripting], which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
-
-# [Isolated process](#tab/isolated-process)
-
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 ---
 
@@ -71,6 +71,15 @@ This version of the Azure Cosmos DB bindings extension introduces the ability to
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/), version 4.x.
 
+If you're writing your application using F#, you must also configure this extension as part of the app's [startup configuration](./dotnet-isolated-process-guide.md#start-up-and-configuration). In the call to `ConfigureFunctionsWorkerDefaults()` or `ConfigureFunctionsWebApplication()`, add a delegate that takes an `IFunctionsWorkerApplication` parameter. Then within the body of that delegate, call `ConfigureCosmosDBExtension()` on the object:
+
+```fsharp
+let hostBuilder = new HostBuilder()
+hostBuilder.ConfigureFunctionsWorkerDefaults(fun (context: HostBuilderContext) (appBuilder: IFunctionsWorkerApplicationBuilder) ->
+    appBuilder.ConfigureCosmosDBExtension() |> ignore
+) |> ignore
+```
+
 # [Functions 2.x+](#tab/functionsv2/isolated-process)
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/), version 3.x.
@@ -79,7 +88,7 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 
@@ -89,7 +98,7 @@ The Azure Cosmos DB bindings extension is part of an [extension bundle], which i
 ::: zone pivot="programming-language-java"   
 [!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"   
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"   
 
 # [Bundle v4.x](#tab/extensionv4)
 
@@ -125,14 +134,14 @@ You can install this version of the extension in your function app by registerin
 
 The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following: 
    
-# [In-process](#tab/in-process)
-
-An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
- 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
 
+# [In-process model](#tab/in-process)
+
+An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+ 
 ---
 
 Choose a version to see binding type details for the mode and version. 

@@ -2,11 +2,10 @@
 title: "Quickstart: Use the Key Phrase Extraction client library"
 titleSuffix: Azure AI services
 description: Use this quickstart to start using the Key Phrase Extraction API.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: quickstart
 ms.date: 02/17/2023
 ms.author: jboback

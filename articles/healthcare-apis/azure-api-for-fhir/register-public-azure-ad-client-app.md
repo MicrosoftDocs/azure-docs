@@ -1,27 +1,29 @@
 ---
-title: Register a public client app in Azure AD - Azure API for FHIR
-description: This article explains how to register a public client application in Azure Active Directory, in preparation for deploying FHIR API in Azure.
+title: Register a public client app in Microsoft Entra ID - Azure API for FHIR
+description: This article explains how to register a public client application in Microsoft Entra ID, in preparation for deploying FHIR API in Azure.
 author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ms.author: kesheth
 ---
 
-# Register a public client application in Azure Active Directory for Azure API for FHIR
+# Register a public client application in Microsoft Entra ID for Azure API for FHIR
 
-In this article, you'll learn how to register a public application in Azure Active Directory (Azure AD).  
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-Client application registrations are Azure AD representations of applications that can authenticate and ask for API permissions on behalf of a user. Public clients are applications such as mobile applications and single page JavaScript applications that can't keep secrets confidential. The procedure is similar to [registering a confidential client](register-confidential-azure-ad-client-app.md), but since public clients can't be trusted to hold an application secret, there's no need to add one.
+In this article, you'll learn how to register a public application in Microsoft Entra ID.  
+
+Client application registrations are Microsoft Entra representations of applications that can authenticate and ask for API permissions on behalf of a user. Public clients are applications such as mobile applications and single page JavaScript applications that can't keep secrets confidential. The procedure is similar to [registering a confidential client](register-confidential-azure-ad-client-app.md), but since public clients can't be trusted to hold an application secret, there's no need to add one.
 
 The quickstart provides general information about how to [register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 
 ## App registrations in Azure portal
 
-1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, select **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, select **Microsoft Entra ID**.
 
-2. In the **Azure Active Directory** blade, select **App registrations**:
+2. In the **Microsoft Entra ID** blade, select **App registrations**:
 
     ![Azure portal. New App Registration.](media/add-azure-active-directory/portal-aad-new-app-registration.png)
 
@@ -55,13 +57,13 @@ Permissions for Azure API for FHIR are managed through RBAC. For more details, v
 >Use  grant_type of client_credentials when trying to otain an access token for Azure API for FHIR using tools such as Postman. For more details, visit [Testing the FHIR API on Azure API for FHIR](tutorial-web-app-test-postman.md).
 
 ## Validate FHIR server authority
-If the application you registered in this article and your FHIR server are in the same Azure AD tenant, you're good to proceed to the next steps.
+If the application you registered in this article and your FHIR server are in the same Microsoft Entra tenant, you're good to proceed to the next steps.
 
-If you configure your client application in a different Azure AD tenant from your FHIR server, you'll need to update the **Authority**. In Azure API for FHIR, you do set the Authority under Settings --> Authentication. Set your Authority to ``https://login.microsoftonline.com/\<TENANT-ID>`.
+If you configure your client application in a different Microsoft Entra tenant from your FHIR server, you'll need to update the **Authority**. In Azure API for FHIR, you do set the Authority under Settings --> Authentication. Set your Authority to ``https://login.microsoftonline.com/\<TENANT-ID>`.
 
 ## Next steps
 
-In this article, you've learned how to register a public client application in Azure AD. Next, test access to your FHIR Server using Postman.
+In this article, you've learned how to register a public client application in Microsoft Entra ID. Next, test access to your FHIR Server using Postman.
  
 >[!div class="nextstepaction"]
 >[Access the FHIR service using Postman](./../fhir/use-postman.md)

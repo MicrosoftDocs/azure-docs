@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 06/20/2023
 ms.author: maquaran
 ms.devlang: csharp, java
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-python
 zone_pivot_groups: programming-languages-set-cosmos
 ---
 
@@ -91,7 +91,17 @@ The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries l
 
 # [V3 .NET SDK](#tab/v3)
 
-For queries that target a Partition Key by setting the [PartitionKey](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.partitionkey) property in `QueryRequestOptions` and contain no aggregations (including Distinct, DCount, Group By):
+For queries that target a Partition Key by setting the [PartitionKey](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.partitionkey) property in `QueryRequestOptions` and contain no aggregations (including Distinct, DCount, Group By). In this example, the partition key field of `/state` is filtered on the value `Washington`.
+
+```csharp
+using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem>(
+    "SELECT * FROM c WHERE c.city = 'Seattle' AND c.state = 'Washington'"
+{
+    // ...
+}
+```
+
+Optionally, you can provide the partition key as a part of the request options object.
 
 ```cs
 using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem>(

@@ -22,7 +22,7 @@ The following metric is available for virtual hub router within a virtual hub:
 
 | Metric | Description|
 | --- | --- |
-| **Virtual Hub Data Processed** | Data on how much traffic traverses the virtual hub router in a given time period. Note that only the following flows use the virtual hub router: VNet to VNet (same hub) and VPN/ExpressRoute branch to VNet (interhub).|
+| **Virtual Hub Data Processed** | Data on how much traffic traverses the virtual hub router in a given time period. Note that only the following flows use the virtual hub router: VNet to VNet (same hub and interhub) and VPN/ExpressRoute branch to VNet (interhub). If a virtual hub is secured with routing intent, then these flows will traverse the firewall instead of the hub router. |
 
 #### PowerShell steps
 
@@ -112,8 +112,8 @@ The following metrics are available for Azure ExpressRoute gateways:
 
 | Metric | Description|
 | --- | --- |
-| **BitsInPerSecond** |  Bits per second ingressing Azure via ExpressRoute gateway that can be further split for specific connections. |
-| **BitsOutPerSecond** | Bits per second egressing Azure via ExpressRoute gateway that can be further split for specific connections.  |
+| **BitsInPerSecond** |  Bits per second ingressing Azure via ExpressRoute that can be further split for specific connections. |
+| **BitsOutPerSecond** | Bits per second egressing Azure via ExpressRoute that can be further split for specific connections.  |
 | **Bits Received Per Second** | Total Bits received on ExpressRoute gateway per second. |
 | **CPU Utilization** | CPU Utilization of the ExpressRoute gateway.|
 | **Packets per second** | Total Packets received on ExpressRoute gateway per second.|
