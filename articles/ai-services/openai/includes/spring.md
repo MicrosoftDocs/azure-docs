@@ -76,9 +76,9 @@ ai-completion-demo/
                         |-- AiCompletionApplicationTests.java
 ```
 
-## Edit Spring application
+## Edit the Spring application
 
-1. Edit pom.xml file.
+1. Edit the *pom.xml* file.
 
    From the root of the project directory, open the *pom.xml* file in your preferred editor or IDE and overwrite the file with following content:
 
