@@ -87,7 +87,9 @@ Azure reliability guidance contains the following:
 [Azure Web Application Firewall](../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 
 ### ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic services
+
 | **Products**  | 
+|--------------|
 |  [Azure Spring Apps](reliability-spring-apps.md) |
 
 ## Azure Service Manager Retirement
