@@ -27,7 +27,8 @@ The following script demonstrates how to setup an Azure environment with powersh
 1. Open PowerShell 
 1. Copy the following code 
 	1. Install the module Az.HdInsightOnAks 
-	   Install-Module -Name Az.HdInsightOnAks 
+	   Install-Module -Name Az.HdInsightOnAks
+    		:::image type="content" source="./media/powershell-cluster-create/powershell.png" alt-text="Screenshot shows install the module HDInsight on Aks." lightbox="./media/powershell-cluster-create/powershell.png":::
 	1. Login to azure account and set the default subscription id 
 		Connect-AzAccount 
 		Set-AzContext -Subscription {your subscription id} 
@@ -46,11 +47,7 @@ The following script demonstrates how to setup an Azure environment with powersh
 - MSI resource id: “/subscriptions/<subscription ID>/resourcegroups/<resource group name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<Managed identity name>" 
 - MSI client id (See below) 
 - MSI object id (See below) 
-
-
-Image
-
-
+	:::image type="content" source="./media/powershell-cluster-create/overview.png" alt-text="Screenshot shows MSI object id." lightbox="./media/powershell-cluster-create/overview.png":::
 - Microsoft Entra user ID: [Find tenant ID, domain name, user object ID - Partner Center | Microsoft Learn](/partner-center/find-ids-and-domain-names) 
 - [HDInsight on AKS VM list](/azure/hdinsight-aks/virtual-machine-recommendation-capacity-planning)
   
