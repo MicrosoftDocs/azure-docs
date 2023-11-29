@@ -39,18 +39,18 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 1. (Optional) If you're querying an ADX or ARG cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
 
-```KQL
-    adx('https://help.kusto.windows.net/Samples').table    
-    | where MyTS >= ago(5m) and MyTS <= now()
-```     
-
-```KQL
-    arg("").Resources
-    | where type =~ 'Microsoft.Compute/virtualMachines'
-    | project _ResourceId=tolower(id), tags
-```
-
-:::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-conditions-tab.png" alt-text="Screenshot that shows the Condition tab when creating a new log alert rule.":::
+    ```KQL
+        adx('https://help.kusto.windows.net/Samples').table    
+        | where MyTS >= ago(5m) and MyTS <= now()
+    ```     
+    
+    ```KQL
+        arg("").Resources
+        | where type =~ 'Microsoft.Compute/virtualMachines'
+        | project _ResourceId=tolower(id), tags
+    ```
+    
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-conditions-tab.png" alt-text="Screenshot that shows the Condition tab when creating a new log alert rule.":::
 
 1. Select **Run** to run the alert.
 1. The **Preview** section shows you the query results. When you're finished editing your query, select **Continue Editing Alert**.

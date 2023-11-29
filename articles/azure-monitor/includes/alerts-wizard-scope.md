@@ -6,7 +6,7 @@ ms.author: abbyweisberg
 author: AbbyMSFT
 ---
 
-## Configure the acope of the alert rule
+## Configure the scope of the alert rule
 
 1. On the **Select a resource** pane, set the scope for your alert rule. You can filter by **subscription**, **resource type**, or **resource location**.
 1. Select **Apply**.
