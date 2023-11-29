@@ -6280,7 +6280,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-disable.md",
+            "source_path_from_root": "/articles/azure-monitor/containers/prometheus-metrics-disable.md",
             "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-enable#disable-prometheus-metric-collection",
             "redirect_document_id": false
         },        {
