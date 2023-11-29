@@ -11,10 +11,9 @@ ms.author: austinmc
 
 # Data connector definitions reference for the Codeless Connector Platform
 
-To create a data connector with the Codeless Connector Platform (CCP), use this document as a supplement to the [Microsoft Sentinel REST API for Data Connector Definitions](/rest/api/securityinsights/data-connector-definitions) reference docs. Specifically this reference document expands on the following details:
+To create a data connector with the Codeless Connector Platform (CCP), use this document as a supplement to the [Microsoft Sentinel REST API for Data Connector Definitions](/rest/api/securityinsights/data-connector-definitions) reference docs. Specifically this reference document expands on the following section:
 
 - `connectorUiConfig` - defines the visual elements and text displayed on the data connector page in Microsoft Sentinel.
-- `connectionsConfig` - defines the template name, usually the dataConnectors ARM templates.
 
 ## Data connector definitions - Create or update
 
@@ -45,8 +44,7 @@ The request body for creating a CCP data connector definition with the API has t
 {
     "kind": "Customizable",
     "properties": {
-        "connectorUIConfig": {}, 
-        "connectionsConfig": {}
+        "connectorUIConfig": {}
     }
 }
 ```
@@ -55,9 +53,8 @@ The request body for creating a CCP data connector definition with the API has t
 
 |Name	|Required	|Type	|Description |
 | ---- | ---- | ---- | ---- |
-| **Kind** | True | String	|`Customizable` for API polling data connector or `Static` otherwise| 
-|properties.**connectorUiConfig**	| True	|Nested JSON<br>[connectorUiConfig](#configure-your-connectors-user-interface) |The UI configuration properties of the data connector|
-|properties.**connectionsConfig**	| Optional for `Customizable`	| Nested JSON<br>[connectionsConfig](#connections-configuration-template-spec) |The template spec of the data connector|
+| **Kind** | True | String	| `Customizable` for API polling data connector or `Static` otherwise | 
+| properties.**connectorUiConfig**	| True	| Nested JSON<br>[connectorUiConfig](#configure-your-connectors-user-interface) | The UI configuration properties of the data connector |
 
 ## Configure your connector's user interface
 

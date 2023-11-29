@@ -74,7 +74,6 @@ The request body for the CCP data connector has the following structure:
 | **kind** | True | string | Must be `RestApiPoller` |
 | **etag** |  | GUID | Leave empty for creation of new connectors. For update operations, the etag must match the existing connector's etag (GUID). |
 | properties.connectorDefinitionName |  | string | The name of the DataConnectorDefinition resource that defines the UI configuration of the data connector. For more information, see [Data Connector Definition](create-codeless-connector.md#data-connector-user-interface). |
-| properties.**dataType** | True | string | This is only used internally. Use a descriptor to serve your development needs. |
 | properties.**auth**	| True | Nested JSON | Describes the authentication properties for polling the data. For more information, see [authentication configuration](#authentication-configuration). |
 | properties.**request** | True | Nested JSON | Describes the request payload for polling the data, such as the API endpoint. For more information, see [request configuration](#request-configuration). |
 | properties.**response** | True | Nested JSON | Describes the response object and nested message returned from the API when polling the data. For more information, see [response configuration](#response-configuration). |
@@ -104,8 +103,8 @@ Example Basic auth using parameters defined in `connectorUIconfig`:
 ```json
 "auth": {
     "type": "Basic",
-    "UserName": "[parameters('username')]",
-    "Password": "[parameters('password')]"
+    "UserName": "[[parameters('username')]",
+    "Password": "[[parameters('password')]"
 }
 ```
 
@@ -122,7 +121,7 @@ APIKey auth examples:
 ```json
 "auth": {
     "type": "APIKey",
-    "ApiKey": "[parameters('apikey')]",
+    "ApiKey": "[[parameters('apikey')]",
     "ApiKeyName": "X-MyApp-Auth-Header",
     "ApiKeyIdentifier": "Bearer"
 }
@@ -214,17 +213,19 @@ Example:
 The request section defines how the CCP data connector sends requests to your data source. This section includes some available built-in variables.
 - `_QueryWindowStartTime`
 - `_QueryWindowEndTime`
+- `_APIKeyName`
+- `_APIKey`
 
-{_QueryWindowStartTime} and {_QueryWindowEndTime} are only supported in the queryParameters and queryParametersTemplate request parameters.
+`_QueryWindowStartTime` and `_QueryWindowEndTime` are only supported in the `queryParameters` and `queryParametersTemplate` request parameters.
 {_APIKeyName} and {_APIKey} are only supported in the queryParametersTemplate request parameter.
 
 |Field |Required |Type |Description	|
 | ---- | ---- | ---- | ---- |
-| **apiEndpoint** | True | String | URL for remote server. Defines the endpoint to pull data from. |
-| **rateLimitQPS** |  | Integer | Defines the number of calls or queries allowed in a second. |
-| **queryWindowInMin** |  | Integer | Defines the available query window in minutes. Minimum is 1 minute. Default is 5 minutes.|
-| **httpMethod** |  | String | Defines the API method: `GET`(default) or `POST` |
-| **queryTimeFormat** |  | String | Defines the date time presentation that the endpoint (remote server) expects. Possible values are the constants: `UnixTimestamp`, `UnixTimestampInMills` or any other valid representation of date time, for example: `yyyy-MM-dd`, `MM/dd/yyyy HH:mm:ss`<br>default is ISO 8601 UTC |
+| **ApiEndpoint** | True | String | URL for remote server. Defines the endpoint to pull data from. |
+| **RateLimitQPS** |  | Integer | Defines the number of calls or queries allowed in a second. |
+| **QueryWindowInMin** |  | Integer | Defines the available query window in minutes. Minimum is 1 minute. Default is 5 minutes.|
+| **HttpMethod** |  | String | Defines the API method: `GET`(default) or `POST` |
+| **QueryTimeFormat** |  | String | Defines the date and time format the endpoint (remote server) expects. The CCP uses the current date and time wherever this variable is used. Possible values are the constants: `UnixTimestamp`, `UnixTimestampInMills` or any other valid representation of date time, for example: `yyyy-MM-dd`, `MM/dd/yyyy HH:mm:ss`<br>default is ISO 8601 UTC |
 | **RetryCount** |  | Integer (1...6) | Defines `1` to `6` retries allowed to recover from a failure. Default is `3`.|
 | **TimeoutInSeconds** |  | Integer (1...180) | Defines the request timeout, in seconds. Default is `20` |
 | **IsPostPayloadJson** |  | Boolean | Determines whether the POST payload is in JSON format.	Default is `false`|
@@ -277,7 +278,7 @@ This example queries messages with a filter query parameter. For more informatio
   "QueryTimeIntervalDelimiter": " and receivedDateTime lt "
 }
 ```
-The previous example sends a `GET` request to `https://graph.microsoft.com/v1.0/me/messages?filter=receivedDateTime gt 2019-09-01T09:00:00.0000000 and receivedDateTime lt 2019-09-01T17:00:00.0000000`. The timestamp updates for each `queryWindowInMin` time.
+The previous example sends a `GET` request to `https://graph.microsoft.com/v1.0/me/messages?filter=receivedDateTime gt {time of request} and receivedDateTime lt 2019-09-01T17:00:00.0000000`. The timestamp updates for each `queryWindowInMin` time.
 
 The same results are achieved with this example:
 
@@ -304,7 +305,7 @@ Example:
 
 ```json
 "request": {
-  "apiEndpoint": "https://graph.microsoft.com/v1.0/me/calendar",
+  "apiEndpoint": "https://graph.microsoft.com/v1.0/me/calendarView",
   "httpMethod": "Get",
   "queryTimeFormat": "yyyy-MM-ddTHH:mm:ssZ",
   "queryWindowInMin": 10,

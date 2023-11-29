@@ -20,8 +20,8 @@ Connectors created using the CCP are fully SaaS, with no requirements for servic
 
 > [!div class="checklist"]
 > * Build the data connector
-> * Create the solution deployment template
-> * Deploy the solution
+> * Create the ARM template
+> * Deploy the connector
 > * Connect Microsoft Sentinel to your data source and start ingesting data
 
 This article will show you how to complete each step and provide an [example codeless connector](#example) to build along the way.
@@ -49,21 +49,21 @@ Before building a connector, understand your data source and how Microsoft Senti
 Research the following components and verify support for them in the [Data Connector API reference](restapipoller-data-connector-reference.md):
 
 1. HTTP request and response structure to the data source
-1. Authentication required by the data source. For example, if your data source requires a token signed with a certificate, the data connector API reference specifies cert authentication isn't supported. 
+1. Authentication required by the data source.<br>For example, if your data source requires a token signed with a certificate, the data connector API reference specifies cert authentication isn't supported. 
 1. Pagination options to the data source
 
 We also recommend a tool like Postman to validate the data connector components. For more information, see [Use Postman with the Microsoft Graph API](/graph/use-postman).
 
 ## Build the data connector
 
-There are 4 components to build for the CCP data connector.
+There are 4 components required to build the CCP data connector.
 
 1. [Output table definition](#output-table-definition)
 1. [Data Collection Rule (DCR)](#data-collection-rule)
 1. [Data connector user interface](#data-connector-user-interface)
 1. [Data connector connection rules](#data-connection-rules)
 
-Each component has a section detailing the process to create and validate. Take the JSON 
+Each component has a section detailing the process to create and validate. Take the JSON from each component for the final packaging of the ARM template.
 
 ### Output table definition
 
@@ -75,9 +75,9 @@ If your data source doesn't conform to the schema of a standard table, you have 
 1. create a custom table for all the data
 1. create a custom table for some data and split conforming data out to a standard table
 
-Use the Log Analytics UI for a straight forward method to create a custom table together with a DCR. For more information, see [Create a custom table](../azure-monitor/logs/create-custom-table.md#create-a-custom-table).
+Use the Log Analytics UI for a straight forward method to create a custom table together with a DCR. For more information, see [Create a custom table](../azure-monitor/logs/create-custom-table.md#create-a-custom-table). If you create the custom table using the [Tables API](/rest/api/loganalytics/tables/create-or-update) or another programmatic method, add the `_CL` suffix manually to the table name.
 
-For more information on splitting your data to more than one table, see the [example section](#example-custom-table).
+For more information on splitting your data to more than one table, see the [example custom table](#example-custom-table).
 
 ### Data collection rule 
 
@@ -117,18 +117,18 @@ To learn from an example, see the [Data connector connection rules reference exa
 
 Use Postman to call the data connector API to create the data connector which combines the connection rules and previous components. Verify the connector is now connected in the UI.
 
-## Create the solution deployment template
+## Create the deployment template
 
-Manually package the deployment using the [example template](#example-deployment-solution-template) as your guide.
+Manually package an Azure Resource Management (ARM) template using the [example template](#example-arm-template) as your guide.
 
-## Deploy the solution
+## Deploy the connector
 
-Deploy your codeless connector solution as a custom template. 
+Deploy your codeless connector as a custom template. 
 
 >[!TIP]
->Delete resources you created in previous steps. The DCR and custom table is created with the deployment. If you don't remove those resources before deploying, it is more difficult to verify your template.
+>Delete resources you created in previous steps. The DCR and custom table is created with the deployment. If you don't remove those resources before deploying, it's more difficult to verify your template.
 
-1. Copy the contents of the [solution deployment template](#create-the-solution-deployment-template).
+1. Copy the contents of the ARM [deployment template](#create-the-deployment-template).
 1. Follow the **Edit and deploy the template** instructions from the article, [Quickstart: Create and deploy ARM templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template).
 
 ## Verify the codeless connector
@@ -144,7 +144,7 @@ Each step in building the codeless connector is represented in the following exa
 - [Example data collection rule](#example-data-collection-rule)
 - [Example data connector UI definition](connectorUIConfig-supplemental-reference.md#example-data-connector-definition)
 - [Example data connection rules](restapipoller-data-connector-reference.md#example-ccp-data-connector)
-- [Use example data with example template](#example-deployment-solution-template)
+- [Use example data with example template](#example-arm-template)
 
 To demonstrate a complex data source with ingestion to more than one table, this example features an output table schema and a DCR with multiple output streams. The DCR example puts these together along with its KQL transforms. The data connector UI definition and connection rules examples continue from this same example data source. Finally, the solution template uses all these example components to show end to end how to create the example CCP data connector.
 
@@ -181,7 +181,7 @@ This response contains `eventType` of **Alert** and **File**. The file events ar
 
 ### Example custom table
 
-For more information on the structure of this table, see [Tables API](/rest/api/loganalytics/tables/create-or-update).
+For more information on the structure of this table, see [Tables API](/rest/api/loganalytics/tables/create-or-update). Custom log table names should have a `_CL` suffix.
 
 ```json
 {
@@ -320,7 +320,19 @@ To create this connector in a test environment, follow the [Data Collection Rule
 
 ```
 
-### Example deployment solution template
+### Example ARM template
+
+This template guide has the following structure, breaking up each section for readability. Also, JSON 
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "resources": [],
+}
+```
 
 ```json
 {
