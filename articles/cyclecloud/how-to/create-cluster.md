@@ -17,15 +17,24 @@ This article shows you how to create a new cluster from an existing template. [R
 Click the **Add** button located in the lower left of the clusters page. This will bring up a list of icons, each representing a cluster template from which the new cluster will be created. If you would like to import a new cluster template so that it shows up on this page, see [Importing a Cluster Template](#importing-a-cluster-template) below. Select one of the templates and enter a unique name for the new cluster.
 
 ::: moniker range="=cyclecloud-7"
-:::image type="content" source="../images/version-7/create-cluster-selection.png" alt-text="CycleCloud Create New Cluster Screen":::
+![CycleCloud Create New Cluster Screen](../images/version-7/create-cluster-selection.png)
 ::: moniker-end
 
 ::: moniker range="=cyclecloud-8"
-:::image type="content" source="../images/version-8/create-cluster-selection.png" alt-text="CycleCloud Create New Cluster Screen":::
+![CycleCloud Create New Cluster Screen](../images/version-8/create-cluster-selection.png)
 ::: moniker-end
 
+Fill out the new cluster form and hit **Save** to create the new cluster. You can later change these values using **Edit** on the cluster page, though most changes require the cluster to be terminated first.
 
-Fill out the new cluster form and hit **Save** to create the new cluster. The form itself will vary based on the cluster template's parameters, but below are some that are commonly required:
+::: moniker range=">=cyclecloud-8"
+
+The cluster form itself is based on two things: the [cluster parameters](../how-to/cluster-templates.md#cluster-template-parameters), which are grouped into sections, and automatic sections added by CycleCloud. 
+
+::: moniker-end
+
+### Cluster Parameters
+
+The parameters in the form vary based on the cluster template, but below are some that are commonly required:
 
 - **Region** determines the region of nodes in the cluster. Changing the region may also affect the types of VMs which are available as well as the capacity and quota.
 
@@ -38,11 +47,36 @@ Fill out the new cluster form and hit **Save** to create the new cluster. The fo
 - **Return Proxy** if checked, nodes will communicate back to the CycleCloud application server via a proxy running on the cluster head node. Select this option if direct network access to CycleCloud is blocked from the cluster nodes.
 
 ::: moniker range="=cyclecloud-7"
-:::image type="content" source="../images/version-7/create-cluster-form.png" alt-text="CycleCloud New Cluster Form":::
+![CycleCloud New Cluster Form](../images/version-7/create-cluster-form.png)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-:::image type="content" source="../images/version-8/create-cluster-form.png" alt-text="CycleCloud New Cluster Form":::
+![CycleCloud New Cluster Form](../images/version-8/create-cluster-form.png)
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+
+### Standard Cluster Sections
+
+CycleCloud 8 adds standard cluster sections automatically to the **Create** and **Edit** form for every cluster, regardless of type. These are not specified in the cluster template itself, and cannot be imported or exported as parameters.
+
+* CycleCloud 8.0+ includes a Cloud-init section
+* CycleCloud 8.5+ includes a Security section
+
+These sections let you edit certain settings for the node arrays and the standalone nodes defined in the cluster template. (It does not include nodes created from the node arrays, such as execute nodes.) 
+The default for new clusters is to use the same values across all standalone nodes and node arrays, but there is an option to use different values for each.
+
+**Separate settings for each standalone node and node array:**
+![CycleCloud Separate Node Array Settings](../images/cluster-edit-separate.png)
+
+**Shared settings used for all standalone nodes and node arrays:**
+![CycleCloud Shared Node Array Settings](../images/cluster-edit-shared.png)
+
+If the values happen to match across all standalone nodes and node arrays, then **Apply to all** is initially activated.
+
+> [!WARNING]
+> Toggling the **Apply to all** setting on and clicking Save will update all standalone nodes and node arrays with the new settings in the form!
+
 ::: moniker-end
 
 ## Using the CycleCloud CLI

@@ -19,11 +19,11 @@ It is generally recommended to use either a [System-Assigned](/azure/active-dire
 When Azure CycleCloud has been installed on an Azure VM with a Managed Identity assigned to it, the **Create Cloud Provider Account** dialog will behave slightly differently. There will be a new checkbox for **Managed Identity** and the **Subscription ID** will be pre-populated with the subscription of the host VM.
 
 ::: moniker range="=cyclecloud-7"
-:::image type="content" source="../images/version-7/create-account-managed-identity.png" alt-text="Add Subscription Managed Identities":::
+![Add Subscription Managed Identities](../images/version-7/create-account-managed-identity.png)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-:::image type="content" source="../images/version-8/add-subscription-managed-identity.png" alt-text="Add Subscription Managed Identities":::
+![Add Subscription Managed Identities](../images/version-8/add-subscription-managed-identity.png)
 ::: moniker-end
 
 It is still possible to enter the standard set of credentials by simply unchecking the **Managed Identity** checkbox. Upon doing so, the standard fields will be added to the form. Additionally, it is perfectly acceptable to use a separate **Subscription ID**; the provided value is just for convenience.

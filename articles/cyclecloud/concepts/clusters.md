@@ -13,13 +13,13 @@ ms.custom: compute-evergreen
 
 In CycleCloud, the term *cluster* is used to describe a group of connected computers (*nodes*) working together as a single system. Clusters can be nested; for example a compute cluster consisting of a Grid Engine scheduler headnode and compute nodes may mount a BeeGFS cluster consisting of several metadata and storage servers, with both compute and storage clusters coalescing under a single parent HPC cluster or system.
 
-:::image type="content" source="~/images/concept_overview_diagram.png" alt-text="Overview Diagram":::
+![Overview Diagram](../images/concept_overview_diagram.png)
 
 ## Nodes and Node Arrays
 
 Clusters fundamentally comprise of nodes, each of which perform a specific role in the HPC system. The terms *node* and *VM* are used interchangeably occasionally but are semantically separate in CycleCloud. *Nodes* that make up a cluster are in essence virtual machines on Azure that have completed the preparation and configuration process. In other words, *VMs* are provisioned from the Azure infrastructure service layers, and their end states are *nodes* of an HPC cluster after going through software installation and configuration steps.
 
-:::image type="content" source="~/images/concept_architecture_diagram.png" alt-text="Architecture Diagram":::
+![Architecture Diagram](../images/concept_architecture_diagram.png)
 
 There are two separate incarnations of nodes in CycleCloud. The first as a standalone node and the second as a nodearray, which is a collection of identically configured nodes (The node vs nodearray distinction follows the DevOps Pets vs Cattle analogy in spirit). Broadly but not strictly speaking, standalone nodes are constructed from single VMs on Azure while nodearrays map to Virtual Machine scale sets (VMSS).
 
@@ -35,7 +35,7 @@ Cluster templates are defined in an [INI format](https://en.wikipedia.org/wiki/I
 
 CycleCloud provisions VMs from base VM images defined in the cluster template, and through a series of steps managed by the CycleCloud agent ([Jetpack](~/jetpack.md)) during the boot process, initializes and configures the OS on the VM to convert it into a working HPC node. These steps range from scripts to install and configure the scheduling software, to last-mile configuration for mounting a file system.
 
-:::image type="content" source="~/images/concept_node-prep_diagram.png" alt-text="Node Preparation Diagram":::
+![Node Preparation Diagram](../images/concept_node-prep_diagram.png)
 
 Defined in the configuration section of each node are *cluster-init specs* -- specifications provided to each booting VM that are used to prepare it for a specific role in the cluster. CycleCloud utilizes [Chef](https://www.chef.io) as the infrastructure automation platform for preparing and configuring each node. In essence, each *cluster-init spec* maps to one of more [Chef Roles](https://docs.chef.io/roles.html) and/or [Cookbook Recipes](https://docs.chef.io/recipes.html) that need to be executed on the booting VM. 
 

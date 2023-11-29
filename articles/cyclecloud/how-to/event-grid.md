@@ -15,7 +15,7 @@ First, create a custom Event Grid topic and subscription as outlined in the [Eve
 
 Second, configure CycleCloud to publish to the Event Grid topic created above. Click the **Settings** gear icon in the upper left, then double-click the **CycleCloud** item in the list. Select the Event Grid topic from the dropdown and click *Save*.
 
-:::image type="content" source="~/images/event-grid-topic.png" alt-text="Choose Event Grid topic":::
+![Choose Event Grid topic](../images/event-grid-topic.png)
 
 Third, add a node to the cluster. This will immediately generate two events: a `Microsoft.CycleCloud.ClusterSizeIncreased` event and a `Microsoft.CycleCloud.NodeAdded` event.
 

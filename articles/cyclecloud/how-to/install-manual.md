@@ -140,11 +140,11 @@ Once installed, you can configure CycleCloud through your web browser. The login
 ### Step 1: Welcome
 
 ::: moniker range="=cyclecloud-7"
-:::image type="content" source="../images/version-7/setup-step1.png" alt-text="Welcome Screen":::
+![Welcome Screen](../images/version-7/setup-step1.png)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-:::image type="content" source="../images/version-8/setup-step1.png" alt-text="Welcome Screen":::
+![Welcome Screen](../images/version-8/setup-step1.png)
 ::: moniker-end
 
 Enter a **Site Name** then click **Next**.
@@ -152,24 +152,23 @@ Enter a **Site Name** then click **Next**.
 ### Step 2: License Agreement
 
 ::: moniker range="=cyclecloud-7"
-:::image type="content" source="../images/version-7/setup-step2.png" alt-text="License Screen":::
+![License Screen](../images/version-7/setup-step2.png)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-:::image type="content" source="../images/version-8/setup-step2.png" alt-text="License Screen":::
+![License Screen](../images/version-8/setup-step2.png)
 ::: moniker-end
-
 
 Accept the license agreement and then click **Next**.
 
 ### Step 3: Administrator Account
 
 ::: moniker range="=cyclecloud-7"
-:::image type="content" source="../images/version-7/setup-step3.png" alt-text="Administrator Account setup":::
+![Administrator Account setup](../images/version-7/setup-step3.png)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-:::image type="content" source="../images/version-8/setup-step3.png" alt-text="Administrator Account setup":::
+![Administrator Account setup](../images/version-8/setup-step3.png)
 ::: moniker-end
 
 

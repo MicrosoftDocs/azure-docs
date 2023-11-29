@@ -16,11 +16,11 @@ Select the cluster you want to start in the sidebar, click on **Start** and then
 the event log on the Clusters page. You can edit your node settings and retry the operation.
 
 ::: moniker range="=cyclecloud-7"
-:::image type="content" source="~/images/version-7/start-cluster.png" alt-text="start cluster dialog":::
+![start cluster dialog](../images/version-7/start-cluster.png)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-:::image type="content" source="~/images/version-8/start-cluster.png" alt-text="start cluster dialog":::
+![start cluster dialog](../images/version-8/start-cluster.png)
 ::: moniker-end
 
 ## Starting via CycleCloud CLI

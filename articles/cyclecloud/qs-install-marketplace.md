@@ -78,31 +78,31 @@ Create a **Site Name** for your installation. You can use any name here:
 
 
 ::: moniker range="=cyclecloud-7"
-:::image type="content" source="./images/version-7/setup-step1.png" alt-text="Welcome Screen":::
+![Welcome Screen](./images/version-7/setup-step1.png)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-:::image type="content" source="./images/version-8/setup-step1.png" alt-text="Welcome Screen":::
+![Welcome Screen](./images/version-8/setup-step1.png)
 ::: moniker-end
 
 The Azure CycleCloud End User License Agreement will be displayed - click to accept it. 
 
 ::: moniker range="=cyclecloud-7"
-:::image type="content" source="./images/version-7/setup-step2.png" alt-text="License Screen":::
+![License Screen](./images/version-7/setup-step2.png)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-:::image type="content" source="./images/version-8/setup-step2.png" alt-text="License Screen":::
+![License Screen](./images/version-8/setup-step2.png)
 ::: moniker-end
 
 You will then need to create a CycleCloud admin user for the application server. We recommend using the same username used above. Ensure the password you enter meets the requirements listed. Click **Done** to continue.
 
 ::: moniker range="=cyclecloud-7"
-:::image type="content" source="./images/version-7/setup-step3.png" alt-text="Administrator Account setup":::
+![Administrator Account setup](./images/version-7/setup-step3.png)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-:::image type="content" source="./images/version-8/setup-step3.png" alt-text="Administrator Account setup":::
+![Administrator Account setup](./images/version-8/setup-step3.png)
 ::: moniker-end
 
 Once you have created your user, you may want to set your SSH key so that you can more easily access any Linux VMs created by CycleCloud. To add an SSH key, edit your profile by clicking on your name in the upper right hand corner of the screen.

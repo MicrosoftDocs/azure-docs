@@ -28,7 +28,7 @@ You can test a user's credentials by entering the username and password then cli
 5. In a separate browser or incognito window, log in as the domain account you added in step 2.
 6. If the login in step 4 is successful, you can log out of your first session. Authentication is correctly configured.
 
-:::image type="content" source="~/images/active-directory.png" alt-text="Active Directory configuration":::
+![Active Directory configuration](../images/active-directory.png)
 
 The example above shows a sample configuration for an Active Directory environment. Windows users
 log in as `EXAMPLE\\username`, so "EXAMPLE" is entered as the Domain. Authentication is handled by

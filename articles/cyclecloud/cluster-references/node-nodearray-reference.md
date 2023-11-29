@@ -28,7 +28,7 @@ The `[[node defaults]]` is a special abstract node that specifies the default se
 
 The `$Credentials` is a reference to a parameter named "Credentials".
 
-In `my-cluster`, the `grid` nodearray inherits the Credential and SubnetId from the node `defaults`, but uses a specific HPC VM size of `Standard_H16`.
+In `my-cluster`, the `grid` nodearray [inherits](#inheritance) the Credential and SubnetId from the node `defaults`, but uses a specific HPC VM size of `Standard_H16`.
 
 ## Example
 
@@ -100,7 +100,10 @@ ThrottleCapacity (8.2.2+) | Boolean | If true, this nodearray will report 0 capa
 ThrottleCapacityTime (8.2.2+) | Relative Time | If `ThrottleCapacity` is enabled, this is how long to report 0 availability after capacity is constrained. Default is "5m".
 HybridBenefitLicense (8.3.0+)| String | If `HybridBenefit` is true, this specifies the license to use: `RHEL_BYOS`, `SLES_BYOS`, or `Windows_Server`. Default is  `Windows_Server`.
 FlexScaleSetId (8.3.0+) | String | If set, this is the fully qualified id of a scaleset in [Flex orchestration mode](../how-to/flex-scalesets.md) that is used for the VM for this node.
-EncryptionAtHost (8.4.0+) | Boolean | If true, the virtual machine will have [Encryption At Host](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption) enabled.
+EncryptionAtHost (8.4.0+) | Boolean | If true, the virtual machine will have [Encryption At Host](https://learn.microsoft.com/azure/virtual-machines/disk-encryption) enabled.
+SecurityType (8.5.0+) | String | Sets the [security type](../how-to/vm-security.md); either undefined, `TrustedLaunch` or `ConfidentialVM`
+| EnableSecureBoot (8.5.0+) | Boolean | Enables [Secure Boot](../how-to/vm-security.md), if using Trusted Launch VMs or Confidential VMs.
+| EnableVTPM (8.5.0+) | Boolean | Enables [Virtual Trusted Platform Module](../how-to/vm-security.md), if using Trusted Launch VMs or Confidential VMs.
 
 > [!NOTE]
 > A Proximity Placement Group is a general Azure feature, and one must be created before it can be referenced on a node. 
@@ -277,7 +280,7 @@ the cluster.
 Attribute | String | Definition
 ------ | ----- | ----------
 Abstract | Boolean | If true, don't create an node or nodearray in the cluster. The abstract can be used for inheritance. (Default: false)
-Extends | String (list) | Ordered list of inherited node/nodearray names. Items later in the list take precedence when values conflict. 'default' node will always effectively be first in the list. (Default: [])
+Extends | String (list) | Ordered list of inherited node/nodearray names. Items later in the list take precedence when values conflict. 'defaults' node will always effectively be first in the list. (Default: [])
 
 ## Subordinate Objects
 

@@ -16,7 +16,7 @@ Building individual HPC systems on Azure from basic infrastructure units such as
 
 Azure CycleCloud is a tool that helps construct HPC systems on Azure. It orchestrates these systems so that they size elastically according to the HPC tasks at hand, without the hassle of managing basic Azure building blocks. CycleCloud is designed by a team of experienced HPC professionals for HPC administrators and users, particularly users who are looking build HPC systems in Azure that resemble internal HPC infrastructure that they are familiar with.
 
-:::image type="content" source="~/images/concept_architecture_diagram.png" alt-text="Orchestration Diagram":::
+![Orchestration Diagram](../images/concept_architecture_diagram.png)
 
 Operationally, CycleCloud is an application server that is installed in a Linux VM on Azure, or on an on-premise server that has access to Azure APIs and resources. CycleCloud acquires and provisions Azure VMs to construct CycleCloud clusters that can integrate schedulers and user applications. CycleCloud also provides autoscaling integrations for a number of HPC schedulers and a CycleCloud agent that runs on Azure VMs.
 

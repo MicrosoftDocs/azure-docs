@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page # Required
   author: adriankjohnson
   ms.author: adjohnso
-  ms.date: 09/29/2023
+  ms.date: 11/20/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -41,10 +41,14 @@ landingContent:
     linkLists:            
       - linkListType: whats-new
         links:
-          - text: CycleCloud 8.4.2 is now available
+          - text: CycleCloud 8.5.0 is now available
             url: release-notes.md
           - text: CycleCloud 7.x will be retired on September 30 2023
             url: how-to/cyclecloud7-retirement-guide.md
+          - text: Node Health Checks are now supported
+            url: how-to/healthcheck.md
+          - text: CycleCloud supports Confidential VMs and Trusted Platform Launch for nodes
+            url: how-to/vm-security.md
           - text: PBS is now supported by azpbs agent
             url: openpbs.md
           - text: HPCPack is now a supported scheduler

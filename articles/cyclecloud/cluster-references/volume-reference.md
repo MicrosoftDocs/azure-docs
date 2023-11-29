@@ -95,8 +95,12 @@ Disabled | Boolean | If true, this volume will be ignored. Default is false.
 SourceUri | String | URI of blob to import into managed disk.
 StorageAccountId | String | Azure resource ID of storage account containing SourceUri blob. Required if blob is in a different subscription.
 SourceResourceId | String | Azure resource ID of source snapshot or managed disk.
-Azure.Encryption.DiskEncryptionSetId | String | Azure resource ID of the Disk Encryption Set to use (use to enable SSE with CMK)
-Azure.Encryption.Type | String | Encryption Type for Server-Side Encryption (for [SSE with CMK](/azure/virtual-machines/disks-enable-customer-managed-keys-portal)), use: ``EncryptionAtRestWithCustomerKey``)
+DiskEncryptionSetId (8.5+) | String | Azure resource ID of the Disk Encryption Set to enable Server-Side Encryption with CMK.
+ConfidentialDiskEncryptionSetId (8.5+) | String | Azure resource ID of the Confidential Disk Encryption Set to enable Confidential encryption with CMK. Note: requires `SecurityEncryptionType=DiskWithVMGuestState`. (CycleCloud 8.5+)
+SecurityEncryptionType (8.5+) | String | One of `VMGuestStateOnly` (the default) or `DiskWithVMGuestState`.
+Azure.Encryption.Type | String | Deprecated, has no effect. Using a Disk Encryption Set provides CMK; otherwise, PMK is in effect.
+Azure.Encryption.DiskEncryptionSetId | String | Deprecated. Use `DiskEncryptionSetId` instead, as of CycleCloud 8.5.
+
 ::: moniker-end
 
 ### Boot Volume
@@ -112,7 +116,7 @@ For each node, the volume named `boot` exposes some advanced configuration of th
 ```
 
 >[!NOTE]
->This section is ignored if EphemeralOSDisk is set
+>This section is ignored if EphemeralOSDisk is set.
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
@@ -128,6 +132,6 @@ For each node, the volume named `boot` exposes some advanced configuration of th
       DiskMBPSReadWrite = 2000
 ```
 > [!NOTE]
-> UltraSSD disks can only be used with availability zones (availability sets and single VM deployments outside of zones will not have the ability to attach an ultra disk)
+> UltraSSD disks can only be used with availability zones (availability sets and single VM deployments outside of zones will not have the ability to attach an ultra disk).
 
 ::: moniker-end

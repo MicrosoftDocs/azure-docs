@@ -18,10 +18,10 @@ In most cases, users should be able to troubleshoot and address the issues by th
 ## Cluster Support
 
 The Cluster page includes a **Support** button for capturing pertinent support data for use in diagnostics:
-:::image type="content" source="../images/cluster-support-button.png" alt-text="Cluster support button":::
+![Cluster support button](../images/cluster-support-button.png)
 
 Pressing the button displays a panel with a cluster report that can be copied and shared. The panel includes a direct link for filing a support request:
-:::image type="content" source="../images/cluster-support-details.png" alt-text="Cluster Support Details":::
+![Cluster Support Details](../images/cluster-support-details.png)
 
 When CycleCloud identifies issues with the cluster, the **Issues** status line indicates the number of distinct issues and presents a **Show** link that opens the **Cluster Issues** panel. The panel includes detailed information about node-specific issues and possible remediation steps. The **Support** button displays the same panel with cluster support information ready for sharing.
 
@@ -29,7 +29,7 @@ When CycleCloud identifies issues with the cluster, the **Issues** status line i
 
 Node issues appear as one or more status cards that include a short **description** and the **aspect**, as well as a **recommendation**, a **link**, and **detail** (when available).
 
-:::image type="content" source="../images/node-status-card.png" alt-text="Node status card":::
+![Node status card](../images/node-status-card.png)
 
 * **description**: The description of the status
 * **aspect**: The phase, stage, or component of node startup being reported on
@@ -49,7 +49,7 @@ To file a support request for a cluster:
 
 The following animation shows how to report issues identified by CycleCloud:
 
-:::image type="content" source="../images/cluster-issues-flow.gif" alt-text="Reporting an issue for an entire cluster":::
+![Reporting an issue for an entire cluster](../images/cluster-issues-flow.gif)
 
 ## Reporting an Issue For a Specific Node
 
@@ -64,5 +64,4 @@ To file a support request for a specific node:
 5. Start the support request process by opening the **file a support request** link, using the report
 
 The following animation illustrates these steps:
-
-:::image type="content" source="../images/node-detail-error-flow.gif" alt-text="Reporting an issue for a specific node":::
+![Reporting an issue for a specific node](../images/node-detail-error-flow.gif)
