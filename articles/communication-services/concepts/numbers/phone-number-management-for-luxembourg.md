@@ -43,6 +43,11 @@ More details on eligible subscription types are as follows:
 | Country/Region |
 | :---------- |
 |Luxembourg|
+|United States|
+|United Kingdom|
+|Canada|
+|Japan|
+|Australia|
 
 
 ## Find information about other countries/regions

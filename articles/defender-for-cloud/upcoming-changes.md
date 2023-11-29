@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 11/07/2023
+ms.date: 11/29/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -31,7 +31,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Four alerts are set to be deprecated](#four-alerts-are-set-to-be-deprecated) | October 23, 2023 | November 23, 2023 |
 | [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) |  | June 2023|
 | [Preview alerts for DNS servers to be deprecated](#preview-alerts-for-dns-servers-to-be-deprecated) |  | August 2023 |
-| [Classic connectors for multicloud will be retired](#classic-connectors-for-multicloud-will-be-retired) |  | September 2023 |
+| [Classic connectors for multicloud will be retired](#classic-connectors-for-multicloud-will-be-retired) |  | November 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) |  | September 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
@@ -166,15 +166,15 @@ The following table lists the alerts to be deprecated:
 
 ## Classic connectors for multicloud will be retired
 
-**Estimated date for change: September 15, 2023**
+**Estimated date for change: November, 2023**
 
-The classic multicloud connectors will be retiring on September 15, 2023 and no data will be streamed to them after this date. These classic connectors were used to connect AWS Security Hub and GCP Security Command Center recommendations to Defender for Cloud and onboard AWS EC2s to Defender for Servers.
+The classic multicloud connectors will be retired and no data will be streamed to them after this date. These classic connectors were used to connect AWS Security Hub and GCP Security Command Center recommendations to Defender for Cloud and onboard AWS EC2s to Defender for Servers.
 
 The full value of these connectors has been replaced with the native multicloud security connectors experience, which has been Generally Available for AWS and GCP since March 2022 at no extra cost.
 
 The new native connectors are included in your plan and offer an automated onboarding experience with options to onboard single accounts, multiple accounts (with Terraform), and organizational onboarding with auto provisioning for the following Defender plans: free foundational CSPM capabilities, Defender Cloud Security Posture Management (CSPM), Defender for Servers, Defender for SQL, and Defender for Containers.
 
-If you're currently using the classic multicloud connectors, we strongly recommend that you begin your migration to the native security connectors before September 15, 2023.
+If you're currently using the classic multicloud connectors, we strongly recommend that you migrate to the native security connectors as soon as possible.
 
 How to migrate to the native security connectors:
 

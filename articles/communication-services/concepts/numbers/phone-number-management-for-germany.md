@@ -47,8 +47,11 @@ More details on eligible subscription types are as follows:
 | :---------- |
 |Germany|
 |United States|
-|Canada|
 |United Kingdom|
+|Canada|
+|Japan|
+|Australia|
+
 
 ## Azure subscription billing locations where Germany alphanumeric sender IDs are available
 | Country/Region |
