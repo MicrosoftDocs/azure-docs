@@ -113,7 +113,7 @@ Follow these steps to set blob properties using asynchronous APIs:
 
 1. Add code to set the blob metadata. The code is the same as the synchronous example, except that the method is declared with the `async` keyword and the `await` keyword is used when calling the `get_blob_properties` and `set_blob_metadata` methods.
 
-    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags.py" id="Snippet_set_blob_metadata":::
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags-async.py" id="Snippet_set_blob_metadata":::
 
 With this basic setup in place, you can implement other examples in this article as coroutines using async/await syntax.
 
