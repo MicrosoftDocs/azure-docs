@@ -34,7 +34,7 @@ After your endpoint is deployed, the endpoint name appears as a link. Select the
 
 ## Application settings
 
-The application settings that you use as REST API [request parameters](#request-parameters) are available on the **Deploy model** tab in [Speech Studio](https://aka.ms/custom-voice-portal).
+The application settings that you use as REST API request parameters are available on the **Deploy model** tab in [Speech Studio](https://aka.ms/custom-voice-portal).
 
 :::image type="content" source="../../../../media/custom-voice/cnv-endpoint-app-settings-zoom.png" alt-text="Screenshot of custom endpoint app settings in Speech Studio." lightbox="../../../../media/custom-voice/cnv-endpoint-app-settings-full.png":::
 

@@ -11,6 +11,8 @@
 
 Professional voice projects contain the voice talent consent statement, training datasets, voice models, and endpoints.
 
+Each project is specific to a country/region and language, and the gender of the voice you want to create. For example, you might create a project for a female voice for your call center's chat bots that use English in the United States.
+
 ## Create a project
 
 To create a professional voice project, use the `Projects_Create` operation of the custom voice API. Construct the request body according to the following instructions:

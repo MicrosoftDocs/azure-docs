@@ -53,7 +53,7 @@ You should receive a response body in the following format:
 }
 ```
 
-## Upload training set
+## Upload training set data
 
 To upload a training set of audio and scripts, use the `TrainingSets_UploadData` operation of the custom voice API. Construct the request body according to the following instructions:
 
