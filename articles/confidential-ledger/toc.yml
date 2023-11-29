@@ -47,6 +47,8 @@
     href: manage-azure-ad-token-based-users.md
   - name: Manage certificate-based users
     href: manage-certificate-based-users.md
+  - name: Upload, view and list ledger data with the Azure ledger explorer
+    href: quickstart-ledger-explorer.md
 - name: References
   items:
 
