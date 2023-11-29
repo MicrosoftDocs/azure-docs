@@ -98,7 +98,7 @@ For publishing to be successful, the private endpoint connection state should be
 ## Quotas and limits
 There's a limit on the number of IP firewall rules and private endpoint connections per namespace. See [Event Grid quotas and limits](quotas-limits.md). 
 
-## Next steps
+## Related articles
 If you're using MQTT, see the following articles:
 
 - [Configure IP firewall for Event Grid namespaces in MQTT scenarios](configure-firewall-mqtt.md)
@@ -106,6 +106,6 @@ If you're using MQTT, see the following articles:
 
 For pull-based event delivery, see the following articles:
 
-- [Configure IP firewall for pull-based delivery ](configure-firewall-mqtt.md)
-- [Configure private endpoints for pull-based delivery ](configure-private-endpoints-mqtt.md)
+- [Configure IP firewall for Event Grid namespaces in non-MQTT scenarios](configure-firewall-namespaces.md)
+- [Configure private endpoints for Event Grid namespaces in non-MQTT scenarios](configure-private-endpoints-pull.md)
 
