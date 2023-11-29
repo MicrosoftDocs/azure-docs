@@ -16,7 +16,7 @@ ms.date: 10/23/2023
 [Data collection rules](../essentials/data-collection-rule-overview.md) let you [filter and transform log data](../essentials/data-collection-transformations.md) before sending the data to an [Azure table or a custom table](../logs/manage-logs-tables.md#table-type-and-schema). This article explains how to create custom tables and add custom columns to tables in your Log Analytics workspace.  
 
 > [!IMPORTANT]
-> Whenever you update a table schema, be sure to [update any data collection rules](../essentials/data-collection-rule-overview) that send data to the table. The table schema you define in your data collection rule determines which data Azure Monitor streams to which column in the destination table. Azure Monitor does not update data collection rules with schema changes automatically.  
+> Whenever you update a table schema, be sure to [update any data collection rules](../essentials/data-collection-rule-overview.md) that send data to the table. The table schema you define in your data collection rule determines which data Azure Monitor streams to which column in the destination table. Azure Monitor does not update data collection rules with schema changes automatically.  
 
 ## Prerequisites
 
