@@ -5,7 +5,7 @@ description: This article describes how to use Confluent Access Management in th
 ms.service: partner-services
 subservice: confluent
 ms.topic: how-to
-ms.date: 11/27/2023
+ms.date: 11/29/2023
 # CustomerIntent: As an organization admin, I want to manage user permissions in Apache Kafka on Confluent Cloud so that I can add, delete and manage users.
 ---
 
@@ -82,7 +82,7 @@ Remove a permission assigned to a user in the Confluent organization.
 
 1. The role is removed and you see the refreshed roles.
 
-## Next steps
+## Related content
 
 * For help with troubleshooting, see [Troubleshooting Apache Kafka on Confluent Cloud solutions](troubleshoot.md).
 * If you need to contact support, see [Get support for Confluent Cloud resource](get-support.md).
