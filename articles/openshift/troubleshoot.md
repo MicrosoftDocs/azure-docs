@@ -27,14 +27,12 @@ Currently, the `RedHatOpenShift/OpenShiftClusters` resource that's automatically
 
 If creating a cluster results in an error that `No registered resource provider found for location '<location>' and API version '2019-04-30' for type 'openShiftManagedClusters'. The supported api-versions are '2018-09-30-preview'.`, then you were part of the preview and now need to [purchase Azure virtual machine reserved instances](https://aka.ms/openshift/buy) to use the generally available product. A reservation reduces your spend by pre-paying for fully managed Azure services. For more information about reservations and how they save you money, see [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
-## Azure Storage Limits being Exceeded
-Requests are being throttled due to Azure Storage limits being exceeded. The problem can occur for the following reasons:
+## Exceeding Azure storage limits
 
-- Max ~50 clusters per subid + region.
-  - Please create < 50 clusters per subscription + region. 
-    - Example: 25 clusters in subscription + eastus and 25 clusters in subscription + eastus2.
-- Creating multiple clusters within a single subscription + region at the same time.
-  - If multiple clusters are required to be created in a short period of time please federate over multiple subscriptions or regions. 
+If requests are being throttled due to Azure storage limits being exceeded, it might be due to one of the following reasons:
+
+- There's a maximum of approximately 50 clusters per subid + region. Create fewer than 50 clusters per subscription + region. For example: 25 clusters in subscription + eastus and 25 clusters in subscription + eastus2
+- Avoid creating multiple clusters within a single subscription + region at the same time. If you need to create multiple clusters in a short period of time, federate over multiple subscriptions or regions.
 
 If the issue persists please create a support ticket for investigation.
 
