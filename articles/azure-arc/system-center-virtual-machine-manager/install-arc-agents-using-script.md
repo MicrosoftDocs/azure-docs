@@ -29,7 +29,7 @@ Ensure the following before you install Arc agents using a script for SCVMM VMs:
      - Is running a [supported operating system](/azure/azure-arc/servers/prerequisites#supported-operating-systems).
      - Is able to connect through the firewall to communicate over the Internet and [these URLs](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#urls) aren't blocked.
      - Has Azure CLI [installed](https://learn.microsoft.com/cli/azure/install-azure-cli).
-     - Has the Arc agent installation downloaded from [here](https://download.microsoft.com/download/7/1/6/7164490e-6d8c-450c-8511-f8191f6ec110/arcscvmm-enable-guest-management.ps1) for a Windows VM or from [here](https://download.microsoft.com/download/0/9/b/09bd9ef4-a7af-49e5-ad5f-9e8f85fae75b/arcscvmm-enable-guest-management.sh) for a Linux VM.
+     - Has the Arc agent installation script downloaded from [here](https://download.microsoft.com/download/7/1/6/7164490e-6d8c-450c-8511-f8191f6ec110/arcscvmm-enable-guest-management.ps1) for a Windows VM or from [here](https://download.microsoft.com/download/0/9/b/09bd9ef4-a7af-49e5-ad5f-9e8f85fae75b/arcscvmm-enable-guest-management.sh) for a Linux VM.
 
 >[!NOTE]
 >- If you're using a Linux VM, the account must not prompt for login on sudo commands. To override the prompt, from a terminal, run `sudo visudo`, and `add <username> ALL=(ALL) NOPASSWD:ALL` at the end of the file. Ensure you replace `<username>`.

@@ -19,6 +19,10 @@ In this article, you learn how to recover the Azure Arc resource bridge connecti
 
 To recover from Arc resource bridge VM deletion, you need to deploy a new resource bridge with the same resource ID as the current resource bridge using the following steps.
 
+>[!Note]
+> This note is applicable only if you're performing this recovery operation to upgrade your Arc resource bridge.<br><br>
+> If you have VMs that are still in the older version, i.e., have *Enabled (Deprecated)* set under the *Virtual hardware operations* column in the Virtual Machines inventory of your SCVMM server in Azure, switch them to the new version by following the steps in [this article](./switch-to-the-new-version-scvmm.md#switch-to-the-new-version-existing-customer) before proceeding with the steps for resource bridge recovery.
+
 1. Copy the Azure region and resource IDs of the Arc resource bridge, custom location, and SCVMM Azure resources.
 
 2. Find and delete the old Arc resource bridge resource under the [Resource Bridges tab from the Azure Arc center](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/resourceBridges).
@@ -53,10 +57,6 @@ To recover from Arc resource bridge VM deletion, you need to deploy a new resour
      - [Download the script](https://download.microsoft.com/download/0/5/c/05c2bcb8-87f8-4ead-9757-a87a0759071c/arcvmm-appliance-dr.sh) if you're running the script from a Linux machine
 
 7. Once the script is run successfully, the old Resource Bridge is recovered and the connection is re-established to the existing Azure-enabled SCVMM resources.
-
-    >[!Note]
-    > This note is applicable only if you're performing this recovery operation to upgrade your Arc resource bridge.<br><br>
-    > If you have VMs that are still in the older version, i.e., have *Enabled (Deprecated)* set under the *Virtual hardware operations* column in the Virtual Machines inventory of your SCVMM server in Azure, switch them to the new version by following the steps in [this article](./switch-to-the-new-version-scvmm.md#switch-to-the-new-version-existing-customer) before proceeding with the steps for resource bridge recovery.
 
 ## Next steps
 
