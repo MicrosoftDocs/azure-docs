@@ -753,6 +753,8 @@ result = call_connection_client.add_participant(target)
 call_connection_client.cancel_add_participant_operation(result.invitation_id, opration_context="Your context", operationCallbackUrl="<url_endpoint>")
 ```
 
+-----
+
 ## Remove a participant from a call
 
 # [csharp](#tab/csharp)
