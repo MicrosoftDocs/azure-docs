@@ -83,7 +83,7 @@ The following code example reads metadata on a blob and prints each key/value pa
 
 The Azure Blob Storage client library for Python supports managing blob properties and metadata asynchronously. To learn more about project setup requirements, see [Asynchronous programming](storage-blob-python-get-started.md#asynchronous-programming).
 
-Follow these steps to set blob properties using asynchronous APIs:
+Follow these steps to set blob metadata using asynchronous APIs:
 
 1. Add the following import statements:
 

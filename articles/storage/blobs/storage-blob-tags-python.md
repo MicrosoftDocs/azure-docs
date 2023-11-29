@@ -82,7 +82,7 @@ The following example finds and lists all blobs tagged as an image:
 
 The Azure Blob Storage client library for Python supports working with blob index tags asynchronously. To learn more about project setup requirements, see [Asynchronous programming](storage-blob-python-get-started.md#asynchronous-programming).
 
-Follow these steps to set blob properties using asynchronous APIs:
+Follow these steps to set blob index tags using asynchronous APIs:
 
 1. Add the following import statements:
 
