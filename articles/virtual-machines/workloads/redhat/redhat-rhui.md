@@ -103,7 +103,7 @@ Support for EUS RHEL7 ended in August 30, 2021. For more information, see [Red H
 
 ### Switch a RHEL Server to EUS Repositories.
 
-#### [Switching to EUS repositories on RHEL8](#tab/rhel7eus) 
+#### [Switching to EUS repositories on RHEL7](#tab/rhel7eus) 
 
 >[!NOTE]
 >Support for RHEL7 EUS ended in August 30, 2021. It is not recommended to switch to EUS repositories in RHEL7 anymore.
