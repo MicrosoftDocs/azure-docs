@@ -122,7 +122,7 @@ After the device is moved to your level 3 isolated network layer, it's required 
 # [AKS Edge Essentials](#tab/aksee)
 There are few limitations for setting up AKS Edge Essentials as the level 3 cluster.
 - For configuring the custom DNS, you must use a DNS server. The CoreDNS approach is not applicable to AKS Edge Essentials cluster.
-- If you plan to access and manage the cluster remotely, you need to make a [full deployment](/azure/aks/hybrid/aks-edge-howto-multi-node-deployment) instead of a [single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment). Moreover, the full deployment cannot be hosted on a Azure VM.
+- If you plan to access and manage the cluster remotely, you need to make a [full deployment](/azure/aks/hybrid/aks-edge-howto-multi-node-deployment) instead of a [single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment). Moreover, the full deployment cannot be hosted on an Azure VM.
 
 ## Prepare Windows 11
 

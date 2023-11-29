@@ -29,8 +29,9 @@ In this example, you Arc-enable AKS Edge Essentials or K3S clusters in the isola
 The network and cluster architecture are described as follows:
 - A level 4 single-node cluster running on a host machine with direct access to the internet.
 - A custom DNS in the local network. See the [Configure custom DNS](howto-configure-layered-network.md#configure-custom-dns) for the options. To set up the environment quickly, you should use the *CoreDNS* approach instead of a DNS server.
-- The level 3 cluster which is blocked for accessing internet. It connects to the Layered Network Management service as a proxy for all the Azure Arc related traffic.
-Please refer to [Example of logical segmentation with minimum hardware](/azure/iot-operations/manage-layered-network/howto-configure-layered-network#example-of-logical-segmentation-with-minimum-hardware) for more details.
+- The level 3 cluster that is blocked for accessing internet. It connects to the Layered Network Management service as a proxy for all the Azure Arc related traffic.
+
+For more information, see [Example of logical segmentation with minimum hardware](/azure/iot-operations/manage-layered-network/howto-configure-layered-network#example-of-logical-segmentation-with-minimum-hardware).
 
 ![Diagram of a logical isolated network configuration.](./media/howto-configure-layered-network/logical-network-segmentation.png)
 
@@ -39,7 +40,7 @@ Please refer to [Example of logical segmentation with minimum hardware](/azure/i
 
 After you configure the network, you need to configure the level 4 Kubernetes cluster. Complete the steps in [Configure IoT Layered Network Management level 4 cluster](./howto-configure-l4-cluster-layered-network.md). In the article, you:
 
-- Set up a Windows 11 machine and configure AKS Edge Essentials or setup a K3S Kubernetes on an Ubuntu machine.
+- Set up a Windows 11 machine and configure AKS Edge Essentials or set up a K3S Kubernetes on an Ubuntu machine.
 - Deploy and configure the Layered Network Management service to run on the cluster.
 
 You need to identify the **local IP** of the host machine. In later steps, you direct traffic from level 3 to this IP address with a custom DNS.

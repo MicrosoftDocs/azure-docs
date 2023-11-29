@@ -20,7 +20,7 @@ Azure IoT Layered Network Management is one of the Azure IoT Operations componen
 
 ## Prerequisites
 Meet the following minimum requirements for deploying the Layered Network Management individually on the system.
-- **AKS Edge Essentials** - *Arc-connected cluster and GitOps* catagory in [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements)
+- **AKS Edge Essentials** - *Arc-connected cluster and GitOps* category in [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements)
 - **K3S Kubernetes cluster** - [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements)
 
 ## Set up Kubernetes cluster in Level 4
