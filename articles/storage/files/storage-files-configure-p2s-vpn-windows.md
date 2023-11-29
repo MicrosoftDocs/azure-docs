@@ -4,7 +4,7 @@ description: How to configure a point-to-site (P2S) VPN on Windows for use with 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 11/29/2023
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -31,9 +31,9 @@ The article details the steps to configure a point-to-site VPN on Windows (Windo
 
 - An Azure file share you would like to mount on-premises. Azure file shares are deployed within storage accounts, which are management constructs that represent a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources. Learn more about how to deploy Azure file shares and storage accounts in [Create an Azure file share](storage-how-to-create-file-share.md).
 
-- A virtual network with a private endpoint for the storage account that contains the Azure file share you want to mount on-premises. To learn how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-powershell).
+- A [virtual network](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) with a private endpoint for the storage account that contains the Azure file share you want to mount on-premises. To learn how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-powershell).
 
-- A [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) must be created on the virtual network, and you'll need to know the name of the gateway subnet.
+- You must create a [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) on the virtual network. To create a gateway subnet, sign into the Azure portal, navigate to the virtual network, select **Settings > Subnets**, and then select **+ Gateway subnet**.
 
 ## Collect environment information
 
@@ -75,7 +75,10 @@ $privateEndpoint = Get-AzPrivateEndpoint | `
 
 ## Create root certificate for VPN authentication
 
-In order for VPN connections from your on-premises Windows machines to be authenticated to access your virtual network, you must create two certificates: a root certificate, which will be provided to the virtual machine gateway, and a client certificate, which will be signed with the root certificate. The following PowerShell creates the root certificate; you'll create the client certificate after deploying the Azure virtual network gateway.
+In order for VPN connections from your on-premises Windows machines to be authenticated to access your virtual network, you must create two certificates: a root certificate, which will be provided to the virtual machine gateway, and a client certificate, which will be signed with the root certificate. The following PowerShell script creates the root certificate; you'll create the client certificate after deploying the virtual network gateway.
+
+> [!IMPORTANT]
+> Run this script as administrator from an on-premises machine running Windows 10/Windows Server 2016 or later. Don't run the script from a Cloud Shell or VM in Azure.
 
 ```PowerShell
 $rootcertname = "CN=P2SRootCert"
@@ -123,12 +126,12 @@ foreach($line in $rawRootCertificate) {
 
 ## Deploy virtual network gateway
 
-The Azure virtual network gateway is the service that your on-premises Windows machines will connect to. Before deploying the virtual network gateway, you must create a [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) on the virtual network.
+The Azure virtual network gateway is the service that your on-premises Windows machines will connect to. If you haven't already, you must create a [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) on the virtual network before deploying the virtual network gateway.
 
 Deploying a virtual network gateway requires two basic components:
 
 1. A public IP address that will identify the gateway to your clients wherever they are in the world
-2. The root certificate you created earlier, which will be used to authenticate your clients
+2. The root certificate you created in the previous step, which will be used to authenticate your clients
 
 Remember to replace `<desired-vpn-name-here>`, `<desired-region-here>`, and `<gateway-subnet-name-here>` in the following script with the proper values for these variables.
 
