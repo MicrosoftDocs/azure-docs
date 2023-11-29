@@ -1,13 +1,13 @@
 ---
 title: Apache Spark version support
 description: Supported versions of Spark, Scala, Python, .NET
-author: ekote
+author: WilliamDAssafMSFT
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
 ms.custom: devx-track-dotnet, devx-track-python
 ms.date: 11/17/2022
-ms.author: eskot 
+ms.author: wiassaf 
 ms.reviewer: eskot
 ---
 

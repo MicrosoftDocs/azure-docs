@@ -1,8 +1,8 @@
 ---
 title: Query Store best practices in Azure Database for PostgreSQL - Flex Server
 description: This article describes best practices for Query Store in Azure Database for PostgreSQL - Flex Server.
-author: ssen-msft
-ms.author: ssen
+author: markingmyname
+ms.author: maghan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
