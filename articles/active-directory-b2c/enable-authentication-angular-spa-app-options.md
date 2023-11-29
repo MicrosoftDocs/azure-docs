@@ -1,11 +1,11 @@
 ---
 title: Configure authentication options in an Angular application by using Azure Active Directory B2C
 description:  Enable the use of Angular application options in several ways.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 03/23/2023
 ms.author: kengaderdus

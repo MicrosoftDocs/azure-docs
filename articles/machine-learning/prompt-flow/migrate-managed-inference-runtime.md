@@ -4,20 +4,21 @@ titleSuffix: Azure Machine Learning
 description: Migrate managed online endpoint/deployment runtime to compute instance or serverless runtime.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar
 ms.date: 08/31/2023
-
 ---
 
 # Deprecation plan for managed online endpoint/deployment runtime
 
 Managed online endpoint/deployment as runtime is deprecated. We recommend you migrate to compute instance or serverless runtime.
 
-From **September 2013**, we'll stop the creation for managed online endpoint/deployment as runtime, the existing runtime will still be supported until **November 2023**.
+From **September 2023**, we'll stop the creation for managed online endpoint/deployment as runtime, the existing runtime will still be supported until **November 2023**.
 
 ## Migrate to compute instance runtime
 

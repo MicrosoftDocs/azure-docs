@@ -124,10 +124,10 @@ Alternately, you also specify properties in the JMeter user interface. The follo
 
   :::image type="content" source="media/how-to-configure-user-properties/jmeter-user-properties.png" alt-text="Screenshot that shows how to reference user properties in the JMeter user interface.":::
 
-You can [download the JMeter errors logs](./how-to-troubleshoot-failing-test.md) to troubleshoot errors during the load test.
+You can [download the JMeter errors logs](./how-to-diagnose-failing-load-test.md) to troubleshoot errors during the load test.
 
 ## Next steps
 
 - Learn more about [JMeter properties that Azure Load Testing overrides](./resource-jmeter-property-overrides.md).
 - Learn more about [parameterizing a load test by using environment variables and secrets](./how-to-parameterize-load-tests.md).
-- Learn more about [troubleshooting load test execution errors](./how-to-troubleshoot-failing-test.md).
+- Learn more about [diagnosing failing load tests](./how-to-diagnose-failing-load-test.md).

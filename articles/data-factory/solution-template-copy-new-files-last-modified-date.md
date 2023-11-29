@@ -34,7 +34,7 @@ The template defines six parameters:
 
 ## How to use this solution template
 
-1. Go to template **Copy new files only by LastModifiedDate**. Create a **New** connection to to your destination store. The destination store is where you want to copy files to.
+1. Go to template **Copy new files only by LastModifiedDate**. Create a **New** connection to your destination store. The destination store is where you want to copy files to.
 
     :::image type="content" source="media/solution-template-copy-new-files-last-modified-date/copy-new-files-last-modified-date-1.png" alt-text="Create a new connection to the source":::
 	

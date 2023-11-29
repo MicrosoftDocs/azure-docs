@@ -110,6 +110,10 @@ If the [terminate notification](./virtual-machine-scale-sets-terminate-notificat
 
 ## Enabling automatic repairs policy when creating a new scale set
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
+https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 For enabling automatic repairs policy while creating a new scale set, ensure that all the [requirements](#requirements-for-using-automatic-instance-repairs) for opting in to this feature are met. The application endpoint should be correctly configured for scale set instances to avoid triggering unintended repairs while the endpoint is getting configured. For newly created scale sets, any instance repairs are performed only after the grace period completes. To enable the automatic instance repair in a scale set, use *automaticRepairsPolicy* object in the Virtual Machine Scale Set model.
 
 You can also use this [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-automatic-repairs-slb-health-probe) to deploy a Virtual Machine Scale Set. The scale set has a load balancer health probe and automatic instance repairs enabled with a grace period of 30 minutes.
@@ -156,7 +160,6 @@ New-AzVmssConfig `
  -Location "EastUS" `
  -SkuCapacity 2 `
  -SkuName "Standard_DS2" `
- -UpgradePolicyMode "Automatic" `
  -EnableAutomaticRepair $true `
  -AutomaticRepairGracePeriod "PT30M"
 ```
@@ -371,6 +374,17 @@ GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provider
       "serviceState": "Running"
     }
   ]
+}
+```
+
+Use [Set Orchestration Service State](/rest/api/compute/virtual-machine-scale-sets/set-orchestration-service-state) to suspend or resume the *serviceState* for automatic repairs.
+
+```http
+POST '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2023-07-01'
+
+{
+  "serviceName": "AutomaticRepairs",
+  "action": "Suspend"
 }
 ```
 

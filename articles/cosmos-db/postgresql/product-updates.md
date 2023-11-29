@@ -1,13 +1,13 @@
 ---
 title: Product updates for Azure Cosmos DB for PostgreSQL
-description: Release notes, new features and features in preview
+description: Release notes, new features, and features in preview
 ms.author: nlarin
 author: niklarin
 ms.custom: mvc, references_regions
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 10/01/2023
+ms.date: 11/20/2023
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -21,6 +21,14 @@ Azure Cosmos DB for PostgreSQL gets updated regularly.
 Updates that don’t directly affect the internals of a cluster are rolled out gradually to [all supported regions](resources-regions.md). Once such an update is rolled out to a region, it's available immediately on all new and existing Azure Cosmos DB for PostgreSQL clusters in that region.
 
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
+
+### November 2023
+* General availability: [The latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (11.22, 12.17, 13.13, 14.10, 15.5, and 16.1) are now available in all supported regions.
+* PostgreSQL 16 is now the default Postgres version for Azure Cosmos DB for PostgreSQL in Azure portal.
+    * Learn how to do [in-place upgrade of major PostgreSQL versions](./howto-upgrade.md) in Azure Cosmos DB for PostgreSQL.
+* Retirement: As of November 9, 2023, PostgreSQL 11 is unsupported by PostgreSQL community.
+    * See [PostgreSQL community versioning policy](https://www.postgresql.org/support/versioning/).
+    * See [restrictions](./reference-versions.md#retired-postgresql-engine-versions-not-supported-in-azure-cosmos-db-for-postgresql) that apply to the retired PostgreSQL major versions in Azure Cosmos DB for PostgreSQL.
 
 ### October 2023
 * General availability: Azure SDKs are now generally available for all Azure Cosmos DB for PostgreSQL management operations supported in REST APIs.
@@ -152,13 +160,13 @@ Azure Cosmos DB for PostgreSQL offers
 previews for unreleased features. Preview versions are provided
 without a service level agreement, and aren't recommended for
 production workloads. Certain features might not be supported or
-might have constrained capabilities.  For more information, see
+might have capabilities with limitations. For more information, see
 [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 * [Geo-redundant backup and restore](./concepts-backup.md#backup-redundancy)
 * [32 TiB storage per node in multi-node clusters](./resources-compute.md#multi-node-cluster)
-* [Microsoft Entra authentication](./concepts-authentication.md#azure-active-directory-authentication-preview)
+* [Microsoft Entra ID authentication](./concepts-authentication.md#azure-active-directory-authentication-preview)
 
 ## Contact us
 

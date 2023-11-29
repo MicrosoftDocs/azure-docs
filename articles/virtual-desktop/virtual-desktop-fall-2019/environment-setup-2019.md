@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Desktop (classic) terminology - Azure
-description: The terminology used for basic elements of a Azure Virtual Desktop (classic) environment.
+description: The terminology used for basic elements of an Azure Virtual Desktop (classic) environment.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/30/2020
@@ -49,7 +49,7 @@ In Azure Virtual Desktop, the Azure Virtual Desktop tenant is where most of the 
 
 ## End users
 
-After you've assigned users to their application groups, they can connect to a Azure Virtual Desktop deployment with any of the Azure Virtual Desktop clients.
+After you've assigned users to their application groups, they can connect to an Azure Virtual Desktop deployment with any of the Azure Virtual Desktop clients.
 
 ## Next steps
 

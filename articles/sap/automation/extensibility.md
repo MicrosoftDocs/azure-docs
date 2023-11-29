@@ -8,6 +8,7 @@ ms.date: 10/29/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-ansible
 ---
 
 # Extending the SAP Deployment Automation Framework

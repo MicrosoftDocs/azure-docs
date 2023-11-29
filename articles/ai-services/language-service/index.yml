@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: Azure AI Language documentation - Tutorials, API Reference | Microsoft Docs
   titleSuffix: Azure AI services
-  services: cognitive-services
+  #services: cognitive-services
   description: Learn how to integrate AI that works on written text into your applications.
   author: aahill
   manager: nitinme

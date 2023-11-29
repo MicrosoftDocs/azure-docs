@@ -278,7 +278,7 @@ Copy activity currently supports the following interim data types: Boolean, Byte
 
 The following data type conversions are supported between the interim types from source to sink.
 
-| Source\Sink | Boolean | Byte array | Decimal | Date/Time <small>(1)</small> | Float-point <small>(2)</small> | GUID | Integer <small>(3)</small> | String | TimeSpan |
+| Source\Sink | Boolean | Byte array | Decimal | Date/Time (1)</small> | Float-point <small>(2)</small> | GUID | Integer <small>(3) | String | TimeSpan |
 | ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
 | Boolean     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Byte array  |         | ✓          |         |                              |                                |      |                            | ✓      |          |

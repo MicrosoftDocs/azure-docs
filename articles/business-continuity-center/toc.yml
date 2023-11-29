@@ -1,0 +1,43 @@
+- name: Azure Business Continuity Center documentation (preview)
+  href: index.yml
+- name: Overview
+  href: business-continuity-center-overview.md
+- name: Tutorials
+  items:
+  - name: View protectable resources
+    href: tutorial-view-protectable-resources.md
+  - name: Configure protection for datasources
+    href: tutorial-configure-protection-datasource.md
+  - name: Recover item
+    href: tutorial-recover-deleted-item.md
+  - name: View protected items and perform actions
+    href: tutorial-view-protected-items-and-perform-actions.md
+  - name: Review security posture
+    href: tutorial-review-security-posture.md
+  - name: Monitor jobs
+    href: tutorial-monitor-operate.md
+  - name: Monitoring protection summary
+    href: tutorial-monitor-protection-summary.md
+  - name: Govern and view compliance
+    href: tutorial-govern-monitor-compliance.md
+- name: Concepts
+  items:
+  - name: Support matrices
+    href: business-continuity-center-support-matrix.md
+  - name: Security levels
+    href: security-levels-concept.md  
+- name: How-to guides
+  items:
+  - name: Vaults
+    items:
+    - name: Create 
+      href: backup-vaults.md
+    -  name: Manage
+       href: manage-vault.md
+  - name: Protection policy
+    items:
+    - name: Create
+      href: backup-protection-policy.md
+    - name: Manage  
+      href: manage-protection-policy.md
+  

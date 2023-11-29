@@ -22,7 +22,7 @@ The Illusive Platform Connector allows you to share Illusive's attack surface an
 
 ## Query samples
 
-**Number of Incidents in in the last 30 days in which Trigger Type is found**
+**Number of Incidents in the last 30 days in which Trigger Type is found**
    ```kusto
 union CommonSecurityLog 
    | where (DeviceEventClassID == "illusive:login" or DeviceEventClassID == "illusive:access" or DeviceEventClassID == "illusive:suspicious") 

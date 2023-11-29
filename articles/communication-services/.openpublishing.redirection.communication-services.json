@@ -230,5 +230,29 @@
         "redirect_url": "/azure/communication-services/how-tos/call-automation/recognize-action",
         "redirect_document_id": false
       }
+      ,
+      {
+        "source_path_from_root": "/articles/communication-services/tutorials/calling-widget/calling-widget-overview.md",
+        "redirect_url": "articles/communication-services/tutorials/calling-widget/calling-widget-tutorial.md",
+        "redirect_document_id": false
+      }
+      ,
+      {
+        "source_path_from_root": "/articles/communication-services/tutorials/calling-widget/calling-widget-tutorial-part-1-creating-your-widget.md",
+        "redirect_url": "articles/communication-services/tutorials/calling-widget/calling-widget-tutorial.md",
+        "redirect_document_id": false
+      }
+      ,
+      {
+        "source_path_from_root": "/articles/communication-services/tutorials/calling-widget/calling-widget-tutorial-part-2-creating-new-window-experience.md",
+        "redirect_url": "articles/communication-services/tutorials/calling-widget/calling-widget-tutorial.md",
+        "redirect_document_id": false
+      }
+      ,
+      {
+        "source_path_from_root": "/articles/communication-services/tutorials/calling-widget/calling-widget-tutorial-part-3-embedding-your-calling-experience.md",
+        "redirect_url": "articles/communication-services/tutorials/calling-widget/calling-widget-tutorial.md",
+        "redirect_document_id": false
+      }
     ]
 }

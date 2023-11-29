@@ -13,20 +13,27 @@ items:
     displayName: get started
     href: studio-overview.md
   - name: Document Intelligence SDKs
-    expanded: true
     items:
-      - name: "v3.1 targets: REST API 2023-07-31 latest (GA)"
+      - name: "v3.1 targets: REST API 2023–7–31 latest (GA)"
         displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, package, version,AzureKeyCredential, Azure key credential, key, endpoint
         href: sdk-overview-v3-1.md
-      - name:  "v3.0 targets: REST API 2022-08-31 (GA)"
+      - name:  "v3.0 targets: REST API 2022–08–31 (GA)"
         displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, package, version,AzureKeyCredential, Azure key credential, key, endpoint
         href: sdk-overview-v3-0.md
       - name: Changelog and release history
         displayName: latest, update, beta, package, preview, version
         href: changelog-release-history.md
   - name: Language support
-    displayName: locale, handwritten, handwriting, text, detect, detection
-    href: language-support.md
+    items:
+      - name: Document analysis models
+        displayName: language, locale, handwritten, handwriting, text, detect, detection, general, document, printed
+        href: language-support-ocr.md?view=doc-intel-4.0.0&preserve-view=true
+      - name: Prebuilt models
+        displayName: locale, handwritten, handwriting, text, detect, detection, printed
+        href: language-support-prebuilt.md
+      - name: Custom models
+        displayName: locale, handwritten, handwriting, text, detect, detection, printed
+        href: language-support-custom.md
   - name: Pricing
     displayName: cost, free, F0, tiers, standard, S0
     href: https://azure.microsoft.com/pricing/details/form-recognizer/
@@ -127,13 +134,13 @@ items:
 - name: Samples
   items:
   - name: "C#/.NET"
-    href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples/
+    href: /dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet#examples&preserve-view=true
   - name: "Java"
-    href: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true#examples
+    href: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable#examples&preserve-view=true
   - name: "Python"
-    href: /samples/azure/azure-sdk-for-python/formrecognizer-samples/
+    href: /python/api/overview/azure/ai-formrecognizer-readme?view=azure-python#examples&preserve-view=true
   - name: "JavaScript"
-    href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
+    href: /javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest#examples&preserve-view=true
 - name: Responsible use of AI
   items:
   - name: Transparency notes
@@ -164,14 +171,14 @@ items:
     href: concept-read.md
   - name: General document model
     displayName: key value pairs, selection marks, structured
-    href: concept-general-document.md
+    href: concept-general-document.md?view<=doc-intel-3.1.0&preserve-view=true
   - name: Layout model
     displayName: tables, selection marks, structure, paragraph roles, text, headers, page numbers
     href: concept-layout.md
   - name: Contract model
     displayName: contracts, agreements, legal, terms, conditions, clauses, parties, dates, signatures
     href: concept-contract.md
-  - name: Tax document models
+  - name: U.S.Tax document models
     displayName: tax, forms, 1098, 1098-E, 1098-T, W-2, wages, taxes, salary, employees, tuition, loan, interest, mortgage
     href: concept-tax-document.md
   - name: Health insurance card model
@@ -187,8 +194,8 @@ items:
     displayName: passport, visa, ID, social security, green card
     href: concept-id-document.md
   - name: Business card model
-    displayName: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument
-    href: concept-business-card.md
+    displayName: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP
+    href: concept-business-card.md?view<=doc-intel-3.1.0&preserve-view=true
   - name: Query field extraction
     displayName: queries, fields, OpenAI, chat
     href: concept-query-fields.md
@@ -229,8 +236,6 @@ items:
   - name: Create workflows using Azure Logic Apps
     displayName: connectors, automate, automation, workflows
     href: tutorial-logic-apps.md
-  - name: Use managed identities to access Azure storage
-    href: ../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fapplied-ai-services%2fform-recognizer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fapplied-ai-services%2fform-recognizer%2ftoc.json
   - name: "Create Document Intelligence workflows with AI Builder"
     expanded: true
     items:
@@ -244,26 +249,24 @@ items:
       href: /ai-builder/id-reader?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/applied-ai-services/breadcrumb/toc.json
     - name: Business card
       href: /ai-builder/flow-business-card-reader?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
-  - name: Use Azure AI Document Intelligence with Cognitive Search
+  - name: Use Azure AI Document Intelligence with Azure AI Search
     href: ../../search/cognitive-search-custom-skill-form.md
   - name: Use Azure AI Document Intelligence with Azure Functions
     href: tutorial-azure-function.md
 - name: Reference
   items:
+    - name: REST API v4.0
+      href: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP
     - name: REST API v3.1
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument
+      href: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP
     - name: REST API v3.0
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
-    - name: Error codes and messages v3.0
+    - name: Error codes v4.0, v3.1, and v3.0
       href: v3-error-guide.md
     - name: REST API v2.1
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
-    - name: REST API versions
-      href: https://westus.dev.cognitive.microsoft.com/docs/services?pattern=form
 - name: Resources
   items:
-  - name:  Customer spotlight
-    href: resource-customer-stories.md
   - name: Enterprise readiness
     items:
     - name: Region support

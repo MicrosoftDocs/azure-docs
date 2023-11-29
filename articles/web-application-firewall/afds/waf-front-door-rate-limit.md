@@ -12,7 +12,7 @@ ms.author: jodowns
 # What is rate limiting for Azure Front Door?
 
 Rate limiting enables you to detect and block abnormally high levels of traffic from any socket IP address.
-By using Azure Web Application Firewall in Azure Front Door, you can mitigate some types of denial-of-service attacks. Rate limiting also protects you against clients that have accidentally been misconfigured to send large volumes of requests in a short time period.
+By using Azure Web Application Firewall in Azure Front Door, you can mitigate some types of denial-of-service attacks. Rate limiting also protects you against clients that were accidentally misconfigured to send large volumes of requests in a short time period.
 
 The socket IP address is the address of the client that initiated the TCP connection to Azure Front Door. Typically, the socket IP address is the IP address of the user, but it might also be the IP address of a proxy server or another device that sits between the user and Azure Front Door.
 
@@ -42,8 +42,9 @@ If the threshold is low enough, the first request to the new Azure Front Door se
 
 A few considerations to keep in mind while you determine threshold values and time windows for rate limiting:
 
-- Larger window size and smaller thresholds are most effective in preventing against DDoS attacks.
-- Setting larger time window sizes (for example, five minutes over one minute) and larger threshold values (for example, 200 over 100) tend to be more accurate in enforcing close to rate limits thresholds than using the shorter time window sizes and lower threshold values.
+- A larger window size with the smallest acceptable request count threshold is the most effective configuration for preventing DDoS attacks. This configuration is more effective because when an attacker reaches the threshold they're blocked for the remainder of the rate limit window. Therefore, if an attacker is blocked in the first 30 seconds of a one-minute window, they're only rate limited for the remaining 30 seconds. If an attacker is blocked in the first minute of a five-minute window, they're rate limited for the remaining four minutes. 
+- Setting larger time window sizes (for example, five minutes over one minute) and larger threshold values (for example, 200 over 100) tend to be more accurate in enforcing close to rate limit's thresholds than using the shorter time window sizes and lower threshold values.
+- Azure Front Door WAF rate limiting operates on a fixed time period. Once a rate limit threshold is breached, all traffic matching that rate limiting rule is blocked for the remainder of the fixed window. 
 
 ## Next steps
 

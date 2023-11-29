@@ -7,7 +7,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 11/02/2023
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Quickstart: Integrate Azure OpenAI
@@ -20,6 +20,12 @@ ms.custom: devx-track-java, devx-track-extended-java
 This quickstart shows you how to integrate Azure OpenAI with applications deployed on the Azure Spring Apps Enterprise plan.
 
 Azure OpenAI enables your applications to take advantage of large-scale, generative AI models with deep understandings of language and code to enable new reasoning and comprehension capabilities.
+
+The following video shows how Azure Spring Apps uses Azure OpenAI to build intelligent applications:  
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/wxgGoLohvsg]
 
 ## Prerequisites
 

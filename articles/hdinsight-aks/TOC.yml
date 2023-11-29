@@ -263,6 +263,8 @@ items:
   items:
   - name: FAQ
     href: ./faq.md
+  - name: Subscribe to release notes GitHub repo
+    href: ./subscribe-to-release-notes-repo.md  
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Support options

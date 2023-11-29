@@ -2,15 +2,15 @@
 title: Set up a password reset flow
 titleSuffix: Azure AD B2C
 description: Learn how to set up a password reset flow in Azure Active Directory B2C (Azure AD B2C).
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 10/25/2022
-ms.custom: project-no-code, engagement-fy23, build-2023
+ms.custom:  
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -65,8 +65,7 @@ The self-service password reset experience can be configured for the Sign in (Re
 To set up self-service password reset for the sign-up or sign-in user flow:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the portal toolbar, select the **Directories + Subscriptions** icon.
-1. In the **Portal settings | Directories + subscriptions** pane, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **User flows**.
 1. Select a sign-up or sign-in user flow (of type **Recommended**) that you want to customize.
@@ -283,8 +282,7 @@ Your application might need to detect whether the user signed in by using the Fo
 ### Upload the custom policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the portal toolbar, select the **Directories + Subscriptions** icon.
-1. In the **Portal settings | Directories + subscriptions** pane, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to the Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. In the menu under **Policies**, select **Identity Experience Framework**.
 1. Select **Upload custom policy**. In the following order, upload the policy files that you changed:

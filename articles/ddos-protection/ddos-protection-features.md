@@ -7,7 +7,7 @@ ms.service: ddos-protection
 ms.topic: conceptual
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 10/12/2022
+ms.date: 11/06/2023
 ms.author: abell
 ---
 # Azure DDoS Protection features
@@ -52,6 +52,8 @@ DDoS Protection applies three auto-tuned mitigation policies (TCP SYN, TCP, and 
 
 The policy thresholds are auto-configured via machine learning-based network traffic profiling. DDoS mitigation occurs for an IP address under attack only when the policy threshold is exceeded.
 
+For more information, see [View and configure DDoS Protection telemetry](telemetry.md).
+
 ### Metric for an IP address under DDoS attack
 
 If the public IP address is under attack, the value for the metric **Under DDoS attack or not** changes to 1 as DDoS Protection performs mitigation on the attack traffic.
@@ -76,7 +78,7 @@ If you have DDoS Protection, make sure that it's enabled on the virtual network 
 
 Monitor your applications independently. Understand the normal behavior of an application. Prepare to act if the application is not behaving as expected during a DDoS attack.
 
-Learn how your services will respond to an attack by [testing through simulations](test-through-simulations.md).
+Learn how your services will respond to an attack by [testing through DDoS simulations](test-through-simulations.md).
 
 ## Next steps
 

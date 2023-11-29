@@ -1,7 +1,7 @@
 ---
 title: Deliver Extended Security Updates for Windows Server 2012
 description: Learn how to deliver Extended Security Updates for Windows Server 2012.
-ms.date: 11/01/2023
+ms.date: 11/07/2023
 ms.topic: conceptual
 ---
 
@@ -85,8 +85,8 @@ If any problems occur during the enablement process, see [Troubleshoot delivery 
 
 There are some scenarios in which you may be eligible to receive Extended Security Updates patches at no additional cost. Two of these scenarios supported by Azure Arc include the following:
 
-- Dev/Test (Visual Studio)
-- Disaster Recovery (Entitled benefit DR instances from Software Assurance or subscription only)
+- [Dev/Test (Visual Studio)](/azure/devtest/offer/overview-what-is-devtest-offer-visual-studio)
+- Disaster Recovery ([Entitled benefit DR instances from Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-by-benefits) or subscription only)
 
 To qualify for these scenarios, you must have:
 

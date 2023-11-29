@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for VPN Gateway cross-premis
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/18/2023
+ms.date: 10/24/2023
 ms.author: cherylmc
 ---
 
@@ -63,13 +63,9 @@ No.
 
 A VPN gateway is a type of virtual network gateway. A VPN gateway sends encrypted traffic between your virtual network and your on-premises location across a public connection. You can also use a VPN gateway to send traffic between virtual networks. When you create a VPN gateway, you use the -GatewayType value 'Vpn'. For more information, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
-### Can I create new virtual network gateways in the classic deployment model?
-
-No. The classic deployment model is a legacy deployment model. You can't create new classic virtual network gateways. Existing classic virtual network gateways are supported until August 31, 2024. To migrate to the Resource Manager deployment model, see [VPN Gateway classic to Resource Manager migration](vpn-gateway-classic-resource-manager-migration.md).
-
 ### Why can't I specify policy-based and route-based VPN types?
 
-As of Oct 1, 2023, you no longer need to specify VPN type. All new VPN gateways will automatically be created as route-based gateways. If you already have a policy-based gateway, you don't need to upgrade your gateway to route-based.
+As of Oct 1, 2023, you can't create a policy-based VPN gateway through Azure portal. All new VPN gateways will automatically be created as route-based. If you already have a policy-based gateway, you don't need to upgrade your gateway to route-based. You can use Powershell/CLI to create the policy-based gateways.
 
 Previously, the older gateway SKUs didn't support IKEv1 for route-based gateways. Now, most of the current gateway SKUs support both IKEv1 and IKEv2.
 
@@ -283,6 +279,14 @@ No. Only the traffic that has a destination IP that is contained in the virtual 
 ### How do I troubleshoot an RDP connection to a VM
 
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
+
+## <a name="customer-controlled"></a>Customer-controlled gateway maintenance
+
+[!INCLUDE [customer-controlled network gateway maintenance](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-faq.md)]
+
+### How do I find out more about customer-controlled gateway maintenance?
+
+For more information, see the [VPN Gateway customer-controlled gateway maintenance](customer-controlled-gateway-maintenance.md) article.
 
 ## Next steps
 
