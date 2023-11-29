@@ -96,7 +96,7 @@ The valid type expressions include:
 
     ```bicep
     type obj = {
-      level: ('bronze' | 'silver' | 'gold')
+      level: 'bronze' | 'silver' | 'gold'
     }
     ```
 
