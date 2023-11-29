@@ -139,6 +139,11 @@ There are several changes you can make to mitigate high server load:
 
 - Investigate what is causing high server load such as [long-running commands](#long-running-commands), noted below because of high memory pressure.
 - [Scale](cache-how-to-scale.md) out to more shards to distribute load across multiple Redis processes or scale up to a larger cache size with more CPU cores. For more information, see  [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
+- If your production workload on a **C1** cache is impacted by extra latency from virus scanning, the simplest way to reduce impact is to pay for a larger SKU with multiple CPU cores, such as **C2**
+
+#### Spikes in server load
+
+Known issue: you may see short spikes in server load, not caused by an increase in requests, on **C0** and **C1** caches, up to a couple times a day, while virus scanning is running on the VMs. Because C0 and C1 caches only have a single core to multitask between virus scanning, and serving redis requests. You will see higher latency for requests, while this is happening, *with these SKUs*. 
 
 ### High memory usage
 
