@@ -97,32 +97,14 @@ The following Azure CLI command uses a `--client-type` parameter.
 
 # [Azure Database for MySQL](#tab/mysql-sc)
 
-Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Microsoft Entra authentication. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](../mysql/flexible-server/how-to-azure-ad.md). You can use the following command to create a user-assigned managed identity:
+> [!NOTE]
+> For Azure Database for MySQL - Flexible Server, you must first [manually set up Microsoft Entra authentication](../mysql/flexible-server/how-to-azure-ad.md), which requires a separate user-assigned managed identity and specific Microsoft Graph permissions. This step can't be automated.
 
-```azurecli-interactive
-USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
-IDENTITY_RESOURCE_ID=$(az identity create \
-    --name $USER_IDENTITY_NAME \
-    --resource-group <group-name> \
-    --query id \
-    --output tsv)
-```
-
-After creating the user-assigned managed identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity:
-
-* `User.Read.All`
-* `GroupMember.Read.All`
-* `Application.Read.All`
-
-For more information, see the [Permissions](../mysql/flexible-server/concepts-azure-ad-authentication.md#permissions) section of [Microsoft Entra authentication](../mysql/flexible-server/concepts-azure-ad-authentication.md).
-
-Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector.
-
-The following Azure CLI command uses a `--client-type` parameter.
+1. Manually [set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](../mysql/flexible-server/how-to-azure-ad.md).
 
 1. Optionally run the command `az webapp connection create mysql-flexible -h` to get the supported client types.
 
-1. Choose a client type and run the corresponding command.
+1. Choose a client type and run the corresponding command. The following Azure CLI command uses a `--client-type` parameter.
 
     # [User-assigned managed identity](#tab/userassigned-sc)
 
