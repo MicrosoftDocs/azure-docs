@@ -141,9 +141,10 @@ All prices shown below are in USD.
 
 ### Usage charges
 |Number type   |To make calls*   |To receive calls|
-|--------------|-----------|------------|
-|Geographic     |Starting at USD 0.0160/min       |USD 0.0100/min        |
-|Toll-free      |Starting at USD 0.0160/min       |USD 0.1100/min |
+|--------------|-----------------|----------------|
+|Geographic    |Starting at USD 0.0160/min       |USD 0.0100/min        |
+|Toll-free     |Starting at USD 0.0160/min       |USD 0.1100/min        |
+
 \* For destination-specific pricing for making outbound calls, refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
 ## Spain telephony offers
