@@ -65,7 +65,7 @@ items:
           - name: Security baseline
             href: /security/benchmark/azure/baselines/event-grid-security-baseline?toc=/azure/event-grid/toc.json
           - name: Security controls by Azure Policy
-            href: ./security-controls-policy.md
+            href: security-controls-policy.md
           - name: Azure Policy built-ins
             displayName: samples, policies, definitions
           - name: Network security (MQTT)
@@ -151,9 +151,11 @@ items:
           - name: Security baseline
             href: /security/benchmark/azure/baselines/event-grid-security-baseline?toc=/azure/event-grid/toc.json
           - name: Security controls by Azure Policy
-            href: ./security-controls-policy.md
+            href: security-controls-policy.md
           - name: Azure Policy built-ins
             displayName: samples, policies, definitions          
+          - name: Network security
+            href: network-security-namespaces.md            
       - name: How-to
         items:
         - name: Create, view, and manage namespaces
@@ -177,7 +179,7 @@ items:
         - name: Secure
           items:
           - name: Allow access from specific IP addresses
-            href: configure-firewall-namespace-topics.md
+            href: configure-firewall-namespaces.md
           - name: Allow access via private endpoints
             href: configure-private-endpoints-pull.md
   - name: Event Grid basic

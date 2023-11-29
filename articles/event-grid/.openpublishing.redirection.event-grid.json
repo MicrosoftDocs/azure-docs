@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "network-security-mqtt.md",
+      "redirect_url": "/azure/event-grid/network-security-namespaces",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "scripts/powershell-webhook-secure-delivery-azure-ad-user.md",
       "redirect_url": "/azure/event-grid/scripts/powershell-webhook-secure-delivery-microsoft-entra-user",
       "redirect_document_id": false
