@@ -16,7 +16,7 @@ ms.date: 11/07/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-To use Azure IoT Layered Network Management service, you need to configure an isolated network environment. For example the [ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](http://www.pera.net/). This page provides few examples for setting up a test environment depends on the how you want to achieve the isloation.
+To use Azure IoT Layered Network Management service, you need to configure an isolated network environment. For example, the [ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](http://www.pera.net/). This page provides few examples for setting up a test environment depends on how you want to achieve the isolation.
 - *Physical segmentation* - The networks are physically separated. In this case, the Layered Network Management needs to be deployed to a dual NIC (Network Interface Card) host to connect to both the internet-facing network and the isolated network.
 - *Logical segmentation* - The network is logically segmented with configurations such as VLAN, subnet or firewall. The Layered Network Management has a single endpoint and configured to be visible to its own network layer and the isolated layer.
 
@@ -49,11 +49,11 @@ The multiple levels of networks in this test setup are accomplished using subnet
 - **Level 3 subnet (10.103.0.0/16)** - This subnet doesn't have access to the internet and is configured to only have access to the IP address 10.104.0.10 in Level 4. This subnet contains a Windows 11 machine with the IP address 10.103.0.33 and a Linux machine that hosts a DNS server. The DNS server is configured using the steps in [Configure custom DNS](#configure-custom-dns). All the domains in the DNS configuration must be mapped to the address 10.104.0.10.
 - **Level 2 subnet (10.102.0.0/16)** - Like Level 3, this subnet doesn't have access to the internet. It's configured to only have access to the IP address 10.103.0.33 in Level 3. This subnet contains a Windows 11 machine with the IP address 10.102.0.28 and a Linux machine that hosts a DNS server. There's one Windows 11 machine (node) in this network with IP address 10.102.0.28. All the domains in the DNS configuration must be mapped to the address 10.103.0.33.
 
-Please refer to the following examples for setup this type of network environment.
+Refer to the following examples for setup this type of network environment.
 
 ### Example of logical segmentation with minimum hardware
-In this example, both machines are connect to an AP (Access Point) which connects to the internet. The level 4 host machine can access internet. The level 3 host is blocked for accessing internet with AP's configuration (e.g. firewall, client control...). As both machines are in the same network, Layered Network Management instance hosted on level 4 cluster is by defauly visible to the level 3 machine and cluster.
-An additional custom DNS needs to be setup in the local network to provide domain name resolution and point the traffic to Layered Network Management. For more information, see [Configure custom DNS](#configure-custom-dns).
+In this example, both machines are connected to an AP (Access Point) which connects to the internet. The level 4 host machine can access internet. The level 3 host is blocked for accessing internet with AP's configuration (for example, firewall, client control...). As both machines are in the same network, Layered Network Management instance hosted on level 4 cluster is by default visible to the level 3 machine and cluster.
+An extra custom DNS needs to be setup in the local network to provide domain name resolution and point the traffic to Layered Network Management. For more information, see [Configure custom DNS](#configure-custom-dns).
 
 ![Diagram of a logical isolated network configuration.](./media/howto-configure-layered-network/logical-network-segmentation.png)
 
@@ -64,7 +64,7 @@ In this example, a test environment is created with [Virtual Network](/azure/vir
 
 1. Create a virtual network in your Azure subscription. Create subnets for at least two layers (level 4 and level 3).
 ![Screenshot for virtual network in Azure](./media/howto-configure-layered-network/lnm-vnet-subnet.png)
-1. It is optional to create an additional subnet for the "jumpbox" or "developer" machine to remotely access the machine or cluster across layers. This will be convenient if you plan to create more than two network layers. Otherwise, you can simply connect the jumpbox machine to level 4 network.
+1. It's optional to create an extra subnet for the "jumpbox" or "developer" machine to remotely access the machine or cluster across layers. This setup will be convenient if you plan to create more than two network layers. Otherwise, you can connect the jumpbox machine to level 4 network.
 1. Create [network security groups](/azure/virtual-network/network-security-groups-overview) for each level and attach to the subnet accordingly.
 1. You can use the default value for level 4 security group.
 1. You need to config additional inbound and outbound rules for level 3 (and lower level) security group.
@@ -74,7 +74,7 @@ In this example, a test environment is created with [Virtual Network](/azure/vir
 ![Screenshot for level 3 security group](./media/howto-configure-layered-network/lnm-vnet-security-rule.png)
 1. Create Linux VMs in level 3 and level 4. 
     - Refer to [validated environments](/azure/iot-operations/get-started/overview-iot-operations#validated-environments) for specification of the VM.
-    - When creating the VM, connect the machine to the subnet which is created in earlier steps.
+    - When creating the VM, connect the machine to the subnet that is created in earlier steps.
     - Skip the security group creation for VM.
 
 ## Configure custom DNS
@@ -85,7 +85,7 @@ A custom DNS is needed for level 3 and below. It ensures that DNS resolution for
 
 ### Configure CoreDNS
 
-While the DNS setup can be achieved many different ways, this example uses an extension mechanism provided by CoreDNS to add the allowlisted URLs to be resolved by CoreDNS. CoreDNS is the default DNS server for K3S clusters.
+While the DNS setup can be achieved many different ways, this example uses an extension mechanism provided by CoreDNS that is the default DNS server for K3S clusters. URLs on the allow list, which need to be resolved are added to the CoreDNS.
 > [!IMPORTANT]
 > The CoreDNS approach is only applicable to K3S cluster on Ubuntu host at level 3.
 
