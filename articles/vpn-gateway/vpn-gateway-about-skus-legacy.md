@@ -15,7 +15,7 @@ This article contains information about the legacy (old) virtual network gateway
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
 
-You can view legacy gateway pricing in the **Virtual Network Gateways** section, which is located in on the [ExpressRoute pricing page](https://azure.microsoft.com/pricing/details/expressroute).
+You can view legacy gateway pricing in the **Virtual Network Gateways** section, which is located on the [ExpressRoute pricing page](https://azure.microsoft.com/pricing/details/expressroute).
 
 ## SKU deprecation
 
@@ -50,11 +50,15 @@ Important Dates:
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## <a name="resize"></a>Resize a gateway
+## Resize, migrate, and change SKUs
 
-Except for the Basic SKU, you can resize your gateway to a gateway SKU within the same SKU family. For example, if you have a Standard SKU, you can resize to a High Performance SKU. However, you can't resize your VPN gateway between the old SKUs and the new SKU families. For example, you can't go from a Standard SKU to a VpnGw2 SKU, or a Basic SKU to VpnGw1.
+### <a name="resize"></a>Resize a gateway SKU
 
-### Resource Manager
+Resizing a gateway SKU incurs less downtime and fewer configuration changes than the process to change to a new SKU. However, there are limitations. You can only resize your gateway to a gateway SKU within the same SKU family (except for the Basic SKU).
+
+For example, if you have a Standard SKU, you can resize to a High Performance SKU. However, you can't resize your VPN gateway between the old SKUs and the new SKU families. You can't go from a Standard SKU to a VpnGw2 SKU, or from a Basic SKU to VpnGw1 by resizing. For more information, see [Resize a gateway SKU](gateway-sku-resize.md).
+
+**Resource Manager**
 
 You can resize a gateway for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) using the Azure portal or PowerShell. For PowerShell, use the following command:
 
@@ -63,7 +67,7 @@ $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
 
-### <a name="classicresize"></a>Classic
+**Classic**
 
 To resize a gateway for the [classic deployment model](../azure-resource-manager/management/deployment-models.md), you must use the Service Management PowerShell cmdlets. Use the following command:
 
@@ -71,10 +75,13 @@ To resize a gateway for the [classic deployment model](../azure-resource-manager
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
-## <a name="change"></a>Change to the new gateway SKUs
+### <a name="migrate"></a>Migrate a gateway SKU
 
-> [!NOTE]
-> Standard and High Performance SKUs will be deprecated September 30, 2025. While you can choose to change to the new gateway SKUs at any point, there is no requirement to do so at this time. The product team will make a migration path available for these SKUs by November 30, 2024. See [Legacy SKU deprecation](#sku-deprecation) for more information.
+A gateway SKU migration process is similar to a resize. It requires fewer steps and configuration changes than changing to a new gateway SKU. At this time, gateway SKU migration isn't available. You can migrate a deprecated legacy gateway SKU December 2024 through September 30, 2025. We'll make a migration path available along with detailed documentation.
+
+### <a name="change"></a>Change to the new gateway SKUs
+
+Standard and High Performance SKUs will be deprecated September 30, 2025. The product team will make a migration path available for legacy SKUs. See the [Legacy SKU deprecation](#sku-deprecation) section for more information. You can choose to change from a legacy SKU to one of the new SKUs at any point. However, changing to a new SKU requires more steps than migrating and incurs more downtime.
 
 [!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
