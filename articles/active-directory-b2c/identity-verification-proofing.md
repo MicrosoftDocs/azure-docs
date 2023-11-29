@@ -2,12 +2,12 @@
 title: Identity proofing and verification for Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn about our partners who integrate with Azure AD B2C to provide identity proofing and verification solutions 
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 01/18/2023
 ms.author: gasinh

@@ -1,9 +1,9 @@
 ---
-author: cherylmc
+author: duongau
 ms.date: 12/13/2019
 ms.service: expressroute
 ms.topic: include
-ms.author: cherylmc
+ms.author: duau
 ---
 
 |  | **Private Peering** | **Microsoft Peering** |  **Public Peering** (deprecated for new circuits, will be retired on March 31, 2024) |

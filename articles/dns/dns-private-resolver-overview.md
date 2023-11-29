@@ -6,7 +6,7 @@ ms.custom: references_regions, ignite-2022
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 10/23/2023
+ms.date: 11/27/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -126,6 +126,8 @@ Outbound endpoints have the following limitations:
 
 - IPv6 enabled subnets aren't supported.
 - DNS private resolver does not support Azure ExpressRoute FastPath.
+- DNS private resolver inbound endpoint provisioning isn't compatible with [Azure Lighthouse](../lighthouse/overview.md).
+    - To see if Azure Lighthouse is in use, search for **Service providers** in the Azure portal and select **Service provider offers**. 
 
 
 ## Next steps

@@ -2,12 +2,12 @@
 title: Set up phone sign-up and sign-in for user flows
 titleSuffix: Azure AD B2C
 description: Define the identity types you can use (email, username, phone number) for local account authentication when you set up user flows in your Azure Active Directory B2C tenant.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 09/20/2021
 ms.author: kengaderdus

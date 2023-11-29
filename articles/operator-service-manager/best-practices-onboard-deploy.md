@@ -232,11 +232,24 @@ During installation and upgrade by default, atomic and wait options are set to t
 In the ARM template add the following section:
 <pre>
 "roleOverrideValues": [
-"{\"name\":\"<<b>chart_name></b>\",\"deployParametersMappingRuleProfile\":{\"helmMappingRuleProfile\":{\"options\":{\"installOptions\":{\"atomic\":\"false\",\"wait\":\"true\",\"timeout\":\"100\"}}}}}}"
+    "{\"name\":\"<b>NF_component_name></b>\",\"deployParametersMappingRuleProfile\":{\"helmMappingRuleProfile\":{\"options\":{\"installOptions\":{\"atomic\":\"false\",\"wait\":\"true\",\"timeout\":\"100\"},\"upgradeOptions\":{\"atomic\":\"true\",\"wait\":\"true\",\"timeout\":\"4\"}}}}}"
 ]
 </pre>
 
-The chart name is defined in the NFDV.
+The component name is defined in the NFDV:
+<pre>
+     networkFunctionTemplate: {
+      nfviType: 'AzureArcKubernetes'
+      networkFunctionApplications: [
+        {
+          artifactType: 'HelmPackage'
+          <b>name: 'fed-crds'</b>
+          dependsOnProfile: null
+          artifactProfile: {
+            artifactStore: {
+              id: acrArtifactStore.id
+            }
+</pre>
 
 ## Clean up considerations
 

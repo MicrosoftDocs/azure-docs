@@ -4,6 +4,7 @@ description: How to assess and replatform any type of .NET applications with the
 author: brborges
 ms.author: brborges
 ms.service: azure-migrate
+ms.custom: devx-track-dotnet
 ms.topic: conceptual
 ms.date: 11/15/2023
 ---

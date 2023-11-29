@@ -3,7 +3,7 @@ title: Track last known values in a pipeline
 description: Configure a last known value pipeline stage to track and maintain up to date and complete data in a Data Processor pipeline.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: how-to
 ms.custom:
   - ignite-2023

@@ -99,21 +99,21 @@ This integration requires the Linux Syslog agent to collect your Forcepoint Clou
 
 The integration is made available with two implementations options.
 
-2.1  Docker Implementation
+2.1  Splunk Implementation
 
-Leverages docker images where the integration component is already installed with all necessary dependencies.
+Leverages splunk images where the integration component is already installed with all necessary dependencies.
 
 Follow the instructions provided in the Integration Guide linked below.
 
-[Integration Guide >](https://frcpnt.com/csg-sentinel)
+[Integration Guide >](https://forcepoint.github.io/docs/csg_and_splunk/)
 
-2.2  Traditional Implementation
+2.2  VeloCloud Implementation
 
 Requires the manual deployment of the integration component inside a clean Linux machine.
 
 Follow the instructions provided in the Integration Guide  linked below.
 
-[Integration Guide >](https://frcpnt.com/csg-sentinel)
+[Integration Guide >](https://forcepoint.github.io/docs/csg_and_velocloud/)
 
 3. Validate connection
 

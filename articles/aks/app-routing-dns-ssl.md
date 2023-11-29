@@ -1,17 +1,17 @@
 ---
-title: Use an Azure DNS zone with SSL/TLS certificates from Azure Key Vault
-description: Understand what Azure DNS zone and Azure Key Vault configuration options are supported with the application routing add-on for Azure Kubernetes Service. 
+title: Set up advanced Ingress configurations on Azure Kubernetes Service 
+description: Understand the advanced configuration options that are supported with the application routing add-on for Azure Kubernetes Service. 
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 11/03/2023
+ms.date: 11/21/2023
 ---
 
-#  Use an Azure DNS zone with SSL/TLS certificates from Azure Key Vault with the application routing add-on
+#  Set up advanced Ingress configurations with the application routing add-on
 
 An Ingress is an API object that defines rules, which allow external access to services in an Azure Kubernetes Service (AKS) cluster. When you create an Ingress object that uses the application routing add-on nginx Ingress classes, the add-on creates, configures, and manages one or more Ingress controllers in your AKS cluster.
 
-This article shows you how to set up an advanced Ingress configuration to encrypt the traffic and use Azure DNS to manage DNS zones.
+This article shows you how to set up an advanced Ingress configuration to encrypt the traffic with SSL/TLS certificates stored in an Azure Key Vault, and use Azure DNS to manage DNS zones.
 
 ## Application routing add-on with nginx features
 
@@ -83,7 +83,6 @@ az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertifica
 > [!IMPORTANT]
 > To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature][csi-secrets-store-autorotation] of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you define. The default rotation poll interval is two minutes.
 
-
 ### Enable Azure Key Vault integration
 
 On a cluster with the application routing add-on enabled, use the [`az aks approuting update`][az-aks-approuting-update] command using the `--enable-kv` and  `--attach-kv` arguments to enable the Azure Key Vault provider for Secrets Store CSI Driver and apply the required role assignments.
@@ -115,7 +114,7 @@ To enable support for DNS zones, see the following prerequisites:
 
 > [!NOTE]
 > If you already have an Azure DNS Zone, you can skip this step.
-> 
+
 1. Create an Azure DNS zone using the [`az network dns zone create`][az-network-dns-zone-create] command.
 
     ```azurecli-interactive
@@ -222,15 +221,11 @@ Learn about monitoring the Ingress-nginx controller metrics included with the ap
 [rbac-owner]: ../role-based-access-control/built-in-roles.md#owner
 [rbac-classic]: ../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles
 [app-routing-add-on-basic-configuration]: app-routing.md
-[secret-store-csi-provider]: csi-secrets-store-driver.md
 [csi-secrets-store-autorotation]: csi-secrets-store-configuration-options.md#enable-and-disable-auto-rotation
-[az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
 [azure-key-vault-overview]: ../key-vault/general/overview.md
-[az-aks-addon-update]: /cli/azure/aks/addon#az-aks-addon-update
 [az-aks-approuting-update]: /cli/azure/aks/approuting#az-aks-approuting-update
 [az-aks-approuting-zone]: /cli/azure/aks/approuting/zone
 [az-network-dns-zone-show]: /cli/azure/network/dns/zone#az-network-dns-zone-show
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-network-dns-zone-create]: /cli/azure/network/dns/zone#az-network-dns-zone-create
 [az-keyvault-certificate-import]: /cli/azure/keyvault/certificate#az-keyvault-certificate-import
 [az-keyvault-create]: /cli/azure/keyvault#az-keyvault-create
@@ -241,6 +236,4 @@ Learn about monitoring the Ingress-nginx controller metrics included with the ap
 [create-an-azure-dns-zone]: #create-a-global-azure-dns-zone
 [azure-dns-overview]: ../dns/dns-overview.md
 [az-keyvault-certificate-show]: /cli/azure/keyvault/certificate#az-keyvault-certificate-show
-[az-aks-enable-addons]: /cli/azure/aks/addon#az-aks-enable-addon
-[az-aks-show]: /cli/azure/aks/addon#az-aks-show
 [prometheus-in-grafana]: app-routing-nginx-prometheus.md

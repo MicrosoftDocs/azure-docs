@@ -21,11 +21,9 @@ Try the troubleshooting information in this article first. If that doesn't work,
 
 ## Fix common errors
 
-### Purchase fails
+### Marketplace purchase errors
 
-A purchase can fail because a valid credit card isn't connected to the Azure subscription, or because a payment method isn't associated with the subscription. To solve this problem, use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [Add, update, or delete a payment method](../../cost-management-billing/manage/change-credit-card.md).
-
-A purchase can also fail because an Enterprise Agreement (EA) subscription doesn't allow Azure Marketplace purchases. Try to use a different subscription. Or, check if your EA subscription is enabled for Azure Marketplace purchases. For more information, see [Enabling Azure Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
+[!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
 ### You can't create a New Relic resource
 

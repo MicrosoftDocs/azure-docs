@@ -142,7 +142,7 @@ The payload that is sent to ServiceNow has a common structure. The structure has
 
 The structure of the payload for all alert types except log search alert is [common schema](./alerts-common-schema.md).
 
-For Log Search Alerts, the structure is:
+For Log Search Alerts (V1 and V2), the structure is:
 
 - Alert  (alert rule name) : \<value>
 - Search Query : \<value>

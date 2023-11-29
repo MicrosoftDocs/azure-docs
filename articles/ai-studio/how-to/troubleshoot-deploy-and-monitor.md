@@ -86,6 +86,9 @@ Option 2: Find the build log within Azure Machine Learning studio, which is a se
 
 **Answer:** We're working on improving the user experience of web app deployment at this time. For the time being, here's a tip: if your web app launch button doesn't become active after a while, try deploy again using the 'update an existing app' option. If the web app was properly deployed, it should show up on the dropdown list of your existing web apps.
 
+**Question:** I deployed a model but I don't see it in the playground.
+**Answer:** Playground only supports a few select models, such as Azure OpenAI models and Llama-2. If playground support is available, you see the **Open in playground** button on the model deployment's **Details** page. 
+
 ## Next steps
 
 - [Azure AI Studio overview](../what-is-ai-studio.md)

@@ -5,7 +5,7 @@ description: Learn about migrating to the latest release of the OpenAI Python li
 author: mrbullwinkle 
 ms.author: mbullwin 
 ms.service: azure-ai-openai
-ms.custom: 
+ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 11/15/2023
 manager: nitinme

@@ -3,7 +3,7 @@ title: Connect your AWS account
 description: Defend your AWS resources by using Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.custom: devx-track-linux
-ms.date: 11/02/2023
+ms.date: 11/23/2023
 ---
 
 # Connect your AWS account to Microsoft Defender for Cloud
@@ -241,7 +241,7 @@ To view all the active recommendations for your resources by resource type, use 
 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Screenshot of AWS options in the asset inventory page's resource type filter." lightbox="media/quickstart-onboard-aws/aws-resource-types-in-inventory.png":::
 
-## Integrate with Microsoft 365 Defender
+## Integrate with Microsoft 365 Defender (Preview)
 
 When you enable Defender for Cloud, Defender for Cloud's alerts are automatically integrated into the Microsoft 365 Defender portal. No further steps are needed.
 
