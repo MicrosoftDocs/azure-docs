@@ -113,7 +113,7 @@ Navigate to your cluster. Open the _Workbooks_ tab for your cluster and look for
 
 ### Access using a Grafana dashboard
 
-Customers can use our Syslog dashboard for Grafana to get an overview of their Syslog data. Customers who use Azure-managed Grafana will have this dashboard available in thier Grafana instance by default. Once syslog collection is enabled, no other steps are needed. Other customers can [import the Syslog dashboard from Grafana marketplace](https://grafana.com/grafana/dashboards/19866-azure-monitor-container-insights-syslog/).
+Customers can use our Syslog dashboard for Grafana to get an overview of their Syslog data. Customers who use Azure-managed Grafana will have this dashboard available in their Grafana instance by default. Once syslog collection is enabled, no other steps are needed. Other customers can [import the Syslog dashboard from Grafana marketplace](https://grafana.com/grafana/dashboards/19866-azure-monitor-container-insights-syslog/).
 
 :::image type="content" source="media/container-insights-syslog/grafana-screenshot.png" lightbox="media/container-insights-syslog/grafana-screenshot.png" alt-text="Screenshot of Syslog Grafana dashboard." border="false":::
 
