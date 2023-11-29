@@ -1,6 +1,6 @@
 ---
-title: Mount Azure file share to an AD DS-joined VM
-description: Learn how to mount an Azure file share to your on-premises Active Directory Domain Services domain-joined machines.
+title: Mount SMB Azure file share using AD DS credentials
+description: Learn how to mount an SMB Azure file share using your on-premises Active Directory Domain Services credentials.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
@@ -14,7 +14,7 @@ recommendations: false
 
 Before you begin this article, make sure you've read [configure directory and file-level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md).
 
-The process described in this article verifies that your SMB file share and access permissions are set up correctly and that you can access an Azure file share from a domain-joined VM. Remember that share-level role assignment can take some time to take effect.
+The process described in this article verifies that your SMB file share and access permissions are set up correctly and that you can mount your SMB Azure file share. Remember that share-level role assignment can take some time to take effect.
 
 Sign in to the client using the credentials of the identity that you granted permissions to.
 
@@ -58,7 +58,7 @@ If you run into issues, see [Unable to mount Azure file shares with AD credentia
 
 ## Mount the file share from a non-domain-joined VM or a VM joined to a different AD domain
 
-Non-domain-joined VMs or VMs that are joined to a different AD domain than the storage account can access Azure file shares if they have line-of-sight to the domain controllers and provide explicit credentials. The user accessing the file share must have an identity and credentials in the AD domain that the storage account is joined to.
+Non-domain-joined VMs or VMs that are joined to a different AD domain than the storage account can access Azure file shares if they have unimpeded network connectivity to the domain controllers and provide explicit credentials. The user accessing the file share must have an identity and credentials in the AD domain that the storage account is joined to.
 
 To mount a file share from a non-domain-joined VM, use the notation **username@domainFQDN**, where **domainFQDN** is the fully qualified domain name. This will allow the client to contact the domain controller to request and receive Kerberos tickets. You can get the value of **domainFQDN** by running `(Get-ADDomain).Dnsroot` in Active Directory PowerShell.
 
@@ -83,7 +83,7 @@ To use this method, complete the following steps:
 
 1. Make sure you've set up identity-based authentication and synced your AD user account(s) to Microsoft Entra ID.
 
-2. Modify the SPN of the storage account using the setspn tool. You can find `<DomainDnsRoot>` by running the following Active Directory PowerShell command: `(Get-AdDomain).DnsRoot`
+2. Modify the SPN of the storage account using the `setspn` tool. You can find `<DomainDnsRoot>` by running the following Active Directory PowerShell command: `(Get-AdDomain).DnsRoot`
 
    ```
    setspn -s cifs/<storage-account-name>.<DomainDnsRoot> <storage-account-name>
@@ -100,7 +100,7 @@ To use this method, complete the following steps:
    1. For the target host FQDN, enter **`<storage-account-name>`.file.core.windows.net**
    1. Select **OK**.
 
-You should now be able to mount the file share using either *storageaccount.domainname.com* or *storageaccount.file.core.windows.net*. You can also mount the file share using the storage account key.
+You should now be able to mount the file share using *storageaccount.domainname.com*. You can also mount the file share using the storage account key.
 
 ## Next steps
 
