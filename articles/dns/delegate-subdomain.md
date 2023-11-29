@@ -29,13 +29,13 @@ The **engineering.adatum.com** subdomain can already exist. If it doesn't exist,
 To delegate the **engineering** subdomain under **adatum.com**:
 
 1. From the Azure portal, search for **DNS zones** and select the **adatum.com** parent zone.
-2. Select **+ Child zone** and enter **engineering** next to **Name**.
+2. Select **+ Child zone** and enter **engineering** next to **Name**. The **Create DNS zone** window opens.
 
    ![A screenshot showing creation of a child DNS zone.](./media/delegate-subdomain/new-child-zone.png)
 
-3. If desired, change the Subscription and Resource group. In this example, we use the same subscription and resource group as the parent zone.
+3. If desired, change the **Subscription** and **Resource group**. In this example, we use the same subscription and resource group as the parent zone.
 4. Select **Review create**, and then select **Create**.
-5. When deployment is complete, select Go to resource to view the new delegated zone.
+5. When deployment is complete, select **Go to resource** to view the new delegated zone.
 
    ![A screenshot showing contents of the child zone.](./media/delegate-subdomain/child-zone-contents.png)
 
