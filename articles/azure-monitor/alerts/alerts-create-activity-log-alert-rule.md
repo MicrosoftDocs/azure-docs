@@ -32,13 +32,13 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     This table describes the services available for activity log alert rules:
 
-    |Signal source  |Description  |
-    |Activity log – Administrative|The service that provides the Administrative activity log events.         |
-    |Activity log – Policy|The service that provides the Policy activity log events.         |
-    |Activity log – Autoscale|The service that provides the Autoscale activity log events.         |
-    |Activity log – Security|The service that provides the Security activity log events.         |
-    |Resource health|Resource health|The service that provides the resource-level health status. |
-    |Service health|Service health|The service that provides the subscription-level health status.         |
+    | Signal source            | Description                                                     |
+    |--------------------------|-----------------------------------------------------------------|
+    | Activity log – Policy    | The service that provides the Policy activity log events.       |
+    | Activity log – Autoscale | The service that provides the Autoscale activity log events.    |
+    | Activity log – Security  | The service that provides the Security activity log events.     |
+    | Resource health          | The service that provides the resource-level health status.     |
+    | Service health           | The service that provides the subscription-level health status. |
 
     Select the **Signal name** and **Apply**.
 
