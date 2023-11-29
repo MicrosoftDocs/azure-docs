@@ -21,6 +21,16 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## December 2023
+
+- [Incident tasks now generally available (GA)](#incident-tasks-now-generally-available-ga)
+
+### Incident tasks now generally available (GA)
+
+Incident tasks, which help you standardize your incident investigation and response practices so you can more effectively manage incident workflow, are now generally available (GA) in Microsoft Sentinel.
+
+- Learn more about [incident tasks](incident-tasks.md).
+
 ## November 2023
 
 - [Take advantage of Microsoft Defender for Cloud integration with Microsoft Defender XDR (Preview)](#take-advantage-of-microsoft-defender-for-cloud-integration-with-microsoft-defender-xdr-preview)
