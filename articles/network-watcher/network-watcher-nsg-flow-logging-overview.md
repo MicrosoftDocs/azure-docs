@@ -6,9 +6,9 @@ ms.author: halkazwini
 author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 11/16/2023
+ms.date: 11/28/2023
 
-#CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can better monitor and optimize my network.
+#CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can monitor my network and optimize its performance.
 ---
 
 # Flow logging for network security groups
@@ -465,8 +465,9 @@ When you delete a network security group, the associated flow log resource is de
 
 ### Storage account
 
-- **Location**: The storage account used must be in the same region as the network security group.
-- **Performance tier**: Currently, only standard-tier storage accounts are supported.
+- **Location**: The storage account must be in the same region as the network security group.
+- **Subscription**: The storage account must be in a subscription associated with the same Microsoft Entra tenant as the network security group's subscription.
+- **Performance tier**: The storage account must be standard. Premium storage accounts aren't supported.
 - **Self-managed key rotation**: If you change or rotate the access keys to your storage account, NSG flow logs stop working. To fix this problem, you must disable and then re-enable NSG flow logs.
 
 ### Cost
@@ -564,5 +565,5 @@ Storage of logs is charged separately. For relevant prices, see [Azure Blob Stor
 ## Related content
 
 - To learn how to manage NSG flow logs, see [Create, change, disable, or delete NSG flow logs using the Azure portal](nsg-flow-logging.md).
-- To find answers to some of the most frequently asked questions about NSG flow logs, see [NSG flow logs FAQ](frequently-asked-questions.yml#nsg-flow-logs).
+- To find answers to some of the most frequently asked questions about NSG flow logs, see [Flow logs FAQ](frequently-asked-questions.yml#flow-logs).
 - To learn about traffic analytics, see [Traffic analytics overview](traffic-analytics.md).
