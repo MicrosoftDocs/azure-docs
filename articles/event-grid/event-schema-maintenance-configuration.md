@@ -4,7 +4,7 @@ description: The article provides details on Azure maintenance configuration as 
 ms.topic: conceptual
 author: ApnaLakshay
 ms.author: ApnaLakshay
-ms.date: 11/3/2023
+ms.date: 11/29/2023
 ---
 
 # Azure Maintenance Configuration as an Event Grid source
