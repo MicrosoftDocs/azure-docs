@@ -40,10 +40,10 @@ To recover from Arc resource bridge VM deletion, you need to deploy a new resour
     $vmmserverName= <SCVMM-name-in-azure>
     ```
 
-4. [Run the onboarding script](/azure/azure-arc/system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc#download-the-onboarding-script) again with the `--force` parameter.
+4. [Run the onboarding script](/azure/azure-arc/system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc#download-the-onboarding-script) again with the `-Force` parameter.
 
     ``` powershell-interactive
-    ./resource-bridge-onboarding-script.ps1 --force
+    ./resource-bridge-onboarding-script.ps1 -Force
     ```
 
 5. [Provide the inputs](/azure/azure-arc/system-center-virtual-machine-manager/quickstart-connect-system-center-virtual-machine-manager-to-arc#script-runtime) as prompted.
