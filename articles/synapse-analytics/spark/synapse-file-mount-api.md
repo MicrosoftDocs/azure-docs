@@ -167,16 +167,6 @@ f.close()
 
 The main purpose of the mount operation is to let customers access the data stored in a remote storage account by using a local file system API. You can also access the data by using the `mssparkutils fs` API with a mounted path as a parameter. The path format used here is a little different. 
 
-Assume that you mounted the Data Lake Storage Gen2 container `mycontainer` to `/test` by using the mount API. When you access the data by using a local file system API, the path format is like this: 
-
-`/synfs/{jobId}/test/{filename}`
-
-We recommend using a `mssparkutils.fs.getMountPath()` to get the accurate path:
-
-```python
-path = mssparkutils.fs.getMountPath("/test") # equals to /synfs/{jobId}/test
-```
-
 When you want to access the data by using the `mssparkutils fs` API, the path format is like this: 
 
 `synfs:/{jobId}/test/{filename}`
@@ -249,13 +239,24 @@ If you mounted a Blob Storage account and want to access it by using `mssparkuti
 
 3. Mount the Blob Storage container, and then read the file by using a mount path through the local file API:
 
+   Assume that you mounted the Data Lake Storage Gen2 container `mycontainer` to `/test` by using the mount API. When you access the data by using a local file system API, the path format is like this: 
+
+   `/synfs/{jobId}/test/{filename}`
+
     ```python
         # mount the Blob Storage container, and then read the file by using a mount path
         with open("/synfs/64/test/myFile.txt") as f:
         print(f.read())
     ```
 
-4. Read the data from the mounted Blob Storage container through the Spark read API:
+    We recommend using a `mssparkutils.fs.getMountPath()` to get the accurate path:
+
+   ```python
+   path = mssparkutils.fs.getMountPath("/test") # equals to /synfs/{jobId}/test
+   ```
+
+
+5. Read the data from the mounted Blob Storage container through the Spark read API:
 
     ```python
     %%spark
