@@ -493,7 +493,7 @@ You can use the `LocalResponseCache` filter at whichever route you need to enabl
 ```
 
 You can learn more about `LocalResponseCache` filter from following links.
-- [How to configure `LocalResponseCache` filter for Azure Spring Apps](./how-to-configure-enterprise-spring-cloud-gateway-filters.md#localresponsecache).
+- [How to configure `LocalResponseCache` filter in routing rules](./how-to-configure-enterprise-spring-cloud-gateway-filters.md#localresponsecache).
 - [More details of `LocalResponseCache` filter from VMware](https://aka.ms/vmware/scg/filters/localresponsecache).
 
 Instead of configuring the `size` and `timeToLive` for the `LocalResponseCache` filter individually, you can set these parameters at the Spring Cloud Gateway level. This allows you to use the `LocalResponseCache` filter without specifying these values initially, while retaining the flexibility to override them later.
