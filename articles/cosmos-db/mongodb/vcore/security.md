@@ -15,11 +15,11 @@ ms.date: 10/23/2023
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
-This article discusses database security best practices and key features offered by Azure Cosmos DB to help you prevent, detect, and respond to database breaches.
+This article discusses database security best practices and key features offered by Azure Cosmos DB for MongoDB vCore to help you prevent, detect, and respond to database breaches.
 
 ## What's new in Azure Cosmos DB for MongoDB vCore security
 
-Encryption at rest is now available for documents and backups stored in Azure Cosmos DB for MongoDB vCore in most Azure regions. Encryption at rest is applied automatically for both new and existing customers in these regions. There's no need to configure anything. You get the same great latency, throughput, availability, and functionality as before with the benefit of knowing your data is safe and secure with encryption at rest.  Data stored in your Azure Cosmos DB for MongoDB vCore account is automatically and seamlessly encrypted with keys managed by Microsoft using service-managed keys. 
+Encryption at rest is now available for documents and backups stored in Azure Cosmos DB for MongoDB vCore in most Azure regions. Encryption at rest is applied automatically for both new and existing customers in these regions. There's no need to configure anything. You get the same great latency, throughput, availability, and functionality as before with the benefit of knowing your data is safe and secure with encryption at rest.  Data stored in your Azure Cosmos DB for MongoDB vCore cluster is automatically and seamlessly encrypted with keys managed by Microsoft using service-managed keys. 
 
 ## How do I secure my database
 
@@ -53,24 +53,24 @@ And although it may seem obvious, recent [large-scale database breaches](https:/
 
 ## How does Azure Cosmos DB secure my database
 
-Let's look back at the preceding list - how many of those security requirements does Azure Cosmos DB provide? Every single one.
+Let's look back at the preceding list - how many of those security requirements does Azure Cosmos DB for MongoDB vCore provide? Every single one.
 
 Let's dig into each one in detail.
 
 |Security requirement|Azure Cosmos DB's security approach|
 |---|---|
-|Network security|Using an IP firewall is the first layer of protection to secure your database. Azure Cosmos DB supports policy driven IP-based access controls for inbound firewall support. The IP-based access controls are similar to the firewall rules used by traditional database systems. However, they're expanded so that an Azure Cosmos DB database account is only accessible from an approved set of machines or cloud services. <br><br>Azure Cosmos DB enables you to enable a specific IP address (168.61.48.0), an IP range (168.61.48.0/8), and combinations of IPs and ranges. <br><br>All requests originating from machines outside this allowed list are blocked by Azure Cosmos DB. Requests from approved machines and cloud services then must complete the authentication process to be given access control to the resources.<br><br> You can use [virtual network service tags](../../../virtual-network/service-tags-overview.md) to achieve network isolation and protect your Azure Cosmos DB resources from the general Internet. Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, AzureCosmosDB) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service.|
-|Local replication|Even within a single data center, Azure Cosmos DB automatically replicates data for high availability giving you the choice of consistency levels. This replication guarantees a 99.995% [availability SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts.|
+|Network security|Using an IP firewall is the first layer of protection to secure your database. Azure Cosmos DB supports policy driven IP-based access controls for inbound firewall support. The IP-based access controls are similar to the firewall rules used by traditional database systems. However, they're expanded so that an Azure Cosmos DB database account is only accessible from an approved set of machines or cloud services. <br><br>Azure Cosmos DB for MongoDB vCore enables you to enable a specific IP address (168.61.48.0), an IP range (168.61.48.0/8), and combinations of IPs and ranges. <br><br>All requests originating from machines outside this allowed list are blocked by Azure Cosmos DB for MongoDB vCore. Requests from approved machines and cloud services then must complete the authentication process to be given access control to the resources.<br><br> You can use [virtual network service tags](../../../virtual-network/service-tags-overview.md) to achieve network isolation and protect your Azure Cosmos DB for MongoDB vCore resources from the general Internet. Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, AzureCosmosDB) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service.|
+|Local replication|Even within a single data center, Azure Cosmos DB for MongoDB vCore replicates the data using LRS. HA-enabled clusters also have another layer of replication between a primary and secondary node, thus guaranteeing a 99.995% [availability SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db).|
 |Automated online backups|Azure Cosmos DB databases are backed up regularly and stored in a geo redundant store. |
 |Restore deleted data|The automated online backups can be used to recover data you may have accidentally deleted up to ~7 days after the event. |
-|Protect and isolate sensitive data|All data in the regions listed in What's new? is now encrypted at rest.<br><br>Personal data and other confidential data can be isolated to specific container and read-write, or read-only access can be limited to specific users.|
+|Protect and isolate sensitive data|All data in the regions listed in What's new? is now encrypted at rest.|
 |Monitor for attacks|By using audit logging and activity logs, you can monitor your account for normal and abnormal activity. You can view what operations were performed on your resources. This data includes; who initiated the operation, when the operation occurred, the status of the operation, and much more.|
 |Respond to attacks|Once you have contacted Azure support to report a potential attack, a five-step incident response process is kicked off. The goal of the five-step process is to restore normal service security and operations. The five-step process restores services as quickly as possible after an issue is detected and an investigation is started.<br><br>Learn more in [Microsoft Azure Security Response in the Cloud](https://azure.microsoft.com/resources/shared-responsibilities-for-cloud-computing/).|
 |Protected facilities|Data in Azure Cosmos DB is stored on SSDs in Azure's protected data centers.<br><br>Learn more in [Microsoft global datacenters](https://www.microsoft.com/cloud-platform/global-datacenters)|
-|HTTPS/SSL/TLS encryption|All connections to Azure Cosmos DB support HTTPS. Azure Cosmos DB supports TLS levels up to 1.2 (included).<br>It's possible to enforce a minimum TLS level on server-side. |
+|HTTPS/SSL/TLS encryption|Azure Cosmos DB for MongoDB vCore supports TLS levels up to 1.2 (included).<br>It's possible to enforce a minimum TLS level on server-side. |
 |Encryption in transit|Encryption (SSL/TLS) is always enforced, and if you attempt to connect to your cluster without encryption, that attempt fails. Only connections via a MongoDB client are accepted and encryption is always enforced. Whenever data is written to Azure Cosmos DB for MongoDB vCore, your data is encrypted in-transit with Transport Layer Security 1.2.|
 |Encryption at rest|Azure Cosmos DB for MongoDB vCore uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including all backups, are encrypted on disk, including the temporary files. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system-managed. Storage encryption is always on, and can't be disabled.|
-|Patched servers|As a managed database, Azure Cosmos DB eliminates the need to manage and patch servers, that's done for you, automatically.|
+|Patched servers|Azure Cosmos DB for MongoDB vCore eliminates the need to manage and patch clusters, that's done for you automatically.|
 |Administrative accounts with strong passwords|It's hard to believe we even need to mention this requirement, but unlike some of our competitors, it's impossible to have an administrative account with no password in Azure Cosmos DB.<br><br> Security via TLS secret based authentication is baked in by default.|
 |Security and data protection certifications| For the most up-to-date list of certifications, see [Azure compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings) and the latest [Azure compliance document](https://azure.microsoft.com/mediahandler/files/resourcefiles/microsoft-azure-compliance-offerings/Microsoft%20Azure%20Compliance%20Offerings.pdf) with all Azure certifications including Azure Cosmos DB.
 
@@ -79,7 +79,7 @@ The following screenshot shows how you can use audit logging and activity logs t
 
 ## Network security options
 
-This section outlines various network security options you can configure for your account.
+This section outlines various network security options you can configure for your cluster.
 
 ### No access
 
