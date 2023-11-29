@@ -42,7 +42,6 @@ Database servers with mission-critical workloads demand robust performance, requ
     - [High Availability](./concepts-high-availability.md) (HA) servers.
     - Servers enabled with [Customer Managed Keys](./concepts-customer-managed-key.md)  (CMK).
     - Servers enabled with [Microsoft Entra ID](./concepts-azure-ad-authentication.md) authentication.
-    - [Read-replicas](concepts-read-replicas.md) servers.
 
 - Performing a [major version upgrade](./how-to-upgrade.md) on your Azure Database for MySQL flexible server with the accelerated logs feature enabled is **not supported**. Suppose you wish to proceed with a major version upgrade. In that case, you should temporarily [disable](#disable-accelerated-logs-feature-preview) the accelerated logs feature, carry out the upgrade, and re-enable the accelerated logs feature once the upgrade is complete.
 
@@ -52,22 +51,26 @@ Database servers with mission-critical workloads demand robust performance, requ
 
 ## The accelerated logs feature is available in the following regions
 
-- South Africa North
-- East Asia
+- Australia East
 - Canada Central
-- North Europe
-- West Europe
 - Central India
-- Sweden Central
-- Switzerland North
-- UK South
+- China North 3
+- East Asia
 - East US
 - East US 2
+- France Central
+- North Europe
+- Norway East
+- South Africa North
 - South Central US
+- Sweden Central
+- Switzerland North
+- UAE North
+- UK South
+- US Gov Virginia
+- West Europe
 - West US 2
 - West US 3
-- Australia East
-- UAE North
 
 ## Enable accelerated logs feature (preview)
 
@@ -76,6 +79,9 @@ The enable accelerated logs feature is available during the preview phase. You c
 ### Enable accelerated logs during server creation
 
 This section provides details specifically for enabling the accelerated logs feature. You can follow these steps to enable Accelerated logs while creating your flexible server.
+
+> [!IMPORTANT]  
+> The accelerated logs feature is only available for servers based on the Business Critical service tier. It is recommended to disable the feature when scaling down to any other service tier.
 
 1. In the [Azure portal](https://portal.azure.com/), choose flexible Server and Select **Create**.  For details on how to fill details such as **Subscription**, **Resource group**, **Server name**, **Region**, and other fields, see [how-to documentation](./quickstart-create-server-portal.md) for the server creation.
 

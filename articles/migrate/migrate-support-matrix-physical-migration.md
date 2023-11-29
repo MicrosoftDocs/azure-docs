@@ -46,7 +46,7 @@ The table summarizes support for physical servers, AWS VMs, and GCP VMs that you
 **UEFI - Secure boot**         | Not supported for migration.
 **Target disk** | Machines can be migrated only to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
 **Ultra disk** | Ultra disk migration isn't supported from the Azure Migrate portal. You have to do an out-of-band migration for the disks that are recommended as Ultra disks. That is, you can migrate selecting it as premium disk type and change it to Ultra disk after migration.
-**Disk size** | up to 2-TB OS disk for gen 1 VM; up to 4-TB OS disk for gen 2 VM; 32 TB for data disks.
+**Disk size** | up to 2 TB OS disk for gen 1 VM; up to 4 TB OS disk for gen 2 VM; 32 TB for data disks.
 **Disk limits** |  Up to 63 disks per machine.
 **Encrypted disks/volumes** |  Machines with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.
@@ -55,7 +55,7 @@ The table summarizes support for physical servers, AWS VMs, and GCP VMs that you
 **NFS** | NFS volumes mounted as volumes on the machines won't be replicated.
 **ReiserFS** | Not supported.
 **iSCSI targets** | Machines with iSCSI targets aren't supported for agentless migration.
-**Multipath IO** | Not supported.
+**Multipath IO** | Supported for Windows servers with Microsoft or vendor-specific Device Specific Module (DSM) installed.
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
 **PV drivers / XenServer tools** | Not supported.

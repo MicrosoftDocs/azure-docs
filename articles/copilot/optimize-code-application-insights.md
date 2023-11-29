@@ -19,6 +19,8 @@ When you ask Microsoft Copilot for Azure (preview) to provide these recommendati
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
+[!INCLUDE [preview-note](includes/preview-note.md)]
+
 ## Sample prompts
 
 Here are a few examples of the kinds of prompts you can use with Code Optimizations. Modify these prompts based on your real-life scenarios, or try additional prompts about specific areas for optimization.

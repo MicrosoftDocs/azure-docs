@@ -142,4 +142,4 @@ You can create and manage batch and online endpoints with multiple developer too
 - [How to deploy pipelines with batch endpoints](how-to-use-batch-pipeline-deployments.md)
 - [How to use online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
-- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints)

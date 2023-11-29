@@ -14,10 +14,10 @@ items:
     href: studio-overview.md
   - name: Document Intelligence SDKs
     items:
-      - name: "v3.1 targets: REST API 2023—7—31 latest (GA)"
+      - name: "v3.1 targets: REST API 2023–7–31 latest (GA)"
         displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, package, version,AzureKeyCredential, Azure key credential, key, endpoint
         href: sdk-overview-v3-1.md
-      - name:  "v3.0 targets: REST API 2022—08—31 (GA)"
+      - name:  "v3.0 targets: REST API 2022–08–31 (GA)"
         displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, package, version,AzureKeyCredential, Azure key credential, key, endpoint
         href: sdk-overview-v3-0.md
       - name: Changelog and release history
@@ -194,7 +194,7 @@ items:
     displayName: passport, visa, ID, social security, green card
     href: concept-id-document.md
   - name: Business card model
-    displayName: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument
+    displayName: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP
     href: concept-business-card.md?view<=doc-intel-3.1.0&preserve-view=true
   - name: Query field extraction
     displayName: queries, fields, OpenAI, chat
@@ -256,9 +256,9 @@ items:
 - name: Reference
   items:
     - name: REST API v4.0
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument
+      href: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP
     - name: REST API v3.1
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument
+      href: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP
     - name: REST API v3.0
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
     - name: Error codes v4.0, v3.1, and v3.0

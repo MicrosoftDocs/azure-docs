@@ -2,8 +2,8 @@
 metadata:
   title: Azure Operator Insights frequently asked questions
   description: Get answers to frequently asked questions (FAQs) for Azure Operator Insights.
-  author: bettylew
-  ms.author: bettylew
+  author: rcdun
+  ms.author: rdunstan
   ms.service: operator-insights
   ms.topic: faq
   ms.date: 10/26/2023

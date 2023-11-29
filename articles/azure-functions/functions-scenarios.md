@@ -131,8 +131,6 @@ public static async Task Run(
 
 ::: zone pivot="programming-language-java" 
 + [Azure Functions Kafka trigger Java Sample](https://github.com/azure/azure-functions-kafka-extension/tree/main/samples/WalletProcessing_KafkademoSample)
-+ [Event Hubs trigger examples](https://github.com/azure-samples/azure-functions-samples-java/blob/master/src/main/java/com/functions/EventHubTriggerFunction.java)
-+ [Kafka triggered function examples](https://github.com/azure-samples/azure-functions-samples-java/blob/master/src/main/java/com/functions/KafkaTriggerFunction.java)
 + [Azure Event Hubs trigger for Azure Functions](functions-bindings-event-hubs-trigger.md?pivots=programming-language-java)
 + [Apache Kafka trigger for Azure Functions](functions-bindings-kafka-trigger.md?pivots=programming-language-java)
 ::: zone-end

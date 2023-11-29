@@ -369,7 +369,6 @@ The following table lists read model language support for extracting and analyzi
   |Serbian (Cyrillic)|sr-cyrl|
   |Serbian (Latin)|sr, sr-latn|
   |Shambala|ksb|
-  |Sherpa (Devanagari)|xsr|
   |Shona|sn|
   |Siksika|bla|
   |Sirmauri (Devanagari)|srx|
@@ -613,7 +612,6 @@ The following table lists read model language support for extracting and analyzi
   |Volapük|vo|
   |Walser|wae|
   |Kangri|xnr|
-  |Sherpa|xsr|
   |Yucateco|yua|
   |Zhuang|za|
   |Chinese (Han (Simplified variant))|zh, zh-hans|
@@ -1084,7 +1082,6 @@ The following table lists the supported languages for printed text:
   |Serbian (Cyrillic)|sr-cyrl|
   |Serbian (Latin)|sr, sr-latn|
   |Shambala|ksb|
-  |Sherpa (Devanagari)|xsr|
   |Shona|sn|
   |Siksika|bla|
   |Sirmauri (Devanagari)|srx|
@@ -1328,7 +1325,6 @@ The following table lists layout model language support for extracting and analy
   |Volapük|vo|
   |Walser|wae|
   |Kangri|xnr|
-  |Sherpa|xsr|
   |Yucateco|yua|
   |Zhuang|za|
   |Chinese (Han (Simplified variant))|zh, zh-hans|
