@@ -225,7 +225,10 @@ You can modify the following additional settings in the **Data parameters** sect
 |**Retrieved documents**     |  Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. The default value is 5. This is the `topNDocuments` parameter in the API.     |
 | **Strictness**     | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. The default value is 3.         |
 
-## Virtual network support & private endpoint support (Azure AI Search only)
+## Virtual network support & private endpoint support
+
+> [!NOTE] 
+> Virtual network support & private endpoint are supported on Azure AI search only.
 
 See the following table for scenarios supported by virtual networks and private endpoints **when you bring your own Azure AI Search index**. 
 
@@ -299,7 +302,10 @@ To add a new data source to your Azure OpenAI resource, you need the following A
 
 
 
-## Document-level access control (Azure AI Search only)
+## Document-level access control
+
+> [!NOTE] 
+> Document-level access control is supported on Azure AI search only.
 
 Azure OpenAI on your data lets you restrict the documents that can be used in responses for different users with Azure AI Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure AI Search and used to generate a response will be trimmed based on user Microsoft Entra group membership. You can only enable document-level access on existing Azure AI Search indexes. To enable document-level access:
 
@@ -351,7 +357,10 @@ When using the API, pass the `filter` parameter in each API request. For example
 * `my_group_ids` is the field name that you selected for **Permitted groups** during [fields mapping](#index-field-mapping).
 * `group_id1, group_id2` are groups attributed to the logged in user. The client application can retrieve and cache users' groups.
 
-## Schedule automatic index refreshes (Azure AI Search only)
+## Schedule automatic index refreshes
+
+> [!NOTE] 
+> Automatic index refreshing is supported for Azure Blob storage only.
 
 To keep your Azure AI Search index up-to-date with your latest data, you can schedule a refresh for it that runs automatically rather than manually updating it every time your data is updated. Automatic index refresh is only available when you choose **blob storage** as the data source. To enable an automatic index refresh:
 
