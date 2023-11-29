@@ -93,6 +93,10 @@ Power BI, now a part of the Fabric, has a solid disaster recovery system in plac
 For more information, see the [Power BI high availability, failover, and disaster recovery FAQ](/power-bi/enterprise/service-admin-failover/)
 
 
+>[!IMPORTANT]
+> For customers whose home regions don't have an Azure pair region and are affected by a disaster, the ability to utilize Fabric capacities may be compromised—even if the data within those capacities is replicated. This limitation is tied to the home region’s infrastructure, essential for the capacities' operation. For a detailed explanation and potential mitigation strategies, please refer to our [Link to the documentation].
+
+
 #### Disaster recovery capacity setting
 
 Fabric provides a disaster recovery switch on the capacity settings page. It's available where Azure [regional pairings](./cross-region-replication-azure.md#azure-paired-regions) align with Fabric's service presence. Here are the specifics of this switch:
@@ -117,7 +121,7 @@ Fabric provides a disaster recovery switch on the capacity settings page. It's a
 When you turn on the disaster recovery capacity setting, cross-region replication is enabled as a disaster recovery capability for OneLake data. The Fabric platform aligns with Azure regions to provision the geo-redundancy pairs. However, some regions don't have an Azure pair region, or the pair region doesn't support Fabric. For these regions, data replication isn't available. For more information, see [Regions with availability zones and no region pair](/azure/reliability/cross-region-replication-azure#regions-with-availability-zones-and-no-region-pair/) and [Fabric region availability](/fabric/admin/region-availability).
 
 > [!NOTE]
-> While Fabric offers a data replication solution in OneLake to support disaster recovery, there are notable limitations. For instance, the data of KQL databases and query sets is stored externally to OneLake, which means that a separate disaster recovery approach is needed. Refer to the following sections for the details of the disaster recovery approach for each Fabric item.
+> While Fabric offers a data replication solution in OneLake to support disaster recovery, there are notable limitations. For instance, the data of KQL databases and query sets is stored externally to OneLake, which means that a separate disaster recovery approach is needed. Refer to the rest of this document for details of the disaster recovery approach for each Fabric item. 
 
 #### Billing
 
