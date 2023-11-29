@@ -91,7 +91,7 @@ Extended Update Support (EUS) repositories are available to customers who might 
 > [!NOTE]
 > EUS is not supported on RHEL Extras. This means that if you install a package that is usually available from the RHEL Extras channel, you can't install while on EUS. For more information, see [Red Hat Enterprise Linux Extras Product Life Cycle](https://access.redhat.com/support/policy/updates/extras/).
 
-Currently, EUS support has ended for RHEL <= 7.7. For more information, see [Red Hat Enterprise Linux Extended Maintenance](https://access.redhat.com/support/policy/updates/errata/#Long_Support).
+Support for EUS RHEL7 ended in August 30, 2021. For more information, see [Red Hat Enterprise Linux Extended Maintenance](https://access.redhat.com/support/policy/updates/errata/#Long_Support).
 
 - RHEL 7.4 EUS support ended August 31, 2019
 - RHEL 7.5 EUS support ended April 30, 2020
@@ -106,14 +106,14 @@ Currently, EUS support has ended for RHEL <= 7.7. For more information, see [Red
 #### [Switching to EUS repositories on RHEL8](#tab/rhel7) 
 
 >[!NOTE]
->Support for RHEL7 EUS ended in August 30, 2021. It is not recommended, nor supported to use EUS repos with Red Hat Enterprise Linux 7 anymore.
+>Support for RHEL7 EUS ended in August 30, 2021. It is not recommended to switch to EUS repositories in RHEL7 anymore.
 
  
 #### [Switching to EUS repositories on RHEL8](#tab/rhel8) 
 Use the following procedure to lock a RHEL 8.x VM to a particular minor release. Run the commands as `root`:
 
 >[!NOTE]
-> This procedure only applies for RHEL 8.x versions for which EUS is available. Currently, this includes RHEL  8.1, 8.2, 8.4, 8.6, and 8.8. For more information, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
+> This procedure only applies for RHEL 8.x versions for which EUS is available. This includes RHEL  8.1, 8.2, 8.4, 8.6, and 8.8. For more information, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
 
 1. Disable non-EUS repositories.
 
