@@ -20,7 +20,7 @@ MDVM integrates across many cloud native use cases, such as containers build/run
 >
 > Check out this blog, to learn more about [the change to Microsoft Defender Vulnerability Management](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
 >
-> The Bring Your Own License vulnerability assessment solution, which can be powered by Qualys or Rapid7, isn't included in the retirement path.
+> The support for the Bring Your Own License vulnerability assessment solution powered by Qualys or Rapid7 will remain available.
 
 If you're currently using the [built-in vulnerability assessment solution powered by Qualys](deploy-vulnerability-assessment-vm.md), you should start planning for the upcoming deprecations by following the steps on this page.
 
