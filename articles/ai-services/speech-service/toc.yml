@@ -597,30 +597,6 @@ items:
           href: /legal/cognitive-services/speech-service/pronunciation-assessment/transparency-note-pronunciation-assessment?context=/azure/ai-services/speech-service/context/context
         - name: Characteristics and limitations
           href: /legal/cognitive-services/speech-service/pronunciation-assessment/characteristics-and-limitations-pronunciation-assessment?context=/azure/ai-services/speech-service/context/context
-    - name: Custom neural voice
-      items:
-        - name: Transparency Note
-          items:
-            - name: Use cases for custom neural voice
-              href: /legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/ai-services/speech-service/context/context
-            - name: Characteristics and limitations
-              href: /legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/ai-services/speech-service/context/context
-        - name: Integration and responsible use
-          items:
-            - name: Limited access
-              href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/ai-services/speech-service/context/context
-            - name: Responsible deployment of synthetic speech
-              href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic?context=/azure/ai-services/speech-service/context/context
-            - name: Disclosure for voice and avatar talent
-              href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/ai-services/speech-service/context/context
-            - name: Disclosure design guidelines
-              href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines?context=/azure/ai-services/speech-service/context/context
-            - name: Disclosure design patterns
-              href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns?context=/azure/ai-services/speech-service/context/context
-            - name: Code of conduct
-              href: /legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/ai-services/speech-service/context/context
-        - name: Data, privacy, and security
-          href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/ai-services/speech-service/context/context
     - name: Speaker Recognition
       items: 
       - name: Transparency note
