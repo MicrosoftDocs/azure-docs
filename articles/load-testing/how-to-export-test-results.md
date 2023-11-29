@@ -148,4 +148,4 @@ The following code snippet shows an example of a backend listener, for Azure App
 
 - Learn more about [Diagnosing failing load tests](./how-to-diagnose-failing-load-test.md).
 - For information about comparing test results, see [Compare multiple test results](./how-to-compare-multiple-test-runs.md).
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
+- To learn about performance test automation, see [Configure automated performance testing](./quickstart-add-load-test-cicd.md).
