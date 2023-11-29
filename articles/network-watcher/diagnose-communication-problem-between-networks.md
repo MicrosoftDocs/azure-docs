@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
-ms.date: 09/28/2023
+ms.date: 11/29/2023
 
 #CustomerIntent: As a network administrator, I want to determine why resources in a virtual network can't communicate with resources in a different virtual network over a VPN connection.
 ---
@@ -199,7 +199,7 @@ Fix the problem by correcting the key on **to-VNet1** connection to match the ke
 
 1. Go to **to-VNet1** connection.
 
-1. Under **Settings**, select **Shared key**.
+1. Under **Settings**, select **Authentication Type**.
 
 1. In **Shared key (PSK)**, enter ***123*** and then select **Save**.
 
