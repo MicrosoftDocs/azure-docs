@@ -14,7 +14,7 @@ This article shows you how to use [Alert Rules from Azure Monitor](../azure-moni
 
 To follow this tutorial, ensure that you have a Virtual Machine scale set with [Automatic Repairs](./virtual-machine-scale-sets-automatic-instance-repairs.md) enabled.
 
-## Azure Portal
+## Azure portal
 1.	In the [portal](https://portal.azure.com/), navigate to your VM scale set resource
 2.	Select **Alerts** from the left pane, and then select **+ Create > Alert rule**. :::image type="content" source="media/alert-rules-automatic-repairs-service-state/Picture1.png" alt-text="Create monitoring alert in the Azure portal":::
 3.	Under the **Condition** tab, select **See all signals** and choose the signal name called “Sets the state of an orchestration service in a Virtual Machine Scale set”. Select **Apply**. :::image type="content" source="media/alert-rules-automatic-repairs-service-state/Picture2.png" alt-text="Select alert signal to monitor scale set orchestration service state":::
