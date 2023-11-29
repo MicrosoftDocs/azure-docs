@@ -49,40 +49,40 @@ There are several advantages to using the Azure Monitor OpenTelemetry Distro ove
 In the spirit of OpenTelemetry, we've designed the distro to be open and extensible. For example, you can add:
 - An OTLP exporter and send to a second destination simultaneously
 - Community instrumentation libraries beyond what's bundled in with the package
- 
+
 ### How can I test out the Azure Monitor OpenTelemetry Distro?
 
 Check out our enablement docs for [.NET, Java, JavaScript (Node.js), and Python](../app/opentelemetry-enable.md).
 
 ### Should I use OpenTelemetry or the Application Insights SDK?
 
-It depends. Consider that the Azure Monitor OpenTelemetry Distro is still "Preview", and it's not quite at feature parity with the Application Insights SDKs.
+We recommend using the OpenTelemetry Distro unless you require a feature that is only available with formal support in the Application Insights SDK.
 
 ### What's the current release state of features within the Azure Monitor OpenTelemetry Distro?
 
 The following chart breaks out OpenTelemetry feature support for each language.
 
-|Feature                                                                                                             | .NET               | Node.js            | Python             | Java               |
-|--------------------------------------------------------------------------------------------------------------------|--------------------|--------------------|--------------------|--------------------|
-| [Distributed tracing](../app/distributed-tracing-telemetry-correlation.md)                                            | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Custom metrics](../app/opentelemetry-add-modify.md#add-custom-metrics)                                               | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Standard metrics](../app/standard-metrics.md) (accuracy currently affected by sampling)                              | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Fixed-rate sampling](../app/sampling.md)                                                                             | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Offline storage and automatic retries](../app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)  | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Exception reporting](../app/asp-net-exceptions.md)                                                                   | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Logs collection](../app/asp-net-trace-logs.md)                                                                       | :warning:          | :warning:    | :white_check_mark: | :white_check_mark: |
+|Feature                                                                                                                | .NET               | Node.js            | Python             | Java               |
+|-----------------------------------------------------------------------------------------------------------------------|--------------------|--------------------|--------------------|--------------------|
+| [Distributed tracing](../app/distributed-tracing-telemetry-correlation.md)                                            | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| [Custom metrics](../app/opentelemetry-add-modify.md#add-custom-metrics)                                               | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| [Standard metrics](../app/standard-metrics.md) (accuracy currently affected by sampling)                              | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| [Fixed-rate sampling](../app/sampling.md)                                                                             | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| [Offline storage and automatic retries](../app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| [Exception reporting](../app/asp-net-exceptions.md)                                                                   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| [Logs collection](../app/asp-net-trace-logs.md)                                                                       | :white_check_mark: | :warning:          | :white_check_mark: | :white_check_mark: |
 | [Custom Events](../app/usage-overview.md#custom-business-events)                                                      | :warning:          | :warning:          | :warning:          | :white_check_mark: |
-| [Microsoft Entra authentication](../app/azure-ad-authentication.md)                                            | :warning:          | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| [Microsoft Entra authentication](../app/azure-ad-authentication.md)                                                   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [Live metrics](../app/live-stream.md)                                                                                 | :x:                | :x:                | :x:                | :white_check_mark: |
-| Detect Resource Context for VM/VMSS and App Svc                                                                    | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: |
-| Detect Resource Context for AKS and Functions                                                                      | :x:                | :x:                | :x:                | :white_check_mark: |           
-| Availability Testing Span Filtering                                                                                | :x:                | :x:                | :x:                | :white_check_mark: |
-| Autopopulation of user ID, authenticated user ID, and user IP                                                      | :x:                | :x:                | :x:                | :white_check_mark: |
-| Manually override/set operation name, user ID, or authenticated user ID                                            | :x:                | :x:                | :x:                | :white_check_mark: |
+| Detect Resource Context for VM/VMSS and App Svc                                                                       | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: |
+| Detect Resource Context for AKS and Functions                                                                         | :x:                | :x:                | :x:                | :white_check_mark: |           
+| Availability Testing Span Filtering                                                                                   | :x:                | :x:                | :x:                | :white_check_mark: |
+| Autopopulation of user ID, authenticated user ID, and user IP                                                         | :x:                | :x:                | :x:                | :white_check_mark: |
+| Manually override/set operation name, user ID, or authenticated user ID                                               | :x:                | :x:                | :x:                | :white_check_mark: |
 | [Adaptive sampling](../app/sampling.md#adaptive-sampling)                                                             | :x:                | :x:                | :x:                | :white_check_mark: |
 | [Profiler](../profiler/profiler-overview.md)                                                                          | :x:                | :x:                | :x:                | :warning:          |
 | [Snapshot Debugger](../snapshot-debugger/snapshot-debugger.md)                                                        | :x:                | :x:                | :x:                | :x:                |
-          
+
 **Key**
 - :white_check_mark: This feature is available to all customers with formal support.
 - :warning: This feature is available as a public preview. See [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -104,7 +104,7 @@ The [OpenTelemetry web sandbox](https://github.com/open-telemetry/opentelemetry-
 
 No. This practice isn't something we plan to test or support, although our Distros allow you to [export to an OTLP endpoint](../app/opentelemetry-configuration.md#enable-the-otlp-exporter) alongside Azure Monitor simultaneously.
 
-### Can I use preview builds in production environments?
+### Can I use preview features in production environments?
 
 We don't recommend it. See [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
