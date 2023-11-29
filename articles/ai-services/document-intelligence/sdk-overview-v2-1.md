@@ -322,4 +322,4 @@ The [Microsoft Q&A](/answers/topics/azure-form-recognizer.html) and [Stack Overf
 > [**Explore Document Intelligence REST API v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)
 
 > [!div class="nextstepaction"]
-> [**Try a Document Intelligence quickstart**](quickstarts/get-started-sdks-rest-api?view=doc-intel-2.1.0&preserve-view=true)
+> [**Try a Document Intelligence quickstart**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)
