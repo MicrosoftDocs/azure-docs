@@ -132,16 +132,32 @@ After creating **VNet1GW** and **VNet2GW** virtual network gateways, you can cre
 
 1. Select **+ Add** to create a connection from **VNet1** to **VNet2**.
 
-1. In **Add connection**, enter or select the following values:
+1. In **Create connection**, enter or select the following values in the **Basics** tab:
 
     | Setting | Value |
     | --- | --- |
-    | Name | Enter ***to-VNet2***. |
+    | **Project details** |  |
+    | Subscription | Select your Azure subscription. |
+    | Resource Group | Select **myResourceGroup**. |
+    | **Instance details** |  |
     | Connection type | Select **VNet-to-VNet**. |
+    | Name | Enter ***to-VNet2***. |
+    | Region | Select **East US**. |
+
+1. Select the **Settings** tab or select **Next: Settings** button.
+
+1. In **Settings** tab, enter or select the following values:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Virtual network gateway** |  |
+    | First virtual network gateway | Select **VNet1GW**. |
     | Second virtual network gateway | Select **VNet2GW**. |
     | Shared key (PSK) | Enter ***123***. |
 
-1. Select **OK**.
+1. Select **Review + create**.
+
+1. Review the settings, and then select **Create**.
 
 ### Create second connection
 
@@ -152,6 +168,7 @@ After creating **VNet1GW** and **VNet2GW** virtual network gateways, you can cre
     | Setting | Value |
     | --- | --- |
     | Name | **to-VNet1** |
+    | First virtual network gateway | **VNet2GW** |
     | Second virtual network gateway | **VNet1GW** |
     | Shared key (PSK) | **000** |
 
