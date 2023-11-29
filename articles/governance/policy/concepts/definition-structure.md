@@ -215,7 +215,9 @@ A parameter has the following properties that are used in the policy definition:
     resource or scope.
 - `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned. For oject-type parameters, the value must match the appropriate schema.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during
-  assignment. Allowed value comparisons are case-sensitive. For object-type parameters, the values must match the appropriate schema.
+  assignment.
+    - Case sensitivity: Allowed value comparisons are case-sensitive when assigning a policy, meaning that the selected parameter values in the assignment must match the casing of values in the allowedValues array. However, once values are selected for the assignment, evaluation of string comparisons may be case-insensitive. For example, if the parameter specifies target tag values, the allowedValues array dictates what values can be chosen for the assignment, such as "Dev". But Azure Policy would later evaluate a tag value of "dev" as a match, even though it is lowercase.
+    - For object-type parameters, the values must match the appropriate schema.
 - `schema`: (Optional) Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the [Json.NET Schema](https://www.newtonsoft.com/jsonschema) 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
 
 ### Sample Parameters
