@@ -31,7 +31,7 @@ The simplest way to create a quota alert is to use the Azure portal. Follow thes
 
     | **Fields** | **Description** |
     |:--------|:-----------|
-    | Alert rule name | The lert rule name must be distinct and can't be duplicated, even across different resource groups. |
+    | Alert rule name | The alert rule name must be distinct and can't be duplicated, even across different resource groups. |
     | Alert me when the usage % reaches | Adjust the slider to select your desired usage percentage for triggering alerts. For example, at the default 80%, you receive an alert when your quota reaches 80% capacity.|
     | Severity | Select the severity of the alert when the rule’s condition is met.|
     | [Frequency of evaluation](../azure-monitor/alerts/alerts-overview.md#stateful-alerts) | Choose how **often** the alert rule should **run**, by selecting 5, 10, or 15 minutes.  If the frequency is smaller than the aggregation granularity, the frequency of evaluation results in sliding window evaluation. |
@@ -103,7 +103,7 @@ When you select **Edit**, you can add multiple quotas or locations for the same 
 
    :::image type="content" source="media/monitoring-alerting/edit-dimension-inline.png" alt-text="Screenshot showing how to add dimensions while editing a quota rule in the Azure portal." lightbox="media/monitoring-alerting/edit-dimension-expanded.png":::
 
-Another way to make changes is to go to the **Alert rules** page, then select the specific alert rule you want to change.
+You can also make changes by navigating to the **Alert rules** page, then select the specific alert rule you want to change.
 
    :::image type="content" source="media/monitoring-alerting/alert-rule-edit-inline.png" alt-text="Screenshot showing how to edit rules from the Alert rule screen in the Azure portal." lightbox="media/monitoring-alerting/alert-rule-edit-expanded.png":::
   
