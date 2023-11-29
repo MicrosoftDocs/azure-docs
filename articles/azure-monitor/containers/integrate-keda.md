@@ -62,7 +62,7 @@ This article walks you through the steps to integrate KEDA into your AKS cluster
     To enable workload identity and oidc-issuer, run the following command. 
     
     ```azurecli
-    az aks update -g $RESOURCE_GROUP -n $AKS_CLUSTER_NAME --enable-managed-identity --enable-oidc-issuer
+    az aks update -g $RESOURCE_GROUP -n $AKS_CLUSTER_NAME --enable-workload-identity --enable-oidc-issuer
     ```
     
 1. Store the OIDC issuer url in an environment variable to be used later.
@@ -158,6 +158,7 @@ Deploy KEDA using the following command:
 
 ```bash 
 helm install keda kedacore/keda --namespace keda \
+--set serviceAccount.create=false \
 --set podIdentity.azureWorkload.enabled=true \
 --set podIdentity.azureWorkload.clientId=$USER_ASSIGNED_CLIENT_ID \
 --set podIdentity.azureWorkload.tenantId=$TENANT_ID
