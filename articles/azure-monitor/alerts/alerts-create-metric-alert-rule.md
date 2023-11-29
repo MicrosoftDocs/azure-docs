@@ -16,40 +16,9 @@ You create an alert rule by combining the resources to be monitored, the monitor
 
 Alerts triggered by these alert rules contain a payload that uses the [common alert schema](alerts-common-schema.md).
 
-## Accessing the alert rule wizard in the Azure portal
+[!INCLUDE [alerts-wizard-access](../includes/alerts-wizard-access.md)]
 
-There are several ways that you can create a new alert rule.
-
-To create a new alert rule from the portal home page:
-
-1. In the [portal](https://portal.azure.com/), select **Monitor** > **Alerts**.
-1. Open the **+ Create** menu, and select **Alert rule**.
-
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule.png" alt-text="Screenshot that shows steps to create a new alert rule.":::
-
-To create a new alert rule from a specific resource:
-
-1. In the [portal](https://portal.azure.com/), navigate to the resource.
-1. Select **Alerts** from the left pane, and then select **+ Create** > **Alert rule**.
-
-     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule-2.png" alt-text="Screenshot that shows steps to create a new alert rule from a selected resource.":::
-
-To edit an existing alert rule:
-
-1. In the [portal](https://portal.azure.com/), either from the home page or from a specific resource, select **Alerts** from the left pane.
-1. Select **Alert rules**.
-1. Select the alert rule you want to edit, and then select **Edit**.
-
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-edit-alert-rule.png" alt-text="Screenshot that shows steps to edit an existing alert rule.":::
-1. Select any of the tabs for the alert rule to edit the settings.
-
-## The Scope tab
-
-1. On the **Select a resource** pane, set the scope for your alert rule. You can filter by **subscription**, **resource type**, or **resource location**.
-1. Select **Apply**.
-1. Select **Next: Condition** at the bottom of the page.
-
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot that shows the select resource pane for creating a new alert rule.":::
+[!INCLUDE [alerts-wizard-scope](../includes/alerts-wizard-scope.md)]
 
 ## The Conditions tab 
 
@@ -81,7 +50,19 @@ To edit an existing alert rule:
     |Aggregation granularity| Select the interval that's used to group the data points by using the aggregation type function. Choose an **Aggregation granularity** (period) that's greater than the **Frequency of evaluation** to reduce the likelihood of missing the first evaluation period of an added time series.|
     |Frequency of evaluation|Select how often the alert rule is to be run. Select a frequency that's smaller than the aggregation granularity to generate a sliding window for the evaluation.|
 
-1. (Optional) You can configure [Splitting by dimensions](#splitting-by-dimensions).
+1. (Optional) You can configure splitting by dimensions.
+
+    Dimensions are name-value pairs that contain more data about the metric value. By using dimensions, you can filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values.
+    
+    If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, and PutPage). You can choose to have an alert fired when there's a high number of transactions in a specific API (the aggregated data). Or you can use dimensions to alert only when the number of transactions is high for specific APIs.
+    
+    |Field  |Description  |
+    |---------|---------|
+    |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.|
+    |Operator|The operator used on the dimension name and value.|
+    |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.|
+    |Include all future values| Select this field to include any future values added to the selected dimension.|
+
 
 1. (Optional) In the **When to evaluate** section: 
 
@@ -102,11 +83,8 @@ To edit an existing alert rule:
 
 1. Select **Done**. From this point on, you can select the **Review + create** button at any time.
 
-## The Actions tab
+[!INCLUDE [alerts-wizard-actions](../includes/alerts-wizard-actions.md)]
 
-1. On the **Actions** tab, select or create the required [action groups](./action-groups.md).
-
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new alert rule.":::
 
 ## The Details tab
 
@@ -133,18 +111,21 @@ To edit an existing alert rule:
     |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
     |Automatically resolve alerts (preview) |Select to make the alert stateful. When an alert is stateful, the alert is resolved when the condition is no longer met.<br> If you don't select this checkbox, metric alerts are stateless. Stateless alerts fire each time the condition is met, even if alert already fired.<br> The frequency of notifications for stateless metric alerts differs based on the alert rule's configured frequency:<br>**Alert frequency of less than 5 minutes**: While the condition continues to be met, a notification is sent somewhere between one and six minutes.<br>**Alert frequency of more than 5 minutes**: While the condition continues to be met, a notification is sent between the configured frequency and doubles the value of the frequency. For example, for an alert rule with a frequency of 15 minutes, a notification is sent somewhere between 15 to 30 minutes.|
 
-1. <a name="custom-props"></a>(Optional)  In the **Custom properties** section, if you've configured action groups for this alert rule, you can add your own properties to include in the alert notification payload. You can use these properties in the actions called by the action group, such as webhook, Azure function or logic app actions.
+1. <a name="custom-props"></a>(Optional)  In the **Custom properties** section, if you've configured action groups for this alert rule, you can add your own properties to include in the alert notification payload. You can use these properties in the actions called by the action group, such as by a webhook, Azure function or logic app actions.
 
     The custom properties are specified as key:value pairs, using either static text, a dynamic value extracted from the alert payload, or a combination of both.
-    
+
     The format for extracting a dynamic value from the alert payload is: `${<path to schema field>}`. For example: ${data.essentials.monitorCondition}.
-    
-    Use the [common alert schema](alerts-common-schema.md) format to specify the field in the payload, whether or not the action groups configured for the alert rule use the common schema.
-    
+
+    Use the format of the [common alert schema](alerts-common-schema.md) to specify the field in the payload, whether or not the action groups configured for the alert rule use the common schema.
+
+    > [!NOTE]
+    > The [common schema](alerts-common-schema.md) overwrites custom configurations. You can't use both custom properties and the common schema.
+
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-custom-props.png" alt-text="Screenshot that shows the custom properties section of creating a new alert rule.":::
-    
+
     In the following examples, values in the **custom properties** are used to utilize data from a payload that uses the common alert schema:
-    
+
     **Example 1**
     
     This example creates an "Additional Details" tag with data regarding the "window start time" and "window end time".
@@ -162,34 +143,8 @@ To edit an existing alert rule:
     - **Result:**  Example results could be something like:
         - "Alert Resolved reason: Percentage CPU GreaterThan5 Resolved. The value is 3.585"
         - “Alert Fired reason": "Percentage CPU GreaterThan5 Fired. The value is 10.585"
-    
-    > [!NOTE]
-    > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
-   
 
-## The Tags tab
-
-1. On the **Tags** tab, set any required tags on the alert rule resource.
-
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-tags-tab.png" alt-text="Screenshot that shows the Tags tab when creating a new alert rule.":::
-
-1. On the **Review + create** tab, the rule is validated, and lets you know about any issues.
-1. When validation passes and you've reviewed the settings, select the **Create** button.
-
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-review-create.png" alt-text="Screenshot that shows the Review and create tab when creating a new alert rule.":::
-
-## Splitting by dimensions
-
-Dimensions are name-value pairs that contain more data about the metric value. By using dimensions, you can filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values.
-
-If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, and PutPage). You can choose to have an alert fired when there's a high number of transactions in a specific API (the aggregated data). Or you can use dimensions to alert only when the number of transactions is high for specific APIs.
-
-|Field  |Description  |
-|---------|---------|
-|Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.|
-|Operator|The operator used on the dimension name and value.|
-|Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.|
-|Include all future values| Select this field to include any future values added to the selected dimension.|
+[!INCLUDE [alerts-wizard-finish](../includes/alerts-wizard-finish.md)]
 
 
 ## Next steps
