@@ -32,7 +32,7 @@ bin/flink run -c contoso.example.ServiceBusToAdlsGen2 -j AzureServiceBusDemo-1.0
 Job has been submitted with JobID fc5793361a914821c968b5746a804570
 ```
 
-### Confirm job on Flink UI:
+### Confirm job on Flink UI
 
 After submitting the job, access the Flink Dashboard UI and click on the running job for further details.
 
@@ -45,7 +45,7 @@ Navigate to the Service Bus Explorer on the Azure portal and send messages to th
 :::image type="content" source="./media/azure-service-bus-demo/sending-message-azure-portal.png" alt-text="Screenshot shows sending message from Azure portal Serice Bus Explorer." lightbox="./media/azure-service-bus-demo/sending-message-azure-portal.png":::
 
 
-### Checking job running details on Flink UI:
+### Check job run details on Apache Flink UI
 
 Review the running details of the job on the Flink UI for insights.
 
