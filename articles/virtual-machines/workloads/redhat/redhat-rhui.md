@@ -101,8 +101,9 @@ Currently, EUS support has ended for RHEL <= 7.7. For more information, see [Red
 - RHEL 8.6 EUS support ends May 31, 2024
 - RHEL 9.0 EUS support ends May 31, 2024
 
-### Switch a RHEL VM 8.x to EUS
+### Switch a RHEL Server to EUS Repositories.
 
+#### [Switching to EUS repositories on RHEL8](#tab/rhel8) 
 Use the following procedure to lock a RHEL 8.x VM to a particular minor release. Run the commands as `root`:
 
 >[!NOTE]
@@ -111,25 +112,21 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
 1. Disable non-EUS repositories.
 
    ```bash
-   sudo yum --disablerepo='*' remove 'rhui-azure-rhel8'
-   ```
-
-1. Get the EUS repository `config` file.
-
-   ```bash
-   curl -O https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config
+   sudo dnf --disablerepo='*' remove 'rhui-azure-rhel8'
    ```
 
 1. Add EUS repositories.
 
    ```bash
-   sudo yum --config=rhui-microsoft-azure-rhel8-eus.config install rhui-azure-rhel8-eus
+   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config' install rhui-azure-rhel8-eus
    ```
+   
 
-1. Lock the `releasever` variable. Be sure to run the command as `root`.
+1. Lock the `releasever` level, it has to be one of 8.1, 8.2, 8.4, 8.6 or 8.8.
+
 
    ```bash
-   sudo sh -c 'echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever'
+   sudo sh -c 'echo 8.8 > /etc/dnf/vars/releasever'
    ```
 
    If there are permission issues to access the `releasever`, you can edit the file using a text editor, add the image version details, and save the file.  
@@ -140,10 +137,50 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
 1. Update your RHEL VM.
 
    ```bash
-   sudo yum update
+   sudo dnf update
    ```
 
-### Switch a RHEL 8.x VM back to non-EUS
+#### [Switching to EUS repositories on RHEL9](#tab/rhel9) 
+
+Use the following procedure to lock a RHEL 9.x VM to a particular minor release. Run the commands as `root`:
+
+>[!NOTE]
+> This procedure only applies for RHEL 9.x versions for which EUS is available. Currently, this includes RHEL 9.0 and 9.2. For more information, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
+
+1. Disable non-EUS repositories.
+
+   ```bash
+   sudo dnf --disablerepo='*' remove 'rhui-azure-rhel9'
+   ```
+
+1. Add EUS repositories.
+
+   ```bash
+   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel9-eus.config' install rhui-azure-rhel9-eus
+   ```
+   
+
+1. Lock the `releasever` level, currently it has to be one of 9.0 and 9.2.
+
+
+   ```bash
+   sudo sh -c 'echo 9.2 > /etc/dnf/vars/releasever'
+   ```
+
+   If there are permission issues to access the `releasever`, you can edit the file using a text editor, add the image version details, and save the file.  
+
+   > [!NOTE]
+   > This instruction locks the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 9.2 > /etc/yum/vars/releasever` locks your RHEL version to RHEL 9.2.
+
+1. Update your RHEL VM.
+
+   ```bash
+   sudo dnf update
+   ```
+
+### Switch a RHEL Server to EUS Repositories.
+
+#### [Switching to non-EUS repositories on RHEL7](#tab/rhel7) 
 
 To remove the version lock, use the following commands. Run the commands as `root`.
 
@@ -151,24 +188,18 @@ To remove the version lock, use the following commands. Run the commands as `roo
 
    ```bash
    sudo rm /etc/yum/vars/releasever
-    ```
+   ```
 
 1. Disable EUS repositories.
 
    ```bash
-   sudo yum --disablerepo='*' remove 'rhui-azure-rhel8-eus'
+   sudo yum --disablerepo='*' remove 'rhui-azure-rhel7-eus'
    ```
-
-1. Get the regular repositories `config` file.
-
-    ```bash
-    curl -O https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config
-    ```
 
 1. Add non-EUS repository.
 
    ```bash
-   sudo yum --config=rhui-microsoft-azure-rhel8.config install rhui-azure-rhel8
+   sudo yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install rhui-azure-rhel7
    ```
 
 1. Update your RHEL VM.
@@ -177,27 +208,66 @@ To remove the version lock, use the following commands. Run the commands as `roo
    sudo yum update
    ```
 
-### Switch a RHEL 7.x VM back to non-EUS (remove a version lock)
-Run the following commands as root:
-1. Remove the `releasever` file:
-    ```bash
-    rm /etc/yum/vars/releasever
-     ```
+#### [Switching to non-EUS repositories on RHEL8](#tab/rhel8) 
 
-1. Disable EUS repos:
-    ```bash
-    yum --disablerepo='*' remove 'rhui-azure-rhel7-eus'
+To remove the version lock, use the following commands. Run the commands as `root`.
+
+1. Remove the `releasever` file.
+
+   ```bash
+   sudo rm /etc/dnf/vars/releasever
    ```
 
-1. Configure RHEL VM
-    ```bash
-    yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
-    ```
+1. Disable EUS repositories.
 
-1. Update your RHEL VM
-    ```bash
-    sudo yum update
-    ```
+   ```bash
+   sudo dnf --disablerepo='*' remove 'rhui-azure-rhel8-eus'
+   ```
+
+1. Add non-EUS repository.
+
+   ```bash
+   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config' install rhui-azure-rhel8
+   ```
+
+1. Update your RHEL VM.
+
+   ```bash
+   sudo dnf update
+   ```
+
+
+#### [Switching to non-EUS repositories on RHEL9](#tab/rhel9) 
+
+To remove the version lock, use the following commands. Run the commands as `root`.
+
+1. Remove the `releasever` file.
+
+   ```bash
+   sudo rm /etc/dnf/vars/releasever
+   ```
+
+1. Disable EUS repositories.
+
+   ```bash
+   sudo dnf --disablerepo='*' remove 'rhui-azure-rhel9-eus'
+   ```
+
+1. Add non-EUS repository.
+
+   ```bash
+   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel9.config' install rhui-azure-rhel8
+   ```
+
+1. Update your RHEL VM.
+
+   ```bash
+   sudo dnf update
+   ```
+
+
+
+
 
 ## The IPs for the RHUI content delivery servers
 
