@@ -158,7 +158,7 @@ You can click on the information icons on each page within Call
 Diagnostics to learn functionality, definitions, and helpful tips.
 (**insert image)**
 
-# Common issues
+<!-- # Common issues
 
 Issue categories can include:
 
@@ -206,9 +206,9 @@ call and any detected failures.
 Ensuring good call quality starts with your calling setup, please
 explore our documentation to learn how you can use the UI Library to
 benefit from our quality and reliability tools \<[link to manage call
-quality](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/manage-call-quality)\>.
+quality](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/manage-call-quality)\>. -->
 
-# Frequently Asked Questions:
+<!-- # Frequently Asked Questions:
 
 1.  How do I setup Call Diagnostics?
 
@@ -317,199 +317,8 @@ quality](https://learn.microsoft.com/en-us/azure/communication-services/concepts
         organizer, those participants will not appear in Call
         Diagnostics.
 
-14. 
+14.  -->
 
-# Appendix NOTES below
-
-[Call Diagnostic - Q4 Customer Feedback.pptx
-(sharepoint-df.com)](https://microsoft.sharepoint-df.com/:p:/t/IC3SDK/EebHDOhIKvZMhY-jfopQ85cB3GAWaJw-bbZydyGKHd2StQ?ovuser=72f988bf-86f1-41af-91ab-2d7cd011db47%2Cjoelcdp%40microsoft.com&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yMzEwMTAwNTMwMCIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D)
-
-- Who: All ACS Calling SDK customers ​
-
-- Where: Located in an ACS Resource blade in Azure portal​
-
-- Scope: Only allows calls for single ACS Resource ​
-
-- ​
-
-- Supports non-EU and EU call data ​
-
-- Supports limited Teams participant data ​
-
-- A full call flow can be: ​
-
-- Headset of the customer \<–\> Device of the customer \<–\> Third-party
-  > carrier \<–\> Carrier Session Border Controller (SBC) \<–\> ACS
-  > Infra \<–\> ACS JS SDK \<–\> Headset of the agent/supervisor.​
-
-- There can be several data edge connections. ​
-
-- Call Diagnostics will capture: ACS Infra \<\> ACS_SDK traffic. ​
-
-- Does not capture: Customer phone \<-\> Carrier (SBC) etc..  ​
-
-- All\* operations are available from ​
-
-- ACS client SDK point of view – log contains standard fields like –
-  > name, type, start/duration of operation, result, correlation ids
-  > (call/participant/operation
-  > id/acs resource id), sdk version, UA, and dynamic payload​
-
-- ACS Call automation - [<u>Azure Communication Services Call Automation
-  > logs</u>](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/call-automation-logs)​
-
-- All\* metrics are measured from ACS client point of view (granular
-  > timeseries) and ACS Infra (summaries/average) - log contains
-  > standard fields like – name, type, start/duration of operation,
-  > result, correlation ids (call/participant/operation id/acs resource
-  > id, stream id), sdk version, UA, and media statistics for
-  > audio/video/screen share, for
-  > both directions, with avg,min,max etc..​
-
-NOTES
-
-[End of call survey logs - An Azure Communication Services concept
-document \| Microsoft
-Learn](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/end-of-call-survey-logs)
-
-** Important**
-
-You must enable a Diagnostic Setting in Azure Monitor to send the log
-data of your surveys to a Log Analytics workspace, Event Hubs, or an
-Azure storage account to receive and analyze your survey data. If you do
-not send survey data to one of these options your survey data will not
-be stored and will be lost. To enable these logs for your Communications
-Services, see: [**End of Call Survey
-Logs**](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/end-of-call-survey-logs)
-
-###  View survey data with a Log Analytics workspace
-
-You need to enable a Log Analytics Workspace to both store the log data
-of your surveys and access survey results. To enable these logs for your
-Communications Service, see: [End of Call Survey
-Logs](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/end-of-call-survey-logs).
-
-**<u>Show links to all logs that CDC queries currently.</u>**
-
-- **Log 1 – CallSummary**
-
-- **Log 2 – CallDiagnostics**
-
-- **Log 3 – CallClientOperations**
-
-- **Log 4 – CallClientMediaStatsTimeSeries**
-
-CallClientOperations​
-
-| **ColumnName ​**                 | **ColumnType ​**     | **Description​**                      |
-|---------------------------------|---------------------|--------------------------------------|
-| StableResourceId​                | string ​             | ACS Resource Id​                      |
-| OperationName ​                  | string ​             | Eg Mute, StartVideo​                  |
-| Category ​                       | string ​             | Eg ClientAPI, ClientEvent, ClientUFD​ |
-| OperationType ​                  | string ​             | Eg event, request​                    |
-| OperationId ​                    | string ​             | Id of operation​                      |
-| TimeGenerated ​                  | datetime ​           | When It started​                      |
-| DurationMs ​                     | datetime long ​      | How long it took​                     |
-| ResultType ​                     | string ​             | result​                               |
-| ResultSignature ​                | string ​             | Eg 200 (aka code)​                    |
-| **OperationPayload as dynamic**​ | **String/dynamic** ​ | Various depends on the event​         |
-| SdkVersion ​                     | string ​             | Sdk version​                          |
-| UserAgent ​                      | string ​             | Full UA​                              |
-| ClientInstanceId ​               | string ​             | Instance id of sdk​                   |
-| CorrelationId ​                  | string ​             | Call id​                              |
-| ParticipantId ​                  | string ​             | Participant id​                       |
-| EndpointId ​                     | string ​             | Endpoint id\*(in future)​             |
-| ResultCategories ​               | String/dynamic ​     | Eg. Success, ExpectedError...​        |
-
-CallClientMediaStatsTimeSeries​
-
-| **ColumnName ​**            | **ColumnType ​** | **Description​**                      |
-|----------------------------|-----------------|--------------------------------------|
-| StableResourceId​           | string ​         | ACS Resource Id​                      |
-| MetricName​                 | string ​         | Eg Bitrate, PacketLoss​               |
-| Count​                      | string ​         | Eg ClientAPI, ClientEvent, ClientUFD​ |
-| Sum​                        | ​                | ​                                     |
-| Average​                    | ​                | ​                                     |
-| Min​                        | ​                | ​                                     |
-| Max​                        | ​                | ​                                     |
-| MediaStreamDirection​       | ​                | ​                                     |
-| MediaStreamType​            | string ​         | Eg event, request​                    |
-| MediaStreamCodec​           | string ​         | Id of operation​                      |
-| AggregationIntervalSeconds​ | datetime ​       | When It started​                      |
-| MediaStreamId ​             | datetime long ​  | How long it took​                     |
-| ResultType ​                | string ​         | result​                               |
-| RemoteParticipantId​        | string ​         | Eg 200 (aka code)​                    |
-| SdkVersion ​                | string ​         | Sdk version​                          |
-| UserAgent ​                 | string ​         | Full UA​                              |
-| ClientInstanceId ​          | string ​         | Instance id of sdk​                   |
-| CorrelationId ​             | string ​         | Call id​                              |
-| ParticipantId ​             | string ​         | Participant id​                       |
-| EndpointId ​                | string ​         | Endpoint id\*(in future)​             |
-
-# Going Deeper
-
-Call Diagnostics includes a large set of metrics that can be accessed,
-fileted and overlayed together. These include:
-
-- **<u>TODO COMING -</u>** Media Quality Statistics: Raw data for key
-  quality indicators like RTT, jitter, bandwidth, package loss, etc. For
-  more information on the full set of metrics for audio and video, see
-  our
-  [documentation](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/media-quality-sdk).
-
-- User Facing Diagnostics: Client-side flags that correlate to common
-  issues like muted microphones, network drops, camera freezes and
-  unexpected device failures. For more information on the full set of
-  flags, see our
-  [documentation](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics).
-
-Notes:
-
-~~NOTE – I want to show ppl. That the columns can order top to bottom~~
-
-~~You can apply filter within these columns:~~
-
-- ~~Time~~
-
-- ~~Call Type – (Group / Peer to Peer (P2P))~~
-
-- ~~Client Type – (VoIP / PSTN / Bot / Anonymous)~~
-
-- ~~Quality – (Call quality values are Good / Poor) Sensitive to any
-  issue.~~
-
-- ~~Rating – (Good / Average / Poor) – When you enable the **<u>End of
-  Call Survey</u>** your survey results will be included in Call
-  Diagnostics.~~
-
-- ~~Issues – (The total number of issues detected in the call)~~
-
-<!-- -->
-
-- **~~Sections: TBD~~**
-
-  - **~~Quality – This data will be available in a future release and
-    will analyze in call media statistics such as Jitter, Latency,
-    Packet Loss, and bitrate.~~**
-
-  - **~~Events -~~**
-
-  - **~~Key Events –~~**
-
-- NOTES:
-
-- can see issues in the call highlighted. The view can be filtered to
-  focus on specific events or issues and includes call statistics for
-  further diagnosis.
-
-- Goal is to triangulate / triage possible culprits of a call.
-
-- ~~(TO include later)Details including device and SDK version, as well
-  as network and audio/video metrics like jitter, RTT and bandwidth.~~
-
-- Quality issues will be supported in future releases and will analyze
-  in call media statistics such as Jitter, Latency, Packet Loss, and
-  Bitrate.
 
 
 ## Next steps
