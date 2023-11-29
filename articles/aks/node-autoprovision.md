@@ -72,7 +72,7 @@ Node autoprovision will use a list of VM SKUs as a starting point to decide whic
 
 If you have specific VM SKUs that are reserved instances for example, you may wish to only use those as the starting pool of VM types to choose from.
 
-You can have multiple  in a cluster, but AKS will deploy a default provisioner for you which you can modify:
+You can have multiple node pool definitions in a cluster, but AKS will deploy a default provisioner for you that you can modify:
 
 
 ```yaml
@@ -127,9 +127,63 @@ spec:
 | karpenter.k8s.azure/sku-gpu-memory | Minimum GPU memory per VM | 64 |
 | topology.kubernetes.io/zone | The Availability Zone(s)         | [1,2,3]  | 
 | kubernetes.io/os    | Operating System (Linux only during preview)                                           | linux       |                    
-| kubernetes.io/arch    | CPU architecture (AMD64 during preview)                                         | amd64       |
+| kubernetes.io/arch    | CPU architecture (AMD64 only during preview)                                         | amd64       |
                      
 
 
+## Kubernetes and Node image updates 
+AKS manages the Kubernetes version upgrades as well as VM OS disk updates for you. 
 
-[add-ons]: integrations.md#add-ons
+### Kubernetes upgrades
+Kubernetes upgrades for NAP node pools will be dictated by the Control Plane Kubernetes version.  If you perform a cluster upgrade, your NAP nodes will be updated automatically to follow the same versioning.
+
+### Node image updates
+By default NAP nodepool virtual machines will be automatically updated when a new image is available.  If you wish to pin a node pool at a certain node image version, you can set the imageVersion on the node class:
+
+```kubectl
+kubectl edit aksnodeclass default
+```
+
+Within the node class definition, set the imageVersion to one of the published releases listed on the [AKS Release notes](release-notes).
+
+The imageVersion is the date portion on the Node Image as only Ubuntu 22.04 is supported; for example "AKSUbuntu-2204-202311.07.0" would be "202311.07.0"
+
+```
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: karpenter.azure.com/v1alpha2
+kind: AKSNodeClass
+metadata:
+  annotations:
+    kubernetes.io/description: General purpose AKSNodeClass for running Ubuntu2204
+      nodes
+    meta.helm.sh/release-name: aks-managed-karpenter-overlay
+    meta.helm.sh/release-namespace: kube-system
+  creationTimestamp: "2023-11-16T23:59:06Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/managed-by: Helm
+    helm.toolkit.fluxcd.io/name: karpenter-overlay-main-adapter-helmrelease
+    helm.toolkit.fluxcd.io/namespace: 6556abcb92c4ce0001202e78
+  name: default
+  resourceVersion: "1792"
+  uid: 929a5b07-558f-4649-b78b-eb25e9b97076
+spec:
+  imageFamily: Ubuntu2204
+  imageVersion: 202311.07.0
+  osDiskSizeGB: 128
+  ```
+
+Removing the imageVersion spec would revert the node pool to be updated to the latest node image version.
+
+
+## Monitoring selection events 
+Node autoprovision produces cluster events that can be used to monitor deployment and scheduling decisions being made.  You can list these using the Kubernetes events stream.
+
+```
+kubectl get events -A --field-selector source=karpenter -w
+```
+
+[release-notes]: https://github.com/Azure/AKS/blob/master/CHANGELOG.md
