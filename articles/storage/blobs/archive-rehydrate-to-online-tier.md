@@ -382,11 +382,7 @@ N/A
 
 To rehydrate a large number of blobs at one time, call the [Blob Batch](/rest/api/storageservices/blob-batch) operation to call [Set Blob Tier](/rest/api/storageservices/set-blob-tier) as a bulk operation. 
 
-> [!NOTE]
-> Rehydrating blobs by calling the [Blob Batch](/rest/api/storageservices/blob-batch) operation is not yet supported in accounts that have a hierarchial namespace.
-
 For a code example that shows how to perform the batch operation, see [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/).
-
 
 ## Check the status of a rehydration operation
 

@@ -95,6 +95,7 @@ To create an action group:
 
     > [!NOTE]
     > As of September 2022, we are starting the 3-year process of deprecating support for using ITSM actions to send alerts and events to ServiceNow. For information on the deprecated behavior, see [Use Azure alerts to create a ServiceNow alert or event work item](https://learn.microsoft.com/previous-versions/azure/azure-monitor/alerts/alerts-create-itsm-work-items).
+    > As of October 2023, we are not supporting UI creation of connector for using ITSM actions to send alerts and events to ServiceNow. Until full deprecation the action creation should be by [API](https://learn.microsoft.com/rest/api/monitor/action-groups/create-or-update?view=rest-monitor-2021-09-01&tabs=HTTP).
 
 1. In the last section of the interface for creating an ITSM action group, if the alert is a log alert, you can define how many work items will be created for each alert. For all other alert types, one work item is created per alert.
       

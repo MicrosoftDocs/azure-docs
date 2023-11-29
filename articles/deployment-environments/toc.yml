@@ -24,6 +24,10 @@ items:
       href: concept-environments-key-concepts.md
     - name: Usage scenarios
       href: concept-environments-scenarios.md
+    - name: Parameters and data types in environment.yaml
+      href: concept-environment-yaml.md  
+    - name:  Best practices for designing catalogs
+      href: best-practice-catalog-structure.md
     - name: Reliability in Azure Deployment Environments
       href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json  
 - name: How-to guides
@@ -49,7 +53,7 @@ items:
     - name: Configure resources from the CLI
       expanded: false
       items:
-       - name: Install Azure CLI dev center extension
+       - name: Install Azure CLI extension
          href: how-to-install-devcenter-cli-extension.md
        - name: Create and configure a dev center
          href: how-to-create-configure-dev-center.md
