@@ -1,15 +1,15 @@
 ---
-title: DStreamAPI Azure Service Bus demo
-description: DStreamAPI Azure Service Bus demo
+title: DataStream API on HDInsight on AKS for Azure Service Bus demo
+description: DataStream API on HDInsight on AKS for Azure Service Bus demo
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 11/27/2023
 ---
-# DStreamAPI Azure Service Bus demo
+# DataStream API on HDInsight on AKS for Azure Service Bus demo
 
 [!INCLUDE feature-in-preview]
 
-This page provides an overview and demonstration of DStreamAPI Azure Service Bus demo, a Flink job demonstration is designed to read messages from an [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) and writes them to [Data Lake Storage Gen2](./assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md) (ADLS Gen2).
+This page provides an overview and demonstration of DataStream API on HDInsight on AKS for Azure Service Bus demo, a Flink job demonstration is designed to read messages from an [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) and writes them to [Data Lake Storage Gen2](./assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md) (ADLS Gen2).
 
 ## Prerequisites
 
