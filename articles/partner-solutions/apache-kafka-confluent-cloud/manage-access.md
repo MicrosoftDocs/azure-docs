@@ -83,7 +83,7 @@ Remove a permission assigned to a user in the Confluent organization.
 
 1. Under **Enter Role Name to be removed**, enter the name of the role you want to remove. Optionally select the copy icon next to the name of the role to copy and then paste it in the text box. Select **Remove Role**.
   
-    :::image type="content" source="media/manage-access/confirm-role-removal.png"alt-text="Screenshot of the Azure platform showing selecting a Confluent organization role to remove.":::
+    :::image type="content" source="media/manage-access/confirm-role-removal.png"alt-text="Screenshot of the Azure platform showing confirmation of Confluent organization role removal.":::
 
 1. The role is removed and you see the refreshed roles.
 
