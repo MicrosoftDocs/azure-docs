@@ -158,6 +158,3 @@ curl -v -X DELETE "https://YourResourceRegion.api.cognitive.microsoft.com/custom
 
 You should receive a response header with status code 204.
 
-## Suspend and resume an endpoint with the version 3 REST API
-
-[!INCLUDE [Suspend resume version 3](./rest-version-3.md)]

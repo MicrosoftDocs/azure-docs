@@ -17,7 +17,7 @@ In this article, you learn how to train a custom neural voice through the Speech
 Training duration varies depending on how much data you use. It takes about 40 compute hours on average to train a custom neural voice. Standard subscription (S0) users can train four voices simultaneously. If you reach the limit, wait until at least one of your voice models finishes training, and then try again.
 
 > [!NOTE]
-> Although the total number of hours required per [training method](#choose-a-training-method) varies, the same unit price applies to each. For more information, see the [Custom Neural training pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Although the total number of hours required per [training method](#choose-a-training-method) varies, the same unit price applies to each. For more information, see the [custom neural training pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ## Choose a training method
 
@@ -31,7 +31,7 @@ After you validate your data files, use them to build your custom neural voice m
 
 - [Neural - multi style](?tabs=multistyle#train-your-custom-neural-voice-model): Create a custom neural voice that speaks in multiple styles and emotions, without adding new training data. Multiple style voices are useful for video game characters, conversational chatbots, audiobooks, content readers, and more.
 
-  To create a multiple style voice, you need to prepare a set of general training data, at least 300 utterances. Select one or more of the preset target speaking styles. You can also create multiple custom styles by providing style samples, of at least 100 utterances per style, as extra training data for the same voice. The supported preset styles vary according to different languages. See [Available preset styles across different languages](?tabs=multistyle#available-preset-styles-across-different-languages).
+  To create a multiple style voice, you need to prepare a set of general training data, at least 300 utterances. Select one or more of the preset target speaking styles. You can also create multiple custom styles by providing style samples, of at least 100 utterances per style, as extra training data for the same voice. The supported preset styles vary according to different languages. See [available preset styles across different languages](?tabs=multistyle#available-preset-styles-across-different-languages).
 
 The language of the training data must be one of the [languages that are supported](../../../../language-support.md?tabs=tts) for custom neural voice, cross-lingual, or multiple style training.
 
@@ -126,23 +126,7 @@ Optionally, you can also select **Add my own test script** and provide your own 
 
 The following table summarizes the different preset styles according to different languages.
 
-| Speaking style | Language |
-|:-------------- |:-------- |
-| angry       | English (United States)<br> Chinese (Mandarin, Simplified)(preview)<br> Japanese (Japan)(preview) |
-| calm        | Chinese (Mandarin, Simplified)(preview)|
-| chat        | Chinese (Mandarin, Simplified)(preview) |
-| cheerful    | English (United States) <br> Chinese (Mandarin, Simplified)(preview) <br>Japanese (Japan)(preview) |
-| disgruntled | Chinese (Mandarin, Simplified)(preview) |
-| excited     | English (United States) |
-| fearful     | Chinese (Mandarin, Simplified)(preview) |
-| friendly    | English (United States) |
-| hopeful     | English (United States) |
-| sad         | English (United States)<br>Chinese (Mandarin, Simplified)(preview)<br>Japanese (Japan)(preview) |
-| shouting    | English (United States) |
-| terrified   | English (United States) |
-| unfriendly  | English (United States)|
-| whispering  | English (United States) |
-| serious     | Chinese (Mandarin, Simplified)(preview) |
+[!INCLUDE [Speaking styles](./voice-styles-by-locale.md)]
 
 ---
 
