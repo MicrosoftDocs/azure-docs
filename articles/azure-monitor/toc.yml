@@ -523,7 +523,7 @@ items:
         href: containers/container-insights-region-mapping.md
       - name: Transition from Container monitoring solution
         href: containers/container-insights-transition-solution.md
-    - name: Configuration
+    - name: Configure monitoring
       items:
       - name: Customize Prometheus collection
         items:
@@ -560,34 +560,34 @@ items:
           href: containers/container-insights-authentication.md
         - name: Send Prometheus metrics to Logs
           href: containers/container-insights-prometheus-logs.md
-      - name: Monitor
-        items:
-        - name: Monitor performance
-          href: containers/container-insights-analyze.md
-        - name: Monitor GPU performance
-          href: containers/container-insights-gpu-monitoring.md
-        - name: Monitor network configuration
-          href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
-        - name: Monitor Deployments & HPAs
-          href: containers/container-insights-deployment-hpa-metrics.md
-        - name: Monitor Persistent Volumes (PVs)
-          href: containers/container-insights-persistent-volumes.md
-        - name: Monitor Security with Syslog 
-          href: containers/container-insights-syslog.md  
-        - name: Reports tab
-          href: containers/container-insights-reports.md
-        - name: Custom metrics
-          href: containers/container-insights-custom-metrics.md
-      - name: Log queries
-        href: containers/container-insights-log-query.md
-      - name: View live data
-        items:
-        - name: Live Data overview
-          href: containers/container-insights-livedata-overview.md
-        - name: Setup
-          href: containers/container-insights-livedata-setup.md
-        - name: View cluster metrics
-          href: containers/container-insights-livedata-metrics.md
+    - name: Monitor
+      items:
+      - name: Monitor performance
+        href: containers/container-insights-analyze.md
+      - name: Monitor GPU performance
+        href: containers/container-insights-gpu-monitoring.md
+      - name: Monitor network configuration
+        href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
+      - name: Monitor Deployments & HPAs
+        href: containers/container-insights-deployment-hpa-metrics.md
+      - name: Monitor Persistent Volumes (PVs)
+        href: containers/container-insights-persistent-volumes.md
+      - name: Monitor Security with Syslog 
+        href: containers/container-insights-syslog.md  
+      - name: Reports tab
+        href: containers/container-insights-reports.md
+      - name: Custom metrics
+        href: containers/container-insights-custom-metrics.md
+    - name: Log queries
+      href: containers/container-insights-log-query.md
+    - name: View live data
+      items:
+      - name: Live Data overview
+        href: containers/container-insights-livedata-overview.md
+      - name: Setup
+        href: containers/container-insights-livedata-setup.md
+      - name: View cluster metrics
+        href: containers/container-insights-livedata-metrics.md
     - name: Alerting
       items:
       - name: Create metric alert rules
