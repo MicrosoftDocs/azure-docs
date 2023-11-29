@@ -23,7 +23,7 @@ Gain insights into the health, availability, latency, traffic, and errors of you
 
    :::image type="content" source="media\configure-metrics\select-medtech-service2.png" alt-text="Screenshot showing the MedTech service to display metrics for." lightbox="media\configure-metrics\select-medtech-service2.png":::
 
-3. On the **Metrics** page, in the left pane select **Metrics**.
+3. In the left pane, select **Monitoring** > **Metrics**.
 
    :::image type="content" source="media\configure-metrics\monitor-metrics.png" alt-text="Screenshot showing the selection of the Metrics menu item in the MedTech service." lightbox="media\configure-metrics\monitor-metrics.png":::
 
@@ -48,11 +48,11 @@ Metric category|Metric name|Metric description|
 
 The screenshot shows an example of a line chart that monitors the **Number of Incoming Messages**.
 
-   :::image type="content" source="media\configure-metrics\incoming-messages-line-chart.png" alt-text="Screenshot showing the number of incoming messages line chart." lightbox="media\configure-metrics\incoming-messages-line-chart.png":::
+:::image type="content" source="media\configure-metrics\incoming-messages-line-chart.png" alt-text="Screenshot showing the number of incoming messages line chart." lightbox="media\configure-metrics\incoming-messages-line-chart.png":::
 
 ## Save metrics as a tile on an Azure dashboard
 
-To keep your MedTech service metrics settings and view the metrics again later, pin them as a tile on an Azure dashboard. For steps, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md)
+To keep your MedTech service metrics settings and view the metrics again later, pin them as a tile on an Azure dashboard. For steps, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
 
 To learn more about advanced metrics display and sharing options, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
 
