@@ -36,23 +36,26 @@ The HDInsight .NET SDK provides .NET client libraries, so that it's easier to wo
 	:::image type="content" source="./media/get-started/search-object-id.png" alt-text="Screenshot showing how to search object ID.":::
 
 1. Provide the required parameters to config the cluster pool and cluster in the script: 
--Cluster Name 
--Cluster Pool Name 
--Subscription ID 
--Resource Group Name 
--Region Name 
--Cluster Type 
--SKU 
--Woker Node count 
--MSI resource id: 
-“/subscriptions/<subscription ID>/resourcegroups/ <resource group 	name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<Managed identity name>" 
--MSI client id(See below) 
--MSI object id (See below) 
--Microsoft Entra user ID: [Find tenant ID, domain name, user object ID - Partner Center | Microsoft Learn](https://learn.microsoft.com/en-us/partner-center/find-ids-and-domain-names)
--HDInsight on AKS VM list: (https://learn.microsoft.com/en-us/azure/hdinsight-aks/virtual-machine-recommendation-capacity-planning) 
+- Cluster Name 
+- Cluster Pool Name 
+- Subscription ID 
+- Resource Group Name 
+- Region Name 
+- Cluster Type 
+- SKU 
+- Woker Node count 
+- MSI resource id: 
+  `/subscriptions/<subscription ID>/resourcegroups/{resource group 	name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{Managed identity name}`
+- MSI client id(See below) 
+- MSI object id (See below)
+Image
+  
+- Microsoft Entra user ID: [Find tenant ID, domain name, user object ID - Partner Center | Microsoft Learn](/partner-center/find-ids-and-domain-names)
+- [HDInsight on AKS VM list](/azure/hdinsight-aks/virtual-machine-recommendation-capacity-planning)
 
 Copy the following .NET code to the Visual Studio project file 
 
+```
 using Azure.Core; 
 
 using Azure.Identity; 
@@ -325,7 +328,9 @@ namespace HDInsightOnAksManagementPlanSdkDemo
 
             System.Console.WriteLine($"Created cluster with name {clusterResult.Value.Data.Name} successfully."); 
 
-        } 
+        }
+
+```
 
 Click on the Run button 
 
@@ -337,53 +342,49 @@ Next Steps:
 
 There are extensive ways supported to customize and manage cluster using .NET SDK. Please review the following documentation: 
 
-Azure.ResourceManager.HDInsight.Containers public doc link:  
-
-https://learn.microsoft.com/en-us/dotnet/api/overview/azure/resourcemanager.hdinsight.containers-readme?view=azure-dotnet-preview 
+[Azure Resource Manager HDInsight Containers](/dotnet/api/overview/azure/resourcemanager.hdinsight.containers-readme?view=azure-dotnet-preview) 
 
  
 
-Azure.ResourceManager.HDInsight.Containers GitHub location link: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hdinsight/Azure.ResourceManager.HDInsight.Containers 
+[Azure.ResourceManager.HDInsight.Containers GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hdinsight/Azure.ResourceManager.HDInsight.Containers) 
 
-Management plane SDKs 
+## Management plane SDKs 
 
-.NET   
+### .NET   
 
-Package Link: NuGet Gallery | Azure.ResourceManager.HDInsight.Containers 1.0.0-beta.1 
+[.NET SDK Package](https://www.nuget.org/packages/Azure.ResourceManager.HDInsight.Containers/1.0.0-beta.1)
 
-Microsoft Learn Doc Link: Azure HDInsight Containers SDK for .NET - Azure for .NET Developers | Microsoft Learn 
-
-  
-
-Java 
-
-Package Link: Maven Repository: com.azure.resourcemanager » azure-resourcemanager-hdinsight-containers (mvnrepository.com) 
-
-Microsoft Learn Doc Link: Azure Hdinsight-Containers SDK for Java | Microsoft Learn 
+[Azure HDInsight Containers SDK for .NET - Azure for .NET Developers](/dotnet/api/overview/azure/hdinsight-containers?view=azure-dotnet-preview) 
 
   
 
-Typescript 
+### Java 
 
-Package Link: @azure/arm-hdinsightcontainers - npm (npmjs.com) 
+[Java SDK Package](https://mvnrepository.com/artifact/com.azure.resourcemanager/azure-resourcemanager-hdinsight-containers)
 
-Microsoft Learn Doc Link: Azure Hdinsightcontainers SDK for JavaScript | Microsoft Learn 
+[Azure Hdinsight-Containers SDK for Java](/java/api/overview/azure/hdinsight-containers?view=azure-java-preview) 
 
   
 
-Python 
+### Typescript 
 
-Package Link: azure-mgmt-hdinsightcontainers · PyPI 
+[Typescript SDK Package](https://www.npmjs.com/package/@azure/arm-hdinsightcontainers) 
 
-Microsoft Learn Doc Link: Azure Hdinsightcontainers SDK for Python | Microsoft Learn 
+[Azure Hdinsightcontainers SDK for JavaScript](/javascript/api/overview/azure/hdinsightcontainers?view=azure-node-preview) 
 
-Go 
+  
 
-Source Code: azure-sdk-for-go/sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers at main · Azure/azure-sdk-for-go (github.com) 
+### Python 
 
-Public Doc Link: armhdinsightcontainers package - github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers - Go Packages 
+[Python SDK Package](https://pypi.org/project/azure-mgmt-hdinsightcontainers/) 
 
- 
+[Azure Hdinsightcontainers SDK for Python](/python/api/overview/azure/hdinsightcontainers?view=azure-python-preview) 
+
+### GO
+
+[GO SDK Package](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers)
+
+[Azure Hdinsightcontainers SDK for GO](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers)
 
  
  
