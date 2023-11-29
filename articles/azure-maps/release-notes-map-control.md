@@ -22,8 +22,6 @@ This document contains information about new features and other changes to the M
 
 - Included ESM support.
 
-- Improved copyright control sizing for RWD.
-
 #### Other changes (3.0.3)
 
 - The accessibility feature for screen reader has been upgraded to utilize the Search V2 API (reverse geocoding).
@@ -376,10 +374,6 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 ## v2
 
 ### [2.3.5] (November 29, 2023)
-
-#### New features (2.3.5)
-
-- Improved copyright control sizing for RWD.
 
 #### Other changes (2.3.5)
 
