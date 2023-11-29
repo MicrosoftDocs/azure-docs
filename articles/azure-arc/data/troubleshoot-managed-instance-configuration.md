@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot configuration - Azure Arc-enabled SQL Managed Instance
-description: Describes how to troubleshoot configuration. Includes steps to provide configuration files for Azure Arc-enabled SQL Managed Instance Azure Arc-enabled data services
+title: Troubleshoot configuration - SQL Managed Instance enabled by Azure Arc
+description: Describes how to troubleshoot configuration. Includes steps to provide configuration files for SQL Managed Instance enabled by Azure Arc Azure Arc-enabled data services
 author: MikeRayMSFT
 ms.author: mikeray
 ms.topic: troubleshooting-general 
@@ -76,6 +76,6 @@ For Arc SQL Managed Instance, the supported configuration files that you can ove
    - `mssql.json`: `/var/run/config/mssql/mssql.json`
    - `krb5.conf`: `/etc/krb5.conf`
 
-## Next steps
+## Related content
 
 [Get logs to troubleshoot Azure Arc-enabled data services](troubleshooting-get-logs.md)

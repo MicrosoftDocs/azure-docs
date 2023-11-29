@@ -363,10 +363,12 @@
           href: use-labels.md
     - name: Security and authentication
       items:
-        - name: Defender for Containers overview
-          href: ../defender-for-cloud/defender-for-containers-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-        - name: Enable Defender for Containers
-          href: ../defender-for-cloud/defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Container security
+          items:
+            - name: Defender for Containers overview
+              href: ../defender-for-cloud/defender-for-containers-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+            - name: Enable Defender for Containers
+              href: ../defender-for-cloud/defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Image security
           items:
             - name: Validate signed images with Image Integrity
@@ -379,6 +381,8 @@
               href: ../defender-for-cloud/defender-for-containers-introduction.mdtoc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Cluster security
           items:
+            - name: Azure kubelogin
+              href: kubelogin-authentication.md
             - name: Create service principal
               href: kubernetes-service-principal.md
             - name: Use managed identities
