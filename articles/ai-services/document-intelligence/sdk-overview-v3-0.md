@@ -1,7 +1,7 @@
 ---
-title: Document Intelligence (formerly Form Recognizer) SDKs v3.0
+title: Document Intelligence (formerly Form Recognizer) SDK target REST API 2022-08-31 (GA)
 titleSuffix: Azure AI services
-description: Document Intelligence v3.0 software development kits (SDKs) expose Document Intelligence models, features and capabilities, using C#, Java, JavaScript, and Python programming language.
+description: Document Intelligence 2022-08-31 (GA) software development kits (SDKs) expose Document Intelligence models, features and capabilities, using C#, Java, JavaScript, and Python programming language.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
@@ -11,7 +11,7 @@ ms.custom:
 ms.topic: conceptual
 ms.date: 11/21/2023
 ms.author: lajanuar
-monikerRange: 'doc-intel-3.0.0'
+monikerRange: '>=doc-intel-2.1.0'
 ---
 
 
@@ -20,7 +20,7 @@ monikerRange: 'doc-intel-3.0.0'
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD051 -->
 
-# Document Intelligence SDK v3.0 (GA)
+# SDK target: REST API 2022-08-31 (GA)
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v30-v21.md)]
 
