@@ -25,7 +25,7 @@ In this tutorial, you'll deploy a data-driven Python web app (**[Django](https:/
 
 ### [Flask](#tab/flask)
 
-With [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed, you can skip to the end of the tutorial by running the following commands in an empty working directory:
+With [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed, you can deploy a fully configured sample app shown in this tutorial and see it running in Azure. Just running the following commands in an empty working directory:
 
 ```bash
 azd auth login
