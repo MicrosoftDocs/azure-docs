@@ -25759,5 +25759,17 @@
             "source_path_from_root": "/articles/virtual-machines/extensions/dsc-linux.md",
             "redirect_url": "/azure/virtual-machines/extensions/dsc-overview"
         }
+	    ,
+        {
+            "source_path_from_root": "/articles/orbital/license-spacecraft.md",
+            "redirect_url": "/azure/orbital/initiate-licensing",
+            "redirect_document_id": false
+        }
+	,
+	{
+            "source_path_from_root": "/articles/orbital/partner-network-integration.md",
+            "redirect_url": "/azure/orbital/about-ground-stations#partner-ground-stations",
+            "redirect_document_id": false
+        }    
     ]
 }

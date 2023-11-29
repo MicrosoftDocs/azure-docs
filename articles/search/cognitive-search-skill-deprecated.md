@@ -2,8 +2,8 @@
 title: Deprecated Cognitive Skills
 titleSuffix: Azure AI Search
 description: This page contains a list of cognitive skills that are considered deprecated and won't be supported moving forward.
-author: LiamCavanagh
-ms.author: liamca
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023

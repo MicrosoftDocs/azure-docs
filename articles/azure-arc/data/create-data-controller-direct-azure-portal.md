@@ -60,8 +60,8 @@ The progress of Azure Arc data controller deployment can be monitored as follows
 - Check if the custom location is created by running ```az customlocation list --resource-group <resourcegroup> -o table``` 
 - Check the status of pod deployment by running ```kubectl get pods -ns <namespace>```
 
-## Next steps
+## Related information
 
-[Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)
+[Deploy SQL Managed Instance enabled by Azure Arc](create-sql-managed-instance.md)
 
 [Create an Azure Arc-enabled PostgreSQL server](create-postgresql-server.md)
