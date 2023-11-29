@@ -156,11 +156,11 @@ Record the URL of the project.
 
 ### Import the repository
 
-Start by importing the SAP Deployment Automation Framework GitHub repository into Azure Repos.
+Start by importing the SAP Deployment Automation Framework Bootstrap GitHub repository into Azure Repos.
 
 Go to the **Repositories** section and select **Import a repository**. Import the `https://github.com/Azure/sap-automation-bootstrap.git` repository into Azure DevOps. For more information, see [Import a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops&preserve-view=true).
 
-If you're unable to import a repository, you can create the repository manually. Then you can import the content from the SAP Deployment Automation Framework GitHub repository to it.
+If you're unable to import a repository, you can create the repository manually. Then you can import the content from the SAP Deployment Automation Framework GitHub Bootstrap repository to it.
 
 ### Create the repository for manual import
 
@@ -200,6 +200,7 @@ You can either run the SAP Deployment Automation Framework code directly from Gi
 
 If you want to run the SAP Deployment Automation Framework code from the local Azure DevOps project, you need to create a separate code repository and a configuration repository in the Azure DevOps project:
 
+- **Name of configuration repository**: `Same as the DevOps Project name`. Source is `https://github.com/Azure/sap-automation-bootstrap.git`.
 - **Name of code repository**: `sap-automation`. Source is `https://github.com/Azure/sap-automation.git`.
 - **Name of sample and template repository**: `sap-samples`. Source is `https://github.com/Azure/sap-automation-samples.git`.
 
@@ -270,8 +271,9 @@ Create the control plane deployment pipeline. Under the **Pipelines** section, s
 
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
+| Repo    | "Root repo", same as project name               |
 | Branch  | main                                            |
-| Path    | `deploy/pipelines/01-deploy-control-plane.yml`  |
+| Path    | `pipelines/01-deploy-control-plane.yml`         |
 | Name    | Control plane deployment                        |
 
 Save the pipeline. To see **Save**, select the chevron next to **Run**. Go to the **Pipelines** section and select the pipeline. Choose **Rename/Move** from the ellipsis menu on the right and rename the pipeline as **Control plane deployment**.
@@ -282,8 +284,9 @@ Create the SAP workload zone pipeline. Under the **Pipelines** section, select *
 
 | Setting | Value                                        |
 | ------- | -------------------------------------------- |
+| Repo    | "Root repo", same as project name            |
 | Branch  | main                                         |
-| Path    | `deploy/pipelines/02-sap-workload-zone.yml`  |
+| Path    | `pipelines/02-sap-workload-zone.yml`         |
 | Name    | SAP workload zone deployment                 |
 
 Save the pipeline. To see **Save**, select the chevron next to **Run**. Go to the **Pipelines** section and select the pipeline. Choose **Rename/Move** from the ellipsis menu on the right and rename the pipeline as **SAP workload zone deployment**.
@@ -294,8 +297,9 @@ Create the SAP system deployment pipeline. Under the **Pipelines** section, sele
 
 | Setting | Value                                            |
 | ------- | ------------------------------------------------ |
+| Repo    | "Root repo", same as project name                |
 | Branch  | main                                             |
-| Path    | `deploy/pipelines/03-sap-system-deployment.yml`  |
+| Path    | `pipelines/03-sap-system-deployment.yml`         |
 | Name    | SAP system deployment (infrastructure)           |
 
 Save the pipeline. To see **Save**, select the chevron next to **Run**. Go to the **Pipelines** section and select the pipeline. Choose **Rename/Move** from the ellipsis menu on the right and rename the pipeline as **SAP system deployment (infrastructure)**.
@@ -306,6 +310,7 @@ Create the SAP software acquisition pipeline. Under the **Pipelines** section, s
 
 | Setting | Value                                            |
 | ------- | ------------------------------------------------ |
+| Repo    | "Root repo", same as project name                |
 | Branch  | main                                             |
 | Path    | `deploy/pipelines/04-sap-software-download.yml`  |
 | Name    | SAP software acquisition                         |
@@ -318,8 +323,9 @@ Create the SAP configuration and software installation pipeline. Under the **Pip
 
 | Setting | Value                                              |
 | ------- | -------------------------------------------------- |
+| Repo    | "Root repo", same as project name                  |
 | Branch  | main                                               |
-| Path    | `deploy/pipelines/05-DB-and-SAP-installation.yml`  |
+| Path    | `pipelines/05-DB-and-SAP-installation.yml`         |
 | Name    | Configuration and SAP installation                 |
 
 Save the pipeline. To see **Save**, select the chevron next to **Run**. Go to the **Pipelines** section and select the pipeline. Choose **Rename/Move** from the ellipsis menu on the right and rename the pipeline as **SAP configuration and software installation**.
@@ -330,8 +336,9 @@ Create the deployment removal pipeline. Under the **Pipelines** section, select 
 
 | Setting | Value                                        |
 | ------- | -------------------------------------------- |
+| Repo    | "Root repo", same as project name            |
 | Branch  | main                                         |
-| Path    | `deploy/pipelines/10-remover-terraform.yml`  |
+| Path    | `pipelines/10-remover-terraform.yml`         |
 | Name    | Deployment removal                           |
 
 Save the pipeline. To see **Save**, select the chevron next to **Run**. Go to the **Pipelines** section and select the pipeline. Choose **Rename/Move** from the ellipsis menu on the right and rename the pipeline as **Deployment removal**.
@@ -342,8 +349,9 @@ Create the control plane deployment removal pipeline. Under the **Pipelines** se
 
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
+| Repo    | "Root repo", same as project name               |
 | Branch  | main                                            |
-| Path    | `deploy/pipelines/12-remove-control-plane.yml`  |
+| Path    | `pipelines/12-remove-control-plane.yml`         |
 | Name    | Control plane removal                           |
 
 Save the pipeline. To see **Save**, select the chevron next to **Run**. Go to the **Pipelines** section and select the pipeline. Choose **Rename/Move** from the ellipsis menu on the right and rename the pipeline as **Control plane removal**.
@@ -354,9 +362,10 @@ Create the deployment removal Azure Resource Manager pipeline. Under the **Pipel
 
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
+| Repo    | "Root repo", same as project name               |
 | Branch  | main                                            |
-| Path    | `deploy/pipelines/11-remover-arm-fallback.yml`  |
-| Name    | Deployment removal using ARM processor                   |
+| Path    | `pipelines/11-remover-arm-fallback.yml`         |
+| Name    | Deployment removal using ARM                    |
 
 Save the pipeline. To see **Save**, select the chevron next to **Run**. Go to the **Pipelines** section and select the pipeline. Choose **Rename/Move** from the ellipsis menu on the right and rename the pipeline as **Deployment removal using ARM processor**.
 
@@ -369,17 +378,14 @@ Create the repository updater pipeline. Under the **Pipelines** section, select 
 
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
+| Repo    | "Root repo", same as project name               |
 | Branch  | main                                            |
-| Path    | `deploy/pipelines/20-update-ado-repository.yml` |
+| Path    | `pipelines/20-update-ado-repository.yml`        |
 | Name    | Repository updater                              |
 
 Save the pipeline. To see **Save**, select the chevron next to **Run**. Go to the **Pipelines** section and select the pipeline. Choose **Rename/Move** from the ellipsis menu on the right and rename the pipeline as **Repository updater**.
 
 This pipeline should be used when there's an update in the sap-automation repository that you want to use.
-
-## Import the Ansible task from Visual Studio Marketplace
-
-The pipelines use a custom task to run Ansible. You can install the custom task from [Ansible](https://marketplace.visualstudio.com/items?itemName=ms-vscs-rm.vss-services-ansible). Install it to your Azure DevOps organization before you run the **Configuration and SAP installation** or **SAP software acquisition**  pipelines.
 
 ## Import the cleanup task from Visual Studio Marketplace
 
@@ -422,7 +428,7 @@ Create a new variable group named `SDAF-General` by using the **Library** page i
 | Branch                             | main                                    |                                                                                             |
 | S-Username                         | `<SAP Support user account name>`       |                                                                                             |
 | S-Password                         | `<SAP Support user password>`           | Change the variable type to secret by selecting the lock icon.                                   |
-| `tf_version`                       | 1.3.0                                   | The Terraform version to use. See [Terraform download](https://www.terraform.io/downloads).  |
+| `tf_version`                       | 1.6.0                                   | The Terraform version to use. See [Terraform download](https://www.terraform.io/downloads).  |
 
 Save the variables.
 
@@ -449,11 +455,11 @@ Create a new variable group named `SDAF-MGMT` for the control plane environment 
 | Variable                        | Value                                                              | Notes                                                    |
 | ------------------------------- | ------------------------------------------------------------------ | -------------------------------------------------------- |
 | Agent                           | `Azure Pipelines` or the name of the agent pool                    | This pool is created in a later step.         |
-| CP_ARM_CLIENT_ID                   | `Service principal application ID`                                |                                                          |
-| CP_ARM_OBJECT_ID                   | `Service principal object ID`                                |                                                          |
-| CP_ARM_CLIENT_SECRET               | `Service principal password`                                      | Change the variable type to secret by selecting the lock icon. |
-| CP_ARM_SUBSCRIPTION_ID             | `Target subscription ID`                                          |                                                          |
-| CP_ARM_TENANT_ID                   | `Tenant ID` for the service principal                             |                                                          |
+| CP_ARM_CLIENT_ID                | `Service principal application ID`                                |                                                          |
+| CP_ARM_OBJECT_ID                | `Service principal object ID`                                |                                                          |
+| CP_ARM_CLIENT_SECRET            | `Service principal password`                                      | Change the variable type to secret by selecting the lock icon. |
+| CP_ARM_SUBSCRIPTION_ID          | `Target subscription ID`                                          |                                                          |
+| CP_ARM_TENANT_ID                | `Tenant ID` for the service principal                             |                                                          |
 | AZURE_CONNECTION_NAME           | Previously created connection name                                |                                                          |
 | sap_fqdn                        | SAP fully qualified domain name, for example, `sap.contoso.net`    | Only needed if Private DNS isn't used.                   |
 | FENCING_SPN_ID                  | `Service principal application ID` for the fencing agent          | Required for highly available deployments that use a service principal for the fencing agent.               |
