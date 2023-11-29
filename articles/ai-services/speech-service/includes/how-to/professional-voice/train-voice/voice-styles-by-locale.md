@@ -22,9 +22,9 @@
 | hopeful     | English (United States) (`en-US`) |
 | sad         | English (United States) (`en-US`)<br/>Japanese (Japan) (`ja-JP`) <sup>1</sup><br/>Chinese (Mandarin, Simplified) (`zh-CN`) <sup>1</sup>|
 | shouting    | English (United States) (`en-US`) |
+| serious     | Chinese (Mandarin, Simplified) (`zh-CN`) <sup>1</sup> |
 | terrified   | English (United States) (`en-US`) |
 | unfriendly  | English (United States) (`en-US`)|
 | whispering  | English (United States) (`en-US`) |
-| serious     | Chinese (Mandarin, Simplified) (`zh-CN`) <sup>1</sup> |
 
 <sup>1</sup> The neural voice style is available in public preview. Styles in public preview are only available in these service [regions](../../../../regions.md): East US, West Europe, and Southeast Asia. 
