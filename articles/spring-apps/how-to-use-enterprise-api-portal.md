@@ -45,6 +45,9 @@ To set up SSO with Microsoft Entra ID, see [How to set up single sign-on with Mi
 > [!NOTE]
 > If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration.
 
+> [!NOTE]
+> We once had a limitation to support only one instance if you're using SSO feature. Now, you can configure multiple instances.
+
 ## Assign a public endpoint for API portal
 
 To access API portal, use the following steps to assign a public endpoint:
@@ -61,7 +64,7 @@ az spring api-portal update --assign-endpoint
 ```
 
 ## Configure API try-out feature
-By default, the "Try it out" button is enabled for each API group configured. This configuration can support you to turn it off across the whole API portal instance. For how to use this feature, see [Try out APIs in API portal](#try-out-apis-in-api-portal).
+API Portal can not only empower developers to view APIs centrally but also allow developers to directly try out APIs by leveraging the "API try-out" feature. By default, it is enabled. This configuration can support you to turn it off across the whole API portal instance. For how to use this feature, see [Try out APIs in API portal](#try-out-apis-in-api-portal).
 
 ### [Azure portal](#tab/Portal)
 
