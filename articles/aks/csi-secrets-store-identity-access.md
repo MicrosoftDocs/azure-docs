@@ -17,7 +17,7 @@ You can use one of the following access methods:
 - [Microsoft Entra Workload ID](#access-with-a-microsoft-entra-workload-id)
 - [User-assigned managed identity](#access-with-a-user-assigned-managed-identity)
 
-## Prerequisites
+## Prerequisites for CSI Driver
 
 - Before you begin, make sure you followed the steps in [Use the Azure Key Vault provider for Secrets Store CSI Driver in an Azure Kubernetes Service (AKS) cluster][csi-secrets-store-driver] to create an AKS cluster with Azure Key Vault provider for Secrets Store CSI Driver support.
 
@@ -161,7 +161,7 @@ A [Microsoft Entra Workload ID][workload-identity] is an identity that an applic
     EOF   
     ```
 
-## Access with a user-assigned managed identity
+## Access for Managed Identity users
 
 1. Access your key vault using the [`az aks show`][az-aks-show] command and the user-assigned managed identity created by the add-on when you [enabled the Azure Key Vault provider for Secrets Store CSI Driver on your AKS Cluster](./csi-secrets-store-driver.md#create-an-aks-cluster-with-azure-key-vault-provider-for-secrets-store-csi-driver-support).
 
@@ -258,7 +258,7 @@ A [Microsoft Entra Workload ID][workload-identity] is an identity that an applic
     kubectl apply -f pod.yaml
     ```
 
-## Validate the secrets
+## Validate Key Vault secrets
 
 After the pod starts, the mounted content at the volume path that you specified in your deployment YAML is available. Use the following commands to validate your secrets and print a test secret.
 
@@ -286,7 +286,7 @@ A key vault certificate also contains public x509 certificate metadata. The key 
 |`cert`|The certificate, in PEM format.|No|
 |`secret`|The private key and certificate, in PEM format.|Yes|
 
-## Disable the Azure Key Vault provider for Secrets Store CSI Driver on an existing AKS cluster
+## Disable the addon on existing clusters
 
 > [!NOTE]
 > Before you disable the add-on, ensure that *no* `SecretProviderClass` is in use. Trying to disable the add-on while a `SecretProviderClass` exists results in an error.
