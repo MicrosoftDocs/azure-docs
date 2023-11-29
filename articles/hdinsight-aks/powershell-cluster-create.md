@@ -13,29 +13,28 @@ Azure PowerShell is a powerful scripting environment that you can use to control
 ## Pre-Requisites: 
 
 To create an HDInsight on AKS cluster by using Azure PowerShell, you must complete the following procedures: 
--Install Azure PowerShell  
 
-- Create an Azure resource group 
-
-- Create an Azure Data Lase Store Gen2 account 
-
-- Create an Azure Managed Identity 
-
-- Setup Azure Environment with Powershell 
+- [Install Azure PowerShell](/azure/install-azure-powershell)  
+- Create an [Azure resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups)
+- Create an [Azure Data Lase Store Gen2](/azure/storage/blobs/create-data-lake-storage-account) account 
+- Create an [Azure Managed Identity](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm)
 
  
- ## The following script demonstrates how to setup an Azure environment with powershell: 
-- Open PowerShell 
-- Copy the following code 
-	- Install the module Az.HdInsightOnAks 
-	- Install-Module -Name Az.HdInsightOnAks 
-- Login to azure account and set the default subscription id 
-	- Connect-AzAccount 
+ ## Setup Azure Environment with Powershell 
+ 
+The following script demonstrates how to setup an Azure environment with powershell: 
 
-	- Set-AzContext -Subscription {your subscription id} 
+1. Open PowerShell 
+1. Copy the following code 
+	1. Install the module Az.HdInsightOnAks 
+	   Install-Module -Name Az.HdInsightOnAks 
+	1. Login to azure account and set the default subscription id 
+		Connect-AzAccount 
+		Set-AzContext -Subscription {your subscription id} 
 
  
 ## Variables required in the script 
+
 - Cluster Name 
 - Cluster Pool Name 
 - Subscription ID 
@@ -52,13 +51,13 @@ To create an HDInsight on AKS cluster by using Azure PowerShell, you must comple
 Image
 
 
-- Microsoft Entra user ID: Find tenant ID, domain name, user object ID - Partner Center | Microsoft Learn 
-- HDInsight on AKS VM list: 
-  https://learn.microsoft.com/en-us/azure/hdinsight-aks/virtual-machine-recommendation-capacity-planning 
+- Microsoft Entra user ID: [Find tenant ID, domain name, user object ID - Partner Center | Microsoft Learn](/partner-center/find-ids-and-domain-names) 
+- [HDInsight on AKS VM list](/azure/hdinsight-aks/virtual-machine-recommendation-capacity-planning)
+  
 
  
-**Create HDInsight On Aks cluster pool**  
-
+### Create HDInsight On Aks cluster pool
+```
 Copy the following code to Powershell
 
 $clusterPoolName="<your cluster pool name>"; 
@@ -76,18 +75,18 @@ $clusterPoolVersion=Get-AzHdInsightOnAksAvailableClusterPoolVersion -Location $l
 Write-Output "Start to create cluster pool..." 
 
 $clusterPoolResult=New-AzHdInsightOnAksClusterPool -Name $clusterPoolName -ResourceGroupName $resourceGroupName -Location $location -VmSize $vmSize -ClusterPoolVersion $clusterPoolVersion.ClusterPoolVersionValue 
-
+```
 Write-Output "Created cluster pool with name $($clusterPoolResult.Name) successfully" 
 
 
-**Create HDInsight On Aks cluster under existing cluster pool** 
+### Create HDInsight On Aks cluster under existing cluster pool
 
 Here, we are going to create cluster under the clusterpool created in the previous step 
  
 Run the following code in Powershell: 
  
-
-**Create Trino Cluster** 
+```
+# Create Trino Cluster
 
 $clusterPoolName=$“{Cluster Pool Name}”;  
 
@@ -138,53 +137,41 @@ $clusterResult=New-AzHdInsightOnAksCluster -Name $clusterName `
 
                             -AuthorizationUserId $userId 
 
- 
+ ```
 Write-Output "Created cluster with name $($clusterResult.Name) successfully" 
 
- 
-
- 
-
- 
-
-## **Get the cluster with cluster name: **
-
- 
-
+**Get the cluster with cluster name:**
+```
 Get-AzHdInsightOnAksCluster -ResourceGroupName $resourceGroupName -PoolName $clusterPoolName -Name $clusterName 
-
+```
  
 
-## **List the clusters under the cluster pool**
+**List the clusters under the cluster pool**
 
- 
+``` 
 
 Get-AzHdInsightOnAksCluster -ResourceGroupName $resourceGroupName -PoolName $clusterPoolName 
 
- 
+ ```
 
-### **Delete the cluster with cluster name**
-
+**Delete the cluster with cluster name**
+```
 Remove-AzHdInsightOnAksCluster -Name $clusterName -PoolName $clusterpoolName -ResourceGroupName $resourceGroupName 
-
+```
  
 
  
 
  
-## **Next steps**
+## Next steps
 
 Now that you've successfully created an HDInsight on AKS cluster, use the following resources to learn how to work with your cluster. 
 
 To customize and manage your HDInsight on AKS cluster, please review refer the following documentation: 
 
-1.Az.HdInsightOnAks module is available in Powershell gallery: https://www.powershellgallery.com/packages/Az.HdInsightOnAks/0.1.0 
+1. Az.HdInsightOnAks module is available in Powershell gallery: [https://www.powershellgallery.com/packages/Az.HdInsightOnAks/0.1.0](https://www.powershellgallery.com/packages/Az.HdInsightOnAks/0.1.0 )
 
- 
-
- 
-
-2.Publicly available HDInsight On Aks PowerShell module doc is https://learn.microsoft.com/en-us/powershell/module/az.hdinsightonaks/?view=azps-10.4.1#hdinsightonaks 
+1. Publicly available [HDInsight On Aks PowerShell module](/powershell/module/az.hdinsightonaks/#hdinsightonaks) doc
 
  
 
