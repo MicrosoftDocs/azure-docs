@@ -81,7 +81,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
     * **Virtual network**  
         Specify the Microsoft Azure Virtual Network from which you want to access the volume.  
 
-        The Virtual Network you specify must have a subnet delegated to Azure NetApp Files. The Azure NetApp Files service can be accessed only from the same Virtual Network or from a Virtual Network that's in the same region as the volume through virtual network peering. You can also access the volume from your on-premises network through Express Route.   
+        The Virtual Network you specify must have a subnet delegated to Azure NetApp Files. The Azure NetApp Files service can be accessed only from the same Virtual Network or from a virtual network that's in the same region as the volume through virtual network peering. You can also access the volume from your on-premises network through Express Route.   
 
     * **Subnet**  
         Specify the subnet that you want to use for the volume.  
