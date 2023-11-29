@@ -184,7 +184,7 @@ Use the following procedure to lock a RHEL 9.x VM to a particular minor release.
    sudo dnf update
    ```
 
-### Switch a RHEL Server to EUS Repositories.
+### Switch a RHEL Server to non-EUS Repositories.
 
 #### [Switching to non-EUS repositories on RHEL7](#tab/rhel7) 
 
