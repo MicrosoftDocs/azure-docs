@@ -1,7 +1,7 @@
 ---
 title:  Quota monitoring & alerting
 description: Monitoring and Alerting for Quota Usages.
-ms.date: 10/11/2023
+ms.date: 11/29/2023
 ms.topic: how-to
 ---
 
@@ -12,11 +12,11 @@ ms.topic: how-to
 To view the features on **Quotas** page, sign in to the [Azure portal](https://portal.azure.com) and enter "quotas" into the search box, then select **Quotas**.
 
 > [!NOTE]
-> When Monitoring & Alerting is enabled for your account, the Quotas in **MyQuotas** will be highlighted and clickable. 
+> When Monitoring & Alerting is enabled for your account, the Quotas in **MyQuotas** will be highlighted and clickable.
 
-## Monitoring 
+## Monitoring
 
-**Monitoring for quotas** empowers users to proactively manage their resources in Azure. Azure sets predefined limits, or quotas, for various resources like **Compute**, **Azure Machine Learning**, and **HPC Cache**. This monitoring involves continuous tracking of resource usage to ensure it remains within allocated limits, with users receiving notifications when these limits are approached or reached. 
+**Monitoring for quotas** empowers users to proactively manage their resources in Azure. Azure sets predefined limits, or quotas, for various resources like **Compute**, **Azure Machine Learning**, and **HPC Cache**. This monitoring involves continuous tracking of resource usage to ensure it remains within allocated limits, with users receiving notifications when these limits are approached or reached.
 
 ## Alerting 
 
@@ -24,7 +24,6 @@ To view the features on **Quotas** page, sign in to the [Azure portal](https://p
 
 > [!NOTE]
 > [General Role based access control](../azure-monitor/alerts/alerts-overview.md#azure-role-based-access-control-for-alerts) applies while creating alerts.  
-
 
 ## Next steps
 
