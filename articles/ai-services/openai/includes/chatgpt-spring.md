@@ -43,14 +43,14 @@ In a console window (such as cmd, PowerShell, or Bash), create a new directory f
 mkdir ai-completion-demo && cd ai-completion-demo
 ```
 
-Run the `spring init` command from your working directory. This command will create a standard directory structure for your Spring project including the main Java class source file and the *pom.xml*
+Run the `spring init` command from your working directory. This command creates a standard directory structure for your Spring project including the main Java class source file and the *pom.xml*
 file used for managing Maven based projects.
 
 ```console
 spring init -a ai-chat-demo -n AIChat --force --build maven -x
 ```
 
-The generated files and folders will resemble the following structure:
+The generated files and folders resemble the following structure:
 
 ```
 ai-chat-demo/
@@ -219,7 +219,7 @@ ai-chat-demo/
 Sending chat prompts to AI service. One moment please...
 
 Prompt created 1 generated response(s).
-Generated respose from "assistant": Yes, other Azure AI services also support customer managed keys. Azure Cognitive Services, Azure Machine Learning, and other AI services in Azure provide options for customers to manage and control their encryption keys. This allows customers to have greater control over their data and security.
+Generated respose from "assistant": Yes, other Azure AI services also support customer managed keys. Azure AI Services, Azure Machine Learning, and other AI services in Azure provide options for customers to manage and control their encryption keys. This allows customers to have greater control over their data and security.
 ```
 
 > [!div class="nextstepaction"]

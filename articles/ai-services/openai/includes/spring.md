@@ -44,14 +44,14 @@ In a console window (such as cmd, PowerShell, or Bash), create a new directory f
 mkdir ai-completion-demo && cd ai-completion-demo
 ```
 
-Run the `spring init` command from your working directory. This command will create a standard directory structure for your Spring project including the main Java class source file and the *pom.xml*
+Run the `spring init` command from your working directory. This command creates a standard directory structure for your Spring project including the main Java class source file and the *pom.xml*
 file used for managing Maven based projects.
 
 ```console
 mkdir ai-completion-demo && cd ai-completion-demo
 ```
 
-The generated files and folders will resemble the following structure:
+The generated files and folders resemble the following structure:
 
 ```
 ai-completion-demo/

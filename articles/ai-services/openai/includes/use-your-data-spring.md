@@ -12,9 +12,9 @@ ms.date: 11/27/2023
 
 ## Create a new Spring application
 
-Spring AI does not currently support the *AzureCognitiveSearchChatExtensionConfiguration* options which allows an Azure AI query to encapsulate the [Retrieval Augmented Generation](../../../search/retrieval-augmented-generation-overview.md) (RAG) method and hide the details from the user. As an alternative, you can still invoke the RAG method directly in your application to query data in your Azure Cognative Search index and use retrieved documents to augment your query.
+Spring AI doesn't currently support the *AzureCognitiveSearchChatExtensionConfiguration* options that allow an Azure AI query to encapsulate the [Retrieval Augmented Generation](../../../search/retrieval-augmented-generation-overview.md) (RAG) method and hide the details from the user. As an alternative, you can still invoke the RAG method directly in your application to query data in your Azure AI Search index and use retrieved documents to augment your query.
 
-Spring AI supports an VectorStore abstraction, and Azure Cognative Search can be wrapped in a Spring AI VectorStore implementation for querying your custom data. The following project implements a custom VectorStore backed by Azure Cognitive Search and directly executes RAG operations.
+Spring AI supports a VectorStore abstraction, and you can wrap Azure AI Search can be wrapped in a Spring AI VectorStore implementation for querying your custom data. The following project implements a custom VectorStore backed by Azure AI Search and directly executes RAG operations.
 
 In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
 
@@ -22,14 +22,14 @@ In a console window (such as cmd, PowerShell, or Bash), create a new directory f
 mkdir ai-completion-demo && cd ai-completion-demo
 ```
 
-Run the `spring init` command from your working directory. This command will create a standard directory structure for your Spring project including the main Java class source file and the *pom.xml*
+Run the `spring init` command from your working directory. This command creates a standard directory structure for your Spring project including the main Java class source file and the *pom.xml*
 file used for managing Maven based projects.
 
 ```console
 spring init -a ai-custom-data-demo -n AICustomData --force --build maven -x
 ```
 
-The generated files and folders will resemble the following structure:
+The generated files and folders resemble the following structure:
 
 ```
 ai-custom-data-demo/
@@ -387,7 +387,7 @@ ai-custom-data-demo/
 Sending custom data prompt to AI service. One moment please...
 
 Prompt created 1 generated response(s).
-Generated respose from "assistant": Azure Machine Learning is a cloud-based service that allows users to build, deploy, and manage machine learning models. It provides a range of tools and capabilities for data scientists and developers to train models, automate the machine learning workflow, and deploy models as web services.
+Generated response from "assistant": Azure Machine Learning is a cloud-based service that allows users to build, deploy, and manage machine learning models. It provides a range of tools and capabilities for data scientists and developers to train models, automate the machine learning workflow, and deploy models as web services.
 
 On the other hand, Azure AI services is a broader category that includes various services and technologies for artificial intelligence. It encompasses not only machine learning but also other AI capabilities such as natural language processing, computer vision, speech recognition, and more. Azure AI services provide pre-built AI models and APIs that developers can easily integrate into their applications.
 
