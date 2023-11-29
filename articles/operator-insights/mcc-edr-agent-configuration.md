@@ -48,6 +48,15 @@ source:
   # The maximum time to wait when no data is received before  
   # uploading pending batched data to Azure.  
   blob_rollover_period_in_seconds: 300 
+  # EDRs greater than this size are dropped. Subsequent EDRs continue to be processed. This
+  # condition likely indicates MCC sending larger than expected EDRs. MCC is not normally expected
+  # to send EDRs larger than the default size. If EDRs are being dropped because of this limit,
+  # investigate and confirm that the EDRs are valid, and then increase this value.
+  soft_maximum_edr_size_in_bytes: 20480
+  # EDRs greater than this size are dropped and the connection from MCC is closed. This condition
+  # likely indicates an MCC bug or MCC sending corrupt data. It prevents the agent from uploading
+  # corrupt EDRs to Azure. You should not need to change this value.
+  hard_maximum_edr_size_in_bytes: 100000
 sink: 
   # The container within the ingestion account.  This *must* be in 
   # the format Azure Operator Insights expects.  Do not adjust 

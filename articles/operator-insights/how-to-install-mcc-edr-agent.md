@@ -17,14 +17,23 @@ The MCC EDR agent is a software package that is installed onto a Linux Virtual M
 - You must have an Affirmed Networks MCC deployment that generates EDRs.
 - You must have an Azure Operator Insights MCC Data product deployment.
 - You must provide VMs with the following specifications to run the agent:
-  - OS - Red Hat Enterprise Linux 8.6 or later
-  - Minimum hardware - 4 vCPU,  8-GB RAM, 30-GB disk
-  - Network - connectivity from MCCs and to Azure
-  - Software - systemd, logrotate and zip installed
-  - SSH or alternative access to run shell commands
-  - (Preferable) Ability to resolve public DNS.  If not, you need to perform extra steps to resolve Azure locations. Refer to [Running without public DNS](#running-without-public-dns) for instructions.
 
-The number of VMs needed depends on the scale and redundancy characteristics of your deployment. Each agent instance must run on its own VM. Talk to the Affirmed Support Team to determine your requirements.
+| Resource | Requirements                                                        |
+|----------|---------------------------------------------------------------------|
+| OS       | Red Hat Enterprise Linux 8.6 or later, or Oracle Linux 8.8 or later |
+| vCPUs    | 4                                                                   |
+| Memory   | 32 GB                                                               |
+| Disk     | 30 GB                                                               |
+| Network  | Connectivity from MCCs and to Azure                                 |
+| Software | systemd, logrotate and zip installed                                |
+| Other    | SSH or alternative access to run shell commands                     |
+| DNS      | (Preferable) Ability to resolve public DNS. If not, you need to perform extra steps to resolve Azure locations. See [Running without public DNS](#running-without-public-dns). |
+
+Each agent instance must run on its own VM. The number of VMs needed depends on the scale and redundancy characteristics of your deployment. This recommended specification can achieve 1.5-Gbps throughput on a standard D4s_v3 Azure VM. For any other VM spec, we recommend that you measure throughput at the network design stage.
+
+Latency on the MCC to agent connection can negatively affect throughput. Latency should usually be low if the MCC and agent are colocated or the agent runs in an Azure region close to the MCC.
+
+Talk to the Affirmed Support Team to determine your requirements.
 
 ## Deploy the agent on your VMs
 
@@ -52,8 +61,8 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 
 1. Obtain a certificate. We strongly recommend using trusted certificate(s) from a certificate authority.
 1. Add the certificate(s) as credential(s) to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
-1. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key Vault.  Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire.  Once a certificate has expired, the agent is unable to authenticate to Azure and no longer uploads data.  For details of this approach see [Renew your Azure Key Vault certificates](../key-vault/certificates/overview-renew-certificate.md).
-    - You'll need the 'Key Vault Certificates Officer' role on the Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
+1. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key Vault.  Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire.  Once a certificate expires, the agent is unable to authenticate to Azure and no longer uploads data.  For details of this approach see [Renew your Azure Key Vault certificates](../key-vault/certificates/overview-renew-certificate.md).
+    - You need the 'Key Vault Certificates Officer' role on the Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 
 1. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
 
@@ -79,7 +88,7 @@ Repeat these steps for each VM onto which you want to install the agent:
     - Port 443/TCP outbound to Azure
     
     These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
-1. Install systemd, logrotate and zip on the VM, if not already present.
+1. Install systemd, logrotate and zip on the VM, if not already present. For example, `sudo dnf install systemd logrotate zip`.
 1. Obtain the ingestion agent RPM and copy it to the VM.
 1. Copy the pkcs12-formatted base64-encoded certificate (created in the [Prepare certificates](#prepare-certificates) step) to an accessible location on the VM (such as /etc/az-mcc-edr-uploader).
 
@@ -143,15 +152,15 @@ Repeat these steps for each VM onto which you want to install the agent:
 
     3. If issues persist, raise a support ticket.
 
-1. Once the agent is running, ensure it will automatically start on a reboot: `sudo systemctl enable az-mcc-edr-uploader.service`
+1. Once the agent is running, ensure it starts automatically after reboots: `sudo systemctl enable az-mcc-edr-uploader.service`
 
-1. Save a copy of the delivered RPM – you'll need it to reinstall or to back out any future upgrades.
+1. Save a copy of the delivered RPM – you need it to reinstall or to back out any future upgrades.
 
 ### Configure affirmed MCCs
 
 Once the agents are installed and running, configure the MCCs to send EDRs to them.
 
-1. Follow the steps under "Generating SESSION, BEARER, FLOW, and HTTP Transaction EDRs" in the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/13.1/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm) (1), making the following changes:
+1. Follow the steps under "Generating SESSION, BEARER, FLOW, and HTTP Transaction EDRs" in the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/latest/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm) (1), making the following changes:
 
     - Replace the IP addresses of the MSFs in MCC configuration with the IP addresses of the VMs running the ingestion agents.
 
@@ -185,7 +194,7 @@ The MCC EDR agent is designed to be highly reliable and resilient to low levels 
 
 The agent doesn't buffer data, so if a persistent error or extended connectivity problems occur, EDRs are dropped.
 
-For additional fault tolerance, you can deploy multiple instances of the MCC EDR agent and configure the MCC to switch to a different instance if the original instance becomes unresponsive, or to share EDR traffic across a pool of agents. For more information, refer to the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/13.1/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm)(2) or speak to the Affirmed Networks Support Team.
+For extra fault tolerance, you can deploy multiple instances of the MCC EDR agent and configure the MCC to switch to a different instance if the original instance becomes unresponsive, or to share EDR traffic across a pool of agents. For more information, see the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/latest/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm)(2) or speak to the Affirmed Networks Support Team.
 
 ## Related content
 

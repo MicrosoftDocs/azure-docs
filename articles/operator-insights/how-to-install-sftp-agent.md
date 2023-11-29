@@ -14,18 +14,31 @@ The SFTP agent is a software package that is installed onto a Linux Virtual Mach
 
 ## Prerequisites
 
-- You must have an SFTP server containing the files to be uploaded to Azure Operator Insights.
-    - The SFTP server must be accessible from the VM where the agent is installed.
+- You must have an SFTP server containing the files to be uploaded to Azure Operator Insights. This SFTP server must be accessible from the VM where the agent is installed.
 - You must have an Azure Operator Insights Data Product deployment.
 - You must provide one or more VMs with the following specifications to run the agent:
-  - OS - Red Hat Enterprise Linux 8.6 or later
-  - Minimum hardware - 4 vCPU,  8-GB RAM, 30-GB disk
-  - Network - connectivity to the SFTP server and to Azure
-  - Software - systemd, logrotate and zip installed
-  - SSH or alternative access to run shell commands
-  - (Preferable) Ability to resolve public DNS.  If not, you need to perform extra steps to resolve Azure locations. Refer to [Running without public DNS](#running-without-public-dns) for instructions.
 
-The number of VMs needed depends on the scale and redundancy characteristics of your deployment. Each agent instance must run on its own VM. Talk to the Microsoft Support Team to determine your requirements.
+| Resource | Requirements                                                        |
+|----------|---------------------------------------------------------------------|
+| OS       | Red Hat Enterprise Linux 8.6 or later, or Oracle Linux 8.8 or later |
+| vCPUs    | Minimum 4, recommended 8                                            |
+| Memory   | Minimum 32 GB                                                       |
+| Disk     | 30 GB                                                               |
+| Network  | Connectivity to the SFTP server and to Azure                        |
+| Software | systemd, logrotate and zip installed                                |
+| Other    | SSH or alternative access to run shell commands                     |
+| DNS      | (Preferable) Ability to resolve public DNS. If not, you need to perform extra steps to resolve Azure locations. See [Running without public DNS](#running-without-public-dns). |
+
+Each agent instance must run on its own VM. The number of VMs needed depends on the scale and redundancy characteristics of your deployment. The number is also dependent on the number and size of the files, and how frequently the files are copied.
+
+As a guide, this table documents the throughput that the recommended specification on a standard D4s_v3 Azure VM can achieve.
+
+| File count | File size (KiB) | Time (seconds) | Throughput (Mbps) |
+|------------|-----------------|----------------|-------------------|
+| 64         | 16,384          | 6              | 1,350             |
+| 1,024      | 1,024           | 10             | 910               |
+| 16,384     | 64              | 80             | 100               |
+| 65,536     | 16              | 300            | 25                |
 
 ## Deploy the agent on your VMs
 
@@ -53,7 +66,7 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 
 1. Obtain a certificate. We strongly recommend using trusted certificate(s) from a certificate authority.
 1. Add the certificate(s) as credential(s) to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
-1. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key vault.  Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire.  Once a certificate has expired, the agent  is unable to authenticate to Azure and no longer uploads data.  For details of this approach see [Renew your Azure Key Vault certificates Azure portal](../key-vault/certificates/overview-renew-certificate.md).
+1. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key vault.  Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire.  Once a certificate expires, the agent  is unable to authenticate to Azure and no longer uploads data.  For details of this approach see [Renew your Azure Key Vault certificates Azure portal](../key-vault/certificates/overview-renew-certificate.md).
     - You need the 'Key Vault Certificates Officer' role on the Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 
 1. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
@@ -75,19 +88,19 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 Repeat these steps for each VM onto which you want to install the agent:
 
 1. Ensure you have an SSH session open to the VM, and that you have `sudo` permissions.
-2. Create a directory to use for storing secrets for the agent. Note the path of this directory. This is the _secrets directory_ and it is the directory where you will add secrets for connecting to the SFTP server.
+2. Create a directory to use for storing secrets for the agent. Note the path of this directory. This is the _secrets directory_ and it is the directory where you'll add secrets for connecting to the SFTP server.
 3. Verify that the VM has the following ports open:
     - Port 443/TCP outbound to Azure
     - Port 22/TCP outbound to the SFTP server
   
     These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
-4. Install systemd, logrotate and zip on the VM, if not already present.
+4. Install systemd, logrotate and zip on the VM, if not already present. For example, `sudo dnf install systemd logrotate zip`.
 5. Obtain the ingestion agent RPM and copy it to the VM.
 6. Copy the pkcs12-formatted base64-encoded certificate (created in the [Prepare certificates](#prepare-certificates) step) to an accessible location on the VM (such as /etc/az-sftp-uploader).
 7. Ensure the SFTP server's public SSH key is listed on the VM's `known_hosts` file.
 
 > [!TIP]
-> Use the Linux command `ssh-keygen` to add a server's SSH key to a VM's `known_hosts` file manually. For example, `ssh-keygen -192.0.2.0 ~/.ssh/known_hosts`
+> Use the Linux command `ssh-keygen` to add a server's SSH key to a VM's `known_hosts` file manually. For example, `ssh-keygen -192.0.2.0 ~/.ssh/known_hosts`.
 
 ### Configure the connection between the SFTP server and VM
 Follow these steps on the SFTP server:
@@ -211,9 +224,9 @@ For the **Monitoring - Affirmed MCC** Data Product, set the following parameters
 
     3. If issues persist, raise a support ticket.
 
-3. Once the agent is running, ensure it will automatically start on a reboot: `sudo systemctl enable az-sftp-uploader.service`
+3. Once the agent is running, ensure it starts automatically after reboots: `sudo systemctl enable az-sftp-uploader.service`
 
-4. Save a copy of the delivered RPM – you'll need it to reinstall or to back out any future upgrades.
+4. Save a copy of the delivered RPM – you need it to reinstall or to back out any future upgrades.
 
 ## Important considerations
 
