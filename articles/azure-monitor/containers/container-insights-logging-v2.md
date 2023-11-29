@@ -10,8 +10,11 @@ ms.date: 08/28/2023
 ms.reviewer: aul
 ---
 
-# Enable the ContainerLogV2 schema 
+# Container insights log schema
 Azure Monitor Container insights offers a schema for container logs, called ContainerLogV2. As part of this schema, there are fields to make common queries to view Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes data. In addition, this schema is compatible with [Basic Logs](../logs/basic-logs-configure.md), which offers a low-cost alternative to standard analytics logs.
+
+>[!IMPORTANT]
+> Support for the *ContainerLog* table will be retired on 30th September 2026.
 
 >[!NOTE]
 > ContainerLogV2 will be the default schema via the ConfigMap for CLI version 2.54.0 and greater. ContainerLogV2 will be default ingestion format for customers who will be onboarding container insights with Managed Identity Auth using ARM, Bicep, Terraform, Policy and Portal onboarding. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
@@ -35,6 +38,23 @@ The new fields are:
 
 >[!NOTE]
 > [Export](../logs/logs-data-export.md) to Event Hub and Storage Account is not supported if the incoming LogMessage is not a valid JSON. For best performance, we recommend emitting container logs in JSON format.
+
+## ContainerLog vs ContainerLogV2 schema
+
+The following table highlights the key differences between using ContainerLog and ContainerLogV2 schema.
+
+>[!NOTE]
+> DCR based configuration is not supported for service principal based clusters. [Migrate your clusters with service principal to managed identity](./container-insights-authentication.md) to use this experience.
+
+| Feature differences  | ContainerLog | ContainerLogV2 |
+| ------------------- | ----------------- | ------------------- |
+| Onboarding | Only configurable through the ConfigMap | Configurable through both the ConfigMap and DCR\* |
+| Pricing | Only compatible with full-priced analytics logs | Supports the low cost basic logs tier in addition to analytics logs |
+| Querying | Requires multiple join operations with inventory tables for standard queries | Includes additional pod and container metadata to reduce query complexity and join operations |
+| Multiline | Not supported, multiline entries are split into multiple rows | Support for multiline logging to allow consolidated, single entries for multiline output |
+
+\* DCR enablement is not supported for service principal based clusters, must be enabled through the ConfigMap
+
 
 ## Enable the ContainerLogV2 schema
 Customers can enable the ContainerLogV2 schema at the cluster level through either the cluster's Data Collection Rule (DCR) or ConfigMap. To enable the ContainerLogV2 schema, configure the cluster's ConfigMap. Learn more about ConfigMap in [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)  and in [Azure Monitor documentation](./container-insights-agent-config.md#configmap-file-settings-overview).
@@ -103,6 +123,24 @@ This applies to the scenario where you have already enabled container insights f
 >[!NOTE]
 >* The configuration change can take a few minutes to complete before it takes effect. All ama-logs pods in the cluster will restart. 
 >* The restart is a rolling restart for all ama-logs pods. It won't restart all of them at the same time.
+
+## Assess the impact on existing alerts
+
+If you're currently using ContainerLog in your alerts, then migrating to ContainerLogV2 requires updates to your alert queries for them to continue functioning as expected.
+
+To scan for alerts that might be referencing the ContainerLog table, run the following Azure Resource Graph query:
+
+```Kusto
+resources
+| where type in~ ('microsoft.insights/scheduledqueryrules') and ['kind'] !in~ ('LogToMetric')
+| extend severity = strcat("Sev", properties["severity"])
+| extend enabled = tobool(properties["enabled"])
+| where enabled in~ ('true')
+| where tolower(properties["targetResourceTypes"]) matches regex 'microsoft.operationalinsights/workspaces($|/.*)?' or tolower(properties["targetResourceType"]) matches regex 'microsoft.operationalinsights/workspaces($|/.*)?' or tolower(properties["scopes"]) matches regex 'providers/microsoft.operationalinsights/workspaces($|/.*)?'
+| where properties contains "ContainerLog"
+| project id,name,type,properties,enabled,severity,subscriptionId
+| order by tolower(name) asc
+```
 
 ## Multi-line logging in Container Insights
 Azure Monitor container insights now supports multiline logging. With this feature enabled, previously split container logs are stitched together and sent as single entries to the ContainerLogV2 table. Customers are able see container log lines upto to 64 KB (up from the existing 16 KB limit). If the stitched log line is larger than 64 KB, it gets truncated due to Log Analytics limits. 
