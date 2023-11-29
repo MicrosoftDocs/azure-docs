@@ -31,7 +31,7 @@ If creating a cluster results in an error that `No registered resource provider 
 
 If requests are being throttled due to Azure storage limits being exceeded, it might be due to one of the following reasons:
 
-- There's a maximum of approximately 50 clusters per subid + region. Create fewer than 50 clusters per subscription + region. For example: 25 clusters in subscription + eastus and 25 clusters in subscription + eastus2
+- There's a maximum of approximately 50 clusters per subscription ID + region. Create fewer than 50 clusters per subscription + region. For example: 25 clusters in subscription + eastus and 25 clusters in subscription + eastus2.
 - Avoid creating multiple clusters within a single subscription + region at the same time. If you need to create multiple clusters in a short period of time, federate over multiple subscriptions or regions.
 
 If the issue persists please create a support ticket for investigation.
