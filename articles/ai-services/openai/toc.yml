@@ -104,6 +104,8 @@ items:
         href: encrypt-data-at-rest.md
       - name: Manage identity
         href: ./how-to/managed-identity.md
+      - name: Use Azure OpenAI on your data securely
+        href: ./how-to/use-your-data-securely.md
   - name: Service management
     items:
       - name: Resource creation & model deployment
