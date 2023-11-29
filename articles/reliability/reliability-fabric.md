@@ -95,7 +95,7 @@ For more information, see the [Power BI high availability, failover, and disas
 
 #### Disaster recovery capacity setting
 
-Fabric provides a disaster recovery switch on the capacity settings page. It's available where Azure [regional pairings](./cross-region-replication-azure.md#) align with Fabric's service presence. Here are the specifics of this switch:
+Fabric provides a disaster recovery switch on the capacity settings page. It's available where Azure [regional pairings](./cross-region-replication-azure.md#azure-paired-regions) align with Fabric's service presence. Here are the specifics of this switch:
 
 * **Role access**: Only users with the [capacity admin](/power-bi/enterprise/service-admin-premium-manage#setting-up-a-new-capacity-power-bi-premium/) role or higher can use this switch.
 
@@ -114,16 +114,16 @@ Fabric provides a disaster recovery switch on the capacity settings page. It's a
 
 #### Data replication
 
-When Fabric customers turn on the disaster recovery capacity setting, cross-region replication is enabled as a disaster recovery capability for OneLake data. The Fabric platform aligns with Azure regions to provision the geo-redundancy pairs. However, note that some regions don't have an Azure pair region, or the pair region doesn't support Fabric. For these regions, data replication isn't available. For more information, see [Regions with availability zones and no region pair](/azure/reliability/cross-region-replication-azure#regions-with-availability-zones-and-no-region-pair/) and [Fabric region availability](/fabric/admin/region-availability.md).
+When Fabric customers turn on the disaster recovery capacity setting, cross-region replication is enabled as a disaster recovery capability for OneLake data. The Fabric platform aligns with Azure regions to provision the geo-redundancy pairs. However, note that some regions don't have an Azure pair region, or the pair region doesn't support Fabric. For these regions, data replication isn't available. For more information, see [Regions with availability zones and no region pair](/azure/reliability/cross-region-replication-azure#regions-with-availability-zones-and-no-region-pair/) and [Fabric region availability](/fabric/admin/region-availability).
 
 > [!NOTE]
 > While Fabric offers a data replication solution in OneLake to support disaster recovery, there are notable limitations. For instance, the data of KQL databases and querysets is stored externally to OneLake, which means that a separate disaster recovery approach is needed. Refer to the following sections for the details of the disaster recovery approach for each Fabric item.
 
 #### Billing
 
-The disaster recovery feature in Fabric enables geo-replication of your data for enhanced security and reliability. This feature consumes additional storage and transactions, which are billed as BCDR Storage and BCDR Operations respectively. You can monitor and manage these costs in the [Microsoft Fabric Capacity Metrics app](/fabric/enterprise/metrics-app.md), where they appear as separate line items.
+The disaster recovery feature in Fabric enables geo-replication of your data for enhanced security and reliability. This feature consumes additional storage and transactions, which are billed as BCDR Storage and BCDR Operations respectively. You can monitor and manage these costs in the [Microsoft Fabric Capacity Metrics app](/fabric/enterprise/metrics-app), where they appear as separate line items.
 
-For more information about the pricing and consumption rates of disaster recovery, see [OneLake compute and storage consumption](/fabric/onelake/onelake-consumption.md). You'll find there an exhaustive breakdown of all associated disaster recovery costs to help you plan and budget accordingly.
+For more information about the pricing and consumption rates of disaster recovery, see [OneLake compute and storage consumption](/fabric/onelake/onelake-consumption). You'll find there an exhaustive breakdown of all associated disaster recovery costs to help you plan and budget accordingly.
 
 ## Set up disaster recovery 
 
@@ -161,13 +161,13 @@ Although the Fabric portal and Power BI will be in read-only mode, and other Fab
 
 OneLake data remains accessible through multiple channels:
 
-* OneLake ADLS Gen2 API: See [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api.md)
+* OneLake ADLS Gen2 API: See [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api)
 
 * Examples of tools that can connect to OneLake data:
     
-    * Azure Storage Explorer: See [Integrate OneLake with Azure Storage Explorer](/fabric/onelake/onelake-azure-storage-explorer.md)
+    * Azure Storage Explorer: See [Integrate OneLake with Azure Storage Explorer](/fabric/onelake/onelake-azure-storage-explorer)
 
-    * OneLake File Explorer: See [Use OneLake file explorer to access Fabric data](/fabric/onelake/onelake-file-explorer.md)
+    * OneLake File Explorer: See [Use OneLake file explorer to access Fabric data](/fabric/onelake/onelake-file-explorer)
 
 ### Phase 3: Recovery plan
 
@@ -175,16 +175,16 @@ While Fabric ensures that data remains accessible after a disaster, customers ca
 
 #### Recovery steps
 
-1. Create a new Fabric capacity in any region after a disaster. Given the high demand during such events, we recommend selecting a region outside your primary geo to increase likelihood of compute service availability. For information about creating a capacity, see [Buy a Microsoft Fabric subscription](/fabric/enterprise/buy-subscription.md).
+1. Create a new Fabric capacity in any region after a disaster. Given the high demand during such events, we recommend selecting a region outside your primary geo to increase likelihood of compute service availability. For information about creating a capacity, see [Buy a Microsoft Fabric subscription](/fabric/enterprise/buy-subscription).
 
 1. Create workspaces in the newly created capacity. If necessary, use the same names as the old workspaces.
 
 1. Create items with the same names as the ones you want to recover. This is important if you use the custom script to recover lakehouses and warehouses.
 
-1. Restore the items. For each item, follow the relevant section in the [Experience-specific disaster recovery guidance](/fabric/security/experience-specific-guidance.md) to restore the item.
+1. Restore the items. For each item, follow the relevant section in the [Experience-specific disaster recovery guidance](/fabric/security/experience-specific-guidance) to restore the item.
 
 
 ## Next steps
 
-- [Experience-specific disaster recovery guidance](/fabric/security/experience-specific-guidance.md)
+- [Experience-specific disaster recovery guidance](/fabric/security/experience-specific-guidance)
 - [Reliability in Azure](./overview.md)
