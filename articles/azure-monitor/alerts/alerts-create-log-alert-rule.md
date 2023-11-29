@@ -20,7 +20,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 [!INCLUDE [alerts-wizard-scope](../includes/alerts-wizard-scope.md)]
 
-## The Conditions tab 
+## Configure the alert rule conditions
 
 1. On the **Condition** tab, when you select the **Signal name** field, the most commonly used signals are displayed in the drop-down list. Select one of these popular signals, or select **See all signals** if you want to choose a different signal for the condition.
 
@@ -135,7 +135,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 [!INCLUDE [alerts-wizard-actions](../includes/alerts-wizard-actions.md)]
 
 
-## The Details tab
+## Configure the alert rule details
 
 1. On the **Details** tab, define the **Project details**.
     - Select the **Subscription**.

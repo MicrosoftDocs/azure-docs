@@ -6,7 +6,7 @@ ms.author: abbyweisberg
 author: AbbyMSFT
 ---
 
-## The Actions tab
+## Configure the alert rule actions
 
 1. On the **Actions** tab, select or create the required [action groups](../alerts/action-groups.md).
 
