@@ -12,12 +12,12 @@ author: AbbyMSFT
 
     The format for extracting a dynamic value from the alert payload is: `${<path to schema field>}`. For example: ${data.essentials.monitorCondition}.
 
-    Use the format of the [common alert schema](alerts-common-schema.md) to specify the field in the payload, whether or not the action groups configured for the alert rule use the common schema.
+    Use the format of the [common alert schema](../alerts/alerts-common-schema.md) to specify the field in the payload, whether or not the action groups configured for the alert rule use the common schema.
 
     > [!NOTE]
-    > The [common schema](alerts-common-schema.md) overwrites custom configurations. You can't use both custom properties and the common schema.
+    > The [common schema](../alerts/alerts-common-schema.md) overwrites custom configurations. You can't use both custom properties and the common schema.
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-custom-props.png" alt-text="Screenshot that shows the custom properties section of creating a new alert rule.":::
+    :::image type="content" source="../alerts/media/alerts-create-new-alert-rule/alerts-rule-custom-props.png" alt-text="Screenshot that shows the custom properties section of creating a new alert rule.":::
 
     In the following examples, values in the **custom properties** are used to utilize data from a payload that uses the common alert schema:
 
