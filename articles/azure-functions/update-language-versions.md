@@ -97,7 +97,10 @@ When using a [staging slot](functions-deployment-slots.md), make sure to target 
 ::: zone-end 
 
 ### [Windows](#tab/windows/azure-cli)
-::: zone pivot="programming-language-java,programming-language-python,programming-language-powershell" 
+::: zone pivot="programming-language-python"  
+Python apps aren't supported on Windows. Select the **Linux** tab instead.
+::: zone-end  
+::: zone pivot="programming-language-java,programming-language-powershell" 
 First, use the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported version values for your language. Then, run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the language version of your function app:  
 ::: zone-end  
 ::: zone pivot="programming-language-csharp" 
@@ -133,8 +136,10 @@ az functionapp list-runtimes --os "windows" --query "[?runtime == 'powershell'].
 az functionapp config set --powershell-version "<VERSION>" --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" --slot "staging"  
 ```  
 ::: zone-end 
+::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell"  
 In this example, replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the name of your function app and resource group, respectively. Also replace `<VERSION>` with the supported language version to which you're updating. If you aren't using a staging slot, remove the `--slot` parameter.
-
+::: zone-end   
 ### [Linux](#tab/linux/azure-cli)
 ::: zone pivot="programming-language-python"  
 > [!NOTE]   

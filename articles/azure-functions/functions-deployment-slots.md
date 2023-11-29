@@ -20,7 +20,7 @@ There are many advantages to using deployment slots, including:
 - **Different environments for different purposes**: Using different slots gives you the opportunity to differentiate app instances before swapping to production or a staging slot.
 - **Prewarming**: Deploying to a slot instead of directly to production allows the app to warm up before going live. Additionally, using slots reduces latency for HTTP-triggered workloads. Instances are warmed up before deployment, which reduces the cold start for newly deployed functions.
 - **Easy fallbacks**: After a swap with production, the slot with a previously staged app now has the previous production app. If the changes swapped into the production slot aren't as you expect, you can immediately reverse the swap to get your "last known good instance" back.
-- **Minimize restarts**: Changing app settings in a production slot requires a restart of the running app. You can instead change settings in a staging slot and swap the settings change into production with a prewarmed instance. Slots is the recommended way to upgrade between Functions runtime versions while maintaining the highest availability. To learn more, see [Minimum downtime upgrade](migrate-version-3-version-4.md#minimum-downtime-upgrade). 
+- **Minimize restarts**: Changing app settings in a production slot requires a restart of the running app. You can instead change settings in a staging slot and swap the settings change into production with a prewarmed instance. Slots are the recommended way to upgrade between Functions runtime versions while maintaining the highest availability. To learn more, see [Minimum downtime upgrade](migrate-version-3-version-4.md#minimum-downtime-upgrade). 
 
 ## Swap operations
 
@@ -33,7 +33,7 @@ During a swap, one slot is considered the source and the other is the target. Th
 
 1. **Wait for restarts and availability:** The swap waits for every instance in the source slot to complete its restart and to be available for requests. If any instance fails to restart, the swap operation reverts all changes to the source slot and stops the operation.
 
-1. **Update routing:** If all instances on the source slot are warmed up successfully, the two slots complete the swap by switching routing rules. After this step, the target slot (for example, the production slot) has the app that has been previously warmed up in the source slot.
+1. **Update routing:** If all instances on the source slot are warmed up successfully, the two slots complete the swap by switching routing rules. After this step, the target slot (for example, the production slot) has the app that was previously warmed up in the source slot.
 
 1. **Repeat operation:** Now that the source slot has the preswap app previously in the target slot, complete the same operation by applying all settings and restarting the instances for the source slot.
 
@@ -163,6 +163,10 @@ az functionapp deployment slot create --name "<APP_NAME>" --resource-group "<RES
 ```
 
 ---
+
+## Access slot resources
+
+You access resources (HTTP triggers and administrator endpoints) in a staging slot in the same way as the production slot. However, instead of the function app host name you use the slot-specific host name in the request URL, along with any slot-specific keys. Because staging slots are live apps, you must [secure your functions](./security-concepts.md) in a staging slot as you would in the production slot.  
 
 ## Swap slots
 
