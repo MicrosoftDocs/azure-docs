@@ -66,7 +66,7 @@ A private-link resource is the destination target of a specified private endpoin
  
 | Private-link resource name | Resource type | Sub-resources |
 | ---------------------------| ------------- | ------------- |
-| Application Gateway | Microsoft.Network/applicationgateways | application gateway |
+| Application Gateway | Microsoft.Network/applicationgateways |Frontend IP Configuration name|
 | Azure AI services | Microsoft.CognitiveServices/accounts | account |
 | Azure API for FHIR (Fast Healthcare Interoperability Resources) | Microsoft.HealthcareApis/services | fhir |
 | Azure App Configuration | Microsoft.Appconfiguration/configurationStores | configurationStores |
@@ -126,7 +126,7 @@ A private-link resource is the destination target of a specified private endpoin
 
 > [!NOTE]
 > You can create private endpoints only on a General Purpose v2 (GPv2) storage account.
- 
+
 ## Network security of private endpoints 
 
 When you use private endpoints, traffic is secured to a private-link resource. The platform validates network connections, allowing only those that reach the specified private-link resource. To access more subresources within the same Azure service, more private endpoints with corresponding targets are required. In the case of Azure Storage, for instance, you would need separate private endpoints to access the _file_ and _blob_ subresources.

@@ -17,6 +17,10 @@ Azure confidential ledger is a cloud service that provides a high integrity stor
 
 In this quickstart, you create a confidential ledger with the [Azure portal](https://portal.azure.com). 
 
+## Prerequisites
+
+[!INCLUDE [Ensure subscription owner](./includes/ensure-subscription-owner.md)]
+
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
