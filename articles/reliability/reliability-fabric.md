@@ -5,6 +5,7 @@ author: paulinbar
 ms.author: painbar 
 ms.topic: reliability-article
 ms.reviewer: anaharris
+ms.service: fabric
 ms.custom:
   - subject-reliability
   - references_regions
