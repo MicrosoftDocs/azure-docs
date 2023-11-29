@@ -17,7 +17,7 @@ You can also delegate a subdomain using [Azure PowerShell](delegate-subdomain-ps
 
 ## Prerequisites
 
-To delegate an Azure DNS subdomain, The parent public domain must first be delegated to Azure DNS. See [Delegate a domain to Azure DNS](./dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation. Once your domain is delegated to Azure DNS, you can delegate a subdomain.
+To delegate an Azure DNS subdomain, the parent public domain must first be delegated to Azure DNS. See [Delegate a domain to Azure DNS](./dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation. Once your domain is delegated to Azure DNS, you can delegate a subdomain.
 
 > [!NOTE]
 > The `adatum.com` zone is used as an example of a parent DNS zone and `engineering.adatum.com` is used for the subdomain. Substitute your own domain names for these domains.
@@ -37,11 +37,11 @@ To delegate the **engineering** subdomain under **adatum.com**:
 4. Select **Review create**, and then select **Create**.
 5. When deployment is complete, select **Go to resource** to view the new delegated zone: **engineering.adatum.com**.
 
-   ![A screenshot showing contents of the child zone.](./media/delegate-subdomain/child-zone-contents.png)
+   [ ![A screenshot showing contents of the child zone.](./media/delegate-subdomain/child-zone-contents.png) ](./media/delegate-subdomain/child-zone-contents.png#lightbox)
 
 6. Select the parent **adatum.com** zone again and notice that an **NS** record has been added with the name **engineering** and contents the same as NS records in the child zone. You might need to refresh the page. These are the Azure DNS nameservers that are authoritative for the subdomain (child zone).
 
-   ![A screenshot showing contents of the parent zone.](./media/delegate-subdomain/parent-zone-contents.png)
+   [ ![A screenshot showing contents of the parent zone.](./media/delegate-subdomain/parent-zone-contents.png) ](./media/delegate-subdomain/parent-zone-contents.png#lightbox)
 
 ## Manual entry of NS records (optional)
 
