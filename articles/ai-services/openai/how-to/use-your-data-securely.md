@@ -163,27 +163,36 @@ So far you have already setup each resource work independently. Next you will ne
 
 See the [Azure RBAC documentation](/azure/role-based-access-control/role-assignments-portal) for instructions on setting these roles in the Azure portal. You can use the [available script onGitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/main/scripts/role_assignment.sh) to add the role assignments programmatically. You need to have the `Owner` role on these resources to do role assignments.
 
-# Using API
-## Local test setup
-Make sure your login credential has `Cognitive Services OpenAI Contributor` role on your Azure OpenAI resource. 
-![image.png](/.attachments/image-bd6bee15-d7bd-4963-9200-9a600cd715e8.png)
+## Using the API
 
-Also, make sure your dev box IP is whitelisted in IP rules, so you can call the Azure OpenAI data plane API.
-![image.png](/.attachments/image-1cfa9917-05a6-4682-877c-1ab40187b26e.png)
+
+### Local test setup
+
+Make sure your login credential has `Cognitive Services OpenAI Contributor` role on your Azure OpenAI resource. 
+
+:::image type="content" source="../media/use-your-data/api-local-test-setup-credential.png" alt-text="A screenshot showing roles for accounts in the Azure portal." lightbox="../media/use-your-data/api-local-test-setup-credential.png":::
+
+Also, make sure that the IP your development machine is whitelisted in the IP rules, so you can call the Azure OpenAI API.
+
+:::image type="content" source="../media/use-your-data/ip-rules-azure-portal.png" alt-text="A screenshot showing roles for accounts in the Azure portal." lightbox="../media/use-your-data/ip-rules-azure-portal.png":::
 
 ## Ingestion API
-Official document: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#start-an-ingestion-job
+
+
+See the [ingestion API reference article](/azure/ai-services/openai/reference#start-an-ingestion-job) for details on the request and response objects used by the ingestion API.   
 
 Additional notes:
-* JOB_NAME in the API path will be used as the index name in Azure AI Search.
-* Use `Authorization` header rather than api-key.
-* Explicitly set `storageEndpoint` header, this is required if the `storageConnectionString` is in key-less format - starts with `ResourceId=`.
-* Use `ResourceId=` format as `storageConnectionString`. This indicate Azure OpenAI and Azure AI Search to use managed identity to authenticate Storage Account, which is required to bypass network restriction.
-* NOT to set `searchServiceAdminKey` header. The system-assigned identity of the Azure OpenAI resource will be used to authenticate Azure AI Search.
-* NOT to set `embeddingEndpoint` or `embeddingKey`. Instead, to enable text vectorization, use `embeddingDeploymentName` header.
+
+* `JOB_NAME` in the API path will be used as the index name in Azure AI Search.
+* Use the `Authorization` header rather than api-key.
+* Explicitly set `storageEndpoint` header, this is required if the `storageConnectionString` is in keyless format. It starts with `ResourceId=`.
+* Use `ResourceId=` format for `storageConnectionString`. This indicates that Azure OpenAI and Azure AI Search will use managed identity to authenticate the storage account, which is required to bypass network restrictions.
+* **Do not** set the `searchServiceAdminKey` header. The system-assigned identity of the Azure OpenAI resource will be used to authenticate Azure AI Search.
+* **Do not** set `embeddingEndpoint` or `embeddingKey`. Instead, use the `embeddingDeploymentName` header to enable text vectorization.
 
 
-Submit job example:
+**Submit job example**
+
 ```bash
 accessToken=$(az account get-access-token --resource https://cognitiveservices.azure.com/ --query "accessToken" --output tsv)
 curl -i -X PUT https://wednesday-tip-vnet.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs/vpn1025a?api-version=2023-10-01-preview \
@@ -200,7 +209,9 @@ curl -i -X PUT https://wednesday-tip-vnet.openai.azure.com/openai/extensions/on-
 }
 '
 ```
-Get job status example:
+
+**Get job status example**
+
 ```bash
 accessToken=$(az account get-access-token --resource https://cognitiveservices.azure.com/ --query "accessToken" --output tsv)
 curl -i -X GET https://wednesday-tip-vnet.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs/vpn1025a?api-version=2023-10-01-preview \
@@ -209,13 +220,16 @@ curl -i -X GET https://wednesday-tip-vnet.openai.azure.com/openai/extensions/on-
 ```
 
 ## Inference API
-Official document: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#completions-extensions
 
-Notes:
-* NOT to set `dataSources[0].parameters.key`. The service will use system assigned managed identity to authenticate the Azure AI Search.
-* NOT to set `embeddingEndpoint` or `embeddingKey`. Instead, to enable vector search (with `queryType` set properly), use `embeddingDeploymentName`.
+See the [inference API reference article](/azure/ai-services/openai/reference#completions-extensions) for details on the request and response objects used by the inference API.   
+
+Additional notes:
+
+* **Do not** set `dataSources[0].parameters.key`. The service will use system assigned managed identity to authenticate the Azure AI Search.
+* **Do not** set `embeddingEndpoint` or `embeddingKey`. Instead, to enable vector search (with `queryType` set properly), use `embeddingDeploymentName`.
 
 Example:
+
 ```bash
 accessToken=$(az account get-access-token --resource https://cognitiveservices.azure.com/ --query "accessToken" --output tsv)
 curl -i -X POST https://wednesday-test-usnc.openai.azure.com/openai/deployments/turbo/extensions/chat/completions?api-version=2023-10-01-preview \
@@ -245,12 +259,19 @@ curl -i -X POST https://wednesday-test-usnc.openai.azure.com/openai/deployments/
 '
 ```
 
-# Studio
-You should be able to use all Studio features, including both ingestion and inference.
+# Azure OpenAI Studio
 
-# Web App
-The web app published from the Studio will talk to Azure OpenAI. If Azure OpenAI is network restricted, web app need to be setup correctly for the outbound networking.
-Step 1: Azure OpenAI allow inbound traffic from selected virtual network
-![image.png](/.attachments/image-197e82de-16b3-43bd-9b92-feb7b7b65999.png)
-Step 2: Web app configure outbound virtual network integration
-![image.png](/.attachments/image-c2065895-7d6e-4cec-abf1-024575144dfa.png)
+You should be able to use all Azure OpenAI Studio features, including both ingestion and inference.
+
+# Web app
+The web app published from the Studio will communicate with Azure OpenAI. If Azure OpenAI is network restricted, the web app need to be setup correctly for outbound networking.
+
+1. Set Azure OpenAI allow inbound traffic from your virtual network.
+
+    :::image type="content" source="../media/use-your-data/web-app-configure-inbound-traffic.png" alt-text="A screenshot showing inbound traffic configuration for the web app." lightbox="../media/use-your-data/web-app-configure-inbound-traffic.png":::
+
+1. Configure the web app for outbound virtual network integration
+
+    :::image type="content" source="../media/use-your-data/web-app-configure-outbound-traffic.png" alt-text="A screenshot showing outbound traffic configuration for the web app." lightbox="../media/use-your-data/web-app-configure-outbound-traffic.png":::
+
+
