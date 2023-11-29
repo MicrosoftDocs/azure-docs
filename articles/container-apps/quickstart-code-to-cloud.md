@@ -260,6 +260,9 @@ git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-java.git co
 :::zone-end
 
 > [!NOTE]
+> As of November 25th 2023 this functionality is being impacted by a technical issue that's currently being investigated and resolved. Once resolved this note will be removed. Please see our [FAQ](faq) under Docker-less deployments.
+
+> [!NOTE] 
 > The Java sample only supports a Maven build, which results in an executable JAR file. The build uses the default settings, as passing in environment variables is not supported.
 
 # [JavaScript](#tab/javascript)

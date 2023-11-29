@@ -98,7 +98,18 @@ sections:
         answer:
           You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.
           You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.
-          
+  
+ - name: Docker-less deployments
+   questions:
+     - question: |
+         What is a Docker-less deployment?
+       answer: |
+         A Docker-less deployment is a deployment that doesn't require a Dockerfile. Instead, ACA's cloud build functionality will utilize Buildpacks to turn your source code from a repo or your local machine into a container image. This option also currently uses the ACA default registry.
+     - question: |
+         During the deployment of my Docker-less application I am seeing a message about "ImagePullBackOff on legion", "Kubernetes error" or "Gateway error" and my application doesn't deploy successfully.
+       answer: |
+         You are experiencing a known issue with Docker-less deployments. Retrying might resolve this for you. We are working at resolving this issue as fast as possible. If you run into this issue please let us know by opening an issue on our [GitHub repo](https://github.com/microsoft/azure-container-apps/issues).
+
   - name: Deploy Java applications
     questions:
       - question: |
