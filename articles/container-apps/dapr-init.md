@@ -1,5 +1,5 @@
 ---
-title: "Initialize Dapr Components in a container app environment using the Azure CLI (preview)"
+title: "Initialize Dapr components in a container app environment using the Azure CLI (preview)"
 titleSuffix: "Azure Container Apps"
 description: Learn how to initialize your Dapr components using the Azure CLI.
 author: hhunter-ms
@@ -9,21 +9,13 @@ ms.topic: how-to
 ms.date: 11/27/2023
 ---
 
-# Initialize Dapr Components in a container app environment using the Azure CLI (preview)
+# Initialize Dapr components in a container app environment using the Azure CLI (preview)
 
-Simplify your Dapr development experience by initializing Dapr components directly in your Azure Container Apps environment with one command. 
-
-Initially, deploying and running your Dapr-enabled container apps on the Azure Container Apps platform required a significant amount of time around configuring the infrastructure and Dapr components. Due to this complexity, when migrating your local workload to Azure Container Apps, you redid much of the setup.  
-
-The `az containerapp env dapr-component init` command:
-- Seamlessly transitions from code to cloud, bringing the local development experience to Azure Container Apps using either the Azure CLI or the Dapr CLI.
-- Deploys the application code without needing to make any changes.
-- Implements lightweight development-grade services powering the infrastructure.
-- Automatically manages secrets via the service binding.
+You can initialize Dapr components directly in your Azure Container Apps environment with a single command. When you use `az containerapp env dapr-component init`, you can seamlessly transition from code to cloud, by easily creating the Dapr dependencies (pub/sub and state store) backed by development-grade services. 
 
 ## Supported Dapr components
 
-Currently, the `dapr-component init` command supports the following Dapr components:
+The `dapr-component init` command supports the following Dapr components:
 - Redis for state stores and pub/sub (default component)
 - Apache Kafka for pub/sub
 - PostgreSQL for state stores
@@ -50,7 +42,7 @@ Navigate to the root directory.
 cd containerapps-dapr-components-init
 ```
 
-## (Optional) Build and run Docker images
+## Build and run Docker images (optional)
 
 This sample comes with prebuilt Docker images. If you'd like to use the prebuilt images, move on to the next step.
 
@@ -59,13 +51,13 @@ If you'd like to use your own custom images:
 - Package the `order-processor` and `order-publisher` services into your custom Docker images and build the images with commands like the following.
 
    ```azurecli
-   docker buildx build --platform linux/amd64 -t $MY_CONTAINER_REGISTRY/python-order-publisher:latest --push ./order-publisher:latest
-   docker buildx build --platform linux/amd64 -t $MY_CONTAINER_REGISTRY/python-order-processor:latest --push ./order-processor:latest
+   docker buildx build --platform linux/amd64 -t $<PLACEHOLDER>/python-order-publisher:latest --push ./order-publisher:latest
+   docker buildx build --platform linux/amd64 -t $<PLACEHOLDER>/python-order-processor:latest --push ./order-processor:latest
    ```
 
 ## Set the environment variables
 
-In the terminal, set the environment variables. You can replace the values in the following example with something more unique.
+Set the environment variables in your terminal by updating the declaration statements with your values.
 
 ```azurecli
 VAR_RESOURCE_GROUP="myResourceGroup"
@@ -98,7 +90,7 @@ az containerapp env dapr-component init -g $VAR_RESOURCE_GROUP --name $VAR_ENVIR
 ```
 
 > [!NOTE]
-> Using the default Redis compnents doesn't require any extra parameters. If you're using Kafka or PostgreSQL components instead of the default Redis, you need to specify which components you're using. For example, for a Kafka pub/sub component and a PostgreSQL state store, run the following command:
+> Using the default Redis components doesn't require any extra parameters. If you're using Kafka or PostgreSQL components, you need to specify which components you're using. For example, for a Kafka pub/sub component and a PostgreSQL state store, run the following command:
 > 
 > ```azurecli
 > az containerapp env dapr-component init -g $VAR_RESOURCE_GROUP --name $VAR_ENVIRONMENT --statestore postgres --pubsub kafka
@@ -120,7 +112,7 @@ When you run the deployment command:
 
 ## View logs
 
-In the Azure portal, navigate to your resource group. Select either the `order-processor` or `order-publisher` container apps to view their log streams.
+In the Azure portal, navigate to your resource group. Select either the **order-processor** or **order-publisher** container apps to view their log streams.
 
 :::image type="content" source="media/dapr-init/view-resource-group.png" alt-text="Screenshot showing the resource group just created in the tutorial with all of the resources included with the sample.":::
 
