@@ -1,10 +1,10 @@
 ---
 title: Query ingested telemetry data
 description: This article describes how to query ingested telemetry data.
-author: sunasing
+author: gourdsay
 ms.topic: article
-ms.date: 03/11/2020
-ms.author: sunasing
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Query ingested telemetry data
@@ -12,6 +12,11 @@ ms.author: sunasing
 This article describes how to query ingested sensor data from Azure FarmBeats.
 
 Ingesting data from Internet of Things (IoT) resources such as devices and sensors is a common scenario in FarmBeats. You create metadata for devices and sensors and then ingest the historical data to FarmBeats in a canonical format. Once the sensor data is available on FarmBeats Datahub, we can query the same to generate actionable insights or build models.
+
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/en-us/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 ## Before you begin
 

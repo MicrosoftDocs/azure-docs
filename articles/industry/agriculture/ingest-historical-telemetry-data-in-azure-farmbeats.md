@@ -1,16 +1,21 @@
 ---
 title: Ingest historical telemetry data
 description: This article describes how to ingest historical telemetry data.
-author: RiyazPishori
+author: gourdsay
 ms.topic: article
-ms.date: 11/04/2019
-ms.author: riyazp
+ms.date: 11/29/2023
+ms.author: angour
 ms.custom: has-azure-ad-ps-ref
 ---
 
 # Ingest historical telemetry data
 
 This article describes how to ingest historical sensor data into Azure FarmBeats.
+
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/en-us/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 Ingesting historical data from Internet of Things (IoT) resources such as devices and sensors is a common scenario in FarmBeats. You create metadata for devices and sensors and then ingest the historical data to FarmBeats in a canonical format.
 

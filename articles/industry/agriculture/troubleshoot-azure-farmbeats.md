@@ -1,18 +1,21 @@
 ---
 title: Troubleshoot Azure FarmBeats
 description: This article describes how to troubleshoot Azure FarmBeats.
-author: RiyazPishori
+author: gourdsay
 ms.topic: article
-ms.date: 11/04/2019
-ms.author: riyazp
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Troubleshoot Azure FarmBeats
 
 This article provides solutions to common Azure FarmBeats issues. For additional help, contact our [Q&A Support Forum](/answers/topics/azure-farmbeats.html) or email us at farmbeatssupport@microsoft.com.
 
-> [!NOTE]
-  > If you have installed FarmBeats during April and your jobs are failing with an empty error message, your installation may not have been allocated any batch quota to prioritize support for critical health and safety organizations. See [here](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) for more information. You will need to request VMs to be allocated to the Batch account to run jobs successfully.
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/en-us/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
+
 
 ## Install issues
 

@@ -1,16 +1,22 @@
 ---
 title: Get sensor data from the partners
 description: This article describes how to get sensor data from partners.
-author: RiyazPishori
+author: gourdsay
 ms.topic: article
 ms.custom: has-azure-ad-ps-ref
-ms.date: 11/04/2019
-ms.author: riyazp
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Get sensor data from sensor partners
 
 Azure FarmBeats helps you to bring streaming data from your IoT devices and sensors into Datahub. Currently, the following sensor device partners are supported.
+
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/en-us/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
+
 
   ![FarmBeats partners](./media/get-sensor-data-from-sensor-partner/partner-information-2.png)
 
