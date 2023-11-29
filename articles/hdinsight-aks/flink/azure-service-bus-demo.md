@@ -19,7 +19,7 @@ This page provides an overview and demonstration of DStreamAPI Azure Service Bus
 -  Set up an [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) instance.
 -  To proceed with the integration, obtain the necessary connection string, topic name, and subscription name for your [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview).
 
-## Running Flink jobs
+## Develop Apache Flink job
 
 This job is designed to read messages from an [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) and writes them to [Data Lake Storage Gen2](./assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md) (ADLS Gen2).
 
