@@ -83,6 +83,10 @@ To enable the asset endpoint to use an untrusted certificate:
     kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/opc-ua-connector-0.yaml
     ```
 
+    The following snippet shows the YAML file that you applied:
+
+    :::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/opc-ua-connector-0.yaml":::
+
 1. Find the name of your `aio-opc-supervisor` pod by using the following command:
 
     ```console
@@ -162,6 +166,10 @@ To verify data is flowing from your assets by using the **mqttui** tool. In this
     ```console
     kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/mqtt-client.yaml
     ```
+
+    The following snippet shows the YAML file that you applied:
+
+    :::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/mqtt-client.yaml":::
 
     > [!CAUTION]
     > This configuration isn't secure. Don't use this configuration in a production environment.
@@ -246,6 +254,10 @@ On the machine where your Kubernetes cluster is running, run the following comma
 ```console
 kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/akri-opcua-asset.yaml
 ```
+
+The following snippet shows the YAML file that you applied:
+
+:::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/akri-opcua-asset.yaml":::
 
 To verify the configuration, run the following command to view the Akri instances that represent the OPC UA data sources discovered by Akri:
 

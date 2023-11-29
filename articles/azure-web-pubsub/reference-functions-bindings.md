@@ -1,11 +1,11 @@
 ---
 title: Reference - Azure Web PubSub trigger and bindings for Azure Functions
 description: The reference describes Azure Web PubSub trigger and bindings for Azure Functions
-author: vicancy
-ms.author: lianwei
+author: JialinXin
+ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 04/04/2023
+ms.date: 11/24/2023
 ---
 
 #  Azure Web PubSub trigger and bindings for Azure Functions
@@ -35,13 +35,6 @@ Working with the trigger and bindings requires you reference the appropriate pac
 | C#                                              | Installing the [NuGet package], version prerelease | |
 | C# Script, JavaScript, Python, PowerShell       | [Explicitly install extensions], [Use extension bundles] | The [Azure Tools extension] is recommended to use with Visual Studio Code. |
 | C# Script (online-only in Azure portal)         | Adding a binding                                   | To update existing binding extensions without having to republish your function app, see [Update your extensions]. |
-
-> [!NOTE]
-> Install the client library from [NuGet](https://www.nuget.org/) with specified package and version.
-> 
-> ```bash
-> func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub
-> ```
 
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSub
 [Use extension bundles]: ../azure-functions/functions-bindings-register.md#extension-bundles
@@ -307,7 +300,8 @@ public static object Run(
     [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequest req,
     [WebPubSubContext] WebPubSubContext wpsContext)
 {
-    if (wpsContext.IsPreflight || !wpsContext.HasError)
+    // in the case request is a preflight or invalid, directly return prebuild response by extension.
+    if (wpsContext.IsPreflight || wpsContext.HasError)
     {
         return wpsContext.Response;
     }
@@ -353,12 +347,12 @@ Define function in `index.js`.
 
 ```js
 module.exports = async function (context, req, wpsContext) {
+  // in the case request is a preflight or invalid, directly return prebuild response by extension.
   if (!wpsContext.hasError || wpsContext.isPreflight)
   {
-    console.log(`invalid request: ${wpsContext.response.message}.`);
     return wpsContext.response;
   }
-  console.log(`user: ${wpsContext.connectionContext.userId} is connecting.`);
+  // return an http response with connect event response as body.
   return { body: {"userId": wpsContext.connectionContext.userId} };
 };
 ```

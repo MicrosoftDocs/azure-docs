@@ -69,8 +69,8 @@ items:
           href: how-to-compare-multiple-test-runs.md
         - name: Configure server-side monitoring
           href: how-to-monitor-server-side-metrics.md
-        - name: Troubleshoot failing load tests
-          href: how-to-troubleshoot-failing-test.md
+        - name: Diagnose failing load tests
+          href: how-to-diagnose-failing-load-test.md
         - name: Export test results
           href: how-to-export-test-results.md
     - name: Security
