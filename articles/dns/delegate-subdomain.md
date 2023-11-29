@@ -43,10 +43,17 @@ To delegate the **engineering** subdomain under **adatum.com**:
 
    ![A screenshot showing contents of the parent zone.](./media/delegate-subdomain/parent-zone-contents.png)
 
-> [!NOTE]
-> If desired, you can also create your subdomain manually using **Create a resource > DNS zone**.<br>
-> To create a subdomain delegation manually, add a new NS record set (**+ Record set** option) to the parent zone with the name: **engineering**.
-> <img src="./media/dns-alias/add-ns-record-set.png" alt="A screenshot showing how to add an NS record set." width="50%">
+## Manual entry of NS records (optional)
+
+If desired, you can also create your subdomain and add the subdomain NS record manually.
+
+To create a new subdomain zone, use **Create a resource > DNS zone** and create a zone named **engineering.adatum.com**.
+
+To create a subdomain delegation manually, add a new NS record set (**+ Record set** option) to the parent zone **adatum.com** with the name: **engineering**.<br>
+
+<img src="./media/delegate-subdomain/add-ns-record-set.png" alt="A screenshot showing how to add an NS record set." width="50%">
+
+This method doesn't use the **+ Child zone** option, but both methods result in the same delegation.
 
 ## Create a test record
 
