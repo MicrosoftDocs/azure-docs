@@ -9,7 +9,7 @@ ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
 ms.custom: devx-track-azurepowershell
-ms.date: 09/20/2023
+ms.date: 11/29/2023
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---

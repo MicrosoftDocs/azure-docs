@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/28/2023
+ms.date: 11/29/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to delegate Azure role assignment management to other users who are closer to the decision, but want to limit the scope of the role assignments.
