@@ -30,7 +30,7 @@ Deploy a Virtual Network Manager instance with the defined scope and access that
     | **Name** | Enter **vnm-learn-eastus-001**. |
     | **Region** | Enter **eastus** or a region of your choosing. Virtual Network Manager can manage virtual networks in any region. The selected region is where the Virtual Network Manager instance will be deployed. |
     | **Description** | *(Optional)* Provide a description about this Virtual Network Manager instance and the task it's managing. |
-    | [Scope](concept-network-manager-scope.md#scope) | Choose **Select scopes** and then select your subscription.</br> Select **Add to selected scope** > **Select**. </br> Scope information defines the resources that Virtual Network Manager can manage. You can choose subscriptions and management groups.
-    | [Features](concept-network-manager-scope.md#features) | Select **Connectivity** and **Security Admin** from the dropdown list.  </br> **Connectivity** enables the creation of a full mesh or hub-and-spoke network topology between virtual networks within the scope. </br> **Security Admin** enables the creation of global network security rules. |
+    | [Scope](../articles/virtual-network-manager/concept-network-manager-scope.md#scope) | Choose **Select scopes** and then select your subscription.</br> Select **Add to selected scope** > **Select**. </br> Scope information defines the resources that Virtual Network Manager can manage. You can choose subscriptions and management groups.
+    | [Features](../articles/virtual-network-manager/concept-network-manager-scope.md#features) | Select **Connectivity** and **Security Admin** from the dropdown list.  </br> **Connectivity** enables the creation of a full mesh or hub-and-spoke network topology between virtual networks within the scope. </br> **Security Admin** enables the creation of global network security rules. |
 
 2. Select **Create** after your configuration passes validation.
