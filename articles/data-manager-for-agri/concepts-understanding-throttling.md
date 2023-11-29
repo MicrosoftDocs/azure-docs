@@ -1,5 +1,5 @@
 ---
-title: APIs throttling guidance for customers using Azure Data Manager for Agriculture.
+title: APIs throttling guidance for customers using Azure Data Manager for Agriculture
 description: Provides information on APIs throttling limits to plan usage.
 author: BlackRider97
 ms.author: ramithar
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 11/15/2023
 ms.custom: template-concept
 ---
-# APIs throttling guidance for Azure Data Manager for Agriculture.
+# APIs throttling guidance for Azure Data Manager for Agriculture
 The REST APIs throttling in Azure Data Manager for Agriculture allows more consistent performance within a time span for customers calling our service APIs. 
 
 - Throttling limits, the number of requests to our service in a time span to prevent overuse of resources.
@@ -69,7 +69,7 @@ Long running job| per one Month| 500,000 <sup>2</sup>|
 When you reach the limit, you receive the HTTP status code **429 Too many requests**. The response includes a **Retry-After** value, which specifies the number of seconds your application should wait (or sleep) before sending the next request. If you send a request before the retry value elapses, your request isn't processed and a new retry value is returned.
 After the specified time elapses, you can make requests again to the Azure Data Manager for Agriculture. Attempting to establish a TCP connection or using different user authentication methods doesn't bypass these limits, as they're specific to each tenant.
 
-## Frequently Asked Questions (FAQs)
+## Frequently asked questions (FAQs)
 
 ### 1. If I exhaust the allocated API quota entirely for write operations within a per-minute time window, can I successfully make requests for read operations within the same time window?
 The quota limits are shared among the listed operation categories. Using the entire quota for write operations implies no remaining quota for other operations. The specific quota units consumed for each operation are detailed in this article.
