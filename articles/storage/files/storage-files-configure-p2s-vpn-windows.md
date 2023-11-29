@@ -37,7 +37,15 @@ The article details the steps to configure a point-to-site VPN on Windows (Windo
 
 ## Collect environment information
 
-Before setting up the point-to-site VPN, you need to collect some information about your environment. Replace `<resource-group>`, `<vnet-name>`, `<subnet-name>`, and `<storage-account-name>` with the appropriate values for your environment.
+Before setting up the point-to-site VPN, you need to collect some information about your environment. 
+
+# [Portal](#tab/azure-portal)
+
+In order to set up a point-to-site VPN using the Azure portal, you'll need to know your resource group name, virtual network name, gateway subnet name, and storage account name.
+
+# [PowerShell](#tab/azure-powershell)
+
+Run this script to collect the necessary information. Replace `<resource-group>`, `<vnet-name>`, `<subnet-name>`, and `<storage-account-name>` with the appropriate values for your environment.
 
 ```PowerShell
 $resourceGroupName = "<resource-group-name>" 
@@ -72,12 +80,16 @@ $privateEndpoint = Get-AzPrivateEndpoint | `
     } | `
     Select-Object -First 1
 ```
+---
 
 ## Create root certificate for VPN authentication
 
-In order for VPN connections from your on-premises Windows machines to be authenticated to access your virtual network, you must create two certificates: a root certificate, which will be provided to the virtual machine gateway, and a client certificate, which will be signed with the root certificate.
+In order for VPN connections from your on-premises Windows machines to be authenticated to access your virtual network, you must create two certificates:
 
-You can use either a root certificate that was generated with an enterprise solution, or generate a self-signed certificate. If you're using an enterprise solution, acquire the .cer file for the root certificate that you want to use. If you aren't using an enterprise certificate solution, create a self-signed root certificate using this PowerShell script. You'll create the client certificate after deploying the virtual network gateway.
+1. A root certificate, which will be provided to the virtual machine gateway
+2. A client certificate, which will be signed with the root certificate
+
+You can either use a root certificate that was generated with an enterprise solution, or generate a self-signed certificate. If you're using an enterprise solution, acquire the .cer file for the root certificate that you want to use. If you aren't using an enterprise certificate solution, create a self-signed root certificate using this PowerShell script. You'll create the client certificate after deploying the virtual network gateway.
 
 > [!IMPORTANT]
 > Run this PowerShell script as administrator from an on-premises machine running Windows 10 or later. Don't run the script from a Cloud Shell or VM in Azure.
@@ -143,13 +155,13 @@ To deploy a virtual network gateway using the Azure portal, follow these instruc
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In **Search resources, services, and docs**, type virtual network gateways. Locate Virtual network gateways in the Marketplace search results and select it
+1. In **Search resources, services, and docs**, type *virtual network gateways*. Locate Virtual network gateways in the Marketplace search results and select it.
 
 1. Select **+ Create** to create a new virtual network gateway.
 
 1. On the **Basics** tab, fill in the values for **Project details** and **Instance details**.
 
-   :::image type="content" source="media/storage-files-configure-p2s-vpn-windows/create-virtual-network-gateway.png" alt-text="Screenshot showing how to create a virtual network gateway in the Azure portal." lightbox="media/storage-files-configure-p2s-vpn-windows/create-virtual-network-gateway.png":::
+   :::image type="content" source="media/storage-files-configure-p2s-vpn-windows/create-virtual-network-gateway.png" alt-text="Screenshot showing how to create a virtual network gateway using the Azure portal." lightbox="media/storage-files-configure-p2s-vpn-windows/create-virtual-network-gateway.png":::
 
    * **Subscription**: Select the subscription you want to use from the dropdown.
    * **Resource Group**: This setting is autofilled when you select your virtual network on this page.
@@ -158,12 +170,12 @@ To deploy a virtual network gateway using the Azure portal, follow these instruc
    * **Gateway type**: Select **VPN**. VPN gateways use the virtual network gateway type **VPN**.
    * **SKU**: Select the gateway SKU that supports the features you want to use from the dropdown. See [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
    * **Generation**: Select the generation you want to use. We recommend using a Generation2 SKU. For more information, see [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
-   * **Virtual network**: From the dropdown, select the virtual network to which you want to add this gateway. If you can't see the VNet for which you want to create a gateway, make sure you selected the correct subscription and region in the previous settings.
-   * **Subnet**: This field should be grayed out and list the name of the gateway subnet you created and its IP address range.
+   * **Virtual network**: From the dropdown, select the virtual network to which you want to add this gateway. If you can't see the virtual network for which you want to create a gateway, make sure you selected the correct subscription and region.
+   * **Subnet**: This field should be grayed out and list the name of the gateway subnet you created, along with its IP address range. If you instead see a **Gateway subnet address range** field with a text box, then you haven't yet configured a gateway subnet (see [Prerequisites](#prerequisites).)
 
-1. Specify in the values for **Public IP address**. These settings specify the public IP address object that gets associated to the VPN gateway. The public IP address is assigned to this object when the VPN gateway is created. The only time the primary public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
+1. Specify the values for the **Public IP address** that gets associated to the virtual network gateway. The public IP address is assigned to this object when the virtual network gateway is created. The only time the primary public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades.
 
-   :::image type="content" source="media/storage-files-configure-p2s-vpn-windows/create-public-ip-address.png" alt-text="Screenshot showing how to specify the public IP address for a virtual network gateway in the Azure portal." lightbox="media/storage-files-configure-p2s-vpn-windows/create-public-ip-address.png":::
+   :::image type="content" source="media/storage-files-configure-p2s-vpn-windows/create-public-ip-address.png" alt-text="Screenshot showing how to specify the public IP address for a virtual network gateway using the Azure portal." lightbox="media/storage-files-configure-p2s-vpn-windows/create-public-ip-address.png":::
 
    * **Public IP address**: Leave **Create new** selected.
    * **Public IP address name**: In the text box, type a name for your public IP address instance.
@@ -172,9 +184,21 @@ To deploy a virtual network gateway using the Azure portal, follow these instruc
    * **Enable active-active mode**: Select **Disabled**. Only enable this setting if you're creating an active-active gateway configuration.
    * **Configure BGP**: Select **Disabled**, unless your configuration specifically requires this setting. If you do require this setting, the default ASN is 65515, although this value can be changed.
 
-1. Select **Review + create** to run validation.
+1. Select **Review + create** to run validation. Once validation passes, select **Create** to deploy the virtual network gateway. Deployment can take up to 45 minutes to complete.
 
-1. Once validation passes, select **Create** to deploy the virtual network gateway.
+1. When deployment is complete, select **Go to resource**.
+
+1. In the left pane, select **Settings > Point-to-site configuration** and then select **Configure now**. You should see the Point-to-site configuration page.
+
+   :::image type="content" source="media/storage-files-configure-p2s-vpn-windows/point-to-site-configuration.png" alt-text="Screenshot showing how to configure a point-to-site VPN using the Azure portal." lightbox="media/storage-files-configure-p2s-vpn-windows/point-to-site-configuration.png":::
+
+   * **Address pool**: Add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. The minimum subnet mask is 29 bit for active/passive and 28 bit for active/active configuration.
+   * **Tunnel type**: Specify the tunnel type you want to use. 
+   * **Authentication type**: Specify the authentication type you want to use. 
+   * **Root certificate name**: The file name of the root certificate (.cer file).
+   * **Public certificate data**: Open the root certificate with NotePad and paste the public certificate data in this text field.
+
+1. Select **Save** at the top of the page to save all of the configuration settings.
 
 # [PowerShell](#tab/azure-powershell)
 
