@@ -49,9 +49,9 @@ If desired, you can also create your subdomain and add the subdomain NS record m
 
 To create a new subdomain zone, use **Create a resource > DNS zone** and create a zone named **engineering.adatum.com**.
 
-To create a subdomain delegation manually, add a new NS record set (**+ Record set** option) to the parent zone **adatum.com** with the name: **engineering** and specify each of the nameserver entries that are listed in the subdomain (child) zone.<br>
+To create a subdomain delegation manually, add a new NS record set (**+ Record set** option) to the parent zone **adatum.com** with the name: **engineering** and specify each of the nameserver entries that are listed in the subdomain (child) zone.
 
-<img src="./media/delegate-subdomain/add-ns-record-set.png" alt="A screenshot showing how to add an NS record set." width="50%">
+<br><img src="./media/delegate-subdomain/add-ns-record-set.png" alt="A screenshot showing how to add an NS record set." width="50%">
 
 This method doesn't use the **+ Child zone** option, but both methods result in the same delegation.
 
