@@ -100,7 +100,7 @@ Virtual Machine Scale Sets provide the capability to temporarily suspend automat
 
 If newly created instances for replacing the unhealthy ones in a scale set continue to remain unhealthy even after repeatedly performing repair operations, then as a safety measure the platform updates the *serviceState* for automatic repairs to *Suspended*. You can resume the automatic repairs again by setting the value of *serviceState* for automatic repairs to *Running*. Detailed instructions are provided in the section on [viewing and updating the service state of automatic repairs policy](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) for your scale set.
 
-You can also set up Azure Alert Rules to monitor *serviceState* changes and get notified if automatic repairs becomes suspended on your scale set. For details, see [use azure alert rules to monitor changes in automatic instance repairs service state](./alert-rules-automatic-repairs-service-state.md).
+You can also set up Azure Alert Rules to monitor *serviceState* changes and get notified if automatic repairs becomes suspended on your scale set. For details, see [Use Azure alert rules to monitor changes in automatic instance repairs service state](./alert-rules-automatic-repairs-service-state.md).
 
 ## Instance protection and automatic repairs
 
