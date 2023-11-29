@@ -1,6 +1,6 @@
 ---
-title: Provide an access identity to the Azure Key Vault provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) secrets
-description: Learn how to integrate the Azure Key Vault provider for Secrets Store CSI Driver with your Azure key vault.
+title: Access Azure Key Vault with the CSI Driver Identity Provider
+description: Learn how to integrate the Azure Key Vault Provider for Secrets Store CSI Driver with your Azure credentials and user identities.
 author: nickomang 
 ms.author: nickoman
 ms.topic: article
@@ -8,7 +8,7 @@ ms.date: 10/19/2023
 ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
-# Provide an identity to access the Azure Key Vault provider for Secrets Store CSI Driver in Azure Kubernetes Service (AKS)
+# Connect your Azure identity provider to the Azure Key Vault Secrets Store CSI Driver in Azure Kubernetes Service (AKS)
 
 The Secrets Store CSI Driver on Azure Kubernetes Service (AKS) provides various methods of identity-based access to your Azure Key Vault. This article outlines these methods and how to use them to access your key vault and its contents from your AKS cluster.
 
