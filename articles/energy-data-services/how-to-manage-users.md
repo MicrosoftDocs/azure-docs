@@ -25,7 +25,7 @@ In this article, you learn how to manage users and their memberships in OSDU gro
 2. Locate `tenant-id` under the basic information section in the *Overview* tab.
 3. Copy the `tenant-id` and paste it into an editor to be used later.  
 
-:::image type="content" source="media/how-to-manage-users/azure-active-directory.png" alt-text="Screenshot of search for Microsoft Entra I D.":::
+:::image type="content" source="media/how-to-manage-users/azure-active-directory.png" alt-text="Screenshot of search for Microsoft Entra ID.":::
 
 :::image type="content" source="media/how-to-manage-users/tenant-id.png" alt-text="Screenshot of finding the tenant-id.":::
 
@@ -73,7 +73,7 @@ A `client-secret` is a string value your app can use in place of a certificate t
 :::image type="content" source="media/how-to-manage-users/data-partition-id-second-option.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance overview page.":::
 
 :::image type="content" source="media/how-to-manage-users/data-partition-id-second-option-step-2.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance overview page with the data partitions.":::
-## Generate access token
+## Generate service principal access token
 
 1. Run the below curl command in Azure Cloud Bash after replacing the placeholder values with the corresponding values found earlier in the above steps.
  
@@ -107,23 +107,18 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 1. Find the 'object-id' (OID) of the user(s) first. If you are managing an application's access, you must find and use the application ID (or client ID) instead of the OID.
 2. Input the `object-id` (OID) of the users (or the application or client ID if managing access for an application) as parameters in the calls to the Entitlements API of your Azure Data Manager for Energy instance. 
 
-:::image type="content" source="media/how-to-manage-users/azure-active-directory-object-id.png" alt-text="Screenshot of finding the object-id from Microsoft Entra I D.":::
+:::image type="content" source="media/how-to-manage-users/azure-active-directory-object-id.png" alt-text="Screenshot of finding the object-id from Microsoft Entra ID.":::
 
 :::image type="content" source="media/how-to-manage-users/profile-object-id.png" alt-text="Screenshot of finding the object-id from the profile.":::
 
 ## First time addition of users in a new data partition
-In order to add entitlements to a new data partition of Azure Data Manager for Energy instance, use the SPN  token of the app that was used to provision the instance. If you try to directly use user tokens for adding entitlements, it results in 401 error. The SPN token must be used to add initial users in the system and those users (with admin access) can then manage additional users.
-
-The SPN is generated using client_credentials flow
-```bash
-curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oauth2/token' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'scope=<client-id>.default' \
---data-urlencode 'client_id=<client-id>' \
---data-urlencode 'client_secret=<client-secret>' \
---data-urlencode 'resource=<client-id>'
-```
+1. In order to add entitlements to a new data partition of Azure Data Manager for Energy instance, use the access token of the app that was used to provision the instance.
+2. Get the service principal access token using [Generate service principal access token](how-to-manage-users.md#generate-service-principal-access-token).
+3. If you try to directly use user tokens for adding entitlements, it results in 401 error. The service principal access token must be used to add initial users in the system and those users (with admin access) can then manage more users.
+4. Use the service principal access token to do these three steps using the commands outlined in the following sections.
+5. Add the users to the `users@<data-partition-id>.<domain>` OSDU group.
+6. Get the OSDU group such as `service.legal.editor@<data-partition-id>.<domain>` you want to add the user to.
+7. Add the users to that group.
 
 ## Get the list of all available groups in a data partition
 
@@ -135,13 +130,13 @@ Run the below curl command in Azure Cloud Bash to get all the groups that are av
     --header 'Authorization: Bearer <access_token>'
 ```
 
-## Add user(s) to an OSDU group in a data partition
+## Add users to an OSDU group in a data partition
 
 1. Run the below curl command in Azure Cloud Bash to add the user(s) to the "Users" group using the Entitlement service.
 2. The value to be sent for the param **"email"** is the **Object_ID (OID)** of the user and not the user's email.
 
 ```bash
-    curl --location --request POST 'https://<URI>/api/entitlements/v2/groups/users@<data-partition-id>.dataservices.energy/members' \
+    curl --location --request POST 'https://<URI>/api/entitlements/v2/groups/<group-name>@<data-partition-id>.dataservices.energy/members' \
     --header 'data-partition-id: <data-partition-id>' \
     --header 'Authorization: Bearer <access_token>' \
     --header 'Content-Type: application/json' \
@@ -151,7 +146,7 @@ Run the below curl command in Azure Cloud Bash to get all the groups that are av
                 }'
 ```
 
-**Sample request**
+**Sample request for `users` OSDU group**
 
 Consider an Azure Data Manager for Energy instance named "medstest" with a data partition named "dp1"
 
@@ -174,52 +169,23 @@ Consider an Azure Data Manager for Energy instance named "medstest" with a data 
         "role": "MEMBER"
     }
 ```
-> [!IMPORTANT]
-> The app-id is the default OWNER of all the groups.
-:::image type="content" source="media/how-to-manage-users/appid.png" alt-text="Screenshot of app-d in Microsoft Entra ID.":::
-
-## Add user(s) to an entitlements group in a data partition
-
-1. Run the below curl command in Azure Cloud Bash to add the user(s) to an entitlement group using the Entitlement service.
-2. The value to be sent for the param **"email"** is the **Object_ID (OID)** of the user and not the user's email.
-
+**Sample request for `legal service editor` OSDU group**
 ```bash
-    curl --location --request POST 'https://<URI>/api/entitlements/v2/groups/service.search.user@<data-partition-id>.dataservices.energy/members' \
-    --header 'data-partition-id: <data-partition-id>' \
-    --header 'Authorization: Bearer <access_token>' \
-    --header 'Content-Type: application/json' \
-    --data-raw '{
-                "email": "<Object_ID>",
-                "role": "MEMBER"
-    }'
-```
-
-
-**Sample request**
-
-Consider an Azure Data Manager for Energy instance named "medstest" with a data partition named "dp1".
-
-```bash
-    curl --location --request POST 'https://medstest.energy.azure.com/api/entitlements/v2/groups/service.search.user@medstest-dp1.dataservices.energy/members' \
+    curl --location --request POST 'https://medstest.energy.azure.com/api/entitlements/v2/groups/service.legal.editor@medstest-dp1.dataservices.energy/members' \
     --header 'data-partition-id: medstest-dp1' \
     --header 'Authorization: Bearer abcdefgh123456.............' \
     --header 'Content-Type: application/json' \
     --data-raw '{
-                "email": "90e0d063-2f8e-4244-860a-XXXXXXXXXX",
-                "role": "MEMBER"
-    }'
+                    "email": "90e0d063-2f8e-4244-860a-XXXXXXXXXX",
+                    "role": "MEMBER"
+                }'
 ```
 
-**Sample response**
+> [!IMPORTANT]
+> The app-id is the default OWNER of all the groups.
+:::image type="content" source="media/how-to-manage-users/appid.png" alt-text="Screenshot of app-d in Microsoft Entra ID.":::
 
-```JSON
-    {
-    "email": "90e0d063-2f8e-4244-860a-XXXXXXXXXX",
-    "role": "MEMBER"
-    }
-```
-
-## Get entitlements groups for a given user in a data partition
+## Get OSDU groups for a given user in a data partition
 
 1. Run the below curl command in Azure Cloud Bash to get all the groups associated with the user.
 
@@ -259,10 +225,10 @@ Consider an Azure Data Manager for Energy instance named "medstest" with a data 
     }
 ```
 
-## Delete entitlement groups of a given user in a data partition
+## Delete OSDU groups of a given user in a data partition
 
 1. Run the below curl command in Azure Cloud Bash to delete a given user from a given data partition.
-2. As stated above, **DO NOT** delete the OWNER of a group unless you have another OWNER who can manage users in that group.
+2. **DO NOT** delete the OWNER of a group unless you have another OWNER who can manage users in that group.
 
 ```bash
     curl --location --request DELETE 'https://<URI>/api/entitlements/v2/members/<OBJECT_ID>' \
