@@ -44,7 +44,7 @@ In this tutorial, you're generating load against a sample web application that y
 
 Now that you have the sample application deployed and running, you can create an Azure load testing resource and a load test.
 
-## Create a load test resource and test (use CLI)
+## Create a load test
 
 In this tutorial, you're creating a load test by uploading a JMeter test script (`jmx` file). The sample application repository already contains a load test configuration file and JMeter test script.
 
@@ -64,7 +64,9 @@ Follow these steps to create an Azure load testing resource and a load test by u
 
 1. Enter this command to create an Azure load testing resource.
 
-    Replace the `<load-testing-resource-name>`, and the `<load-testing-resource-group-name>` text placeholders. Make sure that the resource group already exists. You can reuse the resource group of the sample application, or create a new dedicated resource group for the load testing resource.
+    Replace the `<load-testing-resource-name>`, and the `<load-testing-resource-group-name>` text placeholders.
+
+    Make sure that the resource group already exists. You can reuse the resource group of the sample application, or create a new dedicated resource group for the load testing resource.
 
     ```azurecli
     loadTestResource="<load-testing-resource-name>"
@@ -76,8 +78,6 @@ Follow these steps to create an Azure load testing resource and a load test by u
 
 1. Use this command to create a load test for simulating load against your sample application.
 
-    This command uses the `Sampleapp.yaml` load test configuration file, which references the `SampleApp.jmx` JMeter test script. You use a command-line parameter to pass the sample application hostname to the load test.
-
     Replace the `<web-app-hostname>` text placeholder with the App Service hostname of the sample application. This value is of the form `myapp.azurewebsites.net`. Don't include the `https://` part of the URL.
 
     ```azurecli
@@ -87,9 +87,11 @@ Follow these steps to create an Azure load testing resource and a load test by u
     az load test create --test-id $testId --load-test-resource $loadTestResource --resource-group $resourceGroup --load-test-config-file SampleApp.yaml --env webapp=$webappHostname
     ```
 
+    This command uses the `Sampleapp.yaml` load test configuration file, which references the `SampleApp.jmx` JMeter test script. You use a command-line parameter to pass the sample application hostname to the load test.
+
 You now have an Azure load testing resource and a load test to generate load against the sample web application in your Azure subscription.
 
-## Add app components
+## Add Azure app components to monitor the application
 
 Azure Load Testing enables you to monitor resource metrics for the Azure components of your application. By analyzing these *server-side metrics*, you can identify performance and stability issues in your application directly from the Azure Load Testing dashboard.
 
@@ -118,7 +120,7 @@ To add the Azure app components for the sample application to your load test:
 
 You've added the Azure app components for the sample application to your load test to enable monitoring server-side metrics while the load test is running.
 
-## Run test
+## Run the load test
 
 You can now run the load test to simulate load against the sample application you deployed in your Azure subscription. In this tutorial, you run the load test from within the Azure portal. Alternately, you can [configure your CI/CD workflow to run your load test](./quickstart-add-load-test-cicd.md).
 
