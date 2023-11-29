@@ -27,7 +27,7 @@ CPU spikes can occur for various reasons, primarily due to spikes in connections
 
 **Spike in Connections**
 
-An increase in connections can lead to an increase in threads, which in turn can cause a rise in CPU usage as it has to manage these connections along with their queries and resources. To troubleshoot a spike in connections, you should check the [Total Connections](./../concepts-monitoring.md#list-of-metrics) metric and refer to the next section for more details about these connections. You can utilize the performance_schema to identify the hosts and users currently connected to the server with the following commands:
+An increase in connections can lead to an increase in threads, which in turn can cause a rise in CPU usage as it has to manage these connections along with their queries and resources. To troubleshoot a spike in connections, you should check the [Total Connections](./../flexible-server/concepts-monitoring.md#list-of-metrics) metric and refer to the next section for more details about these connections. You can utilize the performance_schema to identify the hosts and users currently connected to the server with the following commands:
 
 Current connected hosts
 ```
