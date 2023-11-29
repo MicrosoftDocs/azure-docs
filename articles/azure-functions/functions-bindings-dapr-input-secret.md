@@ -73,6 +73,8 @@ public void run(
 In the following example, the Dapr secret input binding is paired with a Dapr invoke trigger, which is registered by the `app` object:
 
 ```javascript
+const { app, trigger } = require('@azure/functions');
+
 app.generic('RetrieveSecret', {
     trigger: trigger.generic({
         type: 'daprServiceInvocationTrigger',

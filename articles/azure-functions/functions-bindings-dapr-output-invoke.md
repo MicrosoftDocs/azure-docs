@@ -90,6 +90,8 @@ public String run(
 In the following example, the Dapr invoke output binding is paired with an HTTP trigger, which is registered by the `app` object:
 
 ```javascript
+const { app, trigger } = require('@azure/functions');
+
 app.generic('InvokeOutputBinding', {
     trigger: trigger.generic({
         type: 'httpTrigger',

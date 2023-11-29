@@ -82,6 +82,8 @@ public String run(
 In the following example, the Dapr output binding is paired with the Dapr invoke output trigger, which is registered by the `app` object:
 
 ```javascript
+const { app, trigger } = require('@azure/functions');
+
 app.generic('SendMessageToKafka', {
     trigger: trigger.generic({
         type: 'daprServiceInvocationTrigger',

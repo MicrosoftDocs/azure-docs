@@ -75,6 +75,8 @@ public String run(
 In the following example, the Dapr invoke input binding is added as an `extraInput` and paired with an HTTP trigger, which is registered by the `app` object:
 
 ```javascript
+const { app, trigger } = require('@azure/functions');
+
 app.generic('StateInputBinding', {
     trigger: trigger.generic({
         type: 'httpTrigger',
