@@ -28,7 +28,7 @@ In this tutorial, you'll deploy a data-driven Python web app (**[Django](https:/
 ::: zone pivot="azure-developer-cli"
 
 * An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
-* [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed.
+* [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed. You can follow the steps with the [Azure Cloud Shell](https://shell.azure.com) because it already has Azure Developer CLI installed.
 * Knowledge of Python with Flask development or [Python with Django development](/training/paths/django-create-data-driven-websites/)
 
 ::: zone-end
