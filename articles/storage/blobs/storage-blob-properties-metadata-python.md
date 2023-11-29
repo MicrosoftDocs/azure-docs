@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 08/02/2023
+ms.date: 11/29/2023
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
@@ -18,6 +18,8 @@ ms.custom: devx-track-python, devguide-python
 [!INCLUDE [storage-dev-guide-selector-manage-properties-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-manage-properties-blob.md)]
 
 In addition to the data they contain, blobs support system properties and user-defined metadata. This article shows how to manage system properties and user-defined metadata using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
+
+To learn about managing properties and metadata using asynchronous APIs, see [Set blob properties asynchronously](#set-blob-properties-asynchronously).
 
 ## Prerequisites
 
@@ -77,6 +79,44 @@ The following code example reads metadata on a blob and prints each key/value pa
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags.py" id="Snippet_get_blob_metadata":::
 
+## Set blob metadata asynchronously
+
+The Azure Blob Storage client library for Python supports managing blob properties and metadata asynchronously. To learn more about project setup requirements, see [Asynchronous programming](storage-blob-python-get-started.md#asynchronous-programming).
+
+Follow these steps to set blob properties using asynchronous APIs:
+
+1. Add the following import statements:
+
+    ```python
+    import asyncio
+
+    from azure.identity.aio import DefaultAzureCredential
+    from azure.storage.blob.aio import BlobServiceClient
+    ```
+
+1. Add code to run the program using `asyncio.run`. This function runs the passed coroutine, `main()` in our example, and manages the `asyncio` event loop. Coroutines are declared with the async/await syntax. In this example, the `main()` coroutine first creates the top level `BlobServiceClient` using `async with`, then calls the method that sets the blob metadata. Note that only the top level client needs to use `async with`, as other clients created from it share the same connection pool.
+
+    ```python
+    async def main():
+        sample = BlobSamples()
+
+        # TODO: Replace <storage-account-name> with your actual storage account name
+        account_url = "https://<storage-account-name>.blob.core.windows.net"
+        credential = DefaultAzureCredential()
+
+        async with BlobServiceClient(account_url, credential=credential) as blob_service_client:
+            await sample.set_metadata(blob_service_client, "sample-container")
+
+    if __name__ == '__main__':
+        asyncio.run(main())
+    ```
+
+1. Add code to set the blob metadata. The code is the same as the synchronous example, except that the method is declared with the `async` keyword and the `await` keyword is used when calling the `get_blob_properties` and `set_blob_metadata` methods.
+
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags.py" id="Snippet_set_blob_metadata":::
+
+With this basic setup in place, you can implement other examples in this article as coroutines using async/await syntax.
+
 ## Resources
 
 To learn more about how to manage system properties and user-defined metadata using the Azure Blob Storage client library for Python, see the following resources.
@@ -92,6 +132,6 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags.py)
+- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags-async.py) code samples from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
