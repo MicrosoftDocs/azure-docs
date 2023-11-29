@@ -42,17 +42,17 @@ Ensure the following before you install Arc agents using a script for SCVMM VMs:
 3. Sign in to your Azure account in Azure CLI using `az login --use-device-code`
 4. Run the downloaded script *arcscvmm-enable-guest-management.ps1* or *arcscvmm-enable-guest-management.sh*, as applicable, using the below commands. The `vmmServerId` parameter should denote your VMM Server’s ARM ID.
 
-For a Windows VM:
+    For a Windows VM:
 
-```azurecli
-./arcscvmm-enable-guest-management.ps1 -<vmmServerId> '/subscriptions/<subscriptionId>/resourceGroups/<rgName>/providers/Microsoft.ScVmm/vmmServers/<vmmServerName>
-```
+    ```azurecli
+    ./arcscvmm-enable-guest-management.ps1 -<vmmServerId> '/subscriptions/<subscriptionId>/resourceGroups/<rgName>/providers/Microsoft.ScVmm/vmmServers/<vmmServerName>
+    ```
 
-For a Linux VM:
+    For a Linux VM:
 
-```azurecli
-./arcscvmm-enable-guest-management.sh -<vmmServerId> '/subscriptions/<subscriptionId>/resourceGroups/<rgName>/providers/Microsoft.ScVmm/vmmServers/<vmmServerName>
-```
+    ```azurecli
+    ./arcscvmm-enable-guest-management.sh -<vmmServerId> '/subscriptions/<subscriptionId>/resourceGroups/<rgName>/providers/Microsoft.ScVmm/vmmServers/<vmmServerName>
+    ```
 
 ## Next steps
 

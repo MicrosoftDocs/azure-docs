@@ -55,7 +55,7 @@ To recover from Arc resource bridge VM deletion, you need to deploy a new resour
 7. Once the script is run successfully, the old Resource Bridge is recovered and the connection is re-established to the existing Azure-enabled SCVMM resources.
 
     >[!Note]
-    > This note is applicable only if you're performing this recovery operation to upgrade your Arc resource bridge.
+    > This note is applicable only if you're performing this recovery operation to upgrade your Arc resource bridge.<br>
     > If you have VMs which are still in the older version, i.e., have *Enabled (Deprecated)* set under the *Virtual hardware operations* column in the Virtual Machines inventory of your SCVMM server in Azure, switch those VMs to the new version by following the steps in [this article](./switch-to-the-new-version-scvmm.md#switch-to-the-new-version-existing-customer) before proceeding with the steps for resource bridge recovery.
 
 ## Next steps
