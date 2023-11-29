@@ -45,7 +45,7 @@ To configure properly, you need the following resources:
 
 - Client virtual network
 
-- Private DNS zone [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)  with [type A record](../dns/dns-zones-records.md#record-types)
+- Private DNS zone [privatelink.database.windows.net](../dns/private-dns-privatednszone.md) with [type A record](../dns/dns-zones-records.md#record-types)
 
 - Private endpoint information (FQDN record name and private IP address)
 
@@ -70,7 +70,7 @@ In this scenario, there's a [hub and spoke](/azure/architecture/reference-archit
 
 For on-premises workloads to resolve the FQDN of a private endpoint, use Azure Private Resolver to resolve the Azure service [public DNS zone](#azure-services-dns-zone-configuration) in Azure. Azure Private Resolver is an Azure managed service that can resolve DNS queries without the need for a virtual machine acting as a DNS forwarder.
 
-The following scenario is for an on-premises network configured to use a Azure Private Resolver. The private resolver will forward request to the private endpoint to Azure DNS.
+The following scenario is for an on-premises network configured to use an Azure Private Resolver. The private resolver forwards the request for the private endpoint to Azure DNS.
 
 > [!NOTE]
 > This scenario uses the Azure SQL Database-recommended private DNS zone. For other services, you can adjust the model using the following reference: [Azure services DNS zone configuration](#azure-services-dns-zone-configuration).
@@ -156,9 +156,10 @@ The resolution is made by a private DNS zone [linked to a virtual n
 
 If you choose to integrate your private endpoint with a private DNS zone, a private DNS zone group is also created. The DNS zone group has a strong association between the private DNS zone and the private endpoint. It helps with managing the private DNS zone records when there's an update on the private endpoint. For example, when you add or remove regions, the private DNS zone is automatically updated with the correct number of records.
 
-Previously, the DNS records for the private endpoint were created via scripting (retrieving certain information about the private endpoint and then adding it on the DNS zone). With the DNS zone group, there is no need to write any additional CLI/PowerShell lines for every DNS zone. Also, when you delete the private endpoint, all the DNS records within the DNS zone group will be deleted as well.
+Previously, the DNS records for the private endpoint were created via scripting (retrieving certain information about the private endpoint and then adding it on the DNS zone). With the DNS zone group, there's no need to write any extra CLI/PowerShell lines for every DNS zone. Also, when you delete the private endpoint, all the DNS records within the DNS zone group are deleted.
 
-A common scenario for DNS zone group is in a hub-and-spoke topology, where it allows the private DNS zones to be created only once in the hub and allows the spokes to register to it, rather than creating different zones in each spoke.
+In a hub-and-spoke topology, a common scenario allows the creation of private DNS zones only once in the hub. This setup permits the spokes to register to it, instead of creating different zones in each spoke.
+
 
 > [!NOTE]
 > - Each DNS zone group can support up to 5 DNS zones.
