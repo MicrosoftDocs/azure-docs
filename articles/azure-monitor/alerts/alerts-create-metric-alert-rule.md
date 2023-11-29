@@ -8,11 +8,11 @@ ms.date: 11/27/2023
 ms.reviewer: harelbr
 ---
 
-# Create or edit an alert rule
+# Create or edit a metric alert rule
 
 This article shows you how to create a new alert rule or edit an existing alert rule. To learn more about alerts, see the [alerts overview](alerts-overview.md).
 
-You create an alert rule by combining the resources to be monitored, the monitoring data from the resource, the conditions that you want to trigger the alert. You can then define [action groups](./action-groups.md) and [alert processing rules](alerts-action-rules.md) to determine what happens when an alert is triggered.
+You create an alert rule by combining the resources to be monitored, the monitoring data from the resource, and the conditions that you want to trigger the alert. You can then define [action groups](./action-groups.md) and [alert processing rules](alerts-action-rules.md) to determine what happens when an alert is triggered.
 
 Alerts triggered by these alert rules contain a payload that uses the [common alert schema](alerts-common-schema.md).
 
@@ -35,6 +35,7 @@ To create a new alert rule from a specific resource:
      :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule-2.png" alt-text="Screenshot that shows steps to create a new alert rule from a selected resource.":::
 
 To edit an existing alert rule:
+
 1. In the [portal](https://portal.azure.com/), either from the home page or from a specific resource, select **Alerts** from the left pane.
 1. Select **Alert rules**.
 1. Select the alert rule you want to edit, and then select **Edit**.
@@ -42,7 +43,7 @@ To edit an existing alert rule:
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-edit-alert-rule.png" alt-text="Screenshot that shows steps to edit an existing alert rule.":::
 1. Select any of the tabs for the alert rule to edit the settings.
 
-## Set the alert rule scope
+## The Scope tab
 
 1. On the **Select a resource** pane, set the scope for your alert rule. You can filter by **subscription**, **resource type**, or **resource location**.
 1. Select **Apply**.
@@ -50,7 +51,7 @@ To edit an existing alert rule:
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot that shows the select resource pane for creating a new alert rule.":::
 
-## Set the alert rule conditions 
+## The Conditions tab 
 
 1. On the **Condition** tab, when you select the **Signal name** field, the most commonly used signals are displayed in the drop-down list. Select one of these popular signals, or select **See all signals** if you want to choose a different signal for the condition.
 
@@ -71,7 +72,7 @@ To edit an existing alert rule:
 
     |Field |Description |
     |---------|---------|
-    |Threshold|Select if the threshold should be evaluated based on a static value or a dynamic value.<br>A **static threshold** evaluates the rule by using the threshold value that you configure.<br>**Dynamic thresholds** use machine learning algorithms to continuously learn the metric behavior patterns and calculate the appropriate thresholds for unexpected behavior. You can learn more about using [dynamic thresholds for metric alerts](alerts-types.md#dynamic-thresholds). |
+    |Threshold|Select if the threshold should be evaluated based on a static value or a dynamic value.<br>A **static threshold** evaluates the rule by using the threshold value that you configure.<br>**Dynamic thresholds** use machine learning algorithms to continuously learn the metric behavior patterns and calculate the appropriate thresholds for unexpected behavior. You can learn more about using [dynamic thresholds for metric alerts](alerts-types.md#apply-advanced-machine-learning-with-dynamic-thresholds). |
     |Operator|Select the operator for comparing the metric value against the threshold. <br>If you're using dynamic thresholds, alert rules can use tailored thresholds based on metric behavior for both upper and lower bounds in the same alert rule. Select one of these operators: <br> - Greater than the upper threshold or lower than the lower threshold (default) <br> - Greater than the upper threshold <br> - Lower than the lower threshold|
     |Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max.|
     |Threshold value|If you selected a **static** threshold, enter the threshold value for the condition logic.|
@@ -91,8 +92,8 @@ To edit an existing alert rule:
 
 1. (Optional) In the **Advanced options** section, you can specify how many failures within a specific time period trigger an alert. For example, you can specify that you only want to trigger an alert if there were three failures in the last hour. Your application business policy should determine this setting. 
 
-Select values for these fields:
-
+    Select values for these fields:
+    
     |Field  |Description  |
     |---------|---------|
     |Number of violations|The number of violations within the configured time frame that trigger the alert.|
@@ -101,13 +102,13 @@ Select values for these fields:
 
 1. Select **Done**. From this point on, you can select the **Review + create** button at any time.
 
-## Set the alert rule actions
+## The Actions tab
 
 1. On the **Actions** tab, select or create the required [action groups](./action-groups.md).
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new alert rule.":::
 
-## Set the alert rule details
+## The Details tab
 
 1. On the **Details** tab, define the **Project details**.
     - Select the **Subscription**.
@@ -120,12 +121,10 @@ Select values for these fields:
 1. Select the **Severity**.
 1. Enter values for the **Alert rule name** and the **Alert rule description**.
 1. (Optional) If you're creating a metric alert rule that monitors a custom metric with the scope defined as one of the following regions and you want to make sure that the data processing for the alert rule takes place within that region, you can select to process the alert rule in one of these regions:
-- North Europe
-- West Europe
-- Sweden Central
-- Germany West Central 
-
-We're continually adding more regions for regional data processing.
+    - North Europe
+    - West Europe
+    - Sweden Central
+    - Germany West Central 
 
 1. (Optional) In the **Advanced options** section, you can set several options.
 
@@ -136,39 +135,39 @@ We're continually adding more regions for regional data processing.
 
 1. <a name="custom-props"></a>(Optional)  In the **Custom properties** section, if you've configured action groups for this alert rule, you can add your own properties to include in the alert notification payload. You can use these properties in the actions called by the action group, such as webhook, Azure function or logic app actions.
 
-The custom properties are specified as key:value pairs, using either static text, a dynamic value extracted from the alert payload, or a combination of both.
-
-The format for extracting a dynamic value from the alert payload is: `${<path to schema field>}`. For example: ${data.essentials.monitorCondition}.
-
-Use the [common alert schema](alerts-common-schema.md) format to specify the field in the payload, whether or not the action groups configured for the alert rule use the common schema.
-
-:::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-custom-props.png" alt-text="Screenshot that shows the custom properties section of creating a new alert rule.":::
-
-In the following examples, values in the **custom properties** are used to utilize data from a payload that uses the common alert schema:
-
-**Example 1**
-
-This example creates an "Additional Details" tag with data regarding the "window start time" and "window end time".
-
-- **Name:** "Additional Details"
-- **Value:** "Evaluation windowStartTime: \${data.alertContext.condition.windowStartTime}. windowEndTime: \${data.alertContext.condition.windowEndTime}"
-- **Result:** "AdditionalDetails:Evaluation windowStartTime: 2023-04-04T14:39:24.492Z. windowEndTime: 2023-04-04T14:44:24.492Z"
-
-
-**Example 2**
-This example adds the data regarding the reason of resolving or firing the alert. 
-
-- **Name:** "Alert \${data.essentials.monitorCondition} reason"
-- **Value:** "\${data.alertContext.condition.allOf[0].metricName} \${data.alertContext.condition.allOf[0].operator} \${data.alertContext.condition.allOf[0].threshold} \${data.essentials.monitorCondition}. The value is \${data.alertContext.condition.allOf[0].metricValue}"
-- **Result:**  Example results could be something like:
-    - "Alert Resolved reason: Percentage CPU GreaterThan5 Resolved. The value is 3.585"
-    - “Alert Fired reason": "Percentage CPU GreaterThan5 Fired. The value is 10.585"
-
-> [!NOTE]
-> The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
+    The custom properties are specified as key:value pairs, using either static text, a dynamic value extracted from the alert payload, or a combination of both.
+    
+    The format for extracting a dynamic value from the alert payload is: `${<path to schema field>}`. For example: ${data.essentials.monitorCondition}.
+    
+    Use the [common alert schema](alerts-common-schema.md) format to specify the field in the payload, whether or not the action groups configured for the alert rule use the common schema.
+    
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-custom-props.png" alt-text="Screenshot that shows the custom properties section of creating a new alert rule.":::
+    
+    In the following examples, values in the **custom properties** are used to utilize data from a payload that uses the common alert schema:
+    
+    **Example 1**
+    
+    This example creates an "Additional Details" tag with data regarding the "window start time" and "window end time".
+    
+    - **Name:** "Additional Details"
+    - **Value:** "Evaluation windowStartTime: \${data.alertContext.condition.windowStartTime}. windowEndTime: \${data.alertContext.condition.windowEndTime}"
+    - **Result:** "AdditionalDetails:Evaluation windowStartTime: 2023-04-04T14:39:24.492Z. windowEndTime: 2023-04-04T14:44:24.492Z"
+    
+    
+    **Example 2**
+    This example adds the data regarding the reason of resolving or firing the alert. 
+    
+    - **Name:** "Alert \${data.essentials.monitorCondition} reason"
+    - **Value:** "\${data.alertContext.condition.allOf[0].metricName} \${data.alertContext.condition.allOf[0].operator} \${data.alertContext.condition.allOf[0].threshold} \${data.essentials.monitorCondition}. The value is \${data.alertContext.condition.allOf[0].metricValue}"
+    - **Result:**  Example results could be something like:
+        - "Alert Resolved reason: Percentage CPU GreaterThan5 Resolved. The value is 3.585"
+        - “Alert Fired reason": "Percentage CPU GreaterThan5 Fired. The value is 10.585"
+    
+    > [!NOTE]
+    > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
    
 
-## Finish creating the alert rule
+## The Tags tab
 
 1. On the **Tags** tab, set any required tags on the alert rule resource.
 
@@ -178,45 +177,6 @@ This example adds the data regarding the reason of resolving or firing the alert
 1. When validation passes and you've reviewed the settings, select the **Create** button.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-review-create.png" alt-text="Screenshot that shows the Review and create tab when creating a new alert rule.":::
-
-## Create a new alert rule using the CLI
-
-You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-with-azure-cli). The following code examples use [Azure Cloud Shell](../../cloud-shell/overview.md). You can see the full list of the [Azure CLI commands for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor#azure-monitor-references).
-
-1. In the [portal](https://portal.azure.com/), select **Cloud Shell**. At the prompt, use the commands that follow.
-
-    To create a metric alert rule, use the `az monitor metrics alert create` command. You can see detailed documentation on the metric alert rule create command in the `az monitor metrics alert create` section of the [CLI reference documentation for metric alerts](/cli/azure/monitor/metrics/alert).
-
-    To create a metric alert rule that monitors if average Percentage CPU on a VM is greater than 90:
-    ```azurecli
-     az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
-    ```
-## Create a new alert rule with PowerShell
-
-- To create a metric alert rule using PowerShell, use the [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2) cmdlet.
-- To create a log alert rule using PowerShell, use the [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) cmdlet.
-- To create an activity log alert rule using PowerShell, use the [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert) cmdlet.
-
-## Create a new alert rule using an ARM template
-
-You can use an [Azure Resource Manager template (ARM template)](../../azure-resource-manager/templates/syntax.md) to configure alert rules consistently in all of your environments.
-
-1. Create a new resource, using the following resource types:
-    - For metric alerts: `Microsoft.Insights/metricAlerts`
-    - For log alerts: `Microsoft.Insights/scheduledQueryRules`
-    - For activity log, service health, and resource health alerts: `microsoft.Insights/activityLogAlerts`
-    > [!NOTE]
-    > - Metric alerts for an Azure Log Analytics workspace resource type (`Microsoft.OperationalInsights/workspaces`) are configured differently than other metric alerts. For more information, see [Resource Template for Metric Alerts for Logs](alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
-    > - We recommend that you create the metric alert using the same resource group as your target resource.
-1. Copy one of the templates from these sample ARM templates.
-    - For metric alerts: [Resource Manager template samples for metric alert rules](resource-manager-alerts-metric.md)
-    - For log alerts: [Resource Manager template samples for log alert rules](resource-manager-alerts-log.md)
-    - For activity log alerts: [Resource Manager template samples for activity log alert rules](resource-manager-alerts-activity-log.md)
-    - For resource health alerts: [Resource Manager template samples for resource health alert rules](resource-manager-alerts-resource-health.md)
-1. Edit the template file to contain appropriate information for your alert, and save the file as \<your-alert-template-file\>.json.
-1. Edit the corresponding parameters file to customize the alert, and save as \<your-alert-template-file\>.parameters.json.
-1. Set the `metricName` parameter, using one of the values in [Azure Monitor supported metrics](../essentials/metrics-supported.md).
-1. Deploy the template using [PowerShell](../../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template) or the [CLI](../../azure-resource-manager/templates/deploy-cli.md#deploy-local-template).
 
 ## Splitting by dimensions
 

@@ -45,12 +45,12 @@ You can create rules by using these metrics:
 Metric alert rules include these features:
 - You can use multiple conditions on an alert rule for a single resource.
 - You can add granularity by [monitoring multiple metric dimensions](#narrow-the-target-using-dimensions). 
-- You can use [dynamic thresholds](#dynamic-thresholds), which are driven by machine learning. 
+- You can use [dynamic thresholds](#apply-advanced-machine-learning-with-dynamic-thresholds), which are driven by machine learning. 
 - You can configure if metric alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). Metric alerts are stateful by default.
 
 The target of the metric alert rule can be:
 - A single resource, such as a virtual machine (VM). For supported resource types, see [Supported resources for metric alerts in Azure Monitor](alerts-metric-near-real-time.md).
-- [Multiple resources](#monitor-multiple-resources) of the same type in the same Azure region, such as a resource group.
+- [Multiple resources](#monitor-multiple-resources-with-one-alert-rule) of the same type in the same Azure region, such as a resource group.
 
 ### Applying multiple conditions to a metric alert rule
 
