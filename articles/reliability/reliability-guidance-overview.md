@@ -87,7 +87,6 @@ Azure reliability guidance contains the following:
 [Azure Virtual WAN](../virtual-wan/virtual-wan-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)|
 [Azure Web Application Firewall](../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 
-
 ### ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic services
 
 | **Products**  | 
