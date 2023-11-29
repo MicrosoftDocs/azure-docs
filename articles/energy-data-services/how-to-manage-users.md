@@ -25,7 +25,7 @@ In this article, you learn how to manage users and their memberships in OSDU gro
 2. Locate `tenant-id` under the basic information section in the *Overview* tab.
 3. Copy the `tenant-id` and paste it into an editor to be used later.  
 
-:::image type="content" source="media/how-to-manage-users/azure-active-directory.png" alt-text="Screenshot of search for Microsoft Entra I D.":::
+:::image type="content" source="media/how-to-manage-users/azure-active-directory.png" alt-text="Screenshot of search for Microsoft Entra ID.":::
 
 :::image type="content" source="media/how-to-manage-users/tenant-id.png" alt-text="Screenshot of finding the tenant-id.":::
 
@@ -107,7 +107,7 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 1. Find the 'object-id' (OID) of the user(s) first. If you are managing an application's access, you must find and use the application ID (or client ID) instead of the OID.
 2. Input the `object-id` (OID) of the users (or the application or client ID if managing access for an application) as parameters in the calls to the Entitlements API of your Azure Data Manager for Energy instance. 
 
-:::image type="content" source="media/how-to-manage-users/azure-active-directory-object-id.png" alt-text="Screenshot of finding the object-id from Microsoft Entra I D.":::
+:::image type="content" source="media/how-to-manage-users/azure-active-directory-object-id.png" alt-text="Screenshot of finding the object-id from Microsoft Entra ID.":::
 
 :::image type="content" source="media/how-to-manage-users/profile-object-id.png" alt-text="Screenshot of finding the object-id from the profile.":::
 
@@ -115,7 +115,7 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 1. In order to add entitlements to a new data partition of Azure Data Manager for Energy instance, use the access token of the app that was used to provision the instance.
 2. Get the service principal access token using [Generate service principal access token](how-to-manage-users.md#generate-service-principal-access-token).
 3. If you try to directly use user tokens for adding entitlements, it results in 401 error. The service principal access token must be used to add initial users in the system and those users (with admin access) can then manage more users.
-4. Use the service principal access token to do these three steps using the commands outlined in the follwoing sections.
+4. Use the service principal access token to do these three steps using the commands outlined in the following sections.
 5. Add the users to the `users@<data-partition-id>.<domain>` OSDU group.
 6. Get the OSDU group such as `service.legal.editor@<data-partition-id>.<domain>` you want to add the user to.
 7. Add the users to that group.
