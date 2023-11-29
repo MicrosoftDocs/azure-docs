@@ -64,7 +64,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
     kind: Lnm
     metadata:
       name: level4
-      namespace: default
+      namespace: azure-iot-operations
     spec:
       image:
         pullPolicy: IfNotPresent

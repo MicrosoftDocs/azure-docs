@@ -18,12 +18,12 @@ ms.date: 11/07/2023
 
 Azure IoT Layered Network Management is one of the Azure IoT Operations components. However, it can be deployed individually to the top network layer for supporting the Azure IoT Operations in the lower layer. In the top level of your network layers (usually level 4 of the ISA-95 network architecture), the cluster and Layered Network Management service have direct internet access. Once the setup is completed, the Layered Network Management service is ready for receiving network traffic from the child layer and forwards it to Azure Arc.
 
-# Prerequisites
+## Prerequisites
 Meet the following minimum requirements for deploying the Layered Network Management individually on the system.
 - **AKS Edge Essentials** - *Arc-connected cluster and GitOps* catagory in [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements)
-- **K3S Kubernetes cluster** - [Azure Arc-enabled Kubernetes system requirements](/azure-arc/kubernetes/system-requirements)
+- **K3S Kubernetes cluster** - [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements)
 
-# Set up Kubernetes cluster in Level 4
+## Set up Kubernetes cluster in Level 4
 
 To set up only Layered Network Management, the prerequisites are simpler than an Azure IoT Operations deployment. It's optional to fulfill the general requirements for Azure IoT Operations in [Prepare your Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
@@ -146,17 +146,18 @@ The following steps for setting up [AKS Edge Essentials](/azure/aks/hybrid/aks-e
     az account set -s $SUBSCRIPTION_ID
     ```
 1. Register the required resource providers in your subscription:
-> [!NOTE]
-> This is an one time configuration per subscription.
-    ```powershell
-    az provider register -n "Microsoft.ExtendedLocation"
-    az provider register -n "Microsoft.Kubernetes"
-    az provider register -n "Microsoft.KubernetesConfiguration"
-    az provider register -n "Microsoft.IoTOperationsOrchestrator"
-    az provider register -n "Microsoft.IoTOperationsMQ"
-    az provider register -n "Microsoft.IoTOperationsDataProcessor"
-    az provider register -n "Microsoft.DeviceRegistry"
-    ```
+    > [!NOTE]
+    > This is an one time configuration per subscription.
+
+      ```powershell
+      az provider register -n "Microsoft.ExtendedLocation"
+      az provider register -n "Microsoft.Kubernetes"
+      az provider register -n "Microsoft.KubernetesConfiguration"
+      az provider register -n "Microsoft.IoTOperationsOrchestrator"
+      az provider register -n "Microsoft.IoTOperationsMQ"
+      az provider register -n "Microsoft.IoTOperationsDataProcessor"
+      az provider register -n "Microsoft.DeviceRegistry"
+      ```
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
     ```bash
     az group create --location $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
@@ -204,7 +205,7 @@ Create the Layered Network Management custom resource.
     kind: Lnm
     metadata:
       name: level4
-      namespace: default
+      namespace: azure-iot-operations
     spec:
       image:
         pullPolicy: IfNotPresent
