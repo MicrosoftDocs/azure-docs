@@ -30,7 +30,7 @@ Based on your preferences, the following scenarios are available with DNS resolu
    
 - [Azure Private Resolver for on-premises workloads](#azure-private-resolver-for-on-premises-workloads)
   
-- [Azure Private Resolver with on-premises DNS forwarder](#azure-private-resolver-with-on-premises-dns-forwarder)
+- [Azure Private Resolver with on-premises DNS forwarder](#on-premises-workloads-using-a-dns-forwarder)
   
 - [Azure Private Resolver for virtual network and on-premises workloads](#azure-private-resolver-for-virtual-network-and-on-premises-workloads)
 
@@ -53,7 +53,7 @@ The following screenshot illustrates the DNS resolution sequence from virtual ne
 
 :::image type="content" source="media/private-endpoint-dns/single-vnet-azure-dns.png" alt-text="Diagram of single virtual network and Azure-provided DNS.":::
 
-## Peered virtual network workloads without Azure Private Resolver
+## <a name="virtual-network-workloads-without-custom-dns-server"></a> Peered virtual network workloads without Azure Private Resolver
 
 You can extend this model to peered virtual networks associated to the same private endpoint. [Add new virtual network links](../dns/private-dns-virtual-network-links.md) to the private DNS zone for all peered virtual networks.
 
@@ -118,7 +118,7 @@ The following diagram illustrates the DNS resolution from an on-premises network
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Diagram of on-premises forwarding to Azure DNS.":::
 
-## Azure Private Resolver for virtual network and on-premises workloads
+## <a name="virtual-network-and-on-premises-workloads-using-a-dns-forwarder"></a> Azure Private Resolver for virtual network and on-premises workloads
 
 For workloads accessing a private endpoint from virtual and on-premises networks, use Azure Private Resolver to resolve the Azure service [public DNS zone](private-endpoint-dns.md) deployed in Azure.
 
