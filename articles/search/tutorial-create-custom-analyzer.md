@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: tutorial
-ms.date: 01/05/2023
+ms.date: 11/28/2023
 ---
 
 # Tutorial: Create a custom analyzer for phone numbers
@@ -417,7 +417,7 @@ With our character filters, tokenizer, and token filters in place, we're ready t
   {
     "@odata.type": "#Microsoft.Azure.Search.CustomAnalyzer",
     "name": "phone_analyzer",
-    "tokenizer": "custom_tokenizer_phone",
+    "tokenizer": "keyword_v2",
     "tokenFilters": [
       "custom_ngram_filter"
     ],

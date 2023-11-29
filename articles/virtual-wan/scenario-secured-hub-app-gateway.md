@@ -63,7 +63,7 @@ Currently, routes that are advertised from the Virtual WAN route table to spoke 
 
 1. Configure user-defined routes (UDRs) on the application gateway subnet. To ensure the application gateway is able to send traffic directly to the Internet, specify the following UDR:
 
-   * **Address Prefix:** 0.0.0.0.0/0
+   * **Address Prefix:** 0.0.0.0/0
    * **Next Hop:** Internet
 
 ## Next steps
