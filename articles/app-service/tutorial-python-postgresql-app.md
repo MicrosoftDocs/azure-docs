@@ -18,8 +18,20 @@ In this tutorial, you'll deploy a data-driven Python web app (**[Django](https:/
 
 **To complete this tutorial, you'll need:**
 
+::: zone pivot="azure-portal"  
+
 * An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
 * Knowledge of Python with Flask development or [Python with Django development](/training/paths/django-create-data-driven-websites/)
+
+::: zone-end
+
+::: zone pivot="azure-developer-cli"
+
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
+* [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed.
+* Knowledge of Python with Flask development or [Python with Django development](/training/paths/django-create-data-driven-websites/)
+
+::: zone-end
 
 ## Skip to the end
 
@@ -578,6 +590,8 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
     :::column-end:::
 :::row-end:::
 
+Note that the name of the last visited page is shown, and the data is saved to and retrieved from the Azure cache. Remember that the sample app uses the connection string `AZURE_REDIS_CONNECTIONSTRING`, which was created for you by the wizard.
+
 -----
 
 ## 6. Stream diagnostic logs
@@ -590,7 +604,7 @@ Azure App Service captures all messages output to the console to help you diagno
 
 ### [Django](#tab/django)
 
-:::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="3":::
+:::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="13-16" highlight="2":::
 
 -----
 
@@ -684,6 +698,8 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
 
     This azd template contains files (*azure.yaml* and the *infra* directory) that will generate a secure-by-default architecture with the following Azure resources:
 
+    ### [Flask](#tab/flask)
+    
     - **Resource group** &rarr; The container for all the created resources.
     - **App Service plan** &rarr; Defines the compute resources for App Service. A Linux plan in the *B1* tier is specified.
     - **App Service** &rarr; Represents your app and runs in the App Service plan.
@@ -691,6 +707,19 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
     - **Azure Database for PostgreSQL flexible server** &rarr; Accessible only from within the virtual network. A database and a user are created for you on the server.
     - **Private DNS zone** &rarr; Enables DNS resolution of the PostgreSQL server in the virtual network.
     - **Log Analytics workspace** &rarr; Acts as the target container for your app to ship its logs, where you can also query the logs.
+
+    ### [Django](#tab/django)
+    
+    - **Resource group** &rarr; The container for all the created resources.
+    - **App Service plan** &rarr; Defines the compute resources for App Service. A Linux plan in the *B1* tier is specified.
+    - **App Service** &rarr; Represents your app and runs in the App Service plan.
+    - **Virtual network** &rarr; Integrated with the App Service app and isolates back-end network traffic.
+    - **Azure Database for PostgreSQL flexible server** &rarr; Accessible only from within the virtual network. A database and a user are created for you on the server.
+    - **Azure Cache for Redis** &rarr; Accessible only from within the virtual network.
+    - **Private DNS zone** &rarr; Enables DNS resolution of the PostgreSQL server in the virtual network.
+    - **Log Analytics workspace** &rarr; Acts as the target container for your app to ship its logs, where you can also query the logs.
+
+    -----
 
 1. When prompted, give the following answers:
     
@@ -817,7 +846,15 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 2. Add a few restaurants to the list.
 
-    :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Flask web app with PostgreSQL running in Azure showing restaurants and restaurant reviews." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png":::
+    ### [Flask](#tab/flask)
+
+    :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Flask web app with PostgreSQL running in Azure showing restaurants and restaurant reviews (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png":::
+
+    ### [Django](#tab/django)
+    
+    :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2-django.png" alt-text="A screenshot of the Django web app with PostgreSQL running in Azure showing restaurants and restaurant reviews (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png":::
+
+    -----
 
     Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for PostgreSQL.
 
@@ -833,15 +870,15 @@ The sample app includes `print()` statements to demonstrate this capability as s
 
 ### [Django](#tab/django)
 
-:::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="2":::
+:::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="13-16" highlight="2":::
 
 -----
 
-- In the azd output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the azd output:
+In the azd output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the azd output:
 
-    <pre>
-    Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
-    </pre>
+<pre>
+Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
+</pre>
 
 Learn more about logging in Python apps in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
 
