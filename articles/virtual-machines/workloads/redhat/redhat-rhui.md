@@ -103,13 +103,13 @@ Support for EUS RHEL7 ended in August 30, 2021. For more information, see [Red H
 
 ### Switch a RHEL Server to EUS Repositories.
 
-#### [Switching to EUS repositories on RHEL7](#tab/rhel7eus) 
+#### [Switching to EUS repositories on RHEL7](#tab/rhel7) 
 
 >[!NOTE]
 >Support for RHEL7 EUS ended in August 30, 2021. It is not recommended to switch to EUS repositories in RHEL7 anymore.
 
  
-#### [Switching to EUS repositories on RHEL8](#tab/rhel8eus) 
+#### [Switching to EUS repositories on RHEL8](#tab/rhel8) 
 Use the following procedure to lock a RHEL 8.x VM to a particular minor release. Run the commands as `root`:
 
 >[!NOTE]
@@ -146,7 +146,7 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
    sudo dnf update
    ```
 
-#### [Switching to EUS repositories on RHEL9](#tab/rhel9eus) 
+#### [Switching to EUS repositories on RHEL9](#tab/rhel9) 
 
 Use the following procedure to lock a RHEL 9.x VM to a particular minor release. Run the commands as `root`:
 
