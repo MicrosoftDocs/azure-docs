@@ -12,30 +12,6 @@ zone_pivot_groups: app-service-portal-azd
 
 # Deploy a Python (Django or Flask) web app with PostgreSQL in Azure
 
-### [Flask](#tab/flask)
-
-> [!TIP]
-> With [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed, you can skip to the end of the tutorial by running the following commands in an empty working directory:
->
-> ```bash
-> azd auth login
-> azd init --template msdocs-flask-postgresql-sample-app
-> azd up
-> ```
-
-### [Django](#tab/django)
-
-> [!TIP]
-> With [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed, you can skip to the end of the tutorial by running the following commands in an empty working directory:
->
-> ```bash
-> azd auth login
-> azd init --template msdocs-django-postgresql-sample-app
-> azd up
-> ```
-
------
-
 In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](../postgresql/index.yml)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment.
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an App Service with a PostgreSQL database in Azure.":::
@@ -44,6 +20,31 @@ In this tutorial, you'll deploy a data-driven Python web app (**[Django](https:/
 
 * An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
 * Knowledge of Python with Flask development or [Python with Django development](/training/paths/django-create-data-driven-websites/)
+
+## Skip to the end
+
+### [Flask](#tab/flask)
+
+With [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed, you can skip to the end of the tutorial by running the following commands in an empty working directory:
+
+```bash
+azd auth login
+azd init --template msdocs-flask-postgresql-sample-app
+azd up
+```
+
+### [Django](#tab/django)
+
+With [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed, you can skip to the end of the tutorial by running the following commands in an empty working directory:
+
+```bash
+azd auth login
+azd init --template msdocs-django-postgresql-sample-app
+azd up
+```
+
+-----
+
 
 ## Sample application
 
@@ -155,6 +156,8 @@ In this step, you create the Azure resources. The steps used in this tutorial cr
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
 
+### [Flask](#tab/flask)
+
 :::row:::
     :::column span="2":::
         **Step 1:** In the Azure portal:
@@ -163,7 +166,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         You can also navigate to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App + Database creation wizard." lightbox="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-1.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App + Database creation wizard (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -179,7 +182,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. After validation completes, select **Create**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard." lightbox="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-2.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -193,20 +196,70 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         - **Private DNS zone** &rarr; Enables DNS resolution of the PostgreSQL server in the virtual network.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-3.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-3.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-3.png" alt-text="A screenshot showing the deployment process completed (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-3.png":::
     :::column-end:::
 :::row-end:::
+
+### [Django](#tab/django)
+
+:::row:::
+    :::column span="2":::
+        **Step 1:** In the Azure portal:
+        1. Enter "web app database" in the search bar at the top of the Azure portal.
+        1. Select the item labeled **Web App + Database** under the **Marketplace** heading.
+        You can also navigate to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App + Database creation wizard (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** In the **Create Web App + Database** page, fill out the form as follows.
+        1. *Resource Group* &rarr; Select **Create new** and use a name of **msdocs-python-postgres-tutorial**.
+        1. *Region* &rarr; Any Azure region near you.
+        1. *Name* &rarr; **msdocs-python-postgres-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
+        1. *Runtime stack* &rarr; **Python 3.10**.
+        1. *Database* &rarr; **PostgreSQL - Flexible Server** is selected by default as the database engine. The server name and database name are also set by default to appropriate values.
+        1. *Add Azure Cache for Redis* &rarr; **Yes**.
+        1. *Hosting plan* &rarr; **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
+        1. Select **Review + create**.
+        1. After validation completes, select **Create**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-2-django.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-2-django.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
+        - **Resource group** &rarr; The container for all the created resources.
+        - **App Service plan** &rarr; Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
+        - **App Service** &rarr; Represents your app and runs in the App Service plan.
+        - **Virtual network** &rarr; Integrated with the App Service app and isolates back-end network traffic.
+        - **Azure Database for PostgreSQL flexible server** &rarr; Accessible only from within the virtual network. A database and a user are created for you on the server.
+        - **Azure Cache for Redis** &rarr; Accessible only from within the virtual network.
+        - **Private DNS zones** &rarr; Enables DNS resolution of the PostgreSQL server and the Redis server in the virtual network.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-3.png" alt-text="A screenshot showing the deployment process completed (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-create-app-postgres-3.png":::
+    :::column-end:::
+:::row-end:::
+
+-----
 
 ## 2. Verify connection settings
 
 The creation wizard generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings). App settings are one way to keep connection secrets out of your code repository. When you're ready to move your secrets to a more secure location, here's an [article on storing in Azure Key Vault](../key-vault/certificates/quick-create-python.md).
 
+### [Flask](#tab/flask)
+
 :::row:::
     :::column span="2":::
-        **Step 1:** In the App Service page, in the left menu, select Configuration.
+        **Step 1:** In the App Service page, in the left menu, select **Configuration**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png" alt-text="A screenshot showing how to open the configuration page in App Service." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png" alt-text="A screenshot showing how to open the configuration page in App Service (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -214,7 +267,33 @@ The creation wizard generated the connectivity variables for you already as [app
         **Step 2:** In the **Application settings** tab of the **Configuration** page, verify that `AZURE_POSTGRESQL_CONNECTIONSTRING` is present. That will be injected into the runtime environment as an environment variable.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-2.png" alt-text="A screenshot showing how to see the autogenerated connection string." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-2.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-2.png" alt-text="A screenshot showing how to see the autogenerated connection string (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-2.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3:** In a terminal or command prompt, run the following Python script to generate a unique secret: `python -c 'import secrets; print(secrets.token_hex())'`. Copy the output value to use in the next step.
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+### [Django](#tab/django)
+
+:::row:::
+    :::column span="2":::
+        **Step 1:** In the App Service page, in the left menu, select **Configuration**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png" alt-text="A screenshot showing how to open the configuration page in App Service (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** In the **Application settings** tab of the **Configuration** page, verify that `AZURE_POSTGRESQL_CONNECTIONSTRING` and `AZURE_REDIS_CONNECTIONSTRING` are present. They will be injected into the runtime environment as an environment variable.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-2-django.png" alt-text="A screenshot showing how to see the autogenerated connection string (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -226,10 +305,10 @@ The creation wizard generated the connectivity variables for you already as [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4:** In the **Application settings** tab of the **Configuration** page, select **New application setting**. Name the setting `SECRET_KEY`. Paste the value from the previous value. Select **OK**.
+        **Step 4:** Back in the **Configuration** page, select **New application setting**. Name the setting `SECRET_KEY`. Paste the value from the previous value. Select **OK**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting.png" alt-text="A screenshot showing how to set the SECRET_KEY app setting in the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting.png" alt-text="A screenshot showing how to set the SECRET_KEY app setting in the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -237,13 +316,11 @@ The creation wizard generated the connectivity variables for you already as [app
         **Step 5:** Select **Save**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting-save.png" alt-text="A screenshot showing how to save the SECRET_KEY app setting in the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting-save.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting-save.png" alt-text="A screenshot showing how to save the SECRET_KEY app setting in the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting-save.png":::
     :::column-end:::
 :::row-end:::
 
-
-Having issues? Check the [Troubleshooting guide](configure-language-python.md#troubleshooting).
-
+-----
 
 ## 3. Deploy sample code
 
@@ -454,6 +531,8 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 ## 5. Browse to the app
 
+### [Flask](#tab/flask)
+
 :::row:::
     :::column span="2":::
         **Step 1:** In the App Service page:
@@ -461,7 +540,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
         1. Select the URL of your app. You can also navigate directly to `https://<app-name>.azurewebsites.net`.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-1.png" alt-text="A screenshot showing how to launch an App Service from the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-1.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-1.png" alt-text="A screenshot showing how to launch an App Service from the Azure portal (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -470,9 +549,33 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
         Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for PostgreSQL.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Flask web app with PostgreSQL running in Azure showing restaurants and restaurant reviews." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Flask web app with PostgreSQL running in Azure showing restaurants and restaurant reviews (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png":::
     :::column-end:::
 :::row-end:::
+
+### [Django](#tab/django)
+
+:::row:::
+    :::column span="2":::
+        **Step 1:** In the App Service page:
+        1. From the left menu, select **Overview**.
+        1. Select the URL of your app. You can also navigate directly to `https://<app-name>.azurewebsites.net`.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-1.png" alt-text="A screenshot showing how to launch an App Service from the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** Add a few restaurants to the list.
+        Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for PostgreSQL.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2-django.png" alt-text="A screenshot of the Flask web app with PostgreSQL running in Azure showing restaurants and restaurant reviews (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png":::
+    :::column-end:::
+:::row-end:::
+
+-----
 
 ## 6. Stream diagnostic logs
 
