@@ -50,11 +50,11 @@ The simplest way to create a quota alert is to use the Azure portal. Follow thes
 
 ### Create alerts using API
 
-Alerts can be created programmatically using the [**Monitoring API**](https://learn.microsoft.com/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules/create-or-update?tabs=HTTP). This API can be used to create or update a log search rule.
+Alerts can be created programmatically using the [**Monitoring API**](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules/create-or-update?tabs=HTTP). This API can be used to create or update a log search rule.
 
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/scheduledQueryRules/{ruleName}?api-version=2018-04-16`
 
-For a sample request body, see the [API documentation](https://learn.microsoft.com/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules/create-or-update?tabs=HTTP)
+For a sample request body, see the [API documentation](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules/create-or-update?tabs=HTTP)
 
 ### Create alerts using Azure Resource Graph query
 
