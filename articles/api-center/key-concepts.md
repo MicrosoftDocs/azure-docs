@@ -29,7 +29,7 @@ A top-level logical entity in API Center, an API represents any real-world API t
 
 An API can be managed by any API management solution (such as Azure [API Management](../api-management/api-management-key-concepts.md) or solutions from other providers), or unmanaged.
 
-The API inventory in API Center is designed to be created and managed by API program managers or IT administrators. API consumers such as developers can discover APIs in the API Catalog.
+The API inventory in API Center is designed to be created and managed by API program managers or IT administrators. 
 
 ## API version
 
@@ -37,11 +37,11 @@ API versioning is the practice of managing changes to an API and ensuring that t
 
 ## API definition
 
-Each API version should ideally be defined by at least one definition, such as an OpenAPI definition for a REST API. API Center allows any API definition file formatted as text (YAML, JSON, Markdown, and so on). You can upload OpenAPI, gRPC, GraphQL, AsyncAPI, WSDL, and WADL definitions, among others. API Center also supports importing API definitions from a URL.
+Each API version should ideally be defined by at least one definition, such as an OpenAPI definition for a REST API. API Center allows any API definition file formatted as text (YAML, JSON, Markdown, and so on). You can upload OpenAPI, gRPC, GraphQL, AsyncAPI, WSDL, and WADL definitions, among others.
 
 ## Environment
 
-An environment represents a location where an API runtime could be deployed, for example, an Azure API Management service, an Apigee service, or a compute service such as an AKS cluster, a Web App, or an Azure Function. Each environment has a type (such as production or staging) and may include information about developer portal or management interfaces.
+An environment represents a location where an API runtime could be deployed, for example, an Azure API Management service, an Apigee API Management service, or a compute service such as a Kubernetes cluster, a Web App, or an Azure Function. Each environment has a type (such as production or staging) and may include information about developer portal or management interfaces.
 
 ## Deployment
 
@@ -49,7 +49,7 @@ A deployment is a location (an address) where users can access an API. An API ca
 
 ## Metadata properties
 
-In API Center, organize your APIs, deployments, and other entities by setting values of metadata properties, which can be used for search and filtering and to enforce governance standards. API Center provides several common built-in properties such as "API type" and "Version lifecycle". An API Center owner can augment the built-in properties by defining custom properties in a metadata schema to organize their APIs, deployments, and environments according to their organization's requirements. For example, create an *API approver* property to identify the individual responsible for approving an API for use. 
+In API Center, organize your APIs, deployments, and other entities by setting values of metadata properties, which can be used for search and filtering and to enforce governance standards. API Center provides several common built-in properties such as "API type" and "Version lifecycle". An API Center owner can augment the built-in properties by defining custom properties in a metadata schema to organize their APIs, deployments, and environments. For example, create an *API approver* property to identify the individual responsible for approving an API for use. 
 
 API Center supports properties of type array, boolean, number, object, predefined choices, and string. 
 
