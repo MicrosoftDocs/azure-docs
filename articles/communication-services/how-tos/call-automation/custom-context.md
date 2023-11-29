@@ -22,7 +22,7 @@ Custom call context is also forwarded to the SIP protocol, this includes both th
 
 All custom context data is opaque to Call Automation or SIP protocols and its content is unrelated to any basic functions.
 
-Below are samples on how to get started using custom context headers in Call Automation. As a prerequisite, we recommend you read these articles to make the most of this guide:
+Below are samples on how to get started using custom context headers in Call Automation. 
 
 As a prerequisite, we recommend you to read these articles to make the most of this guide:
 
