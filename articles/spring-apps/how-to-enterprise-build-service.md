@@ -199,6 +199,8 @@ You can see all the build resources in the **Builds** section of the Azure Sprin
 
 :::image type="content" source="media/how-to-enterprise-build-service/build-table.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Build Service page with Builds highlighted." lightbox="media/how-to-enterprise-build-service/build-table.png":::
 
+The table in the **Builds** section contains the following columns:
+
 - **Build Name**: The name of the build.
 - **Provisioning State**: The provisioning state of the build. The values are `Succeeded`, `Failed`, `Updating`, and `Creating`. Provisioning states `Updating` and `Creating` mean the build can't be updated until the current build finishes. Provisioning state `Failed` means your latest source code build has failed to generate a new build result.
 - **Resource Quota**: The resource quota in build pod of the build.
