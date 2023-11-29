@@ -470,7 +470,7 @@ az spring gateway update \
 
 ### Enable response cache at the route level
 
-You can use the `LocalResponseCache` filter at whichever route you need to enable response cache. Here is an example.
+You can use the `LocalResponseCache` filter at whichever route you need to enable response cache. Here is an example about how to use this response filter in routing rule configuration JSON file.
 
 ```json
 {
