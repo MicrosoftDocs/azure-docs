@@ -90,7 +90,7 @@ The following diagram illustrates the DNS resolution sequence from an on-premise
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="Diagram of on-premises using Azure DNS.":::
 
-## Azure Private Resolver with on-premises DNS forwarder
+## <a name="on-premises-workloads-using-a-dns-forwarder"></a> Azure Private Resolver with on-premises DNS forwarder
 
 This configuration can be extended for an on-premises network that already has a DNS solution in place. 
 
