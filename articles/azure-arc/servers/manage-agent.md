@@ -426,7 +426,7 @@ Proxy bypass value when set to `ArcData` only bypasses the traffic of the Azure 
 | `Arc` | `his.arc.azure.com`</br>`guestconfiguration.azure.com`</br> `san-af-<location>-prod.azurewebsites.net`</br>`telemetry.<location>.arcdataservices.com`|
 | `ArcData` <sup>1</sup> | `san-af-<region>-prod.azurewebsites.net`</br>`telemetry.<location>.arcdataservices.com` |
 
-<sup>1</sup> The proxy bypass value `ArcData` is available starting with Azure Connected Machine agent version 1.36 and Azure Extension for SQL Server version 1.1.2504.99. Earlier versions include the Azure Arc-enabled SQL Server endpoints in the "Arc" proxy bypass value.
+<sup>1</sup> The proxy bypass value `ArcData` is available starting with Azure Connected Machine agent version 1.36 and Azure Extension for SQL Server version 1.1.2504.99. Earlier versions include the SQL Server enabled by Azure Arc endpoints in the "Arc" proxy bypass value.
 
 To send Microsoft Entra ID and Azure Resource Manager traffic through a proxy server but skip the proxy for Azure Arc traffic, run the following command:
 

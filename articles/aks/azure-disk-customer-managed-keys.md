@@ -3,7 +3,7 @@ title: Use a customer-managed key to encrypt Azure disks in Azure Kubernetes Ser
 description: Bring your own keys (BYOK) to encrypt AKS OS and Data disks.
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-linux
-ms.date: 09/12/2023
+ms.date: 11/24/2023
 ---
 
 # Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)
@@ -64,7 +64,7 @@ az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  
 ```
 
 > [!IMPORTANT]
-> Ensure your AKS cluster identity has **read** permission of DiskEncryptionSet
+> Make sure that the DiskEncryptionSet is located in the same region as your AKS cluster and that the AKS cluster identity has **read** access to the DiskEncryptionSet.
 
 ## Grant the DiskEncryptionSet access to key vault
 
@@ -118,6 +118,13 @@ If you have already provided a disk encryption set during cluster creation, encr
 
 > [!IMPORTANT]
 > Ensure you have the proper AKS credentials. The managed identity needs to have contributor access to the resource group where the diskencryptionset is deployed. Otherwise, you'll get an error suggesting that the managed identity does not have permissions.
+
+To assign the AKS cluster identity the Contributor role for the diskencryptionset, execute the following commands:
+
+```azurecli-interactive
+aksIdentity=$(az aks show -g $RG_NAME -n $CLUSTER_NAME --query "identity.principalId")
+az role assignment create --role "Contributor" --assignee $aksIdentity --scope $diskEncryptionSetId
+```
 
 Create a file called **byok-azure-disk.yaml** that contains the following information.  Replace *myAzureSubscriptionId*, *myResourceGroup*, and *myDiskEncrptionSetName* with your values, and apply the yaml.  Make sure to use the resource group where your DiskEncryptionSet is deployed.  
 
