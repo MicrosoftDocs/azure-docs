@@ -10,7 +10,7 @@ ms.reviewer: harelbr
 
 # Create or edit a metric alert rule
 
-This article shows you how to create a new alert rule or edit an existing alert rule. To learn more about alerts, see the [alerts overview](alerts-overview.md).
+This article shows you how to create a new metric alert rule or edit an existing metric alert rule. To learn more about alerts, see the [alerts overview](alerts-overview.md).
 
 You create an alert rule by combining the resources to be monitored, the monitoring data from the resource, and the conditions that you want to trigger the alert. You can then define [action groups](./action-groups.md) and [alert processing rules](alerts-action-rules.md) to determine what happens when an alert is triggered.
 
@@ -28,8 +28,19 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 1. (Optional) If you chose to **See all signals** in the previous step, use the **Select a signal** pane to search for the signal name or filter the list of signals. Filter by:
     - **Signal type**: The [type of alert rule](alerts-overview.md#types-of-alerts) you're creating.
-    - **Signal source**: The service sending the signal. For metric signals, the monitor service is the metric namespace. "Platform" means the metrics are provided by the resource provider, namely, Azure.
+    - **Signal source**: The service sending the signal.
+
+    This table describes the services available for metric alert rules:
+
+    |Signal source  |Description  |
+    |---------|---------|
+    |Platform   |For metric signals, the monitor service is the metric namespace. "Platform" means the metrics are provided by the resource provider, namely, Azure.|
+    |Azure.ApplicationInsights|Customer-reported metrics, sent by the Application Insights SDK. |
+    |Azure.VM.Windows.GuestMetrics   |VM guest metrics, collected by an extension running on the VM. Can include built-in operating system perf counters and custom perf counters.        |
+    |\<your custom namespace\>|A custom metric namespace, containing custom metrics sent with the Azure Monitor Metrics API.         |
+
     Select the **Signal name** and **Apply**.
+
 1.  Preview the results of the selected metric signal in the **Preview** section. Select values for the following fields.
 
     |Field|Description|
@@ -62,7 +73,6 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     |Operator|The operator used on the dimension name and value.|
     |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.|
     |Include all future values| Select this field to include any future values added to the selected dimension.|
-
 
 1. (Optional) In the **When to evaluate** section: 
 
@@ -111,38 +121,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
     |Automatically resolve alerts (preview) |Select to make the alert stateful. When an alert is stateful, the alert is resolved when the condition is no longer met.<br> If you don't select this checkbox, metric alerts are stateless. Stateless alerts fire each time the condition is met, even if alert already fired.<br> The frequency of notifications for stateless metric alerts differs based on the alert rule's configured frequency:<br>**Alert frequency of less than 5 minutes**: While the condition continues to be met, a notification is sent somewhere between one and six minutes.<br>**Alert frequency of more than 5 minutes**: While the condition continues to be met, a notification is sent between the configured frequency and doubles the value of the frequency. For example, for an alert rule with a frequency of 15 minutes, a notification is sent somewhere between 15 to 30 minutes.|
 
-1. <a name="custom-props"></a>(Optional)  In the **Custom properties** section, if you've configured action groups for this alert rule, you can add your own properties to include in the alert notification payload. You can use these properties in the actions called by the action group, such as by a webhook, Azure function or logic app actions.
-
-    The custom properties are specified as key:value pairs, using either static text, a dynamic value extracted from the alert payload, or a combination of both.
-
-    The format for extracting a dynamic value from the alert payload is: `${<path to schema field>}`. For example: ${data.essentials.monitorCondition}.
-
-    Use the format of the [common alert schema](alerts-common-schema.md) to specify the field in the payload, whether or not the action groups configured for the alert rule use the common schema.
-
-    > [!NOTE]
-    > The [common schema](alerts-common-schema.md) overwrites custom configurations. You can't use both custom properties and the common schema.
-
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-custom-props.png" alt-text="Screenshot that shows the custom properties section of creating a new alert rule.":::
-
-    In the following examples, values in the **custom properties** are used to utilize data from a payload that uses the common alert schema:
-
-    **Example 1**
-    
-    This example creates an "Additional Details" tag with data regarding the "window start time" and "window end time".
-    
-    - **Name:** "Additional Details"
-    - **Value:** "Evaluation windowStartTime: \${data.alertContext.condition.windowStartTime}. windowEndTime: \${data.alertContext.condition.windowEndTime}"
-    - **Result:** "AdditionalDetails:Evaluation windowStartTime: 2023-04-04T14:39:24.492Z. windowEndTime: 2023-04-04T14:44:24.492Z"
-    
-    
-    **Example 2**
-    This example adds the data regarding the reason of resolving or firing the alert. 
-    
-    - **Name:** "Alert \${data.essentials.monitorCondition} reason"
-    - **Value:** "\${data.alertContext.condition.allOf[0].metricName} \${data.alertContext.condition.allOf[0].operator} \${data.alertContext.condition.allOf[0].threshold} \${data.essentials.monitorCondition}. The value is \${data.alertContext.condition.allOf[0].metricValue}"
-    - **Result:**  Example results could be something like:
-        - "Alert Resolved reason: Percentage CPU GreaterThan5 Resolved. The value is 3.585"
-        - “Alert Fired reason": "Percentage CPU GreaterThan5 Fired. The value is 10.585"
+    [!INCLUDE [alerts-wizard-custom=properties](../includes/alerts-wizard-custom-properties.md)]
 
 [!INCLUDE [alerts-wizard-finish](../includes/alerts-wizard-finish.md)]
 

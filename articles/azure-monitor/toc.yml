@@ -1291,7 +1291,9 @@ items:
         - name: Set up alert rules
           items:
           - name: Create or edit a metric alert rule
-            href: alerts/alerts-create-new-alert-rule.md
+            href: alerts/alerts-create-metric-alert-rule.md
+          - name: Create or edit a log alert rule
+            href: alerts/alerts-create-log-alert-rule.md
           - name: Create Prometheus alert rules
             href: alerts/prometheus-alerts.md
           - name: Create a metric alert rule with dynamic thresholds
