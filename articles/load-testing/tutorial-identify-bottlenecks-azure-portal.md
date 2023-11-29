@@ -1,37 +1,34 @@
 ---
-title: 'Tutorial: Run a load test to identify performance bottlenecks'
+title: 'Tutorial: Identify performance issues with load testing'
 titleSuffix: Azure Load Testing
-description: In this tutorial, you learn how to identify and monitor performance bottlenecks in a web app by running a high-scale load test with Azure Load Testing.
+description: In this tutorial, you learn how to identify performance bottlenecks in a web app by running a high-scale load test with Azure Load Testing. Use the dashboard to analyze client-side and server-side metrics.
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 01/18/2023
+ms.date: 11/29/2023
 ms.topic: tutorial
 #Customer intent: As an Azure user, I want to learn how to identify and fix bottlenecks in a web app so that I can improve the performance of the web apps that I'm running in Azure.
 ---
 
 # Tutorial: Run a load test to identify performance bottlenecks in a web app
 
-In this tutorial, you'll learn how to identify performance bottlenecks in a web application by using Azure Load Testing. You'll create a load test for a sample Node.js application.
+In this tutorial, you learn how to identify performance bottlenecks in a web application by using Azure Load Testing. You simulate load for a sample Node.js web application, and then use the load test dashboard to analyze client-side and server-side metrics.
 
-The sample application consists of a Node.js web API, which interacts with a NoSQL database. You'll deploy the web API to Azure App Service web apps and use Azure Cosmos DB as the database.
+The sample application consists of a Node.js web API, which interacts with a NoSQL database. You deploy the web API to Azure App Service web apps and use Azure Cosmos DB as the database.
 
-Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
-
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Deploy the sample app.
 > * Create and run a load test.
-> * Identify performance bottlenecks in the app.
-> * Remove a bottleneck.
-> * Rerun the load test to check performance improvements.
+> * Add Azure app components to the load test.
+> * Identify performance bottlenecks by using the load test dashboard.
 
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* Azure CLI version 2.2.0 or later. Run `az --version` to find the version that's installed on your computer. If you need to install or upgrade the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI version 2.2.0 or later. Run `az --version` to find the version that is installed on your computer. If you need to install or upgrade the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 * Visual Studio Code. If you don't have it, [download and install it](https://code.visualstudio.com/Download).
 * Git. If you don't have it, [download and install it](https://git-scm.com/download).
 
@@ -50,7 +47,7 @@ In this tutorial, you're creating a load test by uploading a JMeter test script 
 
 Follow these steps to create an Azure load testing resource and a load test by using the Azure CLI:
 
-1. Open a terminal window and enter the following command to login to your Azure subscription.
+1. Open a terminal window and enter the following command to sign in to your Azure subscription.
 
     ```azurecli
     az login
@@ -118,7 +115,7 @@ To add the Azure app components for the sample application to your load test:
 
 1. Select **Apply** to save the changes to the load test configuration.
 
-You've added the Azure app components for the sample application to your load test to enable monitoring server-side metrics while the load test is running.
+You successfully added the Azure app components for the sample application to your load test to enable monitoring server-side metrics while the load test is running.
 
 ## Run the load test
 
@@ -138,7 +135,7 @@ To run your load test in the Azure portal:
 
     :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/run-load-test-first-run.png" alt-text="Screenshot that shows how to start a load test in the Azure portal." lightbox="./media/tutorial-identify-bottlenecks-azure-portal/run-load-test-first-run.png":::
 
-    When you run a load test, Azure Load Testing deploys the JMeter test script and any additional files to the test engine instance(s), and then starts the load test.
+    When you run a load test, Azure Load Testing deploys the JMeter test script and any extra files to the test engine instance(s), and then starts the load test.
 
 1. When the load test starts, you should see the load test dashboard.
 
@@ -157,9 +154,9 @@ Wait until the load test finishes fully before you proceed to the next section.
 
 ## Use server-side metrics to identify performance bottlenecks
 
-In this section, you'll analyze the results of the load test to identify performance bottlenecks in the application. Examine both the client-side and server-side metrics to determine the root cause of the problem.
+In this section, you analyze the results of the load test to identify performance bottlenecks in the application. Examine both the client-side and server-side metrics to determine the root cause of the problem.
 
-1. First, look at the client-side metrics. You'll notice that the 90th percentile for the **Response time** metric for the `add` and `get` API requests is higher than it is for the `lasttimestamp` API.
+1. First, look at the client-side metrics. You notice that the 90th percentile for the **Response time** metric for the `add` and `get` API requests is higher than it is for the `lasttimestamp` API.
 
     :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/client-side-metrics.png" alt-text="Screenshot that shows the client-side metrics.":::
 
@@ -181,13 +178,13 @@ In this section, you'll analyze the results of the load test to identify perform
 
     :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/cosmos-db-metrics.png" alt-text="Screenshot that shows Azure Cosmos DB metrics.":::
 
-    Notice that the **Normalized RU Consumption** metric shows that the database was quickly running at 100% resource utilization. The high resource usage might have caused database throttling errors. It also might have increased response times for the `add` and `get` web APIs.
+    Notice that the **Normalized RU Consumption** metric shows that the database was quickly running at 100% resource utilization. The high resource usage might cause database throttling errors. It also might increase response times for the `add` and `get` web APIs.
 
     You can also see that the **Provisioned Throughput** metric for the Azure Cosmos DB instance has a maximum throughput of 400 RUs. Increasing the provisioned throughput of the database might resolve the performance problem.
 
 ## Increase the database throughput
 
-In this section, you'll allocate more resources to the database, to resolve the performance bottleneck.
+In this section, you allocate more resources to the database to resolve the performance bottleneck.
 
 For Azure Cosmos DB, increase the database RU scale setting:
 
@@ -205,28 +202,28 @@ For Azure Cosmos DB, increase the database RU scale setting:
 
 ## Validate the performance improvements
 
-Now that you've increased the database throughput, rerun the load test and verify that the performance results have improved:
+Now that you increased the database throughput, rerun the load test and verify that the performance results improved:
 
 1. On the test run dashboard, select **Rerun**, and then select **Rerun** on the **Rerun test** pane.
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/rerun-test.png" alt-text="Screenshot that shows selections for running the load test.":::
 
-   You'll see a new test run entry with a status column that cycles through the **Provisioning**, **Executing**, and **Done** states. At any time, select the test run to monitor how the load test is progressing.
+   You can see a new test run entry with a status column that cycles through the **Provisioning**, **Executing**, and **Done** states. At any time, select the test run to monitor how the load test is progressing.
 
 1. After the load test finishes, check the **Response time** results and the **Errors** results of the client-side metrics.
 
-1. Check the server-side metrics for Azure Cosmos DB and ensure that the performance has improved.
+1. Check the server-side metrics for Azure Cosmos DB and ensure that the performance improved.
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/cosmos-db-metrics-post-run.png" alt-text="Screenshot that shows the Azure Cosmos DB client-side metrics after update of the scale settings.":::
 
    The Azure Cosmos DB **Normalized RU Consumption** value is now well below 100%.
 
-Now that you've changed the scale settings of the database, you see that:
+Now that you updated the scale settings of the database, you can see that:
 
-* The response time for the `add` and `get` APIs has improved.
+* The response time for the `add` and `get` APIs improved.
 * The normalized RU consumption remains well under the limit.
 
-As a result, the overall performance of your application has improved.
+As a result, the overall performance of your application improved.
 
 ## Clean up resources
 
@@ -237,3 +234,4 @@ As a result, the overall performance of your application has improved.
 - Get more details about how to [diagnose failing tests](./how-to-diagnose-failing-load-test.md)
 - [Monitor server-side metrics](./how-to-monitor-server-side-metrics.md) to identify performance bottlenecks in your application
 - [Define load test fail criteria](./how-to-define-test-criteria.md) to validate test results against your service requirements
+- Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
