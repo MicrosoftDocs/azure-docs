@@ -16,16 +16,15 @@ Spring AI doesn't currently support the *AzureCognitiveSearchChatExtensionConfig
 
 Spring AI supports a VectorStore abstraction, and you can wrap Azure AI Search can be wrapped in a Spring AI VectorStore implementation for querying your custom data. The following project implements a custom VectorStore backed by Azure AI Search and directly executes RAG operations.
 
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
+In a Bash window, create a new directory for your app, and navigate to it.
 
-```console
+```bash
 mkdir ai-completion-demo && cd ai-completion-demo
 ```
 
-Run the `spring init` command from your working directory. This command creates a standard directory structure for your Spring project including the main Java class source file and the *pom.xml*
-file used for managing Maven based projects.
+Run the `spring init` command from your working directory. This command creates a standard directory structure for your Spring project including the main Java class source file and the *pom.xml* file used for managing Maven based projects.
 
-```console
+```bash
 spring init -a ai-custom-data-demo -n AICustomData --force --build maven -x
 ```
 
