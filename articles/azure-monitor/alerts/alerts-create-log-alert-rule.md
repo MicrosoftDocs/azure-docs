@@ -33,9 +33,9 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 1.  On the **Logs** pane, write a query that returns the log events for which you want to create an alert.
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log alert rule.":::
 
-        To use one of the predefined alert rule queries, expand the **Schema and filter** pane on the left of the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
+    To use one of the predefined alert rule queries, expand the **Schema and filter** pane on the left of the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
 
 1. (Optional) If you're querying an ADX or ARG cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
 
@@ -182,7 +182,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
     |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
 
-    [!INCLUDE [alerts-wizard-custom=properties](../includes/alerts-wizard-custom-properties.md)]
+[!INCLUDE [alerts-wizard-custom=properties](../includes/alerts-wizard-custom-properties.md)]
 
 [!INCLUDE [alerts-wizard-finish](../includes/alerts-wizard-finish.md)]
 
