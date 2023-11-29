@@ -47,6 +47,8 @@ Microsoft Sentinel customers can [benefit from the Defender for Cloud integratio
 
 Customers who have integrated their Microsoft 365 Defender incidents into Sentinel and want to keep their subscription-based settings and avoid tenant-based syncing can select not to synchronize incidents through the Microsoft 365 Defender connector. They can [change this setting through the Microsoft Defender Portal](/microsoft-365/security/defender/microsoft-365-security-center-defender-cloud?view=o365-worldwide).
 
+Learn how [Defender for Cloud and Microsoft 365 Defender handle your data's privacy](data-security.md#defender-for-cloud-and-microsoft-defender-365-defender-integration).
+
 ## Next steps
 
 [Security alerts - a reference guide](alerts-reference.md)
