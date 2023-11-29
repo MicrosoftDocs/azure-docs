@@ -87,6 +87,13 @@ Azure reliability guidance contains the following:
 [Azure Virtual WAN](../virtual-wan/virtual-wan-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)|
 [Azure Web Application Firewall](../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 
+
+### ![An icon that signifies this service is mainstream.](media/icon-strategic.svg) Strategic services
+
+| **Products**  | 
+| --- | 
+| [Microsoft Fabric](reliability-fabric.md) |
+
 ## Azure Service Manager Retirement
 
 Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations, and has been in use since 2011. ASM is retiring in August 2024, and customers can now migrate to [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview). 
