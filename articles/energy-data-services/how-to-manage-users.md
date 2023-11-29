@@ -116,9 +116,9 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 2. Get the service principal access token using [Generate service principal access token](how-to-manage-users.md#generate-service-principal-access-token).
 3. If you try to directly use user tokens for adding entitlements, it results in 401 error. The service principal access token must be used to add initial users in the system and those users (with admin access) can then manage more users.
 4. Use the service principal access token to do these three steps using the commands outlined in the following sections.
-   5. Add the users to the `users@<data-partition-id>.<domain>` OSDU group.
-   6. Get the OSDU group such as `service.legal.editor@<data-partition-id>.<domain>` you want to add the user to.
-   7. Add the users to that group.
+   1. Add the users to the `users@<data-partition-id>.<domain>` OSDU group.
+   1. Get the OSDU group such as `service.legal.editor@<data-partition-id>.<domain>` you want to add the user to.
+   1. Add the users to that group.
 
 ## Get the list of all available groups in a data partition
 
