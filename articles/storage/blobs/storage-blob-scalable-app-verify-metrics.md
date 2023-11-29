@@ -5,7 +5,7 @@ author: akashdubey-ms
 ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 02/20/2018
-ms.author: rogarana
+ms.author: akashdubey
 ---
 
 # Verify throughput and latency metrics for a storage account
