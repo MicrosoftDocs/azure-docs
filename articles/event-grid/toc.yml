@@ -177,7 +177,7 @@ items:
         - name: Secure
           items:
           - name: Allow access from specific IP addresses
-            href: configure-firewall-mqtt.md
+            href: configure-firewall-namespace-topics.md
           - name: Allow access via private endpoints
             href: configure-private-endpoints-pull.md
   - name: Event Grid basic
