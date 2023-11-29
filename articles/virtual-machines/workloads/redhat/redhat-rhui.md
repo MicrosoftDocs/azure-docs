@@ -101,6 +101,7 @@ Support for EUS RHEL7 ended in August 30, 2021. For more information, see [Red H
 - RHEL 8.6 EUS support ends May 31, 2024
 - RHEL 9.0 EUS support ends May 31, 2024
 
+---
 ### Switch a RHEL Server to EUS Repositories.
 
 #### [Switching to EUS repositories on RHEL7](#tab/rhel7) 
@@ -183,7 +184,7 @@ Use the following procedure to lock a RHEL 9.x VM to a particular minor release.
    ```bash
    sudo dnf update
    ```
-
+---
 ### Switch a RHEL Server to non-EUS Repositories.
 
 #### [Switching to non-EUS repositories on RHEL7](#tab/rhel7) 
