@@ -1839,7 +1839,7 @@ groups:
   - id: programming-language-java
     title: Java
   - id: programming-language-spring
-    title: Java Spring
+    title: Spring
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-python
@@ -1897,7 +1897,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-spring
-    title: Java Spring
+    title: Spring
   - id: programming-language-javascript
     title: JavaScript 
   - id: programming-language-python
