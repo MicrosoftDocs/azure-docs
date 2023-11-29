@@ -1,17 +1,17 @@
 ---
-title: Legacy Azure virtual network VPN gateway SKUs
+title: VPN Gateway legacy SKUs
 description: How to work with the old virtual network gateway SKUs; Basic, Standard, and High Performance.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 11/28/2023
+ms.date: 11/29/2023
 ms.author: cherylmc 
 ---
-# Working with virtual network gateway SKUs (legacy SKUs)
+# Working with VPN Gateway legacy SKUs
 
 This article contains information about the legacy (old) virtual network gateway SKUs. The legacy SKUs still work in both deployment models for VPN gateways that have already been created. Classic VPN gateways continue to use the legacy SKUs, both for existing gateways, and for new gateways. When creating new Resource Manager VPN gateways, use the new gateway SKUs. For information about the new SKUs, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 
-## <a name="gwsku"></a>Gateway SKUs
+## <a name="gwsku"></a>Legacy gateway SKUs
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
 
@@ -21,12 +21,20 @@ You can view legacy gateway pricing in the **Virtual Network Gateways** section,
 
 The Standard and High Performance SKUs will be deprecated September 30, 2025. The product team will make a migration path available for these SKUs by November 30, 2024. **At this time, there's no action that you need to take**.
 
+When the migration path becomes available, you can migrate your legacy SKUs to the following SKUs:
+
+* **Standard SKU:** -> **VpnGw1**
+* **High Performance SKU:** -> **VpnGw2**
+
 There are no [price](https://azure.microsoft.com/pricing/details/vpn-gateway/) changes if you migrate to Standard (VpnGw1) and High Performance (VpnGw2) gateways. As a benefit, there's a performance improvement after migrating:
 
-* **Standard** 6.5x
-* **High Performance** 5x
+* **Standard SKU:** 6.5x
+* **High Performance SKU:** 5x
 
-If you don't migrate your gateway by September 30, 2025, your gateway will be automatically upgraded to AZ gateways: VpnGw1AZ (Standard) or VpnGw2AZ (High Performance).
+If you don't migrate your gateway SKUs by September 30, 2025, your gateway will be automatically migrated and upgraded to an AZ gateway SKU:
+
+* **Standard SKU:** -> **VpnGw1AZ**
+* **High Performance SKU:** -> **VpnGw2AZ**
 
 Important Dates:
 
