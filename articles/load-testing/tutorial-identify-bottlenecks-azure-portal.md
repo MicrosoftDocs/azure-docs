@@ -35,104 +35,116 @@ In this tutorial, you'll learn how to:
 * Visual Studio Code. If you don't have it, [download and install it](https://code.visualstudio.com/Download).
 * Git. If you don't have it, [download and install it](https://git-scm.com/download).
 
-## Deploy the sample app
 
-Before you can load test the sample app, you have to get it deployed and running. Use Azure CLI commands, Git commands, and PowerShell commands to make that happen.
+## Deploy the sample application
+
+In this tutorial, you're generating load against a sample web application that you deploy to Azure App Service. Use Azure CLI commands, Git commands, and PowerShell commands to deploy the sample application in your Azure subscription.
 
 [!INCLUDE [include-deploy-sample-application](includes/include-deploy-sample-application.md)]
 
-Now that you have the application deployed and running, you can run your first load test against it.
+Now that you have the sample application deployed and running, you can create an Azure load testing resource and a load test.
 
-## Configure and create the load test
+## Create a load test resource and test (use CLI)
 
-In this section, you'll create a load test by using a sample Apache JMeter test script.
+In this tutorial, you're creating a load test by uploading a JMeter test script (`jmx` file). The sample application repository already contains a load test configuration file and JMeter test script.
 
-The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls to the web app on each test iteration:
+Follow these steps to create an Azure load testing resource and a load test by using the Azure CLI:
 
-* `add`: Carries out a data insert operation on Azure Cosmos DB for the number of visitors on the web app.
-* `get`: Carries out a GET operation from Azure Cosmos DB to retrieve the count.
-* `lasttimestamp`: Updates the time stamp since the last user went to the website.
+1. Open a terminal window and enter the following command to login to your Azure subscription.
 
-> [!NOTE]
-> The sample Apache JMeter script requires two plugins: ```Custom Thread Groups``` and ```Throughput Shaping Timer```. To open the script on your local Apache JMeter instance, you need to install both plugins. You can use the [Apache JMeter Plugins Manager](https://jmeter-plugins.org/install/Install/) to do this.
+    ```azurecli
+    az login
+    ```
 
-### Create the Azure load testing resource
+1. Go to the sample application directory.
 
-The Azure load testing resource is a top-level resource for your load-testing activities. This resource provides a centralized place to view and manage load tests, test results, and related artifacts.
+   ```azurecli
+   cd nodejs-appsvc-cosmosdb-bottleneck
+   ```
 
-If you already have a load testing resource, skip this section and continue to [Create a load test](#create-a-load-test).
+1. Enter this command to create an Azure load testing resource.
 
-If you don't yet have an Azure load testing resource, create one now:
+    Replace the `<load-testing-resource-name>`, and the `<load-testing-resource-group-name>` text placeholders. Make sure that the resource group already exists. You can reuse the resource group of the sample application, or create a new dedicated resource group for the load testing resource.
 
-[!INCLUDE [azure-load-testing-create-portal](./includes/azure-load-testing-create-in-portal/azure-load-testing-create-in-portal.md)]
+    ```azurecli
+    loadTestResource="<load-testing-resource-name>"
+    resourceGroup="<load-testing-resource-group-name>"
+    location="East US"
+    
+    az load create --name $loadTestResource --resource-group $resourceGroup --location $location
+    ```
 
-### Create a load test
+1. Use this command to create a load test for simulating load against your sample application.
 
-Next, you create a load test in your load testing resource for the sample app. You create the load test by using an existing JMeter script in the sample app repository.
+    This command uses the `Sampleapp.yaml` load test configuration file, which references the `SampleApp.jmx` JMeter test script. You use a command-line parameter to pass the sample application hostname to the load test.
 
-1. Go to your load testing resource, and select **Create** on the **Overview** page.
+    Replace the `<web-app-hostname>` text placeholder with the App Service hostname of the sample application. This value is of the form `myapp.azurewebsites.net`. Don't include the `https://` part of the URL.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-test.png" alt-text="Screenshot that shows the button for creating a new test." :::
+    ```azurecli
+    testId="sample-app-test"
+    webappHostname="<web-app-hostname>"
+    
+    az load test create --test-id $testId --load-test-resource $loadTestResource --resource-group $resourceGroup --load-test-config-file SampleApp.yaml --env webapp=$webappHostname
+    ```
 
-1. On the **Basics** tab, enter the **Test name** and **Test description** information. Optionally, you can select the **Run test after creation** checkbox to automatically start the load test after creating it.
+You now have an Azure load testing resource and a load test to generate load against the sample web application in your Azure subscription.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-basics.png" alt-text="Screenshot that shows the Basics tab for creating a test." :::
+## Add app components
 
-1. On the **Test plan** tab, select the **JMeter script** test method, and then select the *SampleApp.jmx* test script from the cloned sample application directory. Next, select **Upload** to upload the file to Azure and configure the load test.
+Azure Load Testing enables you to monitor resource metrics for the Azure components of your application. By analyzing these *server-side metrics*, you can identify performance and stability issues in your application directly from the Azure Load Testing dashboard.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab and how to upload an Apache JMeter script." :::
+In this tutorial, you add the Azure components for the sample application you deployed on Azure, such as the app service, Cosmos DB account, and more.
 
-    Optionally, you can select and upload additional Apache JMeter configuration files or other files that are referenced in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s).
+To add the Azure app components for the sample application to your load test:
 
-1. On the **Parameters** tab, add a new environment variable. Enter *webapp* for the **Name** and *`<yourappname>.azurewebsites.net`* for the **Value**. Replace the placeholder text `<yourappname>` with the name of the newly deployed sample application. Don't include the `https://` prefix.
+1. In the [Azure portal](https://portal.azure.com), go to your Azure load testing resource.
 
-    The Apache JMeter test script uses the environment variable to retrieve the web application URL. The script then invokes the three APIs in the web application.
+1. On the left pane, select **Tests** to view the list of load tests
 
-    :::image type="content" source="media/tutorial-identify-bottlenecks-azure-portal/create-new-test-parameters.png" alt-text="Screenshot that shows the parameters tab to add environment variable.":::
+1. Select the checkbox next to your load test, and then select **Edit**.
 
-1. On the **Load** tab, configure the following details. You can leave the default value for this tutorial.
+    :::image type="content" source="media/tutorial-identify-bottlenecks-azure-portal/edit-load-test.png" alt-text="Screenshot that shows the list of load tests in the Azure portal, highlighting how to select a test from the list and the Edit button to modify the load test configuration." lightbox="media/tutorial-identify-bottlenecks-azure-portal/edit-load-test.png":::
 
-    |Setting  |Value  |Description  |
-    |---------|---------|---------|
-    |**Engine instances**     |**1**         |The number of parallel test engines that run the Apache JMeter script. |
+1. Go to the **Monitoring** tab, and then select **Add/Modify**.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-load.png" alt-text="Screenshot that shows the Load tab for creating a test." :::
+1. Select the checkboxes for the sample application you deployed previously, and then select **Apply**.
 
-1. On the **Monitoring** tab, specify the application components that you want to monitor with the resource metrics. Select **Add/modify** to manage the list of application components.
+    :::image type="content" source="media/tutorial-identify-bottlenecks-azure-portal/configure-load-test-select-app-components.png" alt-text="Screenshot that shows how to add app components to a load test in the Azure portal." lightbox="media/tutorial-identify-bottlenecks-azure-portal/configure-load-test-select-app-components.png":::
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-monitoring.png" alt-text="Screenshot that shows the Monitoring tab for creating a test." :::
+    > [!TIP]
+    > You can use the resource group filter to only view the Azure resources in the sample application resource group.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-add-resource.png" alt-text="Screenshot that shows how to add Azure resources to monitor during the load test." :::
+1. Select **Apply** to save the changes to the load test configuration.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-added-resources.png" alt-text="Screenshot that shows the Monitoring tab with the list of Azure resources to monitor." :::
+You've added the Azure app components for the sample application to your load test to enable monitoring server-side metrics while the load test is running.
 
-1. Select **Review + create**, review all settings, and select **Create**.
+## Run test
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-review.png" alt-text="Screenshot that shows the tab for reviewing and creating a test." :::
+You can now run the load test to simulate load against the sample application you deployed in your Azure subscription. In this tutorial, you run the load test from within the Azure portal. Alternately, you can [configure your CI/CD workflow to run your load test](./quickstart-add-load-test-cicd.md).
 
-> [!NOTE]
-> You can update the test configuration at any time, for example to upload a different JMX file. Choose your test in the list of tests, and then select **Edit**.
+To run your load test in the Azure portal:
 
-## Run the load test in the Azure portal
+1. In the [Azure portal](https://portal.azure.com), go to your Azure load testing resource.
 
-In this section, you'll use the Azure portal to manually start the load test that you created previously. If you checked the **Run test after creation** checkbox, the test will already be running.
+1. On the left pane, select **Tests** to view the list of load tests
 
-1. Select **Tests** to view the list of tests, and then select the test that you created.
+1. Select the load test from the list to view the test details and list of test runs.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/test-list.png" alt-text="Screenshot that shows the list of tests." :::
+1. Select **Run**, and then **Run** again to start the load test.
 
-   >[!TIP]
-   > You can use the search box and the **Time range** filter to limit the number of tests.
+    Optionally, you can enter a test run description.
 
-1. On the test details page, select **Run** or **Run test**. Then, select **Run** on the **Run test** confirmation pane to start the load test.
+    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/run-load-test-first-run.png" alt-text="Screenshot that shows how to start a load test in the Azure portal." lightbox="./media/tutorial-identify-bottlenecks-azure-portal/run-load-test-first-run.png":::
 
-    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/test-runs-run.png" alt-text="Screenshot that shows selections for running a test." :::
+    When you run a load test, Azure Load Testing deploys the JMeter test script and any additional files to the test engine instance(s), and then starts the load test.
 
-    Azure Load Testing begins to monitor and display the application's server metrics on the dashboard.
+1. When the load test starts, you should see the load test dashboard.
 
-    You can see the streaming client-side metrics while the test is running. By default, the results refresh automatically every five seconds.
+    If the dashboard doesn't show, you can select **Refresh** on then select the test run from the list.
 
-    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/aggregated-by-percentile.png" alt-text="Screenshot that shows the dashboard with test results.":::
+    The load test dashboard presents the test run details, such as the client-side metrics and server-side application metrics. The graphs on the dashboard refresh automatically.
+
+    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/load-test-dashboard-client-metrics.png" alt-text="Screenshot that shows the client-side metrics graphs in the load test dashboard in the Azure portal." lightbox="./media/tutorial-identify-bottlenecks-azure-portal/load-test-dashboard-client-metrics.png":::
 
     You can apply multiple filters or aggregate the results to different percentiles to customize the charts.
 
@@ -141,7 +153,7 @@ In this section, you'll use the Azure portal to manually start the load test tha
 
 Wait until the load test finishes fully before you proceed to the next section.
 
-## Identify performance bottlenecks
+## Use server-side metrics to identify performance bottlenecks
 
 In this section, you'll analyze the results of the load test to identify performance bottlenecks in the application. Examine both the client-side and server-side metrics to determine the root cause of the problem.
 
@@ -218,9 +230,8 @@ As a result, the overall performance of your application has improved.
 
 [!INCLUDE [alt-delete-resource-group](../../includes/alt-delete-resource-group.md)]
 
-## Next steps
+## Related content
 
-Advance to the next tutorial to learn how to set up an automated regression testing workflow by using Azure Pipelines or GitHub Actions.
-
-> [!div class="nextstepaction"]
-> [Set up automated regression testing](./tutorial-identify-performance-regression-with-cicd.md)
+- Get more details about how to [diagnose failing tests](./how-to-diagnose-failing-load-test.md)
+- [Monitor server-side metrics](./how-to-monitor-server-side-metrics.md) to identify performance bottlenecks in your application
+- [Define load test fail criteria](./how-to-define-test-criteria.md) to validate test results against your service requirements
