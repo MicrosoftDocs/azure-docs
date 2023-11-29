@@ -7,7 +7,7 @@ ms.topic: quickstart-arm
 ms.custom: subject-armqs, devx-track-arm-template
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/20/2023
+ms.date: 11/28/2023
 #Customer intent: As an enterprise admin, I want to understand how to create and configure dev box components with an ARM template so that I can provide dev box projects for my users.
 ---
 
@@ -34,7 +34,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template 
 
-The template used in this QuickStart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/devbox-with-customized-image/)
+The template used in this QuickStart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/devbox-with-customized-image/).
 
 The template for this article is too long to show here. To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.devcenter/devbox-with-customized-image/azuredeploy.json)
 
