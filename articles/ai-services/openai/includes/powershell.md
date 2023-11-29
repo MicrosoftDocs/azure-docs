@@ -117,7 +117,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 1. Run the script using PowerShell:
 
-   ```powershell
+   ```powershell-interactive
    ./quickstart.ps1
    ```
 
@@ -125,7 +125,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 The output will include response text following the `Once upon a time` prompt. Azure OpenAI returned `There was a world beyond the mist...where a` in this example.
 
-```powershell
+```output
 Once upon a time...
  There was a world beyond the mist...where a
 ```

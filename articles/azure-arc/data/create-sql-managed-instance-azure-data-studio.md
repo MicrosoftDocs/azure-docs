@@ -1,6 +1,6 @@
 ---
-title: Create Azure Arc-enabled SQL Managed Instance using Azure Data Studio
-description: Create Azure Arc-enabled SQL Managed Instance using Azure Data Studio
+title: Create SQL Managed Instance enabled by Azure Arc using Azure Data Studio
+description: Create SQL Managed Instance enabled by Azure Arc using Azure Data Studio
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
@@ -11,13 +11,13 @@ ms.date: 06/16/2021
 ms.topic: how-to
 ---
 
-# Create Azure Arc-enabled SQL Managed Instance using Azure Data Studio
+# Create SQL Managed Instance enabled by Azure Arc using Azure Data Studio
 
 This document demonstrates how to install Azure SQL Managed Instance - Azure Arc using Azure Data Studio.
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
-## Create Azure Arc-enabled SQL Managed Instance
+## Steps
 
 1. Launch Azure Data Studio
 2. On the Connections tab, select on the three dots on the top left and choose **New Deployment...**.
@@ -63,9 +63,9 @@ This document demonstrates how to install Azure SQL Managed Instance - Azure Arc
 
 After you select the deploy button, the Azure Arc data controller initiates the deployment. The deployment creates the managed instance. The deployment process takes a few minutes to create the data controller.
 
-## Connect to Azure Arc-enabled SQL Managed Instance from Azure Data Studio
+## Connect from Azure Data Studio
 
-View all the Azure SQL Managed Instances provisioned to this data controller. Use the following command:
+View all the SQL Managed Instances provisioned to this data controller. Use the following command:
 
   ```azurecli
   az sql mi-arc list --k8s-namespace <namespace> --use-k8s
@@ -88,6 +88,6 @@ View all the Azure SQL Managed Instances provisioned to this data controller. Us
 1. Optionally, select/Add New Server Group as appropriate
 1. Select **Connect** to connect to the Azure SQL Managed Instance - Azure Arc
 
-## Next Steps
+## Related information
 
 Now try to [monitor your SQL instance](monitor-grafana-kibana.md)
