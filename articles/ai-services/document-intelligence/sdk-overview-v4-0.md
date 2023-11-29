@@ -359,11 +359,11 @@ Create a client object to interact with the Document Intelligence SDK, and then 
 
 ## Help options
 
-The [Microsoft Q&A](/answers/tags/440/document-intelligence) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ai-document-intelligence) forums are available for the developer community to ask and answer questions about Azure AI Document Intelligence and other services. Microsoft monitors the forums and replies to questions that the community has yet to answer. To make sure you use the following tags so that we see your question
+The [Microsoft Q&A](/answers/tags/440/document-intelligence) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ai-document-intelligence) forums are available for the developer community to ask and answer questions about Azure AI Document Intelligence and other services. Microsoft monitors the forums and replies to questions that the community has yet to answer. To make sure, use the following tags so that we see your question
 
 * Microsoft Q&A: **`Azure AI Document Intelligence`**.
 
-* Staci Overflow: **`azure-ai-document-intelligence`**
+* Stack Overflow: **`azure-ai-document-intelligence`**
 
 ## Next steps
 

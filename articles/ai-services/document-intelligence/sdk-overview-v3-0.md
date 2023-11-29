@@ -1,7 +1,7 @@
 ---
-title: Document Intelligence (formerly Form Recognizer) SDK target REST API 2022-08-31 (GA)
+title: Document Intelligence (formerly Form Recognizer) SDK target REST API 2022–08–31 (GA)
 titleSuffix: Azure AI services
-description: Document Intelligence 2022-08-31 (GA) software development kits (SDKs) expose Document Intelligence models, features and capabilities, using C#, Java, JavaScript, and Python programming language.
+description: Document Intelligence 2022–08–31 (GA) software development kits (SDKs) expose Document Intelligence models, features and capabilities, using C#, Java, JavaScript, and Python programming language.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
@@ -20,9 +20,9 @@ monikerRange: 'doc-intel-3.0.0'
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD051 -->
 
-# SDK target: REST API 2022-08-31 (GA)
+# SDK target: REST API 2022–08–31 (GA)
 
-![Document Intelligence checkmark](media/yes-icon.png) **REST API version 2022-08-31 (GA)**
+![Document Intelligence checkmark](media/yes-icon.png) **REST API version 2022–08–31 (GA)**
 
 Azure AI Document Intelligence is a cloud service that uses machine learning to analyze text and structured data from documents. The Document Intelligence software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Intelligence models and capabilities into your applications. Document Intelligence SDK is available across platforms in C#/.NET, Java, JavaScript, and Python programming languages.
 
