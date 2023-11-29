@@ -52,7 +52,7 @@ Follow these steps:
 
     ![Azure portal toolbar](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-4. Ensure the environment is set to **PowerShell**. By default, its set to Bash.
+4. Ensure the environment is set to **PowerShell**. By default, it's set to Bash.
 
     ![PowerShell toolbar setting](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
@@ -115,7 +115,7 @@ Follow these steps:
 | HardwareId | Unique ID for the device, such as the MAC address. |
 | ReportingInterval | Reporting interval in seconds. |
 | Location | Device latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters). |
-| ParentDeviceId | ID of the parent device to which this device is connected. For example, a node thats connected to a gateway. A node has parentDeviceId as the gateway. |
+| ParentDeviceId | ID of the parent device to which this device is connected. For example, a node that's connected to a gateway. A node has parentDeviceId as the gateway. |
 | Name | A name to identify the resource. Device partners must send a name that's consistent with the device name on the partner side. If the partner device name is user defined, then the same user-defined name should be propagated to FarmBeats. |
 | Description | Provide a meaningful description. |
 | Properties | other properties from the manufacturer. |
