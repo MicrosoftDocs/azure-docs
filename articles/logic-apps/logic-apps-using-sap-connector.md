@@ -249,7 +249,7 @@ For more information about SAP services and ports, review the [TCP/IP Ports of A
 
 ### SAP NCo client library prerequisites
 
-To use the SAP connector you'll need install the SAP Connector NCo client library for Microsoft .NET 3.1. The following list describes the prerequisites for the SAP NCo client library, based on which workflow where you're using with the SAP connector:
+To use the SAP connector, you have to install the SAP Connector NCo client library for Microsoft .NET 3.1. The following list describes the prerequisites for the SAP NCo client library, based on the workflow where you're using the SAP connector:
 
 * Version:
 
