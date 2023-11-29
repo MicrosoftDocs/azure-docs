@@ -274,8 +274,7 @@ To remove the version lock, use the following commands. Run the commands as `roo
 
 
 
-
-
+---
 ## The IPs for the RHUI content delivery servers
 
 RHUI is available in all regions where RHEL on-demand images are available. Availability currently includes all public regions listed in the [Azure status dashboard](https://azure.microsoft.com/status/), Azure US Government, and Microsoft Azure Germany regions.
@@ -317,6 +316,7 @@ southeastasia - 20.24.186.80
 >
 > Also, Azure Germany is deprecated in favor of public Germany regions. We recommend for Azure Germany customers to start pointing to public RHUI by using the steps in [Manual update procedure to use the Azure RHUI servers](#manual-update-procedure-to-use-the-azure-rhui-servers).
 
+---
 ## Azure RHUI Infrastructure
 
 ### Update expired RHUI client certificate on a VM
