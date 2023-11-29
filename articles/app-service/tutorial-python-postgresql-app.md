@@ -219,7 +219,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Resource Group* &rarr; Select **Create new** and use a name of **msdocs-python-postgres-tutorial**.
         1. *Region* &rarr; Any Azure region near you.
         1. *Name* &rarr; **msdocs-python-postgres-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
-        1. *Runtime stack* &rarr; **Python 3.10**.
+        1. *Runtime stack* &rarr; **Python 3.12**.
         1. *Database* &rarr; **PostgreSQL - Flexible Server** is selected by default as the database engine. The server name and database name are also set by default to appropriate values.
         1. *Add Azure Cache for Redis* &rarr; **Yes**.
         1. *Hosting plan* &rarr; **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
@@ -374,6 +374,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
         1. In **Repository**, select **msdocs-flask-postgresql-sample-app**.
         1. In **Branch**, select **main**.
         1. Keep the default option selected to **Add a workflow**.
+        1. Under **Authentication type**, select **User-assigned identity**.
         1. In the top menu, select **Save**. App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
     :::column-end:::
     :::column:::
@@ -484,7 +485,8 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 :::row:::
     :::column span="2":::
-        **Step 1:** Back in the App Service page, in the left menu, select **SSH**. 
+        **Step 1:** Back in the App Service page, in the left menu, 
+        1. Select **SSH**. 
         1. Select **Go**.
     :::column-end:::
     :::column:::
@@ -507,7 +509,8 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 :::row:::
     :::column span="2":::
-        **Step 1:** Back in the App Service page, in the left menu, select **SSH**. 
+        **Step 1:** Back in the App Service page, in the left menu, 
+        1. Select **SSH**. 
         1. Select **Go**.
     :::column-end:::
     :::column:::
@@ -587,7 +590,7 @@ Azure App Service captures all messages output to the console to help you diagno
 
 ### [Django](#tab/django)
 
-:::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="2":::
+:::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="3":::
 
 -----
 
