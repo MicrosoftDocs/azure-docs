@@ -19,7 +19,7 @@ ms.custom: devx-track-python, devguide-python
 
 This article shows how to use blob index tags to manage and find data using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 
-To learn about setting blob index tags using asynchronous APIs, see [Set blob index tags asynchronously](#set-blob-properties-asynchronously).
+To learn about setting blob index tags using asynchronous APIs, see [Set blob index tags asynchronously](#set-blob-index-tags-asynchronously).
 
 ## Prerequisites
 
