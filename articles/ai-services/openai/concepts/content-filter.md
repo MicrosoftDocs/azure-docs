@@ -363,7 +363,6 @@ Annotations are currently in preview for Completions and Chat Completions (GPT m
 
 # [OpenAI Python 0.28.1](#tab/python)
 
-
 ```python
 # os.getenv() for the endpoint and key assumes that you are using environment variables.
 
@@ -591,6 +590,49 @@ main().catch((err) => {
   console.error("The sample encountered an error:", err);
 });
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell-interactive
+# Env: for the endpoint and key assumes that you are using environment variables.
+$openai = @{
+    api_key     = $Env:AZURE_OPENAI_KEY
+    api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
+    api_version = '2023-10-01-preview' # this may change in the future
+    name        = 'YOUR-DEPLOYMENT-NAME-HERE' #This will correspond to the custom name you chose for your deployment when you deployed a model.
+}
+
+$prompt = 'Example prompt where a severity level of low is detected'
+    # Content that is detected at severity level medium or high is filtered, 
+    # while content detected at severity level low isn't filtered by the content filters.
+
+$headers = [ordered]@{
+    'api-key' = $openai.api_key
+}
+
+$body = [ordered]@{
+    prompt    = $prompt
+    model      = $openai.name
+} | ConvertTo-Json
+
+# Send a completion call to generate an answer
+$url = "$($openai.api_base)/openai/deployments/$($openai.name)/completions?api-version=$($openai.api_version)"
+
+$response = Invoke-RestMethod -Uri $url -Headers $headers -Body $body -Method Post -ContentType 'application/json'
+return $response.prompt_filter_results.content_filter_results | format-list
+```
+
+The `$response` object contains a property named `prompt_filter_results` that contains annotations
+about the filter results. If you prefer JSON to a .NET object, pipe the output to `ConvertTo-JSON`
+instead of `Format-List`.
+
+```output
+hate      : @{filtered=False; severity=safe}
+self_harm : @{filtered=False; severity=safe}
+sexual    : @{filtered=False; severity=safe}
+violence  : @{filtered=False; severity=safe}
+```
+
 ---
 
 For details on the inference REST API endpoints for Azure OpenAI and how to create Chat and Completions please follow [Azure OpenAI Service REST API reference guidance](../reference.md). Annotations are returned for all scenarios when using `2023-06-01-preview`.
@@ -648,5 +690,3 @@ As part of your application design, consider the following best practices to del
 - Azure OpenAI content filtering is powered by [Azure AI Content Safety](https://azure.microsoft.com/products/cognitive-services/ai-content-safety).
 - Learn more about understanding and mitigating risks associated with your application: [Overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=/azure/ai-services/openai/context/context).
 - Learn more about how data is processed in connection with content filtering and abuse monitoring: [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context#preventing-abuse-and-harmful-content-generation).
-
-
