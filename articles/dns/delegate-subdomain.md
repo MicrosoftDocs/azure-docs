@@ -35,11 +35,11 @@ To delegate the **engineering** subdomain under **adatum.com**:
 
 3. If desired, change the **Subscription** and **Resource group**. In this example, we use the same subscription and resource group as the parent zone.
 4. Select **Review create**, and then select **Create**.
-5. When deployment is complete, select **Go to resource** to view the new delegated zone.
+5. When deployment is complete, select **Go to resource** to view the new delegated zone: **engineering.adatum.com**.
 
    ![A screenshot showing contents of the child zone.](./media/delegate-subdomain/child-zone-contents.png)
 
-6. Select the parent zone again and notice that an **NS** record has been added with the name **engineering** and contents the same as NS records in the child zone. These are the Azure DNS nameservers that are authoritative for the subdomain (child zone).
+6. Select the parent **adatum.com** zone again and notice that an **NS** record has been added with the name **engineering** and contents the same as NS records in the child zone. You might need to refresh the page. These are the Azure DNS nameservers that are authoritative for the subdomain (child zone).
 
    ![A screenshot showing contents of the parent zone.](./media/delegate-subdomain/parent-zone-contents.png)
 
@@ -49,7 +49,7 @@ If desired, you can also create your subdomain and add the subdomain NS record m
 
 To create a new subdomain zone, use **Create a resource > DNS zone** and create a zone named **engineering.adatum.com**.
 
-To create a subdomain delegation manually, add a new NS record set (**+ Record set** option) to the parent zone **adatum.com** with the name: **engineering**.<br>
+To create a subdomain delegation manually, add a new NS record set (**+ Record set** option) to the parent zone **adatum.com** with the name: **engineering** and specify each of the nameserver entries that are listed in the subdomain (child) zone.<br>
 
 <img src="./media/delegate-subdomain/add-ns-record-set.png" alt="A screenshot showing how to add an NS record set." width="50%">
 
@@ -57,7 +57,7 @@ This method doesn't use the **+ Child zone** option, but both methods result in 
 
 ## Create a test record
 
-Create an **A** record in the engineering.adatum.com zone to use for testing. For example, create a **www** A record and configure it with a **10.10.10.10** IP address.
+Next, create an **A** record in the **engineering.adatum.com** zone to use for testing. For example, create a **www** A record and configure it with a **10.10.10.10** IP address.
 
 ## Test the delegation
 
