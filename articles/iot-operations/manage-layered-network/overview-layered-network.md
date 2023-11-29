@@ -63,6 +63,6 @@ Layered Network Management supports the Azure IoT Operations components in an is
 
 ## Next steps
 
+- Learn [How Does Azure IoT Operations Work in Layered Network?](concept-iot-operations-in-layered-network.md)
 - [Set up Layered Network Management in a simplified virtual machine and network environment](howto-deploy-aks-layered-network.md) to try a simple example with Azure virtual resources. It's the quickest way to see how Layered Network Management works without having to set up physical machines and Purdue Network.
-- To understand how to set up a cluster in an isolated environment for Azure IoT Operations scenarios, see [Configure Layered Network Management service to enable Azure IoT Operations in an isolated network](howto-configure-aks-edge-essentials-layered-network.md).
 

@@ -51,13 +51,13 @@ The multiple levels of networks in this test setup are accomplished using subnet
 
 Please refer to the following examples for setup this type of network environment.
 
-### Example of logical isolated network with minimum hardware
+### Example of logical segmentation with minimum hardware
 In this example, both machines are connect to an AP (Access Point) which connects to the internet. The level 4 host machine can access internet. The level 3 host is blocked for accessing internet with AP's configuration (e.g. firewall, client control...). As both machines are in the same network, Layered Network Management instance hosted on level 4 cluster is by defauly visible to the level 3 machine and cluster.
 An additional custom DNS needs to be setup in the local network to provide domain name resolution and point the traffic to Layered Network Management. For more information, see [Configure custom DNS](#configure-custom-dns).
 
 ![Diagram of a logical isolated network configuration.](./media/howto-configure-layered-network/logical-network-segmentation.png)
 
-### Example of logical isolated network in Azure
+### Example of logical segmentation in Azure
 In this example, a test environment is created with [Virtual Network](/azure/virtual-network/virtual-networks-overview) and [Linux Virtual Machine](/azure/virtual-machines/linux/quick-create-portal) in Azure environment.
 > [!IMPORTANT]
 > Virtual environment is for exploration and evaluation only. Please refer to [validated environments](/azure/iot-operations/get-started/overview-iot-operations#validated-environments) of the Azure IoT Operations.
