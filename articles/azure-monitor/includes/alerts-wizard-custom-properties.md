@@ -6,7 +6,7 @@ ms.author: abbyweisberg
 author: AbbyMSFT
 ---
 
-1. <a name="custom-props"></a>(Optional)  In the **Custom properties** section, if you've configured action groups for this alert rule, you can add your own properties to include in the alert notification payload. You can use these properties in the actions called by the action group, such as by a webhook, Azure function or logic app actions.
+1. <a name="custom-props"></a>(Optional)  In the **Custom properties** section, if this alert rule contains action groups, you can add your own properties to include in the alert notification payload. You can use these properties in the actions called by the action group, such as by a webhook, Azure function or logic app actions.
 
     The custom properties are specified as key:value pairs, using either static text, a dynamic value extracted from the alert payload, or a combination of both.
 
