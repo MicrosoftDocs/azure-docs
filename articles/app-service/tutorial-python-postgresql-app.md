@@ -696,7 +696,23 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
     azd init --template python-app-service-postgresql-infra
     ```
 
-    This azd template contains files (*azure.yaml* and the *infra* directory) that will generate a secure-by-default architecture with the following Azure resources:
+1. When prompted, give the following answers:
+    
+    |Question  |Answer  |
+    |---------|---------|
+    |The current directory is not empty. Would you like to initialize a project here in '\<your-directory>'?     | **Y**        |
+    |What would you like to do with these files?     | **Keep my existing files unchanged**        |
+    |Enter a new environment name     | Type a unique name. The azd template uses this name as part of the DNS name of your web app in Azure (`<app-name>.azurewebsites.net`). Alphanumeric characters and hyphens are allowed.          |
+
+1. Run the `azd up` command to provision the necessary Azure resources and deploy the app code. If you are not already signed-in to Azure, the browser will launch and ask you to sign-in. The `azd up` command will also prompt you to select the desired subscription and location to deploy to. 
+
+    ```bash
+    azd up
+    ```  
+
+    The `azd up` command might take a few minutes to complete. It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+
+    This azd template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
     ### [Flask](#tab/flask)
     
@@ -720,22 +736,6 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
     - **Log Analytics workspace** &rarr; Acts as the target container for your app to ship its logs, where you can also query the logs.
 
     -----
-
-1. When prompted, give the following answers:
-    
-    |Question  |Answer  |
-    |---------|---------|
-    |The current directory is not empty. Would you like to initialize a project here in '\<your-directory>'?     | **Y**        |
-    |What would you like to do with these files?     | **Keep my existing files unchanged**        |
-    |Enter a new environment name     | Type a unique name. The azd template uses this name as part of the DNS name of your web app in Azure (`<app-name>.azurewebsites.net`). Alphanumeric characters and hyphens are allowed.          |
-
-1. Run the `azd up` command to provision the necessary Azure resources and deploy the app code. If you are not already signed-in to Azure, the browser will launch and ask you to sign-in. The `azd up` command will also prompt you to select the desired subscription and location to deploy to. 
-
-    ```bash
-    azd up
-    ```  
-
-    The `azd up` command might take a few minutes to complete. It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
     
 ## 2. Use the database connection string
 
@@ -801,7 +801,7 @@ The azd template you use generated the connectivity variables for you already as
 
     -----
     
-1. In the terminal, run `azd deploy`
+1. In the terminal, run `azd deploy`.
  
     ```bash
     azd deploy
@@ -811,6 +811,8 @@ The azd template you use generated the connectivity variables for you already as
 
 With the PostgreSQL database protected by the virtual network, the easiest way to run [Flask database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the App Service container.
 
+### [Flask](#tab/flask)
+
 1. In the azd output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
     <pre>
@@ -819,20 +821,30 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 1. In the SSH terminal, run `flask db upgrade`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
 
-    ### [Flask](#tab/flask)
-
     :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-2.png":::
-
-    ### [Django](#tab/django)
-    
-    :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-2.png":::
-
-    -----
 
     > [!NOTE]
     > Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
     >
     
+### [Django](#tab/django)
+
+1. In the azd output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
+
+    <pre>
+    Open SSH session to App Service container at: https://&lt;app-name>.scm.azurewebsites.net/webssh/host
+    </pre>
+
+1. In the SSH terminal, run `flask db upgrade`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
+
+    :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-2.png":::
+
+    > [!NOTE]
+    > Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
+    >
+    
+-----
+
 ## 5. Browse to the app
 
 1. In the azd output, find the URL of your app and navigate to it in the browser. The URL looks like this in the AZD output:
