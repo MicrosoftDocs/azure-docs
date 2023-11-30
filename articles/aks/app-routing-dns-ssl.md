@@ -148,10 +148,14 @@ The application routing add-on creates an Ingress class on the cluster named *we
     az keyvault certificate show --vault-name <KeyVaultName> -n <KeyVaultCertificateName> --query "id" --output tsv
     ```
 
+    > [!NOTE]
+    > The command above will give the result like "https://yourkeyvault.vault.azure.net/certificates/certname/ff77fd33dec94cb5802557d766c32551".  
+    > In the next step, you will be asked to input "<KeyVaultCertificateUri>". Remove "/ff77fd33dec94cb5802557d766c32551" from the result, and put in the vaule "https://yourkeyvault.vault.azure.net/certificates/certname".
+
 2. Copy the following YAML manifest into a new file named **ingress.yaml** and save the file to your local computer.
 
     > [!NOTE]
-    > Update *`<Hostname>`* with your DNS host name and *`<KeyVaultCertificateUri>`* with the ID returned from Azure Key Vault.
+    > Update *`<Hostname>`* with your DNS host name and *`<KeyVaultCertificateUri>`* with the ID returned from Azure Key Vault.  
     > The *`secretName`* key in the `tls` section defines the name of the secret that contains the certificate for this Ingress resource. This certificate will be presented in the browser when a client browses to the URL defined in the `<Hostname>` key. Make sure that the value of `secretName` is equal to `keyvault-` followed by the value of the Ingress resource name (from `metadata.name`). In the example YAML, secretName will need to be equal to `keyvault-<your Ingress name>`.
 
     ```yml
