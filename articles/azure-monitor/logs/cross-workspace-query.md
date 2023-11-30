@@ -29,10 +29,11 @@ If you manage subscriptions in other Microsoft Entra tenants through [Azure Ligh
 
 ## Cross-resource query limits
 
-* The number of Application Insights components and Log Analytics workspaces that you can include in a single query is limited to 100.
+* Cross-resource and cross-service queries don’t support parameterized functions and functions whose definition includes other cross-workspace or cross-service expressions; for example, arg(), resource(), workspace(), or app().
+* You can include up to 100 Log Analytics workspaces or classic Application Insights resources in a single query.
 * Querying across a large number of resources can substantially slow down the query.
 * Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../alerts/alerts-log-api-switch.md).
-* References to a cross resource, such as another workspace, should be explicit and can't be parameterized. See [Gather identifiers for Log Analytics workspaces](?tabs=workspace-identifier#gather-identifiers-for-log-analytics-workspaces-and-application-insights-resources) for examples.
+* References to a cross resource, such as another workspace, should be explicit and can't be parameterized. 
 
 ## Query across workspaces, applications, and resources using functions
 
