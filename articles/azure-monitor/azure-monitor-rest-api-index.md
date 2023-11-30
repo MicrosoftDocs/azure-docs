@@ -1,7 +1,7 @@
 ---
 title: Azure Monitor REST API index
 description: Lists the operation groups for the Azure Monitor REST API, which includes Application Insights, Log Analytics, and Monitor.
-ms.date: 11/14/2023
+ms.date: 11/30/2023
 ms.topic: reference
 ---
 
@@ -79,12 +79,12 @@ Organized by subject area.
 | [Workspace usages](/rest/api/loganalytics/workspace-usages) | Retrieve the usage metrics for a Log Analytics workspace. |
 | [Workspaces](/rest/api/loganalytics/workspaces) | Manage Log Analytics workspaces. |
 | ***Metrics*** |  |
-| [Azure Monitor Workspaces](/rest/api/monitor/azure-monitor-workspaces) | COMING SOON |
+| [Azure Monitor Workspaces](/rest/api/monitor/azure-monitor-workspaces) | Manage an Azure Monitor workspace and retrieve the Azure Monitor workspaces within a resource group or subscription. |
 | [Metric definitions](/rest/api/monitor/metric-definitions) | Lists the metric definitions available for the resource. That is, what [specific metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index) can you collect. |
 | [Metric namespaces](/rest/api/monitor/metric-namespaces) | Lists the metric namespaces. Most relevant when using [custom metrics](./essentials/metrics-custom-overview.md). |
-| [Metrics Batch](/rest/api/monitor/metrics-batch) | COMING SOON |
+| [Metrics Batch](/rest/api/monitor/metrics-batch) | List the metric values for multiple resources. |
 | [Metrics](/rest/api/monitor/metrics) | Lists the metric values for a resource you identify. |
-| [Metrics – Custom](/rest/api/monitor/metrics-custom) | COMING SOON |
+| [Metrics – Custom](/rest/api/monitor/metrics-custom) | Post the metric values for a resource. |
 | ***Private Link Networking*** |  |
 | [Private endpoint connections (preview)](/rest/api/monitor/private-endpoint-connections) | Approve, reject, delete, and retrieve a private endpoint connection and retrieve all project endpoint connections on a private link scope. |
 | [Private link resources (preview)](/rest/api/monitor/private-link-resources) | Retrieve a single private link resource that needs to be created for an Azure Monitor PrivateLinkScope or all private link resources within an Azure Monitor PrivateLinkScope resource that need to be created for an Azure Monitor PrivateLinkScope. |
