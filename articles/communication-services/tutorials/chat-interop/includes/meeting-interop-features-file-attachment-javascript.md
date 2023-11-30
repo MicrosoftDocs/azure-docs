@@ -57,7 +57,7 @@ export interface ChatAttachment {
 }
 
 /** Type of Supported Attachments. */
-export type AttachmentType = "image" | "file" | "unknown";
+export type ChatAttachmentType = "image" | "file" | "unknown";
 ```
 
 As an example, the following JSON is an example of what `ChatAttachment` might look like for an image attachment and a file attachment:
