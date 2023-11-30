@@ -1,11 +1,11 @@
 ---
-title: DataStream API on HDInsight on AKS for Azure Service Bus demo
-description: DataStream API on HDInsight on AKS for Azure Service Bus demo
+title: Use Apache Flink on HDInsight on AKS with Azure Service Bus 
+description: Use Apache Flink DataStream API on HDInsight on AKS with Azure Service Bus
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 11/27/2023
 ---
-# DataStream API on HDInsight on AKS for Azure Service Bus demo
+# Use Apache Flink on HDInsight on AKS with Azure Service Bus
 
 [!INCLUDE feature-in-preview]
 
