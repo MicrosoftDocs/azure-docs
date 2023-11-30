@@ -1,14 +1,14 @@
 ---
-title: "[Deprecated] iboss via Legacy Agent connector for Microsoft Sentinel"
-description: "Learn how to install the connector [Deprecated] iboss via Legacy Agent to connect your data source to Microsoft Sentinel."
+title: "iboss connector for Microsoft Sentinel"
+description: "Learn how to install the connector iboss to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# [Deprecated] iboss via Legacy Agent connector for Microsoft Sentinel
+# iboss connector for Microsoft Sentinel
 
 The [iboss](https://www.iboss.com) data connector enables you to seamlessly connect your Threat Console to Microsoft Sentinel and enrich your instance with iboss URL event logs. Our logs are forwarded in Common Event Format (CEF) over Syslog and the configuration required can be completed on the iboss platform without the use of a proxy. Take advantage of our connector to garner critical data points and gain insight into security threats.
 
