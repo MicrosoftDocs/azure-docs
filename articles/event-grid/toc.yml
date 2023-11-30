@@ -339,6 +339,8 @@ items:
             href: event-schema-aks.md
           - name: Azure Machine Learning
             href: event-schema-machine-learning.md
+          - name: Azure Maintenance Configuration
+            href: event-schema-maintenance-configuration.md
           - name: Azure Maps
             href: event-schema-azure-maps.md
           - name: Azure Media Services
