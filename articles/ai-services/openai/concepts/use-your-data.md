@@ -31,10 +31,6 @@ To get started, [connect your data source](../use-your-data-quickstart.md) using
 > [!NOTE]
 > To get started, you need to already have been approved for [Azure OpenAI access](../overview.md#how-do-i-get-access-to-azure-openai) and have an [Azure OpenAI Service resource](../how-to/create-resource.md) with either the gpt-35-turbo or the gpt-4 models deployed.
 
-<!--## Data source options
-
-Azure OpenAI on your data uses an [Azure AI Search](/azure/search/search-what-is-azure-search) index to determine what data to retrieve based on  user inputs and provided conversation history. We recommend using Azure OpenAI Studio to create your index from a blob storage or local files. See the [quickstart article](../use-your-data-quickstart.md?pivots=programming-language-studio) for more information.-->
-
 ## Data formats and file types
 
 Azure OpenAI on your data supports the following filetypes:
@@ -241,22 +237,6 @@ If you have an Azure AI Search resource protected by a private network, and want
 Learn more about the [manual approval workflow](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow).
 
 After you approve the request in your search service, you can start using the [chat completions extensions API](/azure/ai-services/openai/reference#completions-extensions). Public network access can be disabled for that search service.
-
-## Azure Role-based access controls (Azure RBAC)
-
-To add a new data source to your Azure OpenAI resource, you need the following Azure RBAC roles.
-
-
-|Azure RBAC role  | Which resource needs this role? | Needed when  |
-|---------|---------|---------|
-| [Cognitive Services OpenAI Contributor](../how-to/role-based-access-control.md#cognitive-services-openai-contributor) | The Azure AI Search resource, to access Azure OpenAI resource. | You want to use Azure OpenAI on your data.   |
-|[Search Index Data Reader](/azure/role-based-access-control/built-in-roles#search-index-data-reader) | The Azure OpenAI resource, to access the Azure AI Search resource.    | You want to use Azure OpenAI on your data.        |
-|[Search Service Contributor](/azure/role-based-access-control/built-in-roles#search-service-contributor) | The Azure OpenAI resource, to access the Azure AI Search resource.    | You plan to create a new Azure AI Search index.        |
-|[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.  | The Azure AI Search and Azure OpenAI resources, to access the storage account.       |
-| [Cognitive Services OpenAI User](../how-to/role-based-access-control.md#cognitive-services-openai-user) | The web app, to access the Azure OpenAI resource. | You want to deploy a web app.   |
-| [Contributor](/azure/role-based-access-control/built-in-roles#contributor) | Your subscription, to access Azure Resource Manager. | You want to deploy a web app. |
-| [Cognitive Services Contributor Role](/azure/role-based-access-control/built-in-roles#cognitive-services-contributor) | The Azure AI Search resource, to access Azure OpenAI resource. | You want to deploy a [web app](#using-the-web-app).   |
-
 
 ## Document-level access control (Azure AI Search only)
 
