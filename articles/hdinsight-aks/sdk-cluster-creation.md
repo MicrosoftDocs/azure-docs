@@ -12,7 +12,7 @@ This articles describes how you can create and manage cluster in Azure HDInsight
 
 The HDInsight .NET SDK provides .NET client libraries, so that it's easier to work with HDInsight clusters from .NET. 
 
-## Pre-Requisites: 
+## Prerequisites: 
 
 - Visual Studio 
 
@@ -33,7 +33,8 @@ The HDInsight .NET SDK provides .NET client libraries, so that it's easier to wo
 	- Azure Resource Manager 
 
 	- Azure.ResourceManager.HDinsight.Containers
-	:::image type="content" source="./media/get-started/search-object-id.png" alt-text="Screenshot showing how to search object ID.":::
+
+	:::image type="content" source="./media/sdk-cluster-creation/solution-explorer.png" alt-text="Screenshot shows solution explorer." lightbox="./media/sdk-cluster-creation/solution-explorer.png":::
 
 1. Provide the required parameters to config the cluster pool and cluster in the script: 
 - Cluster Name 
@@ -48,7 +49,8 @@ The HDInsight .NET SDK provides .NET client libraries, so that it's easier to wo
   `/subscriptions/<subscription ID>/resourcegroups/{resource group 	name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{Managed identity name}`
 - MSI client id(See below) 
 - MSI object id (See below)
-Image
+  
+	:::image type="content" source="./media/sdk-cluster-creation/overview.png" alt-text="Screenshot shows overview." lightbox="./media/sdk-cluster-creation/overview.png":::
   
 - Microsoft Entra user ID: [Find tenant ID, domain name, user object ID - Partner Center | Microsoft Learn](/partner-center/find-ids-and-domain-names)
 - [HDInsight on AKS VM list](/azure/hdinsight-aks/virtual-machine-recommendation-capacity-planning)
