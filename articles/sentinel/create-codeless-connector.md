@@ -398,7 +398,7 @@ These recommended variables help simplify the template. Use more or less as need
         "_solutionName": "Solution name", // Enter your solution name 
         "_solutionVersion": "3.0.0",
         "_solutionAuthor": "Contoso", // Enter the name of the author
-        "_packageIcon": "icon icon icon icon", // Enter the solution icon path
+        "_packageIcon": "<img src=\"{LogoLink}\" width=\"75px\" height=\"75px\">", // Enter the http link for the logo. NOTE: This field is only recommended for Azure Global Cloud.
         "_solutionId": "azuresentinel.azure-sentinel-MySolution", // Enter a name for your solution with this format but exchange the 'MySolution' portion
         "dataConnectorVersionConnectorDefinition": "1.0.0",
         "dataConnectorVersionConnections": "1.0.0",
@@ -510,7 +510,7 @@ There are 5 resources in this template guide.
                         },
                         {
                             "name": "[variables('_logAnalyticsTableId1')]",
-                            "apiVersion": "2021-03-01-privatepreview",
+                            "apiVersion": "2022-10-01",
                             "type": "Microsoft.OperationalInsights/workspaces/tables",
                             "location": "[parameters('workspace-location')]",
                             "kind": null,
