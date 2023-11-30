@@ -13,7 +13,7 @@ To view and manage your settings, select the **Settings** menu icon in the top r
 
 :::image type="content" source="media/set-preferences/settings-top-header.png" alt-text="Screenshot showing the settings icon in the global page header.":::
 
-Within **Portal settings**, you'll see different sections. In this article, we'll walk through the available options for each section.
+Within **Portal settings**, you'll see different sections. This article describes the available options for each section.
 
 ## Directories + subscriptions
 
@@ -46,9 +46,9 @@ To use customized filters, select **Advanced filters**. You'll be prompted to co
 
 :::image type="content" source="media/set-preferences/settings-advanced-filters-enable.png" alt-text="Screenshot showing the confirmation dialog box for Advanced filters.":::
 
-After you continue, the **Advanced filters** page appears in the left navigation menu of **Portal settings**. You can create and manage multiple subscription filters on this page. Your currently selected subscriptions will be saved as an imported filter that you can use again. You'll see this filter selected on the **Directories + subscriptions** page.
+After you continue, the **Advanced filters** page appears in the left navigation menu of **Portal settings**. You can create and manage multiple subscription filters on this page. Your currently selected subscriptions are saved as an imported filter that you can use again. You'll see this filter selected on the **Directories + subscriptions** page.
 
-If you want to stop using advanced filters, select the toggle again to restore the default subscription view. Any custom filters you've created will be saved and will be available to use if you enable **Advanced filters** in the future.
+If you want to stop using advanced filters, select the toggle again to restore the default subscription view. Any custom filters you've created are saved and will be available to use if you enable **Advanced filters** in the future.
 
 :::image type="content" source="media/set-preferences/settings-advanced-filters-disable.png" alt-text="Screenshot showing the confirmation dialog box for disabling Advanced filters.":::
 
@@ -62,7 +62,7 @@ The **Default** filter shows all subscriptions to which you have access. This fi
 
 You may also see a filter named **Imported-filter**, which includes all subscriptions that had been selected previously.
 
-To change the filter that is currently in use, select **Activate** next to that filter. 
+To change the filter that is currently in use, select **Activate** next to that filter.
 
 ### Create a filter
 
@@ -96,8 +96,8 @@ The **Appearance + startup views** pane has two sections. The **Appearance** sec
 
 The **Menu behavior** section lets you choose how the default Azure portal menu behaves.
 
-- **Flyout**: The menu will be hidden until you need it. You can select the menu icon in the upper left hand corner to open or close the menu.
-- **Docked**: The menu will always be visible. You can collapse the menu to provide more working space.
+- **Flyout**: The menu is hidden until you need it. You can select the menu icon in the upper left hand corner to open or close the menu.
+- **Docked**: The menu is always visible. You can collapse the menu to provide more working space.
 
 ### Choose a theme or enable high contrast
 
@@ -111,7 +111,7 @@ The **Startup views** section lets you set options for what you see when you fir
 
 :::image type="content" source="media/set-preferences/azure-portal-settings-startup-views.png" alt-text="Screenshot showing the Startup section of Appearance + startup views.":::
 
-Choose one of the following options for **Startup page**. This setting determines which page you'll see when you first sign in to the Azure portal.
+Choose one of the following options for **Startup page**. This setting determines which page you see when you first sign in to the Azure portal.
 
 - **Home**: Displays the home page, with shortcuts to popular Azure services, a list of resources you've used most recently, and useful links to tools, documentation, and more.
 - **Dashboard**: Displays your most recently used dashboard. Dashboards can be customized to create a workspace designed just for you. For more information, see [Create and share dashboards in the Azure portal](azure-portal-dashboards.md).
@@ -125,7 +125,7 @@ Choose one of the following options for the directory to work in when you first 
 
 ## Language + region
 
-Here, you can choose the language used in the Azure portal. You can also select a regional format to determine how data, such as dates and currency, will appear.
+Here, you can choose the language used in the Azure portal. You can also select a regional format to determine the format for dates, time, and currency.
 
 :::image type="content" source="media/set-preferences/azure-portal-settings-language-region.png" alt-text="Screenshot showing the Language + region settings pane.":::
 
