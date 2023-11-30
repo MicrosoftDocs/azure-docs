@@ -52,7 +52,7 @@ The Backup vault communicates with the cluster via the Backup extension to compl
 
     :::image type="content" source="./media/quick-backup-aks/resources-to-backup.png" alt-text="Screenshot that shows how to select resources to add to the backup." lightbox="./media/quick-backup-aks/resources-to-backup.png":::
 
-1. For **Snapshot resource group**, select the resource group that you want to use to store the persistent volumes (Azure Disk) snapshots. Then select **Validate**.
+1. For **Snapshot resource group**, select the resource group that you want to use to store the persistent volume (Azure Disk Storage) snapshots. Then select **Validate**.
 
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png" alt-text="Screenshot that shows the Snapshot resource group dropdown." lightbox="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png":::
 

@@ -18,7 +18,7 @@ You can use Azure Backup to back up AKS clusters (cluster resources and persiste
 
 ## Before you start
 
-- Currently, AKS backup supports only Azure Disk-based persistent volumes (enabled by CSI driver). The backups are stored in an operational datastore only (backup data is stored in your tenant and is not actually moved to a vault). The Backup vault and AKS cluster must be in the same region.
+- Currently, AKS backup supports only Azure Disk Storage-based persistent volumes (enabled by CSI driver). The backups are stored in an operational datastore only (backup data is stored in your tenant and is not moved to a vault). The Backup vault and AKS cluster must be in the same region.
 
 - AKS backup uses a blob container and a resource group to store the backups. The blob container has the AKS cluster resources stored in it, whereas the persistent volume snapshots are stored in the resource group. The AKS cluster and the storage locations must reside in the same region. Learn [how to create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
 
@@ -49,7 +49,7 @@ You can also create a backup policy when you configure the backup.
 
 To create a backup policy:
 
-1. Go to **Backup center** and select  **+Policy** to create a new backup policy.
+1. Go to **Backup center** and select  **Policy** to create a new backup policy.
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/create-backup-policy.png" alt-text="Screenshot that shows how to start creating a backup policy.":::
 
@@ -143,7 +143,7 @@ To configure backups for AKS cluster, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/define-cluster-resources-for-backup.png" alt-text="Screenshot that shows how to define the cluster resources for backup.":::
 
-1. For **Snapshot resource group**, select the resource group to use to store the persistent volumes (Azure Disk) snapshots. Then select **Validate**.
+1. For **Snapshot resource group**, select the resource group to use to store the persistent volume (Azure Disk Storage) snapshots. Then select **Validate**.
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png" alt-text="Screenshot that shows how to validate the snapshot resource group.":::
 

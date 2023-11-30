@@ -46,11 +46,11 @@ The Backup vault communicates with the cluster via the Backup extension to compl
 
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-backup-policy.png" alt-text="Screenshot that shows the Backup policy page." lightbox="./media/azure-kubernetes-service-cluster-backup/select-backup-policy.png":::
 
-1. On the **Datasources** tab, select **Add/Edit** to define the backup instance configuration.
+1. On the **Datasources** tab, select **Add/Edit** to define the backup instance.
 
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/define-backup-instance-configuration.png" alt-text="Screenshot that shows the Add/Edit option on the Datasources tab." lightbox="./media/azure-kubernetes-service-cluster-backup/define-backup-instance-configuration.png":::
 
-1. In the **Select Resources to Backup** pane, define the cluster resources that you want to back up.
+1. In the **Select Resources to Backup** pane, define the cluster resources to back up.
 
 1. You can use the backup configuration for item-level backups and to run custom hooks. For example, you can use it to achieve application-consistent backup of databases:
 
@@ -64,17 +64,17 @@ The Backup vault communicates with the cluster via the Backup extension to compl
 
     1. Expand **Additional Resource Settings** to see filters that you can use to choose cluster resources to back up. You can choose to back up resources based on the following categories:
 
-        1. **Labels**: You can filter AKS resources by using [labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) that you assign to types of resources. The labels are entered in the form of a key/value pair. You can combine multiple labels by using `AND` logic.
+        - **Labels**: You can filter AKS resources by using [labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) that you assign to types of resources. Enter labels in the form of key/value pairs. Combine multiple labels by using `AND` logic.
 
-           For example, if you enter the labels `env=prod;tier!=web`, the process selects resources that have a label with the key `env` that have the value `prod`, and a label with the key `tier` for which the value that isn't `web`. These resources are backed up.
+          For example, if you enter the labels `env=prod;tier!=web`, the process selects resources that have a label with the `env` key and the `prod` value, and a label with the `tier` key for which the value isn't `web`. These resources are backed up.
 
-        1. **API groups**: You can also include resources by providing the AKS API group and kind. For example, you can choose for backup AKS resources like Deployments.
+        - **API groups**: You can also include resources by providing the AKS API group and kind. For example, you can choose for backup AKS resources like Deployments.
 
-        1. **Other options**: You can enable or disable backup for cluster-scoped resources, persistent volumes, and secrets.
+        - **Other options**: You can enable or disable backup for cluster-scoped resources, persistent volumes, and secrets.
 
         :::image type="content" source="./media/tutorial-configure-backup-aks/cluster-scope-resources.png" alt-text="Screenshot that shows the Additional Resource Settings pane." lightbox="./media/tutorial-configure-backup-aks/cluster-scope-resources.png":::
 
-        >[!NOTE]
+        > [!NOTE]
         > All these resource settings are combined and applied via `AND` logic.
 
     1. If you have a database like MySQL deployed in the AKS cluster, you can use *backup hooks* that are deployed as custom resources in your AKS cluster to achieve application-consistent backups.
@@ -85,7 +85,7 @@ The Backup vault communicates with the cluster via the Backup extension to compl
 
     1. Choose **Select**.
 
-1. For **Snapshot resource group**, select the resource group to use to store the persistent volumes (Azure Disk) snapshots. Then select **Validate**.
+1. For **Snapshot resource group**, select the resource group to use to store the persistent volume (Azure Disk Storage) snapshots. Then select **Validate**.
 
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png" alt-text="Screenshot that shows the Snapshot resource group pane." lightbox="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png":::
 
