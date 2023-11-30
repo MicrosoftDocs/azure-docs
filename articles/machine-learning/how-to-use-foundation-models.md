@@ -65,43 +65,43 @@ Each model can be evaluated for the specific inference task that the model can b
 
 1. Provide the Azure Machine Learning Compute cluster you would like to use for fine-tuning the model. Evaluation needs to run on GPU compute. Ensure that you have sufficient compute quota for the compute SKUs you wish to use.
 
-1.  Select **Finish** in the Evaluate wizard to submit your evaluation job. Once the job completes, you can view evaluation metrics for the model. Based on the evaluation metrics, you might decide if you would like to finetune the model using your own training data. Additionally, you can decide if you would like to register the model and deploy it to an endpoint.
+1.  Select **Finish** in the Evaluate wizard to submit your evaluation job. Once the job completes, you can view evaluation metrics for the model. Based on the evaluation metrics, you might decide if you would like to fine-tune the model using your own training data. Additionally, you can decide if you would like to register the model and deploy it to an endpoint.
 
 ### Evaluating using code based samples
 
 To enable users to get started with model evaluation, we have published samples (both Python notebooks and CLI examples) in the [Evaluation samples in azureml-examples git repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/evaluation). Each model card also links to evaluation samples for corresponding tasks
 
-## How to finetune foundation models using your own training data
+## How to fine-tune foundation models using your own training data
 
-In order to improve model performance in your workload, you might want to fine tune a foundation model using your own training data. You can easily finetune these foundation models by using either the finetune settings in the studio or by using the code based samples linked from the model card.
+In order to improve model performance in your workload, you might want to fine tune a foundation model using your own training data. You can easily fine-tune these foundation models by using either the fine-tune settings in the studio or by using the code based samples linked from the model card.
         
-### Finetune using the studio
+### Fine-tune using the studio
 
-You can invoke the finetune settings form by selecting on the **Finetune** button on the model card for any foundation model. 
+You can invoke the fine-tune settings form by selecting on the **Fine-tune** button on the model card for any foundation model. 
 
-**Finetune Settings:**
+**Fine-tune Settings:**
 
-:::image type="content" source="./media/how-to-use-foundation-models/finetune-quick-wizard.png" alt-text="Screenshot showing the finetune settings options in the foundation models finetune settings form.":::
+:::image type="content" source="./media/how-to-use-foundation-models/finetune-quick-wizard.png" alt-text="Screenshot showing the fine-tune settings options in the foundation models fine-tune settings form.":::
 
 
 **Fine-tuning task type**
 
-* Every pre-trained model from the model catalog can be finetuned for a specific set of tasks (For Example: Text classification, Token classification, Question answering). Select the task you would like to use from the drop-down.
+* Every pre-trained model from the model catalog can be fine-tuned for a specific set of tasks (For Example: Text classification, Token classification, Question answering). Select the task you would like to use from the drop-down.
 
 **Training Data**
     
-1. Pass in the training data you would like to use to finetune your model. You can choose to either upload a local file (in JSONL, CSV or TSV format) or select an existing registered dataset from your workspace. 
+1. Pass in the training data you would like to use to fine-tune your model. You can choose to either upload a local file (in JSONL, CSV or TSV format) or select an existing registered dataset from your workspace. 
 
 1. Once you've selected the dataset, you need to map the columns from your input data, based on the schema needed for the task. For example: map the column names that correspond to the 'sentence' and 'label' keys for Text Classification
 
-:::image type="content" source="./media/how-to-use-foundation-models/finetune-map-data-columns.png" lightbox="./media/how-to-use-foundation-models/finetune-map-data-columns.png" alt-text="Screenshot showing the finetune map in the foundation models evaluate wizard.":::
+:::image type="content" source="./media/how-to-use-foundation-models/finetune-map-data-columns.png" lightbox="./media/how-to-use-foundation-models/finetune-map-data-columns.png" alt-text="Screenshot showing the fine-tune map in the foundation models evaluate wizard.":::
 
 
 * Validation data: Pass in the data you would like to use to validate your model. Selecting **Automatic split** reserves an automatic split of training data for validation. Alternatively, you can provide a different validation dataset.
-* Test data: Pass in the test data you would like to use to evaluate your finetuned model. Selecting **Automatic split** reserves an automatic split of training data for test. 
+* Test data: Pass in the test data you would like to use to evaluate your fine-tuned model. Selecting **Automatic split** reserves an automatic split of training data for test. 
 * Compute: Provide the Azure Machine Learning Compute cluster you would like to use for fine-tuning the model. Fine-tuning needs to run on GPU compute. We recommend using compute SKUs with A100 / V100 GPUs when fine tuning. Ensure that you have sufficient compute quota for the compute SKUs you wish to use.
 
-3. Select **Finish** in the finetune form to submit your fine-tuning job. Once the job completes, you can view evaluation metrics for the finetuned model. You can then register the finetuned model output by the fine-tuning job and deploy this model to an endpoint for inferencing.
+3. Select **Finish** in the fine-tune form to submit your fine-tuning job. Once the job completes, you can view evaluation metrics for the fine-tuned model. You can then register the fine-tuned model output by the fine-tuning job and deploy this model to an endpoint for inferencing.
 
 ### Fine-tuning using code based samples
 
@@ -117,7 +117,7 @@ To enable users to quickly get started with fine-tuning, we have published sampl
 
 ## Deploying foundation models to endpoints for inferencing
 
-You can deploy foundation models (both pre-trained models from the model catalog, and finetuned models, once they're registered to your workspace) to an endpoint that can then be used for inferencing. Deployment to both real time endpoints and batch endpoints is supported. You can deploy these models by using either the Deploy UI wizard or by using the code based samples linked from the model card.
+You can deploy foundation models (both pre-trained models from the model catalog, and fine-tuned models, once they're registered to your workspace) to an endpoint that can then be used for inferencing. Deployment to both real time endpoints and batch endpoints is supported. You can deploy these models by using either the Deploy UI wizard or by using the code based samples linked from the model card.
 
 > [!IMPORTANT]
 > __Workspaces without public network access:__ Deploying foundational models to online endpoints without egress connectivity requires [packaging the models (preview)](how-to-package-models.md) first. By using model packaging, you can avoid the need for an internet connection, which Azure Machine Learning would otherwise require to dynamically install necessary Python packages for the MLflow models.
@@ -173,7 +173,7 @@ In order to import the model, you need to pass in the `MODEL_ID` of the model yo
 
 :::image type="content" source="./media/how-to-use-foundation-models/hugging-face-model-id.png" alt-text="Screenshot showing an example of a hugging face model ID ('bert-base-uncased') as it is displayed in the hugging face model documentation page.":::
 
-You need to provide compute for the Model import to run. Running the Model Import results in the specified model being imported from Hugging Face and registered to your Azure Machine Learning workspace. You can then finetune this model or deploy it to an endpoint for inferencing.
+You need to provide compute for the Model import to run. Running the Model Import results in the specified model being imported from Hugging Face and registered to your Azure Machine Learning workspace. You can then fine-tune this model or deploy it to an endpoint for inferencing.
 
 ## Next Steps
 
