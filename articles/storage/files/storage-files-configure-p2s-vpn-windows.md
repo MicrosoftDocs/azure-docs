@@ -4,7 +4,7 @@ description: How to configure a point-to-site (P2S) VPN on Windows for use with 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/29/2023
+ms.date: 11/30/2023
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -89,7 +89,9 @@ In order for VPN connections from your on-premises Windows machines to be authen
 1. A root certificate, which will be provided to the virtual machine gateway
 2. A client certificate, which will be signed with the root certificate
 
-You can either use a root certificate that was generated with an enterprise solution, or you can generate a self-signed certificate. If you're using an enterprise solution, acquire the .cer file for the root certificate from your IT organization. If you aren't using an enterprise certificate solution, create a self-signed root certificate using this PowerShell script. You'll create the client certificate after deploying the virtual network gateway.
+You can either use a root certificate that was generated with an enterprise solution, or you can generate a self-signed certificate. If you're using an enterprise solution, acquire the .cer file for the root certificate from your IT organization.
+
+If you aren't using an enterprise certificate solution, create a self-signed root certificate using this PowerShell script. You'll create the client certificate after deploying the virtual network gateway.
 
 > [!IMPORTANT]
 > Run this PowerShell script as administrator from an on-premises machine running Windows 10/Windows Server 2016 or later. Don't run the script from a Cloud Shell or VM in Azure.
@@ -201,7 +203,7 @@ To deploy a virtual network gateway using the Azure portal, follow these instruc
    > [!NOTE]
    > If you don't see tunnel type or authentication type, your gateway is using the Basic SKU. The Basic SKU doesn't support IKEv2 or RADIUS authentication. If you want to use these settings, you need to delete and recreate the gateway using a different gateway SKU.
 
-1. Select **Save** at the top of the page to save all of the configuration settings.
+1. Select **Save** at the top of the page to save all of the configuration settings and upload the root certificate public key information to Azure.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -247,10 +249,28 @@ $vpn = New-AzVirtualNetworkGateway `
 
 ## Create client certificate
 
-The following script creates the client certificate with the URI of the virtual network gateway. This certificate is signed with the root certificate you created earlier.
+Each client computer that you connect to a virtual network with a point-to-site connection must have a client certificate installed. You generate the client certificate from the root certificate and install it on each client computer. If you don't install a valid client certificate, authentication will fail when the client tries to connect. You can either create a client certificate from a root certificate that was generated with an enterprise solution, or you can create a client certificate from a self-signed root certificate.
+
+### Create client certificate using an enterprise solution
+
+If you're using an enterprise certificate solution, generate a client certificate with the common name value format *name@yourdomain.com*. Use this format instead of the *domain name\username* format. Make sure the client certificate is based on a user certificate template that has *Client Authentication* listed as the first item in the user list. Check the certificate by double-clicking it and viewing **Enhanced Key Usage** in the **Details** tab.
+
+### Create client certificate from a self-signed root certificate
+
+If you aren't using an enterprise certificate solution, run the following PowerShell script to create a client certificate with the URI of the virtual network gateway. This certificate will be signed with the root certificate you created earlier.
+
+When you generate a client certificate from a self-signed root certificate, it's automatically installed on the computer that you used to generate it. If you want to install a client certificate on another client computer, export it as a .pfx file, along with the entire certificate chain. Doing so will create a .pfx file that contains the root certificate information required for the client to authenticate.
+
+> [!IMPORTANT]
+> Run this PowerShell script as administrator from an on-premises machine running Windows 10/Windows Server 2016 or later. Don't run the script from a Cloud Shell or VM in Azure. Replace `<resource-group-name>` with your resource group name and `<vpn-gateway-name>` with the name of the virtual network gateway you just deployed.
 
 ```PowerShell
 $clientcertpassword = "1234"
+$resourceGroupName = "myexamplegroup"
+$vpnName = "myvnetgateway"
+$vpnTemp = "C:\vpn-temp\"
+$certLocation = "Cert:\CurrentUser\My"
+$rootcert = ""
 
 $vpnClientConfiguration = New-AzVpnClientConfiguration `
     -ResourceGroupName $resourceGroupName `
