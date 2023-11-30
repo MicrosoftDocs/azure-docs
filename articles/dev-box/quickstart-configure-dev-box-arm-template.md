@@ -46,6 +46,7 @@ Multiple Azure resources are defined in the template:
 - [Microsoft.DevCenter/projects](/azure/templates/microsoft.devcenter/projects): create a project.
 - [Microsoft.DevCenter/networkConnections](/azure/templates/microsoft.devcenter/networkConnections): create a network connection. 
 - [Microsoft.DevCenter/devcenters/devboxdefinitions](/azure/templates/microsoft.devcenter/devcenters/devboxdefinitions): create a dev box definition. 
+- [Microsoft.DevCenter/devcenters/galleries](/azure/templates/microsoft.devcenter/devcenters/galleries): create an Azure Compute Gallery. 
 - [Microsoft.DevCenter/projects/pools](/azure/templates/microsoft.devcenter/projects/pools): create a dev box pool.
  
 ### Find more templates
@@ -67,17 +68,21 @@ For example, you can use a template to [add other customized images for Base, Ja
 1. Select **Open Cloudshell** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure. 
 
    ```azurepowershell-interactive
-   $vnetAddressPrefixes = Read-Host -Prompt "Enter a vnet address prefixes like 10.0.0.0/16" 
-   $subnetAddressPrefixes = Read-Host -Prompt "Enter a vnet address prefixes like 10.0.0.0/24" 
-   $location = Read-Host -Prompt "Enter the location (e.g. eastus)" 
-   
-   $resourceGroupName = "rg-devbox-test" 
-   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.devcenter/devbox-with-builtin-image/azuredeploy.json" 
-   New-AzResourceGroup -Name $resourceGroupName -Location $location 
-   New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -vnetAddressPrefixes $vnetAddressPrefixes -subnetAddressPrefixes $subnetAddressPrefixes -location $location 
+   $userPrincipalName = Read-Host "Please enter user principal name e.g. alias@xxx.com"
+   $resourceGroupName = Read-Host "Please enter resource group name e.g. rg-devbox-dev"
+   $location = Read-Host "Please enter region name e.g. eastus"
+   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.devcenter/devbox-with-customized-image/azuredeploy.json" 
+   $userPrincipalId=(Get-AzADUser -UserPrincipalName $userPrincipalName).Id
+   if($userPrincipalId){
+       Write-Host "Start provisioning..."
+       az group create -l $location -n $resourceGroupName
+       az group deployment create -g $resourceGroupName --template-uri $templateUri  --parameters userPrincipalId=$userPrincipalId
+   }else {
+       Write-Host "User Principal Name cannot be found."
+   }
 
-   Write-Host "After all the resources are provisioned, go to https://devportal.microsoft.com/ to create a Dev Box. You can also refer to this guide: [Quickstart: Create a dev box - Microsoft Dev Box | Microsoft Learn](https://learn.microsoft.com/azure/dev-box/quickstart-create-dev-box)." 
-   Write-Host "Press [ENTER] to continue." 
+   Write-Host "Provisioning Completed."
+
    ```
 
    Wait until you see the prompt from the console.
@@ -86,25 +91,17 @@ For example, you can use a template to [add other customized images for Base, Ja
 3. Right-click the shell console pane and then select **Paste**. 
 4. Enter the values. 
 
-It takes about 10 minutes to deploy the template. When completed, the output is similar to: 
-
- :::image type="content" source="media/quickstart-configure-dev-box-arm-template/dev-box-template-output.png" alt-text="Screenshot showing the output of the template.":::
+It takes about 30 minutes to deploy the template. 
 
 Azure PowerShell is used to deploy the template. You can also use the Azure portal and Azure CLI. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md). 
 
-#### Depending on your configuration, you might want to change the following parameters:  
+#### When deploying this template, you're prompted to provide the following parameters:  
 
-- *Resource group name:* The default resource group name is “rg-devbox-test”; you can change it by editing `$resourceGroupName = "rg-devbox-test` in the template. 
+- *User Principal Id*: The user principal ID of the user or group that will be granted the *Devcenter Dev Box User* role.
+- *User Principal Type*: The type of user principal. Valid values are *User* or *Group*.
+- *Location*: The location where the resources will be deployed. Choose a location close to the users who will be using the dev boxes to reduce latency.
 
-- *Subnet:* If you have an existing subnet, you can use the parameter `-existingSubnetId` to pass the existing subnet ID. The template doesn't create a new Virtual network and subnet if you specify an existing one. 
-
-- *Dev Box User role:* To grant the role [*DevCenter Dev Box User*](how-to-dev-box-user.md) to your user at Dev box project level, pass the principal ID to the `-principalId` parameter. 
-   - **User:** You can find the principal ID listed as the object ID on the user Overview page.
-     :::image type="content" source="media/quickstart-configure-dev-box-arm-template/user-object-id.png" alt-text="Screenshot showing the user overview page with object ID highlighted."::: 
-   - **Group:** You can find the principal ID listed as the object ID on the group Overview page. 
-     :::image type="content" source="media/quickstart-configure-dev-box-arm-template/group-object-id.png" alt-text="Screenshot showing the group overview page with object ID highlighted.":::
-
-Alternatively, you can provide access to a dev box project in the Azure portal, see [Provide user-level access to projects for developers](how-to-dev-box-user.md) 
+Alternatively, you can provide access to a dev box project in the Azure portal, see [Provide user-level access to projects for developers](how-to-dev-box-user.md). 
  
 ## Review deployed resources 
 
@@ -113,8 +110,6 @@ Alternatively, you can provide access to a dev box project in the Azure portal, 
 3. Select the resource group that you created in the previous section.  
 
    :::image type="content" source="media/quickstart-configure-dev-box-arm-template/dev-box-template-resources.png" alt-text="Screenshot showing the newly created dev box resource group and the resources it contains in the Azure portal.":::
-
-1. Select the Dev Center. Its default name is dc-*resource-token*.
  
 ## Clean up resources 
 
