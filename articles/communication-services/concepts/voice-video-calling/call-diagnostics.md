@@ -37,18 +37,19 @@ it easier to visualize what happened in a call by showing you rich data
 visualizations of call events and providing insights into issues that
 commonly impact calls.
 
-##How to enable Call Diagnostics
+## How to enable Call Diagnostics
 
 Azure Communication Services collects call data in the form of metrics
 and events. You must enable a Diagnostic Setting in Azure Monitor to
 send these data to a Log Analytics workspace for Call Diagnostics to
-analyze new call data. [End of call survey logs - An Azure Communication
-Services concept document \| Microsoft
-Learn](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/end-of-call-survey-logs)
+analyze new call data.
+
+
 
 > [!IMPORTANT]
-> As a note, Call Diagnostics can’t query data from data that wasn’t previously send to a Log Analytics workspace. Diagnostic Settings will only begin collect data by single Azure Communications Services Resource ID once enabled. 
-If you have multiple Azure Communications Services Resource IDs you must enable these settings for each resource ID and query call details for participants within their respective Azure Communications Services Resource ID. Your data volume, retention, and CDC query usage in Log Analytics is billed through existing Azure data meters, monitor your data usage and retention policies for [cost considerations as needed](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs).
+> Call Diagnostics can’t query data from data that wasn’t sent to a Log Analytics workspace. Diagnostic Settings will only begin collect data by single Azure Communications Services Resource ID once enabled. See our Frequently Asked Question on enabling Call Diagnostics [here](#frequently-asked-questions) 
+
+
 
 Since Call Diagnostics is an application layer on top of data for your
 Azure Communications Service Resource. You can query these call data and
@@ -74,19 +75,16 @@ Once you have [setup](#to-enable-call-diagnostics) Call Diagnostics for your Azu
 
 ## Call Search
 
-The search field allows you to search by callID (**see how to locate
-callID**). Clicking on a call will take you to a detail screen where you
+The search section let you find individual calls, or filter calls to explore calls with issues. Clicking on a call will take you to a detail screen where you
 see three sections, **Overview**, **Issues**, and **Timeline** for the
 selected call.
 
- (**insert image)**
+The search field allows you to search by callID. Please see our documentation to [access your client call ID.](../troubleshooting-info.md#access-your-client-call-id)
 
-Note!
+ <!-- (**insert image)** -->
 
-You can click on the information icons on each page within Call
-Diagnostics to learn functionality, definitions, and helpful tips.
-(**insert image)**
-
+> [!NOTE]
+> You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips.
 
 ## Call Overview
 
@@ -96,33 +94,30 @@ the participants in the call and key metrics for their call quality. You
 can select a participant to drill into their call timeline details
 directly, or navigate to the Call Issues tab for further analysis.
 
-(**<u>TODO insert image)</u>**
+<!-- (**<u>TODO insert image)</u>** -->
 
-Note!
 
-You can click on the information icons on each page within Call
-Diagnostics to learn functionality, definitions, and helpful tips.
+<!-- > [!NOTE]
+> You can explore information icons and links on each page within Call Diagnostics to learn functionality, definitions, and helpful tips. -->
 
-(**insert image)**
+<!-- (**insert image)** -->
 
 ## Call Issues
 
 The Call Issues tab give you a high-level analysis of any media quality
 and reliability issues that were detected during the call.
 
-Key Events highlights detected issues known to affect user’s call
+Key Events highlights detected common issues known to affect user’s call
 quality such as poor network conditions, speaking while muted, or device
 failures during a call. If you want to explore a detected issue, select
 the highlighted item and you will see a pre-populated view of the
 related events in the Timeline tab.
 
-Note!
+<!-- (**<u>TODO insert image)</u>** -->
 
-You can click on the information icons on each page within Call
-Diagnostics to learn functionality, definitions, and helpful tips.
-(**insert image)**
 
-(**<u>TODO insert image)</u>**
+<!-- > [!NOTE]
+> You can explore information icons and links on each page within Call Diagnostics to learn functionality, definitions, and helpful tips. -->
 
 ## Call Timeline
 
@@ -139,15 +134,13 @@ results and reduce complexity.
 You can view detailed call logs for each participant within a call. If
 information is not present it can be due to various reasons such as
 telemetry limitations or privacy constraints between different calling
-resources. See frequently asked questions to learn more. \<**link to FAQ**\>.
+resources. See frequently asked questions to learn more.
 
-(**<u>TODO insert image)</u>**
+<!-- (**<u>TODO insert image)</u>** -->
 
-Note!
 
-You can click on the information icons on each page within Call
-Diagnostics to learn functionality, definitions, and helpful tips.
-(**insert image)**
+<!-- > [!NOTE]
+> You can explore information icons and links on each page within Call Diagnostics to learn functionality, definitions, and helpful tips. -->
 
 <!-- # Common issues
 
@@ -203,65 +196,9 @@ quality](https://learn.microsoft.com/en-us/azure/communication-services/concepts
 
 1.  How do I setup Call Diagnostics?
 
-    a.  Link
+    1. Follow instructions to add diagnostic settings for your resource here [Enable logs via Diagnostic Settings in Azure Monitor.](../analytics/enable-logging.md) When prompted to select [select logs](../analytics/enable-logging.md#adding-a-diagnostic-setting) select "**allLogs**".
+    1. If you have multiple Azure Communications Services Resource IDs you must enable these settings for each resource ID and query call details for participants within their respective Azure Communications Services Resource ID. Your data volume, retention, and CDC query usage in Log Analytics is billed through existing Azure data meters, monitor your data usage and retention policies for [cost considerations as needed](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs).
 
-1.  How do I find a Call ID?
-
-    a.  Link
-
-1.  My call ID should be here?
-
-    a.  It could no longer be stored by your Log Analytics workspace,
-    b. you need to ensure you retain your call data in diagnostics
-    c. settings \<link?
-
-    a.  Maybe it’s not the ACS call ID, check “how do I find a callID?”
-    b. to learn more.
-
-1.  My call had issues, but Call Diagnostics doesn’t show any issues.
-
-    a.  Call Diagnostics relies on several common call issues to help
-    b. diagnose calls. Issues can still occur outside of the existing
-    c. telemetry or can be caused by unlisted call participants you
-    d. aren’t allowed to view due to privacy restrictions.
-
-1.  What types of calls are visible in Call Diagnostics?
-
-    a.  Call types included.
-    1. Includes call data for Web JS SDK, Native SKD, PSTN, Call Automation.
-
-    1. Includes some Call Automation Bot data edges
-
-    a.  Partial data.
-
-      a.  Different SDKs, privacy considerations may prevent you from receiving those data.
-
-
-1. What are limits of what our data reaches.
-    1. Privacy restrictions may prevent you from seeing the full call roster.
-
-1.  What are bots?
-
-1.  What capabilities does Search have?
-
-1.  What capabilities does Overview have?
-
-1.  What capabilities does Issues have?
-
-1. What capabilities does Timeline have?
-
-    1. You can zoom within the timeline by using SHIFT+mouse-scroll wheel and pan left and right by clicking and dragging within the timeline itself.
-
-1. What types of issues might I find?
-
-    a.  Participant’s call issues generally fall into these categories: 
-    1. They can’t join a call. 
-
-    1. They can’t do something in a call (mute, start video, etc.). 
-
-    1. They get dropped from a call. 
-
-    1. They have a poor call experience (audio/video quality). 
 
 1. If Azure Communication Services participants join from different
     Azure Communication Services Resources, how will they display in
@@ -291,11 +228,71 @@ quality](https://learn.microsoft.com/en-us/azure/communication-services/concepts
         Diagnostics.
 
 
+<!-- 1.  How do I find a Call ID?
 
+    a.  Link -->
+
+<!-- 1.  My call ID should be here?
+
+    a.  It could no longer be stored by your Log Analytics workspace, you may need to ensure you retain your call data in diagnostics settings. It's possible your callID is incorrect. (**ENG add details on which call ID to specifically pull in the event of multiple callIDs.**)
+
+    a.  Maybe it’s not the ACS call ID, check “how do I find a callID?” to learn more. -->
+
+<!-- 1.  My call had issues, but Call Diagnostics doesn’t show any issues.
+
+    a.  Call Diagnostics relies on several common call issues to help diagnose calls. Issues can still occur outside of the existing telemetry or can be caused by unlisted call participants you aren’t allowed to view due to privacy restrictions. -->
+
+<!-- 1.  What types of calls are visible in Call Diagnostics?
+
+    a.  Call types included.
+    1. Includes call data for Web JS SDK, Native SKD, PSTN, Call Automation.
+
+    1. Includes some Call Automation Bot data edges
+
+    a.  Partial data.
+
+      a.  Different SDKs, privacy considerations may prevent you from receiving those data. -->
+
+
+<!-- 1. What are limits of what our data reaches.
+    1. Privacy restrictions may prevent you from seeing the full call roster.
+
+1.  What are bots?
+
+1.  What capabilities does Search have?
+
+1.  What capabilities does Overview have?
+
+1.  What capabilities does Issues have?
+
+1. What capabilities does Timeline have?
+
+    1. You can zoom within the timeline by using SHIFT+mouse-scroll wheel and pan left and right by clicking and dragging within the timeline itself. -->
+
+<!-- 1. What types of issues might I find?
+
+    a.  Participant’s call issues generally fall into these categories: 
+    1. They can’t join a call. 
+
+    1. They can’t do something in a call (mute, start video, etc.). 
+
+    1. They get dropped from a call. 
+
+    1. They have a poor call experience (audio/video quality).  -->
+
+
+<!-- FAQ - Clear cache - Ask Nan.
+People need to do X, in case your cache is stale or causing issues, 
+
+choose credential A vs. B
+
+Clear your cache to ensure X, you may need clear your cache occasionally if you experience issues using Call Diagnostics. -->
 
 ## Next steps
 
-- Continue to learn other best practices, see: [Best practices: Azure Communication Services calling SDKs](../best-practices.md)
+- Get an overview managing call quality, see: [Improve and manage call quality](manage-call-quality.md)
+
+- Continue to learn other best practices to manage call quality, see: [Best practices: Azure Communication Services calling SDKs](../best-practices.md)
 
 -	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
 
