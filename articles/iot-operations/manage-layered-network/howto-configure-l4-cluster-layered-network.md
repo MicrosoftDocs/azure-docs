@@ -147,7 +147,7 @@ The following steps for setting up [AKS Edge Essentials](/azure/aks/hybrid/aks-e
     ```
 1. Register the required resource providers in your subscription:
     > [!NOTE]
-    > This is an one time configuration per subscription.
+    > This is a one-time configuration per subscription.
 
       ```powershell
       az provider register -n "Microsoft.ExtendedLocation"

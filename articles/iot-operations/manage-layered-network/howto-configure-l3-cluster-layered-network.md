@@ -121,8 +121,8 @@ After the device is moved to your level 3 isolated network layer, it's required 
 
 # [AKS Edge Essentials](#tab/aksee)
 There are few limitations for setting up AKS Edge Essentials as the level 3 cluster.
-- For configuring the custom DNS, you must use a DNS server. The CoreDNS approach is not applicable to AKS Edge Essentials cluster.
-- If you plan to access and manage the cluster remotely, you need to make a [full deployment](/azure/aks/hybrid/aks-edge-howto-multi-node-deployment) instead of a [single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment). Moreover, the full deployment cannot be hosted on an Azure VM.
+- When configuring the custom DNS, you must use a DNS server. The CoreDNS approach is not applicable to AKS Edge Essentials cluster.
+- If you plan to access and manage the cluster remotely, you need to make a [full deployment](/azure/aks/hybrid/aks-edge-howto-multi-node-deployment) instead of a [single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment). Moreover, the full deployment can't be hosted on an Azure VM.
 
 ## Prepare Windows 11
 
@@ -135,12 +135,12 @@ If you're using VM to create your Windows 11 machines, use the [VM image](https:
 1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 1. Download the [installer for the validated AKS Edge Essentials](https://aka.ms/aks-edge/msi-k3s-1.2.414.0) version.
 1. Install AKS Edge Essentials. Follow the steps in [Prepare your machines for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine). Be sure to use the installer you downloaded in the previous step and not the most recent version.
-1. **Certificates:** For Level 3 and lower, you ARC onboard the cluster that isn't connected to the internet. Therefore, you need to install certificates steps in [Prerequisites for AKS Edge Essentials offline installation](/azure/aks/hybrid/aks-edge-howto-offline-install).
+1. **Certificates:** For level 3 and lower, you ARC onboard the cluster that isn't connected to the internet. Therefore, you need to install certificates steps in [Prerequisites for AKS Edge Essentials offline installation](/azure/aks/hybrid/aks-edge-howto-offline-install).
 1. Install the following optional software if you plan to try IoT Operations quickstarts or MQTT related scenarios.
     - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
     - [Mosquitto](https://mosquitto.org/)
 1. Install Azure CLI. You can install the Azure CLI directly onto the level 3 machine or on another *developer* or *jumpbox* machine if you plan to access the level 3 cluster remotely. If you choose to access the Kubernetes cluster remotely to keep the cluster host clean, you run the *kubectl* and *az* related commands from the developer machine for the rest of the steps in this article.
-    > The *AKS Edge Essentials - Single machine deployment* does not support accessing kubenetes remotely. If you want to enable remote kubectl access, you will need to create the [Full Kubernetes Deployments](/azure/aks/hybrid/aks-edge-howto-multi-node-deployment) instead. Additional configurations are needed when creating this type of kubernetes cluster.
+    The *AKS Edge Essentials - Single machine deployment* does not support accessing kubenetes remotely. If you want to enable remote kubectl access, you will need to create the [Full Kubernetes Deployment](/azure/aks/hybrid/aks-edge-howto-multi-node-deployment) instead. Additional configurations are needed when creating this type of Kubernetes cluster.
     - Install Azure CLI. Follow the steps in [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows).
     - Install *connectedk8s* and other extensions.
 
@@ -155,7 +155,7 @@ If you're using VM to create your Windows 11 machines, use the [VM image](https:
 To create the AKS Edge Essentials cluster that's compatible with Azure IoT Operations:
 
 1. Complete the steps in [Create a single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment).
-    > Create a [Full Kubernetes Deployment](/azure/aks/hybrid/aks-edge-howto-multi-node-deployment) instead if you plan to remotely access the kubernetes from another machine.
+    Create a [Full Kubernetes Deployment](/azure/aks/hybrid/aks-edge-howto-multi-node-deployment) instead if you plan to remotely access the kubernetes from another machine.
 
     At the end of [Step 1: single machine configuration parameters](/azure/aks/hybrid/aks-edge-howto-single-node-deployment#step-1-single-machine-configuration-parameters), modify the following values in the *aksedge-config.json* file as follows:
 
@@ -163,7 +163,7 @@ To create the AKS Edge Essentials cluster that's compatible with Azure IoT Opera
     - `LinuxNode.DataSizeInGB` = 30
     - `LinuxNode.MemoryInMB` = 8192
 
-    In the **Network** section, set the `SkipDnsCheck` property to **true**.Add and set the `DnsServers` to the address of the DNS server in the subnet.
+    In the **Network** section, set the `SkipDnsCheck` property to **true**. Add and set the `DnsServers` to the address of the DNS server in the subnet.
 
     ```json
     "DnsServers": ["<IP ADDRESS OF THE DNS SERVER IN SUBNET>"],

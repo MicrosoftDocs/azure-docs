@@ -20,10 +20,10 @@ To use Azure IoT Layered Network Management service, you need to configure an is
 - *Physical segmentation* - The networks are physically separated. In this case, the Layered Network Management needs to be deployed to a dual NIC (Network Interface Card) host to connect to both the internet-facing network and the isolated network.
 - *Logical segmentation* - The network is logically segmented with configurations such as VLAN, subnet or firewall. The Layered Network Management has a single endpoint and configured to be visible to its own network layer and the isolated layer.
 
-Both approach requires you to configure a custom DNS in the isolated network layer to direct the network traffic to the Layered Network Management instance in upper layer.
+Both approaches require you to configure a custom DNS in the isolated network layer to direct the network traffic to the Layered Network Management instance in upper layer.
 
 > [!IMPORTANT]
-> The network environments outlined in Layered Network Management documentation are examples for testing the Layered Network Management. It's not a recommendation of how you build your network and cluster topology for productional usage.
+> The network environments outlined in Layered Network Management documentation are examples for testing the Layered Network Management. It's not a recommendation of how you build your network and cluster topology for production.
 
 ## Configure isolated network with physical segmentation
 
@@ -47,30 +47,30 @@ The multiple levels of networks in this test setup are accomplished using subnet
 
 - **Level 4 subnet (10.104.0.0/16)** - This subnet has access to the internet. All the requests are sent to the destinations on the internet. This subnet has a single Windows 11 machine with the IP address 10.104.0.10.
 - **Level 3 subnet (10.103.0.0/16)** - This subnet doesn't have access to the internet and is configured to only have access to the IP address 10.104.0.10 in Level 4. This subnet contains a Windows 11 machine with the IP address 10.103.0.33 and a Linux machine that hosts a DNS server. The DNS server is configured using the steps in [Configure custom DNS](#configure-custom-dns). All the domains in the DNS configuration must be mapped to the address 10.104.0.10.
-- **Level 2 subnet (10.102.0.0/16)** - Like Level 3, this subnet doesn't have access to the internet. It is configured to only have access to the IP address 10.103.0.33 in Level 3. This subnet contains a Windows 11 machine with the IP address 10.102.0.28 and a Linux machine that hosts a DNS server. There's one Windows 11 machine (node) in this network with IP address 10.102.0.28. All the domains in the DNS configuration must be mapped to the address 10.103.0.33.
+- **Level 2 subnet (10.102.0.0/16)** - Like level 3, this subnet doesn't have access to the internet. It is configured to only have access to the IP address 10.103.0.33 in level 3. This subnet contains a Windows 11 machine with the IP address 10.102.0.28 and a Linux machine that hosts a DNS server. There's one Windows 11 machine (node) in this network with IP address 10.102.0.28. All the domains in the DNS configuration must be mapped to the address 10.103.0.33.
 
 Refer to the following examples for setup this type of network environment.
 
 ### Example of logical segmentation with minimum hardware
-In this example, both machines are connected to an AP (Access Point) which connects to the internet. The level 4 host machine can access internet. The level 3 host is blocked for accessing internet with AP's configuration (for example, firewall, client control...). As both machines are in the same network, Layered Network Management instance hosted on level 4 cluster is by default visible to the level 3 machine and cluster.
+In this example, both machines are connected to an access point (AP) which connects to the internet. The level 4 host machine can access the internet. The level 3 host is blocked for accessing the internet with the AP's configuration.  For example, firewall or client control. As both machines are in the same network, the Layered Network Management instance hosted on level 4 cluster is by default visible to the level 3 machine and cluster.
 An extra custom DNS needs to be set up in the local network to provide domain name resolution and point the traffic to Layered Network Management. For more information, see [Configure custom DNS](#configure-custom-dns).
 
 ![Diagram of a logical isolated network configuration.](./media/howto-configure-layered-network/logical-network-segmentation.png)
 
 ### Example of logical segmentation in Azure
-In this example, a test environment is created with [Virtual Network](/azure/virtual-network/virtual-networks-overview) and [Linux Virtual Machine](/azure/virtual-machines/linux/quick-create-portal) in Azure environment.
+In this example, a test environment is created with a [virtual network](/azure/virtual-network/virtual-networks-overview) and a [Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal) in Azure.
 > [!IMPORTANT]
-> Virtual environment is for exploration and evaluation only. Please refer to [validated environments](/azure/iot-operations/get-started/overview-iot-operations#validated-environments) of the Azure IoT Operations.
+> Virtual environment is for exploration and evaluation only. For more information, see [validated environments](/azure/iot-operations/get-started/overview-iot-operations#validated-environments) for Azure IoT Operations.
 
 1. Create a virtual network in your Azure subscription. Create subnets for at least two layers (level 4 and level 3).
 ![Screenshot for virtual network in Azure](./media/howto-configure-layered-network/lnm-vnet-subnet.png)
-1. It's optional to create an extra subnet for the "jumpbox" or "developer" machine to remotely access the machine or cluster across layers. This setup is convenient if you plan to create more than two network layers. Otherwise, you can connect the jumpbox machine to level 4 network.
+1. It's optional to create an extra subnet for the *jumpbox* or *developer* machine to remotely access the machine or cluster across layers. This setup is convenient if you plan to create more than two network layers. Otherwise, you can connect the jumpbox machine to level 4 network.
 1. Create [network security groups](/azure/virtual-network/network-security-groups-overview) for each level and attach to the subnet accordingly.
 1. You can use the default value for level 4 security group.
-1. You need to config additional inbound and outbound rules for level 3 (and lower level) security group.
+1. You need to configure additional inbound and outbound rules for level 3 (and lower level) security group.
     - Add inbound and outbound security rules to deny all network traffic.
-    - With a higher priority, add inbound and outbound security rules to allow network traffics from/to the IP range of level 4 subnet.
-    - [Optional] If you create a "jumpbox" subnet, create inbound and outbound rules for allowing traffic from/to this subnet.
+    - With a higher priority, add inbound and outbound security rules to allow network traffic to and from the IP range of level 4 subnet.
+    - [Optional] If you create a *jumpbox* subnet, create inbound and outbound rules for allowing traffic to and from this subnet.
 ![Screenshot for level 3 security group](./media/howto-configure-layered-network/lnm-vnet-security-rule.png)
 1. Create Linux VMs in level 3 and level 4. 
     - Refer to [validated environments](/azure/iot-operations/get-started/overview-iot-operations#validated-environments) for specification of the VM.
