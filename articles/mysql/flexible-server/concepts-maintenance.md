@@ -44,9 +44,9 @@ You can define system-managed schedule or custom schedule for each flexible serv
 * With system-managed schedule, the system will pick any one-hour window between 11pm and 7am in your server's region time.
 
 > [!IMPORTANT]
-> Previously, a 7-day deployment gap between system-managed and custom-managed schedules was maintained. Due to evolving maintenance demands and the introduction of the [maintenance reschedule feature (preview)](#maintenance-reschedule-preview), we can no longer guarantee this 7-day gap.
+> Previously, a 7-day deployment gap between system-managed and custom-managed schedules was maintained. Due to evolving maintenance demands and the introduction of the [maintenance reschedule feature (Public preview)](#maintenance-reschedule-public-preview), we can no longer guarantee this 7-day gap.
 
-In rare cases, maintenance event can be canceled by the system or may fail to complete successfully. If the update fails, the update will be reverted, and the previous version of the binaries is restored. In such failed update scenarios, you may still experience restart of the server during the maintenance window. If the update is canceled or failed, the system will create a notification about canceled or failed maintenance event respectively notifying you. The next attempt to perform maintenance will be scheduled as per your current scheduling settings and you will receive notification about it 5 days in advance.
+In rare cases, maintenance event can be canceled by the system or may fail to complete successfully. If the update fails, the update is reverted, and the previous version of the binaries is restored. In such failed update scenarios, you may still experience restart of the server during the maintenance window. If the update is canceled or failed, the system will create a notification about canceled or failed maintenance event respectively notifying you. The next attempt to perform maintenance will be scheduled as per your current scheduling settings and you will receive notification about it 5 days in advance.
 
 ## Near zero downtime maintenance (Public preview) ##
 
@@ -59,8 +59,8 @@ Azure Database for MySQL Flexible Server's "Near Zero Downtime Maintenance" feat
 ### Limitations and Prerequisites ###
 To achieve the optimal performance promised by this feature, certain conditions and limitations should be noted:
 
- - **Primary Keys in All Tables:** Ensuring that every table has a primary key is critical. Not having primary keys can result in a substantial increase in replication lag, which in turn, can negatively impact the total failover time.
- - **Low Workload During Maintenance Times:** Maintenance periods should coincide with times of low workload on the server to ensure the downtime remains minimal. We encourage you to use the custom maintenance window feature to schedule maintenance during off-peak hours.
+ - **Primary Keys in All Tables:** Ensuring that every table has a primary key is critical. Lack of primary keys can significantly increase replication lag, impacting the downtime.
+ - **Low Workload During Maintenance Times:** Maintenance periods should coincide with times of low workload on the server to ensure the downtime remains minimal. We encourage you to use the [custom maintenance window](how-to-maintenance-portal.md/#specify-maintenance-schedule-options) feature to schedule maintenance during off-peak hours.
 
 ## Maintenance reschedule (Public preview)
 
