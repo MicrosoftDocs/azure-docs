@@ -43,11 +43,9 @@ The application ensures that all cloud state is replicated between availability 
 
 Azure Private 5G Core is only available in multi-region (3+N) geographies. The service automatically replicates SIM credentials to a backup region in the same geography. This means that there's no loss of data in the event of region failure. Within four hours of the failure, all resources in the failed region are available to view through the Azure portal and ARM tools but will be read-only until the failed region is recovered. the packet running at the Edge continues to operate without interruption and network connectivity will be maintained.
 
-### Disaster recovery in multi-region geography
-
 Microsoft is responsible for outage detection, notification and support for the Azure cloud aspects of the Azure Private 5G Core service.
 
-#### Outage detection, notification, and management
+### Outage detection, notification, and management
 
 Microsoft monitors the underlying resources providing the Azure Private 5G Core service in each region. If those resources start to show failures or health monitoring alerts that aren't restricted to a single availability zone then Microsoft will move the service to another supported region in the same geography. This is an Active-Active pattern. The service health for a particular region can be found on [Azure Service Health](https://status.azure.com/status) (Azure Private 5G Core is listed in the **Networking** section). You'll be notified of any region failures through normal Azure communications channels.
 
@@ -65,7 +63,7 @@ Note that this will cause an outage of your packet core service and interrupt ne
 
 In advance of a disaster recovery event, you must back up your resource configuration to another region that supports Azure Private 5G Core. When the region failure occurs, you can redeploy the packet core using the resources in your backup region.
 
-##### Preparation
+#### Preparation
 
 There are two types of Azure Private 5G Core configuration data that need to be backed up for disaster recovery: mobile network configuration and SIM credentials. We recommend that you:
 
@@ -84,7 +82,7 @@ For security reasons, Azure Private 5G Core will never return the SIM credential
 <br></br>
 Your Azure Private 5G Core deployment may make use of Azure Key Vaults for storing [SIM encryption keys](./security.md#customer-managed-key-encryption-at-rest) or HTTPS certificates for [local monitoring](./security.md#access-to-local-monitoring-tools). You must follow the [Azure Key Vault documentation](../key-vault/general/disaster-recovery-guidance.md) to ensure that your keys and certificates will be available in the backup region.
 
-##### Recovery
+#### Recovery
 In the event of a region failure, first validate that all the resources in your backup region are present by querying the configuration through the Azure portal or API (see [Move resources to a different region](./region-move-private-mobile-network-resources.md)). If all the resources aren't present, stop here and don't follow the rest of this procedure. You may not be able to recover service at the edge site without the resource configuration.
 
 The recovery process is split into three stages for each packet core:
@@ -112,7 +110,7 @@ Take a copy of the **packetCoreControlPlanes.platform** values you stored in [Pr
 
 You should follow your normal process for validating a new site install to confirm that UE connectivity has been restored and all network functionality is operational. In particular, you should confirm that the site dashboards in the Azure portal show UE registrations and that data is flowing through the data plane.
 
-##### Failed region restored
+#### Failed region restored
 
 When the failed region recovers, you should ensure the configuration in the two regions is in sync by performing a backup from the active backup region to the recovered primary region, following the steps in [Preparation](#preparation).
 
@@ -126,7 +124,7 @@ You then have two choices for ongoing management:
 1. Use the operational backup region as the new primary region and use the recovered region as a backup. No further action is required.
 1. Make the recovered region the new active primary region by following the instructions in [Move resources to a different region](./region-move-private-mobile-network-resources.md) to switch back to the recovered region.
 
-##### Testing
+#### Testing
 
 If you want to test your disaster recovery plans, you can follow the recovery procedure for a single packet core at any time. Note that this will cause a service outage of your packet core service and interrupt network connectivity to your UEs for up to four hours, so we recommend only doing this with non-production packet core deployments or at a time when an outage won't adversely affect your business.
 
