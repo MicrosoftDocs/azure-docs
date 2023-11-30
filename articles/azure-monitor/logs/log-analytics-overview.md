@@ -35,7 +35,12 @@ If you want to start with an empty script and write it yourself, close the examp
 
 ## Log Analytics interface
 
-The following image identifies four Log Analytics components.
+The following image identifies four Log Analytics components. These four Log Analytics components are:
+
+1. [Top action bar](#top-action-bar)
+1. [Left sidebar](#left-sidebar)
+1. [Query window](#query-window)
+1. [Results window](#results-window)
 
 :::image type="content" source="media/log-analytics-overview/log-analytics.png" lightbox="media/log-analytics-overview/log-analytics.png" alt-text="Screenshot that shows the Log Analytics interface with four features identified.":::
 
