@@ -1290,17 +1290,17 @@ items:
       items:
         - name: Set up alert rules
           items:
-          - name: Create or edit a metric alert rule
+          - name: Metric alert rules
             href: alerts/alerts-create-metric-alert-rule.md
-          - name: Create or edit a log alert rule
+          - name: Log alert rules
             href: alerts/alerts-create-log-alert-rule.md
-          - name: Create or edit an activity log, service health or resource health alert rule
+          - name: Activity log, service health or resource health alert rules
             href: alerts/alerts-create-log-alert-rule.md
-          - name: Create Prometheus alert rules
+          - name: Prometheus alert rules
             href: alerts/prometheus-alerts.md
-          - name: Create a metric alert rule with dynamic thresholds
+          - name: Metric alert rule with dynamic thresholds
             href: alerts/alerts-dynamic-thresholds.md
-          - name: Create a metric alert on Azure Monitor Logs
+          - name: Metric alert on Azure Monitor Logs
             href: alerts/alerts-metric-logs.md
           - name: Create one alert rule for multiple time series
             href: alerts/alerts-metric-multiple-time-series-single-rule.md

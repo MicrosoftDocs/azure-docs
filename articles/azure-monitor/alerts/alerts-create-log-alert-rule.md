@@ -182,7 +182,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
     |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
 
-[!INCLUDE [alerts-wizard-custom=properties](../includes/alerts-wizard-custom-properties.md)]
+1. [!INCLUDE [alerts-wizard-custom=properties](../includes/alerts-wizard-custom-properties.md)]
 
 [!INCLUDE [alerts-wizard-finish](../includes/alerts-wizard-finish.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Create Azure Monitor activity log, service health, or resource health alert rule
+title: Create or edit an activity log, service health, or resource health alert rule
 description: This article shows you how to create a new activity log, service health, and resource health alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
@@ -86,7 +86,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 1. Enter values for the **Alert rule name** and the **Alert rule description**.
 1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
 
-[!INCLUDE [alerts-wizard-custom=properties](../includes/alerts-wizard-custom-properties.md)]
+1. [!INCLUDE [alerts-wizard-custom=properties](../includes/alerts-wizard-custom-properties.md)]
 
 [!INCLUDE [alerts-wizard-finish](../includes/alerts-wizard-finish.md)]
 

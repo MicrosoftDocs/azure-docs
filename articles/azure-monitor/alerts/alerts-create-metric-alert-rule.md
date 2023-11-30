@@ -121,7 +121,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
     |Automatically resolve alerts (preview) |Select to make the alert stateful. When an alert is stateful, the alert is resolved when the condition is no longer met.<br> If you don't select this checkbox, metric alerts are stateless. Stateless alerts fire each time the condition is met, even if alert already fired.<br> The frequency of notifications for stateless metric alerts differs based on the alert rule's configured frequency:<br>**Alert frequency of less than 5 minutes**: While the condition continues to be met, a notification is sent somewhere between one and six minutes.<br>**Alert frequency of more than 5 minutes**: While the condition continues to be met, a notification is sent between the configured frequency and doubles the value of the frequency. For example, for an alert rule with a frequency of 15 minutes, a notification is sent somewhere between 15 to 30 minutes.|
 
-[!INCLUDE [alerts-wizard-custom=properties](../includes/alerts-wizard-custom-properties.md)]
+1. [!INCLUDE [alerts-wizard-custom=properties](../includes/alerts-wizard-custom-properties.md)]
 
 [!INCLUDE [alerts-wizard-finish](../includes/alerts-wizard-finish.md)]
 
