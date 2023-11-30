@@ -92,7 +92,7 @@ Name                                     Account                               S
 AzMon001  (12345678-abcd-123…            MSI@9876                              AzMon001                              AzureCloud                           abcd1234-9876-abcd-1234-1234abcd5648
 
 Getting list of VMs or VM Scale Sets matching specified criteria.
-VM's and VMSS matching selection criteria :
+VMs and VMSS matching selection criteria :
 
 ResourceGroup : rg-AMAPowershell
   vmAMAPowershellWindows
@@ -124,6 +124,7 @@ VMSS Instance Upgrade Failures : 0
 
 
 Check your VM/VMSS in Azure portal to see if the extensions are installed.
+
 ```powershell
 
 az vm extension list --resource-group rg-AMAPowershell --vm-name vmAMAPowershellWindows  -o table 
@@ -135,10 +136,6 @@ DA-Extension              Succeeded            Microsoft.Azure.Monitoring.Depend
 ```
 
 ### [Log Analytics Agent](#tab/LogAnalyticsAgent)
-
-```powershell 
-
-
 
 The following example demonstrates using the PowerShell commands in the folder to enable VM insights and understand the expected output:
 
@@ -188,6 +185,7 @@ Not running - start VM to configure: (0)
 
 Failed: (0)
 ```
+
 ---
 
 ## Next steps
