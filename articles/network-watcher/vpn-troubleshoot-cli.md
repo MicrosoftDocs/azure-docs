@@ -16,8 +16,8 @@ ms.custom: devx-track-azurecli
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
-> - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-> - [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
+> - [PowerShell](vpn-troubleshoot-powershell.md)
+> - [Azure CLI](vpn-troubleshoot-cli.md)
 
 In this article, you learn how to use Network Watcher VPN troubleshoot capability to diagnose and troubleshoot VPN virtual network gateways and their connections to solve connectivity issues between your virtual network and on-premises network. VPN troubleshoot requests are long running requests, which could take several minutes to return a result. The logs from troubleshooting are stored in a container on a storage account that is specified.
 
@@ -27,7 +27,7 @@ In this article, you learn how to use Network Watcher VPN troubleshoot capabilit
 
 - A Network Watcher enabled in the region of the virtual network gateway. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md?tabs=cli).
 
-- A virtual network gateway. For more information, see [Supported gateway types](network-watcher-troubleshoot-overview.md#supported-gateway-types).
+- A virtual network gateway. For more information, see [Supported gateway types](vpn-troubleshoot-overview.md#supported-gateway-types).
 
 - Azure Cloud Shell or Azure CLI.
     
@@ -67,7 +67,7 @@ az network watcher troubleshooting start --resource-group 'myResourceGroup' --re
 
 After the troubleshooting request is completed, ***Healthy*** or ***UnHealthy*** is returned with action text that provides general guidance on how to resolve the issue. If an action can be taken for the issue, a link is provided with more guidance.
 
-Additionally, detailed logs are stored in the storage account container you specified in the previous command. For more information, see [Log files](network-watcher-troubleshoot-overview.md#log-files). You can use Storage explorer or any other way you prefer to access and download the logs. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
+Additionally, detailed logs are stored in the storage account container you specified in the previous command. For more information, see [Log files](vpn-troubleshoot-overview.md#log-files). You can use Storage explorer or any other way you prefer to access and download the logs. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
 
 ## Troubleshoot using a new storage account
 
@@ -113,10 +113,10 @@ az network watcher troubleshooting start --resource-group 'myResourceGroup' --re
 
 After the troubleshooting request is completed, ***Healthy*** or ***UnHealthy*** is returned with action text that provides general guidance on how to resolve the issue. If an action can be taken for the issue, a link is provided with more guidance.
 
-Additionally, detailed logs are stored in the storage account container you specified in the previous command. For more information, see [Log files](network-watcher-troubleshoot-overview.md#log-files). You can use Storage explorer or any other way you prefer to access and download the logs. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
+Additionally, detailed logs are stored in the storage account container you specified in the previous command. For more information, see [Log files](vpn-troubleshoot-overview.md#log-files). You can use Storage explorer or any other way you prefer to access and download the logs. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
 
 ## Related content
 
 - [Tutorial: Diagnose a communication problem between virtual networks using the Azure portal](diagnose-communication-problem-between-networks.md).
 
-- [VPN troubleshoot overview](network-watcher-troubleshoot-overview.md).
+- [VPN troubleshoot overview](vpn-troubleshoot-overview.md).
