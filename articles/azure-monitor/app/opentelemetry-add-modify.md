@@ -1398,7 +1398,7 @@ Not available in .NET.
     <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>applicationinsights-core</artifactId>
-      <version>3.4.14</version>
+      <version>3.4.18</version>
     </dependency>
     ```
 
