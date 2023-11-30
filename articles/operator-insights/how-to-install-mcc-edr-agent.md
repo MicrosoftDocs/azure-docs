@@ -27,7 +27,7 @@ The MCC EDR agent is a software package that is installed onto a Linux Virtual M
 | Network  | Connectivity from MCCs and to Azure                                 |
 | Software | systemd, logrotate and zip installed                                |
 | Other    | SSH or alternative access to run shell commands                     |
-| DNS      | (Preferable) Ability to resolve public DNS. If not, you need to perform extra steps to resolve Azure locations. See [Running without public DNS](#running-without-public-dns). |
+| DNS      | (Preferable) Ability to resolve public DNS. If not, you need to perform extra steps to resolve Azure locations. See [VMs without public DNS: map Azure host names to IP addresses.](#vms-without-public-dns-map-azure-host-names-to-ip-addresses). |
 
 Each agent instance must run on its own VM. The number of VMs needed depends on the scale and redundancy characteristics of your deployment. This recommended specification can achieve 1.5-Gbps throughput on a standard D4s_v3 Azure VM. For any other VM spec, we recommend that you measure throughput at the network design stage.
 
@@ -35,19 +35,34 @@ Latency on the MCC to agent connection can negatively affect throughput. Latency
 
 Talk to the Affirmed Support Team to determine your requirements.
 
-## Deploy the agent on your VMs
+### Deploying multiple VMs for fault tolerance
 
-To deploy the agent on your VMs, follow the procedures outlined in the following sections.
+The MCC EDR agent is designed to be highly reliable and resilient to low levels of network disruption. If an unexpected error occurs, the agent restarts and provides service again as soon as it's running.
 
-### Acquire the agent RPM
+The agent doesn't buffer data, so if a persistent error or extended connectivity problems occur, EDRs are dropped.
+
+For extra fault tolerance, you can deploy multiple instances of the MCC EDR agent and configure the MCC to switch to a different instance if the original instance becomes unresponsive, or to share EDR traffic across a pool of agents. For more information, see the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/latest/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm) (only available to customers with Affirmed support) or speak to the Affirmed Networks Support Team.
+
+### VM security recommendations
+
+The VM used for the MCC EDR agent should be set up following best practice for security. For example:
+
+- Networking - Only allow network traffic on the ports that are required to run the agent and maintain the VM.
+- OS version - Keep the OS version up-to-date to avoid known vulnerabilities.
+- Access - Limit access to the VM to a minimal set of users, and set up audit logging for their actions. For the MCC EDR agent, we recommend that the following are restricted:
+  - Admin access to the VM (for example, to stop/start/install the MCC EDR software)
+  - Access to the directory where the logs are stored *(/var/log/az-mcc-edr-uploader/)*
+  - Access to the certificate and private key for the service principal that you create during this procedure
+
+## Acquire the agent RPM
 
 A link to download the MCC EDR agent RPM is provided as part of the Azure Operator Insights onboarding process. See [How do I get access to Azure Operator Insights?](overview.md#how-do-i-get-access-to-azure-operator-insights) for details.
 
-### Authentication
+## Set up authentication
 
 You must have a service principal with a certificate credential that can access the Azure Key Vault created by the Data Product to retrieve storage credentials. Each agent must also have a copy of a valid certificate and private key for the service principal stored on this virtual machine.
 
-#### Create a service principal
+### Create a service principal
 
 > [!IMPORTANT]
 > You may need a Microsoft Entra tenant administrator in your organization to perform this setup for you.
@@ -55,7 +70,7 @@ You must have a service principal with a certificate credential that can access 
 1. Create or obtain a Microsoft Entra ID service principal. Follow the instructions detailed in [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
 1. Note the Application (client) ID, and your Microsoft Entra Directory (tenant) ID (these IDs are UUIDs of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit).
 
-#### Prepare certificates
+### Prepare certificates
 
 It's up to you whether you use the same certificate and key for each VM, or use a unique certificate and key for each.  Using a certificate per VM provides better security and has a smaller impact if a key is leaked or the certificate expires. However, this method adds a higher maintainability and operational complexity.
 
@@ -72,13 +87,13 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 
     `base64 -w 0 $pkcs12\_filename &gt; $base64filename`
 
-#### Grant permissions for the Data Product Key Vault
+### Grant permissions for the Data Product Key Vault
 
 1. Find the Azure Key Vault that holds the storage credentials for the input storage account. This Key Vault is in a resource group named *\<data-product-name\>-HostedResources-\<unique-id\>*.
 1. Grant your service principal the 'Key Vault Secrets User' role on this Key Vault.  You need Owner level permissions on your Azure subscription.  See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 1. Note the name of the Key Vault.
 
-### Prepare the VMs
+## Prepare the VMs
 
 Repeat these steps for each VM onto which you want to install the agent:
 
@@ -92,7 +107,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 1. Obtain the ingestion agent RPM and copy it to the VM.
 1. Copy the pkcs12-formatted base64-encoded certificate (created in the [Prepare certificates](#prepare-certificates) step) to an accessible location on the VM (such as /etc/az-mcc-edr-uploader).
 
-#### Running without public DNS
+## VMs without public DNS: map Azure host names to IP addresses.
 
 **If your agent VMs have access to public DNS, then you can skip this step and continue to [Install agent software](#install-agent-software).**
 
@@ -100,24 +115,19 @@ If your agent VMs don't have access to public DNS, then you need to add entries 
 
 This process assumes that you're connecting to Azure over ExpressRoute and are using Private Links and/or Service Endpoints. If you're connecting over public IP addressing, you **cannot** use this workaround and must use public DNS.
 
-Create the following resources from a virtual network that is peered to your ingestion agents:
-
-- A Service Endpoint to Azure Storage
-- A Private Link or Service Endpoint to the Key Vault created by your Data Product. The Key Vault is the same one you found in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
-
-Steps:
-
+1. Create the following resources from a virtual network that is peered to your ingestion agents:
+    - A Service Endpoint to Azure Storage
+    - A Private Link or Service Endpoint to the Key Vault created by your Data Product. The Key Vault is the same one you found in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
 1. Note the IP addresses of these two connections.
-2. Note the ingestion URL for your Data Product.  You can find the ingestion URL on your Data Product overview page in the Azure portal, in the form *\<account name\>.blob.core.windows.net*.
-3. Note the URL of the Data Product Key Vault.  The URL appears as *\<vault name\>.vault.azure.net*
-4. Add a line to */etc/hosts* on the VM linking the two values in this format, for each of the storage and Key Vault:
+1. Note the ingestion URL for your Data Product.  You can find the ingestion URL on your Data Product overview page in the Azure portal, in the form *\<account name\>.blob.core.windows.net*.
+1. Note the URL of the Data Product Key Vault.  The URL appears as *\<vault name\>.vault.azure.net*
+1. Add a line to */etc/hosts* on the VM linking the two values in this format, for each of the storage and Key Vault:
+    ```
+    <Storage private IP>   <ingestion URL>
+    <Key Vault private IP>  <Key Vault URL>
+    ````
 
-    *\<Storage private IP\>*   *\<ingestion URL\>*
-
-    *\<Key Vault private IP\>*  *\<Key Vault URL\>*
-
-
-### Install agent software
+## Install agent software
 
 Repeat these steps for each VM onto which you want to install the agent:
 
@@ -146,7 +156,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 
 1. Check that the agent is running: `sudo systemctl status az-mcc-edr-uploader`
 
-    1. If you see any status other than "active (running)", look at the logs as described in the [Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights](troubleshoot-mcc-edr-agent.md) article to understand the error.  It's likely that some configuration is incorrect.
+    1. If you see any status other than `active (running)`, look at the logs as described in the [Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights](troubleshoot-mcc-edr-agent.md) article to understand the error.  It's likely that some configuration is incorrect.
 
     2. Once you resolve the issue,  attempt to start the agent again.
 
@@ -156,11 +166,11 @@ Repeat these steps for each VM onto which you want to install the agent:
 
 1. Save a copy of the delivered RPM – you need it to reinstall or to back out any future upgrades.
 
-### Configure affirmed MCCs
+## Configure Affirmed MCCs
 
 Once the agents are installed and running, configure the MCCs to send EDRs to them.
 
-1. Follow the steps under "Generating SESSION, BEARER, FLOW, and HTTP Transaction EDRs" in the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/latest/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm) (1), making the following changes:
+1. Follow the steps under "Generating SESSION, BEARER, FLOW, and HTTP Transaction EDRs" in the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/latest/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm) (only available to customers with Affirmed support), making the following changes:
 
     - Replace the IP addresses of the MSFs in MCC configuration with the IP addresses of the VMs running the ingestion agents.
 
@@ -170,38 +180,8 @@ Once the agents are installed and running, configure the MCCs to send EDRs to th
         - encoding: protobuf
         - keep-alive: 2 seconds
 
-## Important considerations
-
-### Security
-
-The VM used for the MCC EDR agent should be set up following best practice for security. For example:
-
-- Networking - Only allow network traffic on the ports that are required to run the agent and maintain the VM.
-
-- OS version - Keep the OS version up-to-date to avoid known vulnerabilities.
-
-- Access - Limit access to the VM to a minimal set of users, and set up audit logging for their actions. For the MCC EDR agent, we recommend that the following are restricted:
-
-  - Admin access to the VM (for example, to stop/start/install the MCC EDR software)
-
-  - Access to the directory where the logs are stored *(/var/log/az-mcc-edr-uploader/)*
-
-  - Access to the certificate and private key for the service principal
-
-### Deploying for fault tolerance
-
-The MCC EDR agent is designed to be highly reliable and resilient to low levels of network disruption. If an unexpected error occurs, the agent restarts and provides service again as soon as it's running.
-
-The agent doesn't buffer data, so if a persistent error or extended connectivity problems occur, EDRs are dropped.
-
-For extra fault tolerance, you can deploy multiple instances of the MCC EDR agent and configure the MCC to switch to a different instance if the original instance becomes unresponsive, or to share EDR traffic across a pool of agents. For more information, see the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/latest/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm)(2) or speak to the Affirmed Networks Support Team.
 
 ## Related content
 
-[Manage MCC EDR Ingestion Agents for Azure Operator Insights](how-to-manage-mcc-edr-agent.md)
-
-[Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights](troubleshoot-mcc-edr-agent.md)
-
-[1] Only accessible for customers with Affirmed Support
-
-[2] Only accessible for customers with Affirmed support
+- [Manage MCC EDR Ingestion Agents for Azure Operator Insights](how-to-manage-mcc-edr-agent.md)
+- [Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights](troubleshoot-mcc-edr-agent.md)
