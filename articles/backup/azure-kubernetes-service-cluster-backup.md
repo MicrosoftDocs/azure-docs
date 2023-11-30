@@ -209,7 +209,7 @@ To enable a backup hook as part of the configure backup flow to back up MySQL:
 
 1. Write the custom resource for backup hook with commands to freeze and unfreeze a PostgreSQL pod.
 
-   You can also use the following sample YAML script  *postgresbackuphook.yaml*, which has pre-defined commands:
+   You can also use the following sample YAML script  *postgresbackuphook.yaml*, which has predefined commands:
 
       ```json
       apiVersion: clusterbackup.dataprotection.microsoft.com/v1alpha1
