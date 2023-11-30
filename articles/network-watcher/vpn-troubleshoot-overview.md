@@ -1,22 +1,21 @@
 ---
 title: VPN troubleshoot overview
 titleSuffix: Azure Network Watcher
-description: Learn about Azure Network Watcher VPN troubleshoot capability.
-services: network-watcher
+description: Learn about Azure Network Watcher VPN troubleshoot capability and how to use it to troubleshoot VPN virtual network gateways and their connections.
 author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 02/23/2023
-ms.author: halkazwini
-ms.custom: template-concept, engagement-fy23
+
+#CustomerIntent: As an Azure administrator, I want to learn about VPN troubleshoot so I can use it to troubleshoot my VPN virtual network gateways and their connections whenever resources in a virtual network can't communicate with on-premises machines over a VPN connection.
 ---
 
 # VPN troubleshoot overview
 
 Virtual network gateways provide connectivity between on-premises resources and Azure Virtual Networks. Monitoring virtual network gateways and their connections are critical to ensure communication isn't broken. Azure Network Watcher provides the capability to troubleshoot virtual network gateways and their connections. The capability can be called through the Azure portal, Azure PowerShell, Azure CLI, or REST API. When called, Network Watcher diagnoses the health of the gateway, or connection, and returns the appropriate results. The request is a long running transaction. The results are returned once the diagnosis is complete.
 
-:::image type="content" source="./media/network-watcher-troubleshoot-overview/vpn-troubleshoot-azure-portal.png" alt-text="Screenshot of Azure Network Watcher VPN troubleshoot in the Azure portal.":::
+:::image type="content" source="./media/vpn-troubleshoot-overview/vpn-troubleshoot-azure-portal.png" alt-text="Screenshot of Azure Network Watcher VPN troubleshoot in the Azure portal.":::
 
 ## Supported Gateway types
 
@@ -94,7 +93,7 @@ The following tables show the different fault types (**id** under results from t
 
 The resource troubleshooting log files are stored in a storage account after resource troubleshooting is finished. The following image shows the example contents of a call that resulted in an error.
 
-:::image type="content" source="./media/network-watcher-troubleshoot-overview/gateway-tenant-worker-logs-new.png" alt-text="Screenshot shows the content of the downloaded zipped log files.":::
+:::image type="content" source="./media/vpn-troubleshoot-overview/gateway-tenant-worker-logs-new.png" alt-text="Screenshot shows the content of the downloaded zipped log files.":::
 
 > [!NOTE]
 > 1. In some cases, only a subset of the logs files is written to storage.
@@ -146,7 +145,7 @@ Remote <IPaddress>:500: Local <IPaddress>:500: [SEND][NOTIFY] Sending Notify Mes
 
 The **IKEErrors.txt** file contains any IKE errors that were found during monitoring.
 
-The following example shows the contents of an IKEErrors.txt file. Your errors may be different depending on the issue.
+The following example shows the contents of an IKEErrors.txt file. Your errors might be different depending on the issue.
 
 ```
 Error: Authentication failed. Check shared key. Check crypto. Check lifetimes. 
@@ -219,10 +218,11 @@ Elapsed Time            330 sec
 ```
 
 ## Considerations 
-* Only one VPN troubleshoot operation can be run at a time per subscription. To run another VPN troubleshoot operation, wait for the previous one to complete. Triggering a new operation while a previous one hasn't completed causes the subsequent operations to fail. 
-* CLI Bug: If you're using Azure CLI to run the command, the VPN Gateway and the Storage account need to be in same resource group. Customers with the resources in different resource groups can use PowerShell or the Azure portal instead.  
 
-## Next steps
+- Only one VPN troubleshoot operation can be run at a time per subscription. To run another VPN troubleshoot operation, wait for the previous one to complete. Triggering a new operation while a previous one hasn't completed causes the subsequent operations to fail. 
+- CLI Bug: If you're using Azure CLI to run the command, the VPN Gateway and the Storage account need to be in same resource group. Customers with the resources in different resource groups can use PowerShell or the Azure portal instead.  
+
+## Next step
 
 To learn how to diagnose a problem with a virtual network gateway or gateway connection, see [Diagnose communication problems between virtual networks](diagnose-communication-problem-between-networks.md).
 
