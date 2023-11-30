@@ -95,20 +95,12 @@ Use the `workspace()` expression in an Azure Monitor query to retrieve data from
 
 ### Arguments
 
-The `workspace` expression takes the following arguments.
-
-### Identifier 
-
-Identifies the workspace by using one of the formats in the following table.
+`*Identifier*`: Identifies the workspace by using one of the formats in the following table.
 
 | Identifier | Description | Example
 |:---|:---|:---|
 | ID | GUID of the workspace | workspace("00000000-0000-0000-0000-000000000000") |
 | Azure Resource ID | Identifier for the Azure resource | workspace("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Contoso/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
-
-
-> [!NOTE]
-> We strongly recommend identifying a workspace by its unique ID or Azure Resource ID because they remove ambiguity and are more performant.
 
 ### Examples
 
@@ -143,7 +135,7 @@ The `app` expression is used in an Azure Monitor query to retrieve data from a s
 
 ### Arguments
 
-- *Identifier*: Identifies the app using one of the formats in the table below.
+`*Identifier*`: Identifies the app using one of the formats in the table below.
 
 | Identifier | Description | Example
 |:---|:---|:---|
@@ -181,7 +173,7 @@ The `resource` expression is used in a Azure Monitor query [scoped to a resource
 
 ### Arguments
 
-- *Identifier*: Resource ID of a resource.
+`*Identifier*`: Identifies the resource, resource group, or subscription from which to correlate data.
 
 | Identifier | Description | Example
 |:---|:---|:---|
