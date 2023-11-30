@@ -10,14 +10,15 @@ ms.date: 05/30/2023
 
 # Create a log query across workspaces, apps, or resources in Azure Monitor
 
-Azure Monitor Logs support querying across multiple Log Analytics workspaces and Application Insights apps in the same resource group, another resource group, or another subscription. This capability provides you with a systemwide view of your data.
+There are two methods to query data from multiple workspaces, applications, and resources:
+
+* Explicitly by specifying the workspace, app, or resource information using the [workspace()](#use-the-workspace-expression-to-query-across-log-analytics-workspaces), [app()](#use-the-app-expression-to-query-across-classic-application-insights-applications), or [resource()](#use-the-resource-expression-to-correlate-data-between-resources) expressions.
+* Implicitly by using [resource-context queries](manage-access.md#access-mode). When you query in the context of a specific resource, resource group, or a subscription, the relevant data will be fetched from all workspaces that contain data for these resources. Application Insights data that's stored in apps won't be fetched.
+
+This article explains how to use the workspace(), app(), or resource() expressions to query data from multiple workspaces, applications, and resources. 
 
 If you manage subscriptions in other Microsoft Entra tenants through [Azure Lighthouse](../../lighthouse/overview.md), you can include [Log Analytics workspaces created in those customer tenants](../../lighthouse/how-to/monitor-at-scale.md) in your queries.
 
-There are two methods to query data that's stored in multiple workspaces and apps:
-
-* Explicitly by specifying the workspace and app information. This technique is used in this article.
-* Implicitly by using [resource-context queries](manage-access.md#access-mode). When you query in the context of a specific resource, resource group, or a subscription, the relevant data will be fetched from all workspaces that contain data for these resources. Application Insights data that's stored in apps won't be fetched.
 
 > [!IMPORTANT]
 > If you're using a [workspace-based Application Insights resource](../app/create-workspace-resource.md), telemetry is stored in a Log Analytics workspace with all other log data. Use the `workspace()` expression to write a query that includes applications in multiple workspaces. For multiple applications in the same workspace, you don't need a cross-workspace query.
