@@ -20,9 +20,9 @@ To create an HDInsight on AKS cluster by using Azure PowerShell, you must comple
 - Create an [Azure Managed Identity](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm)
 
  
- ## Setup Azure Environment with PowerShell 
+ ## Set up Azure Environment with PowerShell 
  
-The following script demonstrates how to setup an Azure environment with PowerShell: 
+The following script demonstrates how to set up an Azure environment with PowerShell: 
 
 1. Open PowerShell 
 1. Copy the following code 
