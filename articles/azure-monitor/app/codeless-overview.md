@@ -3,7 +3,7 @@ title: Autoinstrumentation for Azure Monitor Application Insights
 description: Overview of autoinstrumentation for Azure Monitor Application Insights codeless application performance management.
 ms.topic: conceptual
 ms.custom: devx-track-js
-ms.date: 10/10/2023
+ms.date: 11/15/2023
 ms.reviewer: abinetabate
 ---
 

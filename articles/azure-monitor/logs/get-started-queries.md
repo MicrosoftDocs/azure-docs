@@ -147,7 +147,9 @@ The time picker is displayed next to the **Run** button and indicates that you'r
 
 ### Add a time filter to the query
 
-You can also define your own time range by adding a time filter to the query. It's best to place the time filter immediately after the table name:
+You can also define your own time range by adding a time filter to the query. Adding a time filter overrides the time range selected in the [time picker](#use-the-time-picker).
+
+It's best to place the time filter immediately after the table name:
 
 ```Kusto
 SecurityEvent

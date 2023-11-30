@@ -19,7 +19,7 @@ In this quickstart, you create a Managed CCF resource with the [Azure portal](ht
 
 ## Prerequisites
 
-- Install [CCF](https://microsoft.github.io/CCF/main/build_apps/install_bin.html).
+- [OpenSSL](https://www.openssl.org/) on a computer running Windows or Linux.
 
 ## Sign in to Azure
 
@@ -27,9 +27,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Register the provider
 
-Register the resource provider in your subscription using the following commands.
+Register the `Managed CCF` feature in the `Microsoft.ConfidentialLedger` namespace following instructions at [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md).
 
-[!INCLUDE [Register provider](includes/register-provider.md)]
+Then, re-register the `Microsoft.ConfidentialLedger` resource provider as described in [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ### Create a resource group
 
@@ -44,9 +44,6 @@ Register the resource provider in your subscription using the following commands
 1. From the Azure portal menu, or from the Home page, select **Create a resource**.
 
 2. In the Search box, enter "Confidential Ledger", select said application, and then choose **Create**.
-
-> [!NOTE]
-> The portal URL should contain the query string ‘feature.Microsoft_Azure_ConfidentialLedger_managedccf=true’ to turn on the Managed CCF feature.
 
 1. On the Create confidential ledger section, provide the following information:
     - **Subscription**: Choose the desired subscription.

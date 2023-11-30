@@ -26,7 +26,9 @@ This tutorial shows how to use the Azure MySQL Import CLI command to migrate you
 
 The [Azure Cloud Shell](../../cloud-shell/overview.md) is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
-As the feature is currently in private preview, this tutorial requires you to install Azure Edge Build and use the CLI locally, see [Install Azure Edge Build CLI](https://github.com/Azure/azure-cli#edge-builds).
+To open the Cloud Shell, select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
+
+If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.54.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Setup
 
@@ -53,8 +55,8 @@ az account set --subscription <subscription id>
   * Only INNODB engine is supported.
 * Take a physical backup of your MySQL workload using Percona XtraBackup
 The following are the steps for using Percona XtraBackup to take a full backup :
-  * Install Percona XtraBackup on the on-premises or VM workload, see [Installing Percona XtraBackup 2.4]( https://docs.percona.com/percona-xtrabackup/2.4/installation.html).
-  * For instructions for taking a Full backup with Percona XtraBackup 2.4, see [Full backup]( https://docs.percona.com/percona-xtrabackup/2.4/backup_scenarios/full_backup.html).
+  * Install Percona XtraBackup on the on-premises or VM workload. For MySQL engine version v5.7, install Percona XtraBackup version 2.4, see [Installing Percona XtraBackup 2.4]( https://docs.percona.com/percona-xtrabackup/2.4/installation.html). For MySQL engine version v8.0, install Percona XtraBackup version 8.0, see [Installing Percona XtraBackup 8.0]( https://docs.percona.com/percona-xtrabackup/8.0/installation.html).
+  * For instructions for taking a Full backup with Percona XtraBackup 2.4, see [Full backup]( https://docs.percona.com/percona-xtrabackup/2.4/backup_scenarios/full_backup.html). For instructions for taking a Full backup with Percona XtraBackup 8.0, see [Full backup] (<https://docs.percona.com/percona-xtrabackup/8.0/create-full-backup.html>).
   * [Create an Azure Blob container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and get the Shared Access Signature (SAS) Token ([Azure portal](../../ai-services/translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=Containers#create-sas-tokens-in-the-azure-portal) or [Azure CLI](../../storage/blobs/storage-blob-user-delegation-sas-create-cli.md)) for the container. Ensure that you grant Add, Create and Write in the **Permissions** drop-down list.  Copy and paste the Blob SAS token and URL values in a secure location. They're only displayed once and can't be retrieved once the window is closed.
 * Upload the full backup file to your Azure Blob storage. Follow steps [here]( ../../storage/common/storage-use-azcopy-blobs-upload.md#upload-a-file).
 * For performing an online migration, capture and store the bin-log position of the backup file taken using Percona XtraBackup by running the **cat xtrabackup_info** command and copying the bin_log pos output.
@@ -78,14 +80,14 @@ Trigger a MySQL Import operation with the `az mysql flexible-server import creat
 ```azurecli
 az mysql flexible-server import create --data-source-type
                                 --data-source
-                           --data-source-sas-token
+                                --data-source-sas-token
                                 --resource-group
                                 --name
                                 --sku-name
                                 --tier
                                 --version
                                 --location
-                            [--data-source-backup-dir]
+                                [--data-source-backup-dir]
                                 [--storage-size]
                                 [--mode]
                                 [--admin-password]
@@ -153,7 +155,7 @@ iops | 500 | Number of IOPS to be allocated for the target Azure Database for My
 
 In order to perform an online migration after completing the initial seeding from backup file using MySQL import, you can configure data-in replication between the source and target by following steps [here](../flexible-server/how-to-data-in-replication.md?tabs=bash%2Ccommand-line). You can use the bin-log position captured while taking the backup file using Percona XtraBackup to set up Bin-log position based replication.
 
-## How long does MySQL Import take to migrate my Single Server instance?
+## How long does MySQL Import take to migrate my MySQL instance?
 
 Benchmarked performance based on storage size.
 

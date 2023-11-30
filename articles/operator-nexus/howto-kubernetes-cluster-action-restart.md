@@ -6,7 +6,7 @@ ms.author: syzehra
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 10/22/2023 
-ms.custom: template-how-to-pattern, devx-track-azurecli
+ms.custom: template-how-to-pattern
 ---
 
 # Restart Azure Operator Nexus Kubernetes cluster node
@@ -43,8 +43,7 @@ To use this command, you need to understand the various options for specifying t
 - `--resource-group` - is a required argument that specifies the name of the resource group that the Nexus Kubernetes cluster is located in. You must provide the exact name of the resource group.
 - `--subscription` - is an optional argument that specifies the subscription that the resource group is located in. If you have multiple subscriptions, you have to specify which one to use.
 
-
-Sample output is as followed:
+Here's a sample of what the `restart-node` command generates,
 
 ```json
 {
@@ -57,5 +56,3 @@ Sample output is as followed:
 }
 ```
  
-
-

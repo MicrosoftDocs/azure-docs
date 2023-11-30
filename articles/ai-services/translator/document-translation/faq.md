@@ -2,7 +2,7 @@
 title: Frequently asked questions - Document Translation
 titleSuffix: Azure AI services
 description: Get answers to frequently asked questions about Document Translation.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 

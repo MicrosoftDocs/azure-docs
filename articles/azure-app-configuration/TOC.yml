@@ -26,7 +26,7 @@
         - name: Python
           href: quickstart-python-provider.md
         - name: JavaScript/Node.js
-          href: quickstart-javascript.md
+          href: quickstart-javascript-provider.md
         - name: Azure Functions
           href: quickstart-azure-functions-csharp.md
     - name: Feature management
@@ -75,6 +75,8 @@
           href: enable-dynamic-configuration-java-spring-app.md
         - name: Python
           href: enable-dynamic-configuration-python.md
+        - name: Azure Kubernetes Service
+          href: enable-dynamic-configuration-azure-kubernetes-service.md
     - name: Enable dynamic configuration using push model
       items:
         - name: .NET Core
@@ -132,6 +134,8 @@
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
+    - name: JavaScript SDK
+      href: quickstart-javascript.md
     - name: Python SDK
       href: quickstart-python.md
     - name: Samples on GitHub

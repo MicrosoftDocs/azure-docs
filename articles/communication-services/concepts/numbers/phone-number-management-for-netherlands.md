@@ -47,8 +47,10 @@ More details on eligible subscription types are as follows:
 | :---------- |
 |Netherlands|
 |United States|
-|Canada|
 |United Kingdom|
+|Canada|
+|Japan|
+|Australia|
 
 ## Azure subscription billing locations where Netherlands alphanumeric sender IDs are available
 | Country/Region |

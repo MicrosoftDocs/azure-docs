@@ -23,7 +23,7 @@ In addition to a partition key that determines the item's logical partition, eac
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWXbMV]
 
-This article explains the relationship between logical and physical partitions. It also discusses best practices for partitioning and gives an in-depth view at how horizontal scaling works in Azure Cosmos DB. It's not necessary to understand these internal details to select your partition key but we've covered them so you have clarity on how Azure Cosmos DB works.
+This article explains the relationship between logical and physical partitions. It also discusses best practices for partitioning and gives an in-depth view at how horizontal scaling works in Azure Cosmos DB. It's not necessary to understand these internal details to select your partition key but we're covering them so you can have clarity on how Azure Cosmos DB works.
 
 ## Logical partitions
 
@@ -88,7 +88,7 @@ A partition key has two components: **partition key path** and the **partition k
 
 To learn about the limits on throughput, storage, and length of the partition key, see the [Azure Cosmos DB service quotas](concepts-limits.md) article.
 
-Selecting your partition key is a simple but important design choice in Azure Cosmos DB. Once you select your partition key, it isn't possible to change it in-place. If you need to change your partition key, you should move your data to a new container with your new desired partition key. ([Container copy jobs](intra-account-container-copy.md) help with this process.)
+Selecting your partition key is a simple but important design choice in Azure Cosmos DB. Once you select your partition key, it isn't possible to change it in-place. If you need to change your partition key, you should move your data to a new container with your new desired partition key. ([Container copy jobs](container-copy.md) help with this process.)
 
 For **all** containers, your partition key should:
 
@@ -128,7 +128,7 @@ If your container could grow to more than a few physical partitions, then you sh
 
 If your container has a property that has a wide range of possible values, it's likely a great partition key choice. One possible example of such a property is the *item ID*. For small read-heavy containers or write-heavy containers of any size, the *item ID* (`/id`) is naturally a great choice for the partition key.
 
-The system property *item ID* exists in every item in your container. You may have other properties that represent a logical ID of your item. In many cases, these IDs are also great partition key choices for the same reasons as the *item ID*.
+The system property *item ID* exists in every item in your container. You might have other properties that represent a logical ID of your item. In many cases, these IDs are also great partition key choices for the same reasons as the *item ID*.
 
 The *item ID* is a great partition key choice for the following reasons:
 
