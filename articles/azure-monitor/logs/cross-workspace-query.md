@@ -36,7 +36,7 @@ If you manage subscriptions in other Microsoft Entra tenants through [Azure Ligh
 
 ## Query across workspaces, applications, and resources using functions
 
-Follow the instructions in this section to query without using a function or by using a function.
+This section explains how to query workspaces, applications, and resources using functions with and without using a function.
 
 ### Query without using a function
 You can query multiple resources from any of your resource instances. These resources can be workspaces and apps combined.
