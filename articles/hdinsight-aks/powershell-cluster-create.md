@@ -28,7 +28,8 @@ The following script demonstrates how to setup an Azure environment with powersh
 1. Copy the following code 
 	1. Install the module Az.HdInsightOnAks 
 	   Install-Module -Name Az.HdInsightOnAks
-    		:::image type="content" source="./media/powershell-cluster-create/powershell.png" alt-text="Screenshot shows install the module HDInsight on Aks." lightbox="./media/powershell-cluster-create/powershell.png":::
+    
+          :::image type="content" source="./media/powershell-cluster-create/powershell.png" alt-text="Screenshot shows install the module HDInsight on Aks." lightbox="./media/powershell-cluster-create/powershell.png":::
 	1. Login to azure account and set the default subscription id 
 		Connect-AzAccount 
 		Set-AzContext -Subscription {your subscription id} 
