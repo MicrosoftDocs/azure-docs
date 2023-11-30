@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: event-grid
  ms.topic: include
- ms.date: 10/31/2022
+ ms.date: 11/30/2023
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -16,7 +16,7 @@
     :::image type="content" source="./media/system-topics/search-system-topics.png" alt-text="Screenshot that shows Event Grid System Topics in the search box in the Azure portal.":::
 3. On the **Event Grid System Topics** page, you see all the system topics. 
 
-    :::image type="content" source="./media/system-topics/list-system-topics.png" alt-text="Screenshot that shows the list of system topics." lightbox="./media/system-topics/list-system-topics.png":::
+    :::image type="content" source="./media/system-topics/list-system-topics.png" alt-text="Screenshot that shows the list of system topics." lightbox="./media/system-topics/list-system-topics.png" lightbox="./media/system-topics/list-system-topics.png":::
 4. Select a **system topic** from the list to see details about it. 
 
     :::image type="content" source="./media/system-topics/system-topic-details.png" alt-text="Screenshot that shows the topic page in the Azure portal.":::
