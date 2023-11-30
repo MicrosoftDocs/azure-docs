@@ -2,8 +2,7 @@
 services: cognitive-services
 manager: nitinme
 author: mrbullwinkle # external contributor: gm2552
-# ms.author: mbullwin
-ms.author: travisw
+ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 11/27/2023
@@ -11,7 +10,7 @@ ms.date: 11/27/2023
 
 ## Retrieve required variables
 
-To successfully make a call against Azure OpenAI, you need the following variables. This quickstart assumes you've uploaded your data to an Azure blob storage account and have an Azure AI Search index created. See [Add your data using Azure AI studio](../use-your-data-quickstart.md?pivots=programming-language-studio)
+To successfully make a call against Azure OpenAI, you need the following variables. This quickstart assumes you've uploaded your data to an Azure blob storage account and have an Azure AI Search index created. For more information, see [Add your data using Azure AI studio](../use-your-data-quickstart.md?pivots=programming-language-studio).
 
 | Variable name      | Value                                                                                                                                                                                                                                                                                                                     |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

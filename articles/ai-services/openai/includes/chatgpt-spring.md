@@ -1,6 +1,4 @@
 ---
-title: 'Quickstart: Use Azure OpenAI Service with Spring AI'
-description: Walkthrough on how to get started with Azure OpenAI and make your first chat completions call with Spring AI.
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
@@ -43,8 +41,7 @@ In a Bash window, create a new directory for your app, and navigate to it.
 mkdir ai-completion-demo && cd ai-completion-demo
 ```
 
-Run the `spring init` command from your working directory. This command creates a standard directory structure for your Spring project including the main Java class source file and the *pom.xml*
-file used for managing Maven based projects.
+Run the `spring init` command from your working directory. This command creates a standard directory structure for your Spring project including the main Java class source file and the *pom.xml* file used for managing Maven based projects.
 
 ```bash
 spring init -a ai-chat-demo -n AIChat --force --build maven -x
@@ -79,7 +76,7 @@ ai-chat-demo/
 
 1. Edit the *pom.xml* file.
 
-   From the root of the project directory, open the *pom.xml* file in your preferred editor or IDE and overwrite the file with following content:
+   From the root of the project directory, open the *pom.xml* file in your preferred editor or IDE and overwrite the file with the following content:
 
    ```xml
    <?xml version="1.0" encoding="UTF-8"?>
@@ -137,7 +134,7 @@ ai-chat-demo/
    </project>
    ```
 
-1. From the *src/main/java/com/example/aichatdemo* folder, open *AiChatApplication.java* in your preferred editor or IDE and paste in the following code.
+1. From the *src/main/java/com/example/aichatdemo* folder, open *AiChatApplication.java* in your preferred editor or IDE and paste in the following code:
 
    ```java
     package com.example.aichatdemo;
@@ -197,7 +194,7 @@ ai-chat-demo/
    > [!IMPORTANT]
    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
-1. Navigate back to the project root folder, and run the app with:
+1. Navigate back to the project root folder, and run the app by using the following command:
 
    ```bash
    ./mvnw spring-boot:run

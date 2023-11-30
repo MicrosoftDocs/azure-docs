@@ -1,8 +1,8 @@
 ---
 services: cognitive-services
 manager: nitinme
-author: gm2552
-ms.author: travisw
+author: mrbullwinkle # external contributor: gm2552
+ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 11/27/2023
@@ -12,7 +12,7 @@ ms.date: 11/27/2023
 
 ## Create a new Spring application
 
-Spring AI doesn't currently support the *AzureCognitiveSearchChatExtensionConfiguration* options that allow an Azure AI query to encapsulate the [Retrieval Augmented Generation](../../../search/retrieval-augmented-generation-overview.md) (RAG) method and hide the details from the user. As an alternative, you can still invoke the RAG method directly in your application to query data in your Azure AI Search index and use retrieved documents to augment your query.
+Spring AI doesn't currently support the `AzureCognitiveSearchChatExtensionConfiguration` options that allow an Azure AI query to encapsulate the [Retrieval Augmented Generation](../../../search/retrieval-augmented-generation-overview.md) (RAG) method and hide the details from the user. As an alternative, you can still invoke the RAG method directly in your application to query data in your Azure AI Search index and use retrieved documents to augment your query.
 
 Spring AI supports a VectorStore abstraction, and you can wrap Azure AI Search can be wrapped in a Spring AI VectorStore implementation for querying your custom data. The following project implements a custom VectorStore backed by Azure AI Search and directly executes RAG operations.
 
@@ -55,7 +55,7 @@ ai-custom-data-demo/
 
 ## Edit Spring application
 
-1. Edit pom.xml file.
+1. Edit the *pom.xml* file.
 
    From the root of the project directory, open the *pom.xml* file in your preferred editor or IDE and overwrite the file with following content:
 
@@ -133,7 +133,7 @@ ai-custom-data-demo/
    </project>
    ```
 
-1. From the *src/main/java/com/example/aicustomdatademo* folder, open *AiCustomDataApplication.java* in your preferred editor or IDE and paste in the following code.
+1. From the *src/main/java/com/example/aicustomdatademo* folder, open *AiCustomDataApplication.java* in your preferred editor or IDE and paste in the following code:
 
    ```java
    package com.example.aicustomdatademo;
@@ -364,7 +364,7 @@ ai-custom-data-demo/
    > [!IMPORTANT]
    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
-1. Navigate back to the project root folder, and run the app with:
+1. Navigate back to the project root folder, and run the app by using the following command:
 
    ```bash
    ./mvnw spring-boot:run
@@ -391,7 +391,6 @@ Generated response from "assistant": Azure Machine Learning is a cloud-based ser
 On the other hand, Azure AI services is a broader category that includes various services and technologies for artificial intelligence. It encompasses not only machine learning but also other AI capabilities such as natural language processing, computer vision, speech recognition, and more. Azure AI services provide pre-built AI models and APIs that developers can easily integrate into their applications.
 
 In summary, Azure Machine Learning is specifically focused on machine learning model development and deployment, while Azure AI services offer a wider range of AI capabilities beyond just machine learning.
-
 ```
 
 > [!div class="nextstepaction"]

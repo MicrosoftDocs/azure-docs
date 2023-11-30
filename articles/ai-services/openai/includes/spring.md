@@ -1,7 +1,4 @@
 ---
-title: 'Quickstart: Use Azure OpenAI Service with Spring AI'
-titleSuffix: Azure OpenAI
-description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with Spring AI.
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
@@ -17,9 +14,9 @@ ms.date: 11/27/2023
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
 - Access granted to the Azure OpenAI service in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
-* The current version of the [Java Development Kit (JDK)](https://www.microsoft.com/openjdk)
-* The [Spring Boot CLI tool](https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started.installing.cli)
+  Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
+- The current version of the [Java Development Kit (JDK)](https://www.microsoft.com/openjdk)
+- The [Spring Boot CLI tool](https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started.installing.cli)
 - An Azure OpenAI Service resource with the `gpt-35-turbo-instruct` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 > [!div class="nextstepaction"]
@@ -44,8 +41,7 @@ In a Bash window, create a new directory for your app, and navigate to it.
 mkdir ai-completion-demo && cd ai-completion-demo
 ```
 
-Run the `spring init` command from your working directory. This command creates a standard directory structure for your Spring project including the main Java class source file and the *pom.xml*
-file used for managing Maven based projects.
+Run the `spring init` command from your working directory. This command creates a standard directory structure for your Spring project including the main Java class source file and the *pom.xml* file used for managing Maven based projects.
 
 ```bash
 mkdir ai-completion-demo && cd ai-completion-demo
@@ -138,7 +134,7 @@ ai-completion-demo/
    </project>
    ```
 
-1. From the *src/main/java/com/example/aicompletiondemo* folder, open *AiCompletionApplication.java* in your preferred editor or IDE and paste in the following code.
+1. From the *src/main/java/com/example/aicompletiondemo* folder, open *AiCompletionApplication.java* in your preferred editor or IDE and paste in the following code:
 
    ```java
    package com.example.aicompletiondemo;
@@ -194,7 +190,7 @@ ai-completion-demo/
    > [!IMPORTANT]
    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
-1. Navigate back to the project root folder, and run the app with:
+1. Navigate back to the project root folder, and run the app by using the following command:
 
    ```bash
    ./mvnw spring-boot:run
