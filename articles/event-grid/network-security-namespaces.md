@@ -13,8 +13,8 @@ ms.author: veyaddan
 This article describes how to use the following security features with Azure Event Grid: 
 
 - Service tags for egress
-- IP Firewall rules for ingress
-- Private endpoints for ingress
+- IP Firewall rules
+- Private endpoints
 
 
 ## Service tags
@@ -29,27 +29,37 @@ You can use service tags to define network access controls on network security g
 
 
 ## IP firewall 
-Azure Event Grid supports IP-based access controls for publishing to namespaces. With IP-based controls, you can limit the publishers to only a set of approved set of machines and cloud services. By default, a namespace is accessible from the internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IP addresses or IP address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation. Publishers originating from any other IP address will be rejected and will receive a 403 (Forbidden) response.
+By default, Event Grid namespaces and entities are accessible from internet as long as the request comes with valid authentication (access key) and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation. Clients originating from any other IP address are rejected and receive a 403 (Forbidden) response. 
 
-For step-by-step instructions to configure IP firewall for your namespaces, see [Configure IP firewall](configure-firewall-mqtt.md).
+For Message Queueing Telemetry Transport (MQTT) scenarios, only the clients that fall into the allowed IP range can connect to publish and subscribe for events. For more information, see [Configure IP firewall for Event Grid namespaces in MQTT scenarios](configure-firewall-mqtt.md).
+
+For non-MQTT scenarios, only the clients that fall into the allowed IP range can connect to Azure Event Grid to publish events or pull events. For more information, see [Configure IP firewall for Event Grid namespaces in non-MQTT scenarios](configure-firewall-namespaces.md). 
+
+The steps are same for both scenarios. These articles provide some additional information specific to the MQTT or non-MQTT scenarios. 
 
 ## Private endpoints
-You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow ingress of events directly from your virtual network to your namespaces securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. A private endpoint is a special network interface for an Azure service in your virtual network. When you create a private endpoint for your namespace, it provides secure connectivity between clients on your virtual network and your Event Grid resource. The private endpoint is assigned an IP address from the IP address range of your virtual network. The connection between the private endpoint and the Event Grid service uses a secure private link.
-
-Using private endpoints for your Event Grid resource enables you to:
+A private endpoint is a special network interface for an Azure service in your VNet. When you create a private endpoint for your namespace, it provides secure connectivity between clients on your VNet and your Event Grid namespace. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the Event Grid service uses a secure private link. Using private endpoints for your Event Grid namespace enables you to:
 
 - Secure access to your namespace from a virtual network over the Microsoft backbone network as opposed to the public internet.
 - Securely connect from on-premises networks that connect to the virtual network using VPN or Express Routes with private-peering.
 
 When you create a private endpoint for a namespace in your virtual network, a consent request is sent for approval to the resource owner. If the user requesting the creation of the private endpoint is also an owner of the resource, this consent request is automatically approved. Otherwise, the connection is in **pending** state until approved. Applications in the virtual network can connect to the Event Grid service over the private endpoint seamlessly, using the same connection strings and authorization mechanisms that they would use otherwise. Resource owners can manage consent requests and the private endpoints, through the **Private endpoints** tab for the resource in the Azure portal.
 
+When an MQTT client in a private network connects to the MQTT broker on a private link, the client can publish and subscribe to MQTT messages. For more information, see [Configure private endpoints for namespaces in MQTT scenarios](configure-private-endpoints-mqtt.md). 
+
+In non-MQTT scenarios, a client in a private network can connect to the Event Grid namespace and publish events or pull events. For more information, see [Configure private endpoints for namespaces in non-MQTT scenarios](configure-private-endpoints-pull.md). 
+
 ### Connect to private endpoints
-Publishers on a virtual network using the private endpoint should use the same connection string for the namespace as clients connecting to the public endpoint. DNS resolution automatically routes connections from the virtual network to the namespace over a private link. Event Grid creates a [private DNS zone](../dns/private-dns-overview.md) attached to the virtual network with the necessary update for the private endpoints, by default. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration.
+You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow ingress of events directly from your virtual network to entities in your Event Grid namespaces securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. The private endpoint uses an IP address from the virtual network address space for your namespace.  
+
+Clients on a virtual network using the private endpoint should use the same connection string for the namespace as clients connecting to the public endpoint. Domain Name System (DNS) resolution automatically routes connections from the virtual network to the namespace over a private link. Event Grid creates a [private DNS zone](../dns/private-dns-overview.md) attached to the virtual network with the necessary update for the private endpoints, by default. However, if you're using your own DNS server, you might need to make additional changes to your DNS configuration.
+
+When an MQTT client on a private network connects to the MQTT broker on a private link, the client can publish and subscribe to MQTT messages.
 
 ### DNS changes for private endpoints
 When you create a private endpoint, the DNS CNAME record for the resource is updated to an alias in a subdomain with the prefix `privatelink`. By default, a private DNS zone is created that corresponds to the private link's subdomain. 
 
-When you resolve the namespace endpoint URL from outside the virtual network with the private endpoint, it resolves to the public endpoint of the service. The DNS resource records for 'namespaceA', when resolved from **outside the VNet** hosting the private endpoint, will be:
+When you resolve the namespace endpoint URL from outside the virtual network with the private endpoint, it resolves to the public endpoint of the service. The DNS resource records for 'namespaceA', when resolved from **outside the VNet** hosting the private endpoint, are:
 
 | Name                                          | Type      | Value                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
@@ -58,7 +68,7 @@ When you resolve the namespace endpoint URL from outside the virtual network wit
 
 You can deny or control access for a client outside the virtual network through the public endpoint using the [IP firewall](#ip-firewall). 
 
-When resolved from the virtual network hosting the private endpoint, the namespace endpoint URL resolves to the private endpoint's IP address. The DNS resource records for the namespace 'namespaceA', when resolved from **inside the VNet** hosting the private endpoint, will be:
+When resolved from the virtual network hosting the private endpoint, the namespace endpoint URL resolves to the private endpoint's IP address. The DNS resource records for the namespace 'namespaceA', when resolved from **inside the VNet** hosting the private endpoint, are:
 
 | Name                                          | Type      | Value                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
@@ -67,7 +77,7 @@ When resolved from the virtual network hosting the private endpoint, the namespa
 
 This approach enables access to the namespace using the same connection string for clients on the virtual network hosting the private endpoints, and clients outside the virtual network.
 
-If you're using a custom DNS server on your network, clients can resolve the FQDN for the namespace endpoint to the private endpoint IP address. Configure your DNS server to delegate your private link subdomain to the private DNS zone for the virtual network, or configure the A records for `namespaceName.regionName.privatelink.eventgrid.azure.net` with the private endpoint IP address.
+If you're using a custom DNS server on your network, clients can resolve the Fully Qualified Domain Name (FQDN) for the namespace endpoint to the private endpoint IP address. Configure your DNS server to delegate your private link subdomain to the private DNS zone for the virtual network, or configure the A records for `namespaceName.regionName.privatelink.eventgrid.azure.net` with the private endpoint IP address.
 
 The recommended DNS zone name is `privatelink.eventgrid.azure.net`.
 
@@ -88,7 +98,14 @@ For publishing to be successful, the private endpoint connection state should be
 ## Quotas and limits
 There's a limit on the number of IP firewall rules and private endpoint connections per namespace. See [Event Grid quotas and limits](quotas-limits.md). 
 
-## Next steps
-You can configure IP firewall for your Event Grid resource to restrict access over the public internet from only a select set of IP Addresses or IP Address ranges. For step-by-step instructions, see [Configure IP firewall](configure-firewall-mqtt.md).
+## Related articles
+If you're using MQTT, see the following articles:
 
-You can configure private endpoints to restrict access from only from selected virtual networks. For step-by-step instructions, see [Configure private endpoints](configure-private-endpoints-mqtt.md).
+- [Configure IP firewall for Event Grid namespaces in MQTT scenarios](configure-firewall-mqtt.md)
+- [Configure private endpoints for Event Grid namespaces in MQTT scenarios](configure-private-endpoints-mqtt.md)
+
+For pull-based event delivery, see the following articles:
+
+- [Configure IP firewall for Event Grid namespaces in non-MQTT scenarios](configure-firewall-namespaces.md)
+- [Configure private endpoints for Event Grid namespaces in non-MQTT scenarios](configure-private-endpoints-pull.md)
+
