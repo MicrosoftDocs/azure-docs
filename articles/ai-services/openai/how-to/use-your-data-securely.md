@@ -181,9 +181,9 @@ See the [Azure RBAC documentation](/azure/role-based-access-control/role-assignm
 
 Make sure your sign-in credential has `Cognitive Services OpenAI Contributor` role on your Azure OpenAI resource. 
 
-:::image type="content" source="../media/use-your-data/api-local-test-setup-credential.png" alt-text="A screenshot showing roles for accounts in the Azure portal." lightbox="../media/use-your-data/api-local-test-setup-credential.png":::
+:::image type="content" source="../media/use-your-data/api-local-test-setup-credential.png" alt-text="A screenshot showing the cognitive services OpenAI contributor role in the Azure portal." lightbox="../media/use-your-data/api-local-test-setup-credential.png":::
 
-Also, make sure that the IP your development machine is whitelisted in the IP rules, so you can call the Azure OpenAI API.
+Also, make sure that the IP your development machine is allowlisted in the IP rules, so you can call the Azure OpenAI API.
 
 :::image type="content" source="../media/use-your-data/ip-rules-azure-portal.png" alt-text="A screenshot showing roles for accounts in the Azure portal." lightbox="../media/use-your-data/ip-rules-azure-portal.png":::
 
