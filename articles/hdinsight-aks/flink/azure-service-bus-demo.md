@@ -7,7 +7,7 @@ ms.date: 11/27/2023
 ---
 # Use Apache Flink on HDInsight on AKS with Azure Service Bus
 
-[!INCLUDE feature-in-preview]
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 This article provides an overview and demonstration of Apache Flink DataStream API on HDInsight on AKS for Azure Service Bus. A Flink job demonstration is designed to read messages from an [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) and writes them to [Azure Data Lake Storage Gen2](./assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md) (ADLS Gen2).
 
