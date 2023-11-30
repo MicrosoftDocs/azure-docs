@@ -31,7 +31,7 @@ Virtual network encryption has the following requirements:
     | E-series | **[Ev4 and Esv4-series](/azure/virtual-machines/ev4-esv4-series)**, **[Edv4 and Edsv4-series](/azure/virtual-machines/edv4-edsv4-series)**, **[Eav4 and Easv4-series](/azure/virtual-machines/eav4-easv4-series)** |
     | E-series V5 | **[Ev4 and Esv4-series](/azure/virtual-machines/ev5-esv5-series)**, **[Edv4 and Edsv4-series](/azure/virtual-machines/edv5-edsv5-series)** |
     | LSv3 | **[LSv3-series](/azure/virtual-machines/lsv3-series)**  |
-    | M-series | **[Mv2-series](/azure/virtual-machines/mv2-series)** |
+    | M-series | **[Mv2-series](/azure/virtual-machines/mv2-series)**, **[Msv3 and Mdsv3 Medium Memory Series](/azure/virtual-machines/msv3-mdsv3-medium-series)** |
     
 
 - Accelerated Networking must be enabled on the network interface of the virtual machine. For more information about Accelerated Networking, see  [What is Accelerated Networking?](/azure/virtual-network/accelerated-networking-overview).
@@ -62,9 +62,13 @@ Azure Virtual Network encryption is available in the following regions:
 
 - West US 2
 
+- North Europe
+
 - West Europe
 
 - France Central
+
+- Japan East
 
 - Japan West
 
