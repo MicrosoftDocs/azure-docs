@@ -30,7 +30,7 @@ To successfully invoke a batch endpoint and create jobs, ensure you have the fol
 
     # [Azure CLI](#tab/cli)
     
-    Use the Azure CLI to log in using either interactive or device code authentication:
+    Use the Azure CLI to sign in using either interactive or device code authentication:
     
     ```azurecli
     az login
@@ -38,7 +38,7 @@ To successfully invoke a batch endpoint and create jobs, ensure you have the fol
     
     # [Python](#tab/sdk)
     
-    Use the Azure Machine Learning SDK for Python to log in:
+    Use the Azure Machine Learning SDK for Python to sign in:
     
     ```python
     from azure.ai.ml import MLClient
@@ -91,9 +91,9 @@ Batch endpoints support two types of inputs:
 * [Data inputs](#data-inputs), which are pointers to a specific storage location or Azure Machine Learning asset.
 * [Literal inputs](#literal-inputs), which are literal values (like numbers or strings) that you want to pass to the job. 
 
-The number and type of inputs and outputs depend on the [type of batch deployment](concept-endpoints-batch.md#batch-deployments). Model deployments always require 1 data input and produce 1 data output. Literal inputs are not supported. However, pipeline component deployments provide a more general construct to build endpoints. You can indicate any number of inputs (data and literal) and outputs.
+The number and type of inputs and outputs depend on the [type of batch deployment](concept-endpoints-batch.md#batch-deployments). Model deployments always require one data input and produce one data output. Literal inputs aren't supported. However, pipeline component deployments provide a more general construct to build endpoints and allow you to specify any number of inputs (data and literal) and outputs.
 
-The following table summarizes it:
+The following table summarizes the inputs and outputs for batch deployments:
 
 | Deployment type | Input's number | Supported input's types | Output's number | Supported output's types |
 |--|--|--|--|--|
@@ -101,7 +101,7 @@ The following table summarizes it:
 | [Pipeline component deployment](concept-endpoints-batch.md#pipeline-component-deployment) | [0..N] | [Data inputs](#data-inputs) and [literal inputs](#literal-inputs) | [0..N] | [Data outputs](#data-outputs) |
 
 > [!TIP]
-> Inputs and outputs are always named. Those names serve as keys to indentify them and pass the actual value during invocation. For model deployments, since they always require 1 input and output, the name is ignored during invocation. You can assign the name its best describe your use case, like "sales_estimation".
+> Inputs and outputs are always named. Those names serve as keys to identify them and pass the actual value during invocation. For model deployments, since they always require 1 input and output, the name is ignored during invocation. You can assign the name its best describe your use case, like "sales_estimation".
 
 
 ### Data inputs
@@ -113,7 +113,7 @@ Batch endpoints support reading files located in the following storage options:
 * [Azure Machine Learning Data Assets](#input-data-from-a-data-asset), including Folder (`uri_folder`) and File (`uri_file`).
 * [Azure Machine Learning Data Stores](#input-data-from-data-stores), including Azure Blob Storage, Azure Data Lake Storage Gen1, and Azure Data Lake Storage Gen2.
 * [Azure Storage Accounts](#input-data-from-azure-storage-accounts), including Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, and Azure Blob Storage.
-* Local data folders/files (Azure Machine Learning CLI or Azure Machine Learning SDK for Python). However, that operation will result in the local data to be uploaded to the default Azure Machine Learning Data Store of the workspace you are working on.
+* Local data folders/files (Azure Machine Learning CLI or Azure Machine Learning SDK for Python). However, that operation results in the local data to be uploaded to the default Azure Machine Learning Data Store of the workspace you're working on.
 
 > [!IMPORTANT]
 > __Deprecation notice__: Datasets of type `FileDataset` (V1) are deprecated and will be retired in the future. Existing batch endpoints relying on this functionality will continue to work but batch endpoints created with GA CLIv2 (2.4.0 and newer) or GA REST API (2022-05-01 and newer) will not support V1 dataset.
@@ -254,7 +254,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $DATASET_ID
     ```
     
-    The argument `--set` tends to produce long commands when multiple inputs are indicated. On those cases, place your inputs in a `YAML` file and use `--file` to indicate the inputs you need for your endpoint invocation.
+    The argument `--set` tends to produce long commands when multiple inputs are indicated. In such cases, place your inputs in a `YAML` file and use `--file` to specify the inputs you need for your endpoint invocation.
 
     __inputs.yml__
     
@@ -332,7 +332,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     > [!TIP]
     > The default blob data store in a workspace is called __workspaceblobstore__. You can skip this step if you already know the resource ID of the default data store in your workspace.
 
-1. We'll need to upload some sample data to it. This example assumes you've uploaded the sample data included in the repo in the folder `sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/data` in the folder `heart-disease-uci-unlabeled` in the blob storage account. Ensure you have done that before moving forward.
+1. We'll need to upload some sample data to it. This example assumes you already uploaded the sample data included in the repo in the folder `sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/data` in the folder `heart-disease-uci-unlabeled` in the blob storage account. Ensure you've done that before moving forward.
 
 1. Create the input or request:
 
