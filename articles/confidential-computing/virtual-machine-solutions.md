@@ -126,4 +126,4 @@ Make sure to specify the following properties for your VM in the parameters sect
 ## Next steps 
 
 > [!div class="nextstepaction"]
-> [Deploy a confidential VM on AMD from the Azure portal](quick-create-confidential-vm-portal-amd.md)
+> [Deploy a confidential VM from the Azure portal](quick-create-confidential-vm-portal.md)

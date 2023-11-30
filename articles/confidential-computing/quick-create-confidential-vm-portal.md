@@ -1,12 +1,12 @@
 ---
-title: Create an Azure AMD-based confidential VM in the Azure portal
-description: Learn how to quickly create an AMD-based confidential virtual machine (confidential VM) in the Azure portal using Azure Marketplace images.
+title: Create an Azure confidential VM in the Azure portal
+description: Learn how to quickly create a confidential virtual machine (confidential VM) in the Azure portal using Azure Marketplace images.
 author: RunCai
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
-ms.date: 3/27/2022
+ms.date: 12/01/2023
 ms.author: RunCai
 ms.custom:
   - mode-ui
@@ -15,9 +15,9 @@ ms.custom:
   - ignite-2023
 ---
 
-# Quickstart: Create confidential VM on AMD in the Azure portal
+# Quickstart: Create confidential VM on in the Azure portal
 
-You can use the Azure portal to create a [confidential VM](confidential-vm-overview.md) based on an Azure Marketplace image quickly.There are multiple [confidential VM options on AMD](virtual-machine-solutions.md) with AMD SEV-SNP technology.
+You can use the Azure portal to create a [confidential VM](confidential-vm-overview.md) based on an Azure Marketplace image quickly. There are multiple [confidential VM options on AMD and Intel](virtual-machine-solutions-amd.md) with AMD SEV-SNP and Intel TDX technology.
 
 
 ## Prerequisites
@@ -110,7 +110,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
     1. Under **Key Vault**, select **Create new** to create a new key.
 
         > [!NOTE]
-        > If you selected an Azure managed HSM previously, [use PowerShell or the Azure CLI to create the new key](../confidential-computing/quick-create-confidential-vm-arm-amd.md) instead.
+        > If you selected an Azure managed HSM previously, [use PowerShell or the Azure CLI to create the new key](../confidential-computing/quick-create-confidential-vm-arm.md) instead.
 
     1. For **Name**, enter a name for the key.
 
@@ -193,4 +193,4 @@ After you're done with the quickstart, you can clean up the confidential VM, the
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a confidential VM on AMD with an ARM template](quick-create-confidential-vm-arm-amd.md)
+> [Create a confidential VM with an ARM template](quick-create-confidential-vm-arm.md)
