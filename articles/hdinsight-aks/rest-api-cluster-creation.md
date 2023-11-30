@@ -40,18 +40,17 @@ Variables required in the script
 
 - SKU 
 
-- Woker Node count 
-- MSI resource id: `/subscriptions/<subscription ID>/resourcegroups/<resource group name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<Managed identity name>` 
+- Worker Node count 
+- MSI resource ID: `/subscriptions/<subscription ID>/resourcegroups/<resource group name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<Managed identity name>` 
 
-- MSI client id(See below) 
-
-- MSI object id (See below) 
+- MSI client ID
+- MSI object ID 
 
  
 
 - Microsoft Entra user ID: Find tenant ID, domain name, user object ID - Partner 	Center | Microsoft Learn 
-
-- [HDInsight on AKS VM list](azure/hdinsight-aks/virtual-machine)  /-		recommendation-capacity-planning 
+- [HDInsight on AKS VM list](/azure/hdinsight-aks/virtual-machine)
+- recommendation-capacity-planning 
 
 
 To create a cluster, copy the following command to your REST API tool e.g Postman 
@@ -61,7 +60,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ```
  
 
-Please copy the following template into you REST API body 
+Copy the following template into your REST API body 
 
 ```
 { 
