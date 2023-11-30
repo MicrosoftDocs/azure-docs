@@ -21,6 +21,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: December 2023
 * Public preview of [Server logs](./how-to-server-logs-portal.md).
+* General availability of [TLS Version 1.3 support](./concepts-networking-ssl-tls.md#tls-versions).
 
 ## Release: November 2023
 * General availability of PostgreSQL 16 for Azure Database for PostgreSQL – Flexible Server.
@@ -38,7 +39,6 @@ This page provides latest news and updates regarding feature additions, engine v
 ## Release: October 2023
 * Support for [minor versions](./concepts-supported-versions.md) 15.4, 14.9, 13.12, 12.16, 11.21 <sup>$</sup>
 * General availability of [Grafana Monitoring Dashboard](https://grafana.com/grafana/dashboards/19556-azure-azure-postgresql-flexible-server-monitoring/) for Azure Database for PostgreSQL – Flexible Server.
-* Public preview of Server Logs Download for Azure Database for PostgreSQL – Flexible Server.
 
 ## Release: September 2023
 * General availability of [Storage auto-grow](./concepts-compute-storage.md) for Azure Database for PostgreSQL – Flexible Server.
