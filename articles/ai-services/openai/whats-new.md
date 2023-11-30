@@ -9,7 +9,7 @@ ms.service: azure-ai-openai
 ms.custom:
   - ignite-2023
 ms.topic: whats-new
-ms.date: 10/17/2023
+ms.date: 11/30/2023
 recommendations: false
 keywords:
 ---
