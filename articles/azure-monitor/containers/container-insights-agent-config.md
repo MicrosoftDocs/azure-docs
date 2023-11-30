@@ -8,9 +8,28 @@ ms.reviewer: aul
 
 # Configure agent data collection for Container insights
 
-Container insights collects stdout, stderr, and environmental variables from container workloads deployed to managed Kubernetes clusters from the containerized agent. You can configure agent data collection settings by creating a custom Kubernetes ConfigMap to control this experience.
+Container insights collects stdout, stderr, and environmental variables from container workloads deployed to managed Kubernetes clusters from the containerized agent. You can configure agent data collection settings by creating a custom Kubernetes ConfigMap to control this experience. This article demonstrates how to create ConfigMaps and configure data collection based on your requirements.
 
-This article demonstrates how to create ConfigMaps and configure data collection based on your requirements.
+## Azure portal
+
+>[!NOTE]
+> DCR based configuration is not supported for service principal based clusters. Please [migrate your clusters with service principal to managed identity](./container-insights-authentication.md) to use this experience.
+
+1. In the Insights section of your Kubernetes cluster, select the **Monitoring Settings** button from the top toolbar
+
+:::image type="content" source="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings.png" lightbox="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings.png" alt-text="Screenshot that shows monitoring settings.":::
+
+2. Select **Edit collection settings** to open the advanced settings
+
+:::image type="content" source="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-open.png" lightbox="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-open.png" alt-text="Screenshot that shows advanced collection settings.":::
+
+3. Select the checkbox with **Enable ContainerLogV2** and choose the **Save** button below
+
+:::image type="content" source="./media/container-insights-logging-v2/container-insights-v2-collection-settings.png" lightbox="./media/container-insights-logging-v2/container-insights-v2-collection-settings.png" alt-text="Screenshot that shows ContainerLogV2 checkbox.":::
+
+4. The summary section should display the message "ContainerLogV2 enabled", click the **Configure** button to complete your configuration change
+
+:::image type="content" source="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-configured.png" lightbox="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-configured.png" alt-text="Screenshot that shows ContainerLogV2 enabled.":::
 
 ## ConfigMap file settings overview
 
@@ -18,6 +37,30 @@ A template ConfigMap file is provided so that you can easily edit it with your c
 
 >[!IMPORTANT]
 >The minimum agent version supported to collect stdout, stderr, and environmental variables from container workloads is **ciprod06142019** or later. To verify your agent version, on the **Node** tab, select a node. On the **Properties** pane, note the value of the **Agent Image Tag** property. For more information about the agent versions and what's included in each release, see [Agent release notes](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod).
+
+
+## Configure and deploy ConfigMaps
+
+To configure and deploy your ConfigMap configuration file to your cluster:
+
+1. Download the [template ConfigMap YAML file](https://aka.ms/container-azm-ms-agentconfig) and save it as *container-azm-ms-agentconfig.yaml*.
+
+1. Edit the ConfigMap YAML file with your customizations to collect stdout, stderr, and environmental variables:
+
+    - To exclude specific namespaces for stdout log collection, configure the key/value by using the following example:
+    `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
+    - To disable environment variable collection for a specific container, set the key/value `[log_collection_settings.env_var] enabled = true` to enable variable collection globally. Then follow the steps [here](container-insights-manage-agent.md#disable-environment-variable-collection-on-a-container) to complete configuration for the specific container.
+    - To disable stderr log collection cluster-wide, configure the key/value by using the following example: `[log_collection_settings.stderr] enabled = false`.
+    
+    Save your changes in the editor.
+
+1. Create a ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
+    
+    Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`
+
+The configuration change can take a few minutes to finish before taking effect. Then all Azure Monitor Agent pods in the cluster will restart. The restart is a rolling restart for all Azure Monitor Agent pods, so not all of them restart at the same time. When the restarts are finished, a message similar to this example includes the following result: `configmap "container-azm-ms-agentconfig" created`.
+
+
 
 ### Data collection settings
 

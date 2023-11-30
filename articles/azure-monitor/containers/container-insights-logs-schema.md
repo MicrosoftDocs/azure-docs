@@ -11,7 +11,8 @@ ms.reviewer: aul
 ---
 
 # Container insights log schema
-Azure Monitor Container insights offers a schema for container logs, called ContainerLogV2. As part of this schema, there are fields to make common queries to view Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes data. In addition, this schema is compatible with [Basic Logs](../logs/basic-logs-configure.md), which offers a low-cost alternative to standard analytics logs.
+Container insights stores log data it collects in a table called *ContainerLogV2*. This article describes the schema of this table and its comparison and migration from the legacy *ContainerLog* table.
+
 
 >[!IMPORTANT]
 > Support for the *ContainerLog* table will be retired on 30th September 2026.
@@ -19,41 +20,21 @@ Azure Monitor Container insights offers a schema for container logs, called Cont
 >[!NOTE]
 > ContainerLogV2 will be the default schema via the ConfigMap for CLI version 2.54.0 and greater. ContainerLogV2 will be default ingestion format for customers who will be onboarding container insights with Managed Identity Auth using ARM, Bicep, Terraform, Policy and Portal onboarding. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
 
-The new fields are:
-* `ContainerName`
-* `PodName`
-* `PodNamespace`
-
-## ContainerLogV2 schema
-```kusto
- Computer: string,
- ContainerId: string,
- ContainerName: string,
- PodName: string,
- PodNamespace: string,
- LogMessage: dynamic,
- LogSource: string,
- TimeGenerated: datetime
-```
-
->[!NOTE]
-> [Export](../logs/logs-data-export.md) to Event Hub and Storage Account is not supported if the incoming LogMessage is not a valid JSON. For best performance, we recommend emitting container logs in JSON format.
-
-## ContainerLog vs ContainerLogV2 schema
-
+## Table comparison
 The following table highlights the key differences between using ContainerLog and ContainerLogV2 schema.
-
->[!NOTE]
-> DCR based configuration is not supported for service principal based clusters. [Migrate your clusters with service principal to managed identity](./container-insights-authentication.md) to use this experience.
 
 | Feature differences  | ContainerLog | ContainerLogV2 |
 | ------------------- | ----------------- | ------------------- |
-| Onboarding | Only configurable through the ConfigMap | Configurable through both the ConfigMap and DCR\* |
-| Pricing | Only compatible with full-priced analytics logs | Supports the low cost basic logs tier in addition to analytics logs |
-| Querying | Requires multiple join operations with inventory tables for standard queries | Includes additional pod and container metadata to reduce query complexity and join operations |
-| Multiline | Not supported, multiline entries are split into multiple rows | Support for multiline logging to allow consolidated, single entries for multiline output |
+| Schema | Details at [ContainerLog](/azure/azure-monitor/reference/tables/containerlog). | Details at [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2). Additional columns are `ContainerName`, `PodName`, `PodNamespace`. |
+| Onboarding | Only configurable through ConfigMap. | Configurable through both ConfigMap and DCR. <sup>1</sup>|
+| Pricing | Only compatible with full-priced analytics logs. | Supports the low cost [basic logs](../logs/basic-logs-configure.md) tier in addition to analytics logs. |
+| Querying | Requires multiple join operations with inventory tables for standard queries. | Includes additional pod and container metadata to reduce query complexity and join operations. |
+| Multiline | Not supported, multiline entries are split into multiple rows. | Support for multiline logging to allow consolidated, single entries for multiline output. |
 
-\* DCR enablement is not supported for service principal based clusters, must be enabled through the ConfigMap
+<sup>1</sup>DCR configuration not supported for clusters using service principal authentication based clusters. [Migrate your clusters with service principal to managed identity](./container-insights-authentication.md) to use this experience.
+
+>[!NOTE]
+> [Export](../logs/logs-data-export.md) to Event Hub and Storage Account is not supported if the incoming LogMessage is not a valid JSON. For best performance, we recommend emitting container logs in JSON format.
 
 
 ## Enable the ContainerLogV2 schema
@@ -63,35 +44,7 @@ Follow the instructions to configure an existing ConfigMap or to use a new one.
 >[!NOTE]
 > Because ContainerLogV2 can be enabled through either the DCR and ConfigMap, when both are enabled the ContainerLogV2 setting of the ConfigMap will take precedence. Stdout and stderr logs will only be ingested to the ContainerLog table when both the DCR and ConfigMap are explicitly set to off.
 
-### Configure via an existing Data Collection Rule (DCR)
 
-## [Azure portal](#tab/configure-portal)
-
->[!NOTE]
-> DCR based configuration is not supported for service principal based clusters. Please [migrate your clusters with service principal to managed identity](./container-insights-authentication.md) to use this experience.
-
-1. In the Insights section of your Kubernetes cluster, select the **Monitoring Settings** button from the top toolbar
-
-:::image type="content" source="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings.png" lightbox="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings.png" alt-text="Screenshot that shows monitoring settings.":::
-
-2. Select **Edit collection settings** to open the advanced settings
-
-:::image type="content" source="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-open.png" lightbox="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-open.png" alt-text="Screenshot that shows advanced collection settings.":::
-
-3. Select the checkbox with **Enable ContainerLogV2** and choose the **Save** button below
-
-:::image type="content" source="./media/container-insights-logging-v2/container-insights-v2-collection-settings.png" lightbox="./media/container-insights-logging-v2/container-insights-v2-collection-settings.png" alt-text="Screenshot that shows ContainerLogV2 checkbox.":::
-
-4. The summary section should display the message "ContainerLogV2 enabled", click the **Configure** button to complete your configuration change
-
-:::image type="content" source="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-configured.png" lightbox="./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-configured.png" alt-text="Screenshot that shows ContainerLogV2 enabled.":::
-
-## [CLI](#tab/configure-CLI)
-
-1. For configuring via CLI, use the corresponding [config file](./container-insights-cost-config.md#enable-cost-settings), update the `enableContainerLogV2` field in the config file to be true.
-
-
----
  
 ### Configure an existing ConfigMap
 This applies to the scenario where you have already enabled container insights for your AKS cluster and have [configured agent data collection settings](./container-insights-agent-config.md#configure-and-deploy-configmaps) using ConfigMap "_container-azm-ms-agentconfig.yaml_". If this ConfigMap doesn't yet have the `log_collection_settings.schema` field, you'll need to append the following section in this existing ConfigMap .yaml file:

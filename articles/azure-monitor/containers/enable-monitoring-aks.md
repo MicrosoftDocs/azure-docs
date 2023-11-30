@@ -1,6 +1,6 @@
 ---
-title: Enable Container insights for Azure Kubernetes Service (AKS) cluster
-description: Learn how to enable Container insights on an Azure Kubernetes Service (AKS) cluster.
+title: Enable monitoring for Azure Kubernetes Service (AKS) cluster
+description: Learn how to enable Container insights and Managed Prometheus on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
 ms.date: 11/14/2023
 ms.custom: ignite-2022
