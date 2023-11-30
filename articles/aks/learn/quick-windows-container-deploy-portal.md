@@ -34,30 +34,35 @@ The following limitations apply to *Windows Server node pools*:
 ## Create an AKS cluster
 
 1. Sign in to the [Azure portal][azure-portal].
-2. On the Azure portal home page, select **Create a resource**.
-3. In the **Categories** section, select **Containers** > **Azure Kubernetes Service (AKS)**.
-4. On the **Basics** page, configure the following options:
-   - **Project details**:
-     - Select an Azure **Subscription**.
-     - Create an Azure **Resource group**, such as *myResourceGroup*. While you can select an existing resource group, for testing or evaluation purposes, we recommend creating a resource group to temporarily host these resources and avoid impacting your production or development workloads.
-   - **Cluster details**:
-     - Ensure the **Preset configuration** is *Standard ($$)*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
-     - Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
-     - Select a **Region** for the AKS cluster.
-     - Leave the default value selected for **Kubernetes version**.
-   - **Primary node pool**:
-     - Leave the default values selected.
-5. Select **Next: Node pools**.
-
-### Add a Windows Server node pool
-
-1. Select **Add node pool**.
-2. Enter a **Node pool name**, such as *npwin*.
-3. For **Mode**, select **User**.
-4. For **OS type**, select **Windows**.
-5. Select a **Node size**, such as *Standard_D2s_v3*.
-6. Select **Next: Networking** and set the **Network policy** to **Azure**.
-7. Select **Review + create** > **Create**.
+1. On the Azure portal home page, select **Create a resource**.
+1. In the **Categories** section, select **Containers** > **Azure Kubernetes Service (AKS)**.
+1. On the **Basics** tab, configure the following options:
+    - Under **Project details**:
+        - Select an Azure **Subscription**.
+        - Create an Azure **Resource group**, such as *myResourceGroup*. While you can select an existing resource group, for testing or evaluation purposes, we recommend creating a resource group to temporarily host these resources and avoid impacting your production or development workloads.
+    - Under **Cluster details**:
+      - Ensure the **Cluster preset configuration** is set to *Production Standard*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
+      - Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
+      - Select a **Region** for the AKS cluster.
+        <!-- any reason to change this one? -->
+      - Leave the **Availability zones** setting set to the default value.
+      - Set the **AKS pricing tier** to *Standard*.
+      - Leave the default value selected for **Kubernetes version**.
+      - Leave the **Automatic upgrade** setting set to the recommended value, which is *Enabled with patch*.
+      - Leave the **Authentication and authorization** setting set to *Local accounts with Kubernetes RBAC*.
+1. Select **Next**. On the **Node pools** tab, add a new node pool:
+    - Select **Add node pool**.
+    - Enter a **Node pool name**, such as *npwin*. For a Windows node pool, the name must be six characters or fewer.
+    - For **Mode**, select **User**.
+    - For **OS SKU**, select **Windows**.
+    - Leave the **Availability zones** setting set to the default value.
+    - Leave the **Enable Azure Spot instances** checkbox unchecked.
+    - For **Node size**, select **Choose a size**. On the **Select a VM size** page, select *D2s_v3*, then choose the **Select** button.
+    - Leave the **Scale method** setting set to *Autoscale*.
+    - Leave the **Minimum node count** and **Maximum node count** fields set to their default settings.
+<!-- Do we want to have user change this, or is new default preferable? -->
+1. Select **Next** to move to the **Networking** tab. Leave all values set to their defaults, except for the **Network policy** setting. Change this setting to **Azure**.
+1. Select **Review + create** to run validation on the cluster configuration. After validation completes, select **Create** to create the AKS cluster.
 
 ## Connect to the cluster
 
@@ -68,13 +73,13 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
 1. Open Cloud Shell by selecting the `>_` button at the top of the Azure portal page.
 2. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command. The following command downloads credentials and configures the Kubernetes CLI to use them.
 
-    ```azurecli-interactive
+    ```azurecli
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
 3. Verify the connection to your cluster using the `kubectl get nodes` command, which returns a list of the cluster nodes.
 
-    ```azurecli-interactive
+    ```azurecli
     kubectl get nodes
     ```
 
@@ -91,13 +96,13 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
 1. Open Cloud Shell by selecting the `>_` button at the top of the Azure portal page.
 2. Configure `kubectl` to connect to your Kubernetes cluster using the [`Import-AzAksCredential`][import-azakscredential] cmdlet. The following command downloads credentials and configures the Kubernetes CLI to use them.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
     ```
 
 3. Verify the connection to your cluster using the `kubectl get nodes` command, which returns a list of the cluster nodes.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     kubectl get nodes
     ```
 
@@ -113,11 +118,11 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
 
 ## Deploy the application
 
-A Kubernetes manifest file defines a desired state for the cluster, such as what container images to run. In this article, you use a manifest to create all objects needed to run the ASP.NET sample application in a Windows Server container. This manifest includes a [Kubernetes deployment][kubernetes-deployment] for the ASP.NET sample application and an external [Kubernetes service][kubernetes-service] to access the application from the internet.
+A Kubernetes manifest file defines a desired state for the cluster, such as which container images to run. In this quickstart, you use a manifest file to create all objects needed to run the ASP.NET sample application in a Windows Server container. This manifest file includes a [Kubernetes deployment][kubernetes-deployment] for the ASP.NET sample application and an external [Kubernetes service][kubernetes-service] to access the application from the internet.
 
 The ASP.NET sample application is provided as part of the [.NET Framework Samples][dotnet-samples] and runs in a Windows Server container. AKS requires Windows Server containers to be based on images of *Windows Server 2019* or greater. The Kubernetes manifest file must also define a [node selector][node-selector] to tell your AKS cluster to run your ASP.NET sample application's pod on a node that can run Windows Server containers.
 
-1. Create a file named `sample.yaml` and copy in the following YAML definition.
+1. Create a file named `sample.yaml` and paste in the following YAML definition.
 
     ```yaml
     apiVersion: apps/v1
@@ -164,7 +169,8 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
 
     For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
-2. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
+1. If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
+1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
 
     ```console
     kubectl apply -f sample.yaml
