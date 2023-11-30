@@ -13,7 +13,7 @@ In some contexts, such as during development and troubleshooting, you might need
 
 [Postman](https://www.getpostman.com/) is used in the following example, but you can use [cURL](https://curl.haxx.se/), [Fiddler](https://www.telerik.com/fiddler) or any other like tool to send HTTP requests.
 
-The procedure described in this article is equivalent to using the **Test/Run** functionality of a function's **Code + Test** tab in the Azure portal. 
+The procedure described in this article is equivalent to using the **Test/Run** functionality of a function's **Code + Test** tab in the Azure portal. You can also use Visual Studio Code to [manually run functions](functions-develop-vs-code.md#run-functions). 
 
 ## Define the request location
 
@@ -83,7 +83,7 @@ In this example, replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the name of yo
 
     :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Postman body settings." border="true":::
 
-   The `<TRIGGER_INPUT>` JSON you supply depends on the type of trigger. For more information, see the trigger reference article for the your specific non-HTTP trigger. If you don't want to pass input data to the function, you must still supply an empty dictionary `{}` as the body of the POST request.
+   The `<TRIGGER_INPUT>` you supply depends on the type of trigger. For services that use JSON payloads, such as Azure Service Bus, the test JSON payload should be escaped and serialized as a string. If you don't want to pass input data to the function, you must still supply an empty dictionary `{}` as the body of the POST request. For more information, see the reference article for the specific non-HTTP trigger. 
 
 1. Select **Send**.
         
@@ -97,4 +97,5 @@ In this example, replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the name of yo
 
 ## Next steps
 
-[Event Grid local testing with viewer web app](./event-grid-how-tos.md#local-testing-with-viewer-web-app)
+> [!div class="nextstepaction"]
+> [Event Grid local testing with viewer web app](./event-grid-how-tos.md#local-testing-with-viewer-web-app)
