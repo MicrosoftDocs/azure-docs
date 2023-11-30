@@ -19,13 +19,13 @@ To create an Event Grid subscription for any of the supported [event sources](co
     :::image type="content" source="./media/subscribe-through-portal/select-all-services.png" alt-text="Screenshot that shows the Azure portal with All Services selected on the left menu.":::
 1. Search for **Event Grid Subscriptions** and select it from the available options.
 
-    :::image type="content" source="./media/subscribe-through-portal/search.png" alt-text="Screenshot that shows Event Grid Subscription in the search box in he Azure portal.":::
+    :::image type="content" source="./media/subscribe-through-portal/search.png" alt-text="Screenshot that shows Event Grid Subscription in the search box in the Azure portal.":::
 1. Select **+ Event Subscription**.
 
     :::image type="content" source="./media/subscribe-through-portal/add-subscription.png" alt-text="Screenshot that shows the select of Add Event Subscription menu on the Event Grid Subscriptions page.":::
 1. On the **Create Event Subscription** page, follow these steps:
     1. Enter a name for the event subscription. 
-    1. Select the type of event source (**topic type**) on which you want to create a subscription. For example, to subscribe to events for your Azure storage account, select **Storage Accounts (Blob & GPv2)**.
+    1. Select the type of event source (**topic type**) on which you want to create a subscription. For example, to subscribe to events for your Azure storage account, select **Storage Accounts**.
     
         :::image type="content" source="./media/subscribe-through-portal/azure-subscription.png" alt-text="Screenshot that shows the Create Event Subscription page.":::
     1. Select the Azure subscription that contains the storage account.
