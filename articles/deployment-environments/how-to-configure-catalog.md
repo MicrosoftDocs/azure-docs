@@ -23,7 +23,7 @@ A catalog is a repository hosted in [GitHub](https://github.com) or [Azure DevOp
 - To learn how to host a repository in GitHub, see [Get started with GitHub](https://docs.github.com/get-started).
 - To learn how to host a Git repository in an Azure DevOps project, see [Azure Repos](https://azure.microsoft.com/services/devops/repos/).
 
-Microsoft offers a quick start [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
+Microsoft offers a quick start catalog that you can add to the dev center, and also a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
 
 In this article, you learn how to:
 
