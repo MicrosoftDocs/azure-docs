@@ -23,12 +23,12 @@ This Azure SQL Managed Instance connector is supported for the following capabil
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|
-|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ <small> Public preview |
-|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ <small> Public preview |
-|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ <small> Public preview |
-|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ <small> Public preview |
-|[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ <small> Public preview |
-|[Stored procedure activity](transform-data-using-stored-procedure.md)|&#9312; &#9313;|✓ <small> Public preview |
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ Public preview |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ Public preview |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ Public preview |
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ Public preview |
+|[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ Public preview |
+|[Stored procedure activity](transform-data-using-stored-procedure.md)|&#9312; &#9313;|✓ Public preview |
 
 *&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
