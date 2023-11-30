@@ -26,7 +26,7 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 
 ## Handle file attachments
 
-The Chat SDK for JavaScript would return `AttachmentType` of `file` for regular files and `image` for image attachments.
+The Chat SDK for JavaScript returns an `AttachmentType` of `file` for regular files and `image` for image attachments.
 
 ```js
 export interface ChatMessageReceivedEvent extends BaseChatMessageEvent {
