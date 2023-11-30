@@ -20,7 +20,7 @@ ms.date: 06/15/2023
 
 In this article, you learn how to access and evaluate foundation models using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-azure-machine-learning.md#studio). Additionally, you learn how to fine-tune each model and how to deploy the model at scale.
 
-Foundation models are machine learning models that have been pre-trained on vast amounts of data, and that can be fine tuned for specific tasks with relatively small amount of domain specific data. These models serve as a starting point for custom models and accelerate the model building process for a variety of tasks including natural language processing, computer vision, speech and generative AI tasks. Azure Machine Learning provides the capability to easily integrate these pre-trained foundation models into your applications. **foundation models in Azure Machine Learning** provides Azure Machine Learning native capabilities that enable customers to discover, evaluate, fine tune, deploy and operationalize open-source foundation models at scale. 
+Foundation models are machine learning models that have been pre-trained on vast amounts of data, and that can be fine tuned for specific tasks with relatively small amount of domain specific data. These models serve as a starting point for custom models and accelerate the model building process for a variety of tasks including natural language processing, computer vision, speech and generative AI tasks. Azure Machine Learning provides the capability to easily integrate these pre-trained foundation models into your applications. **Foundation models in Azure Machine Learning** provides Azure Machine Learning native capabilities that enable customers to discover, evaluate, fine tune, deploy and operationalize open-source foundation models at scale. 
 
 
 ## How to access foundation models in Azure Machine Learning
@@ -128,13 +128,13 @@ You can invoke the Deploy UI wizard by clicking on the 'Deploy' button on the mo
 
 :::image type="content" source="./media/how-to-use-foundation-models/deploy-button.png" lightbox="./media/how-to-use-foundation-models/deploy-button.png" alt-text="Screenshot showing the deploy button on the foundation model card.":::
 
-#### Deployment Settings
+#### Deployment settings
 
 Since the scoring script and environment are automatically included with the foundation model, you only need to specify the Virtual machine SKU to use, number of instances and the endpoint name to use for the deployment.
 
 :::image type="content" source="./media/how-to-use-foundation-models/deploy-options.png" alt-text="Screenshot showing the deploy options on the foundation model card after user selects the deploy button.":::
 
-Curated models from the Azure Machine Learning are in MLflow format. If you are planning to deploy this models under an online endpoint without network connectivity, you need to package the model first. Packaging is not required for models in the HuggingFace format.
+Curated models from the Azure Machine Learning are in MLflow format. If you are planning to deploy these models under an online endpoint without network connectivity, you need to package the model first. Packaging is not required for models in the HuggingFace format.
 
 :::image type="content" source="./media/how-to-use-foundation-models/studio-deploy-package.png" alt-text="Screenshot showing the package option for model deployment.":::
 
