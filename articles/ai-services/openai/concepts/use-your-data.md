@@ -31,10 +31,6 @@ To get started, [connect your data source](../use-your-data-quickstart.md) using
 > [!NOTE]
 > To get started, you need to already have been approved for [Azure OpenAI access](../overview.md#how-do-i-get-access-to-azure-openai) and have an [Azure OpenAI Service resource](../how-to/create-resource.md) with either the gpt-35-turbo or the gpt-4 models deployed.
 
-<!--## Data source options
-
-Azure OpenAI on your data uses an [Azure AI Search](/azure/search/search-what-is-azure-search) index to determine what data to retrieve based on  user inputs and provided conversation history. We recommend using Azure OpenAI Studio to create your index from a blob storage or local files. See the [quickstart article](../use-your-data-quickstart.md?pivots=programming-language-studio) for more information.-->
-
 ## Data formats and file types
 
 Azure OpenAI on your data supports the following filetypes:
@@ -225,25 +221,22 @@ You can modify the following additional settings in the **Data parameters** sect
 |**Retrieved documents**     |  Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. The default value is 5. This is the `topNDocuments` parameter in the API.     |
 | **Strictness**     | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. The default value is 3.         |
 
+## Azure Role-based access controls (Azure RBAC) for adding data sources
+
+To add a new data source to Azure OpenAI on your data, you need the following Azure RBAC roles.
+
+
+|Azure RBAC role  | Which resource needs this role? | Needed when  |
+|---------|---------|---------|
+| [Cognitive Services OpenAI Contributor](../how-to/role-based-access-control.md#cognitive-services-openai-contributor) | The Azure AI Search resource, to access Azure OpenAI resource. | You want to use Azure OpenAI on your data.   |
+|[Search Index Data Reader](/azure/role-based-access-control/built-in-roles#search-index-data-reader) | The Azure OpenAI resource, to access the Azure AI Search resource.    | You want to use Azure OpenAI on your data.        |
+|[Search Service Contributor](/azure/role-based-access-control/built-in-roles#search-service-contributor) | The Azure OpenAI resource, to access the Azure AI Search resource.    | You plan to create a new Azure AI Search index.        |
+|[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.  | The Azure AI Search and Azure OpenAI resources, to access the storage account.       |
+| [Cognitive Services OpenAI User](../how-to/role-based-access-control.md#cognitive-services-openai-user) | The web app, to access the Azure OpenAI resource. | You want to deploy a web app.   |
+| [Contributor](/azure/role-based-access-control/built-in-roles#contributor) | Your subscription, to access Azure Resource Manager. | You want to deploy a web app. |
+| [Cognitive Services Contributor Role](/azure/role-based-access-control/built-in-roles#cognitive-services-contributor) | The Azure AI Search resource, to access Azure OpenAI resource. | You want to deploy a [web app](#using-the-web-app).   |
+
 ## Virtual network support & private endpoint support (Azure AI Search only)
-
-See the following table for scenarios supported by virtual networks and private endpoints **when you bring your own Azure AI Search index**. 
-
-| Network access to the Azure OpenAI Resource | Network access to the Azure AI Search resource | Is vector search enabled? | Azure OpenAI studio | Chat with the model using the API |
-|---------------------------------------------|-------------------------------------------------------|---------------------------|---------------------|-----------------------------------|
-| Public                                      | Public                                                | Either                    | Supported           | Supported                         |
-| Private                                     | Public                                                | Yes                       | Not supported       | Supported                         |
-| Private                                     | Public                                                | No                        | Supported           | Supported                         |
-| Regardless of resource access allowances    | Private                                               | Either                    | Not supported       | Supported                         |
-
-Additionally, data ingestion has the following configuration support:
-
-| Network access to the Azure OpenAI Resource | Network access to the Azure AI Search resource | Azure OpenAI studio support | [Ingestion API](../reference.md#start-an-ingestion-job) support |
-|---------------------------------------------|-------------------------------------------------------|-----------------------------|-----------------------------------------------------------------|
-| Public                                      | Public                                                | Supported                   | Supported                                                       |
-| Private                                     | Regardless of resource access allowances.             | Not supported               | Not supported                                                   |
-| Public                                      | Private                                               | Not supported               | Not supported                                                   |
-
 
 
 ### Azure OpenAI resources
@@ -259,45 +252,6 @@ If you have an Azure AI Search resource protected by a private network, and want
 Learn more about the [manual approval workflow](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow).
 
 After you approve the request in your search service, you can start using the [chat completions extensions API](/azure/ai-services/openai/reference#completions-extensions). Public network access can be disabled for that search service.
-
-### Storage accounts
-
-Storage accounts in virtual networks, firewalls, and private endpoints are supported by Azure OpenAI on your data. To use a storage account in a private network:
-
-1. Ensure you have the system assigned managed identity principal enabled for your Azure OpenAI and Azure AI Search resources.
-    1. Using the Azure portal, navigate to your resource, and select **Identity** from the navigation menu on the left side of the screen.
-    1. Set **Status** to **On**.
-    1. Perform these steps for both of your Azure OpenAI and Azure AI Search resources.
-
-    :::image type="content" source="../media/use-your-data/managed-identity.png" alt-text="A screenshot showing managed identity settings in the Azure portal." lightbox="../media/use-your-data/managed-identity.png":::
-
-1. Navigate back to your storage account. Select **Access Control (IAM)** for your resource. Select **Add**, then **Add role assignment**. In the window that appears, add the **Storage Data Contributor** role to the storage resource for your Azure OpenAI and search resource's managed identity. 
-    1. Assign access to **Managed Identity**.
-    1. If you have multiple search resources, Perform this step for each search resource.
-
-    :::image type="content" source="../media/use-your-data/add-role-assignment.png" alt-text="A screenshot showing the role assignment option in the Azure portal." lightbox="../media/use-your-data/add-role-assignment.png":::
-
-1. If your storage account hasn't already been network restricted, go to networking tab and select **Enabled from selected virtual networks and IP addresses**.
-
-    :::image type="content" source="../media/use-your-data/enable-virtual-network.png" alt-text="A screenshot showing the option for enabling virtual networks in the Azure portal." lightbox="../media/use-your-data/enable-virtual-network.png":::
-
-## Azure Role-based access controls (Azure RBAC)
-
-To add a new data source to your Azure OpenAI resource, you need the following Azure RBAC roles.
-
-
-|Azure RBAC role  | Which resource needs this role? | Needed when  |
-|---------|---------|---------|
-| [Cognitive Services OpenAI Contributor](../how-to/role-based-access-control.md#cognitive-services-openai-contributor) | The Azure AI Search resource, to access Azure OpenAI resource. | You want to use Azure OpenAI on your data.   |
-|[Search Index Data Reader](/azure/role-based-access-control/built-in-roles#search-index-data-reader) | The Azure OpenAI resource, to access the Azure AI Search resource.    | You want to use Azure OpenAI on your data.        |
-|[Search Service Contributor](/azure/role-based-access-control/built-in-roles#search-service-contributor) | The Azure OpenAI resource, to access the Azure AI Search resource.    | You plan to create a new Azure AI Search index.        |
-|[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.  | The Azure AI Search and Azure OpenAI resources, to access the storage account.       |
-| [Cognitive Services OpenAI User](../how-to/role-based-access-control.md#cognitive-services-openai-user) | The web app, to access the Azure OpenAI resource. | You want to deploy a web app.   |
-| [Contributor](/azure/role-based-access-control/built-in-roles#contributor) | Your subscription, to access Azure Resource Manager. | You want to deploy a web app. |
-| [Cognitive Services Contributor Role](/azure/role-based-access-control/built-in-roles#cognitive-services-contributor) | The Azure AI Search resource, to access Azure OpenAI resource. | You want to deploy a [web app](#using-the-web-app).   |
-
-
-
 
 ## Document-level access control (Azure AI Search only)
 

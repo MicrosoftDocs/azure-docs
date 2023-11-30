@@ -388,7 +388,7 @@ VNET to VNET connection    | Supported | [Learn more](./azure-to-azure-about-net
 Virtual Network Service Endpoints | Supported | If you are restricting the virtual network access to storage accounts, ensure that the trusted Microsoft services are allowed access to the storage account.
 Accelerated networking | Supported | Accelerated networking can be enabled on the recovery VM only if it is enabled on the source VM also. [Learn more](azure-vm-disaster-recovery-with-accelerated-networking.md).
 Palo Alto Network Appliance | Not supported | With third-party appliances, there are often restrictions imposed by the provider inside the Virtual Machine. Azure Site Recovery needs agent, extensions, and outbound connectivity to be available. But the appliance doesn't let any outbound activity to be configured inside the Virtual Machine.
-IPv6  | Not supported | Mixed configurations that include both IPv4 and IPv6 are also not supported. Free up the subnet of the IPv6 range before any Site Recovery operation.
+IPv6  | Not supported | Mixed configurations that include both IPv4 and IPv6 are supported. However, Azure Site Recovery will use any free IPv4 address available, if there are no free IPv4 addresses in the subnet, then the configuration is not supported.
 Private link access to Site Recovery service | Supported | [Learn more](azure-to-azure-how-to-enable-replication-private-endpoints.md)
 Tags  | Supported | User-generated tags on NICs are replicated every 24 hours.
 

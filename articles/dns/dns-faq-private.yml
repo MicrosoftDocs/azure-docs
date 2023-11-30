@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: dns
   ms.topic: faq
-  ms.date: 09/27/2022
+  ms.date: 11/30/2023
   ms.author: greglin
 title: Azure Private DNS FAQ
 summary: The following are frequently asked questions about Azure private DNS.
@@ -103,8 +103,8 @@ sections:
         answer: |
           We strongly recommend that you migrate to the new resource model as soon as possible. Legacy resource model will be supported, however, further features won't be developed on top of this model. In future, we intend to deprecate it in favor of new resource model. For guidance on how to migrate your existing private DNS zones to new resource model see[migration guide for Azure DNS private zones](private-dns-migration-guide.md).
           
-          ### Does Azure DNS private zones store any customer content?
-          No, Azure DNS private zones doesn't store any customer content.
+          ### Do Azure DNS private zones store any customer content?
+          No, Azure DNS private zones don't store any customer content.
 
 additionalContent: |
 
