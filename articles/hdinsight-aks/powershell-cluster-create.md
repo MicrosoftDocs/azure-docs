@@ -147,17 +147,14 @@ Get-AzHdInsightOnAksCluster -ResourceGroupName $resourceGroupName -PoolName $clu
 **List the clusters under the cluster pool**
 
 ``` 
-
 Get-AzHdInsightOnAksCluster -ResourceGroupName $resourceGroupName -PoolName $clusterPoolName 
-
  ```
 
 **Delete the cluster with cluster name**
+
 ```
 Remove-AzHdInsightOnAksCluster -Name $clusterName -PoolName $clusterpoolName -ResourceGroupName $resourceGroupName 
 ```
- 
-
  
 
  
