@@ -24,10 +24,10 @@ If you manage subscriptions in other Microsoft Entra tenants through [Azure Ligh
 
 ## Permissions required
 
-- You must have `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
+- You must have `/*/read` permissions to any resource you query, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader) for Log Analytics workspaces, for example.
 - To save a query, you must have `microsoft.operationalinsights/querypacks/queries/action` permisisons to the query pack where you want to save the query, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
 
-## Cross-resource query limits
+## Limitations
 
 * Cross-resource and cross-service queries don’t support parameterized functions and functions whose definition includes other cross-workspace or cross-service expressions; for example, arg(), resource(), workspace(), or app().
 * You can include up to 100 Log Analytics workspaces or classic Application Insights resources in a single query.
