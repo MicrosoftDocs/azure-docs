@@ -1,10 +1,10 @@
 ---
 title: Query ingested telemetry data
 description: This article describes how to query ingested telemetry data.
-author: sunasing
+author: gourdsay
 ms.topic: article
-ms.date: 03/11/2020
-ms.author: sunasing
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Query ingested telemetry data
@@ -13,13 +13,18 @@ This article describes how to query ingested sensor data from Azure FarmBeats.
 
 Ingesting data from Internet of Things (IoT) resources such as devices and sensors is a common scenario in FarmBeats. You create metadata for devices and sensors and then ingest the historical data to FarmBeats in a canonical format. Once the sensor data is available on FarmBeats Datahub, we can query the same to generate actionable insights or build models.
 
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information, see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
+
 ## Before you begin
 
-Before you proceed with this article, ensure that you've installed FarmBeats and ingested sensor telemetry data from your IoT devices to FarmBeats.
+Before you proceed with this article, ensure that FarmBeats is installed and sensor telemetry data from your IoT devices is ingested to FarmBeats.
 
 To ingest sensor telemetry data, visit [ingest historical telemetry data](ingest-historical-telemetry-data-in-azure-farmbeats.md)
 
-Before you proceed, you also need to ensure you are familiar with FarmBeats REST APIs as you will query ingested telemetry using the APIs. For more information on FarmBeats APIs, see [FarmBeats REST APIs](rest-api-in-azure-farmbeats.md). **Ensure that you are able to make API requests to your FarmBeats Datahub endpoint**.
+Before you proceed, you also need to ensure you're familiar with FarmBeats REST APIs as you query ingested telemetry using the APIs. For more information on FarmBeats APIs, see [FarmBeats REST APIs](rest-api-in-azure-farmbeats.md). **Ensure that you are able to make API requests to your FarmBeats Datahub endpoint**.
 
 ## Query ingested sensor telemetry data
 
@@ -32,7 +37,7 @@ There are two ways to access and query telemetry data from FarmBeats:
 
 Follow the steps to query the ingested sensor telemetry data using FarmBeats REST APIs:
 
-1. Identify the sensor you are interested in. You can do this by making a GET request on /Sensor API.
+1. Identify the sensor you're interested in. You can do so by making a GET request on /Sensor API.
 
 > [!NOTE]
 > The **id** and the **sensorModelId** of the interested sensor object.
@@ -72,7 +77,7 @@ Make a note of the response from the GET/{id} call for the Sensor Model.
     ]
   }
   ```
-4. The response from the /Telemetry API will look something like this:
+4. The response from the /Telemetry API looks something like this:
 
   ```json
   {
@@ -100,21 +105,21 @@ Make a note of the response from the GET/{id} call for the Sensor Model.
     ]
   }
   ```
-In the above example response, the queried sensor telemetry gives data for two timestamps along with the measure name ("moist_soil_last") and values of the reported telemetry in the two timestamps. You will need to refer to the associated Sensor Model (as described in step 2) to interpret the type and unit of the reported values.
+In the above example response, the queried sensor telemetry gives data for two timestamps along with the measure name ("moist_soil_last") and values of the reported telemetry in the two timestamps. You need to refer to the associated Sensor Model (as described in step 2) to interpret the type and unit of the reported values.
 
 ### Query using Azure Time Series Insights (TSI)
 
-FarmBeats leverages [Azure Time Series Insights (TSI)](https://azure.microsoft.com/services/time-series-insights/) to ingest, store, query, and visualize data at IoT scale--data that's highly contextualized and optimized for time series.
+FarmBeats uses [Azure Time Series Insights (TSI)](https://azure.microsoft.com/services/time-series-insights/) to ingest, store, query, and visualize data at IoT scale, data that is highly contextualized and optimized for time series.
 
 Telemetry data is received on an EventHub and then processed and pushed to a TSI environment within FarmBeats resource group. Data can then be directly queried from the TSI. For more information, see [TSI documentation](../../time-series-insights/time-series-insights-explorer.md)
 
 Follow the steps to visualize data on TSI:
 
 1. Go to **Azure Portal** > **FarmBeats DataHub resource group** > select **Time Series Insights** environment (tsi-xxxx) > **Data Access Policies**. Add user with Reader or Contributor access.
-2. Go to the **Overview** page of **Time Series Insights** environment (tsi-xxxx) and select the **Time Series Insights Explorer URL**. You'll now be able to visualize the ingested telemetry.
+2. Go to the **Overview** page of **Time Series Insights** environment (tsi-xxxx) and select the **Time Series Insights Explorer URL**. You can now visualize the ingested telemetry.
 
 Apart from storing, querying and visualization of telemetry, TSI also enables integration to a Power BI dashboard. For more information, see [here](../../time-series-insights/how-to-connect-power-bi.md)
 
 ## Next steps
 
-You now have queried sensor data from your Azure FarmBeats instance. Now, learn how to [generate maps](generate-maps-in-azure-farmbeats.md#generate-maps) for your farms.
+After querying sensor data from your Azure FarmBeats instance, learn how to [generate maps](generate-maps-in-azure-farmbeats.md#generate-maps) for your farms.

@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: Quickly test and evaluate prompts in Azure AI Studio playground.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
