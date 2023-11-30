@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: azure-ai-translator
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/30/2023
 ms.author: lajanuar
 ---
 
@@ -35,7 +35,7 @@ No. The text in an image within a document isn't translated.
 
 Yes. Document Translation translates content from _scanned PDF_ documents.
 
-#### Can encrypted and password-protected documents be translated?
+#### Can encrypted or password-protected documents be translated?
 
 No. The service can't translate encrypted or password-protected documents. If your scanned or text-embedded PDFs are password-locked, you must remove the lock before submission.
 
@@ -43,6 +43,6 @@ No. The service can't translate encrypted or password-protected documents. If yo
 
 No. Don't include SAS token-appended URLS. Managed identities eliminate the need for you to include shared access signature tokens (SAS) with your HTTP requests.
 
-#### What PDF format renders the best results?
+#### Which PDF format renders the best results?
 
-PDF documents generated from digital file formats such as MS Word (also known as "native" PDFs) provide optimal output. Scanned PDFs are images of printed documents scanned into an electronic format. Translating scanned PDF files can result in loss of the original formatting, layout, and style, and affect the quality of the translation. While native PDF files ideal for translation, if you're using a scanned PDF, improve results by making sure that the document is scanned at a high resolution (300+ DPI).
+PDF documents generated from digital file formats (also known as "native" PDFs) provide optimal output. Scanned PDFs are images of printed documents scanned into an electronic format. Translating scanned PDF files can result in loss of the original formatting, layout, and style, and affect the quality of the translation.
