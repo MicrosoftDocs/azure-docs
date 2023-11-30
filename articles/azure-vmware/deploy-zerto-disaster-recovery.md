@@ -3,7 +3,7 @@ title: Deploy Zerto disaster recovery on Azure VMware Solution
 description: Learn how to implement Zerto disaster recovery for on-premises VMware or Azure VMware Solution virtual machines. 
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 7/7/2023
+ms.date: 11/29/2023
 ms.custom: engagement-fy23
 ---
 
@@ -77,31 +77,7 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 
 ## Install Zerto on Azure VMware Solution
 
-Currently, Zerto disaster recovery on Azure VMware Solution is in an Initial Availability (IA) phase. In the IA phase, you must contact Microsoft to request and qualify for IA support.
-
-To request IA support for Zerto on Azure VMware Solution, submit this [Install Zerto on AVS form](https://aka.ms/ZertoAVSinstall) with the required information. In the IA phase, Azure VMware Solution only supports manual installation and onboarding of Zerto. However, Microsoft works with you to ensure that you can manually install Zerto on your private cloud.
-
-> [!NOTE]
-> As part of the manual installation, Microsoft creates a new vCenter user account for Zerto. This user account is only for Zerto Virtual Manager (ZVM) to perform operations on the Azure VMware Solution vCenter. When installing ZVM on Azure VMware Solution, don’t select the “Select to enforce roles and permissions using Zerto vCenter privileges” option.
-
-After the ZVM installation, select the options from the Zerto Virtual Manager **Site Settings**.
-
-:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-install-5.png" alt-text="Screenshot of the Workload Automation section that shows to select all of the options listed for the blue checkboxes.":::
-
->[!NOTE]
->General Availability of Azure VMware Solution will enable self-service installation and Day 2 operations of Zerto on Azure VMware Solution.
-
-## Configure Zerto for disaster recovery
-
-To configure Zerto for the on-premises VMware to Azure VMware Solution disaster recovery and Azure VMware Solution to Azure VMware Solution Cloud disaster recovery scenarios, see the [Zerto Virtual Manager Administration Guide vSphere Environment](https://help.zerto.com/bundle/Admin.VC.HTML/page/Introduction_to_the_Zerto_Solution.htm).
-
-For more information, see the [Zerto technical documentation](https://www.zerto.com/myzerto/technical-documentation/).
-
-## Ongoing management of Zerto
-
-- As you scale your Azure VMware Solution private cloud operations, you might need to add new Azure VMware Solution hosts for Zerto protection or configure Zerto disaster recovery to new Azure VMware Solution vSphere Clusters. In both these scenarios, you're required to open a Support Request with the Azure VMware Solution team in the Initial Availability phase. Open the [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal for these Day 2 configurations.
-
-   :::image type="content" source="media/zerto-disaster-recovery/support-request-zerto-disaster-recovery.png" alt-text="Screenshot that shows the support request for Day 2 Zerto disaster recovery configurations.":::
+To deploy Zerto on Azure VMware Solution, follow these [instructions](https://help.zerto.com/bundle/Install.AVS.HTML/page/Prerequisites_Zerto_AVS.htm).
 
 ## FAQs
 
