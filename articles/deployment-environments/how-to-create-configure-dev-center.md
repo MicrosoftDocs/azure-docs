@@ -161,11 +161,11 @@ You can use this [sample catalog](https://github.com/Azure/deployment-environmen
 > [!TIP]
 > If you're attaching an Azure DevOps repository, use these steps: [Get the clone URL of an Azure DevOps repository](how-to-configure-catalog.md#get-the-clone-url-for-your-azure-devops-repository).
 
-1. Navigate to your repository, select **<> Code**, and then select copy.
+1. Navigate to your repository, select **<> Code**, and then copy the clone URL.
 1. Make a note of the branch that you're working in.
 1. Take a note of the folder that contains your environment definitions. 
  
-     :::image type="content" source="media/how-to-create-configure-dev-center/github-info.png" alt-text="Screenshot that shows the GitHub repo with Code, branch, and folder highlighted.":::
+     :::image type="content" source="media/how-to-create-configure-dev-center/github-info.png" alt-text="Screenshot that shows the GitHub repo with branch, copy URL, and folder highlighted.":::
 
 ### Add a catalog to your dev center
 
