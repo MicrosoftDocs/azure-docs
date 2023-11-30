@@ -1,7 +1,7 @@
 ---
 title: Query across resources with Azure Monitor  
 description: This article describes how you can query against resources from multiple workspaces and an Application Insights app in your subscription.
-ms.topic: conceptual
+ms.topic: how-to
 author: guywi-ms
 ms.author: guywild
 ms.date: 05/30/2023
@@ -13,7 +13,7 @@ ms.date: 05/30/2023
 There are two methods to query data from multiple workspaces, applications, and resources:
 
 * Explicitly by specifying the workspace, app, or resource information using the [workspace()](#use-the-workspace-expression-to-query-across-log-analytics-workspaces), [app()](#use-the-app-expression-to-query-across-classic-application-insights-applications), or [resource()](#use-the-resource-expression-to-correlate-data-between-resources) expressions.
-* Implicitly by using [resource-context queries](manage-access.md#access-mode). When you query in the context of a specific resource, resource group, or a subscription, the relevant data will be fetched from all workspaces that contain data for these resources. Application Insights data that's stored in apps won't be fetched.
+* Implicitly by using [resource-context queries](manage-access.md#access-mode). When you query in the context of a specific resource, resource group, or a subscription, the query retrieves relevant data from all workspaces that contain data for these resources. Resource-context don't retrieve data from classic Application Insights resources.
 
 This article explains how to use the workspace(), app(), or resource() expressions to query data from multiple workspaces, applications, and resources. 
 
