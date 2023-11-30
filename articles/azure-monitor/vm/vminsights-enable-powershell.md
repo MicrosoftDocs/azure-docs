@@ -58,7 +58,7 @@ Install-VMInsights.ps1 -SubscriptionId <SubscriptionId> [-ResourceGroup <Resourc
 
 Required Arguments: 
 
-    --SubscriptionId <String> 
+    -SubscriptionId <String> 
 
         Azure subscription ID.
 
