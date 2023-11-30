@@ -6,8 +6,8 @@ ms.topic: how-to
 ms.date: 11/23/2023
 ---
 # Manage HDInsight on AKS clusters using .NET SDK
-This articles describes how you can create and manage cluster in Azure HDInsight on AKS using .NET SDK.
 
+This article describes how you can create and manage cluster in Azure HDInsight on AKS using .NET SDK.
  
 
 The HDInsight .NET SDK provides .NET client libraries, so that it's easier to work with HDInsight clusters from .NET. 
@@ -24,9 +24,9 @@ The HDInsight .NET SDK provides .NET client libraries, so that it's easier to wo
 
 ## Steps to create a cluster using .NET SDK
 
-1. Login to Visual Studio and create a project folder 
+1. Log in to Visual Studio and create a project folder 
 
-1. In the project folder add the following dependencies  
+1. In project folder, add the following dependencies  
 
 	- Azure Identity 
 
@@ -45,10 +45,10 @@ The HDInsight .NET SDK provides .NET client libraries, so that it's easier to wo
 - Cluster Type 
 - SKU 
 - Woker Node count 
-- MSI resource id: 
+- MSI resource ID: 
   `/subscriptions/<subscription ID>/resourcegroups/{resource group 	name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{Managed identity name}`
-- MSI client id(See below) 
-- MSI object id (See below)
+- MSI client ID
+- MSI object ID
   
 	:::image type="content" source="./media/sdk-cluster-creation/overview.png" alt-text="Screenshot shows overview." lightbox="./media/sdk-cluster-creation/overview.png":::
   
@@ -342,7 +342,7 @@ Click on the Run button
 
 ## Next Steps: 
 
-There are extensive ways supported to customize and manage cluster using .NET SDK. Please review the following documentation: 
+There are extensive ways supported to customize and manage cluster using .NET SDK. Review the following documentation: 
 - [Azure Resource Manager HDInsight Containers](/dotnet/api/overview/azure/resourcemanager.hdinsight.containers-readme) 
 - [Azure.ResourceManager.HDInsight.Containers GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hdinsight/Azure.ResourceManager.HDInsight.Containers) 
 
@@ -360,9 +360,9 @@ There are extensive ways supported to customize and manage cluster using .NET SD
 
   
 
-### Typescript 
+### TypeScript 
 
-- [Typescript SDK Package](https://www.npmjs.com/package/@azure/arm-hdinsightcontainers) 
+- [TypeScript SDK Package](https://www.npmjs.com/package/@azure/arm-hdinsightcontainers) 
 - [Azure Hdinsightcontainers SDK for JavaScript](/javascript/api/overview/azure/hdinsightcontainers) 
 
  ### Python 
