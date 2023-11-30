@@ -29,7 +29,7 @@ The password reset flow involves the following steps:
 
 1. On the sign-up and sign-in page, the user selects the **Forgot your password?** link. Azure AD B2C initiates the password reset flow.
 1. In the next dialog that appears, the user enters their email address, and then selects **Send verification code**. Azure AD B2C sends a verification code to the user's email account. The user copies the verification code from the email, enters the code in the Azure AD B2C password reset dialog, and then selects **Verify code**.
-1. The user can then enter a new password. (After the email is verified, the user can still select the **Change e-mail** button; see [Hide the change email button](#hide-the-change-email-button) if you wish to remove it.)
+1. The user can then enter a new password. (After the email is verified, the user can still select the **Change e-mail** button; see [Hide the change email button](#hide-the-change-email-button-optional) if you wish to remove it.)
 
 :::image type="content" source="./media/add-password-reset-policy/password-reset-flow.png" alt-text="Diagram that shows three dialogs in the password reset flow." lightbox="./media/add-password-reset-policy/password-reset-flow.png":::
 
@@ -310,8 +310,6 @@ The following diagram depicts the process:
 1. In the application, the user selects **Sign in**. The app initiates an authorization request and redirects to Azure AD B2C so the user can finish signing in. The authorization request specifies a sign-up or sign-in policy name, such as *B2C_1_signup_signin*.
 1. The user selects the **Forgot your password?** link. Azure AD B2C returns the `AADB2C90118` error code to the application.
 1. The application handles the error code and initiates a new authorization request. The authorization request specifies the password reset policy name, such as *B2C_1_pwd_reset*.
-
-    ![](./media/add-password-reset-policy/password-reset-flow-legacy.png)
 
 :::image type="content" source="./media/add-password-reset-policy/password-reset-flow-legacy.png" alt-text="Diagram that shows the legacy password reset user flow with numbered steps.":::
 
