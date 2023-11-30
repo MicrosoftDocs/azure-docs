@@ -1,7 +1,7 @@
 ---
 title: Manage Azure portal settings and preferences
 description: Change Azure portal settings such as default subscription/directory, timeouts, menu mode, contrast, theme, notifications, language/region and more.
-ms.date: 04/11/2023
+ms.date: 11/30/2023
 ms.topic: how-to
 ---
 
@@ -9,9 +9,11 @@ ms.topic: how-to
 
 You can change the default settings of the Azure portal to meet your own preferences.
 
-Most settings are available from the **Settings** menu in the top right section of global page header.
+To view and manage your settings, select the **Settings** menu icon in the top right section of the global page header to open the **Portal settings** page.
 
 :::image type="content" source="media/set-preferences/settings-top-header.png" alt-text="Screenshot showing the settings icon in the global page header.":::
+
+Within **Portal settings**, you'll see different sections. In this article, we'll walk through the available options for each section.
 
 ## Directories + subscriptions
 
@@ -19,9 +21,9 @@ The **Directories + subscriptions** page lets you manage directories and set sub
 
 ### Switch and manage directories
 
-In the **Directories** section, you'll see your **Current directory** (which you're currently signed in to).
+In the **Directories** section, you'll see your **Current directory** (the directory that you're currently signed in to).
 
-The **Startup directory** shows the default directory when you sign in to the Azure portal. To choose a different startup directory, select **change** to go to the [Appearance + startup views](#appearance--startup-views) page, where you can change this option.
+The **Startup directory** shows the default directory when you sign in to the Azure portal (or **Last visited** if you've chosen that option). To choose a different startup directory, select **change** to open the [Appearance + startup views](#appearance--startup-views) page, where you can change your selection.
 
 To see a full list of directories to which you have access, select **All Directories**.
 
@@ -31,7 +33,7 @@ To switch to a different directory, find the directory that you want to work in,
 
 :::image type="content" source="media/set-preferences/settings-directories-subscriptions-default-filter.png" alt-text="Screenshot showing the Directories settings pane.":::
 
-## Subscription filters
+### Subscription filters
 
 You can choose the subscriptions that are filtered by default when you sign in to the Azure portal. This can be helpful if you have a primary list of subscriptions you work with but use others occasionally.
 
@@ -44,21 +46,23 @@ To use customized filters, select **Advanced filters**. You'll be prompted to co
 
 :::image type="content" source="media/set-preferences/settings-advanced-filters-enable.png" alt-text="Screenshot showing the confirmation dialog box for Advanced filters.":::
 
-This will enable the **Advanced filters** page, where you can create and manage multiple subscription filters. Any currently selected subscriptions will be saved as an imported filter that you can use again. If you want to stop using advanced filters, select the toggle again to restore the default subscription view. Any custom filters you've created will be saved and will be available to use if you enable **Advanced filters** in the future.
+After you continue, the **Advanced filters** page appears in the left navigation menu of **Portal settings**. You can create and manage multiple subscription filters on this page. Your currently selected subscriptions will be saved as an imported filter that you can use again. You'll see this filter selected on the **Directories + subscriptions** page.
+
+If you want to stop using advanced filters, select the toggle again to restore the default subscription view. Any custom filters you've created will be saved and will be available to use if you enable **Advanced filters** in the future.
 
 :::image type="content" source="media/set-preferences/settings-advanced-filters-disable.png" alt-text="Screenshot showing the confirmation dialog box for disabling Advanced filters.":::
 
-### Advanced filters
+## Advanced filters
 
 After enabling the **Advanced filters** page, you can create, modify, or delete subscription filters.
 
-:::image type="content" source="media/set-preferences/settings-advanced-filters.png" alt-text="Screenshot showing the Advanced filters screen.":::
+:::image type="content" source="media/set-preferences/settings-advanced-filters.png" lightbox=source="media/set-preferences/settings-advanced-filters.png" alt-text="Screenshot showing the Advanced filters screen.":::
 
 The **Default** filter shows all subscriptions to which you have access. This filter is used if there are no other filters, or when the active filter fails to include any subscriptions.
 
 You may also see a filter named **Imported-filter**, which includes all subscriptions that had been selected previously.
 
-To change the filter that is currently in use, select that filter from the **Advanced filter** drop-down box. You can also select **Modify advanced filters** to go to the **Advanced filters** page, where you can create, modify, and delete your filters.
+To change the filter that is currently in use, select **Activate** next to that filter. 
 
 ### Create a filter
 
@@ -66,11 +70,10 @@ To create a new filter, select **Create a filter**. You can create up to ten fil
 
 Each filter must have a unique name that is between 8 and 50 characters long and contains only letters, numbers, and hyphens.
 
-:::image type="content" source="media/set-preferences/azure-portal-settings-filtering-create.png" alt-text="Screenshot showing options for Create a filter.":::
 
-After you've named your filter, enter at least one condition. In the **Filter type** field, select either **Subscription name**, **Subscription ID**, or **Subscription state**. Then select an operator and enter a value to filter on.
+After you've named your filter, enter at least one condition. In the **Filter type** field, select **Management group**, **Subscription ID**, **Subscription name**, or **Subscription state**. Then select an operator and the value to filter on.
 
-:::image type="content" source="media/set-preferences/azure-portal-settings-filtering-create-operators.png" alt-text="Screenshot showing the list of operators for filter creation.":::
+:::image type="content" source="media/set-preferences/settings-create-filter.png" alt-text="Screenshot showing options for Create a filter.":::
 
 When you're finished adding conditions, select **Create**. Your filter will then appear in the list in **Active filters**.
 
@@ -81,7 +84,7 @@ You can modify or rename an existing filter by selecting the pencil icon in that
 > [!NOTE]
 > If you modify a filter that is currently active, and the changes result in 0 subscriptions, the **Default** filter will become active instead. You can't activate a filter which doesn't include any subscriptions.
 
-To delete a filter, select the trash can icon in that filter's row. You can't delete the **Default** filter or any filter that is currently active.
+To delete a filter, select the trash can icon in that filter's row. You can't delete the **Default** filter or a filter that is currently active.
 
 ## Appearance + startup views
 
