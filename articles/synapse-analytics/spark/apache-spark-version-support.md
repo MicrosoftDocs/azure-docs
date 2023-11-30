@@ -68,10 +68,14 @@ Azure Synapse runtimes for Apache Spark patches are rolled out monthly containin
 > While the above classes were not used in the default Log4j configurations in Synapse, it is possible that some user application could still depend on it. If your application needs to use these classes, use Library Management to add a secure version of Log4j to the Spark Pool. __Do not use Log4j version 1.2.17__, as it would be reintroducing the vulnerabilities.
 
 The patch policy differs based on the [runtime lifecycle stage](./runtime-for-apache-spark-lifecycle-and-supportability.md):
-1. Available (GA) runtime: Receive no upgrades on major versions (that is, 3.x -> 4.x). And will upgrade a minor version (that is, 3.x -> 3.y) as long as there are no deprecation or regression impacts.
-1. Preview runtime: No major version upgrades unless strictly necessary. Minor versions (3.x -> 3.y) will be upgraded to add latest features to a runtime.
-1. Long Term Support (LTS) runtime is patched with security fixes only.
-1. End of life announced (EOLA) runtime won't have bug and feature fixes. Security fixes are backported based on risk assessment.
+
+- Available (GA) runtime: Receive no upgrades on major versions (that is, 3.x -> 4.x). And will upgrade a minor version (that is, 3.x -> 3.y) as long as there are no deprecation or regression impacts.
+
+- Preview runtime: No major version upgrades unless strictly necessary. Minor versions (3.x -> 3.y) will be upgraded to add latest features to a runtime.
+
+- Long Term Support (LTS) runtime is patched with security fixes only.
+
+- End of life announced (EOLA) runtime won't have bug and feature fixes. Security fixes are backported based on risk assessment.
 
 ## Migration between Apache Spark versions - support
 
@@ -81,7 +85,7 @@ Question: If a customer is seeking advice on how to migrate from 2.4 to 3.X, wha
 
 Answer:   Refer to the following migration guide: https://spark.apache.org/docs/latest/sql-migration-guide.html
 
-Question: I get an error when I tried to upgrade Spark pool runtime using PowerShell commandlet when they have attached libraries
+Question: I got an error when I tried to upgrade Spark pool runtime using PowerShell commandlet when they have attached libraries
 
 Answer:   Don't use PowerShell Commandlet if you have custom libraries installed in your synapse workspace. Instead follow these steps:
           -Recreate Spark Pool 3.3 from the ground up.
