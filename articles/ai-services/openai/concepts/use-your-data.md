@@ -604,31 +604,6 @@ The table above shows the total number of tokens available for each model type. 
 
     20% of the available tokens are reserved for the model response. The remaining 80% of available tokens include the meta prompt, the user question and conversation history, and the system message. The remaining token budget is used by the retrieved document chunks. 
 
-
-<!--**Model**
-
-This determines the maximum number of tokens available to be used (`T`), the maximum number of tokens that can be used for the system message (`SM`) and that for the model response (`MR`).  If the system message is more than the max tokens allowed for system messages, the rest of the tokens beyond the maximum will be ignored. This limitation only applies to Azure OpenAI on your data.
-
-**Meta prompt (`MP`)** 
-
-If you set the model to only use grounding data for responses, the maximum number of tokens is 4036 tokens. If you don't, the maximum is 3444 tokens. This number is variable depending on the token length of the user question and conversation history. This estimate includes the base prompt as well as the query rewriting prompts for retrieval. 
-
-**User question and history (`QH`)**
-
-Variable but capped at 2000 tokens. 
-
-**Number of retrieved document chunks (`K`) & Chunk size (`C`)**
-
-Both these together `(C x K)` determine the tokens required to fit all the retrieved chunks. However, it will be truncated based on the token available tokens for the specific model being used after fitting in the rest of fields as the formula below- 
-
-`Min( (K*C), (0.8*T-MP-QH-SM))`
-
-For example, if you use a 16k model with default values for `K` (5) and `C` (1024), and set the model to limit responses to only use the grounding data content, you can use the following formula to calculate the tokens per request.  
-
-`Min (5 * 1024, (0.8*16000- 3850 – 2000 – 1000)) = Min (5120, 5950) = 5120`
-
-To calculate the number of tokens per request, use the python library called [tiktoken](https://github.com/openai/tiktoken). -->
-
 ```python 
 import tiktoken
 
