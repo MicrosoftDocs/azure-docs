@@ -55,18 +55,58 @@ The alerts are triggered by our proprietary machine learning algorithm so we can
 * There is logic that can automatically resolve the fired alert monitor condition, if the issue is no longer detected for 8-24 hours.
   Note: in the current design. a notification or action will not be sent when a Smart Detection alert is resolved. You can check if a Smart Detection alert was resolved in the Azure portal.
 
-## Configure alerts
+## Managing Failure Anomalies alert rules
+
+### Alert rule creation
+
+Failure Anomalies alert rule is automatically created together with your Application Insights resource and is automatically configured to analyze the telemetry on that resource.
+If for some reason the Failure Anomalies alert rule was not created, or if you deleted it by chance or on purpose, you can create the rule again using Azure [REST API](https://learn.microsoft.com/rest/api/monitor/smart-detector-alert-rules?view=rest-monitor-2019-06-01) or using a Resource Manager template.
+
+Following is a example of a Resource Manager template for creating a Failure Anomalies alert rule.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "microsoft.alertsmanagement/smartdetectoralertrules",
+            "apiVersion": "2019-03-01",
+            "name": "Response Latency Degradation - my-app",
+            "location": "global", 
+            "properties": {
+                  "description": "Response Latency Degradation notifies you of an unusual increase in latency in your app response to requests.",
+                  "state": "Enabled",
+                  "severity": "2",
+                  "frequency": "PT1M",
+                  "detector": {
+                    "id": "FailureAnomaliesDetector",
+                    "parameters": null,
+                    "name": "Failure Anomalies",
+                    "supportedCadences": [
+                      1
+                    ],
+                    "supportedResourceTypes": [
+                      "ApplicationInsights"
+                    ],
+                    "parameterDefinitions": []
+                  },
+                  "scope": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/microsoft.insights/components/my-app"],
+                  "actionGroups": {
+                        "groupIds": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/MyResourceGroup/providers/microsoft.insights/actiongroups/MyActionGroup"]
+                  }
+            }
+        }
+    ]
+}
+```
+### Alert rule configuration 
 
 You can disable Smart Detection alert rule from the portal or using Azure Resource Manager ([see template example](./proactive-arm-config.md)).
 
-This alert rule is created with an associated [Action Group](./action-groups.md) named "Application Insights Smart Detection" that contains email and webhook actions, and can be extended to trigger additional actions when the alert fires.
+This alert rule is created with an associated [Action Group](./action-groups.md) named "Application Insights Smart Detection". By default, this action group is configured for Email Azure Resource Manager Role actions and sends notification to your subscription Azure Resource Manager Monitoring Contributor and Monitoring Reader users. You can modify this action group, remove it, or add more action group, just as for any other Azure alert rule. Notifications sent from this alert rule follow the [common alert schema](./alerts-common-schema.md).
 
-> [!NOTE]
-> Email notifications sent from this alert rule are now sent by default to users associated with the subscription's Monitoring Reader and Monitoring Contributor roles. More information on this is available [here](./proactive-email-notification.md).
-> Notifications sent from this alert rule follow the [common alert schema](./alerts-common-schema.md).
->
-
-Open the Alerts page. Failure Anomalies alert rules are included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
+To configure Failure Anomalies alert rules in the portal, open the Alerts page and select Alert Rules. Failure Anomalies alert rules are included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
 
 :::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="On the Application Insights resource page, click Alerts tile, then Manage alert rules." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
@@ -76,7 +116,7 @@ Click the alert to configure it.
 
 ## Delete alerts
 
-You can disable or delete a Failure Anomalies alert rule.
+You can delete a Failure Anomalies alert rule.
 
 You can do so manually on the Alert rules page or with the following Azure CLI command:
 
