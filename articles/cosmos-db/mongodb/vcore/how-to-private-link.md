@@ -120,7 +120,7 @@ MongovCoreClusterName="myMongoCluster"
 SubscriptionId="<your Azure subscription ID>"  
 
 # API type of your Azure Cosmos DB account: Sql, SqlDedicated, MongoDB, Cassandra, Gremlin, or Table 
-CosmosDbSubResourceType="Sql"  
+CosmosDbSubResourceType="MongoDB"  
 
 # Name of the virtual network to create  
 VNetName="myVnet"  
