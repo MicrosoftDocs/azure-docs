@@ -9,6 +9,9 @@ ms.custom: IoT Plug and Play Certification Requirements
 ms.service: certification
 ---
 
+> [!Note]
+> The Azure Certified Device program has met its goals and will conclude on February 23, 2024. This means that the Azure Certified Device catalog, along with certifications for Azure Certified Device, Edge Managed, and IoT Plug and Play will no longer be available after this date. However, the Edge Secured-core program will remain active and will be relocated to a new webpage at https://aka.ms/EdgeSecuredCoreHome.
+
 # IoT Plug and Play Certification Requirements
 
 This document outlines the device specific capabilities that will be represented in the Azure IoT Device catalog. A capability is singular device attribute that may be software implementation or combination of software and hardware implementations.
