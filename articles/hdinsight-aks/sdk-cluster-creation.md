@@ -44,7 +44,7 @@ The HDInsight .NET SDK provides .NET client libraries, so that it's easier to wo
 - Region Name 
 - Cluster Type 
 - SKU 
-- Woker Node count 
+- Worker Node count 
 - MSI resource ID: 
   `/subscriptions/<subscription ID>/resourcegroups/{resource group 	name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{Managed identity name}`
 - MSI client ID
