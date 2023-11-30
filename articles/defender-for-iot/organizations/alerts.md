@@ -16,6 +16,8 @@ For example:
 
 Use the details shown on the **Alerts** page, or on an alert details page, to investigate and take action that remediates any risk to your network, either from related devices or the network process that triggered the alert.
 
+Most Microsoft Defender for Endpoint network-based detections are also relevant for Enterprise IoT devices. For example, network-based detections include alerts for scans involving managed endpoints.
+
 > [!TIP]
 > Use alert remediation steps to help your SOC teams understand possible issues and resolutions. We recommend that you review recommended remediation steps before updating an alert status or taking action on the device or network.
 >
@@ -51,9 +53,12 @@ Alert options also differ depending on your location and user role. For more inf
 
 ### Enterprise IoT alerts and Microsoft Defender for Endpoint
 
-If you're using [Enterprise IoT security](eiot-defender-for-endpoint.md) in Microsoft 365 Defender, alerts for Enterprise IoT devices detected by Microsoft Defender for Endpoint are available in Microsoft 365 Defender only.
+If you're using [Enterprise IoT security](eiot-defender-for-endpoint.md) in Microsoft 365 Defender, alerts appear as follows:
 
-Alerts triggered by [Enterprise IoT sensors](eiot-sensor.md) are shown in the Azure portal only.
+|Product |Alerts available |
+|---|---|
+| Enterprise IoT devices | Microsoft 365 Defender only |
+| Enterprise IoT sensors | Azure portal only |
 
 For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md) and the [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
 
