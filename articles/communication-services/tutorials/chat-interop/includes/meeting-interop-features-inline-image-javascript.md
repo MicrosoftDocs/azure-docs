@@ -75,7 +75,7 @@ export interface ChatAttachment {
   /** Id of the attachment */
   id: string;
   /** The type of attachment. */
-  attachmentType: AttachmentType;
+  attachmentType: ChatAttachmentType;
   /** The name of the attachment content. */
   name?: string;
   /** The URL where the attachment can be downloaded */
