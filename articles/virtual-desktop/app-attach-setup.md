@@ -365,7 +365,7 @@ Here's how to assign an application to groups and users using the [Az.DesktopVir
 
 1. Get the object ID of the groups or users you want to add to or remove from the application and add them to an array to by using one of the following examples. We recommend you assign applications to groups.
 
-   1. Get the object ID of the groups(s) and add them to an array to by running the following command. This example uses the group display name:
+   1. Get the object ID of the group or groups and add them to an array to by running the following command. This example uses the group display name:
 
       ```azurepowershell
       # Add a comma-separated list of group names

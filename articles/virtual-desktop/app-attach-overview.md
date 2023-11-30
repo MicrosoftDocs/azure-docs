@@ -104,7 +104,7 @@ The following table is a performance comparison between VHDX and CimFS. These nu
 | Average mount time | 356 ms | 255 ms |
 | Average unmount time | 1615 ms | 36 ms |
 | Memory consumption | 6% (of 8 GB) | 2% (of 8 GB) |
-| CPU (count spike) | Maxed out multiple times | No affect |
+| CPU (count spike) | Maxed out multiple times | No effect |
 
 ## Application registration
 

@@ -23,9 +23,9 @@ Depending on when you registered the *Microsoft.DesktopVirtualization* resource 
 
 | Service principal | Application ID |
 |--|--|
-| :::no-loc text="Azure Virtual Desktop"<br />:::no-loc text="Windows Virtual Desktop" | 9cdead84-a844-4324-93f2-b2e6bb768d07 |
-| :::no-loc text="Azure Virtual Desktop Client"<br />:::no-loc text="Windows Virtual Desktop Client" | a85cf173-4192-42f8-81fa-777a763e6e2c |
-| :::no-loc text="Azure Virtual Desktop ARM Provider"<br />:::no-loc text="Windows Virtual Desktop ARM Provider" | 50e95039-b200-4007-bc97-8d5790743a63 |
+| :::no-loc text="Azure Virtual Desktop":::<br />:::no-loc text="Windows Virtual Desktop"::: | 9cdead84-a844-4324-93f2-b2e6bb768d07 |
+| :::no-loc text="Azure Virtual Desktop Client":::<br />:::no-loc text="Windows Virtual Desktop Client"::: | a85cf173-4192-42f8-81fa-777a763e6e2c |
+| :::no-loc text="Azure Virtual Desktop ARM Provider":::<br />:::no-loc text="Windows Virtual Desktop ARM Provider"::: | 50e95039-b200-4007-bc97-8d5790743a63 |
 
 This article shows you how to assign a role to the correct Azure Virtual Desktop service principals by using the Azure portal, Azure CLI, or Azure PowerShell. 
 

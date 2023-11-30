@@ -35,7 +35,7 @@ Select the relevant tab for your scenario.
 
 # [CIM](#tab/cim)
 
-Here are example commands to create an CIM disk image from an MSIX package. You'll need to change the example values for your own.
+Here are example commands to create a CIM disk image from an MSIX package. You'll need to change the example values for your own.
 
 You should create a new folder for the destination because a CIM disk image is made up of multiple files and this helps differentiate between the images.
 
