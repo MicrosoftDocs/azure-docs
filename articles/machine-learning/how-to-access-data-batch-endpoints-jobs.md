@@ -237,15 +237,18 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
 1. Run the endpoint:
 
     # [Azure CLI](#tab/cli)
-   
-    Use the argument `--set` to indicate the input:
+
+    [!INCLUDE [batch-endpoint-invoke-inputs-cli](includes/batch-endpoint-invoke-inputs-cli.md)]
+
+    Use the `--set` argument to specify the input:
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME \
         --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $DATASET_ID
     ```
 
-    If your endpoint serves a model deployment, you can use the short form which supports only 1 input:
+    Alternatively, use the `--input` argument to specify the input if your endpoint serves a model deployment:
+
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $DATASET_ID
@@ -266,6 +269,10 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
 
     # [Python](#tab/sdk)
 
+    [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
+
+    Call the `invoke` method with the required inputs specified as a dictionary:
+
     ```python
     job = ml_client.batch_endpoints.invoke(
         endpoint_name=endpoint.name,
@@ -275,8 +282,8 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     )
     ```
 
-    If your endpoint serves a model deployment, you can use the short form which supports only 1 input:
-   
+    Alternatively, if your endpoint serves a model deployment, simplify the `invoke` call by specifying the input as a value to the `input` parameter:
+
     ```python
     job = ml_client.batch_endpoints.invoke(
        endpoint_name=endpoint.name,
@@ -377,15 +384,17 @@ Data from Azure Machine Learning registered data stores can be directly referenc
 1. Run the endpoint:
 
     # [Azure CLI](#tab/cli)
-   
-    Use the argument `--set` to indicate the input:
+
+    [!INCLUDE [batch-endpoint-invoke-inputs-cli](includes/batch-endpoint-invoke-inputs-cli.md)]
+
+    Use the `--set` argument to specify the input:
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME \
         --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $INPUT_PATH
     ```
 
-    If your endpoint serves a model deployment, you can use the short form which supports only 1 input:
+    Alternatively, use the `--input` argument to specify the input if your endpoint serves a model deployment:
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_PATH --input-type uri_folder
@@ -410,6 +419,10 @@ Data from Azure Machine Learning registered data stores can be directly referenc
    
     # [Python](#tab/sdk)
 
+    [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
+
+    Call the `invoke` method with the required inputs specified as a dictionary:
+
     ```python
     job = ml_client.batch_endpoints.invoke(
         endpoint_name=endpoint.name,
@@ -419,7 +432,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     )
     ```
 
-    If your endpoint serves a model deployment, you can use the short form which supports only 1 input:
+    Alternatively, if your endpoint serves a model deployment, simplify the `invoke` call by specifying the input as a value to the `input` parameter:
    
     ```python
     job = ml_client.batch_endpoints.invoke(
@@ -516,14 +529,16 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
 
     # [Azure CLI](#tab/cli)
     
-    Use the argument `--set` to indicate the input:
+    [!INCLUDE [batch-endpoint-invoke-inputs-cli](includes/batch-endpoint-invoke-inputs-cli.md)]
+
+    Use the `--set` argument to specify the input:
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME \
         --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $INPUT_DATA
     ```
 
-    If your endpoint serves a model deployment, you can use the short form which supports only 1 input:
+    Alternatively, use the `--input` argument to specify the input if your endpoint serves a model deployment:
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_DATA --input-type uri_folder
@@ -548,6 +563,10 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
 
     # [Python](#tab/sdk)
 
+    [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
+
+    Call the `invoke` method with the required inputs specified as a dictionary:
+
     ```python
     job = ml_client.batch_endpoints.invoke(
         endpoint_name=endpoint.name,
@@ -557,7 +576,7 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
     )
     ```
 
-    If your endpoint serves a model deployment, you can use the short form which supports only 1 input:
+    Alternatively, if your endpoint serves a model deployment, simplify the `invoke` call by specifying the input as a value to the `input` parameter:
    
     ```python
     job = ml_client.batch_endpoints.invoke(
