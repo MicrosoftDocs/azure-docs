@@ -8,7 +8,7 @@ ms.date: 05/30/2023
 
 ---
 
-# Create a log query across multiple workspaces, apps, or resources in Azure Monitor
+# Create a log query across workspaces, apps, or resources in Azure Monitor
 
 Azure Monitor Logs support querying across multiple Log Analytics workspaces and Application Insights apps in the same resource group, another resource group, or another subscription. This capability provides you with a systemwide view of your data.
 
@@ -126,8 +126,6 @@ applicationsScoping
 # Use the workspace() expression to query across Log Analytics workspaces
 
 Use the `workspace` expression in an Azure Monitor query to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription. You can use this expression to include log data in an Application Insights query and to query data across multiple workspaces in a log query.
-
-[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-query-permissions.md)]
 
 ## Syntax
 
