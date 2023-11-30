@@ -172,7 +172,7 @@ To copy the test results and log files for a test run from a storage account, in
 
 1. Copy the SAS URL of the storage account container. 
 
-    You can use the SAS URL in the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#shared-access-signature-sas-url) or [AzCopy](../storage/common/storage-use-azcopy-blobs-copy#copy-a-container) to copy the results CSV files and the log files for the test run to your storage account.
+    You can use the SAS URL in the [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#shared-access-signature-sas-url) or [AzCopy](/azure/storage/common/storage-use-azcopy-blobs-copy#copy-a-container) to copy the results CSV files and the log files for the test run to your storage account.
     
     The SAS URL is valid for 60 minutes from the time it gets generated. If the URL expires, select **Copy artifacts** to generate a new SAS URL. 
 
