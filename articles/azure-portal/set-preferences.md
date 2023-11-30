@@ -214,8 +214,6 @@ If you're a Global Administrator, and you want to enforce an idle timeout settin
 
 To confirm that the inactivity timeout policy is set correctly, select **Notifications** from the global page header and verify that a success notification is listed.
 
-:::image type="content" source="media/set-preferences/confirmation.png" alt-text="Screenshot showing a notification for successful inactivity timeout policy.":::
-
 ### Enable or disable pop-up notifications
 
 Notifications are system messages related to your current session. They provide information such as showing your current credit balance, confirming your last action, or letting you know when resources you created become available. When pop-up notifications are turned on, the messages briefly display in the top corner of your screen.
