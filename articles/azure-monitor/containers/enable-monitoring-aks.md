@@ -44,6 +44,7 @@ This option enables Container insights on a cluster and gives you the option of 
     :::image type="content" source="media/aks-onboard/advanced-settings.png" lightbox="media/aks-onboard/advanced-settings.png" alt-text="Screenshot that shows the advanced settings dialog box.":::
 
 4. Click **Configure** to save the configuration.
+---
 
 ## Enable Container insights
 
