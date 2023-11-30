@@ -45,8 +45,25 @@ To set up SSO with Microsoft Entra ID, see [How to set up single sign-on with Mi
 > [!NOTE]
 > If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration.
 
-> [!NOTE]
-> We once had a limitation to support only one instance if you're using SSO feature. Now, you can configure multiple instances.
+## Configure the instance count
+
+### [Azure portal](#tab/Portal)
+
+Use the following steps to configure the instance count using the Azure portal:
+
+1. Navigate to your service resource, and then select **API portal**.
+1. Select **Scale out** tab.
+1. Configure **Instance count**, and then click **Save** button.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to configure the instance count:
+
+```azurecli
+az spring api-portal update --instance-count {number}
+```
+
+---
 
 ## Assign a public endpoint for API portal
 
