@@ -344,7 +344,7 @@ Next Steps:
 
 There are extensive ways supported to customize and manage cluster using .NET SDK. Please review the following documentation: 
 
-[Azure Resource Manager HDInsight Containers](/dotnet/api/overview/azure/resourcemanager.hdinsight.containers-readme?view=azure-dotnet-preview) 
+[Azure Resource Manager HDInsight Containers](/dotnet/api/overview/azure/resourcemanager.hdinsight.containers-readme) 
 
  
 
@@ -356,7 +356,7 @@ There are extensive ways supported to customize and manage cluster using .NET SD
 
 [.NET SDK Package](https://www.nuget.org/packages/Azure.ResourceManager.HDInsight.Containers/1.0.0-beta.1)
 
-[Azure HDInsight Containers SDK for .NET - Azure for .NET Developers](/dotnet/api/overview/azure/hdinsight-containers?view=azure-dotnet-preview) 
+[Azure HDInsight Containers SDK for .NET - Azure for .NET Developers](/dotnet/api/overview/azure/hdinsight-containers) 
 
   
 
@@ -364,7 +364,7 @@ There are extensive ways supported to customize and manage cluster using .NET SD
 
 [Java SDK Package](https://mvnrepository.com/artifact/com.azure.resourcemanager/azure-resourcemanager-hdinsight-containers)
 
-[Azure Hdinsight-Containers SDK for Java](/java/api/overview/azure/hdinsight-containers?view=azure-java-preview) 
+[Azure Hdinsight-Containers SDK for Java](/java/api/overview/azure/hdinsight-containers) 
 
   
 
@@ -372,7 +372,7 @@ There are extensive ways supported to customize and manage cluster using .NET SD
 
 [Typescript SDK Package](https://www.npmjs.com/package/@azure/arm-hdinsightcontainers) 
 
-[Azure Hdinsightcontainers SDK for JavaScript](/javascript/api/overview/azure/hdinsightcontainers?view=azure-node-preview) 
+[Azure Hdinsightcontainers SDK for JavaScript](/javascript/api/overview/azure/hdinsightcontainers) 
 
   
 
@@ -380,7 +380,7 @@ There are extensive ways supported to customize and manage cluster using .NET SD
 
 [Python SDK Package](https://pypi.org/project/azure-mgmt-hdinsightcontainers/) 
 
-[Azure Hdinsightcontainers SDK for Python](/python/api/overview/azure/hdinsightcontainers?view=azure-python-preview) 
+[Azure Hdinsightcontainers SDK for Python](/python/api/overview/azure/hdinsightcontainers) 
 
 ### GO
 
