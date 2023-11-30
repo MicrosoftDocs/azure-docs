@@ -57,6 +57,7 @@ The VM used for the SFTP agent should be set up following best practice for secu
   - Admin access to the VM (for example, to stop/start/install the SFTP agent software)
   - Access to the directory where the logs are stored *(/var/log/az-sftp-uploader/)*
   - Access to the certificate and private key for the service principal that you create during this procedure
+  - Access to the directory for secrets that you create on the VM during this procedure.
   
 ## Acquire the agent RPM
 
@@ -125,13 +126,13 @@ Follow these steps on the SFTP server:
 3. Determine the authentication method that the ingestion agent will use to connect to the SFTP server. The agent supports two methods:
     - Password authentication
     - SSH key authentication
-4. Create a file to store the secret value in the secrets directory on the agent VM, which was created in the [Prepare the VMs](#prepare-the-vms) step.
+4. Create a file to store the secret value in the secrets directory on the agent VM, which you created in the [Prepare the VMs](#prepare-the-vms) step.
    - The file must not have a file extension.
    - Choose an appropriate name for the secret file, and note it for later.  This name is referenced in the agent configuration.
    - The secret file must contain only the secret value, with no extra whitespace.
 5. If you're using an SSH key that has a passphrase to authenticate, use the same method to create a separate secret file that contains the passphrase.
 
-## VMs without public DNS: map Azure host names to IP addresses.
+## VMs without public DNS: map Azure host names to IP addresses
 
 **If your agent VMs have access to public DNS, skip this step and continue to [Install and configure agent software](#install-and-configure-agent-software).**
 
