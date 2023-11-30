@@ -88,7 +88,7 @@ To delete a filter, select the trash can icon in that filter's row. You can't de
 
 ## Appearance + startup views
 
-The **Appearance + startup views** pane has two sections. The **Appearance** section lets you choose menu behavior, your color theme, and whether to use a high-contrast theme, and the **Startup views** section lets you set options for what you see when you first sign in to the Azure portal.
+The **Appearance + startup views** pane has two sections. The **Appearance** section lets you choose menu behavior, your color theme, and whether to use a high-contrast theme. 
 
 :::image type="content" source="media/set-preferences/azure-portal-settings-appearance.png" alt-text="Screenshot showing the Appearance section of Appearance + startup views.":::
 
@@ -107,23 +107,25 @@ Alternatively, you can choose a theme from the **High contrast theme** section. 
 
 ### Startup page
 
-Choose one of the following options for the page you'll see when you first sign in to the Azure portal.
+The **Startup views** section lets you set options for what you see when you first sign in to the Azure portal.
+
+:::image type="content" source="media/set-preferences/azure-portal-settings-startup-views.png" alt-text="Screenshot showing the Startup section of Appearance + startup views.":::
+
+Choose one of the following options for **Startup page**. This setting determines which page you'll see when you first sign in to the Azure portal.
 
 - **Home**: Displays the home page, with shortcuts to popular Azure services, a list of resources you've used most recently, and useful links to tools, documentation, and more.
-- **Dashboard**: Displays your most recently used dashboard. Dashboards can be customized to create a workspace designed just for you. For example, you can build a dashboard that is project, task, or role focused. For more information, see [Create and share dashboards in the Azure portal](azure-portal-dashboards.md).
+- **Dashboard**: Displays your most recently used dashboard. Dashboards can be customized to create a workspace designed just for you. For more information, see [Create and share dashboards in the Azure portal](azure-portal-dashboards.md).
 
 ### Startup directory
 
 Choose one of the following options for the directory to work in when you first sign in to the Azure portal.
 
-- **Sign in to your last visited directory**: When you sign in to the Azure portal, you'll start in whichever directory you'd been working in last time.
-- **Select a directory**: Choose this option to select one of your directories. You'll start in that directory every time you sign in to the Azure portal, even if you had been working in a different directory last time.
-
-:::image type="content" source="media/set-preferences/azure-portal-settings-startup-views.png" alt-text="Screenshot showing the Startup section of Appearance + startup views.":::
+- **Last visited**: When you sign in to the Azure portal, you'll start in the same directory from your previous visit.
+- **Select a directory**: Choose this option to select a specific directory. You'll start in that directory every time you sign in to the Azure portal, even if you had been working in a different directory last time.
 
 ## Language + region
 
-Choose your language and the regional format that will influence how data such as dates and currency will appear in the Azure portal.
+Here, you can choose the language used in the Azure portal. You can also select a regional format to determine how data, such as dates and currency, will appear.
 
 :::image type="content" source="media/set-preferences/azure-portal-settings-language-region.png" alt-text="Screenshot showing the Language + region settings pane.":::
 
@@ -138,9 +140,9 @@ Use the drop-down list to select from the list of available languages. This sett
 
 Select an option to control the way dates, time, numbers, and currency are shown in the Azure portal.
 
-The options shown in the **Regional format** drop-down list changes based on the option you selected for **Language**. For example, if you select **English** as your language, and then select **English (United States)** as the regional format, currency is shown in U.S. dollars. If you select **English** as your language and then select **English (Europe)** as the regional format, currency is shown in euros.
+The options shown in the **Regional format** drop-down list correspond to the **Language** options. For example, if you select **English** as your language, and then select **English (United States)** as the regional format, currency is shown in U.S. dollars. If you select **English** as your language and then select **English (Europe)** as the regional format, currency is shown in euros. You can also select a regional format that is different from your language selection.
 
-Select **Apply** to update your language and regional format settings.
+Once you have made the desired changes to your language and regional format settings, select **Apply**.
 
 ## My information
 
@@ -148,7 +150,7 @@ The **My information** page lets you update the email address that is used for u
 
 Near the top of the **My information** page, you'll see options to export, restore, or delete settings.
 
-:::image type="content" source="media/set-preferences/settings-my-information.png" alt-text="Screenshot of the My information settings page.":::
+:::image type="content" source="media/set-preferences/settings-my-information.png" alt-text="Screenshot of the My information settings page." lightbox="media/set-preferences/settings-my-information.png":::
 
 ### Export user settings
 
@@ -158,9 +160,9 @@ Information about your custom settings is stored in Azure. You can export the fo
 - User settings like favorite subscriptions or directories
 - Themes and other custom portal settings
 
-To export your portal settings, select **Export settings** from the top of the **My information** pane. This creates a *.json* file that contains your user settings data.
+To export your portal settings, select **Export settings** from the top of the **My information** pane. This creates a JSON file that contains your user settings data.
 
-Due to the dynamic nature of user settings and risk of data corruption, you can't import settings from the *.json* file. However, you can use this file to review the settings you selected. It can be useful to have a backup of your selections if you choose to delete your settings and private dashboards.
+Due to the dynamic nature of user settings and risk of data corruption, you can't import settings from the JSON file. However, you can use this file to review the settings you selected. It can be useful to have a backup of your selections if you choose to delete your settings and private dashboards.
 
 ### Restore default settings
 
@@ -171,10 +173,10 @@ If you've made changes to the Azure portal settings and want to discard them, se
 Information about your custom settings is stored in Azure. You can delete the following user data:
 
 - Private dashboards in the Azure portal
-- User settings like favorite subscriptions or directories
+- User settings, such as favorite subscriptions or directories
 - Themes and other custom portal settings
 
-It's a good idea to export and review your settings before you delete them, as described above. Rebuilding [dashboards](azure-portal-dashboards.md) or redoing custom settings can be time-consuming.
+It's a good idea to export and review your settings before you delete them, as described in the previous section. Rebuilding [dashboards](azure-portal-dashboards.md) or redoing custom settings can be time-consuming.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -220,7 +222,7 @@ Notifications are system messages related to your current session. They provide 
 
 To enable or disable pop-up notifications, select or clear **Enable pop-up notifications**.
 
-To read all notifications received during your current session, select **Notifications** from the global header.
+To read all notifications received during your current session, select the **Notifications** icon from the global header.
 
 :::image type="content" source="media/set-preferences/read-notifications.png" alt-text="Screenshot showing the Notifications icon in the global header.":::
 
@@ -232,4 +234,3 @@ To view notifications from previous sessions, look for events in the Activity lo
 - [View supported browsers and devices](azure-portal-supported-browsers-devices.md)
 - [Add, remove, and rearrange favorites](azure-portal-add-remove-sort-favorites.md)
 - [Create and share custom dashboards](azure-portal-dashboards.md)
-- [Watch Azure portal how-to videos](azure-portal-video-series.md)
