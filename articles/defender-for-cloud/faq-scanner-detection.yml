@@ -1,14 +1,14 @@
 ### YamlMime:FAQ
 metadata:
-  title: Common questions - the built-in Microsoft Defender vulnerability management solution
-  description: Frequently asked general questions about the built-in Microsoft Defender vulnerability management solution
+  title: Common questions - the built-in Microsoft Defender Vulnerability Management solution
+  description: Frequently asked general questions about the built-in Microsoft Defender Vulnerability Management solution
   services: defender-for-cloud
   author: elkrieger
   ms.author: elkrieger
   manager: raynew
   ms.topic: faq
-  ms.date: 11/28/2023
-title: Common questions about the built-in Microsoft Defender vulnerability management solution
+  ms.date: 11/30/2023
+title: Common questions about the built-in Microsoft Defender Vulnerability Management solution
 summary: |
 
 sections:
@@ -21,7 +21,7 @@ sections:
           
               - **Agentless vulnerability assessment:**  Enabling agentless scanning on a subscription automatically scan all virtual machines in Azure, AWS, and GCP for software inventory and vulnerabilities, powered by MDVM. 
             
-              - **Consolidated agent:** MDVM uses the same agent as Microsoft Defender for Endpoints (MDE) to protect servers, so, if you're an existing MDE customer, you're automatically covered by MDVM.
+              - **Consolidated agent:** Microsoft Defender Vulnerability Management (MDVM) uses the same agent as Microsoft Defender for Endpoints (MDE) to protect servers, so, if you're an existing MDE customer, you're automatically covered by MDVM.
           
           1. **Software vulnerability evidence (coming soon)**: The MDVM scanner identifies vulnerable software and provides the corresponding file path and/or registry key as evidence.
 
