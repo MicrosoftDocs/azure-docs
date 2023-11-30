@@ -159,12 +159,8 @@ For more information on how to assign an RBAC role with PowerShell, see [Assign 
 To create a new key vault using Azure CLI, call [az keyvault create](/cli/azure/keyvault#az-keyvault-create). The following example creates a new key vault with soft delete and purge protection enabled. The key vault's permission model is set to use Azure RBAC. Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli
-az keyvault create \
-    --name $KvName \
-    --resource-group $RgName \
-    --location $Location \
-    --enable-purge-protection \
-    --enable-rbac-authorization
+
+az keyvault create --name $KvName --resource-group $RgName --location $Location --enable-purge-protection --retention-days 7
 ```
 
 To learn how to enable purge protection on an existing key vault with Azure CLI, see [Azure Key Vault recovery overview](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli).
@@ -217,10 +213,16 @@ $Key = Add-AzKeyVaultKey @NewKeyArguments
 To add a key with Azure CLI, call [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create). Use the sample below and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
 
 ```azurecli
-az keyvault key create \
-    --name $KeyName \
-    --vault-name $KvName \
-    --protection software
+#### Get vault_url
+vault_uri=$(az keyvault show --name $kv_name --resource-group $rg --query "properties.vaultUri" -o tsv)
+
+#### Find your object id and set key policy
+objectId=$(az ad user show --id YOUREMAIL@HERE.COM --query objectId -o tsv)
+
+az keyvault set-policy -n $kv_name --object-id $objectId --key-permissions backup create delete get import get list update restore
+
+#### Create key
+az keyvault key create --vault-name $kv_name -n $key_name --protection software
 ```
 
 ---
@@ -328,26 +330,28 @@ The following example shows how to:
 Use the same [variables you defined previously](#create-variables-to-be-used-in-the-powershell-samples-in-this-article) in this article.
 
 ```azurecli
-# Create a new user-assigned managed identity.
-UserIdentity=$(az identity create \
-    --resource-group $RgName \
-    --name $ManagedUserName \
-    --location $Location)
+### 1. Create a user assigned identity and grant it the access to the key vault
+#### create a user assigned identity
+uai=$(az identity create -g $rg -n $user_assigned_identity_name -o tsv --query id)
 
-identityResourceId=$(az identity show --name $ManagedUserName \
-    --resource-group $RgName \
-    --query id \
-    --output tsv)
+#### Get the properties
+uai_principal_id=$(az identity show --ids $uai --query principalId -o tsv)
+uai_id=$(az identity show --ids $uai --query id -o tsv)
+uai_client_id=$(az identity show --ids $uai --query clientId -o tsv)
 
-PrincipalId=$(az identity show --name $ManagedUserName \
-    --resource-group $RgName \
-    --query principalId \
-    --output tsv)
+#### create a keyvault and get the vault url
+az keyvault create --name $kv_name --resource-group $rg --location eastus2 --enable-purge-protection --retention-days 7
+vault_uri=$(az keyvault show --name $kv_name --resource-group $rg --query "properties.vaultUri" -o tsv)
 
-az role assignment create --assignee-object-id $PrincipalId \
-    --role "Key Vault Crypto Service Encryption User" \
-    --scope $KvResourceId \
-    --assignee-principal-type ServicePrincipal
+#### set policy for key permission
+az keyvault set-policy -n $kv_name --object-id $uai_principal_id --key-permissions get wrapkey unwrapkey
+
+#### create key
+az keyvault key create --vault-name $kv_name -n $key_name2 --protection software
+
+### 2. PUT a volume group with CMK
+az elastic-san volume-group create -e $san_name -n $vg_name2 -g $rg --encryption EncryptionAtRestWithCustomerManagedKey --protocol-type Iscsi --identity "{type:UserAssigned,user-assigned-identity:'$uai_id'}" --encryption-properties "{key-vault-properties:{key-name:'$key_name2',key-vault-uri:'$vault_uri'},identity:{user-assigned-identity:'$uai_id'}}"
+az elastic-san volume create -g $rg -e $san_name -v $vg_name -n $volume_name --size-gib 2
 ```
 
 ---
