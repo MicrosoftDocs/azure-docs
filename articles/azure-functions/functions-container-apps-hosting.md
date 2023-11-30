@@ -19,7 +19,7 @@ This integration also means that you can use existing Functions client tools and
 
 ## Deploying Azure Functions to Container Apps
 
-In the current preview, you must deploy your functions code in a Linux container that you create. Functions maintains a set of [lanuage-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use to generate your containerized function apps. When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md) and include the [`--docker` option](./functions-core-tools-reference.md#func-init), Core Tools also generates a Dockerfile that you can use to create your container from the correct base image. 
+In the current preview, you must deploy your functions code in a Linux container that you create. Functions maintains a set of [language-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use to generate your containerized function apps. When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md) and include the [`--docker` option](./functions-core-tools-reference.md#func-init), Core Tools also generates a Dockerfile that you can use to create your container from the correct base image. 
 
 Azure Functions currently supports the following methods of deployment to Azure Container Apps:
 

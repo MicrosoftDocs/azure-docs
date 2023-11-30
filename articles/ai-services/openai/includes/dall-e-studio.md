@@ -2,7 +2,7 @@
 title: 'Quickstart: Generate images with Azure OpenAI Service and Azure OpenAI Studio'
 titleSuffix: Azure OpenAI
 description: Learn how to generate images with Azure OpenAI Service in the DALL-E playground (Preview) in Azure OpenAI Studio.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.custom:

@@ -48,6 +48,8 @@ You can index vector data as fields in documents alongside alphanumeric content.
 
 Vector search is available as part of all Azure AI Search tiers in all regions at no extra charge.
 
+Newer services created after July 1, 2023 support [higher quotas for vector indexes](vector-search-index-size.md).
+
 > [!NOTE]
 > Some older search services created before January 1, 2019 are deployed on infrastructure that doesn't support vector workloads. If you try to add a vector field to a schema and get an error, it's a result of outdated services. In this situation, you must create a new search service to try out the vector feature.
 

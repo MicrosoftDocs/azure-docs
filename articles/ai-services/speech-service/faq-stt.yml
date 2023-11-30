@@ -3,7 +3,7 @@ metadata:
   title: Speech to text FAQ
   titleSuffix: Azure AI services
   description: Get answers to frequently asked questions about the speech to text service.
-  services: cognitive-services
+  #services: cognitive-services
   author: eric-urban
   manager: nitinme
   ms.service: azure-ai-speech

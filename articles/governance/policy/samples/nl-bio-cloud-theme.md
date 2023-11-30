@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for NL BIO Cloud Theme
 description: Details of the NL BIO Cloud Theme Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 11/06/2023
+ms.date: 11/21/2023
 ms.topic: sample
 ms.custom: generated
 ---

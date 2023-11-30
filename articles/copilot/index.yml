@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: Microsoft Copilot for Azure (preview)
   description: Manage operations from cloud to edge with an AI assistant.
-  ms.service: azure
+  ms.service: copilot-for-azure
   ms.custom:
     - ignite-2023
     - ignite-2023-copilotinAzure

@@ -2,7 +2,7 @@
 title: Custom NER data formats
 titleSuffix: Azure AI services
 description: Learn about the data formats accepted by custom NER.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

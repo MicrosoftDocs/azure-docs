@@ -4,7 +4,8 @@ description: In this article, learn about the use case for Azure Native Qumulo S
 
 ms.topic: overview
 ms.date: 11/15/2023
-
+ms.custom:
+  - ignite-2023
 ---
 
 # What is Azure Native Qumulo Scalable File Service with a virtual desktop?

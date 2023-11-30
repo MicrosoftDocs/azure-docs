@@ -1,5 +1,5 @@
 ---
-ms.date: 11/02/2023
+ms.date: 11/15/2023
 author: jfggdl
 ms.author: jafernan
 title: Introduction to pull delivery

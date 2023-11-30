@@ -1,6 +1,6 @@
 ---
-title: Encrypt a database with transparent data encryption manually in Azure Arc-enabled SQL Managed Instance
-description: How-to guide to turn on transparent data encryption in an Azure Arc-enabled SQL Managed Instance
+title: Encrypt a database with transparent data encryption manually in SQL Managed Instance enabled by Azure Arc
+description: How-to guide to turn on transparent data encryption in an SQL Managed Instance enabled by Azure Arc
 author: patelr3
 ms.author: ravpate
 services: azure-arc
@@ -12,16 +12,16 @@ ms.date: 05/22/2022
 ms.custom: template-how-to, event-tier1-build-2022
 ---
 
-# Encrypt a database with transparent data encryption on Azure Arc-enabled SQL Managed Instance
+# Encrypt a database with transparent data encryption on SQL Managed Instance enabled by Azure Arc
 
-This article describes how to enable transparent data encryption on a database created in an Azure Arc-enabled SQL Managed Instance. In this article, the term *managed instance* refers to a deployment of Azure Arc-enabled SQL Managed Instance.
+This article describes how to enable transparent data encryption on a database created in a SQL Managed Instance enabled by Azure Arc. In this article, the term *managed instance* refers to a deployment of SQL Managed Instance enabled by Azure Arc.
 
 ## Prerequisites
 
-Before you proceed with this article, you must have an Azure Arc-enabled SQL Managed Instance resource created and connect to it.
+Before you proceed with this article, you must have a SQL Managed Instance enabled by Azure Arc resource created and connect to it.
 
-- [Create an Azure Arc-enabled SQL Managed Instance](./create-sql-managed-instance.md)
-- [Connect to Azure Arc-enabled SQL Managed Instance](./connect-managed-instance.md)
+- [Create a SQL Managed Instance enabled by Azure Arc](./create-sql-managed-instance.md)
+- [Connect to SQL Managed Instance enabled by Azure Arc](./connect-managed-instance.md)
 
 ## Turn on transparent data encryption on a database in the managed instance
 
@@ -216,6 +216,6 @@ Similar to above, to restore the credentials, copy them into the container and r
    kubectl exec -it --namespace arc-ns --container arc-sqlmi sql-0 -- bash -c "rm /var/opt/mssql/data/servercert.crt /var/opt/mssql/data/servercert.key"
    ```
 
-## Next steps
+## Related content
 
 [Transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption)

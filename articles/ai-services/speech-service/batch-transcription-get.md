@@ -2,7 +2,7 @@
 title: Get batch transcription results - Speech service
 titleSuffix: Azure AI services
 description: With batch transcription, the Speech service transcribes the audio data and stores the results in a storage container. You can then retrieve the results from the storage container.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: eric-urban
 ms.author: eur

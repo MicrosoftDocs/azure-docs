@@ -4,7 +4,7 @@ description: Describes Azure Event Grid concepts that pertain to push delivery. 
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 05/24/2023
+ms.date: 11/15/2023
 ---
 
 # Azure Event Grid's push delivery - concepts

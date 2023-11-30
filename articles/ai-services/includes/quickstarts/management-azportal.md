@@ -2,7 +2,7 @@
 title: "Quickstart: Create an Azure AI services resource in the Azure portal"
 titleSuffix: Azure AI services
 description: Get started with Azure AI services by creating and subscribing to a resource in the Azure portal.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 keywords: Azure AI services, cognitive intelligence, cognitive solutions, ai services

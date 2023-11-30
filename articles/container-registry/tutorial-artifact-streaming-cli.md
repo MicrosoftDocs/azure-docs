@@ -3,9 +3,9 @@ title: "Enable Artifact Streaming- Azure CLI"
 description: "Enable Artifact Streaming in Azure Container Registry using Azure CLI commands to enhance and supercharge managing, scaling, and deploying artifacts through containerized platforms."
 ms.author: tejaswikolli
 ms.service: container-registry
+ms.custom: devx-track-azurecli
 ms.topic: tutorial  #Don't change.
 ms.date: 10/31/2023
-
 ---
 # Artifact Streaming - Azure CLI
 

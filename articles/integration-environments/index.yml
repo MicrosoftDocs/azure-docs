@@ -6,8 +6,8 @@ summary: Centrally organize Azure resources for integration solutions. Model bus
 metadata:
   title: Azure Integration Environments documentation
   description: Centrally organize Azure resources for integration solutions. Model business processes that map to Azure resources. Collect and track key business data.
-  services: azure
-  ms.service: azure
+  services: integration-environments
+  ms.service: integration-environments
   ms.topic: landing-page
   author: ecfan
   ms.author: estfan; azla

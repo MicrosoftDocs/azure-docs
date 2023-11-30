@@ -3,7 +3,7 @@ title: Analyze, estimate and optimize cloud costs using Microsoft Copilot for Az
 description: Learn about scenarios where Microsoft Copilot for Azure (preview) can use Microsoft Cost Management to help you manage your costs.
 ms.date: 11/15/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
@@ -18,6 +18,8 @@ Microsoft Copilot for Azure (preview) can help you analyze, estimate and optimiz
 When you ask Microsoft Copilot for Azure (preview) questions about your costs, it automatically pulls context based on the last scope that you accessed using Cost Management. If the context isn't clear, you'll be prompted to select a scope or provide more context.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
+
+[!INCLUDE [preview-note](includes/preview-note.md)]
 
 ## Sample prompts
 

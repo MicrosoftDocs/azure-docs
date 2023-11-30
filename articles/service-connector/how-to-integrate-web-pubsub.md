@@ -7,7 +7,6 @@ ms.service: service-connector
 ms.topic: how-to
 ms.date: 10/26/2023
 ---
-
 # Integrate Azure Web PubSub with service connector
 
 This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Web PubSub to other cloud services using Service Connector. You might still be able to connect to App Configuration using other methods. This page also shows default environment variable names and values you get when you create the service connection.
@@ -15,10 +14,11 @@ This page shows supported authentication methods and clients, and shows sample c
 ## Supported compute services
 
 - Azure App Service
+- Azure Functions
 - Azure Container Apps
 - Azure Spring Apps
 
-Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
+Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
 
 | Client type |   System-assigned managed identity   |    User-assigned managed identity    |       Secret/connection string       |           Service principal          |
 |-------------|:------------------------------------:|:------------------------------------:|:------------------------------------:|:------------------------------------:|
@@ -35,8 +35,8 @@ Use the environment variable names and application properties listed below, acco
 
 ### System-assigned managed identity
 
-| Default environment variable name | Description           | Sample value                 |
-| --------------------------------- | --------------------- | ---------------------------- |
+| Default environment variable name | Description           | Sample value                   |
+| --------------------------------- | --------------------- | ------------------------------ |
 | AZURE_WEBPUBSUB_HOST              | Azure Web PubSub host | `<name>.webpubsub.azure.com` |
 
 #### Sample code
@@ -46,10 +46,10 @@ Refer to the steps and code below to connect to Azure Web PubSub using a system-
 
 ### User-assigned managed identity
 
-| Default environment variable name | Description                          | Sample value                      |
-| --------------------------------- | ------------------------------------ | --------------------------------- |
-| AZURE_WEBPUBSUB_HOST              | Azure Web PubSub host                | `<name>.webpubsub.azure.com`      |
-| AZURE_WEBPUBSUB_CLIENTID          | Azure Web PubSub client ID           | `<client-id>`                     |
+| Default environment variable name | Description                | Sample value                   |
+| --------------------------------- | -------------------------- | ------------------------------ |
+| AZURE_WEBPUBSUB_HOST              | Azure Web PubSub host      | `<name>.webpubsub.azure.com` |
+| AZURE_WEBPUBSUB_CLIENTID          | Azure Web PubSub client ID | `<client-id>`                |
 
 #### Sample code
 
@@ -59,9 +59,10 @@ Refer to the steps and code below to connect to Azure Web PubSub using a user-as
 ### Connection string
 
 > [!div class="mx-tdBreakAll"]
-> | Default environment variable name | Description                              | Sample value |
-> | --------------------------------- | -----------------------------------------| -------------|
-> | AZURE_WEBPUBSUB_CONNECTIONSTRING  | Azure Web PubSub connection string       | `Endpoint=https://<name>.webpubsub.azure.com;AccessKey=<access-key>;Version=1.0;` |
+>
+> | Default environment variable name | Description                        | Sample value                                                                        |
+> | --------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------- |
+> | AZURE_WEBPUBSUB_CONNECTIONSTRING  | Azure Web PubSub connection string | `Endpoint=https://<name>.webpubsub.azure.com;AccessKey=<access-key>;Version=1.0;` |
 
 #### Sample code
 
@@ -70,12 +71,12 @@ Refer to the steps and code below to connect to Azure Web PubSub using a connect
 
 ### Service principal
 
-| Default environment variable name | Description                          | Sample value                 |
-| --------------------------------- | -------------------------------------| -----------------------------|
-| AZURE_WEBPUBSUB_HOST              | Azure Web PubSub host                | `<name>.webpubsub.azure.com` |
-| AZURE_WEBPUBSUB_CLIENTID          | Azure Web PubSub client ID           | `<client-id>`                |
-| AZURE_WEBPUBSUB_CLIENTSECRET      | Azure Web PubSub client secret       | `<client-secret>`            |
-| AZURE_WEBPUBSUB_TENANTID          | Azure Web PubSub tenant ID           | `<tenant-id>`                |
+| Default environment variable name | Description                    | Sample value                   |
+| --------------------------------- | ------------------------------ | ------------------------------ |
+| AZURE_WEBPUBSUB_HOST              | Azure Web PubSub host          | `<name>.webpubsub.azure.com` |
+| AZURE_WEBPUBSUB_CLIENTID          | Azure Web PubSub client ID     | `<client-id>`                |
+| AZURE_WEBPUBSUB_CLIENTSECRET      | Azure Web PubSub client secret | `<client-secret>`            |
+| AZURE_WEBPUBSUB_TENANTID          | Azure Web PubSub tenant ID     | `<tenant-id>`                |
 
 #### Sample code
 

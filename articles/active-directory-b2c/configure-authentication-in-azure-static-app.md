@@ -1,11 +1,11 @@
 ---
 title: Configure authentication in an Azure Static Web App by using Azure Active Directory B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in an Azure Static Web App.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 08/22/2022
 ms.author: kengaderdus

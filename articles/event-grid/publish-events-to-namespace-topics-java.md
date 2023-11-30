@@ -2,11 +2,10 @@
 title: Publish events using namespace topics with Java
 description: This article provides step-by-step instructions to publish events to an Event Grid namespace topic using pull delivery.
 ms.topic: quickstart
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, devx-track-extended-java
 ms.author: jafernan
 author: jfggdl
-ms.date: 11/02/2023
+ms.date: 11/15/2023
 ---
 
 # Publish events to namespace topics using Java

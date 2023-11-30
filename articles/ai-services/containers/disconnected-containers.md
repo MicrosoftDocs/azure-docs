@@ -2,7 +2,7 @@
 title: Use Docker containers in disconnected environments
 titleSuffix: Azure AI services
 description: Learn how to run Azure AI services Docker containers disconnected from the internet.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-services

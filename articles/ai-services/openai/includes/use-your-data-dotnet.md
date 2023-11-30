@@ -1,5 +1,5 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: travisw
 ms.author: travisw

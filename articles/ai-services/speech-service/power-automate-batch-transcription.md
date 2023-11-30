@@ -2,7 +2,7 @@
 title: Power automate batch transcription - Speech service
 titleSuffix: Azure AI services
 description: Transcribe audio files from an Azure Storage container using the Power Automate batch transcription connector.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: eric-urban
 ms.author: eur

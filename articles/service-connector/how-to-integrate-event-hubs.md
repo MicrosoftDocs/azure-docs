@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 11/03/2023
 ms.custom: event-tier1-build-2022
 ---
-
 # Integrate Azure Event Hubs with Service Connector
 
 This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Event Hubs to other cloud services using Service Connector. You might still be able to connect to Event Hubs in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create service connections. 
@@ -16,12 +15,13 @@ This page shows supported authentication methods and clients, and shows sample c
 ## Supported compute services
 
 - Azure App Service
+- Azure Functions
 - Azure Container Apps
 - Azure Spring Apps
 
 ## Supported authentication types and client types
 
-Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
+Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
 
 | Client type         |   System-assigned managed identity   |    User-assigned managed identity    |      Secret / connection string      |           Service principal          |
 |---------------------|:------------------------------------:|:------------------------------------:|:------------------------------------:|:------------------------------------:|
@@ -59,8 +59,8 @@ Use the connection details below to connect compute services to Event Hubs. For 
 
 #### Other client types
 
-| Default environment variable name      | Description          | Sample value                                   |
-|----------------------------------------|----------------------|------------------------------------------------|
+| Default environment variable name      | Description          | Sample value                                      |
+| -------------------------------------- | -------------------- | ------------------------------------------------- |
 | AZURE_EVENTHUB_FULLYQUALIFIEDNAMESPACE | Event Hubs namespace | `<Event-Hubs-namespace>.servicebus.windows.net` |
 
 #### Sample code
@@ -91,10 +91,10 @@ Refer to the steps and code below to connect to Azure Event Hubs using a system-
 
 #### Other client types
 
-| Default environment variable name      | Description          | Sample value                                   |
-|----------------------------------------|----------------------|------------------------------------------------|
+| Default environment variable name      | Description          | Sample value                                      |
+| -------------------------------------- | -------------------- | ------------------------------------------------- |
 | AZURE_EVENTHUB_FULLYQUALIFIEDNAMESPACE | Event Hubs namespace | `<Event-Hubs-namespace>.servicebus.windows.net` |
-| AZURE_EVENTHUB_CLIENTID                | Your client ID       | `<client-ID>`                                  |
+| AZURE_EVENTHUB_CLIENTID                | Your client ID       | `<client-ID>`                                   |
 
 
 #### Sample code
@@ -160,12 +160,12 @@ Refer to the steps and code below to connect to Azure Event Hubs using a connect
 
 #### Other client types
 
-| Default environment variable name      | Description          | Sample value                                   |
-|----------------------------------------|----------------------|------------------------------------------------|
+| Default environment variable name      | Description          | Sample value                                      |
+| -------------------------------------- | -------------------- | ------------------------------------------------- |
 | AZURE_EVENTHUB_FULLYQUALIFIEDNAMESPACE | Event Hubs namespace | `<Event-Hubs-namespace>.servicebus.windows.net` |
-| AZURE_EVENTHUB_CLIENTID                | Your client ID       | `<client-ID>`                                  |
-| AZURE_EVENTHUB_CLIENTSECRET            | Your client secret   | `<client-secret>`                              |
-| AZURE_EVENTHUB_TENANTID                | Your tenant ID       | `<tenant-id>`                                  |
+| AZURE_EVENTHUB_CLIENTID                | Your client ID       | `<client-ID>`                                   |
+| AZURE_EVENTHUB_CLIENTSECRET            | Your client secret   | `<client-secret>`                               |
+| AZURE_EVENTHUB_TENANTID                | Your tenant ID       | `<tenant-id>`                                   |
 
 #### Sample code
 Refer to the steps and code below to connect to Azure Event Hubs using a service principal.

@@ -2,7 +2,7 @@
 title: 'Environment variables'
 titleSuffix: Azure OpenAI Service
 description: set up environment variables for your key and endpoint
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include

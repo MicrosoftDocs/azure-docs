@@ -35,7 +35,7 @@ Update the backup retention period for an Azure Arc-enabled PostgreSQL server:
 az postgres server-arc update -n pg01 -k test --retention-days <number of days> --use-k8s 
 ```
 
-## Next steps
+## Related content
 
 - [Restore Azure Arc-enabled PostgreSQL servers](restore-postgresql.md)
 - [Scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-server-using-cli.md) your server.

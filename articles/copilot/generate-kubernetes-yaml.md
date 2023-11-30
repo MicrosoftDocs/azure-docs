@@ -3,7 +3,7 @@ title: Generate Kubernetes YAML files using Microsoft Copilot for Azure (preview
 description: Learn how Microsoft Copilot for Azure (preview) can generate Kubernetes YAML files for you to customize and use.
 ms.date: 11/15/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
@@ -18,6 +18,8 @@ Microsoft Copilot for Azure (preview) can generate Kubernetes YAML files to appl
 You provide your application specifications, such as container images, resource requirements, and networking preferences. Microsoft Copilot for Azure (preview) uses your input to generate comprehensive YAML files that define the desired Kubernetes deployments, services, and other resources, effectively encapsulating the infrastructure as code. The generated YAML files adhere to best practices, simplifying the deployment and management of containerized applications on AKS. This lets you focus more on your applications and less on the underlying infrastructure.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
+
+[!INCLUDE [preview-note](includes/preview-note.md)]
 
 ## Sample prompts
 

@@ -2,7 +2,7 @@
 title: Entity resolutions provided by Named Entity Recognition
 titleSuffix: Azure AI services
 description: Learn about entity resolutions in the NER feature.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
