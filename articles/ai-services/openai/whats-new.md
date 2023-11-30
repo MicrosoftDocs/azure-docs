@@ -16,9 +16,18 @@ keywords:
 
 # What's new in Azure OpenAI Service
 
+## December 2023
+
+### VPN and private endpoint support for Azure OpenAI on your data
+
+- Full VPN and private endpoint support for Azure OpenAI on your data, including security support for: storage accounts, Azure OpenAI resources, and Azure AI Search service resources.   
+- New article for using [Azure OpenAI on your data securely](./how-to/use-your-data-securely.md) by protecting data with virtual networks and private endpoints.
+
 ## November 2023
 
+### New data source support in Azure OpenAI on your data 
 
+- You can now use [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.mduse-your-data?tabs=mongo-db.md#ingesting-your-data) as well as  URLs/web addresses to generate responses when chatting with a supported model.  
 
 ### GPT-4 Turbo Preview & GPT-3.5-Turbo-1106 released
 
@@ -46,7 +55,6 @@ Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
 
 - **Content Credentials in all DALL-E models**: AI-generated images from all DALL-E models now include a digital credential that discloses the content as AI-generated. Applications that display image assets can leverage the open source [Content Authenticity Initiative SDK](https://opensource.contentauthenticity.org/docs/js-sdk/getting-started/quick-start/) to display credentials in their AI generated images. [Content Credentials in Azure OpenAI](/azure/ai-services/openai/concepts/content-credentials)
 
-
 - **New RAI models**
     
     - **Jailbreak risk detection**: Jailbreak attacks are user prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. The jailbreak risk detection model is optional (default off), and available in annotate and filter model. It runs on user prompts.
@@ -69,6 +77,14 @@ Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
 - Fine-tuned models have different [quota limits](quotas-limits.md) than regular models.
 
 - [Tutorial: fine-tuning GPT-3.5-Turbo](./tutorials/fine-tune.md)
+
+### Azure OpenAI on your data
+
+- New [custom parameters](./concepts/use-your-data.md#custom-parameters) for determining the number of retrieved documents and strictness.
+    - The strictness setting sets the threshold to categorize documents as relevant to your queries.
+    - The retrieved documents setting specifies the number of top-scoring documents from your data index used to generate responses.
+- Data ingestion/upload status in the Azure OpenAI portal.
+- Support for private endpoints & VPNs for blob containers
 
 ## September 2023
 
