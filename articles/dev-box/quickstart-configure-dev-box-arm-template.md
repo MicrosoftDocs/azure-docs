@@ -31,6 +31,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Owner or Contributor role on an Azure subscription or resource group.
 - Microsoft Entra AD. Your organization must use Microsoft Entra AD for identity and access management.
+- Microsoft Intune subscription. Your organization must use Microsoft Intune for device management.
 
 ## Review the template 
 
@@ -49,20 +50,6 @@ Multiple Azure resources are defined in the template:
 - [Microsoft.DevCenter/devcenters/galleries](/azure/templates/microsoft.devcenter/devcenters/galleries): create an Azure Compute Gallery. 
 - [Microsoft.DevCenter/projects/pools](/azure/templates/microsoft.devcenter/projects/pools): create a dev box pool.
  
-### Find more templates
-
-To find more templates that are related to Microsoft Dev Box, see [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter).
-
-For example, you can use a template to [add other customized images for Base, Java, .NET and Data](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter/devbox-with-customized-image#add-other-customized-image-for-base-java-net-and-data). These images have the following software and tools installed:
-
-
-|Image type  |Software and tools  |
-|---------|---------|
-|Base     |Git, Azure CLI, VS Code, VS Code Extension for GitHub Copilot |
-|Java     |Git, Azure CLI, VS Code, Maven, OpenJdk11, VS Code Extension for Java Pack |
-|.NET     |Git, Azure CLI, VS Code，.NET SDK, Visual Studio |
-|Data     |Git, Azure CLI, VS Code，Python 3, VS Code Extension for Python and Jupyter |
-
 ## Deploy the template 
 
 1. Select **Open Cloudshell** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure. 
@@ -95,25 +82,43 @@ It takes about 30 minutes to deploy the template.
 
 Azure PowerShell is used to deploy the template. You can also use the Azure portal and Azure CLI. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md). 
 
-#### When deploying this template, you're prompted to provide the following parameters:  
+### Required parameters:  
 
-- *User Principal Id*: The user principal ID of the user or group that will be granted the *Devcenter Dev Box User* role.
+- *User Principal ID*: The user principal ID of the user or group that is granted the *Devcenter Dev Box User* role.
 - *User Principal Type*: The type of user principal. Valid values are *User* or *Group*.
-- *Location*: The location where the resources will be deployed. Choose a location close to the users who will be using the dev boxes to reduce latency.
+- *Location*: The location where the resources are deployed. Choose a location close to the dev boxes users to reduce latency.
 
 Alternatively, you can provide access to a dev box project in the Azure portal, see [Provide user-level access to projects for developers](how-to-dev-box-user.md). 
- 
+
+### Virtual network security considerations
+
+Planning for a Microsoft Dev Box deployment covers many areas, including securing the virtual network (VNet). For more information, see [Azure network security overview](../security/fundamentals/network-overview.md).
+
 ## Review deployed resources 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Resource groups** from the left pane. 
 3. Select the resource group that you created in the previous section.  
 
-   :::image type="content" source="media/quickstart-configure-dev-box-arm-template/dev-box-template-resources.png" alt-text="Screenshot showing the newly created dev box resource group and the resources it contains in the Azure portal.":::
+   :::image type="content" source="media/quickstart-configure-dev-box-arm-template/dev-box-template-resources.png" alt-text="Screenshot showing the newly created dev box resource group and the resources it contains in the Azure portal." lightbox="media/quickstart-configure-dev-box-arm-template/dev-box-template-resources.png":::
  
 ## Clean up resources 
 
 When you no longer need them, delete the resource group: Go to the Azure portal, select the resource group that contains these resources, and then select Delete. 
+
+## Find more templates
+
+To find more templates that are related to Microsoft Dev Box, see [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter).
+
+For example, you can use a template to [add other customized images for Base, Java, .NET and Data](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter/devbox-with-customized-image#add-other-customized-image-for-base-java-net-and-data). These images have the following software and tools installed:
+
+
+|Image type  |Software and tools  |
+|---------|---------|
+|Base     |Git, Azure CLI, VS Code, VS Code Extension for GitHub Copilot |
+|Java     |Git, Azure CLI, VS Code, Maven, OpenJdk11, VS Code Extension for Java Pack |
+|.NET     |Git, Azure CLI, VS Code，.NET SDK, Visual Studio |
+|Data     |Git, Azure CLI, VS Code，Python 3, VS Code Extension for Python and Jupyter |
 
  ## Next steps
 
