@@ -1,6 +1,6 @@
 ---
-title: Learn how to deploy the DICOM service and store all your DICOM data in its native format with a data lake in Azure Health Data Services.
-description: This article describes how to deploy the DICOM service with a data lake in the Azure portal.
+title: Deploy the DICOM service with Azure Data Lake Storage
+description: Learn how to deploy the DICOM service and store all your DICOM data in its native format with a data lake in Azure Health Data Services.
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: dicom
@@ -20,7 +20,7 @@ After deployment completes, you can use the Azure portal to see the details abou
 
 - **Deploy an Azure Health Data Services workspace**.  For more information, see [Deploy a workspace in the Azure portal](../healthcare-apis-quickstart.md).
 - **Create a storage account with a hierarchical namespace**.  For more information, see [Create a storage account to use with Azure Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account).
-- **Create a blob container in the storage account**.  The container is used by the DICOM service to store DICOM files.  For more information, see [Manage blob containers using the Azure portal](/azure/storage/blobs/blob-containers-portal)
+- **Create a blob container in the storage account**.  The container is used by the DICOM service to store DICOM files.  For more information, see [Manage blob containers using the Azure portal](/azure/storage/blobs/blob-containers-portal).
 
 > [!NOTE]
 > The Azure Data Lake Storage option is only available for new instances of the DICOM service. After the option becomes generally available, we plan to offer a migration path for existing DICOM service instances.

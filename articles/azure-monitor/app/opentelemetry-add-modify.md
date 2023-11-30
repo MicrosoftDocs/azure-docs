@@ -1196,13 +1196,13 @@ The simplest way to add your own spans is by using OpenTelemetry's `@WithSpan` a
 
 Spans populate the `requests` and `dependencies` tables in Application Insights.
 
-1. Add `opentelemetry-instrumentation-annotations-1.21.0.jar` (or later) to your application:
+1. Add `opentelemetry-instrumentation-annotations-1.32.0.jar` (or later) to your application:
 
    ```xml
    <dependency>
      <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-instrumentation-annotations</artifactId>
-     <version>1.21.0</version>
+     <version>1.32.0</version>
    </dependency>
    ```
 
@@ -1398,7 +1398,7 @@ Not available in .NET.
     <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>applicationinsights-core</artifactId>
-      <version>3.4.14</version>
+      <version>3.4.18</version>
     </dependency>
     ```
 

@@ -214,7 +214,7 @@ Next, download the SAP installation media to the VM using a script.
 
 1. Where `BOM_directory_path` is the absolute path to **SAP-automation-samples/SAP**. e.g. */home/loggedinusername/SAP-automation-samples/SAP*
 
-1. Where `orchestration_ansible_user` is the user with **admin** privileges like (e.g. root).
+1. Where `orchestration_ansible_user` is the user with **admin** privileges, e.g. *root*.
 
 
 Now you can [install the SAP software](install-software.md) through Azure Center for SAP solutions.

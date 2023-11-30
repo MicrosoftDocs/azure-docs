@@ -111,7 +111,7 @@ E:\ <br>
 
 #### If Antivirus software is active on source machine
 
-If source machine has an Antivirus software active, installation folder should be excluded. So, exclude folder C:\ProgramData\ASR\agent for smooth replication.
+If source machine has an Antivirus software active, installation folder should be excluded. So, exclude folder C:\Program Files (x86)\Microsoft Azure Site Recovery\ for smooth replication.
 
 ## Sizing and capacity
 

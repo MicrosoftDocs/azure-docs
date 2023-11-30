@@ -23,7 +23,7 @@ In this article you'll learn how to define the triggers and conditions that will
 
 ### Determine the scope
 
-The first step in designing and defining your automation rule is figuring out which incidents (or alerts) you want it to apply to. This determination will directly impact how you create the rule.
+The first step in designing and defining your automation rule is figuring out which incidents or alerts you want it to apply to. This determination will directly impact how you create the rule.
 
 You also want to determine your use case. What are you trying to accomplish with this automation? Consider the following options:
 
@@ -38,7 +38,7 @@ You also want to determine your use case. What are you trying to accomplish with
 
 ### Determine the trigger
 
-Do you want this automation to be activated when new incidents (or alerts, in preview) are created? Or anytime an incident gets updated?
+Do you want this automation to be activated when new incidents or alerts are created? Or anytime an incident gets updated?
 
 Automation rules are triggered **when an incident is created or updated** or **when an alert is created**. Recall that incidents include alerts, and that both alerts and incidents are created by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
 
@@ -191,11 +191,15 @@ You can change the order of actions in your rule even after you've added them. S
 
 ### Finish creating your rule
 
-1. Set an **expiration date** for your automation rule if you want it to have one.
+1. Under **Rule expiration**, if you want your automation rule to expire, set an expiration date (and optionally, a time). Otherwise, leave it as *Indefinite*.
 
-1. Enter a number under **Order** to determine where in the sequence of automation rules this rule will run.
+1. The **Order** field is pre-populated with the next available number for your rule's trigger type. This number determines where in the sequence of automation rules (of the same trigger type) this rule will run. You can change the number if you want this rule to run before an existing rule.
+
+    See [Notes on execution order and priority](automate-incident-handling-with-automation-rules.md#notes-on-execution-order-and-priority) for more information.
 
 1. Click **Apply**. You're done!
+
+:::image type="content" source="media/create-manage-use-automation-rules/finish-creating-rule.png" alt-text="Screenshot of final steps of creating automation rule.":::
 
 ## Audit automation rule activity
 
@@ -208,7 +212,7 @@ SecurityIncident
 
 ## Automation rules execution
 
-Automation rules are run sequentially, according to the order you determine. Each automation rule is executed after the previous one has finished its run. Within an automation rule, all actions are run sequentially in the order in which they are defined.
+Automation rules are run sequentially, according to the order you determine. Each automation rule is executed after the previous one has finished its run. Within an automation rule, all actions are run sequentially in the order in which they are defined. See [Notes on execution order and priority](automate-incident-handling-with-automation-rules.md#notes-on-execution-order-and-priority) for more information.
 
 Playbook actions within an automation rule may be treated differently under some circumstances, according to the following criteria:
 

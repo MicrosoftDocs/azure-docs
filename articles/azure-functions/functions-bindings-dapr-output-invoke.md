@@ -85,8 +85,34 @@ public String run(
 
 ::: zone pivot="programming-language-javascript"
 
-> [!NOTE]  
-> The [Node.js v4 model for Azure Functions](functions-reference-node.md?pivots=nodejs-model-v4) isn't currently available for use with the Dapr extension during the preview.  
+# [Node.js v4](#tab/v4)
+
+In the following example, the Dapr invoke output binding is paired with an HTTP trigger, which is registered by the `app` object:
+
+```javascript
+const { app, trigger } = require('@azure/functions');
+
+app.generic('InvokeOutputBinding', {
+    trigger: trigger.generic({
+        type: 'httpTrigger',
+        authLevel: 'anonymous',
+        methods: ['POST'],
+        route: "invoke/{appId}/{methodName}",
+        name: "req"
+    }),
+    return: daprInvokeOutput,
+    handler: async (request, context) => {
+        context.log("Node HTTP trigger function processed a request.");
+
+        const payload = await request.text();
+        context.log(JSON.stringify(payload));
+        
+        return { body: payload };
+    }
+});
+```
+ 
+# [Node.js v3](#tab/v3)
 
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
@@ -117,6 +143,8 @@ module.exports = async function (context, req) {
     context.done(null);
 };
 ```
+
+---
 
 ::: zone-end
 
@@ -288,7 +316,35 @@ The `DaprInvokeOutput` annotation allows you to have your function invoke and li
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell"
+::: zone pivot="programming-language-javascript" 
+
+# [Node.js v4](#tab/v4)
+
+The following table explains the binding configuration properties that you set in the code.
+
+|Property | Description| Can be sent via Attribute | Can be sent via RequestBody |
+|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
+|**appId** | The app ID of the application involved in the invoke binding. | :heavy_check_mark: | :heavy_check_mark: |
+|**methods** | Post or get. | :heavy_check_mark: | :heavy_check_mark: |
+| **body** | _Required._ The body of the request. | :x: | :heavy_check_mark: |
+ 
+# [Node.js v3](#tab/v3)
+
+The following table explains the binding configuration properties that you set in the function.json file.
+
+|function.json property | Description| Can be sent via Attribute | Can be sent via RequestBody |
+|-----------------------|------------|  :---------------------:  |  :-----------------------:  |
+|**appId** | The app ID of the application involved in the invoke binding. | :heavy_check_mark: | :heavy_check_mark: |
+|**methodName** | The name of the method variable. | :heavy_check_mark: | :heavy_check_mark: |
+|**httpVerb** | Post or get. | :heavy_check_mark: | :heavy_check_mark: |
+| **body** | _Required._ The body of the request. | :x: | :heavy_check_mark: |
+
+---
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
 The following table explains the binding configuration properties that you set in the function.json file.
 
 |function.json property | Description| Can be sent via Attribute | Can be sent via RequestBody |
