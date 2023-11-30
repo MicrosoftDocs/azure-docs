@@ -20,9 +20,9 @@ To create an HDInsight on AKS cluster by using Azure PowerShell, you must comple
 - Create an [Azure Managed Identity](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm)
 
  
- ## Set-up Azure Environment with PowerShell 
+ ## Setup Azure Environment with PowerShell 
  
-The following script demonstrates how to set-up an Azure environment with powershell: 
+The following script demonstrates how to setup an Azure environment with PowerShell: 
 
 1. Open PowerShell 
 1. Copy the following code 
@@ -30,7 +30,7 @@ The following script demonstrates how to set-up an Azure environment with powers
 	   Install-Module -Name Az.HdInsightOnAks
     
           :::image type="content" source="./media/powershell-cluster-create/powershell.png" alt-text="Screenshot shows install the module HDInsight on AKS." lightbox="./media/powershell-cluster-create/powershell.png":::
-	1. Login to Azure account and set the default subscription ID 
+	1. Log in to Azure account and set the default subscription ID 
 		Connect-AzAccount 
 		Set-AzContext -Subscription {your subscription ID} 
 
@@ -81,9 +81,9 @@ Write-Output "Created cluster pool with name $($clusterPoolResult.Name) successf
 
 ### Create HDInsight On AKS cluster under existing cluster pool
 
-Here, we are going to create cluster under the clusterpool created in the previous step 
+Here, we are going to create cluster under the cluster pool created in the previous step 
  
-Run the following code in Powershell: 
+Run the following code in PowerShell: 
  
 ```
 # Create Trino Cluster
@@ -162,13 +162,12 @@ Remove-AzHdInsightOnAksCluster -Name $clusterName -PoolName $clusterpoolName -Re
  
 ## Next steps
 
-Now that you've successfully created an HDInsight on AKS cluster, use the following resources to learn how to work with your cluster. 
+
+Now you created an HDInsight on AKS cluster, use the following resources to learn how to work with your cluster.
 
 To customize and manage your HDInsight on AKS cluster, refer the following documentation: 
-
 1. Az.HdInsightOnAks module is available in PowerShell gallery: [https://www.powershellgallery.com/packages/Az.HdInsightOnAks/0.1.0](https://www.powershellgallery.com/packages/Az.HdInsightOnAks/0.1.0 )
-
-1. Publicly available [HDInsight On Aks PowerShell module](/powershell/module/az.hdinsightonaks/#hdinsightonaks) doc
+1. Publicly available [HDInsight On AKS PowerShell module](/powershell/module/az.hdinsightonaks/#hdinsightonaks) doc
 
  
 
