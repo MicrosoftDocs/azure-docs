@@ -340,53 +340,40 @@ Click on the Run button
 
  
 
-Next Steps: 
+## Next Steps: 
 
 There are extensive ways supported to customize and manage cluster using .NET SDK. Please review the following documentation: 
-
-[Azure Resource Manager HDInsight Containers](/dotnet/api/overview/azure/resourcemanager.hdinsight.containers-readme) 
-
- 
-
-[Azure.ResourceManager.HDInsight.Containers GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hdinsight/Azure.ResourceManager.HDInsight.Containers) 
+- [Azure Resource Manager HDInsight Containers](/dotnet/api/overview/azure/resourcemanager.hdinsight.containers-readme) 
+- [Azure.ResourceManager.HDInsight.Containers GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/hdinsight/Azure.ResourceManager.HDInsight.Containers) 
 
 ## Management plane SDKs 
 
 ### .NET   
 
-[.NET SDK Package](https://www.nuget.org/packages/Azure.ResourceManager.HDInsight.Containers/1.0.0-beta.1)
-
-[Azure HDInsight Containers SDK for .NET - Azure for .NET Developers](/dotnet/api/overview/azure/hdinsight-containers) 
-
-  
+- [.NET SDK Package](https://www.nuget.org/packages/Azure.ResourceManager.HDInsight.Containers/1.0.0-beta.1)
+- [Azure HDInsight Containers SDK for .NET - Azure for .NET Developers](/dotnet/api/overview/azure/hdinsight-containers) 
 
 ### Java 
 
-[Java SDK Package](https://mvnrepository.com/artifact/com.azure.resourcemanager/azure-resourcemanager-hdinsight-containers)
-
-[Azure Hdinsight-Containers SDK for Java](/java/api/overview/azure/hdinsight-containers) 
+- [Java SDK Package](https://mvnrepository.com/artifact/com.azure.resourcemanager/azure-resourcemanager-hdinsight-containers)
+- [Azure Hdinsight-Containers SDK for Java](/java/api/overview/azure/hdinsight-containers) 
 
   
 
 ### Typescript 
 
-[Typescript SDK Package](https://www.npmjs.com/package/@azure/arm-hdinsightcontainers) 
+- [Typescript SDK Package](https://www.npmjs.com/package/@azure/arm-hdinsightcontainers) 
+- [Azure Hdinsightcontainers SDK for JavaScript](/javascript/api/overview/azure/hdinsightcontainers) 
 
-[Azure Hdinsightcontainers SDK for JavaScript](/javascript/api/overview/azure/hdinsightcontainers) 
+ ### Python 
 
-  
-
-### Python 
-
-[Python SDK Package](https://pypi.org/project/azure-mgmt-hdinsightcontainers/) 
-
-[Azure Hdinsightcontainers SDK for Python](/python/api/overview/azure/hdinsightcontainers) 
+- [Python SDK Package](https://pypi.org/project/azure-mgmt-hdinsightcontainers/) 
+- [Azure Hdinsightcontainers SDK for Python](/python/api/overview/azure/hdinsightcontainers) 
 
 ### GO
 
-[GO SDK Package](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers)
-
-[Azure Hdinsightcontainers SDK for GO](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers)
+- [GO SDK Package](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers)
+- [Azure Hdinsightcontainers SDK for GO](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers)
 
  
  
