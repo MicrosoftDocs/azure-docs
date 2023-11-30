@@ -21,7 +21,9 @@ You can use the [speaker profile ID](./personal-voice-create-voice.md) for your 
 
 You need to use [speech synthesis markup language (SSML)](./speech-synthesis-markup-voice.md#speaker-profile-id) to use personal voice in your application. SSML is an XML-based markup language that provides a standard way to mark up text for the generation of synthetic speech. SSML tags are used to control the pronunciation, volume, pitch, rate, and other attributes of the speech synthesis output.
 
-The `speakerProfileId` property in SSML is used to specify the [speaker profile ID](./personal-voice-create-voice.md) for the personal voice.
+- The `speakerProfileId` property in SSML is used to specify the [speaker profile ID](./personal-voice-create-voice.md) for the personal voice.
+
+- The voice name is specified in the `name` property in SSML. For personal voice, the voice name must be set to `PhoenixV2Neural` or another supported base model voice name. To get a list of supported base model voice names, use the `BaseModels_List` operation of the custom voice API. 
 
 Here's example SSML in a request for text to speech with the voice name and the speaker profile ID. 
 

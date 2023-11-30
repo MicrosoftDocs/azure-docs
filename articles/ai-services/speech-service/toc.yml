@@ -485,9 +485,11 @@ items:
             - name: Migration overview
               href: migration-overview-neural-voice.md
             - name: Migrate to custom neural voice 
-              href: how-to-migrate-to-custom-neural-voice.md  
+              href: how-to-migrate-to-custom-neural-voice.md
             - name: Migrate to prebuilt neural voice
-              href: how-to-migrate-to-prebuilt-neural-voice.md 
+              href: how-to-migrate-to-prebuilt-neural-voice.md
+            - name: Migrate to custom voice API
+              href: migrate-to-custom-voice-api.md
         - name: Speech to text REST API migration
           items:
           - name: From Speech to text v3.1 to v3.2
