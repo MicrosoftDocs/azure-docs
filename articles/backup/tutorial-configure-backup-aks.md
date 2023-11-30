@@ -12,7 +12,7 @@ ms.author: v-abhmallick
 
 # Tutorial: Configure item-level backup for an AKS cluster and use Azure Backup to back up specific items in the cluster
 
-This tutorial describes how to configure backup for an Azure Kubernetes Service (AKS) cluster, and then use the Azure Backup configuration to back up specific items in the cluster.
+This tutorial describes how to configure backup for an Azure Kubernetes Service (AKS) cluster and then use the Azure Backup configuration to back up specific items in the cluster.
 
 You also learn how to use backup hooks in a backup configuration to achieve application-consistent backups for databases that are deployed in an AKS cluster.
 
@@ -31,7 +31,7 @@ The Azure Backup vault communicates with the cluster via the Backup extension to
 
 1. In the resource menu, select **Backup**, and then select **Configure Backup**.
 
-1. Select a Backup vault to use for the AKS instance backup
+1. Select a Backup vault to use for the AKS instance backup.
 
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-vault.png" alt-text="Screenshot that shows the Configure backup page." lightbox="./media/azure-kubernetes-service-cluster-backup/select-vault.png":::
 
