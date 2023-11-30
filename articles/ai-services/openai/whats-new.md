@@ -18,7 +18,7 @@ keywords:
 
 ## December 2023
 
-### VPN and private endpoint support for Azure OpenAI on your data
+### Azure OpenAI on your data
 
 - Full VPN and private endpoint support for Azure OpenAI on your data, including security support for: storage accounts, Azure OpenAI resources, and Azure AI Search service resources.   
 - New article for using [Azure OpenAI on your data securely](./how-to/use-your-data-securely.md) by protecting data with virtual networks and private endpoints.
@@ -27,7 +27,7 @@ keywords:
 
 ### New data source support in Azure OpenAI on your data 
 
-- You can now use [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db.md#ingesting-your-data) as well as  URLs/web addresses to generate responses when chatting with a supported model.  
+- You can now use [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db.md#ingesting-your-data) as well as URLs/web addresses as data sources to ingest your data and chat with a supported Azure OpenAI model.
 
 ### GPT-4 Turbo Preview & GPT-3.5-Turbo-1106 released
 
@@ -83,8 +83,8 @@ Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
 - New [custom parameters](./concepts/use-your-data.md#custom-parameters) for determining the number of retrieved documents and strictness.
     - The strictness setting sets the threshold to categorize documents as relevant to your queries.
     - The retrieved documents setting specifies the number of top-scoring documents from your data index used to generate responses.
-- Data ingestion/upload status in the Azure OpenAI portal.
-- Support for private endpoints & VPNs for blob containers
+- You can see data ingestion/upload status in the Azure OpenAI Studio.
+- Support for [private endpoints & VPNs for blob containers](./how-to/use-your-data-securely.md#security-support-for-azure-blob-storage)
 
 ## September 2023
 
