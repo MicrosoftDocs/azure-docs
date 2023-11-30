@@ -1,11 +1,12 @@
 ---
 title: PHP - Create Graph API subscription to subscribe to Microsoft Graph API events using Event Grid partner topics as a notification destination.
-description: This article provides a sample Azure CLI script that shows how to create a Microsoft Graph API subscription to receive events via Azure Event Grid partner topics.
+description: This article provides a sample PHP code that shows how to create a Microsoft Graph API subscription to receive events via Azure Event Grid partner topics.
 ms.devlang: php
 ms.topic: sample
 ms.date: 12/08/2023
 ---
 
+```php
 <?php
 
 // THIS SNIPPET IS A PREVIEW VERSION OF THE SDK. NON-PRODUCTION USE ONLY
@@ -20,3 +21,5 @@ $requestBody->setExpirationDateTime(new \DateTime('2024-03-31T18:23:45.9356913Z'
 $requestBody->setClientState('secretClientValue');
 
 $result = $graphServiceClient->subscriptions()->post($requestBody)->wait();
+
+```

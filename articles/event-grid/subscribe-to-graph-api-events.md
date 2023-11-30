@@ -31,7 +31,8 @@ This article describes steps to subscribe to events published by Microsoft Graph
 >If you aren't familiar with the **Partner Events** feature, see [Partner Events overview](partner-events-overview.md).
 
 
-## Why should I use Microsoft Graph API as a destination?
+## Why should I subscribe to events from Microsoft Graph API sources via Event Grid?
+
 Besides the ability to subscribe to Microsoft Graph API events via Event Grid, you have [other options](/graph/webhooks#receiving-change-notifications) through which you can receive similar notifications (not events). Consider using Microsoft Graph API to deliver events to Event Grid if you have at least one of the following requirements:
 
 - You're developing an event-driven solution that requires events from Microsoft Entra ID, Outlook, Teams, etc. to react to resource changes. You require the robust eventing model and publish-subscribe capabilities that Event Grid provides. For an overview of Event Grid, see [Event Grid concepts](concepts.md).
@@ -49,7 +50,7 @@ You request Microsoft Graph API to forward events to an Event Grid partner topic
 
 You should meet these general prerequisites before implementing your application to create and renew Microsoft Graph API subscriptions:
 
-- Become familar with the [high-level steps to subscribe to partner events](subscribe-to-partner-events.md#high-level-step.md). As described in that article, prior to creating a Graph API subscription you should follow the instructions in:
+- Become familar with the [high-level steps to subscribe to partner events](subscribe-to-partner-events.md#high-level-steps). As described in that article, prior to creating a Graph API subscription you should follow the instructions in:
 
   - [Register the Event Grid resource provider](subscribe-to-partner-events.md#register-the-event-grid-resource-provider) with your Azure subscription.
 
@@ -97,28 +98,28 @@ Content-type: application/json
 ```
 
 # [C#](#tab/csharp)
-[!INCLUDE [sample-code](scripts/csharp/create-ms-graph-api-subscription-csharp-snippet.md)]
+[!INCLUDE [sample-code](includes/scripts/csharp/create-ms-graph-api-subscription-csharp-snippet.md)]
 
 # [CLI](#tab/cli)
-[!INCLUDE [sample-code](scripts/cli/create-ms-graph-api-subscription-cli-snippet.md)]
+[!INCLUDE [sample-code](includes/scripts/cli/create-ms-graph-api-subscription-cli-snippet.md)]
 
 # [Go](#tab/go)
-[!INCLUDE [sample-code](scripts/go/create-ms-graph-api-subscription-go-snippet.md)]
+[!INCLUDE [sample-code](includes/scripts/go/create-ms-graph-api-subscription-go-snippet.md)]
 
 # [Java](#tab/java)
-[!INCLUDE [sample-code](scripts/java/create-ms-graph-api-subscription-java-snippet.md)]
+[!INCLUDE [sample-code](includes/scripts/java/create-ms-graph-api-subscription-java-snippet.md)]
 
 # [JavaScript](#tab/javascript)
-[!INCLUDE [sample-code](scripts/javascript/create-ms-graph-api-subscription-javascript-snippet.md)]
+[!INCLUDE [sample-code](includes/scripts/javascript/create-ms-graph-api-subscription-javascript-snippet.md)]
 
 # [PHP](#tab/php)
-[!INCLUDE [sample-code](scripts/php/create-ms-graph-api-subscription-php-snippet.md)]
+[!INCLUDE [sample-code](includes/scripts/php/create-ms-graph-api-subscription-php-snippet.md)]
 
 # [PowerShell](#tab/powershell)
-[!INCLUDE [sample-code](scripts/powershell/create-ms-graph-api-subscription-powershell-snippet.md)]
+[!INCLUDE [sample-code](includes/scripts/powershell/create-ms-graph-api-subscription-powershell-snippet.md)]
 
 # [Python](#tab/python)
-[!INCLUDE [sample-code](scripts/python/create-ms-graph-api-subscription-python-snippet.md)]
+[!INCLUDE [sample-code](includes/scripts/python/create-ms-graph-api-subscription-python-snippet.md)]
 
 ---
 
@@ -148,11 +149,9 @@ After creating a Graph API subscription, you have a partner topic created on Azu
 
 A Graph API subscription must be renewed by your application before it expires to avoid stopping the flow of events. To help you automate the renewal process, Microsoft Graph API supports **lifecycle notifications events** to which your application can subscribe. Currently, all type of Microsoft Graph API resources support the `microsoft.graph.subscriptionReauthorizationRequired`, which is sent when any of the following conditions occur:
 
-```makefile
 - Access token is about to expire.
 - Graph API subscription is about to expire.
 - A tenant administrator has revoked your app's permissions to read a resource.
-```
 
 If you didn't renew your Graph API subscription after it has been expired, you need to create a new Graph API subscription. You could refer to the same partner topic you used in your expired subscription as long as it has been expired for less than 30 days. If the Graph API subscription has expired for more than 30 days, you can't reuse your existing partner topic. In this case, you'll need to either specify another partner topic name. Alternatively, you can delete the existing partner topic to create a new partner topic with the same name during the Graph API subscription creation.
 

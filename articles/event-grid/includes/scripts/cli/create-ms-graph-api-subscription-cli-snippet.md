@@ -6,7 +6,7 @@ ms.topic: sample
 ms.date: 12/08/2023
 ---
 
-// THE CLI IS IN PREVIEW. NON-PRODUCTION USE ONLY
+```azurecli
 mgc subscriptions create --body '{\
    "changeType": "updated,deleted,created",\
    "notificationUrl": "EventGrid:?azuresubscriptionid=8A8A8A8A-4B4B-4C4C-4D4D-12E12E12E12E&resourcegroup=yourResourceGroup&partnertopic=youPartnerTopic&location=theNameOfAzureRegionFortheTopic",\
@@ -16,3 +16,4 @@ mgc subscriptions create --body '{\
    "clientState": "secretClientValue"\
 }\
 '
+```
