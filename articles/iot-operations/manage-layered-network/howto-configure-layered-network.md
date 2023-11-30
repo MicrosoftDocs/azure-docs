@@ -64,7 +64,7 @@ In this example, a test environment is created with a [virtual network](/azure/v
 > Virtual environment is for exploration and evaluation only. For more information, see [validated environments](/azure/iot-operations/get-started/overview-iot-operations#validated-environments) for Azure IoT Operations.
 
 1. Create a virtual network in your Azure subscription. Create subnets for at least two layers (level 4 and level 3).
-![Screenshot for virtual network in Azure](./media/howto-configure-layered-network/vnet-subnet.png)
+:::image type="content" source=./media/howto-configure-layered-network/vnet-subnet.png" alt-text="Screenshot for virtual network in Azure." lightbox="(./media/howto-configure-layered-network/vnet-subnet.png":::
 1. It's optional to create an extra subnet for the *jumpbox* or *developer* machine to remotely access the machine or cluster across layers. This setup is convenient if you plan to create more than two network layers. Otherwise, you can connect the jumpbox machine to level 4 network.
 1. Create [network security groups](/azure/virtual-network/network-security-groups-overview) for each level and attach to the subnet accordingly.
 1. You can use the default value for level 4 security group.
@@ -72,7 +72,7 @@ In this example, a test environment is created with a [virtual network](/azure/v
     - Add inbound and outbound security rules to deny all network traffic.
     - With a higher priority, add inbound and outbound security rules to allow network traffic to and from the IP range of level 4 subnet.
     - [Optional] If you create a *jumpbox* subnet, create inbound and outbound rules for allowing traffic to and from this subnet.
-![Screenshot for level 3 security group](./media/howto-configure-layered-network/vnet-security-rule.png)
+:::image type="content" source=./media/howto-configure-layered-network/vnet-security-rule.png" alt-text="Screenshot for level 3 security group." lightbox="./media/howto-configure-layered-network/vnet-security-rule.png":::
 1. Create Linux VMs in level 3 and level 4. 
     - Refer to [validated environments](/azure/iot-operations/get-started/overview-iot-operations#validated-environments) for specification of the VM.
     - When creating the VM, connect the machine to the subnet that is created in earlier steps.
