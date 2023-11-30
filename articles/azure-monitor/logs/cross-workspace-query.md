@@ -19,9 +19,8 @@ This article explains how to use the workspace(), app(), or resource() expressio
 
 If you manage subscriptions in other Microsoft Entra tenants through [Azure Lighthouse](../../lighthouse/overview.md), you can include [Log Analytics workspaces created in those customer tenants](../../lighthouse/how-to/monitor-at-scale.md) in your queries.
 
-
 > [!IMPORTANT]
-> If you're using a [workspace-based Application Insights resource](../app/create-workspace-resource.md), telemetry is stored in a Log Analytics workspace with all other log data. Use the `workspace()` expression to write a query that includes applications in multiple workspaces. For multiple applications in the same workspace, you don't need a cross-workspace query.
+> If you're using a [workspace-based Application Insights resource](../app/create-workspace-resource.md), telemetry is stored in a Log Analytics workspace with all other log data. Use the `workspace()` expression to query data from applications in multiple workspaces. You don't need a cross-workspace query to query data from multiple applications in the same workspace.
 
 ## Permissions required
 
@@ -87,7 +86,7 @@ applicationsScoping
 
 ## Query across Log Analytics workspaces using workspace() 
 
-Use the `workspace()` expression in an Azure Monitor query to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription. You can use this expression to include log data in an Application Insights query and to query data across multiple workspaces in a log query.
+Use the `workspace()` expression to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription. You can use this expression to include log data in an Application Insights query and to query data across multiple workspaces in a log query.
 
 ### Syntax
 
@@ -123,10 +122,7 @@ union
 
 ## Query across classic Application Insights applications using app() 
 
-The `app` expression is used in an Azure Monitor query to retrieve data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This is useful to include application data in an Azure Monitor log query and to query data across multiple applications in an Application Insights query.
-
-> [!IMPORTANT]
-> The app() expression is not used if you're using a [workspace-based Application Insights resource](../app/create-workspace-resource.md) since log data is stored in a Log Analytics workspace. Use the workspace() expression to write a query that includes applications in multiple workspaces. For multiple applications in the same workspace, you don't need a cross workspace query.
+Use the `app` expression to retrieve data from a specific classic Application Insights resource in the same resource group, another resource group, or another subscription.  If you're using a [workspace-based Application Insights resource](../app/create-workspace-resource.md), telemetry is stored in a Log Analytics workspace with all other log data. Use the `workspace()` expression to query data from applications in multiple workspaces. You don't need a cross-workspace query to query data from multiple applications in the same workspace.
 
 ### Syntax
 
