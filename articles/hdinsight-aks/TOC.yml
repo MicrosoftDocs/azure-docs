@@ -181,6 +181,8 @@ items:
         href: ./flink/cosmos-db-for-apache-cassandra.md
       - name:  Azure Databricks
         href: ./flink/azure-databricks.md
+      - name:  Azure Service Bus
+        href: ./flink/azure-service-bus-demo.md
       - name:  Azure Data Explorer
         href: ./flink/integration-of-azure-data-explorer.md       
       - name:  Azure Event Hubs
