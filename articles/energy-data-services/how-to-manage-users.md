@@ -63,12 +63,12 @@ A `client-secret` is a string value your app can use in place of a certificate t
 :::image type="content" source="media/how-to-manage-users/endpoint-url.png" alt-text="Screenshot of finding the URL from Azure Data Manager for Energy instance.":::
 
 #### Find the `data-partition-id` 
-1. You have two ways to get the list of data partitions in your Azure Data Manager for Energy instance. '
-2. One option is to navigate the *Data Partitions* menu item under the Advanced section of your Azure Data Manager for Energy UI.
+1. You have two ways to get the list of data partitions in your Azure Data Manager for Energy instance. 
+   1. One option is to navigate the *Data Partitions* menu item under the Advanced section of your Azure Data Manager for Energy UI.
 
 :::image type="content" source="media/how-to-manage-users/data-partition-id.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance.":::
 
-3. Another option is to click on the *view* below the *data partitions* field in the essentials pane of your Azure Data Manager for Energy *Overview* page. 
+   2. Another option is to click on the *view* below the *data partitions* field in the essentials pane of your Azure Data Manager for Energy *Overview* page. 
 
 :::image type="content" source="media/how-to-manage-users/data-partition-id-second-option.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance overview page.":::
 
