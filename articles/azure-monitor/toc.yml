@@ -1222,7 +1222,7 @@ items:
         href: logs/computer-groups.md
       - name: Cross resource queries
         items:
-        - name: Query across workspaces and resources
+        - name: Query data across workspaces and resources
           displayName: cross-resource queries
           href: logs/cross-workspace-query.md
         - name: Query data in Azure Data Explorer or Resource Graph
