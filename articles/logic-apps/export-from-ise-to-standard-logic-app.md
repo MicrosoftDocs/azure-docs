@@ -44,7 +44,7 @@ This article provides information about the export process and shows how to expo
 
 - If the connection ID is incorrectly formatted, an error is thrown. Before you export your workflow, make sure that the connection IDs for your connectors match the following format:
 
-  **subscriptionId/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironment}/managedApis/{nameOfManagedApi}**
+   `subscriptionId/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/integrationServiceEnvironments/{integration-service-environment-name}/managedApis/{managed-api-name}`
 
 ## Exportable operation types
 
