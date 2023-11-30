@@ -15,7 +15,7 @@ This article provides an overview and demonstration of Apache Flink DataStream A
 
 -  [Flink Cluster 1.16.0 on HDInsight on AKS](./flink-create-cluster-portal.md)
 -  For this demonstration, we use a Window VM as maven project develop env in the same VNET as HDInsight on AKS.
--  During the [creation](./flink-create-cluster-portal.md) of the Flink cluster, you are required make sure to select SSH access. This will enable you to access the cluster using Secure Shell (SSH).
+-  During the [creation](./flink-create-cluster-portal.md) of the Flink cluster, you are required to ensure that SSH access is selected. This enables you to access the cluster using Secure Shell (SSH).
 -  Set up an [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) instance.
 -  To proceed with the integration, obtain the necessary connection string, topic name, and subscription name for your [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview).
 
