@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 author: guywi-ms
 ms.author: guywild
-ms.date: 09/28/2023
+ms.date: 11/28/2023
 ---
 
 # Enable VM insights by using PowerShell
@@ -46,7 +46,7 @@ Get-Help Install-VMInsights.ps1 -Detailed
 
 Use the script to enable VM insights using Azure Monitoring Agent and  Dependency Agent, or Log Analytics Agent.
 
-```powershell
+
 
 ### [Azure Monitor Agent](#tab/AMA)
 
