@@ -21,7 +21,7 @@ To create a data connector with the Codeless Connector Platform (CCP), use this 
 
 Each `dataConnector` represents a specific *connection* of a Microsoft Sentinel data connector. One data connector might have multiple connections, which fetch data from different endpoints. The JSON configuration built using this reference document is used to complete the deployment template for the CCP data connector. 
 
-For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md#create-the-solution-deployment-template).
+For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md#create-the-deployment-template).
 
 ## Data Connectors - Create or update 
 

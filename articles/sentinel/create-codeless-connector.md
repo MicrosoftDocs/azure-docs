@@ -222,7 +222,7 @@ The following DCR defines a single stream `{{Custom-ExampleConnectorInput}}` usi
 1. The first dataflow directs `eventType` = **Alert** to the custom `ExampleConnectorAlerts_CL` table.
 1. the second dataflow directs `eventType` = **File** to the normalized standard table,`ASimFileEventLogs`.
 
-For more information on the structure of this example, see [Data collection rules - custom logs](../azure-monitor/essentials/data-collection-rule-structure.md#custom-logs).
+For more information on the structure of this example, see [Structure of a data collection rule](../azure-monitor/essentials/data-collection-rule-structure.md).
 
 To create this connector in a test environment, follow the [Data Collection Rules API](/rest/api/monitor/data-collection-rules/create). Elements of the example in `{{double curly braces}}` indicate variables.
 
@@ -429,7 +429,7 @@ There are 5 resources in this template guide.
 
 ```json
     "resources": [
-        // resource 1 section
+        // resource section 1 - contentTemplates
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
@@ -538,6 +538,7 @@ There are 5 resources in this template guide.
 ```
 
 ```json
+        // resource section 2 - dataConnectorDefinitions
         {
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',variables('_dataConnectorContentIdConnectorDefinition'))]",
             "apiVersion": "2022-09-01-preview",
@@ -547,65 +548,16 @@ There are 5 resources in this template guide.
             "properties": 
 			{
 				//Enter your data connector definition properties here
-				//For example
 				//"connectorUiConfig": {
-                //    "title": " Title (Preview)",
-                //    "publisher": "Publisher",
-				//	"descriptionMarkdown": "..."
 				//	"graphQueriesTableName": "[variables('_logAnalyticsTableId1')]",
-                //   "graphQueries": [
-                //        {
-                //            "metricName": "Total data received",
-                //            "legend": "My product Events",
-                //           "baseQuery": "{{graphQueriesTableName}}"
-                //        }
-                //    ],
-                //    "sampleQueries": [
-                //        {
-                //            "description": "Get Sample of events",
-                //            "query": "{{graphQueriesTableName}}\n | take 10"
-                //        },
-                //        {
-                //            "description": "Total Events by uuid",
-                //            "query": "{{graphQueriesTableName}}\n | summarize count() by OriginalEventUid"
-                //        }
-                //    ],
-                //    "dataTypes": [
-                //        {
-                //            "name": "{{graphQueriesTableName}}",
-                //            "lastDataReceivedQuery": "{{graphQueriesTableName}}|summarize Time = max  (TimeGenerated)\n|where isnotempty(Time)"
-                //        }
-                //    ],
-                //    "connectivityCriteria": [
-                //        {
-                //            "type": "HasDataConnectors"
-                //        }
-                //    ],
-                //    "availability": {
-                //        "isPreview": false
-                //    },
-                //    "permissions": {
-                //        "resourceProvider": [
-                //            {
-                //                "provider": "Microsoft.OperationalInsights/workspaces",
-                //                "permissionsDisplayText": "Read and Write permissions are required.",
-                //                "providerDisplayName": "Workspace",
-                //                "scope": "Workspace",
-                //                "requiredPermissions": {
-                //                    "write": true,
-                //                    "read": true,
-                //                    "delete": true
-                //                }
-                //            }
-                //        ],
-                //    },
-                //    "instructionSteps": 
-				//	[
-                //        {
-                //        }            
-				//    ]   
+                //}, 
 			}
         },
+        // resource 3 section here
+```
+
+```json
+        // resource section 3 - metadata
         {
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', variables('_dataConnectorContentIdConnectorDefinition')))]",
             "apiVersion": "2022-01-01-preview",
@@ -638,6 +590,11 @@ There are 5 resources in this template guide.
                 }
             }
         },
+        // resource 4 section here
+```
+
+```json
+        // resource section 4 - contentTemplates
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
@@ -653,7 +610,8 @@ There are 5 resources in this template guide.
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "[variables('dataConnectorVersionConnections')]",
-                    "parameters": 
+                    "parameters":
+                    // These parameters are used by the data connector primarily as properties for the administrator to enter in the UI when configuring the connector
 					{
                         "connectorDefinitionName": {
                             "defaultValue": "connectorDefinitionName",
@@ -671,8 +629,7 @@ There are 5 resources in this template guide.
                             },
                             "type": "object"
                         }
-						//Enter additional parameters that are used by the data connector (there parameters are mainly properties that the user enters in the UI when configuring the connector
-						//For example:
+						// Enter additional parameters, for example:
 						//"domainname": {
                         //    "defaultValue": "domain name",
                         //    "type": "string",
@@ -712,7 +669,8 @@ There are 5 resources in this template guide.
                             }
                         },
                         {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'MyDataConnector')]", //Replace the last part of the name with your data connector name (if you want to be able to create several connection using this template you need to make this name dynamic (e.g., by concatentanating GUID)
+                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', 'MyDataConnector')]", // Replace the last part of the name with your data connector name
+                            //  To create several connections using this template, make the name dynamic. For example, use the 'concat' function to add the connector name with a GUID using the 'guid' function.
                             "apiVersion": "2022-12-01-preview",
                             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
                             "location": "[parameters('workspace-location')]",
@@ -772,6 +730,11 @@ There are 5 resources in this template guide.
                 "version": "[variables('_solutionVersion')]"
             }
         },
+        // resource 5 section here
+```
+
+```json
+        // resource section 5 - contentPackages
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentPackages",
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/', variables('_solutionId'))]",
@@ -816,6 +779,7 @@ There are 5 resources in this template guide.
                 "icon": "[variables('_packageIcon')]"
             }
         }
+        // that's the end!
     ]
 }
 ```
