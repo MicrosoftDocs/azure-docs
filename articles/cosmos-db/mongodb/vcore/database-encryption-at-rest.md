@@ -1,6 +1,6 @@
 ---
-title: Encryption at rest in Azure Cosmos DB
-description: Learn how Azure Cosmos DB provides encryption of data at rest and how it's implemented.
+title: Encryption at rest in Azure Cosmos DB for MongoDB vCore
+description: Learn how Azure Cosmos DB for MongoDB vCore provides encryption of data at rest and how it's implemented.
 author: khelanmodi
 ms.author: khelanmodi
 ms.service: cosmos-db
@@ -55,9 +55,9 @@ There's no effect or changes to the performance SLAs because encryption at rest 
 
 ### Does the local emulator support encryption at rest?
 
-The emulator is a standalone dev/test tool and doesn't use the key management services that the managed Azure Cosmos DB service uses. We recommend that you enable BitLocker on drives where you're storing sensitive emulator test data. The [emulator supports changing the default data directory](emulator.md) and using a well-known location.
+The emulator is a standalone dev/test tool and doesn't use the key management services that the managed Azure Cosmos DB service uses. We recommend that you enable BitLocker on drives where you're storing sensitive emulator test data. The [emulator supports changing the default data directory](../../emulator.md) and using a well-known location.
 
 ## Next steps
 
-* For an overview of Azure Cosmos DB security and the latest improvements, see [Azure Cosmos DB database security](database-security.md).
+* For an overview of Azure Cosmos DB security and the latest improvements, see [Azure Cosmos DB database security](../../database-security.md).
 * For more information about Microsoft certifications, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).
