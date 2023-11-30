@@ -42,13 +42,13 @@ The following diagram describes the mechanism to redirect traffic from an isolat
 > Layered Network Management only forwards internet traffic when the destination is on the allowlist.
 
 
-![Diagram of Layered Network Management redirecting traffic.](./media/concept-iot-operations-in-layered-network/how-does-lnm-work.png)
+![Diagram of Layered Network Management redirecting traffic.](./media/concept-iot-operations-in-layered-network/how-does-layered-network-management-work.png)
 
 ## Example of Azure IoT Operations in Layered Network
 
 The following diagram is an example of Azure IoT Operations being deployed to multiple clusters in multiple network layers. Based on the Purdue Network paradigm, level 4 is the enterprise network, level 3 is the operation and control layer, and level 2 is the controller system layer. Moreover, in our prototypical network, only level 4 has direct internet access.
 
-:::image type="content" source="./media/concept-iot-operations-in-layered-network/aio-in-purdue-network.png" alt-text="Diagram of IoT Operations deployed in Purdue Network architecture." lightbox="./media/concept-iot-operations-in-layered-network/aio-in-purdue-network.png":::
+:::image type="content" source="./media/concept-iot-operations-in-layered-network/aio-in-purdue-network.png" alt-text="Diagram of IoT Operations deployed in Purdue Network architecture." lightbox="./media/concept-iot-operations-in-layered-network/iot-operations-in-purdue-network.png":::
 
 In the pictured example, Azure IoT Operations is deployed to level 2 through 4. At level 3 and level 4, the **Layered Network Management services** are configured to receive and forward the network traffic from the layer that is one level below. With this forwarding mechanism, all the clusters illustrated in this deployment are able to connect to Azure and become Arc-enabled. The connection to Arc enables users to manage any Arc-enabled endpoint such as the servers, the cluster and the Arc-enabled service workloads from the cloud. 
 
