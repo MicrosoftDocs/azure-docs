@@ -506,7 +506,7 @@ To copy data to SQL Managed Instance, the following properties are supported in 
 | WriteBehavior | Specify the write behavior for copy activity to load data into Azure SQL MI. <br/> The allowed value is **Insert** and **Upsert**. By default, the service uses insert to load data. | No |
 | upsertSettings | Specify the group of the settings for write behavior. <br/> Apply when the WriteBehavior option is `Upsert`. | No |
 | ***Under `upsertSettings`:*** | | |
-| useTempDB | Specify whether to use the a global temporary table or physical table as the interim table for upsert. <br>By default, the service uses global temporary table as the interim table. value is `true`. | No |
+| useTempDB | Specify whether to use a global temporary table or physical table as the interim table for upsert. <br>By default, the service uses global temporary table as the interim table. value is `true`. | No |
 | interimSchemaName | Specify the interim schema for creating interim table if physical table is used. Note: user need to have the permission for creating and deleting table. By default, interim table will share the same schema as sink table. <br/> Apply when the useTempDB option is `False`. | No |
 | keys | Specify the column names for unique row identification. Either a single key or a series of keys can be used. If not specified, the primary key is used. | No |
 
