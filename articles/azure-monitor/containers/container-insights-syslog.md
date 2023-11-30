@@ -111,6 +111,12 @@ Navigate to your cluster. Open the _Workbooks_ tab for your cluster and look for
 
 :::image type="content" source="media/container-insights-syslog/syslog-workbook-container-insights-reports-tab.gif" lightbox="media/container-insights-syslog/syslog-workbook-container-insights-reports-tab.gif" alt-text="Video of Syslog workbook being accessed from cluster workbooks tab." border="true":::
 
+### Access using a Grafana dashboard
+
+Customers can use our Syslog dashboard for Grafana to get an overview of their Syslog data. Customers who use Azure-managed Grafana will have this dashboard available in their Grafana instance by default. Once syslog collection is enabled, no other steps are needed. Other customers can [import the Syslog dashboard from Grafana marketplace](https://grafana.com/grafana/dashboards/19866-azure-monitor-container-insights-syslog/).
+
+:::image type="content" source="media/container-insights-syslog/grafana-screenshot.png" lightbox="media/container-insights-syslog/grafana-screenshot.png" alt-text="Screenshot of Syslog Grafana dashboard." border="false":::
+
 ### Access using log queries
 
 Syslog data is stored in the [Syslog](/azure/azure-monitor/reference/tables/syslog) table in your Log Analytics workspace. You can create your own [log queries](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-overview.md) to analyze this data or use any of the [prebuilt queries](../logs/log-query-overview.md).
