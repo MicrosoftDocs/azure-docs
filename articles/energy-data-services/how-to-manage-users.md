@@ -133,7 +133,7 @@ Run the below curl command in Azure Cloud Bash to get all the groups that are av
 ## Add users to an OSDU group in a data partition
 
 1. Run the below curl command in Azure Cloud Bash to add the user(s) to the "Users" group using the Entitlement service.
-2. The value to be sent for the param **"email"** is the **Object_ID (OID)** of the user and not the user's email.
+2. The value to be sent for the param `email` is the `Object_ID` (OID) of the user and not the user's email.
 
 ```bash
     curl --location --request POST 'https://<URI>/api/entitlements/v2/groups/<group-name>@<data-partition-id>.dataservices.energy/members' \
