@@ -176,7 +176,7 @@ This step creates the Azure Kubernetes Service (AKS) cluster where you can insta
        |hostname|mytrinocluster.00000000000000000000000000<br>.eastus.hdinsightaks.net|The hostname of your Trino cluster. <br> You can get this information from "Overview" page of your cluster in the Azure portal.|
        |catalog|/tpch|After the slash, is the default catalog name. <br> You need to change this catalog to the catalog that has the data you want to visualize.|
 
-       trino://$USER@$TRINO_CLUSTER_HOST_NAME.hdinsightaks.net:443/$DEFAULT_CATALOG
+       `trino://$USER@$TRINO_CLUSTER_HOST_NAME.hdinsightaks.net:443/$DEFAULT_CATALOG`
     
        Example: `trino://trino@mytrinocluster.00000000000000000000000000.westus3.hdinsightaks.net:443/tpch`
 
