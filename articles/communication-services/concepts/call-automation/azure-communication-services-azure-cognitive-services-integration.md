@@ -34,8 +34,8 @@ With the ability to, connect your Azure AI services to Azure Communication Servi
 
 ## Azure portal experience
 You will need to connect your Azure Communication Services resource with the Azure AI resource through the Azure portal. There are two ways you can accomplish this step:
-1. By navigating through the steps of the Cognitive Services tab in your Azure Communication Services (recommended).
-2. Manually adding the Managed Identity to your Azure Communication Services resource. This step is more advanced and requires a little more effort to connect your Azure Communication Services to your Azure AI services. 
+- By navigating through the steps of the Cognitive Services tab in your Azure Communication Services (recommended).
+- Manually adding the Managed Identity to your Azure Communication Services resource. This step is more advanced and requires a little more effort to connect your Azure Communication Services to your Azure AI services. 
 
 ## Prerequisites 
 - Azure account with an active subscription and access to Azure portal, for details see [Create an account for free](https://azure.microsoft.com/free/).
