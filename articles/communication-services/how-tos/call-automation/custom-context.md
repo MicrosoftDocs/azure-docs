@@ -61,6 +61,69 @@ addThisPerson.CustomCallingContext.AddSipUui("value");
 addThisPerson.CustomCallingContext.AddSipX("header1", "customSipHeaderValue1");
 AddParticipantsResult result = await callConnection.AddParticipantAsync(addThisPerson);
 ```
+### [Java](#tab/java)
+```java
+// Invite a communication services user and include one VOIP header
+CallInvite callInvite = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
+callInvite.getCustomCallingContext().addVoip("voipHeaderName", "voipHeaderValue");
+AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite);
+Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
+
+// Invite a PSTN user and set UUI and custom SIP headers
+PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234");
+CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
+callInvite.getCustomCallingContext().addSipUui("value");
+callInvite.getCustomCallingContext().addSipX("header1", "customSipHeaderValue1");
+AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite);
+Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
+```
+
+### [JavaScript](#tab/javascript)
+```javascript
+// Invite a communication services user and include one VOIP header
+const customCallingContext: CustomCallingContext = [];
+customCallingContext.push({ kind: "voip", key: "voipHeaderName", value: "voipHeaderValue" })
+const addThisPerson = {
+    targetParticipant: { communicationUserId: "<acs_user_id>" },
+    customCallingContext: customCallingContext,
+};
+const addParticipantResult = await callConnection.addParticipant(addThisPerson);
+
+// Invite a PSTN user and set UUI and custom SIP headers
+const callerIdNumber = { phoneNumber: "+16044561234" };
+const customCallingContext: CustomCallingContext = [];
+customCallingContext.push({ kind: "sipuui", key: "", value: "value" });
+customCallingContext.push({ kind: "sipx", key: "headerName", value: "headerValue" })
+const addThisPerson = {
+    targetParticipant: { phoneNumber: "+16041234567" }, 
+    sourceCallIdNumber: callerIdNumber,
+    customCallingContext: customCallingContext,
+};
+const addParticipantResult = await callConnection.addParticipant(addThisPerson);
+```
+
+### [Python](#tab/python)
+```python
+// Invite a communication services user and include one VOIP header
+voip_headers = {"voipHeaderName", "voipHeaderValue"}
+target = CommunicationUserIdentifier("<acs_user_id>")
+result = call_connection_client.add_participant(
+    target,
+    voip_headers=voip_headers
+)
+
+// Invite a PSTN user and set UUI and custom SIP headers
+caller_id_number = PhoneNumberIdentifier("+16044561234")
+sip_headers = {}
+sip_headers.add("User-To-User", "value")
+sip_headers.add("X-MS-Custom-headerName", "headerValue")
+target = PhoneNumberIdentifier("+16041234567")
+result = call_connection_client.add_participant(
+    target,
+    sip_headers=sip_headers,
+    source_caller_id_number=caller_id_number
+)
+```
 
 -----
 # Adding custom context during call transfer
