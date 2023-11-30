@@ -699,7 +699,7 @@
           href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Windows AKS partner solutions
           href: windows-aks-partner-solutions.md
-        - name: Windows AKS Customer Stories
+        - name: Windows AKS customer stories
           href: windows-aks-customer-stories.md
     - name: Develop and run applications
       items:

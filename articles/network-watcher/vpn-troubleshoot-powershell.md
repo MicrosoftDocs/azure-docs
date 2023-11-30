@@ -16,8 +16,8 @@ ms.custom: devx-track-azurepowershell
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
-> - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-> - [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
+> - [PowerShell](vpn-troubleshoot-powershell.md)
+> - [Azure CLI](vpn-troubleshoot-cli.md)
 
 In this article, you learn how to use Network Watcher VPN troubleshoot capability to diagnose and troubleshoot VPN virtual network gateways and their connections to solve connectivity issues between your virtual network and on-premises network. VPN troubleshoot requests are long running requests, which could take several minutes to return a result. The logs from troubleshooting are stored in a container on a storage account that is specified.
 
@@ -27,7 +27,7 @@ In this article, you learn how to use Network Watcher VPN troubleshoot capabilit
 
 - A Network Watcher enabled in the region of the virtual network gateway. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md?tabs=powershell).
 
-- A virtual network gateway. For more information about supported gateway types, see [Supported Gateway types](network-watcher-troubleshoot-overview.md#supported-gateway-types).
+- A virtual network gateway. For more information about supported gateway types, see [Supported gateway types](vpn-troubleshoot-overview.md#supported-gateway-types).
 
 - Azure Cloud Shell or Azure PowerShell.
 
@@ -45,13 +45,13 @@ Use [Start-AzNetworkWatcherResourceTroubleshooting](/powershell/module/az.networ
 
 ```azurepowershell-interactive
 # Place the virtual network gateway configuration into a variable.
-$vng = Get-AzVirtualNetworkGateway -Name "myGateway" -ResourceGroupName "myResourceGroup" 
+$vng = Get-AzVirtualNetworkGateway -Name 'myGateway' -ResourceGroupName 'myResourceGroup' 
 
 # Place the storage account configuration into a variable.
-$sa = Get-AzStorageAccount -ResourceGroupName "myResourceGroup" -Name "mystorageaccount"
+$sa = Get-AzStorageAccount -ResourceGroupName 'myResourceGroup' -Name 'mystorageaccount'
 
 # Start VPN troubleshoot session.
-Start-AzNetworkWatcherResourceTroubleshooting -Location "eastus" -TargetResourceId $vng.Id -StorageId $sa.Id -StoragePath "https://mystorageaccount.blob.core.windows.net/{containerName}"
+Start-AzNetworkWatcherResourceTroubleshooting -Location 'eastus' -TargetResourceId $vng.Id -StorageId $sa.Id -StoragePath 'https://mystorageaccount.blob.core.windows.net/{containerName}'
 ```
 
 # [**Connection**](#tab/connection)
@@ -60,18 +60,18 @@ Use [Start-AzNetworkWatcherResourceTroubleshooting](/powershell/module/az.networ
 
 ```azurepowershell-interactive
 # Place the virtual network gateway configuration into a variable.
-$connection = Get-AzVirtualNetworkGatewayConnection -Name "myConnection" -ResourceGroupName "myResourceGroup"
+$connection = Get-AzVirtualNetworkGatewayConnection -Name 'myConnection' -ResourceGroupName 'myResourceGroup'
 
 # Place the storage account configuration into a variable.
-$sa = Get-AzStorageAccount -ResourceGroupName "myResourceGroup" -Name "mystorageaccount"
+$sa = Get-AzStorageAccount -ResourceGroupName 'myResourceGroup' -Name 'mystorageaccount'
 
 # Start VPN troubleshoot session.
-Start-AzNetworkWatcherResourceTroubleshooting -Location "eastus" -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "https://mystorageaccount.blob.core.windows.net/{containerName}"
+Start-AzNetworkWatcherResourceTroubleshooting -Location 'eastus' -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath 'https://mystorageaccount.blob.core.windows.net/{containerName}'
 ```
 
 ---
 
-After the troubleshooting request is completed, ***healthy*** or ***unhealthy*** is returned. Detailed logs are stored in the storage account container you specified in the previous command. For more information, see [Log files](network-watcher-troubleshoot-overview.md#log-files). You can use Storage explorer or any other way you prefer to access and download the logs. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
+After the troubleshooting request is completed, ***healthy*** or ***unhealthy*** is returned. Detailed logs are stored in the storage account container you specified in the previous command. For more information, see [Log files](vpn-troubleshoot-overview.md#log-files). You can use Storage explorer or any other way you prefer to access and download the logs. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
 
 ## Troubleshoot using a new storage account
 
@@ -83,17 +83,17 @@ Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) a
 
 ```azurepowershell-interactive
 # Place the virtual network gateway configuration into a variable.
-$vng = Get-AzVirtualNetworkGateway -Name "myGateway" -ResourceGroupName "myResourceGroup" 
+$vng = Get-AzVirtualNetworkGateway -Name 'myGateway' -ResourceGroupName 'myResourceGroup' 
 
 # Create a new storage account.
-$sa = New-AzStorageAccount -Name "mystorageaccount" -SKU "Standard_LRS" -ResourceGroupName "myResourceGroup" -Location "eastus"
+$sa = New-AzStorageAccount -Name 'mystorageaccount' -SKU 'Standard_LRS' -ResourceGroupName 'myResourceGroup' -Location 'eastus'
 
 # Create a container.
 Set-AzCurrentStorageAccount -ResourceGroupName $sa.ResourceGroupName -Name $sa.StorageAccountName
-$sc = New-AzStorageContainer -Name "vpn"
+$sc = New-AzStorageContainer -Name 'vpn'
 
 # Start VPN troubleshoot session.
-Start-AzNetworkWatcherResourceTroubleshooting -Location "eastus" -TargetResourceId $vng.Id -StorageId $sa.Id -StoragePath "https://mystorageaccount.blob.core.windows.net/{containerName}"
+Start-AzNetworkWatcherResourceTroubleshooting -Location 'eastus' -TargetResourceId $vng.Id -StorageId $sa.Id -StoragePath 'https://mystorageaccount.blob.core.windows.net/vpn'
 ```
 
 # [**Connection**](#tab/connection)
@@ -102,25 +102,25 @@ Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) a
 
 ```azurepowershell-interactive
 # Place the virtual network gateway configuration into a variable.
-$connection = Get-AzVirtualNetworkGatewayConnection -Name "myConnection" -ResourceGroupName "myResourceGroup"
+$connection = Get-AzVirtualNetworkGatewayConnection -Name 'myConnection' -ResourceGroupName 'myResourceGroup'
 
 # Create a new storage account.
-$sa = New-AzStorageAccount -Name "mystorageaccount" -SKU "Standard_LRS" -ResourceGroupName "myResourceGroup" -Location "eastus"
+$sa = New-AzStorageAccount -Name 'mystorageaccount' -SKU 'Standard_LRS' -ResourceGroupName 'myResourceGroup' -Location 'eastus'
 
 # Create a container.
 Set-AzCurrentStorageAccount -ResourceGroupName $sa.ResourceGroupName -Name $sa.StorageAccountName
-$sc = New-AzStorageContainer -Name "vpn"
+$sc = New-AzStorageContainer -Name 'vpn'
 
 # Start VPN troubleshoot session.
-Start-AzNetworkWatcherResourceTroubleshooting -Location "eastus" -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "https://mystorageaccount.blob.core.windows.net/{containerName}"
+Start-AzNetworkWatcherResourceTroubleshooting -Location 'eastus' -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath 'https://mystorageaccount.blob.core.windows.net/vpn'
 ```
 
 ---
 
-After the troubleshooting request is completed, ***healthy*** or ***unhealthy*** is returned. Detailed logs are stored in the storage account container you specified in the previous command. For more information, see [Log files](network-watcher-troubleshoot-overview.md#log-files). You can use Storage explorer or any other way you prefer to access and download the logs. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
+After the troubleshooting request is completed, ***healthy*** or ***unhealthy*** is returned. Detailed logs are stored in the storage account container you specified in the previous command. For more information, see [Log files](vpn-troubleshoot-overview.md#log-files). You can use Storage explorer or any other way you prefer to access and download the logs. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
 
 ## Related content
 
 - [Tutorial: Diagnose a communication problem between virtual networks using the Azure portal](diagnose-communication-problem-between-networks.md).
 
-- [VPN troubleshoot overview](network-watcher-troubleshoot-overview.md).
+- [VPN troubleshoot overview](vpn-troubleshoot-overview.md).
