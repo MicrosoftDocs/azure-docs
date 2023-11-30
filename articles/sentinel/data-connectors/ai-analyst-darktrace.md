@@ -1,14 +1,14 @@
 ---
-title: "[Deprecated] AI Analyst Darktrace via Legacy Agent connector for Microsoft Sentinel"
-description: "Learn how to install the connector [Deprecated] AI Analyst Darktrace via Legacy Agent to connect your data source to Microsoft Sentinel."
+title: "AI Analyst Darktrace connector for Microsoft Sentinel"
+description: "Learn how to install the connector AI Analyst Darktrace to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# [Deprecated] AI Analyst Darktrace via Legacy Agent connector for Microsoft Sentinel
+# AI Analyst Darktrace connector for Microsoft Sentinel
 
 The Darktrace connector lets users connect Darktrace Model Breaches in real-time with Microsoft Sentinel, allowing creation of custom Dashboards, Workbooks, Notebooks and Custom Alerts to improve investigation.  Microsoft Sentinel's enhanced visibility into Darktrace logs enables monitoring and mitigation of security threats.
 

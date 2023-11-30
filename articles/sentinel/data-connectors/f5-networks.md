@@ -1,14 +1,14 @@
 ---
-title: "[Deprecated] F5 Networks via Legacy Agent connector for Microsoft Sentinel"
-description: "Learn how to install the connector [Deprecated] F5 Networks via Legacy Agent to connect your data source to Microsoft Sentinel."
+title: "F5 Networks connector for Microsoft Sentinel"
+description: "Learn how to install the connector F5 Networks to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# [Deprecated] F5 Networks via Legacy Agent connector for Microsoft Sentinel
+# F5 Networks connector for Microsoft Sentinel
 
 The F5 firewall connector allows you to easily connect your F5 logs with Microsoft Sentinel, to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization's network and improves your security operation capabilities.
 

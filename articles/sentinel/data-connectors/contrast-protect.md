@@ -1,16 +1,16 @@
 ---
-title: "[Deprecated] Contrast Protect via Legacy Agent connector for Microsoft Sentinel"
-description: "Learn how to install the connector [Deprecated] Contrast Protect via Legacy Agent to connect your data source to Microsoft Sentinel."
+title: "Contrast Protect connector for Microsoft Sentinel"
+description: "Learn how to install the connector Contrast Protect to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# [Deprecated] Contrast Protect via Legacy Agent connector for Microsoft Sentinel
+# Contrast Protect connector for Microsoft Sentinel
 
-Contrast Protect mitigates security threats in production applications with runtime protection and observability.  Attack event results (blocked, probed, suspicious...) and other information can be sent to Microsoft Microsoft Sentinel to blend with security information from other systems.
+Contrast Protect mitigates security threats in production applications with runtime protection and observability.  Attack event results (blocked, probed, suspicious...) and other information can be sent to Microsoft Sentinel to blend with security information from other systems.
 
 ## Connector attributes
 

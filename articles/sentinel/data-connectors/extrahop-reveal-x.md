@@ -1,14 +1,14 @@
 ---
-title: "[Deprecated] ExtraHop Reveal(x) via Legacy Agent connector for Microsoft Sentinel"
-description: "Learn how to install the connector [Deprecated] ExtraHop Reveal(x) via Legacy Agent to connect your data source to Microsoft Sentinel."
+title: "ExtraHop Reveal(x) connector for Microsoft Sentinel"
+description: "Learn how to install the connector ExtraHop Reveal(x) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# [Deprecated] ExtraHop Reveal(x) via Legacy Agent connector for Microsoft Sentinel
+# ExtraHop Reveal(x) connector for Microsoft Sentinel
 
 The ExtraHop Reveal(x) data connector enables you to easily connect your Reveal(x) system with Microsoft Sentinel to view dashboards, create custom alerts, and improve investigation. This integration gives you the ability to gain insight into your organization's network and improve your security operation capabilities.
 
@@ -71,7 +71,7 @@ CommonSecurityLog
 
 ## Prerequisites
 
-To integrate with [Deprecated] ExtraHop Reveal(x) via Legacy Agent make sure you have: 
+To integrate with ExtraHop Reveal(x) make sure you have: 
 
 - **ExtraHop**: ExtraHop Discover or Command appliance with firmware version 7.8 or later with a user account that has Unlimited (administrator) privileges.
 

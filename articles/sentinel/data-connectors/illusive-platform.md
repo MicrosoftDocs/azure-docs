@@ -1,14 +1,14 @@
 ---
-title: "[Deprecated] Illusive Platform via Legacy Agent connector for Microsoft Sentinel"
-description: "Learn how to install the connector [Deprecated] Illusive Platform via Legacy Agent to connect your data source to Microsoft Sentinel."
+title: "Illusive Platform connector for Microsoft Sentinel"
+description: "Learn how to install the connector Illusive Platform to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# [Deprecated] Illusive Platform via Legacy Agent connector for Microsoft Sentinel
+# Illusive Platform connector for Microsoft Sentinel
 
 The Illusive Platform Connector allows you to share Illusive's attack surface analysis data and incident logs with Microsoft Sentinel and view this information in dedicated dashboards that offer insight into your organization's attack surface risk (ASM Dashboard) and track unauthorized lateral movement in your organization's network (ADS Dashboard).
 

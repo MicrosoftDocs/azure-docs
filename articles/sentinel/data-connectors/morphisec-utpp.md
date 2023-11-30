@@ -1,14 +1,14 @@
 ---
-title: "[Deprecated] Morphisec UTPP via Legacy Agent connector for Microsoft Sentinel"
-description: "Learn how to install the connector [Deprecated] Morphisec UTPP via Legacy Agent to connect your data source to Microsoft Sentinel."
+title: "Morphisec UTPP connector for Microsoft Sentinel"
+description: "Learn how to install the connector Morphisec UTPP to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# [Deprecated] Morphisec UTPP via Legacy Agent connector for Microsoft Sentinel
+# Morphisec UTPP connector for Microsoft Sentinel
 
 Integrate vital insights from your security products with the Morphisec Data Connector for Microsoft Sentinel and expand your analytical capabilities with search and correlation, threat intelligence, and customized alerts. Morphisec's Data Connector provides visibility into today's most advanced threats including sophisticated fileless attacks, in-memory exploits and zero days. With a single, cross-product view, you can make real-time, data-backed decisions to protect your most important assets
 
