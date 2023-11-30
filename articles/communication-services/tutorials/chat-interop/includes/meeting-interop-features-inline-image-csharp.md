@@ -114,7 +114,7 @@ Now let's go back to the replace the code to add some extra logic like the follo
   }
 ```
 
-Noticing in this example, we have grabbed all attachments from the message of type 'Image' and then taken their prewviewUris to then later be included with the message in the textblock.
+Noticing in this example, we have grabbed all attachments from the message of type 'Image' and then taken their previewUris to then later be included with the message in the text block.
 
 ## Demo
 
