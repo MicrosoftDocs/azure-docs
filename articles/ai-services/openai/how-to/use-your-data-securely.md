@@ -157,7 +157,7 @@ In the Azure portal, navigate to your storage account networking tab and select 
 
 Make sure **Allow Azure services on the trusted services list to access this storage account** is selected, so Azure OpenAI and Azure AI Search can bypass the network restriction of your storage account when using a managed identity for authentication.
 
-To use Azure OpenAI Studio, make sure add your local IP to the IP rules, so the Azure OpenAI Studio can upload files to the storage account from your browser.
+To use Azure OpenAI Studio, make sure to add your local IP to the IP rules, so the Azure OpenAI Studio can upload files to the storage account from your browser.
 
 ## Role assignments
 
