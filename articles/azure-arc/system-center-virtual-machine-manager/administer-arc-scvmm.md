@@ -2,7 +2,7 @@
 title:  Perform ongoing administration for Arc-enabled System Center Virtual Machine Manager
 description: Learn how to perform administrator operations related to Azure Arc-enabled System Center Virtual Machine Manager
 ms.topic: how-to 
-ms.date: 11/24/2023
+ms.date: 11/30/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-scvmm
 author: Farha-Bano
@@ -22,7 +22,7 @@ Each of these operations requires either SSH key to the resource bridge VM or th
 
 ## Upgrade the Arc resource bridge manually
 
-Azure Arc-enabled SCVMM requires the Arc resource bridge to connect your SCVMM environment with Azure. Periodically, new images of Arc resource bridge are released to include security and feature updates. The Arc resource bridge can be manually upgraded from the SCVMM server. You must meet all upgrade [prerequisites](../resource-bridge/upgrade.md#prerequisites) before attempting to upgrade. The SCVMM server must have the kubeconfig and appliance configuration files stored locally.
+Azure Arc-enabled SCVMM requires the Arc resource bridge to connect your SCVMM environment with Azure. Periodically, new images of Arc resource bridge are released to include security and feature updates. The Arc resource bridge can be manually upgraded from the SCVMM server. You must meet all upgrade [prerequisites](../resource-bridge/upgrade.md#prerequisites) before attempting to upgrade. The SCVMM server must have the kubeconfig and appliance configuration files stored locally. If the SCVMM account credentials changed after the initial deployment of the resource bridge, [update the new account credentials](administer-arc-scvmm.md#update-the-scvmm-account-credentials-using-a-new-password-or-a-new-scvmm-account-after-onboarding) before attempting manual upgrade.
 
 > [!NOTE]
 > The manual upgrade feature is available for resource bridge version 1.0.14 and later. Resource bridges below version 1.0.14 must [perform the recovery option](./disaster-recovery.md) to upgrade to version 1.0.15 or later.
