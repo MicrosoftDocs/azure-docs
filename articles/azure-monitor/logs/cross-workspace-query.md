@@ -82,7 +82,7 @@ You can query multiple resources from any of your resource instances. These reso
 
 Example for a query across three workspaces:
 
-```
+```kusto
 union 
   Update, 
   workspace("00000000-0000-0000-0000-000000000001").Update, 
