@@ -15,7 +15,7 @@ This article describes reliability support in Azure Private 5G Core. It covers b
 
 ## Availability zone support
 
-[!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [Availability zone description](../reliability/includes/reliability-availability-zone-description-include.md)]
 
 
 The Azure Private 5G Core service is automatically deployed as zone-redundant in Azure regions that support availability zones, as listed in [Availability zone service and regional support](../reliability/availability-zones-service-support.md). If a region supports availability zones then all Azure Private 5G Core resources created in a region can be managed from any of the availability zones.
@@ -37,6 +37,9 @@ The application ensures that all cloud state is replicated between availability 
 
   
 ## Cross-region disaster recovery and business continuity
+
+[!INCLUDE [introduction to disaster recovery](../reliability/includes/reliability-disaster-recovery-description-include.md)]
+
 
 Azure Private 5G Core is only available in multi-region (3+N) geographies. The service automatically replicates SIM credentials to a backup region in the same geography. This means that there's no loss of data in the event of region failure. Within four hours of the failure, all resources in the failed region are available to view through the Azure portal and ARM tools but will be read-only until the failed region is recovered. the packet running at the Edge continues to operate without interruption and network connectivity will be maintained.
 
